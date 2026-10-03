@@ -326,10 +326,10 @@
       "companyDomain": "nordangliaeducation.com",
       "title": "School Counsellor (Short -Term cover 80%)",
       "titleByLocale": {
-        "it": "School Counsellor (Short -Term cover 80%)",
         "en": "School Counsellor (Short -Term cover 80%)",
-        "de": "School Counsellor (Short -Term cover 80%)",
-        "fr": "School Counsellor (Short -Term cover 80%)"
+        "de": "Schulberater (Kurzzeitdeckung 80%)",
+        "it": "Consigliere scolastico (copertina breve -termine 80%)",
+        "fr": "Conseiller scolaire (Short -Couverture temporaire 80%)"
       },
       "description": "For an immediate start - initially until 30 November 2026 OUR PHILOSOPHY At Beau Soleil, we believe it’s what you do that counts. This philosophy holds true in all that we do as staff and for our students. We are a community that believes in the power of action, engagement and participation, inside and outside of the classroom. Our unique holistic education is built around four core values: Respect, Responsibility, Ambition and Determination, which provide a framework to community life for our international student body. Our students come from over sixty different countries, with diverse academic backgrounds and a wide range of future aspirations. With curricular programmes in both English and French, students graduate with an IB or High School Diploma. Within this framework, small class sizes allow for a flexible programme and staff are encouraged and supported to bring new ideas to all that they do. OUR COMMUNITY Our location in the heart of Villars-sur-Ollon, offers an enviable lifestyle with access to skiing in the winter months and a multitude of outdoor and sporting activities throughout the year. Montreux, Lausanne and Geneva are all within easy reach for cultural adventures and inspiration. The Beau Soleil campus is an inspiring place to work with facilities that are second to none. Our ongoing campus development and maintenence programme ensures that our students and staff thrive in an environment of which they can be rightly proud. YOUR PROFILE At Beau Soleil, student wellbeing is at the heart of our pastoral care. We are looking for an experienced School Counsellor to provide short-term cover and support our international boarding school community. You will provide confidential and professional support to students experiencing emotional, social, behavioural or adjustment difficulties, helping them navigate the challenges of adolescence and life away from home. Working closely with our pastoral, boarding, safeguarding and academic teams, you will help ensure that students receive appropriate and timely support in a safe and caring environment. We are looking for someone who can quickly build trusting relationships with young people and who brings a calm, empathetic and professional approach to sensitive situations. This is an 80% position, starting as soon as possible and initially running until the end of November 2026, with the possibility of extension. KEY RESPONSIBILITIES\n• Provide confidential individual counselling and wellbeing support to students\n• Assess students’ needs and develop appropriate short-term support strategies\n• Support students experiencing emotional, social, relational or adjustment difficulties\n• Work closely with pastoral, boarding and academic teams to support student wellbeing\n• Contribute to safeguarding and child protection procedures, working closely with the Designated Safeguarding Lead\n• Liaise appropriately with parents and external professionals when required\n• Maintain accurate and confidential counselling records\n• Provide support in urgent or sensitive student wellbeing situations EDUCATION AND PROFESSIONAL QUALIFICATIONS\n• Master’s degree in Psychology, Counselling or a related field\n• Professional training in counselling or psychotherapy\n• Recognised professional accreditation, or eligibility for accreditation, would be an advantage\n• Fluent English is essential; French would be an advantage EXPERIENCE\n• 3–5 years’ experience working with children or adolescents\n• Experience in an international or boarding school environment would be an advantage\n• Experience working with students from diverse cultural backgrounds PERSON SPECIFICATION\n• Warm, empathetic and able to build trust with adolescents\n• Calm and professional when dealing with sensitive or challenging situations\n• High level of discretion and professional ethics\n• Strong interpersonal and communication skills\n• Culturally sensitive and comfortable working in an international environment\n• Able to work collaboratively as part of a multidisciplinary team HOW TO APPLY Applications should be made via Beau Soleil recruitment website, https://www.beausoleil.ch/careers and should contain a CV, letter of application and the details of two professional referees. The closing date for applications is Friday, 16 October 2026 . Successful short listed candidates will be contacted straight away with initial discussions conducted remotely by telephone or video call. Collège Alpin Beau Soleil is committed to safeguarding and promoting the welfare of children and young people. A police check is required prior to appointment.",
       "descriptionByLocale": {
@@ -362,12 +362,20 @@
       "jobReqId": "1443654733",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "consigliere-scolastico-copertina-breve-termine-80-nord-anglia-education-switzerland-villars-sur-ollon",
-        "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon",
-        "conseiller-scolaire-short-couverture-temporaire-80-nord-anglia-education-switzerland-villars-sur-ollon",
-        "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
-      ],
+      "salaryMin": 40800,
+      "salaryMax": 75600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 40800,
+          "maxValue": 75600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:22:39.971Z",
       "previousSlugsByLocale": {
         "it": [
           "consigliere-scolastico-copertina-breve-termine-80-nord-anglia-education-switzerland-villars-sur-ollon",
@@ -382,21 +390,13 @@
           "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:22:39.971Z",
-      "salaryMin": 40800,
-      "salaryMax": 75600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 40800,
-          "maxValue": 75600,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "consigliere-scolastico-copertina-breve-termine-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "conseiller-scolaire-short-couverture-temporaire-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "nord-anglia-b46acb0a1e06",

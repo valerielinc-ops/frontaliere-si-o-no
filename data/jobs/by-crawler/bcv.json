@@ -1224,10 +1224,10 @@
       "companyDomain": "bcv.ch",
       "title": "Assistante ou Assistant Trade Finance",
       "titleByLocale": {
+        "fr": "Assistante ou Assistant Trade Finance",
         "it": "Assistante ou Assistant Trade Finanza",
-        "en": "Assistante ou Assistant Trade Finance",
-        "de": "Assistante ou Assistent Trade Finanzen",
-        "fr": "Assistante ou Assistant Trade Finance"
+        "en": "Assistant or Assistant Trade Finance",
+        "de": "Assistante ou Assistent Trade Finanzen"
       },
       "description": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Assistante ou Assistant Trade Finance Vos missions principales:\n• appuyer les responsables de relation dans les tâches administratives,\n• participer à l'élaboration des protocoles de crédit,\n• acquérir les connaissances du métier en vue d'assumer à terme le suivi des opérations transactionnelles d'un portefeuille de clients. Votre profil:\n• formation bancaire et/ou première expérience dans le domaine du Trade Finance,\n• sens des responsabilités et de l’organisation,\n• maîtrise du français, très bonnes connaissances orales et écrites de l’anglais.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
       "descriptionByLocale": {
@@ -1260,12 +1260,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "sfJobId": "1443342333",
-      "previousSlugs": [
-        "assistante-ou-assistant-trade-finance-bcv-lausanne",
-        "assistant-or-assistant-trade-finance-banque-cantonale-vaudoise-lausanne",
-        "assistante-ou-assistant-trade-finanza-banque-cantonale-vaudoise-lausanne",
-        "assistante-ou-assistent-trade-finanzen-banque-cantonale-vaudoise-lausanne"
-      ],
+      "firstSeenAt": "2026-10-03T09:19:29.981Z",
       "previousSlugsByLocale": {
         "it": [
           "assistante-ou-assistant-trade-finance-bcv-lausanne",
@@ -1280,8 +1275,12 @@
           "assistante-ou-assistent-trade-finanzen-banque-cantonale-vaudoise-lausanne"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:19:29.981Z",
+      "previousSlugs": [
+        "assistante-ou-assistant-trade-finance-bcv-lausanne",
+        "assistant-or-assistant-trade-finance-banque-cantonale-vaudoise-lausanne",
+        "assistante-ou-assistant-trade-finanza-banque-cantonale-vaudoise-lausanne",
+        "assistante-ou-assistent-trade-finanzen-banque-cantonale-vaudoise-lausanne"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1294,7 +1293,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-59613193bd40",

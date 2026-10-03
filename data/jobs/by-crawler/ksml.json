@@ -2067,10 +2067,10 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
       "titleByLocale": {
-        "it": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
-        "en": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
         "de": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
-        "fr": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching."
+        "it": "STV 2.Quarter, 16L, livello base/asilo, piccola classe, insegnamento di squadra.",
+        "en": "STV 2.Quarter,16L, basic level/kindergarten, small class, team teaching.",
+        "fr": "STV 2.Quarter,16L, niveau de base/maternelle, petite classe, enseignement en équipe."
       },
       "description": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, das trotz seiner hundertjährigen Geschichte innovativ und voller Ideen ist. Wir sind zwei Schulklassen – eine Basisstufe und eine 3. bis 6. Klasse – sowie ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nWir heissen dich herzlich willkommen!\n\nAufgaben\nAufgrund eines Unfalls in den Herbstferien suchen wir kurzfristig eine Lehrperson für den Kindergartenbereich unserer Basisstufe, voraussichtlich bis zu den Winterferien. Du unterrichtest 16 Lektionen, vor allem im Teamteaching, und bist hauptsächlich für die sieben jüngeren Kinder zuständig. Die Unterrichtszeiten sind wie folgt: Montagmorgen 4 Lektionen, Dienstag ab 9:15 Uhr inklusive Nachmittag, Mittwoch 2 Lektionen, Donnerstag bis 15:00 Uhr, Freitag unterrichtsfrei.\n\nAnforderungen\n• Du bist eine positive und aufgestellte Persönlichkeit, die mit Herz für die Kinder unterrichtet.\n• Du arbeitest gerne in einem kleinen, familiären Team und schätzt die Zusammenarbeit mit der Heilpädagogin.\n\nDu besitzt das Lehrdiplom oder befindest dich in der Ausbildung dazu.\nIdealerweise hast du bereits Unterrichtserfahrung im Zyklus 1.\n\nWir bieten\n• Du erhältst wertvolle Unterstützung durch die zweite, erfahrene Klassenlehrperson unserer Basisstufe. Ihr arbeitet hauptsächlich im Teamteaching.\n• Du unterrichtest und kümmerst dich vor allem um die jüngsten Kinder der Basisstufe. Dies sind sieben Kinder.\n\nDurch das kleine Team und unsere familiäre Schule wirst du gut unterstützt werden.\nGerne erzählen wir dir mehr über uns. Wir freuen uns, wenn du dich angesprochen fühlst, und würden dich gerne kennenlernen.",
       "descriptionByLocale": {
@@ -2103,7 +2103,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:29:22.704Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2116,7 +2115,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:29:22.704Z"
     },
     {
       "id": "ksml-e1026641bdd6",
@@ -3754,10 +3754,10 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Logopädie",
       "titleByLocale": {
-        "it": "Stellvertretung Logopäla",
-        "en": "Stellvertretung Logopädie",
         "de": "Stellvertretung Logopädie",
-        "fr": "Stellvertretung Logopädie"
+        "it": "Stellvertretung Logopäla",
+        "en": "Deputy Speech Office",
+        "fr": "Bureau des discours adjoints"
       },
       "description": "Porträt\nDie Schuleinheit ADN umfasst die drei Standorte Allmendingen, Dürrenast und Neufeld in der Stadt Thun. In 10 Kindergartenklassen, 27 Primarklassen, einer EK und einer KbF (1. - 3. Klasse) werden rund 770 Schülerinnen und Schüler von ca. 110 Lehrpersonen unterrichtet.\n\nAufgaben\nWir suchen für 6-8 Wochen eine Stellvertretung für die Logopädie im Standort Dürrenast.\nDas Arbeitspensum der Stellvertretung umfasst 13 Lektionen und folgende Arbeitsschwerpunkte:\n- Verantwortlich für die Logopädie am Standort Dürrenast\n- Abklärungen und Früherfassung\n- Fachspezifische Beurteilungen\n- Beratung von Eltern und Lehrpersonen\n\nAnforderungen\n- Ein Diplom in Logopädie oder eine entsprechende EDK-Anerkennung\n- Erfahrung in der Arbeit mit Kindern und Jugendlichen\n- Ein wertschätzender Umgang und Freude an der Beziehungsarbeit\n- Eine positive Haltung gegenüber Integration und Heterogenität\n\nWir bieten\n- Befristete Anstellung\n- grosses und gut eingerichtetes Logozimmer\n- gute Erreichbarkeit mit ÖV\n- eine unterstützende Schulleitung\n\nDie Bewerbungen werden laufend bearbeitet.",
       "descriptionByLocale": {
@@ -3789,18 +3789,17 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40399",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretung-logopadie-primarschule-thun-durrenast-thun-40399",
-        "stellvertretung-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-logopadie-primarschule-thun-durrenast-thun-40399",
           "stellvertretung-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:29:22.686Z",
+      "previousSlugs": [
+        "stellvertretung-logopadie-primarschule-thun-durrenast-thun-40399",
+        "stellvertretung-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -3813,7 +3812,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:29:22.686Z"
     },
     {
       "id": "ksml-e20c35fd9f61",
@@ -7286,10 +7286,10 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
       "titleByLocale": {
-        "it": "Mutterschaftsvertretung an einer 1. e 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
-        "en": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
         "de": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
-        "fr": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do"
+        "it": "Mutterschaftsvertretung an einer 1. e 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
+        "en": "Maternity representation at 1st and 2nd grade, 11 lessons from 1st February (previously) to 31st July 2027. Mo + Do",
+        "fr": "Représentation de la maternité en 1ère et 2ème année, 11 leçons du 1er février (précédemment) au 31 juillet 2027. Mo + Do"
       },
       "description": "Porträt\nDie Schule Spiegel ist eine Quartierschule vom Kindergarten / Basisstufe bis zur 9. Klasse. In 29 Jahrgangs- und Mehrjahrgangsklassen werden 580 Schülerinnen und Schüler unterrichtet. Eine Co-Schulleitung, 70 Lehrpersonen, 3 Hauswarte und eine Schulsekretärin sind für einen guten Schulbetrieb verantwortlich.\n\nAufgaben\nSie lieben die Herausforderungen des Unterstufenschulalltages und freuen sich auf das Unterrichten von interessierten Schülerinnen und Schülern? Die 1. und 2.Klasse sucht eine engagierte Lehrperson. Sie unterrichten jeweils am Montagvormittag 4L an der 2. Klasse und am Donnerstagmorgen 4L - TTG und TXT an der 1. Klasse (Halbklassenunterricht) und am Nachmittag 2L TXT und 1L Musik an der 2. Klasse (ebenfalls Halbklassenunterricht).\n\nAnforderungen\nFreude und Interesse an der Zusammenarbeit mit allen Lehrpersonen der Klasse und dem Stufenteam. Sichere, klare und professionelle Auftrittskompetenz im Umgang mit allen Anspruchsgruppen. Abgeschlossenes oder laufendes Studium an einer Pädagogischen Hochschule oder Unterrichtserfahrung auf dem Zyklus 1.\n\nWir bieten\nEin offenes und hilfsbereites Kollegium\n- Unterstützung im Team durch Lehrpersonen, BesFö - Lehrpersonen, Schulsozialarbeit und Schulleitung\n- Zeitgemässe Schul- und Bildungsstrukturen\n- Klassenzimmer mit Gruppenraum",
       "descriptionByLocale": {
@@ -9241,10 +9241,10 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Lehrperson und/oder schulische Heilpädagogin / schulischer Heilpädagoge 10 Lektionen, Zyklus 3",
       "titleByLocale": {
-        "it": "Lehrperson e/o schulische Heilpädagogin / schulischer Heilpädagoge 10 Lektionen, Zyklus 3",
-        "en": "Lehrperson und/oder schulische Heilpädagogin / schulischer Heilpädagoge 10 Lektionen, Zyklus 3",
         "de": "Lehrperson und/oder schulische Heilpädagogin / schulischer Heilpädagoge 10 Lektionen, Zyklus 3",
-        "fr": "Lehrperson und/oder schulische Heilpädagogin / schulischer Heilpädagoge 10 Lektionen, Zyklus 3"
+        "it": "Lehrperson e/o schulische Heilpädagogin / schulischer Heilpädagoge 10 Lektionen, Zyklus 3",
+        "en": "Teacher and/or school curative teacher 10 lessons, cycle 3",
+        "fr": "Enseignante et/ou institutrice 10 leçons, cycle 3"
       },
       "description": "Porträt\nAls besondere Volksschule des Kantons Bern unterrichten, begleiten, betreuen und unterstützen wir Kinder und Jugendliche mit sozioemotionalen Entwicklungsstörungen und Integrationsproblemen in enger Zusammenarbeit mit deren Eltern. Du möchtest junge Menschen auf ihrem Weg in ein möglichst selbstständiges Leben begleiten und dabei deine pädagogischen Ideen einbringen? Suchst du eine sinnstiftende Tätigkeit, bei der du die Entwicklung junger Menschen nachhaltig begleiten kannst? Dann bist du bei uns genau richtig.\n\nAufgaben\n- Individuelle Förderung von Kinder und Jugendlichen im Schulsetting\n- Unterrichten in einem Klassenteam (Klassenlehrperson und Schulsozialpädagogen/innen)\n- Organisieren der Klasse in Zusammenarbeit mit dem Team\n- Fächer: Deutsch, Mathematik, Englisch, Französisch, ERG, RZG, NT\n- Förderplanung und Dokumentation\n- Interdisziplinäre Zusammenarbeit mit allen Bereichen des ZSHKK, Eltern, Fachstellen und Behörden\n- aktive Mitarbeit im Schulteam, Teilnahme an Anlässen\n\nArbeitstage:\nMontag- und Dienstagvormittag plus Mittwochnachmittag (Teamsitzung)\noder\nDonnerstag- und Freitagvormittag plus Mittwochnachmittag (Teamsitzung)\n\nAnforderungen\n- Anerkannte Lehrbefähigung für diese Stufe und/oder Ausbildung in schulischer Heilpädagogik\n- Belastbarkeit, Durchsetzungsvermögen und Flexibilität im Schulalltag\n- Eine gute Portion Humor\n- Engagement und Freude daran, Verantwortung zu übernehmen\n- Teamgeist und Offenheit für interdisziplinäre Zusammenarbeit\n- Wertschätzende und ressourcenorientierte Haltung gegenüber Schülerinnen und Schülern\n\nWir bieten\nBei uns erwartet dich ein herzliches und engagiertes Team, das zusammenhält, sich gegenseitig unterstützt und Erfolge gemeinsam feiert. Wir legen Wert auf ein vertrauensvolles Miteinander und schaffen Raum für Austausch, Kreativität und persönliche Stärken. In deiner Arbeit genießt du große Freiheit in der Unterrichtsgestaltung. In Absprache mit deinem Team kannst du Lerninhalte und Methoden flexibel gestalten und deine Ideen aktiv einbringen. Du förderst und begleitest unsere Schülerinnen und Schüler individuell auf ihrem Weg zu mehr Selbstständigkeit und Lebenskompetenz. Dabei arbeitest du eng mit Eltern, Behörden sowie weiteren Fachpersonen zusammen und trägst zu einer ganzheitlichen Unterstützung der jungen Menschen bei. Die Anstellung erfolgt nach kantonalen Richtlinien (LAG).",
       "descriptionByLocale": {
@@ -9276,12 +9276,7 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40397",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrperson-und-oder-schulische-heilpadagogin-schulischer-heilpadagoge-10-lektionen-zyklus-40397",
-        "teacher-and-or-school-curative-teacher-10-lessons-cycle-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40397",
-        "enseignante-et-ou-institutrice-10-lecons-cycle-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40397",
-        "lehrperson-e-o-schulische-heilpadagogin-schulischer-heilpadagoge-10-lektionen-zyklus-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kehrsatz"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-und-oder-schulische-heilpadagogin-schulischer-heilpadagoge-10-lektionen-zyklus-40397",
@@ -9296,8 +9291,12 @@
           "lehrperson-und-oder-schulische-heilpadagogin-schulischer-heilpadagoge-10-lektionen-zyklus-40397"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:29:22.669Z",
+      "previousSlugs": [
+        "lehrperson-und-oder-schulische-heilpadagogin-schulischer-heilpadagoge-10-lektionen-zyklus-40397",
+        "teacher-and-or-school-curative-teacher-10-lessons-cycle-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40397",
+        "enseignante-et-ou-institutrice-10-lecons-cycle-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40397",
+        "lehrperson-e-o-schulische-heilpadagogin-schulischer-heilpadagoge-10-lektionen-zyklus-3-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kehrsatz"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -9310,7 +9309,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:29:22.669Z"
     },
     {
       "id": "ksml-9960673bdaf9",
@@ -12915,17 +12915,17 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
       "titleByLocale": {
-        "it": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
-        "en": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
         "de": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
-        "fr": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)"
+        "it": "Insegnante di guarigione / insegnante di guarigione circa il 10% (3L.)",
+        "en": "Healing teacher / Healing teacher about 10% (3L.)",
+        "fr": "Professeur de guérison / Professeur de guérison environ 10% (3L.)"
       },
       "description": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
       "descriptionByLocale": {
-        "it": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
-        "en": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
         "de": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
-        "fr": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich."
+        "it": "Ritratto\n• Come risultato di un aumento penale a breve termine, stiamo cercando una formazione curativa presso la nostra scuola\n• https://www.schulelaupen.com/\n\nCompiti\nPromozione inclusiva e supporto per gli studenti regolari con ASD, disturbi percettivi e disturbi del comportamento sociale. giorni lavorativi per accordo. Ciò riguarda principalmente il sostegno nell'ambito di un bVSAin. di uno studente 8. Sj.\n\nRequisiti\nDiploma / Master School formazione curativa desiderato o la volontà di compensare per questo o l'esperienza in un campo simile.\n\nOffriamo\nlavoro interessante con molto buon sostegno e cooperazione nella scuola aperta. Potenziamento successivo e prosecuzione dell'occupazione.",
+        "en": "Portrait\n• As a result of short-term penal increase, we are looking for curative education at our school\n• https://www.schulelaupen.com/\n\nTasks\nInclusive promotion and support for regular students with ASD, perceptual disorders and disorders of social behavior. working days by agreement. This is primarily about support within the framework of a bVSAin. of a student 8.Sj.\n\nRequirements\nDiploma / Master School curative education desired or willingness to make up for this or experience in a similar field.\n\nWe offer\ninteresting job with very good support and cooperation in open school. Subsequent expansion and continuation of employment possible.",
+        "fr": "Portrait\n• En raison de l'augmentation des peines à court terme, nous recherchons une éducation curative dans notre école.\n• https://www.schulelaupen.com/\n\nTâche\nPromotion inclusive et soutien pour les étudiants réguliers atteints de TSA, troubles perceptuels et troubles du comportement social. jours ouvrables par accord. Il s'agit principalement d'un soutien dans le cadre d'un bVSain. d'un étudiant 8. Sj.\n\nExigences\nDiplôme / Master School éducation curative souhaitée ou volonté de compenser pour cela ou expérience dans un domaine similaire.\n\nNous offrons\ntravail intéressant avec un très bon soutien et la coopération dans les écoles ouvertes. L'expansion ultérieure et la poursuite de l'emploi sont possibles."
       },
       "location": "Laupen",
       "canton": "BE",
@@ -12974,7 +12974,6 @@
           "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:29:22.651Z",
       "salaryMin": 5900,
       "salaryMax": 10900,
@@ -13603,10 +13602,10 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Fachlehrperson Französisch",
       "titleByLocale": {
-        "it": "Fachlehrperson Französisch",
-        "en": "Fachlehrperson Französisch",
         "de": "Fachlehrperson Französisch",
-        "fr": "Fachlehrperson Französisch"
+        "it": "Insegnante specializzato in francese",
+        "en": "Specialist teacher in French",
+        "fr": "Professeur spécialisé en français"
       },
       "description": "Porträt\nSekundarstufe I Zollikofen\n\nAufgaben\n• 8 Lektionen Französischunterricht an Sekundarklassen, davon 2 Lektionen im Teamteaching\n• 1 Lektion Französisch im Flexibilisierten 9.Schuljahr\n\nAnforderungen\nLehrerInnenpatent für die Sekundarstufe I oder in Ausbildung.\n\nWir bieten\n• Aufgestelltes, initiatives, geselliges Kollegium\n• Gute Infrastruktur\n• Sehr gute ÖV - Verbindungen\n• Zahlreiche Teamteaching-Lektionen\n• Unterricht an 4 Vormittagen (ausser Mittwoch)",
       "descriptionByLocale": {
@@ -13657,7 +13656,6 @@
           "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:29:22.647Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -13671,7 +13669,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-db752a817495",
@@ -13688,10 +13687,10 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe",
       "titleByLocale": {
-        "it": "Grosse Wirkung per kleine Persönlichkeiten - con Herz e Struktur I Klassenhilfe Basisstufe",
-        "en": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe",
         "de": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe",
-        "fr": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe"
+        "it": "Grosse Wirkung per kleine Persönlichkeiten - con Herz e Struktur I Klassenhilfe Basisstufe",
+        "en": "Great effect for small personalities - with heart and structure I class help basic level",
+        "fr": "Grand effet pour les petites personnalités - avec le cœur et la structure Je classe aider niveau de base"
       },
       "description": "Porträt\nDie Beziehung zum Kind steht an der Schule Altikofen im Zentrum der pädagogischen Arbeit.\nWir begegnen dem Kind mit Offenheit, Klarheit und Wertschätzung.\n\nWir arbeiten eng im Klassen- und Schulteam zusammen, teilen gemeinsame Werte und Haltungen. Wir verantworten den Unterrichtsalltag gemeinsam und stimmen ihn auf die Bedürfnisse und Fähigkeiten des Kindes ab.\n\nAufgaben\nDeine Rolle als Klassenhilfe\n\n- loyale Unterstützung des Klassenteams im Umfang von rund 6,5 Stunden/ Woche\n- liebevolle und klare Begleitung der Kinder im Unterricht (Einzel- und Gruppenunterstützung)\n- Hilfestellungen mit Fingerspitzengefühl bei sozialen Konflikten\n- ein offenes Ohr und ein warmes Lächeln für die kleinen und grossen Sorgen der Kinder\n\nAnforderungen\nDas zeichnet dich aus\n\nEIN GROSSES HERZ FÜR JUNGE KINDER\n\nDu nimmst die Bedürfnisse des Kindes in seinem Verhalten wahr.\nEmpathie und Geduld sind für dich keine fremden Begriffe, sondern Merkmale deiner positiven Grundhaltung.\n\nLIEBEVOLLE KLARHEIT\n\nDu kanst klare Grenzen setzen und gleichzeitig mit dem Kind in Verbindung bleiben.\nDu schenkst dem Kind Struktur und Sicherheit durch deine konsequente und wertschätzende Begegnung.\n\nTEAMGEIST\n\nDu arbeitest Hand in Hand mit dem Klassenteam und unterstützt da, wo Hilfe gerade nötig ist.\n\nQUALIFIKATION\n\nDu bist im Besitz einer pädagogischen Ausbildung oder in Ausbildung zur Lehrperson mit Schwerpunkt Zyklus 1.\n\nWir bieten\nDarauf darfst du dich freuen\n\n- ein jungens, engagiertes Klassenteam, das deine Arbeit schätzt\n- ein lebendiger Arbeitsort, an dem kein Tag dem anderen gleicht\n- die Möglichkeit, die Entwicklung von jungen Kindern nachhaltig positiv zu unterstützen\n- eine sinnstiftende Arbeit im Stundenlohn (Fr 31.-/Stunde)\n- eine befristete Anstellung im Umfang von total 120 Stunden, 13. Oktober 26 bis 31. Januar 27\n- fixe Arbeitszeiten: Dienstag- und Donnerstagnachmittag, 13.45-15.20h sowie Freitagmorgen, 08.20-11.55h",
       "descriptionByLocale": {

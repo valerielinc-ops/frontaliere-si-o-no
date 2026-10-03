@@ -678,10 +678,10 @@
       "companyDomain": "spital-oberengadin.ch",
       "title": "Lehrstelle Kauffrau / Kaufmann EFZ",
       "titleByLocale": {
-        "it": "Apprendistato Kauffrau / Kaufmann CFC",
-        "en": "Lehrstelle Kauffrau / Kaufmann EFZ",
         "de": "Lehrstelle Kauffrau / Kaufmann EFZ",
-        "fr": "Lehrstelle Kauffrau / Kaufmann EFZ"
+        "it": "Apprendistato Kauffrau / Kaufmann CFC",
+        "en": "Apprenticeship Kauffrau / Kaufmann EFZ",
+        "fr": "Apprentissage Kauffrau / Kaufmann EFZ"
       },
       "description": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Bist du neugierig, schätzt du den Kontakt mit Menschen und mit unterschiedlichen Berufsleuten? Wir bieten ab August 2027 eine vielseitige kaufmännische Ausbildung mit einem hohen Praxisanteil in der Gesundheitsbranche an.\n\nDu wirst ausgebildet in den Bereichen\n\n• Patientenadministration\n• Finanz- & Rechnungswesen\n• Personalwesen (Human Resources)\n• Marketing- & Kommunikation\n\nDein Profil\n\n• Sekundarschulabschluss\n• Du hast Spass an der Zusammenarbeit im Team\n• Du magst den Kontakt mit Menschen in verschiedenen Situationen\n• Du arbeitest sorgfältig und zuverlässig\n• Du bist offen für Neues und für Veränderungen\n• Du interessierst dich für das Gesundheitswesen\n\nPensum: 100%",
       "descriptionByLocale": {
@@ -717,17 +717,16 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
-        "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
           "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:19:43.010Z",
+      "previousSlugs": [
+        "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
+        "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan"
+      ],
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -740,7 +739,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:19:43.010Z"
     },
     {
       "id": "spital-oberengadin-9d65ab205672",
@@ -757,7 +757,7 @@
       "title": "Dipl. Pflegefachfrau / -mann HF/FH",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / -mann HF/FH",
-        "it": "Dipl. Pflegefachfrau / -mann HF/FH",
+        "it": "Dipl. Infermiera / -mann HF/FH",
         "en": "Dipl. Nurse / -mann HF/FH",
         "fr": "Dipl. Infirmière / -mann HF/FH"
       },
@@ -808,8 +808,7 @@
         }
       },
       "firstSeenAt": "2026-10-01T09:16:42.388Z",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

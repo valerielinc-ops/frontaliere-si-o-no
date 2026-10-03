@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 /**
  * PEMSA — Dedicated Crawler
  *
@@ -133,15 +134,6 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function parseDate(dateStr = '') {
-  try {
-    const d = new Date(dateStr);
-    if (isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  } catch {
-    return new Date().toISOString().slice(0, 10);
-  }
-}
 
 function buildPemsaJob(detail, url) {
   const city = detail.city || '';
@@ -171,7 +163,7 @@ function buildPemsaJob(detail, url) {
     sector: 'Edilizia e tecnica',
     source: 'pemsa-dedicated-crawler',
     sourceLang,
-    postedDate: parseDate(detail.datePosted),
+    ...sourcePostingDateFields(detail.datePosted),
     employmentType: detail.employmentType?.toLowerCase().includes('part') ? 'part-time' : 'full-time',
     contractType: 'temporary',
     validThrough: detail.validThrough || '',

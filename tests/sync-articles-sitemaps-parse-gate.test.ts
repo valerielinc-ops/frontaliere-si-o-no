@@ -95,6 +95,7 @@ describe('article corpus sync parser gate', () => {
     expect(recheck.if).toContain("steps.verify_synced_chunk_lock_before_publish.outcome == 'success'");
     expect(recheck.run).toContain('git fetch --no-tags --depth=1 origin main');
     expect(recheck.run).toContain('scripts/lib/article-chunk-publish-freshness.mjs');
+    expect(recheck.run).toContain('git checkout --detach --force origin/main');
     expect(recheck.run).toContain('echo "current=$CURRENT" >> "$GITHUB_OUTPUT"');
     expect(recheck.run).toContain('exit 1');
     expect(release.if).toContain('always()');
@@ -121,8 +122,11 @@ describe('article corpus sync parser gate', () => {
     expect(after).toContain('kill -0');
   });
 
-  it('rejects a source SHA when origin/main advances before publication', () => {
+  it('refreshes a source SHA when origin/main advances before publication', () => {
     expect(isCurrentPublishSource('a'.repeat(40), 'b'.repeat(40))).toBe(false);
+    expect(stepNamed('Recheck synced article chunk source before publication').run).toContain(
+      'git checkout --detach --force origin/main',
+    );
     expect(stepNamed('Publish client article chunks for synced corpus').if).toContain(
       "steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true'",
     );
@@ -155,6 +159,9 @@ describe('article corpus sync parser gate', () => {
     expect(workflowSource).toContain("- 'public/rss*.xml'");
     expect(workflowSource).toContain(`- '${tickerPath}'`);
     expect(replay.if).toBe("github.event_name == 'push'");
+    expect(replayStep('Recheck post-merge replay source before publication').run).toContain(
+      'git checkout --detach --force origin/main',
+    );
     expect(replayStep('Publish client article chunks after article sync merge').run).toContain(
       'scripts/publish-article-chunks.mjs --strict --no-ticker',
     );

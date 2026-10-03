@@ -542,10 +542,10 @@
       "companyDomain": "ghol.ch",
       "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
       "titleByLocale": {
-        "it": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
-        "en": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
-        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
-        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
+        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
+        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
+        "en": "Assistant physician in practice – FoRCab MFE, West Region",
+        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest"
       },
       "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
       "descriptionByLocale": {
@@ -574,23 +574,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-10-03T21:23:24.568Z",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-        ],
-        "en": [
-          "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:24:46.269Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -603,7 +586,24 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:24:46.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        ],
+        "en": [
+          "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      ],
+      "needsRetranslation": true
     }
   ]
 }

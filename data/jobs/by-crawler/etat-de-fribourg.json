@@ -5114,10 +5114,10 @@
       "companyDomain": "fr.ch",
       "title": "Chef-fe de la Division Ateliers et construction",
       "titleByLocale": {
-        "it": "Chef-fe de la Division Ateliers et construction",
-        "en": "Chef-fe de la Division Ateliers et construction",
-        "de": "Chef-fe de la Division Ateliers et construction",
-        "fr": "Chef-fe de la Division Ateliers et construction"
+        "fr": "Chef-fe de la Division Ateliers et construction",
+        "it": "Divisione Capo, Workshop e Costruzione",
+        "en": "Chief, Workshop and Construction Division",
+        "de": "Chef, Werkstatt- und Bauabteilung"
       },
       "description": "Qui sommes-nous?\n\nL'Etablissement de détention fribourgeois réunit les structures pénitentiaires du canton de Fribourg. Il dispose d'un statut de droit public et est doté de la personnalité juridique. Il est rattaché administrativement à la Direction de la sécurité, de la justice et du sport, sous la haute surveillance du Conseil d'Etat. L'Etablissement assure la garde, l'hébergement, la prise en charge et le traitement des personnes détenues qui lui sont confiées et participe à la réalisation des objectifs assignés à l'exécution des peines privatives de liberté et des mesures.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Gestion et conduite de la division Ateliers et construction en tant que membre de la direction d’une grande unité administrative\n\n• Gestion et coordination des sections Ateliers, Artisans, Cuisine ainsi que du service Planification et gestion immobilière\n\n• Planification, coordination et suivi des projets de construction, de transformation, d’entretien et de développement des infrastructures de l’EDFR\n\n• Pilotage stratégique et opérationnel du parc immobilier de l’EDFR, notamment en matière de planification, d’entretien, de développement et de gestion financière\n\n• Gestion et développement des activités professionnelles proposées aux personnes détenues, dans une perspective de resocialisation et de réinsertion professionnelle, en cohérence avec le plan d’exécution de la sanction\n\n• Elaboration, planification et coordination de stratégies, concepts, directives et projets dans les domaines des ateliers et de la construction\n\nProfil souhaité\n\n• Formation tertiaire dans le domaine de la construction ou de la gestion de projet\n\n• Formation continue dans le domaine de la construction et/ou de la gestion de projet\n\n• Diplôme fédéral d’expert-e en management du domaine des privations de liberté du CSCSP, un atout\n\n• Plusieurs années d’expérience dans la conduite\n\n• Expérience dans le leadership, la gestion de projet et le développement de stratégies\n\n• Maîtrise des outils informatiques utiles à la fonction\n\n• Très bonnes capacités d’organisation et d’analyse, sens stratégique et capacité à prendre des décisions\n\n• Personnalité autonome, engagée, pragmatique et dotée d’une bonne capacité d’adaptation et de résistance au stress\n\n• Capacité à travailler en réseau, sens de la communication et aptitude à fédérer les équipes\n\n• Très bonnes connaissances de la langue française et bonnes connaissances de l’allemand\n\nCoordonnées des personnes de contact\n\nGuido Sturny, Directeur EDFR, guido.sturny@fr.ch, T +41 26 304 10 10",
       "descriptionByLocale": {
@@ -5151,12 +5151,21 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "previousSlugs": [
-        "divisione-capo-workshop-e-costruzione-etat-de-fribourg-mont-vully",
-        "chief-workshop-and-construction-division-etat-de-fribourg-mont-vully",
-        "chef-werkstatt-und-bauabteilung-etat-de-fribourg-mont-vully",
-        "chef-fe-de-la-division-ateliers-et-construction-etat-de-fribourg-ch"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:42.731Z",
       "previousSlugsByLocale": {
         "it": [
           "divisione-capo-workshop-e-costruzione-etat-de-fribourg-mont-vully",
@@ -5171,22 +5180,13 @@
           "chef-fe-de-la-division-ateliers-et-construction-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:42.731Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR"
+      "previousSlugs": [
+        "divisione-capo-workshop-e-costruzione-etat-de-fribourg-mont-vully",
+        "chief-workshop-and-construction-division-etat-de-fribourg-mont-vully",
+        "chef-werkstatt-und-bauabteilung-etat-de-fribourg-mont-vully",
+        "chef-fe-de-la-division-ateliers-et-construction-etat-de-fribourg-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-dab1de517698",
@@ -5202,10 +5202,10 @@
       "companyDomain": "fr.ch",
       "title": "Architecte de domaine Justice et Sécurité (ICT Architect)",
       "titleByLocale": {
+        "fr": "Architecte de domaine Justice et Sécurité (ICT Architecte)",
+        "de": "Justiz- und Sicherheitsdomänenarchitekt (ICT Architect)",
         "it": "Architecte de domaine Justice et Sécurité (ICT Architetto)",
-        "en": "Architecte de domaine Justice et Sécurité (ICT Architect)",
-        "de": "Architecte de domaine Justice et Sécurité (ICT Architect)",
-        "fr": "Architecte de domaine Justice et Sécurité (ICT Architecte)"
+        "en": "Justice and Security Domain Architect (ICT Architect)"
       },
       "description": "Taux d'activité\n\n80-100%\n\nLieu\n\nGivisiez, CH, Sarine\n\nDélai de postulation\n\n25.10.2026\n\nDate d'entrée en fonction\n\nImmédiate ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous?\n\nLe Service de l'informatique et des télécommunications (SITel) assure la disponibilité, la sécurité et l'évolution des systèmes d'information et des infrastructures numériques de l'État de Fribourg.\n\nAu sein de la section Applications, le secteur Justice et Sécurité (JS) accompagne la transformation numérique des entités œuvrant dans les domaines de la sécurité publique, de la justice et de l'exécution des tâches régaliennes.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nNous recherchons un-e Architecte de domaine Justice et Sécurité chargé-e d'assurer la gouvernance architecturale, l'évolution, la cohérence et la performance du système d'information du domaine Justice et Sécurité.\n\nÀ la différence d'un architecte de solution, dont le rôle consiste à concevoir l'architecture d'une solution ou d'un projet particulier, l'architecte de domaine agit comme le représentant de l'architecture d'entreprise au sein de son domaine. Il définit la trajectoire d'évolution du système d'information, garantit son alignement avec la stratégie numérique de l'État, pilote son urbanisation et veille à l'application des standards architecturaux, technologiques et méthodologiques de l'organisation.\n\nDans ce cadre, il constitue le relais de proximité de l'architecture d'entreprise et représente l'autorité architecturale du domaine Justice et Sécurité auprès des bénéficiaires métiers, des projets et des équipes techniques.\n\nRattachement hiérarchique : Chef du secteur Justice et sécurité\n\nVos responsabilités\n\nGouvernance et architecture du domaine\n\n• Définir et maintenir la vision architecturale du domaine Justice et Sécurité en cohérence avec l'architecture cible de l'État\n\n• Piloter l'urbanisation des systèmes d'information du domaine et promouvoir leur rationalisation\n\n• Gouverner l'architecture du domaine selon les principes TOGAF et les standards institutionnels\n\n• Élaborer et maintenir la cartographie applicative, informationnelle et technique du domaine\n\n• Contribuer à la stratégie numérique cantonale et traduire ses orientations en trajectoires d'évolution concrètes pour le domaine\n\nRéférent architecture du domaine\n\n• Être l'interlocuteur-trice de référence pour toutes les questions d'architecture liées aux programmes, projets, missions et activités opérationnelles du domaine\n\n• Conseiller les responsables métiers, chefs de projets, responsables de produits et équipes techniques dans les choix structurants\n\n• Émettre les préavis architecturaux nécessaires dans le cadre des processus de gouvernance et des jalons HERMES Metro\n\n• Représenter les intérêts de l'architecture d'entreprise au sein du domaine et assurer l'alignement des initiatives avec les standards définis\n\nAlignement et conformité\n\n• Garantir l'application des standards techniques, technologiques et architecturaux de l'État\n\n• Évaluer la pertinence, la cohérence et les impacts des évolutions du système d'information\n\n• Identifier les écarts à l'architecture cible, proposer les mesures d'assainissement et suivre leur mise en œuvre\n\n• Assurer le suivi des dérogations architecturales et contribuer aux contrôles de conformité\n\n• Participer aux activités du Comité d'architecture et de technologie (CAT) et de la communauté des architectes\n\nAccompagnement de la transformation\n\n• Contribuer à la modernisation des applications et des plateformes du domaine\n\n• Accompagner l'adoption des architectures cloud, des services numériques transversaux et des nouvelles technologies\n\n• Participer à la gestion du cycle de vie des solutions et à la maîtrise de la dette technique et applicative\n\n• Formuler des recommandations stratégiques permettant d'améliorer la qualité, la sécurité, l'interopérabilité et la résilience du système d'information\n\n• Dans des cas spécifiques, être en mesure de définir des architectures de transition avant d’atteindre l’architecte cible.  Les modèles de bases les plus utilisés sont disponibles sur MonSITel\n\nProfil souhaité\n\nFormation\n\n• Formation supérieure en informatique (HES, université, EPF, ES) ou formation jugée équivalente\n\n• Certification TOGAF ou expérience significative dans les cadres d'architecture d'entreprise constitue un avantage\n\nExpérience\n\n• Minimum 7 années d'expérience dans l'architecture des systèmes d'information, dont plusieurs années dans un rôle d'architecture transverse ou d'entreprise\n\n• Expérience confirmée dans l'urbanisation et l'évolution de portefeuilles applicatifs complexes\n\n• Expérience dans des environnements de transformation numérique à forte diversité d'acteurs\n\n• Une connaissance des domaines Justice, Sécurité publique, Police, Autorités judiciaires ou administration publique constitue un atout\n\nCompétences techniques\n\n• Maîtrise des principes d'architecture d'entreprise, d'architecture applicative et d'intégration\n\n• Connaissance des approches orientées services, API, microservices, événements et plateformes d'intégration\n\n• Maîtrise des méthodes de modélisation (UML, BPMN, C4 Model ou équivalent)\n\n• Bonne compréhension des architectures cloud, en particulier Microsoft Azure et Microsoft 365\n\n• Connaissances des référentiels HERMES, ITIL et des pratiques Agile\n\nCompétences personnelles\n\n• Vision systémique et capacité à appréhender des problématiques complexes\n\n• Excellentes capacités d'analyse, de synthèse et de communication\n\n• Aptitude à influencer, fédérer et convaincre des interlocuteurs variés\n\n• Sens du service public et compréhension des enjeux institutionnels\n\n• Autonomie, esprit d'initiative, rigueur et sens des responsabilités\n\nLangues\n\n• Excellente maîtrise du français à l'oral et à l'écrit\n\n• Bonnes connaissances de l'anglais technique\n\nCoordonnées des personnes de contact\n\nAlexandre Bramaz, Chef de secteur, alexandre.bramaz@fr.ch, T +41 26 304 20 15 / Michaël Studer, Chef de section Ressources humaines et communication, michael.studer@fr.ch, T +41 26 305 31 62",
       "descriptionByLocale": {
@@ -5239,24 +5239,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "previousSlugs": [
-        "justice-and-security-domain-architect-ict-architect-etat-de-fribourg-givisiez",
-        "justiz-und-sicherheitsdomanenarchitekt-ict-architect-etat-de-fribourg-givisiez",
-        "architecte-de-domaine-justice-et-securite-ict-architect-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "justice-and-security-domain-architect-ict-architect-etat-de-fribourg-givisiez"
-        ],
-        "de": [
-          "justiz-und-sicherheitsdomanenarchitekt-ict-architect-etat-de-fribourg-givisiez"
-        ],
-        "it": [
-          "architecte-de-domaine-justice-et-securite-ict-architect-etat-de-fribourg-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:42.089Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -5270,7 +5253,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:42.089Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "justice-and-security-domain-architect-ict-architect-etat-de-fribourg-givisiez"
+        ],
+        "de": [
+          "justiz-und-sicherheitsdomanenarchitekt-ict-architect-etat-de-fribourg-givisiez"
+        ],
+        "it": [
+          "architecte-de-domaine-justice-et-securite-ict-architect-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "justice-and-security-domain-architect-ict-architect-etat-de-fribourg-givisiez",
+        "justiz-und-sicherheitsdomanenarchitekt-ict-architect-etat-de-fribourg-givisiez",
+        "architecte-de-domaine-justice-et-securite-ict-architect-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-706d320b5c8a",
@@ -5436,10 +5436,10 @@
       "companyDomain": "fr.ch",
       "title": "Academic Associate UAS Mechanochemical Process Development",
       "titleByLocale": {
-        "it": "Academic Associate UAS Mechanochemical Process Development",
+        "fr": "Academic Associate UAS Mechanochemical Process Development",
         "en": "Academic Associate UAS Mechanochemical Process Development",
-        "de": "Academic Associate UAS Mechanochemical Process Development",
-        "fr": "Academic Associate UAS Mechanochemical Process Development"
+        "it": "Sviluppo del processo mechanochimico associato accademico",
+        "de": "Academic Associate UAS Mechanochemische Prozessentwicklung"
       },
       "description": "Message important\n\nATTENTION\n\nPour postuler à ce poste, utilisez uniquement le lien suivant  :   CLIQUEZ SUR CE LIEN POUR POSTULER\n\nN’utilisez pas le bouton « postuler » en haut de cette page : votre dossier ne serait pas traité.\n\nQui sommes-nous?\n\nThe School of Engineering and Architecture of Fribourg (HEIA-FR), a member institution of the University of Applied Sciences and Arts of Western Switzerland (HES-SO), offers bilingual study programs at the BSc and MSc levels.\n\nPourquoi nous rejoindre ?\n\nLa HES-SO//FR adopte une politique de recrutement en faveur de l’égalité des chances. Nous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nThe project – Mechanochemistry is a leading route to solvent-free sustainable chemical manufacturing. In this joint project, WAB, FHWN, Syngenta and HEIA-FR join forces to develop a new bead-reactor technology based on Dyno®-mill systems and to demonstrate its potential for fine chemicals. Your mission – You will lead the synthetic and process-development core, bridging lab discovery and industrial application. You will design, run and interpret transformations in mechanochemical bead reactors, from lab to pilot scale. In this context, you will establish advanced metrics as decisive benchmarks and generate the datasets needed for predictive scale-up models, delivering validated scaling rules and a reproducible lab-to-industry transfer methodology.\n\n• Benchmark representative mechanochemical transformations and industrially relevant targets\n\n• Run design-of-experiments campaigns on the new Dyno®-mill technology\n\n• Characterize products and map process parameters to critical quality attributes\n\n• Contribute to predictive modelling and identify scale-invariant parameters and transferable operating windows\n\n• Scale up to pilot plant with the industrial partner, verifying robustness and reproducibility\n\n• Consolidate results in a standardized scale-transfer workflow and guidelines for industrial adoption\n\n• Interact with the consortium, present at conferences, and uphold lab safety and good scientific practice\n\nProfil souhaité\n\n• Master’s degree in chemistry or chemical engineering with experience in organic synthesis\n\n• Strong interest in pursuing interdisciplinary research involving synthesis, process development, characterization, and chemical engineering\n\n• Ability to conduct cutting-edge R&D with initiative, creativity and a problem-solving mindset\n\n• Rigorous, autonomous and well-organized experimental work, with careful data documentation\n\n• Enthusiasm, resourcefulness and teamwork skills; readiness to be on the look-out for improvements and ability to approach and solve problems in a creative way\n\n• Excellent English oral and written communication skills, basic communication skills in French and/or German is a plus\n\nCoordonnées des personnes de contact\n\nLudovic Gremaud, Full Professor UAS, T +41 26 429 68 06",
       "descriptionByLocale": {
@@ -5473,23 +5473,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "previousSlugs": [
-        "sviluppo-del-processo-mechanochimico-associato-accademico-etat-de-fribourg-fribourg",
-        "academic-associate-uas-mechanochemische-prozessentwicklung-etat-de-fribourg-fribourg",
-        "academic-associate-uas-mechanochemical-process-development-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sviluppo-del-processo-mechanochimico-associato-accademico-etat-de-fribourg-fribourg",
-          "academic-associate-uas-mechanochemical-process-development-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "academic-associate-uas-mechanochemische-prozessentwicklung-etat-de-fribourg-fribourg",
-          "academic-associate-uas-mechanochemical-process-development-etat-de-fribourg-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:39.533Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5504,7 +5488,23 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:39.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sviluppo-del-processo-mechanochimico-associato-accademico-etat-de-fribourg-fribourg",
+          "academic-associate-uas-mechanochemical-process-development-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "academic-associate-uas-mechanochemische-prozessentwicklung-etat-de-fribourg-fribourg",
+          "academic-associate-uas-mechanochemical-process-development-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sviluppo-del-processo-mechanochimico-associato-accademico-etat-de-fribourg-fribourg",
+        "academic-associate-uas-mechanochemische-prozessentwicklung-etat-de-fribourg-fribourg",
+        "academic-associate-uas-mechanochemical-process-development-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-874d753d0c8d",
@@ -5596,10 +5596,10 @@
       "companyDomain": "fr.ch",
       "title": "Lecteur-trice domaine sciences de l'éducation",
       "titleByLocale": {
-        "it": "Lecteur-trice domaine sciences de l'éducation",
-        "en": "Lecteur-trice domaine sciences de l'éducation",
-        "de": "Lecteur-trice domaine sciences de l'éducation",
-        "fr": "Lecteur-trice domaine sciences de l'éducation"
+        "fr": "Lecteur-trice domaine sciences de l'éducation",
+        "it": "Docente in scienze dell'istruzione",
+        "en": "Lecturer in education science",
+        "de": "Dozent für Bildungswissenschaften"
       },
       "description": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nLe Centre d’enseignement pour le degré primaire (CEDP) fait partie du Département de la formation à l’enseignement de l’Université de Fribourg. Sa mission est de former des enseignants-e-s du degré primaire, de fournir des prestations dans la formation continue, dans la recherche et le développement.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Enseignements dans le domaine « identité professionnelle, communication et sciences de l’éducation »\n\n• Encadrement d’étudiant-e-s se formant à l’enseignement primaire\n\n• Collaborations au sein de la formation à l’enseignement pour le degré primaire\n\n• Supervision de mémoires de Bachelor\n\n• Accompagnement d’étudiant-e-s dans la formation à la pratique professionnelle\n\nProfil souhaité\n\n• Master en sciences de l’éducation ou dans un domaine proche\n\n• Diplôme d’enseignement primaire\n\n• Excellentes connaissances du terrain de l’enseignement du primaire en Suisse romande\n\n• Compétences avérées dans les approches de la recherche en sciences de l’éducation\n\n• Si possible expérience d’encadrement de travaux de diplomation\n\n• Excellente maîtrise de la langue française avec si possible des connaissances passives de l’allemand\n\nCoordonnées de la personne de contact\n\nDr Zakaria Serir, zakaria.serir@unifr.ch, T +41 26 300 69 52",
       "descriptionByLocale": {
@@ -5633,24 +5633,6 @@
       "pensumMin": 45,
       "pensumMax": 50,
       "pensum": "45-50%",
-      "previousSlugs": [
-        "docente-in-scienze-dell-istruzione-etat-de-fribourg-fribourg",
-        "lecturer-in-education-science-etat-de-fribourg-fribourg",
-        "dozent-fur-bildungswissenschaften-etat-de-fribourg-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "docente-in-scienze-dell-istruzione-etat-de-fribourg-fribourg"
-        ],
-        "en": [
-          "lecturer-in-education-science-etat-de-fribourg-fribourg"
-        ],
-        "de": [
-          "dozent-fur-bildungswissenschaften-etat-de-fribourg-fribourg"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:37.477Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -5665,7 +5647,25 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:37.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "docente-in-scienze-dell-istruzione-etat-de-fribourg-fribourg"
+        ],
+        "en": [
+          "lecturer-in-education-science-etat-de-fribourg-fribourg"
+        ],
+        "de": [
+          "dozent-fur-bildungswissenschaften-etat-de-fribourg-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "docente-in-scienze-dell-istruzione-etat-de-fribourg-fribourg",
+        "lecturer-in-education-science-etat-de-fribourg-fribourg",
+        "dozent-fur-bildungswissenschaften-etat-de-fribourg-fribourg"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-08ae7c71e0f1",
@@ -5750,10 +5750,10 @@
       "companyDomain": "fr.ch",
       "title": "Inspecteur-trice de la surveillance du marché du travail",
       "titleByLocale": {
-        "it": "Inspecteur-trice de la surveillance du marché du travail",
-        "en": "Inspecteur-trice de la surveillance du marché du travail",
-        "de": "Inspecteur-trice de la surveillance du marché du travail",
-        "fr": "Inspecteur-trice de la surveillance du marché du travail"
+        "fr": "Inspecteur-trice de la surveillance du marché du travail",
+        "it": "Ispettore della sorveglianza del mercato del lavoro",
+        "en": "Labour Market Surveillance Inspector",
+        "de": "Inspektor für die Arbeitsmarktüberwachung"
       },
       "description": "Qui sommes-nous?\n\nLe Service public de l’emploi (SPE) est l’autorité cantonale qui traite du marché de l’emploi dans le canton de Fribourg. Sa mission est de contribuer à ce que ce marché soit le plus équilibré et le plus prospère possible.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Organisation et exécution des contrôles dans le domaine des mesures d’accompagnement et de la lutte contre le travail au noir\n\n• Enquêtes sur des soupçons d’infractions, conduite d’auditions pénales\n\n• Rédaction de rapport de contrôle et de procès-verbal d’audition\n\n• Décisions de fermetures d’entreprise en cas d’infraction\n\n• Collaboration étroite avec la Police cantonale et le Ministère public dans le cadre de la lutte contre la criminalité, en ce qui concerne la lutte contre le travail au noir\n\n• Collaboration avec les organes de contrôle et d'autres autorités\n\n• Animation de présentations auprès d’organisations et de partenaires\n\n• Exécution de tâches administratives liées à la fonction\n\nProfil souhaité\n\n• Formation professionnelle supérieure\n\n• Extrait casier judiciaire\n\n• Bonnes connaissances dans le domaine du droit des étrangers, des assurances sociales et de la fiscalité\n\n• Flexibilité, autonomie et mobilité géographique\n\n• Gestion du stress\n\n• Aisance rédactionnelle\n\n• Capacité d'analyse et de synthèse\n\n• Aisance dans la communication et sens du contact\n\n• Maîtrise des outils informatiques usuels\n\n• Maîtrise de la langue allemande ou française avec de très bonnes connaissances de l’autre langue\n\nCoordonnées des personnes de contact\n\nBernhard Schneiter, Chef de section, T +41 26 305 95 55",
       "descriptionByLocale": {
@@ -5787,28 +5787,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "previousSlugs": [
-        "ispettore-della-sorveglianza-del-mercato-del-lavoro-etat-de-fribourg-fribourg",
-        "labour-market-surveillance-inspector-etat-de-fribourg-fribourg",
-        "inspektor-fur-die-arbeitsmarktuberwachung-etat-de-fribourg-fribourg",
-        "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ispettore-della-sorveglianza-del-mercato-del-lavoro-etat-de-fribourg-fribourg",
-          "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "labour-market-surveillance-inspector-etat-de-fribourg-fribourg",
-          "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "inspektor-fur-die-arbeitsmarktuberwachung-etat-de-fribourg-fribourg",
-          "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:36.191Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5823,7 +5801,29 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:36.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ispettore-della-sorveglianza-del-mercato-del-lavoro-etat-de-fribourg-fribourg",
+          "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "labour-market-surveillance-inspector-etat-de-fribourg-fribourg",
+          "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "inspektor-fur-die-arbeitsmarktuberwachung-etat-de-fribourg-fribourg",
+          "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ispettore-della-sorveglianza-del-mercato-del-lavoro-etat-de-fribourg-fribourg",
+        "labour-market-surveillance-inspector-etat-de-fribourg-fribourg",
+        "inspektor-fur-die-arbeitsmarktuberwachung-etat-de-fribourg-fribourg",
+        "inspecteur-trice-de-la-surveillance-du-marche-du-travail-etat-de-fribourg-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-c0fe87f24f43",
@@ -5839,10 +5839,10 @@
       "companyDomain": "fr.ch",
       "title": "Chauffeur-e-cantonnier-ère - SIERA Granges-Paccot",
       "titleByLocale": {
-        "it": "Chauffeur-e-cantonnier-ère - SIERA Granges-Paccot",
-        "en": "Chauffeur-e-cantonnier-ère - SIERA Granges-Paccot",
-        "de": "Chauffeur-e-cantonnier-ère - SIERA Granges-Paccot",
-        "fr": "Chauffeur-e-cantonnier-ère - SIERA Granges-Paccot"
+        "fr": "Chauffeur-e-cantonnier-ère - SIERA Granges-Paccot",
+        "de": "Fahrer - SIERA Granges-Paccot",
+        "it": "Driver - SIERA Granges-Paccot",
+        "en": "Driver - SIERA Granges-Paccot"
       },
       "description": "Taux d'activité\n\n95-100%\n\nLieu\n\nGranges-Paccot, CH, Sarine\n\nDélai de postulation\n\n25.10.2026\n\nDate d'entrée en fonction\n\n01.01.2027 ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous ?\n\nLe Service des ponts et chaussées SPC assure le développement durable des routes en mettant à disposition des usagers une infrastructure routière sûre et adaptée aux besoins, en gérant des domaines publics des routes et en effectuant les tâches administratives qui permettent d’atteindre ces objectifs.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nComme chauffeur-e-cantonnier-ère vous exécutez des travaux d'entretien d'exploitation des routes nationales (autoroutes) :\n\n• Service hivernal (déneigement, salage, surveillance de l'état de la chaussée)\n\n• Entretien des espaces verts\n\n• Nettoyages (tunnels, chaussées, talus, curage de canalisations)\n\n• Mise en place de signalisation légère et lourde\n\n• Permanence de piquet (la nuit, ainsi que samedi, dimanche et jours fériés)\n\nProfil souhaité\n\n• CFC d'un métier manuel ou formation jugée équivalente\n\n• Permis de conduire poids lourd et remorque (CE)\n\n• Sensibilité à la préservation de la biodiversité\n\n• Aisance dans différents travaux manuels\n\n• Durant la permanence de piquet, vous êtes en mesure de vous rendre en 25 minutes sur le lieu de travail\n\n• Maîtrise de la langue française\n\nCoordonnées des personnes de contact\n\nGiuseppe Gambera, Chef de Centres Granges-Paccot - Vaulruz, T +41 26 305 44 43",
       "descriptionByLocale": {
@@ -5876,23 +5876,6 @@
       "pensumMin": 95,
       "pensumMax": 100,
       "pensum": "95-100%",
-      "previousSlugs": [
-        "driver-siera-granges-paccot-etat-de-fribourg-granges-paccot",
-        "fahrer-siera-granges-paccot-etat-de-fribourg-granges-paccot",
-        "chauffeur-e-cantonnier-ere-siera-granges-paccot-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "driver-siera-granges-paccot-etat-de-fribourg-granges-paccot",
-          "chauffeur-e-cantonnier-ere-siera-granges-paccot-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "fahrer-siera-granges-paccot-etat-de-fribourg-granges-paccot",
-          "chauffeur-e-cantonnier-ere-siera-granges-paccot-etat-de-fribourg-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:35.558Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5906,7 +5889,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:35.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "driver-siera-granges-paccot-etat-de-fribourg-granges-paccot",
+          "chauffeur-e-cantonnier-ere-siera-granges-paccot-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "fahrer-siera-granges-paccot-etat-de-fribourg-granges-paccot",
+          "chauffeur-e-cantonnier-ere-siera-granges-paccot-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "driver-siera-granges-paccot-etat-de-fribourg-granges-paccot",
+        "fahrer-siera-granges-paccot-etat-de-fribourg-granges-paccot",
+        "chauffeur-e-cantonnier-ere-siera-granges-paccot-etat-de-fribourg-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-4875ab97e783",
@@ -5922,10 +5922,10 @@
       "companyDomain": "fr.ch",
       "title": "Employé-e d'administration",
       "titleByLocale": {
-        "it": "Employé-e d'administration",
-        "en": "Employé-e d'administration",
-        "de": "Employé-e d'administration",
-        "fr": "Employé-e d'administration"
+        "fr": "Employé-e d'administration",
+        "it": "Addetto/a amministrazione",
+        "en": "Administrative employee",
+        "de": "Verwaltungsangestellter/in"
       },
       "description": "Qui sommes-nous?\n\nL'Etablissement cantonal des assurances sociales (ECAS) est une institution autonome de droit public qui administre et coordonne les activités de la Caisse de compensation du canton de Fribourg, celles de l'Office cantonal de l'assurance-invalidité ainsi que des Services centraux. Il constitue ainsi un centre de compétences unique dans les assurances sociales du 1er pilier pour les personnes assurées et les entreprises du canton de Fribourg.\n\nPourquoi nous rejoindre ?\n\nNous offrons un cadre de travail agréable, avec une infrastructure moderne, idéalement desservi par les transports publics dont nous soutenons l’utilisation. Nous favorisons la conciliation entre vie privée et professionnelle ainsi que la formation continue.\n\nPour une simplification du traitement des candidatures, nous remercions les personnes intéressées de bien vouloir n’ajouter qu’un seul fichier PDF contenant tous les diplômes, certificats de travail, et/ou autres annexes.\n\nVos missions\n\nAu sein de la section \"AVS et Facturation\", de l'Office cantonal de l'assurance-invalidité :\n\n• Appliquer les barèmes de remboursement en vigueur pour les frais de voyage, les contributions d’assistance, les moyens auxiliaires ainsi que la rémunération des spécialistes, conformément aux différentes conventions tarifaires applicables\n\n• Assurer le traitement et le suivi des factures, qu’elles soient transmises sous format numérique ou papier, en veillant au respect des procédures internes\n\n• Assurer un rôle d’interlocuteur-trice auprès des personnes assurées et des fournisseurs, en répondant à leurs questions relatives aux prestations\n\nProfil souhaité\n\n• Titulaire d'un CFC d'employé-e de commerce\n\n• Plusieurs années d’expérience professionnelle dans le domaine des assurances\n\n• Capacité à travailler de manière autonome et en équipe, en faisant preuve de rigueur et d’organisation\n\n• Très bonnes compétences rédactionnelles, communicationnelles et organisationnelles\n\n• Très bonne maîtrise des outils bureautiques usuels\n\n• Capacité à gérer une charge de travail importante tout en maintenant un travail de qualité\n\n• Maîtrise de la langue française avec des connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nEric Gbessaya, Chef de section AVS et Facturation, T +41 26 426 70 58",
       "descriptionByLocale": {
@@ -5959,24 +5959,7 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "previousSlugs": [
-        "personale-amministrativo-etat-de-fribourg-givisiez",
-        "administrative-staff-etat-de-fribourg-givisiez",
-        "verwaltungspersonal-etat-de-fribourg-givisiez"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "personale-amministrativo-etat-de-fribourg-givisiez"
-        ],
-        "en": [
-          "administrative-staff-etat-de-fribourg-givisiez"
-        ],
-        "de": [
-          "verwaltungspersonal-etat-de-fribourg-givisiez"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-23T22:26:37.065Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -5990,7 +5973,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-07-23T22:26:37.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personale-amministrativo-etat-de-fribourg-givisiez"
+        ],
+        "en": [
+          "administrative-staff-etat-de-fribourg-givisiez"
+        ],
+        "de": [
+          "verwaltungspersonal-etat-de-fribourg-givisiez"
+        ]
+      },
+      "previousSlugs": [
+        "personale-amministrativo-etat-de-fribourg-givisiez",
+        "administrative-staff-etat-de-fribourg-givisiez",
+        "verwaltungspersonal-etat-de-fribourg-givisiez"
+      ]
     },
     {
       "id": "etat-de-fribourg-a2e2fe83f8d0",
@@ -6075,10 +6075,10 @@
       "companyDomain": "fr.ch",
       "title": "Chargé-e de communication",
       "titleByLocale": {
-        "it": "Chargé-e de communication",
-        "en": "Chargé-e de communication",
-        "de": "Chargé-e de communication",
-        "fr": "Chargé-e de communication"
+        "fr": "Chargé-e de communication",
+        "it": "Responsabile delle comunicazioni",
+        "en": "Communications Officer",
+        "de": "Kommunikationsbeauftragter"
       },
       "description": "Qui sommes-nous?\n\nGrangeneuve, centre de compétences pluridisciplinaire, s’engage avec passion dans la formation professionnelle, l’expertise, le conseil et les services pour les métiers de la terre, de la nature, du lait, de l’agroalimentaire et de l’hôtellerie-intendance. Ses activités sont conduites par plus de 280 collaborateur-trice-s évoluant dans un environnement bilingue, où l’excellence, le respect, la collaboration et l’innovation sont encouragés, dans un esprit de valorisation et de transmission du patrimoine.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Soutenir et conseiller la Direction sur les différents dossiers en matière de stratégie de communication et marketing\n\n• Rédiger et coordonner le rapport annuel, le rapport d’activités du Conseil d’Etat et les rapports pour la commission consultative\n\n• Assurer la gestion du site Internet et des réseaux sociaux pour la Direction\n\n• Assister et conseiller les responsables et collaborateurs-trices dans le domaine de la communication interne et externe spécialisée\n\n• Assurer les relations avec la presse et les médias en général\n\nProfil souhaité\n\n• Master en lien avec le domaine d’activité (lettres, sciences politiques, communication, …) ou formation jugée équivalente\n\n• Formation postgrade utile à la fonction (rédacteur RP,…)\n\n• Plusieurs années d'expérience professionnelle\n\n• Connaissance des domaines d’activités de Grangeneuve, un atout\n\n• Maîtrise des nouveaux médias et des médias sociaux\n\n• Parfaite maîtrise de la langue française avec de très bonnes connaissances de la langue allemande (B2-C1)\n\nCoordonnées des personnes de contact\n\nPascal Toffel, Directeur, T +41 26 305 55 05",
       "descriptionByLocale": {
@@ -6112,12 +6112,21 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60-80%",
-      "previousSlugs": [
-        "responsabile-delle-comunicazioni-etat-de-fribourg-hauterive-fr",
-        "communications-officer-etat-de-fribourg-hauterive-fr",
-        "kommunikationsbeauftragter-etat-de-fribourg-hauterive-fr",
-        "charge-e-de-communication-etat-de-fribourg-ch"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:33.635Z",
       "previousSlugsByLocale": {
         "it": [
           "responsabile-delle-comunicazioni-etat-de-fribourg-hauterive-fr",
@@ -6132,22 +6141,13 @@
           "charge-e-de-communication-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:33.635Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR"
+      "previousSlugs": [
+        "responsabile-delle-comunicazioni-etat-de-fribourg-hauterive-fr",
+        "communications-officer-etat-de-fribourg-hauterive-fr",
+        "kommunikationsbeauftragter-etat-de-fribourg-hauterive-fr",
+        "charge-e-de-communication-etat-de-fribourg-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-f2b3df497481",
@@ -6245,10 +6245,10 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve supérieur-e",
       "titleByLocale": {
-        "it": "Collaborateur-trice administratif-ve supérieur-e",
-        "en": "Collaborateur-trice administratif-ve supérieur-e",
-        "de": "Collaborateur-trice administratif-ve supérieur-e",
-        "fr": "Collaborateur-trice administratif-ve supérieur-e"
+        "fr": "Collaborateur-trice administratif-ve supérieur-e",
+        "it": "Collaboratore/trice amministrativo/a superiore/a",
+        "en": "Senior Administrative Assistant",
+        "de": "Vorgesetzte/r Verwaltungsmitarbeiter/in"
       },
       "description": "Qui sommes-nous?\n\nEnseignement, recherche, emplois, événements: l’Université de Fribourg est un espace d’innovations et un moteur important pour la vie économique et culturelle de la région. Elle attire des étudiant-e-s et des chercheur-euse-s en provenance de toute la Suisse et du monde entier, elle marque le quotidien de la cité bilingue de Fribourg, depuis sa fondation en 1889.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Traitement des admissions aux études de master\n\n• Traitement des demandes de reconnaissance d’études antérieures\n\n• Traitement de demandes spécifiques et préparation de décisions, y compris analyse de documents\n\n• Gestion administrative des comptes et des fonds de la Faculté\n\n• Gestion et traitement des factures du Décanat\n\n• Secrétariat de la Commission des fonds facultaires\n\n• Secrétariat de la Commission des honneurs\n\n• Réception des étudiant-e-s et réponses aux demandes par téléphone et par écrit\n\n• Participation à des événements destinés aux étudiant-e-s\n\nProfil souhaité\n\n• Diplôme de bachelor, ou au minimum, diplôme / brevet fédéral ou diplôme ES avec plusieurs années d’expérience professionnelle\n\n• Excellentes capacités rédactionnelles\n\n• Capacité à travailler sur des projets de manière autonome ou en équipe\n\n• Personnalité résistante et flexible, dotée d’excellentes compétences en communication\n\n• Compréhension et capacité d’interprétation des textes juridiques\n\n• Aisance avec les outils informatiques et intérêt pour l’apprentissage de nouvelles applications\n\n• Maîtrise de la langue allemande avec d'excellentes connaissances en français parlé et écrit (niveau C1) ou maîtrise du français avec d'excellentes connaissances en allemand parlé et écrit (niveau C1)\n\nCoordonnées des personnes de contact\n\nAurore Bettinville\nAdministratrice de Faculté\naurore.bettinville@unifr.ch",
       "descriptionByLocale": {
@@ -6282,13 +6282,23 @@
       "pensumMin": 50,
       "pensumMax": 60,
       "pensum": "50-60%",
-      "previousSlugs": [
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch",
-        "collaboratore-amministrativo-etat-de-fribourg-fribourg-e12911",
-        "administrative-collaborator-etat-de-fribourg-fribourg-e12911",
-        "verwaltungsmitarbeiter-etat-de-fribourg-fribourg-e12911",
-        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rue des Chanoines 17",
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-07-17T11:09:01.479Z",
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch",
@@ -6304,23 +6314,13 @@
           "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-17T11:09:01.479Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch",
+        "collaboratore-amministrativo-etat-de-fribourg-fribourg-e12911",
+        "administrative-collaborator-etat-de-fribourg-fribourg-e12911",
+        "verwaltungsmitarbeiter-etat-de-fribourg-fribourg-e12911",
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
+      ]
     },
     {
       "id": "etat-de-fribourg-dc93fd9ba0de",
@@ -6404,10 +6404,10 @@
       "companyDomain": "fr.ch",
       "title": "Laborantin-e spécialisé-e",
       "titleByLocale": {
-        "it": "Laborantin-e spécialisé-e",
-        "en": "Laborantin-e spécialisé-e",
-        "de": "Laborantin-e spécialisé-e",
-        "fr": "Laborantin-e spécialisé-e"
+        "fr": "Laborantin-e spécialisé-e",
+        "it": "Laboratorio specializzato",
+        "en": "Specialized laboratory",
+        "de": "Spezialisiertes Labor"
       },
       "description": "Taux d'activité\n\n95-100%\n\nLieu\n\nGivisiez, CH, Sarine\n\nDélai de postulation\n\n23.10.2026\n\nDate d'entrée en fonction\n\n01.11.2026 ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous ?\n\nLe Service de l’environnement SEn veille à l’équilibre entre l’être humain et l’environnement en application des lois fédérales sur la protection des eaux et sur la protection de l’environnement. A cet effet, il observe la qualité de l’environnement, contribue à la prévention des atteintes nuisibles de nouvelles activités, assure l’assainissement des installations existantes provoquant des atteintes et informe les autorités et le public sur les comportements à l’origine d’atteintes préjudiciables à l’environnement.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce  lien .\n\nVos missions\n\n• Réaliser des analyses physico-chimiques sur des échantillons environnementaux\n\n• Participer aux campagnes de prélèvements sur le terrain\n\n• Appliquer et contribuer au maintien des exigences liées au système d’assurance qualité selon la norme ISO 17025\n\n• Assurer la préparation, la gestion et la traçabilité des échantillons au laboratoire\n\n• Contribuer au bon fonctionnement général du laboratoire et collaborer activement au sein de l’équipe\n\nProfil souhaité\n\n• Vous êtes titulaire d’un CFC de laborantin-e en chimie ou d’une formation jugée équivalente\n\n• Vous êtes à l’aise avec les travaux de laboratoire réalisés dans un environnement normé\n\n• Vous appréciez le travail sur le terrain et la collecte d’échantillons environnementaux\n\n• Vous avez de bonnes aptitudes pour le travail en équipe et la collaboration\n\n• Vous êtes à l’aise avec les travaux techniques ainsi qu’avec l’utilisation et l’entretien d’équipements d’essais\n\n• Vous possédez d'excellentes capacités rédactionnelles et maîtrisez la langue française ou allemande, avec de très bonnes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nLionel Schouwey, Chef de section, T +41 26 305 69 97, lionel.schouwey@fr.ch",
       "descriptionByLocale": {
@@ -6441,12 +6441,21 @@
       "pensumMin": 95,
       "pensumMax": 100,
       "pensum": "95-100%",
-      "previousSlugs": [
-        "laboratorio-specializzato-etat-de-fribourg-givisiez",
-        "specialized-laboratory-etat-de-fribourg-givisiez",
-        "spezialisiertes-labor-etat-de-fribourg-givisiez",
-        "laborantin-e-specialise-e-etat-de-fribourg-ch"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:31.046Z",
       "previousSlugsByLocale": {
         "it": [
           "laboratorio-specializzato-etat-de-fribourg-givisiez",
@@ -6461,22 +6470,13 @@
           "laborantin-e-specialise-e-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:31.046Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR"
+      "previousSlugs": [
+        "laboratorio-specializzato-etat-de-fribourg-givisiez",
+        "specialized-laboratory-etat-de-fribourg-givisiez",
+        "spezialisiertes-labor-etat-de-fribourg-givisiez",
+        "laborantin-e-specialise-e-etat-de-fribourg-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-353f78179cca",
@@ -6492,10 +6492,10 @@
       "companyDomain": "fr.ch",
       "title": "Kommunikationsverantwortliche/r",
       "titleByLocale": {
-        "it": "Kommunikationsverantwortliche/r",
-        "en": "Kommunikationsverantwortliche/r",
         "de": "Kommunikationsverantwortliche/r",
-        "fr": "Kommunikationsverantwortliche/r"
+        "it": "Responsabile della comunicazione",
+        "en": "Responsible for communication",
+        "fr": "Responsable de la communication"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nGrangeneuve ist ein multidisziplinäres Kompetenzzentrum, das sich mit Leidenschaft der Berufsbildung, der Expertise, der Beratung und den Dienstleistungen für die Berufe der Natur, Milch, Lebensmittel und Hotellerie-Hauswirtschaft verschrieben hat. Mehr als 280 Mitarbeitende sind in einem zweisprachigen Umfeld tätig, in dem Exzellenz, Respekt, Zusammenarbeit und Innovation ebenso gefördert werden wie die Wertschätzung und Weitergabe des Kulturerbes.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Unterstützung und Beratung der Direktion in sämtlichen Fragen der Kommunikations- und Marketingstrategie\n\n• Redaktion und Koordination des Jahresberichts, des Tätigkeitsberichts des Staatsrats sowie des Berichtes für die beratende Kommission\n\n• Betreuung und Pflege der Website sowie der Social-Media-Kanäle\n\n• Unterstützung und Beratung der Führungskräfte und Mitarbeitenden im Bereich der internen und externen Fachkommunikation\n\n• Pflege der Medien- und Pressebeziehungen\n\nGewünschtes Profil\n\n• Masterabschluss in einem für die Tätigkeit relevanten Bereich (Geisteswissenschaften, Politikwissenschaften, Medien- und Kommunikationswissenschaften.) oder gleichwertige Ausbildung\n\n• Funktionsrelevante Weiterbildung auf Nachdiplomstufe (z.B. PR_Redaktor/in) von Vorteil\n\n• Mehrjährige Berufserfahrung\n\n• Kenntnisse der Tätigkeitsbereiche von Grangeneuve von Vorteil\n\n• Sicherer Umgang mit digitalen Kommunikationskanälen und sozialen Netzwerken\n\n• Ausgezeichnete Französischkenntnisse sowie sehr gute Deutschkenntnisse (Niveau B2 bis C1) in Wort und Schrift\n\nAngaben der Kontaktpersonen\n\nPascal Toffel, Direktor, T +41 26 305 55 05",
       "descriptionByLocale": {
@@ -6529,13 +6529,6 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60-80%",
-      "previousSlugs": [
-        "kommunikationsverantwortliche-r-etat-de-fribourg-ch",
-        "responsabile-della-comunicazione-etat-de-fribourg-hauterive-fr",
-        "responsible-for-communication-etat-de-fribourg-hauterive-fr",
-        "responsable-de-la-communication-etat-de-fribourg-hauterive-fr",
-        "kommunikationsverantwortliche-r-etat-de-fribourg-hauterive-fr"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "kommunikationsverantwortliche-r-etat-de-fribourg-ch",
@@ -6554,8 +6547,13 @@
           "kommunikationsverantwortliche-r-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:30.411Z",
+      "previousSlugs": [
+        "kommunikationsverantwortliche-r-etat-de-fribourg-ch",
+        "responsabile-della-comunicazione-etat-de-fribourg-hauterive-fr",
+        "responsible-for-communication-etat-de-fribourg-hauterive-fr",
+        "responsable-de-la-communication-etat-de-fribourg-hauterive-fr",
+        "kommunikationsverantwortliche-r-etat-de-fribourg-hauterive-fr"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6569,7 +6567,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:30.411Z",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-8f0bf43a62de",
@@ -6837,10 +6837,10 @@
       "companyDomain": "fr.ch",
       "title": "Juriste",
       "titleByLocale": {
-        "it": "Juriste",
-        "en": "Juriste",
-        "de": "Juriste",
-        "fr": "Juriste"
+        "fr": "Juriste",
+        "it": "Ufficiale legale",
+        "en": "Legal Officer",
+        "de": "Legal Officer"
       },
       "description": "Taux d'activité\n\n55-60%\n\nLieu\n\nGranges-Paccot, CH, Sarine\n\nDélai de postulation\n\n30.10.2026\n\nDate d'entrée en fonction\n\n01.01.2027 ou à convenir\n\nType de contrat\n\nCDI\n\nQui sommes-nous ?\n\nLe Service de la population et des migrants SPoMi met en œuvre les prescriptions de police des étrangers réglant l’entrée, le séjour et l’activité des ressortissants étrangers. Il traite les demandes des citoyens suisses en établissement de passeports et de cartes d’identité.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce  lien .\n\nVos missions\n\n• Mettre en oeuvre la législation en matière de mesures de contrainte du droit des étrangers et en matière d'éloignement de Suisse\n\n• Entretenir, en coordination avec le/la supérieur-e hiérarchique, les relations externes et internes nécessaires à son activité et assurer la suppléance du/de la chef-fe\n\n• Représenter le service, dans le domaine d'activité précité, devant le Tribunal des mesures de contrainte (TMC)\n\n• Participer à la bonne gestion de la section asile et exécution des renvois\n\n• Exécuter toute tâche confiée par le/la supérieur-e hiérarchique, respectivement remplacer celui-ci/celle-ci durant ses absences\n\nProfil souhaité\n\n• Licence ou master en droit\n\n• Habileté rédactionnelle\n\n• Personnalité douée d'aisance relationnelle et d'une grande force de conviction\n\n• Capacités d'adaptation\n\n• Maîtrise de la langue française ou allemande avec de très bonnes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nLaurence Richard, Cheffe de section, T +41 26 305 15 15",
       "descriptionByLocale": {
@@ -6874,27 +6874,6 @@
       "pensumMin": 55,
       "pensumMax": 60,
       "pensum": "55-60%",
-      "previousSlugs": [
-        "juriste-etat-de-fribourg-granges-paccot",
-        "ufficiale-legale-etat-de-fribourg-granges-paccot",
-        "legal-officer-etat-de-fribourg-granges-paccot",
-        "juriste-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ufficiale-legale-etat-de-fribourg-granges-paccot",
-          "juriste-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "legal-officer-etat-de-fribourg-granges-paccot",
-          "juriste-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "juriste-etat-de-fribourg-granges-paccot"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:26:27.873Z",
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -6908,7 +6887,28 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-03T09:26:27.873Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ufficiale-legale-etat-de-fribourg-granges-paccot",
+          "juriste-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "legal-officer-etat-de-fribourg-granges-paccot",
+          "juriste-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "juriste-etat-de-fribourg-granges-paccot"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-etat-de-fribourg-granges-paccot",
+        "ufficiale-legale-etat-de-fribourg-granges-paccot",
+        "legal-officer-etat-de-fribourg-granges-paccot",
+        "juriste-etat-de-fribourg-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-9066cf1a7882",
@@ -7151,10 +7151,10 @@
       "companyDomain": "fr.ch",
       "title": "Juge de paix auprès de la Justice de paix du Lac",
       "titleByLocale": {
-        "it": "Juge de paix auprès de la Justice de paix du Lac",
-        "en": "Juge de paix auprès de la Justice de paix du Lac",
-        "de": "Juge de paix auprès de la Justice de paix du Lac",
-        "fr": "Juge de paix auprès de la Justice de paix du Lac"
+        "fr": "Juge de paix auprès de la Justice de paix du Lac",
+        "it": "Giustizia della Pace del Lago",
+        "en": "Justice of the Peace of the Lake",
+        "de": "Gerechtigkeit des Friedens des Sees"
       },
       "description": "Comment postuler\n\nAttention : Pour postuler à ce poste, utilisez uniquement le lien suivant :  CLIQUEZ SUR CE LIEN POUR POSTULER .  N’utilisez  pas   les boutons « postuler » sis au haut et au bas de cette page : votre dossier ne serait pas traité. Postulez directement en transmettant vos documents par courrier électronique à l'adresse:  CMcandidatures@fr.ch .\n\nDossier de candidature\n\nLes candidatures doivent être accompagnées d'une lettre de motivation, d'un bref curriculum vitae, d'extraits du casier judiciaire et de l'office des poursuites récents (datés de moins d'une année).\n\nNe pas oublier de compléter le formulaire ad hoc mentionné sur le site du Conseil de la magistrature.\n\nProfil souhaité\n\n• Brevet d'avocat-e, licence ou master en droit et justifier de connaissances pratiques suffisantes pour l'exercice de la fonction\n\n• Une expérience dans les domaines de la justice de paix (cf. art. 58 LJ ) serait un avantage\n\n• Citoyenneté active sur le plan cantonal. Les personnes de nationalité étrangère doivent être titulaires d'un permis d'établissement et être domiciliées dans le canton depuis au moins cinq ans. Les personnes candidates ne doivent pas faire l'objet d'acte de défaut de biens, ne pas avoir été condamnées pénalement pour des faits incompatibles avec la fonction\n\n• Maîtrise de la langue allemande avec des bonnes connaissances de la langue française\n\nCoordonnées des personnes de contact\n\nCMcandidatures@fr.ch",
       "descriptionByLocale": {
@@ -7188,12 +7188,22 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "giustizia-della-pace-del-lago-etat-de-fribourg-morat",
-        "justice-of-the-peace-of-the-lake-etat-de-fribourg-morat",
-        "gerechtigkeit-des-friedens-des-sees-etat-de-fribourg-morat",
-        "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 78500,
+      "salaryMax": 134500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 78500,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-07-10T12:09:39.785Z",
       "previousSlugsByLocale": {
         "it": [
           "giustizia-della-pace-del-lago-etat-de-fribourg-morat",
@@ -7208,22 +7218,12 @@
           "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-10T12:09:39.785Z",
-      "salaryMin": 78500,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR"
+      "previousSlugs": [
+        "giustizia-della-pace-del-lago-etat-de-fribourg-morat",
+        "justice-of-the-peace-of-the-lake-etat-de-fribourg-morat",
+        "gerechtigkeit-des-friedens-des-sees-etat-de-fribourg-morat",
+        "juge-de-paix-aupres-de-la-justice-de-paix-du-lac-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-a9d1bcf35f88",
@@ -7239,10 +7239,10 @@
       "companyDomain": "fr.ch",
       "title": "Friedensrichter/in des Seebezirks",
       "titleByLocale": {
-        "it": "Friedensrichter/in des Seebezirks",
-        "en": "Friedensrichter/in des Seebezirks",
         "de": "Friedensrichter/in des Seebezirks",
-        "fr": "Friedensrichter/in des Seebezirks"
+        "it": "Giudice di pace del distretto lacustre",
+        "en": "Justice of the Peace of the Lake District",
+        "fr": "Juge de paix du district du lac"
       },
       "description": "Wie bewerbe ich mich\n\nACHTUNG: Um Ihre Bewerbung einzureichen, verwenden Sie bitte ausschliesslich den folgenden Link:   KLICKEN SIE AUF DIESEN LINK, UM SICH ZU BEWERBEN . Klicken Sie  nicht  auf die Schaltflächen « Jetzt bewerben » oben und unten auf dieser Seite. Bewerben Sie sich bitte direkt über folgende E-Mailadresse:  CMcandidatures@fr.ch . Ansonsten wird Ihre Bewerbung nicht bearbeitet.\n\nBewerbungsdossier\n\nDie Bewerbungen müssen schriftlich mit einem Bewerbungsschreiben, einem kurzen Lebenslauf und einem kürzlich ausgestellten (nicht älter als ein Jahr) Straf- und Betreibungsregisterauszug eingereicht werden.\n\nVergessen Sie nicht, das auf der Webseite des Justizrates erwähnte  offizielle Bewerbungsformular  einzureichen.\n\nGewünschtes Profil\n\n• Anwaltspatent, Lizentiat oder Master der Rechte und ausreichende praktische Kenntnisse für die Ausübung des Amtes\n\n• Erfahrung im Bereich des Friedensgerichts gemäss Art. 58 JG stellt einen Vorteil dar\n\n• Stimmberechtigung in kantonalen Angelegenheiten. Ausländische Staatsangehörige müssen im Besitz einer Niederlassungsbewilligung sein und zudem seit mindestens fünf Jahren Wohnsitz im Kanton haben. Gegen die Personen dürfen keine Verlustscheine bestehen. Sie dürfen nicht wegen Handlungen strafrechtlich verurteilt worden sein, die mit dem richterlichen Amt nicht vereinbar sind\n\n• Beherrschen der deutschen Sprache mit guten Kenntnissen der französischen Sprache\n\nAngaben der Kontaktpersonen\n\nCMcandidatures@fr.ch",
       "descriptionByLocale": {
@@ -7277,7 +7277,6 @@
       "pensumMax": 100,
       "pensum": "100%",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-10T12:09:37.166Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7291,7 +7290,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-07-10T12:09:37.166Z"
     },
     {
       "id": "etat-de-fribourg-8d28b8bd39a1",
@@ -7307,10 +7307,10 @@
       "companyDomain": "fr.ch",
       "title": "Juristische-r Post-Master Praktikant-in",
       "titleByLocale": {
-        "it": "Juristische-r Post-Master Praktikant-in",
-        "en": "Juristische-r Post-Master Praktikant-in",
         "de": "Juristische-r Post-Master Praktikant-in",
-        "fr": "Juristische-r Post-Master Praktikant-in"
+        "it": "Legale-r Stage post-Master",
+        "en": "Legal-r Post-Master intern-in",
+        "fr": "Legal-r Post-Master interne"
       },
       "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Sozialvorsorgeamt (SVA) unterstützt und koordiniert die Umsetzung der Politik für Menschen mit Behinderungen und für Seniorinnen und Senioren. Es plant das Leistungsangebot und kümmert sich um die Finanzierung und die Aufsicht über die sonder- und sozialpädagogischen Institutionen, die in seinen Zuständigkeitsbereich fallen. Es plant den Platzbedarf in den Pflegeheimen, den Bedarf an Hilfe und Pflege zu Hause und entrichtet Beiträge an Personen, die ihren Aufenthalt im Pflegeheim nicht selber finanzieren können. Es ist zudem für die Finanzierung der Restkosten der Pflege zuständig.\n\nWerden Sie Teil unseres Teams!\n\nSie werden voll in die rechtlichen Überlegungen des Amtes eingebunden sein und können Ihre Fähigkeit, pragmatische und innovative Lösungen vorzuschlagen, einbringen.\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender  Seite .\n\nIhre Aufgaben\n\n• Durchführung von juristischen Recherchen und Analysen in den verschiedenen Tätigkeitsbereichen des Amtes\n\n• Erarbeitung und Anpassung von Rechtsgrundlagen, Richtlinien, Verfahren und Vorlagen\n\n• Bearbeitung juristischer Fragen\n\n• Verfassen von Sitzungsprotokollen\n\nGewünschtes Profil\n\n• Master in Rechtswissenschaften\n\n• Analyse- und Synthesefähigkeit\n\n• Fähigkeit, sich schnell in komplexe Sachverhalte einzuarbeiten und pragmatische, rechtlich fundierte Lösungen vorzuschlagen\n\n• Selbstständigkeit, Eigeninitiative und die Fähigkeit, Vorschläge zu unterbreiten\n\n• Beherrschen der deutschen oder französischen Sprache mit guten Kenntnissen der anderen Sprache\n\nAngaben der Kontaktpersonen\n\nOcéane Pomini, Sektionschefin, T +41 26 305 81 15",
       "descriptionByLocale": {
@@ -7363,7 +7363,6 @@
           "juristische-r-post-master-praktikant-in-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:26:23.925Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -7379,7 +7378,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-58706ce4733c",
@@ -7395,10 +7395,10 @@
       "companyDomain": "fr.ch",
       "title": "Stagiaire post-master juriste",
       "titleByLocale": {
-        "it": "Stagiaire post-master juriste",
-        "en": "Stagiaire post-master juriste",
-        "de": "Stagiaire post-master juriste",
-        "fr": "Stagiaire post-master juriste"
+        "fr": "Stagiaire post-master juriste",
+        "it": "Formazione post-master legale",
+        "en": "Legal post-master trainee",
+        "de": "Juristischer Postmaster-Trainee"
       },
       "description": "Qui sommes-nous?\n\nLe Service de la prévoyance sociale SPS soutient et coordonne la mise en œuvre des politiques relatives aux personnes en situation de handicap et aux seniors. Il planifie l’offre de prestations et s’occupe du financement ainsi que de la surveillance des institutions spécialisées qui relèvent de sa compétence. Il planifie les besoins en places dans les établissements médico-sociaux (EMS), les besoins en soins et aide à domicile et verse des subventions aux personnes qui ne peuvent pas financer leur séjour en EMS. Il est également en charge du financement des coûts résiduels des soins.\n\nPourquoi nous rejoindre ?\n\nVous serez pleinement associé-e aux réflexions juridiques du Service et pourrez mettre à profit votre capacité à proposer des solutions pragmatiques et innovantes.\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Réaliser des recherches et analyses juridiques dans les différents domaines d'activité du Service\n\n• Elaborer et adapter des bases légales, directives, procédures et modèles\n\n• Traiter des questions juridiques\n\n• Rédiger des procès-verbaux de séances\n\nProfil souhaité\n\n• Master en droit\n\n• Capacités d’analyse et de synthèse\n\n• Capacité à s’approprier rapidement des problématiques complexes et à proposer des solutions pragmatiques et juridiquement fondées\n\n• Autonomie, esprit d'initiative et force de proposition\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l'autre langue\n\nCoordonnées des personnes de contact\n\nOcéane Pomini, Cheffe de section, T +41 26 305 81 15",
       "descriptionByLocale": {
@@ -7451,7 +7451,6 @@
           "stagiaire-post-master-juriste-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:26:23.287Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -7467,7 +7466,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-c05c36411335",
@@ -7483,10 +7483,10 @@
       "companyDomain": "fr.ch",
       "title": "Juriste-stagiaire",
       "titleByLocale": {
-        "it": "Juriste-stagiaire",
-        "en": "Juriste-stagiaire",
-        "de": "Juriste-stagiaire",
-        "fr": "Juriste-stagiaire"
+        "fr": "Juriste-stagiaire",
+        "it": "Ufficiale legale",
+        "en": "Legal Officer",
+        "de": "Legal Officer"
       },
       "description": "Qui sommes-nous?\n\nL’Autorité cantonale de la transparence, de la protection des données et de la médiation (ATPrDM) est une autorité indépendante, rattachée administrativement à la Chancellerie. Elle gère aussi bien le domaine de la transparence, de la protection des données que celui de la médiation administrative.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• S'occuper des questions juridiques relatives au domaine de la transparence et de la protection des données\n\n• Effectuer des recherches de législations, de jurisprudence et doctrine\n\n• Etablir des notes de dossiers, avis et publications\n\nProfil souhaité\n\n• Master en droit\n\nCoordonnées des personnes de contact\n\nMartine Stoffel, martine.stoffel@fr.ch, T +41 26 305 59 73",
       "descriptionByLocale": {
@@ -7539,7 +7539,6 @@
           "juriste-stagiaire-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:26:22.648Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -7555,7 +7554,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-274b02c497a4",
@@ -7571,10 +7571,10 @@
       "companyDomain": "fr.ch",
       "title": "Juristisches Praktikum",
       "titleByLocale": {
-        "it": "Juristisches Praktikum",
-        "en": "Juristisches Praktikum",
         "de": "Juristisches Praktikum",
-        "fr": "Juristisches Praktikum"
+        "it": "Stage giuridico",
+        "en": "Legal internship",
+        "fr": "Stage juridique"
       },
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDie Kantonale Behörde für Öffentlichkeit, Datenschutz und Mediation (ÖDSMB) ist eine unabhängige Behörde, die administrativ der Staatskanzlei zugewiesen ist. Sie befasst sich mit den Bereichen Öffentlichkeit und Transparenz, Datenschutz sowie Mediation für Verwaltungsangelegenheiten.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Juristische Fragen im Bereich Transparenz bearbeiten\n\n• Recherchen zu Gesetzgebung, Rechtssprechung und Doktrin anstellen\n\n• Notizen, Stellungnahmen und Veröffentlichungen verfassen\n\nGewünschtes Profil\n\n• Master in Recht\n\nKontaktperson\n\nMartine Stoffel, martine.stoffel@fr.ch, T +41 26 305 59 73",
       "descriptionByLocale": {
@@ -7627,7 +7627,6 @@
           "juristisches-praktikum-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:26:22.012Z",
       "salaryMin": 78500,
       "salaryMax": 134500,
@@ -7643,7 +7642,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-a9563678bcf0",
