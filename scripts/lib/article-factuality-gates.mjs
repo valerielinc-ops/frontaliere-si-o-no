@@ -250,17 +250,25 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
 // the token is glued to an "n". That escape is accepted as a boundary too.
 const NOT_INSIDE_A_WORD = '(?:(?<![\\p{L}\\p{N}])|(?<=\\\\n))';
 const LOCALIZED_TITLE_MARKER = "(?:ARTICLE TITLE|ARTIKEL-?TITEL|TITEL DES ARTIKELS|TITRE (?:DE L['’]ARTICLE|ARTICLE))";
+// Two flags, both load-bearing: `m` anchors the heading shape on each line and
+// `u` turns the `\p{L}`/`\p{N}` of NOT_INSIDE_A_WORD into Unicode property
+// escapes. Without `u` they are the literal characters "p", "{", "L"…, the
+// lookbehind stops seeing letters and "PREARTICLE TITLE:" is reported as a leak.
+const TITLE_MARKER_FLAGS = 'mu';
 
 const SCAFFOLDING_MARKERS = [
   {
-    re: new RegExp(`^\\s*#{0,4}\\s*TITOLO ARTICOLO\\s*:?|${NOT_INSIDE_A_WORD}TITOLO ARTICOLO[^\\S\\n]*:`, 'mu'),
+    re: new RegExp(
+      `^\\s*#{0,4}\\s*TITOLO ARTICOLO\\s*:?|${NOT_INSIDE_A_WORD}TITOLO ARTICOLO[^\\S\\n]*:`,
+      TITLE_MARKER_FLAGS,
+    ),
     what: 'marcatore di sezione del prompt di generazione',
   },
   {
     re: new RegExp(
       `^[^\\S\\n]*#{0,4}[^\\S\\n]*${LOCALIZED_TITLE_MARKER}[^\\S\\n]*$`
       + `|${NOT_INSIDE_A_WORD}${LOCALIZED_TITLE_MARKER}[^\\S\\n]*:`,
-      'mu',
+      TITLE_MARKER_FLAGS,
     ),
     what: 'marcatore di sezione del prompt di generazione, tradotto',
   },

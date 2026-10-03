@@ -1486,5 +1486,24 @@ describe('detectLeakedScaffolding', () => {
     ])('does not flag prose that mentions an article title (%s)', (_label, text) => {
       expect(detectLeakedScaffolding(text)).toEqual([]);
     });
+
+    // The label shape refuses a token that continues a word, and "word" means
+    // any Unicode letter or digit. That reading of `\p{L}`/`\p{N}` exists only
+    // under the `u` flag: drop it and every row below is reported as a leak
+    // (the lookbehind then tests for the literal characters "p", "{", "L"…).
+    // The non-ASCII row also fails an ASCII-only `[A-Za-z0-9]` boundary.
+    it.each([
+      ['ASCII letter', 'PREARTICLE TITLE: testo'],
+      ['ASCII letter, Italian token', 'SOTTOTITOLO ARTICOLO: testo'],
+      ['non-ASCII letter', 'MENÜARTIKELTITEL: Preise im Tessin'],
+      ['digit', 'Formular 2ARTICLE TITLE: a field code, not a heading'],
+    ])('does not flag the token when it continues a word (%s)', (_label, text) => {
+      expect(detectLeakedScaffolding(text)).toEqual([]);
+    });
+
+    it('still flags the same token once it stands on its own', () => {
+      expect(detectLeakedScaffolding('ARTICLE TITLE: testo')).toHaveLength(1);
+      expect(detectLeakedScaffolding('Menü. ARTIKELTITEL: Preise im Tessin')).toHaveLength(1);
+    });
   });
 });
