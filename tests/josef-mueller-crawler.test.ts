@@ -1,8 +1,11 @@
+import fs from 'node:fs';
 import { describe, it, expect } from 'vitest';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
   JOSEF_MUELLER_KEY,
   JOSEF_MUELLER_COMPANY_NAME,
   JOSEF_MUELLER_COMPANY_DOMAIN,
+  fetchAllJosefMuellerJobs,
   isJosefMuellerJob,
   isTrustedDomain,
   resolveAddress,
@@ -15,7 +18,7 @@ import {
 // Real jobs.ch company-profile vacancy-card markup (2026-07 fixture, class
 // names trimmed but href shape preserved exactly as observed live).
 const LISTING_HTML_SINGLE = `
-<a class="cursor_pointer trs-dur_d125 c_colorPalette.base" href="/de/stellenangebote/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/" data-discover="true">
+<a class="cursor_pointer trs-dur_d125 c_colorPalette.base" href="/en/vacancies/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/" data-discover="true">
   <div data-cy="vacancy-serp-item">
     <span>Betriebselektriker/ Anlagenelektriker/ Automatiker/ Mechatroniker für Instandhaltung und Unterhalt</span>
     <p class="textStyle_caption1">Hünenberg</p>
@@ -24,16 +27,26 @@ const LISTING_HTML_SINGLE = `
 `;
 
 const LISTING_HTML_MULTIPLE = `
-<a href="/de/stellenangebote/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/" data-discover="true">
+<a href="/en/vacancies/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/" data-discover="true">
   <div data-cy="vacancy-serp-item"><span>Betriebselektriker</span></div>
 </a>
-<a href="/de/stellenangebote/detail/aa11bb22-cc33-4dd4-ee55-ff6677889900/" data-discover="true">
+<a href="/en/vacancies/detail/aa11bb22-cc33-4dd4-ee55-ff6677889900/" data-discover="true">
   <div data-cy="vacancy-serp-item"><span>Sachbearbeiter Human Resources</span></div>
 </a>
 <!-- duplicate of the first card (jobs.ch sometimes re-renders a "similar jobs" widget) -->
-<a href="/de/stellenangebote/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/" data-discover="true">
+<a href="/en/vacancies/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/" data-discover="true">
   <div data-cy="vacancy-serp-item"><span>Betriebselektriker</span></div>
 </a>
+`;
+
+const PROFILE_HTML_AUTHORITATIVE_EMPTY = `
+<html><head>
+  <link rel="canonical" href="https://www.jobs.ch/en/companies/33612-josef-mueller-gemuese-ag/">
+</head><body>
+  <h1>Josef Müller Gemüse AG</h1>
+  <a href="/en/companies/33612-josef-mueller-gemuese-ag/vacancies/">Jobs (0)</a>
+  <div data-cy="company-no-vacancies">Currently, there are no job offers.</div>
+</body></html>
 `;
 
 // Real JSON-LD structure observed on the live detail page (trimmed
@@ -182,14 +195,14 @@ describe('Josef Müller Gemüse AG crawler parser', () => {
   describe('parseJosefMuellerListing', () => {
     it('extracts the single detail-page href from a real single-vacancy fixture', () => {
       const hrefs = parseJosefMuellerListing(LISTING_HTML_SINGLE);
-      expect(hrefs).toEqual(['/de/stellenangebote/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/']);
+      expect(hrefs).toEqual(['https://www.jobs.ch/en/vacancies/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/']);
     });
 
     it('extracts multiple distinct hrefs and de-duplicates a repeated card', () => {
       const hrefs = parseJosefMuellerListing(LISTING_HTML_MULTIPLE);
       expect(hrefs).toHaveLength(2);
-      expect(hrefs).toContain('/de/stellenangebote/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/');
-      expect(hrefs).toContain('/de/stellenangebote/detail/aa11bb22-cc33-4dd4-ee55-ff6677889900/');
+      expect(hrefs).toContain('https://www.jobs.ch/en/vacancies/detail/6f40d3fb-1b2e-4b1e-b007-be232b4bd78b/');
+      expect(hrefs).toContain('https://www.jobs.ch/en/vacancies/detail/aa11bb22-cc33-4dd4-ee55-ff6677889900/');
     });
 
     it('returns an empty array for empty/missing input', () => {
@@ -199,6 +212,40 @@ describe('Josef Müller Gemüse AG crawler parser', () => {
 
     it('returns an empty array when the page has no vacancy cards (zero open positions)', () => {
       expect(parseJosefMuellerListing('<html><body>Keine offenen Stellen.</body></html>')).toEqual([]);
+    });
+  });
+
+  describe('authoritative empty-source wiring', () => {
+    it('marks a rendered jobs.ch zero as authoritative', async () => {
+      const jobs = await fetchAllJosefMuellerJobs({
+        fetchPage: async (url: string) => {
+          expect(url).toBe('https://www.jobs.ch/en/companies/33612-josef-mueller-gemuese-ag/');
+          return PROFILE_HTML_AUTHORITATIVE_EMPTY;
+        },
+      });
+
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    });
+
+    it('keeps an unrecognised empty profile fail-closed', async () => {
+      const jobs = await fetchAllJosefMuellerJobs({
+        fetchPage: async () => '<html><body><h1>Josef Müller Gemüse AG</h1></body></html>',
+      });
+
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    });
+
+    it('wires the runner to publish only source-proven empty snapshots', () => {
+      const runner = fs.readFileSync(new URL('../scripts/update-josef-mueller-jobs.mjs', import.meta.url), 'utf8');
+      expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(');
+      expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+      expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+
+      const monitor = fs.readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
+      const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
+      expect(allowlist?.[1]).not.toContain("'josef-mueller'");
     });
   });
 
