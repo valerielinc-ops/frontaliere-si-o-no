@@ -140,8 +140,18 @@ jobs:
     timeout-minutes: 360
     # Only the actual Pages upload owns this cross-workflow lock. A long
     # validator in another run must not keep a newer build from reaching Pages.
+    # Keep the completed workflow_run guard explicit: failure/cancelled source
+    # runs may enter only when resolve-publish-plan has admitted a proven IT
+    # payload for a partial publish; every other no-op gets a run-unique group.
     concurrency:
-      group: ${{ needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-publish-plan.outputs.it_admitted == 'true' && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
+      group: >-
+        ${{ (github.event.workflow_run.conclusion == 'success' ||
+            github.event.workflow_run.conclusion == 'failure' ||
+            github.event.workflow_run.conclusion == 'cancelled') &&
+            needs.resolve-publish-plan.outputs.allowed == 'true' &&
+            needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+            'pages-deploy' ||
+            format('pages-deploy-noop-{0}', github.run_id) }}
       cancel-in-progress: false
     permissions:
       pages: write
