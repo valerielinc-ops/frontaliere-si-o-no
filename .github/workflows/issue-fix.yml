@@ -1902,6 +1902,7 @@ jobs:
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           IS_GROUP: ${{ steps.group.outputs.is_group }}
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
         run: node "$GITHUB_WORKSPACE/scripts/ci/route-already-fixed.mjs"
 
       # La classificazione distingue l'esito del workflow dall'evidenza di
