@@ -187,8 +187,8 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
       const ownJob = '/fr/emplois/detail/a55e0f5b-afe7-4406-a15c-d0a73ef159fd/';
       const relatedJob = '/fr/emplois/detail/962b0a39-e87f-4de4-a068-58083fcebac5/';
       const html = `
-        <section data-cy="company-job-list"><a href="${ownJob}">Own job</a></section>
-        <section data-cy="recommended-jobs"><a href="${relatedJob}">Related employer</a></section>
+        <div class="recommended-jobs-list"><a href="${relatedJob}">Related employer</a></div>
+        <div data-cy="company-jobs-list"><a href="${ownJob}">Own job</a></div>
       `;
       expect(extractJobupListingLinks(html)).toEqual([`https://www.jobup.ch${ownJob}`]);
     });
