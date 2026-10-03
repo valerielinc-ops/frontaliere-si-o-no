@@ -123,6 +123,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
+import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
 
 /** Conclusioni che sono un guasto del workflow osservato. */
 export const FAILING_CONCLUSIONS = new Set(['failure', 'timed_out', 'startup_failure']);
@@ -348,6 +349,15 @@ function gh(args, { allowFailure = true } = {}) {
 /** Quante run di storico leggiamo per la streak. Una pagina piena di `gh run list`. */
 export const RUN_HISTORY_LIMIT = 100;
 
+/**
+ * Finestra `created` dello storico. Un elenco per `-b main` senza finestra
+ * torna a tratti fermo a settimane prima (scripts/ci/lib/run-listing-window.mjs)
+ * e falserebbe la serie. 35 giorni e' la vita massima di una run: la finestra
+ * non toglie nulla a una serie in corso; se taglia lo storico prima di un
+ * verde, `saturated` lo dichiara («almeno N»).
+ */
+export const RUN_HISTORY_WINDOW_DAYS = 35;
+
 function main() {
   const argv = process.argv.slice(2);
   const modeIdx = argv.indexOf('--mode');
@@ -422,7 +432,8 @@ function main() {
     }
   }
 
-  const listArgs = ['run', 'list', '-w', workflowName, '-b', 'main', '-L', String(RUN_HISTORY_LIMIT),
+  const listArgs = ['run', 'list', '-w', workflowName, '-b', 'main',
+    '--created', createdSinceFilter(RUN_HISTORY_WINDOW_DAYS), '-L', String(RUN_HISTORY_LIMIT),
     '--json', 'databaseId,status,conclusion,createdAt'];
   if (repo) listArgs.push('--repo', repo);
   const listRaw = gh(listArgs);
@@ -431,7 +442,9 @@ function main() {
   if (listRaw) {
     try {
       ({ streak, saturated: streakSaturated } = consecutiveFailureStreak(
-        JSON.parse(listRaw), { fromRunId: runId || null, observedConclusion: conclusion || null },
+        // La serie si conta dalla run piu' recente: ordine locale, non quello
+        // della risposta.
+        newestFirst(JSON.parse(listRaw)), { fromRunId: runId || null, observedConclusion: conclusion || null },
       ));
     } catch {
       console.error('[deploy-alarm] listing dello storico illeggibile: streak non calcolata.');

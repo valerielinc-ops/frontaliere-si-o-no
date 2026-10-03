@@ -81,6 +81,22 @@ runs:
         MAX_PAGES=3
         PER_PAGE=50
 
+        # `runs?branch=main&status=success` WITHOUT a `created` window is not
+        # a reliable "latest runs" query: the API intermittently answers with
+        # a listing frozen weeks or months back. Run 37036020157 (2026-10-02)
+        # got 150 candidates whose NEWEST was from 2026-08-16 while that
+        # day's deploys and their live artifacts existed; every candidate was
+        # past retention, and the failure read as "no artifact left". With
+        # `created=>=<date>` the same endpoint answers with the current runs.
+        # The window is the artifact retention plus one day: nothing older
+        # can still be downloaded, so nothing older is worth listing.
+        # RETENTION_DAYS mirrors `retention-days` of the `github-pages` upload
+        # in deploy.yml — tests/pages-artifact-run-listing.test.ts pins the
+        # two together.
+        RETENTION_DAYS=8
+        WINDOW_DAYS=$((RETENTION_DAYS + 1))
+        CREATED_SINCE="$(jq -rn --argjson days "$WINDOW_DAYS" 'now - ($days * 86400) | strftime("%Y-%m-%d")')"
+
         if [ -n "$PINNED" ]; then
           # The pinned run needs its created_at looked up: this is the branch
           # where a WRONG run is most likely (an id typed by hand), so it is
@@ -97,7 +113,7 @@ runs:
         else
           page=1
           while [ "$page" -le "$MAX_PAGES" ]; do
-            if ! gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?branch=main&status=success&per_page=$PER_PAGE&page=$page" \
+            if ! gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?branch=main&status=success&created=%3E%3D$CREATED_SINCE&per_page=$PER_PAGE&page=$page" \
                  > "$WORK/page-$page.json"; then
               # #7393: the listing used to sit in a `gh api` command
               # substitution consumed directly by a for-LIST, whose exit code
@@ -135,13 +151,26 @@ runs:
 
           TOTAL=$(wc -l < "$CANDS" | tr -d ' ')
           if [ "$TOTAL" -eq 0 ]; then
-            echo "::error::No successful deploy.yml run on main at all. Nothing to audit."
+            echo "::error::No successful deploy.yml run on main created since $CREATED_SINCE (the 'github-pages' artifact is retained $RETENTION_DAYS days, so nothing older could be downloaded anyway). No deploy succeeded in that window: re-run after the next deploy, or pass run-id explicitly."
             exit 1
           fi
           # #7397: the raw candidate list, WITH created_at, so a wrong pick is
           # diagnosable after the fact instead of leaving only a bare run id.
           echo "Candidates (id / created_at / head_sha), $TOTAL successful deploy.yml runs on main, client-sorted by created_at desc:"
           sed 's/^/  /' "$CANDS"
+
+          # Freshness check. The query asked for runs created since
+          # $CREATED_SINCE; a NEWEST candidate older than that means the API
+          # ignored the window and served the frozen listing described above.
+          # Every candidate is then past retention by construction, and
+          # walking them would end on "no artifact left" — the diagnosis two
+          # fixers accepted for two weeks. Say what actually happened instead.
+          # ISO 8601 UTC timestamps order lexicographically.
+          NEWEST_AT="$(head -n 1 "$CANDS" | cut -f2)"
+          if [[ "$NEWEST_AT" < "$CREATED_SINCE" ]]; then
+            echo "::error title=Resolver artifact Pages: elenco delle run non aggiornato dall'API::Elenco API non aggiornato (stale run listing): the newest of $TOTAL candidates was created $NEWEST_AT, before the requested window (created>=$CREATED_SINCE, retention $RETENTION_DAYS days). This is NOT 'no deploy has an artifact': the Actions API returned an outdated listing. Re-run the job, or pass run-id explicitly."
+            exit 1
+          fi
         fi
 
         mkdir -p "$OUTDIR"
@@ -272,11 +301,11 @@ runs:
 
         if [ -z "$FOUND" ]; then
           if [ -n "$PINNED" ]; then
-            echo "::error::Pinned deploy run $PINNED has no downloadable non-expired 'github-pages' artifact (retention is 8 days). Pick a newer run, or leave run-id empty to walk back automatically."
+            echo "::error::Pinned deploy run $PINNED has no downloadable non-expired 'github-pages' artifact (retention is $RETENTION_DAYS days). Pick a newer run, or leave run-id empty to walk back automatically."
           elif [ "$TOTAL" -ge "$((MAX_PAGES * PER_PAGE))" ]; then
-            echo "::error::Walk-back cap reached: examined all $TOTAL successful deploy.yml runs on main ($MAX_PAGES pages x $PER_PAGE) and none still has a downloadable 'github-pages' artifact. Raise MAX_PAGES in .github/actions/fetch-pages-artifact/action.yml, or pass run-id explicitly."
+            echo "::error::Walk-back cap reached: examined $TOTAL successful deploy.yml runs on main created since $CREATED_SINCE ($MAX_PAGES pages x $PER_PAGE) and none still has a downloadable 'github-pages' artifact. All of them are inside the $RETENTION_DAYS-day retention, so a deeper walk-back is not the fix (do NOT raise MAX_PAGES): check in the candidate list above whether the 'github-pages' upload of deploy.yml is failing, or pass run-id explicitly."
           else
-            echo "::error::No successful deploy.yml run on main still has a 'github-pages' artifact ($TOTAL runs examined; retention is 8 days, so this means no deploy succeeded in over a week). Re-run after the next deploy, or pass run-id explicitly."
+            echo "::error::No successful deploy.yml run on main created since $CREATED_SINCE still has a 'github-pages' artifact ($TOTAL runs examined, all inside the $RETENTION_DAYS-day retention). Check in the candidate list above whether the 'github-pages' upload of deploy.yml is failing, re-run after the next deploy, or pass run-id explicitly."
           fi
           exit 1
         fi
