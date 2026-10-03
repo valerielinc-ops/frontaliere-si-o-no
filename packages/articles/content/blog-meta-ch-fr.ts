@@ -7670,6 +7670,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-3a-fisco-vaud.title': 'Troisième pilier 3a : avantages 2026 dans le canton de Vaud',
     'blog.article.guida-3a-fisco-vaud.excerpt': 'Guide 2026 du troisième pilier 3a dans le canton de Vaud : avantages fiscaux, trois niveaux d’imposition, plafond indexé et comparaison nationale.',
     'blog.article.guida-3a-fisco-vaud.imageAlt': 'Documents fiscaux et calculateur pour le pilier 3a suisse dans le canton de Vaud',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genève : 1 500 pro-Palestine demandent des sanctions',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Environ 1.500 manifestants à Genève demandent le blocage des relations avec Israël et l\'arrestation de Netanyahu. Berne : pas d\'arrestation pour des raisons de négociation.',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Manifestation pro-Palestine à Genève avec drapeaux palestiniens et suisses',
 };
 
 export default blogMetaChFr;

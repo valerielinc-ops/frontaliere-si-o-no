@@ -7670,6 +7670,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-3a-fisco-vaud.title': 'Dritte Säule 3a: Vorteile 2026 im Kanton Vaud',
     'blog.article.guida-3a-fisco-vaud.excerpt': 'Leitfaden 2026 zur dritten Säule 3a im Kanton Vaud: Steuervorteile, drei Besteuerungsebenen, indexierter Höchstbetrag und nationaler Vergleich.',
     'blog.article.guida-3a-fisco-vaud.imageAlt': 'Steuerunterlagen und Rechner für die Schweizer Säule 3a im Kanton Waadt',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genf: 1.500 für Palästina auf der Straße, Sanktionen gegen Israel gefordert',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Etwa 1.500 Demonstrierende in Genf fordern eine Blockade der Beziehungen zu Israel und die Festnahme von Netanyahu. Bern: keine Festnahme aus Verhandlungsgründen.',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Pro-Palästina-Demonstration in Genf mit palästinensischen und Schweizer Flaggen',
 };
 
 export default blogMetaChDe;

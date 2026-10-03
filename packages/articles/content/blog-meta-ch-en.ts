@@ -7670,6 +7670,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-3a-fisco-vaud.title': 'Third pillar 3a: 2026 benefits in the canton of Vaud',
     'blog.article.guida-3a-fisco-vaud.excerpt': '2026 guide to the third pillar 3a in the canton of Vaud: tax benefits, three tax levels, indexed maximum amount and national comparison.',
     'blog.article.guida-3a-fisco-vaud.imageAlt': 'Tax documents and calculator for Swiss third-pillar 3a planning in Vaud',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Geneva: 1,500 march for Palestine, urge Israel sanctions',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Around 1,500 demonstrators in Geneva call for relations with Israel to be blocked and for Netanyahu to be arrested. Bern: no detention for negotiating purposes.',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Pro-Palestine demonstration in Geneva with Palestinian and Swiss flags',
 };
 
 export default blogMetaChEn;
