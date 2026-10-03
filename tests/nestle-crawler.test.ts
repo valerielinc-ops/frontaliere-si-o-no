@@ -234,3 +234,34 @@ describe('fetchAllNestleJobs — listing without a vacancy body', () => {
     }
   });
 });
+
+describe('fetchAllNestleJobs — location marker cleanup', () => {
+  it('strips the feed marker from the source description without dropping the vacancy', async () => {
+    const detailHtml = `<!doctype html><html><body>
+      <div class="joblayouttoken displayDTM">
+        <span itemprop="description" data-careersite-propertyid="description">
+          <span class="jobdescription">
+            <p>Standort: Konolfingen, CH, Kanton BE, Schweiz</p>
+            <p>Diese Stelle unterstützt ein erfahrenes Produktionsteam bei der täglichen Planung, Koordination und Verbesserung der Abläufe. Die gesuchte Person arbeitet eng mit Kolleginnen und Kollegen aus Qualität, Logistik, Technik und Betrieb zusammen. Sie dokumentiert Ergebnisse, achtet auf Sicherheitsstandards und trägt mit sorgfältiger Kommunikation zu stabilen Prozessen bei. Nestlé bietet eine strukturierte Einarbeitung, moderne Arbeitsmittel und Entwicklungsmöglichkeiten in einem internationalen Umfeld.</p>
+          </span>
+        </span>
+      </div>
+    </body></html>`;
+    const searchHtml = '<table><tr><td class="colTitle"><a class="jobTitle-link" href="/job/Konolfingen-Test/1255000201/">Production Specialist</a></td><td class="colLocation"><span class="jobLocation">Konolfingen, CH</span></td><td class="colDate"><span class="jobDate">Sep 20, 2026</span></td></tr></table>';
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => new Response(
+      url.includes('/search/') ? searchHtml : detailHtml,
+      { status: 200, headers: { 'content-type': 'text/html' } },
+    )));
+
+    try {
+      const jobs = await fetchAllNestleJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].location).toBe('Konolfingen');
+      expect(jobs[0].description).toContain('Standort: Konolfingen, Schweiz');
+      expect(jobs[0].description).not.toContain('Konolfingen, CH, Kanton BE');
+      expect(jobs[0].description).toContain('erfahrenes Produktionsteam');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});
