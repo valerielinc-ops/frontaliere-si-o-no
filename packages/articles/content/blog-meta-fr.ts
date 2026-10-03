@@ -12426,6 +12426,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.saronno-autofficina-sequestrata.title': 'Saronno : un garage automobile saisi pour irrégularités',
     'blog.article.saronno-autofficina-sequestrata.excerpt': 'Contrôles dans un garage automobile de Saronno : deux travailleurs sans contrat, l’un sans titre de séjour. Activité saisie et suspendue.',
     'blog.article.saronno-autofficina-sequestrata.imageAlt': 'Garage automobile de Saronno contrôlé par la police locale',
+    'blog.article.museo-storico-palazzo-civico-lugano.title': 'Musée historique au Palazzo Civico : motion interpartisane à Lugano',
+    'blog.article.museo-storico-palazzo-civico-lugano.excerpt': 'Dix conseillers municipaux demandent d’envisager un musée historique au deuxième étage du Palazzo Civico, qui sera libéré en 2028 avec le déménagement à Cornaredo.',
+    'blog.article.museo-storico-palazzo-civico-lugano.imageAlt': 'Palazzo Civico à Lugano, hôtel de ville néoclassique',
 };
 
 export default blogMetaFr;

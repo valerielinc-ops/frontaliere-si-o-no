@@ -12425,6 +12425,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.saronno-autofficina-sequestrata.title': 'Saronno, sequestrata un’autofficina per irregolarità',
     'blog.article.saronno-autofficina-sequestrata.excerpt': 'Controlli in un’autofficina di Saronno: due lavoratori senza contratto, uno senza permesso di soggiorno. Attività sequestrata e sospesa.',
     'blog.article.saronno-autofficina-sequestrata.imageAlt': 'Autofficina di Saronno sottoposta al controllo della Polizia locale',
+    'blog.article.museo-storico-palazzo-civico-lugano.title': 'Museo storico a Palazzo Civico: mozione interpartitica a Lugano',
+    'blog.article.museo-storico-palazzo-civico-lugano.excerpt': 'Dieci consiglieri comunali chiedono di valutare un museo storico al secondo piano di Palazzo Civico, che si libererà nel 2028 col trasloco a Cornaredo.',
+    'blog.article.museo-storico-palazzo-civico-lugano.imageAlt': 'Palazzo Civico di Lugano, edificio neoclassico sede del Municipio',
 };
 
 export default blogMetaIt;

@@ -12424,6 +12424,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.saronno-autofficina-sequestrata.title': 'Saronno, auto repair shop seized for irregularities',
     'blog.article.saronno-autofficina-sequestrata.excerpt': 'Inspections at an auto repair shop in Saronno: two workers without a contract, one without a residence permit. Business seized and suspended.',
     'blog.article.saronno-autofficina-sequestrata.imageAlt': 'Vehicle repair shop in Saronno inspected by local police',
+    'blog.article.museo-storico-palazzo-civico-lugano.title': 'Historical Museum at Palazzo Civico: cross-party motion in Lugano',
+    'blog.article.museo-storico-palazzo-civico-lugano.excerpt': 'Ten city councillors ask to evaluate a historical museum on the second floor of Palazzo Civico, which will be liberated in 2028 with the move to Cornaredo.',
+    'blog.article.museo-storico-palazzo-civico-lugano.imageAlt': 'Palazzo Civico in Lugano, neoclassical town hall building',
 };
 
 export default blogMetaEn;

@@ -12423,6 +12423,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.saronno-autofficina-sequestrata.title': 'Saronno, eine Autowerkstatt wegen Unregelmäßigkeiten beschlagnahmt',
     'blog.article.saronno-autofficina-sequestrata.excerpt': 'Kontrollen in einer Autowerkstatt in Saronno: zwei Arbeiter ohne Vertrag, einer ohne Aufenthaltserlaubnis. Betrieb beschlagnahmt und stillgelegt.',
     'blog.article.saronno-autofficina-sequestrata.imageAlt': 'Autowerkstatt in Saronno unter Kontrolle der Lokalpolizei',
+    'blog.article.museo-storico-palazzo-civico-lugano.title': 'Historisches Museum im Palazzo Civico: parteiübergreifender Antrag in Lugano',
+    'blog.article.museo-storico-palazzo-civico-lugano.excerpt': 'Zehn Gemeinderäte fordern die Bewertung eines historischen Museums im zweiten Stock des Palazzo Civico, das 2028 mit dem Umzug nach Cornaredo freigegeben wird.',
+    'blog.article.museo-storico-palazzo-civico-lugano.imageAlt': 'Palazzo Civico in Lugano, neoklassizistisches Rathausgebäude',
 };
 
 export default blogMetaDe;

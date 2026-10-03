@@ -37259,6 +37259,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'museo-storico-palazzo-civico-lugano',
+ category: 'novita',
+ date: '2026-10-03T17:47:01.448Z',
+ image: '/images/blog/museo-storico-palazzo-civico-lugano.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
