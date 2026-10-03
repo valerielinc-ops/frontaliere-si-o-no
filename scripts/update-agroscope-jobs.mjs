@@ -28,6 +28,7 @@
  * 4. Merges into data/jobs.json
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -219,7 +220,7 @@ function buildAgroscopeJob(row) {
     sector: 'Pubblica amministrazione',
     source: 'agroscope-dedicated-crawler',
     sourceLang: localized.sourceLang,
-    postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.startDate),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.pensumMax === '100' ? 'full-time' : 'part-time',
     contractType: row.pensumMax === '100' ? 'full-time' : 'part-time',
@@ -253,6 +254,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -283,7 +285,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

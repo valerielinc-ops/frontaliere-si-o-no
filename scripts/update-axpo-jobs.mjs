@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -97,10 +98,6 @@ function jobMatchKey(job) {
 
 function isSwissLocation(city = '') {
   return isSwissLocationText(city);
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -221,6 +218,17 @@ function filterSwissJobs(items) {
   return swissJobs;
 }
 
+function rssPostingDateFields(raw = '') {
+  const value = String(raw || '').trim();
+  const rss = value.match(/^(?:[A-Za-z]{3},\s*)?(\d{1,2}) ([A-Za-z]{3}) (\d{4}) (\d{2}:\d{2}:\d{2}) (GMT|UTC|UT|Z|[+-]\d{4})$/);
+  if (!rss) return sourcePostingDateFields(value);
+  // Validate the calendar independently; apply the real-clock cutoff only after the offset.
+  const calendarReference = new Date(`${rss[3]}-12-31T23:59:59Z`);
+  const day = sourcePostingDateFields(`${rss[1]} ${rss[2]} ${rss[3]}`, calendarReference).postedDate;
+  const zone = /^[+-]/.test(rss[5]) ? `${rss[5].slice(0, 3)}:${rss[5].slice(3)}` : 'Z';
+  return sourcePostingDateFields(day ? `${day}T${rss[4]}${zone}` : '');
+}
+
 function buildJob(item) {
   const title = item.title || '';
   const link = item.link || '';
@@ -249,14 +257,7 @@ function buildJob(item) {
   const category = inferCategory(item.department, title);
   const empType = mapEmploymentType(item.role || title);
 
-  // Parse pubDate
-  let postedDate = todayIso();
-  if (item.pubDate) {
-    try {
-      const d = new Date(item.pubDate);
-      if (!isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-    } catch { /* keep default */ }
-  }
+  const publicationDate = rssPostingDateFields(item.pubDate);
 
   return {
     title,
@@ -277,7 +278,7 @@ function buildJob(item) {
     department: item.department || '',
     source: 'axpo-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...publicationDate,
     validThrough: '',
     employmentType: empType,
     contractType: empType === 'internship' ? 'stage' : 'permanent',
@@ -320,6 +321,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       // Issue #3453-class: never reset descriptionByLocale to a source-only
       // map on a large content delta — sourceLocale-aware merge already

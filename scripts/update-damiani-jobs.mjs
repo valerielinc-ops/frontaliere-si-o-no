@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -90,9 +91,7 @@ function normalizeKey(value = '') {
 }
 
 function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
+  return sourcePostingDateFields(value).postedDate;
 }
 
 async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
@@ -290,10 +289,10 @@ async function buildDamianiJob(listing) {
     sector: 'Lusso & Gioielleria',
     source: 'damiani-dedicated-crawler',
     sourceLang: localized.sourceLang,
-    postedDate: toIsoDate(detail.postedDate || listing.postedDate),
+    ...sourcePostingDateFields(toIsoDate(detail.postedDate || listing.postedDate)),
     employmentType: 'full-time',
     contractType: 'full-time',
-    validThrough: toIsoDate(detail.validThrough || ''),
+    validThrough: detail.validThrough || '',
     description: detail.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
@@ -324,6 +323,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -354,7 +354,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

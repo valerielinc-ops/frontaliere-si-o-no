@@ -20,6 +20,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -469,7 +470,7 @@ export async function fetchBraccoJobs() {
       ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
       category: detectCategory(title),
-      datePosted: info.startDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(info.startDate),
       source: 'bracco-workday-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(title),

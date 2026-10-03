@@ -32,6 +32,7 @@
  * 6. Merges into data/jobs.json
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
@@ -532,7 +533,7 @@ function buildJob(row) {
     sector: 'Pubblica amministrazione',
     source: 'confederazione-dedicated-crawler',
     sourceLang,
-    postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.startDate),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: empType,
     contractType: empType,
@@ -692,6 +693,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prevTitles, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prevDescs, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prevSlugs, job.slugByLocale, 3),
@@ -725,7 +727,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
