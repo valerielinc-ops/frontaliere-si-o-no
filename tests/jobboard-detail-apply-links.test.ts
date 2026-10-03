@@ -14,19 +14,22 @@ const source = fs.readFileSync(
 // + PublisherApplyForm were trapped in the disabled hybrid layout).
 const livePath = source.slice(source.indexOf('grid grid-cols-1 lg:grid-cols-12'));
 
-describe('job detail header apply links', () => {
+describe('job detail header apply actions', () => {
   it('keeps both the header logo and title as apply CTAs', () => {
     expect(source).toContain('job_board_apply_header_logo');
     expect(source).toContain('job_board_apply_header_title');
     expect(source).toContain("aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}");
   });
 
-  it('routes in-house/forward-email apply to the on-page form, external jobs to applyUrl', () => {
-    // Header logo + title: scroll to the on-page form for in-house ads,
-    // open the external applyUrl otherwise.
-    expect(source).toContain("href={isInHouseApply ? '#candidatura' : applyUrl}");
-    expect(source).toContain("applyMode === 'in_house'");
-    expect(source).toContain("applyMode === 'forward_email'");
+  it.each(['logo', 'title'])('routes the header %s through the shared apply handler without an external-link bypass', (surface) => {
+    const block = livePath.match(new RegExp(`<button\\s+type="button"\\s+onClick=\\{\\(\\) => handleApply\\(selectedJob, 'job_board_apply_header_${surface}'\\)\\}[\\s\\S]*?</button>`))?.[0];
+    expect(block).toBeDefined();
+    expect(block).not.toMatch(/\b(?:href|target|onAuxClick)=/);
+    // Native buttons also activate via keyboard; the browser cannot offer
+    // "open link in a new tab" to skip the shared application flow.
+    expect(source).not.toContain("href={isInHouseApply ? '#candidatura' : applyUrl}");
+    expect(source).toContain("mode === 'in_house' || mode === 'forward_email'");
+    expect(source).toContain("document.getElementById('candidatura')?.scrollIntoView");
   });
 
   it('mounts the in-house apply form (#candidatura) in the LIVE detail path, not only the dead hybrid block', () => {
