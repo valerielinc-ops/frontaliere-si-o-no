@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   persistJobAlertDelivery,
@@ -145,6 +147,24 @@ describe('job alert delivery record — ranking_jobs is the lean manifest', () =
 
     expect(sets).toHaveLength(1);
     expect(sets[0].data.ranking_jobs).toEqual([]);
+  });
+
+  it('every sender writes ranking_jobs through the manifest projection (job alerts + newsletter)', () => {
+    // send-newsletter.mjs's persistDelivery reads a module-level db and is not
+    // importable in isolation, so the class is guarded on the source: no
+    // sender may assign the in-memory job list straight to the Firestore field.
+    const scriptsDir = path.resolve(__dirname, '../scripts');
+    const writers: string[] = [];
+    for (const name of fs.readdirSync(scriptsDir)) {
+      if (!name.endsWith('.mjs')) continue;
+      const src = fs.readFileSync(path.join(scriptsDir, name), 'utf8');
+      for (const line of src.split('\n')) {
+        if (!/^\s*ranking_jobs\s*:/.test(line)) continue;
+        writers.push(name);
+        expect(line, `${name}: ${line.trim()}`).toMatch(/ranking_jobs:\s*buildRankingJobsManifest\(/);
+      }
+    }
+    expect(writers.sort()).toEqual(['send-job-alerts.mjs', 'send-newsletter.mjs']);
   });
 
   it('buildRankingJobsManifest is a pure projection with a safe default', () => {
