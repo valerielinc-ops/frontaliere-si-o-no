@@ -22,6 +22,21 @@
  * - una sola issue aperta per loop: se la classe (titolo) cambia, quella del
  *   titolo precedente viene chiusa `not planned` con rimando. Niente retitle.
  *
+ * - «campione insufficiente» è uno STATO, non un guasto: lo decide lo script
+ *   del loop (sorgente fresca, join valido, UNICO controllo fallito il
+ *   campione minimo) e lo passa come `state: 'awaiting-sample'` con
+ *   `sample: { current, minimum, windowDays }`. La issue resta aperta come
+ *   tracker, porta l'ETA nel blocco, non riceve commenti e viene pinnata fuori
+ *   dal fixer con `keep-open` (le label di instradamento si tolgono). Chi la
+ *   pinna lo scrive nel blocco (`pinnedByLoopLib`): all'uscita dallo stato la
+ *   libreria toglie solo il `keep-open` che ha messo lei. Misurato il
+ *   2026-10-03 sulla issue 9865 (L2): 42 sessioni su 1000 a ~5 al giorno,
+ *   ~190 giorni; il fixer aveva già concluso `no-root-cause` e lo sweep la
+ *   rimetteva in ciclo perché portava `automation-deferred`. Un'ETA oltre
+ *   `SAMPLE_HORIZON_DAYS` (o non calcolabile) diventa una riga nel digest
+ *   delle decisioni del proprietario, una sola per loop e per minimo; le
+ *   soglie minime NON si abbassano.
+ *
  * `reportLoopIssue` ha la stessa forma di parametri e di ritorno di
  * `createGithubIssue`: gli script la ricevono come default di
  * `createIssueImpl`, e i test che iniettano quel parametro non cambiano.
@@ -44,6 +59,28 @@ export const LOOP_STATE_END = '<!-- LOOP_STATE:end -->';
 export const MAYBE_RESOLVED_LABEL = 'maybe-resolved';
 /** Stesso marker contato dal creator per le ricorrenze. */
 export const LOOP_STATE_CHANGE_MARKER = '🔁';
+/** Stati scritti nel blocco: `failing` è un guasto lavorabile, gli altri no. */
+export const LOOP_STATE_FAILING = 'failing';
+export const LOOP_STATE_AWAITING_SAMPLE = 'awaiting-sample';
+export const LOOP_STATE_OK = 'ok';
+/** Oltre questo numero di giorni (o con ETA non calcolabile) decide il proprietario. */
+export const SAMPLE_HORIZON_DAYS = 90;
+/**
+ * Pin fuori dal fixer. Deve restare in `FIXER_EXEMPT_LABELS` di
+ * `classify-issue.mjs` (un test lo verifica): non lo si importa perché i
+ * workflow dei loop fanno sparse checkout di un elenco di file.
+ */
+export const KEEP_OPEN_LABEL = 'keep-open';
+/** Label che rimettono una issue nel ciclo del fixer o dello sweep. */
+export const FIXER_ROUTING_LABELS = Object.freeze([
+  'agent:fix',
+  'agent:fix-queued',
+  'automation-deferred',
+  'fu-parked',
+]);
+/** Titolo ESATTO del digest che `needs-human-sweep.yml` tiene aperto. */
+export const OWNER_DIGEST_TITLE = '🧭 Decisioni del proprietario — digest';
+export const COHORT_UNREACHABLE_MARKER = 'LOOP_COHORT_UNREACHABLE';
 
 const DATA_PREFIX = '<!-- LOOP_STATE:data ';
 const DATA_SUFFIX = ' -->';
@@ -90,10 +127,55 @@ export function parseLoopState(body) {
       ...data,
       signature: typeof data.signature === 'string' ? data.signature : null,
       okStreak: Number.isInteger(okStreak) && okStreak >= 0 ? okStreak : 0,
+      pinnedByLoopLib: data.pinnedByLoopLib === true,
     };
   } catch {
     return null;
   }
+}
+
+/**
+ * ETA del campione minimo, pura. Il ritmo è `current / windowDays`; un
+ * campione a zero ha ritmo zero qualunque sia la finestra. `etaDays: null`
+ * vuol dire «non raggiungibile» (ritmo zero) o «non calcolabile» (finestra
+ * non dichiarata): in entrambi i casi conta come oltre l'orizzonte.
+ */
+export function sampleEta({ current, minimum, windowDays } = {}) {
+  const cur = Number.isInteger(current) && current >= 0 ? current : null;
+  const min = Number.isInteger(minimum) && minimum > 0 ? minimum : null;
+  const win = Number.isFinite(windowDays) && windowDays > 0 ? windowDays : null;
+  let ratePerDay = null;
+  if (cur === 0) ratePerDay = 0;
+  else if (cur !== null && win !== null) ratePerDay = cur / win;
+  let etaDays = null;
+  if (cur !== null && min !== null) {
+    if (cur >= min) etaDays = 0;
+    else if (ratePerDay > 0) etaDays = Math.ceil((min - cur) / ratePerDay);
+  }
+  return {
+    current: cur,
+    minimum: min,
+    windowDays: win,
+    ratePerDay: ratePerDay === null ? null : Number(ratePerDay.toFixed(3)),
+    etaDays,
+  };
+}
+
+/** `true` quando a decidere è il proprietario: ETA oltre l'orizzonte o assente. */
+export function isBeyondSampleHorizon(eta) {
+  return !Number.isFinite(eta?.etaDays) || eta.etaDays > SAMPLE_HORIZON_DAYS;
+}
+
+function etaText(eta) {
+  if (Number.isFinite(eta?.etaDays)) return `${eta.etaDays} giorni`;
+  if (eta?.ratePerDay === 0) return 'non raggiungibile (ritmo zero)';
+  return 'non calcolabile (finestra di misura non dichiarata)';
+}
+
+function sampleLine(eta) {
+  const window = eta.windowDays === null ? 'finestra non dichiarata' : `finestra di ${eta.windowDays} giorni`;
+  const rate = eta.ratePerDay === null ? 'ritmo non misurato' : `ritmo ${eta.ratePerDay} al giorno`;
+  return `${eta.current ?? '?'} su ${eta.minimum ?? '?'} (${window}); ${rate}; ETA ${etaText(eta)} (orizzonte ${SAMPLE_HORIZON_DAYS} giorni)`;
 }
 
 function oneLine(value, max = MAX_REASON_LEN) {
@@ -103,19 +185,29 @@ function oneLine(value, max = MAX_REASON_LEN) {
 
 /** Rende il blocco di stato. La riga `data` è la parte letta dalle macchine. */
 export function renderLoopStateBlock(state) {
+  const loopState = state.loopState ?? (state.ok ? LOOP_STATE_OK : LOOP_STATE_FAILING);
+  const awaiting = loopState === LOOP_STATE_AWAITING_SAMPLE && state.sample;
   const data = {
     v: 1,
     loopId: state.loopId ?? null,
+    state: loopState,
     signature: state.signature ?? null,
     okStreak: state.okStreak ?? 0,
     updatedAt: state.updatedAt ?? null,
     event: state.event ?? null,
+    pinnedByLoopLib: state.pinnedByLoopLib === true,
+    ...(awaiting ? { sample: state.sample, etaDays: state.sample.etaDays ?? null } : {}),
   };
   const lines = [
     LOOP_STATE_START,
     `**Stato corrente del loop${state.loopId ? ` ${state.loopId}` : ''}** (riscritto a ogni run; la cronologia sotto resta com'era all'apertura)`,
     '',
     `- Verdetto: ${state.ok ? 'ok' : 'non ok'}`,
+    `- state: ${loopState}`,
+    ...(awaiting ? [
+      `- Campione: ${sampleLine(state.sample)}`,
+      `- Instradamento: pinnata fuori dal fixer con \`${KEEP_OPEN_LABEL}\`; non c'è codice da correggere, questa issue è il tracker del progetto «portare campione a questo loop». La soglia minima non si abbassa.`,
+    ] : []),
     `- Motivo corrente: ${oneLine(state.reason) || '_non dichiarato_'}`,
     `- Firma del motivo: \`${data.signature ?? 'unknown'}\``,
     `- Ultima run: ${state.runUrl || '_non disponibile_'}${data.event ? ` (evento \`${data.event}\`)` : ''}`,
@@ -245,11 +337,97 @@ function uniqueTitles(title, loopTitles) {
 }
 
 /**
+ * Label da cambiare e nuovo valore di `pinnedByLoopLib`, puro. In
+ * `awaiting-sample` la issue esce dal ciclo del fixer: `keep-open` messo qui
+ * (o già messo qui in una run precedente) e routing tolto. Fuori da quello
+ * stato si toglie solo il `keep-open` che la libreria ha messo: un pin
+ * deciso da altri non si tocca. `maybe-resolved` cade su ogni verdetto non ok.
+ */
+export function pinPlan({ labels = [], previous = null, loopState = LOOP_STATE_FAILING } = {}) {
+  const present = new Set(labels);
+  const add = [];
+  const remove = [];
+  let pinnedByLoopLib = previous?.pinnedByLoopLib === true;
+  if (loopState === LOOP_STATE_AWAITING_SAMPLE) {
+    if (!present.has(KEEP_OPEN_LABEL)) {
+      add.push(KEEP_OPEN_LABEL);
+      pinnedByLoopLib = true;
+    }
+    remove.push(...FIXER_ROUTING_LABELS.filter((label) => present.has(label)));
+  } else if (pinnedByLoopLib) {
+    if (present.has(KEEP_OPEN_LABEL)) remove.push(KEEP_OPEN_LABEL);
+    pinnedByLoopLib = false;
+  }
+  if (loopState !== LOOP_STATE_OK && present.has(MAYBE_RESOLVED_LABEL)) remove.push(MAYBE_RESOLVED_LABEL);
+  return { add, remove, pinnedByLoopLib };
+}
+
+function labelArgs(plan) {
+  return [
+    ...(plan.add.length ? ['--add-label', plan.add.join(',')] : []),
+    ...(plan.remove.length ? ['--remove-label', plan.remove.join(',')] : []),
+  ];
+}
+
+export function cohortUnreachableMarker(loopId, minimum) {
+  return `<!-- ${COHORT_UNREACHABLE_MARKER}: loop=${loopId ?? 'unknown'} minimum=${minimum ?? 'unknown'} -->`;
+}
+
+/**
+ * Una riga nel digest delle decisioni del proprietario per una coorte che non
+ * arriva al minimo entro l'orizzonte. Una sola volta per loop e per minimo
+ * (dedup sul marker nei commenti). Digest assente → log, nessuna creazione:
+ * lo crea e lo tiene `needs-human-sweep.yml`. `false` solo se una lettura o
+ * una scrittura non è riuscita, così la run successiva ritenta.
+ */
+function postCohortUnreachable(ctx, { loopId, eta, issueNumber, title }) {
+  const digests = findOpenIssues(ctx, OWNER_DIGEST_TITLE);
+  if (digests === null) return false;
+  const digest = digests[0];
+  if (!digest) {
+    ctx.logger.log(`[loop-fleet-issue] digest «${OWNER_DIGEST_TITLE}» assente: coorte irraggiungibile di ${loopId ?? 'loop'} (${sampleLine(eta)}) non riportata`);
+    return true;
+  }
+  const marker = cohortUnreachableMarker(loopId, eta.minimum);
+  let comments;
+  try {
+    const view = JSON.parse(ctx.gh(['issue', 'view', String(digest.number), '--json', 'comments', ...ctx.repoFlag]));
+    comments = Array.isArray(view?.comments) ? view.comments : null;
+  } catch (error) {
+    ctx.logger.error(`[loop-fleet-issue] commenti del digest #${digest.number} non leggibili: ${error.message}`);
+    return false;
+  }
+  if (comments === null) return false;
+  if (comments.some((comment) => String(comment?.body ?? '').includes(marker))) return true;
+  return write(ctx, [
+    'issue', 'comment', String(digest.number),
+    '--body', [
+      marker,
+      `🧭 **Loop ${loopId ?? '?'}: coorte che non raggiunge il campione minimo entro ${SAMPLE_HORIZON_DAYS} giorni** — decisione del proprietario`,
+      '',
+      `- Campione: ${eta.current ?? '?'} su ${eta.minimum ?? '?'}${eta.windowDays === null ? '' : ` in ${eta.windowDays} giorni`}`,
+      `- Ritmo: ${eta.ratePerDay === null ? 'non misurato' : `${eta.ratePerDay} al giorno`}`,
+      `- ETA: ${etaText(eta)}`,
+      issueNumber
+        ? `- Tracker: #${issueNumber} (pinnata con \`${KEEP_OPEN_LABEL}\`, fuori dal fixer)`
+        : `- Tracker: nessuna issue aperta (classe «${title}»); nessuna issue nuova per il fixer`,
+      '',
+      'Non è un difetto di codice e la soglia minima non si abbassa. Opzioni: allargare la coorte o la finestra di misura, accettare l\'attesa, ritirare o riprogettare il loop.',
+    ].join('\n'),
+  ], `riga nel digest #${digest.number}`);
+}
+
+/**
  * Riporta un verdetto NON ok. Stessi parametri e stesso ritorno di
  * `createGithubIssue`, più `loopId`, `reason` e `loopTitles` (tutti i titoli
  * che quel loop può emettere). `persisted: true` solo se ogni scrittura è
  * riuscita; con una scrittura fallita la firma nel corpo non avanza, così la
  * run successiva ritenta invece di tacere.
+ *
+ * `state: 'awaiting-sample'` + `sample: { current, minimum, windowDays }`
+ * (deciso dallo script del loop): nessun commento, ETA nel blocco, issue
+ * pinnata fuori dal fixer; ETA oltre `SAMPLE_HORIZON_DAYS` → una riga nel
+ * digest del proprietario e nessuna issue NUOVA.
  */
 export async function reportLoopIssue(params = {}, deps = {}) {
   const {
@@ -258,6 +436,8 @@ export async function reportLoopIssue(params = {}, deps = {}) {
     loopTitles = [],
     runUrl: explicitRunUrl = null,
     eventName: explicitEvent = null,
+    state: requestedState = null,
+    sample = null,
     ...issueParams
   } = params;
   const ctx = context(deps);
@@ -271,13 +451,19 @@ export async function reportLoopIssue(params = {}, deps = {}) {
     return null;
   }
 
+  const awaiting = requestedState === LOOP_STATE_AWAITING_SAMPLE;
+  const eta = awaiting ? sampleEta(sample ?? {}) : null;
+  const beyondHorizon = awaiting && isBeyondSampleHorizon(eta);
   const signature = reasonSignature(reason);
   const state = {
     loopId,
     ok: false,
+    loopState: awaiting ? LOOP_STATE_AWAITING_SAMPLE : LOOP_STATE_FAILING,
+    sample: eta,
     reason,
     signature,
     okStreak: 0,
+    pinnedByLoopLib: false,
     runUrl: explicitRunUrl ?? runUrlFromEnv(ctx.env),
     event: explicitEvent ?? ctx.env.GITHUB_EVENT_NAME ?? null,
     updatedAt: ctx.now().toISOString(),
@@ -293,8 +479,13 @@ export async function reportLoopIssue(params = {}, deps = {}) {
   if (existing) {
     const previous = parseLoopState(existing.body);
     const signatureChanged = previous?.signature !== signature;
+    const plan = pinPlan({ labels: labelNames(existing), previous, loopState: state.loopState });
     let persisted = true;
-    if (signatureChanged) {
+    // Un campione che cresce non è un cambio di stato: niente commento finché
+    // si resta in `awaiting-sample`, e niente commento nemmeno per entrarci
+    // (il pin e il blocco bastano; un commento rimetterebbe in moto i
+    // workflow delle issue). L'uscita verso un guasto commenta come sempre.
+    if (signatureChanged && !awaiting) {
       // Il commento PRIMA del corpo: se il corpo non si scrive la firma non
       // avanza e la run successiva ricommenta, invece di perdere il cambio.
       persisted = write(ctx, [
@@ -312,10 +503,8 @@ export async function reportLoopIssue(params = {}, deps = {}) {
       persisted = editBody(
         ctx,
         existing.number,
-        upsertLoopStateBlock(existing.body, state),
-        labelNames(existing).includes(MAYBE_RESOLVED_LABEL)
-          ? ['--remove-label', MAYBE_RESOLVED_LABEL]
-          : [],
+        upsertLoopStateBlock(existing.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
+        labelArgs(plan),
       );
     }
     result = {
@@ -326,14 +515,25 @@ export async function reportLoopIssue(params = {}, deps = {}) {
       signatureChanged,
       persisted,
     };
+  } else if (beyondHorizon) {
+    // Una coorte che non arriva al minimo entro l'orizzonte non è lavoro per
+    // il fixer: nessuna issue nuova, decide il proprietario dal digest.
+    result = { number: null, title, url: null, persisted: true, skipped: 'sample-beyond-horizon' };
   } else {
+    const labels = awaiting
+      ? Array.from(new Set([...(issueParams.labels ?? []), KEEP_OPEN_LABEL]))
+      : issueParams.labels;
     result = await ctx.createIssue({
       ...issueParams,
-      description: [renderLoopStateBlock(state), description].filter(Boolean).join('\n\n'),
+      ...(labels ? { labels } : {}),
+      description: [
+        renderLoopStateBlock({ ...state, pinnedByLoopLib: awaiting }),
+        description,
+      ].filter(Boolean).join('\n\n'),
     });
     // Il creator può aver riaperto o commentato una issue che il lookup sopra
     // non vedeva (indice di ricerca in ritardo, gemella chiusa da poco): il suo
-    // corpo porta ancora lo stato vecchio, `okStreak` compreso.
+    // corpo porta ancora lo stato vecchio, `okStreak` e label comprese.
     if (result?.persisted === true && result.number && !result.ledger) {
       result = {
         ...result,
@@ -342,22 +542,30 @@ export async function reportLoopIssue(params = {}, deps = {}) {
     }
   }
 
-  if (result?.persisted === true && result.number) {
+  if (result?.persisted === true && (result.number || result.skipped === 'sample-beyond-horizon')) {
     for (const other of uniqueTitles(title, loopTitles).filter((candidate) => candidate !== title)) {
       const stale = findOpenIssues(ctx, other);
       if (stale === null) {
         result = { ...result, persisted: false };
         continue;
       }
+      const pointer = result.number
+        ? `lo stato corrente è in #${result.number}`
+        : `lo stato corrente è \`${LOOP_STATE_AWAITING_SAMPLE}\` con ETA oltre ${SAMPLE_HORIZON_DAYS} giorni, riportato nel digest delle decisioni del proprietario`;
       for (const issue of stale) {
         const closed = write(ctx, [
           'issue', 'close', String(issue.number),
           '--reason', 'not planned',
-          '--comment', `Il loop${loopId ? ` ${loopId}` : ''} ora riporta un'altra classe di problema: lo stato corrente è in #${result.number}. Chiusa per tenere una sola issue aperta per loop.`,
+          '--comment', `Il loop${loopId ? ` ${loopId}` : ''} ora riporta un'altra classe di problema: ${pointer}. Chiusa per tenere una sola issue aperta per loop.`,
         ], `chiusura di #${issue.number} (titolo superato)`);
         if (!closed) result = { ...result, persisted: false };
       }
     }
+  }
+
+  if (beyondHorizon && result?.persisted === true) {
+    const posted = postCohortUnreachable(ctx, { loopId, eta, issueNumber: result.number, title });
+    result = { ...result, persisted: posted };
   }
   return result;
 }
@@ -376,13 +584,18 @@ function reconcileCreatedIssue(ctx, number, state, { reopened = false } = {}) {
     return !reopened;
   }
   const current = parseLoopState(issue?.body);
-  const stale = labelNames(issue).includes(MAYBE_RESOLVED_LABEL);
-  if (current?.signature === state.signature && current.okStreak === 0 && !stale) return true;
+  const plan = pinPlan({ labels: labelNames(issue), previous: current, loopState: state.loopState });
+  const labelsAligned = plan.add.length === 0 && plan.remove.length === 0;
+  if (current?.signature === state.signature
+      && current.okStreak === 0
+      && current.state === state.loopState
+      && current.pinnedByLoopLib === plan.pinnedByLoopLib
+      && labelsAligned) return true;
   return editBody(
     ctx,
     number,
-    upsertLoopStateBlock(issue?.body, state),
-    stale ? ['--remove-label', MAYBE_RESOLVED_LABEL] : [],
+    upsertLoopStateBlock(issue?.body, { ...state, pinnedByLoopLib: plan.pinnedByLoopLib }),
+    labelArgs(plan),
   );
 }
 
@@ -418,7 +631,14 @@ export async function resolveLoopIssue(params = {}, deps = {}) {
     if (!issue) continue;
     const previous = parseLoopState(issue.body);
     const okStreak = (previous?.okStreak ?? 0) + 1;
+    // Uscita da `awaiting-sample` verso ok: il `keep-open` messo dalla
+    // libreria cade, così la issue torna instradabile se il loop si rompe.
+    const plan = pinPlan({ labels: labelNames(issue), previous, loopState: LOOP_STATE_OK });
     if (okStreak >= LOOP_OK_STREAK) {
+      if (plan.remove.length && !write(ctx, ['issue', 'edit', String(issue.number), ...labelArgs(plan)], `rimozione del pin da #${issue.number}`)) {
+        outcome.persisted = false;
+        continue;
+      }
       try {
         const closed = await ctx.resolveIssue(title, { workflow, runUrl, exactTitle: true });
         if (closed?.persisted === true) outcome.closed.push(closed.number ?? issue.number);
@@ -435,10 +655,11 @@ export async function resolveLoopIssue(params = {}, deps = {}) {
       reason: `verdetto ok (${okStreak} di ${LOOP_OK_STREAK}); la issue resta aperta fino al terzo consecutivo`,
       signature: previous?.signature ?? null,
       okStreak,
+      pinnedByLoopLib: plan.pinnedByLoopLib,
       runUrl,
       event,
       updatedAt: ctx.now().toISOString(),
-    }));
+    }), labelArgs(plan));
     if (written) outcome.advanced.push({ number: issue.number, okStreak });
     else outcome.persisted = false;
   }
