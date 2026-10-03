@@ -1348,6 +1348,23 @@ function d18Surface(row) {
   return null;
 }
 
+/**
+ * The live D18 identity proof must cover the event population consumed by
+ * Employer Insights, not unrelated site page views. A page view with explicit
+ * employer/job identity remains relevant even when its route is not available
+ * in a provider fixture; apply events are relevant by event type.
+ */
+function isD18EvidenceRow(row) {
+  if (d18Surface(row)) return true;
+  if (!isPageview(row)) return false;
+  return Boolean(
+    normalizeText(row?.jobSlug)
+    || normalizeText(row?.jobId)
+    || normalizeText(row?.providerId)
+    || normalizeText(row?.employerKey),
+  );
+}
+
 function d18SourceUnavailable(meta) {
   if (!meta || Object.keys(meta).length === 0) return true;
   const coverage = meta.sourceCoverage || meta.coverage || meta;
@@ -2948,6 +2965,53 @@ export async function queryGa4EventRows(
 }
 
 /**
+ * Scope the live emission proof to rows that can feed an Employer Insights
+ * metric. Provider pagination/data-loss state is preserved and still blocks
+ * the gate; only unrelated rows are excluded from the identity denominator.
+ */
+function scopeGa4EmissionEvidence(result, window) {
+  const providerRows = Array.isArray(result?.rows) ? result.rows : [];
+  const rows = providerRows.filter(isD18EvidenceRow);
+  const coverage = result?.coverage || {};
+  const observed = rows.reduce((sum, row) => sum + Math.max(0, numberOr(row?.observed, 0)), 0);
+  const identityRows = rows.filter((row) => normalizeText(row?.employerKey));
+  const identityObserved = identityRows.reduce((sum, row) => sum + Math.max(0, numberOr(row?.observed, 0)), 0);
+  const emissionRows = rows.filter((row) => normalizeText(row?.emissionId));
+  const emissionIdObserved = emissionRows.reduce((sum, row) => sum + Math.max(0, numberOr(row?.observed, 0)), 0);
+  const providerQueryHash = String(coverage.queryHash || '');
+  const providerSnapshotId = String(coverage.snapshotId || '');
+
+  return {
+    ...result,
+    rows,
+    coverage: {
+      ...coverage,
+      selection: 'employer-insights',
+      providerRowsReturned: providerRows.length,
+      providerTotalRows: coverage.totalRows ?? providerRows.length,
+      providerObserved: coverage.sourceObserved ?? coverage.returned ?? null,
+      totalRows: rows.length,
+      groupRowsBeforeCut: rows.length,
+      totalBeforeCut: observed,
+      rowsReturned: rows.length,
+      returned: observed,
+      returnedRows: rows.length,
+      sourceObserved: observed,
+      identityRows: identityRows.length,
+      identityObserved,
+      emissionIdDimensionRequested: true,
+      emissionIdRows: emissionRows.length,
+      emissionIdObserved,
+      emissionIdMissingRows: Math.max(0, rows.length - emissionRows.length),
+      emissionIdMissingObserved: Math.max(0, observed - emissionIdObserved),
+      firstCompleteIdentityAt: findFirstCompleteGa4IdentityAt(rows, window),
+      queryHash: sha256(`${providerQueryHash}:employer-insights`),
+      snapshotId: sha256(`${providerSnapshotId}:employer-insights`),
+    },
+  };
+}
+
+/**
  * Probe GA4 emission identity and, when necessary, re-query only the first
  * complete forward-only suffix. The narrowed query is authoritative: it
  * rechecks pagination and emission coverage instead of slicing a mixed report
@@ -2955,7 +3019,10 @@ export async function queryGa4EventRows(
  */
 export async function queryGa4EmissionEvidence(window, options = {}) {
   const queryOptions = { ...options, includeEmissionId: true };
-  const initial = await queryGa4EventRows(window, queryOptions);
+  const initial = scopeGa4EmissionEvidence(
+    await queryGa4EventRows(window, queryOptions),
+    window,
+  );
   const firstCompleteIdentityAt = initial.coverage?.firstCompleteIdentityAt;
   const firstCompleteTime = Date.parse(firstCompleteIdentityAt || '');
   const requestedFrom = Date.parse(window?.from || '');
@@ -2969,7 +3036,10 @@ export async function queryGa4EmissionEvidence(window, options = {}) {
     timezone: D18_TIMEZONE,
     inclusive: '[from,to)',
   });
-  const narrowed = await queryGa4EventRows(narrowedWindow, queryOptions);
+  const narrowed = scopeGa4EmissionEvidence(
+    await queryGa4EventRows(narrowedWindow, queryOptions),
+    narrowedWindow,
+  );
   return { result: narrowed, window: narrowedWindow };
 }
 
