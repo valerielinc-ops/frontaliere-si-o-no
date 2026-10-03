@@ -99,6 +99,8 @@ describe('fast-publish workflow invariants', () => {
     expect(recheckIdx).toBeLessThan(publishIdx);
     expect(workflow.slice(recheckIdx, publishIdx)).toContain('git fetch --no-tags --depth=1 origin main');
     expect(workflow.slice(recheckIdx, publishIdx)).toContain('article-chunk-publish-freshness.mjs');
+    expect(workflow.slice(recheckIdx, publishIdx)).toContain('git checkout --detach --force origin/main');
+    expect(workflow.slice(recheckIdx, publishIdx)).toContain('scripts/publish-article-fast.mjs');
     const publishAndPush = workflow.slice(publishIdx, workflow.indexOf('Verify shard URLs are live'));
     expect(publishAndPush).toContain("steps.check_chunk_source.outputs.current == 'true'");
     expect(publishAndPush).toContain("steps.recheck_chunk_source_before_publish.outputs.current == 'true'");
@@ -166,6 +168,7 @@ describe('resync CDN article chunks workflow invariants', () => {
     expect(recheckIdx).toBeLessThan(publishIdx);
     expect(workflow.slice(recheckIdx, publishIdx)).toContain('git fetch --no-tags --depth=1 origin main');
     expect(workflow.slice(recheckIdx, publishIdx)).toContain('article-chunk-publish-freshness.mjs');
+    expect(workflow.slice(recheckIdx, publishIdx)).toContain('git checkout --detach --force origin/main');
     expect(workflow.slice(publishIdx, releaseIdx)).toContain(
       "steps.check_chunk_source.outputs.current == 'true'",
     );
