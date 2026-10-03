@@ -3804,8 +3804,10 @@ export function runDrain() {
     // `isDecomposedParent`). I filtri di RESCUE/DRAIN impediscono che ci
     // rientri, ma non tolgono la label a chi ci è già dentro: senza questo
     // passo #7340 & C. resterebbero `agent:fix` per sempre, invisibili a ogni
-    // altro strato. È una mutazione comment+edit, quindi ha lo stesso costo
-    // degli altri item e deve lasciare la capacità del PARENT-CLOSE.
+    // altro strato. È una mutazione read+comment+edit (la lettura dei commenti
+    // serve al marker di idempotenza; nel caso `repeat` il commento non parte),
+    // quindi ha lo stesso costo degli altri item e deve lasciare la capacità
+    // del PARENT-CLOSE.
     const parentDequeueCandidates = parents.filter(
       (x) => !hasActiveAgentClaim(x) && (has(x, LBL_FIX) || has(x, LBL_QUEUED)),
     );
@@ -3846,7 +3848,7 @@ export function runDrain() {
       if (dequeueDecision === 'repeat') parentDequeueRepeats.push(p.number);
       console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie; commento: ${dequeueDecision}) — "${p.title?.slice(0, 50)}"`);
     }
-    // Contatore stampato a ogni giro che ha candidati (anche a 0): è la misura
+    // Contatore stampato a ogni giro non-DRY che ha candidati (anche a 0): è la misura
     // del riaccodamento residuo, cioè di chi rimette la label su un padre già
     // tolto dalla coda.
     if (dequeueCap > 0 && !DRY) console.log(`parent_dequeue_repeat=${parentDequeueRepeats.length}`);
