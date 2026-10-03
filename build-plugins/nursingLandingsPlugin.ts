@@ -51,7 +51,7 @@ import { NURSING_FACILITIES_ANCHOR } from './shared/nursingFacilityLinks';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -462,7 +462,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}

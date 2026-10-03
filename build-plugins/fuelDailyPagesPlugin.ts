@@ -1,3 +1,4 @@
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { fuelObservation } from './shared/fuelObservation';
 /**
  * Vite build plugin — emits daily-fresh static HTML for fuel price pages
@@ -2476,7 +2477,6 @@ interface StationRedesignLabels {
   readonly historyAriaLabel: (zone: string, fuel: string, avgFmt: string) => string;
   readonly historyAriaLabelStation: (brand: string, fuel: string, avgFmt: string) => string;
   readonly historyTrendLabel: string;
-  readonly historyLastUpdated: (dateStamp: string) => string;
   readonly adviceCheaper: (delta: string, zone: string) => string;
   readonly adviceMedian: (zone: string) => string;
   readonly advicePremium: (delta: string, zone: string) => string;
@@ -2502,7 +2502,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} nella zona ${z}, media ${avg} CHF/litro nell'intervallo selezionato.`,
     historyAriaLabelStation: (b, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} alla stazione ${b}, media ${avg} CHF/litro nell'intervallo selezionato.`,
     historyTrendLabel: 'Andamento prezzo',
-    historyLastUpdated: (d) => `Ultimo aggiornamento: ${d}`,
     adviceCheaper: (delta, z) => `Buona scelta: oggi questa stazione è ${delta} CHF/litro più economica della media zona ${z}.`,
     adviceMedian: (z) => `Prezzo in linea con la media della zona ${z}: scegli in base alla comodità del percorso.`,
     advicePremium: (delta, z) => `Attenzione: oggi questa stazione è ${delta} CHF/litro più cara della media zona ${z}. Valuta una stazione più economica nella classifica.`,
@@ -2526,7 +2525,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Historical ${f.toLowerCase()} price trend in the ${z} zone, average ${avg} CHF/litre over the selected range.`,
     historyAriaLabelStation: (b, f, avg) => `Historical ${f.toLowerCase()} price trend at ${b}, average ${avg} CHF/litre over the selected range.`,
     historyTrendLabel: 'Price trend',
-    historyLastUpdated: (d) => `Last updated: ${d}`,
     adviceCheaper: (delta, z) => `Good pick: today this station is ${delta} CHF/litre cheaper than the ${z}-zone average.`,
     adviceMedian: (z) => `Price in line with the ${z}-zone average: pick by route convenience.`,
     advicePremium: (delta, z) => `Heads up: today this station is ${delta} CHF/litre above the ${z}-zone average. Consider a cheaper one from the ranking.`,
@@ -2550,7 +2548,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Historischer ${f}-Preisverlauf in der Zone ${z}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
     historyAriaLabelStation: (b, f, avg) => `Historischer ${f}-Preisverlauf bei ${b}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
     historyTrendLabel: 'Preisverlauf',
-    historyLastUpdated: (d) => `Zuletzt aktualisiert: ${d}`,
     adviceCheaper: (delta, z) => `Gute Wahl: heute ist diese Tankstelle ${delta} CHF/Liter günstiger als der Zonen-${z}-Schnitt.`,
     adviceMedian: (z) => `Preis im Schnitt der Zone ${z}: wähle nach Route.`,
     advicePremium: (delta, z) => `Achtung: heute ist diese Tankstelle ${delta} CHF/Liter teurer als der Zonen-${z}-Schnitt. Eine günstigere findest du in der Rangliste.`,
@@ -2574,7 +2571,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Tendance historique du prix ${frFuelOf(f)} dans la zone ${z}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyAriaLabelStation: (b, f, avg) => `Tendance historique du prix ${frFuelOf(f)} chez ${b}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyTrendLabel: 'Tendance du prix',
-    historyLastUpdated: (d) => `Dernière mise à jour : ${d}`,
     adviceCheaper: (delta, z) => `Bon choix : aujourd'hui cette station est ${delta} CHF/litre moins chère que la moyenne de la zone ${z}.`,
     adviceMedian: (z) => `Prix conforme à la moyenne de la zone ${z} : choisissez selon votre itinéraire.`,
     advicePremium: (delta, z) => `Attention : aujourd'hui cette station est ${delta} CHF/litre plus chère que la moyenne de la zone ${z}. Voyez le classement pour une option moins chère.`,
@@ -2817,7 +2813,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
       seriesByRange: stationSeriesByRange,
       currency: 'CHF',
     });
-    const lastUpdatedLine = `<p class="s-oF62Kj">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
+    const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
     return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
   <p class="s-MZT5qc">${esc(labels.historyCaptionStation)}</p>
@@ -2850,7 +2846,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     seriesByRange: zoneSeriesByRange,
     currency: 'CHF',
   });
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
+  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
   return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
   <p class="s-YUEhlJ">${esc(labels.historyDisclaimer)}</p>
@@ -4877,7 +4873,7 @@ function renderItalianStationPage(opts: {
         lng: ctx.station.lng as number,
       })
     : '';
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(redesignLabels.historyLastUpdated(dateStamp))}</p>`;
+  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(dateStamp, locale))}</p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav aria-label="Breadcrumb" class="s-bcr">

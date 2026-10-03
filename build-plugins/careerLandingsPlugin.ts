@@ -43,7 +43,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -566,7 +566,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(competitionSummary ? ({ it: 'Pagina generata', en: 'Page generated', de: 'Seite erstellt', fr: 'Page générée' })[locale] : shell.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${competitionSummary ? competitionSummary.html : ''}
     ${statTilesHtml}
     ${primaryCtaHtml}

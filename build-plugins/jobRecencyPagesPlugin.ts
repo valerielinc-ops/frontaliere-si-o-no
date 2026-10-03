@@ -37,7 +37,7 @@ import {
 } from './jobRecencyLanding';
 import type { JobLandingLocale } from './jobEditorialLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import {
   H1_STYLE,
   LEDE_STYLE,
@@ -366,7 +366,7 @@ ${alternates}
         <span>${esc(model.timeframeLabel)}</span>
       </nav>
       <header class="s-sy52lX">
-        <p style="${HERO_EYEBROW_STYLE}">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+        <p style="${HERO_EYEBROW_STYLE}">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
         <h1 style="${H1_STYLE}">${esc(model.heading)}</h1>
         <p style="${LEDE_STYLE};max-width:860px">${esc(model.description)}</p>
         <p style="${BODY_STYLE};max-width:860px">${esc(model.intro)}</p>

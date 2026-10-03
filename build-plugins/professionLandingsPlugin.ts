@@ -54,7 +54,7 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero } from './shared/landingHeroPersonality';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import {
@@ -592,7 +592,7 @@ function renderPage(opts: {
       // median is polluted by default-estimated salaries.
       medianSalary: facts.medianSalaryChf,
     }, copy.h1, copy.denseLede)}
-    <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}

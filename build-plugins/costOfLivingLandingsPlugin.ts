@@ -52,7 +52,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -536,7 +536,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p class="col-lede">${esc(denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
