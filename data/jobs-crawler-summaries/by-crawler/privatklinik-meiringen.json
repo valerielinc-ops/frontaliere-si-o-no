@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-meiringen",
   "label": "Privatklinik Meiringen",
-  "generatedAt": "2026-10-02T21:30:53.600Z",
+  "generatedAt": "2026-10-03T09:28:50.910Z",
   "total": 15,
   "discovered": null,
   "parsed": 0,
@@ -13,10 +13,11 @@
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9343,
-  "avgDurationMs": 9343,
+  "durationMs": 9794,
+  "avgDurationMs": 9794,
   "durationHistory": [
-    9343
+    9343,
+    9794
   ],
   "newJobs": [
     {
@@ -32,7 +33,7 @@
       "url": "https://my.jobalino.ch/job/92ed61cdc7e5aac7cba5729b9d507abc/co-schwerpunkteleiter-in_7089",
       "source": "Privatklinik Meiringen Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:30:39.352Z",
+      "crawledAt": "2026-10-03T09:28:36.441Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
