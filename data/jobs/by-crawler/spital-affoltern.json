@@ -787,7 +787,7 @@
       "title": "Pflegehelferin / Pflegehelfer SRK Alterspsychiatrie",
       "titleByLocale": {
         "it": "Assistente infermieristico / assistente infermieristico SRK Psichiatria dell'età",
-        "en": "Pflegehelferin / Pflegehelfer SRK Alterspsychiatrie",
+        "en": "Nursing assistant / nursing assistant SRK Age psychiatry",
         "de": "Pflegehelferin / Pflegehelfer SRK Alterspsychiatrie",
         "fr": "Assistant infirmier/assistant infirmier SRK Psychiatrie de l'âge"
       },
@@ -820,21 +820,6 @@
       "applyUrl": "https://jobs.dualoo.com/portal/9dfy7ms4/862d7a6f-4509-48ad-a6fd-de6d43272107/detail?lang=DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:22:00.363Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "pflegehelferin-pflegehelfer-srk-alterspsychiatrie-spital-affoltern-affoltern-am-albis",
         "assistente-infermieristico-assistente-infermieristico-srk-psichiatria-dell-eta-spital-affoltern-ag-affoltern-am-albis"
@@ -850,6 +835,20 @@
         "fr": [
           "pflegehelferin-pflegehelfer-srk-alterspsychiatrie-spital-affoltern-affoltern-am-albis"
         ]
+      },
+      "firstSeenAt": "2026-10-01T09:22:00.363Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
       }
     },
     {

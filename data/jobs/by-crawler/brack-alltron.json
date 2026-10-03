@@ -575,7 +575,7 @@
       "title": "Specialist Operational Planning & Control - Logistikleitstand",
       "titleByLocale": {
         "it": "Specialista Operational Planning & Control",
-        "en": "Specialist Operational Planning & Control - Logistikleitstand",
+        "en": "Specialist Operational Planning & Control - Logistics Control Center",
         "de": "Spezialist Operational Planning & Control - Logistikleitstand",
         "fr": "Spécialiste Operational Planning & Control"
       },
@@ -637,8 +637,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "brack-alltron-4d4d873ec26e",
@@ -1150,7 +1149,7 @@
       "companyDomain": "brack.ch",
       "title": "Logistician",
       "titleByLocale": {
-        "it": "Logistician",
+        "it": "Logisticista",
         "en": "Logistician",
         "de": "Logistician",
         "fr": "Logisticien"
