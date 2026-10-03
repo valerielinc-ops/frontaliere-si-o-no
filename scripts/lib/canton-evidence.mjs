@@ -16,6 +16,7 @@ import { cantonNamedByLocation } from './job-location-display.mjs';
 import {
   inferAnyCanton,
   isKnownSwissMunicipalityInCanton,
+  isTargetCanton,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 
@@ -28,7 +29,8 @@ export function inferCantonFromJobEvidence({
   const city = String(cityText || '').trim();
   const location = String(locationText || '').trim();
   const crawler = String(crawlerCanton || '').trim().toUpperCase();
-  const source = String(sourceLocationCanton || '').trim().toUpperCase();
+  const sourceCandidate = String(sourceLocationCanton || '').trim().toUpperCase();
+  const source = isTargetCanton(sourceCandidate) ? sourceCandidate : '';
   const encoded = cantonNamedByLocation(location);
 
   // An explicit source marker is safe only when it agrees with the crawler's

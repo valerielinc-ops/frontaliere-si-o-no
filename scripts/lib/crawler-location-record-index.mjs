@@ -17,10 +17,12 @@ function locationRecord(job) {
 }
 
 function sameLocationRecord(left, right) {
+  const leftSource = left.sourceLocationCanton || '';
+  const rightSource = right.sourceLocationCanton || '';
   return left.canton === right.canton
     && left.city === right.city
     && left.location === right.location
-    && (left.sourceLocationCanton || '') === (right.sourceLocationCanton || '');
+    && (!leftSource || !rightSource || leftSource === rightSource);
 }
 
 function addUniqueRecord(index, key, record) {

@@ -213,7 +213,7 @@ function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   // marker that the assembled locality normalizer stripped from the public
   // city field. It is valid evidence for a homonym only when it agrees with
   // the crawler's own stamp; do not let it hide a source conflict.
-  if (sourceCanton === storedCanton) return true;
+  if (sourceCanton === storedCanton && sameRecordedPlace(sourceLocation, city)) return true;
   if (!isKnownSwissMunicipalityInCanton(city, storedCanton)) return false;
   return inferCantonFromJobEvidence({
     cityText: city,
