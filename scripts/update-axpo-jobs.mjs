@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { sourceRssPostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -218,16 +218,6 @@ function filterSwissJobs(items) {
   return swissJobs;
 }
 
-function rssPostingDateFields(raw = '') {
-  const value = String(raw || '').trim();
-  const rss = value.match(/^(?:[A-Za-z]{3},\s*)?(\d{1,2}) ([A-Za-z]{3}) (\d{4}) (\d{2}:\d{2}:\d{2}) (GMT|UTC|UT|Z|[+-]\d{4})$/);
-  if (!rss) return sourcePostingDateFields(value);
-  // Validate the calendar independently; apply the real-clock cutoff only after the offset.
-  const calendarReference = new Date(`${rss[3]}-12-31T23:59:59Z`);
-  const day = sourcePostingDateFields(`${rss[1]} ${rss[2]} ${rss[3]}`, calendarReference).postedDate;
-  const zone = /^[+-]/.test(rss[5]) ? `${rss[5].slice(0, 3)}:${rss[5].slice(3)}` : 'Z';
-  return sourcePostingDateFields(day ? `${day}T${rss[4]}${zone}` : '');
-}
 
 function buildJob(item) {
   const title = item.title || '';
@@ -257,7 +247,7 @@ function buildJob(item) {
   const category = inferCategory(item.department, title);
   const empType = mapEmploymentType(item.role || title);
 
-  const publicationDate = rssPostingDateFields(item.pubDate);
+  const publicationDate = sourceRssPostingDateFields(item.pubDate);
 
   return {
     title,

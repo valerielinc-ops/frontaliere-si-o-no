@@ -3,7 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import ts from 'typescript';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { sourcePostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
+import { sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
 import { buildAxaJob } from '../scripts/update-axa-jobs.mjs';
 import { parseConvitDetailPage } from '../scripts/lib/convit-job-parser.mjs';
 
@@ -14,7 +14,7 @@ function runnerFunction(file: string, name: string, dependencies: Record<string,
   const declaration = ast.statements.find((node) => ts.isFunctionDeclaration(node) && node.name?.text === name);
   if (!declaration) throw new Error(`Missing ${name} in ${file}`);
   return vm.runInNewContext(`(${declaration.getText(ast).replace(/^export\s+/, '')})`, {
-    sourcePostingDateFields, mergeSourcePostingDates, console, ...dependencies,
+    sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates, console, ...dependencies,
   });
 }
 const unknown = { postedDate: '', datePosted: '', postingDateSource: 'unknown' };
@@ -38,13 +38,18 @@ describe('source publication date conversion across crawler families', () => {
   });
   it('Axpo normalizes the RSS source timestamp without losing its timezone', () => {
     vi.useFakeTimers(); vi.setSystemTime(new Date('2026-10-03T12:00:00Z'));
-    const convert = runnerFunction('update-axpo-jobs.mjs', 'rssPostingDateFields');
-    expect(convert('Wed, 18 Feb 2026 00:30:00 +0100')).toEqual(sourcePostingDateFields('2026-02-18T00:30:00+01:00'));
-    expect(convert('Mon, 30 Feb 2026 00:30:00 GMT')).toEqual(unknown);
-    expect(convert('Sat, 03 Oct 2026 23:30:00 GMT')).toEqual(unknown);
-    expect(convert('')).toEqual(unknown);
+    const build = runnerFunction('update-axpo-jobs.mjs', 'buildJob', {
+      inferAnyCanton: () => 'TI', slugify: () => 'engineer', htmlToMarkdown: () => ({ markdown: 'Source description' }),
+      validateAxpoDescription: () => ({ ok: true }), detectLang: () => 'en', inferCategory: () => 'engineering', mapEmploymentType: () => 'full-time',
+      COMPANY_NAME: 'Axpo', COMPANY_KEY: 'axpo-group', COMPANY_DOMAIN: 'axpo.com',
+    });
+    const convert = (pubDate: string) => build({ title: 'Engineer', link: 'https://careers.axpo.com/jobs/123', swissLocations: [{ city: 'Lugano' }], pubDate });
+    expect(convert('Wed, 18 Feb 2026 00:30:00 +0100')).toMatchObject(sourcePostingDateFields('2026-02-18T00:30:00+01:00'));
+    expect(convert('Mon, 30 Feb 2026 00:30:00 GMT')).toMatchObject(unknown);
+    expect(convert('Sat, 03 Oct 2026 23:30:00 GMT')).toMatchObject(unknown);
+    expect(convert('')).toMatchObject(unknown);
     vi.setSystemTime(new Date('2026-10-03T23:30:00Z'));
-    expect(convert('Sun, 04 Oct 2026 00:15:00 +0100')).toEqual(sourcePostingDateFields('2026-10-04T00:15:00+01:00'));
+    expect(convert('Sun, 04 Oct 2026 00:15:00 +0100')).toMatchObject(sourcePostingDateFields('2026-10-04T00:15:00+01:00'));
   });
   it('AXA carries the source listing publication instead of the crawl clock', () => {
     const row = { title: 'Consulente assicurativo', detailUrl: 'https://careers.axa.com/jobs/123',
