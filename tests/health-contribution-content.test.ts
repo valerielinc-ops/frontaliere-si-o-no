@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import metadata from '../services/seo/seo-pages';
 import { FAQ_TRANSLATIONS } from '../services/seo/faq-translations';
@@ -39,4 +40,13 @@ describe('health contribution factual consistency', () => {
     const deduction = questions.find(question => question.name.startsWith('La tassa salute è detraibile'))!.acceptedAnswer.text;
     expect(deduction).toContain('Non va inserito automaticamente');
   });
+});
+
+
+it('calculator static FAQ does not promise a flat SSN premium', () => {
+  const source = readFileSync(new URL('../build-plugins/staticPagesPlugin.ts', import.meta.url), 'utf8');
+  const block = source.slice(source.indexOf('const CALCULATOR_SEO_BLOCK_HTML'), source.indexOf('function injectCalculatorSeoContent'));
+  expect(block).not.toContain('EUR 8-15');
+  expect(block.match(/3–6%/g)).toHaveLength(4);
+  expect(block.match(/30–200 EUR|EUR 30–200/g)).toHaveLength(4);
 });
