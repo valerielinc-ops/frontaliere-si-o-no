@@ -7661,6 +7661,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pilastro3a-zurigo-strategia.title': 'Terzo pilastro 3a: vantaggi 2026 nel canton Zurigo',
     'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Guida 2026 al terzo pilastro 3a nel canton Zurigo: tre livelli fiscali, moltiplicatore comunale e provider bancari o assicurativi.',
     'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Documenti fiscali svizzeri e piano 3a su una scrivania con skyline di Zurigo.',
+    'blog.article.guida-terzo-3a-berna.title': 'Terzo pilastro 3a svizzera: vantaggi 2026 canton Berna',
+    'blog.article.guida-terzo-3a-berna.excerpt': 'Guida 2026 al 3a nel canton Berna: massimale indicizzato, tre livelli fiscali e confronto tra provider bancari e assicurativi.',
+    'blog.article.guida-terzo-3a-berna.imageAlt': 'Persona in Svizzera consulta documenti sul terzo pilastro 3a e sulle imposte',
 };
 
 export default blogMetaChIt;

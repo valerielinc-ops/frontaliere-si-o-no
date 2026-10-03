@@ -23011,6 +23011,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'guida-terzo-3a-berna',
+    category: 'pensione',
+    date: '2026-10-03T13:22:34.891Z',
+    image: '/images/blog/guida-terzo-3a-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

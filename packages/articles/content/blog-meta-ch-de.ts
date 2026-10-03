@@ -7661,6 +7661,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pilastro3a-zurigo-strategia.title': 'Dritte Säule 3a: Vorteile 2026 im Kanton Zürich',
     'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Leitfaden 2026 zur dritten Säule 3a im Kanton Zürich: drei Steuerstufen, kommunaler Multiplikator und Bank- oder Versicherungsanbieter.',
     'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Schweizer Steuerunterlagen und ein 3a-Sparplan auf einem Schreibtisch mit Zürcher Skyline.',
+    'blog.article.guida-terzo-3a-berna.title': 'Schweizer Säule 3a: Vorteile 2026 im Kanton Bern',
+    'blog.article.guida-terzo-3a-berna.excerpt': 'Leitfaden 2026 zur Säule 3a im Kanton Bern: indexierter Höchstbetrag, drei Steuerebenen und Vergleich von Bank- und Versicherungsanbietern.',
+    'blog.article.guida-terzo-3a-berna.imageAlt': 'Person in der Schweiz prüft Unterlagen zur Säule 3a und zu Steuern',
 };
 
 export default blogMetaChDe;
