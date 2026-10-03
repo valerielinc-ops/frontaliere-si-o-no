@@ -115,7 +115,6 @@ export default function AssistedApplicationAutomationPanel({
   const [emailBody, setEmailBody] = useState(draft?.applicationEmail?.body || '');
   const [answers, setAnswers] = useState<Record<string, string>>(flow?.answers || {});
   const [ackFacts, setAckFacts] = useState(false);
-  const [ackKnockOut, setAckKnockOut] = useState(false);
   const [ackFlags, setAckFlags] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -476,8 +475,11 @@ export default function AssistedApplicationAutomationPanel({
               <ul className="mt-1 list-disc pl-4">{advisories.map((item) => <li key={`${item.field}-${item.kind}-${item.token}`}><strong>{item.token}</strong> ({item.kind}){item.context ? <> — «{item.context}»</> : null}</li>)}</ul>
             </div>
           )}
-          {draft.verdict === 'poor' && !draft.knockOutAcknowledgedAt && (
-            <label className="flex items-center gap-2 text-xs text-body"><input type="checkbox" checked={ackKnockOut} onChange={(event) => setAckKnockOut(event.target.checked)} /> Il CV non soddisfa un requisito indispensabile: invia comunque</label>
+          {/* A profile that is not a full match no longer needs a tick here: the candidate is told on the review page. */}
+          {draft.verdict === 'poor' && (
+            <p className="rounded-lg border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
+              Il CV non soddisfa un requisito indispensabile dell’annuncio. La bozza prosegue comunque: il candidato lo legge sopra le domande, con i requisiti che non risultano dal CV, e decide lui se inviare.
+            </p>
           )}
           {/* The other owner flags: approving needs an explicit acknowledgement of each (409 owner_flags_open otherwise). */}
           {(flow?.heldBy || []).filter((flag) => OTHER_OWNER_FLAGS[flag]).map((flag) => (
@@ -534,7 +536,7 @@ export default function AssistedApplicationAutomationPanel({
         )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeKnockOut: ackKnockOut, acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
+            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>
               {spinner('automationApprove') || <Send size={14} aria-hidden="true" />} Approva ora
             </button>
           )}

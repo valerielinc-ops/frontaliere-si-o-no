@@ -3,6 +3,7 @@ import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSqu
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
+import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
@@ -476,6 +477,11 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                   : t('jobBoard.assisted.review.autoApproveAt', { deadline: formatDeadline(data.deadlineAt, pageLocale) })}
             </p>
           </div>
+        )}
+
+        {/* A profile that is not a full match goes on: said here, above the questions, before the candidate decides. */}
+        {data && data.fit && data.can.answer && (
+          <AssistedApplicationFitNotice fit={data.fit} locale={pageLocale} />
         )}
 
         {data && data.can.answer && data.questions.length > 0 && (

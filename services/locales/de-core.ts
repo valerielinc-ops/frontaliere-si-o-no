@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3981.title': "Begleitete Bewerbung: Wir sagen dir, wenn eine Anforderung fehlt",
+ 'whatsNew.v3981.fitNotice.title': "Anforderungen, die aus dem Lebenslauf nicht hervorgehen",
+ 'whatsNew.v3981.fitNotice.desc': "Vor dem Versand zeigt dir die Seite deiner Bewerbung, welche zwingenden Anforderungen der Stelle aus deinem Lebenslauf nicht hervorgehen. Die Bewerbung läuft trotzdem weiter: Du entscheidest, ob du sie in den Antworten ergänzt oder so sendest.",
  'whatsNew.v3980.title': "Begleitete Bewerbung: Lebenslauf und Brief nach Schweizer Art",
  'whatsNew.v3980.cvReview.title': "Du prüfst den Lebenslauf Zeile für Zeile",
  'whatsNew.v3980.cvReview.desc': "Auf der Seite deiner Bewerbung siehst du jede Zeile, die wir umformuliert haben, neben der Zeile aus deinem Lebenslauf: Wähle, welche gesendet wird, oder schreib sie selbst. Du kannst auch ein Foto hinzufügen, in der Deutschschweiz üblich, anderswo freiwillig.",
@@ -903,6 +906,12 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.error.invalid_file': "Die Datei ist nicht lesbar oder existiert nicht mehr. Versuche es erneut.",
  'jobBoard.assisted.review.error.storage_unavailable': "Das Hochladen ist gerade nicht möglich. Versuche es bald erneut.",
  'jobBoard.assisted.review.autoApproveAt': "Wenn du nichts tust, wird die Bewerbung {deadline} automatisch so versendet.",
+ 'jobBoard.assisted.review.fit.partialTitle': "Einige Anforderungen der Stelle gehen aus deinem Lebenslauf nicht hervor",
+ 'jobBoard.assisted.review.fit.partialBody': "Die Bewerbung geht trotzdem raus. Wir sagen es dir vor dem Versand, damit du entscheidest: Erfüllst du sie, schreib es unten in die Antworten oder bitte uns um eine Anpassung.",
+ 'jobBoard.assisted.review.fit.lowTitle': "Dein Profil deckt eine zwingende Anforderung der Stelle nicht ab",
+ 'jobBoard.assisted.review.fit.lowBody': "Das Unternehmen könnte die Bewerbung deshalb aussortieren. Du kannst sie trotzdem senden: Erfüllst du die Anforderung und der Lebenslauf zeigt es nicht, schreib es unten in die Antworten oder bitte uns um eine Anpassung.",
+ 'jobBoard.assisted.review.fit.missing': "geht aus dem Lebenslauf nicht hervor",
+ 'jobBoard.assisted.review.fit.partial': "nur teilweise ersichtlich",
  'jobBoard.assisted.review.questionsTitle': "Angaben, die das Unternehmen braucht",
  'jobBoard.assisted.review.yes': "Ja",
  'jobBoard.assisted.review.no': "Nein",

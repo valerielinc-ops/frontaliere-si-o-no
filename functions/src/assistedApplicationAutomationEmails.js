@@ -70,6 +70,9 @@ const CANDIDATE_COPY = {
       lead: 'ho preparato la tua candidatura per {job} presso {company}: la lettera di presentazione, i testi per l’azienda e i documenti da allegare. Rivedila e approvala con un clic, oppure dimmi cosa cambiare.',
       auto: 'Se non rispondi entro {deadline}, la candidatura partirà automaticamente così com’è.',
       held: 'Prima dell’invio mi servono alcune informazioni o documenti che solo tu puoi darmi ({count}). Finché non rispondi, la candidatura non parte.',
+      // A profile that is not a full match goes on: the candidate is told here and on the page (assistedApplicationFitNotice.js).
+      fitPartial: 'Nota: alcuni requisiti dell’annuncio non risultano dal tuo CV. Nella pagina trovi quali: se li soddisfi, precisalo nelle risposte prima dell’invio.',
+      fitLow: 'Attenzione: l’annuncio indica come indispensabile un requisito che dal tuo CV non risulta, e l’azienda potrebbe scartare la candidatura. Nella pagina trovi quale: se lo soddisfi, precisalo nelle risposte prima dell’invio.',
       feedbackNote: 'Se qualcosa non ti convince, scrivimelo nella pagina: preparo una nuova versione e te la rimando.',
     },
     reminder: {
@@ -135,6 +138,8 @@ const CANDIDATE_COPY = {
       lead: 'ich habe deine Bewerbung für {job} bei {company} vorbereitet: Motivationsschreiben, Texte für das Unternehmen und die Unterlagen. Prüfe sie und gib sie mit einem Klick frei, oder sag mir, was ich ändern soll.',
       auto: 'Antwortest du nicht bis {deadline}, wird die Bewerbung automatisch so versendet.',
       held: 'Vor dem Versand brauche ich noch Angaben oder Unterlagen, die nur du mir geben kannst ({count}). Solange du nicht antwortest, geht die Bewerbung nicht raus.',
+      fitPartial: 'Hinweis: Einige Anforderungen der Stelle gehen aus deinem Lebenslauf nicht hervor. Auf der Seite siehst du, welche: Erfüllst du sie, ergänze es vor dem Versand in den Antworten.',
+      fitLow: 'Achtung: Die Stelle nennt eine Anforderung als zwingend, die aus deinem Lebenslauf nicht hervorgeht; das Unternehmen könnte die Bewerbung aussortieren. Auf der Seite siehst du, welche: Erfüllst du sie, ergänze es vor dem Versand in den Antworten.',
       feedbackNote: 'Wenn dir etwas nicht passt, schreib es mir auf der Seite: Ich bereite eine neue Version vor und schicke sie dir.',
     },
     reminder: {
@@ -200,6 +205,8 @@ const CANDIDATE_COPY = {
       lead: 'j’ai préparé votre candidature pour {job} chez {company} : la lettre de motivation, les textes pour l’entreprise et les documents à joindre. Relisez-la et approuvez-la d’un clic, ou dites-moi quoi modifier.',
       auto: 'Sans réponse de votre part d’ici {deadline}, la candidature partira automatiquement telle quelle.',
       held: 'Avant l’envoi, j’ai besoin d’informations ou de documents que vous seul pouvez me donner ({count}). Tant que vous n’avez pas répondu, la candidature ne part pas.',
+      fitPartial: 'À noter : certaines exigences de l’annonce ne ressortent pas de votre CV. La page indique lesquelles : si vous les remplissez, précisez-le dans vos réponses avant l’envoi.',
+      fitLow: 'Attention : l’annonce présente comme indispensable une exigence qui ne ressort pas de votre CV, et l’entreprise pourrait écarter la candidature. La page indique laquelle : si vous la remplissez, précisez-le dans vos réponses avant l’envoi.',
       feedbackNote: 'Si quelque chose ne vous convient pas, écrivez-le sur la page : je prépare une nouvelle version et vous la renvoie.',
     },
     reminder: {
@@ -265,6 +272,8 @@ const CANDIDATE_COPY = {
       lead: 'I have prepared your application for {job} at {company}: the cover letter, the texts for the company and the documents to attach. Review it and approve it with one click, or tell me what to change.',
       auto: 'If you do not reply by {deadline}, the application will be sent automatically as it is.',
       held: 'Before sending I need some information or documents only you can give me ({count}). Until you reply, the application does not go out.',
+      fitPartial: 'Note: some requirements of the posting do not show in your CV. The page lists them: if you meet them, say so in your answers before it is sent.',
+      fitLow: 'Please note: the posting lists as essential a requirement your CV does not show, and the company may turn the application down. The page says which: if you meet it, say so in your answers before it is sent.',
       feedbackNote: 'If something is not right, write it on the page: I will prepare a new version and send it back to you.',
     },
     reminder: {
@@ -412,7 +421,7 @@ export function describeTakeover({ reason, stage, attempts }) {
  *   candidate_handoff_reminder | candidate_action_needed | candidate_questions_reminder | candidate_posting_closed |
  *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
- *   deadlineAt?:number, held?:boolean, openQuestions?:number, reason?:string, price?:string, orderId:string}} vars
+ *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|null, openQuestions?:number, reason?:string, price?:string, orderId:string}} vars
  */
 export function buildCandidateAutomationEmail(kind, vars) {
   const locale = CANDIDATE_COPY[vars.locale] ? vars.locale : 'it';
@@ -445,8 +454,10 @@ export function buildCandidateAutomationEmail(kind, vars) {
   }
   if (kind === 'candidate_review') {
     const clock = vars.held ? fill(section.held, values) : fill(section.auto, values);
-    html.push(brandCallout(`<strong>${esc(clock)}</strong>`), brandButton(vars.reviewUrl, copy.reviewCta), brandParagraph(esc(section.feedbackNote)));
-    text.push(clock, `${copy.reviewCta}: ${vars.reviewUrl}`, section.feedbackNote);
+    // Said before the button: the candidate opens the page knowing why it lists requirements.
+    const fit = { low: section.fitLow, partial: section.fitPartial }[vars.fit] || '';
+    html.push(brandCallout(`<strong>${esc(clock)}</strong>`), ...(fit ? [brandParagraph(esc(fit))] : []), brandButton(vars.reviewUrl, copy.reviewCta), brandParagraph(esc(section.feedbackNote)));
+    text.push(clock, ...(fit ? [fit] : []), `${copy.reviewCta}: ${vars.reviewUrl}`, section.feedbackNote);
   } else if (kind === 'candidate_followup_review') {
     // The follow-up as the employer will read it, then the 12-hour clock.
     const followupText = String(vars.followupText || '').replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim().slice(0, 2000);

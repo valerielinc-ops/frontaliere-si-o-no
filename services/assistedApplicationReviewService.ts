@@ -91,6 +91,22 @@ export interface ReviewQuestion {
   } | null;
 }
 
+/** A decisive requirement of the posting the CV does not show (functions/src/assistedApplicationFitNotice.js). */
+export interface ReviewFitGap {
+  /** Short, in Italian (the language of the analysis). */
+  requirement: string;
+  /** The posting’s own words ('' when the requirement was inferred). */
+  quote: string;
+  importance: 'critical' | 'high';
+  status: 'missing' | 'partial';
+}
+
+export interface ReviewFitNotice {
+  /** low: a must-have is clearly missing; partial: some requirements do not show. */
+  level: 'low' | 'partial';
+  gaps: ReviewFitGap[];
+}
+
 /** A proposed form field (functions/src/assistedApplicationCandidateEdits.js). */
 export interface ReviewFormField {
   key: string;
@@ -133,6 +149,8 @@ export interface ReviewPayload {
   /** When the candidate last saved their own changes. */
   editedAt?: number | null;
   questions: ReviewQuestion[];
+  /** The posting’s decisive requirements the CV does not show, said above the questions (null: a full match). */
+  fit?: ReviewFitNotice | null;
   answers: Record<string, string>;
   /** School reports, test results… the posting requires besides the CV and the letter. */
   documents?: ReviewDocument[];

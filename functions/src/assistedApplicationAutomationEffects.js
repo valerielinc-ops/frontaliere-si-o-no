@@ -23,6 +23,7 @@ import {
 } from './assistedApplicationNotifications.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
+import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
@@ -112,6 +113,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
       reviewUrl,
       deadlineAt: flow.deadlineAt,
       held: Boolean(effect.held),
+      // The profile is not a full match: said in the review e-mail too (the page lists the requirements).
+      fit: effect.kind === 'candidate_review' ? fitNoticeOf(draft)?.level || null : null,
       openQuestions,
       reason: effect.reason || flow.heldBy?.[0],
       price: formatPrice(order, locale),
