@@ -132,6 +132,7 @@ function createRunnerVariant(source: string) {
   for (const file of [
     'corpus-wide-tests.mjs',
     'dataset-dependent-tests.mjs',
+    'scan-site-hardcoded-secrets.mjs',
   ]) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci', file), path.join(ciDir, file));
   }
@@ -410,6 +411,74 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(housekeeping);
   }, 120_000);
 
+  it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
+    // PR 10336: una chiave Google Maps di terzi dentro una fixture HTML di
+    // `tests/fixtures/`. Il gate la riconosceva, ma un `.html` non è né un
+    // sorgente né un asset indicizzato: il diff usciva prima della selezione
+    // con zero test, e il gate non girava proprio sul diff che lo violava.
+    const gate = 'tests/no-hardcoded-secrets.test.ts';
+    expect(selectionFor(['tests/fixtures/kanton-aargau/detail.html'])).toEqual([gate]);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).toContain(gate);
+    // Il perimetro è quello dello scanner (`isScanned`), non una copia: ciò
+    // che lo scanner esclude non paga la scansione dell'albero.
+    expect(selectionFor(['public/x.svg'])).toEqual([]);
+    expect(selectionFor(['package-lock.json'])).toEqual([]);
+  }, 120_000);
+
+  it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
+    // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
+    // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.
+    // `toContain` e non l'elenco esatto: ogni lint nuovo con `scripts/` nel
+    // perimetro entra legittimamente in questa selezione.
+    const selected = selectionFor(['scripts/dev/fast-worktree.sh']);
+    expect(selected).toContain('tests/gh-slurp-jq-guard.test.ts');
+    expect(selected).toContain('tests/no-hardcoded-secrets.test.ts');
+  }, 120_000);
+
+  it('il gate dei segreti non spegne il fallback alla suite intera per un sorgente senza test', () => {
+    // Il perimetro del gate copre quasi ogni sorgente. Se entrasse nella
+    // selezione prima della decisione sul fallback, un sorgente importato da
+    // qualcuno ma non raggiunto da nessun test selezionerebbe il solo gate
+    // invece della suite intera. La fixture è costruita qui: un file reale del
+    // repo potrebbe ricevere un test domani e il caso smetterebbe di provare.
+    const gate = 'tests/no-hardcoded-secrets.test.ts';
+    const dir = createRunnerVariant(fs.readFileSync(RUNNER, 'utf8'));
+    try {
+      const files: Record<string, string> = {
+        'services/untested-leaf.ts': 'export const leaf = 1;\n',
+        'services/untested-importer.ts': "import { leaf } from './untested-leaf';\nexport const twice = leaf * 2;\n",
+        'services/standalone.ts': 'export const alone = 1;\n',
+        'tests/unrelated.test.ts': 'export {};\n',
+        [gate]: 'export {};\n',
+      };
+      for (const [file, content] of Object.entries(files)) {
+        fs.mkdirSync(path.dirname(path.join(dir, file)), { recursive: true });
+        fs.writeFileSync(path.join(dir, file), content);
+      }
+      execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: dir });
+      execFileSync('git', ['config', 'user.email', 'test@example.invalid'], { cwd: dir });
+      execFileSync('git', ['config', 'user.name', 'related-selection-test'], { cwd: dir });
+      execFileSync('git', ['add', '.'], { cwd: dir });
+      execFileSync('git', ['commit', '-qm', 'fallback fixture'], { cwd: dir });
+      const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }).trim();
+      execFileSync('git', ['update-ref', 'refs/remotes/origin/main', base], { cwd: dir });
+
+      const imported = runSelectionInFixture(dir, dir, ['services/untested-leaf.ts'], 'imported');
+      expect(imported.stdout).toContain('No static related edge found → running all tracked tests conservatively.');
+      expect(imported.stdout).toContain('tests/unrelated.test.ts');
+      expect(imported.stdout).toContain(gate);
+
+      // Una foglia vera (nessun importatore) non paga la suite intera, ma il
+      // gate dei segreti la giudica comunque.
+      const standalone = runSelectionInFixture(dir, dir, ['services/standalone.ts'], 'standalone');
+      expect(standalone.stdout).toContain('every changed file has zero importers');
+      expect(standalone.stdout).not.toContain('tests/unrelated.test.ts');
+      expect(standalone.stdout).toContain(gate);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
   it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-vitest-config-'));
     try {
@@ -478,7 +547,9 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
   }, 120_000);
 
   it('tsconfig.json non diventa una scorciatoia per la suite intera', () => {
-    expect(selectionFor(['tsconfig.json'])).toEqual([]);
+    // Resta il solo gate dei segreti, che scandisce ogni file tracciato fuori
+    // dalle sue esclusioni: nessun test del grafo, nessuna suite intera.
+    expect(selectionFor(['tsconfig.json'])).toEqual(['tests/no-hardcoded-secrets.test.ts']);
   });
 
   it('rifiuta il dry-run quando il processo gira in GitHub Actions', () => {
