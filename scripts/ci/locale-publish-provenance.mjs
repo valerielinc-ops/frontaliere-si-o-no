@@ -367,6 +367,7 @@ function main() {
       localePush: process.env.PROVENANCE_LOCALE_PUSH_OUTCOME,
       localePack: process.env.PROVENANCE_LOCALE_PACK_OUTCOME,
       localeArtifact: process.env.PROVENANCE_LOCALE_ARTIFACT_OUTCOME,
+      tailBudget: process.env.PROVENANCE_TAIL_BUDGET_OUTCOME,
     },
   });
   fs.mkdirSync(path.dirname(path.resolve(output)), { recursive: true });

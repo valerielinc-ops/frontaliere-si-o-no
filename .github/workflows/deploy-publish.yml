@@ -152,6 +152,8 @@ jobs:
       DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
       SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
       SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
     steps:
       - name: Record non-IT tail job start
         run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
@@ -231,6 +233,7 @@ jobs:
           mkdir -p dist
           tar -C dist -xf "$source_tar"
           test -s dist/build-id.txt
+          test "$(cat dist/build-id.txt)" = "$DEPLOY_BUILD_ID"
           test -s "dist/${BUILD_LOCALE}.html"
           test -s "dist/${BUILD_LOCALE}/index.html"
 
@@ -911,6 +914,7 @@ jobs:
           SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
           SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
+          GITHUB_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
           # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
           # per il perche' del trap EXIT. Il trap non altera l'exit code dello
