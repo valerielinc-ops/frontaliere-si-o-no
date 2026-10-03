@@ -222,7 +222,7 @@ export interface LamalSsnSnapshot {
 }
 
 const LAMAL_SSN_DISCLAIMER =
-  'Report generato automaticamente a scopo informativo. Stime basate sui premi UFSP/BAG (modello standard, senza infortuni) e sul contributo dei frontalieri aventi diritto al SSN, 3-6% del netto con limiti di 30-200 EUR/mese, su 12 mesi (DM 14 novembre 2025). Non e iscrizione volontaria SSN: verificare requisiti e attuazione regionale. Non costituisce consulenza. La scelta LAMal/SSN dipende dai requisiti e dalle eccezioni applicabili: valuta la tua situazione con un consulente autorizzato.';
+  'Report generato automaticamente a scopo informativo. Stime basate sui premi UFSP/BAG (modello standard, senza infortuni) e sul contributo dei frontalieri aventi diritto al SSN, 3-6% del netto con limiti di 30-200 EUR/mese, su 12 mesi (DM 14 novembre 2025). Non e iscrizione volontaria SSN: verificare requisiti e attuazione regionale. Non costituisce consulenza. Opzione SSN: domanda formale al Cantone entro tre mesi per gli aventi diritto. Un nuovo esercizio, ad esempio dopo nascita di un figlio per chi aveva LAMal, va verificato con Cantone e ASL.';
 
 /**
  * Generate a Blob containing the LAMal-vs-SSN breakeven PDF report.
