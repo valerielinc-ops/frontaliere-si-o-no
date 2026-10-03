@@ -83,6 +83,19 @@ describe('SEO runtime noindex on filter-variant query params', () => {
     expect(canonical).not.toContain('?');
   });
 
+  it.each(['it', 'en', 'de', 'fr'] as const)('keeps newsletter preferences noindex in %s and preserves the signed query', async (locale) => {
+    const route: AppRoute = { activeTab: 'newsletter-preferences' };
+    const path = buildPath(route, locale);
+    await loadAllLocaleChunks(locale);
+    setLocale(locale);
+    const query = '?email=reader%40example.com&token=test-signed-token';
+    window.history.replaceState({}, '', `${path}${query}`);
+    await updateMetaTags(getSeoSection(route));
+    expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
+    expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${path}`);
+    expect(window.location.search).toBe(query);
+  });
+
   it('emits index,follow when no filter query params are present', async () => {
     const route: AppRoute = { activeTab: 'confronti', confrontiSubTab: 'health' as any };
     const section = getSeoSection(route);
