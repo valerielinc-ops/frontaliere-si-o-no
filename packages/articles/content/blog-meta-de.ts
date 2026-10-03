@@ -12399,6 +12399,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pasture-vertenza-governo-federale.title': 'Pasture: Arbeitskonflikt des Personals beim Bundesrat',
     'blog.article.pasture-vertenza-governo-federale.excerpt': 'Giorgio Fonio stellt eine Anfrage zu Mandaten und Beschäftigungsgarantien. Gewerkschaften und die Personalkommission bitten AOZ um ein Treffen zur Situation im Tessin.',
     'blog.article.pasture-vertenza-governo-federale.imageAlt': 'Arbeiter vor einem Gebäude im Tessin im dokumentarischen Stil.',
+    'blog.article.furto-noranco-arresti-garage.title': 'Autodiebstahl in Noranco: drei Festnahmen und wiedergefundene Fahrzeuge',
+    'blog.article.furto-noranco-arresti-garage.excerpt': 'Drei in Noranco gestohlene Luxusautos wurden wiedergefunden. Drei Personen, ein 20-jähriger Italiener, ein 21-jähriger Algerier und ein 25-jähriger Franzose, wohnhaft in Frankreich, wurden festgenommen.',
+    'blog.article.furto-noranco-arresti-garage.imageAlt': 'Bild einer sicheren Garage mit Schutzsystemen, die an Präventionsmaßnahmen gegen Diebstähle im Tessin erinnert.',
 };
 
 export default blogMetaDe;

@@ -12400,6 +12400,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pasture-vertenza-governo-federale.title': 'Pasture: staff dispute before the federal government',
     'blog.article.pasture-vertenza-governo-federale.excerpt': 'Giorgio Fonio submits an inquiry about mandates and employment guarantees. Trade unions and the Staff Commission request a meeting with AOZ about the situation in Ticino.',
     'blog.article.pasture-vertenza-governo-federale.imageAlt': 'Workers outside a building in Ticino, captured in documentary style.',
+    'blog.article.furto-noranco-arresti-garage.title': 'Noranco car theft: three arrests and vehicles recovered',
+    'blog.article.furto-noranco-arresti-garage.excerpt': 'Three high-end cars stolen in Noranco have been recovered. Three people, a 20-year-old Italian national, a 21-year-old Algerian national and a 25-year-old French national, residing in France, were detained.',
+    'blog.article.furto-noranco-arresti-garage.imageAlt': 'Image of a secure garage with protection systems, recalling prevention measures against thefts in Ticino.',
 };
 
 export default blogMetaEn;

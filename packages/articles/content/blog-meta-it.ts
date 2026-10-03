@@ -12401,6 +12401,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pasture-vertenza-governo-federale.title': 'Pasture: vertenza del personale al governo federale',
     'blog.article.pasture-vertenza-governo-federale.excerpt': 'Giorgio Fonio interroga su mandati e garanzie occupazionali. Sindacati e Commissione del personale chiedono un incontro ad AOZ sulla situazione in Ticino.',
     'blog.article.pasture-vertenza-governo-federale.imageAlt': 'Lavoratori davanti a un edificio in Ticino, in stile reportage.',
+    'blog.article.furto-noranco-arresti-garage.title': 'Furto auto Noranco: tre arresti e veicoli recuperati',
+    'blog.article.furto-noranco-arresti-garage.excerpt': 'Tre auto di alta gamma rubate a Noranco sono state recuperate. Tre persone, un 20enne italiano, un 21enne algerino e un 25enne francese, residenti in Francia, sono state fermate.',
+    'blog.article.furto-noranco-arresti-garage.imageAlt': 'Immagine di un garage sicuro con sistemi di protezione, che richiama le misure di prevenzione contro i furti in Ticino.',
 };
 
 export default blogMetaIt;
