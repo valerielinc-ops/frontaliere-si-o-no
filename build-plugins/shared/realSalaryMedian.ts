@@ -54,3 +54,40 @@ export function realSalaryMedianChf(
     ? sorted[half]
     : Math.round((sorted[half - 1] + sorted[half]) / 2);
 }
+
+/** A current matching sample, distinct from a general regional benchmark. */
+export interface ReportedSalarySummary {
+  readonly sampleCount: number;
+  readonly medianChf: number | null;
+}
+
+export const MIN_REPORTED_SALARY_SAMPLES = 5;
+
+/**
+ * Annual CHF ranges with identified source provenance only. The ingestion
+ * contract stores salaryMin/Max as annual gross amounts; the conservative
+ * bounds also reject unnormalised monthly/hourly inputs. Unknown currency or
+ * provenance is not evidence of an employer salary. The historical `existing`
+ * flag also includes old estimates that differ from the current estimator
+ * fingerprint, so it cannot qualify a reported sample. Legacy medians above keep
+ * their existing behaviour for callers that have not migrated to this summary.
+ */
+export function isReportedAnnualChfSalary(
+  job: SalaryCarrier & { currency?: string },
+): job is SalaryCarrier & { salaryMin: number; salaryMax: number; currency: string; salarySource: 'reported' } {
+  return job.salarySource === 'reported'
+    && String(job.currency || '').toUpperCase() === 'CHF'
+    && typeof job.salaryMin === 'number' && Number.isFinite(job.salaryMin)
+    && typeof job.salaryMax === 'number' && Number.isFinite(job.salaryMax)
+    && job.salaryMin >= 20000 && job.salaryMax >= job.salaryMin && job.salaryMax <= 300000;
+}
+
+export function reportedSalarySummary(
+  jobs: readonly (SalaryCarrier & { currency?: string })[],
+): ReportedSalarySummary {
+  const reported = jobs.filter(isReportedAnnualChfSalary);
+  return {
+    sampleCount: reported.length,
+    medianChf: realSalaryMedianChf(reported, MIN_REPORTED_SALARY_SAMPLES),
+  };
+}
