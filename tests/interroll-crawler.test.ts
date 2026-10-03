@@ -1,10 +1,12 @@
 /**
  * Interroll Group — TYPO3 careers page parser tests
  */
+import fs from 'node:fs';
 import { describe, it, expect } from 'vitest';
 
 import {
   parseListingPage,
+  classifyInterrollListings,
   parseDetailPage,
   isSwissLocation,
   slugify,
@@ -18,6 +20,11 @@ import {
   INTERROLL_SITES,
   buildInterrollJob,
 } from '@/scripts/update-interroll-jobs.mjs';
+
+const INTERROLL_UPDATER = fs.readFileSync(
+  new URL('../scripts/update-interroll-jobs.mjs', import.meta.url),
+  'utf8',
+);
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -123,6 +130,44 @@ describe('parseListingPage', () => {
     const urls = jobs.map(j => j.url);
     const unique = new Set(urls);
     expect(urls.length).toBe(unique.size);
+  });
+});
+
+describe('classifyInterrollListings', () => {
+  it('reports a reachable global board filtered to zero Swiss jobs', () => {
+    const result = classifyInterrollListings([
+      { title: 'Area Sales Manager', url: 'https://www.interroll.com/job-detail/sales', location: 'Germany' },
+      { title: 'Service Techniker', url: 'https://www.interroll.com/job-detail/service', location: 'Austria' },
+    ]);
+
+    expect(result.discovered).toBe(2);
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+  });
+
+  it('keeps an empty fetched board fail-closed as a selector miss', () => {
+    expect(classifyInterrollListings([])).toMatchObject({
+      discovered: 0,
+      listings: [],
+      lastFetchOutcome: 'selector_miss',
+    });
+  });
+});
+
+describe('filtered-empty heartbeat wiring', () => {
+  it('writes a normal summary instead of leaving the process-exit guard as the only signal', () => {
+    expect(INTERROLL_UPDATER).toContain(
+      "if (summaryCounts.lastFetchOutcome === 'filtered_empty')",
+    );
+    const filteredEmptyPath = INTERROLL_UPDATER.slice(
+      INTERROLL_UPDATER.indexOf("if (summaryCounts.lastFetchOutcome === 'filtered_empty')"),
+    );
+    expect(filteredEmptyPath).toContain(
+      'writeInterrollSummary({ counts: summaryCounts });',
+    );
+    expect(INTERROLL_UPDATER).toContain(
+      'lastFetchOutcome: counts.lastFetchOutcome',
+    );
   });
 });
 

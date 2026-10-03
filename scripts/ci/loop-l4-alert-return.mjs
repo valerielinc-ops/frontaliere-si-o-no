@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -16,6 +16,8 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L4';
+const ISSUE_TITLE = 'L4 Alert to Return: consent or return outcome is not measurable';
+const ISSUE_WORKFLOW = 'Loop L4 Alert to Return';
 export const DEFAULT_CONFIG_PATH = path.join('data', 'alert-config.json');
 export const DEFAULT_SNOOZES_PATH = path.join('data', 'alert-snoozes.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'alert-outcomes.json');
@@ -386,7 +388,8 @@ export async function runL4({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -502,13 +505,18 @@ export async function runL4({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L4 Alert to Return: consent or return outcome is not measurable',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'retention', 'loop-l4'],
-      workflow: 'Loop L4 Alert to Return',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
   if (resultFile) files.push(resultFile);
