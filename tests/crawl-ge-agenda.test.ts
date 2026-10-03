@@ -57,7 +57,9 @@ describe('Geneva event admission metadata', () => {
   it('enriches a record and keeps the original on a failed detail fetch', async () => {
     expect(await enrichGeneveEvent(event, async () => '<div class="field--name-field-rates-and-conditions">CHF 50.-</div>'))
       .toEqual({ ...event, price: { amount: 50, currency: 'CHF', isFree: false } });
-    expect(await enrichGeneveEvent(event, async () => null)).toEqual(event);
+    const failed = await enrichGeneveEvent(event, async () => null);
+    expect(failed).toEqual(event);
+    expect((failed as any).detailFetchFailed).toBe(true);
   });
 });
 

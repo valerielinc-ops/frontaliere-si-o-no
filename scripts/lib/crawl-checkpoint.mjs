@@ -14,6 +14,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { EVENTS_SLICE_DIR } from './events-utils.mjs';
+import { applyDetailFailureReuse } from './detail-failure-reuse-policy.mjs';
 import { mergeEventHistory, publishedEventRoutes } from './events-retention.mjs';
 
 export const CHECKPOINT_DIR = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints');
@@ -72,7 +73,17 @@ export function saveGenericCursor(filePath, cursor) {
  * mergeEventHistory carries the old route into `previousRoutes`.
  * Returns the resulting total event count.
  */
-export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, canton, freshEvents, goneIds, crawledAt }) {
+export function mergeEventsIntoSlice({
+  slicePath,
+  sourceKey,
+  sourceName,
+  canton,
+  freshEvents,
+  goneIds,
+  crawledAt,
+  detailFailureIds = [],
+  detailAttemptCount,
+}) {
   let existing = [];
   if (existsSync(slicePath)) {
     try {
@@ -83,6 +94,33 @@ export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, canton,
     }
   }
 
+  const detailReuse = applyDetailFailureReuse({
+    freshRows: freshEvents,
+    failedIdentities: detailFailureIds,
+    attemptedCount: detailAttemptCount,
+    previousRows: existing,
+    identityOf: (event) => event?.id,
+    requireReuse: false,
+    fallbackOf: (previous) => {
+      if (!previous?.id || !String(previous.title || '').trim() || !String(previous.startDate || '').trim()) {
+        return null;
+      }
+      return { ...previous };
+    },
+  });
+  if (!detailReuse.canPublish) {
+    throw new Error(
+      `[${sourceKey}] detail failure/reuse policy rejected ${detailReuse.detailFailureCount}/`
+      + `${detailReuse.attemptedCount} attempted detail(s)`,
+    );
+  }
+  if (detailReuse.detailFailureCount > 0) {
+    console.warn(
+      `[${sourceKey}] detail failure/reuse accounting: ${detailReuse.detailFailureCount} failed, `
+      + `${detailReuse.reusedDetailCount} previous snapshot row(s) reused`,
+    );
+  }
+
   const byId = new Map(existing.map((event) => [event.id, event]));
   const previousRoutes = publishedEventRoutes(
     existing,
@@ -90,7 +128,7 @@ export function mergeEventsIntoSlice({ slicePath, sourceKey, sourceName, canton,
   );
   // Deliberately retain goneIds: source disappearance is a crawl observation,
   // not authorization to erase a public event URL.
-  for (const event of freshEvents || []) {
+  for (const event of detailReuse.rows) {
     if (!event?.id) continue;
     const previous = byId.get(event.id);
     byId.set(
