@@ -54,7 +54,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { buildStableJobIdentity } from '../lib/job-identity.mjs';
+import { buildAssembledJobIdentity } from '../lib/job-identity.mjs';
 import { isCantonOnlyLabel, normalizeCantonCode, isKnownSwissCity, inferAnyCanton } from '../lib/target-swiss-locations.mjs';
 import { isSwissPostalCode } from '../assemble-jobs-dataset.mjs';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
@@ -112,7 +112,9 @@ for (const file of files) {
   for (const job of jobs) {
     const canton = String(job.canton || '').trim().toUpperCase();
     if (!canton) continue;
-    const pinId = buildStableJobIdentity(job);
+    // Keep the repair tool on the same identity contract as the assembler:
+    // portals such as Galenica put the requisition identity in the URL fragment.
+    const pinId = buildAssembledJobIdentity(job);
     const pinned = pins[pinId];
     if (!pinned || pinned === canton) continue;
     const locality = String(job.addressLocality || job.location || '').trim();
