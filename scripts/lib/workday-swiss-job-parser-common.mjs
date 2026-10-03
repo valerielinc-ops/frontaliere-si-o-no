@@ -81,6 +81,11 @@ export function isCompleteWorkdayBoard(stats, collected) {
 
 const SWISS_COUNTRY_LABEL_RE = /\b(?:switzerland|schweiz|suisse|svizzera)\b/i;
 
+function workdayBoardListsSwitzerland(summary, { facetParameter, swissIds = WORKDAY_SWISS_LOCATION_IDS } = {}) {
+  const values = workdayFacetLeafValues(summary?.facets, facetParameter);
+  return Boolean(values?.some((value) => swissIds.includes(value.id) || SWISS_COUNTRY_LABEL_RE.test(value.descriptor)));
+}
+
 /**
  * Whether an UNFILTERED board summary (`fetchWorkdayBoardSummary`) proves that
  * the career site is live and currently posts nowhere in Switzerland.
@@ -102,7 +107,7 @@ export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swi
   if (!Number.isSafeInteger(total) || total <= 0) return false;
   const values = workdayFacetLeafValues(summary.facets, facetParameter);
   if (!values || values.length === 0) return false;
-  return values.every((value) => !swissIds.includes(value.id) && !SWISS_COUNTRY_LABEL_RE.test(value.descriptor));
+  return !workdayBoardListsSwitzerland(summary, { facetParameter, swissIds });
 }
 
 /**
@@ -621,6 +626,9 @@ export function createWorkdaySwissParser(config) {
    * facet the tenant rejected, an anti-bot `[]`, a missing total, a board with
    * no postings at all, a failed proof read — stays a bare `[]`, which the
    * runner's validator refuses (previous slice kept, monitor keeps counting).
+   * Returns null when the unfiltered board explicitly lists Switzerland: the
+   * faceted zero is then inconsistent with the source and the caller must
+   * refetch the unfiltered board through the strict per-listing CH gate.
    */
   async function proveSwissAbsentEmpty(facetApplied, facetStats) {
     const empty = [];
@@ -639,6 +647,9 @@ export function createWorkdaySwissParser(config) {
     if (!provesWorkdaySwissAbsentFromBoard(summary, { facetParameter: countryFacetParameter, swissIds: locationFilters })) {
       console.warn(`⚠️ ${companyName}: the unfiltered Workday board does not prove the Swiss zero `
         + `(total=${summary?.total ?? 'n/a'}, ${countryFacetParameter} facet ${workdayFacetLeafValues(summary?.facets, countryFacetParameter) ? 'present' : 'missing'}).`);
+      if (workdayBoardListsSwitzerland(summary, { facetParameter: countryFacetParameter, swissIds: locationFilters })) {
+        return null;
+      }
       return empty;
     }
     const countries = workdayFacetLeafValues(summary.facets, countryFacetParameter);
@@ -656,6 +667,7 @@ export function createWorkdaySwissParser(config) {
 
     let facetApplied = true;
     let facetReturnedEmpty = false;
+    let emptyProof;
     let listings = [];
     // How the faceted pagination ended — the completeness evidence for the
     // authoritative-empty proof. Only the faceted fetch fills it.
@@ -689,6 +701,10 @@ export function createWorkdaySwissParser(config) {
     // Swiss gate instead of turning a live source into `no-jobs-parsed`.
     if (facetApplied && listings.length === 0) {
       facetReturnedEmpty = true;
+      if (proveSwissAbsentFromLiveBoard) {
+        emptyProof = await proveSwissAbsentEmpty(true, facetStats);
+        if (isAuthoritativeEmptySnapshot(emptyProof)) return emptyProof;
+      }
       console.warn(`⚠️ ${companyName}: Swiss facet returned no listings. Refetching unfiltered with strict CH gate.`);
       facetApplied = false;
       listings = await fetchJobListings({ useCountryFacet: false });
@@ -706,7 +722,10 @@ export function createWorkdaySwissParser(config) {
       // annotated empty array while probing for an authoritative zero.
       if (listings?.fetchOutcome === 'anti_bot_block') return listings;
       if (proveSwissAbsentFromLiveBoard) {
-        return proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats);
+        const proof = emptyProof === undefined
+          ? await proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats)
+          : emptyProof;
+        if (isAuthoritativeEmptySnapshot(proof)) return proof;
       }
       return listings || [];
     }
@@ -939,7 +958,9 @@ export function createWorkdaySwissParser(config) {
     // Swiss gate, the same live-board summary proof is valid when that retry
     // produces no Swiss jobs. Preserve an unproven result as a bare batch.
     if (proveSwissAbsentFromLiveBoard && facetReturnedEmpty && jobs.length === 0) {
-      const proven = await proveSwissAbsentEmpty(true, facetStats);
+      const proven = emptyProof === undefined || (Array.isArray(emptyProof) && !isAuthoritativeEmptySnapshot(emptyProof))
+        ? await proveSwissAbsentEmpty(true, facetStats)
+        : emptyProof;
       if (isAuthoritativeEmptySnapshot(proven)) return proven;
     }
     // Source-proven zero: the facet-scoped board was observed whole (the
