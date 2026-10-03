@@ -1163,6 +1163,82 @@ export function lastEscalationClosedAt(fullKey, closedIssues) {
   return latest;
 }
 
+// ---- Il cutoff di un'escalation RIAPERTA sta negli eventi, non in `closedAt` ----
+// `createGithubIssue` riapre il gemello chiuso invece di aprirne uno nuovo. Da
+// quel momento l'issue non e' piu' fra le chiuse e GitHub le azzera `closedAt`
+// (misurato su 10112 e 10114: `state: OPEN`, `closedAt: null`, evento `closed`
+// del 27-09 seguito da `reopened` dell'01-10). Il cutoff tornava `null` e
+// l'escalation si ricontava da sola sull'intera finestra, cioe' sugli esempi
+// PRECEDENTI alla fix. Leggere la lista con `--state all` non basta: la data
+// della chiusura di una issue aperta esiste solo nei suoi eventi.
+
+// Una riga per evento, `<event> <created_at>`: testo semplice e non JSON,
+// perche' `gh --jq` stampa il JSON compatto o indentato a seconda del
+// terminale, e con `--paginate` emette un documento per pagina.
+export const ISSUE_EVENTS_JQ = '.[] | "\\(.event) \\(.created_at)"';
+
+/**
+ * Output di `gh api .../events --paginate --jq ISSUE_EVENTS_JQ` → elenco di
+ * eventi, oppure `null` se e' vuoto o contiene una riga malformata. `null`
+ * significa «non so», e chi chiama lo tratta come nessun cutoff: l'allarme
+ * resta, non si spegne. Puro → testabile.
+ * @param {string} raw
+ * @returns {Array<{event: string, created_at: string}> | null}
+ */
+export function parseIssueEventLines(raw) {
+  const lines = String(raw ?? '').split('\n').map((l) => l.trim()).filter(Boolean);
+  if (!lines.length) return null;
+  const events = [];
+  for (const line of lines) {
+    const m = /^([a-z0-9_]+) (\S+)$/u.exec(line);
+    if (!m) return null;
+    events.push({ event: m[1], created_at: m[2] });
+  }
+  return events;
+}
+
+/**
+ * Istante ISO dell'ULTIMO evento `closed`, o `null` (mai chiusa, eventi
+ * illeggibili, date non valide). Puro → testabile.
+ * @param {Array<{event?: string, created_at?: string}> | null | undefined} events
+ * @returns {string | null}
+ */
+export function lastClosedEventAt(events) {
+  if (!Array.isArray(events)) return null;
+  let latest = null;
+  let latestMs = null;
+  for (const e of events) {
+    if (e?.event !== 'closed') continue;
+    const t = Date.parse(e?.created_at);
+    if (Number.isNaN(t) || (latestMs !== null && t <= latestMs)) continue;
+    latestMs = t;
+    latest = e.created_at;
+  }
+  return latest;
+}
+
+/**
+ * Le chiusure passate delle escalation oggi APERTE, nella stessa forma delle
+ * issue chiuse (`{title, closedAt}`), cosi' `lastEscalationClosedAt` riceve
+ * l'unione. `readEvents(number)` restituisce gli eventi o `null`; i numeri
+ * illeggibili finiscono in `unreadable` e NON producono un cutoff. Puro (la
+ * lettura e' iniettata) → testabile.
+ * @param {Array<{number: number, title?: string}>} openIssues
+ * @param {(number: number) => Array<{event?: string, created_at?: string}> | null} readEvents
+ */
+export function reopenedEscalationClosures(openIssues, readEvents) {
+  const closures = [];
+  const unreadable = [];
+  for (const iss of openIssues || []) {
+    if (!parseEscalationKey(iss?.title)) continue;
+    const events = readEvents(iss.number);
+    if (!Array.isArray(events)) { unreadable.push(iss.number); continue; }
+    const closedAt = lastClosedEventAt(events);
+    if (closedAt) closures.push({ number: iss.number, title: iss.title, closedAt });
+  }
+  return { closures, unreadable };
+}
+
 /**
  * Examples occurring strictly AFTER `cutoffMs` (the bucket's last shipped fix).
  * `cutoffMs === null` means no prior fix ever shipped for this bucket → return
@@ -1179,6 +1255,94 @@ export function examplesSinceFix(examples, cutoffMs) {
     const t = Date.parse(e?.at);
     return !Number.isNaN(t) && t > cutoffMs;
   });
+}
+
+// Sorgenti i cui esempi portano un `at`: fix-outcome (createdAt del commento
+// FIX_OUTCOME) e reviewer-finding (mergedAt della PR, #5516). Solo queste si
+// possono contare «dopo il cutoff»; issue-class non e' un driver.
+const TIMESTAMPED_SOURCES = new Set(['fix-outcome', 'reviewer-finding']);
+// Tetto degli esempi post-cutoff riportati nel corpo dell'escalation.
+export const ESCALATION_EVIDENCE_CAP = 30;
+
+/**
+ * La misura di un bucket: da quando si conta e quanto resta. Il criterio di
+ * escalation NON cambia (`effectiveCount >= soglia × fattore`): questa funzione
+ * lo isola per poterlo provare su una escalation riaperta. Puro → testabile.
+ * @param {{source: string, count: number, examples?: Array<{at?: string}>,
+ *   escalationCutoff?: number|null, ruleCutoff?: number|null,
+ *   threshold?: number, factor?: number}} input
+ */
+export function measureBucket({ source, count, examples = [], escalationCutoff = null, ruleCutoff = null,
+  threshold = THRESHOLD, factor = EFFICACY_FACTOR }) {
+  const timestamped = TIMESTAMPED_SOURCES.has(source);
+  const esc = timestamped ? escalationCutoff ?? null : null;
+  const rule = timestamped ? ruleCutoff ?? null : null;
+  const cutoff = esc === null ? rule : rule === null ? esc : Math.max(esc, rule);
+  const liveExamples = timestamped ? examplesSinceFix(examples, cutoff) : examples || [];
+  const effectiveCount = timestamped ? liveExamples.length : count;
+  return { cutoff, liveExamples, effectiveCount, limit: threshold * factor,
+    aboveLimit: effectiveCount >= threshold * factor };
+}
+
+// ---- Self-heal: chi NON si chiude, e con quale misura ----------------------
+// Label che vietano la chiusura automatica. Unione di `FIXER_EXEMPT_LABELS`
+// (`scripts/lib/classify-issue.mjs`) e del veto `KEEP_OPEN_LABELS` di
+// `reconcile-followups.mjs`: tenuta qui e non importata perche' questo file
+// scende `identical` nel corpus, e la parita' la verifica un test.
+export const SELF_HEAL_PIN_LABELS = Object.freeze(['keep-open', 'agent:no-age-out', 'pinned', 'tracker',
+  'do-not-close', 'revenue']);
+// Claim del fixer: una issue in lavorazione non si chiude sotto i suoi piedi.
+export const SELF_HEAL_CLAIM_LABEL = 'agent:in-progress';
+
+/**
+ * Sorgente di un bucket `<source>/<key>` → la vista della finestra da cui
+ * dipende la sua misura. Puro → testabile.
+ * @param {string} fullKey
+ */
+export function bucketSource(fullKey) {
+  const source = String(fullKey || '').split('/')[0];
+  return TIMESTAMPED_SOURCES.has(source) || source === 'issue-class' ? source : null;
+}
+
+/**
+ * Decide il self-heal di UNA escalation aperta il cui bucket non e' piu' fra
+ * quelli attivi. Chiude solo con: nessun pin ne' claim, vista completa della
+ * finestra per la sorgente del bucket, misura sotto la soglia di escalation.
+ * Il commento riporta la misura, non un'interpretazione. Puro → testabile.
+ * @param {{key: string, labels?: Array<string|{name?: string}>,
+ *   measure?: {effectiveCount: number, cutoffMs: number|null} | null,
+ *   cutoffMs?: number|null, partialSources?: Set<string>, windowDays?: number,
+ *   sinceDay?: string, threshold?: number, factor?: number}} input
+ * @returns {{action: 'close'|'skip', reason: string, comment?: string}}
+ */
+export function selfHealDecision({ key, labels = [], measure = null, cutoffMs = null,
+  partialSources = new Set(), windowDays: days = WINDOW_DAYS, sinceDay: since = sinceDay,
+  threshold = THRESHOLD, factor = EFFICACY_FACTOR }) {
+  const names = new Set((labels || []).map((l) => String(typeof l === 'string' ? l : l?.name ?? '').toLowerCase()));
+  const pin = SELF_HEAL_PIN_LABELS.find((l) => names.has(l));
+  if (pin) return { action: 'skip', reason: `pin ${pin}` };
+  if (names.has(SELF_HEAL_CLAIM_LABEL)) return { action: 'skip', reason: `claim ${SELF_HEAL_CLAIM_LABEL}` };
+  const source = bucketSource(key);
+  if (!source) return { action: 'skip', reason: 'sorgente del bucket sconosciuta' };
+  if (partialSources.has(source)) return { action: 'skip', reason: `vista PARZIALE della finestra per ${source}` };
+  const limit = threshold * factor;
+  // Bucket assente dalla finestra: zero occorrenze, ma il cutoff e' comunque
+  // quello della sua ultima chiusura.
+  const effectiveCount = measure ? measure.effectiveCount : 0;
+  const cut = measure ? measure.cutoffMs : cutoffMs;
+  if (effectiveCount >= limit) {
+    // Sopra soglia ma non attivo (non piu' driver o non piu' documentato):
+    // «non supera la soglia» sarebbe falso, quindi non si chiude.
+    return { action: 'skip', reason: `sopra soglia (${effectiveCount} su ${limit}) ma non attivo` };
+  }
+  const from = cut === null || cut === undefined
+    ? `nessun cutoff, intera finestra dal ${since}`
+    : `ultimo cutoff ${new Date(cut).toISOString()}`;
+  const comment = `🌱 Self-heal: il bucket \`${key}\` non supera la soglia nella finestra di ${days} giorni ` +
+    `dopo l'ultimo cutoff (${from}): ${effectiveCount} su soglia ${limit} (${threshold}×${factor}). ` +
+    'Vista della finestra completa per la sorgente del bucket, nessun pin. Chiusa dal lessons-harvester; ' +
+    'si riapre in automatico se il bucket torna sopra soglia.';
+  return { action: 'close', reason: `${effectiveCount} < ${limit}`, comment };
 }
 
 // ---- Registro versionato delle decisioni sui cluster -----------------------
@@ -1302,25 +1466,57 @@ export function buildEscalationSignals(c) {
   return {
     cosa: `bucket ${c.source}/${c.key}: pattern documentato che ricorre nonostante la regola`,
     metrica: {
-      osservato: c.count,
-      atteso: `< ${THRESHOLD}×${EFFICACY_FACTOR} occorrenze nella finestra`,
+      osservato: c.effectiveCount ?? c.count,
+      atteso: `< ${THRESHOLD}×${EFFICACY_FACTOR} occorrenze dopo il cutoff (intera finestra se non c'è)`,
     },
     comando: 'node scripts/ci/harvest-agent-lessons.mjs --dry-run',
     evidenza: [
       `bucket=${c.source}/${c.key}`,
       `finestra=${WINDOW_DAYS}gg dal ${sinceDay}`,
+      `in-finestra=${c.count}`,
+      `cutoff=${c.cutoffAt || 'nessuno'}`,
       `esempi=${formatExamples(c)}`,
     ],
   };
 }
 
-function escalationBody(c) {
+// Lo snippet e' testo di un reviewer: va in un blocco recintato, dove non
+// menziona nessuno, non crea riferimenti incrociati e non semina token-codice
+// nel corpo di una issue `follow-up` (`followup-resolution-match.mjs` ignora le
+// righe recintate, altrimenti le leggerebbe come prescrizioni da cercare).
+function evidenceLine(e) {
+  const present = (v) => v !== null && v !== undefined && v !== '';
+  const ref = present(e?.pr) ? `PR ${e.pr}` : present(e?.issue) ? `issue ${e.issue}` : '—';
+  const day = /^\d{4}-\d{2}-\d{2}/u.exec(String(e?.at ?? ''))?.[0];
+  const snippet = String(e?.snippet ?? '').replace(/`/gu, "'").replace(/\s+/gu, ' ').trim();
+  return `${ref}${day ? ` (${day})` : ''}${snippet ? `: ${snippet}` : ''}`;
+}
+
+/**
+ * Corpo (e commento di ricorrenza) dell'escalation: la misura su cui si fonda
+ * — occorrenze DOPO il cutoff, non la finestra intera — la data del cutoff e
+ * gli esempi che contano, col loro testo. Puro → testabile.
+ */
+export function escalationBody(c) {
+  const effective = c.effectiveCount ?? c.count;
+  const evidence = c.postCutoffExamples || c.examples || [];
+  const shown = evidence.slice(0, ESCALATION_EVIDENCE_CAP);
   return [
     '## Bucket',
-    `\`${c.source}/${c.key}\` — count **${c.count}** su finestra ${WINDOW_DAYS}gg (dal ${sinceDay})`,
+    `\`${c.source}/${c.key}\` — **${effective}** occorrenze dopo il cutoff ` +
+      `(soglia di escalation ${THRESHOLD}×${EFFICACY_FACTOR}) · in finestra ${WINDOW_DAYS}gg (dal ${sinceDay}): ${c.count}`,
     '',
-    '## Esempi PR/issue',
-    formatExamples(c),
+    c.cutoffAt
+      ? `Cutoff: **${c.cutoffAt}** (ultima chiusura dell'escalation di questo bucket, o regola registrata): gli esempi precedenti non contano.`
+      : 'Cutoff: nessuno (nessuna escalation chiusa né regola registrata per questo bucket): conta l\'intera finestra.',
+    '',
+    '## Esempi dopo il cutoff',
+    `Numeri: ${formatExamples({ examples: shown })}`,
+    '',
+    '```text',
+    ...(shown.length ? shown.map(evidenceLine) : ['—']),
+    ...(effective > shown.length ? [`… altri ${effective - shown.length} non riportati`] : []),
+    '```',
     '',
     '## Perché escalare',
     `Pattern GIÀ documentato ma che ricorre ≥ soglia×fattore-efficacia ` +
@@ -1346,7 +1542,12 @@ async function main() {
   const prWindow = collectWindow(days, (day) => ghJsonRetry(['pr', 'list', '--state', 'merged',
     '--search', `merged:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', 'number,mergedAt,reviews']));
   const prCap = applyCap(prWindow.items, MAX_PRS);
-  coverage.push(...coverageWarnings('merged PRs', prWindow, prCap.cut));
+  // Sorgenti la cui vista della finestra e' incompleta: il self-heal non
+  // chiude un'escalation misurata su una vista parziale.
+  const partialSources = new Set();
+  const prCoverage = coverageWarnings('merged PRs', prWindow, prCap.cut);
+  if (prCoverage.length) partialSources.add('reviewer-finding');
+  coverage.push(...prCoverage);
   const mergedPrs = prCap.items;
   const prReviews = [];
   for (const { number, mergedAt, reviews } of mergedPrs) {
@@ -1365,7 +1566,9 @@ async function main() {
   const issueWindow = collectWindow(days, (day) => ghJsonRetry(['issue', 'list', '--state', 'all',
     '--search', `created:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', 'number,title,labels']));
   const issueCap = applyCap(issueWindow.items, MAX_ISSUES);
-  coverage.push(...coverageWarnings('issues', issueWindow, issueCap.cut));
+  const issueCoverage = coverageWarnings('issues', issueWindow, issueCap.cut);
+  if (issueCoverage.length) partialSources.add('issue-class');
+  coverage.push(...issueCoverage);
   const allIssues = issueCap.items;
   for (const it of allIssues) {
     const cls = issueClass(it.title, it.labels);
@@ -1407,7 +1610,9 @@ async function main() {
     },
   ));
   const fixCap = applyCap(fixWindow.items, MAX_ISSUES);
-  coverage.push(...coverageWarnings('fix-issues', fixWindow, fixCap.cut, unreadFixIssues));
+  const fixCoverage = coverageWarnings('fix-issues', fixWindow, fixCap.cut, unreadFixIssues);
+  if (fixCoverage.length) partialSources.add('fix-outcome');
+  coverage.push(...fixCoverage);
   const fixIssues = fixCap.items;
   for (const issue of fixIssues) {
     const { number } = issue;
@@ -1519,10 +1724,25 @@ async function main() {
   // indistinguishable from a shipped fix that never worked). issue-class isn't
   // an escalation driver at all (isEscalationDriver), so it's excluded here too.
   // Fetched once, reused per bucket key inside consider().
-  const TIMESTAMPED_SOURCES = new Set(['fix-outcome', 'reviewer-finding']);
   const closedEscalations = ghJson(['issue', 'list', '--state', 'closed',
     '--search', 'ricorre nonostante regola in:title',
     '--json', 'number,title,closedAt', '--limit', '100']) || [];
+  // Le escalation riaperte non sono fra le chiuse: la loro ultima chiusura si
+  // legge dagli eventi (vedi reopenedEscalationClosures). Lettura fallita →
+  // nessun cutoff per quel bucket, cioe' il conteggio pieno di prima.
+  const openEscalationsAtStart = ghJson(['issue', 'list', '--state', 'open',
+    '--search', 'ricorre nonostante regola in:title',
+    '--json', 'number,title', '--limit', '100']) || [];
+  const reopened = reopenedEscalationClosures(openEscalationsAtStart, (number) => parseIssueEventLines(
+    gh(['api', `repos/{owner}/{repo}/issues/${number}/events?per_page=100`, '--paginate',
+      '--jq', ISSUE_EVENTS_JQ])));
+  for (const n of reopened.unreadable) {
+    console.log(`::warning::escalation #${n}: eventi illeggibili, cutoff non determinabile → conteggio sull'intera finestra`);
+  }
+  const escalationClosures = [...closedEscalations, ...reopened.closures];
+  // La misura di ogni bucket visto nella finestra, anche sotto soglia: il
+  // self-heal la riporta nel commento di chiusura.
+  const bucketMeasures = new Map();
 
   // ---- Registro delle decisioni (vedi parseLessonsRegistry) ----
   const registryPath = process.env.HARVEST_REGISTRY || LESSONS_REGISTRY_PATH;
@@ -1538,36 +1758,38 @@ async function main() {
   // same way even though its source is otherwise driver-eligible.
   function consider(source, counts, examples) {
     for (const [key, count] of Object.entries(counts)) {
-      if (count < THRESHOLD) continue;
       const driver = isEscalationDriver(source, key);
       const regKey = registryKey(source, key);
       const reg = registry.entries.get(regKey) || null;
-      // Una regola registrata come `added` vale come documentata anche quando
-      // la sua prosa non contiene la frase del fingerprint.
-      const documented = alreadyDocumented(key, corpus) || reg?.outcome === 'added';
       const allExamples = examples[key] || [];
-      const decision = registryVerdict(reg, allExamples);
       // A bucket whose last escalation was already closed via a shipped fix
       // shouldn't re-fire on the SAME pre-fix occurrences still sitting in the
       // trailing window — only count what happened AFTER that fix landed.
       // Stesso ragionamento per una regola `added` dal registro: la sua
       // efficacia si misura sugli esempi successivi alla regola.
-      const escalationCutoff = TIMESTAMPED_SOURCES.has(source)
-        ? lastEscalationClosedAt(`${source}/${key}`, closedEscalations)
-        : null;
-      const ruleCutoff = TIMESTAMPED_SOURCES.has(source) && reg?.outcome === 'added' ? reg.decidedAtMs : null;
-      const cutoff = escalationCutoff === null ? ruleCutoff
-        : ruleCutoff === null ? escalationCutoff : Math.max(escalationCutoff, ruleCutoff);
-      const liveExamples = TIMESTAMPED_SOURCES.has(source) ? examplesSinceFix(allExamples, cutoff) : allExamples;
-      const effectiveCount = TIMESTAMPED_SOURCES.has(source) ? liveExamples.length : count;
+      const { cutoff, liveExamples, effectiveCount, aboveLimit } = measureBucket({
+        source, count, examples: allExamples,
+        escalationCutoff: lastEscalationClosedAt(regKey, escalationClosures),
+        ruleCutoff: reg?.outcome === 'added' ? reg.decidedAtMs : null,
+      });
+      bucketMeasures.set(regKey, { windowCount: count, effectiveCount, cutoffMs: cutoff, driver });
+      if (count < THRESHOLD) continue;
+      // Una regola registrata come `added` vale come documentata anche quando
+      // la sua prosa non contiene la frase del fingerprint.
+      const documented = alreadyDocumented(key, corpus) || reg?.outcome === 'added';
+      const decision = registryVerdict(reg, allExamples);
       // Documented + still recurring hard (post-fix) = the rule exists but isn't working.
-      const recurringDespiteRule = driver && documented && effectiveCount >= THRESHOLD * EFFICACY_FACTOR;
+      const recurringDespiteRule = driver && documented && aboveLimit;
       // Un cluster gia' deciso torna NOVEL solo con ≥ soglia esempi nuovi.
       const novel = driver && !documented && decision.resurfaced;
       const shown = reg && decision.examplesSinceDecision.length ? decision.examplesSinceDecision
         : liveExamples.length ? liveExamples : allExamples;
-      clusters.push({ source, key, registryKey: regKey, count, driver, novel,
+      clusters.push({ source, key, registryKey: regKey, count, effectiveCount,
+        cutoffAt: cutoff === null ? null : new Date(cutoff).toISOString(), driver, novel,
         recurringDespiteRule, alreadyDocumented: documented,
+        // Gli esempi su cui l'escalation si fonda, col loro testo: finiscono
+        // nel corpo della issue (escalationBody).
+        ...(recurringDespiteRule ? { postCutoffExamples: liveExamples.slice(0, ESCALATION_EVIDENCE_CAP) } : {}),
         registry: reg ? { outcome: reg.outcome, decidedAt: reg.decidedAt, ref: reg.ref,
           examplesSinceDecision: decision.examplesSinceDecision.length } : null,
         examples: shown.slice(0, 5) });
@@ -1605,7 +1827,8 @@ async function main() {
     const reg = c.registry
       ? ` [registro ${c.registry.outcome} ${c.registry.decidedAt} ${c.registry.ref}, +${c.registry.examplesSinceDecision} dopo]`
       : '';
-    console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}${reg}` +
+    const sinceCutoff = c.cutoffAt ? ` · dopo il cutoff ${c.cutoffAt}: ${c.effectiveCount}` : '';
+    console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}${sinceCutoff}${reg}` +
       (c.examples?.length ? `  e.g. ${c.examples.map((e) => '#' + (e.pr || e.issue)).join(',')}` : ''));
   }
   console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}`);
@@ -1695,14 +1918,15 @@ async function main() {
     }
 
     // 2. SELF-HEAL CLOSE: un'escalation aperta il cui bucket NON è più tra quelli
-    //    attivi (sceso sotto soglia per un'intera finestra) → il pattern si è
-    //    fermato: chiudila (drena il ratchet; riapribile, riemerge se ricorre).
+    //    attivi → chiudila con la misura (drena il ratchet; si riapre se
+    //    ricorre). Mai con un pin o un claim, mai su una vista parziale della
+    //    finestra, mai sopra soglia (vedi selfHealDecision).
     //    Search via la frase senza parentesi (le `(` rompono gh search → era il
     //    blind-spot del monitoring) e filtro per titolo esatto.
     const liveKeys = new Set(escalations.map((c) => `${c.source}/${c.key}`));
     const openEsc = (ghJson([
       'issue', 'list', '--state', 'open', '--search', 'ricorre nonostante regola in:title',
-      '--json', 'number,title', '--limit', '100',
+      '--json', 'number,title,labels', '--limit', '100',
     ]) || []).filter((i) => parseEscalationKey(i.title));
     for (const iss of openEsc) {
       const key = parseEscalationKey(iss.title);
@@ -1711,11 +1935,16 @@ async function main() {
         console.log(`SELF-HEAL close skipped #${iss.number} — no-autoclose`);
         continue;
       }
+      const decision = selfHealDecision({ key, labels: iss.labels, measure: bucketMeasures.get(key) || null,
+        cutoffMs: lastEscalationClosedAt(key, escalationClosures), partialSources });
+      if (decision.action !== 'close') {
+        console.log(`SELF-HEAL close skipped #${iss.number} — ${decision.reason}`);
+        continue;
+      }
       try {
-        gh(['issue', 'comment', String(iss.number), '--body',
-          `🌱 Self-heal: il bucket \`${key}\` non ricorre più sopra soglia nella finestra ${WINDOW_DAYS}gg (dal ${sinceDay}) → il pattern si è fermato. Chiusa dal lessons-harvester. Riemergerà in automatico se torna a ricorrere.`]);
+        gh(['issue', 'comment', String(iss.number), '--body', decision.comment]);
         gh(['issue', 'close', String(iss.number), '--reason', 'completed']);
-        console.log(`SELF-HEAL close #${iss.number} — bucket ${key} quiet`);
+        console.log(`SELF-HEAL close #${iss.number} — bucket ${key}: ${decision.reason}`);
       } catch (e) {
         process.stderr.write(`self-heal close #${iss.number} fallito: ${e.message}\n`);
       }
