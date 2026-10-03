@@ -35,6 +35,7 @@ const {
   CLOSE_ACTIONS,
   decideFailureIssueClose,
   decideVerdictOnlyThread,
+  decidingRun,
   dropVerdictOnlyRuns,
   isVerdictOnlyFailure,
   markVerdictOnlyRuns,
@@ -141,10 +142,27 @@ describe('markVerdictOnlyRuns — lettura limitata e fail-closed', () => {
       .toEqual(history.slice(VERDICT_JOBS_READ_LIMIT).map((r) => r.databaseId));
   });
 
-  it('job illeggibili → la run resta rossa', () => {
+  it('job illeggibili → la run resta rossa, ed è marcata come esaminata', () => {
     const history = runs(['failure', 'failure']);
     const marked = markVerdictOnlyRuns(history, MONITOR_PATH, () => null);
     expect(marked.some((r: { verdictOnly?: boolean }) => r.verdictOnly)).toBe(false);
+    expect(marked.map((r: { verdictOnly?: boolean }) => r.verdictOnly)).toEqual([false, false]);
+  });
+
+  it('cancelled / timed_out / startup_failure non spendono letture e restano rosse', () => {
+    const others = ['cancelled', 'timed_out', 'startup_failure'];
+    const history = runs([...others, ...Array(VERDICT_JOBS_READ_LIMIT + 1).fill('failure')]);
+    const read: number[] = [];
+    const marked = markVerdictOnlyRuns(history, MONITOR_PATH, (id: number) => {
+      read.push(id);
+      return VERDICT_ONLY;
+    });
+    const failures = history.filter((r) => r.conclusion === 'failure');
+    expect(read).toEqual(failures.slice(0, VERDICT_JOBS_READ_LIMIT).map((r) => r.databaseId));
+    expect(marked.slice(0, others.length).map((r: { verdictOnly?: boolean }) => r.verdictOnly))
+      .toEqual(others.map(() => false));
+    // Oltre la finestra nessuno ha letto: la run non porta il campo.
+    expect('verdictOnly' in marked[marked.length - 1]).toBe(false);
   });
 
   it('workflow fuori registro: storico invariato e nessuna lettura', () => {
@@ -200,12 +218,45 @@ describe('decideFailureIssueClose — regola verdict-only-thread', () => {
     expect(verdict.runId).toBe(history[0].databaseId);
   });
 
-  it('un guasto vero più vecchio, seguito da rosse-verdetto → close-not-planned (caso 9243)', () => {
+  it('un guasto vero OLTRE la finestra letta, seguito da rosse-verdetto → close-not-planned (caso 9243)', () => {
     // 09-30: run 36717595714, guasto vero con il suo thread `Workflow Failure:` (issue
-    // 10523). Le run successive arrivano fino al verdetto: gli step non-verdetto passano.
+    // 10523). Uscita dalla finestra delle rosse lette non porta `verdictOnly`.
     const history = [verdictRun(0.2), verdictRun(1.2), verdictRun(2.2), run('failure', 3.2), verdictRun(4.2)];
     const verdict = decide({ issue: issue(CI, 14), history, comments: null });
     expect(verdict.action).toBe('close-not-planned');
+  });
+
+  it('un guasto vero LETTO dopo l\'apertura tiene aperto il thread; prima dell\'apertura no', () => {
+    const realAfter = [verdictRun(0.2), verdictRun(1.2), run('failure', 2.2, { verdictOnly: false }), verdictRun(3.2)];
+    const kept = decide({ issue: issue(CI, 14), history: realAfter, comments: null });
+    expect(kept.action).toBe('keep');
+    expect(kept.reason).toBe('still-red');
+
+    const realBefore = [verdictRun(0.2), verdictRun(1.2), run('failure', 20, { verdictOnly: false })];
+    expect(decide({ issue: issue(CI, 14), history: realBefore, comments: null }).action).toBe('close-not-planned');
+  });
+
+  // La forma della chiamata di `main()`: la run che decide è SEMPRE passata, calcolata
+  // dallo storico. Con una verde vecchia o una rossa non letta in fondo allo storico è
+  // non-null, e la regola deve scattare lo stesso.
+  it('chiamata come main(): `run` = decidingRun(storico) non spegne la regola', () => {
+    const asMain = (history: unknown[]) => decide({
+      issue: issue(CI, 14),
+      run: decidingRun({ run: null, history }),
+      history,
+      comments: null,
+    });
+    const oldGreen = [...tenVerdicts(), run('success', 20)];
+    expect(decidingRun({ run: null, history: oldGreen })).not.toBeNull();
+    expect(asMain(oldGreen).action).toBe('close-not-planned');
+
+    const unreadRed = [...tenVerdicts(), run('failure', 12)];
+    expect(asMain(unreadRed).action).toBe('close-not-planned');
+  });
+
+  it('percorso crawler-step (senza storico): la regola non si applica', () => {
+    const verdict = decide({ issue: issue(CI, 14), run: verdictRun(0.2), history: null, comments: null });
+    expect(verdict.action).toBe('keep');
   });
 
   it('nessuna rossa dopo l\'apertura → decisione invariata', () => {

@@ -1061,14 +1061,14 @@ function registeredWorkflows() {
   return byId.size ? byId : null;
 }
 
+/** Memo di `readRunJobs`, svuotato all'inizio di ogni `scanFailures()`. */
+const runJobsMemo = new Map();
+
 /**
  * I job di una run, o `null` se non leggibili. Una sola chiamata, gia' prevista
  * dal budget dichiarato in testa al file («per ogni workflow candidato 1
  * lettura dell'ultima run e 1 lettura dei job, entrambe ≤ MAX_ISSUES»).
  */
-/** Memo di `readRunJobs`, svuotato all'inizio di ogni `scanFailures()`. */
-const runJobsMemo = new Map();
-
 function readRunJobs(runId) {
   // Memo per passata: la run di un workflow nel registro degli step-verdetto viene letta
   // una volta per decidere se è di solo verdetto, e la stessa lettura serve poi al corpo

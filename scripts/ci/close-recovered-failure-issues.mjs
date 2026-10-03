@@ -36,8 +36,9 @@
  *   5. Exception for the workflows in VERDICT_STEPS (a monitor that ends red ON PURPOSE
  *      after opening its own issue family): a red run whose only failed step is the
  *      registered verdict is not a failure observation and leaves the history before
- *      steps 3-4. If such a run heads the history, a `CI Failure:` thread on that workflow
- *      describes no fault and is closed `not planned` (action `close-not-planned`).
+ *      steps 3-4. If such a run heads the history and no other red run read after the
+ *      issue opened is a real failure, a `CI Failure:` thread on that workflow describes
+ *      no fault and is closed `not planned` (action `close-not-planned`).
  *
  * ── STRUCTURAL HOLD (#5454): a green run is a statement about the SYMPTOM ──────────────
  *
@@ -177,7 +178,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolveGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
+import { resolveGithubIssue, commentOnGithubIssue, isFailureReportingDisabled } from '../lib/github-issue-creator.mjs';
 import { isCrawlerGenerationToken } from '../lib/crawler-generation-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -936,6 +937,29 @@ export function buildRunListArgs(workflowName, { includeCrawlerShadowBranches = 
   return args;
 }
 
+// I job di una run (`GET /actions/runs/<id>/jobs`), o `null` se illeggibili. Memo per
+// passata: un workflow del registro può avere due issue aperte (`CI Failure:` e
+// `Workflow Failure:`) sullo stesso storico, e la lettura non va pagata due volte.
+const runJobsMemo = new Map();
+function readRunJobs(databaseId, repo = REPO, token) {
+  const key = `${repo || ''}\n${databaseId}`;
+  if (runJobsMemo.has(key)) return runJobsMemo.get(key);
+  const out = gh(
+    ['api', `repos/${repo || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=100`],
+    { allowFailure: true, token },
+  );
+  let data = null;
+  if (out !== null) {
+    try {
+      data = JSON.parse(out);
+    } catch {
+      data = null;
+    }
+  }
+  runJobsMemo.set(key, data);
+  return data;
+}
+
 /**
  * True quando la run `cancelled` non ha una prova di timeout. Uno scarto in coda non ha
  * job; una cancellazione manuale o una supersessione dopo l'avvio ha job, ma nessuna
@@ -961,41 +985,9 @@ export function buildRunListArgs(workflowName, { includeCrawlerShadowBranches = 
  * exceeded the maximum execution time"). La stessa annotation e' la prova che separa il
  * timeout da una cancellazione normale: avere job non basta.
  */
-// I job di una run (`GET /actions/runs/<id>/jobs`), o `null` se illeggibili. Memo per
-// passata: un workflow del registro può avere due issue aperte (`CI Failure:` e
-// `Workflow Failure:`) sullo stesso storico, e la lettura non va pagata due volte.
-const runJobsMemo = new Map();
-function readRunJobs(databaseId, repo = REPO, token) {
-  const key = `${repo || ''}\n${databaseId}`;
-  if (runJobsMemo.has(key)) return runJobsMemo.get(key);
-  const out = gh(
-    ['api', `repos/${repo || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=100`],
-    { allowFailure: true, token },
-  );
-  let data = null;
-  if (out !== null) {
-    try {
-      data = JSON.parse(out);
-    } catch {
-      data = null;
-    }
-  }
-  runJobsMemo.set(key, data);
-  return data;
-}
-
 function hasNoTimeoutEvidence(databaseId, repo = REPO, token) {
-  const out = gh(
-    ['api', `repos/${repo || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=100`],
-    { allowFailure: true, token },
-  );
-  if (out === null) return false;
-  let data;
-  try {
-    data = JSON.parse(out);
-  } catch {
-    return false;
-  }
+  const data = readRunJobs(databaseId, repo, token);
+  if (data === null) return false;
   return hasNoTimeoutEvidenceFromJobs(data, (checkRunUrl) => {
     const annotations = gh(['api', `${checkRunUrl}/annotations`, '--paginate', '--slurp'], { allowFailure: true, token });
     if (annotations === null) return null;
@@ -1222,9 +1214,15 @@ export function isVerdictOnlyFailure(workflowPath, jobs) {
 export const VERDICT_JOBS_READ_LIMIT = 10;
 
 /**
- * Marca `verdictOnly: true` le run rosse di solo verdetto nello storico di un workflow
- * registrato. Legge i job solo per le `limit` rosse più recenti (lo storico arriva
- * newest-first); `readJobs` che rende `null` lascia la run com'è, cioè rossa (fail-closed).
+ * Marca le run rosse nella finestra letta dello storico di un workflow registrato:
+ * `verdictOnly: true` per quelle di solo verdetto, `verdictOnly: false` per ogni altra
+ * rossa ESAMINATA (guasto vero, job illeggibili, `timed_out`, `cancelled`…). Le rosse
+ * oltre la finestra restano senza campo: nessuno le ha guardate.
+ *
+ * La finestra è quella delle `limit` run `failure` più recenti (lo storico arriva
+ * newest-first): solo una `failure` può essere di solo verdetto, quindi solo lì si spende
+ * una lettura. Le altre rosse dentro la finestra sono marcate `false` senza chiamate.
+ * `readJobs` che rende `null` → `false`, cioè la run resta rossa (fail-closed).
  * Per un workflow fuori registro restituisce lo storico invariato, senza letture.
  *
  * @param {Array<{ conclusion?: string, databaseId?: number }>|null} history newest-first
@@ -1235,9 +1233,10 @@ export function markVerdictOnlyRuns(history, workflowPath, readJobs, { limit = V
   if (!Array.isArray(history) || !workflowPath || !VERDICT_STEPS[workflowPath]) return history;
   let read = 0;
   return history.map((r) => {
-    if (r?.conclusion === 'success' || r?.conclusion === 'skipped' || read >= limit) return r;
+    if (read >= limit || r?.conclusion === 'success' || r?.conclusion === 'skipped') return r;
+    if (r?.conclusion !== 'failure') return { ...r, verdictOnly: false };
     read++;
-    return isVerdictOnlyFailure(workflowPath, readJobs(r.databaseId)) ? { ...r, verdictOnly: true } : r;
+    return { ...r, verdictOnly: isVerdictOnlyFailure(workflowPath, readJobs(r.databaseId)) };
   });
 }
 
@@ -1259,13 +1258,18 @@ const CI_FAILURE_TITLE_RE = /^CI Failure: (.+)$/;
  * Il thread `CI Failure: <workflow registrato>` racconta solo il verdetto?
  *
  * Vero quando la run più recente dello storico (tolte le `skipped`) è di solo verdetto ed
- * è successiva all'apertura della issue: il workflow ha eseguito tutti i suoi step e il
- * solo rosso è il segnale che la famiglia `owner` porta già. Si guarda la TESTA dello
- * storico, non tutte le rosse dall'apertura: un guasto vero di quel workflow ha il suo
- * thread `Workflow Failure:` dal reporter interno (la run 36717595714 del 2026-09-30 ha
- * aperto la issue 10523, poi chiusa), e una run di solo verdetto successiva prova che gli
- * step non-verdetto sono tornati a passare. Pretendere «tutte le rosse dall'apertura»
- * terrebbe aperta per sempre la issue 9243, che contiene proprio quella run.
+ * è successiva all'apertura della issue, E nessuna rossa ESAMINATA da `markVerdictOnlyRuns`
+ * (`verdictOnly: false`) è successiva all'apertura: il workflow ha eseguito tutti i suoi
+ * step e il solo rosso è il segnale che la famiglia `owner` porta già.
+ *
+ * «Tutte le rosse dall'apertura sono di solo verdetto» vale dentro la FINESTRA letta (le
+ * `VERDICT_JOBS_READ_LIMIT` `failure` più recenti), non sull'intero storico: oltre la
+ * finestra nessuno ha letto i job, e pretenderlo lì terrebbe aperta per sempre la issue
+ * 9243, che contiene la run 36717595714 del 2026-09-30 (guasto vero, con il suo thread
+ * `Workflow Failure:` dal reporter interno, issue 10523, poi chiusa). Dentro la finestra
+ * invece una rossa vera successiva all'apertura tiene aperto il thread: un guasto non
+ * segnalato che si alterna al verdetto deve passare dagli hold, non essere chiuso
+ * `not planned` alla run successiva.
  *
  * Un `Workflow Failure:` sullo stesso workflow NON rientra: è il crash vero, e la regola
  * non lo tocca.
@@ -1284,6 +1288,11 @@ export function decideVerdictOnlyThread({ issue, history } = {}) {
   const opened = Date.parse(issue?.createdAt ?? '');
   const created = Date.parse(head.createdAt ?? '');
   if (!Number.isFinite(opened) || !Number.isFinite(created) || created < opened) return { ...none, entry };
+  // Una rossa esaminata e NON di solo verdetto dopo l'apertura: guasto vero nella finestra.
+  // Data illeggibile → la si tratta come successiva (fail-closed).
+  const realRedAfterOpening = history.some((r) => r?.verdictOnly === false
+    && !(Date.parse(r.createdAt ?? '') < opened));
+  if (realRedAfterOpening) return { ...none, entry };
   return { close: true, entry, run: head };
 }
 
@@ -1897,10 +1906,13 @@ export function decideFailureIssueClose({ issue, run, history, comments, labels,
     // Regola LC-03: tolte le run di solo verdetto, un monitor registrato che è rosso
     // soltanto per il proprio verdetto non avrebbe mai più un verde successivo alla issue
     // («predates issue — keep open» per sempre). Se la testa dello storico è di solo
-    // verdetto, il thread `CI Failure:` non descrive un guasto: si chiude `not planned`.
+    // verdetto e nessuna rossa letta dopo l'apertura è un guasto vero, il thread
+    // `CI Failure:` non descrive un guasto: si chiude `not planned`.
     // Non è una deroga agli hold: quelli proteggono un GUASTO che ritorna, e si
     // applicano solo dopo un verde vero (ramo `recovered`, che resta prioritario).
-    const verdictThread = run ? null : decideVerdictOnlyThread({ issue, history });
+    // Il guard è sullo STORICO, non su `run`: `main()` passa sempre la run che decide
+    // (`decidingRun` sullo storico), e solo il percorso crawler-step arriva senza storico.
+    const verdictThread = Array.isArray(history) ? decideVerdictOnlyThread({ issue, history }) : null;
     if (verdictThread?.close) {
       return {
         action: 'close-not-planned',
@@ -2009,6 +2021,21 @@ export function verdictsOutPath(argv = process.argv.slice(2)) {
   return null;
 }
 
+/**
+ * Vero solo se `gh issue view` prova che la issue è CLOSED; output illeggibile non è una
+ * chiusura. Copia locale di `issueViewIsClosed` (privata in `github-issue-creator.mjs`,
+ * gemello `identical` che questa modifica non tocca).
+ */
+function issueStateIsClosed(number) {
+  const out = gh(['issue', 'view', String(number), '--json', 'state', ...repoFlag()], { allowFailure: true });
+  if (typeof out !== 'string' || !out) return false;
+  try {
+    return String(JSON.parse(out)?.state || '').toUpperCase() === 'CLOSED';
+  } catch {
+    return false;
+  }
+}
+
 function main() {
   const verdictsOut = verdictsOutPath();
   // Un file rimasto da una passata precedente non deve poter passare per il verdetto di
@@ -2078,14 +2105,21 @@ function main() {
       const what = `verdict-only thread: run ${headRun.databaseId} is red only at '${entry.verdict}', signal owned by '${entry.owner}…'`;
       if (DRY_RUN) {
         console.log(`  #${it.number} WOULD CLOSE (not planned) — ${what}`);
+      } else if (isFailureReportingDisabled()) {
+        // Lo stesso interruttore che ferma `resolveGithubIssue` sugli altri rami.
+        console.log(`  #${it.number} ENABLE_FAILURE_REPORT=false — skip close (not planned): ${what}`);
+        kept++;
+        continue;
       } else {
         const out = gh([
           'issue', 'close', String(it.number), '--reason', 'not planned',
           '--comment', verdictOnlyThreadNote({ workflow: it.workflow, entry, runUrl: headUrl }),
           ...repoFlag(),
         ], { allowFailure: true });
-        if (out === null) {
-          console.error(`  #${it.number} close (not planned) failed — keep open, retry next pass`);
+        // Post-condizione, come `resolveGithubIssue`: un `gh` che esce 0 senza chiudere
+        // non conta come chiusura.
+        if (out === null || !issueStateIsClosed(it.number)) {
+          console.error(`  #${it.number} close (not planned) ${out === null ? 'rejected' : 'not confirmed'} — keep open, retry next pass`);
           kept++;
           continue;
         }
