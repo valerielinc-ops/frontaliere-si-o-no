@@ -32,6 +32,7 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -139,15 +140,48 @@ function reuseLocalePathsForSlug(entry, newSlug) {
 // Mining sources
 // ══════════════════════════════════════════════════════════
 
-function mineActiveJobs() {
+// Slugs owned ONLY by jobs held out of publication for translation (agency
+// admission threshold, scripts/lib/translation-publication-hold.mjs). Filled by
+// mineActiveJobs — the first source — and subtracted from the sources that
+// carry no evidence of a public URL (the slug registry, which translate-pending
+// fills for every job it touches, and the slice git history). A slug that only
+// a held job ever had was never served: registering it would make
+// jobsSeoPagesPlugin emit an "offerta non più disponibile" soft-landing for it.
+const heldOnlySlugs = new Set();
+const HELD_SLUG_FILTERED_SOURCES = new Set(['Slug registry', 'Git history (removed slugs)']);
+
+function jobRouteSlugs(job) {
+  const out = new Set();
+  const add = (value) => { if (isValidJobSlug(value)) out.add(value); };
+  add(job?.slug);
+  for (const value of Object.values(job?.slugByLocale || {})) add(value);
+  for (const value of job?.previousSlugs || []) add(value);
+  for (const values of Object.values(job?.previousSlugsByLocale || {})) {
+    for (const value of Array.isArray(values) ? values : []) add(value);
+  }
+  return out;
+}
+
+/** True when `slug` belongs only to held jobs and `sourceName` cannot prove it was ever public. */
+function isHeldOnlySlugForSource(sourceName, slug) {
+  return HELD_SLUG_FILTERED_SOURCES.has(sourceName) && heldOnlySlugs.has(slug);
+}
+
+function mineActiveJobs(dir = dataPath('jobs', 'by-crawler')) {
   const slugs = new Map(); // slug → { locales: { it, en, de, fr } }
-  const dir = dataPath('jobs', 'by-crawler');
+  const heldSlugs = new Set();
+  const publishedSlugs = new Set();
 
   for (const f of listSliceFileNames(dir)) {
     try {
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
       const jobs = Array.isArray(data) ? data : (data.jobs || []);
       for (const job of jobs) {
+        if (isHeldFromPublication(job)) {
+          for (const s of jobRouteSlugs(job)) heldSlugs.add(s);
+          continue;
+        }
+        for (const s of jobRouteSlugs(job)) publishedSlugs.add(s);
         const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
 
         // Main slug. #4593: this branch used to set ONLY `.it` even though
@@ -182,6 +216,8 @@ function mineActiveJobs() {
       }
     } catch {}
   }
+  heldOnlySlugs.clear();
+  for (const s of heldSlugs) if (!publishedSlugs.has(s)) heldOnlySlugs.add(s);
   return slugs;
 }
 
@@ -492,12 +528,17 @@ function main() {
   const highValueSlugs = new Set();
   const HIGH_VALUE_SOURCES = new Set(['Active jobs', 'Expired jobs', 'Slug registry', 'Orphan data']);
 
+  let heldSlugsSkipped = 0;
   for (const { name, fn } of sources) {
     const mined = fn();
     const isGit = name === 'Git history (removed slugs)';
     const isHighValue = HIGH_VALUE_SOURCES.has(name);
     console.log(`  📦 ${name}: ${mined.size} slugs`);
     for (const [slug, data] of mined) {
+      if (isHeldOnlySlugForSource(name, slug)) {
+        heldSlugsSkipped++;
+        continue;
+      }
       if (!isGit) nonGitSourceSlugs.add(slug);
       if (isHighValue) highValueSlugs.add(slug);
       if (!allSlugs.has(slug)) {
@@ -510,6 +551,9 @@ function main() {
     }
   }
 
+  if (heldOnlySlugs.size > 0) {
+    console.log(`  ⏸️  ${heldOnlySlugs.size} slug(s) of jobs held out of publication for translation — not registered (${heldSlugsSkipped} skipped from registry/git sources)`);
+  }
   console.log(`\n  📊 Total unique slugs mined: ${allSlugs.size}`);
 
   // Fuzzy reconciliation: recover truncated/changed orphan slugs
@@ -715,4 +759,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }
 
-export { buildLocalePathsForCanton, buildLocalePathsForJob, fillMissingLocalePaths, mineOrphanData };
+export {
+  buildLocalePathsForCanton,
+  buildLocalePathsForJob,
+  fillMissingLocalePaths,
+  isHeldOnlySlugForSource,
+  mineActiveJobs,
+  mineOrphanData,
+};

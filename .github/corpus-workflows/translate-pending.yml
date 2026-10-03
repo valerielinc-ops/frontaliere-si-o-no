@@ -54,6 +54,7 @@ env:
   TRANSLATE_RUN_CLOCK_REQUIRED: "1"
   TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
   TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
+  JOBS_INCLUDE_TRANSLATION_HELD: "1"
 jobs:
   translate_queue_guard:
     runs-on: ubuntu-latest
@@ -788,6 +789,10 @@ jobs:
           path: ${{ runner.temp }}/translation-observability.json
           retention-days: 14
           if-no-files-found: error
+      - name: Release translated agency jobs held for translation
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        continue-on-error: true
+        run: node scripts/release-translation-holds.mjs
       - name: "Phase 3: Regenerate locale slugs"
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/regenerate-slugs-by-locale.mjs

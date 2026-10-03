@@ -4,11 +4,11 @@
   "generatorSha256": "391ed838a1ff79295e0348de7be9cbe8b2011ac760a02e7ffe3d9503871a4de7",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "2f59449a094a611c9f6ea986be8fa447bc5aef83",
+  "sourceCommit": "493c58cf7d006060e8f81f9a631b3706f9681359",
   "artifactObservation": {
     "generatorSha256": "391ed838a1ff79295e0348de7be9cbe8b2011ac760a02e7ffe3d9503871a4de7",
     "sourceRef": "main",
-    "sourceCommit": "2f59449a094a611c9f6ea986be8fa447bc5aef83"
+    "sourceCommit": "493c58cf7d006060e8f81f9a631b3706f9681359"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -67,6 +67,7 @@
     "scripts/mark-locale-mismatched-jobs.mjs",
     "scripts/mark-mistranslated-jobs.mjs",
     "scripts/regenerate-slugs-by-locale.mjs",
+    "scripts/release-translation-holds.mjs",
     "scripts/relocalize-pending-jobs.mjs",
     "scripts/rollup-translation-observability.mjs",
     "scripts/scatter-jobs-to-slices.mjs",
@@ -1482,8 +1483,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "aa67dfcd10e29392ffd92da60af1c016c3295aa63997d864e70ad9edde596a29",
-      "artifactSha256": "284406bc926a77ac48236073bef6c2d1cf4ff8ca5cea08ee1189c7f875f685fe",
+      "sourceSha256": "15a15cc57d11b136f9bbf798c994c575363161307eb64c65674fe3bc4f8a40a8",
+      "artifactSha256": "d46a3271451c8c12f3bea3fa424491290087064c852b3bda378f265dc7e3609d",
       "generatorSha256": "391ed838a1ff79295e0348de7be9cbe8b2011ac760a02e7ffe3d9503871a4de7",
       "members": []
     }

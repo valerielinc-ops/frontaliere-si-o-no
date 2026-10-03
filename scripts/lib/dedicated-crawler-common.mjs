@@ -65,6 +65,7 @@ import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
+import { isHeldFromPublication } from './translation-publication-hold.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 
@@ -9070,6 +9071,12 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     job.slug = candidate;
     usedSlugs.add(candidate);
+    // A job held out of publication for translation has no public URL yet:
+    // pinning its source-language slug would make it immutable before the
+    // translated title exists, and mine-all-job-slugs would turn the registry
+    // entry into an expired soft-landing for a route nobody was ever served.
+    // It is registered on the first pass after release, like a new job.
+    if (isHeldFromPublication(job)) continue;
     const sizeBefore = Object.keys(slugRegistry).length;
     registerJobSlug(job, slugRegistry);
     if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;

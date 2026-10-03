@@ -35,6 +35,7 @@ import {
 } from './lib/expired-jobs-archive.mjs';
 import { isSliceFile, listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { dropHousekeepingDuplicatePostings } from './lib/housekeeping-duplicate-postings.mjs';
 import {
   clearCrossCrawlerDedupProofFile,
@@ -378,6 +379,9 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
+    // Held out of publication for translation: never had a public URL, so no
+    // expired soft-landing either (scripts/lib/translation-publication-hold.mjs).
+    if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     const key = archiveKey(job);
     mergeSourceIdentityHistory(entry, bySlug.get(key));
@@ -433,6 +437,8 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
+    // Same rule as the aggregate archive above: a held job was never public.
+    if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     mergeSourceIdentityHistory(entry, bySlug.get(job.slug));
     bySlug.set(job.slug, entry);
