@@ -343,9 +343,9 @@ jobs:
           # branch, il suo push arriverebbe sopra il nostro (o viceversa).
           # `--created`: un elenco per `--branch` senza finestra puo' tornare
           # fermo a settimane prima (scripts/ci/lib/run-listing-window.mjs) e
-          # nascondere proprio la run in corso. Una run del fixer ancora in
-          # coda o in esecuzione non ha piu' di due giorni.
-          busy_since="$(jq -rn 'now - (2 * 86400) | strftime("%Y-%m-%d")')"
+          # nascondere proprio la run in corso. 35 giorni: vita massima di una
+          # run, e un ri-lancio conserva il `created_at` originale.
+          busy_since="$(jq -rn 'now - (35 * 86400) | strftime("%Y-%m-%d")')"
           busy=$(gh run list --repo "$REPO" --workflow=pr-redflag-fixer.yml --branch "$head_ref" \
             --created ">=$busy_since" \
             --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length' 2>/dev/null || echo 0)

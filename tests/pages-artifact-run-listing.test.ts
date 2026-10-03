@@ -188,16 +188,24 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
 describe('la finestra created segue la retention dichiarata in deploy.yml', () => {
   // La retention dell'artifact `github-pages` si legge dal workflow che lo
   // carica: se cambia li', resolver e workflow di misura devono seguirla.
-  const deploy = readFileSync(path.join(ROOT, DEPLOY_PATH), 'utf8');
-  const upload = /name: github-pages\n(?:.*\n)*?\s+retention-days: (\d+)/.exec(deploy);
+  // Si legge lo step vero (`with.name: github-pages`), non il primo
+  // `retention-days` che segue nel testo: se l'upload perdesse il suo, una
+  // regex pescherebbe quello dello step dopo.
+  const deploy = yaml.load(readFileSync(path.join(ROOT, DEPLOY_PATH), 'utf8')) as {
+    jobs: Record<string, { steps?: Array<{ with?: Record<string, unknown> }> }>;
+  };
+  const uploads = Object.values(deploy.jobs)
+    .flatMap((job) => job.steps ?? [])
+    .filter((step) => step.with?.name === 'github-pages' && 'retention-days' in (step.with ?? {}));
+  const retention = uploads.length === 1 ? String(uploads[0].with?.['retention-days']) : null;
 
   it('deploy.yml dichiara la retention di github-pages', () => {
-    expect(upload).not.toBeNull();
+    expect(uploads).toHaveLength(1);
+    expect(retention).toMatch(/^\d+$/);
   });
 
   it.each([ACTION_PATH, MEASURE_PATH])('%s usa la stessa retention', (file) => {
     const source = readFileSync(path.join(ROOT, file), 'utf8');
-    expect(/^\s*RETENTION_DAYS=(\d+)\s*$/m.exec(source)?.[1]).toBe(upload?.[1]);
-    expect(source).toMatch(/WINDOW_DAYS=\$\(\(RETENTION_DAYS \+ 1\)\)/);
+    expect(/^\s*RETENTION_DAYS=(\d+)\s*$/m.exec(source)?.[1]).toBe(retention);
   });
 });

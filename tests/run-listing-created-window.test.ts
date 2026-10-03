@@ -42,14 +42,23 @@ const COMMENT = /^\s*(#|\/\/|\*|\/\*)/;
 const LISTING = /\brun\s+list\b|['"]run['"]\s*,\s*['"]list['"]|actions\/(?:workflows\/[^/\s'"`]+\/)?runs\?/;
 const ARRAY_FORM = /['"]run['"]\s*,\s*['"]list['"]/;
 const BRANCH =/--branch\b|\s-b\s|['"]-b['"]|[?&]branch=/;
-const CREATED = /created/i;
+// Solo la finestra vera: il flag `--created`, il parametro REST `created=` o
+// l'helper. NON la parola nuda: `--json databaseId,createdAt` nomina
+// «created» senza filtrare nulla, e con `/created/i` meta' dei call site
+// risultava a posto anche senza finestra.
+const CREATED = /--created\b|[?&]created=|createdSince(?:Filter|Query)?\(/;
+// Il branch puo' arrivare dopo la chiusura dell'array, con
+// `args.push('-b', 'main')`: si guardano le righe subito dopo.
+const PUSH_BRANCH = /\.push\([^)]*['"](?:-b|--branch)['"]/;
+const PUSH_LOOKAHEAD_LINES = 8;
 // Un array di argomenti puo' stendersi su piu' righe: il comando finisce alla
 // riga che chiude l'array, entro un tetto che non scavalca nel comando dopo.
 const MAX_STATEMENT_LINES = 12;
 
 /**
  * Righe (1-based) in cui comincia un elenco di run filtrato per `branch` il
- * cui comando non nomina `created` (il flag, il parametro o l'helper).
+ * cui comando non porta una finestra `created` (il flag `--created`, il
+ * parametro REST `created=` o l'helper): il campo `createdAt` non conta.
  */
 function branchListingsWithoutCreated(text: string): number[] {
   const lines = text.split('\n');
@@ -67,7 +76,18 @@ function branchListingsWithoutCreated(text: string): number[] {
       end += 1;
       if (!COMMENT.test(lines[end])) statement += `\n${lines[end]}`;
     }
-    if (BRANCH.test(statement) && !CREATED.test(statement)) offenders.push(index + 1);
+    // Forma ad array: gli argomenti aggiunti con `.push(…)` nelle righe dopo
+    // fanno parte dello stesso comando, fino al prossimo elenco o alla fine
+    // della funzione.
+    let tail = '';
+    if (ARRAY_FORM.test(lines[index])) {
+      for (let next = end + 1; next < lines.length && next - end <= PUSH_LOOKAHEAD_LINES; next += 1) {
+        if (LISTING.test(lines[next]) || /^}/.test(lines[next])) break;
+        if (!COMMENT.test(lines[next])) tail += `\n${lines[next]}`;
+      }
+    }
+    const filtersByBranch = BRANCH.test(statement) || PUSH_BRANCH.test(tail);
+    if (filtersByBranch && !CREATED.test(statement + tail)) offenders.push(index + 1);
   }
   return offenders;
 }
@@ -138,6 +158,33 @@ describe('elenchi di run per branch: sempre con una finestra created', () => {
     ].join('\n');
     expect(branchListingsWithoutCreated(array)).toEqual([2]);
     expect(branchListingsWithoutCreated(array.replace("'--limit'", "'--created', created,\n        '--limit'"))).toEqual([]);
+  });
+
+  it('il campo `createdAt` di --json non vale come finestra', () => {
+    const shell = 'gh run list --workflow x.yml --branch main --limit 1 --json databaseId,createdAt';
+    expect(branchListingsWithoutCreated(shell)).toEqual([1]);
+    expect(branchListingsWithoutCreated(`${shell} --created ">=$SINCE"`)).toEqual([]);
+    const array = [
+      "  const listArgs = ['run', 'list', '-w', workflowName, '-b', 'main', '-L', String(LIMIT),",
+      "    '--json', 'databaseId,status,conclusion,createdAt'];",
+    ].join('\n');
+    expect(branchListingsWithoutCreated(array)).toEqual([1]);
+    expect(branchListingsWithoutCreated(array.replace("'-L'", "'--created', createdSinceFilter(35), '-L'"))).toEqual([]);
+  });
+
+  it('riconosce il branch aggiunto con `.push` dopo la chiusura dell\'array', () => {
+    const pushed = [
+      "  const args = ['run', 'list', '-w', workflowName];",
+      "  if (!allBranches) args.push('-b', 'main');",
+      '  args.push(',
+      "    '-L', String(LIMIT),",
+      "    '--json', 'databaseId,conclusion,status,createdAt,headBranch',",
+      '  );',
+      '  return args;',
+      '}',
+    ].join('\n');
+    expect(branchListingsWithoutCreated(pushed)).toEqual([1]);
+    expect(branchListingsWithoutCreated(pushed.replace("'-b', 'main'", "'-b', 'main', '--created', since"))).toEqual([]);
   });
 
   it('ignora i commenti e gli elenchi non filtrati per branch', () => {
