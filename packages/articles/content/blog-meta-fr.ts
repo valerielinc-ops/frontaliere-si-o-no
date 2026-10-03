@@ -12444,6 +12444,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-fai-giornate-autunno.title': 'FAITES l\'automne à Côme : chantiers, industries et Val d’Intelvi',
     'blog.article.como-fai-giornate-autunno.excerpt': 'Les 10 et 11 octobre, les Journées FAI d’Automne ouvrent le Chantier Navigation Lacs à Tavernola et les Industries Textiles Colombo et Visgomma à Fino Mornasco, avec des visites de 50 minutes et des tours spéciaux « Machines en mouvement ».',
     'blog.article.como-fai-giornate-autunno.imageAlt': 'Visite automnale du FAI à Como avec chantiers navals et usines textiles au bord du lac',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Fête de la Citrouille à Gavirate : sport et festivités',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'Le dimanche 4 octobre, la Fête de la Citrouille dynamise le front de lac Gavirate, tandis que le Grand Fondo Tre Valli Varesine ferme de nombreuses routes ; l\'Oktoberfest à Schiranna dure jusqu\'au 18 octobre.',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Front de lac de Gavirate lors de la Fête de la Citrouille, stands gourmands et familles dans une ambiance automnale.',
 };
 
 export default blogMetaFr;

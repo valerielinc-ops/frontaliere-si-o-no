@@ -12441,6 +12441,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-fai-giornate-autunno.title': 'FAI d \'Autunno in Como: Baustellen, Industrie und Val d\' Intelvi',
     'blog.article.como-fai-giornate-autunno.excerpt': 'Am 10. und 11. Oktober öffnen die FAI-Herbsttage die Werft Cantiere Navigazione Laghi a Tavernola und die Textilindustrien Colombo und Visgomma auf Fino Mornasco, mit Besuchen ab 50 Minuten und speziellen Schichten "Maschinen in Bewegung".',
     'blog.article.como-fai-giornate-autunno.imageAlt': 'Herbstlicher FAI-Besuch in Como mit historischen Werften und Textilfabriken am See',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Kürbisfest in Gavirate: Oktoberwochenende zwischen Volksfesten und Sport',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'Am Sonntag, dem 4. Oktober, belebt das Kürbisfest die Seepromenade von Gavirate, während die Grand Fondo Tre Valli Varesine viele Straßen sperrt; das Oktoberfest in Schiranna dauert bis zum 18. Oktober.',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Seeufer von Gavirate beim Kürbisfest mit gastronomischen Ständen und Familien im herbstlichen Ambiente.',
 };
 
 export default blogMetaDe;

@@ -37313,6 +37313,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'festa-zucca-gavirate-weekend-ottobre',
+ category: 'novita',
+ date: '2026-10-03T23:04:46.149Z',
+ image: '/images/blog/festa-zucca-gavirate-weekend-ottobre.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

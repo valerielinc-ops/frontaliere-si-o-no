@@ -12443,6 +12443,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-fai-giornate-autunno.title': 'FAI d’Autunno a Como: cantieri, industrie e Val d’Intelvi',
     'blog.article.como-fai-giornate-autunno.excerpt': 'Il 10 e 11 ottobre le Giornate FAI d’Autunno aprono il Cantiere Navigazione Laghi a Tavernola e le Industrie Tessili Colombo e Visgomma a Fino Mornasco, con visite da 50 minuti e turni speciali ‘Macchine in movimento’.',
     'blog.article.como-fai-giornate-autunno.imageAlt': 'Visita autunnale al FAI a Como con cantieri navali e industrie tessili sul lago',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Festa della Zucca a Gavirate: weekend di ottobre tra sagre e sport',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'Domenica 4 ottobre la Festa della Zucca anima il lungolago di Gavirate, mentre la Grand Fondo Tre Valli Varesine chiude molte strade; l’Oktoberfest a Schiranna dura fino al 18 ottobre.',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Lungolago di Gavirate illuminato dalla Festa della Zucca, stand gastronomici e famiglie in atmosfera autunnale.',
 };
 
 export default blogMetaIt;

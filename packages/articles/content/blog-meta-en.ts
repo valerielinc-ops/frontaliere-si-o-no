@@ -12442,6 +12442,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-fai-giornate-autunno.title': 'FAI d \'Autunno in Como: construction sites, industries and Val d \'Intelvi',
     'blog.article.como-fai-giornate-autunno.excerpt': 'On 10 and 11 October, the FAI Autumn Days open the Lakes Navigation Shipyard in Tavernola and the Colombo and Visgomma Textile Industries at Fino Mornasco, with 50-minute visits and special ‘Machines in Motion’ shifts.',
     'blog.article.como-fai-giornate-autunno.imageAlt': 'Autumn FAI visit in Como featuring historic shipyards and textile factories on the lake',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Pumpkin Festival in Gavirate: an October weekend of festivals and sports',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'On Sunday, October 4, the Pumpkin Festival enlivens the lakeside of Gavirate, while the Grand Fondo Tre Valli Varesine closes many roads; Oktoberfest in Schiranna runs until October 18.',
+    'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Gavirate lakefront at the Pumpkin Festival with food stalls and families enjoying the autumn setting.',
 };
 
 export default blogMetaEn;
