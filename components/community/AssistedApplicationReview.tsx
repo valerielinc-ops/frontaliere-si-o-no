@@ -452,12 +452,23 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           )
         )}
 
-        {data && data.state === 'submitted' && (
+        {data && data.state === 'submitted' && (data.whatsappUrl ? (
+          // A WhatsApp application: the last step is the candidate's chat from the phone.
+          <div className="space-y-3 rounded-xl border border-success-border bg-success-subtle p-4" role="status">
+            <div className="flex items-start gap-3">
+              <MessageSquare className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
+              <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.submittedWhatsapp')}</p>
+            </div>
+            <a href={data.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover">
+              <ExternalLink className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.openWhatsapp')}
+            </a>
+          </div>
+        ) : (
           <div className="flex items-start gap-3 rounded-xl border border-success-border bg-success-subtle p-4" role="status">
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
             <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.submitted')}</p>
           </div>
-        )}
+        ))}
 
         {data && data.state === 'owner_takeover' && (
           <div className="flex items-start gap-3 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status">

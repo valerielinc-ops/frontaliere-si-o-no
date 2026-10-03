@@ -748,6 +748,20 @@ export function plateAuctionRefreshOrder(keys) {
 const PLATE_AUCTION_FETCH_STAMP_FIELDS = new Set(['id', 'sourceFetchedAt', 'lastVerifiedAt', 'lastSeenAt', 'firstSeenAt', 'missingSince']);
 
 /**
+ * Provenance links: where a row was read from, not what the auction says.
+ * Fixed-price sources read from a PDF put the URL of the current edition in
+ * `officialDetailUrl`. When Basilea Citta published a new catalogue
+ * (`wuko-pw-35.pdf` -> `wuko-pw-36.pdf`, 2026-10-02 11:47 UTC) it changed on
+ * every one of ~16'400 rows and the refresh copied 16'388 of them into
+ * plate_auctions_history. In a sample of 40 of those copies, 37 differed from
+ * the previous one only by `officialDetailUrl` (all BS); the other 3 were real
+ * bids on AG (`bidCount`, `currentBidChf`, `rawSnapshotHash`). The current row
+ * is still rewritten with merge on every refresh, so the new URL reaches
+ * plate_auctions_current anyway.
+ */
+const PLATE_AUCTION_SOURCE_LINK_FIELDS = new Set(['officialDetailUrl']);
+
+/**
  * True when an observation differs from the stored current row in anything
  * but the fetch stamps, or when there is no stored row. Each refresh used to
  * copy every row into plate_auctions_history, four times a day: ~68'600
@@ -759,7 +773,7 @@ const PLATE_AUCTION_FETCH_STAMP_FIELDS = new Set(['id', 'sourceFetchedAt', 'last
 export function plateAuctionObservationChanged(record, old) {
   if (!old) return true;
   for (const key of new Set([...Object.keys(record), ...Object.keys(old)])) {
-    if (PLATE_AUCTION_FETCH_STAMP_FIELDS.has(key)) continue;
+    if (PLATE_AUCTION_FETCH_STAMP_FIELDS.has(key) || PLATE_AUCTION_SOURCE_LINK_FIELDS.has(key)) continue;
     if (!isDeepStrictEqual(record[key], old[key])) return true;
   }
   return false;

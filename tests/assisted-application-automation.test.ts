@@ -295,6 +295,10 @@ describe('effects', () => {
 
     await runAutomationEffect({ db: store.db, orderId: ORDER, effect: { type: 'mark_submitted' }, flow: { round: 1, submittedVia: 'email' }, nowMs: T0 });
     expect(store.read(ORDER_PATH)).toMatchObject({ submissionStatus: 'submitted', submissionNotes: 'Candidatura inviata da automazione (email).' });
+    // A WhatsApp application: sent once the candidate has the link and the steps (owner decision 2026-10-03).
+    await store.db.collection('assisted_applications').doc(ORDER).set({ submissionStatus: 'in_progress' }, { merge: true });
+    await runAutomationEffect({ db: store.db, orderId: ORDER, effect: { type: 'mark_submitted' }, flow: { round: 1, submittedVia: 'whatsapp' }, nowMs: T0 });
+    expect(store.read(ORDER_PATH)?.submissionNotes).toBe('Candidatura via WhatsApp: link e istruzioni inviati al candidato, che la completa dal proprio telefono.');
 
     const issueRefund = vi.fn(async () => ({ status: 200 }));
     await runAutomationEffect({ db: store.db, orderId: ORDER, effect: { type: 'refund', reason: 'posting_closed' }, flow: { round: 1 }, nowMs: T0 }, { issueRefund });

@@ -414,6 +414,13 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/de/partner-dienste/': '/de/',
  '/fr/services-partenaires/': '/fr/',
  // Press kit → the about page (same org-info class).
+ // Consolidate duplicate English utility pages and the superseded FAQ family.
+ '/about/': '/en/about-us/',
+ '/contact/': '/en/contact-us/',
+ '/privacy-policy/': '/en/privacy/',
+ '/en/cross-border-faq/': '/en/frequently-asked-questions/',
+ '/de/grenzgaenger-faq/': '/de/haeufige-fragen/',
+ '/fr/faq-frontaliers/': '/fr/questions-frequentes/',
  '/stampa/': '/chi-siamo/',
  '/en/press-kit/': '/en/about-us/',
  '/de/pressekit/': '/de/ueber-uns/',
@@ -425,9 +432,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // job-alert email (?email=&token=). Redirecting them to the morning landing
  // broke the entire "manage newsletter / job alerts" funnel (issue #2973): users
  // clicking "Gestisci alert" hit a "Pagina spostata" page instead of their
- // alerts. Like the sibling /email-confirmed/ route, the SPA boots from 404.html
- // and renders the page; it is noindex-by-nature (no public inbound links), so a
- // soft-404 status for cold crawler hits is acceptable.
+ // alerts. newsletterPreferencesPagesPlugin emits a public noindex shell at
+ // each localized path, so cold visits return 200 and retain the signed query.
+ // The SPA and API still enforce the token before accessing preferences.
  };
 
  const normalize = (p: string): string => {
