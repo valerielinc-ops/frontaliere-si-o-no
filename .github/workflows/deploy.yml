@@ -2362,7 +2362,7 @@ jobs:
           PROVENANCE_VALIDATE_OUTCOME: ${{ steps.validate-locale-shard.outcome }}
           PROVENANCE_IT_PREP_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
           PROVENANCE_PAGES_ARTIFACT_OUTCOME: ${{ steps.upload-pages-artifact.outcome }}
-          PROVENANCE_SOURCE_ARTIFACT_OUTCOME: ${{ matrix.locale != 'it' && steps.upload-locale-source.outcome || 'deferred' }}
+          PROVENANCE_SOURCE_ARTIFACT_OUTCOME: ${{ matrix.locale == 'it' && 'deferred' || (steps.pack-locale-source.outcome == 'success' && steps.upload-locale-source.outcome == 'success' && 'success' || 'failure') }}
           PROVENANCE_OFFLOAD_OUTCOME: ${{ matrix.locale == 'it' && steps.deploy-prep-it.outcome || 'deferred' }}
           PROVENANCE_SECTION_PUSH_OUTCOME: ${{ matrix.locale == 'it' && steps.push-section-shards-it.outcome || 'deferred' }}
           PROVENANCE_CDN_GATE_OUTCOME: deferred

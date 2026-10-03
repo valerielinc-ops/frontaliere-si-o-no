@@ -309,6 +309,45 @@ describe('locale publish workflow wiring', () => {
     expect(localeSteps.indexOf(write!)).toBeLessThan(localeSteps.indexOf(cache!));
   });
 
+  it.each(['success', 'failure', 'skipped', 'cancelled'])('admits source artifacts only after a successful pack and upload (pack=%s)', (packOutcome) => {
+    const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
+    // Evaluate the actual workflow expression: && / || / == and these
+    // nonempty outcome strings have the same semantics in Actions and JS.
+    const expression = String(write?.env.PROVENANCE_SOURCE_ARTIFACT_OUTCOME)
+      .replace(/^\$\{\{\s*|\s*\}\}$/g, '')
+      .replace(/steps\.([\w-]+)\.outcome/g, 'steps["$1"].outcome');
+    const evaluate = new Function('matrix', 'steps', `return (${expression});`);
+    for (const locale of ['en', 'de', 'fr']) {
+      for (const uploadOutcome of ['success', 'failure', 'skipped', 'cancelled']) {
+        const steps = {
+          'pack-locale-source': { outcome: packOutcome },
+          'upload-locale-source': { outcome: uploadOutcome },
+        };
+        const admitted = packOutcome === 'success' && uploadOutcome === 'success';
+        const sourceArtifact = evaluate({ locale }, steps);
+        expect(sourceArtifact).toBe(admitted ? 'success' : 'failure');
+        expect(evaluate({ locale: 'it' }, steps)).toBe('deferred');
+        const source = createLocalePublishProvenance({
+          locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID, distDir: tempDist(),
+          outcomes: { build: 'success', validate: 'success', sourceArtifact },
+        });
+        expect(validateLocaleSourceProvenance(source, {
+          locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          expectedBuildId: BUILD_ID, expectedArtifactRunId: SOURCE_RUN_ID,
+        }).valid).toBe(admitted);
+        const plan = resolveLocalePublishPlan({
+          runConclusion: 'success', sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          jobs: jobs(), provenance: [
+            { file: 'it.json', manifest: receipt('it') },
+            { file: `${locale}.json`, manifest: source },
+          ],
+        });
+        expect(plan.tailLocales.includes(locale)).toBe(admitted);
+      }
+    }
+  });
+
   it('routes publish through the plan and keeps missing IT provenance fail-closed', () => {
     const resolver = publish.jobs['resolve-publish-plan'];
     const deployJob = publish.jobs.deploy;
