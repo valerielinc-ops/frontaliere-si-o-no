@@ -234,6 +234,24 @@ describe('Coop authoritative detail routing', () => {
     expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
   });
 
+  it('rejects when the discovery fetch ignores AbortSignal instead of exiting cleanly', async () => {
+    const previousTimeout = process.env.JOBS_CRAWLER_TIMEOUT_MS;
+    process.env.JOBS_CRAWLER_TIMEOUT_MS = '10';
+    let observedSignal: AbortSignal | undefined;
+    try {
+      await expect(fetchCoopJobDetailUrls({
+        fetchImpl: async (_url, options) => {
+          observedSignal = options?.signal;
+          return new Promise(() => {});
+        },
+      })).rejects.toMatchObject({ name: 'TimeoutError' });
+      expect(observedSignal?.aborted).toBe(true);
+    } finally {
+      if (previousTimeout === undefined) delete process.env.JOBS_CRAWLER_TIMEOUT_MS;
+      else process.env.JOBS_CRAWLER_TIMEOUT_MS = previousTimeout;
+    }
+  });
+
   it('prefers a canton encoded in the listing location over a conflicting attr-30 stamp', async () => {
     const url = 'https://jobs.coopjobs.ch/offene-stellen/reinach/11111111-1111-4111-8111-111111111111';
     const jobs = [{
