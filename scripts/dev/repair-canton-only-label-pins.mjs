@@ -54,7 +54,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { buildStableJobIdentity } from '../lib/job-identity.mjs';
+import { buildAssembledJobIdentity } from '../lib/job-identity.mjs';
+import { migrateLegacyCantonPins } from '../lib/job-canton-pin-migration.mjs';
 import { isCantonOnlyLabel, normalizeCantonCode, isKnownSwissCity, inferAnyCanton } from '../lib/target-swiss-locations.mjs';
 import { isSwissPostalCode } from '../assemble-jobs-dataset.mjs';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
@@ -96,11 +97,9 @@ const EXCLUDED_CRAWLER_FILES = new Set(['zurich-insurance-sede-ticino.json']);
 const pins = JSON.parse(fs.readFileSync(PINS_PATH, 'utf-8'));
 const files = fs
   .readdirSync(CRAWLER_DIR)
-  .filter((f) => isSliceFile(f) && !EXCLUDED_CRAWLER_FILES.has(f));
+  .filter((f) => isSliceFile(f));
 
-let repaired = 0;
-const byCrawler = new Map();
-
+const crawlerSlices = [];
 for (const file of files) {
   let data;
   try {
@@ -109,10 +108,34 @@ for (const file of files) {
     continue;
   }
   const jobs = Array.isArray(data) ? data : data.jobs || [];
+  crawlerSlices.push({ file, jobs });
+}
+
+const legacyPinMigration = migrateLegacyCantonPins(
+  pins,
+  crawlerSlices.flatMap(({ jobs }) => jobs),
+);
+if (legacyPinMigration.legacyKeysRemoved > 0 || legacyPinMigration.fragmentPinsWritten > 0) {
+  console.log(
+    `  🔑 Legacy pin migration: split ${legacyPinMigration.legacyKeysRemoved} key(s) `
+      + `into ${legacyPinMigration.fragmentPinsWritten} fragment pin(s)`,
+  );
+}
+if (legacyPinMigration.skippedGroups > 0) {
+  console.warn(`  ⚠️  Legacy pin migration: left ${legacyPinMigration.skippedGroups} ambiguous/incomplete group(s) untouched`);
+}
+
+let repaired = 0;
+const byCrawler = new Map();
+
+for (const { file, jobs } of crawlerSlices) {
+  if (EXCLUDED_CRAWLER_FILES.has(file)) continue;
   for (const job of jobs) {
     const canton = String(job.canton || '').trim().toUpperCase();
     if (!canton) continue;
-    const pinId = buildStableJobIdentity(job);
+    // Keep the repair tool on the same identity contract as the assembler:
+    // portals such as Galenica put the requisition identity in the URL fragment.
+    const pinId = buildAssembledJobIdentity(job);
     const pinned = pins[pinId];
     if (!pinned || pinned === canton) continue;
     const locality = String(job.addressLocality || job.location || '').trim();
@@ -142,10 +165,11 @@ for (const [file, samples] of byCrawler) {
   for (const s of samples) console.log(`    ${s}`);
 }
 
-if (repaired > 0 && APPLY) {
+const pinsChanged = legacyPinMigration.legacyKeysRemoved > 0 || legacyPinMigration.fragmentPinsWritten > 0 || repaired > 0;
+if (pinsChanged && APPLY) {
   fs.writeFileSync(PINS_PATH, JSON.stringify(pins) + '\n', 'utf-8');
-  console.log(`\n✅ Wrote ${repaired} repair(s) to ${path.relative(ROOT, PINS_PATH)}`);
-} else if (repaired > 0) {
+  console.log(`\n✅ Wrote ${legacyPinMigration.fragmentPinsWritten} migrated pin(s) and ${repaired} repair(s) to ${path.relative(ROOT, PINS_PATH)}`);
+} else if (pinsChanged) {
   console.log('\n(dry run — re-run with --apply to write)');
 } else {
   console.log('\nNothing to repair.');
