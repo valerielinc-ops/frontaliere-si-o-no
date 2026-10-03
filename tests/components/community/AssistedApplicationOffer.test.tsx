@@ -103,4 +103,28 @@ describe('AssistedApplicationOffer', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Non siamo riusciti ad avviare il pagamento.');
   });
 
+  it('leaves the body scroll and Escape to its host when embedded, and names who opened it', () => {
+    document.body.style.overflow = 'auto';
+    const props = renderOffer({
+      embedded: true,
+      variant: 'rewarded_ad',
+      trigger: 'offerwall_first',
+      externalLabel: 'Candidati da solo, gratis con un breve video',
+    });
+
+    // The host (RewardedApplicationOffer) holds the one scroll lock and Escape.
+    expect(document.body.style.overflow).toBe('auto');
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(props.onClose).not.toHaveBeenCalled();
+    expect(screen.getByTestId('assisted-application-offer-external'))
+      .toHaveTextContent('Candidati da solo, gratis con un breve video');
+    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith('assisted_application_offer_viewed', {
+      variant: 'rewarded_ad',
+      jobId: 'job-42',
+      companyId: 'company-acme',
+      price_eur_cents: 99,
+      trigger: 'offerwall_first',
+    });
+    document.body.style.overflow = '';
+  });
 });
