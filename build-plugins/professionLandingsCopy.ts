@@ -1236,8 +1236,8 @@ const EN_SHELL: LocaleShell = {
       : `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs Ticino 2026`,
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} ${role} jobs in Ticino, updated ${buildMonthYearLabel('en')}. Editorial estimate CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement and Italian diploma recognition.`
-      : `${role} jobs in Ticino: editorial estimate CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement, Italian diploma recognition. Updated ${buildMonthYearLabel('en')}.`,
+      ? `${liveCount} ${role} jobs in Ticino, updated ${buildMonthYearLabel('en')}. Editorial estimate CHF ${median.toLocaleString('en-CH')} gross/year, collective agreement and Italian diploma recognition.`
+      : `${role} jobs in Ticino: editorial estimate CHF ${median.toLocaleString('en-CH')} gross/year, collective agreement, Italian diploma recognition. Updated ${buildMonthYearLabel('en')}.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs in Ticino: 2026 cross-border guide`,
   ledeTemplate: (s, median, jobs) =>
@@ -1301,7 +1301,7 @@ const DE_SHELL: LocaleShell = {
     liveCount > 0 ? `${role} im Tessin: ${liveCount} Stellen` : `${role} im Tessin 2026`,
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} Stellen als ${role} im Tessin, Stand ${buildMonthYearLabel('de')}. Redaktionelle Schätzung CHF ${median.toLocaleString('de-CH')} brutto/Jahr, GAV und Anerkennung italienischer Diplome.`
+      ? `${liveCount} Stellen als ${role} im Tessin, Stand ${buildMonthYearLabel('de')}. Redaktionelle Schätzung CHF ${median.toLocaleString('de-CH')} brutto/Jahr, GAV, Anerkennung ital. Diplome.`
       : `${role} im Tessin: Redaktionelle Schätzung CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome. Stand ${buildMonthYearLabel('de')}.`,
   h1Template: (role) => `${role} im Tessin: Grenzgänger-Leitfaden 2026`,
   ledeTemplate: (s, median, jobs) =>
@@ -1371,8 +1371,8 @@ const FR_SHELL: LocaleShell = {
   // and keeps the longest profession under META_DESCRIPTION_MAX_CHARS.
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres (${buildMonthYearLabel('fr')}). Estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`
-      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin (${buildMonthYearLabel('fr')}) : estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`,
+      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres (${buildMonthYearLabel('fr')}). Estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT, reconnaissance du diplôme.`
+      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin (${buildMonthYearLabel('fr')}) : estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT, reconnaissance du diplôme.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : guide frontalier 2026`,
   ledeTemplate: (s, median, jobs) =>
