@@ -2764,9 +2764,16 @@ export function buildGa4EventQueryBody(window, {
   limit = GA4_EVENT_QUERY_PAGE_SIZE,
   offset = 0,
   includeEmissionId = false,
+  includeCurrentDate = false,
 } = {}) {
   const startDate = ga4DateForValue(window?.from, 'window.from');
-  const endDate = ga4DateForWindowEnd(window);
+  // Settled reports stop at the previous property-local day. The live D18
+  // identity probe is the one deliberate exception: it must be able to see
+  // events emitted after today's deploy, even while today's report is still
+  // open. Pagination and missing-emission checks remain fail-closed below.
+  const endDate = includeCurrentDate
+    ? ga4DateForValue(window?.to, 'window.to')
+    : ga4DateForWindowEnd(window);
   if (Date.parse(`${startDate}T00:00:00.000Z`) >= Date.parse(`${endDate}T00:00:00.000Z`) + DAY_MS) {
     throw new Error('GA4 window has no complete date');
   }
@@ -2888,13 +2895,19 @@ export async function queryGa4EventRows(
     report = runGa4Report,
     pageSize = GA4_EVENT_QUERY_PAGE_SIZE,
     includeEmissionId = false,
+    includeCurrentDate = false,
   } = {},
 ) {
   if (!token) throw new Error('GA4 service-account token is required');
   if (!Number.isInteger(pageSize) || pageSize <= 0 || pageSize > GA4_EVENT_QUERY_PAGE_SIZE) {
     throw new Error(`GA4 pageSize must be an integer between 1 and ${GA4_EVENT_QUERY_PAGE_SIZE}`);
   }
-  const firstBody = buildGa4EventQueryBody(window, { limit: pageSize, offset: 0, includeEmissionId });
+  const firstBody = buildGa4EventQueryBody(window, {
+    limit: pageSize,
+    offset: 0,
+    includeEmissionId,
+    includeCurrentDate,
+  });
   const queryHash = sha256(stableJson({ ...firstBody, offset: 0 }));
   const rawRows = [];
   let totalRows = null;
@@ -3780,7 +3793,10 @@ async function main() {
         // Keep the settled report window separate from the live forward-only
         // probe, so a just-deployed emitter can be observed without widening
         // the report data. An incomplete suffix still fails closed.
-        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, d18Ga4Options);
+        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, {
+          ...d18Ga4Options,
+          includeCurrentDate: true,
+        });
         d18Ga4EvidenceResult = evidence.result;
         d18EvidenceWindow = evidence.window;
       } catch (error) {
@@ -3804,7 +3820,10 @@ async function main() {
       d18Ga4EvidenceUnavailableReason = ga4UnavailableReason;
     } else {
       try {
-        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, d18Ga4Options);
+        const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, {
+          ...d18Ga4Options,
+          includeCurrentDate: true,
+        });
         d18Ga4EvidenceResult = evidence.result;
         d18EvidenceWindow = evidence.window;
       } catch (error) {
