@@ -45,10 +45,12 @@ export const NEXT_STEP_GROUP_LABELS: Record<NextStepGroup, string> = {
   done: 'Concluse',
 };
 
-// What the fill extension completes: the form is fine, only a human may press send.
-const EXTENSION_HOLDS = new Set(['portal:captcha', 'portal:rejected', 'portal_refused', 'portal_antibot_ambiguous']);
-// A send that may have reached the employer: checked before anything is sent again.
-const AMBIGUOUS_HOLDS = new Set(['portal_ambiguous', 'email_ambiguous']);
+// What the fill extension completes: the form is fine and nothing was sent (a CAPTCHA before the
+// send, or the portal's own word that it did not send), only a human may press send.
+const EXTENSION_HOLDS = new Set(['portal:captcha', 'portal:rejected', 'portal_refused']);
+// A send that may have reached the employer (the flow's AMBIGUOUS_SUBMIT_HOLDS, review of #11016):
+// checked before anything is sent again, never straight to a second send.
+const AMBIGUOUS_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
 // The robot could not get past the portal's account: the extension types a form, it never creates an account.
 const ACCOUNT_HOLD_RE = /^portal:account(_|$)/;
 

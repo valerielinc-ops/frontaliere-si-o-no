@@ -49,10 +49,15 @@ describe('next step of an assisted-application order', () => {
     expect(taken).toMatchObject({ group: 'owner', code: 'owner_took_over', label: 'Presa in carico da te' });
     expect(taken.detail).toContain('«Rigenera»');
     // TSMG: an anti-robot check, the form itself was fine.
-    for (const held of ['portal:captcha', 'portal_refused', 'portal_antibot_ambiguous', 'portal:rejected']) {
+    for (const held of ['portal:captcha', 'portal_refused', 'portal:rejected']) {
       expect(step({ state: 'owner_takeover', heldBy: [held] })).toMatchObject({ group: 'owner', code: 'complete_with_extension', label: 'Completa con l’estensione' });
     }
-    expect(step({ state: 'owner_takeover', heldBy: ['portal_ambiguous'] })).toMatchObject({ group: 'owner', code: 'check_if_received' });
+    // A send of unknown outcome may be at the employer: checked first, never straight to a second send (review of #11016).
+    for (const held of ['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']) {
+      const check = step({ state: 'owner_takeover', heldBy: [held] });
+      expect(check).toMatchObject({ group: 'owner', code: 'check_if_received', label: 'Verifica se è arrivata' });
+      expect(check.detail).toContain('Controlla se il datore l’ha ricevuta');
+    }
     expect(step({ state: 'owner_takeover', heldBy: ['draft_failed'] })).toMatchObject({ group: 'owner', code: 'regenerate', label: 'Da rigenerare' });
     expect(step({ state: 'owner_takeover', heldBy: ['max_rounds'] })).toMatchObject({ group: 'owner', code: 'contact_candidate' });
     expect(step({ state: 'owner_takeover', heldBy: ['email_failed'] })).toMatchObject({ group: 'owner', code: 'retry_or_complete' });
