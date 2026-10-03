@@ -1,7 +1,7 @@
 {
   "key": "saint-gobain-weber-isover",
   "label": "Saint-Gobain Weber/Isover Suisse",
-  "generatedAt": "2026-10-02T21:39:02.638Z",
+  "generatedAt": "2026-10-03T09:30:02.691Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,11 +14,12 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7457,
-  "avgDurationMs": 7457,
+  "durationMs": 5795,
+  "avgDurationMs": 5795,
   "durationHistory": [
     6945,
-    7457
+    7457,
+    5795
   ],
   "newJobs": [
     {
@@ -34,7 +35,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/4c52349a-75f6-4f9c-87ca-db1a9bf5a083/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:38:45.370Z",
+      "crawledAt": "2026-10-03T09:29:51.331Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -73,7 +74,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/51f7101d-3a03-432c-acc6-c6a10ef559f7/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:38:46.257Z",
+      "crawledAt": "2026-10-03T09:29:52.417Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
