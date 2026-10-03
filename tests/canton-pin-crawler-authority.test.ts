@@ -29,11 +29,14 @@ import {
   resolveCantonAgainstPin,
   cantonFallbackLocality,
   inferCantonFromJobEvidence,
+  resolveCrawlerCantonForAssembly,
   realignCantonOnlyLocality,
   normalizeParsedJobsForSlice,
 } from '../scripts/assemble-jobs-dataset.mjs';
 // @ts-expect-error — plain .mjs lib, no type declarations
 import { inferAnyCanton, isTargetCanton } from '../scripts/lib/target-swiss-locations.mjs';
+// @ts-expect-error — plain .mjs lib, no type declarations
+import { createCrawlerLocationRecordIndex } from '../scripts/lib/crawler-location-record-index.mjs';
 
 /** Test fixtures must never carry absolute dates (AGENTS.md → test fixtures). */
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
@@ -121,6 +124,39 @@ describe('resolveCantonAgainstPin — the job outranks the ledger', () => {
 });
 
 describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () => {
+  it('keeps the source locality over a stale listing marker and crawler stamp (#11047)', () => {
+    const source = {
+      id: 'company-xesxqv',
+      url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/cfa3560b-5496-4c27-a752-7653a8532449',
+      addressLocality: 'Rüti ZH',
+      location: 'Lachen SZ',
+      canton: 'SZ',
+    };
+    const index = createCrawlerLocationRecordIndex();
+    index.add(source);
+    const sourceRecord = index.getWithStatus({
+      id: source.id,
+      url: source.url,
+      addressLocality: 'Rüti ZH',
+      location: 'Lachen SZ',
+      canton: 'SZ',
+    });
+
+    expect(sourceRecord.status).toBe('found');
+    expect(sourceRecord.record).toEqual({ crawler: '', canton: 'SZ', city: 'Rüti ZH', location: 'Lachen SZ' });
+    expect(inferCantonFromJobEvidence({
+      cityText: sourceRecord.record.city,
+      locationText: sourceRecord.record.location,
+      crawlerCanton: sourceRecord.record.canton,
+    })).toBe('ZH');
+    expect(resolveCantonAgainstPin({
+      jobCanton: 'ZH',
+      inferredCanton: 'ZH',
+      pinnedCanton: 'SZ',
+      crawlerCanton: 'SZ',
+    })).toMatchObject({ canton: 'ZH', pin: 'ZH', outcome: 'pin-corrected' });
+  });
+
   it('uses an explicit location marker when it agrees with the crawler canton', () => {
     expect(inferCantonFromJobEvidence({
       cityText: 'Pfäffikon',
@@ -149,6 +185,35 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
       crawlerCanton: 'SZ',
       sourceLocationCanton: 'SZ',
     })).toBe('SZ');
+  });
+
+  it('keeps the assembled canton when the stable source lookup is ambiguous', () => {
+    const index = createCrawlerLocationRecordIndex();
+    const first = {
+      id: 'ambiguous-reinach',
+      url: 'https://jobs.example/shared/role',
+      addressLocality: 'Reinach',
+      location: 'Reinach',
+      canton: 'AG',
+    };
+    index.add(first);
+    index.add({ ...first, canton: 'BL' });
+
+    const sourceLookup = index.getWithStatus(first);
+    expect(sourceLookup).toEqual({ record: null, status: 'ambiguous' });
+
+    const crawlerCanton = resolveCrawlerCantonForAssembly({
+      sourceLookup,
+      jobCanton: 'AG',
+    });
+    expect(crawlerCanton).toBe('AG');
+    // Generic inference selects BL first; the assembled AG remains the
+    // per-record evidence for this homonymous locality.
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Reinach',
+      locationText: 'Reinach',
+      crawlerCanton,
+    })).toBe('AG');
   });
 
   it('does not hide a location/crawler conflict by choosing the marker', () => {
