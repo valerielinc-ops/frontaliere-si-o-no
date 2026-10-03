@@ -77,6 +77,11 @@ const testTreeLintTests = new Set([
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
+  // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
+  // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
+  // degli import degli entrypoint, quindi nessun import lo collega al modulo
+  // che ne aggiunge uno fuori lista. Deve girare proprio su quel diff.
+  ['tests/housekeeping-sparse-paths.test.ts', /^(?:scripts|packages\/articles\/engine)\/|^\.github\/workflows\/housekeeping-jobs-logic\.yml$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

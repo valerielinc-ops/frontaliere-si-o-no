@@ -393,6 +393,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['.github/workflows/pr-redflag-fixer.yml'])).toContain(guard);
     expect(selectionFor(['scripts/ci/review-gate.mjs'])).toContain(guard);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(guard);
+
+    // Corpus 1926: un import nuovo fuori dalla lista sparse di housekeeping
+    // nasce in uno script o nell'engine condiviso, non nel workflow.
+    const housekeeping = 'tests/housekeeping-sparse-paths.test.ts';
+    expect(selectionFor(['scripts/lib/dedicated-crawler-common.mjs'])).toContain(housekeeping);
+    expect(selectionFor(['packages/articles/engine/shared/htmlMarkup.mjs'])).toContain(housekeeping);
+    expect(selectionFor(['.github/workflows/housekeeping-jobs-logic.yml'])).toContain(housekeeping);
+    // `build-plugins/` non e' nella lista ne' nella chiusura: non lo seleziona.
+    expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(housekeeping);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(housekeeping);
   }, 120_000);
 
   it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
@@ -412,10 +422,11 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
   it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
     // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
     // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.
-    expect(selectionFor(['scripts/dev/fast-worktree.sh'])).toEqual([
-      'tests/gh-slurp-jq-guard.test.ts',
-      'tests/no-hardcoded-secrets.test.ts',
-    ]);
+    // `toContain` e non l'elenco esatto: ogni lint nuovo con `scripts/` nel
+    // perimetro entra legittimamente in questa selezione.
+    const selected = selectionFor(['scripts/dev/fast-worktree.sh']);
+    expect(selected).toContain('tests/gh-slurp-jq-guard.test.ts');
+    expect(selected).toContain('tests/no-hardcoded-secrets.test.ts');
   }, 120_000);
 
   it('il gate dei segreti non spegne il fallback alla suite intera per un sorgente senza test', () => {

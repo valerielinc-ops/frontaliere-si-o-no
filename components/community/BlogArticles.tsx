@@ -2469,7 +2469,7 @@ function BlogArticles({
  <strong className="text-body">Trasparenza editoriale:</strong>{' '}
  {isHumanContributor
  ? `contributo originale di ${effectiveAuthorName}, pubblicato dalla redazione senza stesura assistita da intelligenza artificiale.`
- : 'bozza assistita da intelligenza artificiale, revisionata dalla redazione.'}
+ : 'contenuto prodotto con assistenza di intelligenza artificiale e controlli automatici. Questa indicazione non certifica una revisione umana.'}
  {' '}Le fonti utilizzate sono linkate nel testo.
  </p>
  <p className="text-xs">
