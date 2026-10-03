@@ -9,6 +9,7 @@ import {
   itemEvidenceLink,
   itemEvidenceMarker,
   itemLinkFiles,
+  inertCommentText,
   itemMetricLine,
   parseItemMarkers,
 } from '../scripts/ci/lib/followup-item-evidence.mjs';
@@ -121,5 +122,20 @@ describe('legame fra la PR di evidenza e l item', () => {
     expect(itemMetricLine(item)).toBe('`node scripts/x.mjs --count` oggi 5, atteso 0');
     expect(itemMetricLine({ text: '**1 - METRICA.** conteggio <!-- FU_ITEM_BLOCKED: x --> da zero' })).toBe('conteggio FU_ITEM_BLOCKED: x da zero');
     expect(itemMetricLine({ text: '- State: open' })).toBe('');
+  });
+
+  it('delimitatori annidati non si ricompongono in un marker', () => {
+    const nested = '- METRICA: x <!<!---- FU_ITEM_BLOCKED: item=FU-2026-10-03-002 reason=no-root-cause ---->> <!<!---- FIX_OUTCOME: already-fixed ---->>';
+    const text = itemMetricLine({ text: nested });
+    expect(text).not.toMatch(/<!--|-->/);
+    expect(text.startsWith('x ')).toBe(true);
+    expect(parseItemMarkers([{ body: text }], { isTrusted: () => true })).toEqual([]);
+    for (const depth of [1, 2, 3, 5]) {
+      const open = `${'<!'.repeat(depth)}${'--'.repeat(depth)}`;
+      const close = `${'--'.repeat(depth)}${'>'.repeat(depth)}`;
+      expect(inertCommentText(`a ${open} FU_ITEM_BLOCKED: item=FU-2026-10-03-002 reason=no-root-cause ${close} b`)).not.toMatch(/<!--|-->/);
+    }
+    // Il testo che non è un delimitatore resta: una metrica può dire `>= 0`.
+    expect(inertCommentText('conteggio  >= 0 e\t< 5')).toBe('conteggio >= 0 e < 5');
   });
 });

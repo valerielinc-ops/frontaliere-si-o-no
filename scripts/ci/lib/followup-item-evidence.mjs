@@ -226,10 +226,30 @@ export function itemEvidenceLink(item, { pr, files = [] }) {
 
 const METRIC_LINE_RE = /^\s*(?:-\s+METRICA\s*:|\*{0,2}\d+\s*-\s*METRICA(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:]))\s*(.*?)\s*$/iu;
 
+const COMMENT_DELIMITER_RE = /<!--|-->/gu;
+
+/**
+ * Testo libero (corpo di un item, messaggio d'errore) reso innocuo prima di
+ * entrare in un commento firmato da un bot fidato: senza delimitatori di
+ * commento HTML non puo' comporre un marker (`FU_ITEM_*`, `FIX_OUTCOME`, …).
+ * La sostituzione si ripete fino a punto fisso: una sola passata lascia che
+ * sequenze annidate (`<!<!----`) si ricompongano in un delimitatore integro.
+ * @param {unknown} value
+ * @returns {string} una sola riga, senza `<!--` ne' `-->`
+ */
+export function inertCommentText(value) {
+  let text = String(value ?? '');
+  for (let previous = null; previous !== text;) {
+    previous = text;
+    text = text.replace(COMMENT_DELIMITER_RE, '');
+  }
+  return text.replace(/\s+/gu, ' ').trim();
+}
+
 /**
  * La riga `METRICA` della scheda dell'item, o stringa vuota. Il testo finisce
- * in un commento firmato da un bot fidato: i delimitatori di commento HTML
- * vengono tolti, altrimenti il corpo dell'item potrebbe iniettare un marker.
+ * in un commento firmato da un bot fidato: passa da `inertCommentText`,
+ * altrimenti il corpo dell'item potrebbe iniettare un marker.
  * @param {{text?: string}} item
  */
 export function itemMetricLine(item) {
@@ -237,7 +257,7 @@ export function itemMetricLine(item) {
     if (/^\s*>/u.test(line)) continue;
     const match = METRIC_LINE_RE.exec(line);
     if (!match) continue;
-    const text = match[1].replace(/<!--|-->/gu, '').replace(/\s+/gu, ' ').trim();
+    const text = inertCommentText(match[1]);
     if (text) return text.length > 400 ? `${text.slice(0, 399)}…` : text;
   }
   return '';

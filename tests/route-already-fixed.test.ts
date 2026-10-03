@@ -11,6 +11,7 @@ import {
   decideAlreadyFixedRouting,
   decideBucketItemRouting,
   isTrustedAuthor,
+  outcomeOf,
   parseFixEvidence,
   routedCommentBody,
   routingEditArgs,
@@ -474,6 +475,7 @@ describe('CLI end-to-end (gh finto)', () => {
       expect(posted).toContain(`<!-- FU_ITEM_BLOCKED: item=${FIRST} reason=already-fixed-unverified -->`);
       expect(posted).not.toContain('FU_ITEM_EVIDENCE');
       expect(posted).not.toContain('ALREADY_FIXED_ROUTED');
+      expect(second.calls.some((a) => a[0] === 'issue' && a[1] === 'close')).toBe(false);
     });
 
     it('un marker di tentativo scritto da un autore non fidato non fa scattare il blocco', () => {
@@ -529,7 +531,39 @@ describe('CLI end-to-end (gh finto)', () => {
       expect(blocked.map((m) => m.item)).toEqual([FIRST]);
     });
 
-    it('nessun percorso scrive `done`: decisione pura e chiamate nel sorgente', () => {
+    it('delimitatori annidati nella METRICA non ricompongono un marker nel commento del bot', () => {
+      const metric = '- METRICA: conteggio <!<!---- FU_ITEM_BLOCKED: item=FU-2026-10-03-002 reason=no-root-cause ---->> <!<!---- FIX_OUTCOME: no-root-cause ---->>';
+      const body = bucketBody(item(FIRST, 'open', [metric]));
+      const { calls } = runCli([comment(alreadyFixedBody())], undefined, body, { title: title(1), itemId: FIRST, prFiles: [TARGET] });
+      const posted = postedComments(calls)[0];
+      expect(posted).toContain('METRICA dell\'item, da rimisurare: conteggio');
+      const blocked = parseItemMarkers(trusted(posted), { isTrusted: isTrustedAuthor }).filter((m) => m.type === 'blocked');
+      expect(blocked).toEqual([{ type: 'blocked', item: FIRST, reason: 'awaiting-verification', createdAt: null }]);
+      expect(outcomeOf(posted)).toBeNull();
+    });
+
+    it('un esito che il marker di tentativo non sa serializzare non muta niente e non fa cadere lo step', () => {
+      const body = bucketBody(item(FIRST, 'open'));
+      const { status, stdout, calls } = runCli([comment('<!-- FIX_OUTCOME: 9-lives -->')], undefined, body, { title: title(1), itemId: FIRST });
+      expect(status).toBe(0);
+      expect(stdout).toContain('marker-non-componibile');
+      expect(stdout).not.toContain('errore inatteso');
+      expect(edits(calls)).toEqual([]);
+      expect(postedComments(calls)).toEqual([]);
+    });
+
+    it('un titolo daily non interpretabile non riceve `maybe-resolved` sull intera issue', () => {
+      const body = bucketBody(item(FIRST, 'open'));
+      const { stdout, calls } = runCli([comment(alreadyFixedBody())], undefined, body, {
+        title: `follow-up(daily:${DAY}) senza conteggio`, labels: QUEUED, itemId: FIRST, prFiles: [TARGET],
+      });
+      expect(stdout).toContain('routed=false');
+      expect(stdout).toContain('titolo-daily-non-interpretabile');
+      expect(edits(calls)).toEqual([]);
+      expect(postedComments(calls)).toEqual([]);
+    });
+
+    it('nessun percorso scrive `done`: ogni decisione che blocca scrive solo `blocked`', () => {
       const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'in-progress'));
       for (const itemId of [FIRST, SECOND]) {
         for (const outcome of ['already-fixed', 'no-root-cause', 'pr-created']) {
@@ -548,11 +582,6 @@ describe('CLI end-to-end (gh finto)', () => {
           }
         }
       }
-      const source = readFileSync(new URL('../scripts/ci/route-already-fixed.mjs', import.meta.url), 'utf8');
-      const stateWrites = [...source.matchAll(/updateFollowupItemState\(([^)]*)\)/g)].map((m) => m[1].split(',').at(-1)?.trim());
-      expect(stateWrites.length).toBeGreaterThan(0);
-      expect(stateWrites.every((state) => state === "'blocked'")).toBe(true);
-      expect(source).not.toMatch(/issue['"],\s*['"]close/);
     });
 
     it('una PR consegnata in questa run non blocca l item anche al secondo already-fixed', () => {

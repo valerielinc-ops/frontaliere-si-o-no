@@ -72,6 +72,7 @@ import {
 } from './followup-resolution-match.mjs';
 import {
   countItemAttempts,
+  inertCommentText,
   itemAttemptMarker,
   itemBlockedMarker,
   itemEvidenceLink,
@@ -89,6 +90,7 @@ export const QUEUE_LABEL = 'agent:fix-queued';
 // piu' il padre gia' decomposto (tracker, non lavoro del fixer).
 export const QUEUE_VETO_LABELS = Object.freeze(['needs-human', 'automation-deferred', 'fu-parked', 'decomposed:1']);
 const FIXER_WORKFLOW_PATH = '.github/workflows/issue-fix.yml';
+const DAILY_TITLE_PREFIX_RE = /^follow-up\(daily:/iu;
 
 const TRUSTED_ASSOCIATIONS = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
 // Gli stessi bot autorizzati a emettere un `FIX_OUTCOME` in claude-rate-limit.mjs.
@@ -195,13 +197,6 @@ export function isTrustedAuthor(comment) {
 }
 
 /**
- * Decisione pura dal solo stato gia' letto. Nessuna I/O.
- * @param {{comments: Array<{body?: string, createdAt?: string, author?: {login?: string}, authorAssociation?: string}>,
- *   runStartedAt: string|null, deliveryStatus: string|null, isGroup?: boolean}} input
- * @returns {{action: 'verify', evidence: {pr: number|null, commit: string|null, run: number}} |
- *   {action: 'none', reason: string}}
- */
-/**
  * L'ULTIMO commento `FIX_OUTCOME` postato da questa run, qualunque sia l'autore
  * (la fiducia la decide il chiamante). Nessuna I/O.
  * @returns {{last: object} | {reason: string}}
@@ -221,6 +216,13 @@ export function lastOutcomeCommentOfRun({ comments, runStartedAt }) {
   return last ? { last } : { reason: 'nessun-FIX_OUTCOME-in-questa-run' };
 }
 
+/**
+ * Decisione pura dal solo stato gia' letto. Nessuna I/O.
+ * @param {{comments: Array<{body?: string, createdAt?: string, author?: {login?: string}, authorAssociation?: string}>,
+ *   runStartedAt: string|null, deliveryStatus: string|null, isGroup?: boolean}} input
+ * @returns {{action: 'verify', evidence: {pr: number|null, commit: string|null, run: number}} |
+ *   {action: 'none', reason: string}}
+ */
 export function decideAlreadyFixedRouting({ comments, runStartedAt, deliveryStatus, isGroup = false }) {
   if (isGroup) return { action: 'none', reason: 'gruppo-B19: instradamento solo per issue singole' };
   if (deliveryStatus !== DELIVERY_STATUS.NONE) {
@@ -420,10 +422,12 @@ export function bucketItemCommentBody({
   link = 'none', metric = '', openRemaining = false, attemptReason = '',
 }) {
   const attempt = itemAttemptMarker({ item: itemId, outcome, run: runId });
+  // Il motivo puo' portare un messaggio d'errore di `gh`: stesso canale della METRICA.
+  const reason = inertCommentText(attemptReason);
   if (!blockedReason) {
     return [
       attempt,
-      `📝 Item \`${itemId}\`: esito \`${outcome}\` registrato${attemptReason ? ` (${attemptReason})` : ''}. Nessun cambio di stato.`,
+      `📝 Item \`${itemId}\`: esito \`${outcome}\` registrato${reason ? ` (${reason})` : ''}. Nessun cambio di stato.`,
       outcome === 'already-fixed'
         ? 'Un secondo `already-fixed` senza prova verificata e legata all\'item lo porta a `State: blocked`, fuori dalla selezione del fixer.'
         : null,
@@ -583,9 +587,16 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
       return false;
     }
   };
+  // Un esito che `FIX_OUTCOME_RE` accetta ma il marker no (inizia con una
+  // cifra, supera la lunghezza) non deve far terminare lo script con un errore.
+  const compose = (fields) => {
+    try { return bucketItemCommentBody({ itemId, outcome, runId, ...fields }); } catch (e) { return { error: String(e?.message ?? e).slice(0, 80) }; }
+  };
   const attemptOnly = (attemptReason) => {
+    const body = compose({ attemptReason });
+    if (typeof body !== 'string') return skip(`marker-non-componibile:${body.error}`);
     setOutput('routed', 'false');
-    postComment(bucketItemCommentBody({ itemId, outcome, runId, attemptReason }));
+    postComment(body);
     console.log(`route-already-fixed: bucket #${issue}, item ${itemId}: tentativo registrato (${attemptReason}), stato invariato.`);
   };
   if (decision.action === 'attempt') {
@@ -594,10 +605,7 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
 
   // Tutto il commento si costruisce PRIMA di scrivere: un marker non
   // componibile non deve lasciare un corpo modificato senza la sua prova.
-  const comment = bucketItemCommentBody({
-    itemId,
-    outcome,
-    runId,
+  const comment = compose({
     blockedReason: decision.blockedReason,
     evidence,
     verified,
@@ -605,6 +613,7 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
     metric: itemMetricLine(decision.item),
     openRemaining: decision.openRemaining,
   });
+  if (typeof comment !== 'string') return skip(`marker-non-componibile:${comment.error}`);
   // Rilettura-confronto: lo step gira fuori dal mutex del bucket.
   let fresh;
   try {
@@ -666,6 +675,13 @@ function main() {
   const runStartedAt = typeof baseline?.runStartedAt === 'string' ? baseline.runStartedAt : null;
   if (dailyBucketInfo(view?.title)) {
     routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus: delivery.status });
+    return;
+  }
+  // Stesso prefisso con cui il workflow riconosce un bucket: un titolo daily
+  // che non si interpreta non deve ricadere su `maybe-resolved` sull'intera issue.
+  if (DAILY_TITLE_PREFIX_RE.test(String(view?.title ?? ''))) {
+    setOutput('routed', 'false');
+    console.log(`route-already-fixed: bucket #${issue}, nessuna mutazione (titolo-daily-non-interpretabile).`);
     return;
   }
   const decision = decideAlreadyFixedRouting({
