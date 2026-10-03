@@ -5,11 +5,15 @@ import {
   FC_OFFERWALL_ENTITLEMENT_COOKIE,
   OFFERWALL_APPEAR_TIMEOUT_MS,
   OFFERWALL_ENTITLEMENT_GRACE_MS,
+  OFFERWALL_REVEAL_GRACE_MS,
   OFFERWALL_SLOW_MS,
+  OFFERWALL_STAGE_STYLE_ID,
   OFFERWALL_STALL_REPORT_MS,
   isOfferwallHeld,
+  isOfferwallStaged,
   offerwallGateStatus,
   releaseHeldOfferwall,
+  revealStagedOfferwall,
 } from '@/services/offerwallClickGate';
 
 function holdOfferwall(onRelease: () => void = () => {}): void {
@@ -331,6 +335,121 @@ describe('offerwallClickGate', () => {
       await expect(releaseHeldOfferwall({ signal: controller.signal }))
         .resolves.toEqual({ outcome: 'not_shown', reason: 'aborted' });
       expect(window.__ftOfferwallGate?.state).toBe('held');
+    });
+  });
+
+  describe('staged release behind the paid choice', () => {
+    afterEach(() => {
+      revealStagedOfferwall();
+    });
+
+    it('releases the Offerwall hidden, reports it ready, and never times out while hidden', async () => {
+      holdOfferwall(() => {
+        setTimeout(() => {
+          mountRoot('fc-message-root');
+        }, 1800);
+      });
+      const onStaged = vi.fn();
+      const onShown = vi.fn();
+      const onSlow = vi.fn();
+      const onAppearTimeout = vi.fn();
+      let settled = false;
+      void releaseHeldOfferwall({ staged: true, onStaged, onShown, onSlow, onAppearTimeout }).then(() => {
+        settled = true;
+      });
+
+      expect(isOfferwallStaged()).toBe(true);
+      expect(window.__ftOfferwallGate?.state).toBe('released');
+      await vi.advanceTimersByTimeAsync(2000);
+      expect(onStaged).toHaveBeenCalledTimes(1);
+      expect(onStaged).toHaveBeenCalledWith({ elapsedMs: expect.any(Number), root: 'fc-message-root' });
+      expect(onStaged.mock.calls[0][0].elapsedMs).toBeGreaterThanOrEqual(1800);
+      // The style keeps the root off screen: nothing is reported as shown.
+      expect(window.getComputedStyle(document.querySelector('.fc-message-root') as Element).display).toBe('none');
+      expect(onShown).not.toHaveBeenCalled();
+
+      // The visitor reads the paid choice for longer than every timeout.
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS * 3);
+      expect(onSlow).not.toHaveBeenCalled();
+      expect(onAppearTimeout).not.toHaveBeenCalled();
+      expect(settled).toBe(false);
+      expect(onStaged).toHaveBeenCalledTimes(1);
+    });
+
+    it('shows the staged Offerwall at once when it is revealed, timing it from the reveal', async () => {
+      holdOfferwall(() => {
+        setTimeout(() => {
+          mountRoot('fc-message-root');
+        }, 1500);
+      });
+      const onShown = vi.fn();
+      const pending = releaseHeldOfferwall({ staged: true, onShown });
+      await vi.advanceTimersByTimeAsync(20_000);
+
+      revealStagedOfferwall();
+      expect(isOfferwallStaged()).toBe(false);
+      await vi.advanceTimersByTimeAsync(400);
+      expect(onShown).toHaveBeenCalledTimes(1);
+      expect(onShown.mock.calls[0][0]).toEqual({ shownMs: expect.any(Number), root: 'fc-message-root' });
+      expect(onShown.mock.calls[0][0].shownMs).toBeLessThan(1000);
+
+      setEntitlement('granted-staged');
+      await vi.advanceTimersByTimeAsync(200);
+      await expect(pending).resolves.toMatchObject({ outcome: 'completed', signal: 'entitlement' });
+    });
+
+    it('keeps the consent message usable while the Offerwall is staged', async () => {
+      holdOfferwall();
+      const consentRoot = mountRoot('fc-consent-root');
+      void releaseHeldOfferwall({ staged: true });
+      expect(document.getElementById(OFFERWALL_STAGE_STYLE_ID)).not.toBeNull();
+      expect(window.getComputedStyle(consentRoot).display).not.toBe('none');
+    });
+
+    it('gives a staged Offerwall not yet rendered the rest of its appear timeout after the reveal', async () => {
+      holdOfferwall();
+      const onAppearTimeout = vi.fn();
+      const pending = releaseHeldOfferwall({ staged: true, onAppearTimeout });
+      await vi.advanceTimersByTimeAsync(2000);
+
+      revealStagedOfferwall();
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS - 2000 - 600);
+      expect(onAppearTimeout).not.toHaveBeenCalled();
+      await vi.advanceTimersByTimeAsync(1000);
+      await expect(pending).resolves.toEqual({ outcome: 'not_shown', reason: 'appear_timeout' });
+    });
+
+    it('gives a reveal after the appear timeout a short grace, not a new full wait', async () => {
+      holdOfferwall();
+      const onAppearTimeout = vi.fn();
+      const pending = releaseHeldOfferwall({ staged: true, onAppearTimeout });
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS + 5000);
+
+      revealStagedOfferwall();
+      await vi.advanceTimersByTimeAsync(OFFERWALL_REVEAL_GRACE_MS - 400);
+      expect(onAppearTimeout).not.toHaveBeenCalled();
+      await vi.advanceTimersByTimeAsync(800);
+      await expect(pending).resolves.toEqual({ outcome: 'not_shown', reason: 'appear_timeout' });
+    });
+
+    it('takes the stage down when the release is refused', async () => {
+      window.__ftOfferwallGate = { state: 'held', release: () => false };
+      await expect(releaseHeldOfferwall({ staged: true }))
+        .resolves.toEqual({ outcome: 'not_shown', reason: 'release_refused' });
+      expect(isOfferwallStaged()).toBe(false);
+    });
+
+    it('keeps a staged Offerwall hidden when the watch is aborted (the choice was closed)', async () => {
+      holdOfferwall(() => {
+        mountRoot('fc-message-root');
+      });
+      const controller = new AbortController();
+      const pending = releaseHeldOfferwall({ staged: true, signal: controller.signal });
+      await vi.advanceTimersByTimeAsync(400);
+      controller.abort();
+      await expect(pending).resolves.toEqual({ outcome: 'not_shown', reason: 'aborted' });
+      expect(isOfferwallStaged()).toBe(true);
+      expect(window.getComputedStyle(document.querySelector('.fc-message-root') as Element).display).toBe('none');
     });
   });
 });
