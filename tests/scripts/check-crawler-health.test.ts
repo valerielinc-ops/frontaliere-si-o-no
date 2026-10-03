@@ -363,13 +363,6 @@ describe('nextCrawlerState', () => {
       emptyStreak: 4,
     },
     {
-      slug: 'gavi',
-      issue: '#5059',
-      why: 'fRecruit portal listing renders its unchanged page block with "Page 1 of 0" / "None found" and zero vacancyNo links',
-      priorNonZero: 1,
-      emptyStreak: 4,
-    },
-    {
       slug: 'rado',
       issue: '#5083',
       why: 'shared swatchgroup.com pool crawl is healthy (sibling eta-sa-swatch-group wrote 22 jobs same run); brand filter kept 0/7 because no posting carries a Rado legal entity',
