@@ -53,10 +53,15 @@ describe('health option guidance', () => {
     }
   });
 
-  it('removes unconditional finality from guide, pillar and PDF surfaces', () => {
-    for (const file of ['build-plugins/editorialContent.ts', 'build-plugins/frontalierePillarCopy.ts', 'services/pdfReport.ts', 'services/seo/seo-pages.ts']) {
+  it('removes unconditional finality from generated content surfaces', () => {
+    for (const file of ['build-plugins/editorialContent.ts', 'build-plugins/frontalierePillarCopy.ts', 'build-plugins/shared/salaryLandingShell.ts', 'build-plugins/staticPagesPlugin.ts', 'services/pdfReport.ts', 'services/seo/seo-pages.ts']) {
       expect(readFileSync(file, 'utf8')).not.toMatch(/irrevoc|irrévoc|unwiderruf|non si può tornare al SSN/i);
     }
+    const salaryLanding = readFileSync('build-plugins/shared/salaryLandingShell.ts', 'utf8');
+    expect(salaryLanding).toContain('domanda formale di esenzione');
+    expect(salaryLanding).toContain('formally request exemption');
+    expect(salaryLanding).toContain('formell die Befreiung');
+    expect(salaryLanding).toContain('demander formellement une exemption');
     const component = readFileSync('components/comparators/HealthInsurance.tsx', 'utf8');
     expect(component).toContain("t('health.warningText')");
     expect(component).not.toContain('<strong>irrevocabile</strong>');
