@@ -74,6 +74,7 @@ import {
   classifyIssue,
   isFixerExempt,
 } from '../lib/classify-issue.mjs';
+import { isDailyBucketTitle, parseFollowupItems } from './followup-resolution-match.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const PAT = process.env.GITHUB_PAT || '';
@@ -166,8 +167,60 @@ export const ROUTING_LABELS = [
 // resta esplicito: chi toglie `maybe-resolved` la rimette nel ciclo.
 export const VERIFICATION_LABEL = 'maybe-resolved';
 
-/** Il secondo passaggio non deve riesaminare i pin già esclusi dal routing. */
-export function isTriagedButNotRouted(iss) {
+// Stadio di decomposizione, non assenza di routing. Un padre `decomposed:1` è
+// un tracker: lo scope vive nelle figlie e il drainer gli TOGLIE apposta
+// `agent:fix`/`agent:fix-queued` (PARENT-DEQUEUE). `agent:decompose-queued` e
+// `agent:decompose` sono lo stadio in corso, con uno slot proprio. Senza questo
+// elenco lo sweep leggeva quei padri come «triaged ma senza routing» e li
+// rimetteva in coda a ogni giro; il drainer li ritoglieva con un commento
+// (misurato: 73 commenti di dequeue su 7447; su 9443 4 riaccodamenti su 13
+// erano di questo sweep).
+//
+// Separata da `ROUTING_LABELS` di proposito: quella lista deve restare
+// esattamente le label note più `fu-attempt:1..MAX_ATTEMPTS`
+// (tests/followup-drainer-max-attempts-labels.test.ts).
+export const DECOMPOSE_STAGE_LABELS = [
+  'decomposed:1',
+  'agent:decompose-queued',
+  'agent:decompose',
+];
+
+/**
+ * Perché una issue autofix senza label di routing NON va comunque accodata.
+ * `null` = nessun veto. Pura (label, titolo, corpo) → testabile.
+ *
+ * - `decompose-stage`: porta una delle `DECOMPOSE_STAGE_LABELS`.
+ * - `bucket-no-open-item`: bucket giornaliero i cui item sono tutti fuori da
+ *   `open` (done, blocked, in-progress): il fixer non ha nulla da prendere e
+ *   il drainer lo rimetterebbe fuori dalla coda al giro dopo.
+ *
+ * Il secondo veto scatta solo su un corpo LETTO e leggibile: corpo assente,
+ * nessun item con id stabile o fence non terminata lasciano il comportamento
+ * di prima (nessun veto) invece di congelare un bucket su un dato dubbio.
+ *
+ * @param {{title?: string, body?: string, labels?: Array<string|{name:string}>}} iss
+ * @returns {'decompose-stage'|'bucket-no-open-item'|null}
+ */
+export function queueVeto(iss) {
+  if (DECOMPOSE_STAGE_LABELS.some((label) => has(iss, label))) return 'decompose-stage';
+  if (isDailyBucketTitle(iss?.title) && typeof iss?.body === 'string') {
+    const items = parseFollowupItems(iss.body);
+    const stable = items.filter((item) => item.id);
+    if (!items.unterminatedFence && stable.length > 0
+      && !stable.some((item) => item.state === 'open')) {
+      return 'bucket-no-open-item';
+    }
+  }
+  return null;
+}
+
+const QUEUE_VETO_TEXT = {
+  'decompose-stage': 'padre decomposto / stadio decompose',
+  'bucket-no-open-item': 'bucket giornaliero senza item open',
+};
+
+/** Autofix, instradabile e senza label di routing: il veto si decide a parte. */
+function lacksRouting(iss) {
   // Una riga senza titolo è un dato illeggibile, non una issue da instradare:
   // dalla policy f1-f7-v4 la categoria sconosciuta non è più un deny, quindi
   // l'integrità del record va verificata qui.
@@ -178,6 +231,11 @@ export function isTriagedButNotRouted(iss) {
     && decision.route !== 'none'
     && !isFixerExempt(names(iss))
     && !ROUTING_LABELS.some((r) => has(iss, r));
+}
+
+/** Il secondo passaggio non deve riesaminare i pin già esclusi dal routing. */
+export function isTriagedButNotRouted(iss) {
+  return lacksRouting(iss) && queueVeto(iss) === null;
 }
 
 function main() {
@@ -275,7 +333,12 @@ function main() {
       // riusciamo a routare (PAT assente o oltre cap) la perderebbe dal filtro
       // orfani per sempre → nessuno sweep successivo la routa mai (defeat-self).
       const isCrawlerTransient = has(iss, 'crawler-transient');
-      const isRoutable = autofix === true && (route === 'fix' || route === 'queue') && !isCrawlerTransient;
+      // Stesso veto del secondo passaggio: un padre decomposto (o un bucket
+      // senza item open) che ha perso `agent:triaged` non è routabile, quindi
+      // viene solo marcato, come i crawler-transient.
+      const veto = queueVeto(iss);
+      const isRoutable = autofix === true && (route === 'fix' || route === 'queue')
+        && !isCrawlerTransient && veto === null;
       const isCrawlerFix = isRoutable && route === 'fix';
 
       // PAT assente: routing impossibile. Lascia orfana (NO triaged) → uno sweep
@@ -311,6 +374,12 @@ function main() {
       // crawler-transient → solo triaged (si auto-chiudono, routarle = burn).
       if (isCrawlerTransient) {
         console.log(`#${n} crawler-transient → solo triaged (auto-close, no route).`);
+        markedOnly++;
+        continue;
+      }
+
+      if (veto) {
+        console.log(`#${n} ${QUEUE_VETO_TEXT[veto]} → solo triaged (no route).`);
         markedOnly++;
         continue;
       }
@@ -356,7 +425,21 @@ function main() {
       '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,body,labels']);
   } catch (e) { console.error(`gh issue list (triaged-no-route): ${String(e).slice(0, 160)}`); }
 
-  const unrouted = allTriaged.filter(isTriagedButNotRouted);
+  // I vetati non entrano in `unrouted`, ma si contano e si loggano: un ramo
+  // muto sarebbe indistinguibile da un buco del router.
+  const unrouted = [];
+  for (const iss of allTriaged.filter(lacksRouting)) {
+    const veto = queueVeto(iss);
+    if (veto) {
+      console.log(`#${iss.number} triaged-no-route ${QUEUE_VETO_TEXT[veto]} → skip`);
+      markedOnly++;
+      continue;
+    }
+    if (isDailyBucketTitle(iss.title) && typeof iss.body !== 'string') {
+      console.log(`#${iss.number} triaged-no-route bucket giornaliero senza corpo nella riga letta → nessun veto sugli item.`);
+    }
+    unrouted.push(iss);
+  }
   if (!unrouted.length) {
     console.log('Nessuna issue triaged-but-not-routed. ✅');
   } else {
