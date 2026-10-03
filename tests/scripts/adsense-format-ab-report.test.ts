@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -271,13 +271,30 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     }
   });
 
-  it('the gate job stays light: the plan module imports no npm package and not the report script', () => {
+  it('the gate job stays light: the plan runs with no installed dependency and without the report script', () => {
     // The gate job runs without `npm ci` and with a sparse checkout; the
     // report script would drag in the full-checkout closure of revenue-monitor.
-    const source = readFileSync(path.join(REPO_ROOT, PLAN_MODULE), 'utf8');
-    const specifiers = [...source.matchAll(/^\s*import\s[^;]*?from\s+['"]([^'"]+)['"]/gm)].map((match) => match[1]);
-    expect(specifiers.length).toBeGreaterThan(0);
-    expect(specifiers.filter((specifier) => !specifier.startsWith('node:') && specifier !== '../../services/adExperiment.ts')).toEqual([]);
+    // Run the CLI from a copy that holds only the two files of the declared
+    // closure, away from any node_modules: a new import on either side
+    // (static, bare or dynamic) fails here before it fails on a Monday.
+    const dir = mkdtempSync(path.join(tmpdir(), 'adsense-ab-plan-light-'));
+    const closure = [PLAN_MODULE, 'services/adExperiment.ts'];
+    try {
+      for (const file of closure) {
+        mkdirSync(path.dirname(path.join(dir, file)), { recursive: true });
+        copyFileSync(path.join(REPO_ROOT, file), path.join(dir, file));
+      }
+      const outputFile = path.join(dir, 'output');
+      writeFileSync(outputFile, '');
+      execFileSync(process.execPath, [PLAN_MODULE], {
+        cwd: dir,
+        encoding: 'utf8',
+        env: { PATH: process.env.PATH, GITHUB_OUTPUT: outputFile },
+      });
+      expect(readFileSync(outputFile, 'utf8')).toMatch(/^active=(true|false)\nexperiments=/);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('the workflow publishes the plan from a job that cannot fail open', () => {
@@ -312,8 +329,16 @@ describe('adsense-format-ab-report / weekly plan gates the tracking issue', () =
     const reportStep = steps.find((step) => /adsense-format-ab-report\.mjs --experiment/.test(String(step.run ?? '')));
     expect(reportStep?.run).toContain('--markdown');
     expect(reportStep?.run).toContain('/tmp/adsense-format-ab-report.md');
-    const fixedSentenceWriters = steps.filter((step) => /^\s*echo\s+"[^"$]{40,}"\s*>\s*\/tmp\/adsense-format-ab-report\.md/m.test(String(step.run ?? '')));
-    expect(fixedSentenceWriters).toEqual([]);
+    // Only that step writes the file, and besides truncating it and adding a
+    // blank separator, every write into it is the report script's own output.
+    const writesReportFile = />{1,2}\s*\/tmp\/adsense-format-ab-report\.md/;
+    expect(steps.filter((step) => writesReportFile.test(String(step.run ?? '')))).toEqual([reportStep]);
+    const contentWrites = String(reportStep?.run ?? '')
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => writesReportFile.test(line) && !/^(:|echo)\s*>{1,2}/.test(line));
+    expect(contentWrites.length).toBeGreaterThan(0);
+    expect(contentWrites.filter((line) => !line.startsWith('node scripts/adsense-format-ab-report.mjs '))).toEqual([]);
   });
 });
 

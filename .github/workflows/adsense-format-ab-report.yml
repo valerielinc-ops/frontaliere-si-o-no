@@ -34,6 +34,11 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # The gate only reads the repository; `issues: write` is for its failure
+    # report. The `report` job keeps the workflow-level permissions.
+    permissions:
+      contents: read
+      issues: write
     outputs:
       active: ${{ steps.plan.outputs.active }}
       experiments: ${{ steps.plan.outputs.experiments }}
