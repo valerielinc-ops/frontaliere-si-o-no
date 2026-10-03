@@ -89,6 +89,22 @@ export function parseAltenListingHtml(html = '') {
   return rows;
 }
 
+/**
+ * Decide whether the browser has reached an ALTEN listing page. The page title
+ * and the localized copy are presentation details, not source identity: the
+ * crawler must wait for actual listing evidence (or an explicit empty marker)
+ * before treating a page as ready.
+ */
+export function isAltenListingPageReady({ html = '', title = '', content = '' } = {}) {
+  const sourceRows = parseAltenListingHtml(html);
+  const pageText = `${title}\n${content}`;
+  const isAltenPage = /alten(?:\s+switzerland)?/i.test(pageText);
+  const hasListingCopy = /\b(?:job offers?|job assignments?|vacancies?|positions?|stellenangebote|offres?)\b/i.test(content);
+  return sourceRows.length > 0
+    || sourceRows.altenListingEmptyStateObserved === true
+    || (isAltenPage && hasListingCopy);
+}
+
 export function parseAltenDetailHtml(html = '', pageUrl = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;

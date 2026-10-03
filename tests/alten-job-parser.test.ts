@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   parseAltenListingHtml,
+  isAltenListingPageReady,
   parseAltenDetailHtml,
   isAltenSwissLocation,
 } from '../scripts/lib/alten-job-parser.mjs';
@@ -39,6 +40,31 @@ describe('alten-job-parser', () => {
     expect(parsed).toHaveLength(2);
     expect(parsed[0].title).toBe('Full Stack .Net Developer');
     expect(parsed[0].location).toBe('Ticino');
+  });
+
+  it('recognizes a ready listing page when localized copy changes', () => {
+    const html = `
+      <html><head><title>Careers | ALTEN Switzerland</title></head><body>
+        <main class="wp-block-webfactory-card">
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/903-pipe-project-manager-it/">Project Manager</a>
+            <div class="card-location"><span class="location-list">Ticino</span></div>
+          </div>
+        </main>
+      </body></html>`;
+    expect(isAltenListingPageReady({
+      html,
+      title: 'Careers | ALTEN Switzerland',
+      content: '2 Job assignments',
+    })).toBe(true);
+  });
+
+  it('does not treat an unrelated page as a ready listing', () => {
+    expect(isAltenListingPageReady({
+      html: '<html><head><title>ALTEN</title></head><body>Welcome to ALTEN</body></html>',
+      title: 'ALTEN',
+      content: 'Welcome to ALTEN',
+    })).toBe(false);
   });
 
   it('parses detail body into description blocks', () => {

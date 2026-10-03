@@ -30,10 +30,12 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAltenListingHtml,
+  isAltenListingPageReady,
   isAltenSwissLocation,
   parseAltenDetailHtml,
   inferAltenCategory,
 } from './lib/alten-job-parser.mjs';
+import { detectJinaErrorBody, fetchViaJinaWithRetry } from './lib/jina-proxy.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -57,6 +59,7 @@ const COMPANY_HOST = 'www.alten.ch';
 const LISTING_PAGE_CAP = 100;
 const CAREERS_URL = `https://www.alten.ch/career/jobs/?pagenum=1&per_page=${LISTING_PAGE_CAP}`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const CRAWL_STATE = { lastFetchOutcome: null };
 
 function readJson(filePath, fallback) {
   try {
@@ -113,7 +116,12 @@ async function waitForListing(page) {
   while (Date.now() - started < timeoutMs) {
     const title = await page.title();
     const content = await page.textContent('body').catch(() => '');
-    if (/Career - ALTEN Switzerland/i.test(title) && /Job offers/i.test(content || '')) return true;
+    const html = await page.content().catch(() => '');
+    // The old title/text pair was a fail-closed bail-out: a harmless copy or
+    // locale change returned null before the parser ever saw the page. Prefer
+    // source evidence, while retaining the explicit empty marker as the only
+    // valid zero-result signal.
+    if (isAltenListingPageReady({ html, title, content })) return true;
     await page.waitForTimeout(1000);
   }
   return false;
@@ -137,7 +145,10 @@ async function waitForDetail(page) {
 }
 
 async function withBrowser(fn) {
-  const browser = await launchChromium({ headless: process.env.JOBS_ALTEN_HEADLESS === '1' });
+  const browser = await launchChromium({
+    headless: process.env.JOBS_ALTEN_HEADLESS === '1',
+    args: ['--disable-blink-features=AutomationControlled'],
+  });
   const context = await browser.newContext({
     userAgent:
       process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -170,6 +181,55 @@ function copyAltenSourceEvidence(jobs, source) {
   return jobs;
 }
 
+function transientFetchOutcome(error = {}) {
+  const message = String(error?.message || error).toLowerCase();
+  return /403|challenge|just a moment|verify you are human|did not become available|blocked/.test(message)
+    ? 'anti_bot_block'
+    : 'connection_error';
+}
+
+function markTransientFetch(error) {
+  CRAWL_STATE.lastFetchOutcome = transientFetchOutcome(error);
+}
+
+function buildAltenListings(html, source = 'browser') {
+  const sourceRows = parseAltenListingHtml(html);
+  const listings = sourceRows.filter((row) => isAltenSwissLocation(row.location));
+  const terminationProven = sourceRows.length < LISTING_PAGE_CAP;
+  const sourceReadComplete = Boolean(
+    terminationProven
+    && sourceRows.altenListingSkippedMalformedRows === 0
+    && (sourceRows.length > 0 ? sourceRows.altenListingMarkupSeen : sourceRows.altenListingEmptyStateObserved),
+  );
+  const unrecognizedLocations = sourceRows.filter((row) => !isRecognizedAltenSourceLocation(row.location));
+  console.log(`📋 Total ALTEN listing rows (CH + foreign): ${sourceRows.length}`);
+  console.log(`📋 Swiss ALTEN jobs discovered (CH-wide): ${listings.length}`);
+  warnIfListingAtCap({ label: 'ALTEN listing', count: sourceRows.length, cap: LISTING_PAGE_CAP });
+  for (const listing of listings) console.log(`  📄 ${listing.title} (${listing.location})`);
+  if (listings.length === 0) {
+    console.log('ℹ️  Nessun annuncio trovato per ALTEN Switzerland — non è un errore, il crawler prosegue.');
+  }
+  Object.defineProperties(listings, {
+    altenSourceRows: { value: sourceRows, enumerable: false },
+    altenSourceReadComplete: { value: sourceReadComplete, enumerable: false },
+    altenSourceTerminationProven: { value: terminationProven, enumerable: false },
+    altenSourceTargetCount: { value: listings.length, enumerable: false },
+    altenSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
+    altenSourceAccess: { value: source, enumerable: false },
+  });
+  return listings;
+}
+
+async function fetchViaAltenEgress(url, label) {
+  const timeoutMs = Math.min(Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000, 30000);
+  const response = await fetchViaJinaWithRetry(url, { timeoutMs, format: 'html' });
+  if (!response?.ok) throw new Error(`ALTEN ${label} egress proxy returned HTTP ${response?.status ?? 'unknown'}`);
+  const html = await response.text();
+  const proxyError = detectJinaErrorBody(html);
+  if (proxyError) throw new Error(`ALTEN ${label} egress proxy returned an unusable page (${proxyError})`);
+  return html;
+}
+
 function assertCompleteAltenSnapshot(jobs = []) {
   if (!Array.isArray(jobs) || jobs.altenSourceReadComplete !== true || jobs.altenSourceTerminationProven !== true) {
     throw new Error('ALTEN: source listing snapshot was not read to a proven terminal page');
@@ -198,31 +258,7 @@ async function discoverListings() {
       await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
       const ok = await waitForListing(page);
       if (!ok) throw new Error('ALTEN listing did not become available in browser session');
-      const html = await page.content();
-      const sourceRows = parseAltenListingHtml(html);
-      const listings = sourceRows.filter((row) => isAltenSwissLocation(row.location));
-      const terminationProven = sourceRows.length < LISTING_PAGE_CAP;
-      const sourceReadComplete = Boolean(
-        terminationProven
-        && sourceRows.altenListingSkippedMalformedRows === 0
-        && (sourceRows.length > 0 ? sourceRows.altenListingMarkupSeen : sourceRows.altenListingEmptyStateObserved),
-      );
-      const unrecognizedLocations = sourceRows.filter((row) => !isRecognizedAltenSourceLocation(row.location));
-      console.log(`📋 Total ALTEN listing rows (CH + foreign): ${sourceRows.length}`);
-      console.log(`📋 Swiss ALTEN jobs discovered (CH-wide): ${listings.length}`);
-      warnIfListingAtCap({ label: 'ALTEN listing', count: sourceRows.length, cap: LISTING_PAGE_CAP });
-      for (const listing of listings) console.log(`  📄 ${listing.title} (${listing.location})`);
-      if (listings.length === 0) {
-        console.log('ℹ️  Nessun annuncio trovato per ALTEN Switzerland — non è un errore, il crawler prosegue.');
-      }
-      Object.defineProperties(listings, {
-        altenSourceRows: { value: sourceRows, enumerable: false },
-        altenSourceReadComplete: { value: sourceReadComplete, enumerable: false },
-        altenSourceTerminationProven: { value: terminationProven, enumerable: false },
-        altenSourceTargetCount: { value: listings.length, enumerable: false },
-        altenSourceUnrecognizedLocationCount: { value: unrecognizedLocations.length, enumerable: false },
-      });
-      return listings;
+      return buildAltenListings(await page.content());
     });
   } catch (err) {
     // Treat connectivity / challenge errors as a transient unavailability.
@@ -231,14 +267,89 @@ async function discoverListings() {
     const isTransient = /did not become available|net::ERR_|timeout|403/i.test(err.message);
     if (isTransient) {
       console.warn(`⚠️  ALTEN site or listing unavailable: ${err.message}`);
-      console.log('ℹ️  Keeping existing data — no updates this run.');
-      return null;
+      try {
+        console.log('🛰️  Retrying ALTEN listing through clean egress...');
+        return buildAltenListings(await fetchViaAltenEgress(CAREERS_URL, 'listing'), 'jina');
+      } catch (proxyError) {
+        markTransientFetch(proxyError);
+        console.warn(`⚠️  ALTEN clean-egress listing fallback failed: ${proxyError.message}`);
+        console.log('ℹ️  Keeping existing data — no updates this run.');
+        return null;
+      }
     }
     throw err;
   }
 }
 
+function buildAltenJobFromHtml(html, listing) {
+  const parsed = parseAltenDetailHtml(html, listing.href);
+  const canton = inferAnyCanton(parsed.location) || inferAnyCanton(listing.location);
+  if (!canton) return null;
+  return {
+    title: parsed.title,
+    slug: parsed.slug,
+    url: listing.href,
+    applyUrl: parsed.applyUrl,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    location: parsed.location,
+    addressLocality: parsed.location,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    canton,
+    country: 'CH',
+    employmentType: 'full-time',
+    contractType: 'full-time',
+    category: inferAltenCategory(parsed.title, parsed.description),
+    sector: 'IT Consulting & Engineering',
+    source: 'alten-dedicated-crawler',
+    sourceLang: detectLang(parsed.description || '', 'en'),
+    postedDate: toIsoDate(parsed.postedDate || listing.postedDate),
+    validThrough: '',
+    description: parsed.description,
+    titleByLocale: parsed.titleByLocale,
+    descriptionByLocale: parsed.descriptionByLocale,
+    slugByLocale: parsed.slugByLocale,
+  };
+}
+
+async function buildJobsViaAltenEgress(listings) {
+  const jobs = [];
+  let skipped = 0;
+  for (const listing of listings) {
+    try {
+      const job = buildAltenJobFromHtml(
+        await fetchViaAltenEgress(listing.href, `detail ${listing.href}`),
+        listing,
+      );
+      if (!job) {
+        console.warn(`  ⚠️  No Swiss canton resolved for ${listing.href} via clean egress — skipping`);
+        skipped += 1;
+        continue;
+      }
+      jobs.push(job);
+    } catch (error) {
+      console.warn(`  ⚠️  Failed to fetch detail for ${listing.href} via clean egress: ${error.message}`);
+      skipped += 1;
+    }
+  }
+  if (jobs.length === 0 && listings.length > 0) {
+    throw new Error(`Failed to fetch any ALTEN job details via clean egress (${skipped}/${listings.length} skipped)`);
+  }
+  return jobs;
+}
+
 async function buildJobs(listings) {
+  if (listings.altenSourceAccess === 'jina') {
+    try {
+      return await buildJobsViaAltenEgress(listings);
+    } catch (error) {
+      markTransientFetch(error);
+      console.warn(`⚠️  ALTEN clean-egress detail fallback failed: ${error.message}`);
+      return null;
+    }
+  }
   try {
     return await withBrowser(async (page) => {
     // Warm the browser session on the listing page first so that Cloudflare
@@ -260,48 +371,26 @@ async function buildJobs(listings) {
           skipped += 1;
           continue;
         }
-        const parsed = parseAltenDetailHtml(await page.content(), listing.href);
-        // Resolve the canton CH-wide from the cleanest single signal first
-        // (the detail-page city string), falling back to the listing card
-        // location only if the detail field is canton-less. Never default to
-        // a hard-coded canton: if neither resolves to a Swiss canton the job
-        // is foreign / un-geolocatable and is dropped.
-        const canton = inferAnyCanton(parsed.location) || inferAnyCanton(listing.location);
-        if (!canton) {
-          console.warn(`  ⚠️  No Swiss canton resolved for ${listing.href} (location: "${parsed.location}") — skipping`);
+        const job = buildAltenJobFromHtml(await page.content(), listing);
+        if (!job) {
+          console.warn(`  ⚠️  No Swiss canton resolved for ${listing.href} — skipping`);
           skipped += 1;
           continue;
         }
-        jobs.push({
-          title: parsed.title,
-          slug: parsed.slug,
-          url: listing.href,
-          applyUrl: parsed.applyUrl,
-          company: COMPANY_NAME,
-          companyKey: COMPANY_KEY,
-          companyDomain: COMPANY_DOMAIN,
-          location: parsed.location,
-          addressLocality: parsed.location,
-          addressRegion: canton,
-          addressCountry: 'CH',
-          canton,
-          country: 'CH',
-          employmentType: 'full-time',
-          contractType: 'full-time',
-          category: inferAltenCategory(parsed.title, parsed.description),
-          sector: 'IT Consulting & Engineering',
-          source: 'alten-dedicated-crawler',
-          sourceLang: detectLang(parsed.description || '', 'en'),
-          postedDate: toIsoDate(parsed.postedDate || listing.postedDate),
-          validThrough: '',
-          description: parsed.description,
-          titleByLocale: parsed.titleByLocale,
-          descriptionByLocale: parsed.descriptionByLocale,
-          slugByLocale: parsed.slugByLocale,
-        });
+        jobs.push(job);
       } catch (err) {
         console.warn(`  ⚠️  Failed to fetch detail for ${listing.href}: ${err.message} — skipping`);
-        skipped += 1;
+        try {
+          const job = buildAltenJobFromHtml(
+            await fetchViaAltenEgress(listing.href, `detail ${listing.href}`),
+            listing,
+          );
+          if (job) jobs.push(job);
+          else skipped += 1;
+        } catch (proxyError) {
+          console.warn(`  ⚠️  Clean-egress detail fallback failed for ${listing.href}: ${proxyError.message}`);
+          skipped += 1;
+        }
       }
     }
 
@@ -321,8 +410,15 @@ async function buildJobs(listings) {
     const isTransient = /listing session could not be initialized|did not become available|net::ERR_|timeout|TimeoutError|403/i.test(msg);
     if (isTransient) {
       console.warn(`⚠️  ALTEN detail session unavailable: ${msg}`);
-      console.log('ℹ️  Keeping existing data — no updates this run.');
-      return null;
+      try {
+        console.log('🛰️  Retrying ALTEN details through clean egress...');
+        return await buildJobsViaAltenEgress(listings);
+      } catch (proxyError) {
+        markTransientFetch(proxyError);
+        console.warn(`⚠️  ALTEN clean-egress detail fallback failed: ${proxyError.message}`);
+        console.log('ℹ️  Keeping existing data — no updates this run.');
+        return null;
+      }
     }
     throw err;
   }
@@ -413,7 +509,7 @@ function validateLocales(authoritativeEmptySnapshot = false) {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'ALTEN Switzerland');
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'ALTEN Switzerland', CRAWL_STATE);
   console.log('═══════════════════════════════════════════════');
   console.log('  ALTEN Switzerland — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
