@@ -539,9 +539,9 @@ function renderPage(
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
@@ -999,9 +999,9 @@ function renderEntryPage(
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
