@@ -255,6 +255,25 @@ describe('Fust authoritative discovery', () => {
     });
   });
 
+  it('rejects when the discovery fetch ignores AbortSignal instead of exiting cleanly', async () => {
+    const previousTimeout = process.env.JOBS_CRAWLER_TIMEOUT_MS;
+    process.env.JOBS_CRAWLER_TIMEOUT_MS = '10';
+    let observedSignal: AbortSignal | undefined;
+    try {
+      await expect(fetchFustJobUrls({
+        fetchImpl: async (_url, options) => {
+          observedSignal = options?.signal;
+          return new Promise(() => {});
+        },
+        enrichDetails: false,
+      })).rejects.toMatchObject({ name: 'TimeoutError' });
+      expect(observedSignal?.aborted).toBe(true);
+    } finally {
+      if (previousTimeout === undefined) delete process.env.JOBS_CRAWLER_TIMEOUT_MS;
+      else process.env.JOBS_CRAWLER_TIMEOUT_MS = previousTimeout;
+    }
+  });
+
   it('drops a job whose canton label does not resolve to a Swiss canton without failing the run (#7024)', async () => {
     const fetchImpl = async (input: string | URL | Request) => {
       const url = String(input);

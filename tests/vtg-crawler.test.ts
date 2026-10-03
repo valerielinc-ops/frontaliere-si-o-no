@@ -78,6 +78,19 @@ describe('VTG authoritative regional discovery', () => {
     });
   });
 
+  it('rejects when the discovery fetch ignores AbortSignal instead of exiting cleanly', async () => {
+    let observedSignal: AbortSignal | undefined;
+    await expect(fetchVtgJobUrls({
+      fetchImpl: async (_url, options) => {
+        observedSignal = options?.signal;
+        return new Promise(() => {});
+      },
+      scope: 'ch-wide',
+      timeoutMs: 10,
+    })).rejects.toMatchObject({ name: 'TimeoutError' });
+    expect(observedSignal?.aborted).toBe(true);
+  });
+
   it('rejects missing, blank, or malformed totals before numeric coercion', async () => {
     for (const total of [null, '', 'not-a-number']) {
       const fetchImpl = async () => new Response(JSON.stringify({ total, jobs: [] }), { status: 200 });

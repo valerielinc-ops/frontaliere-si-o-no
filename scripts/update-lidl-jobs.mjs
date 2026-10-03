@@ -383,22 +383,39 @@ async function fetchLidlSearchPage(
     language,
   )}`;
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  // AbortSignal is advisory: a custom fetch implementation can ignore it and
+  // leave the await pending until Node exits naturally. Reject the operation
+  // as well, so an unfinished discovery cannot be recorded as a clean exit.
+  let rejectTimeout;
+  const timeoutError = new Error(`Lidl API request timed out at page ${page} after ${timeoutMs}ms.`);
+  timeoutError.name = 'TimeoutError';
+  const timeoutPromise = new Promise((_, reject) => {
+    rejectTimeout = reject;
+  });
+  const timer = setTimeout(() => {
+    controller.abort();
+    rejectTimeout(timeoutError);
+  }, timeoutMs);
   try {
-    const res = await fetchImpl(apiUrl, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'X-Requested-With': 'XMLHttpRequest',
-        Referer: 'https://team.lidl.ch/it/cerca-opportunita',
-        'User-Agent': userAgent,
-      },
-    });
-    if (!res.ok) {
-      const scope = language ? `language ${language}` : 'national';
-      throw new Error(`Lidl discovery failed: API returned ${res.status} for ${scope} page ${page}.`);
-    }
-    return await res.json();
+    return await Promise.race([
+      (async () => {
+        const res = await fetchImpl(apiUrl, {
+          signal: controller.signal,
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'X-Requested-With': 'XMLHttpRequest',
+            Referer: 'https://team.lidl.ch/it/cerca-opportunita',
+            'User-Agent': userAgent,
+          },
+        });
+        if (!res.ok) {
+          const scope = language ? `language ${language}` : 'national';
+          throw new Error(`Lidl discovery failed: API returned ${res.status} for ${scope} page ${page}.`);
+        }
+        return res.json();
+      })(),
+      timeoutPromise,
+    ]);
   } finally {
     clearTimeout(timer);
   }
