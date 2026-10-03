@@ -1,4 +1,5 @@
 import { fetchHtml, fetchHtmlWithCookies } from './crawler-template.mjs';
+import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
 const DEFAULT_TIMEOUT_MS = 20_000;
 const LISTING_CARD_MARKER = 'vacancy__render';
@@ -39,6 +40,13 @@ export function createAplusPageFetcher({ listingUrl, userAgent }) {
 
     try {
       const html = await fetchHtmlWithCookies(url, { timeoutMs, cookieJar, headers });
+      // The cookie-aware transport deliberately returns successful responses
+      // as-is, so detail pages also need the shared 200-but-challenge rescue.
+      // A WAF challenge on a detail URL otherwise reaches the parser as a
+      // title-less page and drops the live vacancy.
+      if (url !== listingUrl) {
+        return rescueHtmlIfChallenged(html, url, { timeoutMs });
+      }
       // Keep fetchHtml's existing 200-but-challenge rescue for the listing:
       // a WAF challenge can be an HTTP-success response, so it does not enter
       // the catch branch even though the parser would see zero cards.
