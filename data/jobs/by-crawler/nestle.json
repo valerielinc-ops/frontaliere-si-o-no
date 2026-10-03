@@ -17,7 +17,7 @@
       "title": "Anlagenführer/-in Special Products",
       "titleByLocale": {
         "it": "Operatore/-trice di impianti Prodotti speciali",
-        "en": "Anlagenführer/-in Special Products",
+        "en": "Plant Operator Special Products",
         "de": "Anlagenführer/-in Special Products",
         "fr": "Gestionnaire de plantes/dans des produits spéciaux"
       },
@@ -330,10 +330,10 @@
       "companyDomain": "nestle.com",
       "title": "Technicien-ne de maintenance en horaire 4x8",
       "titleByLocale": {
-        "it": "Technicien-ne de maintenance en horaire 4x8",
-        "en": "Technicien-ne de maintenance en horaire 4x8",
-        "de": "Technicien-ne de maintenance en horaire 4x8",
-        "fr": "Technicien-ne de maintenance en horaire 4x8"
+        "fr": "Technicien-ne de maintenance en horaire 4x8",
+        "it": "Tecnico di manutenzione di tempo 4x8",
+        "en": "4x8 Time Maintenance Technician",
+        "de": "4x8 Zeitpflegetechniker"
       },
       "description": "Lieu : Avenches, Switzerland\nEntité : Centre de Production Nestlé Nespresso Manufacturing SA\nTaux : Temps plein 100%\nType de contrat : Contrat indéterminé\n\nReimagine what coffee can be. Reimagine what you can become.\n\nAu sein de notre équipe de maintenance en 4x8 à Avenches, vous contribuez directement à la disponibilité, à la fiabilité et à la performance de nos équipements de production. Vous réalisez les activités de maintenance préventive, corrective et améliorative afin d’assurer la continuité des opérations. Grâce à vos compétences techniques et à votre capacité d’analyse, vous diagnostiquez les dysfonctionnements, identifiez leurs causes et mettez en œuvre des solutions durables. Vous participez également au développement des connaissances de l’équipe en documentant clairement vos interventions, en rédigeant des instructions techniques et en accompagnant les opérateurs techniques dans l’utilisation et la maîtrise des équipements.\n\nComment aurez-vous un impact en tant que Technicien-ne de maintenance en horaire 4x8 ?\n\n• Réaliser des diagnostics et résoudre des pannes dans différents domaines techniques : mécanique, électricité, pneumatique, automatisme et instrumentation.\n• Identifier les causes racines des dysfonctionnements et proposer des solutions techniques fiables et pérennes.\n• Contribuer à l’amélioration de la sécurité, de la qualité et de la conformité des installations.\n• Assurer une traçabilité claire et structurée de vos interventions et garantir la qualité des données techniques.\n• Utiliser les outils digitaux de maintenance et de gestion des interventions, notamment SAP, POKA et TrendMiner.\n• Partager vos connaissances et accompagner le développement des compétences des opérateurs et de vos collègues.\n• Identifier et mettre en œuvre des améliorations contribuant à la performance industrielle, à la réduction des coûts et à la durabilité des installations.\n• Collaborer étroitement avec les équipes de production, les opérateurs, les équipes de maintenance de journée et les prestataires externes.\n\nCe qui fera votre réussite\n\n• Vous êtes titulaire d’une formation technique dans le domaine de la maintenance industrielle (CFC dans les domaines de l'électrotechnique, automatisme ou une formation équivalente).\n• Vous disposez d’une expérience réussie dans un environnement industriel manufacturier.\n• Vous possédez une expérience pratique dans le diagnostic, le dépannage et la maintenance d’équipements mécaniques, électriques, pneumatiques et automatisés.\n• Vous détenez une certification électrique OIBT (article 13 ou 15), ou êtes disposé·e à l’obtenir dans le cadre de votre fonction.\n• Vous disposez d’un bon esprit d’analyse et d’une approche structurée de la résolution de problèmes.\n• Vous êtes autonome, organisé·e et capable de gérer vos priorités en fonction des besoins opérationnels.\n• Vous faites preuve d’initiative et êtes force de proposition.\n• Vous communiquez de manière claire et adaptez votre message à vos différents interlocuteurs.\n\nAvantages\n\n• 5 semaines de vacances\n• Possibilité de formation et de développement internes\n• Caisse de pension avec excellentes contributions de l’employeur\n• Participation financière à l’assurance maladie\n• Politique parentalité avantageuse\n• Restaurant d’entreprise sur place avec menus à prix subventionnés\n• Parking gratuit et bornes de recharge pour voitures électriques\n• Nombreux avantages auprès du Club Nespresso",
       "descriptionByLocale": {
@@ -362,12 +362,21 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Avenches-Technicien-ne-de-maintenance-en-horaire-4x8/1443671233/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "tecnico-di-manutenzione-di-tempo-4x8-nestle-avenches",
-        "4x8-time-maintenance-technician-nestle-avenches",
-        "4x8-zeitpflegetechniker-nestle-avenches",
-        "technicien-ne-de-maintenance-en-horaire-4x8-nestle-ch"
-      ],
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-03T09:35:07.209Z",
       "previousSlugsByLocale": {
         "it": [
           "tecnico-di-manutenzione-di-tempo-4x8-nestle-avenches",
@@ -382,22 +391,13 @@
           "technicien-ne-de-maintenance-en-horaire-4x8-nestle-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:35:07.209Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
+      "previousSlugs": [
+        "tecnico-di-manutenzione-di-tempo-4x8-nestle-avenches",
+        "4x8-time-maintenance-technician-nestle-avenches",
+        "4x8-zeitpflegetechniker-nestle-avenches",
+        "technicien-ne-de-maintenance-en-horaire-4x8-nestle-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "nestle-1269774501",
@@ -5084,7 +5084,7 @@
       "title": "Anlagenführer:in Produktion 100%",
       "titleByLocale": {
         "it": "Operatore/Operatrice impianti produzione 100%",
-        "en": "Anlagenführer:in Produktion 100%",
+        "en": "Plant Manager Production 100%",
         "de": "Anlagenführer:in Produktion 100%",
         "fr": "Responsable installations production 100%"
       },
@@ -6335,7 +6335,7 @@
         "it": "Assistente amministrativo per la nutrizione e la salute",
         "en": "Senior Nutrition & Health Administrative Assistant",
         "de": "Senior Nutrition & Health Administrative Assistent",
-        "fr": "Senior Nutrition & Health Administrative Assistant"
+        "fr": "Assistant administratif principal en nutrition et en santé"
       },
       "description": "Location: Konolfingen, Lausanne or Vevey with flexibility to commute to the other sites (2-4 times/month)\nWork model: On site / Hybrid\n\nActivity rate: 80% -100%\nContract type / duration: Permanent Contract\n\nBe a force for good and accelerate change that improves lives and the planet.\n\nAs a Senior NPTC Nutrition & Health Administrative Assistant at Nestlé Product Technology Centre, your mission will be to maximize the effectiveness of the R&D Centre Head and leadership team by acting as a trusted support partner in a high-exposure position.\n\nYou will play a pivotal role in enabling senior leaders to operate effectively across a complex, multi-site R&D environment, and will bring strong judgment, anticipation, prioritization and stakeholder management skills, while coordinating sensitive operational topics with autonomy and discretion.\n\nHow you’ll make an impact as a Senior NPTC Nutrition & Health Administrative Assistant\n\n• Act as a trusted support partner to the NPTC Head and Leadership Team, enabling strategic focus and effective decision-making.\n\n• Manage complex calendars, priorities and schedules, anticipating conflicts and ensuring timely preparation and follow-up.\n\n• Prepare agendas, minutes, action tracking and key documents with accuracy, structure and confidentiality.\n\n• Coordinate collaboration and information flow across Vevey, Konolfingen and other NPTC units.\n\n• Organize leadership meetings, site events and complex workshops, including logistics, content and follow-up.\n\n• Maintain SharePoint and intranet content, ensuring accurate and accessible information.\n\n• Review and enhance presentations, documents and leadership communications for clarity and impact.\n\n• Handle sensitive information with sound judgment, professionalism and discretion.\n\n• Support newcomer onboarding and communication to help them navigate the organization.\n\n• Provide autonomous support on audits, reporting, follow-ups and ad hoc operational priorities.\n\nWhat will make you successful\n\n• Solid experience in a senior administrative, executive assistant, coordination or project support role within an international, matrixed and fast-moving organization.\n\n• Strong ability to manage complexity, anticipate needs, prioritize competing demands and keep senior stakeholders aligned and informed.\n\n• Proficiency with Microsoft Office tools, especially Outlook, PowerPoint, Excel and Teams, with confidence in preparing high-quality documents, presentations and simple data follow-ups.\n\n• Excellent communication skills in English, with the ability to adapt messages for different senior stakeholders; French and/or German would be an asset in this multi-site environment.\n\n• A proactive, resilient and solutions-oriented mindset, demonstrating courage, collaboration, speed and continuous learning.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and accelerate change that improves lives and the planet.",
       "descriptionByLocale": {
@@ -6374,7 +6374,6 @@
           "senior-nutrition-health-assistant-nestle-konolfingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T11:57:10.733Z",
       "salaryMin": 94500,
       "salaryMax": 143000,

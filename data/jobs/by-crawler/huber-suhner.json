@@ -862,10 +862,10 @@
       "companyDomain": "hubersuhner.com",
       "title": "Polymechaniker",
       "titleByLocale": {
-        "it": "Polymechaniker",
-        "en": "Polymechaniker",
         "de": "Polymechaniker",
-        "fr": "Polymechaniker"
+        "it": "Meccanica",
+        "en": "Polymechanics",
+        "fr": "Polymécanique"
       },
       "description": "Ihr Aufgabengebiet\n\n• Einrichten, Programmieren und Bedienen von CNC-gesteuerten Kurz- und Langdrehmaschinen\n• Durchführung von Erstmusterprüfungen\n• Sicherstellung der Produktqualität mittels Zwischen- und Abschlussprüfungen\n• Qualitätssicherung der Produkte\n• Aktive Mitarbeit bei Prozessoptimierungen und internen Projekten\n• Mitverantwortung für kontinuierliche Verbesserungen nach Lean-Prinzipien\n• Ausführen von Wartungs- und präventiven Unterhaltsarbeiten an den Anlagen\n• Gewährleistung eines reibungs- und störungsfreien Maschinenbetriebs\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als Polymechaniker oder Feinmechaniker\n• Mehrjährige Berufserfahrung in einer vergleichbaren Funktion innerhalb eines international tätigen Industrieunternehmens\n• Gute Kenntnisse im Lean-Management; strukturierte Anwendung entsprechender Methoden von Vorteil\n• Teamorientierte, innovative und selbständige Arbeitsweise sowie hohe Zuverlässigkeit\n• Ausgeprägtes technisches Verständnis, grosse Flexibilität und hohe Einsatzbereitschaft\n• Bereitschaft zur Mitarbeit im 2- bis 3-Schichtbetrieb sowie zur Übernahme von Pikettdiensten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWieso HUBER+SUHNER?\n\n• Breites Aus- und Weiterbildungsangebot\n• Bis zu 6 Wochen Ferien\n• Personalrestaurant mit abwechslungsreichen Menüs zu attraktiven Preisen\n• Beitrag zu Fitness- & Bäder-Abos\n• Grosszügiger Beitrag zum Halbtax-Abo\n• Überobligatorische Pensionskasse und vieles mehr…",
       "descriptionByLocale": {
@@ -902,7 +902,6 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-10-03T09:29:01.719Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -915,7 +914,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:29:01.719Z"
     },
     {
       "id": "huber-suhner-aa1bb70ac296",
