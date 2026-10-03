@@ -142,7 +142,7 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
     });
 
     expect(sourceRecord.status).toBe('found');
-    expect(sourceRecord.record).toEqual({ canton: 'SZ', city: 'Rüti ZH', location: 'Lachen SZ' });
+    expect(sourceRecord.record).toEqual({ crawler: '', canton: 'SZ', city: 'Rüti ZH', location: 'Lachen SZ' });
     expect(inferCantonFromJobEvidence({
       cityText: sourceRecord.record.city,
       locationText: sourceRecord.record.location,
