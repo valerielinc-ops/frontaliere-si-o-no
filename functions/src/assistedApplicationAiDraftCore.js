@@ -209,6 +209,40 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
   return result.slice(0, 8);
 }
 
+const SALUTATION_QUESTION = {
+  it: { question: 'Come vuoi essere indicato nei moduli di candidatura?', why: 'Molti portali lo chiedono come campo obbligatorio (Signor / Signora).', options: ['Signor', 'Signora', 'Altro'] },
+  de: { question: 'Welche Anrede sollen wir in Bewerbungsformularen angeben?', why: 'Viele Portale verlangen sie als Pflichtfeld (Herr / Frau).', options: ['Herr', 'Frau', 'Andere'] },
+  fr: { question: 'Quelle civilité indiquer dans les formulaires de candidature ?', why: 'Beaucoup de portails la demandent comme champ obligatoire (Monsieur / Madame).', options: ['Monsieur', 'Madame', 'Autre'] },
+  en: { question: 'Which form of address should we give in application forms?', why: 'Many portals ask for it as a required field (Mr / Ms).', options: ['Mr', 'Ms', 'Other'] },
+};
+// A question that already asks the form of address (the portal's own, read ahead): by a word that
+// names it, or by its options. Never the bare word "title"/"titolo": «What is your job title?» asks
+// something else (review of #11028).
+const SALUTATION_RE = /(\banrede\b|appellativo|\bsalutation\b|civilit[ée]|form of address)/i;
+const ADDRESS_OPTION_RE = /^(mr|mrs|ms|miss|herr|frau|signor|signore|signora|sig|sig\.ra|monsieur|madame|mme|m)\.?$/i;
+const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question || ''} ${question?.label || ''}`)
+  || (Array.isArray(question?.options) ? question.options : []).filter((option) => ADDRESS_OPTION_RE.test(String(option).trim())).length >= 2;
+
+/**
+ * The form of address, asked on the first review when the application leaves
+ * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
+ * Other», as most Swiss portals require «Anrede»; nothing in a CV says it and
+ * it is never guessed from the first name, so it used to come back as a second
+ * round at submit time. Optional: a candidate who does not answer is not held,
+ * and the portal's own question then comes at submit time as before. Never for
+ * an e-mail application, nor when a question already asks it.
+ * @returns {object|null} the question for the review page
+ */
+export function salutationQuestion({ channel, questions = [], answers = {}, locale = 'it' }) {
+  const type = String(channel?.type || '').trim().toLowerCase();
+  if (!type || type === 'email' || type === 'unknown') return null;
+  if (String(answers?.salutation ?? '').trim()) return null;
+  if (questions.some((question) => question?.id === 'salutation' || asksSalutation(question))) return null;
+  // "de-CH", "fr-CH": the language of the locale.
+  const copy = SALUTATION_QUESTION[String(locale || '').slice(0, 2).toLowerCase()] || SALUTATION_QUESTION.it;
+  return { id: 'salutation', question: copy.question, why: copy.why, type: 'choice', options: copy.options, required: false, validation: sanitizeValidation({}, { type: 'choice' }), source: 'rule' };
+}
+
 export function sanitizeMatch(raw, requirementCount, profileText) {
   const haystack = normalizedHaystack(profileText);
   const matches = list(raw?.matches, 12)
