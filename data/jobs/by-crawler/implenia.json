@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "implenia-8ebcad79ac4d",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
+      "slug": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
+        "it": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
         "en": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        "fr": "gestionnaire-de-proprietes-h-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -65,16 +65,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-438507940b1b",
-      "slug": "gerant-m-w-d-neuchatel-90-implenia-rue-saint-honore-2-case-postale-2000-neuchatel",
+      "slug": "manager-m-f-x-neuchatel-90-implenia-rue-saint-honore-2-case-postale-2000-neuchatel",
       "slugByLocale": {
         "fr": "gerant-h-f-x-neuchatel-90-implenia-ch",
-        "it": "gerant-m-w-d-neuchatel-90-implenia-rue-saint-honore-2-case-postale-2000-neuchatel",
+        "it": "manager-m-f-x-neuchatel-90-implenia-rue-saint-honore-2-case-postale-2000-neuchatel",
         "en": "gerant-h-f-x-neuchatel-90-implenia-ch",
-        "de": "gerant-h-f-x-neuchatel-90-implenia-ch"
+        "de": "manager-m-w-x-neuenburg-90-implenia-rue-saint-honore-2-case-postale-2000-neuchatel"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -121,11 +132,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gerant-h-f-x-neuchatel-90-implenia-ch",
+          "gerant-m-w-d-neuchatel-90-implenia-rue-saint-honore-2-case-postale-2000-neuchatel"
+        ],
+        "de": [
           "gerant-h-f-x-neuchatel-90-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "gerant-h-f-x-neuchatel-90-implenia-ch"
+        "gerant-h-f-x-neuchatel-90-implenia-ch",
+        "gerant-m-w-d-neuchatel-90-implenia-rue-saint-honore-2-case-postale-2000-neuchatel"
       ],
       "salaryMin": 54500,
       "salaryMax": 82400,
@@ -226,12 +242,12 @@
     },
     {
       "id": "implenia-97ac7c77942b",
-      "slug": "gerant-d-immeubles-commerciaux-m-w-d-geneve-80-100-implenia-geneve",
+      "slug": "commercial-building-manager-m-f-x-ginevra-80-100-implenia-geneve",
       "slugByLocale": {
         "fr": "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch",
-        "it": "gerant-d-immeubles-commerciaux-m-w-d-geneve-80-100-implenia-geneve",
-        "en": "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch",
-        "de": "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
+        "it": "commercial-building-manager-m-f-x-ginevra-80-100-implenia-geneve",
+        "en": "commercial-building-manager-m-f-x-geneva-80-100-implenia-geneve",
+        "de": "bauleiter-m-w-x-genf-80-100-implenia-geneve"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -278,11 +294,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch",
+          "gerant-d-immeubles-commerciaux-m-w-d-geneve-80-100-implenia-geneve"
+        ],
+        "en": [
+          "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
+        ],
+        "de": [
           "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
+        "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch",
+        "gerant-d-immeubles-commerciaux-m-w-d-geneve-80-100-implenia-geneve"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -301,12 +325,12 @@
     },
     {
       "id": "implenia-32d593123b66",
-      "slug": "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-av-de-rumine-20-case-postale-1002-lausanne",
+      "slug": "esperienza-commerciale-immobiliare-manager-m-f-d-losanna-70-80-implenia-av",
       "slugByLocale": {
         "fr": "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch",
-        "it": "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-av-de-rumine-20-case-postale-1002-lausanne",
-        "en": "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch",
-        "de": "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch"
+        "it": "esperienza-commerciale-immobiliare-manager-m-f-d-losanna-70-80-implenia-av",
+        "en": "experienced-commercial-real-estate-manager-m-f-d-lausanne-70-80-implenia-av",
+        "de": "erfahrener-immobilienmanager-m-w-d-lausanne-70-80-implenia-av"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -352,11 +376,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch",
+          "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-av-de-rumine-20-case-postale-1002-lausanne"
+        ],
+        "en": [
+          "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch"
+        ],
+        "de": [
           "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch"
+        "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-ch",
+        "gerant-immobilier-commercial-experimente-m-w-d-lausanne-70-80-implenia-av-de-rumine-20-case-postale-1002-lausanne"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -375,12 +407,12 @@
     },
     {
       "id": "implenia-c01c93b7fe3d",
-      "slug": "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch",
+      "slug": "esperienza-commerciale-immobiliare-collaboratore-m-f-x-ginevra-50-implenia-geneve",
       "slugByLocale": {
         "fr": "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch",
-        "it": "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch",
-        "en": "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch",
-        "de": "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch"
+        "it": "esperienza-commerciale-immobiliare-collaboratore-m-f-x-ginevra-50-implenia-geneve",
+        "en": "experienced-commercial-real-estate-collaborator-m-f-x-geneva-50-implenia-geneve",
+        "de": "erfahrener-gewerbeimmobilien-mitarbeiter-m-w-x-genf-50-implenia-geneve"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -438,7 +470,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:26:32.374Z"
+      "firstSeenAt": "2026-10-02T21:26:32.374Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch"
+        ],
+        "en": [
+          "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch"
+        ],
+        "de": [
+          "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-immobilier-commercial-experimente-f-h-x-geneve-50-implenia-ch"
+      ]
     },
     {
       "id": "implenia-c5de849571f2",
@@ -491,14 +537,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-heizung-m-w-d-gisikon-80-100-implenia-ch",
-        "projektleiter-heizung-m-w-d-gisikon-80-100-implenia-gisikon",
-        "project-manager-riscaldamento-m-f-d-gisikon-80-100-implenia-gisikon"
+        "projektleiter-heizung-m-w-d-gisikon-80-100-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-heizung-m-w-d-gisikon-80-100-implenia-ch",
-          "projektleiter-heizung-m-w-d-gisikon-80-100-implenia-gisikon",
-          "project-manager-riscaldamento-m-f-d-gisikon-80-100-implenia-gisikon"
+          "projektleiter-heizung-m-w-d-gisikon-80-100-implenia-gisikon"
         ],
         "en": [
           "projektleiter-heizung-m-w-d-gisikon-80-100-implenia-ch"
@@ -573,14 +617,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-sanitar-m-w-d-opfikon-100-implenia-ch",
-        "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon",
-        "project-manager-sanitary-m-f-d-opfikon-100-implenia-glattpark-opfikon"
+        "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-sanitar-m-w-d-opfikon-100-implenia-ch",
-          "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon",
-          "project-manager-sanitary-m-f-d-opfikon-100-implenia-glattpark-opfikon"
+          "projektleiter-sanitar-m-w-d-opfikon-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-sanitar-m-w-d-opfikon-100-implenia-ch"
@@ -655,13 +697,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch",
-        "projektleiter-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
+        "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch",
-          "projektleiter-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
+          "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-09-07T23:38:31.899Z",
@@ -729,13 +769,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-business-partner-division-civil-engineering-m-w-d-80-100-implenia-ch",
-        "it-business-partner-division-ingegneria-civile-m-f-d-80-100-implenia-glattpark-opfikon"
+        "it-business-partner-division-civil-engineering-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-business-partner-division-civil-engineering-m-w-d-80-100-implenia-ch",
-          "it-business-partner-division-ingegneria-civile-m-f-d-80-100-implenia-glattpark-opfikon"
+          "it-business-partner-division-civil-engineering-m-w-d-80-100-implenia-ch"
         ]
       },
       "needsRetranslation": true,
@@ -869,13 +907,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "planungsleiter-datacenter-w-m-d-implenia-ch",
-        "gestione-pianificazione-datacenter-m-f-d-implenia-glattpark-opfikon"
+        "planungsleiter-datacenter-w-m-d-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "planungsleiter-datacenter-w-m-d-implenia-ch",
-          "gestione-pianificazione-datacenter-m-f-d-implenia-glattpark-opfikon"
+          "planungsleiter-datacenter-w-m-d-implenia-ch"
         ],
         "en": [
           "planungsleiter-datacenter-w-m-d-implenia-ch"
@@ -949,13 +985,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch",
-        "property-manager-m-f-d-berna-40-100-implenia-bern"
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch",
-          "property-manager-m-f-d-berna-40-100-implenia-bern"
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch"
         ],
         "en": [
           "sachbearbeiter-immobilienbewirtschaftung-m-w-d-bern-40-100-implenia-ch"
@@ -1030,14 +1064,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-w-m-d-rohbau-ausbau-und-architektur-data-center-implenia-ch",
-        "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon",
-        "construction-manager-m-f-d-struttura-estensione-e-architettura-data-center-implenia-glattpark-opfikon"
+        "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-w-m-d-rohbau-ausbau-und-architektur-data-center-implenia-ch",
-          "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon",
-          "construction-manager-m-f-d-struttura-estensione-e-architettura-data-center-implenia-glattpark-opfikon"
+          "bauleiter-m-w-d-rohbau-ausbau-e-architektur-data-center-implenia-glattpark-opfikon"
         ],
         "en": [
           "bauleiter-w-m-d-rohbau-ausbau-und-architektur-data-center-implenia-ch"
@@ -1192,16 +1224,14 @@
         "project-manager-planning-and-development-f-m-d-implenia-glattpark-opfikon",
         "gestionnaire-de-projet-planification-et-developpement-f-m-d-implenia-glattpark-opfikon",
         "gesamtplanungsleiter-w-m-d-implenia-ch",
-        "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon",
-        "direttore-generale-della-pianificazione-w-m-d-implenia-glattpark-opfikon"
+        "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-planung-und-entwicklung-w-m-d-implenia-ch",
           "projektleiter-planung-e-entwicklung-m-w-d-implenia-glattpark-opfikon",
           "gesamtplanungsleiter-w-m-d-implenia-ch",
-          "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon",
-          "direttore-generale-della-pianificazione-w-m-d-implenia-glattpark-opfikon"
+          "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-planung-und-entwicklung-w-m-d-implenia-ch",
@@ -1284,13 +1314,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-umbau-w-m-d-implenia-ch",
-        "projektleiter-umbau-m-w-d-implenia-opfikon",
-        "conversione-di-project-manager-f-m-d-implenia-opfikon"
+        "projektleiter-umbau-m-w-d-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-umbau-w-m-d-implenia-ch",
-          "conversione-di-project-manager-f-m-d-implenia-opfikon"
+          "projektleiter-umbau-w-m-d-implenia-ch"
         ],
         "fr": [
           "projektleiter-umbau-m-w-d-implenia-opfikon"
@@ -1441,14 +1469,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
-        "responsabile-costruzione-gu-tu-zurich-m-f-d-implenia-glattpark-opfikon"
+        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
-          "responsabile-costruzione-gu-tu-zurich-m-f-d-implenia-glattpark-opfikon"
+          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
@@ -1524,15 +1550,13 @@
       "previousSlugs": [
         "baufuhrer-neubau-gisikon-implenia-ch",
         "baufuhrer-neubau-gisikon-w-m-d-implenia-ch",
-        "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon",
-        "direttore-della-costruzione-gisikon-implenia-gisikon"
+        "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baufuhrer-neubau-gisikon-implenia-ch",
           "baufuhrer-neubau-gisikon-w-m-d-implenia-ch",
-          "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon",
-          "direttore-della-costruzione-gisikon-implenia-gisikon"
+          "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon"
         ],
         "en": [
           "baufuhrer-neubau-gisikon-implenia-ch"
@@ -1609,13 +1633,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
-        "customer-consulente-bewirtschaftung-m-w-d-winterthur-60-100-implenia-winterthur-roter-turm"
+        "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
-          "customer-consulente-bewirtschaftung-m-w-d-winterthur-60-100-implenia-winterthur-roter-turm"
+          "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1688,8 +1710,7 @@
         "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
         "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
         "construction-manager-new-gu-tu-gisikon-f-m-d-implenia-gisikon",
-        "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon",
-        "gestore-di-costruzione-nuovo-edificio-gu-tu-gisikon-m-f-d-implenia-gisikon"
+        "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1697,8 +1718,7 @@
           "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
           "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
           "construction-manager-new-gu-tu-gisikon-f-m-d-implenia-gisikon",
-          "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon",
-          "gestore-di-costruzione-nuovo-edificio-gu-tu-gisikon-m-f-d-implenia-gisikon"
+          "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon"
         ],
         "en": [
           "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
@@ -1776,14 +1796,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bau-projektleiter-m-w-d-per-hotelbau-andermatt-implenia-gisikon",
-        "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch",
-        "construction-project-manager-m-f-d-per-la-costruzione-di-hotel-andermatt-implenia-gisikon"
+        "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bau-projektleiter-m-w-d-per-hotelbau-andermatt-implenia-gisikon",
-          "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch",
-          "construction-project-manager-m-f-d-per-la-costruzione-di-hotel-andermatt-implenia-gisikon"
+          "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1853,14 +1871,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "immobilienbuchhalter-m-w-d-olten-60-implenia-ch",
-        "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten",
-        "contatori-immobiliari-m-f-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
+        "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbuchhalter-m-w-d-olten-60-implenia-ch",
-          "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten",
-          "contatori-immobiliari-m-f-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
+          "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
         ],
         "en": [
           "immobilienbuchhalter-m-w-d-olten-60-implenia-aarauerstrasse-11-postfach-4601-olten"
@@ -1935,13 +1951,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch",
-        "proprietario-m-f-d-treno-80-100-implenia-zug"
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch",
-          "proprietario-m-f-d-treno-80-100-implenia-zug"
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-zug-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-08-21T10:11:43.798Z",
@@ -2089,13 +2103,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch",
-        "responsabile-commerciale-senior-manager-m-f-d-centro-regensdorf-80-100-implenia-einkaufszentrum-regensdorf-zentrum-1"
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch",
-          "responsabile-commerciale-senior-manager-m-f-d-centro-regensdorf-80-100-implenia-einkaufszentrum-regensdorf-zentrum-1"
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-zentrum-regensdorf-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T07:28:40.944Z",
@@ -2164,13 +2176,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-fachfrau-mann-kundendialog-implenia-ch",
-        "apprendista-fachfrau-mann-kundendialog-implenia-winterthur-roter-turm"
+        "lernende-r-fachfrau-mann-kundendialog-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-fachfrau-mann-kundendialog-implenia-ch",
-          "apprendista-fachfrau-mann-kundendialog-implenia-winterthur-roter-turm"
+          "lernende-r-fachfrau-mann-kundendialog-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T07:28:40.281Z",
@@ -2312,13 +2322,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch",
-        "junior-real-estate-manager-m-f-d-wallisellen-80-100-implenia-wallisellen"
+        "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch",
-          "junior-real-estate-manager-m-f-d-wallisellen-80-100-implenia-wallisellen"
+          "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch"
         ],
         "en": [
           "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch"
@@ -2393,14 +2401,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vermietungsspezialist-m-w-d-wallisellen-80-100-implenia-ch",
-        "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch",
-        "specialista-di-noleggio-m-f-d-wallisellen-80-100-implenia-wallisellen"
+        "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vermietungsspezialist-m-w-d-wallisellen-80-100-implenia-ch",
-          "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch",
-          "specialista-di-noleggio-m-f-d-wallisellen-80-100-implenia-wallisellen"
+          "vermietungsspezialist-immobilien-m-w-d-wallisellen-80-100-implenia-ch"
         ],
         "en": [
           "vermietungsspezialist-m-w-d-wallisellen-80-100-implenia-ch"
@@ -2433,9 +2439,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2480,20 +2486,16 @@
       "previousSlugsByLocale": {
         "de": [
           "initiativebewerbung-implenia-opfikon",
-          "initiativbewerbung-implenia-ch",
-          "initiativbewerbung-implenia-opfikon"
+          "initiativbewerbung-implenia-ch"
         ],
         "it": [
-          "initiativbewerbung-implenia-ch",
-          "iniziativbewerbung-implenia-opfikon"
+          "initiativbewerbung-implenia-ch"
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "initiativbewerbung-implenia-opfikon",
           "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch",
           "demande-d-initiative-implenia-opfikon"
         ]
       },
@@ -2501,8 +2503,6 @@
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "initiativbewerbung-implenia-opfikon",
-        "iniziativbewerbung-implenia-opfikon",
         "own-initiative-application-implenia-opfikon",
         "demande-d-initiative-implenia-opfikon"
       ],
@@ -2581,8 +2581,7 @@
         "project-manager-conversion-f-m-d-implenia-opfikon",
         "projektleiter-umbau-w-m-d-implenia-ch",
         "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
-        "tunnelling-m-f-d-80-100-implenia-opfikon",
-        "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
+        "tunnelling-m-f-d-80-100-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2595,8 +2594,7 @@
           "project-manager-conversion-f-m-d-implenia-opfikon",
           "projektleiter-umbau-w-m-d-implenia-ch",
           "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
-          "tunnelling-m-f-d-80-100-implenia-opfikon",
-          "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
+          "tunnelling-m-f-d-80-100-implenia-opfikon"
         ]
       },
       "needsRetranslation": true,
@@ -2669,8 +2667,7 @@
         "operator-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
         "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
         "opfikon-berne-50-implenia-thurgauerstrasse-101a",
-        "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch",
-        "marketer-crem-m-f-d-opfikon-berna-80-100-implenia-laupenstrasse-19-postfach-3001-bern"
+        "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2678,8 +2675,7 @@
           "operator-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
           "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
           "opfikon-berne-50-implenia-thurgauerstrasse-101a",
-          "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch",
-          "marketer-crem-m-f-d-opfikon-berna-80-100-implenia-laupenstrasse-19-postfach-3001-bern"
+          "vermarkter-crem-m-w-d-opfikon-bern-80-100-implenia-ch"
         ],
         "en": [
           "operator-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
@@ -2759,19 +2755,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch",
-          "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch"
+          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch"
         ],
         "it": [
           "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch",
-          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch",
-          "junior-project-manager-a-elektro-gisikon-opfikon-implenia-gisikon"
+          "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
         "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch",
-        "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch",
-        "junior-project-manager-a-elektro-gisikon-opfikon-implenia-gisikon"
+        "juniorprojektleiter-elektro-m-w-d-gisikon-80-100-implenia-ch"
       ],
       "firstSeenAt": "2026-09-19T23:05:11.926Z",
       "salaryMin": 54000,
@@ -2838,13 +2831,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch",
-        "responsabile-di-progetto-elektroplanung-gisikon-opfikon-bern-implenia-glattpark-opfikon"
+        "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch",
-          "responsabile-di-progetto-elektroplanung-gisikon-opfikon-bern-implenia-glattpark-opfikon"
+          "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
         ],
         "en": [
           "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
@@ -2920,14 +2911,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sicherheitswarter-sicherheitschef-implenia-ch",
-        "sicherheitswarter-sicherheitschef-implenia-opfikon",
-        "guardia-di-sicurezza-capo-della-sicurezza-implenia-opfikon"
+        "sicherheitswarter-sicherheitschef-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitswarter-sicherheitschef-implenia-ch",
-          "sicherheitswarter-sicherheitschef-implenia-opfikon",
-          "guardia-di-sicurezza-capo-della-sicurezza-implenia-opfikon"
+          "sicherheitswarter-sicherheitschef-implenia-opfikon"
         ],
         "en": [
           "sicherheitswarter-sicherheitschef-implenia-opfikon"
@@ -3002,18 +2991,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
-          "bauingenieur-in-geotechnik-80-100-implenia-ch"
+          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
         ],
         "it": [
-          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
-          "ingegneria-civile-ingegneria-geotecnica-80-100-implenia-opfikon"
+          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
-        "bauingenieur-in-geotechnik-80-100-implenia-ch",
-        "ingegneria-civile-ingegneria-geotecnica-80-100-implenia-opfikon"
+        "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:18:40.442Z",
@@ -3086,8 +3071,7 @@
         "project-manager-special-foundation-engineering-implenia-opfikon",
         "projektleiter-spezialtiefbau-implenia-ch",
         "chef-de-projet-ingenierie-de-la-fondation-speciale-implenia-opfikon",
-        "projektleiter-spezialtiefbau-implenia-opfikon",
-        "senior-responsabile-di-progetto-spezialtiefbau-80-100-implenia-opfikon"
+        "projektleiter-spezialtiefbau-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3096,8 +3080,7 @@
           "project-manager-special-foundation-engineering-implenia-opfikon",
           "projektleiter-spezialtiefbau-implenia-ch",
           "chef-de-projet-ingenierie-de-la-fondation-speciale-implenia-opfikon",
-          "projektleiter-spezialtiefbau-implenia-opfikon",
-          "senior-responsabile-di-progetto-spezialtiefbau-80-100-implenia-opfikon"
+          "projektleiter-spezialtiefbau-implenia-opfikon"
         ],
         "en": [
           "project-manager-special-foundation-engineering-implenia-opfikon"
@@ -3175,14 +3158,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-elektrotechnik-w-m-d-implenia-ch",
-        "leiter-elektrotechnik-m-w-d-implenia-glattpark-opfikon",
-        "capo-di-ingegneria-elettrica-m-f-d-implenia-glattpark-opfikon"
+        "leiter-elektrotechnik-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-elektrotechnik-w-m-d-implenia-ch",
-          "leiter-elektrotechnik-m-w-d-implenia-glattpark-opfikon",
-          "capo-di-ingegneria-elettrica-m-f-d-implenia-glattpark-opfikon"
+          "leiter-elektrotechnik-m-w-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "leiter-elektrotechnik-w-m-d-implenia-ch"
@@ -3256,13 +3237,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "erp-application-specialist-m-w-d-80-100-opfikon-implenia-ch",
-        "erp-application-specialista-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
+        "erp-application-specialist-m-w-d-80-100-opfikon-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "erp-application-specialist-m-w-d-80-100-opfikon-implenia-ch",
-          "erp-application-specialista-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
+          "erp-application-specialist-m-w-d-80-100-opfikon-implenia-ch"
         ],
         "fr": [
           "erp-application-specialist-m-w-d-80-100-opfikon-implenia-ch"
@@ -3333,13 +3312,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch",
-        "costruzione-logistica-planner-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
+        "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch",
-          "costruzione-logistica-planner-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
+          "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch"
         ],
         "en": [
           "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch"
@@ -3493,14 +3470,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-modernisierung-deutschschweiz-implenia-ch",
-        "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon",
-        "responsabile-della-modernizzazione-svizzera-tedesca-implenia-glattpark-opfikon"
+        "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-modernisierung-deutschschweiz-implenia-ch",
-          "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon",
-          "responsabile-della-modernizzazione-svizzera-tedesca-implenia-glattpark-opfikon"
+          "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon"
         ],
         "en": [
           "leiter-in-modernisierung-deutschschweiz-implenia-ch"
@@ -3577,16 +3552,14 @@
         "juniorprojektleiter-sanitar-implenia-ch",
         "juniorprojektleiter-sanitar-implenia-glattpark-opfikon",
         "juniorprojektleiter-sanitar-m-w-d-implenia-ch",
-        "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon",
-        "junior-project-manager-sanitary-m-f-d-implenia-glattpark-opfikon"
+        "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juniorprojektleiter-sanitar-implenia-ch",
           "juniorprojektleiter-sanitar-implenia-glattpark-opfikon",
           "juniorprojektleiter-sanitar-m-w-d-implenia-ch",
-          "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon",
-          "junior-project-manager-sanitary-m-f-d-implenia-glattpark-opfikon"
+          "juniorprojektleiter-sanitar-m-w-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "juniorprojektleiter-sanitar-implenia-glattpark-opfikon",
@@ -3667,13 +3640,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-legal-counsel-m-w-d-80-100-implenia-ch",
-        "senior-avvocato-legale-m-f-d-80-100-implenia-glattpark-opfikon"
+        "senior-legal-counsel-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-legal-counsel-m-w-d-80-100-implenia-ch",
-          "senior-avvocato-legale-m-f-d-80-100-implenia-glattpark-opfikon"
+          "senior-legal-counsel-m-w-d-80-100-implenia-ch"
         ],
         "fr": [
           "senior-legal-counsel-m-w-d-80-100-implenia-ch"
@@ -3745,14 +3716,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-ch",
-        "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon",
-        "disegno-costruzione-logistica-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
+        "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-ch",
-          "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon",
-          "disegno-costruzione-logistica-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
+          "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "zeichner-baulogistik-m-w-d-opfikon-80-100-implenia-ch"
@@ -3827,14 +3796,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "polier-holzbau-m-w-d-80-100-implenia-ch",
-        "costruzione-di-legno-m-f-d-80-100-implenia-rumlang",
-        "costruzione-in-legno-polacco-m-f-d-80-100-implenia-rumlang"
+        "costruzione-di-legno-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polier-holzbau-m-w-d-80-100-implenia-ch",
-          "costruzione-di-legno-m-f-d-80-100-implenia-rumlang",
-          "costruzione-in-legno-polacco-m-f-d-80-100-implenia-rumlang"
+          "costruzione-di-legno-m-f-d-80-100-implenia-rumlang"
         ],
         "en": [
           "polier-holzbau-m-w-d-80-100-implenia-ch"
@@ -3909,14 +3876,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-        "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-        "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
+        "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-          "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
+          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
         ],
         "de": [
           "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
@@ -3989,14 +3954,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-        "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
-        "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
+        "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-          "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
-          "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
+          "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
         ]
       },
       "needsRetranslation": true,
@@ -4066,14 +4029,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-baumeister-luzern-w-m-d-implenia-ch",
-        "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon",
-        "capo-progetto-capomastro-lucerna-f-m-d-implenia-gisikon"
+        "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-baumeister-luzern-w-m-d-implenia-ch",
-          "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon",
-          "capo-progetto-capomastro-lucerna-f-m-d-implenia-gisikon"
+          "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon"
         ]
       },
       "needsRetranslation": true,
@@ -4142,13 +4103,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
-        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
+        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
+          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-08-11T10:27:41.418Z",
@@ -4216,13 +4175,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-efz-m-w-d-80-100-implenia-ch",
-        "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
+        "zimmermann-efz-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-efz-m-w-d-80-100-implenia-ch",
-          "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
+          "zimmermann-efz-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-08-13T22:17:43.056Z",
@@ -4290,13 +4247,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia",
-        "sachbearbeiter-center-e-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia-center-und-mixed-use-site-management-basel-hochbergerstrasse-70-4057-basel-stucki"
+        "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia",
-          "sachbearbeiter-center-e-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia-center-und-mixed-use-site-management-basel-hochbergerstrasse-70-4057-basel-stucki"
+          "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia"
         ],
         "en": [
           "sachbearbeiter-center-und-mixed-use-site-management-m-w-d-basel-stuckipark-80-100-implenia"
@@ -4454,14 +4409,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch",
-        "senior-immobilienbewirtschafter-m-w-d-bern-50-100-implenia-ch",
-        "direttore-immobiliare-m-f-d-berna-80-100-implenia-bern"
+        "senior-immobilienbewirtschafter-m-w-d-bern-50-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch",
-          "senior-immobilienbewirtschafter-m-w-d-bern-50-100-implenia-ch",
-          "direttore-immobiliare-m-f-d-berna-80-100-implenia-bern"
+          "senior-immobilienbewirtschafter-m-w-d-bern-50-100-implenia-ch"
         ],
         "en": [
           "immobilienbewirtschafter-m-w-d-bern-80-100-implenia-ch"
@@ -4491,12 +4444,12 @@
     },
     {
       "id": "implenia-588e8da9b6c8",
-      "slug": "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
+      "slug": "direttore-immobiliare-m-f-d-basilea-80-100-implenia-basel",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
-        "it": "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
-        "en": "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
-        "fr": "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
+        "it": "direttore-immobiliare-m-f-d-basilea-80-100-implenia-basel",
+        "en": "real-estate-manager-m-f-d-basel-80-100-implenia-basel",
+        "fr": "directeur-immobilier-h-f-d-bale-80-100-implenia-basel"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4556,23 +4509,17 @@
       "firstSeenAt": "2026-10-02T21:26:29.248Z",
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
-          "direttore-immobiliare-m-f-d-basilea-80-100-implenia-basel"
+          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
         ],
         "en": [
-          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
-          "real-estate-manager-m-f-d-basel-80-100-implenia-basel"
+          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
         ],
         "fr": [
-          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
-          "directeur-immobilier-h-f-d-bale-80-100-implenia-basel"
+          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
-        "direttore-immobiliare-m-f-d-basilea-80-100-implenia-basel",
-        "real-estate-manager-m-f-d-basel-80-100-implenia-basel",
-        "directeur-immobilier-h-f-d-bale-80-100-implenia-basel"
+        "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
       ],
       "crawlerMissStreak": 1,
       "needsRetranslation": true
@@ -4862,14 +4809,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kalkulator-baumeister-neu-und-oder-umbau-w-m-d-implenia-ch",
-        "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon",
-        "calcolatrice-master-builder-nuova-e-o-conversione-f-m-d-implenia-opfikon"
+        "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kalkulator-baumeister-neu-und-oder-umbau-w-m-d-implenia-ch",
-          "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon",
-          "calcolatrice-master-builder-nuova-e-o-conversione-f-m-d-implenia-opfikon"
+          "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon"
         ]
       },
       "needsRetranslation": true,
@@ -4940,14 +4885,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
-        "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
+        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
-          "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
+          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
         ]
       },
       "needsRetranslation": true,
@@ -5099,15 +5042,13 @@
       "previousSlugs": [
         "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-ch",
         "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-aarau",
-        "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau",
-        "responsabile-del-progetto-neubau-baumeister-aarau-m-f-d-implenia-aarau"
+        "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-ch",
           "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-aarau",
-          "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau",
-          "responsabile-del-progetto-neubau-baumeister-aarau-m-f-d-implenia-aarau"
+          "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -5252,13 +5193,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "application-manager-sap-sd-m-w-d-80-100-opfikon-implenia-ch",
-        "gestione-applicazioni-sap-sd-m-f-d-80-100-opfikon-implenia-glattpark-opfikon"
+        "application-manager-sap-sd-m-w-d-80-100-opfikon-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-manager-sap-sd-m-w-d-80-100-opfikon-implenia-ch",
-          "gestione-applicazioni-sap-sd-m-f-d-80-100-opfikon-implenia-glattpark-opfikon"
+          "application-manager-sap-sd-m-w-d-80-100-opfikon-implenia-ch"
         ],
         "fr": [
           "application-manager-sap-sd-m-w-d-80-100-opfikon-implenia-ch"
@@ -5408,13 +5347,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch",
-        "responsabile-di-progetto-lehrgerustbau-e-bruckenbau-80-100-implenia-glattpark-opfikon"
+        "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch",
-          "responsabile-di-progetto-lehrgerustbau-e-bruckenbau-80-100-implenia-glattpark-opfikon"
+          "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
         ],
         "en": [
           "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
@@ -5567,13 +5504,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baufuhrer-m-w-d-gisikon-80-100-implenia-ch",
-        "direttore-della-costruzione-m-f-d-gisikon-80-100-implenia-gisikon"
+        "baufuhrer-m-w-d-gisikon-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-m-w-d-gisikon-80-100-implenia-ch",
-          "direttore-della-costruzione-m-f-d-gisikon-80-100-implenia-gisikon"
+          "baufuhrer-m-w-d-gisikon-80-100-implenia-ch"
         ]
       },
       "needsRetranslation": true,
@@ -5657,8 +5592,7 @@
           "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
           "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
-          "costruzione-di-legname-m-f-d-80-100-implenia-rumlang"
+          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
         ],
         "en": [
           "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",

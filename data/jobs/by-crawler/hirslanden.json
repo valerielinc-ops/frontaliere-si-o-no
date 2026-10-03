@@ -26066,12 +26066,12 @@
     },
     {
       "id": "hirslanden-2555d647a0da",
-      "slug": "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden",
+      "slug": "team-leader-team-leader-ambulant-service-desk-invoicing-a-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden",
-        "it": "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden",
+        "it": "team-leader-team-leader-ambulant-service-desk-invoicing-a-100-hirslanden-klinik-hirslanden-corporate-office",
         "en": "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden",
-        "fr": "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+        "fr": "chef-d-equipe-chef-d-equipe-service-ambulant-facturation-a-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26127,7 +26127,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:15:34.735Z"
+      "firstSeenAt": "2026-10-02T21:15:34.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-ambulante-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-2015957983e7",

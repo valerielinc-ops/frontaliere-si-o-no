@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital",
-        "studi-post-laurea-nds-per-al-dipl-esperto-dipl-esperti-di-assistenza-di-emergenza-spital-zollikerberg-zollikerberg"
+        "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital",
-          "studi-post-laurea-nds-per-al-dipl-esperto-dipl-esperti-di-assistenza-di-emergenza-spital-zollikerberg-zollikerberg"
+          "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
         ],
         "en": [
           "nachdiplomstudium-nds-zur-zum-dipl-expertin-dipl-experten-notfallpflege-spital"
@@ -131,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
-        "professional-health-private-station-2-spital-zollikerberg-zollikerberg"
+        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
-          "professional-health-private-station-2-spital-zollikerberg-zollikerberg"
+          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
@@ -166,8 +162,8 @@
       "slugByLocale": {
         "de": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
         "it": "ergotherapeut-ergotherapeutin-therapie-e-beratung-spital-zollikerberg",
-        "en": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
-        "fr": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+        "en": "occupational-therapist-occupational-therapist-therapy-and-counselling-spital-zollikerberg-zollikerberg",
+        "fr": "ergotherapie-ergotherapie-et-counseling-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -217,6 +213,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -240,8 +242,8 @@
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie",
         "it": "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie",
-        "en": "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie",
-        "fr": "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie"
+        "en": "dipl-radiology-specialist-dipl-radiology-specialist-with-focus-on-mammography-medical-engineering-areas-spital",
+        "fr": "dipl-specialiste-en-radiologie-dipl-specialiste-de-radiologie-en-mammographie-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -302,12 +304,12 @@
     },
     {
       "id": "spital-zollikerberg-ca2b0b3629db",
-      "slug": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
+      "slug": "residence-neumunster-park-dipl-infermieristica-professionale-dipl-professionista-della-cura-residence-neumunster-park",
       "slugByLocale": {
         "de": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
-        "it": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
-        "en": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park",
-        "fr": "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        "it": "residence-neumunster-park-dipl-infermieristica-professionale-dipl-professionista-della-cura-residence-neumunster-park",
+        "en": "residence-neumunster-park-dipl-nursing-professional-dipl-care-professional-residence-neumunster-park-spital-zollikerberg",
+        "fr": "residence-neumunster-park-dipl-professionnels-des-soins-infirmiers-dipl-professionnel-de-soins-residence-neumunster-park"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -364,16 +366,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        ],
+        "en": [
+          "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        ],
+        "fr": [
+          "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+        ]
+      },
+      "previousSlugs": [
+        "residenz-neumunster-park-dipl-pflegefachfrau-dipl-pflegefachmann-residenz-neumunster-park"
+      ]
     },
     {
       "id": "spital-zollikerberg-64629317fabe",
-      "slug": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
+      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
       "slugByLocale": {
         "de": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "it": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "en": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "fr": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
+        "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital",
+        "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -430,7 +446,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ],
+        "en": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ],
+        "fr": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ]
+      },
+      "previousSlugs": [
+        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+      ]
     },
     {
       "id": "spital-zollikerberg-e1d7ac14f635",
@@ -438,7 +468,7 @@
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg",
         "it": "facharztin-facharzt-psychiatrie-e-psychotherapie-arztbereich-spital-zollikerberg",
-        "en": "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg",
+        "en": "specialist-specialist-psychiatry-and-psychotherapy-medical-area-spital-zollikerberg-zollikerberg",
         "fr": "specialiste-specialiste-psychiatrie-et-psychotherapie-domaine-medical-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
@@ -488,13 +518,11 @@
           "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg"
         ],
         "en": [
-          "specialist-specialist-psychiatry-and-psychotherapy-medical-area-spital-zollikerberg-zollikerberg",
           "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg",
-        "specialist-specialist-psychiatry-and-psychotherapy-medical-area-spital-zollikerberg-zollikerberg"
+        "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

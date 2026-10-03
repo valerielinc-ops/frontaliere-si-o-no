@@ -23,12 +23,12 @@
       "employmentType": "50 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-02T21:24:30.372Z",
-      "slug": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur",
+      "slug": "dipendenti-gastronomia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur",
-        "it": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur",
-        "en": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur",
-        "fr": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+        "it": "dipendenti-gastronomia-kantonsspital-graubunden-chur",
+        "en": "employees-gastronomy-kantonsspital-graubunden-chur",
+        "fr": "salaries-gastronomie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Gastronomie",
@@ -59,7 +59,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-10-02T21:24:30.372Z"
+      "firstSeenAt": "2026-10-02T21:24:30.372Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10209576",
@@ -3721,7 +3735,10 @@
       "crawledAt": "2026-10-02T09:23:16.268Z",
       "slug": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
+        "it": "apprendista-hotelieria-e-gestione-alberghiera-kantonsspital-graubunden-chur",
+        "en": "apprentice-hotelier-and-housekeeping-kantonsspital-graubunden-chur",
+        "fr": "apprenti-e-hotellerie-et-gestion-d-hotellerie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Berufslehre Fachfrau / Fachmann Hotellerie-Hauswirtschaft",
