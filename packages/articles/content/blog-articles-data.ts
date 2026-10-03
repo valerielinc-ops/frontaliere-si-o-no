@@ -37071,6 +37071,7 @@ const RAW_ARTICLES = [
  },
  {
  id: 'ticino-rimborso-lpp-2024',
+ updatedAt: '2026-10-03',
  category: 'pensione',
  date: '2026-10-02T06:18:48.609Z',
  image: '/images/blog/ticino-rimborso-lpp-2024.webp',
