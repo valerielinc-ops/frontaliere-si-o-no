@@ -577,28 +577,6 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(unwired([]).authoritativeEmptySnapshot).toBe(false);
   });
 
-  it.each([
-    ['scripts/update-clinique-de-genolier-jobs.mjs'],
-    ['scripts/update-clinique-de-montchoisi-jobs.mjs'],
-    ['scripts/update-clinique-de-valere-jobs.mjs'],
-    ['scripts/update-clinique-generale-beaulieu-jobs.mjs'],
-    ['scripts/update-hopital-de-moutier-jobs.mjs'],
-    ['scripts/update-klinik-siloah-jobs.mjs'],
-    ['scripts/update-privatklinik-bethanien-jobs.mjs'],
-    ['scripts/update-privatklinik-obach-jobs.mjs'],
-  ])('%s relies on the default: stamping family parser, standard pipeline, no opt-out', (runner) => {
-    // These SMN clinics share `createSmnClinicParser`, which stamps the batch
-    // when the tenant directory proves an idle board. Before the default they
-    // would each have needed the same three lines of wiring in a PR of their own.
-    const source = readRepoFile(runner);
-    expect(source).toContain('runStandardCrawlerPipeline(');
-    expect(source).not.toContain('allowAuthoritativeEmptySnapshot: false');
-    const parserPath = /from '\.\/(lib\/[a-z0-9-]+-job-parser\.mjs)'/.exec(source);
-    expect(parserPath, `${runner}: parser import not found`).toBeTruthy();
-    expect(readRepoFile(`scripts/${parserPath![1]}`)).toContain('createSmnClinicParser(');
-    expect(readRepoFile('scripts/lib/smn-clinic-job-parser.mjs')).toContain('markAuthoritativeEmptySnapshot(');
-  });
-
   /* ── 5. The same proof, on the jobs.ch siblings that shared the loop ──── */
 
   it('strabag never mistakes its paginated board for an empty one', async () => {

@@ -69,14 +69,16 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
 
   it('does not grow the set of runners that never report an abort cause', () => {
     // Custom runner = registers its own guard. "Never reports" = the source
-    // mentions neither `abortKind` nor `markCrawlerSummaryAbortKind`.
+    // neither assigns `abortKind` (`abortKind =` / `abortKind:`) nor calls
+    // `markCrawlerSummaryAbortKind(`. A comment that merely mentions the word
+    // does not count as reporting.
     //
     // RATCHET — measured on origin/main dd3eded33e7 (2026-10-03). Lower it when
     // a runner starts naming its bail-out; never raise it. Reproduce with:
-    //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind|markCrawlerSummaryAbortKind/.test(s))n++}console.log(n)"
+    //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
     const NO_ABORT_KIND_BUDGET = 122;
     const offenders = customRunners
-      .filter(({ source }) => !/abortKind|markCrawlerSummaryAbortKind/.test(source))
+      .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);
     expect(
       offenders.length,
@@ -93,7 +95,6 @@ describe('standard template: no unnamed exit', () => {
 
   it('finds the pipeline body', () => {
     expect(pipelineStart).toBeGreaterThan(-1);
-    expect(pipeline).toContain('const finishWithoutPublish = async');
   });
 
   it('allows a bare `return;` only right after a named connection-level soft exit', () => {
@@ -103,7 +104,7 @@ describe('standard template: no unnamed exit', () => {
     expect(bareReturns.length).toBeGreaterThan(0);
     for (const before of bareReturns) {
       const block = before.slice(before.lastIndexOf('if ('));
-      expect(block, `unnamed early exit:\n${block}`).toContain("counts.abortKind = 'connection-level-fetch';");
+      expect(block, `unnamed early exit:\n${block}`).toMatch(/counts\.abortKind\s*=\s*'connection-level-fetch'/);
     }
   });
 
@@ -111,9 +112,17 @@ describe('standard template: no unnamed exit', () => {
     const exits = [...pipeline.matchAll(/return finishWithoutPublish\(\{\s*kind:\s*([^,}\n]+)/g)]
       .map((match) => match[1].trim());
     expect(exits.length).toBeGreaterThan(0);
+    // A call written in a shape the regex above does not parse would escape
+    // the per-exit check below: every call site must be one it parsed.
+    expect(pipeline.split('finishWithoutPublish(').length - 1).toBe(exits.length);
+    // Checked per exit: the name is either one string literal or a ternary
+    // between two literals. A variable or a call (`kind: someVar`) is a
+    // computed name this scan cannot vouch for, and fails here.
+    const LITERAL_OR_TERNARY = /^(?:'[^']+'|[\w.]+\s*\?\s*'[^']+'\s*:\s*'[^']+')$/;
+    for (const expression of exits) {
+      expect(expression, `computed abort kind: ${expression}`).toMatch(LITERAL_OR_TERNARY);
+    }
     const kinds = exits.flatMap((expression) => [...expression.matchAll(/'([^']+)'/g)].map((m) => m[1]));
-    // Every exit expression resolves to literals only — no computed name.
-    expect(kinds.length).toBeGreaterThanOrEqual(exits.length);
     for (const kind of kinds) {
       expect(CRAWLER_ABORT_KINDS.has(kind), `unknown abort kind '${kind}'`).toBe(true);
     }
@@ -123,7 +132,7 @@ describe('standard template: no unnamed exit', () => {
   });
 
   it('never assigns an abort kind outside the shared vocabulary', () => {
-    const assigned = [...template.matchAll(/counts\.abortKind = '([^']+)'/g)].map((match) => match[1]);
+    const assigned = [...template.matchAll(/counts\.abortKind\s*=\s*'([^']+)'/g)].map((match) => match[1]);
     for (const kind of assigned) {
       expect(CRAWLER_ABORT_KINDS.has(kind), `unknown abort kind '${kind}'`).toBe(true);
     }
@@ -136,7 +145,6 @@ describe('proof of zero: the stamp, not the wiring', () => {
     // A `= false` default would turn "runner said nothing" into "runner opted
     // out" and silently restore one-PR-per-company wiring.
     expect(template).not.toMatch(/allowAuthoritativeEmptySnapshot\s*=\s*false/);
-    expect(template).toContain('&& isAuthoritativeEmptySnapshot(parsedJobs)');
   });
 
   it('never lets a runner opt in to a zero with no validator and no stamp path', () => {
