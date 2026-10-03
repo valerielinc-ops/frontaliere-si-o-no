@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Sat, 03 Oct 2026 08:33:46 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 08:50:02 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,80 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Steuererklärung Schweiz 2026: Leitfaden Genf</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/steuererklaerung-genf-leitfaden-2026/</link>
+      <description><![CDATA[Leitfaden 2026 zur Steuererklärung in der Schweiz: drei Steuerstufen, ESTV/ESFC, Abzüge, Online-Verfahren und Fokus auf den Kanton Genf für 2026.]]></description>
+      <content:encoded><![CDATA[## Auf einen Blick
+- Drei Ebenen: Bund, Kantone und Gemeinden.
+- ESTV: Direkte Bundessteuer und Mehrwertsteuer.
+- Jeder Kanton hat ein eigenes Steuergesetz und einen eigenen Steuerfuss.
+- Die indexierten Beträge werden jährlich überprüft.
+
+## Wichtige Fakten
+- Struktur → Bundessteuer (IFD) + Kantonssteuer + Gemeindesteuer
+- Zuständigkeit des Bundes → ESTV für direkte Bundessteuer und Mehrwertsteuer
+- Territorialer Fokus → Kanton Genf
+- Verfahren → Online
+- Indexierung → Jährlich für verschiedene Steuer- und Sozialbeträge
+
+Drei steuerliche Ebenen prägen die Schweizer Steuererklärung 2026: die direkte Bundessteuer, die Kantonssteuer und die Gemeindesteuer. Vor dem Ausfüllen des Online-Verfahrens empfiehlt es sich zu erkennen, zu welcher Ebene die jeweilige Position gehört. Der Gemeindesteuerfuss wird auf die Kantonssteuer angewendet, während jeder Kanton über ein eigenes Gesetz und einen eigenen Steuerfuss verfügt.
+
+### Genf im nationalen Vergleich
+
+Der Kanton Genf muss daher im Rahmen dieser Architektur betrachtet werden und nicht als eine vom Schweizer System losgelöste Ausnahme. Die kantonalen und kommunalen Daten bleiben von der Bundesebene getrennt; der interkantonale Vergleich dient genau dazu, eine lokale Regel nicht automatisch auf ein anderes Gebiet zu übertragen. Die Fristen für die Steuererklärung werden kantonal geregelt. Für das Jahr 2026 muss das Online-Verfahren mit der Überprüfung der für den betreffenden Kanton geltenden Angaben einhergehen.
+
+Auch die Suche nach den zulässigen Abzügen folgt dieser Logik. Die jährlich indexierten Beträge sollten nicht als feste Beträge behandelt werden: Zu den indexierten Elementen gehören die Obergrenze der Säule 3a, die BVG-Koordinationsschwelle bzw. der Koordinationsabzug, die Obergrenze für die Arbeitslosenversicherung (ALV), die durchschnittlichen Prämien der obligatorischen Krankenpflegeversicherung (KVG) und der Medianlohn. Ein praktischer Leitfaden kann den Mechanismus erklären, für den aktualisierten Wert muss jedoch die offizielle Quelle genutzt werden.
+
+Die administrative Zuständigkeit ist ein weiterer operativer Schritt. Die ESTV ist für die direkte Bundessteuer und die Mehrwertsteuer zuständig; die kantonalen Verwaltungen kümmern sich um die Kantons- und Gemeindesteuer. Das BSV befasst sich mit der sozialen Sicherheit einschliesslich AHV, IV und BVG und legt keine Steuern fest. Das BFS erstellt Statistiken und setzt keine Steuersätze fest. Um sich bei der Steuererklärung zurechtzufinden, zählen diese Unterschiede ebenso wie das Online-Formular.
+
+Derselbe Grundsatz verhindert, dass das Steuersystem mit der Krankenversicherung verwechselt wird. Das KVG ist für Ansässige obligatorisch, muss innerhalb von drei Monaten nach der Ankunft abgeschlossen werden und wird über private Kopfprämien finanziert. Die Prämien hängen vom Kanton und der Region ab, und die Prämienverbilligung ist ein kantonaler Zuschuss: Sie ist weder eine Steuer noch ein Lohnabzug. Für denjenigen, der die Steuererklärung ausfüllt, hält diese Unterscheidung Steuern und Versicherungskosten sauber getrennt.
+## Steuern und Abzüge: Der korrekte Vergleich
+
+Ein Betrag auf dem schweizerischen Lohnzettel entspricht nicht automatisch einer steuerlichen Komponente. Die Lohnbeiträge haben eigene Prozentsätze und müssen von den drei Steuerstufen getrennt gehalten werden. Die praktische Lesart ist folgende:
+
+| Position | Angegebener Wert |
+|---|---|
+| AHV/IV/EO | 5.3% Arbeitnehmer; 10.6% total mit dem Arbeitgeber |
+| ALV | 1.1% bis zur jährlichen Obergrenze |
+| UVG | 0.7–1.5% je nach Branche |
+| BVG auf den koordinierten Lohn | 7% zwischen 25 und 34 Jahren; 10% zwischen 35 und 44; 15% zwischen 45 und 54; 18% ab 55 Jahren bis zum Referenzalter |
+
+Diese Daten sind Lohnbeiträge, keine Steuersätze der Steuererklärung. AHV, IV und BVG gehören zur sozialen Vorsorge; das BSV legt keine Steuern fest. Die BVG verwendet den koordinierten Lohn und der angegebene Prozentsatz ändert sich nach Altersklasse. Aus diesem Grund sollte ein Eintrag auf der Lohnabrechnung nicht automatisch in den steuerlichen Teil des Verfahrens übertragen werden.
+
+### Indizierte Zahlen sind keine festen Werte
+
+Leser, die die Steuererklärung 2026 vorbereiten, sollten mit jährlich indexierten Werten vorsichtig umgehen. Zu dieser Gruppe gehören die Obergrenze der dritten Säule 3a, die Schwelle bzw. der Koordinationsabzug der BVG, die ALV-Obergrenze, die durchschnittlichen KVG-Prämien und der Medianlohn. Der Mechanismus ist stabil, während der anzuwendende Betrag für das Referenzjahr bei einer offiziellen Quelle überprüft werden muss. Zur Vertiefung des Vorsorgekapitels kann der Leitfaden zur Säule 3a konsultiert werden.
+
+Die KVG folgt auch im Bereich der Familienausgaben einer anderen Logik. Für die Einwohner ist sie obligatorisch und muss innerhalb von drei Monaten nach der Ankunft abgeschlossen werden; die Prämien sind privat, pro Kopf und nach Kanton oder Region differenziert. Die Prämienverbilligung ist ein kantonales Subsidium. Es handelt sich somit weder um eine Steuer noch um einen Lohnbeitrag: Bei der Analyse des persönlichen Budgets bleibt sie ein von den Steuern getrennter Posten, wie der Vergleich mit der KVG und Krankenkasse verdeutlicht.
+
+## Nützliche Tools für die Planung
+Für Ihre Vorsorgestrategie nutzen Sie den Rentenplaner und den Säule-3-Simulator.
+## Online-Verfahren: Fünf Kontrollen für 2026
+
+Eine geordnete Vorbereitung beginnt mit der korrekten Zuständigkeit und führt zur Überprüfung der aktualisierten Werte. Der Weg kann beschritten werden, ohne offizielle Daten durch Beträge zu ersetzen, die sich auf ein anderes Jahr beziehen.
+
+### Von der Zuständigkeit zur Endprüfung
+
+1. **Bestimmen Sie die drei Ebenen.** Trennen Sie die direkte Bundessteuer von der kantonalen und kommunalen Komponente. Denken Sie daran, dass der Gemeindesteuerfuss auf die kantonale Steuer angewendet wird.
+
+2. Ordnen Sie jeden Posten der Behörde zu. Für die DIF und die MWST ist die EStV zuständig; für Kantons- und Gemeindesteuern sind die kantonalen Verwaltungen zuständig. BSV und BFS haben andere Funktionen und legen keine Steuersätze fest.
+
+3. Notieren Sie die kantonale Frist. Für den Kanton Genf muss die im kantonalen Rahmen geltende Frist überprüft werden. Es reicht nicht aus, ein für einen anderen Kanton gültiges Datum zu verwenden: Der Leitfaden 2026 betrifft lokale Verfahren und Hinweise.
+
+4. Überprüfen Sie Abzüge und indexierte Werte. Überprüfen Sie vor dem Einreichen die zulässigen Abzüge und aktualisieren Sie das Maximum der Säule 3a, die Schwelle oder den Koordinationsabzug der bpev/BVG, das ALV-Maximum, die KVG-Durchschnittsprämien und den Medianlohn gemäss der offiziellen Quelle.
+
+5. Schliessen Sie das Online-Verfahren mit einer Endkontrolle ab. Halten Sie Steuern, AHV/IV/EO-Beiträge, ALV, UVG, BVG und KVG-Prämien getrennt. Diese Unterscheidung verhindert, dass ein Lohnabzug mit einer Steuerstufe verwechselt wird.
+
+Wenn die Situation einen Zuzug in die Schweiz beinhaltet, muss die KVG innerhalb von drei Monaten nach der Ankunft abgeschlossen werden. Dies ist eine Versicherungsverpflichtung, die von der Steuererklärung unabhängig ist und die Einwohner betrifft; die Prämien sind pro Kopf und die Prämienverbilligung hängt vom Kanton ab.
+
+Dieselbe Kontrollreihenfolge hilft dabei, den Kanton Genf im nationalen Vergleich zu lesen: zuerst die Steuerstufe, dann die Behörde, dann die Frist und schliesslich die aktualisierten Zahlen. Um die Lohndaten in eine erste Schätzung umzuwandeln, nutzen Sie den Lohn- und Steuerrechner.]]></content:encoded>
+      <pubDate>Sat, 03 Oct 2026 08:50:02 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/guida-fiscale-ginevra-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/guida-fiscale-ginevra-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Schweizer Steuererklärung 2026: Leitfaden für Zürich</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/steuererklaerung-zuerich-online-ratgeber/</link>
@@ -3611,83 +3685,6 @@ Für eine genaue Nettogehaltsberechnung nutzen Sie unseren Steuervergleichsrechn
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/parmelin-successore-defr</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/parmelin-successore-defr.webp" medium="image"/>
-    </item>
-    <item>
-      <title>KI und Automatisierung: Plan zur Steigerung der Effizienz auf Bundesebene</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/bundesverwaltung-ki-automatisierung/</link>
-      <description><![CDATA[Der Bundesrat verabschiedet den Bericht vom 2. Oktober 2026: fünf Schwerpunkte zur Vereinfachung der Verfahren und zur Verkürzung der Wartezeiten.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Vom Bundesrat am 2. Oktober 2026 verabschiedeter Bericht
-- Fünf Schwerpunktbereiche für Automatisierung und KI
-- Einfachere und praxisnahe Verfahren, die zügiger abgewickelt werden
-- Erste Phase widmet sich dem Überblick über die Systeme des Bundes
-
-## Wichtigste Fakten
-- Beschluss → Verabschiedung des Berichts
-- Datum → 2. Oktober 2026
-- Behörde → Bundesrat
-- Geltungsbereich → Bundesverwaltung
-- Schwerpunkte → fünf Anwendungsbereiche
-
-Am 2. Oktober 2026 hat der Bundesrat in Bern den Bericht «Steigerung der Effizienz von Verwaltungsprozessen durch Prozessautomatisierung und künstliche Intelligenz (KI)» in Erfüllung des Postulats 24.3582 Silberschmidt verabschiedet. Das Dokument legt Leitlinien für einen effizienteren Einsatz von Prozessautomatisierung und KI innerhalb der Bundesverwaltung fest.
-
-Ziel ist es, die Abläufe zu vereinfachen, die Bearbeitung von Gesuchen und Dossiers zu beschleunigen und die verfügbaren Ressourcen effektiver zu nutzen. Der Bericht weist diesen Technologien eine zentrale Rolle bei der Erfüllung der Aufgaben zu: Sie sollen den Verwaltungsaufwand verringern, die Qualität verbessern und Ressourcen für die wichtigsten Aufgaben freisetzen.
-
-Der Anstoß dafür geht auf den demografischen Wandel und das steigende Datenvolumen zurück. Die Bundesverwaltung muss unveränderte oder wachsende Aufgaben mit begrenzteren personellen Ressourcen bewältigen.
-
-### Die Vision der Bundesverwaltung
-
-Der Bundesrat bezeichnet Automatisierung und künstliche Intelligenz als strategische digitale Ressourcen, um gesetzliche Aufträge effektiv, effizient und widerstandsfähig zu erfüllen. Die Automatisierung soll Prozesse und Leistungen optimieren, Führungskräfte und Mitarbeitende unterstützen und den Weg für neue Lösungen ebnen. Der Ansatz bleibt jedoch menschenzentriert, zuverlässig und nachhaltig.
-
-Die fünf Prioritäten sind die Geschäftsabwicklung mit integrierten und transparenten Prozessen; die technologiegestützte Übersetzung; die Prüfung von Anträgen und Gesuchen, um Wartezeiten zu verkürzen und die Entscheidungsfindung zu beschleunigen; die Datenverarbeitung durch Extraktion, Standardisierung und Harmonisierung; sowie die unternehmensweiten Unterstützungsprozesse, die auch auf die Kontrolle von Finanztransaktionen und Beschaffungen abzielen. Für das Backoffice nennt der Text zudem die Überprüfung der Vertragsgrundlage, der Budgeteinhaltung und der internen Vorschriften.
-
-Der Bericht sieht daher eine erste interne Phase vor: die Verbesserung des Überblicks über die vom Bund entwickelten, erworbenen oder genutzten Systeme, die Beschleunigung von Synergien zwischen den Lösungen und die Förderung ihrer großflächigen Einführung. Die Ressourcen sollen sparsam eingesetzt und auf Fälle mit hohem Skalierungspotenzial konzentriert werden.
-## Praktische Auswirkungen auf Bevölkerung und Wirtschaft
-
-Der Bericht zeigt der Bundesverwaltung einen Arbeitsansatz auf: die internen Abläufe, die zur Bearbeitung von Gesuchen und Dossiers führen, effizienter zu gestalten. Für diejenigen, die in der Schweiz leben oder arbeiten, hängt der beschriebene potenzielle Nutzen somit von der Qualität und Geschwindigkeit der Interaktion mit der Bundesverwaltung ab.
-
-### Vom Antrag bis zum Entscheid
-
-Das konkreteste Ergebnis, auf das der Bericht hinweist, betrifft die Bearbeitungszeiten. Wenn die Automatisierung bei der Prüfung von Anträgen und Dossiers zum Einsatz kommt, dürfte sie dazu beitragen, Wartezeiten zu verkürzen und den Entscheidungsprozess zu beschleunigen. Die Formulierung beschreibt ein Ziel: Der mögliche Vorteil ist als Verbesserungsprozess zu verstehen, nicht als bereits für jede Person oder jedes Unternehmen erreichtes Ergebnis.
-
-Die integrierte Geschäftsabwicklung kann sich auf die Kontinuität des Verfahrens und die Transparenz der Übergänge zwischen den Ämtern auswirken. Der Bericht verweist auf einen Ablauf, der von der Einreichung eines parlamentarischen Vorstosses bis zu dessen Umsetzung reicht. Die gleiche Logik der Integration wird mit gemeinsamen Lösungen für die Übersetzung in Verbindung gebracht: Der erwartete Effekt besteht darin, die Prozesse zu vereinfachen und die Mehrsprachigkeit der Bundesverwaltung zu fördern.
-
-Ein weiterer Effekt betrifft die Informationsbasis. Extraktion, Standardisierung und Harmonisierung sollen zuverlässige Grundlagen für eine zuverlässige Automatisierung schaffen. Das angegebene Ziel besteht daher darin, konsistentere Daten für automatisierte Prozesse bereitzustellen; die Mitteilung nennt keine Zahlen oder bereits erzielte Ergebnisse.
-
-Im Backoffice betrifft der Effekt vor allem die betriebsunterstützenden Prozesse: Die Kontrolle von Finanztransaktionen und Einkäufen kann standardisiert und beschleunigt werden, unter Berücksichtigung von Korrektheit, Vertragsgrundlage, Budget und internen Vorschriften. Die Entscheidung, die Ressourcen auf skalierbare Fälle zu konzentrieren, deutet darauf hin, dass die Einführung mit Lösungen verbunden sein wird, die ein größeres Ausbaupotenzial bieten. Wer dieses Thema mit seiner wirtschaftlichen Analyse verknüpfen möchte, kann den Bericht costo della vita in Svizzera als separate Vertiefung heranziehen.
-
-Der Rahmen setzt schließlich der bloßen Suche nach Geschwindigkeit eine klare Grenze: Automatisierung und KI müssen Führungskräfte und Mitarbeiter unterstützen, menschenzentriert, zuverlässig und nachhaltig bleiben. Die administrative Effizienz umfasst laut dem Bericht daher Zeit, Qualität, Widerstandsfähigkeit und einen sparsamen Umgang mit Ressourcen.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
-## Wie man sich in der operativen Phase zurechtfindet
-
-Die Pressemitteilung konzentriert sich auf die Leitlinien und die erste interne Phase. Um die Umsetzung zu verfolgen, ohne Details hinzuzufügen, die nicht in der Quelle enthalten sind, empfiehlt es sich, den Bericht als eine Übersicht über die Prozesse zu lesen, die der Bund effizienter gestalten will.
-
-### Vier Schritte zur Verfolgung des Themas
-
-1. Ermitteln Sie die Art des betreffenden Prozesses. Die Quelle unterscheidet zwischen Geschäftsabwicklung, Übersetzung, Prüfung von Anträgen und Vorgängen, Datenverarbeitung und Unternehmensunterstützung. Diese Einteilung hilft zu verstehen, welches Ergebnis angestrebt wird.
-
-2. Handelt es sich um einen Antrag oder ein Verfahren, konzentrieren Sie sich auf die beiden im Bericht genannten Indikatoren: Wartezeiten und Entscheidungsgeschwindigkeit. Dies sind die erwarteten Auswirkungen der Automatisierung; der Text enthält weder eine allgemein gültige Frist noch eine Angabe zur zu erwartenden Anzahl von Tagen.
-
-3. Wenn der Prozess mehrere Sprachen umfasst, betrachten Sie die computergestützte Übersetzung als eine der gängigen Lösungen, die die Arbeitsschritte vereinfachen und die Mehrsprachigkeit der Bundesverwaltung fördern sollten. Wenn es um Daten geht, achten Sie stattdessen auf Extraktion, Standardisierung und Harmonisierung: Dies sind die genannten Grundlagen für eine zuverlässige Automatisierung.
-
-4. Wenn es um Finanztransaktionen oder Beschaffungen geht, prüfen Sie, welche Kontrollen der Bericht standardisierter und schneller gestalten will: Genauigkeit, Vertragsgrundlage, Einhaltung des Budgets und interner Vorschriften. Für Prozessverantwortliche ist dies der Punkt, den es mit den bereits vorhandenen sich wiederholenden Tätigkeiten abzugleichen gilt.
-
-Die erste Phase bleibt auf den Bund beschränkt. Sie umfasst den Überblick über die entwickelten, beschafften oder genutzten KI- und Automatisierungssysteme sowie die Beschleunigung von Synergien und der grossflächigen Einführung. Als Kriterium wird Sparsamkeit genannt: Die Ressourcen sollen auf Anwendungen mit hohem Skalierbarkeitspotenzial konzentriert werden.
-
-Die Mitteilung enthält keine Auflistung von einzureichenden Unterlagen, anzufordernden Stellen oder operativen Fristen für die Bevölkerung. Es ist daher nicht möglich, aus dem Bericht ein neues persönliches Vorgehen abzuleiten. Für den steuerlichen Bereich kann der Leser die dichiarazione delle imposte als eigenständiges Hilfsmittel neben diesen Leitlinien nutzen.
-
-Um das Thema in eine konkrete Überprüfung des eigenen Einkommens umzusetzen, nutzen Sie die calcolatore stipendio/imposte.
-
-Vergleichen Sie den CHF/EUR-Wechselkurs in Echtzeit: sparen Sie bis zu 1,5% bei den monatlichen Überweisungsgebühren.
-
-*Quelle: [admin.ch](https://www.admin.ch/it/newnsb/NJ04UgpFFUoA)*]]></content:encoded>
-      <pubDate>Fri, 02 Oct 2026 11:41:29 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/automazione-ia-amministrazione-federale</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/automazione-ia-amministrazione-federale.webp" medium="image"/>
     </item>
   </channel>
 </rss>

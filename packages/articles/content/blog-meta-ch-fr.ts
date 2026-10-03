@@ -7646,6 +7646,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fisco-zurigo-guida-online.title': 'Déclaration fiscale suisse 2026 : guide de Zurich',
     'blog.article.fisco-zurigo-guida-online.excerpt': 'En 2026, la déclaration distingue IFD, impôts cantonaux et communaux : à Zurich, la loi et le multiplicateur du canton et de la commune comptent.',
     'blog.article.fisco-zurigo-guida-online.imageAlt': 'Documents fiscaux suisses sur un bureau, avec la skyline de Zurich en arrière-plan.',
+    'blog.article.guida-fiscale-ginevra-2026.title': 'Déclaration d\'impôts Suisse 2026 : guide Genève',
+    'blog.article.guida-fiscale-ginevra-2026.excerpt': 'Guide 2026 de la déclaration fiscale en Suisse : trois niveaux d’imposition, AFC/ESTV, déductions, procédure en ligne et focus sur le canton de Genève pour 2026.',
+    'blog.article.guida-fiscale-ginevra-2026.imageAlt': 'Déclaration fiscale suisse en ligne avec documents et vue urbaine cantonale',
 };
 
 export default blogMetaChFr;

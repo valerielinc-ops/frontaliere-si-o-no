@@ -22966,6 +22966,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'guida-fiscale-ginevra-2026',
+    category: 'fiscale',
+    date: '2026-10-03T08:50:02.685Z',
+    image: '/images/blog/guida-fiscale-ginevra-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

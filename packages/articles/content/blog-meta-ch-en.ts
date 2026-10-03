@@ -7646,6 +7646,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fisco-zurigo-guida-online.title': 'Swiss tax return 2026: guide to Zurich',
     'blog.article.fisco-zurigo-guida-online.excerpt': 'In 2026, the tax return distinguishes between IFD, cantonal taxes and municipal taxes: in Zurich, the law and multiplier of the canton and municipality matter.',
     'blog.article.fisco-zurigo-guida-online.imageAlt': 'Swiss tax return papers on a desk with the Zurich skyline in the background.',
+    'blog.article.guida-fiscale-ginevra-2026.title': 'Swiss Tax Return 2026: Geneva Guide',
+    'blog.article.guida-fiscale-ginevra-2026.excerpt': '2026 Guide to Swiss Tax Returns: three tax levels, AFC/ESTV, deductions, online procedure and a focus on the canton of Geneva for 2026.',
+    'blog.article.guida-fiscale-ginevra-2026.imageAlt': 'Swiss tax return completed online with documents and a Canton urban backdrop',
 };
 
 export default blogMetaChEn;

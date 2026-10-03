@@ -7646,6 +7646,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fisco-zurigo-guida-online.title': 'Schweizer Steuererklärung 2026: Leitfaden für Zürich',
     'blog.article.fisco-zurigo-guida-online.excerpt': 'Im Jahr 2026 unterscheidet die Steuererklärung zwischen IFD sowie kantonalen und kommunalen Steuern: In Zürich sind das Gesetz und der Steuerfuss des Kantons und der Gemeinde maßgeblich.',
     'blog.article.fisco-zurigo-guida-online.imageAlt': 'Schweizer Steuerunterlagen auf einem Schreibtisch vor der Skyline von Zürich.',
+    'blog.article.guida-fiscale-ginevra-2026.title': 'Steuererklärung Schweiz 2026: Leitfaden Genf',
+    'blog.article.guida-fiscale-ginevra-2026.excerpt': 'Leitfaden 2026 zur Steuererklärung in der Schweiz: drei Steuerstufen, ESTV/ESFC, Abzüge, Online-Verfahren und Fokus auf den Kanton Genf für 2026.',
+    'blog.article.guida-fiscale-ginevra-2026.imageAlt': 'Online ausgefüllte Schweizer Steuererklärung mit Unterlagen und kantonalem Stadtpanorama',
 };
 
 export default blogMetaChDe;
