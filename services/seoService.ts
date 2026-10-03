@@ -115,7 +115,7 @@ import { ORGANIZATION_LD } from './seo/organizationLd';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
- * Using NewsMediaOrganization with expert-level knowsAbout signals.
+ * Using Organization with expert-level knowsAbout signals.
  * Reused across all structured data to ensure consistency.
  *
  * Includes inline E-E-A-T fields (name, description, knowsAbout) alongside
@@ -123,7 +123,7 @@ import { ORGANIZATION_LD } from './seo/organizationLd';
  * signals even without resolving the referenced #organization entity.
  */
 export const SCHEMA_AUTHOR = {
- "@type": "NewsMediaOrganization",
+ "@type": "Organization",
  "@id": `${BASE_URL}/#organization`,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,
@@ -151,7 +151,7 @@ export const SCHEMA_PUBLISHER = ORGANIZATION_LD;
  * for knowledge graph consistency.
  */
 export const SCHEMA_EXPERT_AUTHOR = {
- "@type": "NewsMediaOrganization",
+ "@type": "Organization",
  "@id": `${BASE_URL}/#organization`,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,

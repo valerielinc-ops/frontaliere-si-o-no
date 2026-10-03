@@ -31,7 +31,7 @@ const SITE_ORG = Object.freeze({
   // A bare Organization with the same name was emitted inside every article
   // ImageObject, so crawlers saw a second anonymous publisher entity beside
   // `https://frontaliereticino.ch/#organization`.
-  '@type': 'NewsMediaOrganization' as const,
+  '@type': 'Organization' as const,
   '@id': SITE_ORGANIZATION_ID,
   name: 'Frontaliere Ticino',
   url: 'https://frontaliereticino.ch/',
@@ -155,7 +155,9 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     throw new Error('imageObjectLd: contentUrl (or url) is required');
   }
 
-  const resolvedCreator: ImageCreator = creator ?? { ...SITE_ORG };
+  const resolvedCreator: ImageCreator = creator
+    ? { ...creator, '@type': creator['@type'] === 'NewsMediaOrganization' ? 'Organization' : creator['@type'] }
+    : { ...SITE_ORG };
 
   const out: ImageObjectLd = {
     '@type': 'ImageObject',

@@ -5,7 +5,7 @@ const ARTICLE_SCHEMA_TYPES = new Set(['Article', 'NewsArticle', 'BlogPosting']);
 const DEFAULT_ARTICLE_IMAGE = 'https://frontaliereticino.ch/og-image.png';
 
 const DEFAULT_ARTICLE_AUTHOR = {
- '@type': 'NewsMediaOrganization',
+ '@type': 'Organization',
  '@id': ORGANIZATION_ID,
  name: ORGANIZATION_LD.name,
  url: ORGANIZATION_LD.url,
@@ -95,12 +95,11 @@ function isAppSchema(record: Record<string, any>): boolean {
 }
 
 function normalizeSchemaObject(record: Record<string, any>): Record<string, any> {
- // Legacy ImageObject/Claim/Dataset literals often named the site as a bare
- // Organization. Keep that value attached to the canonical graph node so it
- // cannot create a second anonymous "Frontaliere Ticino" entity beside the
- // NewsMediaOrganization used by the homepage and article publishers.
+ // Legacy records include both anonymous Organization nodes and the
+ // NewsMediaOrganization subtype Google rejects in creator/publisher fields.
+ // Preserve the stable identity while emitting Google's supported base type.
  if (
-  record['@type'] === 'Organization'
+  (record['@type'] === 'Organization' || record['@type'] === 'NewsMediaOrganization')
   && record.name === ORGANIZATION_LD.name
   && (
     record.url === undefined

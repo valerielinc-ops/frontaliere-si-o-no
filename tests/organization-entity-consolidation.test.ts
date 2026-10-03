@@ -162,8 +162,11 @@ function homepageOrganization(): Record<string, unknown> {
 }
 
 describe('the canonical #organization entity', () => {
-  it('is a NewsMediaOrganization, the type news surfaces expect from a publisher', () => {
-    expect(ORGANIZATION_LD['@type']).toBe('NewsMediaOrganization');
+  it('uses the Google-supported Organization type and preserves its editorial specialization', () => {
+    expect(ORGANIZATION_LD['@type']).toBe('Organization');
+    expect(ORGANIZATION_LD_FULL.additionalType).toBe('https://schema.org/NewsMediaOrganization');
+    expect(homepageOrganization()['@type']).toBe('Organization');
+    expect(homepageOrganization().additionalType).toBe(ORGANIZATION_LD_FULL.additionalType);
   });
 
   it('carries sameAs on the node that gets embedded everywhere', () => {
@@ -199,7 +202,7 @@ describe('the canonical #organization entity', () => {
 
   it('reuses the canonical identity for the default ImageObject creator', () => {
     expect(imageObjectLd({ contentUrl: `${BASE_URL}/image.webp` }).creator).toEqual({
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': ORGANIZATION_ID,
       name: ORGANIZATION_LD.name,
       url: ORGANIZATION_LD.url,
@@ -213,11 +216,25 @@ describe('the canonical #organization entity', () => {
     });
     expect(normalized).toMatchObject({
       creator: {
-        '@type': 'NewsMediaOrganization',
+        '@type': 'Organization',
         '@id': ORGANIZATION_ID,
         name: ORGANIZATION_LD.name,
       },
     });
+  });
+
+  it('repairs the creator and publisher types Google flagged without changing their identity', () => {
+    const legacy = {
+      '@type': 'NewsMediaOrganization', '@id': ORGANIZATION_ID,
+      name: 'Frontaliere Ticino', url: `${BASE_URL}/`,
+    };
+    for (const type of ['Dataset', 'ImageObject', 'Article']) {
+      const output = normalizeStructuredData({ '@type': type, creator: legacy, publisher: legacy });
+      for (const entity of [output.creator, output.publisher]) {
+        expect(entity).toEqual({ ...legacy, '@type': 'Organization' });
+      }
+    }
+    expect(legacy['@type']).toBe('NewsMediaOrganization');
   });
 
   it('detects an anonymous site Organization literal and ignores identified or foreign ones', () => {
@@ -237,15 +254,27 @@ describe('the canonical #organization entity', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('emitters never put the Google-rejected news subtype in @type', () => {
+    const offenders = pageEmitterFiles().filter((file) =>
+      /['"]@type['"]\s*:\s*['"]NewsMediaOrganization['"]\s*[,}]/.test(read(file)),
+    );
+    expect(offenders).toEqual([]);
+  });
+
   it.skipIf(SKIP_LIVE_DATA)('gives every static blog ImageObject creator the canonical identity', () => {
     for (const file of STATIC_BLOG_SEO_FILES) {
       const source = read(file);
       expect(source, `${file} still emits an anonymous site ImageObject creator`).not.toContain(
         '"creator": { "@type": "Organization", "name": "Frontaliere Ticino"',
       );
-      expect(source, `${file} has no canonical image creator`).toContain(
-        '"creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization"',
-      );
+      const creators = [...source.matchAll(/"creator":\s*(\{[^{}]*"@id":\s*"https:\/\/frontaliereticino\.ch\/#organization"[^{}]*\})/g)];
+      expect(creators.length, `${file} has no canonical image creator`).toBeGreaterThan(0);
+      for (const match of creators) {
+        // Static registry consumers normalize legacy corpus records before emission.
+        expect(normalizeStructuredData(JSON.parse(match[1]))).toMatchObject({
+          '@type': 'Organization', '@id': ORGANIZATION_ID, name: ORGANIZATION_LD.name,
+        });
+      }
     }
   });
 
