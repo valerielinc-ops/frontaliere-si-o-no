@@ -240,10 +240,13 @@ describe('pharmacy directory page matrix', () => {
     expect(sample).toBeDefined();
     const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(snapshotAt - 1));
     const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, afterNow);
-    expect(before.indexable).toBe(false);
-    // Other cantons can already publish a duty with the same start time.
-    // Assert the Ticino duty identity, then its own interval, not a page-wide date.
+    // The duty is identified by its id, not by its formatted start time: the
+    // hub also renders the Swiss-canton and Italian releases, which have their
+    // own freshness, and a duty there can start at the very same instant
+    // (2026-10-03: the Jura duties started at 08:00 like the Ticino sample, so
+    // `not.toContain('03.10.2026 08:00')` failed on a page that was correct).
     const dutyIdPattern = `data-duty-id=(?:"${sample!.id}"|${sample!.id})(?=[\\s>])`;
+    expect(before.indexable).toBe(false);
     expect(before.html).not.toMatch(new RegExp(dutyIdPattern));
     expect(after.indexable).toBe(true);
     const publishedDuty = after.html.match(new RegExp(`<li\\b[^>]*${dutyIdPattern}[^>]*>[\\s\\S]*?<\\/li>`))?.[0];

@@ -128,7 +128,10 @@ import {
   factsContainingToken,
   isActionableAstFact,
   isAstSourceFile,
+  isBareFunctionHeader,
+  isExternalBinding,
   matchAstFacts,
+  projectBindingKey,
 } from './lib/sibling-ast-graph.mjs';
 
 const argv = process.argv.slice(2);
@@ -221,7 +224,7 @@ const MAX_PATTERN_CLASS_HITS = 15;
 // analisi `--head` immutabili: il working tree può cambiare tra due chiamate.
 // Incrementare quando cambiano le semantiche dei candidati, per non riusare
 // JSON prodotti da una versione precedente.
-const CHECK_CACHE_VERSION = '2026-09-23-v3';
+const CHECK_CACHE_VERSION = '2026-10-03-v5';
 const CHECK_CACHE_WAIT_MS = 240_000;
 const CHECK_CACHE_STALE_MS = 600_000;
 const CHECK_CACHE_POLL_MS = 100;
@@ -790,12 +793,22 @@ const GENERIC_REMOVED_GUARD_PATTERNS = Object.freeze([
   /^\s*if\s*\([^)]*\btypeof\s+(?:html|body|rawHtml)\s*!==?\s*['"]string['"][^)]*\)\s*return\b/i,
 ]);
 
-export function isGenericRemovedExpression(expression) {
+export function isGenericRemovedExpression(expression, externalCalls = new Set()) {
   const value = String(expression || '');
+  // A declaration header alone carries a name/signature, not behavior.
+  if (isBareFunctionHeader(value)) return true;
+  // Returning the truthy value just tested is a generic fallback idiom,
+  // regardless of the local variable name; it is not a domain relationship.
+  if (/^if\s*\(\s*([A-Za-z_$][\w$]*)\s*\)\s*return\s+\1$/.test(value)) return true;
+  // A removed block opener containing only a resolved infrastructure call
+  // carries no domain operation. Keep comparisons, compound conditions and
+  // complete branch bodies: those can contain a real antipattern.
+  const opener = /^if\s*\(\s*([\s\S]+?)\s*\)\s*\{$/.exec(value);
+  if (opener && externalCalls.has(opener[1])) return true;
   return GENERIC_REMOVED_GUARD_PATTERNS.some((pattern) => pattern.test(value));
 }
 
-export function extractRemovedExpressions(diffText) {
+export function extractRemovedExpressions(diffText, { externalCalls = new Set() } = {}) {
   const exprs = new Set();
   for (const line of diffText.split('\n')) {
     if (!line.startsWith('-') || line.startsWith('---')) continue;
@@ -815,7 +828,7 @@ export function extractRemovedExpressions(diffText) {
       // diff changed an unrelated domain rule (observed on PR #9501). Keep
       // the pass for semantic expressions, but do not turn generic plumbing
       // into a repository-wide sibling sweep.
-      if (isGenericRemovedExpression(cleaned)) continue;
+      if (isGenericRemovedExpression(cleaned, externalCalls)) continue;
       exprs.add(cleaned);
     }
   }
@@ -1116,9 +1129,9 @@ function emitReport({ base, changedFiles, changedCode, candidates }) {
   );
   if (weak) {
     console.log(
-      `[debole] = agganciato a UN solo identificatore nudo (${weak}/${candidates.length} qui). ` +
-        'Storicamente la gran parte di questi è rumore: un nome di variabile o di campo ' +
-        'reimplementato in file scorrelati. Vanno comunque guardati, ma parti dai [forte].',
+      `[debole] = evidenza limitata, senza un binding condiviso risolto o una classe del registro (${weak}/${candidates.length} qui). ` +
+        'Leggi i costrutti riportati: può essere una chiamata AST, un literal o una espressione rimossa. ' +
+        'Il livello non identifica il costrutto e non prova un bug; verifica il contesto.',
     );
   }
   process.exit(STRICT ? 1 : 0);
@@ -1240,16 +1253,21 @@ function main() {
     if (isAstSourceFile(file)) {
       for (const tok of changedTokens) astParsedTokens.add(tok);
     }
+    const baseSource = readTrackedAt(mergeBase, file);
+    const baseFacts = baseSource ? collectAstFacts(file, baseSource, { files: astFiles }) : [];
+    const projectCalls = new Set(baseFacts
+      .filter((fact) => fact.kind === 'call' && !isExternalBinding(fact.binding))
+      .map((fact) => fact.fingerprint));
+    const externalCalls = new Set(baseFacts
+      .filter((fact) => fact.kind === 'call' && isExternalBinding(fact.binding) &&
+        !projectCalls.has(fact.fingerprint))
+      .map((fact) => fact.fingerprint));
     const changedRanges = diffLineRanges(diff, 'new');
     if (source && changedRanges.length > 0) {
       const changedFacts = collectAstFacts(file, source, {
         lineRanges: changedRanges,
         files: astFiles,
       });
-      const baseSource = readTrackedAt(mergeBase, file);
-      const baseFacts = baseSource
-        ? collectAstFacts(file, baseSource, { files: astFiles })
-        : [];
       const unchangedFacts = new Set(baseFacts.map(astFactSignature));
       for (const tok of changedTokens) {
         const facts = factsContainingToken(changedFacts, tok);
@@ -1263,7 +1281,7 @@ function main() {
       }
     }
     // Pass verbatim: raccogli espressioni significative dalle sole righe rimosse
-    for (const expr of extractRemovedExpressions(diff)) {
+    for (const expr of extractRemovedExpressions(diff, { externalCalls })) {
       removedExprs.add(expr);
     }
   }
@@ -1358,9 +1376,12 @@ function main() {
     if (astChecks.length > 0) {
       const source = readTracked(file);
       const factKeys = new Set();
+      const bindingKeys = new Set();
       for (const [, changedFacts] of astChecks) {
         for (const fact of changedFacts) {
           factKeys.add(`${fact.kind}|${fact.key}|${fact.role}`);
+          const bindingKey = projectBindingKey(fact);
+          if (bindingKey) bindingKeys.add(bindingKey);
           if (fact.kind === 'identifier' && fact.role === 'declaration' && fact.exported) {
             for (const role of ['call', 'reference', 'declaration']) {
               factKeys.add(`${fact.kind}|${fact.key}|${role}`);
@@ -1373,6 +1394,7 @@ function main() {
           files: astFiles,
           candidateOnly: true,
           factKeys,
+          bindingKeys,
         })
         : [];
       for (const [token, changedFacts] of astChecks) {

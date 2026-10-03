@@ -275,8 +275,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             description: model.description,
             inLanguage: locale,
             isPartOf: sectionRootUrl,
-            // Day-granularity, not a full build timestamp — see
-            // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
+
           });
 
           const faqLd = model.faq.length > 0

@@ -35,6 +35,7 @@
  *                                                            → run assembly
  */
 
+import { repairJobTranslationSemanticsInPlace } from './lib/job-title-semantic-repair.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -78,6 +79,7 @@ import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
+import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
@@ -469,9 +471,9 @@ export function sanitizeJobTitleField(rawValue) {
   return inner;
 }
 
-/** Apply {@link sanitizeJobTitleField} to `title` and every `titleByLocale`. */
-function sanitizeJobTitlesInPlace(job) {
-  let fixed = 0;
+/** Repair source-backed display semantics, then sanitize title formatting. */
+function sanitizeJobDisplayFieldsInPlace(job) {
+  let fixed = repairJobTranslationSemanticsInPlace(job);
   if (typeof job.title === 'string') {
     const cleaned = sanitizeJobTitleField(job.title);
     if (cleaned !== job.title) { job.title = cleaned; fixed++; }
@@ -584,7 +586,7 @@ export function normalizeParsedJobsForSlice(jobs) {
       }
     }
 
-    sanitizeJobTitlesInPlace(job);
+    sanitizeJobDisplayFieldsInPlace(job);
     // Guard on .trim(): an empty/whitespace addressLocality is `typeof string`
     // but carries no city, so it must fall through to the backfill branch
     // rather than persisting an empty locality (which propagates to
@@ -2881,7 +2883,10 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
     }
     return slim;
   };
-  const stripped = { ...summaryEntry };
+  // `codeCommit`: il commit del checkout che ha prodotto questa summary (anche
+  // quando la scrive la guardia di uscita, che passa da qui). Assente se non
+  // determinabile.
+  const stripped = stampCodeCommit(summaryEntry);
   for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
     if (Array.isArray(stripped[listKey])) {
       stripped[listKey] = stripped[listKey].map(stripJob);
@@ -3128,7 +3133,7 @@ async function assembleJobs() {
   // 0-tolerance audit:no-literal-markdown gate stays red until every crawler
   // happens to re-run.
   let sanitizedTitles = 0;
-  for (const job of deduped) sanitizedTitles += sanitizeJobTitlesInPlace(job);
+  for (const job of deduped) sanitizedTitles += sanitizeJobDisplayFieldsInPlace(job);
   if (sanitizedTitles > 0) {
     console.log(`  🧼 Title sanitize: stripped a markdown bold wrapper from ${sanitizedTitles} job title(s)`);
   }
@@ -3512,11 +3517,12 @@ function assembleSummaries() {
 
 /**
  * Normalize a source slice and persist the repair before aggregation can cap it.
- * Returns the number of entries repaired, including zero for an already-clean
+ * Returns the number of date/title/description repairs, including zero for an already-clean
  * slice so callers can keep their existing aggregation flow unchanged.
  */
 export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
-  const repaired = normalizeExpiredAtEntries(entries, options);
+  const repaired = normalizeExpiredAtEntries(entries, options)
+    + entries.reduce((count, job) => count + repairJobTranslationSemanticsInPlace(job), 0);
   // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
   // this helper runs before the aggregate cap and must not leave a truncated
   // source slice if the process is interrupted during persistence.

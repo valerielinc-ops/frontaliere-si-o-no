@@ -6,10 +6,25 @@
  * 
  * Also scans data/service layers for i18n keys used as labels,
  * descriptions, tips, regime names, notes, etc.
+ *
+ * MIXED file (`LIVE_DATA_PARTIAL_TESTS`). Two different subjects live here:
+ *   - CODE: the `t()` call sites and the UI locale chunks
+ *     (`services/locales/{locale}-{chunk}.ts`). Both change only through a PR
+ *     (measured 2026-10-03: zero direct bot commits on those chunks in 120
+ *     days), so this half is deterministic and runs in the blocking PR gate —
+ *     a `t()` key without a translation must stop the PR that introduces it.
+ *   - CORPUS: `blog-meta-*.ts` / `blog-body*` and the other symlinks into
+ *     `packages/articles/content/`, rewritten by the article sync on `main`.
+ *     That half only runs where the live data is the subject (the post-merge
+ *     monitor and local runs), behind `SKIP_LIVE_DATA`.
+ * Until 2026-10-03 the whole file sat outside the PR gate, and a parser defect
+ * (double-quoted keys invisible, see `LOCALE_KEY_RE`) stayed red for days in
+ * the daily monitor without stopping anyone.
  */
 import { describe, it, expect } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // Directories/files to scan for t() calls
 const SCAN_DIRS = ['components', 'services'];
@@ -17,10 +32,22 @@ const SCAN_FILES = ['App.tsx'];
 // Extra files with i18n keys used as data values (not via t() calls)
 const DATA_LAYER_FILES = ['services/calculationService.ts', 'constants.ts', 'data/borderCrossings.ts'];
 const PROJECT_ROOT = path.resolve(__dirname, '..');
+// The article corpus, reached from `services/` through symlinks. It is data the
+// article sync rewrites on `main`, not a place where call sites live.
+const CORPUS_ROOT = path.join(PROJECT_ROOT, 'packages', 'articles', 'content');
+// Read the corpus half only where live data is the subject (see file header).
+const INCLUDE_CORPUS = !SKIP_LIVE_DATA;
+
+function isCorpusSymlink(entryPath: string, entry: fs.Dirent): boolean {
+  if (!entry.isSymbolicLink()) return false;
+  const target = path.resolve(path.dirname(entryPath), fs.readlinkSync(entryPath));
+  return target === CORPUS_ROOT || target.startsWith(CORPUS_ROOT + path.sep);
+}
 
 function scanDirRecursive(dirPath: string, files: string[]): void {
   if (!fs.existsSync(dirPath)) return;
   for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
+    if (!INCLUDE_CORPUS && isCorpusSymlink(path.join(dirPath, entry.name), entry)) continue;
     if (entry.isDirectory()) {
       scanDirRecursive(path.join(dirPath, entry.name), files);
     } else if ((entry.name.endsWith('.ts') || entry.name.endsWith('.tsx')) &&
@@ -141,7 +168,7 @@ function extractDynamicTranslationKeys(files: string[]): Set<string> {
   return keys;
 }
 
-function extractLocaleKeys(locale: string): Set<string> {
+function extractLocaleKeys(locale: string, includeCorpus: boolean): Set<string> {
   const keys = new Set<string>();
   // Chunk names map 1:1 to `services/locales/{locale}-{chunk}.ts`. Dash-separated
   // chunks (e.g. `seo-links`) are camelCased to build the exported variable name.
@@ -161,6 +188,9 @@ function extractLocaleKeys(locale: string): Set<string> {
     const searchStart = `const ${varName}: Record<string, string> = {`;
     extractKeysFromObject(chunkFile, searchStart, keys);
   }
+
+  // Everything below is the article corpus (live data): see the file header.
+  if (!includeCorpus) return keys;
 
   // 2. Extract keys from the lazy-loaded blog meta file
   const blogMetaVarName = `blogMeta${locale.charAt(0).toUpperCase()}${locale.slice(1)}`;
@@ -285,22 +315,37 @@ function findObjectBounds(content: string, objStart: number): [number, number] {
   return [startIdx, -1];
 }
 
-function extractKeysFromObject(filePath: string, searchStart: string, keys: Set<string>): void {
-  const content = fs.readFileSync(filePath, 'utf8');
+/**
+ * A locale entry: a quoted key, a colon, then the opening quote of its value.
+ *
+ * Both quote styles are keys. Until 2026-10-03 only `'key':` was matched, while
+ * the entries added by #10753 were written as `"key": "value"`: nine keys that
+ * existed in all four locales were reported as missing translations
+ * (`affiliate.conditions.*`, `jobBoard.gate.*`, …), and the daily monitor was
+ * red on a defect of this parser, not of the translations.
+ *
+ * The double-quoted form is anchored to the start of a line, which is where
+ * every entry of a locale object sits: a `"word": "…"` fragment inside a
+ * translated value (inline JSON, a quoted label) is text, not a key.
+ */
+const LOCALE_KEY_RE = /'([^']+)':\s*['"`]|^[ \t]*"([^"\n]+)":\s*['"`]/gm;
 
+function extractKeysFromSource(content: string, searchStart: string, keys: Set<string>, label: string): void {
   const objStart = content.indexOf(searchStart);
-  if (objStart === -1) throw new Error(`Object starting with '${searchStart}' not found in ${filePath}`);
+  if (objStart === -1) throw new Error(`Object starting with '${searchStart}' not found in ${label}`);
 
   const [startIdx, endIdx] = findObjectBounds(content, objStart);
 
-  if (startIdx === -1 || endIdx === -1) throw new Error(`Could not parse object in ${filePath}`);
+  if (startIdx === -1 || endIdx === -1) throw new Error(`Could not parse object in ${label}`);
 
   const section = content.slice(startIdx, endIdx + 1);
-  const keyRegex = /'([^']+)':\s*['"`]/g;
-  let match;
-  while ((match = keyRegex.exec(section)) !== null) {
-    keys.add(match[1]);
+  for (const match of section.matchAll(LOCALE_KEY_RE)) {
+    keys.add(match[1] ?? match[2]);
   }
+}
+
+function extractKeysFromObject(filePath: string, searchStart: string, keys: Set<string>): void {
+  extractKeysFromSource(fs.readFileSync(filePath, 'utf8'), searchStart, keys, filePath);
 }
 
 /**
@@ -346,8 +391,45 @@ describe('Translation Completeness', () => {
   const localeKeys: Record<string, Set<string>> = {};
   
   for (const locale of locales) {
-    localeKeys[locale] = extractLocaleKeys(locale);
+    localeKeys[locale] = extractLocaleKeys(locale, INCLUDE_CORPUS);
   }
+
+  it('reads a locale entry whatever quote style its key uses', () => {
+    // The observer of the parser itself: the suite compares call sites against
+    // what this extractor sees, so a key it cannot see is a false "missing
+    // translation" in every locale at once.
+    const keys = new Set<string>();
+    extractKeysFromSource(
+      [
+        'const translations: Record<string, string> = {',
+        " 'single.quoted': 'a',",
+        ' "double.quoted": "b",',
+        " \"double.key.single.value\": 'c',",
+        ' \'value.with.inline.json\': \'{ "not.a.key": "x" }\',',
+        ' "template.value": `d`,',
+        '};',
+      ].join('\n'),
+      'const translations: Record<string, string> = {',
+      keys,
+      'inline fixture',
+    );
+    expect([...keys].sort()).toEqual([
+      'double.key.single.value',
+      'double.quoted',
+      'single.quoted',
+      'template.value',
+      'value.with.inline.json',
+    ]);
+  });
+
+  it.skipIf(SKIP_LIVE_DATA)('reads the article corpus keys where live data is the subject', () => {
+    // Without this the corpus half could go silently empty (a moved symlink, a
+    // renamed registry) and every corpus check below would pass on nothing.
+    for (const locale of locales) {
+      const uiOnly = extractLocaleKeys(locale, false);
+      expect(localeKeys[locale].size, `no corpus key read for '${locale}'`).toBeGreaterThan(uiOnly.size);
+    }
+  });
 
   it('should find translation keys in the codebase', () => {
     expect(usedKeys.size).toBeGreaterThan(0);

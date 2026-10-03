@@ -432,8 +432,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     description: seo.desc,
     inLanguage: locale,
     isPartOf: sectionRootUrl,
-    // Day-granularity, not a full build timestamp — see
-    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
+
   });
 
   const faqLd = seo.faq.length > 0

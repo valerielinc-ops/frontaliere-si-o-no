@@ -10,6 +10,7 @@ import {
   CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
 } from '../scripts/generate-crawler-group-workflows.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
+import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const orchestratorPath = '.github/workflows/orchestrate-crawlers.yml';
@@ -158,16 +159,15 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(portableCurrent.jobs.translate_queue_guard.concurrency).toBeUndefined();
     const queueGuard = portableCurrent.jobs.translate_queue_guard.steps
       .find((step: any) => step.id === 'translate_queue_guard');
-    expect(queueGuard?.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=100');
+    expect(queueGuard?.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=');
     expect(queueGuard?.run).toContain('.status == "queued"');
     expect(queueGuard?.run).toContain('.status == "pending"');
     expect(queueGuard?.run).toContain('.status == "waiting"');
     expect(queueGuard?.run).toContain('.status == "requested"');
     expect(queueGuard?.run).toContain('for run_status in queued pending waiting requested in_progress');
-    expect(queueGuard?.run).toContain('per_page=100&status=${run_status}');
-    expect(queueGuard?.run).toContain('status_total_count');
-    expect(queueGuard?.run).toContain('status_returned_count');
-    expect(queueGuard?.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed');
+    expect(queueGuard?.run).toContain('per_page=${status_page_size}&page=${status_page}&status=${run_status}');
+    expect(queueGuard?.run).toContain('if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi');
+    expect(queueGuard?.run).not.toMatch(/"\$status_total_count" -gt/);
     expect(queueGuard?.run).toContain('remaining_seconds');
     expect(queueGuard?.run).toContain('call_timeout_seconds');
     expect(queueGuard?.run).toContain('timeout --kill-after=0s');
@@ -351,6 +351,33 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(failureReporter.run).toContain('scripts/lib/github-issue-creator.mjs');
     expect(failureReporter.run).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
     expect(source).not.toContain('return_run_details');
+    // Issue di CONDIZIONE sul fallback arretrato: aperta e chiusa dallo stesso
+    // step, solo quando il preflight è pronto (un blocco non prova niente).
+    const staleCode = steps.find((step: any) => step.name === 'Report crawler wave pinned to stale site code');
+    expect(staleCode.if).toBe("always() && steps.generation_preflight.outputs.ready == 'true'");
+    expect(staleCode['continue-on-error']).toBe(true);
+    expect(staleCode.env.ISSUE_TITLE).toBe(
+      'Ondata crawler su codice arretrato: fallback di contratto oltre il genitore atteso',
+    );
+    expect(staleCode.env.FALLBACK_STALE).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_stale }}');
+    expect(staleCode.env.FALLBACK_REASON).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_reason }}');
+    expect(staleCode.env.SUPERSEDED_BY).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_superseded_by }}');
+    expect(staleCode.env.COMMITS_BEHIND_MAIN).toBe('${{ steps.generation_preflight.outputs.site_code_commits_behind_main }}');
+    expect(staleCode.run).toContain('if [ "$FALLBACK_STALE" != "true" ]; then');
+    expect(staleCode.run).toContain('scripts/lib/github-issue-creator.mjs --resolve');
+    expect(staleCode.run.match(/--title "\$ISSUE_TITLE"/g)).toHaveLength(2);
+    // Si apre solo se l'ondata è partita: niente issue da un dry-run o da uno
+    // step dell'ondata fallito. La guardia sta DOPO il ramo `--resolve`.
+    expect(staleCode.env.DRY_RUN).toBe("${{ inputs.dry_run || 'false' }}");
+    expect(staleCode.env.GENERATION_WAVE_OUTCOME).toBe("${{ steps.generation_wave.outcome || 'skipped' }}");
+    const launchGuard = 'if [ "$DRY_RUN" = "true" ] || [ "$GENERATION_WAVE_OUTCOME" != "success" ]; then';
+    expect(staleCode.run).toContain(launchGuard);
+    expect(staleCode.run.indexOf(launchGuard)).toBeGreaterThan(staleCode.run.indexOf('--resolve'));
+    expect(staleCode.run.indexOf(launchGuard)).toBeLessThan(staleCode.run.lastIndexOf('--title "$ISSUE_TITLE"'));
+    // Issue di condizione senza fix di codice: `keep-open` la tiene fuori dal
+    // routing del triage, che altrimenti la manda dritta al fixer.
+    expect(staleCode.run).toContain('--label keep-open');
+    expect(classifyIssue(staleCode.env.ISSUE_TITLE, ['priority:high', 'Bug', 'keep-open']).route).toBe('none');
     expect(preflight.env.GENERATION_PREFLIGHT_OUTPUT).toBe('${{ runner.temp }}/crawler-generation-dispatch/preflight.json');
     const translationDispatch = steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
     expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');

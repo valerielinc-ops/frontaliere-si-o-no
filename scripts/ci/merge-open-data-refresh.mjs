@@ -20,7 +20,7 @@ import {
 import path from 'node:path';
 import { resolveGitAddPaths } from '../lib/resolve-git-add-path.mjs';
 import { readGitBlob } from '../lib/read-git-blob.mjs';
-import { mergeRefreshContent } from './open-data-refresh-merge.mjs';
+import { imageContainerDefect, mergeRefreshContent } from './open-data-refresh-merge.mjs';
 
 const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
 
@@ -87,6 +87,7 @@ function changedFiles() {
 }
 
 const files = changedFiles();
+const brokenImages = [];
 for (const file of files) {
   const baseRaw = gitShow(options.base, file);
   const remoteRaw = gitShow(options.remote, file);
@@ -98,8 +99,26 @@ for (const file of files) {
     if (existsSync(absolute)) unlinkSync(absolute);
     continue;
   }
+  // An image that cannot be an image must not reach the stable branch: the
+  // refresh PR would be green and the deploy would fail hours later on the
+  // thumbnail step. Every path is still examined so one run names them all.
+  const defect = imageContainerDefect(file, mergedRaw);
+  if (defect) {
+    brokenImages.push({ file, defect });
+    continue;
+  }
   mkdirSync(path.dirname(absolute), { recursive: true });
   writeFileSync(absolute, mergedRaw);
+}
+
+if (brokenImages.length > 0) {
+  for (const { file, defect } of brokenImages) {
+    process.stderr.write(`::error file=${file},title=Refresh: immagine illeggibile::${file}: ${defect}\n`);
+  }
+  process.stderr.write(
+    `[merge-open-data-refresh] refusing ${brokenImages.length} unreadable image(s); nothing is committed\n`,
+  );
+  process.exit(1);
 }
 
 process.stdout.write(`[merge-open-data-refresh] preserved stable tree and applied ${files.length} path(s)\n`);
