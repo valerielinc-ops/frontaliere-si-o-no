@@ -157,7 +157,9 @@ describe('AnswerConsulting SA crawler parser', () => {
 
     it('returns an empty array for a payload with no jobs', () => {
       expect(parseAnswerConsultingWidgetPayload({ jobs: [] })).toEqual([]);
-      expect(parseAnswerConsultingWidgetPayload({})).toEqual([]);
+      const missingJobs = parseAnswerConsultingWidgetPayload({});
+      expect(missingJobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(missingJobs)).toBe(false);
       expect(parseAnswerConsultingWidgetPayload(null)).toEqual([]);
     });
 

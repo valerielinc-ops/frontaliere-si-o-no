@@ -146,7 +146,9 @@ describe('SOPHiA GENETICS crawler parser', () => {
 
     it('returns empty array for empty/missing feed', () => {
       expect(parseSophiaGeneticsWidgetPayload({ jobs: [] })).toEqual([]);
-      expect(parseSophiaGeneticsWidgetPayload({})).toEqual([]);
+      const missingJobs = parseSophiaGeneticsWidgetPayload({});
+      expect(missingJobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(missingJobs)).toBe(false);
       expect(parseSophiaGeneticsWidgetPayload(null)).toEqual([]);
     });
 
