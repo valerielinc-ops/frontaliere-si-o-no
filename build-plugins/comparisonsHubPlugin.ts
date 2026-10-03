@@ -38,7 +38,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatUpdatedDate } from './shared/humanDate';
 import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
@@ -124,10 +124,10 @@ const RELATED_LINKS: Record<ComparisonsLocale, Array<{ href: string; label: stri
 
 // ── Number formatting (locale-aware, deterministic) ──────────────
 
-function fmtInt(n: number, locale: ComparisonsLocale): string {
+function fmtInt(n: number | null, locale: ComparisonsLocale): string {
   // Use the Swiss-German thousands separator (apostrophe) for CHF and
   // European dot/space for EUR — one common convention across locales.
-  if (!Number.isFinite(n)) return '–';
+  if (n === null || !Number.isFinite(n)) return '–';
   const abs = Math.abs(Math.round(n));
   const s = abs.toString();
   // Thousand separator: apostrophe in IT/DE (Swiss convention), comma in EN,
@@ -136,8 +136,8 @@ function fmtInt(n: number, locale: ComparisonsLocale): string {
   return s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 }
 
-function fmtRatio(r: number, locale: ComparisonsLocale): string {
-  if (!Number.isFinite(r) || r <= 0) return '–';
+function fmtRatio(r: number | null, locale: ComparisonsLocale): string {
+  if (r === null || !Number.isFinite(r) || r <= 0) return '–';
   const rounded = Math.round(r * 100) / 100;
   return locale === 'en' ? rounded.toFixed(2) : rounded.toFixed(2).replace('.', ',');
 }
@@ -400,7 +400,7 @@ function renderPage(opts: {
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="s-sy52lX">
-      <p class="s-GMBtq0">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+      <p class="s-GMBtq0">${esc({ it: 'Pagina generata', en: 'Page generated', de: 'Seite erstellt', fr: 'Page générée' }[locale])}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            comparisons + FAQ hubs for shipping two H1 tags. The longer
@@ -419,7 +419,7 @@ function renderPage(opts: {
     </section>
     <section class="s-KZc0LQ">
       <h2 class="s-UYLzwC">${esc(copy.tTaxCaption)}</h2>
-      <p class="s-KwuhOL">${esc(copy.taxIntro)}</p>
+      <p class="s-KwuhOL">${mdLinks(copy.taxIntro)}</p>
       ${taxTable}
     </section>
     <section class="s-KZc0LQ">
