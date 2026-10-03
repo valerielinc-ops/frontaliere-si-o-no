@@ -17,7 +17,9 @@ import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
-import { MAX_PHOTO_BYTES, PHOTO_TYPES, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf } from './assistedApplicationTailoredCvPdf.js';
+import {
+  MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvCarriesPhoto,
+} from './assistedApplicationTailoredCvPdf.js';
 import { cvChoiceOf, inPlaceReady } from './assistedApplicationDocxInPlace.js';
 import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
@@ -191,6 +193,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
       inplaceNeedsPageCheck: draft.tailoredCv.inplace?.status === 'fallback' && draft.tailoredCv.inplace.reason === 'needs_page_check',
       // The optional photo: customary in German-speaking Switzerland, optional elsewhere.
       photo: Boolean(flow?.photo?.key),
+      // Given is not printed: the page says "included" only when the PDF it links carries the photo.
+      photoPrinted: Boolean(flow?.photo?.key) && tailoredCvCarriesPhoto(draft),
       photoAdvice: photoAdvice(draft.language),
       photoMaxBytes: MAX_PHOTO_BYTES,
       // What the tailored CV changed, line by line, with the candidate's choices.
@@ -254,6 +258,84 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it') {
 }
 
 /**
+ * Objects no document names (a refused request's own, a replaced photo, a
+ * superseded PDF), deleted at once. Best effort: a failed delete is logged and
+ * never fails the request; the purge of the order's folder is the backstop.
+ */
+async function deleteStored(bucket, orderId, keys) {
+  if (!bucket) return;
+  await Promise.all(keys.filter(Boolean).map(async (key) => {
+    try {
+      await bucket.file(key).delete({ ignoreNotFound: true });
+    } catch (error) {
+      console.warn('[assistedApplicationReview] delete failed', orderId, documentFileId(key), String(error?.message || error).slice(0, 120));
+    }
+  }));
+}
+
+/**
+ * The commit of the three writers that publish a rebuilt PDF (the photo, the
+ * line choices, the candidate's edits): the flow fields and the draft fields
+ * in one transaction, and only while what the request built from is still
+ * there: the candidate still reviewing this round, the same photo, the same
+ * PDFs and, for an edit, no other edit saved meanwhile (an edit writes the
+ * e-mail, the letter and the per-round texts whole: as it loaded them, plus
+ * its change).
+ * Written as two merges built from the request's own snapshot, two
+ * overlapping requests (two tabs, a request still running after a reload) or
+ * a failure between the writes could leave `flow.photo` null beside a `pdfKey`
+ * whose PDF carries the photo, the PDF chooseCv then sends.
+ *
+ * Refused: the objects the request stored (`created`) are deleted and the
+ * page gets a 409 it answers by reloading. A transaction that throws may still
+ * have committed: its objects are left to the purge, never deleted under a key
+ * a document may name.
+ * @param {object} input flow, draft: what the request loaded and built from;
+ *   edits: a candidate edit, built also on the letter PDF and the texts of the draft
+ */
+async function commitRebuild({ db, bucket, orderId, flow, draft, edits = false, created = [], flowPatch = null, draftPatch, nowMs }) {
+  const flowRef = flowRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
+  const same = (left, right) => (left || null) === (right || null);
+  const committed = await db.runTransaction(async (transaction) => {
+    const [flowSnapshot, draftSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef)]);
+    const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
+    const unchanged = current.flow.state === 'candidate_review'
+      && Number(current.flow.round || 1) === Number(flow.round || 1)
+      && same(current.flow.photo?.key, flow.photo?.key)
+      && same(current.draft.tailoredCv?.pdfKey, draft.tailoredCv?.pdfKey)
+      && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));
+    if (!unchanged) return false;
+    if (flowPatch) transaction.set(flowRef, { ...flowPatch, updatedAt: nowMs }, { merge: true });
+    transaction.set(draftRef, draftPatch, { merge: true });
+    return true;
+  });
+  if (committed) return;
+  await deleteStored(bucket, orderId, created);
+  throw new ReviewError('changed_meanwhile', 409);
+}
+
+/**
+ * The tailored CV rebuilt for a writer that commits with commitRebuild. The
+ * photo the request loaded can be gone before the rebuild reads it: taken back
+ * or replaced by another request, which deletes it after its own commit. That
+ * is the commit's refusal met earlier (what the request stored so far,
+ * `created`, deleted; the 409 the page answers by reloading), not a 500.
+ * savePhotoChange needs none: it reads only the photo it has just stored, a
+ * key no other request knows, or no photo at all.
+ */
+async function rebuildCvToCommit({ created = [], ...input }) {
+  try {
+    return await rebuildTailoredCvPdf(input);
+  } catch (error) {
+    // Storage answers 404 for the photo that is no longer there.
+    if (error?.code !== 404 || !input.flow?.photo?.key) throw error;
+    await deleteStored(input.bucket, input.orderId, created);
+    throw new ReviewError('changed_meanwhile', 409);
+  }
+}
+
+/**
  * The candidate's changes to the letter, the e-mail and the fields, before
  * approving (no flow event: the submission reads them). The letter PDF is
  * rebuilt when its text or the header (name, phone, place) changes; the
@@ -279,31 +361,37 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     whyCompany: motivation.whyCompany,
   }, factSources, { language: draft.language });
 
-  let coverLetterPdfKey = draft.coverLetterPdfKey;
+  // Rebuilt PDFs get a key of their own (a refused request deletes only its own); null: the letter PDF stays.
+  let coverLetterPdfKey = null;
   let coverLetterRenderer = null;
   if ((plan.draftPatch.coverLetter || plan.identityChanged) && bucket) {
     const rebuilt = await rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
-    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}.pdf`;
+    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
     await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }
   // The tailored CV prints the same header: a corrected name, phone or place rebuilds it too.
   const tailored = plan.identityChanged
-    ? await rebuildTailoredCvPdf({ bucket, order, orderId, draft: next, flow: nextFlow, nowMs })
+    ? await rebuildCvToCommit({ bucket, order, orderId, draft: next, flow: nextFlow, nowMs, created: [coverLetterPdfKey] })
     : null;
-  await draftRefFor(db, orderId).set({
-    ...plan.draftPatch,
-    factSources,
-    factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
-    coverLetterPdfKey,
-    ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer } } : {}),
-    // Which writer produced the letter now on the draft.
-    ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
-    candidateEditedAt: nowMs,
-  }, { merge: true });
-  if (Object.keys(plan.overrides).length) {
-    await flowRefFor(db, orderId).set({ formOverrides: nextFlow.formOverrides, updatedAt: nowMs }, { merge: true });
-  }
+  await commitRebuild({
+    db, bucket, orderId, flow, draft, nowMs,
+    // Every edit builds on the letter and the texts on the draft (fact-checked again), rebuilt or not.
+    edits: true,
+    created: [coverLetterPdfKey, tailored?.pdfKey],
+    // Only the fields this request changed: the merge leaves the others as another request wrote them.
+    flowPatch: Object.keys(plan.overrides).length ? { formOverrides: plan.overrides } : null,
+    draftPatch: {
+      ...plan.draftPatch,
+      factSources,
+      factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
+      // With the writer that produced the letter now on the draft.
+      ...(coverLetterPdfKey ? { coverLetterPdfKey, coverLetterRenderer } : {}),
+      ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer, photo: tailored.photo } } : {}),
+      candidateEditedAt: nowMs,
+    },
+  });
+  if (tailored) await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_edited', {
     actor: 'candidate',
     changed: plan.changed,
@@ -364,12 +452,17 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
   if (!facts.ok) throw new ReviewError('cv_fact_check_failed', 409, { unsupported: facts.unsupported.map((item) => item.token).slice(0, 5) });
   const cvChoicesRound = Number(draft.round) || 1;
   const nextFlow = { ...flow, cvChoices: choices, cvChoicesRound };
-  const rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
+  const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   if (!rebuilt) throw new ReviewError('not_allowed', 409);
   // The same choices in the candidate's own Word file, when there is one.
   const inplace = await rebuildInPlaceDocx({ bucket, order, draft, flow: nextFlow });
-  await flowRefFor(db, orderId).set({ cvChoices: choices, cvChoicesRound, updatedAt: nowMs }, { merge: true });
-  await draftRefFor(db, orderId).set({ tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, ...(inplace ? { inplace } : {}) } }, { merge: true });
+  await commitRebuild({
+    db, bucket, orderId, flow, draft, nowMs,
+    created: [rebuilt.pdfKey],
+    flowPatch: { cvChoices: choices, cvChoicesRound },
+    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, ...(inplace ? { inplace } : {}) } },
+  });
+  await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_cv_reviewed', {
     actor: 'candidate',
     kept: Object.values(choices).filter((choice) => choice.use === 'adapted').length,
@@ -383,7 +476,8 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
  * The candidate's photo for the tailored CV: given (a JPG or PNG by its bytes,
  * at most 2 MB) or taken back. The tailored CV is rebuilt with or without it;
  * the photo lives in the order's folder, so the retention deletes it with the
- * order.
+ * order. A photo taken back or replaced is deleted at once, with the PDF that
+ * carried it.
  */
 async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action, body, nowMs }) {
   if (!bucket) throw new ReviewError('storage_unavailable', 503);
@@ -396,19 +490,38 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
     if (buffer.length > MAX_PHOTO_BYTES) throw new ReviewError('photo_too_large', 413);
     const type = detectDocumentType(buffer.subarray(0, 16));
     if (!PHOTO_TYPES.has(type)) throw new ReviewError('photo_type_not_allowed');
+    // A JPG cut on the way passes the first-bytes check and Typst prints what arrived, half grey: refused here.
+    if (type === 'jpg' && !jpegIsWhole(buffer)) throw new ReviewError('photo_unreadable');
     const key = `assisted-application-uploads/${orderId}/photo-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
     await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
     photo = { key, detectedType: type, size: buffer.length, uploadedAt: nowMs };
   }
-  const nextFlow = { ...flow, photo };
-  const rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
-  if (!rebuilt) {
-    if (photo) await bucket.file(photo.key).delete().catch(() => {});
-    throw new ReviewError('not_allowed', 409);
+  let rebuilt;
+  try {
+    rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: { ...flow, photo }, nowMs });
+  } catch (error) {
+    // Nothing names the new photo yet: it does not stay behind a failed request.
+    await deleteStored(bucket, orderId, [photo?.key]);
+    throw error;
   }
-  await flowRefFor(db, orderId).set({ photo, updatedAt: nowMs }, { merge: true });
-  await draftRefFor(db, orderId).set({ tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: Boolean(photo) } }, { merge: true });
-  if (flow?.photo?.key && flow.photo.key !== photo?.key) await bucket.file(flow.photo.key).delete().catch(() => {});
+  const created = [photo?.key, rebuilt?.pdfKey];
+  // Typst wrote the CV, but without the photo: it cannot read the image (a truncated PNG passes the
+  // first-bytes check). The file is refused, nothing of it is kept, the state stays. With the
+  // standard-font writer (the switch, or Typst failing on every document) the photo is kept, and the
+  // page says it is not printed.
+  const unreadable = Boolean(photo && rebuilt && !rebuilt.photo && rebuilt.renderer === 'typst');
+  if (!rebuilt || unreadable) {
+    await deleteStored(bucket, orderId, created);
+    throw unreadable ? new ReviewError('photo_unreadable') : new ReviewError('not_allowed', 409);
+  }
+  await commitRebuild({
+    db, bucket, orderId, flow, draft, nowMs, created,
+    flowPatch: { photo },
+    // `photo`: what the PDF carries, not what was given (the standard-font writer prints none).
+    draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
+  });
+  // Only now, with the commit in, does no document name the photo it replaces.
+  await deleteStored(bucket, orderId, [flow.photo?.key !== photo?.key ? flow.photo?.key : null, supersededPhotoPdf(draft)]);
   return Boolean(photo);
 }
 

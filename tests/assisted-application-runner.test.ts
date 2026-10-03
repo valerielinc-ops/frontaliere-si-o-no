@@ -13,7 +13,8 @@ import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-applic
 import { openRequiredQuestions, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { safeErrorCode } from '../scripts/assisted-application/agent.mjs';
+import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
+import { safeErrorCode, writeDraft } from '../scripts/assisted-application/agent.mjs';
 
 const KEY = Buffer.alloc(32, 7);
 const ORDER_ID = 'order_RUN123';
@@ -39,6 +40,7 @@ function fakeBucket() {
         if (!files.has(key)) throw Object.assign(new Error('missing'), { code: 404 });
         return [files.get(key)];
       },
+      async delete() { files.delete(key); },
     }),
   };
 }
@@ -196,19 +198,74 @@ describe('draft mode', () => {
 
   it('keeps on the next round’s tailored CV the photo the candidate gave on the review page', async () => {
     const bucket = fakeBucket();
-    // A 1×1 PNG, as the review page stores it.
-    const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==', 'base64');
-    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(png);
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(PNG_1X1);
     const draft = await buildDraft({
       order, orderId: ORDER_ID, flow: { round: 2, answers: {}, photo: { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' } },
       previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf', codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
     });
     expect(draft.tailoredCv).toMatchObject({ status: 'ready', photo: true, renderer: 'typst' });
-    const { getDocumentProxy, getResolvedPDFJS } = await import('unpdf');
-    const { OPS } = await getResolvedPDFJS();
-    const pdf = await getDocumentProxy(new Uint8Array(bucket.files.get(draft.tailoredCv.pdfKey)!));
-    const operators = await (await pdf.getPage(1)).getOperatorList();
-    expect(operators.fnArray).toContain(OPS.paintImageXObject);
+    expect(await pdfPaintsImage(bucket.files.get(draft.tailoredCv.pdfKey)!)).toBe(true);
+  }, 60_000);
+
+  it('deletes the previous round’s tailored CV that carried the photo once the next draft replaces it', async () => {
+    const bucket = fakeBucket();
+    const photo = { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' };
+    await bucket.file(photo.key).save(PNG_1X1);
+    const store = createMemoryFirestore();
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER_ID);
+    const build = (round: number) => buildDraft({
+      order, orderId: ORDER_ID, flow: { round, answers: {}, photo }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    const first = await build(1);
+    await writeDraft({ orderRef, bucket, draft: first, previousDraft: null });
+    const next = await build(2);
+    await writeDraft({ orderRef, bucket, draft: next, previousDraft: first });
+    expect(store.read(`assisted_applications/${ORDER_ID}/ai_drafts/current`).tailoredCv.pdfKey).toBe(next.tailoredCv.pdfKey);
+    // Only the PDF the draft names carries the photo: taken back on the review page, it leaves none behind.
+    const withPhoto: string[] = [];
+    for (const [key, bytes] of bucket.files) if (key.endsWith('.pdf') && await pdfPaintsImage(bytes)) withPhoto.push(key);
+    expect(withPhoto).toEqual([next.tailoredCv.pdfKey]);
+
+    // A PDF without the photo (none given, or the standard-font writer) is not this rule's: it stays for the purge.
+    for (const tailoredCv of [{ renderer: 'typst' }, { renderer: 'legacy', photo: true }]) {
+      const key = `assisted-application-uploads/${ORDER_ID}/ai-cv-r1-${tailoredCv.renderer}.pdf`;
+      await bucket.file(key).save(cvPdf());
+      await writeDraft({ orderRef, bucket, draft: next, previousDraft: { tailoredCv: { status: 'ready', pdfKey: key, ...tailoredCv } } });
+      expect(bucket.files.has(key)).toBe(true);
+    }
+
+    // A delete that fails is logged; the draft (here a round whose tailored CV failed) is written all the same.
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    // On GitHub Actions the runner's summary() would append this line to the tests job's own summary page.
+    vi.stubEnv('GITHUB_STEP_SUMMARY', '');
+    const failing = { file: (key: string) => ({ ...bucket.file(key), delete: async () => { throw new Error('storage unavailable'); } }) };
+    try {
+      await writeDraft({ orderRef, bucket: failing, draft: { ...next, round: 3, tailoredCv: { status: 'failed', language: 'it' } }, previousDraft: next });
+      expect(store.read(`assisted_applications/${ORDER_ID}/ai_drafts/current`)).toMatchObject({ round: 3, tailoredCv: { status: 'failed' } });
+      expect(bucket.files.has(next.tailoredCv.pdfKey)).toBe(true);
+      expect(log.mock.calls.map(([line]) => String(line))).toContain('[assisted-application] superseded tailored cv not deleted: storage unavailable');
+    } finally {
+      log.mockRestore();
+      vi.unstubAllEnvs();
+    }
+  }, 60_000);
+
+  it('records the photo only when the PDF carries it: never with the standard-font writer', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(PNG_1X1);
+    vi.stubEnv('ASSISTED_APPLICATION_PDF_RENDERER', 'legacy');
+    try {
+      const draft = await buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 2, answers: {}, photo: { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' } },
+        previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf', codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      });
+      expect(draft.tailoredCv).toMatchObject({ status: 'ready', renderer: 'legacy' });
+      expect(draft.tailoredCv).not.toHaveProperty('photo');
+      expect(await pdfPaintsImage(bucket.files.get(draft.tailoredCv.pdfKey)!)).toBe(false);
+    } finally {
+      vi.unstubAllEnvs();
+    }
   }, 60_000);
 
   it('stops before any Codex call when the posting is closed', async () => {
