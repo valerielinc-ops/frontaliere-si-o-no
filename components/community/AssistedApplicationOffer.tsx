@@ -22,6 +22,16 @@ export interface AssistedApplicationOfferProps {
   onClose: () => void;
   paidLoading?: boolean;
   error?: string | null;
+  /**
+   * Shown by a host overlay (RewardedApplicationOffer's paid choice) that
+   * already locks the body scroll and handles Escape: two locks would
+   * restore each other's saved value out of order.
+   */
+  embedded?: boolean;
+  /** `trigger` of `assisted_application_offer_viewed` (who opened the offer). */
+  trigger?: string;
+  /** Label of the free button, when the free path is not a direct hand-off. */
+  externalLabel?: string;
 }
 
 /** Transparent choice surface for the assisted-application treatment arm. */
@@ -36,6 +46,9 @@ export default function AssistedApplicationOffer({
   onClose,
   paidLoading = false,
   error = null,
+  embedded = false,
+  trigger,
+  externalLabel,
 }: AssistedApplicationOfferProps) {
   const { t } = useTranslation();
   const handleBackdropClick = useApplicationOfferBackdropDismiss(onClose);
@@ -46,10 +59,14 @@ export default function AssistedApplicationOffer({
       jobId,
       companyId,
       price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+      ...(trigger ? { trigger } : {}),
     });
+    // Viewed once per job; the trigger is the one it opened with.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companyId, jobId, variant]);
 
   useEffect(() => {
+    if (embedded) return undefined;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -60,7 +77,7 @@ export default function AssistedApplicationOffer({
       document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [embedded, onClose]);
 
   const modal = (
     <div
@@ -137,7 +154,7 @@ export default function AssistedApplicationOffer({
               data-testid="assisted-application-offer-external"
             >
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              {t('jobBoard.assisted.externalCta')}
+              {externalLabel ?? t('jobBoard.assisted.externalCta')}
             </button>
           </div>
 

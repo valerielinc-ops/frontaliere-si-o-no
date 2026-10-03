@@ -2,10 +2,10 @@
  * Form-field discovery for the portal runner. `extractFieldsInPage` runs
  * inside the page (Playwright `evaluate`) and is self-contained on purpose.
  *
- * Label resolution follows OfferOS' read-field-meta (Apache-2.0,
- * apps/extension/src/lib/autofill/read-field-meta.ts): `label[for]`,
- * `aria-labelledby`, `aria-label`, the wrapping `<label>`, the fieldset
- * legend / group question, then placeholder and name. Each visible, enabled
+ * Label resolution: `label[for]`, `aria-labelledby`, `aria-label` and the
+ * wrapping `<label>`, the technique of OfferOS (Apache-2.0, `labelInfo` in
+ * apps/extension/src/lib/autofill/dom-fill.ts; no code taken); then, ours, the
+ * fieldset legend / group question, placeholder and name. Each visible, enabled
  * control gets a stable `data-aa-id` so the filler can find it again after
  * React re-renders (career-ops quirk: never cache element handles).
  */
@@ -303,7 +303,7 @@ export function extractFieldsInPage() {
   }
   for (const entry of ariaGroups.values()) if (entry.options.length) fields.push(entry);
   // Workday-style dropdowns are buttons that open a listbox (OfferOS
-  // aria-driver): a field whose options are read later by opening it.
+  // dom-fill, isListboxButton): a field whose options are read later by opening it.
   for (const element of document.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
     if (element.disabled || !visible(element)) continue;
     const label = labelFor(element);
