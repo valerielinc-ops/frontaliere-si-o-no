@@ -23011,6 +23011,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'guida-terzo-3a-berna',
+    category: 'pensione',
+    date: '2026-10-03T13:22:34.891Z',
+    image: '/images/blog/guida-terzo-3a-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'lista-governo-ticino-2027',
+    category: 'novita',
+    date: '2026-10-03T14:01:50.511Z',
+    image: '/images/blog/lista-governo-ticino-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'guida-3a-fisco-vaud',
+    category: 'fiscale',
+    date: '2026-10-03T14:44:40.044Z',
+    image: '/images/blog/guida-3a-fisco-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'ginevra-manifestazione-palestina-sanzioni-2025',
+    category: 'novita',
+    date: '2026-10-03T16:24:50.966Z',
+    image: '/images/blog/ginevra-manifestazione-palestina-sanzioni-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

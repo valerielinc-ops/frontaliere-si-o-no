@@ -925,6 +925,10 @@ export function mergeDailyItemSources(primary, duplicate) {
  * Deduplicate parsed daily items in production.  Items with no complete
  * fingerprint are retained: the caller must let the acceptance/state gates deal
  * with them rather than silently dropping work on an incomplete record.
+ *
+ * In ogni record di `duplicates`, `kept` è il superstite AL MOMENTO di
+ * quell'accorpamento, non quello finale: con tre o più gemelli un `done` arrivato
+ * dopo può sostituirlo. Il superstite finale si legge in `items`.
  */
 export function dedupeDailyItems(items, bucketTargetRepository = '') {
   const unique = [];
@@ -938,10 +942,22 @@ export function dedupeDailyItems(items, bucketTargetRepository = '') {
       continue;
     }
     const index = byFingerprint.get(fingerprint);
-    unique[index] = mergeDailyItemSources(unique[index], item);
+    const kept = unique[index];
+    // Stati diversi: vince il `done`. Scartarlo a favore del gemello `open`
+    // cancellerebbe il registro del lavoro fatto e riaprirebbe l'item. Il `done`
+    // resta al SUO posto nell'ordine sorgente, col suo ID stabile.
+    if (item?.state === 'done' && kept?.state !== 'done') {
+      const survivor = mergeDailyItemSources(item, kept);
+      unique[index] = null;
+      byFingerprint.set(fingerprint, unique.length);
+      unique.push(survivor);
+      duplicates.push({ item: kept, fingerprint, kept: survivor });
+      continue;
+    }
+    unique[index] = mergeDailyItemSources(kept, item);
     duplicates.push({ item, fingerprint, kept: unique[index] });
   }
-  return { items: unique, duplicates };
+  return { items: unique.filter(Boolean), duplicates };
 }
 
 /**
