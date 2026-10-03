@@ -1,17 +1,18 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-02T21:17:16.441Z",
+  "generatedAt": "2026-10-03T09:23:05.593Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5279,
-  "avgDurationMs": 5279,
+  "durationMs": 5429,
+  "avgDurationMs": 5429,
   "durationHistory": [
     5031,
-    5279
+    5279,
+    5429
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -148,6 +149,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/private-banking-assistant/",
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/private-banking-assistant",
       "crawlerMissStreak": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -155,8 +157,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 16
-      },
-      "sourceIdentity": "url:https://www.bancasempione.ch/job/private-banking-assistant"
+      }
     }
   ]
 }

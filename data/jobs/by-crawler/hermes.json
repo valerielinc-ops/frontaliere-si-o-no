@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-10-02T21:16:03.911Z",
+  "assembledAt": "2026-10-03T09:12:36.151Z",
   "jobs": [
     {
       "id": "hermes-bfa10b4da950",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:58.886Z",
+      "crawledAt": "2026-10-03T09:12:31.581Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -78,7 +78,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hermes-02949861efad",
@@ -111,7 +112,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:58.260Z",
+      "crawledAt": "2026-10-03T09:12:30.948Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -156,7 +157,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hermes-4cca3ac90e60",
@@ -189,7 +191,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:57.647Z",
+      "crawledAt": "2026-10-03T09:12:30.285Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -206,22 +208,6 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stage-developpement-durable-f-h-hermes-ch",
-        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-developpement-durable-f-h-hermes-ch",
-          "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
-        ],
-        "en": [
-          "stage-developpement-durable-f-h-hermes-ch"
-        ],
-        "de": [
-          "stage-developpement-durable-f-h-hermes-ch"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:17:00.701Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
@@ -235,7 +221,24 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-developpement-durable-f-h-hermes-ch",
+          "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
+        ],
+        "en": [
+          "stage-developpement-durable-f-h-hermes-ch"
+        ],
+        "de": [
+          "stage-developpement-durable-f-h-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stage-developpement-durable-f-h-hermes-ch",
+        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "hermes-f368fe61a72d",
@@ -268,7 +271,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23937/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:56.784Z",
+      "crawledAt": "2026-10-03T09:12:29.662Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",

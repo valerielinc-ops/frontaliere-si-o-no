@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-10-02T21:14:53.030Z",
+  "assembledAt": "2026-10-03T09:14:58.731Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-20362b2dcf3f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-zweisprachig/facfb110-e586-45c5-b396-8d21bc7383eb",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.035Z",
+      "crawledAt": "2026-10-03T09:14:36.666Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -64,13 +64,15 @@
         "mitarbeiter-in-contact-center-zweisprachig-ab-50-vz-vermogenszentrum-zurich",
         "mitarbeiter-in-contact-center-zweisprachig-ab-50-vz-vermoegenszentrum-ch",
         "mitarbeiter-in-contact-center-zweisprachig-ab-40-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-contact-center-zweisprachig-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-contact-center-zweisprachig-vz-vermoegenszentrum-ch",
+        "collaboratore-trice-in-contact-center-zweisprachig-ab-50-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-contact-center-zweisprachig-ab-50-vz-vermoegenszentrum-ch",
           "mitarbeiter-in-contact-center-zweisprachig-ab-40-vz-vermoegenszentrum-ch",
-          "mitarbeiter-in-contact-center-zweisprachig-vz-vermoegenszentrum-ch"
+          "mitarbeiter-in-contact-center-zweisprachig-vz-vermoegenszentrum-ch",
+          "collaboratore-trice-in-contact-center-zweisprachig-ab-50-vz-vermogenszentrum-zurich"
         ],
         "en": [
           "mitarbeiter-in-contact-center-zweisprachig-ab-50-vz-vermogenszentrum-zurich"
@@ -92,7 +94,8 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-f3367b7723fd",
@@ -125,7 +128,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-hochdeutsch/5183c85d-3a37-457a-baee-12334360c46c",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.035Z",
+      "crawledAt": "2026-10-03T09:14:36.665Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -156,13 +159,15 @@
         "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich",
         "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
         "mitarbeiter-in-contact-center-hochdeutsch-ab-50-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch",
+        "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermoegenszentrum-ch",
           "mitarbeiter-in-contact-center-hochdeutsch-ab-50-vz-vermoegenszentrum-ch",
-          "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch"
+          "mitarbeiter-in-contact-center-hochdeutsch-vz-vermoegenszentrum-ch",
+          "collaboratore-trice-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
         ],
         "en": [
           "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
@@ -184,7 +189,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-065bec3e4970",
@@ -217,7 +223,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center/5302e5f4-5b81-442e-8676-8872e8b64a3b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.034Z",
+      "crawledAt": "2026-10-03T09:14:36.665Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -248,13 +254,15 @@
         "mitarbeiter-in-contact-center-ab-50-vz-vermogenszentrum-zurich",
         "mitarbeiter-in-contact-center-ab-50-vz-vermoegenszentrum-ch",
         "mitarbeiter-in-contact-center-ab-40-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-contact-center-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-contact-center-vz-vermoegenszentrum-ch",
+        "collaboratore-trice-in-contact-center-ab-50-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-contact-center-ab-50-vz-vermoegenszentrum-ch",
           "mitarbeiter-in-contact-center-ab-40-vz-vermoegenszentrum-ch",
-          "mitarbeiter-in-contact-center-vz-vermoegenszentrum-ch"
+          "mitarbeiter-in-contact-center-vz-vermoegenszentrum-ch",
+          "collaboratore-trice-in-contact-center-ab-50-vz-vermogenszentrum-zurich"
         ],
         "fr": [
           "mitarbeiter-in-contact-center-ab-50-vz-vermogenszentrum-zurich"
@@ -273,7 +281,8 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-209b5743974e",
@@ -306,7 +315,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/fachspezialist-in-underwriting/6ba404fd-1ff7-4c04-9e57-8eb7291edcf4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.033Z",
+      "crawledAt": "2026-10-03T09:14:36.663Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -340,7 +349,8 @@
       "previousSlugsByLocale": {
         "de": [
           "fachspezialist-in-underwriting-vz-vermoegenszentrum-ch",
-          "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch"
+          "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch",
+          "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch"
         ],
         "it": [
           "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
@@ -350,7 +360,8 @@
           "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich",
           "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch",
           "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich",
-          "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich"
+          "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich",
+          "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich"
         ],
         "en": [
           "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich"
@@ -368,7 +379,8 @@
         "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich",
         "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch",
         "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich",
-        "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich"
+        "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich",
+        "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-04T12:46:45.786Z",
       "salaryMin": 79000,
@@ -383,7 +395,8 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-7447c8b8149f",
@@ -416,7 +429,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/collaborateur-collaboratrice-contact-center/400da688-9b37-4f98-b3f4-b2d633b3b3f3",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:48.034Z",
+      "crawledAt": "2026-10-03T09:14:36.664Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -451,7 +464,8 @@
         "service-center-80-100-vz-vermogenszentrum-lausanne-vaud",
         "conseiller-ere-clients-service-center-80-100-vz-vermoegenszentrum-ch",
         "collaborateur-collaboratrice-contact-center-50-vz-vermoegenszentrum-ch",
-        "collaborateur-collaboratrice-contact-center-vz-vermoegenszentrum-ch"
+        "collaborateur-collaboratrice-contact-center-vz-vermoegenszentrum-ch",
+        "centro-contatti-collaboratore-40-80-vz-vermogenszentrum-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -462,7 +476,8 @@
           "service-center-80-100-vz-vermogenszentrum-lausanne-vaud",
           "conseiller-ere-clients-service-center-80-100-vz-vermoegenszentrum-ch",
           "collaborateur-collaboratrice-contact-center-50-vz-vermoegenszentrum-ch",
-          "collaborateur-collaboratrice-contact-center-vz-vermoegenszentrum-ch"
+          "collaborateur-collaboratrice-contact-center-vz-vermoegenszentrum-ch",
+          "centro-contatti-collaboratore-40-80-vz-vermogenszentrum-zurich-zurich"
         ],
         "en": [
           "collaborateur-collaboratrice-contact-center-40-80-vz-vermogenszentrum-zurich",
@@ -496,7 +511,7 @@
       "id": "vz-vermoegenszentrum-c6c11085934c",
       "slug": "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
       "slugByLocale": {
-        "it": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
+        "it": "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
         "en": "personnel-in-operations-pension-fund-with-specialist-responsibility-80-100-vz-vermogenszentrum-zurich-zurich",
         "de": "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
         "fr": "personnel-dans-la-caisse-de-retraite-des-operations-avec-responsabilite-specialisee-80-100-vz-vermogenszentrum-zurich"
@@ -523,7 +538,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung/317c3f61-0a4d-4c1b-9942-ff6983b5e284",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.033Z",
+      "crawledAt": "2026-10-03T09:14:36.663Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -553,15 +568,20 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+          "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
+          "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich"
         ],
         "de": [
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
+        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+        "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
+        "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich"
       ],
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
@@ -613,7 +633,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/netzwerkmanager-mit-flair-fuer-infrastrukturprojekte/2e19b692-9c50-477b-98c6-63afe1b1a69f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.032Z",
+      "crawledAt": "2026-10-03T09:14:36.662Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -649,12 +669,14 @@
       "previousSlugs": [
         "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-80-100-vz-vermogenszentrum-zurich",
         "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-80-100-vz-vermoegenszentrum-ch",
-        "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-vz-vermoegenszentrum-ch"
+        "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-vz-vermoegenszentrum-ch",
+        "netzwerkmanager-con-predisposizione-per-infrastrukturprojekte-80-100-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-80-100-vz-vermoegenszentrum-ch",
-          "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-vz-vermoegenszentrum-ch"
+          "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-vz-vermoegenszentrum-ch",
+          "netzwerkmanager-con-predisposizione-per-infrastrukturprojekte-80-100-vz-vermogenszentrum-zurich"
         ],
         "en": [
           "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-80-100-vz-vermogenszentrum-zurich"
@@ -676,7 +698,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-db684b5d84c8",
@@ -709,7 +732,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mandatsleiter-in-corporate-insurance-management/734a991b-ab1c-4d4c-ae65-937e9072ebf5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.030Z",
+      "crawledAt": "2026-10-03T09:14:36.660Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -743,13 +766,15 @@
       "previousSlugs": [
         "mandatsleiter-in-corporate-insurance-management-80-100-vz-vermogenszentrum-zurich",
         "mandatsleiter-in-corporate-insurance-management-80-100-vz-vermoegenszentrum-ch",
-        "mandatsleiter-in-corporate-insurance-management-vz-vermoegenszentrum-ch"
+        "mandatsleiter-in-corporate-insurance-management-vz-vermoegenszentrum-ch",
+        "responsabile-della-gestione-aziendale-delle-assicurazioni-80-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mandatsleiter-in-corporate-insurance-management-80-100-vz-vermogenszentrum-zurich",
           "mandatsleiter-in-corporate-insurance-management-80-100-vz-vermoegenszentrum-ch",
-          "mandatsleiter-in-corporate-insurance-management-vz-vermoegenszentrum-ch"
+          "mandatsleiter-in-corporate-insurance-management-vz-vermoegenszentrum-ch",
+          "responsabile-della-gestione-aziendale-delle-assicurazioni-80-100-vz-vermogenszentrum-zurich-zurich"
         ],
         "fr": [
           "mandatsleiter-in-corporate-insurance-management-80-100-vz-vermogenszentrum-zurich"
@@ -768,13 +793,14 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-dd25003702e5",
       "slug": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona",
       "slugByLocale": {
-        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
+        "it": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "fr": "consultant-en-clientele-privee-80-100-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
@@ -801,7 +827,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ca75c4c3-e622-428f-89e0-b099c4f6d87f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.031Z",
+      "crawledAt": "2026-10-03T09:14:36.661Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -835,13 +861,17 @@
       "previousSlugs": [
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "private-clients-consultant-vz-vermoegenszentrum-ch"
+        "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
+        "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
+          "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-07-10T22:31:21.324Z",
@@ -857,13 +887,14 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-717bd0ebdfbe",
       "slug": "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug",
       "slugByLocale": {
-        "it": "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
+        "it": "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug",
         "en": "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
         "de": "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
         "fr": "product-manager-produits-et-experience-client-60-100-vz-vermogenszentrum-zug"
@@ -890,7 +921,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/product-manager-products-customer-experience/6242c744-b38f-4f9b-ac48-50981c6a3448",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.029Z",
+      "crawledAt": "2026-10-03T09:14:36.659Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -925,12 +956,16 @@
       },
       "previousSlugs": [
         "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
-        "product-manager-products-customer-experience-vz-vermoegenszentrum-ch"
+        "product-manager-products-customer-experience-vz-vermoegenszentrum-ch",
+        "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
+        "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
-          "product-manager-products-customer-experience-vz-vermoegenszentrum-ch"
+          "product-manager-products-customer-experience-vz-vermoegenszentrum-ch",
+          "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
+          "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug"
         ]
       },
       "needsRetranslation": true,
@@ -983,7 +1018,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/88021f17-636c-41cf-a978-26498edcfd5b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.029Z",
+      "crawledAt": "2026-10-03T09:14:36.659Z",
       "addressLocality": "Thun",
       "postalCode": "3600",
       "addressRegion": "Bern",
@@ -1012,12 +1047,14 @@
       },
       "previousSlugs": [
         "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermoegenszentrum-ch",
-        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermogenszentrum-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermoegenszentrum-ch",
-          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermogenszentrum-thun"
         ]
       },
       "firstSeenAt": "2026-07-15T12:09:12.091Z",
@@ -1033,7 +1070,8 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-51f38c1d4bcc",
@@ -1066,7 +1104,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/779bbb02-01dd-4a21-b614-d28943d2190e",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.027Z",
+      "crawledAt": "2026-10-03T09:14:36.657Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "Zürich",
@@ -1096,11 +1134,13 @@
       "previousSlugsByLocale": {
         "de": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz-euds8m",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz"
         ],
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-winterthur-zurich"
         ],
         "en": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz"
@@ -1112,7 +1152,8 @@
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz",
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz-euds8m",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-winterthur-zurich"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.757Z",
       "salaryMin": 113000,
@@ -1127,16 +1168,17 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-61cd5fa24e20",
       "slug": "successione-commerciale-m-a-vz-vermogenszentrum-bern",
       "slugByLocale": {
-        "it": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
+        "it": "successione-commerciale-m-a-vz-vermogenszentrum-bern",
         "en": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
         "de": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch",
-        "fr": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern"
+        "fr": "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1160,7 +1202,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/consultant-unternehmensnachfolge-m-a/add696ae-f8b3-4c02-b1b9-adf35a4e1e74",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.028Z",
+      "crawledAt": "2026-10-03T09:14:36.658Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -1197,16 +1239,20 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch"
+          "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch"
         ],
         "it": [
           "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch",
           "senior-consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern"
+          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
+          "successione-commerciale-m-a-vz-vermogenszentrum-bern"
         ],
         "fr": [
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
           "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
         ]
       },
@@ -1216,6 +1262,8 @@
         "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
         "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
         "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
+        "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
+        "successione-commerciale-m-a-vz-vermogenszentrum-bern",
         "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.770Z",
@@ -1264,7 +1312,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/ims-praktikum-software-entwicklung/3b5ae99d-59d0-46f1-bc37-a53785eee521",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.026Z",
+      "crawledAt": "2026-10-03T09:14:36.656Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1295,13 +1343,15 @@
       "previousSlugs": [
         "ims-praktikum-software-entwicklung-100-vz-vermoegenszentrum-ch",
         "ims-praktikum-software-entwicklung-100-vz-vermogenszentrum-zurich",
-        "ims-praktikum-software-entwicklung-vz-vermoegenszentrum-ch"
+        "ims-praktikum-software-entwicklung-vz-vermoegenszentrum-ch",
+        "sviluppo-software-di-stage-ims-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ims-praktikum-software-entwicklung-100-vz-vermoegenszentrum-ch",
           "ims-praktikum-software-entwicklung-100-vz-vermogenszentrum-zurich",
-          "ims-praktikum-software-entwicklung-vz-vermoegenszentrum-ch"
+          "ims-praktikum-software-entwicklung-vz-vermoegenszentrum-ch",
+          "sviluppo-software-di-stage-ims-100-vz-vermogenszentrum-zurich-zurich"
         ],
         "en": [
           "ims-praktikum-software-entwicklung-100-vz-vermogenszentrum-zurich"
@@ -1329,10 +1379,10 @@
       "id": "vz-vermoegenszentrum-42a287e1cf5d",
       "slug": "private-clients-consulente-vz-vermogenszentrum-zurich",
       "slugByLocale": {
-        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
+        "it": "private-clients-consulente-vz-vermogenszentrum-zurich",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "fr": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich"
+        "fr": "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1356,7 +1406,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/a61ff8a7-ad57-425a-b81e-8d017956f1e7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.025Z",
+      "crawledAt": "2026-10-03T09:14:36.655Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -1393,16 +1443,21 @@
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
         "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
+        "private-clients-consulente-vz-vermogenszentrum-zurich",
         "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
+          "private-clients-consulente-vz-vermogenszentrum-zurich"
         ],
         "fr": [
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
         ]
       },
@@ -1419,7 +1474,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-a21339dcea67",
@@ -1452,7 +1508,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/b43673c1-643f-4885-88d9-db21e5b0d57f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.021Z",
+      "crawledAt": "2026-10-03T09:14:36.653Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "addressRegion": "Zürich",
@@ -1481,11 +1537,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz"
         ],
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-uster-zurich"
         ],
         "en": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz"
@@ -1496,7 +1554,8 @@
       },
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-uster-zurich"
       ],
       "firstSeenAt": "2026-08-06T12:10:39.219Z",
       "salaryMin": 113000,
@@ -1511,7 +1570,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-2010e3f15625",
@@ -1544,7 +1604,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-in-die-privatkundenberatung/b129d5fd-f685-48a7-b38c-178e9d4ef31d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.020Z",
+      "crawledAt": "2026-10-03T09:14:36.652Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -1577,14 +1637,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "einstieg-in-die-privatkundenberatung-vz-vermoegenszentrum-ch"
+          "einstieg-in-die-privatkundenberatung-vz-vermoegenszentrum-ch",
+          "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona"
         ],
         "it": [
           "einstieg-in-die-privatkundenberatung-vz-vermoegenszentrum-ch",
           "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona-i8p6u4",
           "entry-into-private-customer-consulting-vz-vermogenszentrum-rapperswil-jona-sankt-gallen",
           "entree-dans-la-consultation-privee-des-clients-vz-vermogenszentrum-rapperswil-jona-sankt-gallen",
-          "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona"
+          "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona",
+          "entrata-in-consulenza-clienti-privati-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
         ]
       },
       "previousSlugs": [
@@ -1592,7 +1654,8 @@
         "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona-i8p6u4",
         "entry-into-private-customer-consulting-vz-vermogenszentrum-rapperswil-jona-sankt-gallen",
         "entree-dans-la-consultation-privee-des-clients-vz-vermogenszentrum-rapperswil-jona-sankt-gallen",
-        "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona"
+        "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona",
+        "entrata-in-consulenza-clienti-privati-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
       ],
       "firstSeenAt": "2026-08-14T10:19:05.456Z",
       "salaryMin": 99000,
@@ -1607,7 +1670,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-85db2b6d6b02",
@@ -1640,7 +1704,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/7a5911fc-256f-4946-9ca5-9c6c31a657c9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.020Z",
+      "crawledAt": "2026-10-03T09:14:36.651Z",
       "addressLocality": "Basel",
       "postalCode": "4051",
       "addressRegion": "Basel-Stadt",
@@ -1676,14 +1740,17 @@
       "firstSeenAt": "2026-08-14T10:19:05.458Z",
       "previousSlugsByLocale": {
         "it": [
-          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-basel"
         ],
         "de": [
-          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-basel"
         ]
       },
       "previousSlugs": [
-        "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-basel"
       ],
       "salaryMin": 74500,
       "salaryMax": 131000,
@@ -1697,7 +1764,8 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-69544c981233",
@@ -1730,7 +1798,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/risk-officer-operationelle-risiken/0c1e9f94-9f3a-42bb-bea0-6a59587764f8",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.019Z",
+      "crawledAt": "2026-10-03T09:14:36.650Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -1761,11 +1829,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch"
+          "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
+          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
         ],
         "it": [
           "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
-          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
+          "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
+          "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug"
         ],
         "en": [
           "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
@@ -1776,7 +1846,8 @@
       },
       "previousSlugs": [
         "risk-officer-operationelle-risiken-vz-vermoegenszentrum-ch",
-        "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug"
+        "risk-officer-operationelle-risiken-vz-vermogenszentrum-zug",
+        "rischio-operativo-dell-agente-di-rischio-vz-vermogenszentrum-zug-zug"
       ],
       "firstSeenAt": "2026-08-17T10:11:03.272Z",
       "salaryMin": 80000,
@@ -1791,7 +1862,8 @@
           "maxValue": 137000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-67acdfa08a66",
@@ -1824,7 +1896,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-pour-bienne/54843c65-a555-4056-b115-007a676821de",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:48.018Z",
+      "crawledAt": "2026-10-03T09:14:36.649Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -1857,11 +1929,13 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel"
         ],
         "it": [
           "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch",
-          "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel"
+          "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel",
+          "consulente-clienti-privato-per-biel-vz-vermogenszentrum-biel-bern"
         ],
         "en": [
           "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel"
@@ -1872,7 +1946,8 @@
       },
       "previousSlugs": [
         "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch",
-        "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel"
+        "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel",
+        "consulente-clienti-privato-per-biel-vz-vermogenszentrum-biel-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T10:11:08.037Z",
@@ -1921,7 +1996,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/premiere-experience-en-financial-consulting-pour-bienne/883f0431-8477-4643-b194-08ac2655fdf1",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:48.017Z",
+      "crawledAt": "2026-10-03T09:14:36.648Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -1955,14 +2030,16 @@
       "previousSlugsByLocale": {
         "fr": [
           "premiere-experience-en-financial-consulting-80-100-vz-vermoegenszentrum-ch",
-          "premiere-experience-en-financial-consulting-pour-bienne-vz-vermoegenszentrum-ch"
+          "premiere-experience-en-financial-consulting-pour-bienne-vz-vermoegenszentrum-ch",
+          "premiere-experience-en-financial-consulting-pour-bienne-vz-vermogenszentrum-biel"
         ],
         "it": [
           "premiere-experience-en-financial-consulting-pour-bienne-vz-vermoegenszentrum-ch",
           "premiere-experience-en-financial-consulting-80-100-vz-vermogenszentrum-lausanne",
           "erste-erfahrung-in-der-finanzberatung-80-100-vz-vermogenszentrum-lausanne-vaud",
           "premiere-experience-en-financial-consulting-80-100-vz-vermoegenszentrum-ch",
-          "premiere-experience-en-financial-consulting-pour-bienne-vz-vermogenszentrum-biel"
+          "premiere-experience-en-financial-consulting-pour-bienne-vz-vermogenszentrum-biel",
+          "prima-esperienza-in-financial-consulting-per-bienne-vz-vermogenszentrum-biel-bern"
         ],
         "en": [
           "premiere-experience-en-financial-consulting-80-100-vz-vermogenszentrum-lausanne",
@@ -1978,7 +2055,8 @@
         "premiere-experience-en-financial-consulting-80-100-vz-vermogenszentrum-lausanne",
         "erste-erfahrung-in-der-finanzberatung-80-100-vz-vermogenszentrum-lausanne-vaud",
         "premiere-experience-en-financial-consulting-80-100-vz-vermoegenszentrum-ch",
-        "premiere-experience-en-financial-consulting-pour-bienne-vz-vermogenszentrum-biel"
+        "premiere-experience-en-financial-consulting-pour-bienne-vz-vermogenszentrum-biel",
+        "prima-esperienza-in-financial-consulting-per-bienne-vz-vermogenszentrum-biel-bern"
       ],
       "firstSeenAt": "2026-08-20T10:11:08.033Z",
       "salaryMin": 105500,
@@ -1993,7 +2071,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-5d1f1aa71e17",
@@ -2026,7 +2105,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/2a02e572-fe1e-48ba-b3dd-fa6a725f650b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.016Z",
+      "crawledAt": "2026-10-03T09:14:36.646Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "Thurgau",
@@ -2055,12 +2134,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
         ],
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen",
+          "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-kreuzlingen-thurgau"
         ],
         "en": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
@@ -2072,7 +2153,8 @@
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen",
+        "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-kreuzlingen-thurgau"
       ],
       "firstSeenAt": "2026-08-24T21:43:03.004Z",
       "salaryMin": 99000,
@@ -2087,7 +2169,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-a093249390ea",
@@ -2120,7 +2203,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/temporaerer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-maerz-2027/c5e428f0-317d-4fbe-8235-e63dd5b72619",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.015Z",
+      "crawledAt": "2026-10-03T09:14:36.645Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2150,11 +2233,13 @@
         ]
       },
       "previousSlugs": [
-        "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
+        "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz",
+        "distribuzione-temporanea-dell-amministrazione-di-fondazione-1-nov-1-dic-2026-31-marzo-2027-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
+          "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz",
+          "distribuzione-temporanea-dell-amministrazione-di-fondazione-1-nov-1-dic-2026-31-marzo-2027-vz-vermogenszentrum-zurich"
         ],
         "en": [
           "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
@@ -2176,7 +2261,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-e298ff4a0d55",
@@ -2209,7 +2295,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/payroll-manager-firmenkunden/b2b9444b-d2f1-4e5f-85a1-686041522e81",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.014Z",
+      "crawledAt": "2026-10-03T09:14:36.643Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2243,12 +2329,14 @@
       },
       "previousSlugs": [
         "payroll-manager-firmenkunden-vz-vermoegenszentrum-ch",
-        "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
+        "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich",
+        "payroll-manager-clienti-aziendali-vz-vermogenszentrum-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-manager-firmenkunden-vz-vermoegenszentrum-ch",
-          "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
+          "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich",
+          "payroll-manager-clienti-aziendali-vz-vermogenszentrum-zurich-zurich"
         ],
         "en": [
           "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
@@ -2303,7 +2391,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-process-automation-ai-engineer-financial-services/4e1487ac-cee4-472c-a506-0b5ff119d03f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.013Z",
+      "crawledAt": "2026-10-03T09:14:36.641Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2339,11 +2427,13 @@
         ]
       },
       "previousSlugs": [
-        "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch"
+        "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch",
+        "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch"
+          "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch",
+          "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2393,7 +2483,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/finanzmarktanalyst-in-redaktor-in/d2ecf679-4118-4daa-bdc5-15e756e51fc4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.012Z",
+      "crawledAt": "2026-10-03T09:14:36.639Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -2430,12 +2520,14 @@
       },
       "previousSlugs": [
         "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
-        "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
+        "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
+        "analista-del-mercato-finanziario-in-editor-in-vz-vermogenszentrum-zug-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
-          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
+          "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug",
+          "analista-del-mercato-finanziario-in-editor-in-vz-vermogenszentrum-zug-zug"
         ],
         "en": [
           "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
@@ -2555,7 +2647,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-c2f6e94bff6d",
@@ -2588,7 +2681,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net-und-web/819bba91-eeca-4415-b23d-a032ef8a69f5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.011Z",
+      "crawledAt": "2026-10-03T09:14:36.637Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2618,11 +2711,13 @@
       },
       "previousSlugs": [
         "professional-software-engineer-net-und-web-vz-vermoegenszentrum-ch",
-        "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich"
+        "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich",
+        "professional-software-ingegnere-net-e-web-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professional-software-engineer-net-und-web-vz-vermoegenszentrum-ch"
+          "professional-software-engineer-net-und-web-vz-vermoegenszentrum-ch",
+          "professional-software-ingegnere-net-e-web-vz-vermogenszentrum-zurich"
         ],
         "fr": [
           "professional-software-engineer-net-und-web-vz-vermogenszentrum-zurich"
@@ -2675,7 +2770,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/316434ed-e2af-4bfc-aed6-706661099d27",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.010Z",
+      "crawledAt": "2026-10-03T09:14:36.634Z",
       "addressLocality": "Meilen",
       "postalCode": "8706",
       "addressRegion": "Zürich",
@@ -2711,7 +2806,8 @@
         "private-clients-consultant-vz-vermogenszentrum-meilen",
         "private-clients-consultant-80-100-vz-vermogenszentrum-meilen",
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "consultant-client-prive-80-100-vz-vermogenszentrum-meilen"
+        "consultant-client-prive-80-100-vz-vermogenszentrum-meilen",
+        "private-clients-consulente-vz-vermogenszentrum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2719,7 +2815,8 @@
           "private-clients-consultant-vz-vermogenszentrum-meilen",
           "private-clients-consultant-80-100-vz-vermogenszentrum-meilen",
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-          "consultant-client-prive-80-100-vz-vermogenszentrum-meilen"
+          "consultant-client-prive-80-100-vz-vermogenszentrum-meilen",
+          "private-clients-consulente-vz-vermogenszentrum-meilen"
         ],
         "de": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch"
@@ -2741,7 +2838,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-1513808f52fe",
@@ -2774,7 +2872,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-start-januar-2027/d8935b60-c1c5-4544-846f-d005538e6749",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.009Z",
+      "crawledAt": "2026-10-03T09:14:36.633Z",
       "addressLocality": "Luzern",
       "postalCode": "6005",
       "addressRegion": "Luzern",
@@ -2806,11 +2904,13 @@
         ]
       },
       "previousSlugs": [
-        "private-clients-consultant-start-januar-2027-vz-vermoegenszentrum-ch"
+        "private-clients-consultant-start-januar-2027-vz-vermoegenszentrum-ch",
+        "private-clients-consultant-start-januar-2027-vz-vermogenszentrum-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "private-clients-consultant-start-januar-2027-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-start-januar-2027-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-start-januar-2027-vz-vermogenszentrum-luzern"
         ]
       },
       "firstSeenAt": "2026-09-02T13:39:16.113Z",
@@ -2826,7 +2926,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-202153b53f0a",
@@ -2859,7 +2960,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/9298ae55-d19e-4a2b-a2f5-eb04605d680c",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.008Z",
+      "crawledAt": "2026-10-03T09:14:36.631Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -2893,12 +2994,14 @@
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich",
-        "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich-zurich"
+        "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich-zurich",
+        "consulente-associato-successione-aziendale-vz-vermogenszentrum-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich"
+          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich",
+          "consulente-associato-successione-aziendale-vz-vermogenszentrum-zurich-zurich"
         ],
         "en": [
           "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich",
@@ -3037,7 +3140,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-0361f462be5d",
@@ -3070,7 +3174,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/fca6e094-6afb-42cc-a5b4-5b94a78dbc14",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.007Z",
+      "crawledAt": "2026-10-03T09:14:36.630Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3101,12 +3205,14 @@
       },
       "previousSlugs": [
         "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-        "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:31.352Z",
@@ -3122,7 +3228,8 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-b74a536c1053",
@@ -3155,7 +3262,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/ac7b6302-7c87-4daf-b702-175fb76d919f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.007Z",
+      "crawledAt": "2026-10-03T09:14:36.629Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -3187,11 +3294,13 @@
         ]
       },
       "previousSlugs": [
-        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:31.365Z",
@@ -3207,16 +3316,17 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-39e495757e4a",
       "slug": "real-estate-consulente-vz-vermogenszentrum-basel",
       "slugByLocale": {
-        "it": "real-estate-consultant-vz-vermogenszentrum-basel",
+        "it": "real-estate-consulente-vz-vermogenszentrum-basel",
         "en": "real-estate-consultant-vz-vermogenszentrum-basel",
         "de": "real-estate-consultant-vz-vermoegenszentrum-ch",
-        "fr": "real-estate-consultant-vz-vermogenszentrum-basel"
+        "fr": "consultant-immobilier-vz-vermogenszentrum-basel"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3240,7 +3350,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/real-estate-consultant/ef19fcc9-c7ad-458b-9495-529b6c35be6d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.006Z",
+      "crawledAt": "2026-10-03T09:14:36.628Z",
       "addressLocality": "Basel",
       "postalCode": "4051",
       "addressRegion": "Basel-Stadt",
@@ -3271,13 +3381,18 @@
       },
       "previousSlugs": [
         "real-estate-consultant-vz-vermoegenszentrum-ch",
+        "real-estate-consultant-vz-vermogenszentrum-basel",
+        "real-estate-consulente-vz-vermogenszentrum-basel",
         "consultant-immobilier-vz-vermogenszentrum-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "real-estate-consultant-vz-vermoegenszentrum-ch"
+          "real-estate-consultant-vz-vermoegenszentrum-ch",
+          "real-estate-consultant-vz-vermogenszentrum-basel",
+          "real-estate-consulente-vz-vermogenszentrum-basel"
         ],
         "fr": [
+          "real-estate-consultant-vz-vermogenszentrum-basel",
           "consultant-immobilier-vz-vermogenszentrum-basel"
         ]
       },
@@ -3294,7 +3409,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-05f9c3a0aca1",
@@ -3327,7 +3443,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/4adb9db0-0fad-4189-9f52-a2926770d004",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.005Z",
+      "crawledAt": "2026-10-03T09:14:36.627Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "addressRegion": "Aargau",
@@ -3356,12 +3472,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden"
         ],
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-n6ow24",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden",
+          "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-baden-aargau"
         ],
         "en": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden"
@@ -3373,7 +3491,8 @@
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-n6ow24",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden",
+        "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-baden-aargau"
       ],
       "firstSeenAt": "2026-09-16T09:21:21.107Z",
       "salaryMin": 107000,
@@ -3388,7 +3507,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-e5a8b4661e1c",
@@ -3421,7 +3541,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung-in-unserer-neuen-niederlassung-in-buelach/44f34820-f24d-4614-89b4-5f05464731e9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.003Z",
+      "crawledAt": "2026-10-03T09:14:36.626Z",
       "addressLocality": "Bülach",
       "postalCode": "8180",
       "addressRegion": "Zürich",
@@ -3449,11 +3569,13 @@
         ]
       },
       "previousSlugs": [
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-in-unserer-neuen"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-in-unserer-neuen",
+        "entrata-in-consulenza-finanziaria-consulenza-indipendente-nel-nostro-nuovo-ufficio-a-bulach-vz-vermogenszentrum-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-in-unserer-neuen"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-in-unserer-neuen",
+          "entrata-in-consulenza-finanziaria-consulenza-indipendente-nel-nostro-nuovo-ufficio-a-bulach-vz-vermogenszentrum-bulach"
         ],
         "en": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-in-unserer-neuen"
@@ -3475,7 +3597,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-d6543ca5ffbd",
@@ -3508,7 +3631,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/berater-in-nachlassberatung-willensvollstreckung/eaadb916-5f9e-4c4f-a6c0-ea5f93a25405",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.002Z",
+      "crawledAt": "2026-10-03T09:14:36.623Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -3540,11 +3663,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "berater-in-nachlassberatung-willensvollstreckung-vz-vermoegenszentrum-ch"
+          "berater-in-nachlassberatung-willensvollstreckung-vz-vermoegenszentrum-ch",
+          "berater-in-nachlassberatung-willensvollstreckung-vz-vermogenszentrum-zurich"
         ],
         "it": [
           "berater-in-nachlassberatung-willensvollstreckung-vz-vermoegenszentrum-ch",
-          "berater-in-nachlassberatung-willensvollstreckung-vz-vermogenszentrum-zurich"
+          "berater-in-nachlassberatung-willensvollstreckung-vz-vermogenszentrum-zurich",
+          "consulente-consulenza-immobiliare-forza-di-volonta-vz-vermogenszentrum-zurich-zurich"
         ],
         "en": [
           "berater-in-nachlassberatung-willensvollstreckung-vz-vermogenszentrum-zurich"
@@ -3555,7 +3680,8 @@
       },
       "previousSlugs": [
         "berater-in-nachlassberatung-willensvollstreckung-vz-vermoegenszentrum-ch",
-        "berater-in-nachlassberatung-willensvollstreckung-vz-vermogenszentrum-zurich"
+        "berater-in-nachlassberatung-willensvollstreckung-vz-vermogenszentrum-zurich",
+        "consulente-consulenza-immobiliare-forza-di-volonta-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-09-16T09:21:21.088Z",
       "salaryMin": 85000,
@@ -3570,7 +3696,8 @@
           "maxValue": 145000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-645436c6083c",
@@ -3603,7 +3730,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/f1eedd51-3b80-4b5d-828d-53990a77abc1",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.000Z",
+      "crawledAt": "2026-10-03T09:14:36.621Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressRegion": "Zürich",
@@ -3631,11 +3758,13 @@
         ]
       },
       "previousSlugs": [
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:55.270Z",
@@ -3651,7 +3780,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-c4aa2a93ea10",
@@ -3684,7 +3814,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/ba1496ff-a45a-42d8-a756-f4439fd06ca7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.999Z",
+      "crawledAt": "2026-10-03T09:14:36.619Z",
       "addressLocality": "Freienbach",
       "postalCode": "8808",
       "addressRegion": "Schwyz",
@@ -3713,12 +3843,14 @@
       },
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:55.267Z",
@@ -3734,7 +3866,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-c52a7cc0d1ca",
@@ -3767,7 +3900,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/d45047f0-e25b-4b67-8e3a-49fa07547c44",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.997Z",
+      "crawledAt": "2026-10-03T09:14:36.617Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "Sankt Gallen",
@@ -3802,12 +3935,14 @@
       },
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen",
+        "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-st-gallen-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen",
+          "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-st-gallen-sankt-gallen"
         ],
         "en": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-st-gallen"
@@ -3829,7 +3964,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-22ce5f2279d8",
@@ -3862,7 +3998,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/0bf486bb-732a-42cb-81c1-7e5c68ef8529",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.996Z",
+      "crawledAt": "2026-10-03T09:14:36.615Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -3891,12 +4027,14 @@
       },
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
+        "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-chur-graubunden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur",
+          "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-chur-graubunden"
         ],
         "en": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-chur"
@@ -3918,7 +4056,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-02e13a8d6dd8",
@@ -3951,7 +4090,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung-fuer-unsere-neue-niederlassung-buchs-sg/e1c45024-0784-40d9-ad01-476736434651",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.995Z",
+      "crawledAt": "2026-10-03T09:14:36.613Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -4005,7 +4144,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-a6d6049bcd69",
@@ -4014,7 +4154,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4038,7 +4178,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/ff89e612-dfc8-4711-b21a-f4db480fd336",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.993Z",
+      "crawledAt": "2026-10-03T09:14:36.612Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -4074,14 +4214,17 @@
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
+        "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
+          "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern"
         ],
         "fr": [
+          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
           "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
@@ -4132,7 +4275,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-business-analyst-in/011947f8-9a57-474a-98a5-844a4ba446ae",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.992Z",
+      "crawledAt": "2026-10-03T09:14:36.610Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4163,12 +4306,14 @@
       },
       "previousSlugs": [
         "junior-business-analyst-in-vz-vermoegenszentrum-ch",
-        "junior-business-analyst-in-vz-vermogenszentrum-zurich"
+        "junior-business-analyst-in-vz-vermogenszentrum-zurich",
+        "junior-business-analista-in-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-business-analyst-in-vz-vermoegenszentrum-ch",
-          "junior-business-analyst-in-vz-vermogenszentrum-zurich"
+          "junior-business-analyst-in-vz-vermogenszentrum-zurich",
+          "junior-business-analista-in-vz-vermogenszentrum-zurich"
         ],
         "fr": [
           "junior-business-analyst-in-vz-vermogenszentrum-zurich"
@@ -4221,7 +4366,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net/acd66b08-5580-42f8-a410-483ffa15a99f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.990Z",
+      "crawledAt": "2026-10-03T09:14:36.609Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4252,11 +4397,13 @@
         ]
       },
       "previousSlugs": [
-        "professional-software-engineer-net-vz-vermoegenszentrum-ch"
+        "professional-software-engineer-net-vz-vermoegenszentrum-ch",
+        "professional-software-engineer-net-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professional-software-engineer-net-vz-vermoegenszentrum-ch"
+          "professional-software-engineer-net-vz-vermoegenszentrum-ch",
+          "professional-software-engineer-net-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:18:10.085Z",
@@ -4272,7 +4419,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-fd8914d6742d",
@@ -4305,7 +4453,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/82b98867-65dc-4121-8c25-f1670bcd3e66",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.989Z",
+      "crawledAt": "2026-10-03T09:14:36.607Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",
@@ -4333,11 +4481,13 @@
         ]
       },
       "previousSlugs": [
-        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-bern"
         ]
       },
       "needsRetranslation": true,
@@ -4387,7 +4537,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-analyst-in-fixed-income-im-asset-management/bb9e7eed-10a2-4d07-a415-a0618cbe5da6",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.987Z",
+      "crawledAt": "2026-10-03T09:14:36.605Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4423,11 +4573,13 @@
         ]
       },
       "previousSlugs": [
-        "junior-analyst-in-fixed-income-im-asset-management-vz-vermoegenszentrum-ch"
+        "junior-analyst-in-fixed-income-im-asset-management-vz-vermoegenszentrum-ch",
+        "junior-analyst-in-fixed-income-im-asset-management-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-analyst-in-fixed-income-im-asset-management-vz-vermoegenszentrum-ch"
+          "junior-analyst-in-fixed-income-im-asset-management-vz-vermoegenszentrum-ch",
+          "junior-analyst-in-fixed-income-im-asset-management-vz-vermogenszentrum-zug"
         ]
       },
       "needsRetranslation": true,
@@ -4477,7 +4629,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-finanzmarktanalyst-in-redaktor-in/ed97b0b6-2388-4d48-8967-52bdd6b493a7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.988Z",
+      "crawledAt": "2026-10-03T09:14:36.606Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4510,11 +4662,13 @@
         ]
       },
       "previousSlugs": [
-        "junior-finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch"
+        "junior-finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
+        "junior-finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch"
+          "junior-finanzmarktanalyst-in-redaktor-in-vz-vermoegenszentrum-ch",
+          "junior-finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ]
       },
       "needsRetranslation": true,
@@ -4564,7 +4718,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-investment-advisor/41a9bd42-5b12-4e3e-ab1b-345de38c499f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.986Z",
+      "crawledAt": "2026-10-03T09:14:36.604Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4597,12 +4751,14 @@
       },
       "previousSlugs": [
         "senior-investment-advisor-vz-vermoegenszentrum-ch",
-        "senior-investment-advisor-vz-vermogenszentrum-zug"
+        "senior-investment-advisor-vz-vermogenszentrum-zug",
+        "senior-investment-consulente-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-investment-advisor-vz-vermoegenszentrum-ch",
-          "senior-investment-advisor-vz-vermogenszentrum-zug"
+          "senior-investment-advisor-vz-vermogenszentrum-zug",
+          "senior-investment-consulente-vz-vermogenszentrum-zug"
         ],
         "fr": [
           "senior-investment-advisor-vz-vermogenszentrum-zug"
@@ -4655,7 +4811,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/investment-advisor/ad9c0264-e807-489a-990c-05437f223358",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.985Z",
+      "crawledAt": "2026-10-03T09:14:36.603Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4690,12 +4846,14 @@
       },
       "previousSlugs": [
         "investment-advisor-vz-vermoegenszentrum-ch",
-        "investment-advisor-vz-vermogenszentrum-zug"
+        "investment-advisor-vz-vermogenszentrum-zug",
+        "investment-consulente-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "investment-advisor-vz-vermoegenszentrum-ch",
-          "investment-advisor-vz-vermogenszentrum-zug"
+          "investment-advisor-vz-vermogenszentrum-zug",
+          "investment-consulente-vz-vermogenszentrum-zug"
         ],
         "fr": [
           "investment-advisor-vz-vermogenszentrum-zug"
@@ -4714,7 +4872,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-c820f309242a",
@@ -4738,16 +4897,16 @@
       "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du trägst zusammen mit deinen Kolleginnen und Kollegen die Verantwortung für die Koordination und Erstellung der Geschäftsberichte der VZ Vorsorgestiftungen.\n\n• Du arbeitest direkt mit der Geschäftsführung der VZ Vorsorgestiftungen und dem Accounting-Team zusammen, koordinierst und überwachst die verschiedenen Arbeiten und Prozesse.\n\n• Du überprüfst die erhaltenen Daten und Informationen und erteilst bei Bedarf Handlungsempfehlungen.\n\n• Du stellst sicher, dass die vollständigen Geschäftsberichte rechtzeitig vorliegen und bereitest die Dokumente für die Stiftungsratssitzungen vor.\n\n• Du koordinierst und hilfst mit bei der Begleitung der Revision der VZ Vorsorgestiftungen und bist dabei die Hauptansprechperson.\n\n• Du engagierst dich für die Weiterentwicklung unserer Organisation, bringst Ideen ein und gestaltest dein Arbeitsumfeld aktiv mit.\n\n• Eine Ausbildung im Finanz- und Rechnungswesen, Wirtschaftsprüfung oder ein BWL-Studium an einer (Fach-)Hochschule\n\n• Idealerweise Erfahrung im Bereich der beruflichen Vorsorge oder im Accounting von Vorsorgestiftungen\n\n• Genaue und pflichtbewusste Arbeitsweise\n\n• Projekterfahrung und Freude an der Koordination von verschiedenen Aufgaben und Anspruchsgruppen\n\n• Gute Kommunikation, Wissensdurst, Freude am Kontakt mit unterschiedlichen Anspruchsgruppen und Erfahrung in der Zusammenarbeit mit mehreren Bereichen\n\n• IT-Affinität und versierter Umgang mit MS Excel\n\n• Lust in einem dynamischen und dienstleistungsorientierten Umfeld zu arbeiten\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert.\n\n• Bei uns kannst du dich einbringen und laufend mehr Verantwortung übernehmen.\n\n• Wir sind ein motiviertes Team, das sich gegenseitig unterstützt und neue Projekte mit Elan und Erfolg umsetzt.\n\n• Du kannst dein Fachwissen in der finanziellen Führung der verschiedenen Vorsorgestiftungen vertiefen: Zu den VZ Vorsorgestiftungen gehören zwei Anlagestiftungen, zwei Freizügigkeitsstiftungen, eine 3a Stiftung und zwei Sammelstiftungen.\n\n• Wir pflegen einen offenen Austausch auf Augenhöhe und leben eine flache Hierarchie.\n\n• Anonymisierte Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
         "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du trägst zusammen mit deinen Kolleginnen und Kollegen die Verantwortung für die Koordination und Erstellung der Geschäftsberichte der VZ Vorsorgestiftungen.\n\n• Du arbeitest direkt mit der Geschäftsführung der VZ Vorsorgestiftungen und dem Accounting-Team zusammen, koordinierst und überwachst die verschiedenen Arbeiten und Prozesse.\n\n• Du überprüfst die erhaltenen Daten und Informationen und erteilst bei Bedarf Handlungsempfehlungen.\n\n• Du stellst sicher, dass die vollständigen Geschäftsberichte rechtzeitig vorliegen und bereitest die Dokumente für die Stiftungsratssitzungen vor.\n\n• Du koordinierst und hilfst mit bei der Begleitung der Revision der VZ Vorsorgestiftungen und bist dabei die Hauptansprechperson.\n\n• Du engagierst dich für die Weiterentwicklung unserer Organisation, bringst Ideen ein und gestaltest dein Arbeitsumfeld aktiv mit.\n\n• Eine Ausbildung im Finanz- und Rechnungswesen, Wirtschaftsprüfung oder ein BWL-Studium an einer (Fach-)Hochschule\n\n• Idealerweise Erfahrung im Bereich der beruflichen Vorsorge oder im Accounting von Vorsorgestiftungen\n\n• Genaue und pflichtbewusste Arbeitsweise\n\n• Projekterfahrung und Freude an der Koordination von verschiedenen Aufgaben und Anspruchsgruppen\n\n• Gute Kommunikation, Wissensdurst, Freude am Kontakt mit unterschiedlichen Anspruchsgruppen und Erfahrung in der Zusammenarbeit mit mehreren Bereichen\n\n• IT-Affinität und versierter Umgang mit MS Excel\n\n• Lust in einem dynamischen und dienstleistungsorientierten Umfeld zu arbeiten\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert.\n\n• Bei uns kannst du dich einbringen und laufend mehr Verantwortung übernehmen.\n\n• Wir sind ein motiviertes Team, das sich gegenseitig unterstützt und neue Projekte mit Elan und Erfolg umsetzt.\n\n• Du kannst dein Fachwissen in der finanziellen Führung der verschiedenen Vorsorgestiftungen vertiefen: Zu den VZ Vorsorgestiftungen gehören zwei Anlagestiftungen, zwei Freizügigkeitsstiftungen, eine 3a Stiftung und zwei Sammelstiftungen.\n\n• Wir pflegen einen offenen Austausch auf Augenhöhe und leben eine flache Hierarchie.\n\n• Anonymisierte Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Creiamo trasparenza nel mercato bancario e assicurativo e consigliamo ai nostri clienti in modo completo e neutrale. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi per le nostre fondazioni pensionistiche presso la nostra sede a Paradeplatz a Zurigo.\n\n• Insieme ai suoi colleghi, lei è responsabile del coordinamento e della preparazione delle relazioni annuali delle fondazioni pensionistiche VZ.\n\n• Lavora direttamente con la gestione delle fondazioni pensionistiche VZ e del team contabile, coordinando e monitorando i vari lavori e processi.\n\n• Controllare i dati ricevuti e le informazioni e fornire raccomandazioni per l'azione, se necessario.\n\n• Assicurarsi che i rapporti annuali completi siano disponibili in tempo e preparino i documenti per le riunioni del Consiglio.\n\n• Coordinate e aiutate ad accompagnare la revisione delle fondazioni pensionistiche VZ e siete la persona di contatto principale.\n\n• Voi siete impegnati a sviluppare ulteriormente la nostra organizzazione, contribuire idee e modellare attivamente il vostro ambiente di lavoro.\n\n• Una formazione in finanza e contabilità, audit o una laurea in economia aziendale presso un'università (specialista)\n\n• Idealmente, l'esperienza nel settore delle pensioni professionali o nella contabilità delle fondazioni pensioni\n\n• Metodi di lavoro precisi e precisi\n\n• Esperienza di progetto e piacere nel coordinamento di diversi compiti e stakeholder\n\n• Buona comunicazione, sete di conoscenza, fruizione del contatto con diversi stakeholder e esperienza nel lavorare con diversi settori\n\n• affinità IT e gestione esperta di MS Excel\n\n• Desiderio lavorare in un ambiente dinamico e orientato al servizio\n\n• Varie attività, un team su cui contare e una cultura aziendale che promuove l'iniziativa.\n\n• Con noi si può coinvolgere e costantemente assumersi più responsabilità.\n\n• Siamo un team motivato che si sostiene e implementa nuovi progetti con entusiasmo e successo.\n\n• Puoi approfondire la tua esperienza nella gestione finanziaria delle varie fondazioni pensione: Le fondazioni pensione VZ includono due fondazioni di investimento, due fondazioni di movimento libero, una fondazione 3a e due fondazioni collettive.\n\n• Manteniamo uno scambio aperto a livello degli occhi e viviamo una gerarchia piatta.\n\n• I sondaggi anonimi sulla soddisfazione confermano regolarmente che i nostri dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
-        "en": "VZ is the leading independent financial services provider in Switzerland. We create transparency in the banking and insurance market and advise our customers comprehensively and neutrally. As we are growing strongly, we are looking for reinforcements for our pension foundations at our headquarters at Paradeplatz in Zurich.\n\n• Together with your colleagues, you are responsible for the coordination and preparation of the annual reports of the VZ pension foundations.\n\n• You work directly with the management of the VZ pension foundations and the accounting team, coordinating and monitoring the various work and processes.\n\n• You check the received data and information and give recommendations for action if necessary.\n\n• You make sure that the full annual reports are available in time and prepare the documents for the Board meetings.\n\n• You coordinate and help to accompany the revision of the VZ pension foundations and are the main contact person.\n\n• You are committed to the further development of our organization, contribute ideas and actively shape your working environment.\n\n• An education in finance and accounting, auditing or a business administration degree at a (specialist) university\n\n• Ideally, experience in the field of occupational pensions or in the accounting of pension foundations\n\n• Accurate and dutiful working methods\n\n• Project experience and pleasure in coordinating different tasks and stakeholders\n\n• Good communication, thirst for knowledge, enjoyment of contact with different stakeholders and experience in working with several areas\n\n• IT affinity and savvy handling of MS Excel\n\n• Desire to work in a dynamic and service-oriented environment\n\n• Varied tasks, a team to count on and a corporate culture that promotes initiative.\n\n• With us you can get involved and constantly take on more responsibility.\n\n• We are a motivated team that supports each other and implements new projects with enthusiasm and success.\n\n• You can deepen your expertise in the financial management of the various pension foundations: The VZ pension foundations include two investment foundations, two free movement foundations, a 3a foundation and two collective foundations.\n\n• We maintain an open exchange at eye level and live a flat hierarchy.\n\n• Anonymous surveys on satisfaction regularly confirm that our employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
-        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous créons la transparence sur le marché bancaire et d'assurance et conseillons nos clients de manière complète et neutre. Au fur et à mesure que nous grandissons, nous cherchons des renforts pour nos fondations de retraite à notre siège social à Paradeplatz à Zurich.\n\n• Avec vos collègues, vous êtes responsable de la coordination et de la préparation des rapports annuels des fondations de retraite VZ.\n\n• Vous travaillez directement avec la direction des fondations de retraite VZ et l'équipe comptable, en coordonnant et en surveillant les différents travaux et processus.\n\n• Vous vérifiez les données et informations reçues et donnez des recommandations d'action si nécessaire.\n\n• Vous veillez à ce que les rapports annuels complets soient disponibles à temps et préparez les documents pour les réunions du Conseil.\n\n• Vous coordonnez et aidez à accompagner la révision des fondations de retraite VZ et êtes la personne de contact principale.\n\n• Vous êtes déterminé à poursuivre le développement de notre organisation, à contribuer aux idées et à façonner activement votre environnement de travail.\n\n• Une formation en finance et comptabilité, en audit ou en administration des affaires dans une université (spécialiste)\n\n• Idéalement, l'expérience dans le domaine des pensions professionnelles ou de la comptabilité des fondations de retraite\n\n• Méthodes de travail précises et régulières\n\n• Expérience du projet et plaisir à coordonner les différentes tâches et parties prenantes\n\n• Bonne communication, soif de connaissances, plaisir du contact avec les différents acteurs et expérience de travail avec plusieurs domaines\n\n• affinité informatique et gestion avisée de MS Excel\n\n• Désir de travailler dans un environnement dynamique et axé sur les services\n\n• Des tâches variées, une équipe sur laquelle compter et une culture d'entreprise qui favorise l'initiative.\n\n• Avec nous, vous pouvez vous impliquer et assumer constamment plus de responsabilités.\n\n• Nous sommes une équipe motivée qui se soutient mutuellement et met en œuvre de nouveaux projets avec enthousiasme et succès.\n\n• Vous pouvez approfondir votre expertise dans la gestion financière des différentes fondations de retraite : Les fondations de retraite VZ comprennent deux fondations d'investissement, deux fondations de libre circulation, une fondation 3a et deux fondations collectives.\n\n• Nous maintenons un échange ouvert au niveau des yeux et vivons une hiérarchie plate.\n\n• Des sondages anonymes sur la satisfaction confirment régulièrement que nos employés classent la VZ comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
+        "it": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du trägst zusammen mit deinen Kolleginnen und Kollegen die Verantwortung für die Koordination und Erstellung der Geschäftsberichte der VZ Vorsorgestiftungen.\n\n• Du arbeitest direkt mit der Geschäftsführung der VZ Vorsorgestiftungen und dem Accounting-Team zusammen, koordinierst und überwachst die verschiedenen Arbeiten und Prozesse.\n\n• Du überprüfst die erhaltenen Daten und Informationen und erteilst bei Bedarf Handlungsempfehlungen.\n\n• Du stellst sicher, dass die vollständigen Geschäftsberichte rechtzeitig vorliegen und bereitest die Dokumente für die Stiftungsratssitzungen vor.\n\n• Du koordinierst und hilfst mit bei der Begleitung der Revision der VZ Vorsorgestiftungen und bist dabei die Hauptansprechperson.\n\n• Du engagierst dich für die Weiterentwicklung unserer Organisation, bringst Ideen ein und gestaltest dein Arbeitsumfeld aktiv mit.\n\n• Eine Ausbildung im Finanz- und Rechnungswesen, Wirtschaftsprüfung oder ein BWL-Studium an einer (Fach-)Hochschule\n\n• Idealerweise Erfahrung im Bereich der beruflichen Vorsorge oder im Accounting von Vorsorgestiftungen\n\n• Genaue und pflichtbewusste Arbeitsweise\n\n• Projekterfahrung und Freude an der Koordination von verschiedenen Aufgaben und Anspruchsgruppen\n\n• Gute Kommunikation, Wissensdurst, Freude am Kontakt mit unterschiedlichen Anspruchsgruppen und Erfahrung in der Zusammenarbeit mit mehreren Bereichen\n\n• IT-Affinität und versierter Umgang mit MS Excel\n\n• Lust in einem dynamischen und dienstleistungsorientierten Umfeld zu arbeiten\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert.\n\n• Bei uns kannst du dich einbringen und laufend mehr Verantwortung übernehmen.\n\n• Wir sind ein motiviertes Team, das sich gegenseitig unterstützt und neue Projekte mit Elan und Erfolg umsetzt.\n\n• Du kannst dein Fachwissen in der finanziellen Führung der verschiedenen Vorsorgestiftungen vertiefen: Zu den VZ Vorsorgestiftungen gehören zwei Anlagestiftungen, zwei Freizügigkeitsstiftungen, eine 3a Stiftung und zwei Sammelstiftungen.\n\n• Wir pflegen einen offenen Austausch auf Augenhöhe und leben eine flache Hierarchie.\n\n• Anonymisierte Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "en": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du trägst zusammen mit deinen Kolleginnen und Kollegen die Verantwortung für die Koordination und Erstellung der Geschäftsberichte der VZ Vorsorgestiftungen.\n\n• Du arbeitest direkt mit der Geschäftsführung der VZ Vorsorgestiftungen und dem Accounting-Team zusammen, koordinierst und überwachst die verschiedenen Arbeiten und Prozesse.\n\n• Du überprüfst die erhaltenen Daten und Informationen und erteilst bei Bedarf Handlungsempfehlungen.\n\n• Du stellst sicher, dass die vollständigen Geschäftsberichte rechtzeitig vorliegen und bereitest die Dokumente für die Stiftungsratssitzungen vor.\n\n• Du koordinierst und hilfst mit bei der Begleitung der Revision der VZ Vorsorgestiftungen und bist dabei die Hauptansprechperson.\n\n• Du engagierst dich für die Weiterentwicklung unserer Organisation, bringst Ideen ein und gestaltest dein Arbeitsumfeld aktiv mit.\n\n• Eine Ausbildung im Finanz- und Rechnungswesen, Wirtschaftsprüfung oder ein BWL-Studium an einer (Fach-)Hochschule\n\n• Idealerweise Erfahrung im Bereich der beruflichen Vorsorge oder im Accounting von Vorsorgestiftungen\n\n• Genaue und pflichtbewusste Arbeitsweise\n\n• Projekterfahrung und Freude an der Koordination von verschiedenen Aufgaben und Anspruchsgruppen\n\n• Gute Kommunikation, Wissensdurst, Freude am Kontakt mit unterschiedlichen Anspruchsgruppen und Erfahrung in der Zusammenarbeit mit mehreren Bereichen\n\n• IT-Affinität und versierter Umgang mit MS Excel\n\n• Lust in einem dynamischen und dienstleistungsorientierten Umfeld zu arbeiten\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert.\n\n• Bei uns kannst du dich einbringen und laufend mehr Verantwortung übernehmen.\n\n• Wir sind ein motiviertes Team, das sich gegenseitig unterstützt und neue Projekte mit Elan und Erfolg umsetzt.\n\n• Du kannst dein Fachwissen in der finanziellen Führung der verschiedenen Vorsorgestiftungen vertiefen: Zu den VZ Vorsorgestiftungen gehören zwei Anlagestiftungen, zwei Freizügigkeitsstiftungen, eine 3a Stiftung und zwei Sammelstiftungen.\n\n• Wir pflegen einen offenen Austausch auf Augenhöhe und leben eine flache Hierarchie.\n\n• Anonymisierte Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "fr": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du trägst zusammen mit deinen Kolleginnen und Kollegen die Verantwortung für die Koordination und Erstellung der Geschäftsberichte der VZ Vorsorgestiftungen.\n\n• Du arbeitest direkt mit der Geschäftsführung der VZ Vorsorgestiftungen und dem Accounting-Team zusammen, koordinierst und überwachst die verschiedenen Arbeiten und Prozesse.\n\n• Du überprüfst die erhaltenen Daten und Informationen und erteilst bei Bedarf Handlungsempfehlungen.\n\n• Du stellst sicher, dass die vollständigen Geschäftsberichte rechtzeitig vorliegen und bereitest die Dokumente für die Stiftungsratssitzungen vor.\n\n• Du koordinierst und hilfst mit bei der Begleitung der Revision der VZ Vorsorgestiftungen und bist dabei die Hauptansprechperson.\n\n• Du engagierst dich für die Weiterentwicklung unserer Organisation, bringst Ideen ein und gestaltest dein Arbeitsumfeld aktiv mit.\n\n• Eine Ausbildung im Finanz- und Rechnungswesen, Wirtschaftsprüfung oder ein BWL-Studium an einer (Fach-)Hochschule\n\n• Idealerweise Erfahrung im Bereich der beruflichen Vorsorge oder im Accounting von Vorsorgestiftungen\n\n• Genaue und pflichtbewusste Arbeitsweise\n\n• Projekterfahrung und Freude an der Koordination von verschiedenen Aufgaben und Anspruchsgruppen\n\n• Gute Kommunikation, Wissensdurst, Freude am Kontakt mit unterschiedlichen Anspruchsgruppen und Erfahrung in der Zusammenarbeit mit mehreren Bereichen\n\n• IT-Affinität und versierter Umgang mit MS Excel\n\n• Lust in einem dynamischen und dienstleistungsorientierten Umfeld zu arbeiten\n\n• Abwechslungsreiche Aufgaben, ein Team, auf das man zählen kann und eine Unternehmenskultur, die Initiative fördert.\n\n• Bei uns kannst du dich einbringen und laufend mehr Verantwortung übernehmen.\n\n• Wir sind ein motiviertes Team, das sich gegenseitig unterstützt und neue Projekte mit Elan und Erfolg umsetzt.\n\n• Du kannst dein Fachwissen in der finanziellen Führung der verschiedenen Vorsorgestiftungen vertiefen: Zu den VZ Vorsorgestiftungen gehören zwei Anlagestiftungen, zwei Freizügigkeitsstiftungen, eine 3a Stiftung und zwei Sammelstiftungen.\n\n• Wir pflegen einen offenen Austausch auf Augenhöhe und leben eine flache Hierarchie.\n\n• Anonymisierte Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!"
       },
       "location": "Zürich, Zürich",
       "canton": "ZH",
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-accounting-vz-vorsorgestiftungen/6b15be30-5c78-40b8-9aa4-2e5e003773e2",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.984Z",
+      "crawledAt": "2026-10-03T09:14:36.601Z",
       "addressLocality": "Zürich",
       "postalCode": "8002",
       "addressRegion": "Zürich",
@@ -4804,7 +4963,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:14:47.984Z"
+      "firstSeenAt": "2026-10-03T09:14:36.601Z"
     },
     {
       "id": "vz-vermoegenszentrum-bc1936d4e149",
@@ -4892,7 +5051,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-8a1a962ec2bf",
@@ -5009,7 +5169,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-berufliche-vorsorge/6c6cfdcb-14be-4e50-b8be-921fd6f4e408",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.981Z",
+      "crawledAt": "2026-10-03T09:14:36.597Z",
       "addressLocality": "Bern",
       "postalCode": "3011",
       "addressRegion": "Bern",

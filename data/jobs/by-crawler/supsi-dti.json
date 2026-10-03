@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-10-02T21:33:01.677Z",
+  "assembledAt": "2026-10-03T09:32:34.045Z",
   "jobs": [
     {
       "id": "company-l4ti3x",
@@ -22,7 +22,7 @@
         "Precisione, senso di responsabilità, discrezione, capacità di lavorare in autonomia nel rispetto delle tempistiche, buone capacità relazionali e attitudine al lavoro in gruppo."
       ],
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "url": "https://www.supsi.ch/bando26_4014",
       "applyUrl": "https://www.supsi.ch/bando26_4014",
       "source": "Company Careers Crawler",
@@ -33,13 +33,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
-      "firstSeenAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Assistente Risorse umane",
-        "en": "Human Resources Assistant",
-        "de": "Personalassistent",
-        "fr": "Assistant aux ressources humaines"
+        "en": "Assistente Risorse umane",
+        "de": "Assistente Risorse umane",
+        "fr": "Assistente Risorse umane"
       },
       "descriptionByLocale": {
         "it": "# Assistente Risorse umane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso la posizione di\npresso la\n\n## Direzione amministrativa / Servizio Risorse umane\ncon sede a Manno. Grado di occupazione 80%, a tempo indeterminato. Entrata in funzione: da subito o data da convenire.\n\n## Contesto professionale\nIl Servizio Risorse umane della SUPSI garantisce il presidio operativo e normativo dei processi amministrativi legati al ciclo di vita del collaboratore, collaborando con le strutture dei Dipartimenti e dei Servizi centrali.\nAll’interno di questo contesto, la persona selezionata lavorerà a stretto contatto con i colleghi del Servizio, occupandosi in prima persona delle attività amministrative di supporto e contribuendo alla corretta gestione delle pratiche del personale e delle paghe dei mandati.\n\n## Mansioni principali\n- Gestione della documentazione del Servizio (posta in entrata e uscita, archivi) e del centralino.\n- Supporto amministrativo lungo il ciclo di vita del collaboratore: entrate, uscite, modifiche e formulari LPP.\n- Supporto al processo mensile delle paghe dei mandati: inserimento delle variabili, controllo dei conteggi, verifica delle buste paga, imbustamento e spedizione.\n- Gestione dei processi di malattia e infortunio e supporto alle richieste IPG (militare, maternità, paternità), con i relativi file di monitoraggio.\n- Allestimento dei formulari per la disoccupazione e di altri formulari inerenti ai processi RU.\n- Collaborazione ai progetti del Servizio nell’ambito del miglioramento continuo dei processi e del sistema di garanzia della qualità.\n\n## Requisiti\n- AFC e Certificato di Assistente delle risorse umane.\n- Minimo 2 anni di esperienza nella funzione, inclusa l’elaborazione di payroll svizzero.\n- Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.\n- Italiano madrelingua o livello C1; idealmente un’altra lingua nazionale o inglese (livello B2).\n- Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito RU (Abacus, Microsoft Dynamics).\n- Precisione, senso di responsabilità, discrezione, capacità di lavorare in autonomia nel rispetto delle tempistiche, buone capacità relazionali e attitudine al lavoro in gruppo.\n\n## Cosa offriamo\nUn ruolo operativo all’interno di un team dedicato, in un contesto istituzionale attento alla qualità e al miglioramento continuo dei processi. La posizione si colloca in Fascia 2 del Contratto Collettivo SUPSI (CCLSUPSI).\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate.\nAl momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nChiara Venzo\n, Responsabile Area amministrazione del personale.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "human-resources-assistant-supsi-dti-manno",
-        "de": "personalassistent-supsi-dti-manno",
-        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "en": "assistente-risorse-umane-supsi-dti-manno",
+        "de": "assistente-risorse-umane-supsi-dti-manno",
+        "fr": "assistente-risorse-umane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -109,12 +109,23 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "human-resource-assistant-supsi-dti-manno"
+          "human-resource-assistant-supsi-dti-manno",
+          "human-resources-assistant-supsi-dti-manno"
+        ],
+        "de": [
+          "personalassistent-supsi-dti-manno"
+        ],
+        "fr": [
+          "assistant-aux-ressources-humaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "human-resource-assistant-supsi-dti-manno"
-      ]
+        "human-resource-assistant-supsi-dti-manno",
+        "human-resources-assistant-supsi-dti-manno",
+        "personalassistent-supsi-dti-manno",
+        "assistant-aux-ressources-humaines-supsi-dti-manno"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti3y",
@@ -137,7 +148,7 @@
         "Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione."
       ],
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "url": "https://www.supsi.ch/bando26_4015",
       "applyUrl": "https://www.supsi.ch/bando26_4015",
       "source": "Company Careers Crawler",
@@ -148,13 +159,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
-      "firstSeenAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Generalista Risorse umane",
-        "en": "Generalist Human Resources",
-        "de": "Generalist Human Resources",
-        "fr": "Généraliste Ressources humaines"
+        "en": "Generalista Risorse umane",
+        "de": "Generalista Risorse umane",
+        "fr": "Generalista Risorse umane"
       },
       "descriptionByLocale": {
         "it": "# Generalista Risorse umane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso la posizione di\npresso il\n\n## Dipartimento tecnologie innovative (DTI) / Ufficio Risorse umane\ncon sede a Lugano. Grado di occupazione 100%, a tempo indeterminato. Entrata in funzione: da subito o data da convenire.\n\n## Contesto professionale\nIl Servizio Risorse umane della SUPSI opera in un'organizzazione a matrice: il Servizio Risorse umane di Dipartimento è il punto di riferimento di prossimità in ambito Risorse umane per il personale e i responsabili, ai quali fornisce consulenza e supporto amministrativo, e collabora con i Servizi centrali per assicurare coerenza, qualità e conformità lungo il ciclo di vita del personale.\nAll'interno dell'Ufficio Risorse umane del DTI, la persona selezionata gestisce in autonomia le pratiche amministrative del personale del Dipartimento, risponde alle richieste del personale e dei responsabili e assicura la corretta raccolta, verifica e trasmissione dei dati ai Servizi centrali, nel rispetto dei valori di professionalità, trasparenza e collaborazione che caratterizzano la SUPSI.\n\n## Mansioni principali\n- Gestione delle pratiche amministrative legate al ciclo di vita del personale del Dipartimento: assunzioni, variazioni contrattuali, cessazioni, certificati e aggiornamento dati.\n- Gestione delle pratiche amministrative relative ai mandati esterni.\n- Gestione di presenze, assenze e ferie tramite i sistemi dedicati, assicurando la correttezza dei dati e la loro corretta trasmissione ai Servizi centrali.\n- Predisposizione e aggiornamento della documentazione contrattuale e amministrativa, in conformità con le direttive SUPSI e la normativa vigente.\n- Consulenza e supporto amministrativo al personale e ai responsabili del Dipartimento su contratti, orari di lavoro, permessi, indennità e procedure interne, quale punto di riferimento di prossimità in ambito Risorse umane.\n- Supporto ai processi di reclutamento e selezione in collaborazione con i responsabili di linea e il Servizio Risorse umane centrale: pubblicazione annunci, gestione candidature, convocazioni e comunicazioni.\n- Collaborazione ai progetti del Servizio nell'ambito della digitalizzazione, del miglioramento continuo dei processi e del sistema di garanzia della qualità.\n\n## Requisiti\n- AFC con maturità professionale o titolo accademico SUP (minimo Bachelor).\n- Attestato Professionale Federale (APF) di Specialista in risorse umane.\n- Minimo 4 anni di esperienza nella funzione.\n- Conoscenze applicate ed operative della legislazione svizzera in diritto del lavoro e assicurazioni sociali.\n- Italiano madrelingua o livello C1; inglese B1; idealmente un'altra lingua nazionale.\n- Buone competenze informatiche (pacchetto Office) e dei programmi gestionali in ambito Risorse umane (Abacus, Microsoft Dynamics).\n- Accuratezza, senso di responsabilità, capacità organizzativa e di pianificazione, ottime capacità relazionali, attitudine al lavoro in gruppo e assoluta discrezione.\n\n## Cosa offriamo\nUn ruolo qualificato e autonomo all'interno di un team dedicato, in un contesto istituzionale attento alla qualità e al miglioramento continuo dei processi. La posizione si colloca in Fascia 3 del Contratto Collettivo SUPSI (CCLSUPSI).\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate.\nAl momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nChiara Venzo\n, Responsabile Area amministrazione del personale.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
@@ -164,9 +175,9 @@
       },
       "slugByLocale": {
         "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalist-human-resources-supsi-dti-lugano",
+        "en": "generalista-risorse-umane-supsi-dti-lugano",
         "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generaliste-ressources-humaines-supsi-dti-lugano"
+        "fr": "generalista-risorse-umane-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -223,7 +234,20 @@
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "generalist-human-resources-supsi-dti-lugano"
+        ],
+        "fr": [
+          "generaliste-ressources-humaines-supsi-dti-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "generalist-human-resources-supsi-dti-lugano",
+        "generaliste-ressources-humaines-supsi-dti-lugano"
+      ]
     },
     {
       "id": "company-7dvau3",
@@ -244,7 +268,7 @@
         "Dottorato alla Facoltà di scienze informatiche | USI - Informatica"
       ],
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "url": "https://www.supsi.ch/bando-26_3003",
       "applyUrl": "https://www.supsi.ch/bando-26_3003",
       "source": "Company Careers Crawler",
@@ -255,13 +279,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
-      "firstSeenAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
-        "fr": "PhD / PhD en informatique (Interaction homme-ordinateur), avec l'accent sur la validité et la facilité d'utilisation des outils d'annotation semi-automatisés pour les contextes cliniques et thérapeutiques",
+        "fr": "Dottoranda / Dottorando in Informatica (Human-Computer Interaction), con focus sulla validità e sull’usabilità di strumenti di annotazione semi-automatizzata per contesti clinici e terapeutici",
         "it": "Dottoranda / Dottorando in Informatica (Human-Computer Interaction), con focus sulla validità e sull’usabilità di strumenti di annotazione semi-automatizzata per contesti clinici e terapeutici",
-        "en": "PhD / PhD in Computer Science (Human-Computer Interaction), with focus on the validity and usability of semi-automatized annotation tools for clinical and therapeutic contexts",
-        "de": "PhD / PhD in Informatik (Mensch-Computer-Interaktion), mit Schwerpunkt auf der Gültigkeit und Nutzbarkeit von halbautomatisierten Annotationstools für klinische und therapeutische Kontexte"
+        "en": "Dottoranda / Dottorando in Informatica (Human-Computer Interaction), con focus sulla validità e sull’usabilità di strumenti di annotazione semi-automatizzata per contesti clinici e terapeutici",
+        "de": "Dottoranda / Dottorando in Informatica (Human-Computer Interaction), con focus sulla validità e sull’usabilità di strumenti di annotazione semi-automatizzata per contesti clinici e terapeutici"
       },
       "descriptionByLocale": {
         "it": "# Dottoranda / Dottorando in Informatica (Human-Computer Interaction), con focus sulla validità e sull’usabilità di strumenti di annotazione semi-automatizzata per contesti clinici e terapeutici\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), Dipartimento tecnologie innovative (DTI) e Dipartimento formazione e apprendimento / Alta scuola pedagogica (DFA/ASP),\n\n## Centro competenze bisogni educativi, scuola e società (CC BESS)\n, mette a concorso presso il DFA/ASP di Locarno una posizione di\n\n## dottoranda o dottorando\n. Grado di occupazione 100% ed entrata prevista al 1° dicembre 2026 o data da convenire.\nSiamo alla ricerca di una candidata interessata o un candidato interessato a svolgere un\n\n## dottorato di ricerca in Informatica (Human-Computer Interaction)\nsulla validità e sull’usabilità di interfacce human-in-the-loop destinate a terapisti e clinici, nell’ambito di una piattaforma di analisi multimodale del comportamento infantile\n.\n\n## Contesto professionale\nLa/Il dottoranda/o sarà supervisionata/o dalla Prof.ssa Angela Pasqualotto (Co-responsabile Centro competenze bisogni educativi, scuola e società BESS, SUPSI DFA/ASP,- Locarno) e dalla Prof.ssa Monica Landoni (Facoltà di scienze informatiche, USI - Lugano).\nLa posizione è parte del progetto SNSF SEMANTIC (SEmi-automated Multimodal ANalysis Toolkit for Individualized Characterization), condotto congiuntamente da DTI e DFA/ASP con la collaborazione di istituzioni cliniche e socio-sanitarie in Svizzera e in Italia. SEMANTIC sviluppa una piattaforma open source che integra segnali multimodali per produrre annotazioni semi-automatizzate del comportamento di bambini in contesti terapeutici. Le annotazioni generate dai modelli vengono presentate ai professionisti attraverso un’interfaccia, dove possono essere validate e corrette secondo un approccio human-in-the-loop. La qualità e l’usabilità di questa interfaccia sono decisive per l’adozione della piattaforma da parte di utenti non esperti di informatica e costituiscono l’oggetto del dottorato.\n\n## Mansioni\nLa persona selezionata sarà coinvolta in tutte le fasi del progetto. In particolare, dovrà occuparsi della progettazione, prototipazione e valutazione iterativa dell’interfaccia rivolta ai professionisti, in co-design con terapisti e clinici delle sedi partner; dell’analisi dei requisiti e dei flussi di lavoro di annotazione e correzione; della conduzione di studi di usabilità in contesto reale, con misure sia quantitative (ad esempio tempi di annotazione, carico percepito, scale standardizzate di usabilità) sia qualitative; del contributo alla definizione delle funzioni di reportistica destinate a clinici e famiglie; e della disseminazione dei risultati in sedi scientifiche dell’interazione uomo-macchina e delle tecnologie assistive.\nLa sede principale di lavoro è Locarno con lezioni e attività di ricerca svolte anche a Lugano.\n\n## Requisiti\n- Master in Informatica o in un campo strettamente collegato.\n- Interesse per la progettazione di interfacce e per l’interazione uomo-macchina rivolte a utenti in ambito clinico. Esperienze in osservazione e codifica del comportamento, o in studi di validazione in ambito clinico, rappresentano titolo preferenziale.\n- Competenze linguistiche avanzate in italiano e inglese.\n- Competenze di lavoro in gruppo, attitudine al lavoro autonomo, flessibilità e motivazione.\n\nL’assunzione del/la candidata/o è subordinata all’ammissione al Dottorato in informatica dell’Università della Svizzera italiana. I requisiti e le procedure di ammissione al dottorato sono consultabili sulla pagina web\nDottorato alla Facoltà di scienze informatiche | USI - Informatica\n\n## La SUPSI offre\n- Posizione a tempo pieno con un contratto di durata di tre anni (con eventuale possibilità di prolungamento di un anno se è necessario per l’ottenimento del PhD) con la Scuola Universitaria Professionale della Svizzera Italiana (SUPSI).\n- Inserimento in un contesto di lavoro dinamico.\n- Stipendio a seconda della scala salariale per Dottorandi del Fondo nazionale svizzero (FNS).\n- Possibilità di partecipare a conferenze, workshop o corsi dedicati ai candidati PhD.\n- Possibilità di fare esperienza come formatrice/formatore in corsi di formazione di docenti.\n\n## Candidatura\nInformazioni supplementari possono essere richieste alla\nProf.ssa Angela Pasqualotto\n. Saranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 26 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di:\n- Lettera di presentazione/motivazione\n- Curriculum vitae\n- Certificati di studio\n- Certificati di lavoro\n\nEventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
@@ -349,7 +373,8 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u55z",
@@ -390,13 +415,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Ricercatore Senior in Intelligenza Artificiale Affidabile",
         "en": "Senior Researcher in Trustworthy Artificial Intelligence",
-        "de": "Senior Researcher für zuverlässige künstliche Intelligenz",
-        "fr": "Chercheur principal en intelligence artificielle fiable"
+        "de": "Ricercatore Senior in Intelligenza Artificiale Affidabile",
+        "fr": "Ricercatore Senior in Intelligenza Artificiale Affidabile"
       },
       "descriptionByLocale": {
         "it": "# Ricercatore Senior in Intelligenza Artificiale Affidabile\n\nLa Scuola universitaria professionale della Svizzera Italiana (SUPSI) mette a concorso una posizione come\n\n## Ricercatrice / Ricercatore Senior in Intelligenza Artificiale Affidabile\n, presso l\n\n## ’Istituto Dalle Molle di studi sull’intelligenza artificiale (IDSIA USI-SUPSI)\ndel Dipartimento tecnologie innovative (DTI) con sede Lugano. Grado d’occupazione del 50%. Entrata in servizio 1° gennaio 2027 o data da convenire.\n\n## Mansioni\n- Sviluppare una linea di ricerca indipendente, teorica e applicata, negli ambiti delle probabilità imprecise, dei circuiti probabilistici, dei modelli grafici e della complessità computazionale dei modelli di IA.\n- Collaborare in team di ricerca e sviluppo per l’esecuzione di progetti industriali.\n- Supervisionare o co-supervisionare personale scientifico.\n- Partecipare e/o co-dirigere progetti di ricerca.\n- Contribuire allo sviluppo di proposte per l’acquisizione di finanziamenti.\n- Redigere o co-redigere articoli scientifici e rapporti interni.\n- Presentare il proprio lavoro a conferenze e partner di progetto.\n\n## Requisiti\n- PhD in Informatica, Ingegneria o discipline quantitative.\n- Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.\n- Solide competenze di programmazione in C/C++, Python e R.\n- Eccellente curriculum di pubblicazioni scientifiche.\n- Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.\n- Esperienza nella supervisione di studenti Bachelor, Master e PhD.\n- Ottima conoscenza dell’inglese scritto e parlato.\n\nRequisiti preferenziali\n- Buona conoscenza dell’italiano scritto e parlato.\n- Buone capacità organizzative e autonomia.\n- Capacità di lavorare in team e nel dialogo scientifico.\n- Forte motivazione per il raggiungimento di obiettivi e scadenze.\n- Elevata motivazione alla ricerca e alla pubblicazione.\n- Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio.\n\n## Cosa offriamo\n- Un contratto determinato di due anni, con possibilità di rinnovo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza della/del candidata/o.\n- Ambiente lavorativo internazionale.\n- Partecipazione a conferenze e workshop di alto profilo.\n- Opportunità di sviluppare competenze professionali e scientifiche.\n- Co-supervisione di dottorandi e studenti.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15.10.2026\ntramite il formulario di candidatura dedicato, corredate da:\n- Curriculum vitae con lista delle pubblicazioni e link alla tesi di Dottorato.\n- Lettera di motivazione che includa anche una breve descrizione dell’esperienza (1 pagina).\n- Copia di almeno tre articoli scientifici pubblicati su riviste internazionali o su atti di convegni internazionali inerenti al bando.\n- Lista di tre referenze (con indirizzi e-mail).\n\nPer ulteriori informazioni è possibile rivolgersi a\nProf. Dr. Marco Zaffalon\n. Non saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
@@ -408,7 +433,7 @@
         "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
         "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
         "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
+        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -500,10 +525,14 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
+        ],
+        "fr": [
+          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
+        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
+        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
       ],
       "needsRetranslation": true
     },
@@ -544,13 +573,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Videomaker e Content creator",
-        "en": "Videomaker and creator Content",
-        "de": "Videomaker und Creator Content",
-        "fr": "Videomaker et créateur Contenu"
+        "en": "Videomaker e Content creator",
+        "de": "Videomaker e Content creator",
+        "fr": "Videomaker e Content creator"
       },
       "descriptionByLocale": {
         "it": "# Videomaker e Content creator\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento formazione e apprendimento / Alta scuola pedagogica (DFA/ASP) di Locarno una posizione di\n\n## Collaboratore specializzato Videomaker e Content creator\n. Grado di occupazione a tempo parziale (60%), contratto a tempo indeterminato. Entrata in funzione: il 1° gennaio 2027 o data da convenire.\n\n## Contesto professionale\nIl DFA/ASP assicura la formazione professionale degli insegnanti di tutti gli ordini di scuola (scuola dell’infanzia, scuola elementare, scuola media, scuola media superiore e scuole speciali). Conduce lavori di ricerca, innovazione e sviluppo centrati sulla formazione professionale, l’educazione, lo sviluppo culturale e l’apprendimento in contesti d’apprendimento formali e informali. Propone formazioni continue e avanzate, così come un largo spettro di prestazioni destinate ai professionisti dell’insegnamento e della formazione o ad altro pubblico. Svolge inoltre un importante ruolo sul piano regionale e nazionale a livello culturale e nel coordinamento e nello sviluppo del sistema educativo e formativo. Il Servizio risorse didattiche e scientifiche, eventi e comunicazione (REC) promuove e realizza progetti di comunicazione e divulgazione scientifica con l’organizzazione di convegni, eventi e presentazioni, l’edizione di riviste scientifiche, collane editoriali e singole pubblicazioni, a cui si affianca la creazione di risorse didattiche e altri ausili formativi. Per la realizzazione dei suoi compiti, il REC si avvale di una squadra interdisciplinare composta da comunicatori visivi e da specialisti del web, dei multimedia e della comunicazione.\n\n## Mansioni\n- Ideare e realizzare contenuti fotografici e/o audiovisivi per promuovere le attività, i progetti didattici/di ricerca del Dipartimento e la vita nel Campus.\n- Produrre contenuti brevi e dinamici per i Social Media, adattandoli ai diversi formati e pubblici di riferimento.\n- Supportare la produzione audiovisiva e fotografica di eventi, conferenze, cerimonie, open day e altri appuntamenti istituzionali.\n- Gestire l'intero processo di produzione video dalla definizione del concept e della sceneggiatura alla pianificazione, ripresa e montaggio.\n- Garantire il rispetto delle linee guida istituzionali e dell'identità visiva.\n- Promuovere un’immagine pubblica positiva del DFA/ASP.\n- Contribuire allo sviluppo della strategia di video content proponendo nuovi format, concept e modalità narrative.\n- Analizzare le performance dei contenuti video e contribuire all'ottimizzazione delle produzioni sulla base dei risultati ottenuti.\n- Gestire l'archivio audiovisivo, organizzando e catalogando fotografie, video, progetti e materiali di produzione.\n\n## Requisiti\n- Formazione in Comunicazione, Marketing, Audiovisivo, Digital Media o esperienza equivalente.\n- Almeno 5 anni di esperienza professionale nella produzione e nel montaggio video.\n- Ottima capacità di ideare, girare e montare contenuti video per diversi canali e formati: social media, sito web, campagne di comunicazione, eventi e attività istituzionali.\n- Competenze di storytelling e capacità di trasformare temi accademici e istituzionali in contenuti chiari, coinvolgenti e adatti ai diversi target.\n- Ottima conoscenza di software quali Adobe Premiere Pro, Adobe Acrobat, After Effects, Photoshop, Illustrator o equivalenti.\n- Ottima conoscenza di Motion graphics/animazione.\n- Padronanza nell'utilizzo di videocamere, reflex e attrezzature audiovisive.\n- Sensibilità estetica, creatività e attenzione ai dettagli.\n- Capacità di lavorare in autonomia e gestire più progetti contemporaneamente.\n- Ottima conoscenza dell’italiano, buona conoscenza delle lingue nazionali e dell’inglese.\n- Buone capacità di pianificazione, organizzazione e risoluzione di problemi.\n- Spiccate capacità comunicative e relazionali, con particolare predisposizione al lavoro in squadra.\n\n## La SUPSI offre\n- Un ambiente lavorativo aperto, stimolante e basato su un approccio interdisciplinare e multiprofessionale in costante evoluzione.\n- Un contesto lavorativo attento alla qualità̀ delle relazioni umane e all’innovazione.\n- Un’interessante e stimolante attività professionale all’interno di un ambiente universitario dinamico e collaborativo.\n- La posizione è assoggettata al CCL SUPSI e si colloca in fascia 3.\n\n## Candidatura\nInformazioni supplementari possono essere richieste a\nSimona Elena Crivelli\n, Responsabile Servizio risorse didattiche e scientifiche, eventi e comunicazione DFA/ASP. Saranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 26.10.2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di:\n- Lettera di presentazione/motivazione\n- Portfolio di lavori audiovisivi e/o contenuti digitali\n- Curriculum vitae\n- Certificati di studio\n- Certificati di lavoro\n\nEventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
@@ -649,7 +678,8 @@
       },
       "previousSlugs": [
         "videomaker-e-content-creator-supsi-manno"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u55y",
@@ -684,7 +714,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
       "firstSeenAt": "2026-09-19T23:08:45.327Z",
       "titleByLocale": {
         "it": "Assistenti Bachelor in formazione Master MSE per l’istituto ISTePS",
@@ -802,13 +832,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
       "firstSeenAt": "2026-09-04T23:12:08.169Z",
       "titleByLocale": {
         "it": "Docente professionista in Ergoterapia",
-        "en": "Professional teacher in Ergotherapy",
-        "de": "Professioneller Lehrer in Ergotherapie",
-        "fr": "Professeur professionnel en Ergothérapie"
+        "en": "Docente professionista in Ergoterapia",
+        "de": "Docente professionista in Ergoterapia",
+        "fr": "Docente professionista in Ergoterapia"
       },
       "descriptionByLocale": {
         "it": "# Docente professionista in Ergoterapia\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso alcune posizioni di\nper la Formazione di base presso il Dipartimento economia aziendale, sanità e sociale (DEASS), con sede a Manno. Grado di occupazione: 40% Entrata in funzione: 1° gennaio 2027 o da convenire.\n\n## Responsabilità e attività\nLa persona selezionata svolge attività di insegnamento principalmente nell’ambito della riabilitazione neurologica e/o geriatrica e fornisce supporto agli studenti, contribuendo allo sviluppo della formazione e alla collaborazione con il territorio. In particolare:\n- Gestisce le attività di insegnamento nei corsi previsti dal piano di studi del Bachelor in Ergoterapia.\n- Partecipa alla pianificazione dei moduli formativi, garantendo l'attualizzazione degli obiettivi e dei contenuti e il riferimento ai principi e ai valori del Dipartimento.\n- Gestisce le attività di insegnamento e di apprendimento e sceglie metodologie diversificate e adeguate agli scopi, alla tipologia del corso e al contesto formativo.\n- Cura la relazione pedagogica e sviluppa risorse didattiche.\n- Si mantiene aggiornata ed è aperta alle innovazioni professionali e pedagogiche.\n- Contribuisce alle attività generali del Dipartimento, partecipa alle attività promozionali, collabora alla gestione delle infrastrutture e cura il clima istituzionale.\n\n## Requisiti\nLa persona selezionata possiede un solido background accademico e professionale nell’ambito della riabilitazione neurologica e/o geriatrica, con esperienza nell’insegnamento.\nSono richiesti:\n- Titolo di studio: Bachelor in Ergoterapia e titoli di post-formazione, preferibilmente un Master of Science o titoli equivalenti.\n- Esperienza: significativa esperienza nella riabilitazione di persone con patologie neurologiche e geriatriche e nell’ambito dell’insegnamento, preferibilmente a livello terziario.\n- Competenze trasversali: spiccate capacità comunicative, relazionali e sociali, con predisposizione al lavoro in team e alla collaborazione.\n- Competenze digitali: padronanza degli strumenti informatici di base.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, buona conoscenza dell’inglese scritto e parlato e di una seconda lingua nazionale.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in costante evoluzione.\n- Inserimento in un team di lavoro partecipativo.\n- Una rete di collaborazioni locali e nazionali.\n- Un contesto che valorizza l’innovazione e la qualità delle relazioni professionali.\n- Promozione della diversità e delle pari opportunità in materia di occupazione.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 5 ottobre 2026\ntramite il formulario di candidatura dedicato. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di lettera di presentazione/motivazione, Curriculum Vitae, diplomi, certificati e attestati di impiego. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nRuth Hersche-Cupelli\n.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
@@ -880,7 +910,8 @@
       "previousSlugs": [
         "docente-professionista-in-ergoterapia-supsi-manno"
       ],
-      "applyUrl": "https://www.supsi.ch/bando26_2015"
+      "applyUrl": "https://www.supsi.ch/bando26_2015",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti2z",
@@ -914,7 +945,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-02T21:32:11.010Z",
+      "crawledAt": "2026-10-03T09:31:58.588Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -924,9 +955,9 @@
       },
       "titleByLocale": {
         "it": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
-        "en": "General Competition / Educational staff Childcare 2026",
-        "de": "Allgemeiner Wettbewerb / Bildungspersonal Kinderbetreuung 2026",
-        "fr": "Concours général / Personnel éducatif Garde d'enfants 2026"
+        "en": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
+        "de": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
+        "fr": "Concorso generale / Personale educativo Servizio prima infanzia 2026"
       },
       "descriptionByLocale": {
         "it": "# Concorso generale / Personale educativo Servizio prima infanzia 2026\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso, presso il\n\n## Servizio prima infanzia\n, la selezione di personale educativo da poter inserire all’interno delle équipe educative.\nIl concorso è annuale con la possibilità di essere assunti nel corso del 2026, a dipendenza delle necessità del Servizio e con possibilità di mobilità tra le sedi.\n\n## Ambito e scopo della posizione\nIl servizio prima infanzia è promosso dalla Direzione SUPSI per permettere una migliore conciliabilità tra gli impegni familiari, professionali e/o di studio e coordina in particolare le sedi di nidi dell’infanzia SUPSI (SUPSInido Manno, USI SUPSInido Viganello e SUPSInido Locarno). Esse sono progettate per bambini dai 4 mesi ai 3-4 anni, rivolte prioritariamente alle famiglie SUPSI e USI-SUPSI ma a disposizione anche delle famiglie esterne residenti nel territorio.\n\n## Responsabilità e attività\nL'educatrice/educatore selezionata/o opererà all'interno di un team educativo, con l’obiettivo di favorire lo sviluppo fisico, cognitivo, emotivo e sociale dei bambini. La figura professionale sarà responsabile delle seguenti attività:\n- Progettazione educativa: elaborazione di spazi e ambienti finalizzati al benessere e alla crescita dei bambini accolti, in linea con le linee guida del Servizio, assicurando un approccio inclusivo e personalizzato.\n- Gestione autonoma di un gruppo: favorire l'interazione tra i bambini, stimolando la collaborazione, la comunicazione e il rispetto reciproco, contribuendo a creare un contesto sereno e accogliente.\n- Osservazione e documentazione: monitoraggio dei progressi di crescita e apprendimento dei bambini, redazione di documenti e report di valutazione e mantenimento di una comunicazione continua con le famiglie.\n- Collaborazione con l’équipe educativa: lavoro in sinergia con le altre figure professionali del Servizio, per garantire un approccio co-partecipativo e coeso.\n- Attività di cura e assistenza: supporto nelle attività quotidiane di cura dei bambini, quali alimentazione, igiene e riposo, assicurando un ambiente sicuro e protetto.\n\n## Requisiti\n- Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.\n- Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.\n- Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.\n- Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.\n- Capacità relazionale e comunicativa con i bambini e le famiglie.\n- Attitudine al lavoro di gruppo e alla collaborazione.\n- Approccio partecipativo rivolto all’implementazione del progetto pedagogico.\n- Flessibilità rivolta al buon funzionamento del Servizio.\n\n## Offriamo\n- Contratto a tempo determinato o indeterminato (a dipendenza del bisogno del Servizio) con inquadramento secondo il CCLATAN situato in fascia 4 della Scala Cantonale, con beneficio di ulteriori condizioni migliorative derivanti dal CCLSUPSI.\n- Supporto, lavoro in team e riunioni: un ambiente collaborativo all’interno di équipe formate da professionisti qualificati dove la condivisione e la cooperazione sono elementi fondamentali.\n- Sicurezza e benessere: condizioni di lavoro che pongono al centro la sicurezza e il benessere del personale e dei bambini.\n- Formazione continua: opportunità di partecipare a corsi di aggiornamento professionale (individuali e d’équipe) all’interno del proprio tempo di lavoro.\n- Sostegno al percorso professionale: approccio improntato alla valorizzazione del collaboratore.\n\n## Informazioni per la candidatura\nInformazioni supplementari possono essere richieste a\nVisar Sejdiu\n, Referente direzione amministrativa. Documenti da allegare alla candidatura:\n- Lettera di motivazione\n- Curriculum vitae\n- Diplomi\n- Eventuale riconoscimento SEFRI\n- Certificati di lavoro\n\nOltre ai documenti da inviare al momento della candidatura on-line, in un secondo momento potrà essere richiesta ulteriore documentazione (questionario sullo stato di salute, copia di un documento di identità).\nSi attira l’attenzione dei candidati, selezionati per un colloquio, che per verificare la loro buona reputazione, i dati personali verranno trasmessi all’autorità cantonale di vigilanza (UFaG) che a sua volta richiederà l’estratto del casellario giudiziario direttamente al Servizio di coordinamento cantonale dei casellari giudiziali (conformemente all’art. 18 cpv. 4 dell’Ordinanza sull’accoglimento di minori a scopo di affiliazione).\nSaranno prese in considerazione unicamente le candidature inoltrate entro il 31 dicembre 2026 tramite il formulario di candidatura dedicato. Non sono accettate candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito.",
@@ -1015,7 +1046,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.supsi.ch/bando26_4001"
+      "applyUrl": "https://www.supsi.ch/bando26_4001",
+      "needsRetranslation": true
     },
     {
       "id": "company-59ix8c",
@@ -1049,9 +1081,9 @@
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
-        "en": "Stagist 52 weeks",
-        "de": "Stagist 52 Wochen",
-        "fr": "Stagiaire 52 semaines"
+        "en": "Stagista 52 settimane",
+        "de": "Stagista 52 settimane",
+        "fr": "Stagista 52 settimane"
       },
       "descriptionByLocale": {
         "it": "# Stagista 52 settimane\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso alcuni posti di\n\n## Stage 52 settimane\npresso il Dipartimento economia aziendale, sanità e sociale (DEASS) e l’ufficio Risorse umane (DIR) a Manno e il Dipartimento tecnologie innovative (DTI) a Lugano-Viganello. Grado di occupazione: 80%-100%. Entrata in funzione: luglio-agosto 2027, da concordare.\n\n## Ambito e scopo della posizione\nLo stage è destinato esclusivamente agli studenti attualmente iscritti al terzo anno di un Centro Professionale Commerciale della Svizzera italiana, che a partire dall’estate 2027 dovranno svolgere un anno di pratica professionale finalizzato all’ottenimento dell’Attestato federale di capacità con maturità professionale.\n\n## Responsabilità e attività\nLa persona selezionata sarà coinvolta principalmente in attività di supporto amministrativo, operando in autonomia e sotto la guida delle nostre formatrici/dei nostri formatori professionali. Avrà l’opportunità di applicare concretamente le competenze teoriche acquisite durante il percorso commerciale, contribuendo al raggiungimento degli obiettivi formativi previsti.\n\n## Le principali attività includono\n- Gestione e coordinamento della posta in entrata e in uscita, delle chiamate e delle comunicazioni via e-mail.\n- Elaborazione amministrativa delle fatture.\n- Gestione della cancelleria e del materiale d’ufficio.\n- Utilizzo dei sistemi gestionali interni per la gestione delle banche dati, della documentazione e dell’archivio.\n- Prenotazioni di sale riunioni e aule.\n- Supporto alla promozione e all’organizzazione di eventi e iniziative SUPSI.\n- Supporto amministrativo e organizzativo a diverse unità (Direzione, Servizio comunicazione, Servizio risorse umane, Segretariato della Formazione di base e continua, ecc.) nelle attività di competenza.\n- Accoglienza, assistenza e orientamento di ospiti.\n- Gestione delle richieste di studenti, collaboratori e ospiti esterni, garantendo un servizio di customer care professionale e orientato alle esigenze dell’utenza.\n\n## Requisiti\n- Competenze trasversali: precisione, senso dell’organizzazione e affidabilità, unite a buone capacità comunicative e relazionali. Predisposizione al lavoro in team e alla collaborazione, così come la capacità di operare in modo autonomo e responsabile.\n- Competenze digitali: buone conoscenze nell’uso dei programmi informatici e delle nuove tecnologie.\n- Competenze linguistiche: ottima conoscenza della lingua italiana, conoscenze scolastiche di una seconda lingua nazionale e/o dell’inglese.\n\n## La SUPSI offre\n- Un ambiente di lavoro dinamico e in evoluzione.\n- Inserimento all’interno di un team di lavoro a carattere partecipativo.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 10 gennaio 2027\ntramite il formulario di candidatura dedicato. Le candidature saranno valutate di volta in volta e le candidate/i candidati che meglio risponderanno ai requisiti richiesti potranno essere convocati a colloquio già durante il periodo di pubblicazione del bando.\nLe candidature incomplete, inviate ad altri indirizzi o oltre il termine stabilito, non saranno considerate. Al momento della candidatura online è richiesto l’invio di una lettera di presentazione/motivazione, Curriculum Vitae e copia delle pagelle del CPC. Eventuale documentazione aggiuntiva (casellario giudiziale, copia di un documento di identità) potrà essere richiesta successivamente.\nInformazioni supplementari sulle mansioni possono essere richieste a\nLaurence Nydegger\n, Specialista risorse umane.\n\n## Il nostro impegno\nLa SUPSI crede che il futuro nasca dalla valorizzazione di prospettive diverse, esperienze uniche e da una cultura equa, inclusiva e rispettosa delle diversità.",
@@ -1061,9 +1093,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagist-52-weeks-supsi-dti-manno",
-        "de": "stagist-52-wochen-supsi-dti-manno",
-        "fr": "stagiaire-52-semaines-supsi-dti-manno"
+        "en": "stagista-52-settimane-supsi-dti-manno",
+        "de": "stagista-52-settimane-supsi-dti-manno",
+        "fr": "stagista-52-settimane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -1110,12 +1142,25 @@
       "previousSlugsByLocale": {
         "it": [
           "stagista-52-settimane-supsi-manno"
+        ],
+        "en": [
+          "stagist-52-weeks-supsi-dti-manno"
+        ],
+        "de": [
+          "stagist-52-wochen-supsi-dti-manno"
+        ],
+        "fr": [
+          "stagiaire-52-semaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "stagista-52-settimane-supsi-manno"
+        "stagista-52-settimane-supsi-manno",
+        "stagist-52-weeks-supsi-dti-manno",
+        "stagist-52-wochen-supsi-dti-manno",
+        "stagiaire-52-semaines-supsi-dti-manno"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti3w",
@@ -1156,13 +1201,13 @@
         "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
         "en": "preformative-year-for-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
         "de": "vorjahr-fur-die-zulassung-zum-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
-        "fr": "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
+        "fr": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno"
       },
       "titleByLocale": {
-        "fr": "Année préparatoire à l'admission au baccalauréat en sciences en durabilité et transition systémique",
+        "fr": "Stage anno preformativo per l’ammissione al Bachelor of Science in Sostenibilità e transizione sistemica",
         "it": "Stage anno preformativo per l’ammissione al Bachelor of Science in Sostenibilità e transizione sistemica",
         "en": "Internship position for the professional practice year admission to the Bachelor of Science in Sustainability and Systemic Transition",
-        "de": "Vorjahr für die Zulassung zum Bachelor of Science in Sustainability and Systemic Transition"
+        "de": "Stage anno preformativo per l’ammissione al Bachelor of Science in Sostenibilità e transizione sistemica"
       },
       "descriptionByLocale": {
         "it": "# Stage anno preformativo per l’ammissione al Bachelor of Science in Sostenibilità e transizione sistemica\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\nstage per l'anno di pratica professionale (anno preformativo) per l'ammissione al Bachelor of Science in Sostenibilità e transizione sistemica\n, a supporto del\n\n## Servizio Gender e Diversity\ne dell’\n\n## Area sostenibilità\ndella Segreteria di Direzione, presso i servizi della Direzione generale SUPSI con sede a Manno. Grado di occupazione: 100% per la durata di 9 mesi con entrata in funzione a partire dal 1° ottobre 2026 o data da convenire.\n\n## A chi si rivolge questo stage\nQuesto stage costituisce l'anno di pratica professionale (anno preformativo) per candidate e candidati con maturità liceale che non dispongono dei requisiti per l'ammissione diretta al Bachelor of Science in Sostenibilità e transizione sistemica. L'ammissione al percorso preformativo avviene tramite colloquio attitudinale. Periodo: ottobre 2026 – giugno 2027; iscrizioni al percorso preformativo aperte dal 27 aprile al 30 settembre 2026.\n\n## Ambito e scopo della posizione\nLa SUPSI promuove i princìpi della sostenibilità e delle pari opportunità con un approccio sistemico e trasversale (Whole Institution Approach), che coinvolge l’intera istituzione a tutti i livelli e in tutti gli ambiti. La posizione è di supporto ai Servizi della Direzione generale SUPSI su questi temi, trasversali e centrali nella Strategia SUPSI 2025-2035.\n\n## Responsabilità e attività\nAll'interno dei Servizi della Direzione generale, lo/la stagista affianca il team nella promozione della sostenibilità e delle pari opportunità in SUPSI, contribuendo concretamente alle attività quotidiane e ai progetti in corso.\n- Collabora nella redazione di documentazione e del Rapporto di sostenibilità (raccolta e analisi dati)\n- Supporta l'organizzazione di eventi e iniziative\n- Collabora a progetti con partner interni ed esterni\n- Supporta attività amministrative, organizzative e di comunicazione\n\n## Requisiti\n- Maturità liceale e ammissione al percorso preformativo del Bachelor of Science in Sostenibilità e transizione sistemica della SUPSI.\n- Interesse per i temi legati alle pari opportunità e alla sostenibilità.\n- Buona conoscenza del pacchetto Microsoft Office (Word, Excel, PowerPoint).\n- Buone capacità redazionali e di analisi della documentazione, o interesse a svilupparle.\n- Capacità di lavorare in team, con attitudine collaborativa e proattiva.\n- Buone competenze comunicative e relazionali\n- Ottima conoscenza della lingua italiana\n- Buona conoscenza di almeno un’altra lingua nazionale (livello B1 o superiore, scritto e orale)\n- Flessibilità e spirito di iniziativa.\n\n## Cosa offriamo\n- Inquadramento secondo la Direttiva interna SUPSI 6B (Personale in formazione), art. 4.c – Stagista pre-Bachelor\n- Supervisione da parte di persone qualificate in ambito pari opportunità e sostenibilità\n- Possibilità di contribuire attivamente al sostegno allo sviluppo delle due tematiche all'interno dell'Istituzione e in sinergia con gli interlocutori esterni.\n- Un'attività stimolante in un ambiente universitario professionalizzante, variato e dinamico.\n- Un contesto lavorativo attento alla qualità delle relazioni umane, uno stile di lavoro collaborativo e agile, orientato al rispetto, all'ascolto e alla fiducia.\n\nLa SUPSI crede che il futuro sia dato da diverse prospettive, esperienze uniche e una cultura equa, inclusiva e attenta alle diversità.\n\n## Informazioni per la candidatura\nAI fini della candidatura è necessario allegare i seguenti documenti:\n- Lettera di motivazione\n- Curriculum Vitae\n- Certificati di studio e diplomi\n\nSaranno prese in considerazione unicamente le candidature inoltrate tramite il formulario di candidatura dedicato. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.\nScadenza il\n\n## 13 agosto 2026\n.\n\n## Maggiori informazioni\nInformazioni sul Bachelor of Science in Sostenibilità e transizione sistemica:\n​​​​​​​​​​​​​​\ninfo-sts@supsi.ch",
@@ -1224,6 +1269,9 @@
         ],
         "en": [
           "internship-position-for-the-professional-practice-year-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi"
+        ],
+        "fr": [
+          "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
@@ -1249,7 +1297,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/bando26_4013",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

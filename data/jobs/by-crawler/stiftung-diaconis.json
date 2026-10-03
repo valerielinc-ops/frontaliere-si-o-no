@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stiftung-diaconis",
-  "assembledAt": "2026-10-02T21:15:26.569Z",
+  "assembledAt": "2026-10-03T09:10:26.675Z",
   "jobs": [
     {
       "id": "stiftung-diaconis-169",
@@ -34,7 +34,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_169/Fachfrau-Fachmann-Gesundheit-80-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:19.707Z",
+      "crawledAt": "2026-10-03T09:10:16.281Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "companyDomain": "diaconis.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF 60 % - 100 %",
       "titleByLocale": {
-        "it": "Dipl. Infermiera / Infermiera professionale HF 60% - 100%",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF 60 % - 100 %",
         "en": "Dipl. Care specialist HF 60 % - 100 %",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF 60 % - 100 %",
         "fr": "Dipl. Infirmière / Infirmière professionnelle HF 60% - 100%"
@@ -113,7 +113,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_214/Dipl.-Pflegefachfrau-Pflegefachmann-HF-60-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:19.232Z",
+      "crawledAt": "2026-10-03T09:10:15.794Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -160,7 +160,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stiftung-diaconis-107",
@@ -194,7 +195,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_107/Praktikantin-Praktikant-Pflege-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:18.757Z",
+      "crawledAt": "2026-10-03T09:10:15.307Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -273,7 +274,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_203/Mitarbeiterin-Mitarbeiter-Pflege-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:18.283Z",
+      "crawledAt": "2026-10-03T09:10:14.783Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -321,7 +322,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stiftung-diaconis-66",
@@ -355,7 +357,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_66/Stv.-Teamleitung-Pflege-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:17.809Z",
+      "crawledAt": "2026-10-03T09:10:14.294Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -440,7 +442,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_135/Mitarbeiter-in-Pflege-DPC-40-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:17.302Z",
+      "crawledAt": "2026-10-03T09:10:13.808Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -508,7 +510,8 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stiftung-diaconis-86-r9faa7ca3",
@@ -541,7 +544,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_86/K%C3%B6chin-Koch-60-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:16.823Z",
+      "crawledAt": "2026-10-03T09:10:13.293Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -656,7 +659,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_103/Poolmitarbeiter-in-Pflege-%28alle-Ausbildungsstufen%29-10-60-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:16.347Z",
+      "crawledAt": "2026-10-03T09:10:12.804Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -735,7 +738,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_130/Dipl.-Pflegefachfrau-Pflegefachmann-HF-FH-Palliative-Care-Nachtdienst-70-%25-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:15.872Z",
+      "crawledAt": "2026-10-03T09:10:12.318Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -816,7 +819,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_129/Dipl.-Pflegefachfrau-Pflegefachmann-HF-FH-Palliative-Care-70-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:15.392Z",
+      "crawledAt": "2026-10-03T09:10:11.828Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -892,7 +895,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_11/Mitarbeiter-in-Pflege-Nachtdienst-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:14.916Z",
+      "crawledAt": "2026-10-03T09:10:11.336Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -932,7 +935,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stiftung-diaconis-282",
@@ -966,7 +970,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_282/Psychologin-oder-Psychologen-MSc-MA-als-Leitung-Arbeitsmarktliche-Massnahme-EAR-80%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:14.418Z",
+      "crawledAt": "2026-10-03T09:10:10.807Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1048,7 +1052,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_71/Leiterin-Leiter-Pflege-Spezialisierte-Palliative-Care-80-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:13.940Z",
+      "crawledAt": "2026-10-03T09:10:10.274Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",

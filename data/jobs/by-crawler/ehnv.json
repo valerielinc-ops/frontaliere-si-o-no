@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ehnv",
-  "assembledAt": "2026-10-02T21:14:46.301Z",
+  "assembledAt": "2026-10-03T09:14:41.050Z",
   "jobs": [
     {
       "id": "ehnv-0bb13e86b14a",
@@ -34,7 +34,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:40.468Z",
+      "crawledAt": "2026-10-03T09:14:35.883Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4430/une-apprentie-logisticienne",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:39.962Z",
+      "crawledAt": "2026-10-03T09:14:35.381Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4429/une-apprentie-agente-de-proprete",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:39.462Z",
+      "crawledAt": "2026-10-03T09:14:34.877Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -284,7 +284,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4428/une-apprentie-cuisinierere",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:38.968Z",
+      "crawledAt": "2026-10-03T09:14:34.379Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -363,7 +363,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4427/des-apprenties-employees-de-commerce",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:38.465Z",
+      "crawledAt": "2026-10-03T09:14:33.866Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -441,7 +441,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4426/une-apprentie-assistante-medicale",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:37.971Z",
+      "crawledAt": "2026-10-03T09:14:33.362Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -487,7 +487,8 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehnv-9a8267ca1e39",
@@ -521,7 +522,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4425/des-apprenties-assistantes-en-soins-et-sante-communautaire",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:37.443Z",
+      "crawledAt": "2026-10-03T09:14:32.857Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -601,7 +602,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4473/une-experte-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement-qualite-pour-les-plateaux-techniques-bloc-operatoire-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:36.955Z",
+      "crawledAt": "2026-10-03T09:14:32.354Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -679,7 +680,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4574/une-cuisinierere-en-dietetique-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:36.463Z",
+      "crawledAt": "2026-10-03T09:14:31.847Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -724,7 +725,8 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehnv-8e31605d050b",
@@ -757,7 +759,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4604/une-infirmierere-clinicienne-specialisee-icls-a-80-100-40-de-clinique",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:35.971Z",
+      "crawledAt": "2026-10-03T09:14:31.314Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -802,7 +804,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehnv-5cf74fe68f78",
@@ -836,7 +839,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4621/une-cadre-de-proximite-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:35.473Z",
+      "crawledAt": "2026-10-03T09:14:30.770Z",
       "addressLocality": "Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -885,12 +888,12 @@
     },
     {
       "id": "ehnv-5d39dd442f5f",
-      "slug": "80-100-infermiere-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+      "slug": "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
       "slugByLocale": {
         "fr": "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
-        "it": "80-100-infermiere-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "en": "80-100-nurse-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "de": "80-100-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
+        "it": "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+        "en": "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+        "de": "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -898,23 +901,23 @@
       "title": "Un.e infirmier.ère à 80-100 %",
       "titleByLocale": {
         "fr": "Un.e infirmier.ère à 80-100 %",
-        "de": "80-100% Krankenschwester",
-        "it": "80-100% infermiere",
-        "en": "80-100% nurse"
+        "de": "Un.e infirmier.ère à 80-100 %",
+        "it": "Un.e infirmier.ère à 80-100 %",
+        "en": "Un.e infirmier.ère à 80-100 %"
       },
       "description": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Prendre en soins des patients de médecine aiguë dans le domaine préventif, curatif, palliatif et éducationnel\n\n• Réaliser la démarche de soins et l’évaluation clinique infirmière\n\n• Travailler en trinôme avec les ASSC et aide-infirmier.ères\n\n• Coordonner l’activité de l’équipe interdisciplinaire auprès du patient\n\n• Participer à l’intégration et à l’encadrement des nouveaux collaborateurs et des étudiants HES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES ou titre jugé équivalent reconnu par la Croix Rouge Suisse\n\n• Être au bénéfice d’une première expérience professionnelle dans les soins\n\n• Capacité à organiser son travail selon les priorités et avoir bonne gestion du stress\n\n• Avoir des connaissances dans l’évaluation clinique infirmière\n\n• Faire preuve de leadership et pratique réflexive dans les prises en soins\n\n• Faire preuve de flexibilité et d’adaptabilité\n\n• Avoir un intérêt pour le travail en équipe et la prise en soin de la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée dans une équipe dynamique\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité, T. +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nVotre offre avec documents usuels est à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
       "descriptionByLocale": {
         "fr": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Prendre en soins des patients de médecine aiguë dans le domaine préventif, curatif, palliatif et éducationnel\n\n• Réaliser la démarche de soins et l’évaluation clinique infirmière\n\n• Travailler en trinôme avec les ASSC et aide-infirmier.ères\n\n• Coordonner l’activité de l’équipe interdisciplinaire auprès du patient\n\n• Participer à l’intégration et à l’encadrement des nouveaux collaborateurs et des étudiants HES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES ou titre jugé équivalent reconnu par la Croix Rouge Suisse\n\n• Être au bénéfice d’une première expérience professionnelle dans les soins\n\n• Capacité à organiser son travail selon les priorités et avoir bonne gestion du stress\n\n• Avoir des connaissances dans l’évaluation clinique infirmière\n\n• Faire preuve de leadership et pratique réflexive dans les prises en soins\n\n• Faire preuve de flexibilité et d’adaptabilité\n\n• Avoir un intérêt pour le travail en équipe et la prise en soin de la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée dans une équipe dynamique\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité, T. +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nVotre offre avec documents usuels est à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
-        "it": "LA SERVIZIO DELLA RICERCA DYVERDON\n\nATTIVITÀ PRINCIPALI\n\n• Cura dei pazienti medici acuti nei campi preventivi, curativi, palliativi ed educativi\n\n• Raggiungere l'approccio alla cura e la valutazione dell'infermieristica clinica\n\n• Lavorare in trinomio con ASSC e assistenti di cura.\n\n• Coordinare il lavoro del team interdisciplinare con il paziente\n\n• Partecipazione all'integrazione e supervisione di nuovi dipendenti e studenti HES\n\nSKILLS – PRESCRIZIONI\n\n• Diploma di infermiera. ère HES o equivalente riconosciuto dalla Croce Rossa svizzera\n\n• Per beneficiare della prima esperienza professionale nella cura\n\n• Capacità di priorità e gestire lo stress\n\n• Conoscenza nella valutazione clinica dell'allattamento\n\n• Dimostrare la leadership e la pratica riflettente nella cura\n\n• Flessibilità e adattabilità\n\n• Avere un interesse nel lavoro di squadra e la cura per gli anziani\n\nUFFICIO\n\n• Una variegata attività in un team dinamico\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDATE ENTRY: 1 DICEMBRE 2026\n\nUlteriori informazioni possono essere ottenute dalla sig.ra Corine Lœuvre, autorità locale, T. +41 21 866 53 11\n\nSei interessato?\n\nLa vostra offerta con i soliti documenti dovrebbe essere inviata entro il 30 ottobre 2026\n\nUn estratto del verbale penale e un estratto speciale del verbale penale sarà richiesto per qualsiasi impegno per l'eHnv.",
-        "en": "THE MEDECINE \"C\" SERVICE OF THE DYVERDON RESEARCH HOPITAL\n\nMAIN ACTIVITIES\n\n• Care for acute medical patients in the preventive, curative, palliative and educational fields\n\n• Achieving the Care Approach and Clinical Nursing Evaluation\n\n• Work in trinomial with ASSCs and nursing assistants.\n\n• Coordinate the interdisciplinary team's work with the patient\n\n• Participate in the integration and supervision of new employees and HES students\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Diploma of nurse.ère HES or equivalent recognized by the Swiss Red Cross\n\n• To benefit from first professional experience in care\n\n• Ability to prioritize and manage stress\n\n• Knowledge in Clinical Nursing Evaluation\n\n• Demonstrate leadership and reflective practice in care\n\n• Flexibility and adaptability\n\n• Have an interest in teamwork and caring for the elderly\n\nWE OFFER\n\n• A varied activity in a dynamic team\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE ENTRY: DECEMBER 1, 2026 OR TO BE AGREED\n\nFurther information can be obtained from Ms. Corine Lœuvre, local authority, T. +41 21 866 53 11\n\nAre you interested?\n\nYour offer with usual documents should be sent by 30 October 2026\n\nAn extract of the criminal record and a special extract of the criminal record will be requested for any commitment to the eHnv.",
-        "de": "DIE MEDIZIN-DIENSTLEISTUNG „C DER FORSCHUNGSHOPITAL VON DYVERDON\n\nWICHTIGKEITEN\n\n• Pflege von akuten medizinischen Patienten im präventiven, kurativen, palliativen und Bildungsbereich\n\n• Erreichen des Pflegeansatzes und der klinischen Pflegebewertung\n\n• Arbeite trinomial mit ASSCs und Pflegeassistenten.\n\n• Koordination der Arbeit des interdisziplinären Teams mit dem Patienten\n\n• Beteiligen Sie sich an der Integration und Überwachung neuer Mitarbeiter und HES-Studenten\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Diplom einer Krankenschwester. ère HES oder gleichwertig vom Schweizerischen Roten Kreuz anerkannt\n\n• Profitieren Sie von erster Berufserfahrung in der Pflege\n\n• Fähigkeit, Stress zu priorisieren und zu bewältigen\n\n• Kenntnisse in Clinical Nursing Evaluation\n\n• Demonstrieren Sie Führung und reflektierende Praxis in der Pflege\n\n• Flexibilität und Anpassungsfähigkeit\n\n• Interesse an Teamarbeit und Pflege älterer Menschen\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität in einem dynamischen Team\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nDATUM EINTRAG: 1. DEZEMBER 2026 ODER ZU ÜBEREINKOMMEN\n\nWeitere Informationen erhalten Sie bei Frau Corine Lœuvre, Gemeinde, T. +41 21 866 53 11\n\nSind Sie interessiert?\n\nIhr Angebot mit üblichen Unterlagen sollte bis zum 30. Oktober 2026 gesendet werden\n\nEin Auszug aus dem Strafregister und ein spezieller Auszug aus dem Strafregister werden für jede Verpflichtung gegenüber der eHnv angefordert."
+        "it": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Prendre en soins des patients de médecine aiguë dans le domaine préventif, curatif, palliatif et éducationnel\n\n• Réaliser la démarche de soins et l’évaluation clinique infirmière\n\n• Travailler en trinôme avec les ASSC et aide-infirmier.ères\n\n• Coordonner l’activité de l’équipe interdisciplinaire auprès du patient\n\n• Participer à l’intégration et à l’encadrement des nouveaux collaborateurs et des étudiants HES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES ou titre jugé équivalent reconnu par la Croix Rouge Suisse\n\n• Être au bénéfice d’une première expérience professionnelle dans les soins\n\n• Capacité à organiser son travail selon les priorités et avoir bonne gestion du stress\n\n• Avoir des connaissances dans l’évaluation clinique infirmière\n\n• Faire preuve de leadership et pratique réflexive dans les prises en soins\n\n• Faire preuve de flexibilité et d’adaptabilité\n\n• Avoir un intérêt pour le travail en équipe et la prise en soin de la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée dans une équipe dynamique\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité, T. +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nVotre offre avec documents usuels est à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
+        "en": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Prendre en soins des patients de médecine aiguë dans le domaine préventif, curatif, palliatif et éducationnel\n\n• Réaliser la démarche de soins et l’évaluation clinique infirmière\n\n• Travailler en trinôme avec les ASSC et aide-infirmier.ères\n\n• Coordonner l’activité de l’équipe interdisciplinaire auprès du patient\n\n• Participer à l’intégration et à l’encadrement des nouveaux collaborateurs et des étudiants HES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES ou titre jugé équivalent reconnu par la Croix Rouge Suisse\n\n• Être au bénéfice d’une première expérience professionnelle dans les soins\n\n• Capacité à organiser son travail selon les priorités et avoir bonne gestion du stress\n\n• Avoir des connaissances dans l’évaluation clinique infirmière\n\n• Faire preuve de leadership et pratique réflexive dans les prises en soins\n\n• Faire preuve de flexibilité et d’adaptabilité\n\n• Avoir un intérêt pour le travail en équipe et la prise en soin de la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée dans une équipe dynamique\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité, T. +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nVotre offre avec documents usuels est à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
+        "de": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Prendre en soins des patients de médecine aiguë dans le domaine préventif, curatif, palliatif et éducationnel\n\n• Réaliser la démarche de soins et l’évaluation clinique infirmière\n\n• Travailler en trinôme avec les ASSC et aide-infirmier.ères\n\n• Coordonner l’activité de l’équipe interdisciplinaire auprès du patient\n\n• Participer à l’intégration et à l’encadrement des nouveaux collaborateurs et des étudiants HES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES ou titre jugé équivalent reconnu par la Croix Rouge Suisse\n\n• Être au bénéfice d’une première expérience professionnelle dans les soins\n\n• Capacité à organiser son travail selon les priorités et avoir bonne gestion du stress\n\n• Avoir des connaissances dans l’évaluation clinique infirmière\n\n• Faire preuve de leadership et pratique réflexive dans les prises en soins\n\n• Faire preuve de flexibilité et d’adaptabilité\n\n• Avoir un intérêt pour le travail en équipe et la prise en soin de la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée dans une équipe dynamique\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité, T. +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nVotre offre avec documents usuels est à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv."
       },
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4683/une-infirmierere-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:34.951Z",
+      "crawledAt": "2026-10-03T09:14:30.239Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -947,21 +950,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:14:34.951Z",
+      "firstSeenAt": "2026-10-03T09:14:30.239Z",
       "previousSlugsByLocale": {
         "it": [
-          "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+          "80-100-infermiere-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
-          "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+          "80-100-nurse-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "de": [
-          "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+          "80-100-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ]
       },
       "previousSlugs": [
-        "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
-      ]
+        "un-e-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+        "80-100-infermiere-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "80-100-nurse-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "80-100-krankenschwester-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "ehnv-dd50f466a4a3",
@@ -978,23 +988,23 @@
       "title": "Un.e ASSC à 80-100 %",
       "titleByLocale": {
         "fr": "Un.e ASSC à 80-100 %",
-        "it": "ASSC a 80-100%",
-        "en": "ASSC at 80-100%",
-        "de": "ASSC bei 80-100%"
+        "it": "Un.e ASSC à 80-100 %",
+        "en": "Un.e ASSC à 80-100 %",
+        "de": "Un.e ASSC à 80-100 %"
       },
       "description": "LES ETABLISSEMENTS HOSPITALIERS DU NORD VAUDOIS RECHERCHENT POUR LE SERVICE DE MEDECINE « C » YVERDON\n\nMISSIONS PRINCIPALES\n\n• Prendre en charge des patients stables\n\n• Collaborer étroitement au sein d’une équipe pluridisciplinaire et travailler en binôme complice avec l’équipe infirmière\n\n• Prodiguer des soins variés et personnalisés sous délégation infirmière, de manière responsable et autonome selon le cahier des charges\n\n• Assurer la continuité des soins en effectuant des transmissions, écrites et orales, fluides et rigoureuses\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir une expérience dans les soins aigus, particulièrement en Médecine serait un atout\n\n• Faire preuve de dynamisme et de motivation\n\n• Être orienté.e esprit d’équipe et flexibilité\n\n• Posséder des qualités de communication, des capacités d’adaptation et le sens des responsabilités\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité du service de médecine « C » à Yverdon, T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
       "descriptionByLocale": {
         "fr": "LES ETABLISSEMENTS HOSPITALIERS DU NORD VAUDOIS RECHERCHENT POUR LE SERVICE DE MEDECINE « C » YVERDON\n\nMISSIONS PRINCIPALES\n\n• Prendre en charge des patients stables\n\n• Collaborer étroitement au sein d’une équipe pluridisciplinaire et travailler en binôme complice avec l’équipe infirmière\n\n• Prodiguer des soins variés et personnalisés sous délégation infirmière, de manière responsable et autonome selon le cahier des charges\n\n• Assurer la continuité des soins en effectuant des transmissions, écrites et orales, fluides et rigoureuses\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir une expérience dans les soins aigus, particulièrement en Médecine serait un atout\n\n• Faire preuve de dynamisme et de motivation\n\n• Être orienté.e esprit d’équipe et flexibilité\n\n• Posséder des qualités de communication, des capacités d’adaptation et le sens des responsabilités\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité du service de médecine « C » à Yverdon, T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
-        "it": "STABILI OSPITALI NELLA NORTH VAUDOIS SEARCH PER MEDECINE \"C\" SERVICE di YVERDON\n\nMISSIONI PRINCIPALI\n\n• Cura dei pazienti stabili\n\n• Lavorare a stretto contatto con un team multidisciplinare e lavorare come complice del team di cura\n\n• Fornire cure varie e personalizzate sotto la delegazione di cura, in modo responsabile e autonomo secondo le specifiche\n\n• Assicurare continuità di cura conducendo trasmissioni scritte e orali, fluide e rigorose\n\nSKILLS – PRESCRIZIONI\n\n• Possiede un assistente sociale per la salute e la cura SWC\n\n• Avere un'esperienza nella cura acuta, soprattutto nella medicina sarebbe un bene\n\n• Dimostrare dinamismo e motivazione\n\n• Essere team-oriented e flessibile\n\n• Avere competenze di comunicazione, adattabilità e responsabilità\n\nUFFICIO\n\n• Una variegata attività\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDATE ENTRY: 1 DICEMBRE 2026\n\nUlteriori informazioni possono essere ottenute dalla signora Corine Lœuvrier, un contatto stretto con il dipartimento medico \"C\" a Yverdon, T +41 21 866 53 11\n\nSei interessato?\n\nLe offerte con documenti abituali (lettera di motivazione, CV, diplomi e certificati di lavoro) devono essere inviate entro il 30 ottobre 2026\n\nUn estratto del verbale penale e un estratto speciale del verbale penale sarà richiesto per qualsiasi impegno per l'eHnv.",
-        "en": "HOSPITAL ESTABLISHMENTS IN THE NORTH VAUDOIS SEARCH FOR MEDECINE \"C\" YVERDON'S SERVICE\n\nMAIN MISSIONS\n\n• Care for stable patients\n\n• Work closely with a multidisciplinary team and work as an accomplice with the nursing team\n\n• Provide varied and personalized care under nursing delegation, in a responsible and autonomous manner according to the specifications\n\n• Ensure continuity of care by conducting written and oral, fluid and rigorous transmissions\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Owning a Community Health and Care Assistant SWC\n\n• Having an experience in acute care, especially in medicine would be an asset\n\n• Demonstrate dynamism and motivation\n\n• Be team-oriented and flexible\n\n• Have communication skills, adaptability and responsibility\n\nWE OFFER\n\n• A varied activity\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE ENTRY: DECEMBER 1, 2026 OR TO BE AGREED\n\nFurther information may be obtained from Ms. Corine Lœuvrier, a close contact with the medical department \"C\" in Yverdon, T +41 21 866 53 11\n\nAre you interested?\n\nOffers with usual documents (motivation letter, CV, diplomas and certificates of employment) are to be sent by 30 October 2026\n\nAn extract of the criminal record and a special extract of the criminal record will be requested for any commitment to the eHnv.",
-        "de": "HOSPITALBETRIEBE IN DER NORDVAUDOIS-SUCHE FÜR MEDEKIN „C YVERDON'S SERVICE\n\nWICHTIGSTE MISSIONEN\n\n• Pflege für stabile Patienten\n\n• Eng mit einem multidisziplinären Team zusammenarbeiten und als Komplize mit dem Pflegeteam zusammenarbeiten\n\n• Abwechslungsreiche und personalisierte Betreuung unter Pflegedelegation, verantwortungsvoll und autonom nach den Vorgaben\n\n• Gewährleistung der Kontinuität der Pflege durch schriftliche und mündliche, flüssige und strenge Übertragungen\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Besitz eines Community Health and Care Assistant SWC\n\n• Eine Erfahrung in der Akutversorgung, insbesondere in der Medizin, wäre ein Gewinn\n\n• Demonstration von Dynamik und Motivation\n\n• Teamorientiert und flexibel sein\n\n• Kommunikationsfähigkeit, Anpassungsfähigkeit und Verantwortung\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nDATUM EINTRAG: 1. DEZEMBER 2026 ODER ZU ÜBEREINKOMMEN\n\nWeitere Informationen erhalten Sie bei Frau Corine Lœuvrier, einem engen Kontakt mit der medizinischen Abteilung \"C\" in Yverdon, T +41 21 866 53 11\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 30. Oktober 2026 zu übermitteln.\n\nEin Auszug aus dem Strafregister und ein spezieller Auszug aus dem Strafregister werden für jede Verpflichtung gegenüber der eHnv angefordert."
+        "it": "LES ETABLISSEMENTS HOSPITALIERS DU NORD VAUDOIS RECHERCHENT POUR LE SERVICE DE MEDECINE « C » YVERDON\n\nMISSIONS PRINCIPALES\n\n• Prendre en charge des patients stables\n\n• Collaborer étroitement au sein d’une équipe pluridisciplinaire et travailler en binôme complice avec l’équipe infirmière\n\n• Prodiguer des soins variés et personnalisés sous délégation infirmière, de manière responsable et autonome selon le cahier des charges\n\n• Assurer la continuité des soins en effectuant des transmissions, écrites et orales, fluides et rigoureuses\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir une expérience dans les soins aigus, particulièrement en Médecine serait un atout\n\n• Faire preuve de dynamisme et de motivation\n\n• Être orienté.e esprit d’équipe et flexibilité\n\n• Posséder des qualités de communication, des capacités d’adaptation et le sens des responsabilités\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité du service de médecine « C » à Yverdon, T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
+        "en": "LES ETABLISSEMENTS HOSPITALIERS DU NORD VAUDOIS RECHERCHENT POUR LE SERVICE DE MEDECINE « C » YVERDON\n\nMISSIONS PRINCIPALES\n\n• Prendre en charge des patients stables\n\n• Collaborer étroitement au sein d’une équipe pluridisciplinaire et travailler en binôme complice avec l’équipe infirmière\n\n• Prodiguer des soins variés et personnalisés sous délégation infirmière, de manière responsable et autonome selon le cahier des charges\n\n• Assurer la continuité des soins en effectuant des transmissions, écrites et orales, fluides et rigoureuses\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir une expérience dans les soins aigus, particulièrement en Médecine serait un atout\n\n• Faire preuve de dynamisme et de motivation\n\n• Être orienté.e esprit d’équipe et flexibilité\n\n• Posséder des qualités de communication, des capacités d’adaptation et le sens des responsabilités\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité du service de médecine « C » à Yverdon, T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
+        "de": "LES ETABLISSEMENTS HOSPITALIERS DU NORD VAUDOIS RECHERCHENT POUR LE SERVICE DE MEDECINE « C » YVERDON\n\nMISSIONS PRINCIPALES\n\n• Prendre en charge des patients stables\n\n• Collaborer étroitement au sein d’une équipe pluridisciplinaire et travailler en binôme complice avec l’équipe infirmière\n\n• Prodiguer des soins variés et personnalisés sous délégation infirmière, de manière responsable et autonome selon le cahier des charges\n\n• Assurer la continuité des soins en effectuant des transmissions, écrites et orales, fluides et rigoureuses\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder un CFC d’assistant.e en soins et santé communautaire\n\n• Avoir une expérience dans les soins aigus, particulièrement en Médecine serait un atout\n\n• Faire preuve de dynamisme et de motivation\n\n• Être orienté.e esprit d’équipe et flexibilité\n\n• Posséder des qualités de communication, des capacités d’adaptation et le sens des responsabilités\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er DECEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité du service de médecine « C » à Yverdon, T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv."
       },
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4681/une-assc-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:34.428Z",
+      "crawledAt": "2026-10-03T09:14:29.727Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1027,16 +1037,17 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:14:34.428Z"
+      "firstSeenAt": "2026-10-03T09:14:29.727Z",
+      "needsRetranslation": true
     },
     {
       "id": "ehnv-a917e1874962",
-      "slug": "un-aiuto-infermeria-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+      "slug": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
       "slugByLocale": {
         "fr": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
-        "it": "un-aiuto-infermeria-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "en": "one-aid-infirmary-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "de": "eine-hilfe-krankenhaus-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
+        "it": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+        "en": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+        "de": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1044,23 +1055,23 @@
       "title": "Un.e aide—infirmier.ère à 80-100 %",
       "titleByLocale": {
         "fr": "Un.e aide—infirmier.ère à 80-100 %",
-        "de": "Eine Hilfe—Krankenhaus 80-100%",
-        "it": "Un aiuto—infermeria 80-100%",
-        "en": "One aid—infirmary 80-100%"
+        "de": "Un.e aide—infirmier.ère à 80-100 %",
+        "it": "Un.e aide—infirmier.ère à 80-100 %",
+        "en": "Un.e aide—infirmier.ère à 80-100 %"
       },
       "description": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Dispenser des soins de base de qualité autant de jour que de nuit\n\n• Accompagner le patient atteint de diverses pathologies\n\n• Gérer la logistique du service (rangement, matériel, stérilisation)\n\n• Travail en trinôme avec les infirmières et ASSC\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’une attestation CRS auxiliaire de santé (120h) ou titre jugé équivalent\n\n• Avoir idéalement une première expérience dans les soins aigus\n\n• Travailler en interdisciplinarité\n\n• Résister au stress\n\n• Respecter autrui et avoir des valeurs communes\n\n• Faire preuve de dynamisme, motivation et flexibilité\n\n• Avoir un intérêt pour le travail avec la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité : T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
       "descriptionByLocale": {
         "fr": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Dispenser des soins de base de qualité autant de jour que de nuit\n\n• Accompagner le patient atteint de diverses pathologies\n\n• Gérer la logistique du service (rangement, matériel, stérilisation)\n\n• Travail en trinôme avec les infirmières et ASSC\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’une attestation CRS auxiliaire de santé (120h) ou titre jugé équivalent\n\n• Avoir idéalement une première expérience dans les soins aigus\n\n• Travailler en interdisciplinarité\n\n• Résister au stress\n\n• Respecter autrui et avoir des valeurs communes\n\n• Faire preuve de dynamisme, motivation et flexibilité\n\n• Avoir un intérêt pour le travail avec la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité : T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
-        "it": "LA SERVIZIO DELLA RICERCA DYVERDON\n\nMISSIONI PRINCIPALI\n\n• Fornire qualità cura di base giorno e notte\n\n• Accompagnamento del paziente con varie patologie\n\n• Gestire la logistica del servizio (allocazione, attrezzatura, sterilizzazione)\n\n• Lavoro in trinomio con infermieri e ASSC\n\nSKILLS – PRESCRIZIONI\n\n• Essere in possesso di un certificato sanitario CRS ausiliario (120h) o equivalente\n\n• Idealmente avere un'esperienza iniziale nella cura acuta\n\n• Interdisciplinarità\n\n• Resistenza allo stress\n\n• Rispetto altri e avere valori comuni\n\n• Dimostrare dinamismo, motivazione e flessibilità\n\n• Avere un interesse a lavorare con gli anziani\n\nUFFICIO\n\n• Una variegata attività\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDATA DI ENTRY: 1 GENNAIO 2027 O DA CONVENERE\n\nAltre informazioni possono essere ottenute dalla sig.ra Corine Lœuvre, autorità locale: T +41 21 866 53 11\n\nSei interessato?\n\nLe offerte complete di servizio (motivazione lettera-CV-diploma e certificati di lavoro) devono essere inviate entro il 30 ottobre 2026\n\nUn estratto del verbale penale e un estratto speciale del verbale penale sarà richiesto per qualsiasi impegno per l'eHnv.",
-        "en": "THE MEDECINE \"C\" SERVICE OF THE DYVERDON RESEARCH HOPITAL\n\nMAIN MISSIONS\n\n• Provide quality basic care day and night\n\n• Accompanying the patient with various pathologies\n\n• Manage the logistics of the service (allocation, equipment, sterilization)\n\n• Work in trinomial with nurses and ASSC\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Be in possession of an auxiliary CRS health certificate (120h) or equivalent\n\n• Ideally have an initial experience in acute care\n\n• Interdisciplinarity\n\n• Resisting stress\n\n• Respect Others and Have Common Values\n\n• Demonstrate dynamism, motivation and flexibility\n\n• Have an interest in working with the elderly person\n\nWE OFFER\n\n• A varied activity\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE OF ENTRY: 1 JANUARY 2027 OR TO BE AGREED\n\nFurther information can be obtained from Mrs Corine Lœuvre, local authority: T +41 21 866 53 11\n\nAre you interested?\n\nFull service offers (motivation letter-CV-diploma and work certificates) are to be sent by 30 October 2026\n\nAn extract of the criminal record and a special extract of the criminal record will be requested for any commitment to the eHnv.",
-        "de": "DIE MEDIZIN-DIENSTLEISTUNG „C DER FORSCHUNGSHOPITAL VON DYVERDON\n\nWICHTIGSTE MISSIONEN\n\n• Qualität der Grundversorgung Tag und Nacht\n\n• Begleitung des Patienten mit verschiedenen Pathologien\n\n• Verwalten Sie die Logistik der Dienstleistung (Zuweisung, Ausrüstung, Sterilisation)\n\n• Trinomische Arbeit mit Krankenschwestern und ASSC\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Besitzen Sie eine zusätzliche CRS-Gesundheitsbescheinigung (120h) oder eine gleichwertige\n\n• Idealerweise eine erste Erfahrung in der Akutversorgung haben\n\n• Interdisziplinarität\n\n• Belastbar\n\n• Respektiere andere und habe gemeinsame Werte\n\n• Demonstration von Dynamik, Motivation und Flexibilität\n\n• Haben Sie Interesse daran, mit der älteren Person zu arbeiten\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nEINFUHRDATUM: 1. JANUAR 2027 ODER ZU VEREINBAREN\n\nWeitere Informationen erhalten Sie bei Frau Corine Lœuvre, Gemeinde: T +41 21 866 53 11\n\nSind Sie interessiert?\n\nFull-Service-Angebote (Motivationsbrief-CV-Diplom und Arbeitszertifikate) sind bis zum 30. Oktober 2026 zu versenden\n\nEin Auszug aus dem Strafregister und ein spezieller Auszug aus dem Strafregister werden für jede Verpflichtung gegenüber der eHnv angefordert."
+        "it": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Dispenser des soins de base de qualité autant de jour que de nuit\n\n• Accompagner le patient atteint de diverses pathologies\n\n• Gérer la logistique du service (rangement, matériel, stérilisation)\n\n• Travail en trinôme avec les infirmières et ASSC\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’une attestation CRS auxiliaire de santé (120h) ou titre jugé équivalent\n\n• Avoir idéalement une première expérience dans les soins aigus\n\n• Travailler en interdisciplinarité\n\n• Résister au stress\n\n• Respecter autrui et avoir des valeurs communes\n\n• Faire preuve de dynamisme, motivation et flexibilité\n\n• Avoir un intérêt pour le travail avec la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité : T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
+        "en": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Dispenser des soins de base de qualité autant de jour que de nuit\n\n• Accompagner le patient atteint de diverses pathologies\n\n• Gérer la logistique du service (rangement, matériel, stérilisation)\n\n• Travail en trinôme avec les infirmières et ASSC\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’une attestation CRS auxiliaire de santé (120h) ou titre jugé équivalent\n\n• Avoir idéalement une première expérience dans les soins aigus\n\n• Travailler en interdisciplinarité\n\n• Résister au stress\n\n• Respecter autrui et avoir des valeurs communes\n\n• Faire preuve de dynamisme, motivation et flexibilité\n\n• Avoir un intérêt pour le travail avec la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité : T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv.",
+        "de": "LE SERVICE DE MEDECINE « C » DE L’HOPITAL D’YVERDON RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Dispenser des soins de base de qualité autant de jour que de nuit\n\n• Accompagner le patient atteint de diverses pathologies\n\n• Gérer la logistique du service (rangement, matériel, stérilisation)\n\n• Travail en trinôme avec les infirmières et ASSC\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’une attestation CRS auxiliaire de santé (120h) ou titre jugé équivalent\n\n• Avoir idéalement une première expérience dans les soins aigus\n\n• Travailler en interdisciplinarité\n\n• Résister au stress\n\n• Respecter autrui et avoir des valeurs communes\n\n• Faire preuve de dynamisme, motivation et flexibilité\n\n• Avoir un intérêt pour le travail avec la personne âgée\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Corine Louvrier, cadre de proximité : T +41 21 866 53 11\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026\n\nUn extrait du casier judiciaire et un extrait spécial du casier judiciaire seront demandés pour tout engagement aux eHnv."
       },
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4677/une-aide-infirmierere-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:33.931Z",
+      "crawledAt": "2026-10-03T09:14:29.220Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1093,30 +1104,37 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:14:33.931Z",
+      "firstSeenAt": "2026-10-03T09:14:29.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+          "un-aiuto-infermeria-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
-          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+          "one-aid-infirmary-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "de": [
-          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+          "eine-hilfe-krankenhaus-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ]
       },
       "previousSlugs": [
-        "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains"
-      ]
+        "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains",
+        "un-aiuto-infermeria-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "one-aid-infirmary-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "eine-hilfe-krankenhaus-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "ehnv-b72e2c00c2f6",
-      "slug": "un-assistente-infermieristico-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
+      "slug": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
       "slugByLocale": {
         "fr": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
-        "it": "un-assistente-infermieristico-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
-        "en": "a-nursing-assistant-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
-        "de": "ein-pflegeassistent-bei-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples"
+        "it": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
+        "en": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
+        "de": "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -1124,23 +1142,23 @@
       "title": "Un.e aide-infirmier.ère à 80 -100 %",
       "titleByLocale": {
         "fr": "Un.e aide-infirmier.ère à 80 -100 %",
-        "de": "Ein Pflegeassistent bei 80 - 100%",
-        "it": "Un assistente infermieristico a 80 - 100%",
-        "en": "A nursing assistant at 80 - 100%"
+        "de": "Un.e aide-infirmier.ère à 80 -100 %",
+        "it": "Un.e aide-infirmier.ère à 80 -100 %",
+        "en": "Un.e aide-infirmier.ère à 80 -100 %"
       },
       "description": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Assurer la prise en charge de patients d’orthopédie, de traumatologie ou d’APL\n\n• Assurer la prise en charge de patients en postopératoire et attente de placement\n\n• Assurer le suivi d’activité hospitalière\n\n• Participer à la logistique du matériel du service\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder une attestation CRS auxiliaire de santé ou un titre jugé équivalent\n\n• Bénéficier d’une expérience dans les soins aigus idéalement\n\n• Posséder des qualités de flexibilité, des capacités d’adaptation et d’organisation\n\n• Avoir le sens des responsabilités et autonomie\n\n• Avoir de l’intérêt pour le travail en équipe\n\nNOUS OFFRONS\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service de St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026.\n\nL’extrait de casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv",
       "descriptionByLocale": {
         "fr": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Assurer la prise en charge de patients d’orthopédie, de traumatologie ou d’APL\n\n• Assurer la prise en charge de patients en postopératoire et attente de placement\n\n• Assurer le suivi d’activité hospitalière\n\n• Participer à la logistique du matériel du service\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder une attestation CRS auxiliaire de santé ou un titre jugé équivalent\n\n• Bénéficier d’une expérience dans les soins aigus idéalement\n\n• Posséder des qualités de flexibilité, des capacités d’adaptation et d’organisation\n\n• Avoir le sens des responsabilités et autonomie\n\n• Avoir de l’intérêt pour le travail en équipe\n\nNOUS OFFRONS\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service de St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026.\n\nL’extrait de casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv",
-        "it": "SERVIZI ORTODOLOGICI DELLA CHIRURGIA NELLA RICERCA YYVERDON E ST-LOUP\n\nMISSIONI PRINCIPALI\n\n• Fornire cura per i pazienti con ortopedia, traumatologica o d-APL\n\n• Cura dei pazienti post-operativi e in attesa di collocamento\n\n• Monitoraggio dell'attività ospedaliera\n\n• Partecipazione alla logistica delle attrezzature di servizio\n\nSKILLS – PRESCRIZIONI\n\n• Avere un certificato sanitario CRS ausiliario o equivalente\n\n• Approfittate di un'esperienza nella cura acuta idealmente\n\n• Avere flessibilità, adattabilità e capacità organizzativa\n\n• Un senso di responsabilità e autonomia\n\n• Avere interesse nel lavoro di squadra\n\nUFFICIO\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDICHIARAZIONE: 1 NOVEMBRE 2026 O DA CONVENERE\n\nUlteriori informazioni possono essere ottenute dalla sig.ra Ludivine Werro, unità di estinzione St-Loup, T +41 21 866 51 61, e dalla sig.ra Stéphanie Larivière, Unità di Outreach, Yverdon, T +41 21 866 56 71\n\nSei interessato?\n\nLe offerte complete di servizio (lettera di motivazione-CV-diploma e certificati di lavoro) devono essere inviate entro il 30 ottobre 2026.\n\nL'estratto di registrazione penale e l'estratto speciale sono richiesti per qualsiasi impegno a eHnv",
-        "en": "ORTHOPEDICAL CHIRURGY SERVICES IN YYVERDON AND ST-LOUP RESEARCH\n\nMAIN MISSIONS\n\n• Provide care for patients with orthopaedic, traumatological or d-APL\n\n• Care for post-operative patients and waiting for placement\n\n• Monitoring of hospital activity\n\n• Participate in logistics of service equipment\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Have an auxiliary CRS health certificate or equivalent\n\n• Benefit from an experience in acute care ideally\n\n• To have flexibility, adaptability and organisational capacity\n\n• A sense of responsibility and autonomy\n\n• Have interest in teamwork\n\nWE OFFER\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE OF ENTRY: 1 NOVEMBER 2026 OR TO BE AGREED\n\nAdditional information may be obtained from Ms. Ludivine Werro, St-Loup Outreach Unit, T +41 21 866 51 61, and Ms. Stéphanie Larivière, Outreach Unit, Yverdon, T +41 21 866 56 71\n\nAre you interested?\n\nFull service offers (motivation letter-CV-diploma and work certificates) are to be sent by 30 October 2026.\n\nThe criminal record extract and the special extract are requested for any commitment to eHnv",
-        "de": "ORTHOPEDISCHE CHIRURGIEDIENSTLEISTUNGEN IN YYVERDON UND ST-LOUP FORSCHUNG\n\nWICHTIGSTE MISSIONEN\n\n• Pflege von Patienten mit orthopädischer, traumatologischer oder d-APL\n\n• Pflege von postoperativen Patienten und Warten auf Platzierung\n\n• Überwachung der Krankenhaustätigkeit\n\n• Teilnahme an der Logistik von Servicegeräten\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Haben Sie eine zusätzliche CRS-Gesundheitsbescheinigung oder eine gleichwertige\n\n• Profitieren Sie von einer Erfahrung in der Akutversorgung ideal\n\n• Flexibilität, Anpassungsfähigkeit und Organisationsfähigkeit\n\n• Verantwortungsbewusstsein und Autonomie\n\n• Interesse an Teamwork haben\n\nWIR ANGEBOT\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nEINTRAGDATUM: 1. NOVEMBER 2026 ODER ZU ÜBEREINKOMMEN\n\nZusätzliche Informationen sind erhältlich bei Frau Ludivine Werro, St-Loup Outreach Unit, T +41 21 866 51 61, und Frau Stéphanie Larivière, Outreach Unit, Yverdon, T +41 21 866 56 71\n\nSind Sie interessiert?\n\nFull-Service-Angebote (Motivationsbrief-CV-Diplom und Arbeitszertifikate) sind bis zum 30. Oktober 2026 zu versenden.\n\nDer Strafregisterauszug und der spezielle Auszug werden für jede Verpflichtung gegenüber eHnv angefordert"
+        "it": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Assurer la prise en charge de patients d’orthopédie, de traumatologie ou d’APL\n\n• Assurer la prise en charge de patients en postopératoire et attente de placement\n\n• Assurer le suivi d’activité hospitalière\n\n• Participer à la logistique du matériel du service\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder une attestation CRS auxiliaire de santé ou un titre jugé équivalent\n\n• Bénéficier d’une expérience dans les soins aigus idéalement\n\n• Posséder des qualités de flexibilité, des capacités d’adaptation et d’organisation\n\n• Avoir le sens des responsabilités et autonomie\n\n• Avoir de l’intérêt pour le travail en équipe\n\nNOUS OFFRONS\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service de St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026.\n\nL’extrait de casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv",
+        "en": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Assurer la prise en charge de patients d’orthopédie, de traumatologie ou d’APL\n\n• Assurer la prise en charge de patients en postopératoire et attente de placement\n\n• Assurer le suivi d’activité hospitalière\n\n• Participer à la logistique du matériel du service\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder une attestation CRS auxiliaire de santé ou un titre jugé équivalent\n\n• Bénéficier d’une expérience dans les soins aigus idéalement\n\n• Posséder des qualités de flexibilité, des capacités d’adaptation et d’organisation\n\n• Avoir le sens des responsabilités et autonomie\n\n• Avoir de l’intérêt pour le travail en équipe\n\nNOUS OFFRONS\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service de St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026.\n\nL’extrait de casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv",
+        "de": "LES SERVICES DE CHIRURGIE ORTHOPEDIQUE D’YVERDON ET DE ST-LOUP RECHERCHENT\n\nMISSIONS PRINCIPALES\n\n• Assurer la prise en charge de patients d’orthopédie, de traumatologie ou d’APL\n\n• Assurer la prise en charge de patients en postopératoire et attente de placement\n\n• Assurer le suivi d’activité hospitalière\n\n• Participer à la logistique du matériel du service\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Posséder une attestation CRS auxiliaire de santé ou un titre jugé équivalent\n\n• Bénéficier d’une expérience dans les soins aigus idéalement\n\n• Posséder des qualités de flexibilité, des capacités d’adaptation et d’organisation\n\n• Avoir le sens des responsabilités et autonomie\n\n• Avoir de l’intérêt pour le travail en équipe\n\nNOUS OFFRONS\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Ludivine Werro, Cadre de proximité du service de St-Loup, T +41 21 866 51 61, et Mme Stéphanie Larivière, cadre de proximité du service d’Yverdon, T +41 21 866 56 71\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres de service complètes (lettre de motivation-CV-diplômes et certificats de travail) sont à adresser d’ici au 30 octobre 2026.\n\nL’extrait de casier judiciaire et l’extrait spécial sont demandés pour tout engagement aux eHnv"
       },
       "location": "Yverdon-les-Bains et Pompaples",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4676/une-aide-infirmierere-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:33.433Z",
+      "crawledAt": "2026-10-03T09:14:28.712Z",
       "addressLocality": "Yverdon-les-Bains et Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1173,29 +1191,36 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:14:33.433Z",
+      "firstSeenAt": "2026-10-03T09:14:28.712Z",
       "previousSlugsByLocale": {
         "it": [
-          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples"
+          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
+          "un-assistente-infermieristico-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples"
         ],
         "en": [
-          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples"
+          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
+          "a-nursing-assistant-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples"
         ],
         "de": [
-          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples"
+          "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
+          "ein-pflegeassistent-bei-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples"
         ]
       },
       "previousSlugs": [
-        "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples"
-      ]
+        "un-e-aide-infirmier-ere-a-80-100-ehnv-yverdon-les-bains-et-pompaples",
+        "un-assistente-infermieristico-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
+        "a-nursing-assistant-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples",
+        "ein-pflegeassistent-bei-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains-et-pompaples"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "ehnv-daabbb90d944",
-      "slug": "assistente-comunitario-per-la-salute-e-la-cura-chs-all-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+      "slug": "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
       "slugByLocale": {
         "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
-        "it": "assistente-comunitario-per-la-salute-e-la-cura-chs-all-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
-        "en": "one-community-health-and-care-assistant-chs-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+        "it": "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
+        "en": "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
         "de": "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1204,8 +1229,8 @@
       "title": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
       "titleByLocale": {
         "fr": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
-        "it": "Assistente comunitario per la salute e la cura (CHS) all'80-100%",
-        "en": "One Community Health and Care Assistant (CHS) at 80-100%",
+        "it": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
+        "en": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
         "de": "Un.e Assistent.e en soins et santé communautaire (ASSC) à 80-100 %"
       },
       "description": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Prise en charge de patients en réadaptation gériatrique et suite de traitement\n\n• Collaboration interdisciplinaire\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’un CFC d’assistant.e en soins et santé communautaire\n\n• Expérience en réadaptation, gériatrie ou médecine serait un atout\n\n• Formation FEE serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers, incluant des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU À CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès des cadres de proximités : Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 31 octobre 2026",
@@ -1221,7 +1246,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4672/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:32.929Z",
+      "crawledAt": "2026-10-03T09:14:28.209Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1257,14 +1282,18 @@
       "firstSeenAt": "2026-07-08T10:56:35.089Z",
       "previousSlugsByLocale": {
         "it": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe"
+          "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
+          "assistente-comunitario-per-la-salute-e-la-cura-chs-all-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe"
         ],
         "en": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe"
+          "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
+          "one-community-health-and-care-assistant-chs-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe"
         ]
       },
       "previousSlugs": [
-        "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe"
+        "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
+        "assistente-comunitario-per-la-salute-e-la-cura-chs-all-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+        "one-community-health-and-care-assistant-chs-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe"
       ]
     }
   ]

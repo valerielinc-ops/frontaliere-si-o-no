@@ -219,6 +219,34 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # A corpus refresh enters main through this stable PR. Rendering the
+      # checkout while that PR is open is guaranteed to be stale, and the
+      # freshness guard would correctly refuse the publish — but the refusal
+      # is an expected handoff, not a rerender incident. Defer the whole
+      # armed job; the PR merge's content push will trigger a fresh render.
+      - name: Detect pending article corpus sync PR
+        id: corpus_sync
+        if: steps.mode.outputs.dry != 'true'
+        env:
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          pending="$(gh pr list \
+            --state open \
+            --base main \
+            --head chore/sync-articles-sitemaps \
+            --limit 1 \
+            --json number)"
+          pr_number="$(printf '%s' "$pending" | jq -r '.[0].number // empty')"
+          if [ -n "$pr_number" ]; then
+            echo "deferred=true" >> "$GITHUB_OUTPUT"
+            echo "pr_number=$pr_number" >> "$GITHUB_OUTPUT"
+            echo "::warning::article corpus sync PR #$pr_number is open — deferring hub rerender until it merges"
+          else
+            echo "deferred=false" >> "$GITHUB_OUTPUT"
+            echo "pr_number=" >> "$GITHUB_OUTPUT"
+          fi
+
       # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
       #
       # The failure this catches is silent by design: with no
@@ -236,6 +264,7 @@ jobs:
       # cost more than it catches, and a genuinely read-only key still fails
       # loudly at the push (3 attempts, then the PAT fallback, then exit 1).
       - name: Probe shard access (${{ matrix.section }})
+        if: steps.corpus_sync.outputs.deferred != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -285,7 +314,7 @@ jobs:
       # publisher can replace one half after the other was checked.
       - name: Acquire article chunk section lock
         id: acquire_chunk_lock
-        if: steps.mode.outputs.dry != 'true'
+        if: steps.corpus_sync.outputs.deferred != 'true' && steps.mode.outputs.dry != 'true'
         env:
           ARTICLE_SECTION: ${{ matrix.section }}
           LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
@@ -293,7 +322,7 @@ jobs:
 
       - name: Renew article chunk section lock
         id: renew_chunk_lock
-        if: steps.acquire_chunk_lock.outcome == 'success'
+        if: steps.corpus_sync.outputs.deferred != 'true' && steps.acquire_chunk_lock.outcome == 'success'
         env:
           ARTICLE_SECTION: ${{ matrix.section }}
           LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
@@ -324,7 +353,7 @@ jobs:
       # each one.
       - name: Rerender ${{ matrix.section }} hubs
         id: render
-        if: steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success')
+        if: steps.corpus_sync.outputs.deferred != 'true' && (steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'))
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -361,7 +390,7 @@ jobs:
       # so a lost lease cannot be mistaken for a successful atomic publish.
       - name: Verify article chunk section lock after rerender
         id: verify_chunk_lock_after_render
-        if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
+        if: always() && steps.corpus_sync.outputs.deferred != 'true' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
         run: |
           set -euo pipefail
           LOCK_RENEW_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
@@ -378,7 +407,7 @@ jobs:
       # push fails. The heartbeat is stopped after the first guarded delete and
       # the delete is retried once to avoid leaving a live lease behind.
       - name: Release article chunk section lock after rerender
-        if: always() && steps.acquire_chunk_lock.outcome == 'success'
+        if: always() && steps.corpus_sync.outputs.deferred != 'true' && steps.acquire_chunk_lock.outcome == 'success'
         env:
           ARTICLE_SECTION: ${{ matrix.section }}
           LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
@@ -539,12 +568,18 @@ jobs:
         if: always()
         env:
           INPUT_SECTION: ${{ matrix.section }}
+          CORPUS_SYNC_DEFERRED: ${{ steps.corpus_sync.outputs.deferred }}
+          CORPUS_SYNC_PR: ${{ steps.corpus_sync.outputs.pr_number }}
         run: |
           {
             echo "### rerender-article-hubs — $INPUT_SECTION"
             echo
             echo "- event: \`${{ github.event_name }}\`"
             echo "- mode: \`$([ "${{ steps.mode.outputs.dry }}" = "true" ] && echo DRY || echo ARMED)\`"
+            if [ "$CORPUS_SYNC_DEFERRED" = "true" ]; then
+              echo "- freshness deferred: true"
+              echo "- defer reason: article corpus sync PR #$CORPUS_SYNC_PR is open"
+            fi
             SUMMARY="$RUNNER_TEMP/hubs/summary.json"
             if [ -s "$SUMMARY" ]; then
               jq -r --arg s "$INPUT_SECTION" '.sections[$s] |
@@ -561,7 +596,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: failure() && steps.corpus_sync.outputs.deferred != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -589,7 +624,7 @@ jobs:
       # e la forma deve restare identica a quella dello step di apertura —
       # la chiusura cerca per TITOLO, e un titolo diverso non chiude niente.
       - name: Resolve open issue on green
-        if: success() && steps.render.outputs.deferred != 'true'
+        if: success() && steps.corpus_sync.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

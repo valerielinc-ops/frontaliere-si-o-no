@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fmi",
-  "assembledAt": "2026-10-02T21:15:25.202Z",
+  "assembledAt": "2026-10-03T09:10:54.204Z",
   "jobs": [
     {
       "id": "fmi-0ac06fbabc27",
@@ -34,7 +34,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in-langzeitpflege/90ce8148-065f-4daf-95de-74bcdd06ed04",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:20.162Z",
+      "crawledAt": "2026-10-03T09:10:47.050Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -73,12 +73,14 @@
       "previousSlugs": [
         "praktikant-in-langzeitpflege-100-fmi-unterseen",
         "interno-nella-cura-a-lungo-termine-100-spitaler-fmi-ag-unterseen",
-        "intern-in-long-term-care-100-spitaler-fmi-ag-unterseen"
+        "intern-in-long-term-care-100-spitaler-fmi-ag-unterseen",
+        "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-langzeitpflege-100-fmi-unterseen",
-          "interno-nella-cura-a-lungo-termine-100-spitaler-fmi-ag-unterseen"
+          "interno-nella-cura-a-lungo-termine-100-spitaler-fmi-ag-unterseen",
+          "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "intern-in-long-term-care-100-spitaler-fmi-ag-unterseen"
@@ -131,7 +133,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fuer-jede-lebenslage/ef8d65b4-c50a-49e4-b981-93c840035a5e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:19.590Z",
+      "crawledAt": "2026-10-03T09:10:46.590Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -149,11 +151,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fur-jede-lebenslage-fmi-unterseen"
+        "pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fur-jede-lebenslage-fmi-unterseen",
+        "professione-infermieristica-trova-modelli-di-lavoro-flessibili-per-ogni-situazione-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fur-jede-lebenslage-fmi-unterseen"
+          "pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fur-jede-lebenslage-fmi-unterseen",
+          "professione-infermieristica-trova-modelli-di-lavoro-flessibili-per-ogni-situazione-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:59.587Z",
@@ -176,7 +180,7 @@
       "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
+        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       },
@@ -203,7 +207,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-psychiatrie-stationaer/cc3657be-a4d0-4367-ba22-674570a9d744",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:19.021Z",
+      "crawledAt": "2026-10-03T09:10:46.116Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -228,6 +232,8 @@
         "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
         "psycholog-in-psychiatrie-80-fmi-unterseen",
         "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
+        "psychiatric-nurse-spitaler-fmi-ag-unterseen",
+        "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
         "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
@@ -237,10 +243,12 @@
           "psicologo-in-psichiatria-80-spitaler-fmi-ag-unterseen",
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
           "psycholog-in-psychiatrie-80-fmi-unterseen",
-          "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen"
+          "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
+          "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
+          "psychiatric-nurse-spitaler-fmi-ag-unterseen",
           "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
         ],
         "de": [
@@ -297,7 +305,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in/445a97be-e8b9-4774-830b-ba7a0dfa28a1",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:18.412Z",
+      "crawledAt": "2026-10-03T09:10:45.635Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -338,7 +346,8 @@
           "elektroinstallateur-in-80-100-fmi-unterseen",
           "mitarbeiter-in-technik-und-sicherheit-80-100-interlaken-fmi-unterseen",
           "fachspezialist-in-it-security-80-100-fmi-unterseen",
-          "fachspezialist-in-it-security-mit-iso-aufgaben-80-100-fmi-unterseen"
+          "fachspezialist-in-it-security-mit-iso-aufgaben-80-100-fmi-unterseen",
+          "mitarbeiter-in-technik-und-sicherheit-80-100-fmi-unterseen"
         ],
         "it": [
           "mitarbeiter-in-technik-und-sicherheit-80-100-fmi-unterseen",
@@ -351,7 +360,8 @@
           "it-security-specialist-80-100-spitaler-fmi-ag-unterseen",
           "fachspezialist-in-it-security-80-100-fmi-unterseen",
           "specialiste-en-securite-informatique-80-100-spitaler-fmi-ag-unterseen",
-          "fachspezialist-in-it-security-mit-iso-aufgaben-80-100-fmi-unterseen"
+          "fachspezialist-in-it-security-mit-iso-aufgaben-80-100-fmi-unterseen",
+          "tecnico-a-di-sicurezza-e-manutenzione-al-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "technician-and-security-specialist-80-100-interlaken-spitaler-fmi-ag-unterseen",
@@ -373,7 +383,8 @@
         "it-security-specialist-80-100-spitaler-fmi-ag-unterseen",
         "fachspezialist-in-it-security-80-100-fmi-unterseen",
         "specialiste-en-securite-informatique-80-100-spitaler-fmi-ag-unterseen",
-        "fachspezialist-in-it-security-mit-iso-aufgaben-80-100-fmi-unterseen"
+        "fachspezialist-in-it-security-mit-iso-aufgaben-80-100-fmi-unterseen",
+        "tecnico-a-di-sicurezza-e-manutenzione-al-80-100-spitaler-fmi-ag-unterseen"
       ],
       "firstSeenAt": "2026-05-19T15:32:58.062Z",
       "salaryMin": 77000,
@@ -388,7 +399,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-3692f5a2a043",
@@ -421,7 +433,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/individuelle-einsaetze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann-gesundheit-efz-oder-assistent-in-gesundheit-und-soziales/c63d0192-89b3-48c4-bbd0-c427e3ff058e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:17.929Z",
+      "crawledAt": "2026-10-03T09:10:45.220Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -461,11 +473,13 @@
         ]
       },
       "previousSlugs": [
-        "individuelle-einsatze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann"
+        "individuelle-einsatze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann",
+        "impieghi-individuali-infermiere-a-specializzato-a-tecnico-a-della-salute-efz-o-assistente-a-alla-salute-e-al-sociale"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "individuelle-einsatze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann"
+          "individuelle-einsatze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann",
+          "impieghi-individuali-infermiere-a-specializzato-a-tecnico-a-della-salute-efz-o-assistente-a-alla-salute-e-al-sociale"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:57.283Z",
@@ -515,7 +529,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/zivildienst-pflege-und-betreuung/a068f18b-1040-48e1-b11b-2b2ee5bd41bb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:17.352Z",
+      "crawledAt": "2026-10-03T09:10:44.741Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -549,11 +563,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienst-pflege-und-betreuung-fmi-unterseen"
+        "zivildienst-pflege-und-betreuung-fmi-unterseen",
+        "servizio-civile-per-la-cura-e-l-assistenza-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienst-pflege-und-betreuung-fmi-unterseen"
+          "zivildienst-pflege-und-betreuung-fmi-unterseen",
+          "servizio-civile-per-la-cura-e-l-assistenza-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:56.337Z",
@@ -603,7 +619,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026/67956aec-38b8-4f76-84e0-6c0908843c71",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:16.884Z",
+      "crawledAt": "2026-10-03T09:10:44.337Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -642,11 +658,13 @@
       "previousSlugs": [
         "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-fmi-frutigen",
         "healthcare-professional-apprentice-fage-efz-senior-park-frutigen-2026-spitaler-fmi-ag-frutigen",
-        "apprenti-en-soins-de-sante-fage-efz-parc-senior-frutigen-2026-spitaler-fmi-ag-frutigen"
+        "apprenti-en-soins-de-sante-fage-efz-parc-senior-frutigen-2026-spitaler-fmi-ag-frutigen",
+        "apprendista-professionista-sanitario-fage-efz-casa-di-riposo-frutigen-2026-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-fmi-frutigen"
+          "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-fmi-frutigen",
+          "apprendista-professionista-sanitario-fage-efz-casa-di-riposo-frutigen-2026-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "healthcare-professional-apprentice-fage-efz-senior-park-frutigen-2026-spitaler-fmi-ag-frutigen"
@@ -702,7 +720,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026/ac400a50-5b8d-451e-80e3-727199e6cf13",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:16.448Z",
+      "crawledAt": "2026-10-03T09:10:43.933Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -741,11 +759,13 @@
       "previousSlugs": [
         "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi",
         "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
-        "learning-r-assistant-in-health-and-social-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
+        "learning-r-assistant-in-health-and-social-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
+        "apprendista-assistente-alla-salute-e-sociale-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi"
+          "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi",
+          "apprendista-assistente-alla-salute-e-sociale-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
@@ -799,7 +819,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-psychiatrie/6eacc015-9bcb-412b-a2e3-7d085fd7153d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:16.005Z",
+      "crawledAt": "2026-10-03T09:10:43.544Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -827,11 +847,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-psychiatrie-50-100-fmi-frutigen"
+        "pflegefachperson-hf-psychiatrie-50-100-fmi-frutigen",
+        "professionista-sanitario-hf-psichiatria-50-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-psychiatrie-50-100-fmi-frutigen"
+          "pflegefachperson-hf-psychiatrie-50-100-fmi-frutigen",
+          "professionista-sanitario-hf-psichiatria-50-100-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "pflegefachperson-hf-psychiatrie-50-100-fmi-frutigen"
@@ -884,7 +906,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-operationstechnik-hf/aff489f8-5b07-4860-8567-83167d830719",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:15.565Z",
+      "crawledAt": "2026-10-03T09:10:43.151Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -906,11 +928,13 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-60-100-fmi-unterseen"
+        "fachfrau-fachmann-operationstechnik-hf-60-100-fmi-unterseen",
+        "specialista-di-tecnologia-operativa-hf-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-60-100-fmi-unterseen"
+          "fachfrau-fachmann-operationstechnik-hf-60-100-fmi-unterseen",
+          "specialista-di-tecnologia-operativa-hf-60-100-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:51.490Z",
@@ -959,7 +983,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/zivildienstleistender-mitarbeiter-informatik/8ebef835-2500-43bc-9030-5ec4415acf30",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:14.970Z",
+      "crawledAt": "2026-10-03T09:10:42.682Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -996,11 +1020,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistender-mitarbeiter-informatik-100-fmi-unterseen"
+        "zivildienstleistender-mitarbeiter-informatik-100-fmi-unterseen",
+        "impiegato-di-servizio-civile-informatico-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistender-mitarbeiter-informatik-100-fmi-unterseen"
+          "zivildienstleistender-mitarbeiter-informatik-100-fmi-unterseen",
+          "impiegato-di-servizio-civile-informatico-100-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:49.204Z",
@@ -1016,7 +1042,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-48d6852b887d",
@@ -1049,7 +1076,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/experte-expertin-notfallpflege/daec2cf0-3bef-45c6-b4e8-3208b5aae34b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:14.520Z",
+      "crawledAt": "2026-10-03T09:10:42.272Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1068,11 +1095,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "experte-expertin-notfallpflege-80-100-fmi-unterseen",
-        "fachkraft-expertin-notfallpflege-80-100-spitaler-fmi-ag-unterseen"
+        "fachkraft-expertin-notfallpflege-80-100-spitaler-fmi-ag-unterseen",
+        "esperto-esperta-di-cure-d-emergenza-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experte-expertin-notfallpflege-80-100-fmi-unterseen"
+          "experte-expertin-notfallpflege-80-100-fmi-unterseen",
+          "esperto-esperta-di-cure-d-emergenza-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "experte-expertin-notfallpflege-80-100-fmi-unterseen"
@@ -1128,7 +1157,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/aerztliche-leitung-interdisziplinaere-intensivstation-ips/aeddba72-39a9-4459-8625-debeb94caae0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:14.067Z",
+      "crawledAt": "2026-10-03T09:10:41.882Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1150,11 +1179,13 @@
         ]
       },
       "previousSlugs": [
-        "arztliche-leitung-interdisziplinare-intensivstation-ips-fmi-unterseen"
+        "arztliche-leitung-interdisziplinare-intensivstation-ips-fmi-unterseen",
+        "direzione-medica-unita-di-terapia-intensiva-interdisciplinare-uti-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztliche-leitung-interdisziplinare-intensivstation-ips-fmi-unterseen"
+          "arztliche-leitung-interdisziplinare-intensivstation-ips-fmi-unterseen",
+          "direzione-medica-unita-di-terapia-intensiva-interdisciplinare-uti-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:47.426Z",
@@ -1204,7 +1235,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie/a50b8252-267c-427d-8396-168297695861",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:13.465Z",
+      "crawledAt": "2026-10-03T09:10:41.404Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1250,7 +1281,8 @@
         "assistente-medico-psichiatria-80-100-spitaler-fmi-ag-frutigen",
         "assistant-physician-psychiatry-80-100-spitaler-fmi-ag-frutigen",
         "assistenzarzt-arztin-psychiatrie-80-100-fmi-frutigen",
-        "medecin-adjoint-psychiatrie-80-100-spitaler-fmi-ag-frutigen"
+        "medecin-adjoint-psychiatrie-80-100-spitaler-fmi-ag-frutigen",
+        "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1259,7 +1291,8 @@
           "assistente-medico-psichiatria-80-100-spitaler-fmi-ag-frutigen",
           "assistant-physician-psychiatry-80-100-spitaler-fmi-ag-frutigen",
           "assistenzarzt-arztin-psychiatrie-80-100-fmi-frutigen",
-          "medecin-adjoint-psychiatrie-80-100-spitaler-fmi-ag-frutigen"
+          "medecin-adjoint-psychiatrie-80-100-spitaler-fmi-ag-frutigen",
+          "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "senior-physician-psychiatry-80-100-spitaler-fmi-ag-frutigen",
@@ -1318,7 +1351,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/fb161cc4-f887-4014-a16b-3b4da26c7472",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:12.902Z",
+      "crawledAt": "2026-10-03T09:10:40.924Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1361,11 +1394,13 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-60-100-fmi-unterseen"
+        "fachfrau-fachmann-gesundheit-efz-60-100-fmi-unterseen",
+        "operatore-sanitario-specializzato-ess-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-60-100-fmi-unterseen"
+          "fachfrau-fachmann-gesundheit-efz-60-100-fmi-unterseen",
+          "operatore-sanitario-specializzato-ess-60-100-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:42.413Z",
@@ -1381,7 +1416,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-fbd77f1cda98",
@@ -1415,7 +1451,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/0f106ebd-a8af-4986-bcda-b3a4f2ecfc2e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:12.344Z",
+      "crawledAt": "2026-10-03T09:10:40.463Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1459,12 +1495,14 @@
       },
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-70-100-fmi-frutigen",
-        "pflegefachfrau-pflegefachmann-hf-fh-70-100-spitaler-fmi-ag-frutigen"
+        "pflegefachfrau-pflegefachmann-hf-fh-70-100-spitaler-fmi-ag-frutigen",
+        "specialista-in-allattamento-hf-fh-70-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-70-100-fmi-frutigen",
-          "pflegefachfrau-pflegefachmann-hf-fh-70-100-spitaler-fmi-ag-frutigen"
+          "pflegefachfrau-pflegefachmann-hf-fh-70-100-spitaler-fmi-ag-frutigen",
+          "specialista-in-allattamento-hf-fh-70-100-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:41.276Z",
@@ -1514,7 +1552,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/stellvertretende-wohngruppenleitung/c53d8be6-4dcc-4c7f-a169-bd61d3cd55aa",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:11.779Z",
+      "crawledAt": "2026-10-03T09:10:39.980Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1532,11 +1570,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretende-wohngruppenleitung-60-fmi-frutigen"
+        "stellvertretende-wohngruppenleitung-60-fmi-frutigen",
+        "vice-direttore-di-gruppo-residenziale-60-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-wohngruppenleitung-60-fmi-frutigen"
+          "stellvertretende-wohngruppenleitung-60-fmi-frutigen",
+          "vice-direttore-di-gruppo-residenziale-60-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:38.129Z",
@@ -1586,7 +1626,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegepersonal/9c227446-7612-4b79-b0fc-6a28403139e2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:11.217Z",
+      "crawledAt": "2026-10-03T09:10:39.494Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1631,7 +1671,8 @@
         "ergoterapista-60-80-spitaler-fmi-ag-unterseen",
         "occupational-therapist-60-80-spitaler-fmi-ag-unterseen",
         "ergotherapeut-in-60-80-spitaler-fmi-ag-unterseen",
-        "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen"
+        "therapeute-en-ergotherapie-60-80-spitaler-fmi-ag-unterseen",
+        "personale-di-assistenza-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1653,7 +1694,8 @@
           "nutrizionista-in-60-80-spitaler-fmi-ag-unterseen",
           "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
           "ergotherapeut-in-60-80-fmi-unterseen",
-          "ergoterapista-60-80-spitaler-fmi-ag-unterseen"
+          "ergoterapista-60-80-spitaler-fmi-ag-unterseen",
+          "personale-di-assistenza-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "nutritionist-in-60-80-spitaler-fmi-ag-unterseen",
@@ -1720,7 +1762,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-gesundheit-efz/f315d841-ffae-4aed-8a37-0ea65fdc93d0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:10.775Z",
+      "crawledAt": "2026-10-03T09:10:39.080Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1761,11 +1803,13 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-efz-50-fmi-frutigen"
+        "fachperson-gesundheit-efz-50-fmi-frutigen",
+        "specialista-della-salute-asf-50-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-50-fmi-frutigen"
+          "fachperson-gesundheit-efz-50-fmi-frutigen",
+          "specialista-della-salute-asf-50-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:33.239Z",
@@ -1781,7 +1825,8 @@
           "maxValue": 59500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-7228d9f5ba47",
@@ -1814,7 +1859,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027/c45ec92b-a03c-41a2-96b7-e0fdb0bc6462",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:10.302Z",
+      "crawledAt": "2026-10-03T09:10:38.668Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1851,11 +1896,13 @@
         ]
       },
       "previousSlugs": [
-        "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027-fmi-frutigen"
+        "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027-fmi-frutigen",
+        "apprendista-specialista-sanitario-fage-efz-seniorenpark-frutigen-2027-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027-fmi-frutigen"
+          "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027-fmi-frutigen",
+          "apprendista-specialista-sanitario-fage-efz-seniorenpark-frutigen-2027-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:20.673Z",
@@ -1871,7 +1918,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-10b255511801",
@@ -1904,7 +1952,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027/a30626f2-2c18-430f-aee3-45601b11149c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:09.853Z",
+      "crawledAt": "2026-10-03T09:10:38.247Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1922,11 +1970,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027-fmi-unterseen"
+        "lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027-fmi-unterseen",
+        "apprendista-specialista-in-salute-fage-efz-seniorenpark-weissenau-2027-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027-fmi-unterseen"
+          "lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027-fmi-unterseen",
+          "apprendista-specialista-in-salute-fage-efz-seniorenpark-weissenau-2027-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:21.426Z",
@@ -1942,7 +1992,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-be32f19c14dc",
@@ -1975,7 +2026,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-interlaken-2027/9603ba2d-4b72-431c-8374-3c3d4dfaf493",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:09.292Z",
+      "crawledAt": "2026-10-03T09:10:37.765Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1997,7 +2048,8 @@
         "apprendista-cuoco-a-efz-spedale-interlaken-2027-spitaler-fmi-ag-unterseen",
         "apprentice-chef-chef-efz-hospital-interlaken-2027-spitaler-fmi-ag-unterseen",
         "lernende-r-kochin-koch-efz-spital-interlaken-2027-fmi-unterseen",
-        "apprenti-e-cuisinier-cuisiniere-efz-hopital-interlaken-2027-spitaler-fmi-ag-unterseen"
+        "apprenti-e-cuisinier-cuisiniere-efz-hopital-interlaken-2027-spitaler-fmi-ag-unterseen",
+        "apprendista-specialista-sanitario-sss-efz-ospedale-interlaken-2027-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2005,7 +2057,8 @@
           "apprendista-cuoco-a-efz-spedale-interlaken-2027-spitaler-fmi-ag-unterseen",
           "apprentice-chef-chef-efz-hospital-interlaken-2027-spitaler-fmi-ag-unterseen",
           "lernende-r-kochin-koch-efz-spital-interlaken-2027-fmi-unterseen",
-          "apprenti-e-cuisinier-cuisiniere-efz-hopital-interlaken-2027-spitaler-fmi-ag-unterseen"
+          "apprenti-e-cuisinier-cuisiniere-efz-hopital-interlaken-2027-spitaler-fmi-ag-unterseen",
+          "apprendista-specialista-sanitario-sss-efz-ospedale-interlaken-2027-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "apprentice-chef-chef-efz-hospital-interlaken-2027-spitaler-fmi-ag-unterseen"
@@ -2030,7 +2083,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-541f6ca4054b",
@@ -2063,7 +2117,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027/236c98b5-290e-49d0-853c-87be82a07f46",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:08.721Z",
+      "crawledAt": "2026-10-03T09:10:37.293Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2100,11 +2154,13 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027-fmi"
+        "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027-fmi",
+        "apprendista-assistente-salute-e-sociale-eba-seniorenpark-frutigen-2027-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027-fmi"
+          "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027-fmi",
+          "apprendista-assistente-salute-e-sociale-eba-seniorenpark-frutigen-2027-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:19.301Z",
@@ -2120,7 +2176,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-245c75923c9c",
@@ -2153,7 +2210,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027/2baa4758-741f-402e-baaa-0b448d2c10c9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:08.261Z",
+      "crawledAt": "2026-10-03T09:10:36.883Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2190,11 +2247,13 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027-fmi"
+        "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027-fmi",
+        "apprendista-assistente-sanita-e-sociale-eba-seniorenpark-weissenau-2027-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027-fmi"
+          "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027-fmi",
+          "apprendista-assistente-sanita-e-sociale-eba-seniorenpark-weissenau-2027-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:20.041Z",
@@ -2210,7 +2269,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-593edc64ece6",
@@ -2243,7 +2303,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027/8225ef49-9e67-43f0-80b3-bf8ee8ae8951",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:07.691Z",
+      "crawledAt": "2026-10-03T09:10:36.400Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2283,11 +2343,13 @@
         ]
       },
       "previousSlugs": [
-        "lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027-fmi-frutigen"
+        "lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027-fmi-frutigen",
+        "apprendista-specialista-sanitario-fage-efz-ospedale-frutigen-2027-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027-fmi-frutigen"
+          "lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027-fmi-frutigen",
+          "apprendista-specialista-sanitario-fage-efz-ospedale-frutigen-2027-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:22.941Z",
@@ -2303,7 +2365,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-5b33656218a9",
@@ -2336,7 +2399,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-station-medizin/6062bcbc-38c1-4dc3-a814-538ae85be262",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:07.104Z",
+      "crawledAt": "2026-10-03T09:10:35.924Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2355,11 +2418,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-60-100-station-medizin-fmi-unterseen",
-        "pflegefachkraft-hf-fh-60-100-station-medizin-spitaler-fmi-ag-unterseen"
+        "pflegefachkraft-hf-fh-60-100-station-medizin-spitaler-fmi-ag-unterseen",
+        "infermiera-infermiere-hf-fh-60-100-medicina-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-60-100-station-medizin-fmi-unterseen"
+          "pflegefachfrau-pflegefachmann-hf-fh-60-100-station-medizin-fmi-unterseen",
+          "infermiera-infermiere-hf-fh-60-100-medicina-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-60-100-station-medizin-fmi-unterseen"
@@ -2414,7 +2479,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/4cb91fc1-ca49-4791-b8e3-df610fbcd5ae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:06.515Z",
+      "crawledAt": "2026-10-03T09:10:35.442Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2463,7 +2528,8 @@
         "primario-primaria-di-anestesia-spitaler-fmi-ag-unterseen",
         "senior-physician-anesthesiology-60-80-spitaler-fmi-ag-unterseen",
         "oberarzt-oberarztin-anasthesie-60-80-fmi-unterseen",
-        "medecin-specialiste-en-anesthesiologie-60-80-spitaler-fmi-ag-unterseen"
+        "medecin-specialiste-en-anesthesiologie-60-80-spitaler-fmi-ag-unterseen",
+        "medico-assistente-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2475,7 +2541,8 @@
           "primario-primaria-di-anestesia-spitaler-fmi-ag-unterseen",
           "senior-physician-anesthesiology-60-80-spitaler-fmi-ag-unterseen",
           "oberarzt-oberarztin-anasthesie-60-80-fmi-unterseen",
-          "medecin-specialiste-en-anesthesiologie-60-80-spitaler-fmi-ag-unterseen"
+          "medecin-specialiste-en-anesthesiologie-60-80-spitaler-fmi-ag-unterseen",
+          "medico-assistente-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "administrative-assistant-in-60-spitaler-fmi-ag-unterseen",
@@ -2503,7 +2570,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-d2c3915bcbf3",
@@ -2537,7 +2605,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/3c68714d-5929-4a32-8bcc-1261b38bd3a0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:05.951Z",
+      "crawledAt": "2026-10-03T09:10:34.967Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2555,11 +2623,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-80-100-fmi-unterseen"
+        "assistenzarztin-assistenzarzt-80-100-fmi-unterseen",
+        "assistente-medico-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen"
+          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen",
+          "assistente-medico-80-100-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:09.531Z",
@@ -2608,7 +2678,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:05.478Z",
+      "crawledAt": "2026-10-03T09:10:34.573Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2651,11 +2721,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopadie-60-100-fmi-unterseen"
+        "pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopadie-60-100-fmi-unterseen",
+        "infermiere-infermiere-di-grado-accademico-hf-fh-chirurgia-ortopedia-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopadie-60-100-fmi-unterseen"
+          "pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopadie-60-100-fmi-unterseen",
+          "infermiere-infermiere-di-grado-accademico-hf-fh-chirurgia-ortopedia-60-100-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:08.060Z",
@@ -2671,7 +2743,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-d0b677b34def",
@@ -2705,7 +2778,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben/8acf3d4c-798c-4510-bde3-57af39a33a49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:04.900Z",
+      "crawledAt": "2026-10-03T09:10:34.091Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2723,11 +2796,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben-fmi-unterseen"
+        "fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben-fmi-unterseen",
+        "professionista-salute-efz-con-attivita-aggiuntive-emozionanti-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben-fmi-unterseen"
+          "fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben-fmi-unterseen",
+          "professionista-salute-efz-con-attivita-aggiuntive-emozionanti-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-26T22:50:24.214Z",
@@ -2777,7 +2852,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/wohngruppenleitung/15513cd2-5c07-4092-b3b0-c780a56fec49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:04.295Z",
+      "crawledAt": "2026-10-03T09:10:33.622Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2796,12 +2871,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wohngruppenleitung-90-spitaler-fmi-ag-frutigen",
-        "wohngruppenleitung-90-fmi-frutigen"
+        "wohngruppenleitung-90-fmi-frutigen",
+        "gestione-del-gruppo-90-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wohngruppenleitung-90-spitaler-fmi-ag-frutigen",
-          "wohngruppenleitung-90-fmi-frutigen"
+          "wohngruppenleitung-90-fmi-frutigen",
+          "gestione-del-gruppo-90-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "wohngruppenleitung-90-spitaler-fmi-ag-frutigen"
@@ -2860,7 +2937,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in/3d689cbc-b87d-4b32-b872-bb511137902e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:03.719Z",
+      "crawledAt": "2026-10-03T09:10:33.151Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2878,11 +2955,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-100-fmi-frutigen"
+        "praktikant-in-100-fmi-frutigen",
+        "stage-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-100-fmi-frutigen"
+          "praktikant-in-100-fmi-frutigen",
+          "stage-100-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "praktikant-in-100-fmi-frutigen"
@@ -2938,7 +3017,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/473dcc71-145d-4530-9be9-b83e8c36904b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:03.267Z",
+      "crawledAt": "2026-10-03T09:10:32.736Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2957,12 +3036,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fmi-frutigen",
-        "pflegefachperson-hf-spitaler-fmi-ag-frutigen"
+        "pflegefachperson-hf-spitaler-fmi-ag-frutigen",
+        "professionista-hf-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fmi-frutigen",
-          "pflegefachperson-hf-spitaler-fmi-ag-frutigen"
+          "pflegefachperson-hf-spitaler-fmi-ag-frutigen",
+          "professionista-hf-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "pflegefachperson-hf-spitaler-fmi-ag-frutigen"
@@ -3017,7 +3098,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/85ced034-128c-4aa8-ba64-5c81a4eaa220",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:02.758Z",
+      "crawledAt": "2026-10-03T09:10:32.344Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3035,11 +3116,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fmi-frutigen"
+        "fachfrau-fachmann-gesundheit-efz-fmi-frutigen",
+        "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-fmi-frutigen"
+          "fachfrau-fachmann-gesundheit-efz-fmi-frutigen",
+          "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-07-01T22:13:50.830Z",
@@ -3055,7 +3138,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-23730eb06a24",
@@ -3088,7 +3172,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/nachdiplomstudium-notfallpflege-hf/9945f9c6-d13e-4f1e-92d2-17cf80df28e6",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:02.150Z",
+      "crawledAt": "2026-10-03T09:10:31.937Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3107,12 +3191,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nachdiplomstudium-notfallpflege-hf-80-100-fmi-unterseen",
-        "nachdiplomstudium-notfallpflege-hf-80-100-spitaler-fmi-ag-unterseen"
+        "nachdiplomstudium-notfallpflege-hf-80-100-spitaler-fmi-ag-unterseen",
+        "assistenza-post-laurea-hf-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachdiplomstudium-notfallpflege-hf-80-100-fmi-unterseen",
-          "nachdiplomstudium-notfallpflege-hf-80-100-spitaler-fmi-ag-unterseen"
+          "nachdiplomstudium-notfallpflege-hf-80-100-spitaler-fmi-ag-unterseen",
+          "assistenza-post-laurea-hf-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "nachdiplomstudium-notfallpflege-hf-80-100-fmi-unterseen"
@@ -3167,7 +3253,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/476409a8-cda5-4e04-ac79-6bfc0dde1dcb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:01.538Z",
+      "crawledAt": "2026-10-03T09:10:31.474Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3190,7 +3276,8 @@
         "pflegefachperson-hf-o-sozialpadagogin-sozialpadagoge-hf-50-65-spitaler-fmi-ag-unterseen",
         "nurse-hf-or-social-pedagogue-social-pedagogue-hf-50-65-spitaler-fmi-ag-unterseen",
         "pflegefachperson-hf-oder-sozialpadagogin-sozialpadagoge-hf-50-65-fmi-unterseen",
-        "infirmiere-hf-ou-pedagogue-sociale-pedagogue-sociale-hf-50-65-spitaler-fmi-ag-unterseen"
+        "infirmiere-hf-ou-pedagogue-sociale-pedagogue-sociale-hf-50-65-spitaler-fmi-ag-unterseen",
+        "professionista-hf-40-80-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3199,7 +3286,8 @@
           "pflegefachperson-hf-o-sozialpadagogin-sozialpadagoge-hf-50-65-spitaler-fmi-ag-unterseen",
           "nurse-hf-or-social-pedagogue-social-pedagogue-hf-50-65-spitaler-fmi-ag-unterseen",
           "pflegefachperson-hf-oder-sozialpadagogin-sozialpadagoge-hf-50-65-fmi-unterseen",
-          "infirmiere-hf-ou-pedagogue-sociale-pedagogue-sociale-hf-50-65-spitaler-fmi-ag-unterseen"
+          "infirmiere-hf-ou-pedagogue-sociale-pedagogue-sociale-hf-50-65-spitaler-fmi-ag-unterseen",
+          "professionista-hf-40-80-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "pflegefachperson-hf-40-80-spitaler-fmi-ag-unterseen",
@@ -3226,7 +3314,8 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-2ec9a2360269",
@@ -3259,7 +3348,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/bb78f6e2-e974-4c3a-ac2b-07cae42f1ea7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:00.944Z",
+      "crawledAt": "2026-10-03T09:10:31.067Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3277,11 +3366,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fmi-unterseen"
+        "fachfrau-fachmann-gesundheit-efz-fmi-unterseen",
+        "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-fmi-unterseen"
+          "fachfrau-fachmann-gesundheit-efz-fmi-unterseen",
+          "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:41.351Z",
@@ -3297,7 +3388,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-cc833646436f",
@@ -3331,7 +3423,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/nachdiplomstudium-intensivpflege-hf/9dd43dad-d20d-4153-8ffa-f63d4d8c013b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:00.038Z",
+      "crawledAt": "2026-10-03T09:10:30.662Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3349,11 +3441,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-intensivpflege-hf-80-100-fmi-unterseen"
+        "nachdiplomstudium-intensivpflege-hf-80-100-fmi-unterseen",
+        "assistenza-intensiva-post-laurea-hf-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-intensivpflege-hf-80-100-fmi-unterseen"
+          "nachdiplomstudium-intensivpflege-hf-80-100-fmi-unterseen",
+          "assistenza-intensiva-post-laurea-hf-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "nachdiplomstudium-intensivpflege-hf-80-100-fmi-unterseen"
@@ -3408,7 +3502,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/eb38263b-bb56-445c-948f-e6914357813d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:59.448Z",
+      "crawledAt": "2026-10-03T09:10:30.157Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3432,7 +3526,8 @@
         "pflegefachperson-hf-fh-o-sozialpadagog-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
         "nursing-professional-hf-fh-or-social-pedagogue-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
         "pflegefachperson-hf-fh-oder-sozialpadagog-in-hf-fh-40-60-fmi-unterseen",
-        "soins-infirmiers-professionnels-hf-fh-ou-pedagogie-sociale-en-hf-fh-40-60-spitaler-fmi-ag-unterseen"
+        "soins-infirmiers-professionnels-hf-fh-ou-pedagogie-sociale-en-hf-fh-40-60-spitaler-fmi-ag-unterseen",
+        "specialista-hf-fh-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3442,7 +3537,8 @@
           "pflegefachperson-hf-fh-o-sozialpadagog-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
           "nursing-professional-hf-fh-or-social-pedagogue-in-hf-fh-40-60-spitaler-fmi-ag-unterseen",
           "pflegefachperson-hf-fh-oder-sozialpadagog-in-hf-fh-40-60-fmi-unterseen",
-          "soins-infirmiers-professionnels-hf-fh-ou-pedagogie-sociale-en-hf-fh-40-60-spitaler-fmi-ag-unterseen"
+          "soins-infirmiers-professionnels-hf-fh-ou-pedagogie-sociale-en-hf-fh-40-60-spitaler-fmi-ag-unterseen",
+          "specialista-hf-fh-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-80-100-fmi-unterseen",
@@ -3503,7 +3599,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-intensivpflege/efdeb34b-9424-4f00-b03f-661737c71c2b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:58.881Z",
+      "crawledAt": "2026-10-03T09:10:29.660Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3521,11 +3617,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expert-in-intensivpflege-60-100-fmi-unterseen"
+        "expert-in-intensivpflege-60-100-fmi-unterseen",
+        "esperto-in-terapia-intensiva-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-intensivpflege-60-100-fmi-unterseen"
+          "expert-in-intensivpflege-60-100-fmi-unterseen",
+          "esperto-in-terapia-intensiva-60-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "expert-in-intensivpflege-60-100-fmi-unterseen"
@@ -3580,7 +3678,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/cc3f4360-ceb8-4c92-a0ba-c83f392fdac8",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:58.293Z",
+      "crawledAt": "2026-10-03T09:10:29.176Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3624,7 +3722,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-80ad0b104c62",
@@ -3657,7 +3756,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/gastgeber-gastgeberin/c618caf9-6881-478c-b8d0-3579731d1eae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:57.832Z",
+      "crawledAt": "2026-10-03T09:10:28.757Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3675,11 +3774,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gastgeber-gastgeberin-40-fmi-unterseen"
+        "gastgeber-gastgeberin-40-fmi-unterseen",
+        "hosting-hostess-40-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gastgeber-gastgeberin-40-fmi-unterseen"
+          "gastgeber-gastgeberin-40-fmi-unterseen",
+          "hosting-hostess-40-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "gastgeber-gastgeberin-40-fmi-unterseen"
@@ -3701,7 +3802,8 @@
           "maxValue": 33800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-fb4571f2eb06",
@@ -3735,7 +3837,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme/9dbdf88b-fbd5-45b0-90bd-b1dc2ab6d431",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:57.349Z",
+      "crawledAt": "2026-10-03T09:10:28.332Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3753,11 +3855,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme-fmi-unterseen"
+        "elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme-fmi-unterseen",
+        "installatore-trice-elettrico-a-in-schwerpunkt-zutritts-e-schliesssysteme-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme-fmi-unterseen"
+          "elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme-fmi-unterseen",
+          "installatore-trice-elettrico-a-in-schwerpunkt-zutritts-e-schliesssysteme-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme-fmi-unterseen"
@@ -3813,7 +3917,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-anaesthesiepflege/b1eae356-7bc2-41ea-a7c8-242c2d7c16ff",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:56.910Z",
+      "crawledAt": "2026-10-03T09:10:27.925Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3835,7 +3939,8 @@
         "esperto-di-cura-nell-area-chirurgica-cns-80-100-spitaler-fmi-ag-unterseen",
         "care-expert-in-cns-surgical-area-80-100-spitaler-fmi-ag-unterseen",
         "pflegeexpert-in-cns-chirurgischer-bereich-80-100-fmi-unterseen",
-        "expert-en-soins-dans-la-zone-chirurgicale-du-snc-80-100-spitaler-fmi-ag-unterseen"
+        "expert-en-soins-dans-la-zone-chirurgicale-du-snc-80-100-spitaler-fmi-ag-unterseen",
+        "esperto-in-anestesia-cura-70-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3843,7 +3948,8 @@
           "esperto-di-cura-nell-area-chirurgica-cns-80-100-spitaler-fmi-ag-unterseen",
           "care-expert-in-cns-surgical-area-80-100-spitaler-fmi-ag-unterseen",
           "pflegeexpert-in-cns-chirurgischer-bereich-80-100-fmi-unterseen",
-          "expert-en-soins-dans-la-zone-chirurgicale-du-snc-80-100-spitaler-fmi-ag-unterseen"
+          "expert-en-soins-dans-la-zone-chirurgicale-du-snc-80-100-spitaler-fmi-ag-unterseen",
+          "esperto-in-anestesia-cura-70-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "expert-in-anasthesiepflege-70-100-fmi-unterseen",
@@ -3904,7 +4010,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitender-arzt-leitende-aerztin-innere-medizin/a7fbda1e-5885-4878-84e9-d47181b41815",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:56.450Z",
+      "crawledAt": "2026-10-03T09:10:27.511Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3922,11 +4028,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitender-arzt-leitende-arztin-innere-medizin-80-100-fmi-frutigen"
+        "leitender-arzt-leitende-arztin-innere-medizin-80-100-fmi-frutigen",
+        "medicina-interna-medica-senior-80-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitender-arzt-leitende-arztin-innere-medizin-80-100-fmi-frutigen"
+          "leitender-arzt-leitende-arztin-innere-medizin-80-100-fmi-frutigen",
+          "medicina-interna-medica-senior-80-100-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "leitender-arzt-leitende-arztin-innere-medizin-80-100-fmi-frutigen"
@@ -3981,7 +4089,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehilfe/01a01453-fa3c-434d-ba13-b0f4baa193a9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:55.849Z",
+      "crawledAt": "2026-10-03T09:10:27.003Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4025,7 +4133,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-f469c27ff4fd",
@@ -4059,7 +4168,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/studierende-r-rettungssanitaeter-in-hf/11d40920-6d9d-4cad-8a58-77fd73ea095c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:55.388Z",
+      "crawledAt": "2026-10-03T09:10:26.608Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4078,12 +4187,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "studierende-r-rettungssanitater-in-hf-fmi-wilderswil",
-        "studierende-r-rettungssanitater-in-hf-fmi-unterseen"
+        "studierende-r-rettungssanitater-in-hf-fmi-unterseen",
+        "studenti-r-paramedici-in-hf-spitaler-fmi-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-r-rettungssanitater-in-hf-fmi-wilderswil",
-          "studierende-r-rettungssanitater-in-hf-fmi-unterseen"
+          "studierende-r-rettungssanitater-in-hf-fmi-unterseen",
+          "studenti-r-paramedici-in-hf-spitaler-fmi-ag-wilderswil"
         ],
         "en": [
           "studierende-r-rettungssanitater-in-hf-fmi-wilderswil"
@@ -4142,7 +4253,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/ict-projektleiter-in-80/b0d80ee8-daf3-4de4-b250-63215d924ea7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:54.815Z",
+      "crawledAt": "2026-10-03T09:10:26.101Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4164,7 +4275,8 @@
         "responsabile-finanzbuchhaltung-80-100-spitaler-fmi-ag-unterseen",
         "head-in-financial-accounting-80-100-spitaler-fmi-ag-unterseen",
         "leiter-in-finanzbuchhaltung-80-100-fmi-unterseen",
-        "responsable-en-comptabilite-financiere-80-100-spitaler-fmi-ag-unterseen"
+        "responsable-en-comptabilite-financiere-80-100-spitaler-fmi-ag-unterseen",
+        "ict-responsabile-di-progetto-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4172,7 +4284,8 @@
           "responsabile-finanzbuchhaltung-80-100-spitaler-fmi-ag-unterseen",
           "head-in-financial-accounting-80-100-spitaler-fmi-ag-unterseen",
           "leiter-in-finanzbuchhaltung-80-100-fmi-unterseen",
-          "responsable-en-comptabilite-financiere-80-100-spitaler-fmi-ag-unterseen"
+          "responsable-en-comptabilite-financiere-80-100-spitaler-fmi-ag-unterseen",
+          "ict-responsabile-di-progetto-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "ict-projektleiter-in-80-100-fmi-unterseen",
@@ -4233,7 +4346,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/sachbearbeiter-in-hr-administration/81f5e69e-030a-45bb-b39f-ae515d831e72",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:54.258Z",
+      "crawledAt": "2026-10-03T09:10:25.633Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4251,11 +4364,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen"
+        "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen",
+        "personale-amministrazione-hr-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen"
+          "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen",
+          "personale-amministrazione-hr-80-100-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-08-24T21:31:49.725Z",
@@ -4304,7 +4419,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/technische-r-sterilisationsassistent-in/40d9df3b-2633-4646-93ed-1fafc19fc900",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:53.687Z",
+      "crawledAt": "2026-10-03T09:10:25.163Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4322,11 +4437,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-r-sterilisationsassistent-in-100-fmi-unterseen"
+        "technische-r-sterilisationsassistent-in-100-fmi-unterseen",
+        "tecnico-r-assistente-di-sterilizzazione-in-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-sterilisationsassistent-in-100-fmi-unterseen"
+          "technische-r-sterilisationsassistent-in-100-fmi-unterseen",
+          "tecnico-r-assistente-di-sterilizzazione-in-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "technische-r-sterilisationsassistent-in-100-fmi-unterseen"
@@ -4348,7 +4465,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-02f3c060faf5",
@@ -4382,7 +4500,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachmitarbeiter-in-fakturierung/f7d3d130-efea-4a05-9b71-ae06a09794b3",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:53.096Z",
+      "crawledAt": "2026-10-03T09:10:24.625Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4400,11 +4518,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmitarbeiter-in-fakturierung-60-100-fmi-unterseen"
+        "fachmitarbeiter-in-fakturierung-60-100-fmi-unterseen",
+        "specialista-invocato-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiter-in-fakturierung-60-100-fmi-unterseen"
+          "fachmitarbeiter-in-fakturierung-60-100-fmi-unterseen",
+          "specialista-invocato-60-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "fachmitarbeiter-in-fakturierung-60-100-fmi-unterseen"
@@ -4459,7 +4579,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/medizinaltechniker-in/2635d189-fa12-49ea-9406-4e6bbce4d8b2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:52.513Z",
+      "crawledAt": "2026-10-03T09:10:24.145Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4481,7 +4601,8 @@
         "arztsekretar-in-orthopala-80-spitaler-fmi-ag-unterseen",
         "medical-secretary-in-orthopaedics-80-spitaler-fmi-ag-unterseen",
         "arztsekretar-in-orthopadie-80-fmi-unterseen",
-        "secretaire-medical-en-orthopedie-80-spitaler-fmi-ag-unterseen"
+        "secretaire-medical-en-orthopedie-80-spitaler-fmi-ag-unterseen",
+        "tecnici-medici-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4489,7 +4610,8 @@
           "arztsekretar-in-orthopala-80-spitaler-fmi-ag-unterseen",
           "medical-secretary-in-orthopaedics-80-spitaler-fmi-ag-unterseen",
           "arztsekretar-in-orthopadie-80-fmi-unterseen",
-          "secretaire-medical-en-orthopedie-80-spitaler-fmi-ag-unterseen"
+          "secretaire-medical-en-orthopedie-80-spitaler-fmi-ag-unterseen",
+          "tecnici-medici-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "medizinaltechniker-in-80-100-fmi-unterseen",
@@ -4516,7 +4638,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-3f3f49bb721b",
@@ -4549,7 +4672,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/sachbearbeiter-in-hr-zeitwirtschaft/816e98b4-5f11-4a1c-a9a6-c8394bf16009",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:51.952Z",
+      "crawledAt": "2026-10-03T09:10:23.630Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4570,13 +4693,15 @@
         "sachbearbeiter-in-hr-amp-zeitwirtschaft-50-60-fmi-unterseen",
         "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen",
         "personnel-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen",
-        "sachbearbeiter-in-hr-zeitwirtschaft-50-60-fmi-unterseen"
+        "sachbearbeiter-in-hr-zeitwirtschaft-50-60-fmi-unterseen",
+        "personale-hr-time-management-50-60-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-hr-amp-zeitwirtschaft-50-60-fmi-unterseen",
           "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen",
-          "sachbearbeiter-in-hr-zeitwirtschaft-50-60-fmi-unterseen"
+          "sachbearbeiter-in-hr-zeitwirtschaft-50-60-fmi-unterseen",
+          "personale-hr-time-management-50-60-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "personnel-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen"
@@ -4598,7 +4723,8 @@
           "maxValue": 74700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "fmi-84b72540b4d7",
@@ -4632,7 +4758,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/genesungsbegleiter-in/ebafab65-cde3-4166-a511-39ac0d5cff29",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:51.393Z",
+      "crawledAt": "2026-10-03T09:10:23.152Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4651,12 +4777,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "genesungsbegleiter-in-50-fmi-unterseen",
-        "genesungsbegleiter-in-50-spitaler-fmi-ag-unterseen"
+        "genesungsbegleiter-in-50-spitaler-fmi-ag-unterseen",
+        "compagni-di-recupero-50-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "genesungsbegleiter-in-50-fmi-unterseen",
-          "genesungsbegleiter-in-50-spitaler-fmi-ag-unterseen"
+          "genesungsbegleiter-in-50-spitaler-fmi-ag-unterseen",
+          "compagni-di-recupero-50-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "genesungsbegleiter-in-50-spitaler-fmi-ag-unterseen"
@@ -4712,7 +4840,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-fachperson-efz-assistenzperson-gesundheit-und-soziales-im-pflegepool/baa9310e-8e8f-4ee3-817c-70dd9d26b098",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:50.819Z",
+      "crawledAt": "2026-10-03T09:10:22.676Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4731,12 +4859,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fachperson-efz-assistenzperson-gesundheit-und-soziales-im-pflegepool",
-        "pflegefachperson-hf-fachperson-cfc-assistenzperson-gesundheit-e-soziales-im-pflegepool-spitaler-fmi-ag-frutigen"
+        "pflegefachperson-hf-fachperson-cfc-assistenzperson-gesundheit-e-soziales-im-pflegepool-spitaler-fmi-ag-frutigen",
+        "infermiera-hf-specialista-efz-assistente-sanitario-e-sociale-nella-piscina-di-cura-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fachperson-efz-assistenzperson-gesundheit-und-soziales-im-pflegepool",
-          "pflegefachperson-hf-fachperson-cfc-assistenzperson-gesundheit-e-soziales-im-pflegepool-spitaler-fmi-ag-frutigen"
+          "pflegefachperson-hf-fachperson-cfc-assistenzperson-gesundheit-e-soziales-im-pflegepool-spitaler-fmi-ag-frutigen",
+          "infermiera-hf-specialista-efz-assistente-sanitario-e-sociale-nella-piscina-di-cura-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "pflegefachperson-hf-fachperson-efz-assistenzperson-gesundheit-und-soziales-im-pflegepool"
@@ -4792,7 +4922,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/integrationsstelle-als-kuechenhilfe/9b1c45b8-a310-45a2-83a2-71a68cc4f5b8",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:50.377Z",
+      "crawledAt": "2026-10-03T09:10:22.273Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4811,12 +4941,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen",
-        "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen"
+        "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen",
+        "punto-di-integrazione-come-aiuto-cucina-50-80-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen",
-          "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen"
+          "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen",
+          "punto-di-integrazione-come-aiuto-cucina-50-80-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen"
@@ -4872,7 +5004,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-wintersaison/27b03ec7-e83e-4695-a877-31460c490d90",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:49.905Z",
+      "crawledAt": "2026-10-03T09:10:21.833Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4890,11 +5022,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
+        "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen",
+        "infermieristica-professionale-70-100-stagione-invernale-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
+          "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen",
+          "infermieristica-professionale-70-100-stagione-invernale-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
@@ -4950,7 +5084,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in/d029739e-3036-4fd8-8913-e1e546620990",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:49.341Z",
+      "crawledAt": "2026-10-03T09:10:21.365Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4968,11 +5102,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektroinstallateur-in-100-fmi-frutigen"
+        "elektroinstallateur-in-100-fmi-frutigen",
+        "installatore-trice-elettrico-a-in-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-100-fmi-frutigen"
+          "elektroinstallateur-in-100-fmi-frutigen",
+          "installatore-trice-elettrico-a-in-100-spitaler-fmi-ag-frutigen"
         ],
         "en": [
           "elektroinstallateur-in-100-fmi-frutigen"
@@ -5028,7 +5164,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-hr-beratung/95fe1a6c-2f41-43cd-9967-b239bb36a357",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.872Z",
+      "crawledAt": "2026-10-03T09:10:20.938Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5092,7 +5228,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung/225ab539-6eb7-43cb-bff1-3e1096d5c834",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:48.427Z",
+      "crawledAt": "2026-10-03T09:10:20.526Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5111,12 +5247,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fur-unsere-wintersaison-suchen-wir-eine-expert-in-notfallpflege-60-100-oder-dipl",
-        "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen"
+        "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
+        "per-unsere-wintersaison-suchen-wir-eine-expert-in-notfallpflege-60-100-o-dipl-pflegefachpersonen-con-imc-ausbildung-e-o-erfahrung-im-bereich-notfallpflege-akutpflege-spitaler-fmi-a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fur-unsere-wintersaison-suchen-wir-eine-expert-in-notfallpflege-60-100-oder-dipl",
-          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen"
+          "expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung-60-100-fmi-frutigen",
+          "per-unsere-wintersaison-suchen-wir-eine-expert-in-notfallpflege-60-100-o-dipl-pflegefachpersonen-con-imc-ausbildung-e-o-erfahrung-im-bereich-notfallpflege-akutpflege-spitaler-fmi-a"
         ],
         "de": [
           "fur-unsere-wintersaison-suchen-wir-eine-expert-in-notfallpflege-60-100-oder-dipl"
@@ -5169,7 +5307,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-fh/a3b75b26-996b-471d-954f-2e52be77d968",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.862Z",
+      "crawledAt": "2026-10-03T09:10:20.044Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5188,12 +5326,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fh-90-fmi-unterseen",
-        "pflegefachperson-hf-fh-90-spitaler-fmi-ag-unterseen"
+        "pflegefachperson-hf-fh-90-spitaler-fmi-ag-unterseen",
+        "professionista-hf-fh-90-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fh-90-fmi-unterseen",
-          "pflegefachperson-hf-fh-90-spitaler-fmi-ag-unterseen"
+          "pflegefachperson-hf-fh-90-spitaler-fmi-ag-unterseen",
+          "professionista-hf-fh-90-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "pflegefachperson-hf-fh-90-spitaler-fmi-ag-unterseen"
@@ -5249,7 +5389,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-reinigung-operationstrakt-und-notfallstation/7ff57a66-733a-4863-8385-747f14d5cf99",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:47.288Z",
+      "crawledAt": "2026-10-03T09:10:19.545Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5267,11 +5407,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-operationstrakt-und-notfallstation-40-fmi-unterseen"
+        "mitarbeiter-in-reinigung-operationstrakt-und-notfallstation-40-fmi-unterseen",
+        "collaboratore-trice-reinigung-operationstrakt-e-notfallstation-40-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-operationstrakt-und-notfallstation-40-fmi-unterseen"
+          "mitarbeiter-in-reinigung-operationstrakt-und-notfallstation-40-fmi-unterseen",
+          "collaboratore-trice-reinigung-operationstrakt-e-notfallstation-40-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "mitarbeiter-in-reinigung-operationstrakt-und-notfallstation-40-fmi-unterseen"
@@ -5327,7 +5469,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitende-pflegefachperson/6566dff5-d994-42d3-8f02-ceccd3b4fd28",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:46.713Z",
+      "crawledAt": "2026-10-03T09:10:19.033Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5359,7 +5501,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:14:46.713Z"
+      "firstSeenAt": "2026-10-03T09:10:19.033Z"
     }
   ]
 }
