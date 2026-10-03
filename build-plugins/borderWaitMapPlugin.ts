@@ -935,7 +935,7 @@ export function borderWaitMapPlugin(rootDir: string): Plugin {
         collector.add(flatPath, render.html);
 
         sitemapEntries.push(
-          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
         );
       }
 

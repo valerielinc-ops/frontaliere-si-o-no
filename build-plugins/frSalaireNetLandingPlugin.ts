@@ -386,8 +386,6 @@ function renderPage(opts: RenderOpts): RenderResult {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: LOCALE,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -541,7 +539,6 @@ function buildSitemapXml(dateStamp: string): string {
   <url>
     <loc>${BASE_URL}${URL_PATH}</loc>
 ${altLinks}
-    <lastmod>${dateStamp}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

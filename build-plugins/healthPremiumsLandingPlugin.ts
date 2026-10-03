@@ -3443,10 +3443,8 @@ export function generateHealthPremiumsPages(opts: {
 
 function buildSitemapXml(
   paths: string[],
-  modifiedAt: string | undefined,
   pathsByCanonical: Record<string, { alternates: string[] }>,
 ): string {
-  const date = modifiedAt?.slice(0, 10);
   const entries = paths
     .filter((p) => !p.startsWith('/en/') && !p.startsWith('/de/') && !p.startsWith('/fr/'))
     .map((canonical) => {
@@ -3459,7 +3457,6 @@ function buildSitemapXml(
       return `  <url>
     <loc>${BASE_URL}${canonical}</loc>
 ${alt}
-    ${date ? `<lastmod>${date}</lastmod>` : ''}
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`;
@@ -3676,7 +3673,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
           alts.push(`x-default:${BASE_URL}${pageRel}`);
           pathsByCanonical[pageRel] = { alternates: alts };
         }
-        const xml = buildSitemapXml(writtenPaths, sourceDateIso(dataset.fetchedAt, today), pathsByCanonical);
+        const xml = buildSitemapXml(writtenPaths, pathsByCanonical);
         const sitemapPath = np.join(distDir, 'sitemap-health-premiums.xml');
         fs.writeFileSync(sitemapPath, xml, 'utf-8');
       } catch (err) {

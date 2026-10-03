@@ -765,7 +765,7 @@ function buildSitemap(dateStamp: string): string {
     const altLines = alts
       .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}" />`)
       .join('\n');
-    return `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLines}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+    return `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLines}\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
   };
 
   const urls: string[] = [];

@@ -1718,7 +1718,8 @@ function renderPage(inp: PageInputs): string {
   // Alternates — includes x-default pointing at the IT href (shared helper).
   const alternatesHtml = renderHreflangTags(alternates);
 
-  // JSON-LD
+  // JSON-LD: this renderer has no editorial publication/change timestamp.
+  // The build clock and acquisition timestamps are not publication dates.
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -2007,7 +2008,6 @@ function renderArchive(inp: ArchiveInputs): string {
     </div>`
     : '';
 
-  const dateStamp = today.toISOString().slice(0, 10);
   const title = clampSiteSuffix(h1, 'Frontaliere Ticino');
   // Archive pages: H1 includes the month-key tail, but if the headline is
   // long enough that buildTitleWithBrand drops the brand from <title>, the
@@ -2036,7 +2036,6 @@ function renderArchive(inp: ArchiveInputs): string {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: dateStamp,
   });
 
   // SEO content gate (text-to-HTML ratio): the monthly archive pages
@@ -3008,8 +3007,6 @@ function renderStationPage(opts: {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
   });
 
   // GasStation + Place (geo)
@@ -3747,8 +3744,6 @@ function renderItalianCityPage(opts: {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
   });
 
   const itemListLd = inlineScriptJson({
@@ -4752,8 +4747,6 @@ function renderItalianStationPage(opts: {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
   });
 
   const gasStationLd = inlineScriptJson({
@@ -5467,10 +5460,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const writeSitemap = (paths: string[], filename: string, changefreq: string): void => {
         if (paths.length === 0) return;
         try {
-          const dateStamp = today.toISOString().slice(0, 10);
           const urlEntries = paths
             .map((p) => {
-              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
             })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

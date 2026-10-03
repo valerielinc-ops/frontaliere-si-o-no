@@ -3684,14 +3684,14 @@ function eventDetailSitemapUrl(canton: string, comune: string, slug: string, dat
   )
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForEventDetail('it', comune, slug, canton)}" />`)
     .join('\n');
-  return `  <url>\n    <loc>${BASE_URL}${pathForEventDetail('it', comune, slug, canton)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.4</priority>\n  </url>`;
+  return `  <url>\n    <loc>${BASE_URL}${pathForEventDetail('it', comune, slug, canton)}</loc>\n${alternates}\n    <changefreq>weekly</changefreq>\n    <priority>0.4</priority>\n  </url>`;
 }
 
 function digestSitemapUrl(canton: string, slug: Record<Locale, string>, dateStamp: string): string {
   const alternates = LOCALES.map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathForDigest(locale, canton, slug)}" />`)
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForDigest('it', canton, slug)}" />`)
     .join('\n');
-  return `  <url>\n    <loc>${BASE_URL}${pathForDigest('it', canton, slug)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+  return `  <url>\n    <loc>${BASE_URL}${pathForDigest('it', canton, slug)}</loc>\n${alternates}\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`;
 }
 
 // Overflow ladder page (`<bucket>/page-N/`, issue #7329). Sitemapped like any
@@ -3704,14 +3704,14 @@ function ladderSitemapUrl(canton: string, comune: string | undefined, page: numb
   )
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${overflowLadderPath('it', canton, comune, page)}" />`)
     .join('\n');
-  return `  <url>\n    <loc>${BASE_URL}${overflowLadderPath('it', canton, comune, page)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`;
+  return `  <url>\n    <loc>${BASE_URL}${overflowLadderPath('it', canton, comune, page)}</loc>\n${alternates}\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`;
 }
 
 function sitemapUrl(canton: string, comune: string | undefined, dateStamp: string, priority: string): string {
   const alternates = LOCALES.map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, canton, comune)}" />`)
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', canton, comune)}" />`)
     .join('\n');
-  return `  <url>\n    <loc>${BASE_URL}${pathFor('it', canton, comune)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  return `  <url>\n    <loc>${BASE_URL}${pathFor('it', canton, comune)}</loc>\n${alternates}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 }
 
 // Priority 0.8: higher than a per-canton hub (0.7) — this is the single
@@ -3720,7 +3720,7 @@ function nationalIndexSitemapUrl(dateStamp: string): string {
   const alternates = LOCALES.map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${nationalIndexPath(locale)}" />`)
     .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${nationalIndexPath('it')}" />`)
     .join('\n');
-  return `  <url>\n    <loc>${BASE_URL}${nationalIndexPath('it')}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+  return `  <url>\n    <loc>${BASE_URL}${nationalIndexPath('it')}</loc>\n${alternates}\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>`;
 }
 
 // Per-locale hub index files to patch with an inbound link to the events hub,

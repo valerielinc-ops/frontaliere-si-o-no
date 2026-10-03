@@ -1164,7 +1164,7 @@ function buildSitemap(entries: Array<{ municipality: Municipality; dateStamp: st
       .map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathFor(locale, municipality)}" />`)
       .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathFor('it', municipality)}" />`)
       .join('\n');
-    return `  <url>\n    <loc>${BASE_URL}${pathFor('it', municipality)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.55</priority>\n  </url>`;
+    return `  <url>\n    <loc>${BASE_URL}${pathFor('it', municipality)}</loc>\n${alternates}\n    <changefreq>monthly</changefreq>\n    <priority>0.55</priority>\n  </url>`;
   }).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
 }

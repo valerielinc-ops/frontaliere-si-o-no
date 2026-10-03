@@ -810,7 +810,7 @@ export function marketReportPlugin(rootDir: string): Plugin {
         collector.add(flatPath, render.html);
 
         sitemapEntries.push(
-          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
         );
       }
 
