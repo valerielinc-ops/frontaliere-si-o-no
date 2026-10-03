@@ -13,7 +13,11 @@ on:
       - 'data/decision-moment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/ci/provision-l5-ga4-dimension.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/ga4-custom-dimensions.mjs'
+      - 'scripts/lib/ga4-event-dimension-contract.mjs'
+      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l5-decision-moments.mjs'
@@ -31,7 +35,11 @@ on:
       - 'data/decision-moment-outcomes.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/ci/provision-l5-ga4-dimension.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/ga4-custom-dimensions.mjs'
+      - 'scripts/lib/ga4-event-dimension-contract.mjs'
+      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l5-decision-moments.mjs'
@@ -73,7 +81,11 @@ jobs:
             /data/decision-moment-outcomes.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/export-loop-outcomes.mjs
+            /scripts/ci/provision-l5-ga4-dimension.mjs
             /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/ga4-custom-dimensions.mjs
+            /scripts/lib/ga4-event-dimension-contract.mjs
+            /scripts/lib/ga4-l5-decision-dimension.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/ci/loop-l5-decision-moments.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
@@ -104,11 +116,35 @@ jobs:
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
             echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set; recording an explicitly unavailable decision outcome'
             echo 'LOOP_FLEET_L5_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
+            echo 'LOOP_FLEET_L5_EXPORT_UNAVAILABLE_REASON=Firebase read-only credentials unavailable' >> "$GITHUB_ENV"
             exit 0
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Ensure L5 GA4 decision-session dimension
+        if: always()
+        env:
+          WORKFLOW_EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/loop-fleet-l5"
+          if [ "$WORKFLOW_EVENT" = 'pull_request' ]; then
+            exit 0
+          fi
+          if [ "${LOOP_FLEET_L5_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
+            echo 'L5 GA4 dimension provisioning skipped because credentials are unavailable'
+            exit 0
+          fi
+          set +e
+          node scripts/ci/provision-l5-ga4-dimension.mjs | tee "$RUNNER_TEMP/loop-fleet-l5/dimension-provision.log"
+          provision_code=${PIPESTATUS[0]}
+          set -e
+          if [ "$provision_code" -ne 0 ]; then
+            echo '::warning::L5 GA4 decision-session dimension provisioning failed; recording an explicitly unavailable decision outcome'
+            echo 'LOOP_FLEET_L5_EXPORT_UNAVAILABLE=1' >> "$GITHUB_ENV"
+            echo 'LOOP_FLEET_L5_EXPORT_UNAVAILABLE_REASON=GA4 decision-session custom dimension provisioning failed' >> "$GITHUB_ENV"
+          fi
       - name: Export fresh L5 outcomes
         if: always()
         env:
@@ -123,7 +159,8 @@ jobs:
             exit 0
           fi
           if [ "${LOOP_FLEET_L5_EXPORT_UNAVAILABLE:-0}" = '1' ]; then
-            node scripts/ci/export-loop-outcomes.mjs --loop L5 --unavailable --out "$OUTCOME_PATH" --reason 'Firebase read-only credentials unavailable'
+            reason="${LOOP_FLEET_L5_EXPORT_UNAVAILABLE_REASON:-Firebase read-only credentials unavailable}"
+            node scripts/ci/export-loop-outcomes.mjs --loop L5 --unavailable --out "$OUTCOME_PATH" --reason "$reason"
             exit 0
           fi
           set +e
@@ -132,7 +169,7 @@ jobs:
           set -e
           if [ "$export_code" -ne 0 ]; then
             echo '::warning::L5 live outcome export failed; recording an explicitly unavailable outcome so the audit remains fail-closed'
-            node scripts/ci/export-loop-outcomes.mjs --loop L5 --unavailable --out "$OUTCOME_PATH"
+            node scripts/ci/export-loop-outcomes.mjs --loop L5 --unavailable --out "$OUTCOME_PATH" --reason 'GA4 live decision-moment export failed'
           fi
       - name: Audit decision moments
         if: always()
