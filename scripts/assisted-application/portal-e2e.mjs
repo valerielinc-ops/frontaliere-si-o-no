@@ -94,7 +94,11 @@ function fakePortal() {
     <button type="button" id="expand">Alle Abschnitte einblenden</button>
     ${form('/sf/apply', `<section id="docs"${errors.length ? '' : ' hidden'}><h3>Meine Dokumente</h3><span>Lebenslauf *</span> <span id="cvname"></span>
         <button type="button" id="cvbtn" aria-haspopup="dialog">Lebenslauf hochladen</button><input type="hidden" name="cv" id="cvdone" value=""></section>
-      <section id="profile"${errors.length ? '' : ' hidden'}><label for="v">* Vorname</label><input id="v" name="first" required><label for="n">* Nachname</label><input id="n" name="last" required><label for="m">* E-Mail</label><input id="m" type="email" name="mail" required></section>
+      <section id="profile"${errors.length ? '' : ' hidden'}><label for="v">* Vorname</label><input id="v" name="first" required><label for="n">* Nachname</label><input id="n" name="last" required><label for="m">* E-Mail</label><input id="m" type="email" name="mail" required>
+        <label for="anrede-in">* Anrede</label><input id="anrede-in" aria-label="Anrede" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="an:_listSelect" aria-required="true" aria-expanded="false" class="rcmpaginatedselectinput"><input type="hidden" name="anrede" id="anrede-v"><ul id="an:_listSelect" role="listbox"></ul>
+        <label for="97:_datepicker">Geburtsdatum:*</label><div id="97:_datepicker" class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" title="Geburtsdatum" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required="" placeholder="TT.MM.JJJJ"></ui5-date-picker-xweb-calendar-widget></div><input type="hidden" name="birth" id="birth-v">
+        <label for="agency-in">* Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: Mit Einreichen des Dossiers werden die AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis akzeptiert.)</label><input id="agency-in" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="ag:_listSelect" aria-required="true" aria-expanded="false" class="rcmpaginatedselectinput"><input type="hidden" name="agency" id="agency-v"><ul id="ag:_listSelect" role="listbox"></ul>
+      </section>
       <button type="button">Speichern</button><button type="submit">Bewerben</button>`)}
     <div role="dialog" id="up" hidden></div>
     <script>
@@ -103,6 +107,42 @@ function fakePortal() {
       const dropped = new Set();
       const dropsFirst = (id) => flaky && !dropped.has(id) && dropped.add(id);
       document.getElementById('expand').addEventListener('click', () => { if (dropsFirst('expand')) return; for (const id of ['docs', 'profile']) document.getElementById(id).hidden = false; });
+      // A picklist: its options load a moment after it opens, into the list it owns.
+      const picklist = (inputId, listId, hiddenId, options) => {
+        const input = document.getElementById(inputId);
+        const list = document.getElementById(listId);
+        const close = () => { list.innerHTML = ''; input.setAttribute('aria-expanded', 'false'); };
+        input.addEventListener('click', () => {
+          input.setAttribute('aria-expanded', 'true');
+          list.innerHTML = '';
+          setTimeout(() => {
+            list.innerHTML = ['Bitte auswählen', ...options].map((option) => '<li role="option">' + option + '</li>').join('');
+            for (const item of list.querySelectorAll('li')) {
+              item.addEventListener('click', () => {
+                if (item.textContent !== 'Bitte auswählen') { input.value = item.textContent; document.getElementById(hiddenId).value = item.textContent; }
+                close();
+              });
+            }
+          }, 1500);
+        });
+        input.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+      };
+      picklist('anrede-in', 'an:_listSelect', 'anrede-v', ['Frau', 'Herr']);
+      picklist('agency-in', 'ag:_listSelect', 'agency-v', ['Ja', 'Nein']);
+      // UI5's date picker: its input in an open shadow root, its value set on change or Enter.
+      customElements.get('ui5-date-picker-xweb-calendar-widget') || customElements.define('ui5-date-picker-xweb-calendar-widget', class extends HTMLElement {
+        constructor() {
+          super();
+          this._value = '';
+          const root = this.attachShadow({ mode: 'open' });
+          root.innerHTML = '<input type="text" placeholder="TT.MM.JJJJ" style="width:120px">';
+          const input = root.querySelector('input');
+          const commit = () => { if (/^\\d{2}\\.\\d{2}\\.\\d{4}$/.test(input.value)) { this._value = input.value; document.getElementById('birth-v').value = input.value; } };
+          input.addEventListener('change', commit);
+          input.addEventListener('keydown', (event) => { if (event.key === 'Enter') commit(); });
+        }
+        get value() { return this._value; }
+      });
       document.getElementById('cvbtn').addEventListener('click', () => {
         if (dropsFirst('cvbtn')) return;
         const dialog = document.getElementById('up');
@@ -232,12 +272,15 @@ function fakePortal() {
         body.get('cv') !== '1' && 'Lebenslauf ist erforderlich',
         !body.get('first') && 'Vorname ist erforderlich',
         !body.get('last') && 'Nachname ist erforderlich',
+        !body.get('anrede') && 'Anrede ist erforderlich',
+        !body.get('birth') && 'Geburtsdatum ist erforderlich',
+        !body.get('agency') && 'Stammt diese Bewerbung von einem Vermittlungsbüro? ist erforderlich',
       ].filter(Boolean);
       if (errors.length) {
         coop.validationRefusals += 1;
         return send(sfApplyPage(errors));
       }
-      coop.applications.push({ hasCv: coop.cvUploads > 0, first: body.get('first') || '' });
+      coop.applications.push({ hasCv: coop.cvUploads > 0, first: body.get('first') || '', anrede: body.get('anrede'), birth: body.get('birth'), agency: body.get('agency') });
       return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
     }
     if (route === 'GET /login') {
@@ -419,6 +462,9 @@ async function fakeCodex({ prompt }) {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
     if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
+    if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
+    if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
+    if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
     if (/vorname|first name/i.test(field.label)) return act('fill', 'Luca');
     if (/land\/region/i.test(field.label)) return act('select', 'Italien', { source: 'profile' });
     if (/nachname|last name/i.test(field.label)) return act('fill', 'Bianchi');
@@ -658,22 +704,25 @@ async function main() {
       async waitForVerification() { return null; },
     };
     const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
+    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12' }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
-    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts });
+    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
     const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
     check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
       coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
       && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
       && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
+    check('Coop: SuccessFactors’ picklists, its UI5 birth date and «Vermittlungsbüro?» (always Nein) are filled',
+      coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
     check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
       coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
       && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed');
     check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
     // This time the portal drops the first click on the sections and on the CV dialog.
     coop.flaky = true;
-    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
+    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
     coop.flaky = false;
     check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
       coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
