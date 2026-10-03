@@ -107,7 +107,9 @@ export function buildIssueBody(e, { errorRate, healthStatus, stack } = {}) {
     lines.push('', buildScheda({
       causa: [
         "(ipotesi, da confermare.) Un errore JS in produzione che colpisce",
-        `${e.users} utenti distinti su \`${sanitizeTrackedDiagnosticValue(e.pagePath)}\`. La firma`,
+        e.family === CHUNK_LOAD_FAMILY
+          ? `fino a ${e.users} utenti (somma per riga, non utenti distinti) su ${new Set(e.members.map((m) => m.pagePath)).size} pagine. La firma`
+          : `${e.users} utenti distinti su \`${sanitizeTrackedDiagnosticValue(e.pagePath)}\`. La firma`,
         "e' GA4, quindi dice CHE COSA e' successo e non DOVE nel sorgente: lo stack qui sopra,",
         'se presente, e il feeder PostHog gemello (`PostHog Exception:`, stessa classe) sono i',
         'due modi di risalire al frame.',

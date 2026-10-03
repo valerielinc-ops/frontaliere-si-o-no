@@ -49,14 +49,7 @@ import {
   ensureGa4CustomDimensions,
 } from './lib/ga4-employer-insights-dimensions.mjs';
 import { L5_DECISION_SESSION_DIMENSION } from './lib/ga4-l5-decision-dimension.mjs';
-import {
-  APP_ERROR_ENTRY_DIMENSIONS,
-  APP_ERROR_RECENT_DAYS,
-  appErrorEntryFromRow,
-  buildAppErrorRecencyRequest,
-  mergeAppErrorRecency,
-  productionAppErrorFilter,
-} from './lib/app-error-recency.mjs';
+import { fetchAppErrorsWithRecency } from './lib/app-error-recency.mjs';
 import {
   engagementConsistency,
   dailyEngagementConsistency,
@@ -1952,30 +1945,6 @@ async function reportGA4(token) {
     // 3h-v: app_error events — rich debugging info (error_type, error_message, stack, component_stack)
     // These are fired by Analytics.trackAppError() from ErrorBoundary.componentDidCatch,
     // window error listener, and unhandled rejection listener.
-    const appErrRes = await fetchRetry(
-      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
-      {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          ...baseRequest,
-          // Solo host di produzione: la property riceve `app_error` anche
-          // dal dev server (`127.0.0.1`) e dal dominio Firebase di servizio.
-          dimensions: APP_ERROR_ENTRY_DIMENSIONS,
-          metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
-          dimensionFilter: productionAppErrorFilter('app_error'),
-          orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-          limit: 30,
-        }),
-      }
-    );
-
-    let appErrorsEventName = 'app_error';
-    if (appErrRes.ok) {
-      const appErrData = await appErrRes.json();
-      errorHealth.appErrors = (appErrData.rows || []).map((r) => appErrorEntryFromRow(r));
-    }
-
     // 3h-v-fallback: If app_error custom dimensions aren't registered in GA4,
     // fall back to the standard 'exception' event (always queryable). Reads its
     // OWN error_type/error_message params — the same registered custom
@@ -1994,61 +1963,23 @@ async function reportGA4(token) {
     // scripts/lib/error-issue-sync.mjs matches against — a spurious backlog
     // issue for an already self-healed error (#5063). error_type/error_message
     // don't have this problem: they're stripped/prioritized at the source.
-    if (!errorHealth.appErrors.length) {
-      const excRes = await fetchRetry(
-        `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
-        {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            ...baseRequest,
-            dimensions: APP_ERROR_ENTRY_DIMENSIONS,
-            metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
-            dimensionFilter: productionAppErrorFilter('exception'),
-            orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-            limit: 30,
-          }),
-        }
-      );
-      if (excRes.ok) {
-        const excData = await excRes.json();
-        errorHealth.appErrors = (excData.rows || []).map((r) => appErrorEntryFromRow(r, { defaultType: 'exception' }));
-        appErrorsEventName = 'exception';
-      }
-    }
-
     // 3h-v-recency: `last7d` e `lastSeen` per ogni voce. La finestra del report
     // e' mobile (30 giorni): senza questi due campi un picco del giorno 2 resta
     // «sopra soglia» per altri 28 e il feeder riconferma la issue con gli stessi
     // numeri (issue 8612: 129 eventi il 09-09, 3 negli ultimi 7 giorni). Se la
     // query fallisce le voci restano SENZA i campi — non con uno zero finto.
-    if (errorHealth.appErrors.length) {
-      let recencyData = null;
-      try {
-        const recencyRes = await fetchRetry(
-          `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
-          {
-            method: 'POST',
-            headers,
-            body: JSON.stringify(buildAppErrorRecencyRequest({
-              eventName: appErrorsEventName,
-              entries: errorHealth.appErrors,
-              dateRanges: baseRequest.dateRanges,
-            })),
-          }
-        );
-        if (recencyRes.ok) recencyData = await recencyRes.json();
-      } catch { /* resta `unavailable`: il feeder lo dichiara */ }
-      const recency = mergeAppErrorRecency(errorHealth.appErrors, recencyData, {
-        today: baseRequest.dateRanges[0].endDate,
-      });
-      errorHealth.appErrors = recency.entries;
-      errorHealth.appErrorsRecency = {
-        status: recency.status,
-        days: APP_ERROR_RECENT_DAYS,
-        since: recency.cutoff,
-      };
-      if (recency.status === 'unavailable') {
+    // Le tre richieste (principale, fallback, recenza) stanno in
+    // ./lib/app-error-recency.mjs, filtrate sull'host di produzione.
+    const appErrorsResult = await fetchAppErrorsWithRecency({
+      fetchImpl: fetchRetry,
+      url: `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      headers,
+      baseRequest,
+    });
+    errorHealth.appErrors = appErrorsResult.appErrors;
+    if (appErrorsResult.recency) {
+      errorHealth.appErrorsRecency = appErrorsResult.recency;
+      if (appErrorsResult.recency.status === 'unavailable') {
         log('⚠️', 'app_error recency (last7d/lastSeen) unavailable — entries carry no recency fields');
       }
     }

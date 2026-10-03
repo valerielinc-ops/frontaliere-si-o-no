@@ -1,21 +1,20 @@
 /**
  * Recency + production-host contract shared by the writer of
  * `errorHealth.appErrors` (scripts/analytics-report.mjs) and its reader
- * (scripts/app-error-issue-sync.mjs), plus the client half that stops
- * non-production hosts from emitting GA4 error events at all.
+ * (scripts/app-error-issue-sync.mjs), plus the client predicate that stops
+ * non-production hosts from emitting GA4 error events at all (the behaviour
+ * of the emitter itself is in tests/app-error-client-host.test.ts).
  *
  * Failure title: «Feeder app-error: issue riconfermata senza eventi negli
  * ultimi 7 giorni».
  */
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-
 import { describe, expect, it } from 'vitest';
 
 import {
   APP_ERROR_ENTRY_DIMENSIONS,
   PRODUCTION_HOST_REGEXP,
   buildAppErrorRecencyRequest,
+  fetchAppErrorsWithRecency,
   groupChunkLoadFamily,
   isChunkLoadFamily,
   isProductionHost,
@@ -25,8 +24,6 @@ import {
 } from '../scripts/lib/app-error-recency.mjs';
 import { fetchGa4ErrorEntries } from '../scripts/lib/ga4-service-account.mjs';
 import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from '../services/nonProductionHost';
-
-const src = (rel: string) => readFileSync(resolve(__dirname, '..', rel), 'utf8');
 
 const TODAY = '2026-01-31';
 const compact = (d: string) => d.replace(/-/g, '');
@@ -54,12 +51,75 @@ describe('production host', () => {
       { filter: { fieldName: 'hostName', stringFilter: { value: PRODUCTION_HOST_REGEXP, matchType: 'FULL_REGEXP' } } },
     ]);
   });
+});
 
-  it('analytics-report.mjs builds appErrors (and its `exception` fallback) through that filter', () => {
-    const report = src('scripts/analytics-report.mjs');
-    expect(report).toContain("dimensionFilter: productionAppErrorFilter('app_error')");
-    expect(report).toContain("dimensionFilter: productionAppErrorFilter('exception')");
-    expect(report).toContain('mergeAppErrorRecency(errorHealth.appErrors, recencyData');
+describe('fetchAppErrorsWithRecency — the three GA4 requests behind errorHealth.appErrors', () => {
+  const baseRequest = { dateRanges: [{ startDate: '2026-01-01', endDate: TODAY }] };
+  const mainRow = (type: string, message: string, n: number) => ({
+    dimensionValues: [type, message, '/it/', 'frontaliereticino.ch'].map((value) => ({ value })),
+    metricValues: [{ value: String(n) }, { value: '7' }],
+  });
+  /** Answers each request in order; records the bodies GA4 would receive. */
+  const fakeGa4 = (answers: Array<{ ok?: boolean; rows?: unknown[]; rowCount?: number } | Error>) => {
+    const bodies: Array<Record<string, any>> = [];
+    const fetchImpl = async (_url: string, init: { body: string }) => {
+      const answer = answers[bodies.length];
+      bodies.push(JSON.parse(init.body));
+      if (answer instanceof Error) throw answer;
+      return { ok: answer.ok ?? true, json: async () => ({ rows: answer.rows ?? [], rowCount: answer.rowCount ?? (answer.rows ?? []).length }) };
+    };
+    return { bodies, fetchImpl };
+  };
+  const run = (fetchImpl: unknown) => fetchAppErrorsWithRecency({ fetchImpl, url: 'https://ga4.test/runReport', headers: {}, baseRequest });
+
+  it('asks for app_error on the production host, then dates exactly those entries', async () => {
+    const { bodies, fetchImpl } = fakeGa4([
+      { rows: [mainRow('TypeError', 'live', 40)] },
+      { rows: [row('TypeError', 'live', '/it/', 'frontaliereticino.ch', '2026-01-30', 6), row('TypeError', 'live', '/it/', 'frontaliereticino.ch', '2026-01-05', 34)] },
+    ]);
+    const out = await run(fetchImpl);
+    expect(bodies.map((b) => b.dimensionFilter)).toEqual([
+      productionAppErrorFilter('app_error'),
+      productionAppErrorFilter('app_error', { messages: ['live'] }),
+    ]);
+    expect(bodies[0].dimensions).toEqual(APP_ERROR_ENTRY_DIMENSIONS);
+    expect(out.appErrors).toEqual([
+      { errorType: 'TypeError', errorMessage: 'live', pagePath: '/it/', hostName: 'frontaliereticino.ch', count: 40, users: 7, last7d: 6, lastSeen: '2026-01-30' },
+    ]);
+    expect(out.recency).toEqual({ status: 'ok', days: 7, since: '2026-01-24' });
+  });
+
+  it('falls back to `exception` on the same host filter; an empty error_type still finds its recency rows', async () => {
+    const { bodies, fetchImpl } = fakeGa4([
+      { rows: [] },
+      { rows: [mainRow('', 'boom', 40)] },
+      { rows: [row('', 'boom', '/it/', 'frontaliereticino.ch', '2026-01-30', 40)] },
+    ]);
+    const out = await run(fetchImpl);
+    expect(bodies.map((b) => b.dimensionFilter)).toEqual([
+      productionAppErrorFilter('app_error'),
+      productionAppErrorFilter('exception'),
+      productionAppErrorFilter('exception', { messages: ['boom'] }),
+    ]);
+    expect(out.appErrors[0]).toMatchObject({ errorType: 'exception', count: 40, last7d: 40, lastSeen: '2026-01-30' });
+  });
+
+  it.each([
+    ['throws', new Error('network')],
+    ['answers non-ok', { ok: false }],
+  ])('a recency query that %s leaves the entries unmeasured (fail-open), never zero', async (_label, answer) => {
+    const { fetchImpl } = fakeGa4([{ rows: [mainRow('TypeError', 'live', 40)] }, answer]);
+    const out = await run(fetchImpl);
+    expect(out.recency?.status).toBe('unavailable');
+    expect(out.appErrors[0]).toMatchObject({ count: 40 });
+    expect(out.appErrors[0]).not.toHaveProperty('last7d');
+  });
+
+  it('no entries at all: no recency request, no recency block', async () => {
+    const { bodies, fetchImpl } = fakeGa4([{ rows: [] }, { rows: [] }]);
+    const out = await run(fetchImpl);
+    expect(out).toEqual({ appErrors: [], recency: null });
+    expect(bodies).toHaveLength(['app_error', 'exception'].length);
   });
 });
 
@@ -119,6 +179,27 @@ describe('mergeAppErrorRecency', () => {
     expect(out.entries[0]).toMatchObject({ last7d: 9, lastSeen: '2026-01-31' });
   });
 
+  it('status ok but NO row at all for an entry: not measured, never a silent zero', () => {
+    // Same window, same filter, count > 0: a missing key is a key mismatch,
+    // and `last7d: 0` would drop a live entry as a stale spike.
+    const rows = [row('TypeError', 'other', '/it/', 'frontaliereticino.ch', '2026-01-30', 9)];
+    const out = mergeAppErrorRecency([entry('other'), entry('unmatched')], { rows, rowCount: rows.length }, { today: TODAY });
+    expect(out.status).toBe('ok');
+    expect(out.entries[0]).toMatchObject({ last7d: 9 });
+    expect(out.entries[1]).not.toHaveProperty('last7d');
+    expect(out.entries[1]).not.toHaveProperty('lastSeen');
+  });
+
+  it('defaultType rewrites the recency key like the entry: an empty error_type matches', () => {
+    const rows = [row('', 'boom', '/it/', 'frontaliereticino.ch', '2026-01-30', 40)];
+    const out = mergeAppErrorRecency(
+      [entry('boom', { errorType: 'exception', count: 40 })],
+      { rows, rowCount: rows.length },
+      { today: TODAY, defaultType: 'exception' },
+    );
+    expect(out.entries[0]).toMatchObject({ last7d: 40, lastSeen: '2026-01-30' });
+  });
+
   it('a failed query leaves the entries WITHOUT the fields (not measured is not zero)', () => {
     const out = mergeAppErrorRecency([entry('x')], null, { today: TODAY });
     expect(out.status).toBe('unavailable');
@@ -163,9 +244,11 @@ describe('chunk-load family', () => {
       entry(FIREFOX, { errorType: 'api_error', count: 20, users: 9, last7d: 3, lastSeen: '2026-01-30' }),
     ];
     const out = groupChunkLoadFamily([members[0], other, members[1]]);
-    expect(out).toHaveLength(1 + 1);
+    expect(out).toEqual([
+      other,
+      expect.objectContaining({ family: 'chunk-load', count: 41, users: 20, last7d: 7, lastSeen: '2026-01-30' }),
+    ]);
     expect(out[0]).toBe(other);
-    expect(out[1]).toMatchObject({ family: 'chunk-load', count: 41, users: 20, last7d: 7, lastSeen: '2026-01-30' });
     expect(out[1].members).toHaveLength(members.length);
   });
 
@@ -191,15 +274,5 @@ describe('client: non-production hosts do not emit GA4 error events', () => {
 
   it('covers app_error and its `exception` fallback, and nothing else', () => {
     expect([...GA4_ERROR_EVENTS].sort()).toEqual(['app_error', 'exception']);
-  });
-
-  it('logFirebaseOnly drops them before queueing or sending', () => {
-    const body = src('services/analytics.ts').match(/const logFirebaseOnly = [\s\S]*?\n};/);
-    expect(body).not.toBeNull();
-    const text = body![0];
-    const guard = text.indexOf('if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;');
-    expect(guard).toBeGreaterThan(-1);
-    expect(guard).toBeLessThan(text.indexOf('_doLog('));
-    expect(guard).toBeLessThan(text.indexOf('_eventQueue.push('));
   });
 });

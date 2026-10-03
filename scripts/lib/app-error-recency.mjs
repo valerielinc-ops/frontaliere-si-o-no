@@ -112,7 +112,13 @@ const compactDate = (value) => String(value ?? '').replace(/-/g, '');
 /** `YYYYMMDD` → `YYYY-MM-DD`. */
 const dashedDate = (value) => String(value).replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3');
 
-/** Il primo giorno (compatto) che conta come recente, dato il giorno del report. */
+/**
+ * Il primo giorno (compatto) che conta come recente, dato il giorno del report.
+ * Il confronto e' inclusivo e il giorno del report e' parziale: la finestra e'
+ * «oggi parziale + `recentDays` giorni pieni». Le date sono calcolate in UTC,
+ * la dimensione `date` di GA4 e' nel fuso della property: lo scarto allarga la
+ * finestra di qualche ora, non la restringe mai.
+ */
 export function recentCutoff(today, recentDays = APP_ERROR_RECENT_DAYS) {
   const compact = compactDate(today);
   const d = new Date(Date.UTC(
@@ -129,8 +135,12 @@ export function recentCutoff(today, recentDays = APP_ERROR_RECENT_DAYS) {
  * recenza.
  *
  * Tre stati, e la differenza conta:
- *   - `ok`          tutte le righe lette: una voce senza righe recenti ha
- *                   `last7d: 0` MISURATO.
+ *   - `ok`          tutte le righe lette: una voce con righe solo vecchie ha
+ *                   `last7d: 0` MISURATO. Una voce che non trova NESSUNA riga
+ *                   resta invece senza i due campi: stessa finestra, stesso
+ *                   filtro e `count > 0`, quindi l'assenza e' una chiave che
+ *                   non combacia, non zero eventi — e uno zero finto la
+ *                   farebbe scartare in silenzio come picco vecchio.
  *   - `truncated`   la query ha tagliato, ma solo giorni piu' vecchi del
  *                   cutoff: `last7d` e' completo; `lastSeen` puo' restare `null`
  *                   (visto l'ultima volta prima della riga piu' vecchia letta).
@@ -140,10 +150,12 @@ export function recentCutoff(today, recentDays = APP_ERROR_RECENT_DAYS) {
  *
  * @param {Array<object>} entries
  * @param {{ rows?: Array<object>, rowCount?: number }|null} data  Risposta GA4, o null se la query e' fallita.
- * @param {{ today: string, recentDays?: number }} opts
+ * @param {{ today: string, recentDays?: number, defaultType?: string }} opts
+ *   `defaultType`: lo stesso passato ad `appErrorEntryFromRow`, cosi' la chiave
+ *   delle righe di recenza subisce la stessa riscrittura del tipo vuoto.
  * @returns {{ entries: Array<object>, status: 'ok'|'truncated'|'unavailable', cutoff: string }}
  */
-export function mergeAppErrorRecency(entries, data, { today, recentDays = APP_ERROR_RECENT_DAYS }) {
+export function mergeAppErrorRecency(entries, data, { today, recentDays = APP_ERROR_RECENT_DAYS, defaultType = '' }) {
   const cutoff = recentCutoff(today, recentDays);
   const unavailable = { entries, status: 'unavailable', cutoff: dashedDate(cutoff) };
   if (!data || !Array.isArray(entries)) return unavailable;
@@ -162,7 +174,7 @@ export function mergeAppErrorRecency(entries, data, { today, recentDays = APP_ER
   const lastSeen = new Map();
   for (const row of rows) {
     const [type, message, pagePath, host, date] = row.dimensionValues.map((d) => d.value);
-    const key = entryKey(type, message, pagePath, host);
+    const key = entryKey(type || defaultType, message, pagePath, host);
     const n = parseInt(row.metricValues[0].value, 10) || 0;
     if (n <= 0) continue;
     if (date >= cutoff) recent.set(key, (recent.get(key) || 0) + n);
@@ -174,12 +186,91 @@ export function mergeAppErrorRecency(entries, data, { today, recentDays = APP_ER
     cutoff: dashedDate(cutoff),
     entries: entries.map((e) => {
       const key = entryKey(e.errorType, e.errorMessage, e.pagePath, e.hostName);
+      // Letta ogni riga e nessuna per questa voce: non misurata, non zero.
+      // Con `truncated` l'assenza e' legittima (vista prima della riga piu'
+      // vecchia letta) e `last7d: 0` resta una misura.
+      if (!truncated && !lastSeen.has(key)) return e;
       return {
         ...e,
         last7d: recent.get(key) || 0,
         lastSeen: lastSeen.has(key) ? dashedDate(lastSeen.get(key)) : null,
       };
     }),
+  };
+}
+
+/**
+ * Le tre richieste che costruiscono `errorHealth.appErrors`: la query
+ * principale su `app_error`, il fallback su `exception` quando la prima non
+ * porta righe, e la query di recenza. Sta qui, con `fetchImpl` iniettato,
+ * perche' il test possa asserire sui body inviati a GA4.
+ *
+ * Un errore di rete sulle prime due sale al chiamante (come prima); la query
+ * di recenza e' fail-open: se fallisce le voci restano senza `last7d`.
+ *
+ * @param {object} opts
+ * @param {(url: string, init: object) => Promise<{ok: boolean, json: () => Promise<any>}>} opts.fetchImpl
+ * @param {string} opts.url       endpoint `runReport` della property
+ * @param {object} opts.headers
+ * @param {object} opts.baseRequest  porta `dateRanges`
+ * @param {number} [opts.limit]
+ * @returns {Promise<{ appErrors: Array<object>, recency: {status: string, days: number, since: string}|null }>}
+ */
+export async function fetchAppErrorsWithRecency({ fetchImpl, url, headers, baseRequest, limit = 30 }) {
+  const mainQuery = async (eventName, defaultType) => {
+    const res = await fetchImpl(url, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        ...baseRequest,
+        // Solo host di produzione: la property riceve `app_error` anche dal
+        // dev server (`127.0.0.1`) e dal dominio Firebase di servizio.
+        dimensions: APP_ERROR_ENTRY_DIMENSIONS,
+        metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+        dimensionFilter: productionAppErrorFilter(eventName),
+        orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
+        limit,
+      }),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return (data.rows || []).map((r) => appErrorEntryFromRow(r, { defaultType }));
+  };
+
+  let eventName = 'app_error';
+  let defaultType = '';
+  let appErrors = (await mainQuery(eventName, defaultType)) || [];
+  if (!appErrors.length) {
+    const fallback = await mainQuery('exception', 'exception');
+    if (fallback) {
+      appErrors = fallback;
+      eventName = 'exception';
+      defaultType = 'exception';
+    }
+  }
+  if (!appErrors.length) return { appErrors, recency: null };
+
+  let recencyData = null;
+  try {
+    const res = await fetchImpl(url, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(buildAppErrorRecencyRequest({
+        eventName,
+        entries: appErrors,
+        dateRanges: baseRequest.dateRanges,
+      })),
+    });
+    if (res.ok) recencyData = await res.json();
+  } catch { /* resta `unavailable`: il feeder lo dichiara */ }
+
+  const merged = mergeAppErrorRecency(appErrors, recencyData, {
+    today: baseRequest.dateRanges[0].endDate,
+    defaultType,
+  });
+  return {
+    appErrors: merged.entries,
+    recency: { status: merged.status, days: APP_ERROR_RECENT_DAYS, since: merged.cutoff },
   };
 }
 
