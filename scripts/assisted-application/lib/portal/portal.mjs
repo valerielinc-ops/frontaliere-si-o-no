@@ -463,8 +463,8 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
     ? candidates.find((candidate) => candidate.token === preferredDialogToken) || null
     : null;
   const candidate = preferred || candidates
-    .slice()
-    .sort((left, right) => candidateScore(right) - candidateScore(left))[0] || null;
+    .map((item, index) => ({ item, index }))
+    .sort((left, right) => candidateScore(right.item) - candidateScore(left.item) || right.index - left.index)[0]?.item || null;
   const review = candidate?.review || null;
   return {
     trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
