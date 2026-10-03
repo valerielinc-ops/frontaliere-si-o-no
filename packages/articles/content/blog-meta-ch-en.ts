@@ -7652,6 +7652,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fisco-berna-guida-2026.title': 'Swiss tax return: practical guide for 2026 in Bern',
     'blog.article.fisco-berna-guida-2026.excerpt': 'Three tax levels, municipal multiplier and separate jurisdictions: the 2026 guide to the online tax return in the Canton of Bern, with a national comparison.',
     'blog.article.fisco-berna-guida-2026.imageAlt': 'Swiss tax papers and calculator on a desk, with a focus on the canton of Bern',
+    'blog.article.guida-fiscale-vaud-2026.title': 'Swiss tax return: Vaud 2026 guide',
+    'blog.article.guida-fiscale-vaud-2026.excerpt': 'Three tax levels, municipal multiplier and online procedure: the 2026 guide to filing a tax return in Switzerland with a focus on the canton of Vaud.',
+    'blog.article.guida-fiscale-vaud-2026.imageAlt': 'Swiss resident completing an online tax return for the canton of Vaud',
 };
 
 export default blogMetaChEn;

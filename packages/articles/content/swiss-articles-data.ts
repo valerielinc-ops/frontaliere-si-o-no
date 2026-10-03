@@ -22984,6 +22984,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'guida-fiscale-vaud-2026',
+    category: 'fiscale',
+    date: '2026-10-03T11:04:13.754Z',
+    image: '/images/blog/guida-fiscale-vaud-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

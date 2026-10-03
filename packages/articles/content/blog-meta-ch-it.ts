@@ -7652,6 +7652,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fisco-berna-guida-2026.title': 'Dichiarazione imposte svizzera: guida pratica 2026 a Berna',
     'blog.article.fisco-berna-guida-2026.excerpt': 'Tre livelli fiscali, moltiplicatore comunale e competenze separate: la guida 2026 alla dichiarazione online nel canton Berna, con confronto nazionale.',
     'blog.article.fisco-berna-guida-2026.imageAlt': 'Documenti fiscali svizzeri e calcolatrice su una scrivania, con focus sul canton Berna',
+    'blog.article.guida-fiscale-vaud-2026.title': 'Dichiarazione imposte Svizzera: guida Vaud 2026',
+    'blog.article.guida-fiscale-vaud-2026.excerpt': 'Tre livelli fiscali, moltiplicatore comunale e procedura online: la guida 2026 alla dichiarazione in Svizzera con focus sul canton Vaud.',
+    'blog.article.guida-fiscale-vaud-2026.imageAlt': 'Dichiarazione online delle imposte svizzere per un residente nel canton Vaud',
 };
 
 export default blogMetaChIt;

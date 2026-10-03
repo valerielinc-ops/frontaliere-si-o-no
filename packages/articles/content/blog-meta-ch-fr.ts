@@ -7652,6 +7652,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fisco-berna-guida-2026.title': 'Déclaration fiscale suisse : guide pratique 2026 à Berne',
     'blog.article.fisco-berna-guida-2026.excerpt': 'Trois niveaux fiscaux, multiplicateur communal et compétences distinctes : le guide 2026 de la déclaration en ligne dans le canton de Berne, avec comparaison nationale.',
     'blog.article.fisco-berna-guida-2026.imageAlt': 'Documents fiscaux suisses et calculatrice sur un bureau, avec un focus sur le canton de Berne',
+    'blog.article.guida-fiscale-vaud-2026.title': 'Déclaration d\'impôts en Suisse : guide Vaud 2026',
+    'blog.article.guida-fiscale-vaud-2026.excerpt': 'Trois niveaux fiscaux, multiplicateur communal et procédure en ligne : le guide 2026 de la déclaration en Suisse, avec un focus sur le canton de Vaud.',
+    'blog.article.guida-fiscale-vaud-2026.imageAlt': 'Résident suisse remplissant en ligne une déclaration fiscale pour le canton de Vaud',
 };
 
 export default blogMetaChFr;
