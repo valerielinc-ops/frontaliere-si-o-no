@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medtronic",
-  "assembledAt": "2026-10-02T21:18:01.609Z",
+  "assembledAt": "2026-10-03T09:12:06.957Z",
   "jobs": [
     {
       "id": "medtronic-edaa16ed7202",
@@ -34,7 +34,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Market-Developer-Specialist--m-w-d-_R69334-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:17:56.688Z",
+      "crawledAt": "2026-10-03T09:12:02.787Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Luzern-Luzern-Switzerland/Sales-Representative-Endoscopy--m-w-d-_R70257-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:55.841Z",
+      "crawledAt": "2026-10-03T09:12:02.180Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Consultant-Pelvic-Health-Switzerland_R75087-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:54.802Z",
+      "crawledAt": "2026-10-03T09:12:01.444Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -232,7 +232,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medtronic-42be747ac020",
@@ -265,7 +266,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Mechanical-designer---Tool-Engineer--24-months-contract-_R76394-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:17:54.209Z",
+      "crawledAt": "2026-10-03T09:12:00.839Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -311,7 +312,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medtronic-208374243161",
@@ -344,7 +346,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Equipment-Development-Engineer---24-months-contract_R76932-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:17:53.284Z",
+      "crawledAt": "2026-10-03T09:11:59.927Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -390,7 +392,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medtronic-86367ea28b03",
@@ -423,7 +426,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Polymcanicien-F-H_R76397-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:52.708Z",
+      "crawledAt": "2026-10-03T09:11:59.255Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -478,7 +481,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medtronic-aa9d31bfd3d1",
@@ -512,7 +516,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Magasinier-Technique---6-mois_R77937-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:51.793Z",
+      "crawledAt": "2026-10-03T09:11:58.381Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
