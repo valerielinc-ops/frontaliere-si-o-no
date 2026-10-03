@@ -4,6 +4,7 @@ import { decodeTsStringEscapes } from './tsStringEscapes';
 export interface ArticleRegistryMetadata {
   id: string;
   category?: string;
+  image?: string;
   updatedAt?: string;
   authorSlug?: string;
   authorName?: string;
@@ -20,7 +21,7 @@ export function readArticleRegistryMetadata(source: string): ArticleRegistryMeta
   type Frame = { delimiter: string; directArrayEntry: boolean; fields: Record<string, string> };
   const stack: Frame[] = [];
   const records: ArticleRegistryMetadata[] = [];
-  const fields = new Set(['id', 'category', 'updatedAt', 'authorSlug', 'authorName']);
+  const fields = new Set(['id', 'category', 'image', 'updatedAt', 'authorSlug', 'authorName']);
   const seen = new Set<string>();
   for (let index = 0; index < masked.length; index++) {
     const char = masked[index];

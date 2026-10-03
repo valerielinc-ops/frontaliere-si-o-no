@@ -261,14 +261,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  'data/swiss-articles-data.ts',
  'content/blog-articles-data.ts',
  'content/swiss-articles-data.ts',
- 'components/community/BlogArticles.tsx',
  ]) {
  try {
  const src = fs.readFileSync(np.resolve(rootDir, rel), 'utf-8');
- const re = /\{\s*id:\s*'([^']+)'\s*,[\s\S]*?\bimage:\s*'([^']+)'/g;
- let m: RegExpExecArray | null;
- while ((m = re.exec(src)) !== null) {
- if (!blogImageById[m[1]]) blogImageById[m[1]] = m[2];
+ for (const article of readArticleRegistryMetadata(src)) {
+ if (article.image && !blogImageById[article.id]) blogImageById[article.id] = article.image;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
