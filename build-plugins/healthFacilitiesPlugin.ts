@@ -28,7 +28,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -310,7 +310,7 @@ export function renderFacilityPage(
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
     <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
-    <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(updatedLabel(locale))} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
   </header>`;
 
   const body = `<div class="max-w-3xl mx-auto px-4 py-6">
@@ -455,9 +455,6 @@ function renderBelowFloorBridge(
 // ── small style/label helpers ──
 function headingStyle(): string {
   return 'font-size:20px;font-weight:800;color:var(--color-heading);margin:0 0 4px';
-}
-function updatedLabel(locale: HealthFacilityLocale): string {
-  return { it: 'Aggiornato il', en: 'Updated', de: 'Aktualisiert am', fr: 'Mis à jour le' }[locale];
 }
 function CATEGORY(locale: HealthFacilityLocale, f: HealthFacilityRecord): string {
   return CATEGORY_LABEL[locale][f.category];

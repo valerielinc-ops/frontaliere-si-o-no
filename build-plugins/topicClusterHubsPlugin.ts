@@ -530,7 +530,7 @@ function renderHubPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileArticles, value: String(members.length), tone: 'accent' },
     { label: c.tileTopics, value: String(eligible.size) },
-    { label: c.tileUpdated, value: newest || dateStamp },
+    ...(newest ? [{ label: c.tileUpdated, value: newest }] : []),
   ]);
 
   // No `<main>` here: `buildSeoPageHtml` runs in `seoContentOutsideRoot` mode
@@ -726,7 +726,7 @@ function renderTopicIndexPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileTopics, value: String(listed.length), tone: 'accent' },
     { label: c.tileArticles, value: String(totalArticles) },
-    { label: c.tileUpdated, value: newest || dateStamp },
+    ...(newest ? [{ label: c.tileUpdated, value: newest }] : []),
   ]);
 
   const body = `${renderBreadcrumb(locale, section, null)}
@@ -1375,6 +1375,7 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
 // Test-only exports.
 export {
   renderHubPage as __renderTopicHubPageForTest,
+  renderTopicIndexPage as __renderTopicIndexPageForTest,
   renderBridgePage as __renderTopicBridgeForTest,
   renderPagination as __renderTopicPaginationForTest,
 };
