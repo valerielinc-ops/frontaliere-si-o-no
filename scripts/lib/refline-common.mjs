@@ -493,8 +493,11 @@ export function createReflineParser(config) {
     try {
       listingHtml = await fetchHtml(listingUrl, { timeoutMs });
     } catch (err) {
-      console.warn(`⚠️ Refline listing fetch failed: ${err?.message || err}`);
-      return [];
+      // Let the standard crawler pipeline classify the transport/source error.
+      // Returning [] here makes an unobserved listing look like a valid empty
+      // source and triggers its no-jobs-parsed exit guard, preserving the old
+      // slice without recording why the source was never read.
+      throw err;
     }
 
     const listings = parseReflineListing(listingHtml, { listingHost, tenant: tenantStr });
