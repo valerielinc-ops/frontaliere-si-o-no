@@ -145,6 +145,45 @@ export function appendCrawlerGenerationLedger(cwd, manifest, requestedPath = CRA
   return entry;
 }
 
+const MEMBER_CRAWL_EXIT_ID_RE = /^[a-z0-9][a-z0-9._-]{0,127}$/;
+const MEMBER_CRAWL_EXIT_MAX_BYTES = 16;
+const RUNNER_SHUTDOWN_EXIT = 143;
+
+/**
+ * Read each member's CRAWL exit (`<crawlerId>.crawl-exit`, one integer on one
+ * line) from the group state directory. Only positive proof counts: an absent,
+ * empty, oversized, non-numeric or unreadable file is `unknown`, and so is
+ * anything that is not a regular file. `<crawlerId>.status` is deliberately
+ * NOT consulted: it is the exit of the whole member body, which is non-zero
+ * also when the crawl succeeded and the commit descriptor failed, the very
+ * loss the delivery gate must keep red.
+ */
+export function readMemberCrawlOutcomes(stateDir, crawlerIds) {
+  const outcomes = {};
+  for (const crawlerId of Array.isArray(crawlerIds) ? crawlerIds : []) {
+    if (typeof crawlerId !== 'string' || !MEMBER_CRAWL_EXIT_ID_RE.test(crawlerId)) continue;
+    let outcome = 'unknown';
+    try {
+      const exitPath = path.join(stateDir, `${crawlerId}.crawl-exit`);
+      const stat = fs.lstatSync(exitPath);
+      if (stat.isFile() && stat.size > 0 && stat.size <= MEMBER_CRAWL_EXIT_MAX_BYTES) {
+        const raw = fs.readFileSync(exitPath, 'utf8').replace(/\r?\n$/, '');
+        if (/^(?:0|[1-9][0-9]{0,2})$/.test(raw) && Number(raw) <= 255) {
+          const exit = Number(raw);
+          outcome = exit === 0 ? 'crawl_ok' : exit === RUNNER_SHUTDOWN_EXIT ? 'systemic' : 'crawl_failed';
+        }
+      }
+    } catch { /* absent or unreadable: unknown */ }
+    outcomes[crawlerId] = outcome;
+  }
+  return outcomes;
+}
+
+/** Group state directory shared with the generated member launchers (`<slug>.status` lives there). */
+export function memberCrawlStateDir(runnerTemp, group) {
+  return path.join(runnerTemp, 'crawler-generation', `group-${group}`);
+}
+
 function runGit(cwd, args, encoding = 'utf8') {
   return execFileSync('git', args, {
     cwd,
@@ -283,6 +322,7 @@ export function finalizeCrawlerGroup(input) {
       receipts,
       remoteSliceOids,
       additionalReasons,
+      memberCrawlOutcomes: input.memberCrawlOutcomes,
     });
   } catch {
     manifest = createGroupTerminalManifest({
@@ -336,6 +376,12 @@ export function runCrawlerGroupGenerationFinalizerCli() {
       : path.resolve(runnerTemp, receiptDirectory),
     path.join('crawler-generation', 'receipts'),
   );
+  const memberCrawlOutcomes = isCrawlerGroupId(group)
+    ? readMemberCrawlOutcomes(
+      memberCrawlStateDir(runnerTemp, group),
+      Array.isArray(expectedCrawlers) ? expectedCrawlers.map((entry) => entry?.crawlerId) : [],
+    )
+    : {};
   const manifest = finalizeCrawlerGroup({
     cwd: process.cwd(),
     group,
@@ -350,6 +396,7 @@ export function runCrawlerGroupGenerationFinalizerCli() {
     remoteRef: SITE_MAIN_REF,
     expectedCrawlers,
     receiptsDir,
+    memberCrawlOutcomes,
     ledgerPath: process.env.CRAWLER_GENERATION_LEDGER_PATH || CRAWLER_GENERATION_LEDGER_PATH,
   });
   writeJsonAtomic(outputPath, manifest, { compact: true });

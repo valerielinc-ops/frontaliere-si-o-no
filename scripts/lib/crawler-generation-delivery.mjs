@@ -16,8 +16,15 @@
  *   main, slice blobs persisted).
  * - `green_undelivered`: every crawler succeeded (no `wait_failed`) but the
  *   manifest is invalid — the silent loss this module exists to expose.
- * - `crawler_failed`: the crawl itself did not complete (`wait_failed`); the
- *   group run is already red, the missing delivery is a consequence.
+ * - `published_partial`: the only reason is `wait_failed`. The finalizer
+ *   withholds `receipt_missing` solely for members whose own crawl exit proves
+ *   the crawl failed, and only while they are a strict minority and a sibling
+ *   delivered: every member that crawled delivered, nothing was lost on the
+ *   way to `main`. The generation is still incomplete (it is not `published`).
+ * - `crawler_failed`: `wait_failed` together with any other reason. Inside a
+ *   red group this is one of: a crawl that succeeded and left no receipt (a
+ *   delivery loss), half or more of the members failed, or a member whose
+ *   crawl outcome is unknown.
  * - `token_missing`: the run carried no generation token.
  * - `not_persisted`: no ledger record for the group in this generation (the
  *   group never finalized, or its ledger commit was lost).
@@ -25,6 +32,15 @@
 
 export const CRAWLER_DELIVERY_STATES = Object.freeze([
   'published',
+  'published_partial',
+  'green_undelivered',
+  'crawler_failed',
+  'token_missing',
+  'not_persisted',
+]);
+
+/** States that are a delivery fault; `published` and `published_partial` are not. */
+export const CRAWLER_DELIVERY_FAULT_STATES = Object.freeze([
   'green_undelivered',
   'crawler_failed',
   'token_missing',
@@ -44,6 +60,7 @@ export function classifyCrawlerDelivery(record) {
   if (record.generationToken === null || record.generationToken === undefined
       || reasons.includes('generation_token_missing')) return 'token_missing';
   if (record.valid === true && reasons.length === 0) return 'published';
+  if (record.valid === false && reasons.length === 1 && reasons[0] === 'wait_failed') return 'published_partial';
   if (reasons.includes('wait_failed')) return 'crawler_failed';
   return 'green_undelivered';
 }
@@ -164,6 +181,10 @@ export function evaluateCrawlerGenerationDelivery({ entries, generationToken, ex
     expectedGroups: expected.length,
     counts,
     unexpectedGroups,
+    // Additive: `delivered` keeps its meaning (N/N published). A gate may pass
+    // on `deliveryFaults === 0` while the generation is still incomplete.
+    deliveryFaults: CRAWLER_DELIVERY_FAULT_STATES.reduce((total, state) => total + counts[state], 0)
+      + unexpectedGroups.length,
     delivered: expected.length > 0 && counts.published === expected.length && unexpectedGroups.length === 0,
     groups,
   };
@@ -175,7 +196,10 @@ export function formatCrawlerDeliveryMarker(report) {
     + `published=${counts.published}/${report.expectedGroups} `
     + `green_undelivered=${counts.green_undelivered} crawler_failed=${counts.crawler_failed} `
     + `token_missing=${counts.token_missing} not_persisted=${counts.not_persisted} `
-    + `verdict=${report.delivered ? 'delivered' : 'undelivered'}`;
+    + `verdict=${report.delivered ? 'delivered' : 'undelivered'} `
+    // Appended, never inserted: readers match the leading fields positionally.
+    + `published_partial=${counts.published_partial} delivery_faults=${report.deliveryFaults} `
+    + `delivered=${report.delivered}`;
 }
 
 export function formatCrawlerDeliveryMarkdown(report) {
@@ -185,6 +209,9 @@ export function formatCrawlerDeliveryMarkdown(report) {
     `**${report.counts.published}/${report.expectedGroups}** groups published. `
       + `Green but undelivered: **${report.counts.green_undelivered}**, crawler failed: ${report.counts.crawler_failed}, `
       + `token missing: ${report.counts.token_missing}, not persisted: ${report.counts.not_persisted}.`,
+    '',
+    `\`published=${report.counts.published}/${report.expectedGroups} published_partial=${report.counts.published_partial} `
+      + `delivery_faults=${report.deliveryFaults} delivered=${report.delivered}\``,
     '',
     '| Group | State | Reasons | Caller run |',
     '| --- | --- | --- | --- |',

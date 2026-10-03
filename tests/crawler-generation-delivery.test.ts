@@ -1,15 +1,16 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
-import { createCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
+import { createCrawlerGenerationLedgerEntry, validateCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
 import {
   classifyCrawlerDelivery,
   evaluateCrawlerGenerationDelivery,
   selectSettledGenerationToken,
 } from '../scripts/lib/crawler-generation-delivery.mjs';
-import { parseArgs, runCrawlerGenerationDeliveryCheck } from '../scripts/check-crawler-generation-delivery.mjs';
+import { crawlerDeliveryGateExitCode, parseArgs, runCrawlerGenerationDeliveryCheck } from '../scripts/check-crawler-generation-delivery.mjs';
 
 const HASH = `sha256:${'a'.repeat(64)}`;
 const COMMIT = 'b'.repeat(40);
@@ -68,7 +69,7 @@ describe('evaluateCrawlerGenerationDelivery', () => {
     ];
     const report = evaluateCrawlerGenerationDelivery({ entries, generationToken: '500-1', expectedGroupIds: GROUPS });
     expect(report.delivered).toBe(false);
-    expect(report.counts).toEqual({ published: 1, green_undelivered: 1, crawler_failed: 1, token_missing: 0, not_persisted: 1 });
+    expect(report.counts).toEqual({ published: 1, published_partial: 0, green_undelivered: 1, crawler_failed: 1, token_missing: 0, not_persisted: 1 });
     expect(report.groups['02'].reasons).toEqual(GREEN_UNDELIVERED);
     expect(report.groups['04'].state).toBe('not_persisted');
   });
@@ -135,13 +136,13 @@ describe('selectSettledGenerationToken', () => {
   });
 });
 
-function fixture(entries: object[]) {
+function fixture(entries: object[], groups: string[] = GROUPS) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-delivery-'));
   const ledger = path.join(dir, 'ledger.jsonl');
   const roster = path.join(dir, 'roster.json');
   const summary = path.join(dir, 'summary.md');
   fs.writeFileSync(ledger, entries.map((item) => `${JSON.stringify(item)}\n`).join(''));
-  fs.writeFileSync(roster, JSON.stringify({ groups: Object.fromEntries(GROUPS.map((group) => [group, ['x']])) }));
+  fs.writeFileSync(roster, JSON.stringify({ groups: Object.fromEntries(groups.map((group) => [group, ['x']])) }));
   return { ledger, roster, summary };
 }
 
@@ -288,6 +289,115 @@ describe('check-crawler-generation-delivery CLI', () => {
       parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--token', '500-1']),
       { stdout: () => {}, summaryPath: files.summary },
     )).toThrow(/digest_mismatch/);
+  });
+});
+
+describe('member grain: a partial group is incomplete, not a delivery fault', () => {
+  const at = '2026-09-24T10:00:00.000Z';
+  const now = '2026-09-24T20:00:00.000Z';
+  const FLEET = Array.from({ length: 24 }, (_, index) => String(index + 1).padStart(2, '0'));
+  const PARTIAL = ['wait_failed'];
+  const fleet = (overrides: Record<string, string[] | null>) => FLEET.flatMap((group) => {
+    const reasons = Object.prototype.hasOwnProperty.call(overrides, group) ? overrides[group] : [];
+    return reasons === null ? [] : [entry({ group, token: '500-1', reasons, at, runId: `7${group}` })];
+  });
+  const scriptPath = path.resolve('scripts/check-crawler-generation-delivery.mjs');
+
+  function gate(entries: object[]) {
+    const files = fixture(entries, FLEET);
+    let out = '';
+    const result = runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--now', now]),
+      { stdout: (text: string) => { out += text; }, summaryPath: files.summary },
+    );
+    // The real process: the exit code is the gate.
+    const cli = spawnSync(process.execPath, [scriptPath, '--ledger', files.ledger, '--roster', files.roster, '--now', now], {
+      encoding: 'utf8', env: { ...process.env, GITHUB_STEP_SUMMARY: '' },
+    });
+    expect(cli.status).toBe(crawlerDeliveryGateExitCode(result));
+    return { result, out, exit: cli.status, cliOut: cli.stdout, summary: fs.readFileSync(files.summary, 'utf8') };
+  }
+
+  it('classifies only the exact wait_failed-only record as published_partial', () => {
+    expect(classifyCrawlerDelivery({ generationToken: 't-1', valid: false, reasons: PARTIAL })).toBe('published_partial');
+    // History is not reclassified: the pair written before member grain stays a fault.
+    expect(classifyCrawlerDelivery({ generationToken: 't-1', valid: false, reasons: CRAWLER_FAILED })).toBe('crawler_failed');
+    expect(classifyCrawlerDelivery({ generationToken: 't-1', valid: false, reasons: ['remote_fetch_failed', 'wait_failed'] })).toBe('crawler_failed');
+    expect(classifyCrawlerDelivery({ generationToken: 't-1', valid: false, reasons: ['receipt_missing'] })).toBe('green_undelivered');
+    expect(classifyCrawlerDelivery({ generationToken: null, valid: false, reasons: PARTIAL })).toBe('token_missing');
+  });
+
+  it('exits 0 with a warning when the only incomplete group is partial, and keeps delivered false', () => {
+    const { result, out, exit, cliOut, summary } = gate(fleet({ '23': PARTIAL }));
+    expect(result.delivered).toBe(false);
+    expect(result.deliveryFaults).toBe(0);
+    expect(result.counts.published).toBe(FLEET.length - 1);
+    expect(result.counts.published_partial).toBe(1);
+    expect(result.groups['23'].state).toBe('published_partial');
+    expect(exit).toBe(0);
+    const published = `published=${FLEET.length - 1}/${FLEET.length}`;
+    expect(out).toContain(`CRAWLER_GENERATION_DELIVERY: token=500-1 ${published} green_undelivered=0`);
+    expect(out).toContain(`verdict=undelivered published_partial=1 delivery_faults=0 delivered=false`);
+    const warning = out.split('\n').find((line) => line.startsWith('::warning title=Crawler generation incomplete::'));
+    expect(warning).toContain(published);
+    expect(warning).toContain('23 (run 723)');
+    expect(out).not.toContain('::error');
+    expect(cliOut).toContain('::warning title=Crawler generation incomplete::');
+    expect(summary).toContain(`${published} published_partial=1 delivery_faults=0 delivered=false`);
+    expect(summary).toMatch(/\| 23 \| published_partial \| wait_failed \| 723 \|/);
+  });
+
+  it.each([
+    ['a crawl that succeeded without receipt inside a red group', CRAWLER_FAILED, 'crawler_failed'],
+    ['a green run that lost its receipt', ['receipt_missing'], 'green_undelivered'],
+    ['a group that never persisted', null, 'not_persisted'],
+  ])('stays red for %s', (_label, reasons, state) => {
+    const { result, out, exit } = gate(fleet({ '23': reasons, '05': PARTIAL }));
+    expect(result.groups['23'].state).toBe(state);
+    expect(result.deliveryFaults).toBe(1);
+    expect(result.counts.published_partial).toBe(1);
+    expect(exit).toBe(1);
+    expect(out).toContain('::error title=Crawler generation not delivered::');
+    expect(out).toContain('delivery_faults=1 delivered=false');
+    expect(out).not.toContain('::warning');
+  });
+
+  it('counts an unexpected group as a delivery fault', () => {
+    const { result, exit } = gate([...fleet({}), entry({ group: '25', token: '500-1', reasons: [], at })]);
+    expect(result.unexpectedGroups).toEqual(['25']);
+    expect(result.deliveryFaults).toBe(1);
+    expect(exit).toBe(1);
+  });
+
+  it('is unchanged at N/N published: delivered, exit 0, no annotation', () => {
+    const { result, out, exit } = gate(fleet({}));
+    expect(result).toMatchObject({ delivered: true, deliveryFaults: 0 });
+    expect(result.counts.published).toBe(FLEET.length);
+    expect(exit).toBe(0);
+    expect(out).toContain('verdict=delivered published_partial=0 delivery_faults=0 delivered=true');
+    expect(out).not.toMatch(/::(warning|error)/);
+  });
+
+  it('never exits 0 without a judged generation', () => {
+    const { result, exit } = gate([]);
+    expect(result.generationToken).toBeNull();
+    expect(exit).toBe(1);
+    expect(crawlerDeliveryGateExitCode({ generationToken: null, expectedGroups: 24, deliveryFaults: 0 })).toBe(1);
+    expect(crawlerDeliveryGateExitCode({ generationToken: '500-1', expectedGroups: 0, deliveryFaults: 0 })).toBe(1);
+    expect(crawlerDeliveryGateExitCode({ generationToken: '500-1', expectedGroups: 24 })).toBe(1);
+  });
+
+  // Waves can run on a site commit older or newer than the reader.
+  it('creates no new green across versions', () => {
+    // Old finalizer + new gate: the pair is still a fault.
+    expect(gate(fleet({ '23': CRAWLER_FAILED })).exit).toBe(1);
+    // New finalizer + old gate: the classifier before member grain read any
+    // `wait_failed` as `crawler_failed` and passed only at N/N published.
+    const legacyClassify = (reasons: string[]) => (reasons.length === 0
+      ? 'published' : reasons.includes('wait_failed') ? 'crawler_failed' : 'green_undelivered');
+    expect(legacyClassify(PARTIAL)).toBe('crawler_failed');
+    const legacyEntry = entry({ group: '23', token: '500-1', reasons: PARTIAL, at });
+    expect(validateCrawlerGenerationLedgerEntry(legacyEntry)).toEqual({ valid: true, errors: [] });
   });
 });
 

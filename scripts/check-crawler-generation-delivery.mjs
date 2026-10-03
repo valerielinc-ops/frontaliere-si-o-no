@@ -1,18 +1,28 @@
 #!/usr/bin/env node
 /**
- * Gate: a crawler generation is delivered only when every group published.
+ * Gate: a crawler generation must not lose a delivery.
  *
  * Reads `data/crawler-generation-ledger.jsonl` (one finalizer verdict per
  * group run, token-bound) and the generated roster, picks the newest settled
- * generation (or `--token`), and exits 1 unless N/N groups are `published`.
- * A green group run whose commit/receipt never reached `main` is reported as
- * `green_undelivered` instead of disappearing behind a green conclusion.
+ * generation (or `--token`), and exits 1 on any delivery fault: a group that
+ * is `green_undelivered`, `crawler_failed`, `token_missing`, `not_persisted`
+ * or unexpected. A green group run whose commit/receipt never reached `main`
+ * is reported as `green_undelivered` instead of disappearing behind a green
+ * conclusion.
+ *
+ * `delivered` still means N/N groups `published` and is always printed as
+ * `published=N/M`. A group whose only reason is `wait_failed`
+ * (`published_partial`: a minority of members failed their own crawl, every
+ * member that crawled delivered) is not a delivery fault: the gate exits 0
+ * and prints a warning. Green therefore means "no delivery fault", never
+ * "complete generation".
  *
  * Usage:
  *   node scripts/check-crawler-generation-delivery.mjs [--token <token>]
  *     [--ledger <path>] [--roster <path>] [--settle-minutes <n>] [--now <iso>] [--json]
  *
- * Exit: 0 delivered, 1 undelivered or no settled generation, 2 invalid input.
+ * Exit: 0 no delivery fault (delivered, or incomplete with a warning), 1 a
+ * delivery fault or no settled generation, 2 invalid input.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -80,6 +90,12 @@ export function readLedgerEntries(ledgerPath) {
   });
 }
 
+/** 0 only for a judged generation without delivery faults; never for "nothing to judge". */
+export function crawlerDeliveryGateExitCode(result) {
+  return result?.generationToken !== null && result?.generationToken !== undefined
+    && result.expectedGroups > 0 && result.deliveryFaults === 0 ? 0 : 1;
+}
+
 export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
   const stdout = io.stdout ?? ((text) => process.stdout.write(text));
   // With --json, stdout stays one parseable document; marker and annotation go to stderr.
@@ -112,11 +128,21 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
   if (options.json) stdout(`${JSON.stringify(result, null, 2)}\n`);
   else stdout(formatCrawlerDeliveryMarkdown(report));
   annotate(`${formatCrawlerDeliveryMarker(report)}\n`);
-  if (!report.delivered) {
+  const publishedOf = `published=${report.counts.published}/${report.expectedGroups}`;
+  if (crawlerDeliveryGateExitCode(report) !== 0) {
     const why = token === null
       ? `no settled generation in the ledger (${report.counts.token_missing} group(s) with tokenless records)`
-      : `${report.counts.published}/${report.expectedGroups} groups published, ${report.counts.green_undelivered} green run(s) without delivery, ${report.counts.token_missing} without generation token`;
+      : `${report.counts.published}/${report.expectedGroups} groups published, ${report.counts.green_undelivered} green run(s) without delivery, ${report.counts.token_missing} without generation token, `
+        + `${report.counts.crawler_failed} crawler_failed (a crawl that succeeded left no receipt, or half or more of the members failed, or a crawl outcome is unknown), `
+        + `${report.counts.not_persisted} not persisted, ${report.counts.published_partial} published_partial; ${publishedOf} delivery_faults=${report.deliveryFaults}`;
     annotate(`::error title=Crawler generation not delivered::${why}\n`);
+  } else if (!report.delivered) {
+    const partial = Object.keys(report.groups).sort()
+      .filter((group) => report.groups[group].state === 'published_partial')
+      .map((group) => `${group} (run ${report.groups[group].callerRunId ?? 'unknown'})`);
+    annotate(`::warning title=Crawler generation incomplete::${publishedOf} published_partial=${report.counts.published_partial} `
+      + `delivery_faults=0 delivered=false; partial groups: ${partial.join(', ')}. `
+      + 'No delivery fault, but the generation is not complete: a minority of members failed their own crawl.\n');
   }
   if (summaryPath) {
     try { fs.appendFileSync(summaryPath, formatCrawlerDeliveryMarkdown(report)); } catch { /* summary is best-effort */ }
@@ -127,7 +153,7 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
 if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
   try {
     const result = runCrawlerGenerationDeliveryCheck(parseArgs(process.argv.slice(2)));
-    process.exitCode = result.delivered ? 0 : 1;
+    process.exitCode = crawlerDeliveryGateExitCode(result);
   } catch (error) {
     process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
     process.exitCode = error instanceof InputError ? 2 : 1;
