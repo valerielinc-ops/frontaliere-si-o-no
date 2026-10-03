@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "med-ipersonal-e524df646ce5",
-      "slug": "akquisiteur-in-per-grundstucke-m-w-d-region-otelfingen-ipersonal-ag-otelfingen",
+      "slug": "akquisiteur-in-per-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich",
       "slugByLocale": {
         "de": "akquisiteur-in-fur-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich",
-        "it": "akquisiteur-in-per-grundstucke-m-w-d-region-otelfingen-ipersonal-ag-otelfingen",
+        "it": "akquisiteur-in-per-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich"
       },
@@ -51,11 +51,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "akquisiteur-in-fur-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich"
+          "akquisiteur-in-fur-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich",
+          "akquisiteur-in-per-grundstucke-m-w-d-region-otelfingen-ipersonal-ag-otelfingen"
         ]
       },
       "previousSlugs": [
-        "akquisiteur-in-fur-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich"
+        "akquisiteur-in-fur-grundstucke-w-m-d-region-otelfingen-ipersonal-ag-otelfingen-zurich",
+        "akquisiteur-in-per-grundstucke-m-w-d-region-otelfingen-ipersonal-ag-otelfingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -74,12 +76,12 @@
     },
     {
       "id": "med-ipersonal-abd12f65150d",
-      "slug": "progettista-elettrico-a-100-per-la-region-wil-sg-temporarburo-ipersonal-ag-wil-sg",
+      "slug": "progettista-elettrico-a-100-per-la-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg",
       "slugByLocale": {
         "de": "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg",
-        "it": "progettista-elettrico-a-100-per-la-region-wil-sg-temporarburo-ipersonal-ag-wil-sg",
-        "en": "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg",
-        "fr": "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg"
+        "it": "progettista-elettrico-a-100-per-la-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg",
+        "en": "electrical-planner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg",
+        "fr": "planificateur-trice-electrique-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -121,11 +123,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg",
+          "progettista-elettrico-a-100-per-la-region-wil-sg-temporarburo-ipersonal-ag-wil-sg"
+        ],
+        "en": [
+          "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg"
+        ],
+        "fr": [
           "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg"
         ]
       },
       "previousSlugs": [
-        "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg"
+        "elektroplaner-100-fur-die-region-wil-sg-temporarburo-ipersonal-ipersonal-ag-wil-sg",
+        "progettista-elettrico-a-100-per-la-region-wil-sg-temporarburo-ipersonal-ag-wil-sg"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -144,10 +154,10 @@
     },
     {
       "id": "med-ipersonal-76476157391f",
-      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil",
+      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben",
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
-        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil",
+        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben",
         "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
         "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag"
       },
@@ -194,7 +204,8 @@
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
           "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben",
           "electrical-installer-new-and-conversion-100-sought-in-the-richterswil-region-apply-now-ipersonal-ag-richterswil",
-          "installation-electrique-nouveau-et-conversion-100-recherche-dans-la-region-de-richterswil-appliquer-maintenant-ipersonal"
+          "installation-electrique-nouveau-et-conversion-100-recherche-dans-la-region-de-richterswil-appliquer-maintenant-ipersonal",
+          "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil"
         ],
         "en": [
           "electrical-installer-new-and-conversion-100-sought-in-the-richterswil-region-apply-now-ipersonal-ag-richterswil"
@@ -207,7 +218,8 @@
         "elektroinstallateur-elektrinstallateur-neu-und-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag",
         "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben",
         "electrical-installer-new-and-conversion-100-sought-in-the-richterswil-region-apply-now-ipersonal-ag-richterswil",
-        "installation-electrique-nouveau-et-conversion-100-recherche-dans-la-region-de-richterswil-appliquer-maintenant-ipersonal"
+        "installation-electrique-nouveau-et-conversion-100-recherche-dans-la-region-de-richterswil-appliquer-maintenant-ipersonal",
+        "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-100-in-der-region-richterswil-gesucht-jetzt-bewerben-ipersonal-ag-richterswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -226,12 +238,12 @@
     },
     {
       "id": "med-ipersonal-26e2284815b6",
-      "slug": "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
+      "slug": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-per-la-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
       "slugByLocale": {
         "de": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
-        "it": "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
-        "en": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
-        "fr": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh"
+        "it": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-per-la-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
+        "en": "plant-manager-plant-manager-kocherei-m-f-d-100-100-for-the-erlenbach-zh-region-open-position-ipersonal-ag-erlenbach-zh",
+        "fr": "responsable-de-l-usine-responsable-de-l-usine-kocherei-h-f-d-100-100-pour-la-region-erlenbach-zh-position-ouverte"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -273,11 +285,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
+          "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh"
+        ],
+        "en": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh"
+        ],
+        "fr": [
           "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh"
+        "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh",
+        "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-erlenbach-zh-offene-stelle-ipersonal-ag-erlenbach-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -296,12 +316,12 @@
     },
     {
       "id": "med-ipersonal-0317440d66e6",
-      "slug": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich",
+      "slug": "plant-manager-cookery-m-f-d-regione-volketswil-ipersonal-ag-volketswil-zurich",
       "slugByLocale": {
         "de": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich",
-        "it": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich",
-        "en": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich",
-        "fr": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich"
+        "it": "plant-manager-cookery-m-f-d-regione-volketswil-ipersonal-ag-volketswil-zurich",
+        "en": "plant-manager-plant-manager-cookery-m-f-d-region-volketswil-ipersonal-ag-volketswil-zurich",
+        "fr": "gestionnaire-d-usine-gestionnaire-d-usine-cuisiniere-h-f-d-region-volketswil-ipersonal-ag-volketswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -353,16 +373,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:27:36.526Z"
+      "firstSeenAt": "2026-10-02T09:27:36.526Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich"
+        ],
+        "en": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich"
+        ],
+        "fr": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-region-volketswil-ipersonal-ag-volketswil-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-0062a2edd862",
-      "slug": "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil",
+      "slug": "commercialista-immobiliare-100-ricercato-nella-regione-barentswil-ipersonal-ag-baretswil",
       "slugByLocale": {
         "de": "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil",
-        "it": "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil",
-        "en": "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil",
-        "fr": "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil"
+        "it": "commercialista-immobiliare-100-ricercato-nella-regione-barentswil-ipersonal-ag-baretswil",
+        "en": "real-estate-marketer-100-sought-after-in-the-barentswil-region-ipersonal-ag-baretswil",
+        "fr": "marche-immobilier-100-recherche-dans-la-region-de-barentswil-ipersonal-ag-baretswil"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -415,7 +449,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:27:36.224Z"
+      "firstSeenAt": "2026-10-02T09:27:36.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil"
+        ],
+        "en": [
+          "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil"
+        ],
+        "fr": [
+          "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienvermarkter-100-in-der-region-baretswil-gesucht-ipersonal-ag-baretswil"
+      ]
     },
     {
       "id": "med-ipersonal-5ed1e89b07cb",
@@ -423,8 +471,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-service-100-fur-die-region-schaffhausen-offene-stelle-ipersonal-ag-schaffhausen",
         "it": "installatore-trice-elettrico-a-service-100-per-la-region-schaffhausen-offene-stelle-ipersonal-ag-schaffhausen",
-        "en": "elektroinstallateur-service-100-fur-die-region-schaffhausen-offene-stelle-ipersonal-ag-schaffhausen",
-        "fr": "elektroinstallateur-service-100-fur-die-region-schaffhausen-offene-stelle-ipersonal-ag-schaffhausen"
+        "en": "electrical-installer-service-100-for-the-schaffhausen-region-open-position-ipersonal-ag-schaffhausen",
+        "fr": "service-d-installateur-electrique-100-pour-la-region-de-schaffhausen-position-ouverte-ipersonal-ag-schaffhausen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -466,6 +514,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-service-100-fur-die-region-schaffhausen-offene-stelle-ipersonal-ag-schaffhausen"
+        ],
+        "en": [
+          "elektroinstallateur-service-100-fur-die-region-schaffhausen-offene-stelle-ipersonal-ag-schaffhausen"
+        ],
+        "fr": [
+          "elektroinstallateur-service-100-fur-die-region-schaffhausen-offene-stelle-ipersonal-ag-schaffhausen"
         ]
       },
       "previousSlugs": [
@@ -490,10 +544,10 @@
       "id": "med-ipersonal-d44f1b296b10",
       "slug": "heizungsinstallateur-100-per-la-region-zumikon-temporar-dauerstelle-ipersonal-ag-zumikon",
       "slugByLocale": {
-        "de": "heizungsinstallateur-100-fur-die-region-zumikon-temporar-amp-dauerstelle-ipersonal-ag-zumikon",
+        "de": "heizungsinstallateur-100-fur-die-region-zumikon-temporar-dauerstelle-ipersonal-ag-zumikon",
         "it": "heizungsinstallateur-100-per-la-region-zumikon-temporar-dauerstelle-ipersonal-ag-zumikon",
-        "en": "heizungsinstallateur-100-fur-die-region-zumikon-temporar-amp-dauerstelle-ipersonal-ag-zumikon",
-        "fr": "heizungsinstallateur-100-fur-die-region-zumikon-temporar-amp-dauerstelle-ipersonal-ag-zumikon"
+        "en": "heating-installer-100-for-the-region-zumikon-temporary-permanent-office-ipersonal-ag-zumikon",
+        "fr": "installation-de-chauffage-100-pour-la-region-zumikon-bureau-temporaire-permanent-ipersonal-ag-zumikon"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -536,6 +590,15 @@
       "previousSlugsByLocale": {
         "it": [
           "heizungsinstallateur-100-fur-die-region-zumikon-temporar-amp-dauerstelle-ipersonal-ag-zumikon"
+        ],
+        "en": [
+          "heizungsinstallateur-100-fur-die-region-zumikon-temporar-amp-dauerstelle-ipersonal-ag-zumikon"
+        ],
+        "de": [
+          "heizungsinstallateur-100-fur-die-region-zumikon-temporar-amp-dauerstelle-ipersonal-ag-zumikon"
+        ],
+        "fr": [
+          "heizungsinstallateur-100-fur-die-region-zumikon-temporar-amp-dauerstelle-ipersonal-ag-zumikon"
         ]
       },
       "previousSlugs": [
@@ -558,12 +621,12 @@
     },
     {
       "id": "med-ipersonal-e68a33df8cca",
-      "slug": "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-ag-sirnach",
+      "slug": "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach",
       "slugByLocale": {
         "de": "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach",
-        "it": "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-ag-sirnach",
-        "en": "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach",
-        "fr": "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach"
+        "it": "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach",
+        "en": "electrical-planner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach",
+        "fr": "planificateur-trice-electrique-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -605,11 +668,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach",
+          "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-ag-sirnach"
+        ],
+        "en": [
+          "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach"
+        ],
+        "fr": [
           "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach"
         ]
       },
       "previousSlugs": [
-        "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach"
+        "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-ipersonal-ag-sirnach",
+        "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-ag-sirnach"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -632,8 +703,8 @@
       "slugByLocale": {
         "de": "immobilienvermarkter-100-fur-die-region-wetzikon-zh-jobangebot-ipersonal-ag-wetzikon-zh",
         "it": "immobilienvermarkter-100-per-la-region-wetzikon-zh-jobangebot-ipersonal-ag-wetzikon-zh",
-        "en": "immobilienvermarkter-100-fur-die-region-wetzikon-zh-jobangebot-ipersonal-ag-wetzikon-zh",
-        "fr": "immobilienvermarkter-100-fur-die-region-wetzikon-zh-jobangebot-ipersonal-ag-wetzikon-zh"
+        "en": "real-estate-marketer-100-for-the-wetzikon-zh-region-job-offer-ipersonal-ag-wetzikon-zh",
+        "fr": "marche-immobilier-100-pour-la-region-de-wetzikon-zh-offre-d-emploi-ipersonal-ag-wetzikon-zh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -676,6 +747,12 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienvermarkter-100-fur-die-region-wetzikon-zh-jobangebot-ipersonal-ag-wetzikon-zh"
+        ],
+        "en": [
+          "immobilienvermarkter-100-fur-die-region-wetzikon-zh-jobangebot-ipersonal-ag-wetzikon-zh"
+        ],
+        "fr": [
+          "immobilienvermarkter-100-fur-die-region-wetzikon-zh-jobangebot-ipersonal-ag-wetzikon-zh"
         ]
       },
       "previousSlugs": [
@@ -698,12 +775,12 @@
     },
     {
       "id": "med-ipersonal-5702d8d7dff2",
-      "slug": "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf",
+      "slug": "immobili-fiduciari-100-nella-regione-di-dubendorf-ufficio-temporaneo-ipersonal-ipersonal-ag-dubendorf",
       "slugByLocale": {
         "de": "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf",
-        "it": "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf",
-        "en": "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf",
-        "fr": "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf"
+        "it": "immobili-fiduciari-100-nella-regione-di-dubendorf-ufficio-temporaneo-ipersonal-ipersonal-ag-dubendorf",
+        "en": "real-estate-trustees-100-in-the-dubendorf-region-temporary-office-ipersonal-ipersonal-ag-dubendorf",
+        "fr": "fiducies-immobilieres-100-dans-la-region-de-dubendorf-bureau-temporaire-ipersonal-ipersonal-ag-dubendorf"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -755,7 +832,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:27:34.717Z"
+      "firstSeenAt": "2026-10-02T09:27:34.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf"
+        ],
+        "en": [
+          "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf"
+        ],
+        "fr": [
+          "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "immobilientreuhander-100-in-der-region-dubendorf-temporarburo-ipersonal-ipersonal-ag-dubendorf"
+      ]
     },
     {
       "id": "med-ipersonal-82784b878b11",
@@ -763,8 +854,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-service-100-in-der-region-regensdorf-direkte-festanstellung-ipersonal-ag-regensdorf",
         "it": "installatore-trice-elettrico-a-service-100-in-der-region-regensdorf-direkte-festanstellung-ipersonal-ag-regensdorf",
-        "en": "elektroinstallateur-service-100-in-der-region-regensdorf-direkte-festanstellung-ipersonal-ag-regensdorf",
-        "fr": "elektroinstallateur-service-100-in-der-region-regensdorf-direkte-festanstellung-ipersonal-ag-regensdorf"
+        "en": "electrical-installer-service-100-in-the-regensdorf-region-direct-permanent-employment-ipersonal-ag-regensdorf",
+        "fr": "service-d-installateur-electrique-100-dans-la-region-de-regensdorf-emploi-permanent-direct-ipersonal-ag-regensdorf"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -806,6 +897,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-service-100-in-der-region-regensdorf-direkte-festanstellung-ipersonal-ag-regensdorf"
+        ],
+        "en": [
+          "elektroinstallateur-service-100-in-der-region-regensdorf-direkte-festanstellung-ipersonal-ag-regensdorf"
+        ],
+        "fr": [
           "elektroinstallateur-service-100-in-der-region-regensdorf-direkte-festanstellung-ipersonal-ag-regensdorf"
         ]
       },
