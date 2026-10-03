@@ -424,10 +424,22 @@ export function privacyConsentControls(snapshot = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   // The page can retain another modal with an enabled "Accept" control next
   // to the DPCS dialog. Use the review checkbox to identify the DPCS dialog,
-  // then keep both lookups in that same dialog and frame.
+  // then keep both lookups in that same dialog and frame. If another modal
+  // has a similarly named checkbox, prefer the dialog whose accept button is
+  // disabled: that is the DPCS dialog waiting for the review checkbox.
   const dialogFields = fields.filter(isDialogControl);
-  const review = dialogFields.find((field) => field.kind === 'checkbox'
+  const reviewCandidates = dialogFields.filter((field) => field.kind === 'checkbox'
     && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)) || null;
+  let review = null;
+  let accept = null;
+  for (const candidate of reviewCandidates) {
+    const candidateButtons = buttons.filter((button) => isDialogControl(button) && belongsToDialog(button, candidate));
+    const candidateAccept = findButton(candidateButtons, PRIVACY_ACCEPT_RE, { includeDisabled: true });
+    if (!review || (candidateAccept?.disabled && !accept?.disabled)) {
+      review = candidate;
+      accept = candidateAccept;
+    }
+  }
   const dialogButtons = review
     ? buttons.filter((button) => isDialogControl(button) && belongsToDialog(button, review))
     : [];
@@ -436,7 +448,7 @@ export function privacyConsentControls(snapshot = {}) {
     review,
     // A disabled accept button is useful evidence while the required review
     // box is being checked; the caller still waits for it to become enabled.
-    accept: findButton(dialogButtons, PRIVACY_ACCEPT_RE, { includeDisabled: true }),
+    accept: accept || findButton(dialogButtons, PRIVACY_ACCEPT_RE, { includeDisabled: true }),
   };
 }
 
@@ -460,8 +472,8 @@ export async function acceptPrivacyStatement(page, snapshot) {
   // dialog; retry once if the portal redraws the form during the first click.
   await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
   await settle(page);
-  const deadline = Date.now() + 8_000;
-  for (let attempt = 0; attempt < 2 && Date.now() <= deadline; attempt += 1) {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const deadline = Date.now() + 8_000;
     const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
     const trigger = privacyConsentControls(currentSnapshot).trigger;
     if (!trigger) break;
