@@ -135,6 +135,28 @@ export function parseListingPage(html = '') {
 }
 
 /**
+ * Classify a successfully fetched listing page at the source/filter boundary.
+ * A non-empty global board with no Swiss rows is a legitimate filtered-empty
+ * observation; an empty board is a selector miss and must remain fail-closed.
+ * Transport failures are handled by the runner before this helper is called.
+ */
+export function classifyInterrollListings(listings = []) {
+  const allListings = Array.isArray(listings) ? listings : [];
+  const swissListings = allListings.filter((listing) => isSwissLocation(listing?.location));
+  const lastFetchOutcome = allListings.length === 0
+    ? 'selector_miss'
+    : swissListings.length === 0
+      ? 'filtered_empty'
+      : 'ok';
+
+  return {
+    discovered: allListings.length,
+    listings: swissListings,
+    lastFetchOutcome,
+  };
+}
+
+/**
  * Parse a job detail page from interroll.com.
  * Returns { title, body, sourceBodyLength }.
  */
