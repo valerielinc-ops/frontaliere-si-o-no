@@ -509,7 +509,7 @@ const enComparatori: Record<string, string> = {
  'banks.hype.con1': 'Withdrawal limit with free plan',
  'banks.hype.con2': 'No CHF multi-currency',
  'banks.hype.con3': 'Advanced features only with Premium',
- 'health.title': 'LAMal Premiums Cross-Border Workers 2026',
+ 'health.title': 'LAMal Premiums Cross-Border Workers',
  'health.lamalSsn.incomeLabel': 'Net yearly income (CHF)',
  'health.lamalSsn.ageLabel': 'Age',
  'health.lamalSsn.franchiseLabel': 'LAMal deductible',
@@ -772,6 +772,17 @@ const enComparatori: Record<string, string> = {
  'comparatori.salaryCompare.intro.p1': 'The salary comparison tool lets you calculate a cross-border worker\'s net income in Switzerland versus an equivalent position in Italy, factoring in taxes, AVS contributions (5.3%) and cost of living. Over 79,000 cross-border workers commute to Switzerland every day (FSO, Q4 2025).',
  'comparatori.mortgage.intro.p1': 'The mortgage comparison tool compares real-estate financing options in Switzerland and Italy. Swiss mortgages typically offer variable (SARON-based) or fixed rates, often more competitive for cross-border workers earning in CHF.',
  'comparatori.bank.intro.p1': 'The bank comparison tool helps cross-border workers choose between Swiss and Italian institutions to optimise CHF-EUR conversion costs, account fees and Swiss-franc salary management.',
+ "health.residence.label": "Country of residence",
+ "health.residence.italy": "Italy — cross-border worker",
+ "health.residence.switzerland": "Switzerland — resident",
+ "health.residence.italyIntro": "LAMal premiums for residents of Italy, by age and accident cover.",
+ "health.residence.swissIntro": "Comparison for residents of Switzerland, by canton and municipality of residence.",
+ "health.residence.italyRules": "Residents of Italy use country-of-residence premiums and standard insurance: CHF300 deductible for adults/young adults and CHF0 for children. HMO, Telmed and optional deductibles are unavailable. Third-child reductions are not applied automatically.",
+ "health.residence.region": "Home premium region",
+ "health.residence.swissUnavailable": "Swiss premiums for this profile are unavailable: check the residence location and consult Priminfo.",
+ "health.residence.swissRules": "Published Swiss premiums by premium region, age, deductible and accident cover. Each insurer/category shows its lowest available tariff; check the product and conditions on Priminfo.",
+ "health.residence.unavailable": "Italy premiums are not yet available for the indicated year. Swiss canton premiums are not used as substitutes. Consult the official table:",
+ 'health.residence.premiumsAndDeductible': 'Annual premiums + deductible',
 };
 
 export default enComparatori;

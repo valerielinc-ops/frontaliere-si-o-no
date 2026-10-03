@@ -1010,15 +1010,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cos'è la LAMal e come funziona per i frontalieri?": {
  en: {
  q: "What is LAMal and how does it work for cross-border workers?",
- a: "LAMal is the mandatory Swiss health insurance. Cross-border workers can choose between LAMal (Swiss coverage) and the Italian SSN. With LAMal you access the Swiss healthcare system with deductibles and insurance models (basic, HMO, telmed). The choice must be made within 3 months of starting work. According to Laura Mantovani, LAMal insurance broker: 'For those with family in Italy, the SSN is often more cost-effective, while LAMal offers faster access to care in Switzerland'."
+ a: "LAMal is the mandatory Swiss health insurance. Cross-border workers can choose between LAMal (Swiss coverage) and the Italian SSN. For residents of Italy, standard insurance and the ordinary deductible apply; HMO, Telmed and optional deductibles are unavailable. The choice must be made within 3 months of starting work. According to Laura Mantovani, LAMal insurance broker: 'For those with family in Italy, the SSN is often more cost-effective, while LAMal offers faster access to care in Switzerland'."
  },
  de: {
  q: "Was ist die KVG und wie funktioniert sie für Grenzgänger?",
- a: "Die KVG (LAMal) ist die obligatorische Schweizer Krankenversicherung. Grenzgänger können zwischen KVG (Schweizer Deckung) und dem italienischen SSN wählen. Mit der KVG hat man Zugang zum Schweizer Gesundheitssystem mit Franchisen und Versicherungsmodellen (Standard, HMO, Telmed). Die Wahl muss innerhalb von 3 Monaten nach Arbeitsbeginn getroffen werden. Wie Laura Mantovani, KVG-Versicherungsmaklerin, erklärt: «Für Familien in Italien ist der SSN oft günstiger, während die KVG einen schnelleren Zugang zur Versorgung in der Schweiz bietet»."
+ a: "Die KVG (LAMal) ist die obligatorische Schweizer Krankenversicherung. Grenzgänger können zwischen KVG (Schweizer Deckung) und dem italienischen SSN wählen. Bei Wohnsitz in Italien gelten Standardversicherung und ordentliche Franchise; HMO, Telmed und Wahlfranchisen sind nicht verfügbar. Die Wahl muss innerhalb von 3 Monaten nach Arbeitsbeginn getroffen werden. Wie Laura Mantovani, KVG-Versicherungsmaklerin, erklärt: «Für Familien in Italien ist der SSN oft günstiger, während die KVG einen schnelleren Zugang zur Versorgung in der Schweiz bietet»."
  },
  fr: {
  q: "Qu'est-ce que la LAMal et comment fonctionne-t-elle pour les frontaliers ?",
- a: "La LAMal est l'assurance maladie obligatoire suisse. Les frontaliers peuvent choisir entre la LAMal (couverture suisse) et le SSN italien. Avec la LAMal, on accède au système de santé suisse avec des franchises et des modèles d'assurance (base, HMO, télémédecine). Le choix doit être fait dans les 3 mois suivant le début de l'emploi. Comme l'explique Laura Mantovani, courtière en assurance LAMal: «Pour ceux qui ont une famille en Italie, le SSN est souvent plus avantageux, tandis que la LAMal offre un accès plus rapide aux soins en Suisse»."
+ a: "La LAMal est l'assurance maladie obligatoire suisse. Les frontaliers peuvent choisir entre la LAMal (couverture suisse) et le SSN italien. Pour les résidents en Italie, le modèle standard et la franchise ordinaire s’appliquent ; HMO, Telmed et franchises à option ne sont pas disponibles. Le choix doit être fait dans les 3 mois suivant le début de l'emploi. Comme l'explique Laura Mantovani, courtière en assurance LAMal: «Pour ceux qui ont une famille en Italie, le SSN est souvent plus avantageux, tandis que la LAMal offre un accès plus rapide aux soins en Suisse»."
  }
  },
 
@@ -2072,29 +2072,29 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto costa l'assicurazione LAMal per un frontaliere in Ticino?": {
  en: {
  q: "How much does LAMal health insurance cost for a cross-border worker in Ticino?",
- a: "Monthly premiums in Canton Ticino range from around CHF 200 (Assura/Agrisano with Telmed model and CHF 2,500 deductible) to around CHF 600 (standard model with a low deductible)."
+ a: "Cross-border workers resident in Italy pay country-of-residence LAMal premiums, not premiums for their Swiss canton of employment. The official FOPH 2026 Italy table lists 14 insurers with separate age and accident-cover rates. For adults aged 26+ without accident cover, monthly premiums range from CHF 279 to CHF 487.20; the ordinary deductible is CHF 300 (CHF 0 for children). Optional deductibles and HMO/Telmed models are unavailable. Source: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  de: {
  q: "Was kostet die KVG-Krankenversicherung für einen Grenzgänger im Tessin?",
- a: "Die monatlichen Prämien im Kanton Tessin reichen von ca. CHF 200 (Assura/Agrisano mit Telmed-Modell und Franchise CHF 2.500) bis ca. CHF 600 (Standardmodell mit niedriger Franchise)."
+ a: "Für Grenzgänger mit Wohnsitz in Italien gelten die KVG-Prämien des Wohnsitzlands, nicht des Schweizer Arbeitskantons. Die offizielle BAG-Tabelle 2026 für Italien nennt 14 Versicherer mit getrennten Prämien nach Alter und Unfalldeckung. Für Erwachsene ab 26 ohne Unfalldeckung liegen die Monatsprämien zwischen CHF 279 und CHF 487.20; die ordentliche Franchise beträgt CHF 300 (CHF 0 für Kinder). Wahlfranchisen und HMO/Telmed-Modelle sind nicht verfügbar. Quelle: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  fr: {
  q: "Combien coûte l'assurance maladie LAMal pour un frontalier au Tessin ?",
- a: "Les primes mensuelles au Tessin vont d'environ CHF 200 (Assura/Agrisano avec modèle Telmed et franchise CHF 2 500) à environ CHF 600 (modèle standard avec franchise basse)."
+ a: "Les frontaliers résidant en Italie paient les primes LAMal du pays de domicile, et non celles du canton de travail suisse. Le tableau officiel OFSP 2026 pour l’Italie comprend 14 assureurs et distingue âge et couverture accidents. Pour les adultes dès 26 ans sans couverture accidents, les primes mensuelles vont de CHF 279 à CHF 487.20 ; la franchise ordinaire est CHF 300 (CHF 0 pour enfants). Les franchises à option et modèles HMO/Telmed ne sont pas disponibles. Source : https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  }
  },
  "Qual è la cassa malati più economica per frontalieri?": {
  en: {
  q: "Which health fund is the cheapest for cross-border workers?",
- a: "Assura and Agrisano generally offer the lowest premiums in Canton Ticino. With the Telmed model and CHF 2,500 deductible, premiums start from around CHF 200/month for adults."
+ a: "Cross-border workers resident in Italy pay country-of-residence LAMal premiums, not premiums for their Swiss canton of employment. The official FOPH 2026 Italy table lists 14 insurers with separate age and accident-cover rates. For adults aged 26+ without accident cover, monthly premiums range from CHF 279 to CHF 487.20; the ordinary deductible is CHF 300 (CHF 0 for children). Optional deductibles and HMO/Telmed models are unavailable. Source: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  de: {
  q: "Welche Krankenkasse ist für Grenzgänger am günstigsten?",
- a: "Assura und Agrisano bieten im Kanton Tessin in der Regel die tiefsten Prämien. Mit dem Telmed-Modell und einer Franchise von CHF 2.500 beginnen die Prämien bei etwa CHF 200/Monat für Erwachsene."
+ a: "Für Grenzgänger mit Wohnsitz in Italien gelten die KVG-Prämien des Wohnsitzlands, nicht des Schweizer Arbeitskantons. Die offizielle BAG-Tabelle 2026 für Italien nennt 14 Versicherer mit getrennten Prämien nach Alter und Unfalldeckung. Für Erwachsene ab 26 ohne Unfalldeckung liegen die Monatsprämien zwischen CHF 279 und CHF 487.20; die ordentliche Franchise beträgt CHF 300 (CHF 0 für Kinder). Wahlfranchisen und HMO/Telmed-Modelle sind nicht verfügbar. Quelle: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  fr: {
  q: "Quelle caisse maladie est la moins chère pour les frontaliers ?",
- a: "Assura et Agrisano offrent généralement les primes les plus basses au Tessin. Avec le modèle Telmed et une franchise de CHF 2 500, les primes commencent à environ CHF 200/mois pour les adultes."
+ a: "Les frontaliers résidant en Italie paient les primes LAMal du pays de domicile, et non celles du canton de travail suisse. Le tableau officiel OFSP 2026 pour l’Italie comprend 14 assureurs et distingue âge et couverture accidents. Pour les adultes dès 26 ans sans couverture accidents, les primes mensuelles vont de CHF 279 à CHF 487.20 ; la franchise ordinaire est CHF 300 (CHF 0 pour enfants). Les franchises à option et modèles HMO/Telmed ne sont pas disponibles. Source : https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  }
  },
  "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?": {
@@ -2114,15 +2114,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cosa copre l'assicurazione LAMal per frontalieri?": {
  en: {
  q: "What does LAMal health insurance cover for cross-border workers?",
- a: "LAMal covers medical, hospital, and pharmaceutical care in Switzerland. For treatment in Italy, the European Health Insurance Card (EHIC) is required. The annual deductible ranges from CHF 300 to CHF 2,500."
+ a: "LAMal covers medical, hospital, and pharmaceutical care in Switzerland. For treatment in Italy, the European Health Insurance Card (EHIC) is required. For residents of Italy, the ordinary deductible is CHF300 for adults/young adults and CHF0 for children; optional deductibles are unavailable."
  },
  de: {
  q: "Was deckt die KVG-Krankenversicherung für Grenzgänger ab?",
- a: "Die KVG deckt ärztliche, stationäre und pharmazeutische Leistungen in der Schweiz ab. Für Behandlungen in Italien wird die Europäische Krankenversicherungskarte (EKVK) benötigt. Die jährliche Franchise reicht von CHF 300 bis CHF 2.500."
+ a: "Die KVG deckt ärztliche, stationäre und pharmazeutische Leistungen in der Schweiz ab. Für Behandlungen in Italien wird die Europäische Krankenversicherungskarte (EKVK) benötigt. Bei Wohnsitz in Italien beträgt die ordentliche Franchise CHF300 für Erwachsene/junge Erwachsene und CHF0 für Kinder; Wahlfranchisen sind nicht verfügbar."
  },
  fr: {
  q: "Que couvre l'assurance maladie LAMal pour les frontaliers ?",
- a: "La LAMal couvre les soins médicaux, hospitaliers et pharmaceutiques en Suisse. Pour les soins en Italie, la carte européenne d'assurance maladie (CEAM) est nécessaire. La franchise annuelle va de CHF 300 à CHF 2 500."
+ a: "La LAMal couvre les soins médicaux, hospitaliers et pharmaceutiques en Suisse. Pour les soins en Italie, la carte européenne d'assurance maladie (CEAM) est nécessaire. Pour les résidents en Italie, la franchise ordinaire est CHF300 pour adultes/jeunes adultes et CHF0 pour enfants ; les franchises à option ne sont pas disponibles."
  }
  },
 
@@ -2538,15 +2538,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?": {
  en: {
  q: "How much does LAMal health insurance cost for cross-border workers?",
- a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month depending on the insurer, model (Standard, Telmed, HMO) and deductible (CHF 300-2,500). The cheapest options are Assura and Agrisano with Telmed model and CHF 2,500 deductible, at around CHF 270-300/month. The comparator on frontaliereticino.ch compares 14 insurers across 7 cantons. According to Laura Mantovani, LAMal insurance broker: 'Comparing at least 3-4 quotes before choosing can save over CHF 2,000 per year'."
+ a: "Cross-border workers resident in Italy pay country-of-residence LAMal premiums, not premiums for their Swiss canton of employment. The official FOPH 2026 Italy table lists 14 insurers with separate age and accident-cover rates. For adults aged 26+ without accident cover, monthly premiums range from CHF 279 to CHF 487.20; the ordinary deductible is CHF 300 (CHF 0 for children). Optional deductibles and HMO/Telmed models are unavailable. Source: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  de: {
  q: "Was kostet die KVG-Krankenversicherung für Grenzgänger?",
- a: "Die KVG-Prämien für Grenzgänger im Kanton Tessin liegen zwischen CHF 270 und CHF 560/Monat je nach Versicherer, Modell (Standard, Telmed, HMO) und Franchise (CHF 300-2.500). Die günstigsten Optionen sind Assura und Agrisano mit Telmed-Modell und CHF 2.500 Franchise, ab ca. CHF 270-300/Monat. Der Vergleichsrechner auf frontaliereticino.ch vergleicht 14 Versicherer in 7 Kantonen. Wie Laura Mantovani, KVG-Versicherungsmaklerin, erklärt: «Mindestens 3-4 Angebote zu vergleichen kann über CHF 2.000 pro Jahr einsparen»."
+ a: "Für Grenzgänger mit Wohnsitz in Italien gelten die KVG-Prämien des Wohnsitzlands, nicht des Schweizer Arbeitskantons. Die offizielle BAG-Tabelle 2026 für Italien nennt 14 Versicherer mit getrennten Prämien nach Alter und Unfalldeckung. Für Erwachsene ab 26 ohne Unfalldeckung liegen die Monatsprämien zwischen CHF 279 und CHF 487.20; die ordentliche Franchise beträgt CHF 300 (CHF 0 für Kinder). Wahlfranchisen und HMO/Telmed-Modelle sind nicht verfügbar. Quelle: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  fr: {
  q: "Combien coûte l'assurance maladie LAMal pour les frontaliers ?",
- a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 à CHF 560/mois selon l'assureur, le modèle (Standard, Telmed, HMO) et la franchise (CHF 300-2 500). Les options les moins chères sont Assura et Agrisano avec modèle Telmed et franchise CHF 2 500, à environ CHF 270-300/mois. Le comparateur sur frontaliereticino.ch compare 14 assureurs dans 7 cantons. Comme l'explique Laura Mantovani, courtière en assurance LAMal: «Comparer au moins 3-4 offres avant de choisir peut faire économiser plus de CHF 2 000 par an»."
+ a: "Les frontaliers résidant en Italie paient les primes LAMal du pays de domicile, et non celles du canton de travail suisse. Le tableau officiel OFSP 2026 pour l’Italie comprend 14 assureurs et distingue âge et couverture accidents. Pour les adultes dès 26 ans sans couverture accidents, les primes mensuelles vont de CHF 279 à CHF 487.20 ; la franchise ordinaire est CHF 300 (CHF 0 pour enfants). Les franchises à option et modèles HMO/Telmed ne sont pas disponibles. Source : https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  }
  },
 
@@ -3488,15 +3488,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto costa l'assicurazione sanitaria LAMal per i frontalieri?": {
  en: {
  q: "How much does LAMal health insurance cost for cross-border workers?",
- a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month in 2026, depending on the insurer and the model chosen. The cheapest options are Assura and Agrisano with Telmed model (around CHF 270–300/month). Cross-border workers have 3 months from the start of work to choose between Swiss LAMal and the Italian SSN (irrevocable right of option)."
+ a: "Cross-border workers resident in Italy pay country-of-residence LAMal premiums, not premiums for their Swiss canton of employment. The official FOPH 2026 Italy table lists 14 insurers with separate age and accident-cover rates. For adults aged 26+ without accident cover, monthly premiums range from CHF 279 to CHF 487.20; the ordinary deductible is CHF 300 (CHF 0 for children). Optional deductibles and HMO/Telmed models are unavailable. Source: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  de: {
  q: "Wie viel kostet die LAMal-Krankenversicherung fuer Grenzgaenger?",
- a: "Die LAMal-Praemien fuer Grenzgaenger im Kanton Tessin liegen 2026 zwischen CHF 270 und CHF 560/Monat, je nach Versicherer und gewaehltem Modell. Die guenstigsten Angebote bieten Assura und Agrisano mit Telmed-Modell (rund CHF 270–300/Monat). Grenzgaenger haben ab Arbeitsbeginn 3 Monate Zeit, zwischen der Schweizer LAMal und dem italienischen SSN zu waehlen (unwiderrufliches Optionsrecht)."
+ a: "Für Grenzgänger mit Wohnsitz in Italien gelten die KVG-Prämien des Wohnsitzlands, nicht des Schweizer Arbeitskantons. Die offizielle BAG-Tabelle 2026 für Italien nennt 14 Versicherer mit getrennten Prämien nach Alter und Unfalldeckung. Für Erwachsene ab 26 ohne Unfalldeckung liegen die Monatsprämien zwischen CHF 279 und CHF 487.20; die ordentliche Franchise beträgt CHF 300 (CHF 0 für Kinder). Wahlfranchisen und HMO/Telmed-Modelle sind nicht verfügbar. Quelle: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  fr: {
  q: "Combien coute l'assurance maladie LAMal pour les frontaliers ?",
- a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 a CHF 560/mois en 2026, selon l'assureur et le modele choisi. Les options les moins cheres sont Assura et Agrisano avec modele Telmed (environ CHF 270–300/mois). Les frontaliers disposent de 3 mois a compter du debut du travail pour choisir entre LAMal suisse et SSN italien (droit d'option irrevocable)."
+ a: "Les frontaliers résidant en Italie paient les primes LAMal du pays de domicile, et non celles du canton de travail suisse. Le tableau officiel OFSP 2026 pour l’Italie comprend 14 assureurs et distingue âge et couverture accidents. Pour les adultes dès 26 ans sans couverture accidents, les primes mensuelles vont de CHF 279 à CHF 487.20 ; la franchise ordinaire est CHF 300 (CHF 0 pour enfants). Les franchises à option et modèles HMO/Telmed ne sont pas disponibles. Source : https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  }
  },
 
@@ -3625,15 +3625,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto costa la LAMal per un frontaliere in Ticino?": {
  en: {
  q: "How much does LAMal cost for a cross-border worker in Ticino?",
- a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 200 to CHF 600 per month depending on the health insurer, the insurance model (standard, Telmed, HMO) and the chosen deductible (CHF 300–2,500 for adults)."
+ a: "Cross-border workers resident in Italy pay country-of-residence LAMal premiums, not premiums for their Swiss canton of employment. The official FOPH 2026 Italy table lists 14 insurers with separate age and accident-cover rates. For adults aged 26+ without accident cover, monthly premiums range from CHF 279 to CHF 487.20; the ordinary deductible is CHF 300 (CHF 0 for children). Optional deductibles and HMO/Telmed models are unavailable. Source: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  de: {
  q: "Wie viel kostet die LAMal fuer einen Grenzgaenger im Tessin?",
- a: "Die LAMal-Praemien fuer Grenzgaenger im Kanton Tessin liegen zwischen CHF 200 und CHF 600 pro Monat, je nach Krankenkasse, Versicherungsmodell (Standard, Telmed, HMO) und gewaehlter Franchise (CHF 300–2.500 fuer Erwachsene)."
+ a: "Für Grenzgänger mit Wohnsitz in Italien gelten die KVG-Prämien des Wohnsitzlands, nicht des Schweizer Arbeitskantons. Die offizielle BAG-Tabelle 2026 für Italien nennt 14 Versicherer mit getrennten Prämien nach Alter und Unfalldeckung. Für Erwachsene ab 26 ohne Unfalldeckung liegen die Monatsprämien zwischen CHF 279 und CHF 487.20; die ordentliche Franchise beträgt CHF 300 (CHF 0 für Kinder). Wahlfranchisen und HMO/Telmed-Modelle sind nicht verfügbar. Quelle: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  },
  fr: {
  q: "Combien coute la LAMal pour un frontalier au Tessin ?",
- a: "Les primes LAMal pour les frontaliers au Tessin varient de CHF 200 a CHF 600 par mois selon la caisse maladie, le modele d'assurance (standard, Telmed, HMO) et la franchise choisie (CHF 300–2 500 pour les adultes)."
+ a: "Les frontaliers résidant en Italie paient les primes LAMal du pays de domicile, et non celles du canton de travail suisse. Le tableau officiel OFSP 2026 pour l’Italie comprend 14 assureurs et distingue âge et couverture accidents. Pour les adultes dès 26 ans sans couverture accidents, les primes mensuelles vont de CHF 279 à CHF 487.20 ; la franchise ordinaire est CHF 300 (CHF 0 pour enfants). Les franchises à option et modèles HMO/Telmed ne sont pas disponibles. Source : https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  }
  },
 
@@ -3999,9 +3999,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Qu'est-ce que la LAMal et comment s'applique-t-elle aux frontaliers ?", a: "La LAMal est l'assurance maladie obligatoire suisse. Les frontaliers avec permis G peuvent opter pour la LAMal ou le SSN italien (formulaire de droit d'option a deposer dans les 90 jours suivant la prise d'emploi) ; les residents avec permis B doivent adherer a la LAMal." }
  },
  "Quanto costa la LAMal a un frontaliere nel 2026?": {
- en: { q: "How much does LAMal cost a cross-border worker in 2026?", a: "LAMal premiums for cross-border workers in 2026: CHF 280-480/month for adults, CHF 120-200 for children (special cross-border rates). Without the rate, Ticino residents pay CHF 450-650/month." },
- de: { q: "Was kostet die KVG einen Grenzgaenger 2026?", a: "KVG-Praemien fuer Grenzgaenger 2026: CHF 280-480/Monat fuer Erwachsene, CHF 120-200 fuer Kinder (Grenzgaenger-Spezialtarife). Ohne diesen Tarif zahlen Tessiner Einwohner CHF 450-650/Monat." },
- fr: { q: "Combien coute la LAMal a un frontalier en 2026 ?", a: "Primes LAMal pour frontaliers en 2026 : CHF 280 a 480/mois pour les adultes, CHF 120 a 200 pour les enfants (tarifs speciaux frontaliers). Sans ce tarif, les residents tessinois paient CHF 450 a 650/mois." }
+ en: { q: "How much does LAMal cost a cross-border worker in 2026?", a: "Cross-border workers resident in Italy pay country-of-residence LAMal premiums, not premiums for their Swiss canton of employment. The official FOPH 2026 Italy table lists 14 insurers with separate age and accident-cover rates. For adults aged 26+ without accident cover, monthly premiums range from CHF 279 to CHF 487.20; the ordinary deductible is CHF 300 (CHF 0 for children). Optional deductibles and HMO/Telmed models are unavailable. Source: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" },
+ de: { q: "Was kostet die KVG einen Grenzgaenger 2026?", a: "Für Grenzgänger mit Wohnsitz in Italien gelten die KVG-Prämien des Wohnsitzlands, nicht des Schweizer Arbeitskantons. Die offizielle BAG-Tabelle 2026 für Italien nennt 14 Versicherer mit getrennten Prämien nach Alter und Unfalldeckung. Für Erwachsene ab 26 ohne Unfalldeckung liegen die Monatsprämien zwischen CHF 279 und CHF 487.20; die ordentliche Franchise beträgt CHF 300 (CHF 0 für Kinder). Wahlfranchisen und HMO/Telmed-Modelle sind nicht verfügbar. Quelle: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" },
+ fr: { q: "Combien coute la LAMal a un frontalier en 2026 ?", a: "Les frontaliers résidant en Italie paient les primes LAMal du pays de domicile, et non celles du canton de travail suisse. Le tableau officiel OFSP 2026 pour l’Italie comprend 14 assureurs et distingue âge et couverture accidents. Pour les adultes dès 26 ans sans couverture accidents, les primes mensuelles vont de CHF 279 à CHF 487.20 ; la franchise ordinaire est CHF 300 (CHF 0 pour enfants). Les franchises à option et modèles HMO/Telmed ne sont pas disponibles. Source : https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" }
  },
  "Meglio scegliere LAMal o SSN italiano come frontaliere?": {
  en: { q: "Should a cross-border worker choose LAMal or the Italian SSN?", a: "LAMal covers care in Switzerland and in Italy via agreements, with greater flexibility but monthly premiums of CHF 280-480. SSN is free but covers only Italy; Swiss emergencies are covered with the European card. Many cross-border workers choose LAMal for convenient Ticino access." },

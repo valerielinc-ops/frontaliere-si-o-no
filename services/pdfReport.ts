@@ -208,10 +208,13 @@ export interface LamalSsnSnapshot {
   incomeCHF: number;
   age: number;
   franchiseCHF: number;
-  /** Cheapest real LAMal premium (standard model) from data/health-premiums.json. */
+  /** Cheapest real LAMal premium (standard model) for the recorded country of residence and premium year. */
   lamalMonthlyCHF: number;
   lamalAnnualCHF: number;
   cheapestInsurer: string;
+  premiumYear?: number;
+  residenceCountry?: string;
+  premiumSourceUrl?: string;
   /** SSN voluntary-registration contribution range (3–6% of net income, L. 213/2023). */
   ssnMinCHF: number;
   ssnMaxCHF: number;
@@ -262,6 +265,9 @@ export async function generateLamalSsnPdfReport(
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(71, 85, 105);
   doc.text(`Inviato a: ${email}`, 14, 52);
+  if (snapshot.premiumSourceUrl) {
+    doc.textWithLink('Fonte premi: UFSP / Priminfo UE/AELS/UK', 14, 58, { url: snapshot.premiumSourceUrl });
+  }
 
   const verdictLabel =
     snapshot.verdict === 'lamal'
@@ -271,6 +277,8 @@ export async function generateLamalSsnPdfReport(
         : `Dipende dall'aliquota regionale (break-even: ${formatPercent(snapshot.breakevenPct)})`;
 
   const body = [
+    ...(snapshot.residenceCountry ? [['Paese di residenza', snapshot.residenceCountry]] : []),
+    ...(snapshot.premiumYear ? [['Anno premi UFSP', String(snapshot.premiumYear)]] : []),
     ['Reddito annuo netto', formatCHF(snapshot.incomeCHF)],
     ['Eta', String(Math.round(snapshot.age))],
     ['Franchigia LAMal', formatCHF(snapshot.franchiseCHF)],

@@ -214,6 +214,7 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
 }
 
 function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonRow[], locale: ComparisonsLocale): string {
+  if (!rows.length) return `<p class="s-4s9CFT">${esc(copy.healthUnavailable)}</p><p class="s-4s9CFT">${mdLinks(copy.tHealthContext)}</p>`;
   const tbody = rows
     .map(
       (r) => `<tr>
@@ -238,7 +239,7 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
       <tbody class="s-_B4enX">${tbody}</tbody>
     </table>
   </div>
-  <p class="s-M4R4f8">${mdLinks(copy.tHealthFooter)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tHealthFooter)} (${rows[0].year})</p>
   <p class="s-4s9CFT">${mdLinks(copy.tHealthContext)}</p>
 </figure>`;
 }
