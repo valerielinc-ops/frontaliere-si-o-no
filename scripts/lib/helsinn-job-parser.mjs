@@ -19,6 +19,8 @@ import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.m
 
 const ELAVORO_HOST = 'www.e-lavoro.ch';
 const ELAVORO_BASE_URL = `https://${ELAVORO_HOST}`;
+const NON_JOB_NODE_IDS = new Set(['75', '76']);
+const ELAVORO_EMPTY_MESSAGE = 'purtroppo non ci sono offerte di lavoro, torna a trovarci';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -61,6 +63,12 @@ export function slugify(value = '', suffix = '') {
  */
 export const MIN_DESC_LENGTH = 100;
 
+function isJobDetailHref(href = '') {
+  const nodeMatch = href.match(/\/node\/(\d+)/);
+  if (nodeMatch) return !NON_JOB_NODE_IDS.has(nodeMatch[1]);
+  return href.includes('func=detail') && /[?&]id=\d+/.test(href);
+}
+
 /**
  * Parse the listing page from e-lavoro.ch (Helsinn's company page).
  * Returns an array of { id, title, url, location } objects.
@@ -77,11 +85,14 @@ export function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
-  // Check for "no jobs" message
-  const bodyText = (document.body?.textContent || '').toLowerCase();
-  if (bodyText.includes('non ci sono offerte di lavoro') ||
-      bodyText.includes('nessuna offerta') ||
-      bodyText.includes('no job offers')) {
+  const links = document.querySelectorAll('a[href]');
+  const hasJobLink = Array.from(links).some((link) => isJobDetailHref(link.getAttribute('href') || ''));
+  const bodyText = normalizeSpace(document.body?.textContent || '').toLowerCase();
+
+  // Only the dedicated e-lavoro.ch empty-state message proves a zero. Generic
+  // no-offers copy can occur incidentally on a live listing page, and a job
+  // link must always take precedence over an empty-state marker.
+  if (bodyText.includes(ELAVORO_EMPTY_MESSAGE) && !hasJobLink) {
     return markAuthoritativeEmptySnapshot(
       [],
       'e-lavoro.ch rendered its explicit no-open-offers message on the Helsinn listing page',
@@ -89,7 +100,6 @@ export function parseListingPage(html = '') {
   }
 
   // Strategy 1: Find links to job detail pages (/node/{id} pattern)
-  const links = document.querySelectorAll('a[href]');
   for (const link of links) {
     const href = link.getAttribute('href') || '';
     // Match /node/{numeric_id} links (but skip known non-job nodes like /node/75 login, /node/76 listing)
@@ -97,7 +107,7 @@ export function parseListingPage(html = '') {
     if (!nodeMatch) continue;
     const id = nodeMatch[1];
     // Skip the listing page itself (node/76) and login (node/75)
-    if (id === '76' || id === '75') continue;
+    if (NON_JOB_NODE_IDS.has(id)) continue;
     if (seen.has(id)) continue;
 
     const title = normalizeSpace(link.textContent || '');

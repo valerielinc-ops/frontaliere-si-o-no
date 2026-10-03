@@ -144,6 +144,21 @@ describe('parseListingPage', () => {
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
   });
 
+  it('keeps a discovered job when generic no-offers copy appears on the page', () => {
+    const jobs = parseListingPage('<main>nessuna offerta</main><a href="/node/123">Real job</a>');
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('123');
+  });
+
+  it('does not prove an empty snapshot when the dedicated marker coexists with a job link', () => {
+    const jobs = parseListingPage(
+      '<main>Purtroppo non ci sono offerte di lavoro, torna a trovarci!</main>'
+      + '<a href="/node/123">Real job</a>',
+    );
+    expect(jobs).toHaveLength(1);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
   it('keeps missing listing HTML fail-closed instead of proving an empty source', () => {
     expect(isAuthoritativeEmptySnapshot(parseListingPage(''))).toBe(false);
   });
