@@ -7589,6 +7589,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritti-inquilino-ginevra-2026.title': 'Mieten in der Schweiz 2026: Markt und Regeln in Genf',
     'blog.article.diritti-inquilino-ginevra-2026.excerpt': 'Kaution von bis zu drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung anzufechten: Die Bundesregeln gelten auch im Kanton Genf und in den anderen Kantonen.',
     'blog.article.diritti-inquilino-ginevra-2026.imageAlt': 'Schweizer Wohnhäuser in einem Stadtviertel als Symbol für den Mietwohnungsmarkt',
+    'blog.article.swissair-grounding-memoria-ferita.title': 'Swissair, 25 Jahre später: die nie verheilte Wunde',
+    'blog.article.swissair-grounding-memoria-ferita.excerpt': 'Das Grounding von Swissair am 2. Oktober 2001 hat die Schweizer Luftfahrt für immer verändert. Die Schilderung von Sandrine Nikolic-Fuss zwischen Erinnerungen und Lehren für die heutige Arbeit.',
+    'blog.article.swissair-grounding-memoria-ferita.imageAlt': 'Am Boden befindliches Flugzeug in der Schweiz zum Swissair-Grounding',
 };
 
 export default blogMetaChDe;

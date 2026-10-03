@@ -7589,6 +7589,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritti-inquilino-ginevra-2026.title': 'Rentals in Switzerland 2026: market and regulations in Geneva',
     'blog.article.diritti-inquilino-ginevra-2026.excerpt': 'Deposit up to three months, escrow account and 30 days to challenge the cancellation: the federal rules also apply in the canton of Geneva and the other cantons.',
     'blog.article.diritti-inquilino-ginevra-2026.imageAlt': 'Swiss residential buildings in an urban neighborhood, representing the rental market',
+    'blog.article.swissair-grounding-memoria-ferita.title': 'Swissair, 25 years later: the wound that never healed',
+    'blog.article.swissair-grounding-memoria-ferita.excerpt': 'Swissair’s grounding on 2 ottobre 2001 changed Swiss aviation forever. Sandrine Nikolic-Fuss’s testimony, between memories and lessons for today’s work.',
+    'blog.article.swissair-grounding-memoria-ferita.imageAlt': 'Airliner grounded in Switzerland commemorating the Swissair event',
 };
 
 export default blogMetaChEn;

@@ -7589,6 +7589,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritti-inquilino-ginevra-2026.title': 'Affitti in Svizzera 2026: mercato e regole a Ginevra',
     'blog.article.diritti-inquilino-ginevra-2026.excerpt': 'Deposito fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta: le regole federali valgono anche nel canton Ginevra e negli altri Cantoni.',
     'blog.article.diritti-inquilino-ginevra-2026.imageAlt': 'Palazzi residenziali svizzeri in un quartiere urbano, simbolo del mercato degli affitti',
+    'blog.article.swissair-grounding-memoria-ferita.title': 'Swissair, 25 anni dopo: la ferita mai rimarginata',
+    'blog.article.swissair-grounding-memoria-ferita.excerpt': 'Il grounding di Swissair del 2 ottobre 2001 ha cambiato per sempre l\'aviazione svizzera. La testimonianza di Sandrine Nikolic-Fuss tra ricordi e lezioni per il lavoro di oggi.',
+    'blog.article.swissair-grounding-memoria-ferita.imageAlt': 'Aereo di linea a terra in Svizzera in ricordo del grounding Swissair',
 };
 
 export default blogMetaChIt;

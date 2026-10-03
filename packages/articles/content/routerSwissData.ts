@@ -2552,6 +2552,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'diritti-inquilini-zurigo-2026': { it: 'diritti-inquilini-zurigo-2026', en: 'tenant-rights-zurich-2026', de: 'mieterrechte-zuerich-2026', fr: 'droits-locataire-zurich-2026' },
  'affitti-zurigo-cauzione-disdetta-2026': { it: 'affitti-zurigo-cauzione-disdetta-2026', en: 'swiss-rents-zurich-deposit-2026', de: 'mieten-zuerich-kaution-2026', fr: 'loyers-zurich-caution-2026' },
  'diritti-inquilino-ginevra-2026': { it: 'diritti-inquilino-ginevra-2026', en: 'geneva-tenant-rights-2026', de: 'mietrecht-genf-2026', fr: 'droits-locataire-geneve-2026' },
+ 'swissair-grounding-memoria-ferita': { it: 'swissair-grounding-memoria-ferita', en: 'swissair-grounding-memory-wound', de: 'swissair-grounding-erinnerung-wunde', fr: 'swissair-grounding-memoire-blessure' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

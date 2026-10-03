@@ -22795,6 +22795,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'swissair-grounding-memoria-ferita',
+    category: 'novita',
+    date: '2026-10-03T00:31:31.968Z',
+    image: '/images/blog/swissair-grounding-memoria-ferita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

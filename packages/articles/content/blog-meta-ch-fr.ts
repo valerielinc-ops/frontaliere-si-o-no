@@ -7589,6 +7589,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritti-inquilino-ginevra-2026.title': 'Location en Suisse 2026 : marché et règles à Genève',
     'blog.article.diritti-inquilino-ginevra-2026.excerpt': 'Dépôt jusqu\'à trois mensualités, compte lié et 30 jours pour contester la résiliation : les règles fédérales s\'appliquent également dans le canton de Genève et dans les autres cantons.',
     'blog.article.diritti-inquilino-ginevra-2026.imageAlt': 'Immeubles résidentiels suisses dans un quartier urbain, symbole du marché locatif',
+    'blog.article.swissair-grounding-memoria-ferita.title': 'Swissair, 25 ans plus tard : la blessure jamais cicatrisée',
+    'blog.article.swissair-grounding-memoria-ferita.excerpt': 'La mise au sol de Swissair le 2 octobre 2001 a changé à jamais l’aviation suisse. Le témoignage de Sandrine Nikolic-Fuss, entre souvenirs et enseignements pour le travail d’aujourd’hui.',
+    'blog.article.swissair-grounding-memoria-ferita.imageAlt': 'Avion cloué au sol en Suisse en souvenir du grounding de Swissair',
 };
 
 export default blogMetaChFr;
