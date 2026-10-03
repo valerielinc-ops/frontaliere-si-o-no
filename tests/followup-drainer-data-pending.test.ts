@@ -15,7 +15,17 @@
  * Fixture verbatim dalle follow-up aperte il 2026-08-25.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { detectDataPending, cooldownDaysFor } from '../scripts/ci/followup-drainer.mjs';
+import { parseFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
+
+/** Verbatim: titolo e corpo di sito#10831, il bucket giornaliero parcheggiato
+ * intero per data-pending il 2026-10-02 con 7 item `open` fermi. */
+const BUCKET_10831: { title: string; body: string } = JSON.parse(readFileSync(
+  fileURLToPath(new URL('./fixtures/followup-drainer/daily-bucket-10831.json', import.meta.url)),
+  'utf8',
+));
 
 /** Verbatim: titolo di corpus#464. */
 const T_464 = "follow-up(#445): criterio di silenzio per admit da valutare al posto dell'eta' (blocked, in attesa di dati dal nuovo warning)";
@@ -68,6 +78,57 @@ describe('detectDataPending — conservativo: un bullet non parla per gli altri'
 
   it('titolo/body vuoti → null', () => {
     expect(detectDataPending('', '')).toBeNull();
+  });
+});
+
+// Titolo di fallimento: «Drainer: bucket giornaliero parcheggiato per data-pending».
+describe('detectDataPending — un bucket giornaliero è un\'aggregata', () => {
+  const DAILY_TITLE = 'follow-up(daily:2026-10-02): 2 items — valerielinc-ops/frontaliere-si-o-no';
+
+  it('sito#10831 (titolo e corpo reali): nessun park dell\'intero bucket', () => {
+    // La fixture deve restare il caso che ha prodotto il difetto: un bucket con
+    // più item e l'intestazione «post-merge … baseline» che faceva scattare la regex.
+    expect(BUCKET_10831.title).toMatch(/^follow-up\(daily:/);
+    expect(parseFollowupItems(BUCKET_10831.body).length).toBeGreaterThan(1);
+    expect(BUCKET_10831.body).toMatch(/^### .*post-merge.*baseline/m);
+    expect(detectDataPending(BUCKET_10831.title, BUCKET_10831.body)).toBeNull();
+  });
+
+  it('una riga `blocked: data-pending` in UN item non parla per gli altri', () => {
+    const body = [
+      '## Item',
+      '### FU-2026-10-02-001 — primo',
+      '- State: open',
+      '- Stato dichiarato nella PR: blocked: data-pending, serve il prossimo deploy',
+      '### FU-2026-10-02-002 — secondo',
+      '- State: open',
+    ].join('\n');
+    expect(detectDataPending(DAILY_TITLE, body)).toBeNull();
+  });
+
+  it('…ma il marker nel TITOLO del bucket vale ancora per lo scope intero', () => {
+    expect(detectDataPending(`${DAILY_TITLE} (blocked, in attesa di dati dal nuovo warning)`, '')).not.toBeNull();
+  });
+
+  it('aggregata `3 items deferred` → null come prima', () => {
+    expect(detectDataPending('follow-up(#1): 3 items deferred — a, b, c', '- blocked: data-pending')).toBeNull();
+  });
+});
+
+describe('detectDataPending — un\'intestazione non è una dichiarazione di attesa', () => {
+  const PHRASE = 'Full-suite post-merge: report e baseline di performance';
+
+  it('issue singola con la sola intestazione → null', () => {
+    expect(detectDataPending('follow-up(#1): item', `### ${PHRASE}\n- State: open`)).toBeNull();
+    expect(detectDataPending('follow-up(#1): item', `   ## ${PHRASE}`)).toBeNull();
+  });
+
+  it('la stessa frase in una riga di testo resta rilevata', () => {
+    expect(detectDataPending('follow-up(#1): item', `- ${PHRASE}`)).toContain('post-merge');
+  });
+
+  it('`#123` a inizio riga non è un\'intestazione: la riga si valuta', () => {
+    expect(detectDataPending('follow-up(#1): item', '#123 richiede una baseline post-merge')).not.toBeNull();
   });
 });
 
