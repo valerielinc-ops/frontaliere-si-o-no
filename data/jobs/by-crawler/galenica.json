@@ -474,10 +474,10 @@
         "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bubendorf"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
+        "en": "Pharmaceutical assistant / Pharmaceutical assistant (m/f/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "fr": "Pharma-Assistent / Pharma-Assistentin (w/m/d)"
+        "fr": "Assistant pharmaceutique / Assistant pharmaceutique (h/f/d)"
       },
       "needsRetranslation": true,
       "id": "galenica-12feabaf032a",
@@ -807,10 +807,10 @@
         "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-basel"
       },
       "titleByLocale": {
-        "it": "Apotheker / Apothekerin (w/m/d)",
-        "en": "Apotheker / Apothekerin (w/m/d)",
+        "it": "Farmacista / farmacista (m/f/d)",
+        "en": "Pharmacist / Pharmacist (m/f/d)",
         "de": "Apotheker / Apothekerin (w/m/d)",
-        "fr": "Apotheker / Apothekerin (w/m/d)"
+        "fr": "Pharmacienne / Pharmacienne (h/f/d)"
       },
       "needsRetranslation": true,
       "id": "galenica-adf7f88ea67d",
@@ -1288,10 +1288,10 @@
         "fr": "galenica-galenica-csv-manager-csv-managerin-w-m-d-niederbipp"
       },
       "titleByLocale": {
-        "it": "CSV Manager / CSV Managerin (w/m/d)",
-        "en": "CSV Manager / CSV Managerin (w/m/d)",
+        "it": "CSV Manager / CSV Manager (m/f/d)",
+        "en": "CSV Manager / CSV Manager (m/f/d)",
         "de": "CSV Manager / CSV Managerin (w/m/d)",
-        "fr": "CSV Manager / CSV Managerin (w/m/d)"
+        "fr": "CSV Manager / CSV Manager (h/f/d)"
       },
       "id": "galenica-d88f47bf8951",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -2815,7 +2815,7 @@
       },
       "titleByLocale": {
         "it": "Supporto farmaceutico (m/f/d)",
-        "en": "Pharmacy Support (w/m/d)",
+        "en": "Pharmacy Support (m/f/d)",
         "de": "Pharmacy Support (w/m/d)",
         "fr": "Assistance pharmaceutique (h/f/d)"
       },
@@ -2833,7 +2833,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3917,7 +3916,7 @@
       },
       "titleByLocale": {
         "it": "Pharmacy Support (f/m/d)",
-        "en": "Pharmacy Support (f/h/d)",
+        "en": "Pharmacy Support (m/f/d)",
         "de": "Apotheken-Support (m/w/d)",
         "fr": "Pharmacy Support (f/h/d)"
       },
@@ -3938,7 +3937,6 @@
           "assistance-pharmacie-h-f-d-galenica-ag-galenica-bern-637369"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4342,7 +4340,7 @@
       },
       "titleByLocale": {
         "it": "Gestione dei partner Lead (m/f/d)",
-        "en": "Partner Management Lead (w/m/d)",
+        "en": "Partner Management Lead (m/f/d)",
         "de": "Partner Management Lead (w/m/d)",
         "fr": "Responsable de la gestion des partenaires (h/f/d)"
       },
@@ -4358,7 +4356,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -4989,10 +4986,10 @@
         "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Assistente farmaceutico / Assistente farmaceutico (m/f/d)",
+        "en": "Pharmaceutical assistant / Pharmaceutical assistant (m/f/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "fr": "Pharma-Assistent / Pharma-Assistentin (w/m/d)"
+        "fr": "Assistant pharmaceutique / Assistant pharmaceutique (h/f/d)"
       },
       "needsRetranslation": true,
       "id": "galenica-6ce5034e0024",
@@ -5506,7 +5503,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -5647,7 +5644,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-zurich"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -5852,7 +5849,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-pully"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -5986,7 +5983,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6043,7 +6040,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6239,7 +6236,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-adliswil"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6308,7 +6305,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-st-gallen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6431,7 +6428,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-liestal"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6500,7 +6497,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-neuchatel"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6564,7 +6561,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-st-moritz"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6629,7 +6626,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-moutier"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6694,7 +6691,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-mellingen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6839,7 +6836,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-conthey"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -6903,7 +6900,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-marly"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -7074,7 +7071,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-romanel-s-lausanne"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -7152,7 +7149,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-basel"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -7342,7 +7339,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-sirnach"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -7480,7 +7477,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-uznach"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -7549,7 +7546,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-davos-platz"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -7834,7 +7831,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bulle"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -7898,7 +7895,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zug"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -8041,7 +8038,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-bern"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -8391,7 +8388,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -8448,7 +8445,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -8574,7 +8571,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-lausanne"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -8631,7 +8628,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-onex"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -8702,7 +8699,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-dietikon"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9159,7 +9156,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-le-landeron"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9224,7 +9221,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-tafers"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9362,7 +9359,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-basel"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9419,7 +9416,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-marin-centre"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9484,7 +9481,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-riehen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9625,7 +9622,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-baden"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9841,7 +9838,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-unterageri"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -9912,7 +9909,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-nyon"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -10117,7 +10114,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-spiez"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -10251,7 +10248,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-affoltern-am-albis"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -10556,7 +10553,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-rumlang"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -10625,7 +10622,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-neyruz-fr"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -10694,7 +10691,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-biel-bienne"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -10833,7 +10830,7 @@
         "fr": "galenica-galenica-ag-assistant-e-en-pharmacie-cfc-thun"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11049,7 +11046,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-wallisellen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11120,7 +11117,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-wadenswil"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11189,7 +11186,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-widnau"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11408,7 +11405,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-winterthur"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11537,7 +11534,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-wil-sg-1"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11608,7 +11605,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-horw"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11677,7 +11674,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-luzern"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -11945,7 +11942,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -12070,7 +12067,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-dubendorf"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -12346,7 +12343,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-altdorf-ur"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -12415,7 +12412,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-interlaken"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -12619,7 +12616,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-ebikon"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -12688,7 +12685,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-plaffeien"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -12915,7 +12912,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-burgdorf"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -13060,7 +13057,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-courtepin"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -13635,7 +13632,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-oberwil-bl"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -13773,7 +13770,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-schaffhausen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14138,7 +14135,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-epalinges"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14275,7 +14272,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-langenthal"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14420,7 +14417,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-oron-la-ville"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14477,7 +14474,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-derendingen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14546,7 +14543,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-brugg"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14756,7 +14753,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-oberengstringen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14901,7 +14898,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-wurenlingen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -14974,7 +14971,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-regensdorf"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -15539,7 +15536,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-biberist"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -15608,7 +15605,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-erlenbach-zh"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -15677,7 +15674,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-marin-centre"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -16025,7 +16022,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-allschwil"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -16094,7 +16091,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-dietikon"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -16377,7 +16374,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-martigny-1"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -16719,7 +16716,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-mellingen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -16788,7 +16785,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-muri-ag"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -17001,7 +16998,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-uzwil"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -17254,7 +17251,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-koniz"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -17468,7 +17465,7 @@
         "fr": "assistant-e-en-pharmacie-cfc-amavita-apotheke-galenica-balerna"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -17764,7 +17761,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-arlesheim"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -18186,7 +18183,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-jegenstorf"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -18256,7 +18253,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zermatt"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -18531,7 +18528,7 @@
         "fr": "galenica-galenica-ag-operateur-operatrice-en-informatique-cfc-bern"
       },
       "titleByLocale": {
-        "it": "Operatore/trice informatico/a AFC",
+        "it": "Operatore/trice informatica/a AFC",
         "en": "ICT-Fachmann/-frau EFZ",
         "de": "ICT-Fachmann/-frau EFZ",
         "fr": "Opérateur/Opératrice en informatique CFC"
@@ -18749,7 +18746,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich-flughafen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -19575,7 +19572,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-sierre"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -19709,7 +19706,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-binningen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20213,7 +20210,7 @@
       },
       "titleByLocale": {
         "it": "Assistant en pharmacie / Assistante en pharmacie (f/m/d)",
-        "en": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)",
+        "en": "Pharmacy Assistant / Pharmacy Assistant (m/f/d)",
         "de": "Assistent en pharmacie / Assistante en pharmacie (f/h/d)",
         "fr": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)"
       },
@@ -20270,9 +20267,9 @@
       },
       "titleByLocale": {
         "it": "Assistenzjahr per Pharmaziestudierende (w/m/d)",
-        "en": "Assistenzjahr für Pharmaziestudierende (w/m/d)",
+        "en": "Assistant Year for Pharmaceuticals (m/f/d)",
         "de": "Assistenzjahr für Pharmaziestudierende (w/m/d)",
-        "fr": "Assistenzjahr für Pharmaziestudierende (w/m/d)"
+        "fr": "Année assistante pour les produits pharmaceutiques (h/f/d)"
       },
       "needsRetranslation": true,
       "id": "galenica-efbefaea2a67",
@@ -20335,8 +20332,8 @@
       },
       "titleByLocale": {
         "it": "Pharmacien / Pharmacienne (f/m/d)",
-        "en": "Pharmacien / Pharmacienne (f/h/d)",
-        "de": "Pharmacien / Pharmacienne (f/h/d)",
+        "en": "Pharmacist / Pharmacist (m/f/d)",
+        "de": "Apotheker / Apotheker (m/w/d)",
         "fr": "Pharmacien / Pharmacienne (f/h/d)"
       },
       "needsRetranslation": true,
@@ -20391,7 +20388,7 @@
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20448,7 +20445,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-lausanne"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20513,7 +20510,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20578,7 +20575,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-pratteln"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20643,7 +20640,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-bulach"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20700,7 +20697,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-st-gallen"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20765,7 +20762,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-basel"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20830,7 +20827,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-delemont"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20887,7 +20884,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-chur"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -20944,7 +20941,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-winterthur"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -21001,7 +20998,7 @@
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-kriens"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -21058,7 +21055,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-bern"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistente a farmacia AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
@@ -21123,7 +21120,7 @@
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-fribourg"
       },
       "titleByLocale": {
-        "it": "Assistente di farmacia AFC",
+        "it": "Assistenza alla AFC",
         "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
         "fr": "Assistant/e en pharmacie CFC"
