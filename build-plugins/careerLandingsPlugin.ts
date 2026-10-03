@@ -44,7 +44,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -508,9 +508,8 @@ function renderPage(opts: {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    ...(id === 'concorsi-pubblici-lugano'
-      ? (snapshot.dataCollectedAt ? { dateModified: snapshot.dataCollectedAt } : {})
-      : { datePublished: dateStamp, dateModified: dateStamp }),
+    ...(id === 'concorsi-pubblici-lugano' && snapshot.dataCollectedAt
+      ? { dateModified: snapshot.dataCollectedAt } : {}),
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -569,7 +568,7 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(competitionSummary ? ({ it: 'Pagina generata', en: 'Page generated', de: 'Seite erstellt', fr: 'Page générée' })[locale] : shell.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${competitionSummary ? competitionSummary.html : ''}
     ${statTilesHtml}
     ${id === 'stage-lugano' || id === 'contratti-lavoro-frontalieri' ? reportedSalaryNote(locale, snapshot.reportedSalary) : ''}
@@ -627,7 +626,7 @@ function buildSitemapXml(
             `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`,
         )
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

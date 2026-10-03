@@ -54,7 +54,7 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero } from './shared/landingHeroPersonality';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import {
@@ -509,8 +509,6 @@ function renderPage(opts: {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -591,7 +589,7 @@ function renderPage(opts: {
       openings: snapshot.liveCount,
       // The editorial estimate is labelled in the tile and prose below.
     }, copy.h1, copy.denseLede)}
-    <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
@@ -648,7 +646,7 @@ function buildSitemapXml(
             `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`,
         )
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
