@@ -386,7 +386,7 @@ jobs:
               e lascia l'item da ritentare nella prossima passata.
               Dedup, label e commenti vanno eseguiti sullo stesso `--repo` target.
             - Parse PR body `## Non implementato (ancora)`: i bullet sono GIÀ classificati nel bundle, sezione `## Candidate bullets` (stesso oracolo di `scripts/ci/followup-has-candidates.mjs`). **Decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8): applica le «Regole di lettura» in testa a quella sezione, senza una terza tassonomia. In breve:
-              - `candidate: false` con `reason: closing-state` o `reason: empty` → **NON creare issue**: decide il bundle, non la tua rilettura.
+              - `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` → **NON creare issue**: decide il bundle, non la tua rilettura.
               - `reason: hard-exclude` è un match LESSICALE, non un verdetto: decidi tu con le regole hard-exclude scritte sotto. `candidate: true` significa AMMISSIBILE, non «da coniare». Solo `kind: bullet` è materia di conio decisa dal bundle.
               - Bullet `blocked:` la cui causa NON è di codice (fonte esterna, terzi, decisione attesa) → conialo con `State: blocked` e la causa in `Blocked on:`.
               Solo se per questa PR la sezione manca o porta `error`, applica tu la regola degli stati letterali (FOLLOWUP.md § parse rules).
