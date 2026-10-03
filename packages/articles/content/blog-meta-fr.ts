@@ -12423,6 +12423,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.viabilita-varese-tre-valli-ottobre.title': 'Varese, circulation Tre Valli : fermetures 3 et 4 octobre',
     'blog.article.viabilita-varese-tre-valli-ottobre.excerpt': 'Contre-la-montre samedi 3 octobre (fermetures 11-18) et 10e Gran Fondo dimanche 4 octobre (via Sacco fermée 00-18). Voici les détails pour les passages.',
     'blog.article.viabilita-varese-tre-valli-ottobre.imageAlt': 'Panneau routier dans un paysage automnal ticinois',
+    'blog.article.saronno-autofficina-sequestrata.title': 'Saronno : un garage automobile saisi pour irrégularités',
+    'blog.article.saronno-autofficina-sequestrata.excerpt': 'Contrôles dans un garage automobile de Saronno : deux travailleurs sans contrat, l’un sans titre de séjour. Activité saisie et suspendue.',
+    'blog.article.saronno-autofficina-sequestrata.imageAlt': 'Garage automobile de Saronno contrôlé par la police locale',
 };
 
 export default blogMetaFr;

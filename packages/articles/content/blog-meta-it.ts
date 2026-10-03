@@ -12422,6 +12422,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.viabilita-varese-tre-valli-ottobre.title': 'Varese, viabilità Tre Valli: chiusure 3 e 4 ottobre',
     'blog.article.viabilita-varese-tre-valli-ottobre.excerpt': 'Cronometro sabato 3 ottobre (chiusure 11-18) e 10ª Gran Fondo domenica 4 ottobre (via Sacco chiusa 00-18). Ecco i dettagli per i transiti.',
     'blog.article.viabilita-varese-tre-valli-ottobre.imageAlt': 'Segnale stradale in un paesaggio autunnale ticinese',
+    'blog.article.saronno-autofficina-sequestrata.title': 'Saronno, sequestrata un’autofficina per irregolarità',
+    'blog.article.saronno-autofficina-sequestrata.excerpt': 'Controlli in un’autofficina di Saronno: due lavoratori senza contratto, uno senza permesso di soggiorno. Attività sequestrata e sospesa.',
+    'blog.article.saronno-autofficina-sequestrata.imageAlt': 'Autofficina di Saronno sottoposta al controllo della Polizia locale',
 };
 
 export default blogMetaIt;

@@ -37250,6 +37250,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'saronno-autofficina-sequestrata',
+ category: 'novita',
+ date: '2026-10-03T17:19:55.927Z',
+ image: '/images/blog/saronno-autofficina-sequestrata.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

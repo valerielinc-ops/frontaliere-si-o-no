@@ -12421,6 +12421,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.viabilita-varese-tre-valli-ottobre.title': 'Varese, Tre Valli traffic: closures on 3 and 4 October',
     'blog.article.viabilita-varese-tre-valli-ottobre.excerpt': 'Time trial on Saturday 3 October (closures 11-18) and 10ª Gran Fondo on Sunday 4 October (via Sacco closed 00-18). Here are the details for passing through.',
     'blog.article.viabilita-varese-tre-valli-ottobre.imageAlt': 'Road sign in a Ticino autumn landscape',
+    'blog.article.saronno-autofficina-sequestrata.title': 'Saronno, auto repair shop seized for irregularities',
+    'blog.article.saronno-autofficina-sequestrata.excerpt': 'Inspections at an auto repair shop in Saronno: two workers without a contract, one without a residence permit. Business seized and suspended.',
+    'blog.article.saronno-autofficina-sequestrata.imageAlt': 'Vehicle repair shop in Saronno inspected by local police',
 };
 
 export default blogMetaEn;
