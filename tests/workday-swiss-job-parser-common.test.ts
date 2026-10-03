@@ -137,6 +137,54 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
     expect(jobs).toHaveLength(0);
     expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
   });
+
+  it('refetches the unfiltered board when an accepted Swiss facet reports zero but the source still lists Switzerland', async () => {
+    const listingRequests: any[] = [];
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        const body = JSON.parse(init.body);
+        listingRequests.push(body);
+        if (Object.keys(body.appliedFacets || {}).length > 0) {
+          return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+        }
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Senior Underwriting Assistant',
+            externalPath: '/job/Zurich/Senior-Underwriting-Assistant_R7298',
+            locationsText: 'Zurich, Switzerland',
+            postedOn: 'Posted Today',
+            bulletFields: ['R7298'],
+          }],
+          facets: [{
+            facetParameter: 'Country',
+            values: [{ id: '187134fccb084a0ea9b4b95f23890dbe', descriptor: 'Switzerland', count: 1 }],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          location: 'Zurich, Switzerland',
+          jobRequisitionLocation: { country: { alpha2Code: 'CH', descriptor: 'Switzerland' } },
+          jobDescription: ROLE_BODY,
+        },
+      }), { status: 200 });
+    }) as any;
+
+    const jobs = await makeParser({
+      countryFacetParameter: 'Country',
+      proveSwissAbsentFromLiveBoard: true,
+    }).fetchAllJobs();
+
+    expect(jobs.map((job: any) => job.title)).toEqual(['Senior Underwriting Assistant']);
+    expect(listingRequests.map((body) => body.appliedFacets)).toEqual([
+      { Country: ['187134fccb084a0ea9b4b95f23890dbe'] },
+      {},
+      {},
+    ]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
 });
 
 /**
