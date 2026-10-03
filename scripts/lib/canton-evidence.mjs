@@ -7,7 +7,9 @@
  * lets the first canton in the lookup table overwrite a valid per-job canton.
  * The source location and crawler canton are stronger evidence when they
  * agree; a location marker that conflicts with the crawler is deliberately
- * not allowed to hide the conflict at assembly time.
+ * not allowed to hide the conflict at assembly time. When the source-backed
+ * locality itself carries a validated canton marker, it is more specific than
+ * a stale listing-level location marker and wins before the crawler stamp.
  *
  * @param {{cityText?: string, locationText?: string, crawlerCanton?: string}} input
  * @returns {string}
@@ -24,6 +26,19 @@ export function inferCantonFromJobEvidence({ cityText = '', locationText = '', c
   const location = String(locationText || '').trim();
   const crawler = String(crawlerCanton || '').trim().toUpperCase();
   const encoded = cantonNamedByLocation(location);
+  const cityEncoded = cantonNamedByLocation(city);
+
+  // `addressLocality` is the source-backed locality for the same stable row.
+  // A validated explicit marker there must outrank a stale `location` marker
+  // and the crawler's default/HQ stamp (e.g. Rüti ZH vs Lachen SZ). Do not let
+  // an arbitrary suffix win: the municipality check keeps malformed/company
+  // text and unknown markers fail-closed.
+  if (
+    cityEncoded
+    && isKnownSwissMunicipalityInCanton(city, cityEncoded)
+  ) {
+    return cityEncoded;
+  }
 
   // An explicit source marker is safe only when it agrees with the crawler's
   // own canton. A disagreement is a real data-quality conflict, not a reason

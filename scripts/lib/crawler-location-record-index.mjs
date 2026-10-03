@@ -39,6 +39,29 @@ function addUniqueRecord(index, key, record) {
   }
 }
 
+function lookupRecord(job, byJobId, byStableIdentity) {
+  if (!job || typeof job !== 'object' || Array.isArray(job)) {
+    return { record: null, status: 'missing' };
+  }
+
+  const jobId = normalizeJobId(job.id);
+  if (jobId && byJobId.has(jobId)) {
+    const record = byJobId.get(jobId);
+    return record === AMBIGUOUS_RECORD
+      ? { record: null, status: 'ambiguous' }
+      : { record, status: 'found' };
+  }
+
+  const identity = buildStableJobIdentity(job);
+  if (!identity || !byStableIdentity.has(identity)) {
+    return { record: null, status: 'missing' };
+  }
+  const record = byStableIdentity.get(identity);
+  return record === AMBIGUOUS_RECORD
+    ? { record: null, status: 'ambiguous' }
+    : { record, status: 'found' };
+}
+
 /**
  * Index crawler location evidence by the per-record ID, with URL identity as
  * a fallback only when it maps consistently to one location record.
@@ -64,19 +87,12 @@ export function createCrawlerLocationRecordIndex() {
       addUniqueRecord(byStableIdentity, buildStableJobIdentity(job), record);
     },
 
+    getWithStatus(job) {
+      return lookupRecord(job, byJobId, byStableIdentity);
+    },
+
     get(job) {
-      if (!job || typeof job !== 'object' || Array.isArray(job)) return null;
-
-      const jobId = normalizeJobId(job.id);
-      if (jobId && byJobId.has(jobId)) {
-        const record = byJobId.get(jobId);
-        return record === AMBIGUOUS_RECORD ? null : record;
-      }
-
-      const identity = buildStableJobIdentity(job);
-      if (!identity || !byStableIdentity.has(identity)) return null;
-      const record = byStableIdentity.get(identity);
-      return record === AMBIGUOUS_RECORD ? null : record;
+      return lookupRecord(job, byJobId, byStableIdentity).record;
     },
 
     get size() {
