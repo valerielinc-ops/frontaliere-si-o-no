@@ -12435,6 +12435,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-zona-tutela-como.title': 'Côme, Police locale : 16 éloignements et 4 plaintes',
     'blog.article.controlli-zona-tutela-como.excerpt': 'Como, contrôles de la Police Locale entre le 15 septembre et le 2 octobre 2026: 16 arrêtés d\'éloignement et 4 plaintes dans les zones de protection renforcée.',
     'blog.article.controlli-zona-tutela-como.imageAlt': 'Parc urbain au Tessin avec allées arborées et bâtiments historiques',
+    'blog.article.como-pusher-consegne-domicilio.title': 'Côme, un trafiquant arrêté pour des livraisons à domicile',
+    'blog.article.como-pusher-consegne-domicilio.excerpt': 'La Police d\'État de Como a arrêté un homme de 48 ans : 51.45 grammes de cocaïne répartis en 86 doses, 120 euros et 141.18 grammes supplémentaires de cocaïne ont été saisis.',
+    'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Côme, opération de la police d\'État contre le trafic de drogue en ville. (Como)',
 };
 
 export default blogMetaFr;

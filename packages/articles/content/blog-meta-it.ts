@@ -12434,6 +12434,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-zona-tutela-como.title': 'Como, Polizia locale: 16 allontanamenti e 4 denunce',
     'blog.article.controlli-zona-tutela-como.excerpt': 'Como, controlli della Polizia Locale tra il 15 settembre e il 2 ottobre 2026: 16 ordini di allontanamento e 4 denunce nelle aree a tutela rafforzata.',
     'blog.article.controlli-zona-tutela-como.imageAlt': 'Parco urbano in Ticino con viali alberati e edifici storici',
+    'blog.article.como-pusher-consegne-domicilio.title': 'Como, arrestato pusher per consegne a domicilio',
+    'blog.article.como-pusher-consegne-domicilio.excerpt': 'La Polizia di Stato di Como ha arrestato un 48enne: sequestrati 51.45 grammi di cocaina in 86 dosi, 120 euro e altri 141.18 grammi di cocaina.',
+    'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Como, operazione della Polizia di Stato contro lo spaccio in città.',
 };
 
 export default blogMetaIt;

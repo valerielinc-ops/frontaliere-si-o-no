@@ -12433,6 +12433,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-zona-tutela-como.title': 'Como, Local Police: 16 removals and 4 reports',
     'blog.article.controlli-zona-tutela-como.excerpt': 'Como, Local Police checks between 15 settembre and 2 ottobre 2026: 16 removal orders and 4 reports in the areas under enhanced protection.',
     'blog.article.controlli-zona-tutela-como.imageAlt': 'Urban park in Ticino with tree-lined paths and historic buildings',
+    'blog.article.como-pusher-consegne-domicilio.title': 'Como, drug dealer arrested for home deliveries',
+    'blog.article.como-pusher-consegne-domicilio.excerpt': 'The State Police of Como arrested a 48-year-old man: 51.45 grams of cocaine in 86 doses, 120 euros, and another 141.18 grams of cocaine seized.',
+    'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Como, State Police operation against drug dealing in the city.',
 };
 
 export default blogMetaEn;

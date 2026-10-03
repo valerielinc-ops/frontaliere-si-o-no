@@ -37286,6 +37286,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-pusher-consegne-domicilio',
+ category: 'novita',
+ date: '2026-10-03T19:06:08.176Z',
+ image: '/images/blog/como-pusher-consegne-domicilio.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

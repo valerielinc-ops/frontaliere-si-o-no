@@ -12432,6 +12432,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-zona-tutela-como.title': 'Como, Lokale Polizei: 16 Ausweisungen und 4 Anzeigen',
     'blog.article.controlli-zona-tutela-como.excerpt': 'Como, Kontrollen der örtlichen Polizei zwischen dem 15. September und dem 2. Oktober 2026: 16 Ausweisungsanordnungen und 4 Anzeigen in Bereichen mit verstärktem Schutz.',
     'blog.article.controlli-zona-tutela-como.imageAlt': 'Stadtpark im Tessin mit Alleen und historischen Gebäuden',
+    'blog.article.como-pusher-consegne-domicilio.title': 'Como, Drogenhändler wegen Lieferungen nach Hause festgenommen',
+    'blog.article.como-pusher-consegne-domicilio.excerpt': 'Die Staatspolizei von Como hat einen 48-Jährigen festgenommen: beschlagnahmt wurden 51.45 Gramm Kokain in 86 Dosen, 120 Euro und weitere 141.18 Gramm Kokain.',
+    'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Como: Einsatz der Staatspolizei gegen Drogenhandel in der Stadt.',
 };
 
 export default blogMetaDe;
