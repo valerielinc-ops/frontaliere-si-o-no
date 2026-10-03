@@ -152,6 +152,51 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
     expect(listingRequests[1].appliedFacets).toEqual({});
   });
 
+  it('preserves anti-bot outcome when the unfiltered retry is partially yielded', async () => {
+    vi.useFakeTimers();
+    try {
+      const listingRequests: any[] = [];
+      const partialPage = Array.from({ length: 20 }, (_, index) => ({
+        title: `Swiss role ${index + 1}`,
+        externalPath: `/job/Zurich/Swiss-role-${index + 1}`,
+        locationsText: 'Zurich, Switzerland',
+        postedOn: 'Posted Today',
+        bulletFields: [`R${index + 1}`],
+      }));
+      global.fetch = vi.fn(async (url: string, init: any = {}) => {
+        const urlStr = String(url);
+        if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+          const body = JSON.parse(init.body);
+          listingRequests.push(body);
+          if (Object.keys(body.appliedFacets || {}).length > 0) {
+            return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+          }
+          if (listingRequests.length === 2) {
+            return new Response(JSON.stringify({ total: 21, jobPostings: partialPage }), { status: 200 });
+          }
+          return new Response('', { status: 403 });
+        }
+        throw new Error(`detail fetch should not run after a partial anti-bot block: ${urlStr}`);
+      }) as any;
+
+      const jobsPromise = makeParser().fetchAllJobs();
+      await vi.runAllTimersAsync();
+      const jobs = await jobsPromise;
+
+      expect(jobs).toHaveLength(20);
+      expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
+      expect(jobs[0]).toMatchObject({ title: 'Swiss role 1', locationRaw: 'Zurich, Switzerland' });
+      expect(listingRequests).toHaveLength(3);
+      expect(listingRequests[0].appliedFacets).toEqual({
+        locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'],
+      });
+      expect(listingRequests[1].appliedFacets).toEqual({});
+      expect(listingRequests[2].appliedFacets).toEqual({});
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('keeps an explicit anti-bot outcome when both listing requests are blocked', async () => {
     global.fetch = vi.fn(async (url: string) => (
       String(url).endsWith('/jobs')

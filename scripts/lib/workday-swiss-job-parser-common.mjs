@@ -694,6 +694,11 @@ export function createWorkdaySwissParser(config) {
       listings = await fetchJobListings({ useCountryFacet: false });
     }
 
+    // An anti-bot block on a later page can leave either unfiltered retry with
+    // a partial batch. Preserve that transport outcome before any listing-level
+    // fallback or parsing can mistake the batch for a complete snapshot.
+    if (listings?.fetchOutcome === 'anti_bot_block') return listings;
+
     const strictSwiss = !facetApplied;
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
