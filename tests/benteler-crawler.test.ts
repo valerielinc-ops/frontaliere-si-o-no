@@ -4,6 +4,7 @@ import { describe, it, expect } from 'vitest';
 import {
   BENTELER_KEY,
   BENTELER_COMPANY_NAME,
+  buildListingUrl,
   isBentelerJob,
   isTrustedDomain,
   isSwissLocation,
@@ -113,6 +114,20 @@ describe('Benteler crawler parser', () => {
 
     it('rejects empty input', () => {
       expect(isSwissLocation('')).toBe(false);
+    });
+  });
+
+  describe('buildListingUrl', () => {
+    it('uses the server-rendered Benteler board on the first page', () => {
+      expect(buildListingUrl()).toBe(
+        'https://career.benteler.jobs/go/All-Jobs/3197201/?q=&sortColumn=referencedate&sortDirection=desc',
+      );
+    });
+
+    it('uses the path-segment offset for later pages', () => {
+      expect(buildListingUrl(25)).toBe(
+        'https://career.benteler.jobs/go/All-Jobs/3197201/25/?q=&sortColumn=referencedate&sortDirection=desc',
+      );
     });
   });
 
