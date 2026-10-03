@@ -847,6 +847,8 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.waiting.owner_review': "La candidature est en vérification finale : vous recevrez bientôt l’e-mail pour l’approuver.",
  'jobBoard.assisted.review.waiting.submitting': "Vous avez approuvé : votre candidature est dans la file d’envoi et part d’ici quelques minutes. Vous pouvez fermer cette page, je vous écris dès qu’elle est envoyée.",
  'jobBoard.assisted.review.submitted': "Votre candidature a été envoyée. Bonne chance !",
+ 'jobBoard.assisted.review.submittedWhatsapp': "Pour cette annonce, l’entreprise reçoit les candidatures uniquement par WhatsApp : je vous ai envoyé le lien et les étapes par e-mail. Ouvrez le lien depuis votre téléphone, envoyez le message déjà rédigé et répondez aux questions de l’assistant dans le chat. Bonne chance !",
+ 'jobBoard.assisted.review.openWhatsapp': "Ouvrir la candidature sur WhatsApp",
  'jobBoard.assisted.review.takeover': "Valerie suit personnellement votre candidature : elle vous écrit sous peu.",
  'jobBoard.assisted.review.heldByQuestions': "Il manque des réponses avant l’envoi (champs avec *). Tant qu’elles manquent, la candidature ne part pas.",
  'jobBoard.assisted.review.heldByDocuments': "Il manque avant l’envoi des documents demandés par l’annonce : téléversez-les ci-dessous, ou choisissez d’envoyer sans eux. Tant qu’ils manquent, la candidature ne part pas.",

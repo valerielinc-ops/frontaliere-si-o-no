@@ -154,6 +154,12 @@ async function main() {
       await scheduleFollowups(db, orderId, event.followup);
       delete event.followup;
     }
+    // A WhatsApp application: its link goes on the order, for the candidate's
+    // «inviata» e-mail with the steps (assistedApplicationNotifications.js).
+    if (event.whatsappUrl) {
+      if (!dryRun) await orderRef.set({ submissionChannel: 'whatsapp', whatsappApplyUrl: String(event.whatsappUrl).slice(0, 1000) }, { merge: true });
+      delete event.whatsappUrl;
+    }
     // What the portal received (career-ops application-answers), next to the
     // draft for the interview prep and Valerie's panel; never in the event or the log.
     if (event.portalAnswers) {

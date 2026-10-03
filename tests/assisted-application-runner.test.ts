@@ -338,7 +338,8 @@ describe('submit mode', () => {
   });
 
   // Coop's apprenticeships, 2026-10-02: the redirect ends on a WhatsApp chat (PastaHR).
-  it('hands a WhatsApp-only application over without running the browser', async () => {
+  // Owner decision 2026-10-03: sent once the candidate has the link and the steps by e-mail.
+  it('completes a WhatsApp-only application with its link, without running the browser', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
     const posting = 'https://jobs.coopjobs.ch/offene-stellen/detailhandel-efz/5ce03251-9c03-4836-9887-cdbd5753a42c';
@@ -350,15 +351,24 @@ describe('submit mode', () => {
       return new Response(`<main><p>${'Lehrstelle bei Coop. '.repeat(30)}</p><a href="${redirect}">Jetzt bewerben</a></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
     });
     const runner = vi.fn();
-    const submit = (draft: any) => submitApplication({
+    const sendCascade = vi.fn();
+    const submit = (draft: any, extra: Record<string, unknown> = {}) => submitApplication({
       order, orderId: ORDER_ID, draft, cvBuffer: cvPdf(), cvType: 'pdf', flow: { answers: { salary_expectation: 'CHF 80k' } },
-      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner, ...extra,
     });
+    const pastaChannel = { type: 'pastahr', applyUrl: pasta, postingUrl: posting, via: 'prospective', host: 'prod.pastahr.com', requiresAccount: false };
+    const sent = { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: pasta };
+    // A draft from before the redirect was resolved, and one made today.
     await expect(submit({ ...baseDraft, channel: { type: 'employer_site', applyUrl: posting, host: 'jobs.coopjobs.ch', requiresAccount: false } }))
-      .resolves.toEqual({ type: 'submit_handoff', reason: 'whatsapp' });
-    await expect(submit({ ...baseDraft, channel: { type: 'pastahr', applyUrl: pasta, postingUrl: posting, via: 'prospective', host: 'prod.pastahr.com', requiresAccount: false } }))
+      .resolves.toEqual(sent);
+    await expect(submit({ ...baseDraft, channel: pastaChannel })).resolves.toEqual(sent);
+    expect([...bucket.files.keys()].some((key) => key.includes('submit-whatsapp'))).toBe(true);
+    // A dry run says so and stores nothing; a WhatsApp channel without a PastaHR https link stays a handoff.
+    await expect(submit({ ...baseDraft, channel: pastaChannel }, { dryRun: true })).resolves.toEqual({ type: 'dry_run_ready', channel: 'whatsapp' });
+    await expect(submit({ ...baseDraft, channel: { ...pastaChannel, applyUrl: 'http://prod.pastahr.com/en/r/COFU2003' } }))
       .resolves.toEqual({ type: 'submit_handoff', reason: 'whatsapp' });
     expect(runner).not.toHaveBeenCalled();
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   // Rolex 2026-10-02: «Vos bulletins des trois dernières années scolaires», EVA and GRI results.
