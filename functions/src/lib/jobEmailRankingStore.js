@@ -57,7 +57,7 @@ function incrementField(data, path, amount) {
   if (amount > 0) data[path] = FieldValue.increment(amount);
 }
 
-function jobManifestEntry(job, index) {
+export function jobManifestEntry(job, index) {
   const ranking = job?.ranking || {};
   return {
     job_id: String(job?.jobId || stableJobId(job)),
@@ -67,6 +67,17 @@ function jobManifestEntry(job, index) {
     ctr_shrink: Number.isFinite(Number(ranking.ctrShrink)) ? Number(ranking.ctrShrink) : null,
     random_boost: Number.isFinite(Number(ranking.randomBoost)) ? Number(ranking.randomBoost) : null,
   };
+}
+
+/**
+ * Lean ranked manifest for a list of sent jobs: the same per-job shape that
+ * recordJobEmailImpressions stores in job_email_ranking_deliveries. Senders use
+ * it for every other Firestore copy of the ranked list, so a delivery record
+ * never carries the full job objects (description + descriptionByLocale are
+ * 21-24 KB per job, ~200 KB per ten-job delivery document).
+ */
+export function buildRankingJobsManifest(jobs) {
+  return Array.isArray(jobs) ? jobs.map(jobManifestEntry) : [];
 }
 
 /**

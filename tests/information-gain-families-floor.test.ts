@@ -203,7 +203,7 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'vivere-in-germania',
-    minMedian: 10, // misurato 11,1 % (era 5,1 %)
+    minMedian: 40, // misurato 41,7 % dopo il profilo numerico e i gruppi di confronto
     render: () =>
       GERMAN_ABOVE_FLOOR.map((m) =>
         renderGerman({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),

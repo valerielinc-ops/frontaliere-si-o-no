@@ -15,6 +15,8 @@ import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { dropFabricatedLocaleText, sourceLocaleDescription } from './source-locale-description.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
+import { CRAWLER_FETCH_FAILURE_OUTCOMES } from './crawler-fetch-outcome.mjs';
 
 const HQ = getCompanyDefaults('vir-biotechnology');
 
@@ -114,7 +116,7 @@ export function parseGreenhouseJobs(apiResponse) {
     if (!job.title || !job.id) continue;
 
     // Check if any office/location is in Switzerland
-    const offices = job.offices || [];
+    const offices = Array.isArray(job.offices) ? job.offices : [];
     const locationObj = job.location || {};
     const locationName = locationObj.name || '';
 
@@ -160,6 +162,102 @@ export function parseGreenhouseJobs(apiResponse) {
   }
 
   return results;
+}
+
+function hasGreenhouseIdentity(job = {}) {
+  return Boolean(job?.title && job?.id);
+}
+
+function isGreenhouseObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasGreenhouseLocationPayload(job = {}) {
+  const location = job?.location;
+  const offices = job?.offices;
+  if (!isGreenhouseObject(location) || !Array.isArray(offices)) return false;
+  if (typeof location.name !== 'string') return false;
+  if (!offices.every((office) => isGreenhouseObject(office) && typeof office.name === 'string')) {
+    return false;
+  }
+
+  const locationName = normalizeSpace(location.name);
+  const officeNames = offices.map((office) => normalizeSpace(office.name)).filter(Boolean);
+  return Boolean(locationName || officeNames.length > 0);
+}
+
+/**
+ * Classify a successful Greenhouse response before the runner decides whether
+ * it may keep the existing slice. A non-empty feed with valid location data
+ * but no Swiss matches is a real, observed filtered-empty run; a feed whose
+ * records lost their identity/location fields is parser drift and must stay
+ * fail-closed.
+ */
+export function classifyGreenhouseResponse(apiResponse) {
+  if (!apiResponse || !Array.isArray(apiResponse.jobs)) {
+    return {
+      jobs: [],
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    };
+  }
+
+  const sourceJobs = apiResponse.jobs;
+  const malformedSource = sourceJobs.some(
+    (job) => !hasGreenhouseIdentity(job) || !hasGreenhouseLocationPayload(job),
+  );
+  if (sourceJobs.length > 0 && malformedSource) {
+    return {
+      jobs: [],
+      discovered: sourceJobs.length,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    };
+  }
+
+  const jobs = parseGreenhouseJobs(apiResponse);
+  const authoritativeEmptySnapshot = jobs.length === 0;
+  return {
+    jobs,
+    discovered: sourceJobs.length,
+    parsed: jobs.length,
+    lastFetchOutcome: jobs.length > 0
+      ? 'ok'
+      : sourceJobs.length > 0
+        ? 'filtered_empty'
+        : 'ok',
+    abortKind: null,
+    // Greenhouse's board endpoint returns the complete active-job array in a
+    // single response. Once every source record has the expected identity and
+    // location fields, zero Swiss matches proves an empty Vir-in-Switzerland
+    // snapshot; a failed or malformed response never reaches this branch.
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified: authoritativeEmptySnapshot,
+  };
+}
+
+/** Classify a fetch/schema failure without turning it into a healthy zero. */
+export function classifyGreenhouseFetchError(error) {
+  const status = Number(error?.status);
+  const lastFetchOutcome = WAF_IP_BLOCK_STATUS.has(status)
+    ? 'anti_bot_block'
+    : isConnectionLevelFetchError(error)
+      ? 'connection_error'
+      : 'feed_endpoint_unavailable';
+  return {
+    lastFetchOutcome,
+    abortKind: CRAWLER_FETCH_FAILURE_OUTCOMES.has(lastFetchOutcome)
+      && lastFetchOutcome !== 'feed_endpoint_unavailable'
+      ? 'connection-level-fetch'
+      : 'no-jobs-parsed',
+  };
 }
 
 /**

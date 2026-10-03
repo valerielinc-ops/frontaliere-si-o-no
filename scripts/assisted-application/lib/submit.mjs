@@ -31,6 +31,8 @@ import { storeEvidence } from './secure-run.mjs';
 import { dossierAttachment, dossierMode, draftCandidateType, wantsDossier } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
+// PastaHR's application page (QR code / «Open WhatsApp»), over https.
+const WHATSAPP_APPLICATION_RE = /^https:\/\/([a-z0-9-]+\.)*pastahr\.(com|io)\//i;
 const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
 
 /** Open required questions block the submission, whatever the channel. */
@@ -319,8 +321,18 @@ export async function submitApplication(ctx) {
     }
   }
 
-  // LinkedIn, a WhatsApp application (PastaHR: Coop's apprenticeships) and any
-  // channel without a usable URL: career-ops browser handoff.
+  // A WhatsApp application (PastaHR: Coop's apprenticeships). Owner decision
+  // 2026-10-03: it is done once the candidate has the link and the steps by
+  // e-mail, the order's «inviata» message (assistedApplicationNotifications.js).
+  // No browser runs and nobody presses anything in the candidate's name.
+  if (channelType === 'pastahr' && WHATSAPP_APPLICATION_RE.test(applyUrl)) {
+    if (ctx.dryRun) return { type: 'dry_run_ready', channel: 'whatsapp' };
+    await storeEvidence({ bucket, orderId, name: 'submit-whatsapp', payload: { channel, applyUrl }, key: runKey, nowMs });
+    return { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: applyUrl };
+  }
+
+  // LinkedIn, a WhatsApp channel without its link and any channel without a
+  // usable URL: career-ops browser handoff.
   await storeEvidence({
     bucket,
     orderId,

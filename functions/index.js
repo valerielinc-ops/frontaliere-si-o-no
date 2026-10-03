@@ -128,6 +128,7 @@ import { handlePetitionSign } from './src/petitionSign.js';
 import { acceptsGzip, getCachedPublicPlateAuctionSnapshotBody, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
+import { GCP_COST_MONITOR_CLOUD_SCHEDULE, dispatchGcpCostMonitorWorkflow } from './src/gcpCostMonitorDispatch.js';
 
 ensureAdminApp();
 
@@ -2647,5 +2648,19 @@ export const dispatchCrawlerOrchestrator = onSchedule(
  async (event) => {
   const result = await dispatchOrchestrator({ scheduledAt: event.scheduleTime });
   console.log('[dispatchCrawlerOrchestrator]', JSON.stringify(result));
+ },
+);
+
+// Same move for the GCP cost monitor: GitHub created the `23 7` scheduled run
+// of monitor-gcp-costs.yml 5-6.5 hours late (see gcpCostMonitorDispatch.js).
+// Cloud Scheduler dispatches it every 6 hours; the workflow keeps its native
+// cron as an independent safety net. No claim and no retry: the monitor is
+// idempotent (rolling 24-hour window, one stable-title issue) and the next
+// slot is 6 hours away.
+export const dispatchGcpCostMonitor = onSchedule(
+ { region: 'europe-west6', schedule: GCP_COST_MONITOR_CLOUD_SCHEDULE, timeZone: 'UTC' },
+ async (event) => {
+  const result = await dispatchGcpCostMonitorWorkflow({ scheduledAt: event.scheduleTime });
+  console.log('[dispatchGcpCostMonitor]', JSON.stringify(result));
  },
 );
