@@ -315,10 +315,16 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: zero, timeoutMs: 1000 }))
       .resolves.toMatchObject({ urls: [], pagesSucceeded: 2, sourceZero: true });
     const unrelated = async () => new Response(
-      `${marker}<p>Offene Stellen – 0 neue Hinweise</p></html>`,
+      `${marker}<div class="job-filter"><span class="total">0 nuove indicazioni</span></div></html>`,
       { status: 200 },
     );
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: unrelated, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
+    const labelledCount = async () => new Response(
+      `${marker}<div class="listing-count">0 nuove indicazioni</div></html>`,
+      { status: 200 },
+    );
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: labelledCount, timeoutMs: 1000 }))
       .rejects.toThrow(/explicit zero-open-positions marker/);
     const unmarkedZero = async () => new Response(`${marker}</html>`, { status: 200 });
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: unmarkedZero, timeoutMs: 1000 }))

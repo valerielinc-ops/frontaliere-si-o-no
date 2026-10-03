@@ -82,8 +82,7 @@ const CAREERS_URLS = [
   'https://www.raiffeisen.ch/vedeggio-cassarate/de/ueber-uns/karriere/arbeiten-bei-raiffeisenbank.html',
 ];
 
-const LISTING_CONTEXT_RE = /(?:listing|listings|job(?:s|list)?|vacanc(?:y|ies)|position(?:s)?|stelle(?:n)?|stellenangebote|postes?|offert(?:e|a)|angebot(?:e)?|offer)/i;
-const LISTING_COUNT_RE = /(?:count|counter|total|number|anzahl|nombre|numero|quant(?:ity|ita)|result(?:s)?)/i;
+const LISTING_COUNT_SELECTOR = '.listing-count';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -108,40 +107,17 @@ function isRaiffeisenVCJob(job) {
 
 function hasExplicitEmptyListingState(html) {
   const document = new JSDOM(String(html || '')).window.document;
-  const candidates = [...document.querySelectorAll('*')].filter((element) => {
-    const ownAttributes = [
-      element.id,
-      element.className,
-      ...element.getAttributeNames().flatMap((name) => [name, element.getAttribute(name)]),
-    ].filter(Boolean).join(' ');
-    if (!LISTING_COUNT_RE.test(ownAttributes)) return false;
-
-    // Keep the context local to the count node and its nearest containers. A
-    // free-text page-wide scan can mistake navigation/filter copy for source
-    // evidence, while a named listing-count node remains tied to the list.
-    let contextNode = element;
-    const contextParts = [];
-    for (let depth = 0; contextNode && depth < 3; depth += 1, contextNode = contextNode.parentElement) {
-      contextParts.push(
-        contextNode.id,
-        contextNode.className,
-        ...contextNode.getAttributeNames().flatMap((name) => [name, contextNode.getAttribute(name)]),
-      );
-    }
-    return LISTING_CONTEXT_RE.test(contextParts.filter(Boolean).join(' '));
-  });
-
+  const candidates = [...document.querySelectorAll(LISTING_COUNT_SELECTOR)];
   const countValues = candidates.map((element) => {
     const text = htmlToText(element.innerHTML || element.textContent || '')
       .replace(/\u00a0/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
-    const numericValues = text.match(/(?<![\d.,])\d+(?![\d.,])/g) || [];
-    return numericValues.length === 1 && numericValues[0] === '0' ? 0 : null;
+    return text === '0' ? 0 : null;
   });
 
-  // Every matched listing-count copy must explicitly say zero. Missing or
-  // ambiguous count markup therefore fails closed and preserves prior jobs.
+  // Only the site's structural listing-count node can authorize zero. Missing,
+  // duplicated, or non-exact count markup fails closed and preserves prior jobs.
   return countValues.length > 0 && countValues.every((value) => value === 0);
 }
 
