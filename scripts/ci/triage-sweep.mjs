@@ -56,13 +56,16 @@
  * backfill one-time post-PR #3554 (nuova policy routing universale: categorie
  * le categorie ordinarie ricevono agent:fix-queued). Non
  * tocca le issue già in stato di routing (agent:fix/agent:fix-queued/fu-parked/
- * fu-attempt:*) né le crawler-transient.
+ * fu-attempt:*) né le crawler-transient, né le issue vetate da `queueVeto()`
+ * (`DECOMPOSE_STAGE_LABELS`, bucket giornaliero senza item `open`): quelle
+ * vengono saltate con un log e contate fra i marked-only.
  *
  * `agent:triaged` SEMPRE via GITHUB_TOKEN (idempotenza, non deve triggerare);
  * il routing SEMPRE via GITHUB_PAT (anti-ricorsione + gate sender, come il path
  * event-driven). PAT assente → le routabili (fix/queue) restano ORFANE (no
- * triaged): uno sweep post-recovery le routa. Tagghiamo solo crawler-transient
- * (l'unica categoria non-routabile per costruzione, vedi sopra).
+ * triaged): uno sweep post-recovery le routa. Tagghiamo solo le non-routabili
+ * per costruzione: crawler-transient (vedi sopra) e le vetate da `queueVeto()`,
+ * che nel primo passaggio ricevono soltanto `agent:triaged`, anche senza PAT.
  *
  * Uso:  node scripts/ci/triage-sweep.mjs [--dry-run] [--cap N]
  * Env:  GH_TOKEN (GITHUB_TOKEN: list + agent:triaged + commenti),
@@ -435,8 +438,13 @@ function main() {
       markedOnly++;
       continue;
     }
-    if (isDailyBucketTitle(iss.title) && typeof iss.body !== 'string') {
-      console.log(`#${iss.number} triaged-no-route bucket giornaliero senza corpo nella riga letta → nessun veto sugli item.`);
+    if (isDailyBucketTitle(iss.title)) {
+      // `gh issue list --json body` dà sempre una stringa (vuota se assente):
+      // il caso reale è il parse che non dimostra nulla, non il campo mancante.
+      const items = typeof iss.body === 'string' ? parseFollowupItems(iss.body) : null;
+      if (!items || items.unterminatedFence || !items.some((item) => item.id)) {
+        console.log(`#${iss.number} triaged-no-route bucket giornaliero con corpo vuoto o non leggibile → nessun veto sugli item.`);
+      }
     }
     unrouted.push(iss);
   }
