@@ -6,6 +6,7 @@ import {
   type AssistedApplicationAdminOrder,
   type AutomationAdminAction,
 } from '@/services/assistedApplicationAdminService';
+import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
 
 /**
  * Owner view of the automated assisted application for one order: flow
@@ -413,8 +414,9 @@ export default function AssistedApplicationAutomationPanel({
                 <div className="rounded-lg border border-edge bg-surface p-3 sm:col-span-2">
                   <p className="font-semibold uppercase tracking-wide text-muted">CV adattato ATS</p>
                   <p className="mt-1">
-                    {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : draft.cvChoice === 'inplace' ? 'CV originale con le righe adattate' : 'CV adattato'}
+                    {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : draft.cvChoice === 'inplace' ? 'CV originale con le righe adattate' : draft.candidateCvChoice === 'inplace' ? `CV originale con le righe adattate, non più offerto${draft.tailoredCv.status === 'ready' ? ' → vale il CV adattato' : ''}` : 'CV adattato'}
                     {draft.tailoredCv.url && <> · <a className="text-link hover:underline" href={draft.tailoredCv.url} target="_blank" rel="noreferrer">apri il PDF</a></>}
+                    {draft.tailoredCv.renderer === 'legacy' && <> · <span className="text-warning">{LEGACY_RENDERER_NOTE}</span></>}
                   </p>
                   {draft.tailoredCv.unsupported.length > 0 && <p className="text-muted">Fatti non trovati: {draft.tailoredCv.unsupported.map((item) => item.token).join(', ')}</p>}
                   {draft.tailoredCv.dropped.length > 0 && <p className="text-muted">Competenze scartate (non nel CV): {draft.tailoredCv.dropped.join(', ')}</p>}
@@ -499,6 +501,7 @@ export default function AssistedApplicationAutomationPanel({
             <textarea value={letter} onChange={(event) => setLetter(event.target.value)} rows={10} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
           </label>
           {draft.coverLetterUrl && <a className="inline-flex items-center gap-1 text-xs text-link hover:underline" href={draft.coverLetterUrl} target="_blank" rel="noreferrer"><FileText size={13} aria-hidden="true" /> PDF lettera</a>}
+          {draft.coverLetterRenderer === 'legacy' && <span className="ml-2 text-xs text-warning">{LEGACY_RENDERER_NOTE}</span>}
           <div className="grid gap-2 sm:grid-cols-2">
             <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
               Email a (vuoto = portale)
