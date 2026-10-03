@@ -503,7 +503,9 @@ if (isMain) {
     const [bodyIn, stateDir, bodyOut] = rest;
     if (!bodyOut) throw new Error('usage: --update-body <body-in> <stateDir> <body-out>');
     fs.rmSync(bodyOut, { force: true });
-    const { body, changed } = replacePinBodySections(fs.readFileSync(bodyIn, 'utf8'), {
+    // `gh pr view --jq .body` aggiunge un newline finale che il body salvato non
+    // ha: toglierlo evita che ogni aggiornamento reale ne accumuli uno.
+    const { body, changed } = replacePinBodySections(fs.readFileSync(bodyIn, 'utf8').replace(/\n$/, ''), {
       implemented: fs.readFileSync(path.join(stateDir, 'implemented.md'), 'utf8'),
       pending: fs.readFileSync(path.join(stateDir, 'pending.md'), 'utf8'),
     });

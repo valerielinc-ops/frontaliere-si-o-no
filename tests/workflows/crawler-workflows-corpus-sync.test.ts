@@ -558,7 +558,8 @@ if [ "$1 $2" = "api user" ]; then
 elif [ "$1 $2" = "pr list" ]; then
   printf '%s\\n' "\${GH_STUB_LIST_JSON:-[]}"
 elif [ "$1 $2" = "pr view" ]; then
-  cat "$GH_STUB_BODY"
+  # Come gh pr view --jq .body: il body seguito da un newline.
+  cat "$GH_STUB_BODY"; printf '\\n'
 elif [ "$1 $2" = "pr create" ] || [ "$1 $2" = "pr edit" ]; then
   printf '%s\\n' "$1 $2" >> "$GH_STUB_BODY.calls"
   while [ "$#" -gt 0 ]; do

@@ -299,7 +299,9 @@ if [ -n "$open_number" ]; then
   current_body="$work/pr-body-current.md"
   updated_body="$work/pr-body-updated.md"
   if ! gh pr view "$open_number" --repo "$target_repo" --json body --jq .body > "$current_body"; then
-    echo "::error::gh pr view #$open_number non ha risposto; branch gia' pushato, sezioni del pin nel body non verificate"
+    # exit 1 per scelta, come il ramo di creazione: il workflow ritenta e la
+    # consegna e' idempotente; un warning lascerebbe il body col pin vecchio.
+    echo "::error::gh pr view #$open_number fallito; branch gia' pushato, sezioni del pin nel body non verificate"
     exit 1
   fi
   if ! node "$site_root/scripts/ci/translate-watchdog-pin.mjs" \
@@ -313,7 +315,7 @@ if [ -n "$open_number" ]; then
     if [ "$update_gate_status" -ne 0 ]; then
       echo "::warning::body aggiornato della PR di trasporto #$open_number rifiutato dal gate (exit $update_gate_status); body lasciato invariato"
     elif ! gh pr edit "$open_number" --repo "$target_repo" --body-file "$updated_body"; then
-      echo "::error::gh pr edit #$open_number non ha risposto; branch gia' pushato, body col pin precedente"
+      echo "::error::gh pr edit #$open_number fallito; branch gia' pushato, body col pin precedente"
       exit 1
     fi
   fi
