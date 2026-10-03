@@ -7667,6 +7667,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lista-governo-ticino-2027.title': 'Weiter mit Ticino&Lavoro: Regierungsliste 2027',
     'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli und Giovanni Albertini stehen für den Staatsrat vom 11 aprile 2027 auf der Liste.',
     'blog.article.lista-governo-ticino-2027.imageAlt': 'Politische Präsentation in Lamone für die Tessiner Regierungsliste',
+    'blog.article.guida-3a-fisco-vaud.title': 'Dritte Säule 3a: Vorteile 2026 im Kanton Vaud',
+    'blog.article.guida-3a-fisco-vaud.excerpt': 'Leitfaden 2026 zur dritten Säule 3a im Kanton Vaud: Steuervorteile, drei Besteuerungsebenen, indexierter Höchstbetrag und nationaler Vergleich.',
+    'blog.article.guida-3a-fisco-vaud.imageAlt': 'Steuerunterlagen und Rechner für die Schweizer Säule 3a im Kanton Waadt',
 };
 
 export default blogMetaChDe;

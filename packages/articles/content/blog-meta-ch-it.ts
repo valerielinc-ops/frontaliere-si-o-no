@@ -7667,6 +7667,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lista-governo-ticino-2027.title': 'Avanti con Ticino&Lavoro: lista Governo 2027',
     'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli e Giovanni Albertini sono in lista per il Consiglio di Stato dell\'11 aprile 2027.',
     'blog.article.lista-governo-ticino-2027.imageAlt': 'Presentazione politica a Lamone per la lista al Governo ticinese',
+    'blog.article.guida-3a-fisco-vaud.title': 'Terzo pilastro 3a: vantaggi 2026 nel canton Vaud',
+    'blog.article.guida-3a-fisco-vaud.excerpt': 'Guida 2026 al terzo pilastro 3a nel canton Vaud: vantaggi fiscali, tre livelli d\'imposta, massimale indicizzato e confronto nazionale.',
+    'blog.article.guida-3a-fisco-vaud.imageAlt': 'Documenti fiscali e calcolatore per il terzo pilastro 3a nel canton Vaud',
 };
 
 export default blogMetaChIt;

@@ -2578,6 +2578,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pilastro3a-zurigo-strategia': { it: 'pilastro3a-zurigo-strategia', en: 'pillar3a-zurich-strategy', de: 'saeule3a-zuerich-strategie', fr: 'pilier3a-zurich-strategie' },
  'guida-terzo-3a-berna': { it: 'guida-terzo-3a-berna', en: 'swiss-3a-pillar-bern-guide', de: '3a-saeule-bern-leitfaden', fr: 'pilier-3a-berne-guide' },
  'lista-governo-ticino-2027': { it: 'lista-governo-ticino-2027', en: 'ticino-government-list-2027', de: 'tessiner-regierungs-liste-2027', fr: 'liste-gouvernement-tessin-2027' },
+ 'guida-3a-fisco-vaud': { it: 'guida-3a-fisco-vaud', en: 'third-pillar-3a-vaud-guide', de: '3a-saeule-steuern-waadt', fr: 'pilier-3a-fiscalite-vaud' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

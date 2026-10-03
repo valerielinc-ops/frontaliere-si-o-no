@@ -7667,6 +7667,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lista-governo-ticino-2027.title': 'Forward with Ticino&Lavoro: 2027 Government list',
     'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli and Giovanni Albertini are on the list for the State Council on 11 aprile 2027.',
     'blog.article.lista-governo-ticino-2027.imageAlt': 'Political presentation in Lamone for the Ticino government candidate list',
+    'blog.article.guida-3a-fisco-vaud.title': 'Third pillar 3a: 2026 benefits in the canton of Vaud',
+    'blog.article.guida-3a-fisco-vaud.excerpt': '2026 guide to the third pillar 3a in the canton of Vaud: tax benefits, three tax levels, indexed maximum amount and national comparison.',
+    'blog.article.guida-3a-fisco-vaud.imageAlt': 'Tax documents and calculator for Swiss third-pillar 3a planning in Vaud',
 };
 
 export default blogMetaChEn;
