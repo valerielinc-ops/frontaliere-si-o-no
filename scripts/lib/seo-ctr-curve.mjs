@@ -1001,6 +1001,63 @@ export function aggregateFamilyRows(rows, { underperformRatio = DEFAULT_UNDERPER
 }
 
 /**
+ * Distanza minima fra due controlli CONTEGGIATI del monitor CTR.
+ *
+ * `consecutiveBelowRuns` viene pubblicato come «controlli settimanali
+ * consecutivi»: la soglia di escalation e il testo della issue lo leggono in
+ * settimane. Il cron e' settimanale, ma un dispatch manuale o un re-run nella
+ * stessa settimana rilegge quasi la stessa finestra di 14 giorni: e' una
+ * seconda lettura, non una seconda settimana. Sei giorni lasciano margine alle
+ * ore di ritardo con cui parte una run schedulata.
+ */
+export const CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS = 6;
+
+/**
+ * Decide cosa fa un controllo al contatore di una famiglia.
+ *
+ * Un controllo e' CONTEGGIATO quando non ne esiste uno conteggiato prima,
+ * oppure l'ultimo ha almeno `minIntervalDays` giorni: allora incrementa il
+ * contatore (sotto target) o lo azzera (a target). Un controllo fuori cadenza
+ * non lo muove in nessuna delle due direzioni: contarlo porta una famiglia in
+ * escalation con una settimana di anticipo, azzerare su di lui cancella una
+ * serie che il controllo settimanale avrebbe potuto continuare. Misurato il
+ * 2026-10-03: un dispatch manuale a sei giorni dal cron ha portato due
+ * famiglie da 4 a 5, una da 1 a 2 (issue aperta) e una da 3 a 0.
+ *
+ * Lo stato scritto prima di `lastCountedIso` non lo contiene: allora ogni
+ * controllo era conteggiato, quindi l'ancora e' `lastCheckedIso`.
+ *
+ * @param {{consecutiveBelowRuns?: number, lastCountedIso?: string|null, lastCheckedIso?: string|null}|null|undefined} prior
+ * @param {{belowTarget: boolean, nowIso: string, minIntervalDays?: number}} check
+ * @returns {{counted: boolean, consecutiveBelowRuns: number, lastCountedIso: string|null}}
+ */
+export function nextCtrMonitorCounter(prior, { belowTarget, nowIso, minIntervalDays = CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS } = {}) {
+  const nowMs = Date.parse(nowIso);
+  if (!Number.isFinite(nowMs)) throw new TypeError(`nextCtrMonitorCounter: nowIso non valido: ${nowIso}`);
+  const priorRuns = Number.isInteger(prior?.consecutiveBelowRuns) && prior.consecutiveBelowRuns > 0
+    ? prior.consecutiveBelowRuns
+    : 0;
+  const anchorIso = ctrMonitorCountedAnchor(prior);
+  const anchorMs = anchorIso === null ? NaN : Date.parse(anchorIso);
+  // Un'ancora illeggibile o nel futuro non puo' congelare il contatore.
+  const counted = !Number.isFinite(anchorMs)
+    || anchorMs > nowMs
+    || nowMs - anchorMs >= minIntervalDays * 86_400_000;
+  if (!counted) return { counted: false, consecutiveBelowRuns: priorRuns, lastCountedIso: anchorIso };
+  return { counted: true, consecutiveBelowRuns: belowTarget ? priorRuns + 1 : 0, lastCountedIso: nowIso };
+}
+
+/**
+ * L'ancora della cadenza di una famiglia: l'ultimo controllo conteggiato o,
+ * per lo stato precedente a quel campo, l'ultimo controllo eseguito. La usa
+ * anche il ramo di errore del monitor, che aggiorna `lastCheckedIso` senza
+ * aver conteggiato nulla e non deve spostare la cadenza.
+ */
+export function ctrMonitorCountedAnchor(prior) {
+  return prior?.lastCountedIso ?? prior?.lastCheckedIso ?? null;
+}
+
+/**
  * Quante pagine sotto curva finiscono nella issue di famiglia. Il resto resta
  * contato nella riga di riepilogo: una issue con 400 righe non la legge nessuno.
  */
