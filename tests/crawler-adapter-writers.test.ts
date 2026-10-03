@@ -32,6 +32,7 @@ import {
   assertRaiffeisenAdapterParity,
   ensureAdapterSeedUrls as ensureRaiffeisen,
   fetchJobUrls as fetchRaiffeisenJobUrls,
+  buildRaiffeisenAuthoritativeEmptySnapshot,
 } from '../scripts/update-raiffeisen-vc-jobs.mjs';
 import {
   assertSbbAdapterParity,
@@ -306,13 +307,40 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/503/);
   });
 
-  it('accepts zero only from both branded pages and rejects a partial/foreign body', async () => {
-    const zero = async () => new Response(`${marker}</html>`, { status: 200 });
+  it('accepts zero only from both branded pages with an explicit empty marker', async () => {
+    const zero = async () => new Response(`${marker}<p>Offerte attive: 0</p></html>`, { status: 200 });
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: zero, timeoutMs: 1000 }))
       .resolves.toMatchObject({ urls: [], pagesSucceeded: 2, sourceZero: true });
+    const unmarkedZero = async () => new Response(`${marker}</html>`, { status: 200 });
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unmarkedZero, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
     const unrelated = async () => new Response('<html>challenge</html>', { status: 200 });
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: unrelated, timeoutMs: 1000 }))
       .rejects.toThrow(/identity marker/);
+  });
+
+  it('builds a health-visible authoritative zero and reports removed jobs', () => {
+    const priorJob = {
+      companyKey: 'banca-raiffeisen-vedeggio-cassarate',
+      slug: 'consulente-clientela-privata-banca-raiffeisen-vedeggio-cassarate',
+      title: 'Consulente clientela privata',
+      url: detail,
+    };
+    const result = buildRaiffeisenAuthoritativeEmptySnapshot(
+      [priorJob],
+      '2026-10-03T00:00:00.000Z',
+      42,
+    );
+    expect(result.jobs).toEqual([]);
+    expect(result.jobs.authoritativeEmptyState).toBe('authoritative-source-zero');
+    expect(result.summary).toMatchObject({
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+      total: 0,
+      removedCount: 1,
+      durationMs: 42,
+    });
+    expect(result.crawlDiff.removedJobs).toHaveLength(1);
   });
 });
 

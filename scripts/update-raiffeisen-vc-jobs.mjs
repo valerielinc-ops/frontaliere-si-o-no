@@ -31,12 +31,13 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
@@ -47,8 +48,10 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseRaiffeisenDetailPage,
+  htmlToText,
   MIN_DESC_LENGTH,
 } from './lib/raiffeisen-vc-job-parser.mjs';
+import { markAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
 import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -77,6 +80,12 @@ const CAREERS_URLS = [
   'https://www.raiffeisen.ch/vedeggio-cassarate/de/ueber-uns/karriere/arbeiten-bei-raiffeisenbank.html',
 ];
 
+const EMPTY_LISTING_LABEL_RE = /(?:offert(?:e|a)\s+attive|posizioni\s+aperte|offene\s+stellen|stellenangebote|postes?\s+vacant(?:e|s)?|open\s+positions?)/i;
+const EXPLICIT_EMPTY_LISTING_RE = new RegExp(
+  String.raw`(?:${EMPTY_LISTING_LABEL_RE.source}[^0-9]{0,32}0\b|\b0[^0-9]{0,32}${EMPTY_LISTING_LABEL_RE.source})`,
+  'i',
+);
+
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -98,6 +107,57 @@ function isRaiffeisenVCJob(job) {
   );
 }
 
+function hasExplicitEmptyListingState(html) {
+  return EXPLICIT_EMPTY_LISTING_RE.test(htmlToText(html).replace(/\s+/g, ' '));
+}
+
+const AUTHORITATIVE_EMPTY_EVIDENCE =
+  'Both bilingual Raiffeisen Vedeggio Cassarate careers pages were reachable, carried the bank identity, '
+  + 'and explicitly reported zero open positions.';
+
+/**
+ * Build the persisted result for a verified source zero.
+ *
+ * A plain empty array is intentionally not enough: the health monitor must be
+ * able to distinguish a proven empty employer from the exit-guard placeholder
+ * written when a crawler stops before publishing a result.
+ */
+export function buildRaiffeisenAuthoritativeEmptySnapshot(
+  priorJobs = [],
+  generatedAt = new Date().toISOString(),
+  durationMs = getCrawlerElapsedMs(),
+) {
+  const priorTargetJobs = (Array.isArray(priorJobs) ? priorJobs : []).filter(isRaiffeisenVCJob);
+  const crawlDiff = computeCrawlDiff(snapshotJobSlugs(priorTargetJobs), new Map());
+  const jobs = markAuthoritativeEmptySnapshot([], AUTHORITATIVE_EMPTY_EVIDENCE);
+  return {
+    jobs,
+    crawlDiff,
+    summary: {
+      key: RAIFF_KEY,
+      label: 'Raiffeisen VC',
+      generatedAt,
+      total: 0,
+      discovered: 0,
+      parsed: 0,
+      written: 0,
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: crawlDiff.removedJobs.length,
+      unchangedCount: 0,
+      durationMs,
+      avgDurationMs: durationMs,
+      durationHistory: [durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: crawlDiff.removedJobs.slice(0, 30),
+      unchangedJobs: [],
+    },
+  };
+}
+
 /* ── Discovery ─────────────────────────────────────────────── */
 /**
  * Scrape the Raiffeisen Vedeggio Cassarate careers pages for
@@ -109,6 +169,7 @@ export async function fetchJobUrls(options = {}) {
   const byIdentity = new Map();
   let duplicateIdentity = 0;
   let pagesSucceeded = 0;
+  let emptyStatePages = 0;
 
   for (const pageUrl of CAREERS_URLS) {
     console.log(`🔍 Fetching: ${pageUrl}`);
@@ -129,6 +190,7 @@ export async function fetchJobUrls(options = {}) {
         throw new Error(`Raiffeisen VC discovery failed: careers page identity marker missing (${pageUrl}).`);
       }
       pagesSucceeded += 1;
+      if (hasExplicitEmptyListingState(html)) emptyStatePages += 1;
 
       // Extract all jobs.raiffeisen.ch links (Prospective career center)
       const hrefPattern = /href="(https?:\/\/jobs\.raiffeisen\.ch\/[^"]+)"/g;
@@ -168,8 +230,17 @@ export async function fetchJobUrls(options = {}) {
     throw new Error(`Raiffeisen VC discovery incomplete: careers pages ${pagesSucceeded}/${CAREERS_URLS.length}.`);
   }
   const urls = [...byIdentity.values()].sort((a, b) => a.localeCompare(b));
+  if (urls.length === 0 && emptyStatePages !== CAREERS_URLS.length) {
+    throw new Error(
+      'Raiffeisen VC discovery failed: both branded careers pages exposed no detail URLs '
+      + 'without an explicit zero-open-positions marker.',
+    );
+  }
+  if (urls.length === 0) {
+    console.log(`✅ Both Raiffeisen VC careers pages explicitly report 0 open positions`);
+  }
   console.log(`✅ Discovered ${urls.length} Raiffeisen VC job detail URLs`);
-  return { urls, sourceZero: urls.length === 0, pagesSucceeded, duplicateIdentity };
+  return { urls, sourceZero: urls.length === 0, pagesSucceeded, duplicateIdentity, emptyStatePages };
 }
 
 /* ── Detail page fetching ──────────────────────────────────── */
@@ -431,7 +502,22 @@ async function main() {
   const discovery = await fetchJobUrls();
   const detailUrls = discovery.urls;
   if (discovery.sourceZero) {
-    console.log('ℹ️ No Raiffeisen VC job URLs discovered. Exiting OK.');
+    const priorTargetJobs = readExistingCrawlerJobs(RAIFF_KEY, DATA_JOBS).filter(isRaiffeisenVCJob);
+    const emptyResult = buildRaiffeisenAuthoritativeEmptySnapshot(
+      priorTargetJobs,
+      new Date().toISOString(),
+      getCrawlerElapsedMs(),
+    );
+    const archived = archiveRemovedJobsToSlice(priorTargetJobs, RAIFF_KEY);
+    await writeJobsCrawlerSliceVerified(RAIFF_KEY, emptyResult.jobs, {
+      skipShrinkGuard: true,
+      preserveExistingSlugs: true,
+    });
+    printCrawlChangeSummary(emptyResult.crawlDiff, 'Raiffeisen VC');
+    writeCrawlChangeSummaryToGH(emptyResult.crawlDiff, 'Raiffeisen VC');
+    writeSummaryCrawlerSlice(emptyResult.summary);
+    await assembleJobsDataset();
+    console.log(`ℹ️ Persisted authoritative Raiffeisen VC zero; archived ${archived} expired route(s).`);
     return;
   }
 
@@ -477,7 +563,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isRaiffeisenVCJob) : [];
-  writeJobsCrawlerSlice(RAIFF_KEY, _sliceJobs);
+  await writeJobsCrawlerSliceVerified(RAIFF_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
     key: RAIFF_KEY,
     label: 'Raiffeisen VC',
