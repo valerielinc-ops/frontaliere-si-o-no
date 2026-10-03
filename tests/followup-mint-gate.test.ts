@@ -144,6 +144,24 @@ describe('gate sul conio — comportamento', () => {
     expect(canMintQueueLabel({ labels: [{ name: 'fu-reparked:1' }] })).toBe(true);
   });
 
+  it('un padre decomposto o in decomposizione non rientra in agent:fix-queued', () => {
+    // Titolo di fallimento: «Gate sul conio: un padre decomposto è stato rimesso in
+    // `agent:fix-queued`». Un padre `decomposed:1` ha item `open` per costruzione (il
+    // lavoro è delle figlie): riaccodarlo a ogni run e farlo ritogliere dal drainer
+    // (PARENT-DEQUEUE) è un ciclo label/commento senza fine (#9443, #9508).
+    for (const name of ['decomposed:1', 'agent:decompose-queued', 'agent:decompose']) {
+      expect(canMintQueueLabel({ labels: [{ name }] }), name).toBe(false);
+      expect(canMintQueueLabel({ labels: ['follow-up', name.toUpperCase()] }), name).toBe(false);
+    }
+    // Solo il nome esatto: una figlia (`from-decompose`) e un retry restano accodabili.
+    expect(canMintQueueLabel({ labels: [{ name: 'from-decompose' }] })).toBe(true);
+    expect(canMintQueueLabel({ labels: [{ name: 'decompose-retried' }] })).toBe(true);
+  });
+
+  it('maybe-resolved da sola NON è un veto: un bucket con item aperti deve poter tornare in coda', () => {
+    expect(canMintQueueLabel({ labels: [{ name: 'maybe-resolved' }] })).toBe(true);
+  });
+
   it('sopprime l\'aggregata in cui NESSUN item porta una condizione falsificabile', () => {
     const d = decideMintGate({ body: aggregata(itemProsa, itemProsa), createdAt: new Date().toISOString() });
     expect(d.action).toBe('suppress');

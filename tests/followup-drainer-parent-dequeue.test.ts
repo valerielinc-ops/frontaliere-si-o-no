@@ -16,8 +16,11 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  PARENT_DEQUEUED_MARKER,
+  applyParentDequeue,
   isDecomposedParent,
   isDecomposeEligible,
+  parentDequeueCommentDecision,
 } from '../scripts/ci/followup-drainer.mjs';
 
 const iss = (labels: string[], extra: Record<string, unknown> = {}) => ({
@@ -63,5 +66,71 @@ describe('la selezione dei candidati fixer esclude i padri decomposti', () => {
     // Stesso soggetto, stessa risposta: un padre decomposto non rientra
     // nemmeno nello stadio di scorporo (anti-ricorsione).
     expect(isDecomposeEligible(parent)).toBe(false);
+  });
+});
+
+describe('PARENT-DEQUEUE: un commento solo, il riaccodamento resta un segnale', () => {
+  // Misurato il 2026-10-03: 13 commenti identici su 9443 e su 9508 in 25 ore,
+  // uno per ogni tick in cui la label era stata rimessa.
+  const BODY = 'padre decomposto fuori dalla coda del fixer';
+
+  /** Una issue finta: `comments` è ciò che la lettura restituisce. */
+  function harness(comments: Array<{ body: string }> | null) {
+    const posted: string[] = [];
+    const removed: number[] = [];
+    const logs: string[] = [];
+    const io = {
+      readComments: () => comments,
+      postComment: (_num: number, body: string) => {
+        posted.push(body);
+        comments?.push({ body });
+      },
+      removeLabels: (num: number) => { removed.push(num); },
+      body: BODY,
+      log: (line: string) => { logs.push(line); },
+    };
+    return { io, posted, removed, logs };
+  }
+
+  it('primo giro: commento col marker in testa, label tolte', () => {
+    const h = harness([{ body: 'un commento qualsiasi' }]);
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('comment');
+    expect(h.posted).toEqual([`${PARENT_DEQUEUED_MARKER}\n${BODY}`]);
+    expect(h.removed).toEqual([9443]);
+  });
+
+  it('secondo giro (label rimessa): label tolte, ZERO commenti, decisione `repeat` con warning', () => {
+    const h = harness([]);
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('comment');
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('repeat');
+    expect(h.posted).toHaveLength(1); // cron-count-ok: un solo commento è il contratto dell'idempotenza
+    expect(h.removed).toEqual([9443, 9443]);
+    expect(h.logs.some((l) => l.startsWith('::warning::parent-dequeue ripetuto #9443'))).toBe(true);
+  });
+
+  it('lettura dei commenti fallita (null o eccezione): zero commenti, label tolte comunque', () => {
+    const asNull = harness(null);
+    expect(applyParentDequeue({ number: 9508 }, asNull.io)).toBe('unreadable');
+    expect(asNull.posted).toEqual([]);
+    expect(asNull.removed).toEqual([9508]);
+
+    const throwing = harness([]);
+    throwing.io.readComments = () => { throw new Error('gh: HTTP 502'); };
+    expect(applyParentDequeue({ number: 9508 }, throwing.io)).toBe('unreadable');
+    expect(throwing.posted).toEqual([]);
+    expect(throwing.removed).toEqual([9508]);
+  });
+
+  it('un commento fallito non impedisce la rimozione delle label', () => {
+    const h = harness([]);
+    h.io.postComment = () => { throw new Error('gh: HTTP 500'); };
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('comment');
+    expect(h.removed).toEqual([9443]);
+  });
+
+  it('i commenti senza marker (i 13 storici) non contano come dequeue già annunciato', () => {
+    expect(parentDequeueCommentDecision([{ body: `⏭️ ${BODY}` }])).toBe('comment');
+    expect(parentDequeueCommentDecision([{ body: `<!--PARENT_DEQUEUED-->\n${BODY}` }])).toBe('repeat');
+    expect(parentDequeueCommentDecision(undefined)).toBe('unreadable');
   });
 });
