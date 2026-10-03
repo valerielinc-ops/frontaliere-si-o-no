@@ -2982,7 +2982,16 @@ esac
     const guardRun: string = guardJob.steps[guardIndex].run;
     const runWrites = guardRun.match(/echo "run=(?:true|false)" >> "\$GITHUB_OUTPUT"/g) ?? [];
     const errorWrites = guardRun.match(/echo "guard_error=[^"]*" >> "\$GITHUB_OUTPUT"/g) ?? [];
+    // Contratto strutturale del codice generato, non del dataset:
+    // `translatePendingQueueGuardJob()` emette quattro rami di decisione
+    // (fail_closed, override manuale, ammissione e duplicato); questa asserzione
+    // garantisce che ogni decisione continui a dichiarare `run`.
+    // cron-count-ok: i quattro rami sono emessi da `translatePendingQueueGuardJob()`.
     expect(runWrites).toHaveLength(4);
+    // Lo stesso codice emette un `guard_error` per ciascuno dei quattro rami;
+    // senza uno di questi output un guard cieco potrebbe restare verde o
+    // lasciare il job pesante in uno stato non deterministico.
+    // cron-count-ok: i quattro rami emettono tutti `guard_error`.
     expect(errorWrites).toHaveLength(4);
     expect(errorWrites.filter((line) => line.includes('guard_error=${reason}'))).toHaveLength(1);
   }, CROSS_REPO_GENERATION_TIMEOUT);
