@@ -32,14 +32,32 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(() => imageObjectLd({} as never)).toThrow(/contentUrl/);
   });
 
-  it('defaults creator to the canonical site NewsMediaOrganization', () => {
+  it('defaults creator to the canonical site Organization', () => {
     const ld = imageObjectLd({ contentUrl: 'https://example.com/x.png' });
     expect(ld.creator).toEqual({
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     });
+  });
+
+  it.each([
+    'NewsMediaOrganization' as const,
+    ['NewsMediaOrganization', 'Organization'] as const,
+    ['Organization', 'NewsMediaOrganization'] as const,
+  ].map((type) => ({ type })))('emits a supported creator type for legacy news-organization input $type', ({ type }) => {
+    const creator = { '@type': type, '@id': 'https://example.com/#newsroom', name: 'External newsroom', url: 'https://example.com/' };
+    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+      .toEqual({ ...creator, '@type': 'Organization' });
+    expect(creator['@type']).toEqual(type);
+  });
+
+  it('keeps a site creator with array types attached to the canonical organization', () => {
+    const creator = { '@type': ['NewsMediaOrganization', 'Organization'] as const, name: 'Frontaliere Ticino', url: 'https://frontaliereticino.ch/' };
+    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+      .toEqual({ ...creator, '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization' });
+    expect(creator['@type']).toEqual(['NewsMediaOrganization', 'Organization']);
   });
 
   it('points license + acquireLicensePage to the site terms anchor by default', () => {
@@ -71,7 +89,7 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
       copyrightNotice: undefined,
     });
     expect(ld.creator).toEqual({
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',

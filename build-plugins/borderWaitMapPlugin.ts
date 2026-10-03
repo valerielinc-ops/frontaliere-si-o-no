@@ -737,7 +737,7 @@ export function renderPage(opts: {
     ...(snapshotAt ? { dateModified: snapshotAt } : {}),
     hasPart: places,
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,

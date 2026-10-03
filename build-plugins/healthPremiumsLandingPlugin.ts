@@ -16,7 +16,7 @@
  *   - Leaf target ≥400 words, hub target ≥300
  *   - JSON-LD: WebPage + BreadcrumbList + FAQPage (leaves); WebPage + Breadcrumb (hubs)
  *   - Self-referencing canonical + hreflang alternates for all 4 locales
- *   - Product/Offer LD with priceCurrency CHF on leaf pages
+ *   - Service/AggregateOffer LD with priceCurrency CHF on leaf pages
  *   - WriteCollector with skipExisting (preserves prior builds on incremental CI)
  *   - Default-off gate: SKIP_HEALTH_PREMIUMS=1
  *
@@ -2439,12 +2439,16 @@ function renderLeafPage(inp: LeafInputs): string {
     })),
   });
 
-  const productLd = inlineScriptJson({
+  // A canton/age comparison summarizes insurance services from many providers;
+  // it is not one purchasable product with product-specific customer reviews.
+  const insuranceServiceLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'Service',
     name: `LAMal premium ${cantonLabel} ${ageLabel}`,
     description: introLong.slice(0, 200),
-    category: 'HealthInsurance',
+    serviceType: 'Health insurance',
+    url: canonicalUrl,
+    areaServed: { '@type': 'AdministrativeArea', name: cantonLabel },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'CHF',
@@ -2523,7 +2527,7 @@ function renderLeafPage(inp: LeafInputs): string {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
-    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd, productLd],
+    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd, insuranceServiceLd],
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'confronti', activeSubTab: 'health' },

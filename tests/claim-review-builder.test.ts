@@ -27,7 +27,7 @@ describe('buildClaimReview', () => {
 
   it('author is the canonical Frontaliere Ticino news organization', () => {
     const cr = buildClaimReview({ ...BASE_INPUT, rating: 'true' });
-    expect(cr.author['@type']).toBe('NewsMediaOrganization');
+    expect(cr.author['@type']).toBe('Organization');
     expect(cr.author['@id']).toBe('https://frontaliereticino.ch/#organization');
     expect(cr.author.name).toBe('Frontaliere Ticino');
     expect(cr.author.url).toBe('https://frontaliereticino.ch/');

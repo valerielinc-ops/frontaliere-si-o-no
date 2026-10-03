@@ -9351,7 +9351,7 @@ function modifySeoService(data) {
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
         "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
         "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
         "creditText": "Frontaliere Ticino",
         "url": \`\${BASE_URL}/${imagePath}\`,
         "width": ${data._generatedImagePath ? 1200 : 1200},
@@ -9477,8 +9477,8 @@ function validateStructuredData(data) {
   if (!cp) throw new Error(`[validate-ld] Empty canonicalPath for ${entryKey}`);
   // Same check as the corpus generator: an anonymous site Organization as
   // image creator is a second "Frontaliere Ticino" entity beside #organization.
-  if (imageCreator?.[1] !== 'NewsMediaOrganization' || imageCreator?.[2] !== siteOrganizationId) {
-    throw new Error(`[validate-ld] image.creator must reference ${siteOrganizationId} as NewsMediaOrganization for ${entryKey}`);
+  if (imageCreator?.[1] !== 'Organization' || imageCreator?.[2] !== siteOrganizationId) {
+    throw new Error(`[validate-ld] image.creator must reference ${siteOrganizationId} as Organization for ${entryKey}`);
   }
 
   // 4. Build the same JSON-LD object ogPagesPlugin builds and verify JSON.stringify works
@@ -9491,18 +9491,18 @@ function validateStructuredData(data) {
     image: `${BASE}${data._generatedImagePath || `/images/places/${data.image}`}`,
     url: `${BASE}${cp}`,
     publisher: {
-      '@type': 'NewsMediaOrganization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE,
+      '@type': 'Organization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE,
       logo: {
         '@type': 'ImageObject',
         acquireLicensePage: 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini',
         copyrightNotice: '© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.',
         license: 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini',
-        creator: { '@type': 'NewsMediaOrganization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE },
+        creator: { '@type': 'Organization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE },
         creditText: 'Frontaliere Ticino',
         url: `${BASE}/icons/icon-512x512.png`,
       },
     },
-    author: { '@type': 'NewsMediaOrganization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE },
+    author: { '@type': 'Organization', '@id': siteOrganizationId, name: 'Frontaliere Ticino', url: BASE },
     mainEntityOfPage: `${BASE}${cp}`,
   };
   if (datePub) ldObj.datePublished = datePub;

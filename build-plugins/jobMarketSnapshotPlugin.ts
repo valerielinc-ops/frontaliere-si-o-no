@@ -1638,13 +1638,13 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     datePublished: stats.endDate.toISOString(),
     dateModified: `${todayIso}T00:00:00.000Z`,
     author: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
@@ -1666,13 +1666,13 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     isAccessibleForFree: true,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
@@ -1952,13 +1952,13 @@ function renderHubPage(inp: HubPageInputs): string {
     isAccessibleForFree: true,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
@@ -2950,13 +2950,13 @@ function renderSectorPage(inp: SectorPageInputs): string {
     isAccessibleForFree: true,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,

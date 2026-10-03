@@ -306,12 +306,12 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.image.creditText).toBe('Guidle');
     // No third-party license is ever scraped (issue #3036 item 3) — never
     // fabricate one; fall back to the site's OWN terms page + canonical
-    // NewsMediaOrganization,
+    // Organization,
     // never a claim of the third party's copyright.
     expect(ld.image.license).toBe(SITE_LICENSE_PAGE);
     expect(ld.image.acquireLicensePage).toBe(SITE_LICENSE_PAGE);
     expect(ld.image.creator).toEqual({
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',

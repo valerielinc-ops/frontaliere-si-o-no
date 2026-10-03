@@ -1232,11 +1232,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  name: resolvedAuthor.name,
  jobTitle: resolvedAuthor.role,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
- worksFor: { '@type': 'NewsMediaOrganization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
+ worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
  ...(resolvedAuthor.social?.linkedin ? { sameAs: [resolvedAuthor.social.linkedin] } : {}),
  }
  : {
- '@type': 'NewsMediaOrganization' as const,
+ '@type': 'Organization' as const,
  '@id': `${BASE_URL}/#organization`,
  name: en.authorName || 'Redazione Frontaliere Ticino',
  url: `${BASE_URL}/chi-siamo/`,
@@ -1372,7 +1372,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  inLanguage: locale,
  // Author matches the visible "Di {authorName}" byline below and the
  // SPA-side Person schema (#3520) — Google's guidance: structured-data
- // author must match the byline. Person/NewsMediaOrganization object defined once
+ // author must match the byline. Person/Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is

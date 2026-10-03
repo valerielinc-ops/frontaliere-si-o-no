@@ -70,18 +70,16 @@ export const ORGANIZATION_POLICIES = {
  * Deliberately not the full entity: this is inlined into every one of ~12k
  * article pages as `publisher`, so the transparency block would be paid for
  * per page for no gain — a referencing node needs identity, not policy. What
- * it does now carry that it did not is `@type: NewsMediaOrganization` and
+ * it does now carry that it did not is `@type: Organization` and
  * `sameAs`: those are what let a page-local parser resolve this to the same
  * real-world publisher the homepage describes, which is the entire point of
  * a shared `@id`.
  */
 export const ORGANIZATION_LD = {
-  // NewsMediaOrganization, not Organization. It is the type Google's news and
-  // Preferred-Sources surfaces expect from a publisher, and it is a strict
-  // subtype — every consumer that accepted Organization accepts this.
-  // It was already used on /chi-siamo/ and in the SPA's home entry, so the
-  // site was asserting two different @types for one @id.
-  '@type': 'NewsMediaOrganization',
+  // Google reports NewsMediaOrganization as an invalid creator/publisher
+  // in Dataset and Image Metadata (URL Inspection, 2026-10-03). Use its
+  // explicitly supported base type everywhere this identity is referenced.
+  '@type': 'Organization',
   '@id': ORGANIZATION_ID,
   name: 'Frontaliere Ticino',
   url: 'https://frontaliereticino.ch/',
@@ -121,6 +119,7 @@ export const ORGANIZATION_FOUNDING_DATE = '2023';
  */
 export const ORGANIZATION_LD_FULL = {
   ...ORGANIZATION_LD,
+  additionalType: 'https://schema.org/NewsMediaOrganization',
   foundingDate: ORGANIZATION_FOUNDING_DATE,
   description:
     'Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.',
