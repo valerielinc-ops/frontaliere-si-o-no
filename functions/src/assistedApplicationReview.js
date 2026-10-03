@@ -5,8 +5,10 @@
  * assistedApplicationReviewToken.js). GET returns what the candidate needs to
  * decide — the letter, the e-mail or portal answers that will leave in their
  * name, the open questions and, after a portal handoff, the kit to finish on
- * the portal. The operator's analysis (verdict, gaps, fact warnings) is never
- * part of it. POST performs one action, only for the round the link belongs
+ * the portal. The operator's analysis (verdict, summary, fact warnings) is
+ * never part of it; the posting's decisive requirements the CV does not show
+ * are, since a profile that is not a full match goes on to the candidate
+ * (assistedApplicationFitNotice.js). POST performs one action, only for the round the link belongs
  * to: approve, reject with feedback, answer the questions, confirm a portal
  * submission.
  */
@@ -22,6 +24,7 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
+import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
 import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 import { randomUUID } from 'node:crypto';
@@ -154,6 +157,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     editLimits: TEXT_LIMITS,
     editedAt: draft?.candidateEditedAt || null,
     questions,
+    // The posting's decisive requirements the CV does not show, said above the questions (null: a full match).
+    fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
     documents,
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },

@@ -104,7 +104,10 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
   const unsupported = draft?.factCheck?.unsupported || [];
   if (unsupported.length > 0 && !draft?.factCheckAcknowledgedAt && !acknowledged('fact_check')) owner.push('fact_check');
-  if (draft?.verdict === 'poor' && !draft?.knockOutAcknowledgedAt && !acknowledged('knock_out')) owner.push('knock_out');
+  // A profile that is not a full match no longer stops here (owner decision
+  // 2026-10-03, was `knock_out`): the draft goes on and the candidate reads,
+  // above the questions, which requirements the CV does not show
+  // (assistedApplicationFitNotice.js).
   if (draft?.job?.source === 'none' && !acknowledged('no_posting')) owner.push('no_posting');
   if ((!draft?.channel || draft.channel.type === 'unknown') && !acknowledged('channel_unknown')) owner.push('channel_unknown');
   // career-ops Block G "Suspicious": the owner looks at the posting first.

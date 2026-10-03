@@ -85,7 +85,23 @@ describe('red flags', () => {
         { id: 'hobby', required: false },
       ],
     }, { salary: 'CHF 80k' });
-    expect(flags).toEqual({ owner: ['fact_check', 'knock_out', 'channel_unknown'], candidate: ['permit'], documents: [] });
+    // A verdict «poor» is no owner flag any more: the candidate is told on the review page.
+    expect(flags).toEqual({ owner: ['fact_check', 'channel_unknown'], candidate: ['permit'], documents: [] });
+  });
+
+  // Owner decision 2026-10-03: a profile that is not a full match goes on, the candidate reads why.
+  it('a profile that misses a must-have no longer stops at the owner', () => {
+    const poor = { ...cleanDraft, verdict: 'poor' };
+    expect(evaluateRedFlags(poor).owner).toEqual([]);
+    const ready = transition({ state: 'drafting', round: 1 }, { type: 'draft_ready' }, { draft: poor, nowMs: T0 });
+    expect(ready.flow).toMatchObject({ state: 'owner_review', heldBy: [], deadlineAt: T0 + OWNER_REVIEW_MS });
+    expect(ready.effects).toEqual([{ type: 'email', kind: 'owner_review', held: false, flags: [] }]);
+    // The hour passes: on to the candidate, as any other draft.
+    const passed = transition(ready.flow, { type: 'tick' }, { draft: poor, nowMs: T0 + OWNER_REVIEW_MS });
+    expect(passed.flow.state).toBe('candidate_review');
+    // An order the old flag still holds is approved without a tick.
+    const held = transition({ state: 'owner_review', round: 1, heldBy: ['knock_out'], deadlineAt: null }, { type: 'owner_approve' }, { draft: poor, nowMs: T0 });
+    expect(held.flow.state).toBe('candidate_review');
   });
 
   it('an acknowledged warning no longer holds the flow', () => {
