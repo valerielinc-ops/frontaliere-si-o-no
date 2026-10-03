@@ -368,8 +368,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "needsRetranslation": true
+      "addressRegion": "VS"
     },
     {
       "id": "arxada-4d55a57faad9",
@@ -443,7 +442,7 @@
       "slugByLocale": {
         "it": "assistente-in-laboratorio-junior-chemist-r-t-arxada-visp",
         "en": "laboratory-assistant-junior-chemist-r-d-arxada-visp",
-        "de": "lab-assistant-in-junior-chemist-r-t-arxada-ch",
+        "de": "lab-assistant-in-junior-chemist-r-t-arxada-ch-yy8ui5",
         "fr": "assistant-de-laboratoire-chimiste-junior-r-t-arxada-visp"
       },
       "company": "Arxada",
@@ -501,6 +500,9 @@
         "fr": [
           "lab-assistant-in-junior-chemist-r-t-arxada-ch",
           "lab-assistant-in-junior-chemist-r-t-arxada-visp"
+        ],
+        "de": [
+          "lab-assistant-in-junior-chemist-r-t-arxada-ch"
         ]
       },
       "needsRetranslation": true,

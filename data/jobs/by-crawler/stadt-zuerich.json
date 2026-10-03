@@ -13973,7 +13973,7 @@
         "it": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
         "en": "childhood-teacher-in-hf-stadt-zurich-zurich",
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
-        "fr": "kindheitspadagog-in-hf-stadt-zurich"
+        "fr": "kindheitspadagog-in-hf-stadt-zurich-et7nyg"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -25273,7 +25273,6 @@
           "formation-a-la-parole-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.728Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -26940,11 +26939,19 @@
       "unit": "Soziale Dienste",
       "referenceNumber": "51776",
       "previousSlugs": [
-        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51776"
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51776",
+        "sostegno-sociale-e-tutela-degli-adulti-stadt-zurich-zurich",
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691",
+        "social-workers-social-welfare-and-adult-protection-stadt-zurich-zurich",
+        "travailleurs-sociaux-protection-sociale-et-protection-des-adultes-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51776"
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51776",
+          "sostegno-sociale-e-tutela-degli-adulti-stadt-zurich-zurich",
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691",
+          "social-workers-social-welfare-and-adult-protection-stadt-zurich-zurich",
+          "travailleurs-sociaux-protection-sociale-et-protection-des-adultes-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -28561,8 +28568,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-7e445442dee0",
@@ -31416,20 +31422,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "51832",
-      "salaryMin": 63000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:33:56.785Z",
       "previousSlugs": [
         "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832",
         "cura-co-hosted-scuola-weinberg-turner-stadt-zurich-zurich"
@@ -31446,7 +31438,20 @@
           "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832"
         ]
       },
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-01T09:33:56.785Z",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "stadt-zuerich-27c1b76b3dc0",

@@ -79,8 +79,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gesundheitszentrum-fricktal-d531a35d514a",
@@ -1826,7 +1825,7 @@
       "slugByLocale": {
         "it": "dipl-cura-di-anestesia-esperto-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "dipl-expert-anesthesia-care-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89u99h",
         "fr": "dipl-soins-d-anesthesie-experts-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -1966,6 +1965,22 @@
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2437/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden",
+        "professionista-della-salute-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden",
+          "professionista-della-salute-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:14:08.734Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1979,24 +1994,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden",
-          "professionista-della-salute-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "en": [
-          "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "fr": [
-          "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-gesundheit-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden",
-        "professionista-della-salute-efz-fage-50-100-gesundheitszentrum-fricktal-rheinfelden"
-      ],
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gesundheitszentrum-fricktal-89dffe058d8a",
@@ -2400,7 +2398,7 @@
       "slugByLocale": {
         "it": "specialista-di-emergenza-sanitaria-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "health-emergency-specialist-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89u9yc",
         "fr": "specialiste-des-urgences-sanitaires-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",

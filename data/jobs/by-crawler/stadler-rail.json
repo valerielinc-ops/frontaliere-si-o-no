@@ -79,8 +79,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-f0880279f1cc",
@@ -161,8 +160,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-3dcac4e17cb8",
@@ -280,8 +278,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-c10bfd7e451f",
@@ -347,7 +344,6 @@
           "lehrstelle-als-informatiker-in-efz-2027-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:17.674Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -427,7 +423,6 @@
           "lehrstelle-als-konstrukteur-in-efz-2027-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:15.881Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -668,8 +663,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-c86e3c865be9",
@@ -1153,8 +1147,7 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-e312e1370e7d",
@@ -1312,8 +1305,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-674be6778582",
@@ -1392,8 +1384,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-151137c41422",
@@ -1409,7 +1400,7 @@
       "companyDomain": "stadlerrail.com",
       "title": "Technical Buyer",
       "titleByLocale": {
-        "it": "Technical Buyer",
+        "it": "Acquirenti tecnici",
         "en": "Technical buyers",
         "de": "Technical Buyer",
         "fr": "Acheteurs techniques"
@@ -1461,7 +1452,6 @@
           "technical-buyer-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-08T09:53:12.905Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1635,8 +1625,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-b23a24c7075f",
@@ -1935,8 +1924,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-87ed84d1c807",
@@ -2116,8 +2104,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-f7a1491a0bba",
@@ -2192,8 +2179,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-61d84f561ebf",
@@ -2310,8 +2296,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-e0b57e3beec0",
@@ -3469,8 +3454,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-c73699db8c82",
@@ -3659,8 +3643,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-7ba70ab6188a",
@@ -3733,8 +3716,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-077ae81e60d3",
@@ -3886,8 +3868,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-bfa214fd04b1",
@@ -3895,7 +3876,7 @@
       "slugByLocale": {
         "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "en": "system-ingegnere-cbtc-stadler-rail-wallisellen",
-        "de": "system-engineer-cbtc-stadler-rail-ch",
+        "de": "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
         "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
@@ -3952,7 +3933,6 @@
           "system-engineer-cbtc-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -4050,7 +4030,7 @@
       "slug": "system-engineer-cbtc-stadler-rail-ch-2",
       "slugByLocale": {
         "it": "system-engineer-cbtc-stadler-rail-ch-2",
-        "en": "system-engineer-cbtc-stadler-rail-ch",
+        "en": "system-engineer-cbtc-stadler-rail-ch-3kv656",
         "de": "system-engineer-cbtc-stadler-rail-ch-2",
         "fr": "system-engineer-cbtc-stadler-rail-ch-2"
       },
@@ -4313,8 +4293,7 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-b24a03e733b0",
@@ -4420,8 +4399,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-4aa1fccd8842",
@@ -4717,8 +4695,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-38dada227e6c",
@@ -4813,8 +4790,7 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-8e4446781d4a",
@@ -4917,8 +4893,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-d8c44e4aefd7",
@@ -5168,8 +5143,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-efe3f0d5b003",
@@ -5250,8 +5224,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-a7985f0a88e5",
@@ -6120,8 +6093,7 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-ccd827e87b38",
@@ -6200,8 +6172,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-620b851e9742",
@@ -6519,8 +6490,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-333c827a5032",
@@ -6610,7 +6580,7 @@
       "title": "Head of Master Data Management Engineering, Mitglied des Kaders",
       "titleByLocale": {
         "it": "Responsabile Master Data Management Engineering, membro del cadre",
-        "en": "Head of Master Data Management Engineering, Mitglied des Kaders",
+        "en": "Head of Master Data Management Engineering, member of the cadre",
         "de": "Leiter Master Data Management Engineering, Mitglied des Kaders",
         "fr": "Chef de Master Data Management Engineering, membre du cadre"
       },
@@ -6656,7 +6626,6 @@
           "head-of-master-data-management-engineering-mitglied-des-kaders-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T21:36:20.071Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -6749,8 +6718,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-51a1609cc970",
@@ -6829,8 +6797,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-1efa92004264",
@@ -7313,8 +7280,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-a572c9d90b59",
@@ -7453,7 +7419,6 @@
           "teamleader-cyber-security-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T23:11:28.052Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -7624,8 +7589,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-e05df9660d3f",
@@ -7939,8 +7903,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-f2d5ab040b13",
@@ -8340,8 +8303,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-f52e58b4a090",
@@ -8589,8 +8551,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-8fdc5907e284",
@@ -8796,7 +8757,6 @@
           "project-manager-team-leader-commissioning-stadler-rail-altenrhein"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:52:37.752Z",
       "salaryMin": 113500,
       "salaryMax": 153000,
@@ -8886,8 +8846,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-e866cd037d5b",
@@ -9046,8 +9005,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-f0482dfcfe45",
@@ -9128,8 +9086,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-4c6241829016",
@@ -9219,7 +9176,7 @@
       "title": "Field-Engineer - Inbetriebsetzung & Flottenbetreuung",
       "titleByLocale": {
         "it": "Ingegnere di campo - Commissioning & Fleet Support",
-        "en": "Field-Engineer - Inbetriebsetzung & Flottenbetreuung",
+        "en": "Field Engineer - Commissioning & Fleet Support",
         "de": "Field-Ingenieur - Inbetriebsetzung & Flottenbetreuung",
         "fr": "Ingénieur de terrain - Mise en service et soutien de la flotte"
       },
@@ -9265,7 +9222,6 @@
           "field-engineer-inbetriebsetzung-flottenbetreuung-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:13:39.645Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -9897,8 +9853,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-959019271c79",
@@ -10424,8 +10379,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-f04118d145a7",
@@ -11111,8 +11065,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-b413c5561c67",
@@ -11183,8 +11136,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-dca83855a6a7",
@@ -11259,8 +11211,7 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-eb298a965550",
@@ -12356,8 +12307,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-7e6e0e2bf06c",
@@ -12433,8 +12383,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-ea17a09bc878",
@@ -12585,8 +12534,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-8548fd5acad7",
@@ -12738,8 +12686,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-4108dc53384a",
@@ -13358,8 +13305,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadler-rail-43d1a6a9bc55",
@@ -13459,8 +13405,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadler-rail-f643ceb2f1d6",

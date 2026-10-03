@@ -80,8 +80,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "privatklinik-bethanien-11ae9f407d7e",
@@ -1296,7 +1295,7 @@
       "slugByLocale": {
         "it": "dipl-specialista-di-radiologia-privatklinik-bethanien-zurich",
         "en": "dipl-radiology-specialist-privatklinik-bethanien-zurich",
-        "de": "dipl-radiologiefachperson-privatklinik-bethanien",
+        "de": "dipl-radiologiefachperson-privatklinik-bethanien-jk9m0y",
         "fr": "dipl-specialiste-de-radiologie-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
@@ -1372,7 +1371,8 @@
           "pkb-dipl-radiology-specialist-swiss-medical-network-zurich"
         ],
         "de": [
-          "pkb-dipl-radiologiefachperson-privatklinik-bethanien"
+          "pkb-dipl-radiologiefachperson-privatklinik-bethanien",
+          "dipl-radiologiefachperson-privatklinik-bethanien"
         ],
         "fr": [
           "dipl-radiologiefachperson-privatklinik-bethanien",

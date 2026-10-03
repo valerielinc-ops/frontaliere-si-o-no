@@ -171,8 +171,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swisslog-b368fd2bd87c",
@@ -270,7 +269,7 @@
       "title": "Apprentice Computer Scientist (m/w/d)",
       "titleByLocale": {
         "it": "Apprendista informatico (m/f/d)",
-        "en": "Apprentice Computer Scientist (m/w/d)",
+        "en": "Apprentice Computer Scientist (m/f/d)",
         "de": "Apprentice Computer Scientist (m/w/d)",
         "fr": "Apprentis en informatique (m/f/d)"
       },
@@ -318,7 +317,6 @@
           "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:29:21.809Z",
       "salaryMin": 52000,
       "salaryMax": 78500,

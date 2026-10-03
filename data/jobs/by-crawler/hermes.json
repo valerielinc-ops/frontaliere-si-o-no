@@ -78,8 +78,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hermes-02949861efad",
@@ -157,8 +156,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hermes-4cca3ac90e60",
@@ -208,6 +206,22 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stage-developpement-durable-f-h-hermes-ch",
+        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-developpement-durable-f-h-hermes-ch",
+          "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
+        ],
+        "en": [
+          "stage-developpement-durable-f-h-hermes-ch"
+        ],
+        "de": [
+          "stage-developpement-durable-f-h-hermes-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:17:00.701Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
@@ -221,24 +235,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-developpement-durable-f-h-hermes-ch",
-          "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
-        ],
-        "en": [
-          "stage-developpement-durable-f-h-hermes-ch"
-        ],
-        "de": [
-          "stage-developpement-durable-f-h-hermes-ch"
-        ]
-      },
-      "previousSlugs": [
-        "stage-developpement-durable-f-h-hermes-ch",
-        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
-      ],
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hermes-f368fe61a72d",

@@ -365,8 +365,7 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "omega-33154",
@@ -665,8 +664,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "omega-33244",
@@ -766,8 +764,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "omega-33245",
@@ -865,8 +862,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "omega-33260",
@@ -1019,20 +1015,6 @@
           "Excellentes connaissances du français ou de l'allemand avec de bonnes connaissances de l’autre langue"
         ]
       },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:41:41.768Z",
       "previousSlugs": [
         "cuisinier-h-f-omega-biel-bienne",
         "kitchchen-m-f-omega-sa-biel-bienne"
@@ -1049,7 +1031,20 @@
           "cuisinier-h-f-omega-biel-bienne"
         ]
       },
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-01T09:41:41.768Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "omega-33305",
@@ -1122,6 +1117,7 @@
           "Creativity and flexibility coupled with a strong team-oriented mindset"
         ]
       },
+      "firstSeenAt": "2026-10-01T09:41:19.947Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1134,9 +1130,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-01T09:41:19.947Z",
-      "needsRetranslation": true
+      }
     }
   ]
 }

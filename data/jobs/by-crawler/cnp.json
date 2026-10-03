@@ -135,8 +135,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-b56cd21978d4",
@@ -240,8 +239,7 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-837ff7897282",
@@ -314,8 +312,7 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-793ce0c0ba24",
@@ -466,8 +463,7 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-fe8c28e61f67",
@@ -645,8 +641,7 @@
           "maxValue": 72000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-0eef0b4297fe",
@@ -807,8 +802,7 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-5ac1f21d1b62",
@@ -920,8 +914,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-8f1dfedc34c3",
@@ -1080,8 +1073,7 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-3dcbd437d33d",
@@ -1262,8 +1254,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-7aa9f29e6e83",
@@ -1342,8 +1333,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-ba0c4bde0296",
@@ -1505,8 +1495,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-05b4a85ce3da",
@@ -1687,8 +1676,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-658494323919",
@@ -2011,8 +1999,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-0128e00e6e42",
@@ -2093,8 +2080,7 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-672b993cfc36",
@@ -2173,8 +2159,7 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-2f6fc844aacd",
@@ -2224,21 +2209,6 @@
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/3ab1c24e-911f-4e7e-9db7-ac6e0a8f4a05",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 86000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:20:50.580Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "createur-rice-de-contenu-cnp-marin-epagnier"
@@ -2259,7 +2229,21 @@
         "createur-rice-de-contenu-cnp-marin-epagnier",
         "createur-rice-de-contenus-cnp-marin-epagnier",
         "creatore-di-contenuti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
-      ]
+      ],
+      "firstSeenAt": "2026-10-01T09:20:50.580Z",
+      "salaryMin": 86000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "cnp-43d0ca12a73b",
@@ -2287,7 +2271,6 @@
         "de": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La Direction des Finances et de l’Exploitation recherche pour son service technique un·e :\n\nAgent de maintenance électrotechnicien\n\nLa mission du département des infrastructures techniques est la gestion de la maintenance et de l’entretien des installations techniques complexes de l’entreprise. Dans le cadre de l’exploitation des bâtiments et équipements, le service technique met en œuvre les interventions curatives et préventives, assure la conformité des installations et l’optimisation des performances.\n Vous serez amené·e à :\n\n• Exécuter de manière autonome ou avec le soutien d’un·e collègue, voire d’un·e spécialiste externe mandaté, les travaux liés à l’installation et à l’entretien des installations, dispositifs et équipements dans le cadre de demandes d’interventions techniques et de maintenances curatives et préventives,\n\n• Travailler, interpréter, comprendre les schémas, plans, esquisses et instructions nécessaires à la bonne marche des équipements des infrastructures, des équipements et des bâtiments,\n\n• Accompagner et contrôler la qualité des travaux exécutés par des fournisseurs externes,\n\n• Analyser des situations critiques et/ou complexes et proposer des améliorations sur les installations des infrastructures et des équipements des bâtiments,\n\n• Travailler en équipe avec les collègues agent·e·s de maintenance dans les activités quotidiennes,\n\n• Participer au service de piquet,\n\n• Informer sa hiérarchie de toute intervention, défaut constaté ou information reçue par des tiers, concernant les installations techniques, équipements et bâtiments.\n Les compétences et formations requises sont les suivantes :\n\n• Vous disposez d’une expérience d’au moins 5 ans dans les domaines requis.\n\n• Vous possédez un CFC ou une formation jugée équivalente\n\n• Autonome dans l’exécution de vos tâches, grâce à un fort esprit d’équipe, vous savez collaborer efficacement avec des professionnel·les de métiers variés et contribuer au bon fonctionnement d’une équipe pluridisciplinaire.\n\n• Vous êtes rigoureux·se, méthodique et analytique. Vous êtes à l’aise avec les outils informatiques, et êtes capable de proposer des améliorations, respecter les protocoles de maintenance.\n\n• Répondre de manière réactive et appropriée aux sollicitations, en particulier dans les situations d’urgence.\n\n• Prendre spontanément et dans son champ de responsabilité, les dispositions susceptibles d’optimiser son action.\n\n• Avoir le sens de l’observation et le souci de la vérification et du contrôle.\n\n• Respecter le secret professionnel et le secret de fonction concernant les activités liées à l’institution en accord avec les exigences mentionnées par la CCT applicable.\n\n• Autres\n\n• Être titulaire du permis de conduire catégorie B.\n\n• Basé à Préfargier, avec interventions sur nos sites dans le canton de Neuchâtel.\n\n• Service de piquet : 1 semaine par mois en principe, du lundi au lundi, intervention jour/nuit par téléphone et/ou sur site dans les 35 minutes.\n Entrée en fonction : 1er novembre 2026 ou à convenir\n Taux d’activité : 100%\n Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier\n Type de contrat : Contrat de durée indéterminée (CDI)\n Délai de postulation : 15 octobre 2026\n Les dossiers de postulation complets (CV, lettre de motivation, diplômes, certificats de travail) sont à adresser directement en ligne.\n\nSite de Préfargier\n2074 Marin-Epagnier",
         "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La Direction des Finances et de l’Exploitation recherche pour son service technique un·e :\n\nAgent de maintenance électrotechnicien\n\nLa mission du département des infrastructures techniques est la gestion de la maintenance et de l’entretien des installations techniques complexes de l’entreprise. Dans le cadre de l’exploitation des bâtiments et équipements, le service technique met en œuvre les interventions curatives et préventives, assure la conformité des installations et l’optimisation des performances.\n Vous serez amené·e à :\n\n• Exécuter de manière autonome ou avec le soutien d’un·e collègue, voire d’un·e spécialiste externe mandaté, les travaux liés à l’installation et à l’entretien des installations, dispositifs et équipements dans le cadre de demandes d’interventions techniques et de maintenances curatives et préventives,\n\n• Travailler, interpréter, comprendre les schémas, plans, esquisses et instructions nécessaires à la bonne marche des équipements des infrastructures, des équipements et des bâtiments,\n\n• Accompagner et contrôler la qualité des travaux exécutés par des fournisseurs externes,\n\n• Analyser des situations critiques et/ou complexes et proposer des améliorations sur les installations des infrastructures et des équipements des bâtiments,\n\n• Travailler en équipe avec les collègues agent·e·s de maintenance dans les activités quotidiennes,\n\n• Participer au service de piquet,\n\n• Informer sa hiérarchie de toute intervention, défaut constaté ou information reçue par des tiers, concernant les installations techniques, équipements et bâtiments.\n Les compétences et formations requises sont les suivantes :\n\n• Vous disposez d’une expérience d’au moins 5 ans dans les domaines requis.\n\n• Vous possédez un CFC ou une formation jugée équivalente\n\n• Autonome dans l’exécution de vos tâches, grâce à un fort esprit d’équipe, vous savez collaborer efficacement avec des professionnel·les de métiers variés et contribuer au bon fonctionnement d’une équipe pluridisciplinaire.\n\n• Vous êtes rigoureux·se, méthodique et analytique. Vous êtes à l’aise avec les outils informatiques, et êtes capable de proposer des améliorations, respecter les protocoles de maintenance.\n\n• Répondre de manière réactive et appropriée aux sollicitations, en particulier dans les situations d’urgence.\n\n• Prendre spontanément et dans son champ de responsabilité, les dispositions susceptibles d’optimiser son action.\n\n• Avoir le sens de l’observation et le souci de la vérification et du contrôle.\n\n• Respecter le secret professionnel et le secret de fonction concernant les activités liées à l’institution en accord avec les exigences mentionnées par la CCT applicable.\n\n• Autres\n\n• Être titulaire du permis de conduire catégorie B.\n\n• Basé à Préfargier, avec interventions sur nos sites dans le canton de Neuchâtel.\n\n• Service de piquet : 1 semaine par mois en principe, du lundi au lundi, intervention jour/nuit par téléphone et/ou sur site dans les 35 minutes.\n Entrée en fonction : 1er novembre 2026 ou à convenir\n Taux d’activité : 100%\n Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier\n Type de contrat : Contrat de durée indéterminée (CDI)\n Délai de postulation : 15 octobre 2026\n Les dossiers de postulation complets (CV, lettre de motivation, diplômes, certificats de travail) sont à adresser directement en ligne.\n\nSite de Préfargier\n2074 Marin-Epagnier"
       },
-      "needsRetranslation": true,
       "location": "Marin-Epagnier",
       "canton": "NE",
       "url": "https://www.jobup.ch/fr/emplois/detail/e6a03c89-522c-4182-9336-8b95a0c97f05",

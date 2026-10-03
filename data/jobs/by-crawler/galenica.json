@@ -2323,7 +2323,7 @@
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
         "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-langenthal",
-        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal",
+        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal-nx1172",
         "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-langenthal"
       },
       "titleByLocale": {
@@ -2344,6 +2344,9 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
         ],
         "fr": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
+        ],
+        "de": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
         ]
       },
@@ -2913,7 +2916,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -20134,7 +20138,7 @@
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-langenthal",
         "en": "pharmacy-technician-m-f-d-galenica-ag-galenica-langenthal",
-        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal",
+        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal-nx3kcr",
         "fr": "assistant-e-en-pharmacie-h-f-d-galenica-ag-galenica-langenthal"
       },
       "titleByLocale": {
@@ -20153,6 +20157,9 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
         ],
         "fr": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
+        ],
+        "de": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal"
         ]
       },
@@ -21142,7 +21149,22 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143",
+          "pharmaassistent-in-afc-amavita-galenica-fribourg",
+          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9"
+        ],
+        "de": [
+          "pharmaassistent-in-afc-amavita-galenica-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143",
+        "pharmaassistent-in-afc-amavita-galenica-fribourg",
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9"
+      ]
     }
   ]
 }

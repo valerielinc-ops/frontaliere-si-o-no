@@ -75,8 +75,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-8b2dd9df4445",
@@ -154,8 +153,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-838cc2a04384",
@@ -551,8 +549,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-4a8c50799f86",
@@ -638,7 +635,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "crawlerMissStreak": 1
     },
     {
@@ -691,6 +687,22 @@
       "jobReqId": "744000152678154",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "analyste-developpeur-sql-talan-geneve-switzerland",
+        "analizzatore-sql-developer-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "analyste-developpeur-sql-talan-geneve-switzerland",
+          "analizzatore-sql-developer-talan-geneve-switzerland"
+        ],
+        "en": [
+          "analyste-developpeur-sql-talan-geneve-switzerland"
+        ],
+        "de": [
+          "analyste-developpeur-sql-talan-geneve-switzerland"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:13:04.350Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -704,24 +716,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "analyste-developpeur-sql-talan-geneve-switzerland",
-          "analizzatore-sql-developer-talan-geneve-switzerland"
-        ],
-        "en": [
-          "analyste-developpeur-sql-talan-geneve-switzerland"
-        ],
-        "de": [
-          "analyste-developpeur-sql-talan-geneve-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "analyste-developpeur-sql-talan-geneve-switzerland",
-        "analizzatore-sql-developer-talan-geneve-switzerland"
-      ],
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-827097ba6739",
@@ -812,8 +807,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-d96f65b3eb5e",
@@ -992,8 +986,7 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-9addce44f74f",

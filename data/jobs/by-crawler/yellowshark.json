@@ -29792,7 +29792,33 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.616Z"
+      "firstSeenAt": "2026-09-28T21:58:25.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-sarnen",
+          "sanitary-heating-installer-m-f-yellowshark-ag-sarnen",
+          "installation-sanitaire-chauffage-h-f-yellowshark-ag-sarnen",
+          "sanitary-heating-installer-m-f-yellowshark-ag-sarnen-ow",
+          "installation-sanitaire-chauffage-h-f-yellowshark-ag-sarnen-ow",
+          "sanitar-heizungsmonteur-m-w-yellowshark-ag-sarnen",
+          "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-sarnen-ow"
+        ],
+        "en": [
+          "sanitary-heating-installer-m-f-yellowshark-ag-sarnen"
+        ],
+        "fr": [
+          "installation-sanitaire-chauffage-h-f-yellowshark-ag-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-sarnen",
+        "sanitary-heating-installer-m-f-yellowshark-ag-sarnen",
+        "installation-sanitaire-chauffage-h-f-yellowshark-ag-sarnen",
+        "sanitary-heating-installer-m-f-yellowshark-ag-sarnen-ow",
+        "installation-sanitaire-chauffage-h-f-yellowshark-ag-sarnen-ow",
+        "sanitar-heizungsmonteur-m-w-yellowshark-ag-sarnen",
+        "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-sarnen-ow"
+      ]
     },
     {
       "id": "yellowshark-1f8b75d4ad42",
@@ -30997,11 +31023,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch"
+          "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch",
+          "facade-fitter-m-f-yellowshark-ag-st-gallen-sg",
+          "facade-fitter-m-f-yellowshark-ag-st-gallen",
+          "fixeur-de-facade-h-f-yellowshark-ag-st-gallen-sg"
+        ],
+        "en": [
+          "facade-fitter-m-f-yellowshark-ag-st-gallen"
+        ],
+        "fr": [
+          "fixeur-de-facade-h-f-yellowshark-ag-st-gallen-sg"
         ]
       },
       "previousSlugs": [
-        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch"
+        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen-sg",
+        "facade-fitter-m-f-yellowshark-ag-st-gallen",
+        "fixeur-de-facade-h-f-yellowshark-ag-st-gallen-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -41892,7 +41930,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.613Z"
+      "firstSeenAt": "2026-09-28T21:58:25.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "m-f-yellowshark-ag-luzern",
+          "h-f-yellowshark-ag-luzern",
+          "m-f-yellowshark-ag-luzern-lu",
+          "h-f-yellowshark-ag-luzern-lu",
+          "plattenleger-m-w-yellowshark-ag-luzern"
+        ],
+        "fr": [
+          "h-f-yellowshark-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "m-f-yellowshark-ag-luzern",
+        "h-f-yellowshark-ag-luzern",
+        "m-f-yellowshark-ag-luzern-lu",
+        "h-f-yellowshark-ag-luzern-lu",
+        "plattenleger-m-w-yellowshark-ag-luzern"
+      ]
     },
     {
       "id": "yellowshark-cc2cc476e9da",
@@ -42778,7 +42835,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.610Z"
+      "firstSeenAt": "2026-09-28T21:58:25.610Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lavoratori-di-legno-m-f-yellowshark-ag-zurich",
+          "woodworkers-m-f-yellowshark-ag-zurich",
+          "travailleurs-du-bois-h-f-yellowshark-ag-zurich",
+          "lavoratori-di-legno-m-f-yellowshark-ag-zurich-zh",
+          "woodworkers-m-f-yellowshark-ag-zurich-zh",
+          "travailleurs-du-bois-h-f-yellowshark-ag-zurich-zh"
+        ],
+        "en": [
+          "woodworkers-m-f-yellowshark-ag-zurich"
+        ],
+        "fr": [
+          "travailleurs-du-bois-h-f-yellowshark-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "lavoratori-di-legno-m-f-yellowshark-ag-zurich",
+        "woodworkers-m-f-yellowshark-ag-zurich",
+        "travailleurs-du-bois-h-f-yellowshark-ag-zurich",
+        "lavoratori-di-legno-m-f-yellowshark-ag-zurich-zh",
+        "woodworkers-m-f-yellowshark-ag-zurich-zh",
+        "travailleurs-du-bois-h-f-yellowshark-ag-zurich-zh"
+      ]
     },
     {
       "id": "yellowshark-665a81c47270",
@@ -48186,7 +48267,12 @@
       "previousSlugsByLocale": {
         "it": [
           "asciugatrici-m-f-yellowshark-ag-luzern-lu",
-          "asciugatrici-m-f-yellowshark-ag-luzern"
+          "asciugatrici-m-f-yellowshark-ag-luzern",
+          "dryers-m-f-yellowshark-ag-luzern",
+          "sechoirs-h-f-yellowshark-ag-luzern",
+          "dryers-m-f-yellowshark-ag-luzern-lu",
+          "sechoirs-h-f-yellowshark-ag-luzern-lu",
+          "trockenbauer-m-w-yellowshark-ag-luzern"
         ],
         "en": [
           "dryers-m-f-yellowshark-ag-luzern-lu",
@@ -53629,7 +53715,9 @@
         "it": [
           "maler-m-w-liestal-bl-yellowshark-ch",
           "pittura-m-f-yellowshark-ag-liestal-bl",
-          "maler-m-w-d-yellowshark-ag-liestal"
+          "maler-m-w-d-yellowshark-ag-liestal",
+          "painter-m-f-yellowshark-ag-liestal-bl",
+          "peintre-h-f-yellowshark-ag-liestal-bl"
         ],
         "en": [
           "painter-m-f-yellowshark-ag-liestal-bl"
@@ -57401,7 +57489,33 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.608Z"
+      "firstSeenAt": "2026-09-28T21:58:25.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "filetto-di-soffitto-m-f-yellowshark-ag-st-gallen",
+          "ceiling-fitter-m-f-yellowshark-ag-st-gallen",
+          "monteur-de-plafond-h-f-yellowshark-ag-st-gallen",
+          "filetto-di-soffitto-m-f-yellowshark-ag-st-gallen-sg",
+          "ceiling-fitter-m-f-yellowshark-ag-st-gallen-sg",
+          "monteur-de-plafond-h-f-yellowshark-ag-st-gallen-sg",
+          "deckenmonteur-m-w-yellowshark-ag-st-gallen"
+        ],
+        "en": [
+          "ceiling-fitter-m-f-yellowshark-ag-st-gallen"
+        ],
+        "fr": [
+          "monteur-de-plafond-h-f-yellowshark-ag-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "filetto-di-soffitto-m-f-yellowshark-ag-st-gallen",
+        "ceiling-fitter-m-f-yellowshark-ag-st-gallen",
+        "monteur-de-plafond-h-f-yellowshark-ag-st-gallen",
+        "filetto-di-soffitto-m-f-yellowshark-ag-st-gallen-sg",
+        "ceiling-fitter-m-f-yellowshark-ag-st-gallen-sg",
+        "monteur-de-plafond-h-f-yellowshark-ag-st-gallen-sg",
+        "deckenmonteur-m-w-yellowshark-ag-st-gallen"
+      ]
     },
     {
       "id": "yellowshark-bc073c26a849",
@@ -69375,7 +69489,33 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-28T21:58:25.615Z"
+      "firstSeenAt": "2026-09-28T21:58:25.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clerk-contabile-m-f-80-100-yellowshark-ag-volketswil-zh",
+          "accounting-clerk-m-f-80-100-yellowshark-ag-volketswil-zh",
+          "commis-comptable-h-f-80-100-yellowshark-ag-volketswil-zh",
+          "clerk-contabile-m-f-80-100-yellowshark-ag-volketswil-bih2z2",
+          "accounting-clerk-m-f-80-100-yellowshark-ag-volketswil",
+          "commis-comptable-h-f-80-100-yellowshark-ag-volketswil",
+          "clerk-contabile-m-f-80-100-yellowshark-ag-volketswil"
+        ],
+        "en": [
+          "accounting-clerk-m-f-80-100-yellowshark-ag-volketswil-zh"
+        ],
+        "fr": [
+          "commis-comptable-h-f-80-100-yellowshark-ag-volketswil-zh"
+        ]
+      },
+      "previousSlugs": [
+        "clerk-contabile-m-f-80-100-yellowshark-ag-volketswil-zh",
+        "accounting-clerk-m-f-80-100-yellowshark-ag-volketswil-zh",
+        "commis-comptable-h-f-80-100-yellowshark-ag-volketswil-zh",
+        "clerk-contabile-m-f-80-100-yellowshark-ag-volketswil-bih2z2",
+        "accounting-clerk-m-f-80-100-yellowshark-ag-volketswil",
+        "commis-comptable-h-f-80-100-yellowshark-ag-volketswil",
+        "clerk-contabile-m-f-80-100-yellowshark-ag-volketswil"
+      ]
     },
     {
       "id": "yellowshark-19686d49c8bc",
@@ -69504,11 +69644,21 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-innendienst-disposition-m-w-80-100-rumlang-zh-yellowshark-ch"
+          "mitarbeiter-innendienst-disposition-m-w-80-100-rumlang-zh-yellowshark-ch",
+          "employee-interior-service-disposition-m-f-80-100-yellowshark-ag-rumlang-zh",
+          "service-interieur-des-employes-disposition-h-f-80-100-yellowshark-ag-rumlang-zh"
+        ],
+        "en": [
+          "employee-interior-service-disposition-m-f-80-100-yellowshark-ag-rumlang-zh"
+        ],
+        "fr": [
+          "service-interieur-des-employes-disposition-h-f-80-100-yellowshark-ag-rumlang-zh"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-innendienst-disposition-m-w-80-100-rumlang-zh-yellowshark-ch"
+        "mitarbeiter-innendienst-disposition-m-w-80-100-rumlang-zh-yellowshark-ch",
+        "employee-interior-service-disposition-m-f-80-100-yellowshark-ag-rumlang-zh",
+        "service-interieur-des-employes-disposition-h-f-80-100-yellowshark-ag-rumlang-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
