@@ -421,6 +421,10 @@ export function createReflineParser(config) {
     sector = 'Sanità / Ospedali',
     sourceLabel,
     locationHintsFor,
+    // Legacy Refline crawlers intentionally degrade an unreadable listing to
+    // an empty result. New sources can opt into propagating the error so the
+    // standard crawler pipeline can classify the failed source explicitly.
+    throwOnListingFetchFailure = false,
     // Optional override for the free-text `company` field check inside
     // isCompanyJob(): receives the already-normalized (trimmed+lowercased)
     // company string, returns true/false. Default behaviour (substring of the
@@ -493,11 +497,13 @@ export function createReflineParser(config) {
     try {
       listingHtml = await fetchHtml(listingUrl, { timeoutMs });
     } catch (err) {
-      // Let the standard crawler pipeline classify the transport/source error.
-      // Returning [] here makes an unobserved listing look like a valid empty
-      // source and triggers its no-jobs-parsed exit guard, preserving the old
-      // slice without recording why the source was never read.
-      throw err;
+      if (throwOnListingFetchFailure) throw err;
+      // Preserve the legacy soft-fail behavior for existing sources: returning
+      // [] triggers the standard no-jobs-parsed guard and preserves the old
+      // slice without treating an unread listing as an authoritative empty
+      // source.
+      console.warn(`⚠️ Refline listing fetch failed: ${err?.message || err}`);
+      return [];
     }
 
     const listings = parseReflineListing(listingHtml, { listingHost, tenant: tenantStr });
