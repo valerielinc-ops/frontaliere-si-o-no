@@ -39,6 +39,7 @@ const parser = createReflineParser({
   listingHost: 'app.reflinejobs.io',
   sector: 'Sanità / Ospedali',
   sourceLabel: 'Medics Labor Dedicated Parser (Refline 1474)',
+  throwOnListingFetchFailure: true,
 });
 
 export const fetchAllMedicsLaborJobs = parser.fetchAllJobs;
