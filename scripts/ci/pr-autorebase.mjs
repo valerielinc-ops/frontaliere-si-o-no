@@ -104,6 +104,14 @@ import {
 } from './lib/reopen-breaker.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import { PR_FIX_CLAIM_MARKER, latestPrFixClaims } from './pr-fixer-claim.mjs';
+import { conflictHandoffExpectedHead, conflictHandoffOriginPr } from './check-issue-already-resolved.mjs';
+import {
+  duplicateOldEnough,
+  electHandoffKeeper,
+  handoffBusy,
+  handoffRouted,
+  MIN_DUPLICATE_AGE_MINUTES,
+} from './reconcile-conflict-handoffs.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -1648,7 +1656,10 @@ export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = []
   return conflicted === true && !nearMerge && isAgentOwnedPr(labels, headRefName);
 }
 
-/** Titolo stabile e body della issue di hand-off. Puro: niente rete. */
+/**
+ * Titolo e body della issue di hand-off. Puro: niente rete. Il titolo cambia
+ * con il LGTM: la dedup si fa sulla PR di origine (`handoffIssuesForOrigin`).
+ */
 export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = true, closes = null }) {
   const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
   // Le issue che #N chiude passano alla PR nuova: #10095 chiudeva #10082, la sua
@@ -1798,65 +1809,139 @@ export function prContentOnMainVerdict(headSha, { mainRef = 'origin/main', cwd }
   };
 }
 
-/** `gh` con esito binario: true solo se il comando e' uscito 0. */
-function ghOk(args) {
+/**
+ * `gh` con esito binario e motivo: `ok` solo se il comando e' uscito 0;
+ * altrimenti `error` porta la prima riga di stderr, per il log.
+ */
+function ghRun(args) {
   try {
     execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
-    return true;
-  } catch {
-    return false;
+    return { ok: true, error: '' };
+  } catch (error) {
+    const stderr = String(error?.stderr || error?.message || '').trim().split('\n')[0];
+    return { ok: false, error: stderr.slice(0, 300) || `exit ${error?.status ?? '?'}` };
   }
 }
 
 /**
- * Numeri delle issue aperte con titolo ESATTAMENTE `title`, in ordine
- * crescente, dalle righe `[number, title]` (una per riga JSON). Pura.
- * `null` se una riga non e' leggibile: un elenco parziale non prova
- * l'assenza di una issue gia' aperta.
+ * Gli hand-off aperti per la PR di ORIGINE `num`, dalle righe
+ * `[number, title, body, labels, created_at]` (una per riga JSON), in ordine
+ * crescente. Pura. La chiave e' la PR di origine (`conflictHandoffOriginPr`),
+ * non il titolo: il titolo cambia con il LGTM, e su #11147 lo stesso conflitto
+ * sulla stessa HEAD ha prodotto «Conflitto con main:» (#11151) e poi «Conflitto
+ * con main dopo LGTM:» (#11154, #11156, #11157), quattro issue in 17 minuti.
+ * `null` se una riga non e' leggibile: un elenco parziale non prova l'assenza
+ * di una issue gia' aperta.
+ * @returns {Array<{number:number, title:string, body:string, labels:string[], created_at:string|null}>|null}
  */
-export function handoffIssueNumbers(raw, title) {
-  const numbers = [];
+export function handoffIssuesForOrigin(raw, num) {
+  const byNumber = new Map();
   for (const line of String(raw ?? '').split('\n')) {
     if (!line.trim()) continue;
     let row;
     try { row = JSON.parse(line); } catch { return null; }
     if (!Array.isArray(row) || !Number.isSafeInteger(row[0]) || typeof row[1] !== 'string') return null;
-    if (row[1] === title) numbers.push(row[0]);
+    if (conflictHandoffOriginPr(row[1]) !== Number(num)) continue;
+    byNumber.set(row[0], {
+      number: row[0],
+      title: row[1],
+      body: typeof row[2] === 'string' ? row[2] : '',
+      labels: Array.isArray(row[3]) ? row[3].filter((l) => typeof l === 'string') : [],
+      created_at: typeof row[4] === 'string' ? row[4] : null,
+    });
   }
-  return [...new Set(numbers)].sort((a, b) => a - b);
+  return [...byNumber.values()].sort((a, b) => a.number - b.number);
 }
 
 /**
- * Elenco CONSISTENTE delle issue aperte con quel titolo. Non usa la search API
+ * Elenco degli hand-off aperti letto UNA volta per sweep e riusato per tutte
+ * le PR in conflitto; `invalidate()` dopo una creazione, cosi' la rilettura
+ * vede la issue nuova (e quella di una run concorrente). `readRaw()` restituisce
+ * le righe JSON o `null` se illeggibile.
+ */
+export function createHandoffIssueIndex(readRaw) {
+  let raw;
+  let loaded = false;
+  return {
+    forOrigin(num) {
+      if (!loaded) {
+        raw = readRaw();
+        loaded = true;
+      }
+      if (raw === null || raw === undefined) {
+        loaded = false; // illeggibile: il prossimo uso ritenta
+        return null;
+      }
+      return handoffIssuesForOrigin(raw, num);
+    },
+    invalidate() {
+      loaded = false;
+    },
+  };
+}
+
+/**
+ * Elenco CONSISTENTE degli hand-off aperti. Non usa la search API
  * (`gh issue list --search ... in:title`): il suo indice arriva in ritardo di
  * secondi o minuti, e proprio nella finestra in cui due sweep concorrenti
  * decidono se creare la issue. L'elenco REST legge il database.
- * @returns {number[]|null}
  */
-function openIssuesTitled(title) {
-  let raw;
+function readOpenHandoffRows() {
   try {
-    raw = execFileSync('gh', ['api', '--paginate', `repos/${REPO}/issues?state=open&per_page=100`,
-      '--jq', '.[] | select(.pull_request == null) | [.number, .title] | @json'],
+    return execFileSync('gh', ['api', '--paginate', `repos/${REPO}/issues?state=open&per_page=100`,
+      '--jq', '.[] | select(.pull_request == null) | select(.title | startswith("Conflitto con main")) '
+        + '| [.number, .title, (.body // ""), [.labels[].name], .created_at] | @json'],
     { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
   } catch {
     return null;
   }
-  return handoffIssueNumbers(raw, title);
+}
+
+const handoffIssueIndex = createHandoffIssueIndex(readOpenHandoffRows);
+
+/**
+ * Che cosa fare degli hand-off gia' aperti per la stessa PR di origine. Pura.
+ *   - nessuno → `create`;
+ *   - quello eletto (`electHandoffKeeper`, la stessa elezione del
+ *     riconciliatore) e' gia' instradato o reclamato e porta la stessa HEAD →
+ *     `already-handed-off`: nessuna scrittura, anche se il marker sulla PR
+ *     manca (l'idempotenza non dipende da un secondo write riuscito);
+ *   - altrimenti → `reuse`: si riusa il keeper (niente retitle: un `edited`
+ *     farebbe ripartire i workflow delle issue) e gli si applica `agent:fix`.
+ */
+export function planConflictHandoff({ existing, num, head }) {
+  if (!Array.isArray(existing) || existing.length === 0) return { action: 'create' };
+  const keeper = electHandoffKeeper(existing, Number(num), []);
+  const expected = conflictHandoffExpectedHead(keeper.body);
+  const sameHead = Boolean(expected) && String(head || '').toLowerCase().startsWith(expected);
+  const handedOff = handoffRouted(keeper) || handoffBusy(keeper, Number(num), []);
+  if (sameHead && handedOff) return { action: 'already-handed-off', issue: keeper.number };
+  return { action: 'reuse', issue: keeper.number };
 }
 
 /**
- * Elegge la issue di hand-off canonica (la piu' vecchia) e chiude le altre
- * come duplicate. Deterministico su ogni sweep: due run concorrenti eleggono
- * la stessa. Ritorna il numero canonico.
- * @param {number[]} numbers ordine crescente, non vuoto
+ * Elegge la issue di hand-off canonica con `electHandoffKeeper` (claim, poi
+ * instradata, poi la piu' vecchia: la stessa elezione del riconciliatore) e
+ * chiude le altre come duplicate, salvo quelle create da meno di
+ * `MIN_DUPLICATE_AGE_MINUTES` (un'altra run sta ancora instradandole).
+ * Deterministico su ogni sweep: due run concorrenti eleggono la stessa.
+ * Ritorna il numero canonico.
+ * @param {Array<{number:number, labels:string[], created_at:string|null}>} members non vuoto
+ * @param {number} num PR di origine
  */
-function closeDuplicateHandoffIssues(numbers) {
-  const [canonical, ...duplicates] = numbers;
-  for (const dup of duplicates) {
+function closeDuplicateHandoffIssues(members, num) {
+  const canonical = electHandoffKeeper(members, num, []).number;
+  const now = Date.now();
+  for (const member of members) {
+    const dup = member.number;
+    if (dup === canonical) continue;
+    if (!duplicateOldEnough(member, now)) {
+      console.log(`issue di hand-off #${dup} duplicata di #${canonical} ma creata da meno di ${MIN_DUPLICATE_AGE_MINUTES} minuti → resta, decide il prossimo giro.`);
+      continue;
+    }
     if (DRY) { console.log(`[dry] chiude la issue di hand-off duplicata #${dup} (canonica #${canonical})`); continue; }
     gh(['issue', 'close', String(dup), '--repo', REPO, '--reason', 'not planned', '--comment',
-      `Duplicata di #${canonical}: stesso hand-off di conflitto, aperto da due sweep concorrenti di pr-autorebase. Il lavoro prosegue su #${canonical}. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+      `Duplicata di #${canonical}: stesso hand-off di conflitto della PR #${num}, aperto da due sweep di pr-autorebase (concorrenti, o prima e dopo il LGTM). Il lavoro prosegue su #${canonical}. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
     { json: false, allowFail: true });
     console.log(`issue di hand-off #${dup} duplicata di #${canonical} → chiusa.`);
   }
@@ -1892,14 +1977,20 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
     num, branch, head, files: verdict.files, lgtm, closes: prClosingIssueNumbers(num),
   });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
-  // Il titolo e' stabile: una issue gia' aperta da un tick precedente (routing
-  // fallito, marker non scritto) viene riusata invece di duplicata.
-  const existing = openIssuesTitled(title);
+  // La chiave e' la PR di ORIGINE, non il titolo (che cambia con il LGTM): una
+  // issue gia' aperta da un tick precedente (routing fallito, marker non
+  // scritto, titolo dell'altra variante) viene riusata invece di duplicata.
+  const existing = handoffIssueIndex.forOrigin(num);
   if (existing === null) {
     console.log(`::warning::PR #${num}: elenco issue illeggibile → hand-off rinviato al prossimo tick.`);
     return;
   }
-  let issue = existing.length ? String(closeDuplicateHandoffIssues(existing)) : '';
+  const plan = planConflictHandoff({ existing, num, head });
+  if (plan.action === 'already-handed-off') {
+    console.log(`PR #${num}: hand-off gia' instradato con #${plan.issue} per la stessa HEAD → nessuna scrittura.`);
+    return;
+  }
+  let issue = plan.action === 'reuse' ? String(closeDuplicateHandoffIssues(existing, num)) : '';
   if (!issue) {
     // `agent:triaged` alla creazione: il triage la manderebbe comunque in coda
     // (`agent:fix-queued`), cioe' ore invece di minuti. `agent:fix` arriva con
@@ -1912,14 +2003,16 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
     // entrambi «nessuna issue» e ne creano una ciascuno: #10586 e #10587 per
     // la stessa HEAD di #10569, a 5 s di distanza. La rilettura DOPO la
     // creazione vede anche quella dell'altro: tutti e due eleggono la stessa
-    // (la piu' vecchia) e chiudono le altre prima di instradarla.
+    // (`electHandoffKeeper`) e la instradano; la gemella appena creata resta
+    // al riconciliatore, che la chiude passata la finestra di instradamento.
     if (created) {
-      const after = openIssuesTitled(title);
+      handoffIssueIndex.invalidate();
+      const after = handoffIssueIndex.forOrigin(num);
       if (after === null || after.length === 0) {
-        console.log(`::warning::PR #${num}: issue #${created} creata ma l'elenco non e' rileggibile → routing rinviato al prossimo tick (riusa la issue esistente).`);
+        console.log(`::warning::PR #${num}: issue #${created} creata ma l'elenco ${after === null ? 'non e\' rileggibile' : 'non la contiene ancora'} → agent:fix NON applicata, routing rinviato al prossimo tick (riusa #${created}).`);
         return;
       }
-      issue = String(closeDuplicateHandoffIssues(after));
+      issue = String(closeDuplicateHandoffIssues(after, num));
     }
   }
   if (!issue) {
@@ -1928,8 +2021,9 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
   }
   // Esito dall'exit status, non dallo stdout: senza routing confermato il
   // marker NON si scrive, cosi' il prossimo tick riprova sulla stessa issue.
-  if (!ghOk(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix'])) {
-    console.log(`::warning::issue #${issue}: agent:fix non applicata — marker non scritto, ritento al prossimo tick.`);
+  const routed = ghRun(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix']);
+  if (!routed.ok) {
+    console.log(`::warning::issue #${issue}: agent:fix non applicata (${routed.error}) — marker non scritto, ritento al prossimo tick.`);
     return;
   }
   gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
