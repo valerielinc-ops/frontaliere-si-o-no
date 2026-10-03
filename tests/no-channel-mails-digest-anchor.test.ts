@@ -36,6 +36,7 @@ import {
 import { positiveEventRecoveryFields } from '../functions/src/lib/subscriberReactivation.js';
 import { bounceUpdateFields } from '../functions/src/lib/bounceClassification.js';
 import { recoveredStatus } from '../scripts/lib/suppressionDecay.mjs';
+import { reactivationActivityFields } from '../scripts/lib/mailtrapSuppressionRetry.mjs';
 import { classifySunset } from '../scripts/lib/subscriberSunset.mjs';
 import { classifyDormantWinback } from '../scripts/lib/dormantWinback.mjs';
 import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
@@ -74,8 +75,12 @@ const ANCHOR_SHAPES: Array<[string, Record<string, unknown>]> = [
     active: false,
   }],
   // scripts/mailtrap-suppression-retry.mjs writeReactivation(): not importable
-  // (it runs main() at load), the three fields are copied from it.
-  ['after the Mailtrap retry reactivated it', { ...SUPPRESSED, status: 'pending', isActive: true, active: true }],
+  // (it runs main() at load); its status is copied, its flags come from the
+  // shared helper it spreads.
+  ['after the Mailtrap retry reactivated it', { ...SUPPRESSED, status: 'pending', ...reactivationActivityFields(SUPPRESSED) }],
+  // What the retry and the webhook recovery wrote before they left the flags
+  // alone on this record: the predicates must still refuse it.
+  ['flagged active by an older retry or recovery', { ...SUPPRESSED, status: 'pending', isActive: true, active: true }],
   ['after the account was deleted (tombstone)', {
     ...ANCHOR, status: 'unsubscribed', isActive: false, account_deleted_at: daysAgo(1), unsubscribed_at: daysAgo(1),
   }],
@@ -135,6 +140,19 @@ describe('the record the digest writes', () => {
     const start = rules.indexOf('function newsletterStateFieldsTouched');
     const body = rules.slice(start, rules.indexOf('}', start));
     expect(stripComments(body)).toContain(`'${SAVED_JOBS_DIGEST_ANCHOR_FIELD}'`);
+  });
+
+  it('no machine flags the record active: the digest resumes on the status alone', () => {
+    const recovered = positiveEventRecoveryFields({ currentStatus: 'suppressed', event: 'delivered', subscriber: SUPPRESSED });
+    expect(recovered.status).toBe('active');
+    expect(recovered).not.toHaveProperty('isActive');
+    expect(recovered).not.toHaveProperty('active');
+    expect(reactivationActivityFields(SUPPRESSED)).toEqual({});
+    // An ordinary subscriber is still flagged active by both.
+    const subscriber = { status: 'suppressed', isActive: false, active: false, source_channel: 'newsletter_form' };
+    expect(positiveEventRecoveryFields({ currentStatus: 'suppressed', event: 'delivered', subscriber }))
+      .toMatchObject({ status: 'active', isActive: true, active: true });
+    expect(reactivationActivityFields(subscriber)).toEqual({ isActive: true, active: true });
   });
 
   it('the digest keeps its own stops on the record', () => {
