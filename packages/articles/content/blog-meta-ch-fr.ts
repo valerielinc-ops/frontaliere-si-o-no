@@ -7628,6 +7628,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canoni-casa-lucerna-2026.title': 'Loyers en Suisse 2026 : marché immobilier à Lucerne',
     'blog.article.canoni-casa-lucerna-2026.excerpt': 'Loyers en Suisse en 2026 : dépôt de garantie jusqu\'à trois mois, compte bloqué et 30 jours pour contester la résiliation. Focus sur le canton de Lucerne.',
     'blog.article.canoni-casa-lucerna-2026.imageAlt': 'Immeubles résidentiels dans le canton de Lucerne et marché locatif suisse',
+    'blog.article.affitti-regole-deposito-argovia-2026.title': 'Locations en Suisse : règles relatives au dépôt de garantie 2026',
+    'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Guide pratique des règles relatives aux locations en Suisse et en Argovie pour 2026 : limite maximale de trois mensualités, compte bloqué et vérifications contractuelles.',
+    'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Marche immobilier et regles de location en Suisse et en Argovie',
 };
 
 export default blogMetaChFr;

@@ -7628,6 +7628,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canoni-casa-lucerna-2026.title': 'Mieten in der Schweiz 2026: Immobilienmarkt in Luzern',
     'blog.article.canoni-casa-lucerna-2026.excerpt': 'Mieten in der Schweiz im Jahr 2026: Kaution bis zu drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung anzufechten. Fokus auf den Kanton Luzern.',
     'blog.article.canoni-casa-lucerna-2026.imageAlt': 'Wohnhäuser im Kanton Luzern zum Schweizer Mietwohnungsmarkt',
+    'blog.article.affitti-regole-deposito-argovia-2026.title': 'Mieten in der Schweiz: Regeln zur Mietkaution 2026',
+    'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Praktischer Leitfaden zu den Mietregeln in der Schweiz und im Aargau für 2026: Höchstgrenze von drei Monatsmieten, Sperrkonto und Vertragsprüfungen.',
+    'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Immobilienmarkt und Mietregeln in der Schweiz und im Kanton Aargau',
 };
 
 export default blogMetaChDe;

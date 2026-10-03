@@ -7628,6 +7628,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canoni-casa-lucerna-2026.title': 'Rentals in Switzerland 2026: real estate market in Lucerne',
     'blog.article.canoni-casa-lucerna-2026.excerpt': 'Rentals in Switzerland in 2026: a deposit of up to three months, an escrow account and 30 days to contest the termination notice. Focus on the canton of Lucerne.',
     'blog.article.canoni-casa-lucerna-2026.imageAlt': 'Residential buildings in Lucerne canton, illustrating Switzerland\'s rental market',
+    'blog.article.affitti-regole-deposito-argovia-2026.title': 'Renting in Switzerland: security deposit rules 2026',
+    'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Practical guide to rental rules in Switzerland and Aargau for 2026: maximum limit of three months\' rent, blocked account, and contractual checks.',
+    'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Real estate market and rental rules in Switzerland and Aargau',
 };
 
 export default blogMetaChEn;

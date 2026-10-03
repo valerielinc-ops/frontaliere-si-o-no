@@ -7628,6 +7628,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canoni-casa-lucerna-2026.title': 'Affitti in Svizzera 2026: mercato immobiliare a Lucerna',
     'blog.article.canoni-casa-lucerna-2026.excerpt': 'Affitti in Svizzera nel 2026: cauzione fino a tre mesi, conto vincolato e 30 giorni per contestare la disdetta. Focus sul canton Lucerna.',
     'blog.article.canoni-casa-lucerna-2026.imageAlt': 'Palazzi residenziali nel canton Lucerna, tema del mercato degli affitti svizzero',
+    'blog.article.affitti-regole-deposito-argovia-2026.title': 'Affitti in Svizzera: regole sul deposito cauzionale 2026',
+    'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Guida pratica alle regole sugli affitti in Svizzera e in Argovia per il 2026: limite massimo di tre mensilità, conto vincolato e verifiche contrattuali.',
+    'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Mercato immobiliare e regole sugli affitti in Svizzera e canton Argovia',
 };
 
 export default blogMetaChIt;

@@ -2565,6 +2565,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'diritti-casa-san-gallo': { it: 'diritti-casa-san-gallo', en: 'swiss-rentals-st-gallen-2026', de: 'mieten-schweiz-st-gallen-2026', fr: 'loyers-suisse-saint-gall-2026' },
  'affitti-lucerna-regole-2026': { it: 'affitti-lucerna-regole-2026', en: 'lucerne-rentals-rules-2026', de: 'luzern-mietrecht-regeln-2026', fr: 'lucerne-location-regles-2026' },
  'canoni-casa-lucerna-2026': { it: 'canoni-casa-lucerna-2026', en: 'swiss-rental-market-lucerne-2026', de: 'mietmarkt-schweiz-luzern-2026', fr: 'marche-locatif-suisse-lucerne-2026' },
+ 'affitti-regole-deposito-argovia-2026': { it: 'affitti-regole-deposito-argovia-2026', en: 'rent-deposit-rules-aargau-2026', de: 'mietzins-kaution-regeln-aargau-2026', fr: 'regles-depot-garantie-argovie-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
