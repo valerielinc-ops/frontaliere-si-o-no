@@ -12428,6 +12428,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.museo-storico-palazzo-civico-lugano.title': 'Museo storico a Palazzo Civico: mozione interpartitica a Lugano',
     'blog.article.museo-storico-palazzo-civico-lugano.excerpt': 'Dieci consiglieri comunali chiedono di valutare un museo storico al secondo piano di Palazzo Civico, che si libererà nel 2028 col trasloco a Cornaredo.',
     'blog.article.museo-storico-palazzo-civico-lugano.imageAlt': 'Palazzo Civico di Lugano, edificio neoclassico sede del Municipio',
+    'blog.article.diego-kostner-milano-hockey.title': 'Diego kostner lascia l\'ambrì piotta',
+    'blog.article.diego-kostner-milano-hockey.excerpt': 'L\'attaccante 34enne di Bressanone lascia l\'Ambrì Piotta e proseguirà la carriera con il neonato Milano Hockey Club.',
+    'blog.article.diego-kostner-milano-hockey.imageAlt': 'Pista di hockey in Ticino nei colori biancoblù dell\'Ambrì Piotta',
 };
 
 export default blogMetaIt;

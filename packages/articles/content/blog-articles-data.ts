@@ -37268,6 +37268,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'diego-kostner-milano-hockey',
+ category: 'novita',
+ date: '2026-10-03T18:09:34.506Z',
+ image: '/images/blog/diego-kostner-milano-hockey.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

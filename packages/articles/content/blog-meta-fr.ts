@@ -12429,6 +12429,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.museo-storico-palazzo-civico-lugano.title': 'Musée historique au Palazzo Civico : motion interpartisane à Lugano',
     'blog.article.museo-storico-palazzo-civico-lugano.excerpt': 'Dix conseillers municipaux demandent d’envisager un musée historique au deuxième étage du Palazzo Civico, qui sera libéré en 2028 avec le déménagement à Cornaredo.',
     'blog.article.museo-storico-palazzo-civico-lugano.imageAlt': 'Palazzo Civico à Lugano, hôtel de ville néoclassique',
+    'blog.article.diego-kostner-milano-hockey.title': 'Diego kostner quitte l\'ambrì piotta',
+    'blog.article.diego-kostner-milano-hockey.excerpt': 'L\'attaquant de 34 ans originaire de Bressanone quitte l\'Ambrì Piotta et poursuivra sa carrière avec le Milano Hockey Club nouvellement créé.',
+    'blog.article.diego-kostner-milano-hockey.imageAlt': 'Patinoire de hockey au Tessin aux couleurs bleu et blanc d\'Ambrì Piotta',
 };
 
 export default blogMetaFr;
