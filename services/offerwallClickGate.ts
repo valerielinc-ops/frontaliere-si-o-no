@@ -38,8 +38,12 @@
  * free path. Live, 03-10: the hidden root is complete 1.7-2.1 s after the
  * release, the page above it keeps its clicks, and removing the style shows
  * the Offerwall intact. Funding Choices does lock the body scroll on render;
- * the offer that hosts the choice restores it when it closes. A staged
- * Offerwall that is never revealed stays hidden for the page view.
+ * the offer that hosts the choice restores it when it closes. A released
+ * Offerwall cannot be taken back, so one whose choice closed unrevealed (the
+ * watch aborted) is marked and stays hidden alone for the page view, and the
+ * stage rule comes down: at once when it is already in the page, otherwise
+ * when Google renders it (the scroll lock it then takes is put back) or at
+ * the appear timeout. Other Funding Choices messages are never kept hidden.
  */
 
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
@@ -88,6 +92,19 @@ export const OFFERWALL_REVEAL_GRACE_MS = 1500;
 export const OFFERWALL_STAGE_STYLE_ID = 'ft-offerwall-stage';
 /** Every Funding Choices root but the consent message, which must stay usable. */
 const OFFERWALL_STAGE_CSS = '[class*="fc-"][class*="-root"]:not(.fc-consent-root){display:none!important}';
+/** Marks a staged Offerwall whose choice closed before the reveal. */
+export const OFFERWALL_DISCARDED_ATTR = 'data-ft-offerwall-discarded';
+const OFFERWALL_DISCARDED_STYLE_ID = 'ft-offerwall-discarded';
+
+function hideDiscardedOfferwall(doc: Document, roots: HTMLElement[]): void {
+  if (!doc.getElementById(OFFERWALL_DISCARDED_STYLE_ID)) {
+    const style = doc.createElement('style');
+    style.id = OFFERWALL_DISCARDED_STYLE_ID;
+    style.textContent = `[${OFFERWALL_DISCARDED_ATTR}]{display:none!important}`;
+    (doc.head || doc.documentElement).appendChild(style);
+  }
+  for (const root of roots) root.setAttribute(OFFERWALL_DISCARDED_ATTR, '');
+}
 
 /** Keep Funding Choices messages (but the consent one) off screen. */
 export function stageOfferwall(doc: Document = document): void {
@@ -272,7 +289,49 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
     let appearTimedOut = false;
     let stagedReported = false;
     let done = false;
-    const onAbort = () => finish({ outcome: 'not_shown', reason: 'aborted' });
+    // The choice closed before the reveal: the Offerwall it released keeps
+    // off screen alone, and the stage rule comes down.
+    const discardStaged = () => {
+      const stagedRoots = () => fcRoots(doc).filter((el) => !presentBefore.has(el) && !el.hasAttribute(OFFERWALL_DISCARDED_ATTR));
+      const present = stagedRoots();
+      if (present.length) {
+        hideDiscardedOfferwall(doc, present);
+        revealStagedOfferwall(doc);
+        return;
+      }
+      // Not rendered yet: keep the stage until Google renders it, then mark
+      // it and put back the body scroll it locks (read after the host's own
+      // cleanup has run, on the first tick).
+      let bodyOverflow: string | null = null;
+      let restoreTicks = 0;
+      const deadline = releasedAt + appearTimeoutMs;
+      const sweep = win.setInterval(() => {
+        if (bodyOverflow === null) bodyOverflow = doc.body?.style.overflow ?? '';
+        if (restoreTicks > 0) {
+          // Google may take the lock a moment after the root lands.
+          if (doc.body) doc.body.style.overflow = bodyOverflow;
+          restoreTicks -= 1;
+          if (restoreTicks === 0) win.clearInterval(sweep);
+          return;
+        }
+        const late = stagedRoots();
+        if (late.length) {
+          hideDiscardedOfferwall(doc, late);
+          revealStagedOfferwall(doc);
+          if (doc.body) doc.body.style.overflow = bodyOverflow;
+          restoreTicks = 2;
+          return;
+        }
+        if (Date.now() >= deadline) {
+          win.clearInterval(sweep);
+          revealStagedOfferwall(doc);
+        }
+      }, POLL_MS);
+    };
+    const onAbort = () => {
+      if (clockAt === null && isOfferwallStaged(doc)) discardStaged();
+      finish({ outcome: 'not_shown', reason: 'aborted' });
+    };
     const finish = (result: OfferwallReleaseResult) => {
       if (done) return;
       done = true;

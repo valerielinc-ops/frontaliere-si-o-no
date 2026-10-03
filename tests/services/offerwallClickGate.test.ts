@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   FC_OFFERWALL_ENTITLEMENT_COOKIE,
   OFFERWALL_APPEAR_TIMEOUT_MS,
+  OFFERWALL_DISCARDED_ATTR,
   OFFERWALL_ENTITLEMENT_GRACE_MS,
   OFFERWALL_REVEAL_GRACE_MS,
   OFFERWALL_SLOW_MS,
@@ -341,6 +342,8 @@ describe('offerwallClickGate', () => {
   describe('staged release behind the paid choice', () => {
     afterEach(() => {
       revealStagedOfferwall();
+      document.getElementById('ft-offerwall-discarded')?.remove();
+      document.body.style.overflow = '';
     });
 
     it('releases the Offerwall hidden, reports it ready, and never times out while hidden', async () => {
@@ -439,7 +442,7 @@ describe('offerwallClickGate', () => {
       expect(isOfferwallStaged()).toBe(false);
     });
 
-    it('keeps a staged Offerwall hidden when the watch is aborted (the choice was closed)', async () => {
+    it('keeps a closed choice\'s Offerwall hidden alone, and takes the stage down at once', async () => {
       holdOfferwall(() => {
         mountRoot('fc-message-root');
       });
@@ -448,8 +451,52 @@ describe('offerwallClickGate', () => {
       await vi.advanceTimersByTimeAsync(400);
       controller.abort();
       await expect(pending).resolves.toEqual({ outcome: 'not_shown', reason: 'aborted' });
+
+      // A release cannot be taken back: the Offerwall never comes on screen uninvited...
+      const offerwall = document.querySelector('.fc-message-root') as HTMLElement;
+      expect(offerwall.hasAttribute(OFFERWALL_DISCARDED_ATTR)).toBe(true);
+      expect(window.getComputedStyle(offerwall).display).toBe('none');
+      // ...and the stage no longer hides any other Funding Choices message.
+      expect(isOfferwallStaged()).toBe(false);
+      const otherMessage = mountRoot('fc-ab-root');
+      expect(window.getComputedStyle(otherMessage).display).not.toBe('none');
+    });
+
+    it('hides an Offerwall Google renders after the choice closed, and puts back the scroll it locks', async () => {
+      holdOfferwall(() => {
+        setTimeout(() => {
+          mountRoot('fc-message-root');
+          // Funding Choices locks the body scroll when it renders the Offerwall.
+          document.body.style.overflow = 'hidden';
+        }, 1500);
+      });
+      const controller = new AbortController();
+      void releaseHeldOfferwall({ staged: true, signal: controller.signal });
+      await vi.advanceTimersByTimeAsync(400);
+      controller.abort();
+      // The offer that hosted the choice restores its own lock as it closes.
+      document.body.style.overflow = 'auto';
       expect(isOfferwallStaged()).toBe(true);
-      expect(window.getComputedStyle(document.querySelector('.fc-message-root') as Element).display).toBe('none');
+
+      await vi.advanceTimersByTimeAsync(1800);
+      const offerwall = document.querySelector('.fc-message-root') as HTMLElement;
+      expect(offerwall.hasAttribute(OFFERWALL_DISCARDED_ATTR)).toBe(true);
+      expect(window.getComputedStyle(offerwall).display).toBe('none');
+      expect(isOfferwallStaged()).toBe(false);
+      expect(document.body.style.overflow).toBe('auto');
+    });
+
+    it('takes the stage down at the appear timeout when nothing renders after the choice closed', async () => {
+      holdOfferwall();
+      const controller = new AbortController();
+      void releaseHeldOfferwall({ staged: true, signal: controller.signal });
+      await vi.advanceTimersByTimeAsync(400);
+      controller.abort();
+
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS - 1000);
+      expect(isOfferwallStaged()).toBe(true);
+      await vi.advanceTimersByTimeAsync(1000);
+      expect(isOfferwallStaged()).toBe(false);
     });
   });
 });
