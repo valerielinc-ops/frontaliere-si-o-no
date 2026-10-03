@@ -59,11 +59,126 @@
 
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { intFromEnv } from '../lib/int-from-env.mjs';
+import {
+  buildLocaleFromJobName,
+  classifyBuildLocaleFailure,
+  detectBuildLocaleHostKill,
+  HOST_KILL_SETTLE_MS,
+} from './lib/deploy-job-failure-signature.mjs';
 
 /** Statuses GitHub uses for a run that has not reached a conclusion yet. */
 const LIVE_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending', 'action_required']);
 
 export const DEFAULT_MAX_BUILDS_PER_SHA = 2;
+export const DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS = 1;
+
+const DEPLOY_WORKFLOW_PATH = '.github/workflows/deploy.yml';
+const DEPLOY_WORKFLOW_NAME = 'Deploy to GitHub Pages';
+const PREPARED_SNAPSHOT_ARTIFACT = 'prepared-snapshot';
+const SHA_RE = /^[0-9a-f]{40}$/i;
+
+function recoverySkip(reason, detail) {
+  return { action: 'skip', reason, detail: detail || reason };
+}
+
+function annotationsForJob(annotationsByJob, jobId) {
+  if (annotationsByJob instanceof Map) return annotationsByJob.get(String(jobId)) || [];
+  if (annotationsByJob && typeof annotationsByJob === 'object') {
+    return annotationsByJob[String(jobId)] || [];
+  }
+  return [];
+}
+
+/**
+ * Decide whether exactly one build-locale matrix job may be re-run.
+ *
+ * This is deliberately separate from `decideRearm`: the existing whole-run
+ * re-arm is still the fallback for ordinary failures, while this path is only
+ * admitted when the failed leg, its run attempt, and its prepared snapshot are
+ * all bound to the same SHA.
+ *
+ * @returns {{action: 'rerun'|'skip', reason: string, detail: string, job?: object, classification?: object}}
+ */
+export function decideBuildLocaleRecovery({
+  run,
+  jobs,
+  artifacts,
+  annotationsByJob = {},
+  expectedSha,
+  currentAttempt = run?.run_attempt,
+  nowMs = Date.now(),
+  maxRecoveryAttempts = DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
+  settleMs = HOST_KILL_SETTLE_MS,
+} = {}) {
+  const runId = String(run?.id ?? '').trim();
+  const runSha = String(run?.head_sha ?? '').trim();
+  const expected = String(expectedSha ?? '').trim();
+  if (!runId || !SHA_RE.test(runSha) || !SHA_RE.test(expected) || runSha.toLowerCase() !== expected.toLowerCase()) {
+    return recoverySkip('provenance-sha-mismatch', 'run SHA is missing or differs from the current workflow SHA');
+  }
+  if (run?.path !== DEPLOY_WORKFLOW_PATH || run?.name !== DEPLOY_WORKFLOW_NAME) {
+    return recoverySkip('provenance-workflow-mismatch', 'the observed run is not the canonical deploy workflow');
+  }
+  if (run?.head_branch !== 'main') {
+    return recoverySkip('provenance-branch-mismatch', 'targeted locale recovery is restricted to main');
+  }
+
+  const attempt = Number(currentAttempt);
+  if (!Number.isSafeInteger(attempt) || attempt < 1) {
+    return recoverySkip('run-attempt-unreadable', 'the workflow run attempt is not a safe positive integer');
+  }
+  if (!Number.isSafeInteger(maxRecoveryAttempts) || maxRecoveryAttempts < 1 || attempt > maxRecoveryAttempts) {
+    return recoverySkip('recovery-attempt-cap', `locale recovery attempt ${attempt} exceeds cap ${maxRecoveryAttempts}`);
+  }
+
+  const snapshotArtifacts = Array.isArray(artifacts)
+    ? artifacts.filter((artifact) => artifact?.name === PREPARED_SNAPSHOT_ARTIFACT)
+    : [];
+  if (snapshotArtifacts.length !== 1) {
+    return recoverySkip(
+      snapshotArtifacts.length === 0 ? 'snapshot-missing' : 'snapshot-ambiguous',
+      `expected exactly one ${PREPARED_SNAPSHOT_ARTIFACT} artifact for run ${runId}`,
+    );
+  }
+  const snapshot = snapshotArtifacts[0];
+  if (snapshot.expired !== false || String(snapshot.workflow_run?.id ?? '') !== runId) {
+    return recoverySkip('snapshot-provenance-mismatch', 'prepared snapshot is expired or belongs to another run');
+  }
+
+  const currentJobs = Array.isArray(jobs) ? jobs : [];
+  const candidates = currentJobs.flatMap((job) => {
+    if (String(job?.run_id ?? '') !== runId
+        || Number(job?.run_attempt) !== attempt
+        || String(job?.head_sha ?? '').toLowerCase() !== runSha.toLowerCase()
+        || !buildLocaleFromJobName(job?.name)) return [];
+    const classification = classifyBuildLocaleFailure(
+      job,
+      annotationsForJob(annotationsByJob, job.id),
+      { nowMs, settleMs },
+    );
+    return classification ? [{ job, classification }] : [];
+  });
+
+  if (candidates.length === 0) {
+    return recoverySkip('no-retryable-locale-leg', 'no build-locale job has a confirmed host-loss or timeout signature');
+  }
+  if (candidates.length !== 1) {
+    return recoverySkip(
+      'ambiguous-retryable-locale-legs',
+      `${candidates.length} build-locale jobs have a retryable signature; refusing a partial choice`,
+    );
+  }
+
+  const [{ job, classification }] = candidates;
+  return {
+    action: 'rerun',
+    reason: classification.kind,
+    detail: `${job.name} is recoverable from the same SHA and prepared snapshot`,
+    job,
+    classification,
+  };
+}
 
 /**
  * Pure decision core — no network, no clock, no process state, so every branch
@@ -132,17 +247,150 @@ function gh(args) {
   return execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 }
 
+function ghJson(args) {
+  const raw = gh(args);
+  if (!raw) throw new Error(`empty GitHub API response for ${args.join(' ')}`);
+  try {
+    return JSON.parse(raw);
+  } catch {
+    throw new Error(`invalid JSON from GitHub API for ${args.join(' ')}`);
+  }
+}
+
+function readJobAnnotations(job) {
+  if (!job?.check_run_url) throw new Error(`job ${job?.id || '?'} has no check-run URL`);
+  const raw = gh([
+    'api',
+    `${job.check_run_url}/annotations`,
+    '--paginate',
+    '--slurp',
+  ]);
+  const parsed = JSON.parse(raw);
+  if (Array.isArray(parsed) && parsed.every((page) => Array.isArray(page))) return parsed.flat();
+  throw new Error(`unreadable annotations for job ${job.id || '?'}`);
+}
+
+function settleWaitMs(job, nowMs) {
+  const completedAt = Date.parse(job?.completed_at || '');
+  if (!Number.isFinite(completedAt)) return 0;
+  return Math.max(0, Math.min(HOST_KILL_SETTLE_MS, HOST_KILL_SETTLE_MS - (nowMs - completedAt)));
+}
+
+async function inspectBuildLocaleRecovery({
+  repo,
+  runId,
+  expectedSha,
+  currentAttempt,
+  maxRecoveryAttempts = DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
+} = {}) {
+  if (!repo || !runId || !expectedSha) {
+    return recoverySkip('recovery-context-missing', 'run id, repository, or current SHA is unavailable');
+  }
+
+  try {
+    const runPath = `repos/${repo}/actions/runs/${runId}`;
+    let run = ghJson(['api', runPath]);
+    let jobsPayload = ghJson(['api', `${runPath}/jobs?filter=all&per_page=100`]);
+    let jobs = Array.isArray(jobsPayload?.jobs) ? jobsPayload.jobs : [];
+
+    // A just-finalised ordinary failure can briefly expose a frozen step. Wait
+    // only when the exact Build step has the host-loss shape, and never longer
+    // than the shared observer settle window.
+    const nowMs = Date.now();
+    const settleWait = Math.max(
+      0,
+      ...jobs
+        .filter((job) => detectBuildLocaleHostKill(job, nowMs, 0))
+        .map((job) => settleWaitMs(job, nowMs)),
+    );
+    if (settleWait > 0) {
+      await new Promise((resolve) => setTimeout(resolve, settleWait));
+      run = ghJson(['api', runPath]);
+      jobsPayload = ghJson(['api', `${runPath}/jobs?filter=all&per_page=100`]);
+      jobs = Array.isArray(jobsPayload?.jobs) ? jobsPayload.jobs : [];
+    }
+
+    const artifactsPayload = ghJson([
+      'api',
+      `${runPath}/artifacts?name=${encodeURIComponent(PREPARED_SNAPSHOT_ARTIFACT)}&per_page=100`,
+    ]);
+    const annotationsByJob = {};
+    for (const job of jobs) {
+      if (!buildLocaleFromJobName(job?.name)
+          || !['cancelled', 'timed_out'].includes(String(job?.conclusion || ''))
+          || job?.status !== 'completed') continue;
+      annotationsByJob[String(job.id)] = readJobAnnotations(job);
+    }
+
+    return decideBuildLocaleRecovery({
+      run,
+      jobs,
+      artifacts: artifactsPayload?.artifacts,
+      annotationsByJob,
+      expectedSha,
+      currentAttempt: currentAttempt || run?.run_attempt,
+      maxRecoveryAttempts,
+      nowMs: Date.now(),
+    });
+  } catch (err) {
+    return recoverySkip(
+      'recovery-api-unreadable',
+      `cannot prove locale recovery inputs: ${String(err?.message || err).split('\n')[0]}`,
+    );
+  }
+}
+
 async function main() {
   const repo = process.env.GITHUB_REPOSITORY;
   const workflow = process.env.REARM_WORKFLOW || 'deploy.yml';
   const branch = process.env.REARM_BRANCH || 'main';
   const selfRunId = process.env.GITHUB_RUN_ID;
   const maxBuildsPerSha = Number(process.env.REARM_MAX_BUILDS_PER_SHA) || DEFAULT_MAX_BUILDS_PER_SHA;
+  const maxLocaleRecoveryAttempts = intFromEnv(
+    'REARM_MAX_LOCALE_RECOVERY_ATTEMPTS',
+    DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
+  );
   const dryRun = process.env.REARM_DRY_RUN === '1';
 
   if (!repo) {
     console.warn('⚠️  GITHUB_REPOSITORY unset — not an Actions run, nothing to re-arm');
     return 0;
+  }
+
+  const localeRecovery = await inspectBuildLocaleRecovery({
+    repo,
+    runId: process.env.GITHUB_RUN_ID,
+    expectedSha: process.env.GITHUB_SHA,
+    currentAttempt: process.env.GITHUB_RUN_ATTEMPT,
+    maxRecoveryAttempts: maxLocaleRecoveryAttempts,
+  });
+  if (localeRecovery.action === 'rerun') {
+    const jobId = localeRecovery.job?.id;
+    console.log(
+      `[rearm] ${localeRecovery.reason}: retrying only ${localeRecovery.job?.name || 'the failed locale leg'} `
+        + `(${jobId}) from the original run and prepared snapshot`,
+    );
+    try {
+      gh(['api', '-X', 'POST', `repos/${repo}/actions/jobs/${jobId}/rerun`]);
+      const summary = process.env.GITHUB_STEP_SUMMARY;
+      if (summary) {
+        const { appendFileSync } = await import('node:fs');
+        appendFileSync(
+          summary,
+          `🔁 **Targeted build-locale recovery**: reran ${localeRecovery.job.name} `
+            + `for ${localeRecovery.reason} on the same SHA/snapshot; no other matrix leg was dispatched.\n`,
+        );
+      }
+    } catch (err) {
+      // Do not reinterpret a failed recovery request as a broad host-loss
+      // match. The ordinary re-arm below remains the existing backstop only
+      // when no targeted candidate was admitted.
+      console.warn(`::warning::targeted build-locale recovery request failed: ${err?.message?.split('\n')[0]}`);
+    }
+    return 0;
+  }
+  if (localeRecovery.reason === 'recovery-api-unreadable') {
+    console.warn(`::warning::${localeRecovery.detail} — falling back to the existing whole-run re-arm decision`);
   }
 
   let headSha = '';

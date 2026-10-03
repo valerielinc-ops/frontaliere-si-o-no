@@ -18,7 +18,12 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
-import { decideRearm, DEFAULT_MAX_BUILDS_PER_SHA } from '../scripts/ci/rearm-deploy-build.mjs';
+import {
+  decideBuildLocaleRecovery,
+  decideRearm,
+  DEFAULT_MAX_BUILDS_PER_SHA,
+  DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
+} from '../scripts/ci/rearm-deploy-build.mjs';
 
 const HEAD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const OLD = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
@@ -29,6 +34,153 @@ const done = (id: number, headSha: string, conclusion: string): Run => ({ id, he
 const live = (id: number, headSha: string, status: string): Run => ({ id, headSha, status, conclusion: null });
 /** The caller: in_progress by definition, and about to end non-success. */
 const selfRun = (headSha = HEAD): Run => ({ id: SELF, headSha, status: 'in_progress', conclusion: null });
+
+const RECOVERY_RUN = {
+  id: 42,
+  name: 'Deploy to GitHub Pages',
+  path: '.github/workflows/deploy.yml',
+  head_branch: 'main',
+  head_sha: HEAD,
+  run_attempt: 1,
+};
+const PREPARED_SNAPSHOT = {
+  name: 'prepared-snapshot',
+  expired: false,
+  workflow_run: { id: RECOVERY_RUN.id },
+};
+const RECOVERY_NOW = Date.parse('2026-10-03T01:00:00.000Z');
+const RECOVERY_COMPLETED_AT = '2026-10-03T00:55:00.000Z';
+
+function localeJob(overrides: Record<string, unknown> = {}) {
+  return {
+    id: 100,
+    run_id: RECOVERY_RUN.id,
+    run_attempt: 1,
+    head_sha: HEAD,
+    name: 'build-locale (de)',
+    status: 'completed',
+    conclusion: 'failure',
+    completed_at: RECOVERY_COMPLETED_AT,
+    check_run_url: 'https://api.github.com/repos/o/r/check-runs/100',
+    steps: [
+      { number: 15, name: 'Build (BUILD_LOCALE=de)', status: 'in_progress', conclusion: null },
+      { number: 59, name: 'Report failure to GitHub Issues (build)', status: 'pending', conclusion: null },
+    ],
+    ...overrides,
+  };
+}
+
+describe('targeted build-locale recovery — host loss/timeout only', () => {
+  it('retries exactly the one leg whose Build step was host-killed', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      jobs: [localeJob()],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    });
+
+    expect(DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS).toBe(1);
+    expect(decision.action).toBe('rerun');
+    expect(decision.reason).toBe('host-loss');
+    expect(decision.job?.name).toBe('build-locale (de)');
+  });
+
+  it('does not reinterpret a concluded application failure as host loss', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      jobs: [localeJob({
+        steps: [
+          { number: 15, name: 'Build (BUILD_LOCALE=de)', status: 'completed', conclusion: 'failure' },
+          { number: 59, name: 'Report failure to GitHub Issues (build)', status: 'completed', conclusion: 'success' },
+        ],
+      })],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    });
+
+    expect(decision.action).toBe('skip');
+    expect(decision.reason).toBe('no-retryable-locale-leg');
+  });
+
+  it('accepts only the proven job-timeout annotation as the other transient signature', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      jobs: [localeJob({
+        conclusion: 'cancelled',
+        steps: [{ number: 15, name: 'Build (BUILD_LOCALE=de)', status: 'completed', conclusion: 'cancelled' }],
+      })],
+      artifacts: [PREPARED_SNAPSHOT],
+      annotationsByJob: {
+        100: [{ message: 'The job exceeded the maximum execution time of 360 minutes.' }],
+      },
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    });
+
+    expect(decision.action).toBe('rerun');
+    expect(decision.reason).toBe('timeout');
+  });
+
+  it('stops after one job-level recovery attempt', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: { ...RECOVERY_RUN, run_attempt: 2 },
+      jobs: [localeJob({ run_attempt: 2 })],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      currentAttempt: 2,
+      nowMs: RECOVERY_NOW,
+    });
+
+    expect(decision.action).toBe('skip');
+    expect(decision.reason).toBe('recovery-attempt-cap');
+  });
+
+  it('fails closed when the snapshot or failed leg is not bound to the same SHA/run', () => {
+    const wrongSnapshot = { ...PREPARED_SNAPSHOT, workflow_run: { id: 999 } };
+    const wrongSha = localeJob({ head_sha: OLD });
+
+    expect(decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      jobs: [localeJob()],
+      artifacts: [wrongSnapshot],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    }).reason).toBe('snapshot-provenance-mismatch');
+
+    expect(decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      jobs: [wrongSha],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    }).reason).toBe('no-retryable-locale-leg');
+  });
+
+  it('refuses a partial choice when more than one locale leg has the signature', () => {
+    const decision = decideBuildLocaleRecovery({
+      run: RECOVERY_RUN,
+      jobs: [
+        localeJob(),
+        localeJob({
+          id: 101,
+          name: 'build-locale (fr)',
+          steps: [
+            { number: 15, name: 'Build (BUILD_LOCALE=fr)', status: 'in_progress', conclusion: null },
+            { number: 59, name: 'Report failure to GitHub Issues (build)', status: 'pending', conclusion: null },
+          ],
+        }),
+      ],
+      artifacts: [PREPARED_SNAPSHOT],
+      expectedSha: HEAD,
+      nowMs: RECOVERY_NOW,
+    });
+
+    expect(decision.action).toBe('skip');
+    expect(decision.reason).toBe('ambiguous-retryable-locale-legs');
+  });
+});
 
 describe('decideRearm — the pipeline has STOPPED with work outstanding (#5349)', () => {
   it('reproduces 2026-08-06T16:27:57Z: a failed run, nothing queued → dispatch one build', () => {
@@ -173,6 +325,9 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     expect(raw).toMatch(/node scripts\/ci\/rearm-deploy-build\.mjs/);
     expect(raw, 'the per-sha cap must be pinned in the workflow, not left implicit').toMatch(
       /REARM_MAX_BUILDS_PER_SHA: '2'/,
+    );
+    expect(raw, 'the targeted locale recovery cap must stay at one job rerun').toMatch(
+      /REARM_MAX_LOCALE_RECOVERY_ATTEMPTS: '1'/,
     );
   });
 
