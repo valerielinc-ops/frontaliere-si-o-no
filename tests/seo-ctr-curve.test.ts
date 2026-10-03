@@ -6,6 +6,9 @@ import {
   expectedCtrForPosition,
   ctrGapRatio,
   aggregateFamilyRows,
+  rankBelowCurvePagesByLostClicks,
+  renderBelowCurvePagesSection,
+  BELOW_CURVE_ISSUE_PAGE_LIMIT,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
@@ -819,6 +822,84 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(agg.avgCtr).toBeNull();
       expect(agg.avgPosition).toBeNull();
       expect(agg.belowCurveCount).toBe(0);
+    });
+  });
+
+  describe('pagine sotto curva nella issue di famiglia (issue 5479)', () => {
+    // Il monitor calcolava gia' `belowCurvePages` e le buttava: la issue
+    // riceveva solo il numero di famiglia e il fixer chiudeva con «manca
+    // l'evidenza per pagina». Questi casi tengono la tabella nel body.
+    const MIN_IMPRESSIONS = 5;
+    // Posizione 3: CTR attesa letta dalla curva, non scritta a mano.
+    const expectedAt3 = expectedCtrForPosition(3);
+    const rows = [
+      // Sotto curva, tante impressioni ma divario piccolo: 1000 × (e − 0,55e).
+      { path: '/big-small-gap/', clicks: 0, impressions: 1000, position: 3, ctr: expectedAt3 * 0.55 },
+      // Sotto curva, meno impressioni ma CTR zero: 800 × e → perde di piu'.
+      { path: '/mid-zero-ctr/', clicks: 0, impressions: 800, position: 3, ctr: 0 },
+      // Sopra curva: mai in tabella, per quante impressioni abbia.
+      { path: '/healthy/', clicks: 900, impressions: 5000, position: 3, ctr: 0.18 },
+      // Sotto il minimo di impressioni: mai in tabella, anche a CTR zero.
+      { path: '/too-few/', clicks: 0, impressions: MIN_IMPRESSIONS - 1, position: 3, ctr: 0 },
+    ];
+
+    it('ordina per click persi stimati, non per impressioni', () => {
+      const agg = aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS });
+      // L'ordine nativo dell'aggregazione e' per impressioni…
+      expect(agg.belowCurvePages.map((p: { path: string }) => p.path)).toEqual(['/big-small-gap/', '/mid-zero-ctr/']);
+      // …quello della issue e' per click persi.
+      const ranked = rankBelowCurvePagesByLostClicks(agg.belowCurvePages);
+      expect(ranked.map((p: { path: string }) => p.path)).toEqual(['/mid-zero-ctr/', '/big-small-gap/']);
+      expect(ranked[0].lostClicks).toBeCloseTo(800 * expectedAt3, 6);
+      expect(ranked[1].lostClicks).toBeCloseTo(1000 * expectedAt3 * 0.45, 6);
+    });
+
+    it('la sezione elenca le pagine sotto curva ed esclude quelle sopra curva e sotto il minimo', () => {
+      const agg = aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS });
+      const section = renderBelowCurvePagesSection(agg.belowCurvePages);
+      expect(section).toContain('| Path | Impressioni | Posizione | CTR | CTR attesa | Click persi stimati |');
+      expect(section).not.toContain('/healthy/');
+      expect(section).not.toContain('/too-few/');
+      expect(section.indexOf('/mid-zero-ctr/')).toBeGreaterThan(-1);
+      expect(section.indexOf('/mid-zero-ctr/')).toBeLessThan(section.indexOf('/big-small-gap/'));
+      expect(section).toContain(
+        `| \`/mid-zero-ctr/\` | 800 | 3.0 | 0.00% | ${(expectedAt3 * 100).toFixed(2)}% | ${(800 * expectedAt3).toFixed(1)} |`,
+      );
+    });
+
+    it(`limita la tabella a ${BELOW_CURVE_ISSUE_PAGE_LIMIT} pagine e dichiara quante ne restano fuori`, () => {
+      const many = Array.from({ length: 40 }, (_, i) => ({
+        path: `/p-${String(i).padStart(2, '0')}/`,
+        clicks: 0,
+        impressions: 100 + i,
+        position: 3,
+        ctr: 0,
+      }));
+      const agg = aggregateFamilyRows(many, { minImpressions: MIN_IMPRESSIONS });
+      const section = renderBelowCurvePagesSection(agg.belowCurvePages);
+      const dataRows = section.split('\n').filter((line: string) => line.startsWith('| `/p-'));
+      expect(BELOW_CURVE_ISSUE_PAGE_LIMIT).toBe(15);
+      expect(dataRows).toHaveLength(BELOW_CURVE_ISSUE_PAGE_LIMIT);
+      // Le 15 che perdono di piu' sono quelle con piu' impressioni (CTR zero ovunque).
+      expect(dataRows[0]).toContain('/p-39/');
+      expect(dataRows[14]).toContain('/p-25/');
+      expect(section).toContain('15 di 40 pagine sotto curva');
+    });
+
+    it('con zero pagine sotto curva lo dice, invece di omettere la sezione', () => {
+      const agg = aggregateFamilyRows([rows[2]], { minImpressions: MIN_IMPRESSIONS });
+      const section = renderBelowCurvePagesSection(agg.belowCurvePages);
+      expect(section).toContain('Nessuna pagina della famiglia sta sotto la curva');
+      expect(section).not.toContain('| Path |');
+    });
+
+    it('il monitor passa le pagine alla issue e ne salva cinque nello state file', () => {
+      const monitor = readFileSync(join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+      expect(monitor).toContain('belowCurvePages = agg.belowCurvePages;');
+      expect(monitor).toContain('${renderBelowCurvePagesSection(belowCurvePages)}');
+      expect(monitor).toContain('run: consecutiveBelowRuns, belowCurvePages }');
+      expect(monitor).toContain('const STATE_BELOW_CURVE_PAGES = 5;');
+      expect(monitor).toMatch(/lastBelowCurvePages: rankBelowCurvePagesByLostClicks\(belowCurvePages\)\s*\.slice\(0, STATE_BELOW_CURVE_PAGES\)/);
     });
   });
 });

@@ -998,3 +998,74 @@ export function aggregateFamilyRows(rows, { underperformRatio = 0.6, minImpressi
     belowCurvePages: belowCurve,
   };
 }
+
+/**
+ * Quante pagine sotto curva finiscono nella issue di famiglia. Il resto resta
+ * contato nella riga di riepilogo: una issue con 400 righe non la legge nessuno.
+ */
+export const BELOW_CURVE_ISSUE_PAGE_LIMIT = 15;
+
+/**
+ * Ordina le `belowCurvePages` di `aggregateFamilyRows` per click persi stimati
+ * (`impressioni × (CTR attesa − CTR)`), dal piu' costoso. L'ordine nativo e'
+ * per impressioni: mette in cima la pagina piu' vista, non quella che perde di
+ * piu' — una pagina a 0,55× della curva con molte impressioni scavalcherebbe
+ * una a 0,05× che ne ha poche meno.
+ *
+ * Non riaggrega e non rifiltra: chi e' «sotto curva» e chi supera il minimo di
+ * impressioni lo ha gia' deciso `aggregateFamilyRows`.
+ */
+export function rankBelowCurvePagesByLostClicks(belowCurvePages) {
+  return (belowCurvePages || [])
+    .map((page) => {
+      const impressions = Number(page.impressions || 0);
+      const ctr = Number.isFinite(Number(page.ctr)) && page.ctr !== null
+        ? Number(page.ctr)
+        : (impressions > 0 ? Number(page.clicks || 0) / impressions : 0);
+      const expectedCtr = Number(page.expectedCtr || 0);
+      return { ...page, ctr, lostClicks: impressions * (expectedCtr - ctr) };
+    })
+    .filter((page) => page.lostClicks > 0)
+    .sort((a, b) => b.lostClicks - a.lostClicks || String(a.path).localeCompare(String(b.path)));
+}
+
+/**
+ * Sezione markdown della issue di famiglia: le pagine sotto curva, ordinate
+ * per click persi. E' l'evidenza per pagina senza la quale il numero di
+ * famiglia («2,10% contro 3,00%») non dice a nessuno cosa correggere.
+ *
+ * Con zero pagine sotto curva lo dice esplicitamente: e' un'informazione (il
+ * divario e' spalmato sulla famiglia), non una tabella dimenticata.
+ */
+export function renderBelowCurvePagesSection(belowCurvePages, { limit = BELOW_CURVE_ISSUE_PAGE_LIMIT } = {}) {
+  const ranked = rankBelowCurvePagesByLostClicks(belowCurvePages);
+  const heading = '### Pagine sotto curva (per click persi stimati)';
+  if (ranked.length === 0) {
+    return [
+      heading,
+      '',
+      'Nessuna pagina della famiglia sta sotto la curva attesa per la propria posizione:',
+      'il divario dal target e\' distribuito sulla famiglia, non concentrato su pagine singole.',
+    ].join('\n');
+  }
+  const pctCell = (n) => `${(n * 100).toFixed(2)}%`;
+  const shown = ranked.slice(0, limit);
+  const totalLost = ranked.reduce((sum, page) => sum + page.lostClicks, 0);
+  const rows = shown.map((page) => [
+    `\`${String(page.path).replace(/\|/g, '%7C').replace(/`/g, '%60')}\``,
+    Number(page.impressions || 0),
+    Number.isFinite(Number(page.position)) && page.position !== null ? Number(page.position).toFixed(1) : 'n/a',
+    pctCell(page.ctr),
+    pctCell(Number(page.expectedCtr || 0)),
+    page.lostClicks.toFixed(1),
+  ].join(' | '));
+  return [
+    heading,
+    '',
+    `${shown.length} di ${ranked.length} pagine sotto curva; click persi stimati sull'intero elenco: ${totalLost.toFixed(1)}.`,
+    '',
+    '| Path | Impressioni | Posizione | CTR | CTR attesa | Click persi stimati |',
+    '|---|---:|---:|---:|---:|---:|',
+    ...rows.map((row) => `| ${row} |`),
+  ].join('\n');
+}
