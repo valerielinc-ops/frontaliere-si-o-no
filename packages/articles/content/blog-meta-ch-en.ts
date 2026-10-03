@@ -7610,6 +7610,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.locazione-cauzione-basilea-2026.title': 'Rentals in Switzerland 2026: rules and focus on Basel',
     'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Security deposit, landlord\'s notice of termination and challenge within 30 days, with a focus on the canton of Basel and the federal framework that is the same in every canton.',
     'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Swiss residential buildings and rental rules in the canton of Basel',
+    'blog.article.deposito-cauzionale-basilea.title': 'Swiss Rentals 2026: Deposit and Termination in Basel',
+    'blog.article.deposito-cauzionale-basilea.excerpt': 'In the canton of Basel, federal rules apply: a maximum security deposit of three months\' rent, an escrow account, an official form and 30 days to contest.',
+    'blog.article.deposito-cauzionale-basilea.imageAlt': 'Swiss residential building in the Basel canton, focused on rental housing',
 };
 
 export default blogMetaChEn;

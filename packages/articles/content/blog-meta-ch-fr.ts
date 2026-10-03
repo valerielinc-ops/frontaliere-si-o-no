@@ -7610,6 +7610,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazione-cauzione-basilea-2026.title': 'Locations en Suisse 2026 : règles et focus sur Bâle',
     'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Dépôt de garantie, congé donné par le bailleur et contestation dans un délai de 30 jours, en mettant l\'accent sur le canton de Bâle et sur le cadre fédéral identique dans chaque canton.',
     'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Immeubles résidentiels suisses et règles locatives dans le canton de Bâle',
+    'blog.article.deposito-cauzionale-basilea.title': 'Locations en Suisse 2026 : dépôt de garantie et résiliation à Bâle',
+    'blog.article.deposito-cauzionale-basilea.excerpt': 'Dans le canton de Bâle, les règles fédérales s\'appliquent : dépôt de garantie maximal de trois mensualités, compte bloqué, formulaire officiel et 30 jours pour contester.',
+    'blog.article.deposito-cauzionale-basilea.imageAlt': 'Immeuble résidentiel suisse dans le canton de Bâle, dédié à la location',
 };
 
 export default blogMetaChFr;

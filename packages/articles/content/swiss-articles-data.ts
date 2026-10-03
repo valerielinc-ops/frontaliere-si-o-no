@@ -22858,6 +22858,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'deposito-cauzionale-basilea',
+    category: 'pratico',
+    date: '2026-10-03T02:52:20.181Z',
+    image: '/images/blog/deposito-cauzionale-basilea.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

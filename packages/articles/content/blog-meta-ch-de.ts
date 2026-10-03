@@ -7610,6 +7610,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.locazione-cauzione-basilea-2026.title': 'Mieten in der Schweiz 2026: Regeln und Fokus Basel',
     'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Mietkaution, Kündigung durch den Vermieter und Anfechtung innerhalb von 30 Tagen, mit Fokus auf den Kanton Basel und den in jedem Kanton gleichen bundesrechtlichen Rahmen.',
     'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Schweizer Wohnhäuser und Mietregeln im Kanton Basel',
+    'blog.article.deposito-cauzionale-basilea.title': 'Mieten in der Schweiz 2026: Kaution und Kündigung in Basel',
+    'blog.article.deposito-cauzionale-basilea.excerpt': 'Im Kanton Basel gelten die Bundesregeln: höchstens drei Monatsmieten als Kaution, ein Sperrkonto, ein offizielles Formular und 30 Tage für eine Anfechtung.',
+    'blog.article.deposito-cauzionale-basilea.imageAlt': 'Schweizer Wohngebäude im Kanton Basel zum Thema Mietwohnungen',
 };
 
 export default blogMetaChDe;

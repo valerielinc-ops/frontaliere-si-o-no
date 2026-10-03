@@ -7610,6 +7610,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.locazione-cauzione-basilea-2026.title': 'Affitti in Svizzera 2026: regole e focus Basilea',
     'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Deposito cauzionale, disdetta del locatore e contestazione entro 30 giorni, con focus sul canton Basilea e sul quadro federale uguale in ogni cantone.',
     'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Edifici residenziali svizzeri e regole per gli affitti nel canton Basilea',
+    'blog.article.deposito-cauzionale-basilea.title': 'Affitti Svizzera 2026: deposito e disdetta a Basilea',
+    'blog.article.deposito-cauzionale-basilea.excerpt': 'Nel canton Basilea valgono le regole federali: deposito massimo di tre mensilità, conto vincolato, modulo ufficiale e 30 giorni per contestare.',
+    'blog.article.deposito-cauzionale-basilea.imageAlt': 'Edificio residenziale svizzero nel canton Basilea, tema affitti e locazione',
 };
 
 export default blogMetaChIt;
