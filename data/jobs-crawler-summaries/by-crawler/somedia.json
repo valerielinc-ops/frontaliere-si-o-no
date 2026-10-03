@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-02T21:24:06.160Z",
+  "generatedAt": "2026-10-03T09:22:54.381Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,11 +14,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6622,
-  "avgDurationMs": 6622,
+  "durationMs": 7114,
+  "avgDurationMs": 7114,
   "durationHistory": [
     6716,
-    6622
+    6622,
+    7114
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +35,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:23:54.270Z",
+      "crawledAt": "2026-10-03T09:22:42.727Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +78,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:23:55.319Z",
+      "crawledAt": "2026-10-03T09:22:43.927Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
