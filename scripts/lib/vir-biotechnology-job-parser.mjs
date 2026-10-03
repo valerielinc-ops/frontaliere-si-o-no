@@ -191,6 +191,8 @@ export function classifyGreenhouseResponse(apiResponse) {
       parsed: 0,
       lastFetchOutcome: 'selector_miss',
       abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
     };
   }
 
@@ -205,10 +207,13 @@ export function classifyGreenhouseResponse(apiResponse) {
       parsed: 0,
       lastFetchOutcome: 'selector_miss',
       abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
     };
   }
 
   const jobs = parseGreenhouseJobs(apiResponse);
+  const authoritativeEmptySnapshot = jobs.length === 0;
   return {
     jobs,
     discovered: sourceJobs.length,
@@ -219,6 +224,12 @@ export function classifyGreenhouseResponse(apiResponse) {
         ? 'filtered_empty'
         : 'ok',
     abortKind: null,
+    // Greenhouse's board endpoint returns the complete active-job array in a
+    // single response. Once every source record has the expected identity and
+    // location fields, zero Swiss matches proves an empty Vir-in-Switzerland
+    // snapshot; a failed or malformed response never reaches this branch.
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified: authoritativeEmptySnapshot,
   };
 }
 

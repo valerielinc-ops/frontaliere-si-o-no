@@ -153,6 +153,8 @@ describe('classifyGreenhouseResponse — zero-job evidence', () => {
       parsed: 0,
       lastFetchOutcome: 'ok',
       abortKind: null,
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
     });
   });
 
@@ -171,6 +173,8 @@ describe('classifyGreenhouseResponse — zero-job evidence', () => {
       parsed: 0,
       lastFetchOutcome: 'filtered_empty',
       abortKind: null,
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
     });
     expect(result.jobs).toEqual([]);
   });
@@ -183,6 +187,8 @@ describe('classifyGreenhouseResponse — zero-job evidence', () => {
       parsed: 0,
       lastFetchOutcome: 'selector_miss',
       abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
     });
   });
 

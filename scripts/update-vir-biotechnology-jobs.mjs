@@ -119,6 +119,8 @@ async function fetchGreenhouseJobs(counts) {
       parsed: classified.parsed,
       lastFetchOutcome: classified.lastFetchOutcome,
       abortKind: classified.abortKind,
+      authoritativeEmptySnapshot: classified.authoritativeEmptySnapshot,
+      authoritativeSnapshotVerified: classified.authoritativeSnapshotVerified,
     });
     console.log(`  📋 Swiss jobs found: ${classified.parsed} (of ${classified.discovered} source jobs)`);
     return classified.jobs;
@@ -129,6 +131,8 @@ async function fetchGreenhouseJobs(counts) {
       parsed: 0,
       lastFetchOutcome: classified.lastFetchOutcome,
       abortKind: classified.abortKind,
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
     });
     console.warn(`⚠️ Greenhouse API fetch failed: ${err.message}`);
     return [];
@@ -246,7 +250,14 @@ function postProcess() {
 
 async function main() {
   setCrawlerStartTime();
-  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+    authoritativeSnapshotVerified: false,
+  };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Vir Biotechnology', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Vir Biotechnology (Humabs BioMed) — Dedicated Crawler');
@@ -271,6 +282,8 @@ async function main() {
         written: 0,
         lastFetchOutcome: summaryCounts.lastFetchOutcome,
         abortKind: null,
+        authoritativeEmptySnapshot: summaryCounts.authoritativeEmptySnapshot,
+        authoritativeSnapshotVerified: summaryCounts.authoritativeSnapshotVerified,
         newCount: 0,
         updatedCount: 0,
         removedCount: 0,

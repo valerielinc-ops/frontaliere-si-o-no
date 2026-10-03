@@ -395,8 +395,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // (`proveSwissAbsentFromLiveBoard`, scripts/update-imerys-jobs.mjs).
   // 38 real postings exist but Switzerland isn't even a location-filter option.
   'interroll',
-  // Greenhouse API: 21 active postings, all San Francisco/Remote-US, none CH.
-  'vir-biotechnology',
   // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
   'has-healthcare',
   // BENTELER (Jobs2Web tenant career.benteler.jobs): 143 postings live but
