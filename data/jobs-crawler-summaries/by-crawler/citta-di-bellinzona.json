@@ -1,7 +1,7 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-10-02T21:13:26.087Z",
+  "generatedAt": "2026-10-03T09:11:53.999Z",
   "total": 3,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,11 +9,12 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4857,
-  "avgDurationMs": 4857,
+  "durationMs": 4388,
+  "avgDurationMs": 4388,
   "durationHistory": [
     5456,
-    4857
+    4857,
+    4388
   ],
   "newJobs": [
     {
@@ -35,13 +36,13 @@
       "employmentType": "PART_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "url": "https://www.bellinzona.ch/Una-responsabile-della-mediazione-culturale-presso-il-Museo-Villa-dei-Cedri-2c662700",
       "pdfUrl": "https://www.bellinzona.ch/Una-responsabile-della-mediazione-culturale-presso-il-Museo-Villa-dei-Cedri-2c662700",
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:13:17.554Z",
+      "crawledAt": "2026-10-03T09:11:46.377Z",
       "needsRetranslation": true,
       "_qualityScore": 69,
       "_qualityBreakdown": {
@@ -70,13 +71,13 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "url": "https://www.bellinzona.ch/Progettista-elettrico-con-responsabilit-di-coordinamento-per-il-Settore-Elettricit-Servizio-esercizio-e-Rete-presso-l-Azienda-Multiservizi-Bellinzona-37114c00",
       "pdfUrl": "https://www.bellinzona.ch/Progettista-elettrico-con-responsabilit-di-coordinamento-per-il-Settore-Elettricit-Servizio-esercizio-e-Rete-presso-l-Azienda-Multiservizi-Bellinzona-37114c00",
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:13:17.787Z",
+      "crawledAt": "2026-10-03T09:11:46.572Z",
       "needsRetranslation": true,
       "_qualityScore": 73,
       "_qualityBreakdown": {
@@ -113,7 +114,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:13:17.177Z",
+      "crawledAt": "2026-10-03T09:11:45.977Z",
       "firstSeenAt": "2026-09-18T23:10:50.201Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
