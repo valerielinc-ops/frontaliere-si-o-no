@@ -37177,6 +37177,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'pasture-vertenza-governo-federale',
+ category: 'novita',
+ date: '2026-10-03T10:40:14.194Z',
+ image: '/images/blog/pasture-vertenza-governo-federale.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

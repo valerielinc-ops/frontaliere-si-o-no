@@ -12396,6 +12396,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-03.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 3. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-10-03.seoDescription': 'Grenzgänger-Bulletin vom 3. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-10-03.ogDescription': 'Die Zahlen vom 3. Oktober 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.pasture-vertenza-governo-federale.title': 'Pasture: Arbeitskonflikt des Personals beim Bundesrat',
+    'blog.article.pasture-vertenza-governo-federale.excerpt': 'Giorgio Fonio stellt eine Anfrage zu Mandaten und Beschäftigungsgarantien. Gewerkschaften und die Personalkommission bitten AOZ um ein Treffen zur Situation im Tessin.',
+    'blog.article.pasture-vertenza-governo-federale.imageAlt': 'Arbeiter vor einem Gebäude im Tessin im dokumentarischen Stil.',
 };
 
 export default blogMetaDe;

@@ -12398,6 +12398,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-03.imageAlt': 'I numeri del giorno per i frontalieri – 3 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-10-03.seoDescription': 'Bollettino frontalieri del 3 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-10-03.ogDescription': 'I numeri del 3 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.pasture-vertenza-governo-federale.title': 'Pasture: vertenza del personale al governo federale',
+    'blog.article.pasture-vertenza-governo-federale.excerpt': 'Giorgio Fonio interroga su mandati e garanzie occupazionali. Sindacati e Commissione del personale chiedono un incontro ad AOZ sulla situazione in Ticino.',
+    'blog.article.pasture-vertenza-governo-federale.imageAlt': 'Lavoratori davanti a un edificio in Ticino, in stile reportage.',
 };
 
 export default blogMetaIt;

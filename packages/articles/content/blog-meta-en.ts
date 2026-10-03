@@ -12397,6 +12397,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-03.imageAlt': 'The day\'s numbers for cross-border commuters – October 3, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-10-03.seoDescription': 'Cross-border brief, October 3, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-10-03.ogDescription': 'The numbers for October 3, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.pasture-vertenza-governo-federale.title': 'Pasture: staff dispute before the federal government',
+    'blog.article.pasture-vertenza-governo-federale.excerpt': 'Giorgio Fonio submits an inquiry about mandates and employment guarantees. Trade unions and the Staff Commission request a meeting with AOZ about the situation in Ticino.',
+    'blog.article.pasture-vertenza-governo-federale.imageAlt': 'Workers outside a building in Ticino, captured in documentary style.',
 };
 
 export default blogMetaEn;

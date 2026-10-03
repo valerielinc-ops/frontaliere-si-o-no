@@ -12399,6 +12399,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-03.imageAlt': 'Les chiffres du jour pour les frontaliers – 3 octobre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-10-03.seoDescription': 'Bulletin du frontalier du 3 octobre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-10-03.ogDescription': 'Les chiffres du 3 octobre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.pasture-vertenza-governo-federale.title': 'Pasture : le conflit du personnel devant le gouvernement fédéral',
+    'blog.article.pasture-vertenza-governo-federale.excerpt': 'Giorgio Fonio interroge sur les mandats et les garanties d\'emploi. Les syndicats et la Commission du personnel demandent une rencontre avec AOZ au sujet de la situation au Tessin.',
+    'blog.article.pasture-vertenza-governo-federale.imageAlt': 'Travailleurs devant un bâtiment au Tessin, dans un style reportage.',
 };
 
 export default blogMetaFr;
