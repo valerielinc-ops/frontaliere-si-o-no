@@ -169,6 +169,18 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(html).toContain(`href="${buildPlateAuctionPath({ locale: 'de', view: 'hub' })}"`);
   });
 
+  it.each(['it', ...NON_IT_LOCALES] as const)('%s homepage resets its initial heading margin before external CSS loads', (locale) => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    const html = locale === 'it' ? template : renderLocaleRootShell(template, locale);
+    const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
+    const inlineCss = [...head.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)]
+      .map((match) => match[1]).join('\n').replace(/\/\*[\s\S]*?\*\//g, '');
+    // Body's own margin reset does not stop a descendant H1 margin collapsing
+    // through the unpadded main/root ancestors before Tailwind preflight loads.
+    expect(html).toContain('<h1 id="homepage-static-h1">');
+    expect(inlineCss).toMatch(/#homepage-static-h1\s*\{[^}]*\bmargin\s*:\s*0\s*;?\s*\}/);
+  });
+
   it.each(NON_IT_LOCALES)('localizes the server-rendered homepage h1 for /%s/', (locale) => {
     const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
     const html = renderLocaleRootShell(template, locale);

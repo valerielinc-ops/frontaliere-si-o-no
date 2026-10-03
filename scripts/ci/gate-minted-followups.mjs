@@ -148,19 +148,55 @@ function hasFuParkedLabel(issue) {
     && issue.labels.some((label) => issueLabelName(label).toLowerCase() === 'fu-parked');
 }
 
+// A decomposed parent is a tracker: its items stay `open` by design while the
+// children carry the work, and the drainer removes the queue label again at the
+// next tick (PARENT-DEQUEUE). Re-queueing it here is a label/comment loop
+// (#9443, #9508: 13 round trips in 25 hours). Same for a bucket already routed
+// to the decompose stage. Literal names on purpose: this gate must not import
+// the drainer. `maybe-resolved` is deliberately NOT a veto: a bucket with open
+// items and a stale `maybe-resolved` would stay out of the queue forever.
+const DECOMPOSED_PARENT_LABEL = 'decomposed:1';
+const DECOMPOSE_STAGE_LABELS = ['agent:decompose-queued', 'agent:decompose'];
+
+function hasIssueLabel(issue, name) {
+  return Array.isArray(issue?.labels)
+    && issue.labels.some((label) => issueLabelName(label).toLowerCase() === name);
+}
+
+/** Stable key + human reason of the lifecycle state that forbids a new queue entry. */
+function queueVeto(issue) {
+  if (hasNeedsHumanLabel(issue)) return { key: 'needs-human', reason: 'needs-human veto' };
+  if (hasAutomationDeferredLabel(issue)) {
+    return { key: AUTOMATION_DEFERRED_LABEL, reason: `${AUTOMATION_DEFERRED_LABEL} handoff tecnico` };
+  }
+  if (hasFuParkedLabel(issue)) return { key: 'fu-parked', reason: 'fu-parked handoff già parcheggiato' };
+  if (hasIssueLabel(issue, DECOMPOSED_PARENT_LABEL)) {
+    return { key: 'decomposed', reason: `${DECOMPOSED_PARENT_LABEL} padre già decomposto` };
+  }
+  const stage = DECOMPOSE_STAGE_LABELS.find((name) => hasIssueLabel(issue, name));
+  if (stage) return { key: 'decompose-stage', reason: `${stage} decomposizione in corso` };
+  if (!issueLabelsAreVerifiable(issue?.labels)) {
+    return { key: 'labels-unverifiable', reason: 'labels non verificabili' };
+  }
+  return null;
+}
+
 function queueBlockReason(issue) {
-  if (hasNeedsHumanLabel(issue)) return 'needs-human veto';
-  if (hasAutomationDeferredLabel(issue)) return `${AUTOMATION_DEFERRED_LABEL} handoff tecnico`;
-  if (hasFuParkedLabel(issue)) return 'fu-parked handoff già parcheggiato';
-  return 'labels non verificabili';
+  return queueVeto(issue)?.reason || 'labels non verificabili';
 }
 
 /** Missing labels and lifecycle handoffs are not eligible for a new queue entry. */
 export function canMintQueueLabel(issue) {
-  return issueLabelsAreVerifiable(issue?.labels)
-    && !hasNeedsHumanLabel(issue)
-    && !hasAutomationDeferredLabel(issue)
-    && !hasFuParkedLabel(issue);
+  return queueVeto(issue) === null;
+}
+
+// Vetoes of this run, by stable key: the countable trace of every queue entry
+// the gate refused (same reason as `MINT_GATE_TALLY`: prose alone is not a measure).
+const queueVetoTally = new Map();
+
+function noteQueueVeto(issue) {
+  const key = queueVeto(issue)?.key || 'labels-unverifiable';
+  queueVetoTally.set(key, (queueVetoTally.get(key) || 0) + 1);
 }
 
 /**
@@ -732,6 +768,7 @@ function gh(args, { allowFail = false, token = process.env.GH_TOKEN } = {}) {
 function addQueueLabelIfEligible(issue, repoArgs) {
   if (!canMintQueueLabel(issue)) {
     const reason = queueBlockReason(issue);
+    noteQueueVeto(issue);
     console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
     return false;
   }
@@ -751,6 +788,7 @@ function addQueueLabelIfEligible(issue, repoArgs) {
   }
   if (!canMintQueueLabel(latest)) {
     const reason = queueBlockReason(latest);
+    noteQueueVeto(latest);
     console.log('#' + (latest.number || issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
     return false;
   }
@@ -1387,6 +1425,7 @@ function main() {
             title: newTitle === null ? iss.title : newTitle,
             body: d.body,
           }, repoArgs);
+          else noteQueueVeto(iss);
           report.push(`- 🔒 #${iss.number} daily bucket sealed, ${d.valid.length} item accodabili — ${daily?.targetRepository || 'unknown'}`);
           continue;
         }
@@ -1523,6 +1562,7 @@ function main() {
                 MINT_GATE_MARKER + '\n⚠️ Dopo la demozione il daily bucket resta sigillato, ma '
                   + (queueBlockReason(iss) === 'labels non verificabili' ? 'labels non verificabili' : `${queueBlockReason(iss)} è presente`)
                   + ': nessuna nuova coda automatica.'], { allowFail: true });
+              noteQueueVeto(iss);
               console.log('#' + iss.number + ': demozione sigillata senza nuova coda ('
                 + queueBlockReason(iss) + ').');
             }
@@ -1544,6 +1584,9 @@ function main() {
   // convenzione di `CLAUDE_USAGE` in claude-usage-summary.mjs).
   for (const t of tally) {
     console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept}`);
+  }
+  for (const [reason, count] of queueVetoTally) {
+    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} queue_vetoed=${count} reason=${reason}`);
   }
   const demotedTotal = tally.reduce((a, t) => a + t.demoted, 0);
   const summary = `Gate sul conio: ${report.length} issue nel report, ${demotedTotal} item demoti${DRY_RUN ? ' (dry-run)' : ''}.`;
