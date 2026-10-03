@@ -1578,7 +1578,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  feedback: {
  title: 'Aiutaci a Migliorare | Segnalazioni e Suggerimenti',
  description: 'Hai trovato un errore o vuoi proporre una nuova funzionalità? Apri una segnalazione su GitHub e aiutaci a migliorare il simulatore fiscale per frontalieri.',
- keywords: 'segnalazione bug frontalieri, suggerimenti simulatore, feedback frontalieri, migliorare simulatore tasse, contribuire open source frontalieri',
+ keywords: 'segnalazione bug frontalieri, suggerimenti simulatore, feedback frontalieri, migliorare simulatore tasse',
  ogTitle: 'Aiutaci a Migliorare | Frontaliere Ticino',
  ogDescription: '🐛 Segnala un problema o suggerisci una funzionalità per il simulatore fiscale frontalieri CH-IT. Contribuisci al miglioramento!',
  canonicalPath: '/supporto/',
@@ -4534,7 +4534,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Serie storica mensile del tasso di disoccupazione registrata in Svizzera (SECO) dal 2016",
  "dateModified": "2016-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
- "creator": { "@type": "Organization", "name": "SECO — Segreteria di Stato dell'economia", "url": "https://www.seco.admin.ch" },
+ "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "isBasedOn": { "@type": "CreativeWork", "name": "Statistiche del mercato del lavoro della SECO", "url": "https://www.seco.admin.ch" },
  "datePublished": "2016-01-01",
  "temporalCoverage": "2016/2026",
  "variableMeasured": [
