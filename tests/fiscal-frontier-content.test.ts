@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import SEO_PAGES_METADATA from '../services/seo/seo-pages';
 import { getFaqTranslation } from '../services/seo/faq-translations';
@@ -52,5 +53,26 @@ describe('fiscal FAQ siblings and translations', () => {
         expect(answer).toMatch(/https:\/\//);
       }
     });
+  }
+});
+
+
+describe('salary landing Italian tax credit', () => {
+  const source = fs.readFileSync(new URL('../build-plugins/staticPagesPlugin.ts', import.meta.url), 'utf8');
+  for (const amount of [80000, 100000]) {
+    for (const zone of ['entro', 'oltre']) {
+      it(`uses status and the Italian credit instead of a revenue split (${amount}, ${zone})`, () => {
+        const key = `'/calcola-stipendio/stipendio-netto-${amount}-chf-residenza-${zone}-20km': [`;
+        const start = source.indexOf(key);
+        expect(start).toBeGreaterThanOrEqual(0);
+        const end = source.indexOf('\n ],', start);
+        expect(end).toBeGreaterThan(start);
+        const copy = source.slice(start, end);
+        expect(copy).toContain('credito');
+        expect(copy).toContain('elenco ufficiale');
+        expect(copy).toContain(ESTV);
+        expect(copy).not.toMatch(/retrocessione|Chiasso|CHF 200-300/);
+      });
+    }
   }
 });
