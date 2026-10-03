@@ -43,8 +43,24 @@ Profilo richiesto: formazione informatica, esperienza nella gestione di progetti
 
 const EMPTY_CATEGORY_HTML = `
   <main>
-    <h1>Cerchiamo</h1>
-    <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+    <div class="com-content-category-blog blog">
+      <div class="page-header"><h2 itemprop="name">Cerchiamo</h2></div>
+      <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+    </div>
+  </main>`;
+
+const NON_LISTING_MESSAGE_WITH_LIVE_ARTICLE_HTML = `
+  <main>
+    <div class="notice">
+      <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+    </div>
+    <div class="com-content-category-blog blog">
+      <div class="page-header"><h2 itemprop="name">Cerchiamo</h2></div>
+      <article>
+        <h1><a href="/it/lavora-con-noi/cerchiamo/906-infermiere">Infermiere</a></h1>
+        <p>80% a tempo indeterminato</p>
+      </article>
+    </div>
   </main>`;
 
 describe('CSVP crawler — PDF-backed description', () => {
@@ -100,5 +116,9 @@ describe('CSVP crawler — PDF-backed description', () => {
     expect(isCsvpPoschiavoAuthoritativeEmptyPage('<html><body></body></html>')).toBe(false);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
     expect(jobs).toEqual([]);
+  });
+
+  it('does not prove empty when the message is outside the listing and an article is live', () => {
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(NON_LISTING_MESSAGE_WITH_LIVE_ARTICLE_HTML)).toBe(false);
   });
 });
