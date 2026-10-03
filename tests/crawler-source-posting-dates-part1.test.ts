@@ -58,6 +58,21 @@ describe('source publication date conversion across crawler families', () => {
     expect(buildAxaJob(row)).toMatchObject(sourcePostingDateFields('2026-02-18'));
     expect(buildAxaJob({ ...row, postedDate: '' })).toMatchObject(unknown);
   });
+  it('Banca Sempione trusts original WordPress GMT publication, never modification or an ambiguous local clock', async () => {
+    vi.useFakeTimers(); vi.setSystemTime(new Date('2026-10-03T12:00:00Z'));
+    const load = (date_gmt: string) => runnerFunction('update-banca-sempione-jobs.mjs', 'fetchBancaSempioneJobs', {
+      process: { env: {} }, BANCA_SEMPIONE_API_URL: 'https://www.bancasempione.ch/wp-json/wp/v2/job',
+      BANCA_SEMPIONE_HOST: 'www.bancasempione.ch', BANCA_SEMPIONE_KEY: 'banca-sempione', BANCA_SEMPIONE_COMPANY_NAME: 'Banca del Sempione',
+      LISTING_PAGE_CAP: 100, URL, HQ: { canton: 'TI' }, warnIfListingAtCap: () => {},
+      fetchJson: async () => [{ status: 'publish', title: { rendered: 'Junior crediti' }, link: 'https://www.bancasempione.ch/job/junior/',
+        content: { rendered: 'Lugano' }, date: '2026-09-23T14:04:12', date_gmt, modified_gmt: '2026-09-24T07:58:29' }],
+      decodeHtmlEntities: (v: string) => v, stripHtml: (v: string) => v, inferLocation: () => ({ location: 'Lugano', canton: 'TI', country: 'CH' }),
+      detectCategory: () => 'finance', detectLang: () => 'it', shouldKeepBancaSempioneJob: () => true,
+      wpContentToMarkdown: (v: string) => v, deriveLocalizedSlug: () => 'junior',
+    })();
+    expect((await load('2026-09-23T12:04:12'))[0]).toMatchObject(sourcePostingDateFields('2026-09-23T12:04:12Z'));
+    for (const raw of ['', '2026-02-30T12:04:12', '2026-10-03T23:00:00']) expect((await load(raw))[0]).toMatchObject(unknown);
+  });
   it('Convit preserves absence and passes the complete source timestamp to validation', () => {
     expect(parseConvitDetailPage('<h1>Consultant</h1>', '').datePosted).toBe('');
     const raw = '2026-02-18T10:00:00+01:00';
