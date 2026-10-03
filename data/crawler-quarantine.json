@@ -22,6 +22,12 @@
       "issue": 11073,
       "homeGroup": 18,
       "reason": "La pagina ufficiale careers ora instrada a LinkedIn; il tenant SmartRecruiters del crawler non pubblica piu' annunci e non e' disponibile un feed strutturato supportato"
+    },
+    "pzm-muensingen": {
+      "retiredAt": "2026-10-03T14:53:47Z",
+      "issue": 11094,
+      "homeGroup": 10,
+      "reason": "PZM e' confluita in UPZ Bern: il medium Prospective condiviso pubblica link generici che il parser dedicato scarta, mentre le posizioni di Muensingen sono gia' coperte dal crawler upd"
     }
   }
 }

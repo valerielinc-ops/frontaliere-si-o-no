@@ -4,20 +4,20 @@
   "generatorSha256": "893b25f4d924a15c1602f08e6faa5ee1f2604915603a84b6672908792fc1f457",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "482868f8de1022748bdb8af49437d29dc001be81",
+  "sourceCommit": "f88f51370179ae4d6236996a1f861c832e9fa35f",
   "artifactObservation": {
     "generatorSha256": "893b25f4d924a15c1602f08e6faa5ee1f2604915603a84b6672908792fc1f457",
     "sourceRef": "main",
-    "sourceCommit": "482868f8de1022748bdb8af49437d29dc001be81"
+    "sourceCommit": "f88f51370179ae4d6236996a1f861c832e9fa35f"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 623,
+  "crawlerCount": 622,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:17038436dd1a226b7dc660d500be2ec20fe54ae2b2f132935d287e526dc2c51e",
+    "rosterDigest": "sha256:76d05f831f70c398a342bdea173433081a9fe891b8869ac3f225db0b834b8900",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -421,7 +421,6 @@
     "scripts/update-psgn-jobs.mjs",
     "scripts/update-puk-zuerich-jobs.mjs",
     "scripts/update-pwc-jobs.mjs",
-    "scripts/update-pzm-muensingen-jobs.mjs",
     "scripts/update-raiffeisen-jobs.mjs",
     "scripts/update-reboot-monkey-jobs.mjs",
     "scripts/update-recruitingapp-1123-jobs.mjs",
@@ -958,8 +957,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "755067f6a6def659e761360c238134873379af182dc43977726c6ecdf2018b16",
-      "artifactSha256": "f270963af6315a3e04409654b6dce4e80c2e81f6c93d0d2c9091ae25dbb57b76",
+      "sourceSha256": "2f07c4d986d695029c79537dcbd7aba421097373a27cc100166284e00f30fcab",
+      "artifactSha256": "c9a67d4bbdeed571e77eebea3a5b740727a67e9299057c7d4e579247886a2329",
       "generatorSha256": "893b25f4d924a15c1602f08e6faa5ee1f2604915603a84b6672908792fc1f457",
       "members": [
         "jumbo",
@@ -974,7 +973,6 @@
         "ems-chemie",
         "lis",
         "mtic",
-        "pzm-muensingen",
         "hilti",
         "vz-vermoegenszentrum",
         "kulm-hotel",
