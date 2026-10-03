@@ -975,6 +975,7 @@ jobs:
         run: node scripts/ci/prune-locale-shard.mjs dist
 
       - name: Validate locale shard output
+        id: validate-locale-shard
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       # ── CDN payload FIRST, before anything publishes (#2569 margin) ───────
@@ -1714,6 +1715,7 @@ jobs:
       # pack tar (exports TAR_BYTES), audit bytes, file delta, refresh
       # url-first-seen. It does NOT commit dist-history (that stays YAML below).
       - name: Deploy prep (IT → Pages + CDN)
+        id: deploy-prep-it
         if: matrix.locale == 'it'
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
@@ -2493,6 +2495,7 @@ jobs:
           echo "[strip] stripped $(bash scripts/lib/tally-stripped-sections.sh "$LOC") file(s) across the $LOC section shards"
 
       - name: Offload shard refs to CDN
+        id: offload-locale-cdn
         if: matrix.locale != 'it'
         continue-on-error: true
         # offload-generated-images-cdn.mjs rewrites HTML asset/data refs to the CDN
@@ -2577,6 +2580,7 @@ jobs:
           fi
       - name: Upload locale shard dist for post-deploy validation
         if: matrix.locale != 'it'
+        id: upload-locale-shard
         # MUST stay continue-on-error: this is a non-essential speedup artifact.
         # deploy + validate-dist gate on `needs.build-locale.result == 'success'`
         # (in matrix mode `build` is skipped), and build-locale has
@@ -3329,6 +3333,39 @@ jobs:
         with:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
+
+      # Small, immutable receipt consumed by deploy-publish.yml. It is written
+      # after every leg (including failed legs) and uploaded independently of
+      # the large payload artifacts. A missing/invalid receipt is fail-closed
+      # in the admission plan, while a failed non-IT leg remains on its
+      # last-known-good shard and is explicitly reported as stale.
+      - name: Write locale publish provenance
+        if: always()
+        env:
+          PROVENANCE_BUILD_OUTCOME: ${{ steps.build_step.outcome }}
+          PROVENANCE_VALIDATE_OUTCOME: ${{ steps.validate-locale-shard.outcome }}
+          PROVENANCE_IT_PREP_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
+          PROVENANCE_PAGES_ARTIFACT_OUTCOME: ${{ steps.upload-pages-artifact.outcome }}
+          PROVENANCE_OFFLOAD_OUTCOME: ${{ steps.offload-locale-cdn.outcome }}
+          PROVENANCE_SECTION_PUSH_OUTCOME: ${{ matrix.locale == 'it' && steps.push-section-shards-it.outcome || steps.push-section-shards-nonit.outcome }}
+          PROVENANCE_CDN_GATE_OUTCOME: ${{ steps.cdn-gate.outcome }}
+          PROVENANCE_LOCALE_PUSH_OUTCOME: ${{ steps.push-shard.outcome }}
+          PROVENANCE_LOCALE_PACK_OUTCOME: ${{ steps.pack-locale-shard.outcome }}
+          PROVENANCE_LOCALE_ARTIFACT_OUTCOME: ${{ steps.upload-locale-shard.outcome }}
+        run: |
+          node scripts/ci/locale-publish-provenance.mjs \
+            --output "$RUNNER_TEMP/locale-publish-provenance/${BUILD_LOCALE}.json" \
+            --dist-dir dist
+
+      - name: Upload locale publish provenance
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-publish-provenance-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/locale-publish-provenance/${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant
