@@ -376,8 +376,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // evidence lives in the #3797 issue comment; one-line summary here.
   // Workable API confirms `total:0`; page states "no job openings".
   'answerconsulting',
-  // e-lavoro.ch/node/91 explicit empty state, no listed vacancies.
-  'cerbios-pharma',
   // No jobs/careers page exists anywhere on chiccodoro.com.
   'chicco-doro',
   // jobs.ch profile shows "Jobs (0)"; no jobs/career page on citypop.com.
@@ -389,9 +387,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // `ferring` left this list on 2026-10-02: it now proves its Swiss zero every
   // run from the live Workday board (`proveSwissAbsentFromLiveBoard` on the
   // tenant's `Location_Country` facet, scripts/update-ferring-jobs.mjs).
-  // e-lavoro.ch/node/76 zero listings; jobopportunity.ch subdomain is dead
-  // (same defunct AITI e-recruiting platform migration as imerys).
-  'helsinn',
   // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
   'hugo-boss',
   // `imerys` left this list on 2026-10-02: the "corroborated zero" was a dead
@@ -456,22 +451,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // reappears. Same legitimately-empty regional-filter case as
   // manor/bracco/fnz.
   'clariant',
-  // Josef Müller Gemüse AG (Hünenberg ZG, produce/salad processing):
-  // verified live 2026-07-21 — the jobs.ch company-profile page
-  // (https://www.jobs.ch/de/firmen/33612-josef-mueller-gemuese-ag/) returns
-  // HTTP 200, the "Jobs (0)" tab counter and the
-  // `data-cy="company-no-vacancies"` block ("Derzeit sind keine
-  // Stellenangebote vorhanden") both confirm zero current postings, and no
-  // `/de/stellenangebote/detail/{uuid}/` links are present in the markup —
-  // parseJosefMuellerListing() correctly extracts 0 from a genuinely
-  // vacancy-free page. This is a small single-site produce processor
-  // (~170 employees) that previously had exactly one listing
-  // (lastNonZeroJobs: 1); it legitimately has stretches with no openings.
-  // The listing selector (URL-shape regex, not a class name) and the
-  // JobPosting JSON-LD detail parser are unchanged and healthy; re-arms
-  // automatically when jobs.ch lists a new vacancy. Same legitimately-empty
-  // small-employer case as linnea/banca-raiffeisen-vedeggio-cassarate/wuerth-international.
-  'josef-mueller',
   // Yapeal AG (Swiss mobile banking, Zürich): verified live 2026-07-25 — the
   // Personio XML feed (https://yapeal-ag.jobs.personio.de/xml) returns HTTP
   // 200 with a well-formed but empty `<workzag-jobs>` document (0

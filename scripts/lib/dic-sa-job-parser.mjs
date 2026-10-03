@@ -34,11 +34,13 @@
  *   - isTrustedDomain()    — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { fetchHtml, fetchJson, slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { detectEmploymentTypeFromOccupation } from './jobup-ch-feed-common.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* Constants ─────────────────────────────────────────────── */
 
@@ -48,6 +50,9 @@ export const DIC_SA_COMPANY_DOMAIN = 'dic-ing.ch';
 
 const WP_API_URL = 'https://www.dic-ing.ch/wp-json/wp/v2/job-offers?per_page=100';
 const PUBLIC_CAREER_URL = 'https://www.dic-ing.ch/team/';
+const DIC_SA_EMPTY_STATE_RE = /^Aucune offre pour le moment$/i;
+const DIC_SA_OFFERS_HEADING_RE = /^Nos offres$/i;
+const DIC_SA_JOB_PATH_RE = /\/team\/job-offers\//i;
 
 /* HQ fallback: Les Glariers, 1860 Aigle. */
 const HQ = {
@@ -67,6 +72,50 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isVisibleCareerElement(element) {
+  for (let current = element; current; current = current.parentElement) {
+    if (/display\s*:\s*none/i.test(current.getAttribute('style') || '')) return false;
+  }
+
+  return !element.closest('template,script,style,noscript,[hidden],[aria-hidden="true"]');
+}
+
+/**
+ * Classify the employer's rendered careers page when the REST feed is empty.
+ * A plain empty feed is not enough evidence: this proof requires the visible
+ * offers heading plus the site's own empty-state sentence, with no visible
+ * detail link that would make the page internally contradictory.
+ */
+export function classifyDicSaCareerPage(html = '') {
+  const document = new JSDOM(String(html || '')).window.document;
+  const headings = [...document.querySelectorAll('h1,h2,h3,h4,h5,h6')]
+    .filter(isVisibleCareerElement)
+    .map((element) => normalizeSpace(element.textContent || ''));
+  const hasOffersHeading = headings.some((text) => DIC_SA_OFFERS_HEADING_RE.test(text));
+  const hasExplicitEmptyState = [...document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li')]
+    .filter(isVisibleCareerElement)
+    .some((element) => DIC_SA_EMPTY_STATE_RE.test(normalizeSpace(element.textContent || '')));
+  const hasVisibleJobLink = [...document.querySelectorAll('a[href]')]
+    .filter(isVisibleCareerElement)
+    .some((element) => DIC_SA_JOB_PATH_RE.test(element.getAttribute('href') || ''));
+
+  if (!hasOffersHeading || !hasExplicitEmptyState || hasVisibleJobLink) {
+    return { state: 'unknown' };
+  }
+
+  return {
+    state: 'empty',
+    evidence: `${PUBLIC_CAREER_URL} visibly renders “Nos offres” with “Aucune offre pour le moment” and no DIC SA job link`,
+  };
+}
+
+async function confirmAuthoritativeEmptySnapshot() {
+  const html = await fetchHtml(PUBLIC_CAREER_URL, { timeoutMs: 20000 });
+  const page = classifyDicSaCareerPage(html);
+  if (page.state !== 'empty') return null;
+  return markAuthoritativeEmptySnapshot([], page.evidence);
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -149,11 +198,19 @@ export async function fetchAllDicSaJobs() {
     posts = await fetchJson(WP_API_URL, { label: 'dic-ing.ch WordPress REST API' });
   } catch (err) {
     console.warn(`⚠️ Failed to fetch job-offers: ${err?.message || err}`);
-    return [];
+    // A failed REST request is not an empty source. Preserve the transport/feed
+    // failure so the standard pipeline keeps the previous slice visibly
+    // unhealthy instead of publishing a misleading `no-jobs-parsed` guard.
+    throw err;
   }
-  if (!Array.isArray(posts) || posts.length === 0) {
+  if (!Array.isArray(posts)) {
+    throw new Error(`Unexpected DIC SA job-offers payload: expected an array, received ${typeof posts}`);
+  }
+  if (posts.length === 0) {
     console.warn('⚠️ No job-offers posts returned.');
-    return [];
+    const emptySnapshot = await confirmAuthoritativeEmptySnapshot();
+    if (emptySnapshot) return emptySnapshot;
+    throw new Error('DIC SA job-offers feed returned no posts without an explicit empty state on the careers page');
   }
 
   console.log(`  📋 Posts found: ${posts.length}`);
@@ -226,6 +283,10 @@ export async function fetchAllDicSaJobs() {
     };
 
     jobs.push(job);
+  }
+
+  if (jobs.length === 0) {
+    throw new Error('DIC SA job-offers feed returned posts, but none was parseable as a job');
   }
 
   console.log(`\n📋 Total ${DIC_SA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
