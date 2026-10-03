@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
@@ -61,6 +61,7 @@ const QUERIED: Array<[string, string, string]> = [
   ['job_email_ranking_stats', 'surface', 'functions/src/lib/jobEmailRankingStore.js'],
   ['job_email_ranking_stats', 'surface_id', 'functions/src/lib/jobEmailRankingStore.js'],
   ['job_email_ranking_stats', 'date', 'functions/src/lib/jobEmailRankingStore.js'],
+  ['private', 'applicationIntentAuthUid', 'functions/src/authAccountCleanup.js'],
 ];
 
 /** Campi pesanti e mai interrogati: l'esenzione deve restare nel file. */
@@ -87,6 +88,167 @@ function exemptedBy(collectionGroup: string, fieldPath: string): string | null {
   }
   return null;
 }
+
+/**
+ * Una query `collectionGroup('<gruppo>').where('<campo>', ...)` non usa
+ * l'indice automatico (che ha scope COLLECTION): le serve un indice con scope
+ * COLLECTION_GROUP, dichiarato qui come override a campo singolo oppure come
+ * indice composito. Senza, Firestore risponde `9 FAILED_PRECONDITION` solo in
+ * produzione: nessun test locale lo vede. Dal 29-09 al 03-10-2026
+ * `cleanupUserDataOnAccountDelete` e' fallita cosi' a ogni cancellazione di
+ * account, su `private.applicationIntentAuthUid`.
+ */
+function hasCollectionGroupCoverage(collectionGroup: string, fieldPath: string): boolean {
+  const single = overrides.some(
+    (o) => o.collectionGroup === collectionGroup
+      && o.fieldPath === fieldPath
+      && o.indexes.some((index) => index.queryScope === 'COLLECTION_GROUP'),
+  );
+  const composite = config.indexes.some(
+    (index) => index.collectionGroup === collectionGroup
+      && index.queryScope === 'COLLECTION_GROUP'
+      && index.fields.some((field) => field.fieldPath === fieldPath),
+  );
+  return single || composite;
+}
+
+/** Radici scandite dalla guardia di classe: codice server che usa l'Admin SDK. */
+const SOURCE_ROOTS = ['functions/src', 'functions/index.js', 'scripts'];
+const SOURCE_EXTENSIONS = new Set(['.js', '.mjs', '.cjs', '.ts']);
+const repoRoot = path.resolve(__dirname, '..');
+
+function listSources(relative: string): string[] {
+  const absolute = path.join(repoRoot, relative);
+  if (!existsSync(absolute)) return [];
+  if (statSync(absolute).isFile()) return [relative];
+  const found: string[] = [];
+  for (const entry of readdirSync(absolute, { withFileTypes: true })) {
+    if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
+    const child = path.join(relative, entry.name);
+    if (entry.isDirectory()) found.push(...listSources(child));
+    else if (entry.isFile() && SOURCE_EXTENSIONS.has(path.extname(entry.name))) found.push(child);
+  }
+  return found;
+}
+
+const GROUP_CALL = /collectionGroup\(\s*(['"])([\w-]+)\1\s*\)/g;
+const FIELD_CALL = /\.\s*(?:where|orderBy)\(\s*(['"])([\w.-]+)\1/g;
+const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+type GroupQueryField = { collectionGroup: string; fieldPath: string; file: string; line: number };
+
+/**
+ * Estrazione statica, solo dei casi letterali:
+ *  - catena nella stessa istruzione: `collectionGroup('g').where('f', ...)`;
+ *  - query tenuta in una variabile: `const q = db.collectionGroup('g')` e poi
+ *    `q.where('f', ...)` nello stesso file.
+ * Restano fuori, per costruzione, i gruppi o i campi passati come variabile
+ * (`collectionGroup(group).where(timestampField, ...)`) e le query REST
+ * (`allDescendants: true`). La copertura verificata e' per campo: dice che un
+ * indice collection-group esiste, non che un filtro su piu' campi abbia il
+ * composito giusto.
+ */
+function extractGroupQueryFields(source: string, file: string): GroupQueryField[] {
+  const found: GroupQueryField[] = [];
+  const lineAt = (offset: number) => source.slice(0, offset).split('\n').length;
+  const collectFields = (collectionGroup: string, text: string, offset: number) => {
+    for (const field of text.matchAll(FIELD_CALL)) {
+      found.push({ collectionGroup, fieldPath: field[2], file, line: lineAt(offset + (field.index ?? 0)) });
+    }
+  };
+  const statementEnd = (from: number) => {
+    const end = source.indexOf(';', from);
+    return end === -1 ? source.length : end;
+  };
+
+  for (const call of source.matchAll(GROUP_CALL)) {
+    const collectionGroup = call[2];
+    const start = call.index ?? 0;
+    const afterCall = start + call[0].length;
+    collectFields(collectionGroup, source.slice(afterCall, statementEnd(afterCall)), afterCall);
+
+    const lineStart = source.lastIndexOf('\n', start) + 1;
+    const declaration = source.slice(lineStart, start).match(/(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=[^=;]*$/);
+    if (!declaration) continue;
+    const usage = new RegExp(`(?<![\\w$.])${escapeRegExp(declaration[1])}\\s*(?=\\.\\s*(?:where|orderBy)\\()`, 'g');
+    for (const use of source.slice(afterCall).matchAll(usage)) {
+      const useStart = afterCall + (use.index ?? 0);
+      collectFields(collectionGroup, source.slice(useStart, statementEnd(useStart)), useStart);
+    }
+  }
+  return found;
+}
+
+let scanned: GroupQueryField[] | null = null;
+function scanSources(): GroupQueryField[] {
+  scanned ??= SOURCE_ROOTS.flatMap(listSources).flatMap((file) => {
+    const source = readFileSync(path.join(repoRoot, file), 'utf8');
+    return source.includes('collectionGroup(') ? extractGroupQueryFields(source, file) : [];
+  });
+  return scanned;
+}
+
+describe('firestore.indexes.json — query collection-group', () => {
+  it('private.applicationIntentAuthUid ha un indice COLLECTION_GROUP', () => {
+    const override = overrides.find((o) => o.collectionGroup === 'private' && o.fieldPath === 'applicationIntentAuthUid');
+    expect(
+      override?.indexes,
+      'cleanupUserDataOnAccountDelete: indice collection-group mancante su private.applicationIntentAuthUid',
+    ).toEqual([
+      { order: 'ASCENDING', queryScope: 'COLLECTION' },
+      { order: 'ASCENDING', queryScope: 'COLLECTION_GROUP' },
+    ]);
+  });
+
+  it('l estrattore riconosce catena, variabile e variabile derivata, e ignora i casi dinamici', () => {
+    const sample = [
+      "const a = await db.collectionGroup('events')",
+      "  .where('event_type', '==', 'x')",
+      "  .orderBy('timestamp', 'desc')",
+      '  .get();',
+      "const privateCollection = db.collectionGroup('private');",
+      "const query = ok ? privateCollection.where('applicationIntentAuthUid', '==', uid) : privateCollection;",
+      "const base = db.collectionGroup('alerts').where('active', '==', true);",
+      "return await base.where('frequency', '==', f).get();",
+      "const dynamic = await db.collectionGroup(group).where(field, '>=', cutoff).get();",
+      "const scan = await db.collectionGroup('savedJobs').get();",
+      "const other = db.collection('users').where('email', '==', email);",
+    ].join('\n');
+    expect(extractGroupQueryFields(sample, 'sample.js').map((q) => `${key(q.collectionGroup, q.fieldPath)}:${q.line}`)).toEqual([
+      'events.event_type:2',
+      'events.timestamp:3',
+      'private.applicationIntentAuthUid:6',
+      'alerts.active:7',
+      'alerts.frequency:8',
+    ]);
+  });
+
+  it('ogni coppia collectionGroup + campo letterale nei sorgenti ha un indice COLLECTION_GROUP', () => {
+    const queried = scanSources();
+
+    // Se l'estrazione smette di vedere la query che ha causato l'incidente, la
+    // guardia e' diventata cieca: meglio un rosso che un verde vuoto.
+    expect(
+      queried.some((q) => q.file === path.join('functions', 'src', 'authAccountCleanup.js')
+        && q.collectionGroup === 'private' && q.fieldPath === 'applicationIntentAuthUid'),
+      'la guardia non trova piu la query di functions/src/authAccountCleanup.js: estrattore da aggiornare',
+    ).toBe(true);
+
+    const uncovered = queried
+      .filter((q) => !hasCollectionGroupCoverage(q.collectionGroup, q.fieldPath))
+      .map((q) => `${q.file}:${q.line} ${key(q.collectionGroup, q.fieldPath)}`);
+    expect(
+      uncovered,
+      'query collection-group senza indice COLLECTION_GROUP in firestore.indexes.json (FAILED_PRECONDITION in produzione)',
+    ).toEqual([]);
+  });
+
+  it('un campo interrogato a scope collection-group non e mai esentato', () => {
+    for (const q of scanSources()) {
+      expect(exemptedBy(q.collectionGroup, q.fieldPath), `${q.file}:${q.line} ${key(q.collectionGroup, q.fieldPath)} ha indexes: []`).toBeNull();
+    }
+  });
+});
 
 describe('firestore.indexes.json — fieldOverrides', () => {
   it('ogni override ha una forma valida e la coppia collectionGroup + fieldPath e unica', () => {
