@@ -415,7 +415,7 @@ export async function acceptPrivacyStatement(page, snapshot) {
     if (!trigger) break;
     await clickButton(page, trigger).catch(() => {});
     try {
-      await accept.waitFor({ state: 'visible', timeout: 5_000 });
+      await accept.waitFor({ state: 'visible', timeout: 8_000 });
       await accept.click({ timeout: 5_000 });
       await page.waitForTimeout(800);
       return 'accepted';

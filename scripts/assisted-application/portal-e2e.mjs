@@ -20,7 +20,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
-import { submitViaPortal } from './lib/portal/portal.mjs';
+import { acceptPrivacyStatement, submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
@@ -531,6 +531,20 @@ async function main() {
     const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
+    // Review of #11015: a statement whose dialog takes 6 s to open is still accepted (8 s per click).
+    const slowBrowser = await launchChromium({ headless: true, executablePath });
+    const slowPage = await slowBrowser.newPage();
+    await slowPage.setContent(`<a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
+      <div role="dialog" id="d" hidden><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
+      <script>
+        // 6 s after the LAST click: a second click restarts it, so only one 8 s wait sees the dialog.
+        let opening;
+        document.getElementById('t').addEventListener('click', () => { clearTimeout(opening); opening = setTimeout(() => { document.getElementById('d').hidden = false; }, 6000); });
+        document.getElementById('ok').addEventListener('click', () => { document.getElementById('v').value = '1'; document.getElementById('d').hidden = true; });
+      </script>`);
+    const slow = await acceptPrivacyStatement(slowPage, await extractFields(slowPage, { listboxOptions: false }));
+    check('a privacy dialog that opens after 6 s is still accepted', slow === 'accepted' && await slowPage.locator('#v').inputValue() === '1');
+    await slowBrowser.close();
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
