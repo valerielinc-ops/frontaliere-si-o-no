@@ -57,7 +57,7 @@ const LISTING_NO_JOBS = `
 <body>
 <main>
   <h1>I nostri annunci</h1>
-  <div class="view-content">
+  <div class="view-empty">
     <p>Purtroppo non ci sono offerte di lavoro, torna a trovarci!</p>
   </div>
 </main>
@@ -148,6 +148,12 @@ describe('parseListingPage', () => {
     const jobs = parseListingPage('<main><h1>I nostri annunci</h1><div class="view-content"></div></main>');
     expect(jobs).toHaveLength(0);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('does not treat no-job copy inside a live row as an authoritative zero', () => {
+    const jobs = parseListingPage('<div class="views-row"><h2>Lab Technician</h2><a href="/node/123">Lab Technician</a><p>No job experience required</p></div>');
+    expect(jobs).toHaveLength(1);
+    expect(Object.hasOwn(jobs, 'authoritativeEmptyState')).toBe(false);
   });
 
   it('returns empty array for empty input', () => {

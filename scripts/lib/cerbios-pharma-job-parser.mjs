@@ -69,8 +69,13 @@ export function slugify(value = '') {
 export function parseListingPage(html) {
   if (!html || typeof html !== 'string') return [];
 
-  // Check for "no offers" message
-  if (/(?:non ci sono offerte|nessuna offerta|no\s+(?:job|jobs|vacanc(?:y|ies)|open positions?))/i.test(stripHtml(html))) {
+  // Drupal's `view-empty` is the portal's dedicated no-results container.
+  // Never promote matching copy elsewhere on the page (including a live job
+  // row) to proof that the entire listing is empty.
+  const emptyStateMatch = html.match(
+    /<div[^>]*class=["'][^"']*\bview-empty\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i,
+  );
+  if (emptyStateMatch && /(?:non ci sono offerte|nessuna offerta|no\s+(?:job|jobs|vacanc(?:y|ies)|open positions?))/i.test(stripHtml(emptyStateMatch[1]))) {
     return markAuthoritativeEmptySnapshot(
       [],
       'e-lavoro.ch/node/91 explicit no-open-offers message',
