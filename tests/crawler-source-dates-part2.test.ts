@@ -8,6 +8,9 @@ import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common
 import { parseHitachiEnergyListingJson } from '../scripts/lib/hitachi-energy-job-parser.mjs';
 import { parseEngelvoelkersDetailPage } from '../scripts/lib/engelvoelkers-job-parser.mjs';
 import { parseKsgrApiJob } from '../scripts/lib/ksgr-job-parser.mjs';
+import { parseJobPage } from '../scripts/update-manor-jobs.mjs';
+import { __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
+import { restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC } from '../scripts/lib/lidl-job-parser.mjs';
 
 type Job = Record<string, unknown>;
 type Builder = (input: Job) => Job;
@@ -45,6 +48,42 @@ describe('crawler publication evidence at source and merge boundaries', () => {
   it('preserves the exact reported timestamp in the upstream Hitachi parser', () => {
     const publicationDate = new Date(Date.now() - 86400000).toISOString();
     expect(parseHitachiEnergyListingJson({ items: [{ title: 'Engineer', url: '/details/JID3-123', publicationDate }] })[0].publicationDate).toBe(publicationDate);
+  });
+
+  it('Manor source microdata reaches the strict merge with publication evidence intact', () => {
+    const date = daysAgo(6);
+    const page = parseJobPage(`<meta content='${date}' itemprop='datePosted'><h1>Engineer</h1>`, 'https://positions.manor.ch/job/Lugano-Engineer/123456/');
+    expect(page).toMatchObject(sourcePostingDateFields(date));
+    const [merged] = mergePreserveLocaleData([], [{ ...page, url: 'https://positions.manor.ch/job/Lugano-Engineer/123456/', title: 'Engineer', sourceLang: 'en' }]);
+    expect(merged).toMatchObject(sourcePostingDateFields(date));
+    for (const raw of ['', 'invalid', '2025-02-30', daysAgo(-1)]) {
+      expectUnknown(parseJobPage(`<meta itemprop="datePosted" content="${raw}">`, 'https://positions.manor.ch/job/Lugano-Engineer/123456/'));
+    }
+  });
+
+  it.each([true, false])('Lidl enrichment never replaces real JSON-LD provenance with its API collection clock (reported=%s)', (reported) => {
+    const date = daysAgo(9);
+    const url = 'https://team.lidl.ch/de/jobs/engineer-123456/';
+    const description = Array.from({ length: 100 }, () => 'source').join(' ');
+    const node = { '@type': 'JobPosting', title: 'Engineer', description,
+      ...(reported ? { datePosted: date } : {}),
+      jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH' } } };
+    const { job } = __testables.toJobFromJsonLd(node, 'Lidl', url, { seedMeta: { location: 'Lugano', canton: 'TI' } });
+    expect(job).toBeTruthy();
+    const writes: Job[][] = [];
+    const enrich = isolatedFunction<(jobs: Job[]) => number>('update-lidl-jobs.mjs', 'mergeApiDescriptions', {
+      fs: { existsSync: () => true, readFileSync: () => JSON.stringify([job]) },
+      DATA_JOBS: '/unused-data', PUBLIC_DATA_JOBS: '/unused-public',
+      normalizeLidlDetailPath: (value: string) => new URL(value).pathname,
+      extractReqId: () => '123456', isLidlJob: () => true,
+      restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC,
+      writeJsonAtomic: (_target: string, value: Job[]) => writes.push(value),
+    });
+    enrich([{ url, datePosted: daysAgo(0), sourceLang: 'en', description: `<ul><li>${description}</li><li>${description}</li></ul>` }]);
+    expect(writes.length).toBeGreaterThan(0);
+    const result = writes[0][0];
+    if (reported) expect(result).toMatchObject(sourcePostingDateFields(date));
+    else expectUnknown(result);
   });
 
   it('Fust seed dates stay unknown when absent, malformed or future', () => {
