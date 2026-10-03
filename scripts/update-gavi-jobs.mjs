@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllGaviJobs,
   isGaviJob,
@@ -26,6 +27,11 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllGaviJobs,
   isCompanyJob: isGaviJob,
   isTrustedDomain,
+  // The fRecruit page has a complete, explicit zero state. A bare [] remains
+  // fail-closed so a selector drift cannot retire the live Gavi slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(GAVI_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   defaultSourceLang: 'en',
 }).catch((err) => {
   console.error(`❌ Gavi crawler failed: ${err?.message || err}`);

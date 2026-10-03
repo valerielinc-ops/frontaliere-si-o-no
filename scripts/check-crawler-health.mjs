@@ -524,21 +524,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // fetch + Swiss filter are healthy and re-arm when a CH posting appears.
   // Same legitimately-empty regional-filter case as bracco/fnz (#5060).
   'veeam',
-  // Gavi, the Vaccine Alliance (Geneva, Salesforce fRecruit portal
-  // fs-2662.my.salesforce-sites.com): verified live 2026-08-05 — the listing
-  // page the parser fetches
-  // (https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJobList?portal=Global)
-  // returns HTTP 200 with its structure fully intact (same Visualforce
-  // `pbBody` page block, same "For the vacancies listed below…" copy, same
-  // Current Vacancies nav) but the results table is genuinely empty: the
-  // pager reads "Page 1 of 0" and the table body renders the portal's own
-  // "None found" empty state, with zero `vacancyNo=` links in the markup.
-  // Nothing for a selector to fail on — the international-health alliance
-  // simply has no open vacancy right now (it had 2 when the parser was
-  // written). Parser + Swiss canton gate are healthy and re-arm when a
-  // vacancy is republished. Same legitimately-empty small-employer case as
-  // linnea/josef-mueller (#5059).
-  'gavi',
   'rado',
   'swatch-group-assembly',
   // ^ rado + swatch-group-assembly (#5083, #5013): both are Swatch Group
