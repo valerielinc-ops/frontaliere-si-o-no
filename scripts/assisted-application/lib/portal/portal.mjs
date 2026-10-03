@@ -426,6 +426,50 @@ export async function acceptPrivacyStatement(page, snapshot) {
   return 'unavailable';
 }
 
+// SuccessFactors (Coop, 2026-10-03): the application page shows its sections
+// closed («Alle Abschnitte einblenden»), one field in sight, and a «Bewerben»
+// pressed on it only meets the portal's validation. Its CV goes in through
+// «Lebenslauf hochladen», a dialog whose file input exists only once open.
+export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
+export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|télécharger|joindre|importer)|(upload|carica|caricare|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
+
+/**
+ * Before a page is planned: its closed sections opened, and the CV put in a
+ * dialog's file input when the page has no file field of its own. Once per
+ * page of a run (`done`).
+ * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable'}>}
+ */
+export async function openFormSections(page, snapshot, { files = {}, done = new Set() } = {}) {
+  let current = snapshot;
+  const where = anonymizePath(page.url());
+  const expand = findButton(current.buttons, EXPAND_ALL_RE);
+  if (expand && !done.has(`expand|${where}`)) {
+    done.add(`expand|${where}`);
+    await clickButton(page, expand).catch(() => {});
+    await settle(page);
+    await page.waitForTimeout(1000);
+    current = await extractFields(page);
+  }
+  const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
+  if (!cvFile || done.has(`cv|${where}`) || current.fields.some((field) => field.kind === 'file')) return { snapshot: current };
+  const trigger = page.getByRole('button', { name: CV_UPLOAD_RE }).first();
+  if (!await trigger.isVisible().catch(() => false)) return { snapshot: current };
+  done.add(`cv|${where}`);
+  await trigger.click({ timeout: 6_000 }).catch(() => {});
+  const input = page.locator('[role="dialog"] input[type="file"], [aria-modal="true"] input[type="file"]').first();
+  try {
+    await input.waitFor({ state: 'attached', timeout: 8_000 });
+    await input.setInputFiles(cvFile);
+  } catch {
+    await page.keyboard.press('Escape').catch(() => {});
+    return { snapshot: await extractFields(page), cv: 'unavailable' };
+  }
+  // The dialog closes once the portal holds the file (SuccessFactors reads it first).
+  const closed = await input.waitFor({ state: 'detached', timeout: 60_000 }).then(() => true, () => false);
+  await settle(page);
+  return { snapshot: await extractFields(page), cv: closed ? 'uploaded' : 'uploaded_unconfirmed' };
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -733,6 +777,8 @@ export async function submitViaPortal(ctx) {
     let stuckOnPage = 0;
     let authSteps = 0;
     const uploaded = new Set();
+    // Pages whose sections and CV dialog were opened (openFormSections).
+    const openedOnce = new Set();
     // What went into the form, question by question (career-ops application-answers):
     // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
     const given = new Map();
@@ -808,6 +854,12 @@ export async function submitViaPortal(ctx) {
         postingCheckPending = false;
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
+      }
+      const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce });
+      snapshot = opened.snapshot;
+      if (opened.cv) {
+        evidence.steps.at(-1).cv = opened.cv;
+        if (opened.cv !== 'unavailable') record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
       }
       // Inside the form, any page with a field is planned: a step with one
       // question and its Next disabled until it is answered (JOIN's work
@@ -956,6 +1008,7 @@ export async function submitViaPortal(ctx) {
       diagnostics.finalClick();
       await final.click();
       const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      (evidence.finalOutcomes ||= []).push(outcome);
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();

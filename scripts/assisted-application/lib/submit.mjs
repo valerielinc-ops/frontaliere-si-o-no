@@ -291,8 +291,13 @@ export async function submitApplication(ctx) {
         // re-submitted. Before the click nothing was sent: released. So too when
         // the portal said, on the same page, that it did not send (portal_refused,
         // JOIN «Non siamo riusciti a inviare…»): Valerie's retry may claim it again.
+        // Every final click answered by the portal's own validation (required
+        // fields missing, the form still there: Coop's SuccessFactors
+        // 2026-10-03) sent nothing either.
+        const refusedByValidation = (evidence.finalOutcomes || []).length > 0 && evidence.finalOutcomes.every((outcome) => outcome === 'validation');
         if (event.type === 'submit_succeeded') await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null });
         else if (event.type === 'submit_failed' && event.error === 'portal_refused') await guard.release('portal_refused');
+        else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await guard.release('portal_validation');
         else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await guard.release(event.error || event.reason || event.type);
       }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence, cvSent }, key: runKey, nowMs });

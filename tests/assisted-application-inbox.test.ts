@@ -15,7 +15,7 @@ const {
   orderIdForAlias,
   removeOrderAlias,
 } = await import('../functions/src/assistedApplicationAlias.js');
-const { classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { classifyByRules, correctedCategory, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 const { DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
@@ -288,6 +288,20 @@ describe('employer messages on the alias', () => {
     expect(classifyByRules({ subject: 'Votre candidature', text: 'Malheureusement nous avons retenu un autre candidat.' })).toBe('rejection');
     expect(classifyByRules({ subject: 'Candidatura', text: 'Abbiamo ricevuto la sua candidatura.' })).toBe('auto_acknowledgement');
     expect(classifyByRules({ subject: 'Hello', text: 'See attached', autoSubmitted: false })).toBe('other');
+  });
+
+  // Coop's SuccessFactors, 2026-10-03: the account's own mail is no receipt of the application.
+  it('never takes a portal account confirmation for an acknowledgement of the application', () => {
+    const coop = { subject: 'Registrierungsbestätigung Stellenportal der Coop-Gruppe', text: 'Vielen Dank für deine Registrierung auf dem Stellenportal der Coop-Gruppe.' };
+    expect(correctedCategory('auto_acknowledgement', coop)).toBe('verification');
+    expect(correctedCategory('auto_acknowledgement', { subject: 'Welcome', text: 'Your account has been created.' })).toBe('verification');
+    expect(correctedCategory('auto_acknowledgement', { subject: 'Conferma di registrazione', text: 'Il tuo account è stato creato.' })).toBe('verification');
+    expect(correctedCategory('auto_acknowledgement', { subject: "Confirmation d'inscription", text: 'Votre compte a été créé.' })).toBe('verification');
+    // A receipt that also mentions the profile stays a receipt.
+    expect(correctedCategory('auto_acknowledgement', { subject: 'Eingang Ihrer Bewerbung', text: 'Ihr Profil wurde erstellt und Ihre Bewerbung ist eingegangen.' })).toBe('auto_acknowledgement');
+    expect(correctedCategory('auto_acknowledgement', { subject: 'Candidatura', text: 'Abbiamo ricevuto la sua candidatura.' })).toBe('auto_acknowledgement');
+    // Other categories are left as they are.
+    expect(correctedCategory('interview_invite', coop)).toBe('interview_invite');
   });
 });
 
