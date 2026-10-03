@@ -343,9 +343,6 @@ export function postingMatch(pageText, job = {}) {
   return title.every(variant) ? 'match' : 'mismatch';
 }
 
-// A company named by its legal form: «Palace Resort AG», «Altra Azienda Sagl», «Other Hotel Ltd».
-const LEGAL_FORM_NAME_RE = /\p{Lu}[\p{L}\p{N}&.'’-]*(?:\s+\p{Lu}[\p{L}\p{N}&.'’-]*){0,4},?\s+(?:AG|SA|GmbH|Sagl|S[aà]rl|Srl|S\.p\.A\.|SpA|Ltd|Inc|LLC|KG|SE)(?![\p{L}\p{N}])/u;
-
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
 const FORM_VOCABULARY = new Set([
   'application', 'applications', 'apply', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
@@ -353,31 +350,43 @@ const FORM_VOCABULARY = new Set([
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
 ]);
-// A proper name: two or more capitalised words in a row («Other Hotel», «Grand Resort»).
-const NAME_RUN_RE = /\p{Lu}[\p{L}\p{N}'’&-]*(?:\s+\p{Lu}[\p{L}\p{N}'’&-]*)+/gu;
+// Filler between two words: skipped when looking for the word next to a company word.
+const FILLER_WORDS = new Set([
+  'the', 'and', 'for', 'our', 'your', 'with', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
+  'als', 'von', 'vom', 'zum', 'zur', 'mit', 'per', 'con', 'una', 'uno', 'nel', 'nella', 'dei', 'del', 'della', 'degli', 'gli', 'les', 'pour',
+  'chez', 'avec', 'aux', 'une',
+]);
+const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
+// What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
+const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
 
 /**
- * The form names an employer that is not the order's (review of #11033). A
- * word shared with the order's company proves nothing by itself («Hotel
- * application» on Grand Hotel Esempio's own form): it must stand in a context
- * that identifies an employer —
- *   - a proper name or a host label that holds a word of the order's company
- *     next to a word that is neither the company's, nor the role's, nor the
- *     page's own vocabulary («Concierge — Other Hotel», «Grand Resort»,
- *     «jobs.other-hotel.example»);
- *   - or any company named by its legal form («Palace Resort AG»).
- * The order's own whole name never gets here: it is postingMatch's direct match.
+ * The form names an employer that is not the order's (reviews of #11033). A
+ * word of the order's company proves nothing by itself («Hotel application»,
+ * «Hotel Application Process» on Grand Hotel Esempio's own form), and neither
+ * does a company named elsewhere on the page (the ATS's own «Powered by Palace
+ * Resort AG»): what identifies an employer is the word NEXT TO a word of the
+ * order's company, in the same phrase — «Other Hotel», «other hotel»,
+ * «Other-Hotel», «jobs.other-hotel.example». When that neighbour (filler
+ * skipped) is neither the company's own, nor the role's, nor the page's own
+ * vocabulary, the phrase names another employer. Case and separators do not
+ * matter. The order's own whole name never gets here: it is postingMatch's
+ * direct match.
  */
 export function namesAnotherEmployer(formText, job = {}) {
-  const text = String(formText || '');
-  if (LEGAL_FORM_NAME_RE.test(text)) return true;
   const ours = new Set(nameWords(job.company));
   if (!ours.size) return false;
   const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
-  const foreignName = (words) => words.some((word) => ours.has(word)) && words.some((word) => !neutral.has(word));
-  for (const [run] of text.matchAll(NAME_RUN_RE)) if (foreignName(nameWords(run))) return true;
-  for (const [, host] of text.matchAll(/https?:\/\/([a-z0-9.-]+)/gi)) {
-    if (host.toLowerCase().split('.').some((label) => foreignName(nameWords(label)))) return true;
+  for (const phrase of String(formText || '').split(PHRASE_END_RE)) {
+    const words = normalizeWords(phrase).split(' ').filter(Boolean);
+    for (const [index, word] of words.entries()) {
+      if (!ours.has(word)) continue;
+      for (const step of [-1, 1]) {
+        let at = index + step;
+        while (words[at] !== undefined && filler(words[at])) at += step;
+        if (words[at] !== undefined && !neutral.has(words[at])) return true;
+      }
+    }
   }
   return false;
 }
@@ -413,8 +422,12 @@ const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
  * «Submit» or «Konto erstellen» under a password stays a registration.
  */
 export function ownAccountForm(snapshot) {
-  return Boolean(snapshot.passwordVisible) && inlineAccountForm(snapshot)
-    && snapshot.buttons.some((button) => SUBMIT_RE.test(button.text) && NAMES_APPLICATION_RE.test(button.text));
+  return Boolean(snapshot.passwordVisible) && inlineAccountForm(snapshot) && sendsApplication(snapshot);
+}
+
+/** The page's button sends an application («Submit final application»), whatever else the page asks. */
+export function sendsApplication(snapshot) {
+  return (snapshot.buttons || []).some((button) => SUBMIT_RE.test(button.text) && NAMES_APPLICATION_RE.test(button.text));
 }
 
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
@@ -1089,6 +1102,27 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
+      const openSections = async () => {
+        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
+        snapshot = opened.snapshot;
+        if (opened.cv) {
+          evidence.steps.at(-1).cv = opened.cv;
+          if (opened.cv !== 'unavailable') record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
+        }
+      };
+      // A password page whose button sends an application may be the form with its
+      // sections still closed, the CV field inside one (review of #11033): it is the
+      // form's page, so the posting is checked and the sections are opened BEFORE it
+      // is taken for a login page.
+      if (snapshot.passwordVisible && !ownAccountForm(snapshot) && sendsApplication(snapshot)) {
+        if (postingCheckPending) {
+          postingCheckPending = false;
+          evidence.postingMatch = await formMatch();
+          if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
+        }
+        await openSections();
+      }
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
       let ownAccount = ownAccountForm(snapshot);
@@ -1124,14 +1158,9 @@ export async function submitViaPortal(ctx) {
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
       }
-      const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
-      snapshot = opened.snapshot;
+      await openSections();
       // A section just opened may hold the form’s own password field.
       if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot);
-      if (opened.cv) {
-        evidence.steps.at(-1).cv = opened.cv;
-        if (opened.cv !== 'unavailable') record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
-      }
       // Inside the form, any page with a field is planned: a step with one
       // question and its Next disabled until it is answered (JOIN's work
       // authorization) is not a dead end. Nothing to fill and nowhere to go is.

@@ -33,6 +33,8 @@ const SF_JOB = '/sf/career?company=tenant1000103&career_ns=job_application&caree
 const sfOrigin = (server) => `http://career2.successfactors.localhost:${server.address().port}`;
 // umantis as a hotel's career page links to it (2026-10-03): another host, the form's address names no company.
 const UMANTIS_FORM = '/Vacancies/717/Application/New/2';
+// The same form with its photo and documents in sections still closed (review of #11033).
+const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
@@ -45,9 +47,16 @@ function fakePortal() {
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
   // uploads, «Submit final application». The page names the role, never the company.
-  const umantisForm = (error = '') => page('Concierge - Application | Application Tracking System', `<nav><a href="/umantis-login">Login</a><a role="button" tabindex="0" href="/umantis-recruiters">Login for recruiters</a></nav>
+  const umantisPhoto = '<label for="ph">Photo</label><input id="ph" type="file" name="photo">';
+  const umantisDocuments = '<label for="cl">Cover letter</label><input id="cl" type="file" name="letter">'
+    + '<label for="cv">Resume *</label><input id="cv" type="file" name="cv">'
+    + '<label for="od">Other documents</label><input id="od" type="file" name="other">';
+  // closed: the photo and the documents come into the page only once «Expand all sections» is pressed,
+  // so the page first shows a password and a send button, and no file field.
+  const umantisForm = (error = '', { closed = false } = {}) => page('Concierge - Application | Application Tracking System', `<nav><a href="/umantis-login">Login</a><a role="button" tabindex="0" href="/umantis-recruiters">Login for recruiters</a></nav>
     <h1>Concierge</h1><p>Click on Login if you have already set up your profile.</p>${error ? `<p role="alert">${error}</p>` : ''}
-    ${form(UMANTIS_FORM, `<label for="ph">Photo</label><input id="ph" type="file" name="photo">
+    ${closed ? '<button type="button" id="expand">Expand all sections</button>' : ''}
+    ${form(closed ? UMANTIS_CLOSED_FORM : UMANTIS_FORM, `${closed ? '<div id="photo-section"></div>' : umantisPhoto}
       <fieldset><legend>Title *</legend><label><input type="radio" name="title" value="ms"> Ms</label><label><input type="radio" name="title" value="mr"> Mr</label><label><input type="radio" name="title" value="other"> Other</label></fieldset>
       <label for="fn">First name *</label><input id="fn" name="first">
       <label for="ln">Last name *</label><input id="ln" name="last">
@@ -55,9 +64,7 @@ function fakePortal() {
       <label for="pw">Password *</label><input id="pw" type="password" name="pwd" autocomplete="new-password">
       <p>The password must be at least 7 characters long. Password must contain special characters, numbers, upper and lower case letters</p>
       <label for="tel">Cell phone *</label><input id="tel" name="phone">
-      <label for="cl">Cover letter</label><input id="cl" type="file" name="letter">
-      <label for="cv">Resume *</label><input id="cv" type="file" name="cv">
-      <label for="od">Other documents</label><input id="od" type="file" name="other">
+      ${closed ? '<div id="documents-section"></div>' : umantisDocuments}
       <label for="hear">How did you hear about us? *</label><select id="hear" name="hear"><option value="">Please select</option><option value="home">Company homepage</option><option value="board">Online job board</option><option value="misc">Miscellaneous</option></select>
       <label><input type="checkbox" name="employee"> I am a current employee of your company</label>
       <fieldset><legend>Data release *</legend><label><input type="radio" name="release" value="keep"> I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.</label><label><input type="radio" name="release" value="delete"> I would like my data to be deleted once the present application process is complete.</label></fieldset>
@@ -68,16 +75,22 @@ function fakePortal() {
       // As on umantis: a file is sent as soon as it is chosen, one at a time. A second choice
       // while the first still travels drops the first (the letter left at 15% on 2026-10-03).
       let travelling = null;
-      for (const [id, stored] of [['cl', 'letter_stored'], ['cv', 'cv_stored']]) {
-        document.getElementById(id).addEventListener('change', () => {
-          if (travelling) travelling.abort();
-          const upload = new AbortController();
-          travelling = upload;
-          fetch('/umantis-upload', { method: 'POST', body: id, signal: upload.signal })
-            .then(() => { document.getElementById(stored).value = '1'; if (travelling === upload) travelling = null; })
-            .catch(() => {});
-        });
-      }
+      // On the document: the file fields of a closed section come into the page later.
+      document.addEventListener('change', (event) => {
+        const stored = { cl: 'letter_stored', cv: 'cv_stored' }[event.target.id];
+        if (!stored) return;
+        if (travelling) travelling.abort();
+        const upload = new AbortController();
+        travelling = upload;
+        fetch('/umantis-upload', { method: 'POST', body: event.target.id, signal: upload.signal })
+          .then(() => { document.getElementById(stored).value = '1'; if (travelling === upload) travelling = null; })
+          .catch(() => {});
+      });
+      ${closed ? `document.getElementById('expand').addEventListener('click', (event) => {
+        document.getElementById('photo-section').innerHTML = ${JSON.stringify(umantisPhoto)};
+        document.getElementById('documents-section').innerHTML = ${JSON.stringify(umantisDocuments)};
+        event.target.remove();
+      });` : ''}
     </script>`);
   const readBody = (req) => new Promise((resolve) => {
     const chunks = [];
@@ -398,6 +411,11 @@ function fakePortal() {
         <button type="button">ACCEPT COOKIES</button><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a>`));
     }
     if (route === `GET ${UMANTIS_FORM}`) return send(umantisForm());
+    if (route === 'GET /hotel-job-closed') {
+      return send(page('Concierge (m/w/d) | Grand Hotel Esempio', `<h1>Concierge (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
+        <a target="_blank" href="${umantisOrigin(server)}${UMANTIS_CLOSED_FORM}">Apply</a>`));
+    }
+    if (route === `GET ${UMANTIS_CLOSED_FORM}`) return send(umantisForm('', { closed: true }));
     if (route === 'POST /umantis-upload') {
       await new Promise((done) => setTimeout(done, 1500));
       res.writeHead(200, { 'content-type': 'application/json' });
@@ -774,6 +792,12 @@ async function main() {
     const otherRole = await run({ applyUrl: `${base}/hotel-job`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
     check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
       && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1);
+    // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
+    const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
+    check('umantis: a password page whose CV field sits in a closed section is opened first, then filled as the form (never taken for a login)', closedSections.event.type === 'dry_run_ready'
+      && !closedSections.event.stage && closedSections.evidence.finalButton?.label === 'Submit final application' && closedAuth.join(',') === 'inline'
+      && closedSections.evidence.postingMatch === 'match' && closedSections.evidence.steps.some((step) => (step.actions || []).some((action) => action.document === 'cv')));
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
