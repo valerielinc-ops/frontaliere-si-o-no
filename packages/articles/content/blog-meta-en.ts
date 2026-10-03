@@ -12415,6 +12415,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontro-ss707-largo-flaiano.title': 'Accident on the SS707 in Varese, link road closed for hours',
     'blog.article.scontro-ss707-largo-flaiano.excerpt': 'Collision between two cars on SS707 at the outskirts of Varese: the link road between Largo Flaiano and the Laghi interchange closed for hours. Two injured, yellow code.',
     'blog.article.scontro-ss707-largo-flaiano.imageAlt': 'SS707 near Varese closed after a crash involving two cars',
+    'blog.article.preventivo-ticino-2027-vitta.title': '2027 Ticino Budget: deficit close to 100 million',
+    'blog.article.preventivo-ticino-2027-vitta.excerpt': 'Finance Director Christian Vitta presents the 2027 budget: possible debt exceeding 3 billion and a 360-degree review of revenue.',
+    'blog.article.preventivo-ticino-2027-vitta.imageAlt': 'Government buildings in Bellinzona, site of the cantonal budget',
 };
 
 export default blogMetaEn;

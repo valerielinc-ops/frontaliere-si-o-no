@@ -12414,6 +12414,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scontro-ss707-largo-flaiano.title': 'Unfall auf der SS707 in Varese, Verbindungsrampe stundenlang gesperrt',
     'blog.article.scontro-ss707-largo-flaiano.excerpt': 'Zusammenstoß zwischen zwei Autos auf der SS707 am Stadtrand von Varese: Die Verbindungsrampe zwischen Largo Flaiano und der Ausfahrt Laghi war stundenlang gesperrt. Zwei Verletzte mit gelbem Code.',
     'blog.article.scontro-ss707-largo-flaiano.imageAlt': 'SS707 bei Varese nach einem Unfall mit zwei Autos gesperrt',
+    'blog.article.preventivo-ticino-2027-vitta.title': 'Voranschlag 2027 Tessin: Defizit nahe 100 Millionen',
+    'blog.article.preventivo-ticino-2027-vitta.excerpt': 'Der Finanzdirektor Christian Vitta präsentiert den Voranschlag 2027: Eine Verschuldung von über 3 Milliarden möglich und eine umfassende Betrachtung der Einnahmen.',
+    'blog.article.preventivo-ticino-2027-vitta.imageAlt': 'Regierungsgebäude in Bellinzona, Sitz des Kantonsbudgets',
 };
 
 export default blogMetaDe;

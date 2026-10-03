@@ -12416,6 +12416,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scontro-ss707-largo-flaiano.title': 'Incidente sulla SS707 a Varese, bretella chiusa per ore',
     'blog.article.scontro-ss707-largo-flaiano.excerpt': 'Scontro tra due auto sulla SS707 alle porte di Varese: chiusa per ore la bretella tra Largo Flaiano e lo svincolo dei Laghi. Due feriti in codice giallo.',
     'blog.article.scontro-ss707-largo-flaiano.imageAlt': 'SS707 a Varese chiusa dopo lo scontro tra due auto',
+    'blog.article.preventivo-ticino-2027-vitta.title': 'Preventivo 2027 Ticino: disavanzo vicino ai 100 milioni',
+    'blog.article.preventivo-ticino-2027-vitta.excerpt': 'Il direttore delle finanze Christian Vitta presenta il preventivo 2027: debito possibile oltre 3 miliardi e riflessione a 360 gradi sulle entrate.',
+    'blog.article.preventivo-ticino-2027-vitta.imageAlt': 'Palazzi governativi di Bellinzona, sede del preventivo cantonale',
 };
 
 export default blogMetaIt;

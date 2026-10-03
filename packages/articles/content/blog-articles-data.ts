@@ -37231,6 +37231,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'preventivo-ticino-2027-vitta',
+ category: 'fiscale',
+ date: '2026-10-03T15:33:09.248Z',
+ image: '/images/blog/preventivo-ticino-2027-vitta.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
