@@ -766,6 +766,7 @@ const frCore: Record<string, string> = {
  'jobBoard.quickFilters.nurse': 'Infirmier',
  'jobBoard.quickFilters.engineer': 'Ingénieur',
  'jobBoard.quickFilters.driver': 'Chauffeur',
+ 'jobBoard.recommendations.heading': 'Offres à découvrir',
  'jobBoard.trending.heading': 'Populaires dans votre région',
  'jobBoard.trending.aria': 'Emplois populaires dans votre région',
  'jobBoard.contract.all': 'Tous les contrats',
