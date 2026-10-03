@@ -4,6 +4,8 @@ import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/port
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
+  COOKIE_ACCEPT_RE,
+  COOKIE_REJECT_RE,
   formPostingMatch,
   namesAnotherEmployer,
   ownAccountForm,
@@ -118,6 +120,39 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // The whole name on the form is the direct match, as ever.
     expect(viaPosting('Concierge — Grand Hotel Esempio')).toBe('match');
     expect(viaPosting('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('match');
+  });
+
+  it('takes an ATS careers section in the page title for no employer', () => {
+    // SuccessFactors titles every page with its section («Opportunités de carrière : Créer un compte», read on a
+    // real tenant on 2026-10-03; «Karrierechancen: Anmelden» on another): the section names nobody, and its
+    // pages show the employer only as a logo. The role after the section is read as ever.
+    const order = { title: "Apprentissage d'opérateur·trice en informatique CFC", company: 'Manifattura Esempio' };
+    const viaPosting = (formText: string) => formPostingMatch(formText, order, { postingMatched: true });
+    expect(viaPosting("Opportunités de carrière : Apprentissage d'opérateur∙trice en informatique CFC (1429968733)\nPrénom\nNom\nhttps://career5.example/career?company=manifatturasa")).toBe('match');
+    expect(viaPosting('Karrierechancen: Apprentissage d’opérateur∙trice en informatique CFC')).toBe('match');
+    expect(viaPosting('Career Opportunities: Apprentissage d’opérateur∙trice en informatique CFC')).toBe('match');
+    expect(viaPosting('Opportunità di carriera: Apprentissage d’opérateur∙trice en informatique CFC')).toBe('match');
+    // Another employer after the section is still another employer, another role still another role.
+    expect(viaPosting("Opportunités de carrière : Apprentissage d'opérateur∙trice en informatique CFC — Autre Maison")).toBe('mismatch');
+    expect(viaPosting('Opportunités de carrière : Horloger∙ère CFC')).toBe('mismatch');
+    // And without a posting that named the company, the section is no match by itself.
+    expect(formPostingMatch("Opportunités de carrière : Apprentissage d'opérateur∙trice en informatique CFC", order)).toBe('mismatch');
+  });
+
+  it('closes a cookie manager whose buttons name the cookies', () => {
+    // SuccessFactors' own manager (2026-10-03): left open over the sign-in page, it took the click on «create account».
+    for (const text of ['Refuser tous les cookies', 'Alle Cookies ablehnen', 'Reject All Cookies', 'Rifiuta tutti i cookie', 'Decline all cookies', 'Refuser', 'Tout refuser', 'Alle ablehnen', 'Rifiuta tutti']) {
+      expect(COOKIE_REJECT_RE.test(text), text).toBe(true);
+    }
+    for (const text of ['Accepter tous les cookies', 'Alle Cookies akzeptieren', 'Accept All Cookies', 'Accetta tutti i cookie', 'Tout accepter', 'Alle akzeptieren']) {
+      expect(COOKIE_ACCEPT_RE.test(text), text).toBe(true);
+      expect(COOKIE_REJECT_RE.test(text), text).toBe(false);
+    }
+    // Neither the settings button nor an unrelated refusal is the banner's way out.
+    for (const text of ['Modifier les préférences des cookies', 'Cookie-Einstellungen ändern', 'Modify Cookie Preferences', 'Refuser la candidature', 'Accepter l’offre']) {
+      expect(COOKIE_REJECT_RE.test(text), text).toBe(false);
+      expect(COOKIE_ACCEPT_RE.test(text), text).toBe(false);
+    }
   });
 
   it('knows a page whose button sends an application, whatever else it asks', () => {
