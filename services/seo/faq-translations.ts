@@ -850,15 +850,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Meglio scegliere LAMal svizzera o SSN italiano come assicurazione?": {
  en: {
  q: "Is it better to choose Swiss LAMal or Italian SSN as health insurance?",
- a: "It depends on the personal situation. LAMal costs around CHF 400–600/month but covers care in Switzerland without long waits. The Italian SSN is free (or nearly so) but does not cover emergency care in Switzerland. The right of option must be exercised within 3 months of starting work and the choice is irrevocable."
+ a: "It depends on the personal situation. LAMal costs around CHF 400–600/month but covers care in Switzerland without long waits. The Italian SSN is free (or nearly so) but does not cover emergency care in Switzerland. The right of option must be exercised within 3 months of starting work and the choice cannot be changed freely; any new entitlement must be checked with the canton of employment."
  },
  de: {
  q: "Ist es besser, die Schweizer KVG oder den italienischen SSN als Krankenversicherung zu wählen?",
- a: "Das hängt von der persönlichen Situation ab. Die KVG kostet ca. CHF 400–600/Monat, deckt aber Behandlungen in der Schweiz ohne lange Wartezeiten. Der italienische SSN ist kostenlos (oder fast), deckt aber keine Notfallbehandlungen in der Schweiz. Das Optionsrecht muss innerhalb von 3 Monaten nach Arbeitsbeginn ausgeübt werden und die Wahl ist unwiderruflich."
+ a: "Das hängt von der persönlichen Situation ab. Die KVG kostet ca. CHF 400–600/Monat, deckt aber Behandlungen in der Schweiz ohne lange Wartezeiten. Der italienische SSN ist kostenlos (oder fast), deckt aber keine Notfallbehandlungen in der Schweiz. Das Optionsrecht muss innerhalb von 3 Monaten nach Arbeitsbeginn ausgeübt werden und die Wahl kann nicht frei geändert werden; neue Umstände sind mit dem Arbeitskanton zu prüfen."
  },
  fr: {
  q: "Vaut-il mieux choisir la LAMal suisse ou le SSN italien comme assurance maladie ?",
- a: "Cela dépend de la situation personnelle. La LAMal coûte environ CHF 400 à 600/mois mais couvre les soins en Suisse sans longues attentes. Le SSN italien est gratuit (ou presque) mais ne couvre pas les soins urgents en Suisse. Le droit d'option doit être exercé dans les 3 mois suivant le début de l'emploi et le choix est irrévocable."
+ a: "Cela dépend de la situation personnelle. La LAMal coûte environ CHF 400 à 600/mois mais couvre les soins en Suisse sans longues attentes. Le SSN italien est gratuit (ou presque) mais ne couvre pas les soins urgents en Suisse. Le droit d'option doit être exercé dans les 3 mois suivant le début de l'emploi et le choix ne peut pas être modifié librement ; les nouveaux événements sont à vérifier auprès du canton de travail."
  }
  },
 
@@ -2100,15 +2100,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?": {
  en: {
  q: "What is the right of option for cross-border workers' health insurance?",
- a: "The right of option allows cross-border workers to choose between Swiss LAMal and the Italian national health service (SSN) within 3 months of starting work. The choice is irrevocable for the entire duration of the employment relationship. According to Laura Mantovani, LAMal insurance broker: 'The choice between LAMal and SSN must be carefully weighed because it cannot be changed once made'."
+ a: "Eligible EU citizens resident in Italy may formally request exemption from LAMal from the competent authority in their canton of employment within three months of starting work. Italian SSN enrolment alone does not exercise this right. The choice cannot be changed freely. For someone previously insured under LAMal, the birth of a child may allow a new option within three months, depending on the family situation: check with the canton and Italian ASL first. Source: FOPH, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera"
  },
  de: {
  q: "Was ist das Optionsrecht bei der Krankenversicherung für Grenzgänger?",
- a: "Das Optionsrecht erlaubt Grenzgängern, innerhalb von 3 Monaten nach Arbeitsbeginn zwischen der Schweizer KVG und dem italienischen Gesundheitsdienst (SSN) zu wählen. Die Wahl ist für die gesamte Dauer des Arbeitsverhältnisses unwiderruflich. Wie Laura Mantovani, KVG-Versicherungsmaklerin, erklärt: «Die Wahl zwischen KVG und SSN muss sorgfältig abgewogen werden, da sie einmal getroffen nicht mehr geändert werden kann»."
+ a: "Berechtigte EU-Staatsangehörige mit Wohnsitz in Italien können beim zuständigen Arbeitskanton innerhalb von drei Monaten nach Arbeitsbeginn die Befreiung von der KVG beantragen. Eine SSN-Anmeldung allein genügt nicht. Die Wahl kann nicht frei geändert werden. Bei bisheriger KVG-Versicherung kann die Geburt eines Kindes je nach Familiensituation eine erneute Ausübung innerhalb von drei Monaten ermöglichen: vorher mit dem Kanton und der italienischen ASL klären. Quelle: BAG, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera"
  },
  fr: {
  q: "Qu'est-ce que le droit d'option pour l'assurance maladie des frontaliers ?",
- a: "Le droit d'option permet aux frontaliers de choisir entre la LAMal suisse et le service national de santé italien (SSN) dans les 3 mois suivant le début du travail. Le choix est irrévocable pour toute la durée du rapport de travail. Comme l'explique Laura Mantovani, courtière en assurance LAMal: «Le choix entre LAMal et SSN doit être soigneusement pesé car il ne peut plus être modifié une fois effectué»."
+ a: "Les citoyens UE résidant en Italie qui disposent du droit d’option peuvent demander formellement une exemption de la LAMal à l’autorité du canton de travail dans les trois mois suivant le début de l’activité. L’inscription au SSN seule ne suffit pas. Le choix ne peut pas être modifié librement. Pour une personne précédemment assurée LAMal, la naissance d’un enfant peut permettre un nouvel exercice dans les trois mois, selon la situation familiale : vérifier auparavant avec le canton et l’ASL italienne. Source : OFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera"
  }
  },
  "Cosa copre l'assicurazione LAMal per frontalieri?": {
@@ -3008,15 +3008,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come funziona l'assicurazione sanitaria per i frontalieri?": {
  en: {
  q: "How does health insurance work for cross-border workers?",
- a: "Cross-border workers with a G permit have the right of option: they can choose Swiss LAMal (premiums from CHF 300–500/month) or the Italian SSN (much lower INPS contributions). The choice must be made within 3 months of starting work and is generally irrevocable. The SSN is cheaper but only covers Italy; LAMal covers the whole of Switzerland."
+ a: "Cross-border workers with a G permit have the right of option: they can choose Swiss LAMal (premiums from CHF 300–500/month) or the Italian SSN (much lower INPS contributions). The choice must be made within 3 months of starting work and cannot be changed freely; any new entitlement must be checked with the canton of employment. The SSN is cheaper but only covers Italy; LAMal covers the whole of Switzerland."
  },
  de: {
  q: "Wie funktioniert die Krankenversicherung fuer Grenzgaenger?",
- a: "Grenzgaenger mit Bewilligung G haben das Optionsrecht: sie koennen zwischen der Schweizer KVG (LAMal) waehlen (Praemien ab CHF 300–500/Monat) oder dem italienischen SSN (deutlich niedrigere INPS-Beitraege). Die Wahl muss innerhalb von 3 Monaten nach Arbeitsaufnahme erfolgen und ist in der Regel unwiderruflich. Der SSN ist guenstiger, deckt aber nur Italien ab; die LAMal deckt die gesamte Schweiz ab."
+ a: "Grenzgaenger mit Bewilligung G haben das Optionsrecht: sie koennen zwischen der Schweizer KVG (LAMal) waehlen (Praemien ab CHF 300–500/Monat) oder dem italienischen SSN (deutlich niedrigere INPS-Beitraege). Die Wahl muss innerhalb von 3 Monaten nach Arbeitsaufnahme erfolgen und kann nicht frei geändert werden; neue Umstände sind mit dem Arbeitskanton zu prüfen. Der SSN ist guenstiger, deckt aber nur Italien ab; die LAMal deckt die gesamte Schweiz ab."
  },
  fr: {
  q: "Comment fonctionne l'assurance maladie pour les frontaliers ?",
- a: "Les frontaliers avec permis G disposent du droit d'option : ils peuvent choisir la LAMal suisse (primes de CHF 300–500/mois) ou le SSN italien (cotisations INPS bien inferieures). Le choix doit etre fait dans les 3 mois suivant le debut du travail et est en general irrevocable. Le SSN est moins cher mais ne couvre que l'Italie ; la LAMal couvre toute la Suisse."
+ a: "Les frontaliers avec permis G disposent du droit d'option : ils peuvent choisir la LAMal suisse (primes de CHF 300–500/mois) ou le SSN italien (cotisations INPS bien inferieures). Le choix doit etre fait dans les 3 mois suivant le debut du travail et ne peut pas être modifié librement ; les nouveaux événements sont à vérifier auprès du canton de travail. Le SSN est moins cher mais ne couvre que l'Italie ; la LAMal couvre toute la Suisse."
  }
  },
 
@@ -3488,15 +3488,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto costa l'assicurazione sanitaria LAMal per i frontalieri?": {
  en: {
  q: "How much does LAMal health insurance cost for cross-border workers?",
- a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month in 2026, depending on the insurer and the model chosen. The cheapest options are Assura and Agrisano with Telmed model (around CHF 270–300/month). Cross-border workers have 3 months from the start of work to choose between Swiss LAMal and the Italian SSN (irrevocable right of option)."
+ a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month in 2026, depending on the insurer and the model chosen. The cheapest options are Assura and Agrisano with Telmed model (around CHF 270–300/month). Cross-border workers have 3 months from the start of work to choose between Swiss LAMal and the Italian SSN (right of option subject to cantonal assessment)."
  },
  de: {
  q: "Wie viel kostet die LAMal-Krankenversicherung fuer Grenzgaenger?",
- a: "Die LAMal-Praemien fuer Grenzgaenger im Kanton Tessin liegen 2026 zwischen CHF 270 und CHF 560/Monat, je nach Versicherer und gewaehltem Modell. Die guenstigsten Angebote bieten Assura und Agrisano mit Telmed-Modell (rund CHF 270–300/Monat). Grenzgaenger haben ab Arbeitsbeginn 3 Monate Zeit, zwischen der Schweizer LAMal und dem italienischen SSN zu waehlen (unwiderrufliches Optionsrecht)."
+ a: "Die LAMal-Praemien fuer Grenzgaenger im Kanton Tessin liegen 2026 zwischen CHF 270 und CHF 560/Monat, je nach Versicherer und gewaehltem Modell. Die guenstigsten Angebote bieten Assura und Agrisano mit Telmed-Modell (rund CHF 270–300/Monat). Grenzgaenger haben ab Arbeitsbeginn 3 Monate Zeit, zwischen der Schweizer LAMal und dem italienischen SSN zu waehlen (Optionsrecht unter Prüfung durch den Arbeitskanton)."
  },
  fr: {
  q: "Combien coute l'assurance maladie LAMal pour les frontaliers ?",
- a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 a CHF 560/mois en 2026, selon l'assureur et le modele choisi. Les options les moins cheres sont Assura et Agrisano avec modele Telmed (environ CHF 270–300/mois). Les frontaliers disposent de 3 mois a compter du debut du travail pour choisir entre LAMal suisse et SSN italien (droit d'option irrevocable)."
+ a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 a CHF 560/mois en 2026, selon l'assureur et le modele choisi. Les options les moins cheres sont Assura et Agrisano avec modele Telmed (environ CHF 270–300/mois). Les frontaliers disposent de 3 mois a compter du debut du travail pour choisir entre LAMal suisse et SSN italien (droit d'option soumis à examen cantonal)."
  }
  },
 
@@ -3670,15 +3670,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Il diritto di opzione LAMal/SSN è irreversibile?": {
  en: {
  q: "Is the LAMal/SSN right of option irreversible?",
- a: "The initial choice is valid for the entire period of work in Switzerland with the same employer. You can change it in case of a new employment relationship, a cantonal change or significant family changes."
+ a: "Eligible EU citizens resident in Italy may formally request exemption from LAMal from the competent authority in their canton of employment within three months of starting work. Italian SSN enrolment alone does not exercise this right. The choice cannot be changed freely. For someone previously insured under LAMal, the birth of a child may allow a new option within three months, depending on the family situation: check with the canton and Italian ASL first. Source: FOPH, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera"
  },
  de: {
  q: "Ist das Optionsrecht LAMal/SSN unwiderruflich?",
- a: "Die anfaengliche Wahl gilt fuer die gesamte Dauer der Beschaeftigung in der Schweiz bei demselben Arbeitgeber. Ein Wechsel ist bei einem neuen Arbeitsverhaeltnis, einem Kantonswechsel oder bei wesentlichen familiaeren Veraenderungen moeglich."
+ a: "Berechtigte EU-Staatsangehörige mit Wohnsitz in Italien können beim zuständigen Arbeitskanton innerhalb von drei Monaten nach Arbeitsbeginn die Befreiung von der KVG beantragen. Eine SSN-Anmeldung allein genügt nicht. Die Wahl kann nicht frei geändert werden. Bei bisheriger KVG-Versicherung kann die Geburt eines Kindes je nach Familiensituation eine erneute Ausübung innerhalb von drei Monaten ermöglichen: vorher mit dem Kanton und der italienischen ASL klären. Quelle: BAG, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera"
  },
  fr: {
  q: "Le droit d'option LAMal/SSN est-il irreversible ?",
- a: "Le choix initial est valable pour toute la duree du travail en Suisse chez le meme employeur. Il peut etre modifie en cas de nouvelle relation de travail, de changement de canton ou de modifications familiales significatives."
+ a: "Les citoyens UE résidant en Italie qui disposent du droit d’option peuvent demander formellement une exemption de la LAMal à l’autorité du canton de travail dans les trois mois suivant le début de l’activité. L’inscription au SSN seule ne suffit pas. Le choix ne peut pas être modifié librement. Pour une personne précédemment assurée LAMal, la naissance d’un enfant peut permettre un nouvel exercice dans les trois mois, selon la situation familiale : vérifier auparavant avec le canton et l’ASL italienne. Source : OFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera"
  }
  },
 
@@ -4123,9 +4123,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Quel budget moyen pour les courses alimentaires au Tessin ?", a: "Un Tessinois celibataire depense CHF 400–550 par mois en courses (Migros/Coop), un couple CHF 650–850, une famille de quatre CHF 950–1 250. Les discounters Aldi et Lidl reduisent la facture de 20–30 %. Un frontalier qui fait ses courses en Italie (Come, Varese) economise 30–40 % : un panier hebdomadaire de 150 EUR en IT correspond a CHF 210–240 a Lugano. Attention a la franchise douaniere de CHF 150 par personne et par jour." }
  },
  "La LAMal è davvero obbligatoria per tutti i frontalieri?": {
- en: { q: "Is LAMal really mandatory for all cross-border workers?", a: "Yes, health insurance is mandatory, but cross-border workers have 3 months from starting work to exercise the right of option: Swiss LAMal or enrolment in the Italian SSN via the E106/S1 certificate. The choice is irrevocable for the entire employment relationship. Anyone who does not choose within 3 months is automatically assigned by the canton (typically to Assura) at the standard premium. Source: CH-EU free-movement agreement, art. 83 LAMal." },
- de: { q: "Ist die KVG wirklich fuer alle Grenzgaenger obligatorisch?", a: "Ja, die Krankenversicherung ist obligatorisch, aber Grenzgaenger haben ab Stellenantritt drei Monate Zeit, ihr Wahlrecht auszuueben: Schweizer KVG oder Beitritt zum italienischen SSN mittels Formular E106/S1. Die Wahl ist fuer die gesamte Dauer des Arbeitsverhaeltnisses unwiderruflich. Wer nicht innerhalb von drei Monaten waehlt, wird vom Kanton von Amtes wegen zugewiesen (meist zu Assura) mit Standardpraemie. Quelle: CH-EU-Freizuegigkeitsabkommen, Art. 83 KVG." },
- fr: { q: "La LAMal est-elle vraiment obligatoire pour tous les frontaliers ?", a: "Oui, l'assurance maladie est obligatoire, mais les frontaliers ont 3 mois a compter de la prise d'emploi pour exercer leur droit d'option : LAMal suisse ou inscription au SSN italien via l'attestation E106/S1. Le choix est irrevocable pour toute la duree de la relation de travail. Qui ne choisit pas dans les 3 mois est affilie d'office par le canton (generalement a Assura) a la prime standard. Source : accord de libre circulation CH-UE, art. 83 LAMal." }
+ en: { q: "Is LAMal really mandatory for all cross-border workers?", a: "Eligible EU citizens resident in Italy may formally request exemption from LAMal from the competent authority in their canton of employment within three months of starting work. Italian SSN enrolment alone does not exercise this right. The choice cannot be changed freely. For someone previously insured under LAMal, the birth of a child may allow a new option within three months, depending on the family situation: check with the canton and Italian ASL first. Source: FOPH, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" },
+ de: { q: "Ist die KVG wirklich fuer alle Grenzgaenger obligatorisch?", a: "Berechtigte EU-Staatsangehörige mit Wohnsitz in Italien können beim zuständigen Arbeitskanton innerhalb von drei Monaten nach Arbeitsbeginn die Befreiung von der KVG beantragen. Eine SSN-Anmeldung allein genügt nicht. Die Wahl kann nicht frei geändert werden. Bei bisheriger KVG-Versicherung kann die Geburt eines Kindes je nach Familiensituation eine erneute Ausübung innerhalb von drei Monaten ermöglichen: vorher mit dem Kanton und der italienischen ASL klären. Quelle: BAG, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" },
+ fr: { q: "La LAMal est-elle vraiment obligatoire pour tous les frontaliers ?", a: "Les citoyens UE résidant en Italie qui disposent du droit d’option peuvent demander formellement une exemption de la LAMal à l’autorité du canton de travail dans les trois mois suivant le début de l’activité. L’inscription au SSN seule ne suffit pas. Le choix ne peut pas être modifié librement. Pour une personne précédemment assurée LAMal, la naissance d’un enfant peut permettre un nouvel exercice dans les trois mois, selon la situation familiale : vérifier auparavant avec le canton et l’ASL italienne. Source : OFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" }
  },
  "Come cambiare cassa malati frontaliere senza penali?": {
  en: { q: "How to change cross-border health insurer without penalties?", a: "The basic LAMal policy can be cancelled twice a year: by 30 November with effect 1 January (franchise change or insurer change), or by 31 March with effect 1 July (only if the premium increases). The notice must be sent by registered letter with return receipt to the old insurer, and you must already have signed with the new one: even a one-day gap is sanctioned. Supplementary insurances can be cancelled freely with three months' notice by 31 December." },
@@ -4605,9 +4605,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Combien de piliers compte le système de prévoyance suisse et que couvrent-ils ?", a: "Le système suisse repose sur 3 piliers : AVS/AI (1er pilier, prévoyance étatique obligatoire), LPP (2e pilier, prévoyance professionnelle via l'employeur) et épargne individuelle volontaire (3e pilier, 3a/3b)." }
  },
  "I frontalieri possono scegliere tra LAMal svizzera e SSN italiano?": {
- en: { q: "Can cross-border workers choose between Swiss LAMal and the Italian national health service?", a: "Yes: within 3 months of starting employment, cross-border workers exercise the right of option between Swiss LAMal health insurance and the Italian national health service (SSN). The choice is irrevocable for the entire duration of the employment relationship." },
- de: { q: "Können Grenzgänger zwischen der Schweizer KVG und dem italienischen Gesundheitsdienst wählen?", a: "Ja: Innerhalb von 3 Monaten nach Arbeitsbeginn üben Grenzgänger das Optionsrecht zwischen der Schweizer Krankenversicherung KVG und dem italienischen staatlichen Gesundheitsdienst (SSN) aus. Die Wahl ist für die gesamte Dauer des Arbeitsverhältnisses unwiderruflich." },
- fr: { q: "Les frontaliers peuvent-ils choisir entre la LAMal suisse et le service de santé national italien ?", a: "Oui : dans les 3 mois suivant le début de l'emploi, les frontaliers exercent le droit d'option entre l'assurance maladie suisse LAMal et le service de santé national italien (SSN). Le choix est irrévocable pour toute la durée du rapport de travail." }
+ en: { q: "Can cross-border workers choose between Swiss LAMal and the Italian national health service?", a: "Yes: within 3 months of starting employment, cross-border workers exercise the right of option between Swiss LAMal health insurance and the Italian national health service (SSN). The choice cannot be changed freely; the canton of employment must assess whether a new right of option applies." },
+ de: { q: "Können Grenzgänger zwischen der Schweizer KVG und dem italienischen Gesundheitsdienst wählen?", a: "Ja: Innerhalb von 3 Monaten nach Arbeitsbeginn üben Grenzgänger das Optionsrecht zwischen der Schweizer Krankenversicherung KVG und dem italienischen staatlichen Gesundheitsdienst (SSN) aus. Die Wahl kann nicht frei geändert werden; der Arbeitskanton prüft einen erneuten Anspruch auf das Optionsrecht." },
+ fr: { q: "Les frontaliers peuvent-ils choisir entre la LAMal suisse et le service de santé national italien ?", a: "Oui : dans les 3 mois suivant le début de l'emploi, les frontaliers exercent le droit d'option entre l'assurance maladie suisse LAMal et le service de santé national italien (SSN). Le choix ne peut pas être modifié librement ; le canton de travail vérifie les conditions d’un nouvel exercice." }
  },
  "Ogni quanto va rinnovato il permesso G per frontalieri?": {
  en: { q: "How often must the G permit for cross-border workers be renewed?", a: "A G permit for EU/EFTA nationals normally lasts five years for an indefinite contract or one exceeding a year; shorter contracts have a corresponding validity. Check the expiry date and follow the canton’s renewal procedure: continuing employment does not remove the need for the required formalities. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html" },

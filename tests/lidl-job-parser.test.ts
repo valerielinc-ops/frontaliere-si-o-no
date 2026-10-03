@@ -603,6 +603,18 @@ describe('Lidl authoritative LiCa discovery', () => {
     expect(inferLidlCanton({ city: 'Unknown place', country: 'CH' })).toBe('');
   });
 
+  it('rejects when the discovery fetch ignores AbortSignal instead of exiting cleanly', async () => {
+    let observedSignal: AbortSignal | undefined;
+    await expect(fetchLidlJobDetailUrls({
+      fetchImpl: async (_url, options) => {
+        observedSignal = options?.signal;
+        return new Promise(() => {});
+      },
+      timeoutMs: 10,
+    })).rejects.toMatchObject({ name: 'TimeoutError' });
+    expect(observedSignal?.aborted).toBe(true);
+  });
+
   it.each(LIDL_VERIFIED_LOCATIONS)(
     'resolves the source-verified Lidl delivery locality %s %s to %s',
     (city, zipCode, canton) => {
