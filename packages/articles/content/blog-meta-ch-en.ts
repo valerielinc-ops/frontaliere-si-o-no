@@ -7661,6 +7661,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pilastro3a-zurigo-strategia.title': 'Third pillar 3a: 2026 advantages in the canton of Zurich',
     'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Guide 2026 to the third pillar 3a in the canton of Zurich: three tax levels, municipal multiplier and banking or insurance providers.',
     'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Swiss tax papers and a 3a savings plan on a desk with Zurich skyline.',
+    'blog.article.guida-terzo-3a-berna.title': 'Swiss third pillar 3a: 2026 benefits in the canton of Bern',
+    'blog.article.guida-terzo-3a-berna.excerpt': '2026 Guide to 3a in the canton of Bern: indexed maximum, three tax levels, and comparison between banking and insurance providers.',
+    'blog.article.guida-terzo-3a-berna.imageAlt': 'Swiss resident reviewing third-pillar 3a and tax documents',
 };
 
 export default blogMetaChEn;
