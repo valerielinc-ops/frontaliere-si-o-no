@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
+import { LOOP_STATE_AWAITING_SAMPLE, reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
 import { resolveNursingOrphanQueryTarget } from '../lib/nursing-landing-path.mjs';
 import {
@@ -56,6 +56,19 @@ function text(value) {
 
 function record(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+/** Unico testo del controllo di campione: lo produce la validazione e lo riconosce `l2AwaitingSample`. */
+function belowMinimumSampleIssue(eligibleLandingSessions, minimumSample) {
+  return `eligibleLandingSessions is below minimum sample (${eligibleLandingSessions} < ${minimumSample})`;
+}
+
+/** Giorni di calendario (estremi inclusi) della finestra GA4 dichiarata dall'export; `null` se assente. */
+function telemetryWindowDays(window) {
+  const start = Date.parse(`${window?.startDate ?? ''}T00:00:00Z`);
+  const end = Date.parse(`${window?.endDate ?? ''}T00:00:00Z`);
+  if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return null;
+  return Math.round((end - start) / 86_400_000) + 1;
 }
 
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], snapshot = null, candidates = [] }) {
@@ -195,7 +208,7 @@ export function validateDemandSnapshot(payload, {
     issues.push('outcomes.usefulActions exceeds outcomes.eligibleLandingSessions');
   }
   if (outcomeConsistent && eligibleLandingSessions < minimumSample) {
-    issues.push(`eligibleLandingSessions is below minimum sample (${eligibleLandingSessions} < ${minimumSample})`);
+    issues.push(belowMinimumSampleIssue(eligibleLandingSessions, minimumSample));
   }
 
   let ageHours = null;
@@ -220,6 +233,7 @@ export function validateDemandSnapshot(payload, {
           ? 'joined'
           : 'missing',
     minimumSample,
+    telemetryWindowDays: telemetryWindowDays(payload.telemetryWindow ?? payload._meta?.telemetryWindow),
     outcomes: declaredOutcomeCounts({
       eligibleLandingSessions,
       usefulActions,
@@ -261,6 +275,19 @@ export function l2FindingKind(verdict) {
   if (verdict.quality === 'stale') return 'stale-source';
   if (hasUnderMinimumSample(verdict)) return 'underpowered-sample';
   return 'snapshot-validation';
+}
+
+/**
+ * Il campione insufficiente è uno STATO solo quando è l'UNICO controllo
+ * fallito: join valido, sorgente fresca, cluster tutti validi. Qualunque altro
+ * difetto insieme al campione resta un guasto lavorabile dal fixer.
+ */
+export function l2AwaitingSample(verdict) {
+  if (l2FindingKind(verdict) !== 'underpowered-sample' || verdict.quality !== 'partial') return false;
+  const { minimumSample, outcomes } = verdict.snapshot;
+  return Array.isArray(verdict.issues)
+    && verdict.issues.length === 1
+    && verdict.issues[0] === belowMinimumSampleIssue(outcomes.eligibleLandingSessions, minimumSample);
 }
 
 export function issueTitleForVerdict(verdict) {
@@ -540,6 +567,14 @@ export async function runL2({
       loopId: LOOP_ID,
       reason: verdict.reason,
       loopTitles: LOOP_ISSUE_TITLES,
+      ...(l2AwaitingSample(verdict) ? {
+        state: LOOP_STATE_AWAITING_SAMPLE,
+        sample: {
+          current: verdict.snapshot.outcomes.eligibleLandingSessions,
+          minimum: verdict.snapshot.minimumSample,
+          windowDays: verdict.snapshot.telemetryWindowDays,
+        },
+      } : {}),
     });
     issued = true;
   } else if (issue) {
