@@ -7655,6 +7655,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-fiscale-vaud-2026.title': 'Steuererklärung Schweiz: Leitfaden Vaud 2026',
     'blog.article.guida-fiscale-vaud-2026.excerpt': 'Drei Steuerstufen, kommunaler Steuerfuss und Online-Verfahren: der Leitfaden 2026 zur Steuererklärung in der Schweiz mit Fokus auf den Kanton Waadt.',
     'blog.article.guida-fiscale-vaud-2026.imageAlt': 'Schweizer Einwohner füllt online eine Steuererklärung für den Kanton Waadt aus',
+    'blog.article.fisco-argovia-online-2026.title': 'Schweizer Steuererklärung: Leitfaden 2026 im Aargau',
+    'blog.article.fisco-argovia-online-2026.excerpt': 'Der Leitfaden 2026 zur Steuererklärung im Aargau erläutert die direkte Bundessteuer, die Kantons- und Gemeindesteuern, den Steuerfuss und das Online-Verfahren.',
+    'blog.article.fisco-argovia-online-2026.imageAlt': 'Schweizer kantonales Steueramt mit Laptop und Unterlagen zur Steuererklärung 2026.',
 };
 
 export default blogMetaChDe;

@@ -7655,6 +7655,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-fiscale-vaud-2026.title': 'Swiss tax return: Vaud 2026 guide',
     'blog.article.guida-fiscale-vaud-2026.excerpt': 'Three tax levels, municipal multiplier and online procedure: the 2026 guide to filing a tax return in Switzerland with a focus on the canton of Vaud.',
     'blog.article.guida-fiscale-vaud-2026.imageAlt': 'Swiss resident completing an online tax return for the canton of Vaud',
+    'blog.article.fisco-argovia-online-2026.title': 'Swiss tax return: 2026 guide in Aargau',
+    'blog.article.fisco-argovia-online-2026.excerpt': 'The 2026 guide to filing taxes in Aargau explains IFD, cantonal and municipal taxes, the multiplier and the online procedure.',
+    'blog.article.fisco-argovia-online-2026.imageAlt': 'Swiss cantonal tax office with a laptop and 2026 tax return documents.',
 };
 
 export default blogMetaChEn;

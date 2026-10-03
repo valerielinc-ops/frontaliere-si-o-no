@@ -7655,6 +7655,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-fiscale-vaud-2026.title': 'Déclaration d\'impôts en Suisse : guide Vaud 2026',
     'blog.article.guida-fiscale-vaud-2026.excerpt': 'Trois niveaux fiscaux, multiplicateur communal et procédure en ligne : le guide 2026 de la déclaration en Suisse, avec un focus sur le canton de Vaud.',
     'blog.article.guida-fiscale-vaud-2026.imageAlt': 'Résident suisse remplissant en ligne une déclaration fiscale pour le canton de Vaud',
+    'blog.article.fisco-argovia-online-2026.title': 'Déclaration d’impôts suisse : guide 2026 en Argovie',
+    'blog.article.fisco-argovia-online-2026.excerpt': 'Le guide 2026 de la déclaration d\'impôt en Argovie explique l\'IFD, les impôts cantonaux et communaux, le multiplicateur et la procédure en ligne.',
+    'blog.article.fisco-argovia-online-2026.imageAlt': 'Office fiscal cantonal suisse avec ordinateur portable et documents de déclaration 2026.',
 };
 
 export default blogMetaChFr;

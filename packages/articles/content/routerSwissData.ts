@@ -2574,6 +2574,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-fiscale-ginevra-2026': { it: 'guida-fiscale-ginevra-2026', en: 'geneva-tax-return-guide-2026', de: 'steuererklaerung-genf-leitfaden-2026', fr: 'declaration-impots-geneve-guide-2026' },
  'fisco-berna-guida-2026': { it: 'fisco-berna-guida-2026', en: 'swiss-tax-guide-bern-2026', de: 'steuererklaerung-bern-2026', fr: 'declaration-impots-berne-2026' },
  'guida-fiscale-vaud-2026': { it: 'guida-fiscale-vaud-2026', en: 'swiss-tax-return-vaud-2026', de: 'steuererklaerung-waadt-2026', fr: 'declaration-impots-vaud-2026' },
+ 'fisco-argovia-online-2026': { it: 'fisco-argovia-online-2026', en: 'swiss-tax-return-aargau-2026', de: 'steuererklaerung-aargau-2026', fr: 'declaration-impots-argovie-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
