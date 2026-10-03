@@ -85,7 +85,7 @@ jobs:
           import { readFileSync, writeFileSync } from 'node:fs';
           const r = JSON.parse(readFileSync('/tmp/r/report.json', 'utf8'));
           const a = r.checks?.sitemapCoverage ?? { wouldBe404: 0, totalUrls: 0, sample: [] };
-          const b = r.checks?.newsletterHubLinks ?? { wouldBe404: 0, companiesSampled: 0, sample: [] };
+          const b = r.checks?.newsletterHubLinks ?? { wouldBe404: 0, companiesSampled: 0, sample: [], sourceSkew: 0, sourceSkewSample: [] };
           const g = r.checks?.publishGeneration ?? { apexSha: null, shardsTotal: 0, shardsSameGeneration: 0, offGeneration: [], staleShards: [], maxAgeHours: 24 };
           const total = a.wouldBe404 + b.wouldBe404;
           const stale = (g.staleShards ?? []).length;
@@ -107,11 +107,14 @@ jobs:
             md += `A shard stuck several deploys behind serves its old build indefinitely, and is what bounds the skew deferral above.\n`;
             for (const s of g.staleShards) md += `- \`${s.shard}\` — last pushed ${s.at} (${s.ageHours}h ago, stamp \`${s.sha ?? 'none'}\`)\n`;
           }
-          const skew = (a.publishSkew ?? 0) + (b.publishSkew ?? 0);
+          const sourceSkew = b.sourceSkew ?? 0;
+          const skew = (a.publishSkew ?? 0) + (b.publishSkew ?? 0) + sourceSkew;
           if (skew > 0) {
             md += `\n### Deferred as publish skew — ${skew} URL(s)\n`;
-            md += `Owned by a shard on a different deploy than the sitemap; re-checked on the next run. Off-generation shards: ${(g.offGeneration ?? []).map((o) => `\`${o.shard}\``).join(', ') || 'none'}.\n`;
+            md += `These URLs are not comparable to the live served set yet: shard publication can be on a different deploy, or the current crawler snapshot can be newer than the deployed apex. They are re-checked on the next run. Off-generation shards: ${(g.offGeneration ?? []).map((o) => `\`${o.shard}\``).join(', ') || 'none'}.\n`;
             for (const u of a.publishSkewSample ?? []) md += `- \`${u}\`\n`;
+            for (const o of b.publishSkewSample ?? []) md += `- \`${o.builderUrl}\`\n`;
+            for (const o of b.sourceSkewSample ?? []) md += `- \`${o.builderUrl}\` (newer crawler snapshot)\n`;
           }
           writeFileSync('/tmp/r/desc.md', md);
           NODE
