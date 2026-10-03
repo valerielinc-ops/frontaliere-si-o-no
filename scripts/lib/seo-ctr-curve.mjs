@@ -1052,9 +1052,17 @@ export function nextCtrMonitorCounter(prior, { belowTarget, nowIso, minIntervalD
  * per lo stato precedente a quel campo, l'ultimo controllo eseguito. La usa
  * anche il ramo di errore del monitor, che aggiorna `lastCheckedIso` senza
  * aver conteggiato nulla e non deve spostare la cadenza.
+ *
+ * Campo PRESENTE e campo ASSENTE non sono la stessa cosa. `lastCountedIso:
+ * null` e' un fatto scritto: «nessun controllo conteggiato finora» (lo scrive
+ * il ramo di errore per una famiglia mai conteggiata). Solo quando il campo
+ * manca del tutto lo stato e' quello vecchio, e li' vale `lastCheckedIso`.
+ * Con un `??` fra i due, un errore GSC al primo controllo avrebbe fatto
+ * passare per «fuori cadenza» il controllo valido successivo per sei giorni.
  */
 export function ctrMonitorCountedAnchor(prior) {
-  return prior?.lastCountedIso ?? prior?.lastCheckedIso ?? null;
+  if (prior && Object.hasOwn(prior, 'lastCountedIso')) return prior.lastCountedIso ?? null;
+  return prior?.lastCheckedIso ?? null;
 }
 
 /**

@@ -1173,6 +1173,44 @@ describe('contatore del monitor CTR: un controllo conteggiato per cadenza', () =
     expect(ctrMonitorCountedAnchor({ lastCountedIso: at(3), lastCheckedIso: at(4) })).toBe(at(3));
   });
 
+  // Il ramo di errore del monitor scrive `lastCheckedIso` (il controllo c'e'
+  // stato) e riporta l'ancora cosi' com'era. Per una famiglia mai conteggiata
+  // l'ancora e' `null`, ed e' un `null` SCRITTO: non deve ricadere su
+  // `lastCheckedIso`, altrimenti il controllo valido che segue un errore
+  // risulta fuori cadenza per sei giorni.
+  it('un null esplicito in lastCountedIso vuol dire «mai conteggiato», non «campo assente»', () => {
+    const afterFirstError = { consecutiveBelowRuns: 1, lastCountedIso: null, lastCheckedIso: at(0) };
+    expect(ctrMonitorCountedAnchor(afterFirstError)).toBeNull();
+    expect(nextCtrMonitorCounter(afterFirstError, { belowTarget: true, nowIso: at(0, 1) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 2, lastCountedIso: at(0, 1) });
+  });
+
+  it('errore GSC e poi controllo valido: la famiglia nuova conta, quella gia\' conteggiata resta in cadenza', () => {
+    // Stessa scrittura del ramo di errore: { ...prior, lastCheckedIso, lastCountedIso: ancora(prior) }.
+    const errorWrite = (prior: Record<string, unknown>, nowIso: string) => ({
+      ...prior,
+      lastCheckedIso: nowIso,
+      lastCountedIso: ctrMonitorCountedAnchor(prior),
+    });
+
+    const neverSeen = errorWrite({ consecutiveBelowRuns: 0 }, at(0));
+    expect(neverSeen.lastCountedIso).toBeNull();
+    expect(nextCtrMonitorCounter(neverSeen, { belowTarget: true, nowIso: at(0, 2) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 1, lastCountedIso: at(0, 2) });
+
+    // Stato vecchio (senza il campo), conteggiato una settimana prima: l'errore
+    // del cron non sposta l'ancora, il re-run del giorno dopo conta.
+    const legacyThenError = errorWrite({ consecutiveBelowRuns: 3, lastCheckedIso: at(0) }, at(7));
+    expect(legacyThenError.lastCountedIso).toBe(at(0));
+    expect(nextCtrMonitorCounter(legacyThenError, { belowTarget: true, nowIso: at(8) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 4, lastCountedIso: at(8) });
+
+    // Conteggiata ieri, errore oggi: il re-run di oggi resta fuori cadenza.
+    const countedThenError = errorWrite({ consecutiveBelowRuns: 3, lastCountedIso: at(6), lastCheckedIso: at(6) }, at(7));
+    expect(nextCtrMonitorCounter(countedThenError, { belowTarget: true, nowIso: at(7, 1) }))
+      .toEqual({ counted: false, consecutiveBelowRuns: 3, lastCountedIso: at(6) });
+  });
+
   it("un'ancora illeggibile o nel futuro non congela il contatore", () => {
     expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 2, lastCountedIso: 'non una data' }, { belowTarget: true, nowIso: at(0) }))
       .toEqual({ counted: true, consecutiveBelowRuns: 3, lastCountedIso: at(0) });
