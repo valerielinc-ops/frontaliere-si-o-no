@@ -12377,6 +12377,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caos-a2-mezzovico-migliorie.title': 'Traffic chaos on August 8: working group evaluates improvements',
     'blog.article.caos-a2-mezzovico-migliorie.excerpt': 'After more than four hours of chaos in the Luganese, the Cantonal Police sets up a working group on the closure of the A2 in Mezzovico-Vira and the traffic disruption.',
     'blog.article.caos-a2-mezzovico-migliorie.imageAlt': 'Traffic congestion in the Luganese after the A2 closure at Mezzovico-Vira',
+    'blog.article.tetto-italiano-carburanti.title': 'Fuel: Italy\'s cap makes filling up across the border worthwhile again',
+    'blog.article.tetto-italiano-carburanti.excerpt': 'Several companies in Italy are capping prices: the source indicates that filling up across the border is worthwhile again, while the Confederation remains inactive.',
+    'blog.article.tetto-italiano-carburanti.imageAlt': 'Fuel pump at the border between Switzerland and Italy',
 };
 
 export default blogMetaEn;

@@ -12376,6 +12376,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caos-a2-mezzovico-migliorie.title': 'Verkehrschaos vom 8 agosto: Arbeitsgruppe prüft Verbesserungen',
     'blog.article.caos-a2-mezzovico-migliorie.excerpt': 'Nach mehr als vier Stunden Chaos im Luganese setzt die Kantonspolizei eine Arbeitsgruppe zur Sperrung der A2 in Mezzovico-Vira und zu den Verkehrsbehinderungen ein.',
     'blog.article.caos-a2-mezzovico-migliorie.imageAlt': 'Verkehrsstau im Luganese nach der Sperrung der A2 bei Mezzovico-Vira',
+    'blog.article.tetto-italiano-carburanti.title': 'Kraftstoffe: Italien-Preisgrenze macht Tanken attraktiv',
+    'blog.article.tetto-italiano-carburanti.excerpt': 'Mehrere Unternehmen in Italien begrenzen die Preise: Die Quelle weist darauf hin, dass sich das Volltanken jenseits der Grenze wieder lohnt, während die Eidgenossenschaft untätig bleibt.',
+    'blog.article.tetto-italiano-carburanti.imageAlt': 'Tankstelle an der Grenze zwischen der Schweiz und Italien',
 };
 
 export default blogMetaDe;
