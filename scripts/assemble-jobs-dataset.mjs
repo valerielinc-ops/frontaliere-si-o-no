@@ -3173,21 +3173,16 @@ async function assembleJobs() {
     // it may not) — see the precedence note there.
     const sourceLookup = crawlerLocationRecords.getWithStatus(job);
     const sourceRecord = sourceLookup.status === 'found' ? sourceLookup.record : null;
-    // Conflicting source rows cannot safely nominate a winner. Preserve the
-    // stored canton for the audit/pin path, but do not manufacture a new city
-    // inference from mixed records.
+    // The raw index supplies the crawler's own stamp by stable identity. Keep
+    // the assembled locality fields for inference: the Swiss gate may have
+    // rescued/sanitized a raw marker into a real city ("Suisse" → "Bern"),
+    // and throwing that derived evidence away would reintroduce stale cantons
+    // across the corpus. Conflicting source rows cannot safely nominate a
+    // crawler stamp, so the assembled field remains the only inference input.
     const sourceAmbiguous = sourceLookup.status === 'ambiguous';
-    const crawlerCanton = sourceAmbiguous
-      ? ''
-      : sourceRecord
-        ? sourceRecord.canton
-        : (job.canton || '');
-    const city = sourceAmbiguous
-      ? ''
-      : String(sourceRecord ? sourceRecord.city : (job.addressLocality || job.location || '')).trim();
-    const location = sourceAmbiguous
-      ? ''
-      : (sourceRecord ? sourceRecord.location : job.location);
+    const crawlerCanton = sourceAmbiguous ? '' : sourceRecord?.canton || (job.canton || '');
+    const city = String(job.addressLocality || job.location || '').trim();
+    const location = job.location;
     const hasCity = city.length >= 2 && city !== 'CH';
     const rawInferred = hasCity
       ? inferCantonFromJobEvidence({
