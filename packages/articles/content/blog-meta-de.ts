@@ -12379,6 +12379,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tetto-italiano-carburanti.title': 'Kraftstoffe: Italien-Preisgrenze macht Tanken attraktiv',
     'blog.article.tetto-italiano-carburanti.excerpt': 'Mehrere Unternehmen in Italien begrenzen die Preise: Die Quelle weist darauf hin, dass sich das Volltanken jenseits der Grenze wieder lohnt, während die Eidgenossenschaft untätig bleibt.',
     'blog.article.tetto-italiano-carburanti.imageAlt': 'Tankstelle an der Grenze zwischen der Schweiz und Italien',
+    'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Brandanschlag auf einen Lieferwagen zwischen Paradiso und Melide',
+    'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Kleinbrand kurz vor 17 Uhr in einem Firmenlieferwagen an der Via Cantonale zwischen Paradiso und Melide. Der TCS meldet mögliche lange Verzögerungen.',
+    'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Firmenwagen auf der Kantonsstrasse zwischen Paradiso und Melide nach einem Brandherd',
 };
 
 export default blogMetaDe;

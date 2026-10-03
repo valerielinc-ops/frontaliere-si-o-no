@@ -12381,6 +12381,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tetto-italiano-carburanti.title': 'Carburanti: il tetto italiano riporta il pieno oltreconfine',
     'blog.article.tetto-italiano-carburanti.excerpt': 'Diverse compagnie in Italia limitano le tariffe: la fonte segnala che il pieno torna conveniente oltreconfine, mentre la Confederazione resta immobile.',
     'blog.article.tetto-italiano-carburanti.imageAlt': 'Pompa di benzina al confine tra Svizzera e Italia',
+    'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Principio d\'incendio a un furgoncino tra Paradiso e Melide',
+    'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Principio d\'incendio poco prima delle 17 su un furgoncino aziendale in Via Cantonale, tra Paradiso e Melide. Il TCS segnala possibili lunghi ritardi.',
+    'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Furgoncino fermo sulla strada cantonale tra Paradiso e Melide dopo un principio d\'incendio',
 };
 
 export default blogMetaIt;

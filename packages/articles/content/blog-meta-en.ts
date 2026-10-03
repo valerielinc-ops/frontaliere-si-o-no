@@ -12380,6 +12380,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tetto-italiano-carburanti.title': 'Fuel: Italy\'s cap makes filling up across the border worthwhile again',
     'blog.article.tetto-italiano-carburanti.excerpt': 'Several companies in Italy are capping prices: the source indicates that filling up across the border is worthwhile again, while the Confederation remains inactive.',
     'blog.article.tetto-italiano-carburanti.imageAlt': 'Fuel pump at the border between Switzerland and Italy',
+    'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Small fire involving a van between Paradiso and Melide',
+    'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Small fire shortly before 17 involving a company van on Via Cantonale, between Paradiso and Melide. TCS reports possible long delays.',
+    'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Commercial van stopped on the cantonal road between Paradiso and Melide after a fire started',
 };
 
 export default blogMetaEn;

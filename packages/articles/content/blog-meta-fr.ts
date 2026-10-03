@@ -12382,6 +12382,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tetto-italiano-carburanti.title': 'Carburants : le plafond italien ramène le plein au-delà de la frontière',
     'blog.article.tetto-italiano-carburanti.excerpt': 'Plusieurs compagnies en Italie limitent les tarifs : la source signale que le plein redevient avantageux au-delà de la frontière, tandis que la Confédération reste immobile.',
     'blog.article.tetto-italiano-carburanti.imageAlt': 'Station-service à la frontière entre la Suisse et l\'Italie',
+    'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Début d\'incendie dans une camionnette entre Paradiso et Melide',
+    'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Départ de feu peu avant 17 heures sur une fourgonnette d\'entreprise à la Via Cantonale, entre Paradiso et Melide. Le TCS signale de possibles longs retards.',
+    'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Fourgonnette arrêtée sur la route cantonale entre Paradiso et Melide après un début d\'incendie',
 };
 
 export default blogMetaFr;
