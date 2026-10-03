@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "reha-andeer-stelleninserat-pflegehelferin-f3cc47a60bb4",
-      "slug": "pflegehelferin-reha-andeer-andeer",
+      "slug": "assistente-infermieristico-reha-andeer-andeer",
       "slugByLocale": {
         "de": "pflegehelferin-reha-andeer-andeer",
-        "it": "pflegehelferin-reha-andeer-andeer",
-        "en": "pflegehelferin-reha-andeer-andeer",
-        "fr": "pflegehelferin-reha-andeer-andeer"
+        "it": "assistente-infermieristico-reha-andeer-andeer",
+        "en": "nursing-assistant-reha-andeer-andeer",
+        "fr": "assistant-infirmier-reha-andeer-andeer"
       },
       "company": "Reha Andeer",
       "companyKey": "reha-andeer",
@@ -54,7 +54,6 @@
         "de": []
       },
       "previousSlugs": [
-        "assistente-infermieristico-reha-andeer-andeer",
         "nursing-assistant-reha-andeer-andeer",
         "assistant-infirmier-reha-andeer-andeer",
         "pflegehelferin-reha-andeer-dvw7yb",
@@ -62,11 +61,11 @@
         "assistant-en-soins-reha-andeer-andeer",
         "in-den-warenkorb-reha-andeer-andeer",
         "assistente-infermieristico-reha-andeer-andeer-326382",
-        "pflegehelferin-reha-andeer"
+        "pflegehelferin-reha-andeer",
+        "pflegehelferin-reha-andeer-andeer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-infermieristico-reha-andeer-andeer",
           "nursing-assistant-reha-andeer-andeer",
           "assistant-infirmier-reha-andeer-andeer",
           "pflegehelferin-reha-andeer-dvw7yb",
@@ -74,13 +73,14 @@
           "assistant-en-soins-reha-andeer-andeer",
           "in-den-warenkorb-reha-andeer-andeer",
           "assistente-infermieristico-reha-andeer-andeer-326382",
-          "pflegehelferin-reha-andeer"
+          "pflegehelferin-reha-andeer",
+          "pflegehelferin-reha-andeer-andeer"
         ],
         "en": [
-          "nursing-assistant-reha-andeer-andeer"
+          "pflegehelferin-reha-andeer-andeer"
         ],
         "fr": [
-          "assistant-infirmier-reha-andeer-andeer"
+          "pflegehelferin-reha-andeer-andeer"
         ]
       },
       "firstSeenAt": "2026-07-21T22:06:04.288Z",

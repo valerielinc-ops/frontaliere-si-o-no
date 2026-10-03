@@ -74,7 +74,7 @@
       "slugByLocale": {
         "it": "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
         "en": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne",
+        "de": "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
         "fr": "enseignant-principal-remplacement-de-la-maternite-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -121,18 +121,14 @@
       "previousSlugs": [
         "primary-teacher-maternity-replacement-nord-anglia-aubonne",
         "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-        "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
-        "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
         "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-          "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne"
+          "primary-teacher-maternity-replacement-nord-anglia-aubonne"
         ],
         "de": [
           "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-          "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
           "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
         ],
         "fr": [
@@ -206,13 +202,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne",
-        "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
-        "assistente-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
+        "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
-          "assistente-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
+          "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
         ],
         "de": [
           "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
@@ -288,13 +282,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "boarding-house-tutor-nord-anglia-geneva",
-        "pensione-turtor-nord-anglia-education-switzerland-geneva"
+        "boarding-house-tutor-nord-anglia-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "boarding-house-tutor-nord-anglia-geneva",
-          "pensione-turtor-nord-anglia-education-switzerland-geneva"
+          "boarding-house-tutor-nord-anglia-geneva"
         ]
       },
       "firstSeenAt": "2026-09-26T14:03:51.226Z",
@@ -363,13 +355,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "learning-support-assistants-nord-anglia-aubonne",
-        "assistenti-di-supporto-all-apprendimento-nord-anglia-education-switzerland-aubonne"
+        "learning-support-assistants-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "learning-support-assistants-nord-anglia-aubonne",
-          "assistenti-di-supporto-all-apprendimento-nord-anglia-education-switzerland-aubonne"
+          "learning-support-assistants-nord-anglia-aubonne"
         ],
         "fr": [
           "learning-support-assistants-nord-anglia-aubonne"
@@ -441,13 +431,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teachers-primary-nord-anglia-pully",
-        "insegnanti-primario-nord-anglia-education-switzerland-pully"
+        "teachers-primary-nord-anglia-pully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teachers-primary-nord-anglia-pully",
-          "insegnanti-primario-nord-anglia-education-switzerland-pully"
+          "teachers-primary-nord-anglia-pully"
         ],
         "de": [
           "teachers-primary-nord-anglia-pully"
@@ -523,13 +511,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "enseignants-es-primaire-nord-anglia-pully",
-        "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne",
-        "ensegnants-es-priori-nord-anglia-education-switzerland-pully"
+        "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "enseignants-es-primaire-nord-anglia-pully",
-          "ensegnants-es-priori-nord-anglia-education-switzerland-pully"
+          "enseignants-es-primaire-nord-anglia-pully"
         ],
         "fr": [
           "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne"
@@ -602,13 +588,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ib-teachers-nord-anglia-pully",
-        "ib-insegnanti-nord-anglia-education-switzerland-pully"
+        "ib-teachers-nord-anglia-pully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ib-teachers-nord-anglia-pully",
-          "ib-insegnanti-nord-anglia-education-switzerland-pully"
+          "ib-teachers-nord-anglia-pully"
         ],
         "de": [
           "ib-teachers-nord-anglia-pully"
@@ -684,14 +668,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "surveillant-e-nord-anglia-pully",
-        "surveillant-e-nord-anglia-education-switzerland-lausanne",
-        "sorvegliante-nord-anglia-education-switzerland-pully"
+        "surveillant-e-nord-anglia-education-switzerland-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "surveillant-e-nord-anglia-pully",
-          "surveillant-e-nord-anglia-education-switzerland-lausanne",
-          "sorvegliante-nord-anglia-education-switzerland-pully"
+          "surveillant-e-nord-anglia-education-switzerland-lausanne"
         ],
         "de": [
           "surveillant-e-nord-anglia-pully"
@@ -768,14 +750,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nurse-on-call-nord-anglia-geneva",
-        "nurse-on-call-nord-anglia-education-switzerland-geneve",
-        "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva"
+        "nurse-on-call-nord-anglia-education-switzerland-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nurse-on-call-nord-anglia-geneva",
-          "nurse-on-call-nord-anglia-education-switzerland-geneve",
-          "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva"
+          "nurse-on-call-nord-anglia-education-switzerland-geneve"
         ],
         "de": [
           "nurse-on-call-nord-anglia-geneva"
@@ -851,13 +831,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-de-bus-scolaire-nord-anglia-aubonne",
-        "chauffeur-de-autobus-scolaire-nord-anglia-education-switzerland-lausanne"
+        "chauffeur-de-bus-scolaire-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-de-bus-scolaire-nord-anglia-aubonne",
-          "chauffeur-de-autobus-scolaire-nord-anglia-education-switzerland-lausanne"
+          "chauffeur-de-bus-scolaire-nord-anglia-aubonne"
         ],
         "fr": [
           "chauffeur-de-bus-scolaire-nord-anglia-aubonne"
@@ -930,13 +908,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "house-parent-part-time-male-nord-anglia-geneva",
-        "house-parent-part-time-male-nord-anglia-education-switzerland-geneve",
-        "casa-parent-part-time-maschio-nord-anglia-education-switzerland-geneva"
+        "house-parent-part-time-male-nord-anglia-education-switzerland-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "house-parent-part-time-male-nord-anglia-geneva",
-          "casa-parent-part-time-maschio-nord-anglia-education-switzerland-geneva"
+          "house-parent-part-time-male-nord-anglia-geneva"
         ],
         "fr": [
           "house-parent-part-time-male-nord-anglia-education-switzerland-geneve"
@@ -1009,13 +985,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-teacher-45-nord-anglia-pully",
-        "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully"
+        "ict-teacher-45-nord-anglia-pully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-teacher-45-nord-anglia-pully",
-          "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully"
+          "ict-teacher-45-nord-anglia-pully"
         ],
         "de": [
           "ict-teacher-45-nord-anglia-pully"
@@ -1090,13 +1064,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "study-coaches-nord-anglia-pully",
-        "allenatori-di-studio-nord-anglia-education-switzerland-pully"
+        "study-coaches-nord-anglia-pully"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "study-coaches-nord-anglia-pully",
-          "allenatori-di-studio-nord-anglia-education-switzerland-pully"
+          "study-coaches-nord-anglia-pully"
         ],
         "de": [
           "study-coaches-nord-anglia-pully"
@@ -1122,12 +1094,12 @@
     },
     {
       "id": "nord-anglia-cf2711bee3fd",
-      "slug": "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
+      "slug": "consigliere-scolastico-copertina-breve-termine-80-nord-anglia-education-switzerland-villars-sur-ollon",
       "slugByLocale": {
         "en": "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
-        "it": "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
-        "de": "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
-        "fr": "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
+        "it": "consigliere-scolastico-copertina-breve-termine-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "de": "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "fr": "conseiller-scolaire-short-couverture-temporaire-80-nord-anglia-education-switzerland-villars-sur-ollon"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -1185,7 +1157,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:20:51.717Z"
+      "firstSeenAt": "2026-10-02T21:20:51.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
+        ],
+        "de": [
+          "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
+        ],
+        "fr": [
+          "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
+        ]
+      },
+      "previousSlugs": [
+        "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
+      ]
     },
     {
       "id": "nord-anglia-586f36aeb733",

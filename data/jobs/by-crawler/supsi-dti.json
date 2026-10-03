@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "assistente-risorse-umane-supsi-dti-manno",
-        "de": "assistente-risorse-umane-supsi-dti-manno",
-        "fr": "assistente-risorse-umane-supsi-dti-manno"
+        "en": "human-resources-assistant-supsi-dti-manno",
+        "de": "personalassistent-supsi-dti-manno",
+        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -110,14 +110,10 @@
       "previousSlugsByLocale": {
         "en": [
           "human-resource-assistant-supsi-dti-manno"
-        ],
-        "fr": [
-          "assistant-aux-ressources-humaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "human-resource-assistant-supsi-dti-manno",
-        "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "human-resource-assistant-supsi-dti-manno"
       ]
     },
     {
@@ -168,9 +164,9 @@
       },
       "slugByLocale": {
         "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalista-risorse-umane-supsi-dti-lugano",
+        "en": "generalist-human-resources-supsi-dti-lugano",
         "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generalista-risorse-umane-supsi-dti-lugano"
+        "fr": "generaliste-ressources-humaines-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -227,19 +223,7 @@
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "en": [
-          "generalist-human-resources-supsi-dti-lugano"
-        ],
-        "fr": [
-          "generaliste-ressources-humaines-supsi-dti-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "generalist-human-resources-supsi-dti-lugano",
-        "generaliste-ressources-humaines-supsi-dti-lugano"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-7dvau3",
@@ -424,7 +408,7 @@
         "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
         "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
         "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
+        "fr": "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -516,14 +500,10 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
-        ],
-        "fr": [
-          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
-        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
+        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
       ],
       "needsRetranslation": true
     },
@@ -838,9 +818,9 @@
       },
       "slugByLocale": {
         "it": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "en": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "de": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "fr": "docente-professionista-in-ergoterapia-supsi-dti-manno"
+        "en": "professional-teacher-in-ergotherapy-supsi-dti-manno",
+        "de": "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
+        "fr": "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -895,22 +875,10 @@
       "previousSlugsByLocale": {
         "it": [
           "docente-professionista-in-ergoterapia-supsi-manno"
-        ],
-        "en": [
-          "professional-teacher-in-ergotherapy-supsi-dti-manno"
-        ],
-        "de": [
-          "professioneller-lehrer-in-ergotherapie-supsi-dti-manno"
-        ],
-        "fr": [
-          "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "docente-professionista-in-ergoterapia-supsi-manno",
-        "professional-teacher-in-ergotherapy-supsi-dti-manno",
-        "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
-        "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
+        "docente-professionista-in-ergoterapia-supsi-manno"
       ],
       "applyUrl": "https://www.supsi.ch/bando26_2015"
     },
@@ -1093,9 +1061,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagista-52-settimane-supsi-dti-manno",
-        "de": "stagista-52-settimane-supsi-dti-manno",
-        "fr": "stagista-52-settimane-supsi-dti-manno"
+        "en": "stagist-52-weeks-supsi-dti-manno",
+        "de": "stagist-52-wochen-supsi-dti-manno",
+        "fr": "stagiaire-52-semaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -1142,22 +1110,10 @@
       "previousSlugsByLocale": {
         "it": [
           "stagista-52-settimane-supsi-manno"
-        ],
-        "en": [
-          "stagist-52-weeks-supsi-dti-manno"
-        ],
-        "de": [
-          "stagist-52-wochen-supsi-dti-manno"
-        ],
-        "fr": [
-          "stagiaire-52-semaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "stagista-52-settimane-supsi-manno",
-        "stagist-52-weeks-supsi-dti-manno",
-        "stagist-52-wochen-supsi-dti-manno",
-        "stagiaire-52-semaines-supsi-dti-manno"
+        "stagista-52-settimane-supsi-manno"
       ],
       "crawlerMissStreak": 1
     },
@@ -1200,7 +1156,7 @@
         "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
         "en": "preformative-year-for-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
         "de": "vorjahr-fur-die-zulassung-zum-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
-        "fr": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno"
+        "fr": "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
       },
       "titleByLocale": {
         "fr": "Année préparatoire à l'admission au baccalauréat en sciences en durabilité et transition systémique",
@@ -1268,9 +1224,6 @@
         ],
         "en": [
           "internship-position-for-the-professional-practice-year-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi"
-        ],
-        "fr": [
-          "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
