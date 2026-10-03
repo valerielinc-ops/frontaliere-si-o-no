@@ -3446,6 +3446,10 @@ jobs:
           # commit whose build is genuinely broken is retried once and then left
           # to the "CI Failure (build)" issue this workflow already files.
           REARM_MAX_BUILDS_PER_SHA: '2'
+          # A confirmed host-loss/timeout in one matrix leg gets exactly one
+          # job-level rerun. The rerun reuses this run's SHA and prepared
+          # snapshot artifact; it must never fan out into a second full matrix.
+          REARM_MAX_LOCALE_RECOVERY_ATTEMPTS: '1'
         run: node scripts/ci/rearm-deploy-build.mjs
 
   # ───────────────────────────────────────────────────────────────────────
