@@ -438,6 +438,56 @@ const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
 const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
 const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
 let l2UsefulActionEmitted = false;
+const GA4_MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-LGJ9LE360F';
+let l5DecisionSessionOpaqueId: string | null = null;
+
+/**
+ * Read the current GA4 session instead of treating a browser tab as a GA4
+ * session. GA4 can roll a session while a tab remains open, so a tab-scoped
+ * key alone is not safe for an exact outcome join.
+ */
+function getL5DecisionSessionOpaqueId(): string {
+ if (!l5DecisionSessionOpaqueId) l5DecisionSessionOpaqueId = createAnalyticsEmissionIdSource();
+ return l5DecisionSessionOpaqueId;
+}
+
+function readGa4SessionId(): Promise<string | null> {
+ if (typeof window === 'undefined') return Promise.resolve(null);
+ const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+ if (typeof gtag !== 'function') return Promise.resolve(null);
+
+ return new Promise((resolve) => {
+  let settled = false;
+  const finish = (value: unknown) => {
+   if (settled) return;
+   settled = true;
+   resolve(typeof value === 'string' && value.trim() ? value.trim() : null);
+  };
+  const timeout = window.setTimeout(() => finish(null), 250);
+  try {
+   gtag('get', GA4_MEASUREMENT_ID, 'session_id', (value: unknown) => {
+    window.clearTimeout(timeout);
+    finish(value);
+   });
+  } catch {
+   window.clearTimeout(timeout);
+   finish(null);
+  }
+ });
+}
+
+/**
+ * Keep the two L5 events joinable in GA4 without sending the opaque key to
+ * PostHog. The opaque component prevents cross-user collisions; the current
+ * GA4 session component prevents one long-lived tab from joining two GA4
+ * sessions. The exporter repeats the same join with GA4's `gaSessionId`
+ * dimension and remains fail-closed when the session is unavailable.
+ */
+async function getL5DecisionSessionId(): Promise<string> {
+ const opaqueId = getL5DecisionSessionOpaqueId();
+ const gaSessionId = await readGa4SessionId();
+ return gaSessionId ? `${opaqueId}:${gaSessionId}` : opaqueId;
+}
 
 function claimL2UsefulAction(): boolean {
  if (l2UsefulActionEmitted) return false;
@@ -488,6 +538,18 @@ const log = (eventName: string, params?: Record<string, any>) => {
 
  logFirebaseOnly(eventName, enrichedParams);
  maybeEmitL2UsefulAction(eventName, enrichedParams);
+};
+
+/** Emit L5's session join key to Firebase/GA4 while keeping PostHog historical. */
+const logDecisionMoment = async (eventName: string, params: Record<string, any>) => {
+ const enrichedParams = enrichEventParams(eventName, {
+  ...params,
+  decision_session_id: await getL5DecisionSessionId(),
+ });
+ const posthogParams = { ...enrichedParams };
+ delete posthogParams.decision_session_id;
+ posthogCapture(eventName, posthogParams);
+ logFirebaseOnly(eventName, enrichedParams);
 };
 
 const setProps = (properties: Record<string, string>) => {
@@ -1955,19 +2017,21 @@ export const Analytics = {
  },
 
  /**
-  * L5 decision-surface outcome contract. These fields are categorical only:
-  * no user-entered answers, labels or destination URLs are sent. The outcome
-  * exporter joins the two events by PostHog session id.
+ * L5 decision-surface outcome contract. These fields are categorical only:
+ * no user-entered answers, labels or destination URLs are sent. The outcome
+ * exporter joins the two Firebase/GA4 events by an opaque decision-session
+ * key plus the GA4 session; neither is mirrored into the historical PostHog
+ * payload.
   */
  trackDecisionMomentCompleted: (surface: string, task: string) => {
-  log(DECISION_MOMENT_COMPLETED_EVENT, {
+  void logDecisionMoment(DECISION_MOMENT_COMPLETED_EVENT, {
    decision_surface: truncate(surface, 60),
    task_id: truncate(task, 80),
   });
  },
 
  trackDecisionMomentNextAction: (surface: string, action: string) => {
-  log(DECISION_MOMENT_NEXT_ACTION_EVENT, {
+  void logDecisionMoment(DECISION_MOMENT_NEXT_ACTION_EVENT, {
    decision_surface: truncate(surface, 60),
    action_id: truncate(action, 80),
   });

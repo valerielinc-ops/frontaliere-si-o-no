@@ -1751,6 +1751,9 @@ async function reportGA4(token) {
     { parameterName: 'experiment_id', displayName: 'Experiment ID', description: 'Stable experiment identifier for funnel attribution' },
     { parameterName: 'variant', displayName: 'Experiment Variant', description: 'Assigned experiment arm (control, assisted_application, rewarded_ad)' },
     { parameterName: 'access_ttl_hours', displayName: 'Reward Access TTL Hours', description: 'Rewarded application access lifetime in hours' },
+    // L5 joins completion and next-action events by this opaque, tab-scoped
+    // key. Register it before the exporter queries the GA4 custom dimension.
+    { parameterName: 'decision_session_id', displayName: 'Decision Session ID', description: 'Opaque browser-session join key for L5 decision-moment events' },
     // Page context dimensions
     { parameterName: 'page_template', displayName: 'Page Template', description: 'Derived page template (job_detail, jobs_search, article_detail, calculator_tool, etc.)' },
     { parameterName: 'content_group', displayName: 'Content Group', description: 'Top-level content group (jobs, articles, tools, guides, stats, etc.)' },
