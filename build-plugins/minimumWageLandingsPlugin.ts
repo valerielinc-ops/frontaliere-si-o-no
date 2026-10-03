@@ -38,7 +38,7 @@ import {
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { COMPLETE_WORK_GUIDE_HREF } from './shared/pillarGuideHrefs';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
@@ -691,7 +691,7 @@ function renderPage(opts: {
   }
 
   const faqTitle = L.faqTitle;
-  const updatedLine = `<p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>`;
+  const updatedLine = `<p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>`;
   const ctaBlock = `<div class="s-KZc0LQ"><a href="${esc(calcUrl)}" class="s-cta">${esc(L.ctaCalc)}</a></div>`;
 
   function faqSection(faqs: ReadonlyArray<{ q: string; a: string }>): string {

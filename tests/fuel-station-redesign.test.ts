@@ -332,10 +332,11 @@ describe('Per-station page redesign — history chart', () => {
     });
     const html = pages[`/prezzi-diesel/chiasso/stazioni/${slug}/`];
     expect(html).toContain('Andamento prezzo di Migrol');
+    expect(html).toContain('Pagina generata · 18 maggio 2026');
     expect(html).not.toMatch(/non ancora disponibile/);
   });
 
-  it('appends a localized "Ultimo aggiornamento: {date}" line under the chart card', () => {
+  it('appends a localized "Pagina generata" line under the chart card', () => {
     const history = [
       { date: '2026-05-15', zones: { chiasso: { diesel: 2.05 }, mendrisio: {}, lugano: {}, bellinzona: {}, locarno: {} } } as never,
       { date: '2026-05-16', zones: { chiasso: { diesel: 2.04 }, mendrisio: {}, lugano: {}, bellinzona: {}, locarno: {} } } as never,
@@ -347,7 +348,8 @@ describe('Per-station page redesign — history chart', () => {
       history,
     });
     const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
-    expect(html).toContain('Ultimo aggiornamento: 2026-05-18');
+    expect(html).toContain('Pagina generata · 18 maggio 2026');
+    expect(html).not.toContain('Ultimo aggiornamento: 2026-05-18');
   });
 });
 

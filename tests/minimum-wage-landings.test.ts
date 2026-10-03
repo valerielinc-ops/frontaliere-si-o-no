@@ -3,6 +3,7 @@
  * Path builders/parsers, dataset invariants, and render smoke tests.
  */
 import { describe, it, expect } from 'vitest';
+import { expectGenerationDateLabel } from './helpers/generationDateAssertions';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
@@ -116,6 +117,7 @@ describe('minimum-wage landings — render smoke', () => {
         const r = __renderMinWagePageForTest({ locale, page, dateStamp: '2026-07-19' });
         expect(r.wordCount, `${locale}/${page.kind} thin`).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
         expect(r.html).toContain('<h1');
+        expectGenerationDateLabel(r.html, locale);
         expect(r.html).toContain(`https://frontaliereticino.ch${r.urlPath}`);
         expectIndexableWithLargePreview(r.html, `${locale}/${page.kind}`);
       }
