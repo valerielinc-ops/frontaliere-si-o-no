@@ -1,20 +1,19 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-10-03T09:21:59.037Z",
-  "total": 150,
-  "newCount": 3,
-  "updatedCount": 98,
-  "removedCount": 1,
+  "generatedAt": "2026-10-03T21:17:16.898Z",
+  "total": 151,
+  "newCount": 0,
+  "updatedCount": 101,
+  "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 54035,
-  "avgDurationMs": 54035,
+  "durationMs": 52982,
+  "avgDurationMs": 52982,
   "durationHistory": [
-    52683,
-    53343,
-    54035
+    52982
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Senior Associate / Manager - Pension Consulting (Berufliche Vorsorge) 80–100%",
       "slug": "senior-associate-manager-pension-consulting-berufliche-vorsorge-80-100-pwc-zurich",
@@ -39,80 +38,21 @@
       "validThrough": "2036-09-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 77,
+      "id": "pwc-1c92d1e9ae42",
+      "needsRetranslation": true,
+      "salaryMin": 189000,
+      "salaryMax": 331500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-03T09:21:52.545Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 20
+        "translation": 13,
+        "completeness": 25
       }
     },
-    {
-      "title": "Senior Associate - Marketing Consultant for Financial Services",
-      "slug": "senior-associate-marketing-consultant-for-financial-services-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-marketing-consultant-for-financial-services/9984d496-8a05-4369-86f7-e748851850f7",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Marketing-Senior-Consultant-Financial-Services_735045WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 160",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-13",
-      "validThrough": "2036-07-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Praktikant:in - Steuerberatung (6 Monate)",
-      "slug": "praktikant-in-steuerberatung-6-monate-pwc-bern",
-      "url": "https://jobs.pwc.ch/job-vacancies/praktikant-in-steuerberatung-6-monate/83a54589-c1d4-434e-96d1-90dab3b095c0",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Bern/Praktikum-in-der-Steuerberatung-Bern_749884WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Bahnhofplatz 10",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-01",
-      "validThrough": "2036-08-29",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 20
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "title": "Associate - Marketing Consultant",
       "slug": "associate-marketing-consultant-pwc-zurich",
@@ -214,19 +154,12 @@
       "validThrough": "2036-09-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-a8b3e2a44bc6",
-      "salaryMin": 74500,
-      "salaryMax": 131000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-29T09:19:56.928Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
+        "translation": 10,
+        "completeness": 14
       }
     },
     {
@@ -413,6 +346,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1205,125 +1139,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "title": "(Senior) Associate - International Corporate Tax (Financial Services)",
-      "slug": "senior-associate-international-corporate-tax-financial-services-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-international-corporate-tax-financial-services/e2eb875a-9cc5-4911-92a0-2929c37cefde",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/XMLNAME--Senior--Associate---International-Corporate-Tax--Financial-Services-_758959WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-08",
-      "validThrough": "2036-09-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-52ebe546f019",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-08T13:39:14.412Z",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 160",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Career Start in Audit – Asset Management – Herbst 2026",
-      "slug": "inizio-carriera-in-audit-asset-management-autunno-2026-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/953e14fd-174f-44b8-935f-366dc3b0ec79",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit---Asset-Management---Herbst-2026_675730WD-1",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-01",
-      "validThrough": "2036-08-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-b09b70183d6d",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T07:22:07.919Z",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 160",
-      "needsRetranslation": true,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Praktikant:in - Steuerberatung (6 Monate)",
-      "slug": "interno-in-consulenza-fiscale-6-mesi-pwc-switzerland-bern",
-      "url": "https://jobs.pwc.ch/job-vacancies/praktikant-in-steuerberatung-6-monate/b520ad99-9c92-41d1-9178-9c7842804410",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Bern/Praktikum-in-der-Steuerberatung-Bern_749884WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-02",
-      "validThrough": "2026-10-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-cb6496c38c3f",
-      "salaryMin": 73500,
-      "salaryMax": 129000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-03T13:39:27.948Z",
-      "postalCode": "3001",
-      "streetAddress": "Bahnhofplatz 10",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Senior Associate / Manager - Cloud, Data & AI - Data Management Specialist",
@@ -1350,12 +1168,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "pwc-f634071eda20",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 180000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-30T21:21:24.995Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1555,5 +1373,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
