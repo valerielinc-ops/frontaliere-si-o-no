@@ -209,6 +209,21 @@ describe('the canonical #organization entity', () => {
     });
   });
 
+  it('replaces stale site identities while preserving external attribution', () => {
+    const creator = Object.freeze({
+      '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL,
+      '@id': 'https://example.com/#stale-site-id',
+    });
+    const publisher = Object.freeze({
+      '@type': 'Organization', name: 'External newsroom', url: 'https://example.com/',
+      '@id': 'https://example.com/#newsroom',
+    });
+    const normalized = normalizeStructuredData({ '@type': 'NewsArticle', creator, publisher });
+    expect(normalized.creator).toEqual({ ...creator, '@id': ORGANIZATION_ID });
+    expect(normalized.publisher).toEqual(publisher);
+    expect(creator['@id']).toBe('https://example.com/#stale-site-id');
+  });
+
   it('normalizes legacy nested site organizations to the canonical identity', () => {
     const normalized = normalizeStructuredData({
       '@type': 'ImageObject',

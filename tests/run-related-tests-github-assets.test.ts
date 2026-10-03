@@ -398,6 +398,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['.github/actions/fetch-pages-artifact/action.yml'])).toContain(runListing);
     expect(selectionFor(['scripts/ci/rearm-deploy-build.mjs'])).toContain(runListing);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(runListing);
+
+    // Corpus 1926: un import nuovo fuori dalla lista sparse di housekeeping
+    // nasce in uno script o nell'engine condiviso, non nel workflow.
+    const housekeeping = 'tests/housekeeping-sparse-paths.test.ts';
+    expect(selectionFor(['scripts/lib/dedicated-crawler-common.mjs'])).toContain(housekeeping);
+    expect(selectionFor(['packages/articles/engine/shared/htmlMarkup.mjs'])).toContain(housekeeping);
+    expect(selectionFor(['.github/workflows/housekeeping-jobs-logic.yml'])).toContain(housekeeping);
+    // `build-plugins/` non e' nella lista ne' nella chiusura: non lo seleziona.
+    expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(housekeeping);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(housekeeping);
   }, 120_000);
 
   it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {

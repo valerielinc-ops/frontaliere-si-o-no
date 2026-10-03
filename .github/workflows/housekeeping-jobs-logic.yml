@@ -35,6 +35,50 @@ jobs:
       HOUSEKEEPING_LANE: ${{ inputs.lane }}
       JOBS_SKIP_LOCALE_HARDENING: '1'
     steps:
+      # The corpus calls this workflow at a pinned SHA, but the code it runs is
+      # the site's `main`. A sparse path list written in this YAML therefore
+      # comes from a different commit than the code and goes stale as soon as
+      # `main` imports a file outside it (ERR_MODULE_NOT_FOUND on 2026-10-02
+      # and 2026-10-03). The list lives in
+      # scripts/ci/housekeeping-sparse-paths.txt and is read from `main` first.
+      # Both checkouts stay in cone mode: the second one inherits the mode
+      # already configured in the directory by the first.
+      - name: Checkout sparse path list
+        uses: actions/checkout@v7
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: scripts/ci
+          sparse-checkout-cone-mode: true
+
+      - name: Read sparse path list
+        id: sparse_paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          list=scripts/ci/housekeeping-sparse-paths.txt
+          if [ ! -f "$list" ]; then
+            echo "::error::$list is missing from main: cannot build the housekeeping sparse checkout."
+            exit 1
+          fi
+          paths="$(grep -Ev '^[[:space:]]*(#|$)' "$list" || true)"
+          if [ -z "$paths" ]; then
+            echo "::error::$list lists no path."
+            exit 1
+          fi
+          if invalid="$(printf '%s\n' "$paths" | grep -Ev '^[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)*$')"; then
+            echo "::error::$list has unsupported line(s): $invalid"
+            exit 1
+          fi
+          {
+            echo "list_blob=$(git hash-object "$list")"
+            echo 'paths<<HOUSEKEEPING_SPARSE_PATHS_EOF'
+            printf '%s\n' "$paths"
+            echo 'HOUSEKEEPING_SPARSE_PATHS_EOF'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Checkout source repository
         uses: actions/checkout@v7
         with:
@@ -42,14 +86,22 @@ jobs:
           ref: main
           fetch-depth: 1
           persist-credentials: false
-          sparse-checkout: |
-            data/jobs/by-crawler
-            data/jobs/expired/by-crawler
-            package.json
-            package-lock.json
-            scripts
-            packages/articles/engine/shared
+          sparse-checkout: ${{ steps.sparse_paths.outputs.paths }}
           sparse-checkout-cone-mode: true
+
+      # `main` can advance between the two checkouts. Fail closed unless the
+      # list that shaped this checkout is the one of the checked-out commit.
+      - name: Verify sparse path list matches the checked-out commit
+        shell: bash
+        env:
+          EXPECTED_LIST_BLOB: ${{ steps.sparse_paths.outputs.list_blob }}
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD:scripts/ci/housekeeping-sparse-paths.txt)"
+          if [ "$actual" != "$EXPECTED_LIST_BLOB" ]; then
+            echo "::error::scripts/ci/housekeeping-sparse-paths.txt changed on main between the two checkouts ($EXPECTED_LIST_BLOB -> $actual). Re-run the workflow."
+            exit 1
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -101,6 +153,13 @@ jobs:
           if ! command -v grep >/dev/null 2>&1; then
             echo "::error::grep is required to route housekeeping slices."
             exit 127
+          fi
+
+          # A typo in scripts/ci/housekeeping-sparse-paths.txt would materialize
+          # no slice at all and the lane would end green on "processed 0".
+          if [ ! -d data/jobs/by-crawler ]; then
+            echo "::error::data/jobs/by-crawler is missing after the sparse checkout: check scripts/ci/housekeeping-sparse-paths.txt."
+            exit 1
           fi
 
           # Classify every slice before starting a mutating worker. A matcher

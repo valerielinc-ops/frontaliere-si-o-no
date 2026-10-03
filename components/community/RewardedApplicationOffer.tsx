@@ -110,6 +110,11 @@ export function shortenRewardedOfferJobTitle(title: string | null | undefined): 
  * `handoff`: the new tab waits for the visitor's click on the "open"
  * button: reward granted without a click's activation left on the page,
  * or a new tab (after a reward or a direct hand-off) the browser blocked.
+ *
+ * While the GPT rewarded video is off (GPT_REWARDED_ENABLED in
+ * components/shared/GptAdSlot.tsx) no fallback slot is prepared and `gpt`
+ * ends at once as unavailable: the parent offers the paid application or
+ * hands off to the employer, with no request and no wait.
  */
 type OfferPhase =
   | 'checking'
