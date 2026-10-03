@@ -78,6 +78,11 @@ export function isCompleteWorkdayBoard(stats, collected) {
 
 const SWISS_COUNTRY_LABEL_RE = /\b(?:switzerland|schweiz|suisse|svizzera)\b/i;
 
+function workdayBoardListsSwitzerland(summary, { facetParameter, swissIds = WORKDAY_SWISS_LOCATION_IDS } = {}) {
+  const values = workdayFacetLeafValues(summary?.facets, facetParameter);
+  return Boolean(values?.some((value) => swissIds.includes(value.id) || SWISS_COUNTRY_LABEL_RE.test(value.descriptor)));
+}
+
 /**
  * Whether an UNFILTERED board summary (`fetchWorkdayBoardSummary`) proves that
  * the career site is live and currently posts nowhere in Switzerland.
@@ -99,7 +104,7 @@ export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swi
   if (!Number.isSafeInteger(total) || total <= 0) return false;
   const values = workdayFacetLeafValues(summary.facets, facetParameter);
   if (!values || values.length === 0) return false;
-  return values.every((value) => !swissIds.includes(value.id) && !SWISS_COUNTRY_LABEL_RE.test(value.descriptor));
+  return !workdayBoardListsSwitzerland(summary, { facetParameter, swissIds });
 }
 
 /**
@@ -615,6 +620,9 @@ export function createWorkdaySwissParser(config) {
    * facet the tenant rejected, an anti-bot `[]`, a missing total, a board with
    * no postings at all, a failed proof read — stays a bare `[]`, which the
    * runner's validator refuses (previous slice kept, monitor keeps counting).
+   * Returns null when the unfiltered board explicitly lists Switzerland: the
+   * faceted zero is then inconsistent with the source and the caller must
+   * refetch the unfiltered board through the strict per-listing CH gate.
    */
   async function proveSwissAbsentEmpty(facetApplied, facetStats) {
     const empty = [];
@@ -633,6 +641,9 @@ export function createWorkdaySwissParser(config) {
     if (!provesWorkdaySwissAbsentFromBoard(summary, { facetParameter: countryFacetParameter, swissIds: locationFilters })) {
       console.warn(`⚠️ ${companyName}: the unfiltered Workday board does not prove the Swiss zero `
         + `(total=${summary?.total ?? 'n/a'}, ${countryFacetParameter} facet ${workdayFacetLeafValues(summary?.facets, countryFacetParameter) ? 'present' : 'missing'}).`);
+      if (workdayBoardListsSwitzerland(summary, { facetParameter: countryFacetParameter, swissIds: locationFilters })) {
+        return null;
+      }
       return empty;
     }
     const countries = workdayFacetLeafValues(summary.facets, countryFacetParameter);
@@ -674,15 +685,27 @@ export function createWorkdaySwissParser(config) {
       console.warn(`⚠️ ${companyName}: locationCountry facet silently ignored (foreign listings present in "filtered" board). Applying strict CH gate.`);
       facetApplied = false;
     }
-    const strictSwiss = !facetApplied;
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
       // The unfiltered retry is the last transport attempt. Do not replace its
       // annotated empty array while probing for an authoritative zero.
       if (listings?.fetchOutcome === 'anti_bot_block') return listings;
-      if (proveSwissAbsentFromLiveBoard) return proveSwissAbsentEmpty(facetApplied, facetStats);
-      return listings || [];
+      if (proveSwissAbsentFromLiveBoard) {
+        const emptyProof = await proveSwissAbsentEmpty(facetApplied, facetStats);
+        if (emptyProof) return emptyProof;
+        // An accepted facet that reports zero while the source's own country
+        // facet still lists Switzerland is a false zero, not a source-empty
+        // result. Re-read the full board and apply the strict listing guard.
+        console.warn(`⚠️ ${companyName}: Swiss facet returned an inconsistent zero; refetching the unfiltered board with the strict CH gate.`);
+        facetApplied = false;
+        listings = await fetchJobListings({ useCountryFacet: false });
+        if (listings?.fetchOutcome === 'anti_bot_block') return listings;
+        if (!listings || listings.length === 0) return listings || [];
+      } else {
+        return listings || [];
+      }
     }
+    const strictSwiss = !facetApplied;
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
 
     const sidebarText = includeCareerSiteSidebar
