@@ -7598,6 +7598,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Mieten in der Schweiz 2026: Regeln, Kaution und Genf',
     'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Mietkaution bis zu drei Monatsmieten, Sperrkonto und 30 Tage zur Anfechtung der Kündigung durch den Vermieter: die auch in Genf geltenden Regeln.',
     'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Wohngebäude in Genf als Bild für den Schweizer Mietwohnungsmarkt',
+    'blog.article.tutela-inquilini-berna-2026.title': 'Mieten in der Schweiz 2026: Markt und Rechte in Bern',
+    'blog.article.tutela-inquilini-berna-2026.excerpt': 'Kaution von bis zu drei Monatsmieten und Kündigung durch den Vermieter mit kantonalem Formular: die bundesrechtlichen Regeln für Personen, die 2026 eine Wohnung in Bern suchen.',
+    'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Eingang einer Schweizer Wohnung mit Mietdokument und Schlüsseln',
 };
 
 export default blogMetaChDe;

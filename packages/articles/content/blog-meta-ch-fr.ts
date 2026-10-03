@@ -7598,6 +7598,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Locations en Suisse 2026 : règles, garantie et Genève',
     'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Garantie de loyer jusqu\'à trois mois de loyer, compte bloqué et 30 jours pour contester le congé du bailleur : les règles qui s\'appliquent également à Genève.',
     'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Immeuble résidentiel à Genève, symbole du marché locatif suisse',
+    'blog.article.tutela-inquilini-berna-2026.title': 'Loyers en Suisse 2026 : marché et droits à Berne',
+    'blog.article.tutela-inquilini-berna-2026.excerpt': 'Garantie locative allant jusqu’à trois mois de loyer et résiliation par le bailleur au moyen d’un formulaire cantonal : les règles fédérales pour les personnes qui cherchent un logement à Berne en 2026.',
+    'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Entrée d\'un appartement suisse avec document de location et clés',
 };
 
 export default blogMetaChFr;

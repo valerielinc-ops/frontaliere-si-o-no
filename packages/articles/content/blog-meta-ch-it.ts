@@ -7598,6 +7598,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Affitti Svizzera 2026: regole, deposito e Ginevra',
     'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Deposito cauzionale fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta del locatore: le regole valide anche a Ginevra.',
     'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Palazzo residenziale a Ginevra, immagine del mercato degli affitti svizzero',
+    'blog.article.tutela-inquilini-berna-2026.title': 'Affitti in Svizzera 2026: mercato e diritti a Berna',
+    'blog.article.tutela-inquilini-berna-2026.excerpt': 'Deposito cauzionale fino a tre mensilità e disdetta del locatore su modulo cantonale: le regole federali per chi cerca casa a Berna nel 2026.',
+    'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Ingresso di un appartamento svizzero con documento di locazione e chiavi',
 };
 
 export default blogMetaChIt;

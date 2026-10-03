@@ -7598,6 +7598,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Swiss Rentals 2026: rules, deposit and Geneva',
     'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Security deposit of up to three months\' rent, blocked account and 30 days to challenge the landlord\'s termination: rules also valid in Geneva.',
     'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Residential building in Geneva, illustrating Switzerland\'s rental market',
+    'blog.article.tutela-inquilini-berna-2026.title': 'Renting in Switzerland 2026: market and rights in Bern',
+    'blog.article.tutela-inquilini-berna-2026.excerpt': 'Security deposit of up to three months\' rent and the landlord\'s termination notice using a cantonal form: the federal rules for those looking for a home in Bern in 2026.',
+    'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Entrance of a Swiss apartment with rental documents and keys',
 };
 
 export default blogMetaChEn;
