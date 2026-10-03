@@ -1,3 +1,4 @@
+import { JSDOM } from 'jsdom';
 /**
  * Tests for D-2A fuel-station granular pages.
  *
@@ -595,5 +596,29 @@ describe('Swiss station diesel coverage', () => {
     const slug = buildStationSlug(station);
     expect(generated[buildFuelStationPath('it', 'diesel', 'chiasso', slug)]).toContain('2,100');
     expect(generated[buildFuelStationPath('it', 'benzina', 'chiasso', slug)]).toContain('noindex,follow');
+  });
+});
+
+
+describe('station metadata dates', () => {
+  it('does not publish a rebuild as a new publication or content update', () => {
+    const initial = new Date();
+    const later = new Date(initial.getTime() + 2 * 86_400_000);
+    const schemas = [initial, later].map((today) => {
+      const pages = generateFuelStationPages({ dataset: DATASET, today, maxPages: 1 });
+      const html = Object.values(pages)[0];
+      expect(html).toBeTruthy();
+      const dom = new JSDOM(html);
+      const doc = dom.window.document;
+      const schema = [...doc.querySelectorAll('script[type="application/ld+json"]')]
+        .map((script) => JSON.parse(script.textContent || '{}'))
+        .find((entry) => entry['@type'] === 'WebPage');
+      expect(schema).toBeDefined();
+      expect(schema).not.toHaveProperty('datePublished');
+      expect(schema).not.toHaveProperty('dateModified');
+      dom.window.close();
+      return schema;
+    });
+    expect(schemas[1]).toEqual(schemas[0]);
   });
 });

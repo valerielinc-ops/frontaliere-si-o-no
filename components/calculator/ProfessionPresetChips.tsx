@@ -19,8 +19,8 @@ interface Props {
  * 1-tap profession preset chips (issue #4307 scope item 4). Values come
  * from `data/profession-salary-medians.json`, a GENERATED file (never
  * hand-edit) produced by `scripts/generate-profession-salary-medians.mjs`
- * from the live jobs dataset — same median logic already shown on the
- * public profession-landing pages, so chips never drift from that number.
+ * from the jobs dataset. Historical presets are unverified reference
+ * amounts, not observed profession-wide salaries.
  * Mirrors the visual style of the existing round-number salary chips in
  * InputCard.tsx.
  */
@@ -31,7 +31,7 @@ export default function ProfessionPresetChips({ annualIncomeCHF, onSelect }: Pro
 
   return (
     <div className="mt-2">
-      <p className="text-xs font-semibold text-muted mb-1.5">{t('input.professionPresetsLabel')}</p>
+      <p className="text-xs font-semibold text-muted mb-1.5">{t('input.professionPresetsLabel')} · {{ it: 'simulazione indicativa', en: 'illustrative simulation', de: 'unverbindliche Simulation', fr: 'simulation indicative' }[locale]}</p>
       <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
         {presets.map((preset) => {
           const isSelected = annualIncomeCHF === preset.medianSalaryChf;

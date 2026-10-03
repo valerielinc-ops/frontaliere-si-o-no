@@ -31,6 +31,7 @@
  *   node scripts/build-employer-profiles.mjs --stats   # print summary only
  */
 import fs from 'node:fs';
+import { reportedSalarySummary } from '../build-plugins/shared/realSalaryMedian.ts';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
@@ -46,8 +47,6 @@ export { MIN_ACTIVE_JOBS, BRIDGE_FLOOR };
 export const MAX_PROFILES = 1000;
 /** Trailing window (days) for the hiring-trend counts. */
 export const TREND_WINDOW_DAYS = 28;
-/** Min real salary samples for a meaningful median (mirrors realSalaryMedianChf). */
-const MIN_SALARY_SAMPLES = 3;
 /** Max cities / cantons surfaced per profile (kept lean; long tail dropped). */
 const MAX_CITIES = 6;
 const MAX_CANTONS = 6;
@@ -67,35 +66,10 @@ function loadJobs() {
   return Array.isArray(raw) ? raw : raw.jobs || [];
 }
 
-/** Annual midpoint of a job's salary band, or null. Mirrors realSalaryMedian.jobSalaryMidpoint. */
-function salaryMidpoint(job) {
-  const min = typeof job.salaryMin === 'number' ? job.salaryMin : null;
-  const max = typeof job.salaryMax === 'number' ? job.salaryMax : null;
-  if (min && max) return Math.round((min + max) / 2);
-  if (min) return min;
-  if (max) return max;
-  return null;
-}
-
-/** Median of positive salary midpoints (>= MIN_SALARY_SAMPLES), else null. */
+/** Strict source-reported annual CHF sample; no inferred legacy bands. */
 function salaryMedian(jobs) {
-  const values = [];
-  for (const j of jobs) {
-    // Exclude explicitly-estimated bands when the corpus marks them (parity
-    // with realSalaryMedianChf); today's corpus carries no salarySource so all
-    // count, exactly like the site's other median surfaces.
-    if (j.salarySource === 'estimated') continue;
-    const mid = salaryMidpoint(j);
-    if (mid && Number.isFinite(mid) && mid > 0) values.push(mid);
-  }
-  values.sort((a, b) => a - b);
-  if (values.length < MIN_SALARY_SAMPLES) return { median: null, samples: values.length };
-  const half = Math.floor(values.length / 2);
-  const median =
-    values.length % 2 === 1
-      ? values[half]
-      : Math.round((values[half - 1] + values[half]) / 2);
-  return { median, samples: values.length };
+  const summary = reportedSalarySummary(jobs);
+  return { median: summary.medianChf, samples: summary.sampleCount };
 }
 
 /** Most frequent non-empty string of `field` in a group (deterministic tie-break). */

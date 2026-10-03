@@ -763,6 +763,7 @@ const enCore: Record<string, string> = {
  'jobBoard.quickFilters.nurse': 'Nurse',
  'jobBoard.quickFilters.engineer': 'Engineer',
  'jobBoard.quickFilters.driver': 'Driver',
+ 'jobBoard.recommendations.heading': 'Jobs to explore',
  'jobBoard.trending.heading': 'Popular in your area',
  'jobBoard.trending.aria': 'Popular jobs in your area',
  'jobBoard.contract.all': 'All contracts',

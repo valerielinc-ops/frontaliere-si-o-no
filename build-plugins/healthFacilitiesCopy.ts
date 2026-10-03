@@ -103,11 +103,11 @@ export function buildFacilityCopy(
         h1: `Jobs at ${f.name}`,
         lede: `${f.liveCount} live openings at ${f.name}, ${f.cantonName} — nursing, care and clinical roles for Italian cross-border workers.`,
         metaTitle: `${f.name} jobs — open positions & salaries`,
-        metaDesc: `${f.liveCount} open jobs at ${f.name} (${cat}, ${f.cantonName}). Nursing and healthcare roles${median ? `, median salary ${median}` : ''}. Apply as a cross-border worker.`,
+        metaDesc: `${f.liveCount} open jobs at ${f.name} (${cat}, ${f.cantonName}). Nursing and healthcare roles${median ? `, median reported range ${median}` : ''}. Apply as a cross-border worker.`,
         tileOpenings: 'Open positions',
-        tileMedian: 'Median salary',
+        tileMedian: 'Median of reported ranges',
         tileFresh: 'New in 30 days',
-        noSalary: 'On request',
+        noSalary: 'Insufficient sample',
         ctaJobsLabel: `See all ${f.name} jobs`,
         featuredTitle: 'All active openings',
         featuredEmpty: 'No live openings right now — check back soon or browse the job board.',
@@ -119,7 +119,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Working at ${f.name}`, paragraphs: [
             `${f.name} is ${enArticle(cat)} in ${f.city || f.cantonName}${f.siteCount > 1 ? `, operating ${f.siteCount} sites` : ''}. It regularly hires nurses, care assistants and clinical staff${rolesText ? ` — currently ${rolesText}` : ''}, and is a realistic employer for Italian cross-border workers commuting into ${f.cantonName}.`,
-            `This page tracks the ${f.liveCount} openings currently indexed for ${f.name} and refreshes as new positions are crawled. ${median ? `The median salary across its healthcare roles is around ${median} per year.` : 'Salaries follow the cantonal collective agreements for the sector.'}`,
+            `This page tracks the ${f.liveCount} openings currently indexed for ${f.name} and refreshes as new positions are crawled. ${median ? `The median of reported ranges in its healthcare sample is around ${median} per year.` : 'Insufficient reported salary sample; check each original offer.'}`,
           ] },
           { title: 'How to apply as a cross-border worker', paragraphs: [
             `Swiss healthcare employers hire cross-border workers with a G permit. You will typically need recognition of your qualification (SRK/MEBEKO for regulated roles) and, for patient-facing jobs, a working command of the local language. Use the salary calculator to estimate your net cross-border pay before applying.`,
@@ -138,11 +138,11 @@ export function buildFacilityCopy(
         h1: `Stellen bei ${f.name}`,
         lede: `${f.liveCount} offene Stellen bei ${f.name}, ${f.cantonName} — Pflege-, Betreuungs- und klinische Berufe für italienische Grenzgänger.`,
         metaTitle: `${f.name} Jobs — offene Stellen & Löhne`,
-        metaDesc: `${f.liveCount} offene Stellen bei ${f.name} (${cat}, ${f.cantonName}). Pflege- und Gesundheitsberufe${median ? `, Medianlohn ${median}` : ''}. Bewerbung als Grenzgänger.`,
+        metaDesc: `${f.liveCount} offene Stellen bei ${f.name} (${cat}, ${f.cantonName}). Pflege- und Gesundheitsberufe${median ? `, Median gemeldeter Lohnspannen ${median}` : ''}. Bewerbung als Grenzgänger.`,
         tileOpenings: 'Offene Stellen',
-        tileMedian: 'Medianlohn',
+        tileMedian: 'Median gemeldeter Lohnspannen',
         tileFresh: 'Neu in 30 Tagen',
-        noSalary: 'Auf Anfrage',
+        noSalary: 'Unzureichende Stichprobe',
         ctaJobsLabel: `Alle Stellen bei ${f.name}`,
         featuredTitle: 'Alle offenen Stellen',
         featuredEmpty: 'Aktuell keine offenen Stellen — bald wieder vorbeischauen oder die Jobbörse durchsuchen.',
@@ -154,7 +154,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Arbeiten bei ${f.name}`, paragraphs: [
             `${f.name} ist ${deArticle(cat)} in ${f.city || f.cantonName}${f.siteCount > 1 ? ` mit ${f.siteCount} Standorten` : ''}. Die Einrichtung stellt regelmässig Pflegefachpersonen, Betreuungs- und klinisches Personal ein${rolesText ? ` — aktuell ${rolesText}` : ''} und ist ein realistischer Arbeitgeber für italienische Grenzgänger im Kanton ${f.cantonName}.`,
-            `Diese Seite verfolgt die ${f.liveCount} aktuell indexierten Stellen bei ${f.name} und wird laufend aktualisiert. ${median ? `Der Medianlohn über die Gesundheitsberufe liegt bei rund ${median} pro Jahr.` : 'Die Löhne folgen den kantonalen Gesamtarbeitsverträgen der Branche.'}`,
+            `Diese Seite verfolgt die ${f.liveCount} aktuell indexierten Stellen bei ${f.name} und wird laufend aktualisiert. ${median ? `Der Median gemeldeter Lohnspannen in der Gesundheitsberufe-Stichprobe liegt bei rund ${median} pro Jahr.` : 'Unzureichende gemeldete Lohnstichprobe; Originalanzeigen prüfen.'}`,
           ] },
           { title: 'Bewerbung als Grenzgänger', paragraphs: [
             `Schweizer Gesundheitsarbeitgeber stellen Grenzgänger mit G-Bewilligung ein. In der Regel benötigen Sie die Anerkennung Ihres Abschlusses (SRK/MEBEKO für regulierte Berufe) und für patientennahe Stellen ausreichende Sprachkenntnisse. Nutzen Sie den Lohnrechner, um Ihren Netto-Grenzgängerlohn abzuschätzen.`,
@@ -173,11 +173,11 @@ export function buildFacilityCopy(
         h1: `Emplois chez ${f.name}`,
         lede: `${f.liveCount} postes ouverts chez ${f.name}, ${f.cantonName} — soins infirmiers, assistance et métiers cliniques pour les frontaliers italiens.`,
         metaTitle: `${f.name} emplois — postes ouverts & salaires`,
-        metaDesc: `${f.liveCount} postes ouverts chez ${f.name} (${cat}, ${f.cantonName}). Métiers infirmiers et de la santé${median ? `, salaire médian ${median}` : ''}. Candidature comme frontalier.`,
+        metaDesc: `${f.liveCount} postes ouverts chez ${f.name} (${cat}, ${f.cantonName}). Métiers infirmiers et de la santé${median ? `, médiane des fourchettes déclarées ${median}` : ''}. Candidature comme frontalier.`,
         tileOpenings: 'Postes ouverts',
-        tileMedian: 'Salaire médian',
+        tileMedian: 'Médiane des fourchettes déclarées',
         tileFresh: 'Nouveaux en 30 jours',
-        noSalary: 'Sur demande',
+        noSalary: 'Échantillon insuffisant',
         ctaJobsLabel: `Voir tous les emplois chez ${f.name}`,
         featuredTitle: 'Tous les postes ouverts',
         featuredEmpty: 'Aucun poste ouvert pour le moment — revenez bientôt ou parcourez les offres.',
@@ -189,7 +189,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Travailler chez ${f.name}`, paragraphs: [
             `${f.name} est ${frArticle(cat)} à ${f.city || f.cantonName}${f.siteCount > 1 ? `, avec ${f.siteCount} sites` : ''}. L'établissement recrute régulièrement des infirmiers, des assistants en soins et du personnel clinique${rolesText ? ` — actuellement ${rolesText}` : ''}, et constitue un employeur réaliste pour les frontaliers italiens au canton ${f.cantonName}.`,
-            `Cette page suit les ${f.liveCount} postes actuellement indexés chez ${f.name} et se met à jour au fil des annonces. ${median ? `Le salaire médian des métiers de la santé y est d'environ ${median} par an.` : 'Les salaires suivent les conventions collectives cantonales du secteur.'}`,
+            `Cette page suit les ${f.liveCount} postes actuellement indexés chez ${f.name} et se met à jour au fil des annonces. ${median ? `La médiane des fourchettes déclarées de l’échantillon sanitaire y est d'environ ${median} par an.` : 'Échantillon salarial déclaré insuffisant ; consultez chaque annonce originale.'}`,
           ] },
           { title: 'Comment postuler en tant que frontalier', paragraphs: [
             `Les employeurs de santé suisses recrutent des frontaliers avec un permis G. Il faut généralement la reconnaissance de votre diplôme (CRS/MEBEKO pour les métiers réglementés) et, pour les postes au contact des patients, une bonne maîtrise de la langue. Utilisez le calculateur pour estimer votre salaire net de frontalier.`,
@@ -209,11 +209,11 @@ export function buildFacilityCopy(
         h1: `Offerte di lavoro ${f.name}`,
         lede: `${f.liveCount} posizioni aperte presso ${f.name}, ${f.cantonName} — ruoli infermieristici, socio-sanitari e clinici per frontalieri italiani.`,
         metaTitle: `${f.name}: offerte di lavoro e stipendi`,
-        metaDesc: `${f.liveCount} offerte di lavoro presso ${f.name} (${cat}, ${f.cantonName}). Ruoli sanitari e infermieristici${median ? `, stipendio mediano ${median}` : ''}. Candidati come frontaliere.`,
+        metaDesc: `${f.liveCount} offerte di lavoro presso ${f.name} (${cat}, ${f.cantonName}). Ruoli sanitari e infermieristici${median ? `, mediana delle fasce dichiarate ${median}` : ''}. Candidati come frontaliere.`,
         tileOpenings: 'Posizioni aperte',
-        tileMedian: 'Stipendio mediano',
+        tileMedian: 'Mediana delle fasce dichiarate',
         tileFresh: 'Nuove in 30 giorni',
-        noSalary: 'Su richiesta',
+        noSalary: 'Campione insufficiente',
         ctaJobsLabel: `Vedi tutte le offerte di ${f.name}`,
         featuredTitle: 'Tutte le offerte attive',
         featuredEmpty: 'Nessuna posizione aperta al momento — riprova presto o sfoglia la bacheca offerte.',
@@ -225,7 +225,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Lavorare presso ${f.name}`, paragraphs: [
             `${f.name} è ${itArticle(cat)} a ${f.city || f.cantonName}${f.siteCount > 1 ? `, con ${f.siteCount} sedi` : ''}. La struttura assume regolarmente infermieri, operatori socio-sanitari e personale clinico${rolesText ? ` — attualmente ${rolesText}` : ''}, ed è un datore di lavoro concreto per i frontalieri italiani che lavorano nel Cantone ${f.cantonName}.`,
-            `Questa pagina segue le ${f.liveCount} offerte attualmente indicizzate per ${f.name} e si aggiorna man mano che vengono pubblicate nuove posizioni. ${median ? `Lo stipendio mediano dei ruoli sanitari è di circa ${median} all'anno.` : 'Gli stipendi seguono i contratti collettivi cantonali del settore.'}`,
+            `Questa pagina segue le ${f.liveCount} offerte attualmente indicizzate per ${f.name} e si aggiorna man mano che vengono pubblicate nuove posizioni. ${median ? `La mediana delle fasce dichiarate nel campione sanitario è di circa ${median} all'anno.` : 'Campione salariale dichiarato insufficiente; verifica ogni annuncio originale.'}`,
           ] },
           { title: 'Come candidarsi da frontaliere', paragraphs: [
             `I datori di lavoro sanitari svizzeri assumono frontalieri con permesso G. In genere serve il riconoscimento del titolo (SRK/MEBEKO per le professioni regolamentate) e, per i ruoli a contatto con i pazienti, una buona padronanza della lingua. Usa il calcolatore per stimare lo stipendio netto da frontaliere prima di candidarti.`,
@@ -303,19 +303,19 @@ export function buildBridgeCopy(
 export const NEAR_YOU_BLOCK: Record<HealthFacilityLocale, { title: string; intro: string }> = {
   it: {
     title: 'Strutture sanitarie che assumono',
-    intro: 'Ospedali e cliniche svizzeri con offerte attive per infermieri, OSS e ruoli sanitari, con stipendi mediani reali.',
+    intro: 'Ospedali e cliniche svizzeri con offerte attive per infermieri, OSS e ruoli sanitari, con informazioni sulla provenienza dei salari.',
   },
   en: {
     title: 'Healthcare facilities hiring now',
-    intro: 'Swiss hospitals and clinics with live openings for nurses, care assistants and clinical roles, with real median salaries.',
+    intro: 'Swiss hospitals and clinics with live openings for nurses, care assistants and clinical roles, with salary provenance information.',
   },
   de: {
     title: 'Gesundheitseinrichtungen mit offenen Stellen',
-    intro: 'Schweizer Spitäler und Kliniken mit offenen Stellen für Pflege, Betreuung und klinische Berufe, mit realen Medianlöhnen.',
+    intro: 'Schweizer Spitäler und Kliniken mit offenen Stellen für Pflege, Betreuung und klinische Berufe, mit Angaben zur Herkunft der Lohndaten.',
   },
   fr: {
     title: 'Établissements de santé qui recrutent',
-    intro: 'Hôpitaux et cliniques suisses avec des postes ouverts pour infirmiers, assistants en soins et métiers cliniques, avec des salaires médians réels.',
+    intro: 'Hôpitaux et cliniques suisses avec des postes ouverts pour infirmiers, assistants en soins et métiers cliniques, avec des informations sur la provenance des salaires.',
   },
 };
 

@@ -1,7 +1,7 @@
 /**
- * TrendingSection — horizontal card strip of popular jobs in user's area.
+ * TrendingSection — stable horizontal strip of job recommendations.
  *
- * DESIGN-2: No emoji, lucide TrendingUp icon,"Popolari nella tua zona".
+ * Popularity can refine the ranking after the initial jobs are available.
  * Fixed-width 260px cards, horizontal scroll with scrollbar-hide.
  * Gradient fade on right edge signals more content on tablet/mobile.
  */
@@ -26,6 +26,36 @@ interface TrendingJob {
  href?: string;
 }
 
+/** Restrict recommendations to the canonical filtered results, before pagination. */
+export function selectRecommendationJobs<T extends { slug?: string }>(
+ filteredJobs: readonly T[],
+ popularJobs: readonly { slug?: string }[],
+ personalizationEnabled: boolean,
+): T[] {
+ const seen = new Set<string>();
+ const unique = (items: readonly T[]) => {
+ const result: T[] = [];
+ for (const job of items) {
+ if (!job.slug || seen.has(job.slug)) continue;
+ seen.add(job.slug);
+ result.push(job);
+ if (result.length === 4) break;
+ }
+ return result;
+ };
+ if (personalizationEnabled) {
+ // At most four popular candidates: reuse the canonical filtered record so
+ // stale/unfiltered candidate objects cannot reintroduce excluded jobs.
+ const matches = popularJobs.slice(0, 4).map((candidate) =>
+ filteredJobs.find((job) => job.slug && job.slug === candidate.slug),
+ ).filter((job): job is T => job !== undefined);
+ const ranked = unique(matches);
+ if (ranked.length >= 3) return ranked;
+ seen.clear();
+ }
+ return unique(filteredJobs);
+}
+
 interface TrendingSectionProps {
  trendingJobs: TrendingJob[];
  popularity: Record<string, number>;
@@ -34,9 +64,11 @@ interface TrendingSectionProps {
  heading: string;
  /** Localized section aria-label. */
  ariaLabel: string;
+ /** Shown inside the reserved card footprint when no jobs are available. */
+ emptyLabel: string;
 }
 
-function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLabel }: TrendingSectionProps) {
+function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLabel, emptyLabel }: TrendingSectionProps) {
  const scrollRef = useRef<HTMLDivElement>(null);
  const [showFade, setShowFade] = useState(true);
 
@@ -52,39 +84,14 @@ function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLa
  return () => el.removeEventListener('scroll', onScroll);
  }, [trendingJobs]);
 
- if (trendingJobs.length < 3) return null;
-
- return (
- <section aria-label={ariaLabel} className="space-y-2">
- <div className="flex items-center gap-1.5">
- <TrendingUp className="w-4 h-4 text-accent" />
- <h3 className="text-sm font-semibold text-body">
- {heading}
- </h3>
- </div>
- <div className="relative">
- <div
- ref={scrollRef}
- className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide -mx-1 px-1"
- >
- {trendingJobs.map((job) => {
- const views = job.slug ? popularity[job.slug] || 0 : 0;
- return (
- <a
- key={job.slug || job.title}
- href={job.href || '#'}
- onClick={(e) => {
- e.preventDefault();
- if (job.slug) onJobClick(job.slug);
- }}
- aria-label={`${job.title} presso ${job.company}`}
- className="flex-shrink-0 w-[260px] sm:w-[280px] rounded-[6px] border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors motion-reduce:transition-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
- >
+ const renderCardBody = (job?: TrendingJob) => {
+ const views = job?.slug ? popularity[job.slug] || 0 : 0;
+ return <>
  <div className="flex items-start gap-2.5">
  <div className="w-8 h-8 rounded-[4px] bg-surface-raised border border-edge flex items-center justify-center overflow-hidden shrink-0">
- {job.logoUrl ? (
+ {job?.logoUrl ? (
  <img
- src={job.logoUrl}
+ src={job?.logoUrl}
  alt=""
  width={24}
  height={24}
@@ -100,31 +107,75 @@ function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLa
  }}
  />
  ) : null}
- <span className={`text-xs text-muted${job.logoUrl ? ' hidden' : ''}`}>{job.company.charAt(0)}</span>
+ <span className={`text-xs text-muted${job?.logoUrl ? ' hidden' : ''}`}>{job?.company.charAt(0) ?? '\u00a0'}</span>
  </div>
  <div className="min-w-0 flex-1">
- <p className="text-sm font-semibold text-heading line-clamp-1">
- {job.title}
+ <p className="text-sm leading-5 font-semibold text-heading line-clamp-1">
+ {job?.title || '\u00a0'}
  </p>
- <p className="text-xs text-muted line-clamp-1 mt-0.5">
- {job.company} · {job.addressLocality || job.location}
+ <p className="text-xs leading-4 text-muted line-clamp-1 mt-0.5">
+ {job ? `${job.company} · ${job.addressLocality || job.location}` : '\u00a0'}
  </p>
  </div>
  </div>
+ <div className="mt-2 h-5 flex items-center gap-1">
  {views > 0 && (
- <div className="mt-2 flex items-center gap-1">
+ <>
  <Eye className="w-3 h-3 text-muted" />
- <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-surface-raised text-muted">
+ <span className="text-[10px] whitespace-nowrap px-1.5 py-0.5 rounded-full bg-surface-raised text-muted">
  {views} visualizzazioni
  </span>
- </div>
+ </>
  )}
+ </div>
+ </>;
+ };
+
+ return (
+ <section aria-label={ariaLabel} className="space-y-2">
+ <div className="flex items-center gap-1.5">
+ <TrendingUp className="w-4 h-4 text-accent" />
+ <h3 className="text-sm font-semibold text-body">
+ {heading}
+ </h3>
+ </div>
+ <div className="relative">
+ {/* Intrinsic reservation uses the same card padding, border and text rows as
+     real cards, including an empty popularity row. It survives empty/error
+     responses without a hardcoded pixel height or a collapsing skeleton. */}
+ <div aria-hidden="true" className="invisible pointer-events-none pb-2">
+ <div className="w-[260px] sm:w-[280px] border p-3">
+ {renderCardBody()}
+ </div>
+ </div>
+ <div
+ ref={scrollRef}
+ className="absolute inset-0 flex gap-3 overflow-x-auto pb-2 scrollbar-hide -mx-1 px-1"
+ >
+ {trendingJobs.map((job) => {
+ return (
+ <a
+ key={job.slug || job.title}
+ href={job.href || '#'}
+ onClick={(e) => {
+ e.preventDefault();
+ if (job.slug) onJobClick(job.slug);
+ }}
+ aria-label={`${job.title} presso ${job.company}`}
+ className="flex-shrink-0 w-[260px] sm:w-[280px] rounded-[6px] border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors motion-reduce:transition-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
+ >
+ {renderCardBody(job)}
  </a>
  );
  })}
  </div>
+ {trendingJobs.length === 0 && (
+ <p role="status" className="absolute inset-0 flex items-center justify-center text-center text-sm text-muted px-3">
+ {emptyLabel}
+ </p>
+ )}
  {/* DESIGN-6: Gradient fade on right edge signals more content */}
- {showFade && (
+ {showFade && trendingJobs.length > 0 && (
  <div
  className="absolute right-0 top-0 bottom-2 w-8 pointer-events-none bg-gradient-to-l from-surface to-transparent"
  aria-hidden="true"

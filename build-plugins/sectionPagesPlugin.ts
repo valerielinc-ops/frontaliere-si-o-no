@@ -1020,7 +1020,6 @@ function renderSectionPage(opts: {
         height: 512,
       }),
     },
-    dateModified: dateStamp,
     mainEntity: buildItemListLd(articles, locale),
   });
 
