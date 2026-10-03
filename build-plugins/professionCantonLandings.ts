@@ -328,6 +328,33 @@ export function renderProfessionCantonPage(opts: {
     sourceNote: c.peerSource,
   });
 
+  // Compare recency separately from the stock of active listings. Both counts
+  // come from the same profession/canton snapshot; no hiring rate is inferred.
+  const recencyCopy = {
+    it: { heading: 'Quanto sono recenti le offerte delle professioni vicine?', metric: 'quota di annunci recenti', source: 'Ogni nome riporta annunci recenti / annunci attivi. Recenti significa data di pubblicazione, o prima rilevazione quando è assente o non valida, negli ultimi 30 giorni. È una misura del campione di annunci, non delle assunzioni o della probabilità di ottenere il posto.' },
+    en: { heading: 'How recent are the openings in nearby professions?', metric: 'share of recent listings', source: 'Each name shows recent / active listings. Recent uses the publication date, or first observation when absent or invalid, in the last 30 days. This measures the listing sample, not hires or the chance of getting a job.' },
+    de: { heading: 'Wie aktuell sind die Angebote benachbarter Berufe?', metric: 'Anteil aktueller Inserate', source: 'Bei jedem Namen stehen aktuelle / aktive Inserate. Aktuell bedeutet Veröffentlichung oder, falls diese fehlt oder ungültig ist, erste Erfassung in den letzten 30 Tagen. Dies beschreibt die Inseratsstichprobe, keine Einstellungen oder Bewerbungschancen.' },
+    fr: { heading: 'Quelle est la récence des offres des professions voisines ?', metric: 'part des annonces récentes', source: 'Chaque nom indique annonces récentes / annonces actives. La récence utilise la publication ou, si elle est absente ou invalide, la première observation dans les 30 derniers jours. Elle décrit cet échantillon d’annonces, pas les embauches ni les chances de recrutement.' },
+  }[locale];
+  const recentRows: PeerRow[] = ALL_CANTON_PROFESSION_IDS.flatMap((peerId) => {
+    const peer = cantonProfessions?.[peerId];
+    if (!peer || !meetsJobsFloor({ liveCount: peer.liveCount }).meetsFloor
+      || !Number.isInteger(peer.liveCount) || !Number.isInteger(peer.fresh30Count) || peer.fresh30Count < 0
+      || peer.fresh30Count > peer.liveCount) return [];
+    return [{
+      key: peerId,
+      name: `${professionLabel(locale, peerId)} (${peer.fresh30Count}/${peer.liveCount})`,
+      href: buildProfessionCantonPath(locale, cantonKey, peerId),
+      value: peer.fresh30Count / peer.liveCount * 100,
+    }];
+  });
+  const recentComparison = renderPeerComparison({
+    locale, currentKey: id, rows: recentRows,
+    labels: { heading: recencyCopy.heading, metricLabel: recencyCopy.metric, peerNoun: c.peerNoun },
+    formatValue: (value) => `${value.toFixed(1)}%`,
+    sourceNote: recencyCopy.source,
+  });
+
   // ── Lo stesso mestiere negli altri cantoni ──────────────────────────────
   //
   // Il confronto qui sopra mette la professione fra le sorelle del SUO
@@ -434,6 +461,7 @@ ${tiles}
 ${DRIVEBY_AD_SNIPPET}
 ${employers}
 ${peerComparison}
+${recentComparison}
 ${crossCantonComparison}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
 ${salaryLink}
