@@ -1,3 +1,5 @@
+import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
+import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
 import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 /**
  * JobBoard — Ticino job board for cross-border workers
@@ -4540,10 +4542,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // "second-job" trigger has no audience either — the job-detail prompt
  // (relaxed gating, max 2/day) carries conversions instead.
 
+ const scopedSearchLocationTokens = useMemo<Set<string>>(() => {
+ const set = new Set<string>();
+ for (const j of sortedJobs) {
+ const loc = `${j.addressLocality || ''} ${j.location || ''}`;
+ for (const tok of normalizeSearchText(loc).split(' ')) {
+ if (!tok) continue;
+ const stem = stemSearchToken(tok);
+ if (stem.length <= 3) continue;
+ if (RELATED_SEARCH_STOPWORDS.has(stem)) continue;
+ set.add(stem);
+ }
+ }
+ return set;
+ }, [sortedJobs]);
+
+ const searchLocationTokens = useMemo<Set<string>>(() => {
+ const set = new Set(scopedSearchLocationTokens);
+ for (const token of fallbackSearchIndex.locationTokens) set.add(token);
+ return set;
+ }, [scopedSearchLocationTokens, fallbackSearchIndex]);
+
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
  // path below and the OR-fallback path so the two stay consistent.
+ const occupationTerms = useMemo(() => hasActiveSalarySearchIntent(deferredSearchQuery, searchSlugFilter, initialJobSlug) ? getJobSearchRoleTokens(deferredSearchQuery).filter(token => !searchLocationTokens.has(token)) : [], [deferredSearchQuery, searchLocationTokens, searchSlugFilter, initialJobSlug]);
+ // The seed, strict search and every broadening tier share occupational relevance.
  const passingNonSearchFilters = useCallback((job: JobListing, now: number, cutoff: number): boolean => {
+ if (!matchesJobOccupation(job, locale, occupationTerms)) return false;
  if (companySlugFilter) {
  const slugCandidates = companyRouteSlugCandidates(job.company, job.companyKey);
  if (!slugCandidates.has(companySlugFilter)) return false;
@@ -4580,7 +4606,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (jobMax < salaryRangeFilter.min || jobMinRaw > rangeMax) return false;
  }
  return true;
- }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, deferredShowSavedOnly, savedJobIds, salaryRangeFilter]);
+ }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, deferredShowSavedOnly, savedJobIds, salaryRangeFilter, locale, occupationTerms]);
 
  // strictFilteredJobs: AND-match on every search token (current behavior).
  // The OR-fallback layer below kicks in when this is empty for a
@@ -4623,27 +4649,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // token and silently lowering the floor. Removing a token from the discount
  // set can only RAISE the floor (stricter) — it never surfaces more off-topic
  // jobs — so the guard is monotone-safe.
- const scopedSearchLocationTokens = useMemo<Set<string>>(() => {
- const set = new Set<string>();
- for (const j of sortedJobs) {
- const loc = `${j.addressLocality || ''} ${j.location || ''}`;
- for (const tok of normalizeSearchText(loc).split(' ')) {
- if (!tok) continue;
- const stem = stemSearchToken(tok);
- if (stem.length <= 3) continue;
- if (RELATED_SEARCH_STOPWORDS.has(stem)) continue;
- set.add(stem);
- }
- }
- return set;
- }, [sortedJobs]);
-
- const searchLocationTokens = useMemo<Set<string>>(() => {
- const set = new Set(scopedSearchLocationTokens);
- for (const token of fallbackSearchIndex.locationTokens) set.add(token);
- return set;
- }, [scopedSearchLocationTokens, fallbackSearchIndex]);
-
  // OR-fallback relevance floor, ported from the static cluster plugin
  // (build-plugins/relatedSearchClustersPlugin.ts: `minOrScore`). A query with
  // ≥2 CONTENT tokens (after stripping job-search boilerplate AND location

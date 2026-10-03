@@ -79,7 +79,7 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
     expect(blocks[8]).not.toMatch(/oltre 1\.500/);
   });
 
-  it('falls back to the legacy "oltre 1.500" claim when jobsCount is unavailable', () => {
+  it('reports zero active vacancies without inventing a legacy count', () => {
     const blocks = buildCantonHubEditorial({
       canton: 'TI',
       locale: 'it',
@@ -88,9 +88,9 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
       totalPages: 1,
       archiveBaseHref: '/cerca-lavoro-ticino/tutti/',
     });
-    expect(blocks[1]).toMatch(/oltre 1\.500/);
+    expect(blocks[1]).toContain('<strong>0</strong>');
     const faq = blocks[blocks.length - 1];
-    expect(faq).toMatch(/raccoglie oltre 1\.500 offerte attive/);
+    expect(faq).toMatch(/raccoglie 0 offerte attive/);
   });
 
   it('omits the archive navigator when totalPages === 1 (single-page TI)', () => {
