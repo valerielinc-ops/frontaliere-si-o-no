@@ -36,8 +36,13 @@ import { isAggregate, isAggregateForAnalytics } from './check-issue-already-reso
 
 export { hasEnumeratedItems };
 
-const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', 14);
-const THRESHOLD = intFromEnv('THRESHOLD', 3);
+// I default sono la misura CANONICA: il self-heal chiude solo su quella (vedi
+// selfHealDecision), mai su una finestra accorciata o una soglia alzata a mano.
+export const DEFAULT_WINDOW_DAYS = 14;
+export const DEFAULT_THRESHOLD = 3;
+export const DEFAULT_EFFICACY_FACTOR = 2;
+const WINDOW_DAYS = intFromEnv('WINDOW_DAYS', DEFAULT_WINDOW_DAYS);
+const THRESHOLD = intFromEnv('THRESHOLD', DEFAULT_THRESHOLD);
 // Default 0 = nessun tetto. Fino al 2026-09-27 erano 40 e 120, e la «finestra
 // di 14 giorni» era una finzione: il sito mergia 70-120 PR al giorno (999 PR
 // dal 13 al 27-09), quindi `--limit 40` leggeva le review delle ultime ~12 ore;
@@ -62,7 +67,7 @@ const NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO
 // EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
 // is evidence the prose rule isn't preventing the mistake → escalate to a
 // structural fix instead of writing another line nobody follows.
-const EFFICACY_FACTOR = intFromEnv('EFFICACY_FACTOR', 2);
+const EFFICACY_FACTOR = intFromEnv('EFFICACY_FACTOR', DEFAULT_EFFICACY_FACTOR);
 
 const sinceMs = Date.now() - WINDOW_DAYS * 86_400_000;
 const sinceDay = new Date(sinceMs).toISOString().slice(0, 10);
@@ -176,7 +181,7 @@ export function applyCap(items, max) {
  * @param {number[]} [unreadItems] elementi letti senza i loro nodi annidati
  * @returns {string[]}
  */
-export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unreadItems = []) {
+export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unreadItems = [], unreadNoun = 'commenti') {
   const out = [];
   if (truncatedDays.length) {
     out.push(`::warning::${label}: giorni al tetto della search API (${SEARCH_RESULT_CAP}), vista PARZIALE: ${truncatedDays.join(', ')}`);
@@ -186,7 +191,7 @@ export function coverageWarnings(label, { truncatedDays, failedDays }, cut, unre
   }
   if (cut) out.push(`::warning::${label}: tetto esplicito, ${cut} elementi della finestra esclusi (vista PARZIALE)`);
   if (unreadItems.length) {
-    out.push(`::warning::${label}: commenti illeggibili per ${unreadItems.length} elementi, vista PARZIALE: ${unreadItems.map((n) => `#${n}`).join(', ')}`);
+    out.push(`::warning::${label}: ${unreadNoun} illeggibili per ${unreadItems.length} elementi, vista PARZIALE: ${unreadItems.map((n) => `#${n}`).join(', ')}`);
   }
   return out;
 }
@@ -1326,6 +1331,14 @@ export function selfHealDecision({ key, labels = [], measure = null, cutoffMs = 
   if (!source) return { action: 'skip', reason: 'sorgente del bucket sconosciuta' };
   if (partialSources.has(source)) return { action: 'skip', reason: `vista PARZIALE della finestra per ${source}` };
   const limit = threshold * factor;
+  // Una run manuale con finestra piu' corta o soglia piu' alta misura meno di
+  // quanto conta l'allarme: chiudere li' sposterebbe il cutoff alla data della
+  // chiusura e zittirebbe il bucket finche' non tornano `limit` casi nuovi.
+  const canonicalLimit = DEFAULT_THRESHOLD * DEFAULT_EFFICACY_FACTOR;
+  if (days < DEFAULT_WINDOW_DAYS || limit > canonicalLimit) {
+    return { action: 'skip', reason: `misura NON canonica (finestra ${days}gg, soglia ${limit}; ` +
+      `il self-heal chiude solo con finestra >= ${DEFAULT_WINDOW_DAYS}gg e soglia <= ${canonicalLimit})` };
+  }
   // Bucket assente dalla finestra: zero occorrenze, ma il cutoff e' comunque
   // quello della sua ultima chiusura.
   const effectiveCount = measure ? measure.effectiveCount : 0;
@@ -1511,7 +1524,9 @@ export function escalationBody(c) {
       : 'Cutoff: nessuno (nessuna escalation chiusa né regola registrata per questo bucket): conta l\'intera finestra.',
     '',
     '## Esempi dopo il cutoff',
-    `Numeri: ${formatExamples({ examples: shown })}`,
+    // I numeri delle PR stanno nel blocco recintato: fuori ne restano al piu' 5,
+    // per non seminare 30 riferimenti incrociati a ogni ricorrenza.
+    `Numeri: ${formatExamples({ examples: shown.slice(0, 5) })}${shown.length > 5 ? ', …' : ''}`,
     '',
     '```text',
     ...(shown.length ? shown.map(evidenceLine) : ['—']),
@@ -1542,22 +1557,25 @@ async function main() {
   const prWindow = collectWindow(days, (day) => ghJsonRetry(['pr', 'list', '--state', 'merged',
     '--search', `merged:${day}`, '--limit', String(SEARCH_RESULT_CAP), '--json', 'number,mergedAt,reviews']));
   const prCap = applyCap(prWindow.items, MAX_PRS);
-  // Sorgenti la cui vista della finestra e' incompleta: il self-heal non
-  // chiude un'escalation misurata su una vista parziale.
-  const partialSources = new Set();
-  const prCoverage = coverageWarnings('merged PRs', prWindow, prCap.cut);
-  if (prCoverage.length) partialSources.add('reviewer-finding');
-  coverage.push(...prCoverage);
   const mergedPrs = prCap.items;
   const prReviews = [];
+  // PR con review troncate a NESTED_PAGE_CAP e non rilette: vista parziale.
+  const unreadPrReviews = [];
   for (const { number, mergedAt, reviews } of mergedPrs) {
     let all = reviews || [];
     if (all.length >= NESTED_PAGE_CAP) {
       const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
       if (data?.reviews) all = data.reviews;
+      else unreadPrReviews.push(number);
     }
     prReviews.push({ number, reviews: all, mergedAt });
   }
+  // Sorgenti la cui vista della finestra e' incompleta: il self-heal non
+  // chiude un'escalation misurata su una vista parziale.
+  const partialSources = new Set();
+  const prCoverage = coverageWarnings('merged PRs', prWindow, prCap.cut, unreadPrReviews, 'review');
+  if (prCoverage.length) partialSources.add('reviewer-finding');
+  coverage.push(...prCoverage);
   const { counts: findingCounts, examples: findingExamples } = tallyFindings(prReviews);
 
   // ---- 2. Recurring issue classes (created in window) ----
@@ -1730,9 +1748,13 @@ async function main() {
   // Le escalation riaperte non sono fra le chiuse: la loro ultima chiusura si
   // legge dagli eventi (vedi reopenedEscalationClosures). Lettura fallita →
   // nessun cutoff per quel bucket, cioe' il conteggio pieno di prima.
-  const openEscalationsAtStart = ghJson(['issue', 'list', '--state', 'open',
+  const openEscalationsRead = ghJson(['issue', 'list', '--state', 'open',
     '--search', 'ricorre nonostante regola in:title',
-    '--json', 'number,title', '--limit', '100']) || [];
+    '--json', 'number,title', '--limit', '100']);
+  if (!Array.isArray(openEscalationsRead)) {
+    console.log('::warning::escalation aperte illeggibili: cutoff delle riaperte non determinabile → conteggio sull\'intera finestra');
+  }
+  const openEscalationsAtStart = openEscalationsRead || [];
   const reopened = reopenedEscalationClosures(openEscalationsAtStart, (number) => parseIssueEventLines(
     gh(['api', `repos/{owner}/{repo}/issues/${number}/events?per_page=100`, '--paginate',
       '--jq', ISSUE_EVENTS_JQ])));
@@ -1903,7 +1925,7 @@ async function main() {
         });
         const num = res?.number;
         if (num) {
-          const sev = severityLabelForCount(c.count);
+          const sev = severityLabelForCount(c.effectiveCount ?? c.count);
           const drop = sev === 'severity:high' ? 'severity:medium' : 'severity:high';
           try {
             gh(['label', 'create', sev, '--color', sev === 'severity:high' ? 'B60205' : 'D93F0B', '-f']);

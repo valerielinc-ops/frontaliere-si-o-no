@@ -32,6 +32,7 @@ import {
 } from '../scripts/ci/harvest-agent-lessons.mjs';
 import { FIXER_EXEMPT_LABELS } from '../scripts/lib/classify-issue.mjs';
 import { detectAlreadyResolved } from '../scripts/ci/followup-resolution-match.mjs';
+import { KEEP_OPEN_LABELS } from '../scripts/ci/reconcile-followups.mjs';
 
 describe('buildEscalationSignals — contratto reporter zero-Claude (#6685)', () => {
   it('porta bucket, misura, comando dry-run ed esempi senza diagnosi inventata', () => {
@@ -210,6 +211,14 @@ describe('corpo dell escalation: la misura e le prove dopo il cutoff', () => {
     expect(body).toContain('PR 10687 (2026-10-01): 🔴 Important:');
     expect(body).toContain('PR 10596 (2026-09-30)');
     expect(body).toContain('Numeri: #10687, #10596');
+  });
+
+  it('fuori dal blocco recintato al piu 5 riferimenti #N, anche con 30 esempi', () => {
+    const many = Array.from({ length: 30 }, (_, i) => ({ pr: 20000 + i, at: '2026-10-01T00:00:00Z', snippet: 'x' }));
+    const body = escalationBody({ ...cluster, effectiveCount: many.length, postCutoffExamples: many });
+    const outsideFence = body.slice(0, body.indexOf('```text'));
+    expect(outsideFence.match(/#\d+/g)?.length).toBe(5); // cron-count-ok: tetto fisso dei riferimenti fuori dal fence
+    expect(body).toContain(`PR ${20000 + many.length - 1}`);
     expect(body).not.toContain('PRE-CUTOFF');
     expect(body).not.toContain('#9001');
   });
@@ -286,18 +295,29 @@ describe('self-heal: rispetta pin, claim e completezza; chiude con la misura', (
     expect(d.comment).toContain('0 su soglia 6');
   });
 
+  it('misura non canonica (finestra corta o soglia alzata da un dispatch manuale) → mai chiusa', () => {
+    const short = selfHealDecision({ ...base, labels: [], windowDays: 3 });
+    expect(short.action).toBe('skip');
+    expect(short.reason).toContain('NON canonica');
+    const higher = selfHealDecision({ ...base, labels: [], threshold: 5 });
+    expect(higher.action).toBe('skip');
+    expect(higher.reason).toContain('NON canonica');
+    // Ai default (finestra 14gg, soglia 3×2) chiude; una finestra piu' lunga o
+    // una soglia piu' bassa misurano di piu', quindi non bloccano.
+    expect(selfHealDecision({ ...base, labels: [] }).action).toBe('close');
+    expect(selfHealDecision({ ...base, labels: [], windowDays: 30 }).action).toBe('close');
+    expect(selfHealDecision({ ...base, labels: [], threshold: 2, measure: { effectiveCount: 3, cutoffMs } }).action)
+      .toBe('close');
+  });
+
   it('sorgente sconosciuta → non si chiude', () => {
     expect(selfHealDecision({ ...base, key: 'boh/qualcosa', labels: [] }).action).toBe('skip');
   });
 
   it('parità: i pin includono FIXER_EXEMPT_LABELS e il veto KEEP_OPEN_LABELS del reconcile', () => {
     for (const l of FIXER_EXEMPT_LABELS) expect(SELF_HEAL_PIN_LABELS).toContain(l);
-    const reconcile = readFileSync('scripts/ci/reconcile-followups.mjs', 'utf8');
-    const m = /const KEEP_OPEN_LABELS = new Set\(\[([^\]]*)\]\)/.exec(reconcile);
-    expect(m, 'KEEP_OPEN_LABELS non trovato in reconcile-followups.mjs').not.toBeNull();
-    const keepOpen = [...(m?.[1] ?? '').matchAll(/'([^']+)'/g)].map((x) => x[1]);
-    expect(keepOpen.length).toBeGreaterThan(0);
-    for (const l of keepOpen) expect(SELF_HEAL_PIN_LABELS).toContain(l);
+    expect(KEEP_OPEN_LABELS.size).toBeGreaterThan(0);
+    for (const l of KEEP_OPEN_LABELS) expect(SELF_HEAL_PIN_LABELS).toContain(l);
   });
 });
 
