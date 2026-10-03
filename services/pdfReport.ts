@@ -276,8 +276,8 @@ export async function generateLamalSsnPdfReport(
     ['Franchigia LAMal', formatCHF(snapshot.franchiseCHF)],
     [`Premio LAMal piu economico (${snapshot.cheapestInsurer})`, `${formatCHF(snapshot.lamalMonthlyCHF)}/mese`],
     ['Costo LAMal annuo stimato', formatCHF(snapshot.lamalAnnualCHF)],
-    ['Contributo SSN stimato (3%)', formatCHF(snapshot.ssnMinCHF)],
-    ['Contributo SSN stimato (6%)', formatCHF(snapshot.ssnMaxCHF)],
+    ['Contributo SSN minimo dopo limiti', formatCHF(snapshot.ssnMinCHF)],
+    ['Contributo SSN massimo dopo limiti', formatCHF(snapshot.ssnMaxCHF)],
     ['Aliquota di break-even', snapshot.breakevenPct === null ? 'Nessun cambio di convenienza nel range previsto' : formatPercent(snapshot.breakevenPct)],
     ['Verdetto', verdictLabel],
   ];
