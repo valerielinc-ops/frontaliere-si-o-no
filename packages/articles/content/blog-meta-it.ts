@@ -12410,6 +12410,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a2-coldrerio-incidente-camion.title': 'Tamponamento sull\'A2 a Coldrerio: 73enne grave',
     'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Auto contro camion fermo nella nicchia d\'emergenza sull\'A2 a Coldrerio: 68enne ferita lievemente, passeggero 73enne in pericolo di vita.',
     'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Traffico e soccorsi sull\'A2 a Coldrerio dopo un tamponamento tra auto e camion',
+    'blog.article.giornata-sostenibilita-mezzana.title': 'Giornata transfrontaliera sulla sostenibilità a Mezzana',
+    'blog.article.giornata-sostenibilita-mezzana.excerpt': 'Oltre settanta docenti della Regione Insubrica hanno partecipato a Mezzana a una giornata tra teoria, atelier pratici e progetti sulla sostenibilità.',
+    'blog.article.giornata-sostenibilita-mezzana.imageAlt': 'Docenti durante una giornata formativa sulla sostenibilità a Mezzana',
 };
 
 export default blogMetaIt;

@@ -12408,6 +12408,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a2-coldrerio-incidente-camion.title': 'Auffahrunfall auf der A2 bei Coldrerio: 73-Jähriger schwer verletzt',
     'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Auto prallt auf der A2 bei Coldrerio gegen einen in der Notfallbucht stehenden Lastwagen: 68-Jährige leicht verletzt, 73-jähriger Passagier in Lebensgefahr.',
     'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Verkehr und Rettungseinsatz auf der A2 bei Coldrerio nach einem Auffahrunfall',
+    'blog.article.giornata-sostenibilita-mezzana.title': 'Grenzüberschreitender Nachhaltigkeitstag in Mezzana',
+    'blog.article.giornata-sostenibilita-mezzana.excerpt': 'Über siebzig Dozenten der Insubrischen Region nahmen in Mezzana an einem Tag mit Theorie, praktischen Workshops und Nachhaltigkeitsprojekten teil.',
+    'blog.article.giornata-sostenibilita-mezzana.imageAlt': 'Lehrkräfte bei einem grenzüberschreitenden Nachhaltigkeitstag in Mezzana',
 };
 
 export default blogMetaDe;

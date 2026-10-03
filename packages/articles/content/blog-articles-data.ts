@@ -37213,6 +37213,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'giornata-sostenibilita-mezzana',
+ category: 'novita',
+ date: '2026-10-03T14:21:55.310Z',
+ image: '/images/blog/giornata-sostenibilita-mezzana.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

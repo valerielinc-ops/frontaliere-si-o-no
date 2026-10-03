@@ -12411,6 +12411,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a2-coldrerio-incidente-camion.title': 'Carambolage sur l\'A2 à Coldrerio : un homme de 73 ans grièvement blessé',
     'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Une voiture percute un camion à l\'arrêt dans la niche d\'urgence sur l\'A2 à Coldrerio : une femme de 68 ans légèrement blessée, un passager de 73 ans en danger de mort.',
     'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Trafic et secours sur l\'A2 à Coldrerio après une collision entre une voiture et un camion',
+    'blog.article.giornata-sostenibilita-mezzana.title': 'Journée transfrontalière sur la durabilité à Mezzana',
+    'blog.article.giornata-sostenibilita-mezzana.excerpt': 'Plus de soixante-dix enseignants de la Regione Insubrica ont participé à Mezzana à une journée mêlant théorie, ateliers pratiques et projets sur la durabilité.',
+    'blog.article.giornata-sostenibilita-mezzana.imageAlt': 'Enseignants lors d’une journée transfrontalière sur la durabilité à Mezzana',
 };
 
 export default blogMetaFr;

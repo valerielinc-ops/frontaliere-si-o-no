@@ -12409,6 +12409,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a2-coldrerio-incidente-camion.title': 'Rear-end collision on the A2 in Coldrerio: 73-year-old seriously injured',
     'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Car crashes into a truck stopped in the emergency lay-by on the A2 in Coldrerio: 68-year-old woman slightly injured, 73-year-old passenger in life-threatening condition.',
     'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Traffic and emergency response on the A2 in Coldrerio after a car hit a truck',
+    'blog.article.giornata-sostenibilita-mezzana.title': 'Cross-border sustainability day in Mezzana',
+    'blog.article.giornata-sostenibilita-mezzana.excerpt': 'Over seventy teachers from the Insubric Region participated in Mezzana in a day of theory, practical workshops and projects on sustainability.',
+    'blog.article.giornata-sostenibilita-mezzana.imageAlt': 'Teachers at a cross-border sustainability training day in Mezzana',
 };
 
 export default blogMetaEn;
