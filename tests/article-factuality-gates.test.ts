@@ -1409,4 +1409,82 @@ describe('detectLeakedScaffolding', () => {
     expect(detectLeakedScaffolding('## Requisiti\n\nServe il "permesso G" e nulla più.')).toEqual([]);
     expect(detectLeakedScaffolding('Il datore di lavoro non può MAI trattenere il documento.')).toEqual([]);
   });
+
+  // Scaffolding del prompt: marcatore titolo tradotto pubblicato senza rilevazione.
+  //
+  // en/de/fr are translations of the Italian body, so a leaked "TITOLO
+  // ARTICOLO:" arrives there TRANSLATED. Measured on the corpus on 2026-10-03:
+  // 64 translated bodies carried one of the forms below and the detector, which
+  // only knew the Italian token, flagged none of them. Every fixture is a shape
+  // read from a published body, not an invented one.
+  describe('translated title marker', () => {
+    const LOCALIZED_AT_LINE_START: Array<[string, string]> = [
+      ['en', 'Coming soon.\n\nARTICLE TITLE: Decline in purchasing power and LAMal'],
+      ['de, one word', 'Ohne Bewilligung.\n\nARTIKELTITEL: Arbeiten als Grenzgänger im Tessin'],
+      ['de, hyphenated', 'Der Franken legt zu.\n\nARTIKEL-TITEL: Schweizer Franken auf Rekordhoch'],
+      ['de, genitive', 'Die Prämien steigen.\n\nTITEL DES ARTIKELS: Gesundheitssteuer für Grenzgänger'],
+      ['fr, short', 'Avant de commencer.\n\nTITRE ARTICLE : Petits boulots d\'été au Tessin'],
+      ['fr, straight apostrophe', 'Le pouvoir d\'achat recule.\n\nTITRE DE L\'ARTICLE : Baisse du pouvoir d\'achat'],
+      ['fr, typographic apostrophe', 'Les navetteurs.\n\nTITRE DE L’ARTICLE : Les navetteurs du Tessin'],
+      ['fr, no space before the colon', 'Les soins.\n\nTITRE DE L\'ARTICLE: Hantavirus, deux cas'],
+    ];
+
+    it.each(LOCALIZED_AT_LINE_START)('flags the marker at a line start (%s)', (_label, text) => {
+      expect(codes(detectLeakedScaffolding(text))).toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    // 4 in 10 of the corpus hits: the translator flattened the paragraph break
+    // and the marker now trails the previous sentence on the same line.
+    it.each([
+      ['en', 'They "see no way out." ARTICLE TITLE: CEO of Kägi on export difficulties'],
+      ['de', 'damit sie wachsen und gedeihen können.» ARTIKEL-TITEL: CEO von Kägi'],
+      ['de, genitive', 'die keine anderen Optionen haben. TITEL DES ARTIKELS: «Bereit, alles zu tun»'],
+      ['fr', 'les difficultés actuelles ». TITRE ARTICLE : CEO de Kägi'],
+      ['fr, typographic apostrophe', 'affecter vos finances. TITRE DE L’ARTICLE : Taxe santé'],
+      ['it marker left untranslated', 'garantir une vieillesse sereine. TITOLO ARTICOLO: Suisses choisissent capital'],
+    ])('flags the marker when it trails a sentence (%s)', (_label, text) => {
+      expect(codes(detectLeakedScaffolding(text))).toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    it('flags the marker used as a bare heading, without a colon', () => {
+      expect(codes(detectLeakedScaffolding('Amount: Not specified.\n\n### ARTICLE TITLE\nCost of living in Lugano')))
+        .toEqual(['leaked-prompt-scaffolding']);
+      expect(codes(detectLeakedScaffolding('Betrag: noch nicht angegeben\n\n## ARTIKELTITEL\nArbeiten als Grenzgänger')))
+        .toEqual(['leaked-prompt-scaffolding']);
+      expect(codes(detectLeakedScaffolding('Montant : Non précisé.\n\n### TITRE ARTICLE\nCoût de la vie à Lugano')))
+        .toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    it('flags the marker after paragraph breaks stored as a literal backslash-n', () => {
+      expect(codes(detectLeakedScaffolding('les consommateurs internationaux.\\n\\nTITRE ARTICLE : Kägi : Exportations')))
+        .toEqual(['leaked-prompt-scaffolding']);
+    });
+
+    it('reports one issue per body for the Italian marker, at a line start as before', () => {
+      expect(detectLeakedScaffolding('Testo.\n\nTITOLO ARTICOLO: Svizzeri scelgono capitale')).toHaveLength(1);
+    });
+
+    it('is wired into the translation gate as a blocking finding', () => {
+      const { blocking } = runFactualityGates({
+        locale: 'en',
+        sections: { body1: 'The canton confirmed the measure on Monday.\n\nARTICLE TITLE: Child tax deduction in Ticino' },
+      });
+      expect(codes(blocking)).toContain('leaked-prompt-scaffolding');
+    });
+
+    // Prose may talk ABOUT an article's title. Only the shouted token is the
+    // prompt leaking; lower- and title-case mentions must stay clean.
+    it.each([
+      ['en, lower case', 'The article title: "Working across the border" sums up the reform.'],
+      ['en, sentence start', 'Article title aside, the measure changes little for cross-border workers.'],
+      ['de', 'Der Artikeltitel lautet «Grenzgänger im Tessin» und fasst die Reform zusammen.'],
+      ['de, genitive', 'Der Titel des Artikels 15 des Abkommens regelt die Besteuerung.'],
+      ['fr', 'Selon le titre de l\'article 15 de l\'accord, le titre de l’article est sans ambiguïté.'],
+      ['it', 'Il titolo dell\'articolo: «Frontalieri, cosa cambia» riassume la riforma.'],
+      ['all caps, no colon, mid-sentence', 'The form has an ARTICLE TITLE field that editors fill in.'],
+      ['all caps, inside a longer word', 'The PARTICLE TITLE: a physics column unrelated to this one.'],
+    ])('does not flag prose that mentions an article title (%s)', (_label, text) => {
+      expect(detectLeakedScaffolding(text)).toEqual([]);
+    });
+  });
 });

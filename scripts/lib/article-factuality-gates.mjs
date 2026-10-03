@@ -223,8 +223,47 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
 // literally contain, so a match is the prompt leaking, never prose that happens
 // to resemble it. Anchored to line starts and all-caps forms to keep an article
 // that legitimately discusses "la terminologia" from tripping it.
+//
+// THE TITLE MARKER IS TRANSLATED TOO, AND IT IS NOT ALWAYS ON ITS OWN LINE.
+// en/de/fr bodies are translations of the Italian one, so a leaked "TITOLO
+// ARTICOLO:" reaches them as "ARTICLE TITLE:", "ARTIKELTITEL:", "ARTIKEL-TITEL:",
+// "TITEL DES ARTIKELS:", "TITRE ARTICLE :" or "TITRE DE L'ARTICLE :" (French
+// puts a space before the colon and may use the typographic apostrophe). With
+// only the Italian token listed, the corpus on 2026-10-03 held 64 translated
+// bodies carrying one of those forms and the detector flagged none of them
+// (en 20, de 21, fr 23 across blog-body and blog-body-ch).
+//
+// Roughly four in ten of those are not at a line start: the translator
+// flattened the paragraph break and the marker now trails a sentence
+// ("…gedeihen können.» ARTIKEL-TITEL: CEO von Kägi…"). So the title marker has
+// two accepted shapes, both still exact all-caps tokens and case-sensitive:
+//   - heading shape: alone on its line, optional `#`s, colon optional
+//     ("### ARTICLE TITLE\nCost of living…");
+//   - label shape: anywhere, but the colon is then REQUIRED and the token must
+//     not continue a word.
+// Prose never shouts "ARTICLE TITLE:"; lower- and title-case mentions ("The
+// article title: …", "Der Artikeltitel lautet …", "le titre de l'article est
+// …") match neither shape and are pinned by negative tests.
+//
+// One stored body carries its paragraph breaks as the two literal characters
+// `\n` instead of a newline ("…internationaux.\n\nTITRE ARTICLE : Kägi…"), so
+// the token is glued to an "n". That escape is accepted as a boundary too.
+const NOT_INSIDE_A_WORD = '(?:(?<![\\p{L}\\p{N}])|(?<=\\\\n))';
+const LOCALIZED_TITLE_MARKER = "(?:ARTICLE TITLE|ARTIKEL-?TITEL|TITEL DES ARTIKELS|TITRE (?:DE L['’]ARTICLE|ARTICLE))";
+
 const SCAFFOLDING_MARKERS = [
-  { re: /^\s*#{0,4}\s*TITOLO ARTICOLO\s*:?/m, what: 'marcatore di sezione del prompt di generazione' },
+  {
+    re: new RegExp(`^\\s*#{0,4}\\s*TITOLO ARTICOLO\\s*:?|${NOT_INSIDE_A_WORD}TITOLO ARTICOLO[^\\S\\n]*:`, 'mu'),
+    what: 'marcatore di sezione del prompt di generazione',
+  },
+  {
+    re: new RegExp(
+      `^[^\\S\\n]*#{0,4}[^\\S\\n]*${LOCALIZED_TITLE_MARKER}[^\\S\\n]*$`
+      + `|${NOT_INSIDE_A_WORD}${LOCALIZED_TITLE_MARKER}[^\\S\\n]*:`,
+      'mu',
+    ),
+    what: 'marcatore di sezione del prompt di generazione, tradotto',
+  },
   { re: /^\s*#{0,4}\s*(?:ESEMPIO|ESEMPI) CONCRET[OI]\s*:?\s*$/m, what: 'marcatore di sezione del prompt' },
   { re: /^\s*#{0,4}\s*(?:NOTE|NOTA) PER (?:IL|LA) (?:MODELLO|TRADUZIONE)\s*:?/mi, what: 'nota interna del prompt' },
   // Case-SENSITIVE and line-anchored on purpose. The prompt shouts its headings
