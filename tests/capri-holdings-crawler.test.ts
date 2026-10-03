@@ -176,7 +176,7 @@ describe('Capri Workday location resolution', () => {
     })).toThrow(/repeated posting identity/);
   });
 
-  it('fails closed when Workday repeats a full page instead of advancing', async () => {
+  it('fails closed after bounded restarts when Workday repeats a full page', async () => {
     const page = {
       total: 40,
       jobPostings: Array.from({ length: 20 }, (_, index) => ({
@@ -190,7 +190,7 @@ describe('Capri Workday location resolution', () => {
 
     await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
       .rejects.toThrow(/repeated posting identity/);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(6);
   });
 
   it('fails closed when Workday changes the total between pages', async () => {
@@ -265,6 +265,49 @@ describe('Capri Workday location resolution', () => {
     expect(jobs).toHaveLength(40);
     expect(queryFirstPages).toBe(2);
     expect(offset20Attempts).toBe(4);
+  });
+
+  it('restarts the whole query when a page repeats the prior offset', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/repeated-first-${index + 1}`,
+        title: `Repeated first role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/repeated-second-${index + 1}`,
+        title: `Repeated second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let queryFirstPages = 0;
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        queryFirstPages += 1;
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      return new Response(
+        JSON.stringify(offset20Attempts === 1 ? firstPage : secondPage),
+        { status: 200 },
+      );
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(queryFirstPages).toBe(2);
+    expect(offset20Attempts).toBe(2);
   });
 
   it('keeps a non-empty later page when Workday repeats its offset-zero bug', async () => {
