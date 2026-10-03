@@ -269,6 +269,7 @@ const COPY = {
       reminder: 'Mi mancano ancora i tuoi documenti',
       received: 'CV ricevuto',
       submitted: 'Candidatura inviata',
+      whatsapp: "L'ultimo passo è su WhatsApp",
     },
     preheader: {
       intro: 'Rispondi con il CV e ci penso io: ecco cosa mi serve.',
@@ -276,6 +277,7 @@ const COPY = {
       reminder: 'Basta rispondere a questa email con il CV allegato.',
       received: 'Preparo la candidatura e ti scrivo appena è inviata.',
       submitted: "La tua candidatura è stata inviata all'azienda.",
+      whatsapp: 'Ecco il link per candidarti via WhatsApp e come funziona.',
     },
     orderRef: 'Riferimento ordine',
     privacy: "I tuoi dati servono solo per questa candidatura e vengono cancellati entro 90 giorni dall'invio o dal rimborso. Per accesso, rettifica o cancellazione rispondi a questa email.",
@@ -288,6 +290,17 @@ const COPY = {
     submittedSubject: 'Ho inviato la tua candidatura a {company}',
     submittedLead: "ti confermo che il {date} ho inviato la tua candidatura per {job} presso {company}, attraverso il canale indicato nell'annuncio.",
     submittedNext: "Se l'azienda ti contatta, rispondi direttamente a loro. Se ricevi una risposta o hai bisogno di altro, scrivimi pure rispondendo a questa email. In bocca al lupo!",
+    whatsappSubject: "La tua candidatura a {company}: l'ultimo passo è su WhatsApp",
+    whatsappLead: "la candidatura per {job} presso {company} si fa solo via WhatsApp: un assistente automatico dell'azienda ti fa alcune domande in chat. Nessuno può farlo al posto tuo, perché la chat parte dal tuo numero ed è lì che l'azienda ti ricontatterà.",
+    whatsappHow: 'Come fare',
+    whatsappSteps: [
+      'apri il link qui sotto dal telefono (dal computer compare un QR code: inquadralo con il telefono);',
+      "WhatsApp si apre con un messaggio già scritto che contiene il codice dell'annuncio: invialo così com'è (con l'invio accetti l'informativa privacy dell'azienda);",
+      "rispondi alle domande dell'assistente: a scelta, a testo o con un breve messaggio vocale; se ti chiede il CV, invia lo stesso che hai dato a me;",
+      "alla fine l'assistente ti saluta in chat con la conferma.",
+    ],
+    whatsappCta: 'Apri la candidatura su WhatsApp',
+    whatsappNext: "Il mio lavoro sulla tua candidatura si conclude qui: l'invio su WhatsApp è l'ultimo passo, ed è tuo. Se l'azienda ti contatta, rispondi direttamente a loro. Se qualcosa non funziona, scrivimi rispondendo a questa email. In bocca al lupo!",
   },
   fr: {
     greeting: (name) => (name ? `Bonjour ${name},` : 'Bonjour,'),
@@ -324,6 +337,7 @@ const COPY = {
       reminder: 'Il me manque encore vos documents',
       received: 'CV bien reçu',
       submitted: 'Candidature envoyée',
+      whatsapp: 'La dernière étape se fait sur WhatsApp',
     },
     preheader: {
       intro: "Répondez avec votre CV, je m'occupe du reste.",
@@ -331,6 +345,7 @@ const COPY = {
       reminder: 'Il suffit de répondre à cet e-mail avec votre CV en pièce jointe.',
       received: "Je prépare la candidature et je vous écris dès qu'elle est envoyée.",
       submitted: "Votre candidature a été envoyée à l'entreprise.",
+      whatsapp: 'Voici le lien pour postuler par WhatsApp et comment faire.',
     },
     orderRef: 'Référence de commande',
     privacy: "Vos données servent uniquement à cette candidature et sont supprimées dans les 90 jours suivant l'envoi ou le remboursement. Pour y accéder, les corriger ou les supprimer, répondez à cet e-mail.",
@@ -343,6 +358,17 @@ const COPY = {
     submittedSubject: "J'ai envoyé votre candidature à {company}",
     submittedLead: "je vous confirme que le {date} j'ai envoyé votre candidature pour {job} chez {company}, par le canal indiqué dans l'annonce.",
     submittedNext: "Si l'entreprise vous contacte, répondez-lui directement. Si vous recevez une réponse ou avez besoin d'autre chose, écrivez-moi en répondant à cet e-mail. Bonne chance !",
+    whatsappSubject: 'Votre candidature chez {company} : la dernière étape se fait sur WhatsApp',
+    whatsappLead: "la candidature pour {job} chez {company} se fait uniquement par WhatsApp : un assistant automatique de l'entreprise vous pose quelques questions dans le chat. Personne ne peut le faire à votre place, car la conversation part de votre numéro et c'est par là que l'entreprise vous recontactera.",
+    whatsappHow: 'Comment faire',
+    whatsappSteps: [
+      "ouvrez le lien ci-dessous depuis votre téléphone (sur un ordinateur, un QR code s'affiche : scannez-le avec votre téléphone) ;",
+      "WhatsApp s'ouvre avec un message déjà rédigé qui contient le code de l'annonce : envoyez-le tel quel (vous acceptez ainsi la politique de confidentialité de l'entreprise) ;",
+      "répondez aux questions de l'assistant : à choix, en texte ou par un court message vocal ; s'il demande votre CV, envoyez celui que vous m'avez transmis ;",
+      "à la fin, l'assistant vous salue dans le chat avec la confirmation.",
+    ],
+    whatsappCta: 'Ouvrir la candidature sur WhatsApp',
+    whatsappNext: "Mon travail sur votre candidature s'arrête ici : l'envoi sur WhatsApp est la dernière étape, et elle vous revient. Si l'entreprise vous contacte, répondez-lui directement. Si quelque chose ne fonctionne pas, écrivez-moi en répondant à cet e-mail. Bonne chance !",
   },
   de: {
     // Informal «du», like the German site copy (services/locales/de-core.ts).
@@ -380,6 +406,7 @@ const COPY = {
       reminder: 'Mir fehlen noch deine Unterlagen',
       received: 'Lebenslauf erhalten',
       submitted: 'Bewerbung versendet',
+      whatsapp: 'Der letzte Schritt läuft über WhatsApp',
     },
     preheader: {
       intro: 'Antworte mit deinem Lebenslauf, den Rest erledige ich.',
@@ -387,6 +414,7 @@ const COPY = {
       reminder: 'Antworte einfach mit deinem Lebenslauf im Anhang.',
       received: 'Ich bereite die Bewerbung vor und melde mich, sobald sie verschickt ist.',
       submitted: 'Deine Bewerbung wurde an das Unternehmen gesendet.',
+      whatsapp: 'Hier ist der Link für die Bewerbung per WhatsApp und so funktioniert es.',
     },
     orderRef: 'Bestellreferenz',
     privacy: 'Deine Daten werden nur für diese Bewerbung verwendet und spätestens 90 Tage nach Versand oder Rückerstattung gelöscht. Für Auskunft, Berichtigung oder Löschung antworte auf diese E-Mail.',
@@ -399,6 +427,17 @@ const COPY = {
     submittedSubject: 'Ich habe deine Bewerbung an {company} gesendet',
     submittedLead: 'hiermit bestätige ich, dass ich deine Bewerbung für {job} bei {company} am {date} über den in der Anzeige genannten Kanal versendet habe.',
     submittedNext: 'Wenn sich das Unternehmen meldet, antworte bitte direkt. Wenn du eine Antwort erhältst oder noch etwas brauchst, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
+    whatsappSubject: 'Deine Bewerbung bei {company}: Der letzte Schritt läuft über WhatsApp',
+    whatsappLead: 'die Bewerbung für {job} bei {company} läuft nur über WhatsApp: Ein automatischer Assistent des Unternehmens stellt dir im Chat ein paar Fragen. Das kann niemand an deiner Stelle tun, denn der Chat startet von deiner Nummer, und darüber meldet sich das Unternehmen später bei dir.',
+    whatsappHow: 'So geht es',
+    whatsappSteps: [
+      'öffne den Link unten auf dem Handy (am Computer erscheint ein QR-Code: scanne ihn mit dem Handy);',
+      'WhatsApp öffnet sich mit einer vorbereiteten Nachricht, die den Code der Stelle enthält: sende sie unverändert ab (damit akzeptierst du die Datenschutzerklärung des Unternehmens);',
+      'beantworte die Fragen des Assistenten: zur Auswahl, als Text oder als kurze Sprachnachricht; fragt er nach dem Lebenslauf, schick denselben, den du mir gegeben hast;',
+      'am Ende verabschiedet sich der Assistent im Chat mit der Bestätigung.',
+    ],
+    whatsappCta: 'Bewerbung auf WhatsApp öffnen',
+    whatsappNext: 'Meine Arbeit an deiner Bewerbung ist damit abgeschlossen: Der Versand über WhatsApp ist der letzte Schritt, und den machst du. Wenn sich das Unternehmen meldet, antworte bitte direkt. Wenn etwas nicht klappt, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
   },
   en: {
     greeting: (name) => (name ? `Hi ${name},` : 'Hi,'),
@@ -435,6 +474,7 @@ const COPY = {
       reminder: 'I still need your documents',
       received: 'CV received',
       submitted: 'Application sent',
+      whatsapp: 'The last step is on WhatsApp',
     },
     preheader: {
       intro: "Reply with your CV and I'll take care of the rest.",
@@ -442,6 +482,7 @@ const COPY = {
       reminder: 'Just reply to this email with your CV attached.',
       received: "I'm preparing your application and will write as soon as it's sent.",
       submitted: 'Your application has been sent to the company.',
+      whatsapp: 'Here is the link to apply on WhatsApp and how it works.',
     },
     orderRef: 'Order reference',
     privacy: 'Your data is used only for this application and deleted within 90 days of sending or refund. For access, correction or deletion, reply to this email.',
@@ -454,6 +495,17 @@ const COPY = {
     submittedSubject: 'I sent your application to {company}',
     submittedLead: 'I can confirm that on {date} I sent your application for {job} at {company}, through the channel the ad asks for.',
     submittedNext: "If the company contacts you, reply to them directly. If you hear back or need anything else, just reply to this email. Good luck!",
+    whatsappSubject: 'Your application to {company}: the last step is on WhatsApp',
+    whatsappLead: "the application for {job} at {company} is done only on WhatsApp: the company's automated assistant asks you a few questions in the chat. Nobody can do it for you, because the chat starts from your number and that is where the company will get back to you.",
+    whatsappHow: 'How it works',
+    whatsappSteps: [
+      'open the link below on your phone (on a computer a QR code appears: scan it with your phone);',
+      'WhatsApp opens with a prepared message that contains the job code: send it as it is (this accepts the company’s privacy notice);',
+      'answer the assistant’s questions: choices, text or a short voice message; if it asks for your CV, send the one you gave me;',
+      'at the end the assistant says goodbye in the chat with the confirmation.',
+    ],
+    whatsappCta: 'Open the application on WhatsApp',
+    whatsappNext: 'My work on your application ends here: sending it on WhatsApp is the last step, and it is yours. If the company contacts you, reply to them directly. If something does not work, just reply to this email. Good luck!',
   },
 };
 
@@ -511,6 +563,9 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
   const htmlParts = [paragraph(esc(greeting))];
   const textParts = [greeting];
   const uploadHtml = () => paragraph(esc(copy.uploadAlt)) + brandButton(pageUrl, copy.uploadCta);
+  // A WhatsApp application (PastaHR): the «inviata» message is its link and
+  // its steps (owner decision 2026-10-03), the candidate sends it from the phone.
+  const whatsappUrl = kind === 'submitted' && order?.submissionChannel === 'whatsapp' ? safeHttpsUrl(order?.whatsappApplyUrl) : '';
 
   if (kind === 'intro' || kind === 'recovery') {
     const lead = kind === 'recovery' ? copy.recoveryLead : copy.introLead;
@@ -544,6 +599,13 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
     const receivedLead = automation ? copy.receivedLeadAuto : copy.receivedLead;
     htmlParts.push(paragraph(fillHtml(receivedLead, vars)));
     textParts.push(fill(receivedLead, vars));
+  } else if (kind === 'submitted' && whatsappUrl) {
+    htmlParts.push(paragraph(fillHtml(copy.whatsappLead, vars)), job.html);
+    textParts.push(fill(copy.whatsappLead, vars), job.text);
+    htmlParts.push(brandSectionLabel(copy.whatsappHow), brandChecklist(copy.whatsappSteps), brandButton(whatsappUrl, copy.whatsappCta));
+    textParts.push(`${copy.whatsappHow}:\n${copy.whatsappSteps.map((step, index) => `${index + 1}. ${step}`).join('\n')}`, `${copy.whatsappCta}: ${whatsappUrl}`);
+    htmlParts.push(paragraph(esc(copy.whatsappNext)), brandFinePrint(esc(copy.noGuarantee)));
+    textParts.push(copy.whatsappNext, copy.noGuarantee);
   } else if (kind === 'submitted') {
     htmlParts.push(paragraph(fillHtml(copy.submittedLead, vars)), job.html);
     textParts.push(fill(copy.submittedLead, vars), job.text);
@@ -558,7 +620,7 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
     recovery: copy.recoverySubject,
     reminder: copy.reminderSubject,
     received: copy.receivedSubject,
-    submitted: copy.submittedSubject,
+    submitted: whatsappUrl ? copy.whatsappSubject : copy.submittedSubject,
   }[kind];
 
   htmlParts.push(foot.html);
@@ -567,9 +629,9 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
     subject: clean(fill(subjectTemplate, vars), 180),
     html: renderBrandedEmail({
       locale,
-      preheader: copy.preheader[kind],
+      preheader: whatsappUrl ? copy.preheader.whatsapp : copy.preheader[kind],
       badge: copy.badge,
-      heroTitle: copy.hero[kind],
+      heroTitle: whatsappUrl ? copy.hero.whatsapp : copy.hero[kind],
       heroSubtitle: `${vars.job} — ${vars.company}`,
       bodyHtml: htmlParts.join(''),
       footerLines: foot.footerLines,
