@@ -220,7 +220,6 @@ export function classifyHasHealthcareDiscovery({
   parsed = 0,
   detailFetchOutcomes = [],
 } = {}) {
-  if (parsed > 0) return { lastFetchOutcome: 'ok', abortKind: null };
   if (listingFetchOutcome) {
     return {
       lastFetchOutcome: listingFetchOutcome,
@@ -231,6 +230,18 @@ export function classifyHasHealthcareDiscovery({
   const detailOutcomes = Array.isArray(detailFetchOutcomes)
     ? detailFetchOutcomes.filter(Boolean)
     : [];
+  const firstTransportFailure = detailOutcomes.find((outcome) =>
+    CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(outcome)
+  );
+  if (firstTransportFailure) {
+    return {
+      lastFetchOutcome: firstTransportFailure,
+      abortKind: abortKindForFetchOutcome(firstTransportFailure),
+    };
+  }
+
+  if (parsed > 0) return { lastFetchOutcome: 'ok', abortKind: null };
+
   const firstDetailOutcome = detailOutcomes[0];
   const allDetailsFailedAtTransport =
     discovered > 0
@@ -508,11 +519,18 @@ async function fetchJobs(counts) {
   }
 
   counts.parsed = jobs.length;
-  Object.assign(counts, classifyHasHealthcareDiscovery({
+  const discovery = classifyHasHealthcareDiscovery({
     discovered: listings.length,
     parsed: jobs.length,
     detailFetchOutcomes,
-  }));
+  });
+  Object.assign(counts, discovery);
+  if (discovery.abortKind === 'connection-level-fetch') {
+    console.warn(
+      '⚠️ A detail transport failure made this partial run unsafe to merge; preserving the existing HAS slice.',
+    );
+    return [];
+  }
   return jobs;
 }
 

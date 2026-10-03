@@ -46,6 +46,17 @@ describe('HAS Healthcare crawler discovery', () => {
     });
   });
 
+  it('aborts a partial detail run before stale HAS rows can be pruned', () => {
+    expect(classifyHasHealthcareDiscovery({
+      discovered: 2,
+      parsed: 1,
+      detailFetchOutcomes: ['connection_error'],
+    })).toEqual({
+      lastFetchOutcome: 'connection_error',
+      abortKind: 'connection-level-fetch',
+    });
+  });
+
   it('keeps parser misses distinct from transport failures', () => {
     expect(classifyHasHealthcareDiscovery({ discovered: 1, parsed: 0 })).toEqual({
       lastFetchOutcome: 'selector_miss',
