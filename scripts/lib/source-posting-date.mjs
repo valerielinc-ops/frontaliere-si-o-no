@@ -29,3 +29,15 @@ export function mergeSourcePostingDates(previous = {}, fresh = {}, now = new Dat
 export function hasPostingDateProvenance(job) {
   return job?.postingDateSource === 'reported' || job?.postingDateSource === 'unknown';
 }
+
+/** Normalize an explicit RSS publication date without losing its timezone. */
+export function sourceRssPostingDateFields(raw = '', now = new Date()) {
+  const value = String(raw || '').trim();
+  const rss = value.match(/^(?:[A-Za-z]{3},\s*)?(\d{1,2}) ([A-Za-z]{3}) (\d{4}) (\d{2}:\d{2}:\d{2}) (GMT|UTC|UT|Z|[+-]\d{4})$/);
+  if (!rss) return sourcePostingDateFields(value, now);
+  // Validate the calendar independently; apply the real-clock cutoff only after the offset.
+  const calendarReference = new Date(`${rss[3]}-12-31T23:59:59Z`);
+  const day = sourcePostingDateFields(`${rss[1]} ${rss[2]} ${rss[3]}`, calendarReference).postedDate;
+  const zone = /^[+-]/.test(rss[5]) ? `${rss[5].slice(0, 3)}:${rss[5].slice(3)}` : 'Z';
+  return sourcePostingDateFields(day ? `${day}T${rss[4]}${zone}` : '', now);
+}
