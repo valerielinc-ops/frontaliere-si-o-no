@@ -18,6 +18,7 @@ import {
 } from '../scripts/ci/maybe-resolved-recheck.mjs';
 import { validateWorkflowText } from '../scripts/ci/validate-modified-workflows.mjs';
 import { RECURRENCE_MARKER, countRecurrences } from '../scripts/ci/close-recovered-failure-issues.mjs';
+import { PREPASS_NOTE_HEAD } from '../scripts/ci/needs-human-prepass.mjs';
 
 const SCRIPT = readFileSync(new URL('../scripts/ci/maybe-resolved-recheck.mjs', import.meta.url), 'utf8');
 const WORKFLOW_PATH = '.github/workflows/maybe-resolved-recheck.yml';
@@ -283,6 +284,12 @@ describe('runRecheck: mutazioni, tetto e fail-closed', () => {
       expect(body).not.toContain(RECURRENCE_MARKER);
       expect(countRecurrences([{ body, created_at: '2026-10-02T08:00:00Z' }], { now: Date.parse('2026-10-02T09:00:00Z') })).toBe(0);
     }
+  });
+
+  it('sibling: anche la nota di rientro del pre-pass needs-human non conta come ricorrenza', () => {
+    const body = `${PREPASS_NOTE_HEAD}: titolo da monitor. Questa issue torna nel ciclo autonomo.`;
+    expect(body).not.toContain(RECURRENCE_MARKER);
+    expect(countRecurrences([{ body, created_at: '2026-10-02T08:00:00Z' }], { now: Date.parse('2026-10-02T09:00:00Z') })).toBe(0);
   });
 
   it('una scrittura fallita emette un ::warning:: visibile nel run', () => {

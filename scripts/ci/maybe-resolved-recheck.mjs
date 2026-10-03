@@ -165,10 +165,11 @@ export function lastVerifyLabeledAt(events) {
  * La prima obiezione successiva alla label: un commento che COMINCIA con `🔁`
  * di autore fidato (ricorrenza) o un evento `reopened`.
  * Predicato largo per scelta: oltre a `🔁 Recurrence on workflow run.` di
- * `github-issue-creator.mjs` vale ogni nota `🔁` di un'automazione fidata
- * (pre-pass needs-human compreso). Note come `🔁 Codex auth recovery` o
- * `🔁 **Deploy re-arm**` non arrivano oggi su issue `maybe-resolved`; se ci
- * arrivassero il costo e' un rientro nel ciclo, mai una chiusura.
+ * `github-issue-creator.mjs` vale ogni nota `🔁` di un'automazione fidata.
+ * Note come `🔁 Codex auth recovery` o `🔁 **Deploy re-arm**` non arrivano oggi
+ * su issue `maybe-resolved`; se ci arrivassero il costo e' un rientro nel
+ * ciclo, mai una chiusura. Le note di rientro (questo rigetto, il pre-pass
+ * needs-human) NON portano `🔁`: non sono ricorrenze del difetto.
  * @returns {{reason:'recurrence'|'reopened', at:number, url:string|null}|null}
  */
 export function findObjection({ events, comments, labeledAt, issueUrl = '' }) {
