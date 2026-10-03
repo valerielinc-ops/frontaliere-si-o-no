@@ -212,17 +212,17 @@ export interface LamalSsnSnapshot {
   lamalMonthlyCHF: number;
   lamalAnnualCHF: number;
   cheapestInsurer: string;
-  /** SSN voluntary-registration contribution range (3–6% of net income, L. 213/2023). */
+  /** Annual frontier-worker SSN contribution range, after EUR limits (DM 14 November 2025). */
   ssnMinCHF: number;
   ssnMaxCHF: number;
   /** Regional SSN rate (%) at which LAMal and SSN cost the same. */
-  breakevenPct: number;
+  breakevenPct: number | null;
   verdict: 'lamal' | 'ssn' | 'depends';
   generatedAt?: Date;
 }
 
 const LAMAL_SSN_DISCLAIMER =
-  'Report generato automaticamente a scopo informativo. Stime basate sui premi UFSP/BAG (modello standard, senza infortuni) e sul contributo SSN 3-6% (L. 213/2023). Non costituisce consulenza. La scelta LAMal/SSN e irrevocabile: valuta con un consulente autorizzato.';
+  'Report generato automaticamente a scopo informativo. Stime basate sui premi UFSP/BAG (modello standard, senza infortuni) e sul contributo dei frontalieri aventi diritto al SSN, 3-6% del netto con limiti di 30-200 EUR/mese, su 12 mesi (DM 14 novembre 2025). Non e iscrizione volontaria SSN: verificare requisiti e attuazione regionale. Non costituisce consulenza. La scelta LAMal/SSN e irrevocabile: valuta con un consulente autorizzato.';
 
 /**
  * Generate a Blob containing the LAMal-vs-SSN breakeven PDF report.
@@ -265,10 +265,10 @@ export async function generateLamalSsnPdfReport(
 
   const verdictLabel =
     snapshot.verdict === 'lamal'
-      ? 'Conviene la LAMal svizzera'
+      ? 'LAMal: costo non superiore al SSN stimato'
       : snapshot.verdict === 'ssn'
-        ? 'Conviene il SSN italiano'
-        : `Dipende dall'aliquota regionale (break-even: ${formatPercent(snapshot.breakevenPct)})`;
+        ? 'SSN: costo non superiore alla LAMal stimata'
+        : `Dipende dall'aliquota regionale (break-even: ${snapshot.breakevenPct === null ? 'Nessun cambio di convenienza nel range previsto' : formatPercent(snapshot.breakevenPct)})`;
 
   const body = [
     ['Reddito annuo netto', formatCHF(snapshot.incomeCHF)],
@@ -278,7 +278,7 @@ export async function generateLamalSsnPdfReport(
     ['Costo LAMal annuo stimato', formatCHF(snapshot.lamalAnnualCHF)],
     ['Contributo SSN stimato (3%)', formatCHF(snapshot.ssnMinCHF)],
     ['Contributo SSN stimato (6%)', formatCHF(snapshot.ssnMaxCHF)],
-    ['Aliquota di break-even', formatPercent(snapshot.breakevenPct)],
+    ['Aliquota di break-even', snapshot.breakevenPct === null ? 'Nessun cambio di convenienza nel range previsto' : formatPercent(snapshot.breakevenPct)],
     ['Verdetto', verdictLabel],
   ];
 

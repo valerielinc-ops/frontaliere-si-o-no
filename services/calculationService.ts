@@ -1,3 +1,4 @@
+import { estimateAnnualFrontierSsnEUR } from './frontierHealthContribution';
 import { SimulationInputs, SimulationResult, TaxResult, TaxBreakdownItem, ExpenseItem } from '../types';
 import { FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
 
@@ -142,11 +143,12 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  // Calculate SSN Health Tax for Old Frontier Workers (if enabled)
  let ssnHealthTaxEUR = 0;
  let ssnHealthTaxCHF = 0;
- const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF - expensesTotalIT_CHF) * EXCHANGE_RATE;
+ // DM 14 November 2025, art. 1: salary net of payroll deductions, not disposable income.
+ const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF) * EXCHANGE_RATE;
  
  if (enableOldFrontierHealthTax) {
  // SSN Tax: configurable % of net income, min 30€/month (360€/year), max 200€/month (2400€/year)
- ssnHealthTaxEUR = Math.max(360, Math.min(2400, netBeforeSsnEUR * (taxPercentage / 100)));
+ ssnHealthTaxEUR = estimateAnnualFrontierSsnEUR(netBeforeSsnEUR, taxPercentage);
  ssnHealthTaxCHF = ssnHealthTaxEUR / EXCHANGE_RATE;
  notesIT.push(`calc.ssnHealthTaxNote|${Math.round(ssnHealthTaxEUR/12)}|${taxPercentage}`);
  }
