@@ -592,6 +592,37 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
   expect(stopAll).not.toMatch(/digestAvailable && userId && digestEnabled/);
  });
 
+ // Owner decision 2026-10-03: the digest reaches a verified account with no
+ // central row (the sender creates the digest's own record). The switch must
+ // turn it back on for that account without creating a newsletter subscription.
+ it('re-enables the saved-jobs digest for a verified account with no central row without subscribing it', () => {
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setEnd = src.indexOf('\n}\n', setStart);
+  const setter = src.slice(setStart, setEnd);
+  const noRowBranch = setter.indexOf('if (!subscriberData) {');
+  const elseBranch = setter.indexOf('} else {', noRowBranch);
+  expect(noRowBranch).toBeGreaterThan(-1);
+  expect(elseBranch).toBeGreaterThan(noRowBranch);
+  const noRow = setter.slice(noRowBranch, elseBranch);
+  // Only an unverified address still fails; a verified one falls through to
+  // the account-preference write.
+  expect(noRow).toContain("if (!emailVerified) throw new Error('subscriber-not-created');");
+  expect(noRow).not.toContain('upsertUnifiedEmailSubscriber');
+  // The central writer (a subscription) runs only on an existing row.
+  expect(setter.indexOf('upsertUnifiedEmailSubscriber')).toBeGreaterThan(elseBranch);
+  expect(src).toContain('await authSetSavedJobsDigest(userId, email, next, emailVerified);');
+ });
+
+ it('shows the saved-jobs digest as on only when the sender would send it', () => {
+  const loadStart = src.indexOf('async function authLoadSavedJobsDigest');
+  const loadEnd = src.indexOf('\n}\n', loadStart);
+  const loader = src.slice(loadStart, loadEnd);
+  // Same stop predicate as isSavedJobsDigestEligible in
+  // scripts/send-saved-jobs-digest.mjs, not a narrower list of global fields.
+  expect(loader).toContain('!isCrossChannelStop(subscriberData)');
+  expect(loader).toContain('(Boolean(subscriberData) || emailVerified)');
+ });
+
  it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {
  expect(src).toMatch(/handleTogglePause/);
  expect(src).toMatch(/onTogglePause/);

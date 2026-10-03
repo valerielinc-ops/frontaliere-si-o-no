@@ -38,7 +38,6 @@ import {
  type JobAlertCreatePayload,
 } from '@/services/newsletterSubscribers';
 import {
- GLOBAL_EMAIL_OPT_OUT_FIELDS,
  isAddressSuppressed,
  isCrossChannelStop,
 } from '@/services/emailSuppression.mjs';
@@ -74,15 +73,6 @@ export interface SubscriptionPreferencesControllerProps {
 }
 
 type LoadStatus = 'loading' | 'ready' | 'error';
-
-function hasExplicitGlobalEmailStop(data: Record<string, any> | null | undefined): boolean {
- return GLOBAL_EMAIL_OPT_OUT_FIELDS.some((field) => (
-  data?.[field] === true
-  || data?.[field] === 1
-  || data?.[field] === 'true'
-  || data?.[field] === '1'
- ));
-}
 
 function normalizeAlertCreatedAt(value: string | number | null | undefined, fallback: number | null = null): number | null {
  if (typeof value === 'number' && Number.isFinite(value)) return value;
@@ -905,17 +895,24 @@ async function authLoadSavedJobsDigest(userId: string, email: string, emailVerif
  // saved-jobs action/preference, so the base registration is not enough.
  // Without a central row the sender creates the digest's own record before
  // the first send, for a verified address only (owner decision 2026-10-03):
- // until then the switch must already say what Monday will do.
+ // until then the switch must already say what Monday will do. The stop is
+ // the sender's own predicate (isSavedJobsDigestEligible in
+ // scripts/send-saved-jobs-digest.mjs): a newsletter opt-out binding or a
+ // stop status skips the digest too, so the switch must not read «Attivo».
  const digest = snap.exists() ? (snap.data() || {}).savedJobsDigest : null;
  const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
- const hasGlobalStop = hasExplicitGlobalEmailStop(subscriberData);
  return digest?.optedOut !== true
-  && !hasGlobalStop
+  && !isCrossChannelStop(subscriberData)
   && (Boolean(subscriberData) || emailVerified)
   && digest?.optedIn === true;
 }
 
-async function authSetSavedJobsDigest(userId: string, email: string, enabled: boolean): Promise<void> {
+async function authSetSavedJobsDigest(
+ userId: string,
+ email: string,
+ enabled: boolean,
+ emailVerified = false,
+): Promise<void> {
  const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -938,31 +935,40 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
  if (enabled) {
   const subscriberSnap = await getDoc(subscriberRef);
   const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
-  if (!subscriberData) throw new Error('subscriber-not-created');
-  // Enabling this digest is an explicit click by the authenticated owner. It
-  // must use the same central writer as follow/job-alert actions so a prior
-  // human stop is reactivated consistently; provider/address suppressions
-  // remain hard blocks.
-  if (isAddressSuppressed(subscriberData.status)) {
-   throw new Error('email-suppressed');
-  }
-  const registration = await upsertUnifiedEmailSubscriber(db as any, {
-   email: email.trim().toLowerCase(),
-   userId,
-   source: 'preference_center',
-   sourceChannel: 'web_app',
-   sourcePage: '/profilo/',
-   sourceCta: 'saved_jobs_digest_toggle',
-   sourceComponent: 'SubscriptionPreferencesController',
-   sourceRouteFamily: 'preferences',
-   locale: getLocale(),
-   registrationMethod: 'authenticated',
-   explicitConsentAction: true,
-  });
-  const refreshed = await getDoc(subscriberRef);
-  const refreshedData = refreshed.exists() ? refreshed.data() || {} : null;
-  if (registration.optedOut || isCrossChannelStop(refreshedData)) {
-   throw new Error('email-suppressed');
+  if (!subscriberData) {
+   // No central row: for a verified address the digest sender creates the
+   // digest's own record before the first send (owner decision 2026-10-03,
+   // scripts/send-saved-jobs-digest.mjs), so only the account preference is
+   // written, as the save path does. The central writer below would turn the
+   // click into a newsletter subscription. An unverified address is never
+   // reached, so the switch cannot promise it.
+   if (!emailVerified) throw new Error('subscriber-not-created');
+  } else {
+   // Enabling this digest is an explicit click by the authenticated owner. It
+   // must use the same central writer as follow/job-alert actions so a prior
+   // human stop is reactivated consistently; provider/address suppressions
+   // remain hard blocks.
+   if (isAddressSuppressed(subscriberData.status)) {
+    throw new Error('email-suppressed');
+   }
+   const registration = await upsertUnifiedEmailSubscriber(db as any, {
+    email: email.trim().toLowerCase(),
+    userId,
+    source: 'preference_center',
+    sourceChannel: 'web_app',
+    sourcePage: '/profilo/',
+    sourceCta: 'saved_jobs_digest_toggle',
+    sourceComponent: 'SubscriptionPreferencesController',
+    sourceRouteFamily: 'preferences',
+    locale: getLocale(),
+    registrationMethod: 'authenticated',
+    explicitConsentAction: true,
+   });
+   const refreshed = await getDoc(subscriberRef);
+   const refreshedData = refreshed.exists() ? refreshed.data() || {} : null;
+   if (registration.optedOut || isCrossChannelStop(refreshedData)) {
+    throw new Error('email-suppressed');
+   }
   }
  }
  // Merge, and only under `savedJobsDigest` — services/savedJobsService.ts's
@@ -2158,7 +2164,7 @@ export function SubscriptionPreferencesController({
  setSavingDigest(true);
  setErrorMsg('');
  try {
- await authSetSavedJobsDigest(userId, email, next);
+ await authSetSavedJobsDigest(userId, email, next, emailVerified);
  flashSaved('saved-jobs-digest');
  } catch (err: any) {
  console.warn('[SubscriptionPreferencesController] Toggle saved-jobs digest failed:', err?.message);
