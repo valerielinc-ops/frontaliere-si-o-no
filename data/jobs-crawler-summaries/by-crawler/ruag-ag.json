@@ -1,18 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-10-03T09:19:43.118Z",
-  "total": 61,
+  "generatedAt": "2026-10-03T21:19:13.950Z",
+  "total": 60,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 64,
-  "durationMs": 185075,
-  "avgDurationMs": 185075,
+  "unchangedCount": 60,
+  "durationMs": 73029,
+  "avgDurationMs": 73029,
   "durationHistory": [
-    244889,
-    201368,
-    185075
+    73029
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -157,6 +155,7 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,42 +199,6 @@
         "richness": 22,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "title": "Head of Corporate Security West 80 - 100% (w/m/d)",
-      "slug": "head-of-corporate-security-west-80-100-w-m-d-ruag-ag-bern",
-      "url": "https://jobs.ruag.ch/offene-stellen/head-of-corporate-security-west/3f23481b-bf84-4825-ae03-40fd071ea03c",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/3f23481b-bf84-4825-ae03-40fd071ea03c",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "admin",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-08",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "2053-11-21",
-      "id": "ruag-ag-6676272325ee",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-08T22:14:21.927Z",
-      "salarySource": "estimated",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
       }
     },
     {
@@ -1026,6 +989,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-20T21:52:29.815Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1105,6 +1069,43 @@
         "translation": 25,
         "completeness": 19
       }
+    },
+    {
+      "title": "Technician Avionics 80 - 100% (w/m/d)",
+      "slug": "avionici-tecnici-80-100-m-f-d-ruag-ag-wilderswil",
+      "url": "https://jobs.ruag.ch/offene-stellen/technician-avionics/87bc0c0c-6f48-44ec-8b71-d98a1e9f86ae",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/87bc0c0c-6f48-44ec-8b71-d98a1e9f86ae",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Wilderswil",
+      "addressLocality": "Wilderswil",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-10",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2054-01-09",
+      "id": "ruag-ag-5354f7f4d68e",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-26T10:24:40.597Z",
+      "salarySource": "estimated",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
