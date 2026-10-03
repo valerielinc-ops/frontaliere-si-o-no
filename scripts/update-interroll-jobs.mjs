@@ -6,6 +6,7 @@
  *   https://www.interroll.com/company/careers/jobs/
  * Detail pages at: /company/careers/jobs/job-detail/{slug}
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -111,7 +112,7 @@ export function buildInterrollJob(raw, site, body = '') {
     descriptionByLocale: { [sourceLang]: description },
     slug,
     category: detectCategory(raw.title),
-    datePosted: new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(),
     source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, description),
     sourceLang,
     experienceLevel: detectExperienceLevel(raw.title),

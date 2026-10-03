@@ -13,6 +13,7 @@
  *
  * Filters for positions in any of the 26 Swiss cantons.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -179,7 +180,7 @@ async function fetchJuliusBaerJobs() {
       postalCode, streetAddress,
       description, descriptionByLocale,
       titleByLocale, slug, slugByLocale,
-      category: detectCategory(title), datePosted: info.startDate || new Date().toISOString().split('T')[0],
+      category: detectCategory(title), ...sourcePostingDateFields(info.startDate),
       source: 'julius-baer-workday-crawler', employmentType: detectEmploymentType(info.timeType || ''),
       sourceLang,
       experienceLevel: detectExperienceLevel(title), sector: 'Banking / Wealth Management',

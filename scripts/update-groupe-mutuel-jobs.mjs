@@ -20,6 +20,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -509,7 +510,7 @@ function parseCsodJob(rawJob) {
   const employmentType = detectEmploymentType(rawJob.employmentType || rawJob.timeType || rawJob.type || '');
 
   // New API: postingEffectiveDate in DD/MM/YYYY format
-  let datePosted = rawJob.datePosted || rawJob.postingDate || rawJob.createdDate || rawJob.startDate || '';
+  let datePosted = rawJob.datePosted || rawJob.postingDate || '';
   if (!datePosted && rawJob.postingEffectiveDate && rawJob.postingEffectiveDate !== '-') {
     // Convert DD/MM/YYYY → YYYY-MM-DD
     const parts = rawJob.postingEffectiveDate.split('/');
@@ -517,7 +518,6 @@ function parseCsodJob(rawJob) {
       datePosted = `${parts[2]}-${parts[1]}-${parts[0]}`;
     }
   }
-  if (!datePosted) datePosted = new Date().toISOString().split('T')[0];
 
   const job = {
     url: publicUrl,
@@ -537,7 +537,7 @@ function parseCsodJob(rawJob) {
       en: slugify(title, 'groupe-mutuel'),
     },
     category: detectCategory(title),
-    datePosted,
+    ...sourcePostingDateFields(datePosted),
     source: 'groupe-mutuel-csod-crawler',
     sourceLang: content.sourceLang,
     employmentType,

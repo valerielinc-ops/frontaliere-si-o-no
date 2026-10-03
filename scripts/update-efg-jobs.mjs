@@ -16,6 +16,7 @@
  *  5. Post-process: fix company name, location, canton, clean descriptions
  *  6. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -399,7 +400,7 @@ async function fetchDetailDescriptions(requisitions) {
         category: detailPayload.Category || null,
         requisitionType: detailPayload.RequisitionType || null,
         postedDate: detailPayload.ExternalPostedStartDate
-          ? String(detailPayload.ExternalPostedStartDate).split('T')[0]
+          ? String(detailPayload.ExternalPostedStartDate)
           : null,
         corporateDescription: String(detailPayload.CorporateDescriptionStr || '').trim() || null,
       });
@@ -538,7 +539,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
     const meta = metadata.get(String(req.Id)) || {};
     const category = mapOracleCategory(meta.category);
     const contract = mapOracleRequisitionType(meta.requisitionType);
-    const postedDate = meta.postedDate || req.PostedDate || new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateFields(meta.postedDate || req.PostedDate);
 
     const slug = `${title}-efg-${city}`
       .toLowerCase()
@@ -563,7 +564,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       description: description || req.ShortDescriptionStr || '',
       requirements: parsedContent.requirements || [],
       featured: false,
-      postedDate,
+      ...postingDates,
       url,
       applyUrl: buildEfgApplicationUrl(),
       source: 'Oracle HCM API',
@@ -602,7 +603,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       existing.applyUrl = buildEfgApplicationUrl();
       existing.category = jobEntry.category || existing.category;
       existing.contract = jobEntry.contract || existing.contract;
-      existing.postedDate = jobEntry.postedDate || existing.postedDate;
+      Object.assign(existing, mergeSourcePostingDates(existing, jobEntry));
       existing.crawledAt = jobEntry.crawledAt;
       existing.sourceLang = srcLang;
       existing.titleByLocale = {
@@ -872,9 +873,7 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
         fixed++;
       }
     }
-    if (meta?.postedDate && !job.postedDate) {
-      job.postedDate = meta.postedDate;
-    }
+    Object.assign(job, mergeSourcePostingDates(job, sourcePostingDateFields(meta?.postedDate || apiData?.PostedDate)));
 
     // Fix location from Oracle HCM API data (more reliable than scraping)
     if (apiData?.PrimaryLocation) {
@@ -888,11 +887,6 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
     const canton = detectCanton(job.location || '');
     if (canton) {
       job.canton = canton;
-    }
-
-    // Fix posted date from API (ISO format)
-    if (apiData?.PostedDate && !job.datePosted) {
-      job.datePosted = apiData.PostedDate;
     }
 
     // Rebuild from dedicated API payload when existing text is thin or boilerplate-only.
