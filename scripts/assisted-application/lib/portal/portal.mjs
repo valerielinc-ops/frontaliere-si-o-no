@@ -240,8 +240,12 @@ async function clickButton(page, button) {
 
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
 // otherwise accept (the runner's own browser session, no candidate data).
-export const COOKIE_REJECT_RE = /^(ablehnen|alle ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?|decline( all)?|only necessary|rifiuta( tutti| tutto)?|solo necessari|refuser( tout)?|tout refuser|continuer sans accepter)$/i;
-const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle akzeptieren|akzeptieren|accept( all)?( cookies)?|accetta( tutti)?|tout accepter|accepter|ok)$/i;
+// SuccessFactors' own cookie manager (Rolex, 2026-10-03) names the cookies in
+// each button — «Refuser tous les cookies», «Alle Cookies ablehnen», «Reject
+// All Cookies», «Rifiuta tutti i cookie» — and, left open, takes every click
+// on the sign-in page behind it.
+export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?( cookies)?|decline( all)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
+export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
@@ -351,6 +355,9 @@ const FORM_VOCABULARY = new Set([
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
+  // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
+  // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
+  'opportunity', 'opportunities', 'opportunite', 'opportunites', 'opportunita', 'karrierechancen', 'chancen',
 ]);
 // The kind of employer, alone in a title, names nobody: «Hotel application» is a hotel's form, whoever
 // the hotel is (review of #11064). Next to a word of the order's company it is a name, though:

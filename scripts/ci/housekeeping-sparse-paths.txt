@@ -1,0 +1,18 @@
+# Path che `.github/workflows/housekeeping-jobs-logic.yml` materializza nel
+# checkout sparse (modalita' cone) del sito.
+#
+# La lista vive QUI e non nel YAML: il corpus chiama quel workflow a uno SHA
+# pinnato, mentre il codice eseguito e' quello di `main`. Il workflow legge
+# questo file da `main`, cosi' lista e codice arrivano dallo stesso commit.
+# Un import nuovo fuori da questi path va aggiunto qui, nella stessa PR:
+# lo impone tests/housekeeping-sparse-paths.test.ts.
+#
+# Formato: una directory (o un file di root) per riga, senza slash iniziale;
+# righe vuote e righe che cominciano con `#` sono ignorate. Niente commenti a
+# fine riga, niente glob, niente negazioni.
+data/jobs/by-crawler
+data/jobs/expired/by-crawler
+package.json
+package-lock.json
+scripts
+packages/articles/engine/shared

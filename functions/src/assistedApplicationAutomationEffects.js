@@ -136,7 +136,9 @@ async function markSubmitted({ db, orderId, effect, flow }) {
   const via = effect.by === 'candidate' ? 'il candidato dal portale (handoff)'
     : effect.by === 'owner' ? 'Valerie sul portale, dopo lo stop del robot'
       : `automazione (${flow.submittedVia || 'invio'})`;
-  const notes = `Candidatura inviata da ${via}.`;
+  const notes = flow.submittedVia === 'whatsapp'
+    ? 'Candidatura via WhatsApp: link e istruzioni inviati al candidato, che la completa dal proprio telefono.'
+    : `Candidatura inviata da ${via}.`;
   let changed = false;
   await db.runTransaction(async (transaction) => {
     changed = false; // reset on every retry of the transaction
