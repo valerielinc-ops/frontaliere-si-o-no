@@ -367,6 +367,23 @@ describe('Holmes Place crawler parser', () => {
         ),
       ).toBe('');
     });
+
+    it('rejects generic page chrome when no vacancy-scoped container or JobPosting exists', () => {
+      const chrome = Array.from(
+        { length: 60 },
+        (_, index) => `Careers navigation and company information ${index + 1}`,
+      ).join(' ');
+
+      expect(
+        __testables.extractHolmesPlaceDetailDescriptionFromHtml(`
+          <main>
+            <h1>Club Manager</h1>
+            <p>Nur wenige Wörter.</p>
+            <p>${chrome}</p>
+          </main>
+        `),
+      ).toBe('');
+    });
   });
 
   // ── Category / employment-type detection (fitness-chain taxonomy) ──

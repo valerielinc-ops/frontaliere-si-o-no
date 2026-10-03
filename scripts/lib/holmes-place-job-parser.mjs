@@ -402,8 +402,6 @@ const DETAIL_BODY_SELECTORS = [
   '.job-detail',
   '.job-content',
   '.career-content',
-  'article',
-  'main',
 ];
 const DETAIL_NOISE_SELECTOR = [
   'script',
