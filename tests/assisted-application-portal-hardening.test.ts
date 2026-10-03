@@ -5,6 +5,7 @@ import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent
 import {
   candidateForForm,
   formPostingMatch,
+  namesAnotherEmployer,
   ownAccountForm,
   privacyConsentControls,
   postingMatch,
@@ -74,8 +75,15 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // Without a posting that named the company there is no fallback at all.
     expect(formPostingMatch('Concierge — Application Tracking System', job)).toBe('mismatch');
     expect(formPostingMatch('Concierge — Application Tracking System', job, { postingMatched: false })).toBe('mismatch');
+    // Any company the form names by its legal form is another employer too, whatever its words.
+    expect(formPostingMatch('Concierge — Palace Resort AG', job, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Concierge · Altra Azienda Sagl · Candidatura', job, { postingMatched: true })).toBe('mismatch');
+    expect(namesAnotherEmployer('Concierge — Other Hotel', job.company)).toBe(true);
+    expect(namesAnotherEmployer('Concierge — Palace Resort AG', job.company)).toBe(true);
+    expect(namesAnotherEmployer('Concierge - Application | Application Tracking System', job.company)).toBe(false);
     // The whole name on the form is the direct match, as ever.
     expect(formPostingMatch('Concierge — Grand Hotel Esempio', job, { postingMatched: true })).toBe('match');
+    expect(formPostingMatch('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' }, { postingMatched: true })).toBe('match');
   });
 
   it('takes a form with its own password field for the form only when its button sends an application', () => {

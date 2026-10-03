@@ -343,23 +343,39 @@ export function postingMatch(pageText, job = {}) {
   return title.every(variant) ? 'match' : 'mismatch';
 }
 
+// A company named by its legal form: «Palace Resort AG», «Altra Azienda Sagl», «Other Hotel Ltd».
+const LEGAL_FORM_NAME_RE = /\p{Lu}[\p{L}\p{N}&.'’-]*(?:\s+\p{Lu}[\p{L}\p{N}&.'’-]*){0,4},?\s+(?:AG|SA|GmbH|Sagl|S[aà]rl|Srl|S\.p\.A\.|SpA|Ltd|Inc|LLC|KG|SE)(?![\p{L}\p{N}])/u;
+
+/**
+ * The form names an employer that is not the order's (review of #11033): a
+ * part of the order's company name without the rest («Concierge — Other
+ * Hotel» for «Grand Hotel Esempio»), or any company by its legal form
+ * («Palace Resort AG»). The order's own whole name never gets here: it is
+ * postingMatch's direct match.
+ */
+export function namesAnotherEmployer(formText, company) {
+  const onForm = new Set(nameWords(formText));
+  return nameWords(company).some((word) => onForm.has(word)) || LEGAL_FORM_NAME_RE.test(String(formText || ''));
+}
+
 /**
  * The form the posting's own apply button opened. An ATS on another host
  * often names the role and never the company (umantis for Grand Hotel
- * Kronenhof, 2026-10-03: «Concierge - Application», at most the group's
- * name): the company was read on the posting the runner came from
- * (`postingMatched`), the role is read on the form, every word of it. Only a
- * form that is silent about the employer: one that names part of the
- * employer's name and not all of it («Concierge — Other Hotel» for «Grand
- * Hotel Esempio») names another employer, and is a stop whatever the posting
- * said (review of #11033). A form reached any other way is judged by
- * postingMatch alone.
+ * Kronenhof, 2026-10-03: «Concierge - Application», nothing of the employer):
+ * the company was read on the posting the runner came from
+ * (`postingMatched`), the role is read on the form, every word of it.
+ *
+ * Only for a form that is silent about the employer. One that names another
+ * employer (namesAnotherEmployer) is a stop, whatever the posting said and
+ * whatever the role: «Concierge — Other Hotel» is never «Grand Hotel
+ * Esempio»'s form. A form reached any other way is judged by postingMatch
+ * alone.
  */
 export function formPostingMatch(formText, job = {}, { postingMatched = false } = {}) {
   const direct = postingMatch(formText, job);
   if (direct !== 'mismatch' || !postingMatched) return direct;
-  const onForm = new Set(nameWords(formText));
-  if (nameWords(job.company).some((word) => onForm.has(word))) return 'mismatch';
+  // A conflicting employer identity on the form: no fallback to the role.
+  if (namesAnotherEmployer(formText, job.company)) return 'mismatch';
   return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
 }
 
