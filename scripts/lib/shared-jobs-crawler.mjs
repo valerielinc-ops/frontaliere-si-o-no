@@ -2329,7 +2329,7 @@ export function ensureLocaleFields(job) {
       // already holds a partial translation — that repair belongs to the
       // translate pipeline (dedicated-crawler-common enrichJobLocalesDCC), which
       // now accepts flagged slots instead of skipping them.
-      if (verdict.reason === 'source-copy' && sourceLocaleIsPublished) {
+      if (verdict.reason === 'source-copy') {
         const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
         if (hasUsableTitle(heuristicReplacement) &&
             heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
@@ -2337,8 +2337,10 @@ export function ensureLocaleFields(job) {
           titleByLocale[locale] = heuristicReplacement;
         }
       }
-    } else if (!currentTitle && locale !== titleSourceLang && sourceTitle && sourceLocaleIsPublished) {
-      // Locale slot was already empty — try heuristic fill
+    } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
+      // Locale slot was already empty — try a deterministic fill. This also
+      // covers known unsupported-source titles; unknown ones stay empty for
+      // the LLM queue rather than receiving a source-language copy.
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
         hasUsableTitle(translated) &&

@@ -197,6 +197,38 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after.needsRetranslation).toBe(true);
   });
 
+  it('fills known unsupported-source role titles without copying Romansh', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-rm-title-fallback-'));
+    const jobsPath = path.join(tempDir, 'jobs.json');
+    const romansh = 'La redacziun coordinescha ils cussegls editorials e publitgescha '
+      + 'cuntegn per la Svizra rumantscha. '.repeat(8);
+    const jobs = [{
+      slug: 'redactura-redactur-surselva-srg-ssr-zurich',
+      title: 'Redactura / Redactur Surselva',
+      description: romansh,
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Redactura / Redactur Surselva' },
+      descriptionByLocale: { rm: romansh },
+      slugByLocale: { rm: 'redactura-redactur-surselva-srg-ssr-zurich' },
+      needsRetranslation: true,
+    }];
+    fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+
+    hardenJobLocaleFields({ dataJobsPath: jobsPath });
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'))[0];
+
+    expect(after.sourceLang).toBe('rm');
+    expect(after.titleByLocale).toMatchObject({
+      rm: 'Redactura / Redactur Surselva',
+      it: 'Redattrice / Redattore Surselva',
+      en: 'Editor Surselva',
+      de: 'Redaktorin / Redaktor Surselva',
+      fr: 'Rédactrice / Rédacteur Surselva',
+    });
+    expect(after.needsRetranslation).toBe(true);
+  });
+
   it('preserves an unsupported source slot during locale-aware merges', () => {
     const existing = {
       rm: 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis.',

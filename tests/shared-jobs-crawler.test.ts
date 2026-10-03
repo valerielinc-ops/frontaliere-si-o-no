@@ -28,6 +28,28 @@ describe('shared locale normalization', () => {
     expect(out.titleByLocale).toEqual({ rm: 'Fufragnadi' });
     expect(out.descriptionByLocale).toEqual({ rm: romansh });
   });
+
+  it('uses the reviewed Romansh role-title fallback for known SRG/RTR titles', () => {
+    const out = ensureLocaleFields({
+      title: 'Redactura / Redactur Surselva',
+      description: 'La redacziun coordinescha ils cussegls editorials e publitgescha '
+        + 'cuntegn per la Svizra rumantscha.',
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Redactura / Redactur Surselva' },
+      descriptionByLocale: { rm: 'La redacziun coordinescha ils cussegls editorials e publitgescha '
+        + 'cuntegn per la Svizra rumantscha.' },
+      slugByLocale: { rm: 'redactura-redactur-surselva' },
+    });
+
+    expect(out.titleByLocale).toMatchObject({
+      rm: 'Redactura / Redactur Surselva',
+      it: 'Redattrice / Redattore Surselva',
+      en: 'Editor Surselva',
+      de: 'Redaktorin / Redaktor Surselva',
+      fr: 'Rédactrice / Rédacteur Surselva',
+    });
+  });
 });
 
 describe('crawlWorkdayJobs — concrete Swiss location default (#9210)', () => {
