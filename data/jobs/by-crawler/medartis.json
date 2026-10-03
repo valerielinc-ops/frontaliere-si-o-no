@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-10-02T21:29:05.555Z",
+  "assembledAt": "2026-10-03T09:31:43.091Z",
   "jobs": [
     {
       "id": "medartis-97cc50a9d8d3",
@@ -34,7 +34,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:59.171Z",
+      "crawledAt": "2026-10-03T09:31:33.259Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktionsmitarbeiter-in-reinraum-medartis-basel"
+        "produktionsmitarbeiter-in-reinraum-medartis-basel",
+        "personale-di-produzione-camera-pulita-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-in-reinraum-medartis-basel"
+          "produktionsmitarbeiter-in-reinraum-medartis-basel",
+          "personale-di-produzione-camera-pulita-medartis-basel"
         ],
         "en": [
           "produktionsmitarbeiter-in-reinraum-medartis-basel"
@@ -112,7 +114,7 @@
       "url": "https://careers.medartis.com/job/Senior-Global-Product-Manager-CMF/1443182933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:58.052Z",
+      "crawledAt": "2026-10-03T09:31:27.804Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -151,7 +153,7 @@
         "it": "supporto-per-la-gestione-dell-apprendimento-medartis-basel",
         "en": "learning-management-support-medartis-basel",
         "de": "learning-management-support-medartis-basel",
-        "fr": "appui-a-la-gestion-de-l-apprentissage-medartis-basel"
+        "fr": "learning-management-support-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -176,7 +178,7 @@
       "url": "https://careers.medartis.com/job/Learning-Management-Support/1437659533/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:56.570Z",
+      "crawledAt": "2026-10-03T09:31:34.440Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -194,13 +196,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "learning-management-support-medartis-basel"
+        "learning-management-support-medartis-basel",
+        "appui-a-la-gestion-de-l-apprentissage-medartis-basel",
+        "supporto-per-la-gestione-dell-apprendimento-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "learning-management-support-medartis-basel"
+          "learning-management-support-medartis-basel",
+          "supporto-per-la-gestione-dell-apprendimento-medartis-basel"
         ],
         "fr": [
+          "appui-a-la-gestion-de-l-apprentissage-medartis-basel",
           "learning-management-support-medartis-basel"
         ]
       },
@@ -253,7 +259,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:56.032Z",
+      "crawledAt": "2026-10-03T09:31:32.584Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -271,11 +277,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "plm-support-specialist-medartis-basel"
+        "plm-support-specialist-medartis-basel",
+        "plm-support-specialista-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "plm-support-specialist-medartis-basel"
+          "plm-support-specialist-medartis-basel",
+          "plm-support-specialista-medartis-basel"
         ],
         "fr": [
           "plm-support-specialist-medartis-basel"
@@ -294,7 +302,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medartis-7f8bfe8b8066",
@@ -327,7 +336,7 @@
       "url": "https://careers.medartis.com/job/Junior-Finance-Manager/1428557533/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:55.544Z",
+      "crawledAt": "2026-10-03T09:31:31.814Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -345,11 +354,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-finance-manager-medartis-basel"
+        "junior-finance-manager-medartis-basel",
+        "junior-finanza-manager-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-finance-manager-medartis-basel"
+          "junior-finance-manager-medartis-basel",
+          "junior-finanza-manager-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-08-21T10:03:09.237Z",
@@ -365,7 +376,8 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medartis-60ca261bdfcd",
@@ -398,7 +410,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-%28Angular-Java%29/1440347033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:28:55.040Z",
+      "crawledAt": "2026-10-03T09:31:26.136Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -439,7 +451,8 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medartis-34237c54730a",
@@ -472,7 +485,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-AngularJava/1440346933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:54.535Z",
+      "crawledAt": "2026-10-03T09:31:36.581Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -502,7 +515,8 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medartis-9a4ba8e0310b",
@@ -536,7 +550,7 @@
       "url": "https://careers.medartis.com/job/Supply-&-Production-Planner-100/1406388933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:53.219Z",
+      "crawledAt": "2026-10-03T09:31:35.128Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -555,12 +569,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "supply-and-production-planner-100-medartis-basel",
-        "supply-production-planner-100-medartis-basel"
+        "supply-production-planner-100-medartis-basel",
+        "fornitura-e-produzione-planner-100-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "supply-and-production-planner-100-medartis-basel",
-          "supply-production-planner-100-medartis-basel"
+          "supply-production-planner-100-medartis-basel",
+          "fornitura-e-produzione-planner-100-medartis-basel"
         ],
         "fr": [
           "supply-and-production-planner-100-medartis-basel"
@@ -612,7 +628,7 @@
       "url": "https://careers.medartis.com/job/Operator-Plates-%28a%29/1412626233/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:52.700Z",
+      "crawledAt": "2026-10-03T09:31:37.290Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -630,11 +646,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operator-plates-a-medartis-basel"
+        "operator-plates-a-medartis-basel",
+        "piastre-di-comando-a-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operator-plates-a-medartis-basel"
+          "operator-plates-a-medartis-basel",
+          "piastre-di-comando-a-medartis-basel"
         ],
         "fr": [
           "operator-plates-a-medartis-basel"
@@ -687,7 +705,7 @@
       "url": "https://careers.medartis.com/job/Instandhaltungsspezialistin-Reinraum-und-L%C3%BCftungstechnik/1416293333/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:51.894Z",
+      "crawledAt": "2026-10-03T09:31:35.857Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -764,7 +782,7 @@
       "url": "https://careers.medartis.com/job/Mechanist-Screws-100/1403452933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:51.384Z",
+      "crawledAt": "2026-10-03T09:31:30.127Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -782,11 +800,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechanist-screws-100-medartis-basel"
+        "mechanist-screws-100-medartis-basel",
+        "viti-meccanici-100-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechanist-screws-100-medartis-basel"
+          "mechanist-screws-100-medartis-basel",
+          "viti-meccanici-100-medartis-basel"
         ],
         "en": [
           "mechanist-screws-100-medartis-basel"
@@ -808,7 +828,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "medartis-dfe895815ae4",

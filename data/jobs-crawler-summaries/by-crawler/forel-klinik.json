@@ -1,7 +1,7 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-10-02T21:30:17.484Z",
+  "generatedAt": "2026-10-03T09:29:55.632Z",
   "total": 2,
   "discovered": null,
   "parsed": 3,
@@ -14,11 +14,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3801,
-  "avgDurationMs": 3801,
+  "durationMs": 5038,
+  "avgDurationMs": 5038,
   "durationHistory": [
     3701,
-    3801
+    3801,
+    5038
   ],
   "newJobs": [
     {
@@ -34,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:30:08.445Z",
+      "crawledAt": "2026-10-03T09:29:45.293Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -47,7 +48,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
       "_qualityScore": 64,
       "_qualityBreakdown": {
@@ -72,7 +73,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:30:08.896Z",
+      "crawledAt": "2026-10-03T09:29:45.877Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +110,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:30:09.350Z",
+      "crawledAt": "2026-10-03T09:29:46.461Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
