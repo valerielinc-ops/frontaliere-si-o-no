@@ -7619,6 +7619,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deposito-modulo-conciliazione.title': 'Schweizer Mietmarkt 2026: St. Gallen',
     'blog.article.deposito-modulo-conciliazione.excerpt': 'Mieten in der Schweiz im Jahr 2026: Kaution von höchstens drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung des Vermieters in St. Gallen anzufechten.',
     'blog.article.deposito-modulo-conciliazione.imageAlt': 'Schweizer Wohngebäude für einen Artikel über den Mietmarkt',
+    'blog.article.diritti-casa-san-gallo.title': 'Mieten in der Schweiz 2026: Regeln im Kanton St. Gallen',
+    'blog.article.diritti-casa-san-gallo.excerpt': 'Kaution von bis zu drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung anzufechten: die bundesrechtlichen Regeln für St. Gallen.',
+    'blog.article.diritti-casa-san-gallo.imageAlt': 'Schweizer Panorama für einen Ratgeber zu Mietmarkt und Mieterrechten',
 };
 
 export default blogMetaChDe;

@@ -7619,6 +7619,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.deposito-modulo-conciliazione.title': 'Mercato degli affitti in Svizzera 2026: San Gallo',
     'blog.article.deposito-modulo-conciliazione.excerpt': 'Affitti in Svizzera nel 2026: deposito massimo di tre mensilità, conto vincolato e 30 giorni per contestare la disdetta del locatore a San Gallo.',
     'blog.article.deposito-modulo-conciliazione.imageAlt': 'Edificio residenziale svizzero per un articolo sul mercato degli affitti',
+    'blog.article.diritti-casa-san-gallo.title': 'Affitti Svizzera 2026: regole nel canton San Gallo',
+    'blog.article.diritti-casa-san-gallo.excerpt': 'Deposito cauzionale fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta: le regole federali per San Gallo.',
+    'blog.article.diritti-casa-san-gallo.imageAlt': 'Panorama svizzero per una guida sul mercato degli affitti e sui diritti dell\'inquilino',
 };
 
 export default blogMetaChIt;

@@ -7619,6 +7619,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deposito-modulo-conciliazione.title': 'Swiss rental market 2026: St. Gallen',
     'blog.article.deposito-modulo-conciliazione.excerpt': 'Rentals in Switzerland in 2026: maximum deposit of three months\' rent, an escrow account, and 30 days to challenge the landlord\'s termination notice in St. Gallen.',
     'blog.article.deposito-modulo-conciliazione.imageAlt': 'Swiss residential building for an article about the rental market',
+    'blog.article.diritti-casa-san-gallo.title': 'Switzerland Rentals 2026: rules in the canton of St. Gallen',
+    'blog.article.diritti-casa-san-gallo.excerpt': 'Security deposit of up to three months\' rent, a blocked account and 30 days to challenge the notice of termination: the federal rules for St. Gallen.',
+    'blog.article.diritti-casa-san-gallo.imageAlt': 'Swiss panorama for a guide to the rental market and tenants\' rights',
 };
 
 export default blogMetaChEn;

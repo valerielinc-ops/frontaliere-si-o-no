@@ -7619,6 +7619,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deposito-modulo-conciliazione.title': 'Marché locatif en Suisse 2026 : Saint-Gall',
     'blog.article.deposito-modulo-conciliazione.excerpt': 'Locations en Suisse en 2026 : dépôt de garantie maximal de trois mois de loyer, compte bloqué et 30 jours pour contester la résiliation du bailleur à Saint-Gall.',
     'blog.article.deposito-modulo-conciliazione.imageAlt': 'Immeuble résidentiel suisse pour un article sur le marché locatif',
+    'blog.article.diritti-casa-san-gallo.title': 'Loyers en Suisse 2026 : règles dans le canton de Saint-Gall',
+    'blog.article.diritti-casa-san-gallo.excerpt': 'Garantie de loyer jusqu’à trois mois de loyer, compte bloqué et 30 jours pour contester la résiliation : les règles fédérales pour Saint-Gall.',
+    'blog.article.diritti-casa-san-gallo.imageAlt': 'Panorama suisse pour un guide du marché locatif et des droits des locataires',
 };
 
 export default blogMetaChFr;

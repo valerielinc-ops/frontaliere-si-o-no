@@ -22885,6 +22885,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'diritti-casa-san-gallo',
+    category: 'pratico',
+    date: '2026-10-03T04:06:28.825Z',
+    image: '/images/blog/diritti-casa-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
