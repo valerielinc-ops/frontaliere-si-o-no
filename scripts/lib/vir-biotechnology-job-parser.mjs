@@ -168,11 +168,21 @@ function hasGreenhouseIdentity(job = {}) {
   return Boolean(job?.title && job?.id);
 }
 
+function isGreenhouseObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
 function hasGreenhouseLocationPayload(job = {}) {
-  const locationName = normalizeSpace(job?.location?.name || '');
-  const officeNames = Array.isArray(job?.offices)
-    ? job.offices.map((office) => normalizeSpace(office?.name || '')).filter(Boolean)
-    : [];
+  const location = job?.location;
+  const offices = job?.offices;
+  if (!isGreenhouseObject(location) || !Array.isArray(offices)) return false;
+  if (typeof location.name !== 'string') return false;
+  if (!offices.every((office) => isGreenhouseObject(office) && typeof office.name === 'string')) {
+    return false;
+  }
+
+  const locationName = normalizeSpace(location.name);
+  const officeNames = offices.map((office) => normalizeSpace(office.name)).filter(Boolean);
   return Boolean(locationName || officeNames.length > 0);
 }
 

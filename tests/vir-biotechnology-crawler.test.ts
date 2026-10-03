@@ -192,6 +192,24 @@ describe('classifyGreenhouseResponse — zero-job evidence', () => {
     });
   });
 
+  it('rejects a changed offices container even when location text remains present', () => {
+    expect(classifyGreenhouseResponse({
+      jobs: [{
+        id: 200003,
+        title: 'Scientist',
+        location: { name: 'Remote' },
+        offices: { name: 'Bellinzona, Switzerland' },
+      }],
+    })).toMatchObject({
+      discovered: 1,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    });
+  });
+
   it('distinguishes transport and endpoint failures from source zero', () => {
     expect(classifyGreenhouseFetchError(new TypeError('fetch failed'))).toEqual({
       lastFetchOutcome: 'connection_error',
