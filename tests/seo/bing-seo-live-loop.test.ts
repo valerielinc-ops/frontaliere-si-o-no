@@ -105,6 +105,43 @@ describe('Bing SEO live contract', () => {
     expect(install?.env?.ONNXRUNTIME_NODE_INSTALL).toBe('skip');
   });
 
+  it('checks out the crawler import closure for every tree job', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.resolve('.github/workflows/bing-seo-loop.yml'), 'utf8'),
+    ) as {
+      jobs?: Record<string, {
+        steps?: Array<{
+          uses?: string;
+          with?: { 'sparse-checkout'?: string };
+        }>;
+      }>;
+    };
+    const requiredJobs = [
+      'tree-inventory',
+      'tree-crawl',
+      'tree-discovered-inventory',
+      'tree-discovered-crawl',
+      'tree-report',
+    ];
+    const requiredPaths = [
+      '/scripts/lib/professionLandingsSections.mjs',
+      '/data/profession-landing-routes.json',
+    ];
+
+    for (const jobName of requiredJobs) {
+      const checkout = workflow.jobs?.[jobName]?.steps?.find(
+        (step) => step.uses?.startsWith('actions/checkout@'),
+      );
+      const sparsePaths = (checkout?.with?.['sparse-checkout'] || '')
+        .split('\n')
+        .map((entry) => entry.trim())
+        .filter(Boolean);
+      expect(sparsePaths, `${jobName}: crawler import closure`).toEqual(
+        expect.arrayContaining(requiredPaths),
+      );
+    }
+  });
+
   it('accepts a canonical after redirect and reports a stale IndexNow URL as warning', async () => {
     const titleUrl = BING_TITLE_AUDIT_URLS[0];
     const staleUrl = BING_INDEXNOW_REMEDIATION_URLS.at(-1);
