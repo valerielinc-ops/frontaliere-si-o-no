@@ -19,6 +19,9 @@ import {
   descriptionRepeatsRegion,
   implausibilityReasons,
 } from '../scripts/lib/job-location-plausibility.mjs';
+import { buildAssembledJobIdentity, buildStableJobIdentity } from '../scripts/lib/job-identity.mjs';
+import { resolveGalenicaCanton } from '../scripts/update-galenica-jobs.mjs';
+import { inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 
 describe('implausibilityReasons — layer 6', () => {
   it('accepts every shape a real Swiss municipality has', () => {
@@ -127,5 +130,33 @@ describe('descriptionRepeatsRegion — layer 5, the frozen half', () => {
     expect(descriptionRepeatsRegion(withDescription('x'), '', 'BE')).toBeNull();
     expect(descriptionRepeatsRegion(withDescription('x'), 'Bern', '')).toBeNull();
     expect(descriptionRepeatsRegion({ descriptionByLocale: {} }, 'Bern', 'BE')).toBeNull();
+  });
+});
+
+describe('source-backed Galenica location audit — issue #11049', () => {
+  const rows = [
+    { city: 'Sion', sourceState: 'VD', companyDefault: 'VD' },
+    { city: 'Moutier', sourceState: 'BE', companyDefault: 'BE' },
+  ] as const;
+
+  it('has zero city/canton mismatches and zero company-default fallbacks', () => {
+    const audited = rows.map((row) => ({
+      ...row,
+      canton: resolveGalenicaCanton({ city: row.city, state: row.sourceState }),
+      inferred: inferAnyCanton(row.city),
+    }));
+    const cantonMismatch = audited.filter((row) => row.canton !== row.inferred);
+    const companyDefaultFallback = audited.filter(
+      (row) => row.canton === row.companyDefault && row.inferred !== row.companyDefault,
+    );
+    expect(cantonMismatch).toEqual([]);
+    expect(companyDefaultFallback).toEqual([]);
+  });
+
+  it('keeps Galenica requisitions on separate canton-pin identities', () => {
+    const sion = { url: 'https://jobs.galenica.com/it/jobs/#job.id=3138488.4071080' };
+    const moutier = { url: 'https://jobs.galenica.com/it/jobs/#job.id=12692287' };
+    expect(buildStableJobIdentity(sion)).toBe(buildStableJobIdentity(moutier));
+    expect(buildAssembledJobIdentity(sion)).not.toBe(buildAssembledJobIdentity(moutier));
   });
 });
