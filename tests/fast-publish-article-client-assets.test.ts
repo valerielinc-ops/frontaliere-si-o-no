@@ -79,6 +79,21 @@ describe('rerender article hubs workflow', () => {
     expect(hubDriver).toContain('refusing to move the client behind the hub');
   });
 
+  it('defers armed rerenders while the stable corpus sync PR is open', () => {
+    expect(hubWorkflow).toContain('id: corpus_sync');
+    expect(hubWorkflow).toContain('--head chore/sync-articles-sitemaps');
+    expect(hubWorkflow).toContain('echo "deferred=true" >> "$GITHUB_OUTPUT"');
+    expect(hubWorkflow).toContain(
+      "if: steps.corpus_sync.outputs.deferred != 'true' && steps.mode.outputs.dry != 'true'",
+    );
+    expect(hubWorkflow).toContain(
+      "if: success() && steps.corpus_sync.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'",
+    );
+    expect(hubWorkflow).toContain(
+      "if: failure() && steps.corpus_sync.outputs.deferred != 'true'",
+    );
+  });
+
   it('defers a published-ahead ID gap even when the manifest count still matches', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
