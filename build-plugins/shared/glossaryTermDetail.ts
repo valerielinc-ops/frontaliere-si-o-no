@@ -60,6 +60,24 @@ export interface GlossaryTermFacts {
   example: string;
 }
 
+/** Extract the canonical Italian URL slug used to identify a glossary term. */
+export function glossaryTermSlugFromItalianPath(path: string): string | null {
+  return /^\/glossario-frontaliere\/([^/]+)\/?$/.exec(path)?.[1] ?? null;
+}
+
+/**
+ * Resolve a term from the canonical source path used by the SSG. Locale
+ * variants have different route prefixes and, for a few terms, different
+ * translated slugs; the Italian source path is the stable registry key.
+ */
+export function resolveGlossaryTermIdFromItalianPath(
+  path: string,
+  termIdBySlug: ReadonlyMap<string, string>,
+): string | undefined {
+  const slug = glossaryTermSlugFromItalianPath(path);
+  return slug ? termIdBySlug.get(slug) : undefined;
+}
+
 /** The SPA glossary strings for one term, or null when any of the three is missing. */
 export function glossaryTermFacts(termId: string, locale: GlossaryDetailLocale): GlossaryTermFacts | null {
   const t = STATS[locale];

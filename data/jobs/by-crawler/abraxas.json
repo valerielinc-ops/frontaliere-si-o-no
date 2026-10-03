@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-10-02T09:19:29.791Z",
+  "assembledAt": "2026-10-02T21:17:49.201Z",
   "jobs": [
     {
       "id": "abraxas-a11a2b656e85",
@@ -17,7 +17,7 @@
       "title": "System Engineer mit Projekterfahrung 80–100 %",
       "titleByLocale": {
         "it": "System Ingegnere con Projekterfahrung 80–100 %",
-        "en": "System Engineer mit Projekterfahrung 80–100 %",
+        "en": "System Engineer with project experience 80-100%",
         "de": "System Ingenieur mit Projekterfahrung 80–100 %",
         "fr": "System Ingénieur mit Projekterfahrung 80–100 %"
       },
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-mit-projekterfahrung-80-100-8712",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:25.092Z",
+      "crawledAt": "2026-10-02T21:17:41.717Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -56,20 +56,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen",
-        "system-ingegnere-con-projekterfahrung-80-100-abraxas-informatik-ag-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen",
-          "system-ingegnere-con-projekterfahrung-80-100-abraxas-informatik-ag-st-gallen"
-        ],
-        "fr": [
-          "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:18:59.011Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -82,15 +68,27 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-10-01T09:18:59.011Z",
+      "previousSlugs": [
+        "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen"
+        ],
+        "fr": [
+          "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen"
+        ]
       }
     },
     {
       "id": "abraxas-da46b9626554",
       "slug": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
       "slugByLocale": {
+        "de": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
         "it": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
         "en": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
-        "de": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
         "fr": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -98,16 +96,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
       "titleByLocale": {
-        "it": "Software Solution Architekt:in 80–100 % con Schwerpunkt Pre-Sales",
-        "en": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
         "de": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
+        "en": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
+        "it": "Software Solution Architekt:in 80–100 % con Schwerpunkt Pre-Sales",
         "fr": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales"
       },
       "description": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
+        "de": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "en": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "de": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
       },
       "location": "St. Gallen",
@@ -115,7 +113,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-7856",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:24.618Z",
+      "crawledAt": "2026-10-02T21:17:41.232Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -130,10 +128,12 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://apply.refline.ch/215876/2066/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "externalId": "215876-2066",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -184,8 +184,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:24.142Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-02T21:17:40.753Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -224,28 +223,28 @@
     },
     {
       "id": "abraxas-584e358423fd",
-      "slug": "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+      "slug": "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "it": "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
-        "en": "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
         "de": "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
-        "fr": "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        "it": "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen",
+        "en": "software-architect-in-the-tax-area-80-100-abraxas-informatik-ag-st-gallen",
+        "fr": "architecte-logiciel-dans-le-domaine-fiscal-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
       "title": "Software Architekt:in im Steuerbereich 80–100 %",
       "titleByLocale": {
-        "it": "Software Architekt:in im Steuerbereich 80–100 %",
-        "en": "Software Architekt:in im Steuerbereich 80–100 %",
         "de": "Software Architekt:in im Steuerbereich 80–100 %",
-        "fr": "Software Architekt:in im Steuerbereich 80–100 %"
+        "it": "Software Architetto: nell'area fiscale 80-100%",
+        "en": "Software Architect: in the tax area 80-100%",
+        "fr": "Architecte logiciel: dans le domaine fiscal 80-100%"
       },
       "description": "Bist auch du der Meinung, dass an modernen Software-Architekturen kein Weg vorbeiführt? Bist du ein Macher und Visionär, der sich aktiv einbringen und unsere Architektur-Themen erarbeiten und vorantreiben möchte? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Umsetzung geplanter technischer Vorhaben. Dabei arbeitest du eng mit deinen Teamkollegen zusammen und sorgst gemeinsam mit ihnen für effiziente und nachhaltige Softwarelösungen in unseren modernen Steuerlösungen.\nWir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und suchen DICH zur Unterstützung auf unserem Weg zu qualitativ hochwertigen Applikationen, die unsere Kunden lieben werden.\nDeine Rolle\n• Du unterstützt unsere Kunden bei der Einführung neuer Software Releases sowie die Scrum Teams bei der Umsetzung der Micro-Service Architektur\n• Du hast den Technical Debt im Blick, priorisierst dessen Umsetzung und treibst technische Verbesserungen unserer Steuerlösungen voran\n• Du übernimmst den technischen Lead in Projekten\n• Du treibst Architektur-Diskussionen voran, machst Vorschläge und diskutierst Lösungen für unsere Produkte\n• Du legst Wert auf eine saubere Architektur Dokumentation und setzt diese auch um\n• Du unterstützt die Weiterentwicklung unserer CI/CD Pipeline und die Überwachung der Applikation innerhalb eines Kubernetes Cluster\n• Du bist technischer Ansprechpartner und Berater für die agilen Software-Entwicklungs-Teams und vermittelst komplexe Inhalte und Konzepte verständlich\n• Du berätst und analysierst die Kundenanfragen und leistest technischen Kunden-Support\nDein Profil\n• Mindestens 5 Jahre Erfahrung als Senior Software Engineer oder Technical Lead\n• Studium in Richtung Informatik oder gleichwertige Berufserfahrung\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Spring Boot, Micro-Services, Maven\n• Cloud-Technologie, Service-orientierter Architektur, Microservices, Container und verwandte Aktivierungssysteme oder Tools wie Kubernetes sind keine Fremdwörter für dich\n• Erfahrung mit SQL Datenbanken (Oracle, Hibernate, Liquibase)\n• Erfahrung in Plattformen und Tools wie beispielsweise GitLab, Docker, Kubernetes sind ein Plus\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
+        "de": "Bist auch du der Meinung, dass an modernen Software-Architekturen kein Weg vorbeiführt? Bist du ein Macher und Visionär, der sich aktiv einbringen und unsere Architektur-Themen erarbeiten und vorantreiben möchte? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Umsetzung geplanter technischer Vorhaben. Dabei arbeitest du eng mit deinen Teamkollegen zusammen und sorgst gemeinsam mit ihnen für effiziente und nachhaltige Softwarelösungen in unseren modernen Steuerlösungen.\nWir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und suchen DICH zur Unterstützung auf unserem Weg zu qualitativ hochwertigen Applikationen, die unsere Kunden lieben werden.\nDeine Rolle\n• Du unterstützt unsere Kunden bei der Einführung neuer Software Releases sowie die Scrum Teams bei der Umsetzung der Micro-Service Architektur\n• Du hast den Technical Debt im Blick, priorisierst dessen Umsetzung und treibst technische Verbesserungen unserer Steuerlösungen voran\n• Du übernimmst den technischen Lead in Projekten\n• Du treibst Architektur-Diskussionen voran, machst Vorschläge und diskutierst Lösungen für unsere Produkte\n• Du legst Wert auf eine saubere Architektur Dokumentation und setzt diese auch um\n• Du unterstützt die Weiterentwicklung unserer CI/CD Pipeline und die Überwachung der Applikation innerhalb eines Kubernetes Cluster\n• Du bist technischer Ansprechpartner und Berater für die agilen Software-Entwicklungs-Teams und vermittelst komplexe Inhalte und Konzepte verständlich\n• Du berätst und analysierst die Kundenanfragen und leistest technischen Kunden-Support\nDein Profil\n• Mindestens 5 Jahre Erfahrung als Senior Software Engineer oder Technical Lead\n• Studium in Richtung Informatik oder gleichwertige Berufserfahrung\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Spring Boot, Micro-Services, Maven\n• Cloud-Technologie, Service-orientierter Architektur, Microservices, Container und verwandte Aktivierungssysteme oder Tools wie Kubernetes sind keine Fremdwörter für dich\n• Erfahrung mit SQL Datenbanken (Oracle, Hibernate, Liquibase)\n• Erfahrung in Plattformen und Tools wie beispielsweise GitLab, Docker, Kubernetes sind ein Plus\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Bist auch du der Meinung, dass an modernen Software-Architekturen kein Weg vorbeiführt? Bist du ein Macher und Visionär, der sich aktiv einbringen und unsere Architektur-Themen erarbeiten und vorantreiben möchte? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Umsetzung geplanter technischer Vorhaben. Dabei arbeitest du eng mit deinen Teamkollegen zusammen und sorgst gemeinsam mit ihnen für effiziente und nachhaltige Softwarelösungen in unseren modernen Steuerlösungen.\nWir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und suchen DICH zur Unterstützung auf unserem Weg zu qualitativ hochwertigen Applikationen, die unsere Kunden lieben werden.\nDeine Rolle\n• Du unterstützt unsere Kunden bei der Einführung neuer Software Releases sowie die Scrum Teams bei der Umsetzung der Micro-Service Architektur\n• Du hast den Technical Debt im Blick, priorisierst dessen Umsetzung und treibst technische Verbesserungen unserer Steuerlösungen voran\n• Du übernimmst den technischen Lead in Projekten\n• Du treibst Architektur-Diskussionen voran, machst Vorschläge und diskutierst Lösungen für unsere Produkte\n• Du legst Wert auf eine saubere Architektur Dokumentation und setzt diese auch um\n• Du unterstützt die Weiterentwicklung unserer CI/CD Pipeline und die Überwachung der Applikation innerhalb eines Kubernetes Cluster\n• Du bist technischer Ansprechpartner und Berater für die agilen Software-Entwicklungs-Teams und vermittelst komplexe Inhalte und Konzepte verständlich\n• Du berätst und analysierst die Kundenanfragen und leistest technischen Kunden-Support\nDein Profil\n• Mindestens 5 Jahre Erfahrung als Senior Software Engineer oder Technical Lead\n• Studium in Richtung Informatik oder gleichwertige Berufserfahrung\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Spring Boot, Micro-Services, Maven\n• Cloud-Technologie, Service-orientierter Architektur, Microservices, Container und verwandte Aktivierungssysteme oder Tools wie Kubernetes sind keine Fremdwörter für dich\n• Erfahrung mit SQL Datenbanken (Oracle, Hibernate, Liquibase)\n• Erfahrung in Plattformen und Tools wie beispielsweise GitLab, Docker, Kubernetes sind ein Plus\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "en": "Bist auch du der Meinung, dass an modernen Software-Architekturen kein Weg vorbeiführt? Bist du ein Macher und Visionär, der sich aktiv einbringen und unsere Architektur-Themen erarbeiten und vorantreiben möchte? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Umsetzung geplanter technischer Vorhaben. Dabei arbeitest du eng mit deinen Teamkollegen zusammen und sorgst gemeinsam mit ihnen für effiziente und nachhaltige Softwarelösungen in unseren modernen Steuerlösungen.\nWir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und suchen DICH zur Unterstützung auf unserem Weg zu qualitativ hochwertigen Applikationen, die unsere Kunden lieben werden.\nDeine Rolle\n• Du unterstützt unsere Kunden bei der Einführung neuer Software Releases sowie die Scrum Teams bei der Umsetzung der Micro-Service Architektur\n• Du hast den Technical Debt im Blick, priorisierst dessen Umsetzung und treibst technische Verbesserungen unserer Steuerlösungen voran\n• Du übernimmst den technischen Lead in Projekten\n• Du treibst Architektur-Diskussionen voran, machst Vorschläge und diskutierst Lösungen für unsere Produkte\n• Du legst Wert auf eine saubere Architektur Dokumentation und setzt diese auch um\n• Du unterstützt die Weiterentwicklung unserer CI/CD Pipeline und die Überwachung der Applikation innerhalb eines Kubernetes Cluster\n• Du bist technischer Ansprechpartner und Berater für die agilen Software-Entwicklungs-Teams und vermittelst komplexe Inhalte und Konzepte verständlich\n• Du berätst und analysierst die Kundenanfragen und leistest technischen Kunden-Support\nDein Profil\n• Mindestens 5 Jahre Erfahrung als Senior Software Engineer oder Technical Lead\n• Studium in Richtung Informatik oder gleichwertige Berufserfahrung\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Spring Boot, Micro-Services, Maven\n• Cloud-Technologie, Service-orientierter Architektur, Microservices, Container und verwandte Aktivierungssysteme oder Tools wie Kubernetes sind keine Fremdwörter für dich\n• Erfahrung mit SQL Datenbanken (Oracle, Hibernate, Liquibase)\n• Erfahrung in Plattformen und Tools wie beispielsweise GitLab, Docker, Kubernetes sind ein Plus\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "de": "Bist auch du der Meinung, dass an modernen Software-Architekturen kein Weg vorbeiführt? Bist du ein Macher und Visionär, der sich aktiv einbringen und unsere Architektur-Themen erarbeiten und vorantreiben möchte? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Umsetzung geplanter technischer Vorhaben. Dabei arbeitest du eng mit deinen Teamkollegen zusammen und sorgst gemeinsam mit ihnen für effiziente und nachhaltige Softwarelösungen in unseren modernen Steuerlösungen.\nWir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und suchen DICH zur Unterstützung auf unserem Weg zu qualitativ hochwertigen Applikationen, die unsere Kunden lieben werden.\nDeine Rolle\n• Du unterstützt unsere Kunden bei der Einführung neuer Software Releases sowie die Scrum Teams bei der Umsetzung der Micro-Service Architektur\n• Du hast den Technical Debt im Blick, priorisierst dessen Umsetzung und treibst technische Verbesserungen unserer Steuerlösungen voran\n• Du übernimmst den technischen Lead in Projekten\n• Du treibst Architektur-Diskussionen voran, machst Vorschläge und diskutierst Lösungen für unsere Produkte\n• Du legst Wert auf eine saubere Architektur Dokumentation und setzt diese auch um\n• Du unterstützt die Weiterentwicklung unserer CI/CD Pipeline und die Überwachung der Applikation innerhalb eines Kubernetes Cluster\n• Du bist technischer Ansprechpartner und Berater für die agilen Software-Entwicklungs-Teams und vermittelst komplexe Inhalte und Konzepte verständlich\n• Du berätst und analysierst die Kundenanfragen und leistest technischen Kunden-Support\nDein Profil\n• Mindestens 5 Jahre Erfahrung als Senior Software Engineer oder Technical Lead\n• Studium in Richtung Informatik oder gleichwertige Berufserfahrung\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Spring Boot, Micro-Services, Maven\n• Cloud-Technologie, Service-orientierter Architektur, Microservices, Container und verwandte Aktivierungssysteme oder Tools wie Kubernetes sind keine Fremdwörter für dich\n• Erfahrung mit SQL Datenbanken (Oracle, Hibernate, Liquibase)\n• Erfahrung in Plattformen und Tools wie beispielsweise GitLab, Docker, Kubernetes sind ein Plus\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Bist auch du der Meinung, dass an modernen Software-Architekturen kein Weg vorbeiführt? Bist du ein Macher und Visionär, der sich aktiv einbringen und unsere Architektur-Themen erarbeiten und vorantreiben möchte? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Umsetzung geplanter technischer Vorhaben. Dabei arbeitest du eng mit deinen Teamkollegen zusammen und sorgst gemeinsam mit ihnen für effiziente und nachhaltige Softwarelösungen in unseren modernen Steuerlösungen.\nWir sind ein motiviertes und dynamisches Software-Entwicklungs-Team und suchen DICH zur Unterstützung auf unserem Weg zu qualitativ hochwertigen Applikationen, die unsere Kunden lieben werden.\nDeine Rolle\n• Du unterstützt unsere Kunden bei der Einführung neuer Software Releases sowie die Scrum Teams bei der Umsetzung der Micro-Service Architektur\n• Du hast den Technical Debt im Blick, priorisierst dessen Umsetzung und treibst technische Verbesserungen unserer Steuerlösungen voran\n• Du übernimmst den technischen Lead in Projekten\n• Du treibst Architektur-Diskussionen voran, machst Vorschläge und diskutierst Lösungen für unsere Produkte\n• Du legst Wert auf eine saubere Architektur Dokumentation und setzt diese auch um\n• Du unterstützt die Weiterentwicklung unserer CI/CD Pipeline und die Überwachung der Applikation innerhalb eines Kubernetes Cluster\n• Du bist technischer Ansprechpartner und Berater für die agilen Software-Entwicklungs-Teams und vermittelst komplexe Inhalte und Konzepte verständlich\n• Du berätst und analysierst die Kundenanfragen und leistest technischen Kunden-Support\nDein Profil\n• Mindestens 5 Jahre Erfahrung als Senior Software Engineer oder Technical Lead\n• Studium in Richtung Informatik oder gleichwertige Berufserfahrung\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Spring Boot, Micro-Services, Maven\n• Cloud-Technologie, Service-orientierter Architektur, Microservices, Container und verwandte Aktivierungssysteme oder Tools wie Kubernetes sind keine Fremdwörter für dich\n• Erfahrung mit SQL Datenbanken (Oracle, Hibernate, Liquibase)\n• Erfahrung in Plattformen und Tools wie beispielsweise GitLab, Docker, Kubernetes sind ein Plus\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
       },
       "location": "St. Gallen",
@@ -253,7 +252,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-6610",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:23.666Z",
+      "crawledAt": "2026-10-02T21:17:40.251Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -268,10 +267,12 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://apply.refline.ch/215876/2336/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "externalId": "215876-2336",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -289,14 +290,28 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        ],
+        "en": [
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        ],
+        "fr": [
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+      ]
     },
     {
       "id": "abraxas-5d8d6c85cc23",
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
         "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -322,8 +337,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:23.192Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-02T21:17:39.754Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -347,18 +361,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-        "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
-        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
         ],
         "en": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-          "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
           "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
@@ -411,7 +421,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:22.717Z",
+      "crawledAt": "2026-10-02T21:17:39.274Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -435,13 +445,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
-        "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
+        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
-          "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
         ],
         "en": [
           "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
@@ -496,8 +504,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:22.243Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-02T21:17:38.797Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -523,16 +530,14 @@
         "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
         "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
         "senior-linux-engineer-abraxas-zurich-flughafen",
-        "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen",
-        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
           "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
           "senior-linux-engineer-abraxas-zurich-flughafen",
-          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen",
-          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-linux-engineer-abraxas-zurich-flughafen"
@@ -588,7 +593,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:21.768Z",
+      "crawledAt": "2026-10-02T21:17:38.316Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -613,14 +618,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
-        "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
+        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
-          "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
+          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen"
         ],
         "de": [
           "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern"
@@ -672,7 +675,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-4522",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:21.293Z",
+      "crawledAt": "2026-10-02T21:17:37.838Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -741,7 +744,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operations-engineer-engineer-staedte-amp-gemeinden-80-100-8816",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:20.815Z",
+      "crawledAt": "2026-10-02T21:17:37.348Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -765,13 +768,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
-        "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
+        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
-          "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
+          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
         ],
         "fr": [
           "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
@@ -823,7 +824,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-6332",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:20.338Z",
+      "crawledAt": "2026-10-02T21:17:36.870Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -849,14 +850,12 @@
       "previousSlugs": [
         "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
         "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
-          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-          "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
@@ -909,8 +908,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:19.862Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-02T21:17:36.394Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -978,7 +976,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:19.383Z",
+      "crawledAt": "2026-10-02T21:17:35.918Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1002,13 +1000,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
-        "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
-          "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
         ],
         "en": [
           "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
@@ -1060,7 +1056,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-80-100-4539",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:18.904Z",
+      "crawledAt": "2026-10-02T21:17:35.444Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1083,20 +1079,18 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "business-analyst-80-100-abraxas-zurich-flughafen",
-        "business-analista-80-100-abraxas-informatik-ag-zurich-flughafen"
-      ],
+      "firstSeenAt": "2026-09-30T21:22:52.864Z",
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-80-100-abraxas-zurich-flughafen",
-          "business-analista-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "business-analyst-80-100-abraxas-zurich-flughafen"
         ],
         "fr": [
           "business-analyst-80-100-abraxas-zurich-flughafen"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:22:52.864Z",
+      "previousSlugs": [
+        "business-analyst-80-100-abraxas-zurich-flughafen"
+      ],
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -1142,8 +1136,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-7621",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:18.291Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-02T21:17:34.970Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1168,15 +1161,13 @@
       "previousSlugs": [
         "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
         "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
-        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
           "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
-          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -1231,7 +1222,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-4304",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:19:17.674Z",
+      "crawledAt": "2026-10-02T21:17:34.491Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1254,7 +1245,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-15T11:26:50.976Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1267,7 +1257,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-15T11:26:50.976Z"
     },
     {
       "id": "abraxas-03c2563c44ac",
@@ -1430,7 +1421,7 @@
         }
       },
       "sourceIdentity": "url:https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }

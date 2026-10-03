@@ -245,6 +245,17 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
     expect(freeTranslateWithRetry).not.toHaveBeenCalled();
   });
 
+  it('usa il fallback lessicale approvato per un titolo romancio noto', async () => {
+    const { ctx } = makeCtx({ isAnyModelAvailable: () => false });
+
+    await expect(aiTranslateJobTitleDCC(
+      { title: 'Redactura / Redactur Surselva', locale: 'it', sourceLang: 'rm' },
+      ctx,
+    )).resolves.toBe('Redattrice / Redattore surselva');
+    expect(ctx.callLLM).not.toHaveBeenCalled();
+    expect(freeTranslateWithRetry).not.toHaveBeenCalled();
+  });
+
   it('riusa la cache romancia valida anche quando il modello non e disponibile', async () => {
     const title = 'Fufragnadi - emprendissadi da prova';
     const cachedTitle = 'Ausbildung bei RTR';

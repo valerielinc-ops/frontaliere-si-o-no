@@ -1,6 +1,6 @@
 {
   "crawlerKey": "barry-callebaut",
-  "assembledAt": "2026-10-02T09:26:20.803Z",
+  "assembledAt": "2026-10-02T21:27:13.087Z",
   "jobs": [
     {
       "id": "barry-callebaut-07e0df5dcc89",
@@ -33,7 +33,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:13.124Z",
+      "crawledAt": "2026-10-02T21:27:08.708Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -116,7 +116,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:13.121Z",
+      "crawledAt": "2026-10-02T21:27:08.706Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -146,7 +146,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:21:12.084Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -193,7 +192,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director-Digital-Finance-%28CO%29-8005/1382505200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:13.117Z",
+      "crawledAt": "2026-10-02T21:27:08.704Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -274,7 +273,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Trader-8005/1435276200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:13.109Z",
+      "crawledAt": "2026-10-02T21:27:08.700Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -289,28 +288,27 @@
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Trader-8005/1435276200/",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-30T21:27:29.052Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cocoa-trader-barry-callebaut-ch",
+          "commerciante-di-cacao-barry-callebaut-zurich"
+        ],
+        "fr": [
+          "cocoa-trader-barry-callebaut-ch"
+        ],
+        "de": [
+          "cocoa-trader-barry-callebaut-ch",
+          "kakaohandler-barry-callebaut-zurich",
+          "cocoa-trader-barry-callebaut-zurich"
+        ]
+      },
       "previousSlugs": [
         "cocoa-trader-barry-callebaut-ch",
         "kakaohandler-barry-callebaut-zurich",
         "commerciante-di-cacao-barry-callebaut-zurich",
         "cocoa-trader-barry-callebaut-zurich"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cocoa-trader-barry-callebaut-ch",
-          "commerciante-di-cacao-barry-callebaut-zurich"
-        ],
-        "de": [
-          "cocoa-trader-barry-callebaut-ch",
-          "kakaohandler-barry-callebaut-zurich",
-          "cocoa-trader-barry-callebaut-zurich"
-        ],
-        "fr": [
-          "cocoa-trader-barry-callebaut-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-30T21:27:29.052Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -324,7 +322,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-10-02T09:11:54.263Z",
+  "generatedAt": "2026-10-02T21:16:24.570Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -10,16 +10,56 @@
   "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4290,
-  "avgDurationMs": 4290,
+  "durationMs": 3783,
+  "avgDurationMs": 3783,
   "durationHistory": [
-    4290
+    4290,
+    3783
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "clariant-e621ca88dbc5",
+      "slug": "senior-manager-national-tax-tax-governance-clariant-pratteln",
+      "company": "Clariant",
+      "companyKey": "clariant",
+      "companyDomain": "clariant.com",
+      "title": "Senior Manager National Tax & Tax Governance",
+      "location": "Pratteln",
+      "canton": "BL",
+      "url": "https://careers.clariant.com/job/Pratteln-Senior-Manager-National-Tax-&-Tax-Governance/1421384933/",
+      "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-02T21:16:18.278Z",
+      "addressLocality": "Pratteln",
+      "addressRegion": "Basel-Landschaft",
+      "streetAddress": "Rothausstrasse 61",
+      "postalCode": "4132",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "finance",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "sector": "Chimica Speciale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-29",
+      "applyUrl": "https://careers.clariant.com/job/Pratteln-Senior-Manager-National-Tax-&-Tax-Governance/1421384933/",
+      "jobReqId": "41654",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:16:31.933Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "clariant-d6a32aa77d6b",
@@ -33,7 +73,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:45.540Z",
+      "crawledAt": "2026-10-02T21:16:17.700Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -57,10 +97,12 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "clariant-e621ca88dbc5",
-      "slug": "senior-manager-national-tax-tax-governance-clariant-pratteln",
+      "slug": "senior-responsabile-governance-nazionale-fiscale-e-fiscale-clariant-pratteln",
       "company": "Clariant",
       "companyKey": "clariant",
       "companyDomain": "clariant.com",
@@ -70,7 +112,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:46.037Z",
+      "crawledAt": "2026-10-01T09:14:43.285Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -86,17 +128,19 @@
       "postedDate": "2026-08-29",
       "applyUrl": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "jobReqId": "41654",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:16:31.933Z",
-      "_qualityScore": 90,
+      "salaryMin": 178000,
+      "salaryMax": 313000,
+      "salarySource": "estimated",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

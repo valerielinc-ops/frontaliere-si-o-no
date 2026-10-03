@@ -1,6 +1,6 @@
 {
   "crawlerKey": "microsoft",
-  "assembledAt": "2026-10-02T09:13:08.067Z",
+  "assembledAt": "2026-10-02T21:16:18.465Z",
   "jobs": [
     {
       "id": "microsoft-200058410",
@@ -33,7 +33,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557008924",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:13:02.502Z",
+      "crawledAt": "2026-10-02T21:16:12.778Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556943701",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:13:02.498Z",
+      "crawledAt": "2026-10-02T21:16:12.774Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,17 +117,14 @@
       "firstSeenAt": "2026-08-10T10:28:35.165Z",
       "previousSlugsByLocale": {
         "it": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ],
         "en": [
-          "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-          "member-of-technical-staff-software-engineer-microsoft-zurich"
+          "member-of-technical-staff-data-research-engineer-microsoft-zurich"
         ]
       },
       "previousSlugs": [
-        "member-of-technical-staff-data-research-engineer-microsoft-zurich",
-        "member-of-technical-staff-software-engineer-microsoft-zurich"
+        "member-of-technical-staff-data-research-engineer-microsoft-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -193,13 +190,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "procurement-manager-microsoft-zurich",
-        "gestione-degli-appalti-microsoft-zurich"
+        "procurement-manager-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "procurement-manager-microsoft-zurich",
-          "gestione-degli-appalti-microsoft-zurich"
+          "procurement-manager-microsoft-zurich"
         ],
         "de": [
           "procurement-manager-microsoft-zurich"
@@ -223,7 +218,8 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "crawlerMissStreak": 1
     },
     {
       "id": "microsoft-200057060",
@@ -256,7 +252,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557002627",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:13:02.493Z",
+      "crawledAt": "2026-10-02T21:16:12.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,13 +334,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "principal-software-engineer-microsoft-zurich",
-        "principal-software-ingegnere-microsoft-zurich"
+        "principal-software-engineer-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-software-engineer-microsoft-zurich",
-          "principal-software-ingegnere-microsoft-zurich"
+          "principal-software-engineer-microsoft-zurich"
         ],
         "de": [
           "principal-software-engineer-microsoft-zurich"
@@ -368,7 +362,8 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "crawlerMissStreak": 1
     },
     {
       "id": "microsoft-200055941",
@@ -418,13 +413,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-microsoft-zurich",
-        "senior-software-ingegnere-microsoft-zurich"
+        "senior-software-engineer-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-microsoft-zurich",
-          "senior-software-ingegnere-microsoft-zurich"
+          "senior-software-engineer-microsoft-zurich"
         ],
         "de": [
           "senior-software-engineer-microsoft-zurich"
@@ -448,7 +441,8 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8058"
+      "postalCode": "8058",
+      "crawlerMissStreak": 1
     },
     {
       "id": "microsoft-200056532",
@@ -481,7 +475,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557000886",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:13:02.484Z",
+      "crawledAt": "2026-10-02T21:16:12.775Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -546,7 +540,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556999805",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:13:02.479Z",
+      "crawledAt": "2026-10-02T21:16:12.776Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -628,13 +622,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich",
-        "soluzione-specialista-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
+        "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich",
-          "soluzione-specialista-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
+          "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
         ],
         "fr": [
           "solution-specialist-ai-business-process-dynamics-365-power-platform-microsoft-zurich"
@@ -657,7 +649,74 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "microsoft-200059040",
+      "slug": "go-to-market-gtm-manager-for-ai-business-solutions-microsoft-zurich",
+      "slugByLocale": {
+        "en": "go-to-market-gtm-manager-for-ai-business-solutions-microsoft-zurich",
+        "it": "go-to-market-gtm-manager-for-ai-business-solutions-microsoft-zurich",
+        "de": "go-to-market-gtm-manager-for-ai-business-solutions-microsoft-zurich",
+        "fr": "gestionnaire-d-acces-au-marche-gtm-pour-ai-business-solutions-microsoft-zurich"
+      },
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Go-to-Market (GTM) Manager for AI Business Solutions",
+      "titleByLocale": {
+        "en": "Go-to-Market (GTM) Manager for AI Business Solutions",
+        "it": "Go-to-Market (GTM) Manager per le soluzioni AI Business",
+        "de": "Go-to-Market (GTM) Manager für AI Business Solutions",
+        "fr": "Gestionnaire d'accès au marché (GTM) pour AI Business Solutions"
+      },
+      "description": "Overview\n\nThe Sales Enablement & Operations (SE&O) team plays an essential role in translating Microsoft’s commercial strategy into local execution and driving operational excellence to achieve strong business outcomes. The team brings together cross-Area insights, strategy and execution to accelerate transformation and enable Microsoft to deliver impact at scale.\n As the Activation Go-to-Market (GTM) Manager for AI Business Solutions in Switzerland, you will help accelerate growth across Microsoft 365 and Cloud Endpoint solutions, including Windows 365 and Azure Virtual Desktop. You will partner closely with Sales Excellence, Sales, Marketing, Consulting, Customer Success and Partner teams to translate strategy into effective local execution.\n You will bring deep understanding of the solution area and market, use data and insights to identify opportunities, and help field teams turn strategic priorities into customer impact. You will drive alignment across teams, simplify execution, optimise pipeline opportunities and help ensure sellers and partners are equipped to deliver against business priorities.\n We are looking for a highly motivated sales, marketing or go-to-market professional who enjoys solving complex business challenges, influencing across a matrixed organisation and turning insights into action. You will act as a thought leader for the solution area, track business performance, identify opportunities and blockers, and create clarity across multiple stakeholders.\n This role offers the opportunity to deepen your business acumen, build expertise across AI-powered productivity and cloud solutions, and influence how Microsoft brings its strategy to customers and partners in Switzerland.\n Microsoft’s mission is to empower every person and every organisation on the planet to achieve more. As employees we come together with a growth mindset, innovate to empower others, and collaborate to realise our shared goals. Each day we build on our values of respect, integrity, and accountability to create a culture of inclusion where everyone can thrive at work and beyond.\n\nResponsibilities\n\n• Drive go-to-market execution for AI-ready productivity and security solutions, identifying growth opportunities across Microsoft 365, ME3 Suites and Cloud Endpoint solutions and translating strategic priorities into clear local execution plans.\n\n• Lead sales activation by partnering with field teams to accelerate customer conversations, pipeline development and execution across segments, connecting sales and marketing activity to maximise business impact.\n\n• Build cross-functional alignment across Sales, Sales Excellence, Marketing, Consulting, Customer Success, Operations and other stakeholders to ensure priorities, processes, tools and business rhythms support effective execution.\n\n• Partner with the Partner organisation to support local partner-led go-to-market activities, demand generation and market execution aligned with Microsoft strategy and solution-area priorities.\n\n• Provide product and market leadership, bringing together customer, partner and field insights, competitive intelligence, sales trends and business performance to identify opportunities, gaps and blockers and inform go-to-market plans.\n\n• Use data and insights to drive action, establishing effective business rhythms, monitoring performance and helping leaders and field teams prioritise investments, resources and opportunities that can accelerate growth.\n\n• Create clarity and enable execution by simplifying complex concepts, communicating priorities effectively, removing roadblocks and influencing stakeholders across a matrixed organisation to deliver shared outcomes.\n\nQualifications\n\nRequired Qualifications\n\n• Experience in sales enablement, business development, sales, pre-sales, marketing strategy, business planning, go-to-market or a related commercial discipline, or equivalent experience.\n\n• Experience translating business or go-to-market strategy into execution and driving alignment across teams in a complex or matrixed organisation.\n\n• Experience using business insights, market knowledge and performance data to identify opportunities and support commercial decision-making.\n Preferred Qualifications\n\n• Experience managing or supporting a product or solution portfolio, including demand generation, pipeline acceleration or sales activation.\n\n• Experience working with technology, cloud, AI, productivity, security or related solutions.\n\n• Experience partnering across Sales, Marketing, Partner, Customer Success or Operations functions to drive business outcomes.\n\nField Product Marketing IC4 - The typical base pay range for this role across Switzerland is CHF 126,000.00 - CHF 208,700.00 per year. Certain roles may be eligible for benefits and other compensation.\n\nFind additional benefits and pay information here:\n https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html\n\nThis position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.\n\nMicrosoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
+      "descriptionByLocale": {
+        "en": "Overview\n\nThe Sales Enablement & Operations (SE&O) team plays an essential role in translating Microsoft’s commercial strategy into local execution and driving operational excellence to achieve strong business outcomes. The team brings together cross-Area insights, strategy and execution to accelerate transformation and enable Microsoft to deliver impact at scale.\n As the Activation Go-to-Market (GTM) Manager for AI Business Solutions in Switzerland, you will help accelerate growth across Microsoft 365 and Cloud Endpoint solutions, including Windows 365 and Azure Virtual Desktop. You will partner closely with Sales Excellence, Sales, Marketing, Consulting, Customer Success and Partner teams to translate strategy into effective local execution.\n You will bring deep understanding of the solution area and market, use data and insights to identify opportunities, and help field teams turn strategic priorities into customer impact. You will drive alignment across teams, simplify execution, optimise pipeline opportunities and help ensure sellers and partners are equipped to deliver against business priorities.\n We are looking for a highly motivated sales, marketing or go-to-market professional who enjoys solving complex business challenges, influencing across a matrixed organisation and turning insights into action. You will act as a thought leader for the solution area, track business performance, identify opportunities and blockers, and create clarity across multiple stakeholders.\n This role offers the opportunity to deepen your business acumen, build expertise across AI-powered productivity and cloud solutions, and influence how Microsoft brings its strategy to customers and partners in Switzerland.\n Microsoft’s mission is to empower every person and every organisation on the planet to achieve more. As employees we come together with a growth mindset, innovate to empower others, and collaborate to realise our shared goals. Each day we build on our values of respect, integrity, and accountability to create a culture of inclusion where everyone can thrive at work and beyond.\n\nResponsibilities\n\n• Drive go-to-market execution for AI-ready productivity and security solutions, identifying growth opportunities across Microsoft 365, ME3 Suites and Cloud Endpoint solutions and translating strategic priorities into clear local execution plans.\n\n• Lead sales activation by partnering with field teams to accelerate customer conversations, pipeline development and execution across segments, connecting sales and marketing activity to maximise business impact.\n\n• Build cross-functional alignment across Sales, Sales Excellence, Marketing, Consulting, Customer Success, Operations and other stakeholders to ensure priorities, processes, tools and business rhythms support effective execution.\n\n• Partner with the Partner organisation to support local partner-led go-to-market activities, demand generation and market execution aligned with Microsoft strategy and solution-area priorities.\n\n• Provide product and market leadership, bringing together customer, partner and field insights, competitive intelligence, sales trends and business performance to identify opportunities, gaps and blockers and inform go-to-market plans.\n\n• Use data and insights to drive action, establishing effective business rhythms, monitoring performance and helping leaders and field teams prioritise investments, resources and opportunities that can accelerate growth.\n\n• Create clarity and enable execution by simplifying complex concepts, communicating priorities effectively, removing roadblocks and influencing stakeholders across a matrixed organisation to deliver shared outcomes.\n\nQualifications\n\nRequired Qualifications\n\n• Experience in sales enablement, business development, sales, pre-sales, marketing strategy, business planning, go-to-market or a related commercial discipline, or equivalent experience.\n\n• Experience translating business or go-to-market strategy into execution and driving alignment across teams in a complex or matrixed organisation.\n\n• Experience using business insights, market knowledge and performance data to identify opportunities and support commercial decision-making.\n Preferred Qualifications\n\n• Experience managing or supporting a product or solution portfolio, including demand generation, pipeline acceleration or sales activation.\n\n• Experience working with technology, cloud, AI, productivity, security or related solutions.\n\n• Experience partnering across Sales, Marketing, Partner, Customer Success or Operations functions to drive business outcomes.\n\nField Product Marketing IC4 - The typical base pay range for this role across Switzerland is CHF 126,000.00 - CHF 208,700.00 per year. Certain roles may be eligible for benefits and other compensation.\n\nFind additional benefits and pay information here:\n https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html\n\nThis position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.\n\nMicrosoft is an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to age, ancestry, citizenship, color, family or medical care leave, gender identity or expression, genetic information, immigration status, marital status, medical condition, national origin, physical or mental disability, political affiliation, protected veteran or military status, race, ethnicity, religion, sex (including pregnancy), sexual orientation, or any other characteristic protected by applicable local laws, regulations and ordinances. If you need assistance with religious accommodations and/or a reasonable accommodation due to a disability during the application process, read more about requesting accommodations.",
+        "it": "Panoramica\n\nIl team Sales Enablement & Operations (SE&O) svolge un ruolo essenziale nella traduzione della strategia commerciale di Microsoft nell'esecuzione locale e nella guida dell'eccellenza operativa per ottenere forti risultati aziendali. Il team riunisce intuizioni cross-Area, strategia ed esecuzione per accelerare la trasformazione e consentire a Microsoft di fornire impatto su scala.\n In qualità di Responsabile Attivazione Go-to-Market (GTM) per le soluzioni AI Business in Svizzera, ti aiuterà ad accelerare la crescita attraverso le soluzioni Microsoft 365 e Cloud Endpoint, tra cui Windows 365 e Azure Virtual Desktop. Potrai collaborare strettamente con i team Sales Excellence, Sales, Marketing, Consulting, Customer Success e Partner per tradurre la strategia in un'efficace esecuzione locale.\n Porterai una profonda comprensione dell'area e del mercato della soluzione, userai i dati e le informazioni per identificare le opportunità e aiutare i team di campo a trasformare le priorità strategiche nell'impatto del cliente. Potrai guidare l'allineamento tra le squadre, semplificare l'esecuzione, ottimizzare le opportunità di pipeline e aiutare a garantire che i venditori e i partner sono equipaggiati per fornire contro le priorità aziendali.\n Siamo alla ricerca di un professionista altamente motivato di vendita, marketing o go-to-market che gode di risolvere complesse sfide aziendali, influenzando attraverso un'organizzazione matrice e trasformando intuizioni in azione. Potrai agire come leader di pensiero per l'area della soluzione, monitorare le prestazioni aziendali, identificare opportunità e bloccanti, e creare chiarezza su più stakeholder.\n Questo ruolo offre l'opportunità di approfondire il tuo business acumen, costruire competenze in termini di produttività e soluzioni cloud potenziate dall'IA e influenzare il modo in cui Microsoft porta la sua strategia a clienti e partner in Svizzera.\n La missione di Microsoft è di consentire a ogni persona e ogni organizzazione del pianeta di ottenere di più. Come dipendenti ci uniamo a una mentalità di crescita, innovare per potenziare gli altri, e collaborare per realizzare i nostri obiettivi condivisi. Ogni giorno costruiamo sui nostri valori di rispetto, integrità e responsabilità per creare una cultura di inclusione dove tutti possono prosperare al lavoro e oltre.\n\nresponsabilità\n\n• Guidare l'esecuzione di mercato per le soluzioni di produttività e sicurezza di AI-ready, identificare le opportunità di crescita attraverso le soluzioni Microsoft 365, ME3 Suites e Cloud Endpoint e tradurre le priorità strategiche in chiari piani di esecuzione locale.\n\n• Attivazione delle vendite di piombo collaborando con i team di campo per accelerare le conversazioni dei clienti, lo sviluppo e l'esecuzione di pipeline attraverso segmenti, la connessione delle vendite e attività di marketing per massimizzare l'impatto aziendale.\n\n• Costruire l'allineamento interfunzionale tra vendite, eccellenza delle vendite, marketing, consulenza, successo dei clienti, operazioni e altri stakeholder per garantire priorità, processi, strumenti e ritmi aziendali supportano l'esecuzione efficace.\n\n• Partner con l'organizzazione Partner per supportare le attività locali di go-to-market, la generazione della domanda e l'esecuzione del mercato allineati con la strategia di Microsoft e le priorità delle aree di soluzione.\n\n• Fornire leadership di prodotto e di mercato, mettendo insieme clienti, partner e approfondimenti sul campo, intelligenza competitiva, tendenze di vendita e prestazioni aziendali per identificare opportunità, lacune e bloccanti e informare i piani di go-to-market.\n\n• Utilizzare dati e intuizioni per guidare l'azione, stabilire ritmi aziendali efficaci, monitorare le prestazioni e aiutare i leader e le squadre di campo priorità investimenti, risorse e opportunità che possono accelerare la crescita.\n\n• Crea chiarezza e abilita l'esecuzione semplificando concetti complessi, comunicando le priorità in modo efficace, rimuovendo i blocchi stradali e influenzando gli stakeholder in un'organizzazione matrice per fornire risultati condivisi.\n\nQualifiche\n\nQualificazioni richieste\n\n• Esperienza nella capacità di vendita, sviluppo aziendale, vendite, pre-vendita, strategia di marketing, pianificazione aziendale, go-to-market o una disciplina commerciale correlata, o esperienza equivalente.\n\n• Esperienza di tradurre business o strategia di go-to-market in esecuzione e l'allineamento di guida tra le squadre in un'organizzazione complessa o matrice.\n\n• Esperienza utilizzando intuizioni aziendali, conoscenze di mercato e dati di performance per identificare opportunità e sostenere il processo decisionale commerciale.\n Qualificazioni predestinate\n\n• Gestire o supportare un portafoglio di prodotti o soluzioni, tra cui la generazione della domanda, l'accelerazione delle tubazioni o l'attivazione delle vendite.\n\n• Esperienza di lavoro con tecnologia, cloud, AI, produttività, sicurezza o soluzioni correlate.\n\n• Esperienza di collaborazione tra le funzioni Vendite, Marketing, Partner, Successo del Cliente o Operazioni per guidare i risultati aziendali.\n\nField Product Marketing IC4 - La gamma di pagamenti base tipica per questo ruolo in tutta la Svizzera è di CHF 126,000.00 - CHF 208,700.00 all'anno. Alcuni ruoli possono essere idonei per le prestazioni e altre compensazioni.\n\nTrova ulteriori vantaggi e informazioni di pagamento qui:\n https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html\n\nQuesta posizione sarà aperta per un minimo di 5 giorni, con applicazioni accettate su base continuativa fino a quando la posizione non sarà riempita.\n\nMicrosoft è un datore di lavoro pari opportunità. Tutti i candidati qualificati riceveranno considerazione per l'occupazione senza riguardo a età, antenati, cittadinanza, colore, famiglia o congedo di assistenza medica, identità di genere o espressione, informazioni genetiche, stato di immigrazione, stato civile, stato medico, origine nazionale, disabilità fisica o mentale, affiliazione politica, stato veterano protetto o militare, razza, etnia, religione, sesso (compresa la gravidanza), orientamento sessuale, o qualsiasi altra caratteristica protetta da leggi, regolamenti e ordinanze locali applicabili. Se avete bisogno di assistenza con alloggi religiosi e/o di un alloggio ragionevole a causa di una disabilità durante il processo di applicazione, saperne di più sulla richiesta di alloggi.",
+        "de": "Übersicht\n\nDas Team von Sales Enablement & Operations (SE&O) spielt eine wichtige Rolle bei der Umsetzung der kommerziellen Strategie von Microsoft in die lokale Ausführung und bei der Förderung operativer Exzellenz, um starke Geschäftsergebnisse zu erzielen. Das Team vereint bereichsübergreifende Erkenntnisse, Strategie und Ausführung, um die Transformation zu beschleunigen und Microsoft in die Lage zu versetzen, Auswirkungen in großem Maßstab zu erzielen.\n Als Activation Go-to-Market (GTM) Manager für AI Business Solutions in der Schweiz tragen Sie dazu bei, das Wachstum bei Microsoft 365- und Cloud-Endpoint-Lösungen, einschließlich Windows 365 und Azure Virtual Desktop, zu beschleunigen. Sie arbeiten eng mit Sales Excellence, Sales, Marketing, Consulting, Customer Success und Partnerteams zusammen, um die Strategie in eine effektive lokale Umsetzung zu übersetzen.\n Sie bringen ein tiefes Verständnis für den Lösungsbereich und den Markt, nutzen Daten und Erkenntnisse, um Chancen zu identifizieren, und helfen den Außendienstteams, strategische Prioritäten in Kundenwirkung umzuwandeln. Sie werden die Abstimmung zwischen den Teams vorantreiben, die Ausführung vereinfachen, Pipeline-Möglichkeiten optimieren und dazu beitragen, dass Verkäufer und Partner in der Lage sind, die Geschäftsprioritäten zu erfüllen.\n Wir suchen einen hochmotivierten Vertriebs-, Marketing- oder Go-to-Market-Profi, der es genießt, komplexe geschäftliche Herausforderungen zu lösen, Einfluss auf eine matrixförmige Organisation zu nehmen und Erkenntnisse in die Tat umzusetzen. Sie fungieren als Vordenker für den Lösungsbereich, verfolgen die Geschäftsleistung, identifizieren Chancen und Blocker und schaffen Klarheit über mehrere Stakeholder hinweg.\n Diese Rolle bietet die Möglichkeit, Ihren Geschäftssinn zu vertiefen, Fachwissen über KI-basierte Produktivitäts- und Cloud-Lösungen aufzubauen und zu beeinflussen, wie Microsoft seine Strategie Kunden und Partnern in der Schweiz zur Verfügung stellt.\n Microsofts Mission ist es, jede Person und jedes Unternehmen auf dem Planeten zu befähigen, mehr zu erreichen. Als Mitarbeiter kommen wir mit einer Wachstumsmentalität zusammen, innovieren, um andere zu stärken, und arbeiten zusammen, um unsere gemeinsamen Ziele zu erreichen. Jeden Tag bauen wir auf unseren Werten Respekt, Integrität und Rechenschaftspflicht auf, um eine Kultur der Inklusion zu schaffen, in der jeder bei der Arbeit und darüber hinaus gedeihen kann.\n\nZuständigkeiten\n\n• Führen Sie die Markteinführung von KI-fähigen Produktivitäts- und Sicherheitslösungen voran, identifizieren Sie Wachstumschancen für Microsoft 365-, ME3-Suiten- und Cloud-Endpunktlösungen und übersetzen Sie strategische Prioritäten in klare lokale Ausführungspläne.\n\n• Führen Sie die Verkaufsaktivierung durch die Partnerschaft mit Außendienstteams, um Kundengespräche, Pipeline-Entwicklung und -Ausführung über Segmente hinweg zu beschleunigen und Vertriebs- und Marketingaktivitäten zu verbinden, um die Geschäftswirkung zu maximieren.\n\n• Aufbau einer funktionsübergreifenden Ausrichtung zwischen Sales, Sales Excellence, Marketing, Consulting, Customer Success, Operations und anderen Stakeholdern, um sicherzustellen, dass Prioritäten, Prozesse, Tools und Geschäftsrhythmen eine effektive Ausführung unterstützen.\n\n• Partnerschaft mit der Partnerorganisation, um lokale, von Partnern geleitete Go-to-Market-Aktivitäten, Nachfrageerzeugung und Marktausführung im Einklang mit der Microsoft-Strategie und den Prioritäten des Lösungsbereichs zu unterstützen.\n\n• Bieten Sie Produkt- und Marktführerschaft und bringen Sie Kunden-, Partner- und Feldinformationen, Wettbewerbsinformationen, Verkaufstrends und Geschäftsleistung zusammen, um Chancen, Lücken und Blocker zu identifizieren und Go-to-Market-Pläne zu informieren.\n\n• Nutzen Sie Daten und Erkenntnisse, um Maßnahmen voranzutreiben, effektive Geschäftsrhythmen zu etablieren, die Leistung zu überwachen und Führungskräften und Außendienstteams zu helfen, Investitionen, Ressourcen und Chancen zu priorisieren, die das Wachstum beschleunigen können.\n\n• Schaffen Sie Klarheit und ermöglichen Sie die Ausführung, indem Sie komplexe Konzepte vereinfachen, Prioritäten effektiv kommunizieren, Hindernisse beseitigen und Interessengruppen in einer matrixförmigen Organisation beeinflussen, um gemeinsame Ergebnisse zu erzielen.\n\nQualifikationen\n\nBenötigte Qualifikationen\n\n• Erfahrung in Sales Enablement, Business Development, Sales, Pre-Sales, Marketingstrategie, Business Planning, Go-to-Market oder einer verwandten kaufmännischen Disziplin oder gleichwertige Erfahrung.\n\n• Erleben Sie die Übersetzung von Geschäfts- oder Go-to-Market-Strategien in die Ausführung und die Ausrichtung von Teams in einer komplexen oder matrixförmigen Organisation.\n\n• Erfahrung mit Business Insights, Marktkenntnissen und Leistungsdaten, um Chancen zu identifizieren und kommerzielle Entscheidungen zu unterstützen.\n Bevorzugte Qualifikationen\n\n• Erfahrung in der Verwaltung oder Unterstützung eines Produkt- oder Lösungsportfolios, einschließlich Nachfrageerzeugung, Pipelinebeschleunigung oder Verkaufsaktivierung.\n\n• Erfahrung in der Arbeit mit Technologie, Cloud, KI, Produktivität, Sicherheit oder verwandten Lösungen.\n\n• Erleben Sie Partnerschaften in den Funktionen Sales, Marketing, Partner, Customer Success oder Operations, um die Geschäftsergebnisse zu steigern.\n\nField Product Marketing IC4 - Die typische Basislohnspanne für diese Rolle in der Schweiz beträgt CHF 126.000,00 - CHF 208.700.00 pro Jahr. Bestimmte Rollen können für Leistungen und andere Entschädigungen in Betracht kommen.\n\nWeitere Vorteile und Zahlungsinformationen finden Sie hier:\n https://careers.microsoft.com/v2/global/en/corporate-pay/switzerland-corporate-pay.html\n\nDiese Position ist für mindestens 5 Tage geöffnet, wobei die Bewerbungen fortlaufend akzeptiert werden, bis die Position besetzt ist.\n\nMicrosoft ist ein Arbeitgeber für Chancengleichheit. Alle qualifizierten Bewerber erhalten eine Gegenleistung für eine Beschäftigung ohne Rücksicht auf Alter, Abstammung, Staatsangehörigkeit, Hautfarbe, Familie oder medizinische Versorgung Urlaub, Geschlechtsidentität oder Ausdruck, genetische Informationen, Einwanderungsstatus, Familienstand, Gesundheitszustand, nationale Herkunft, körperliche oder geistige Behinderung, politische Zugehörigkeit, geschützt Veteran oder Militärstatus, Rasse, Ethnizität, Religion, Geschlecht (einschließlich Schwangerschaft), sexuelle Orientierung oder andere durch geltende lokale Gesetze, Vorschriften und Verordnungen geschützte Merkmale. Wenn Sie Hilfe bei religiösen Unterkünften und / oder eine angemessene Unterkunft aufgrund einer Behinderung während des Bewerbungsprozesses benötigen, lesen Sie mehr über die Beantragung von Unterkünften.",
+        "fr": "Aperçu général\n\nL'équipe d'activation des ventes et des opérations (SE&O) joue un rôle essentiel dans la traduction de la stratégie commerciale de Microsoft en exécution locale et la conduite de l'excellence opérationnelle pour atteindre de bons résultats commerciaux. L'équipe réunit des informations, une stratégie et une exécution transsectorielles pour accélérer la transformation et permettre à Microsoft de produire un impact à grande échelle.\n En tant que gestionnaire d'activation Go-to-Market (GTM) pour AI Business Solutions en Suisse, vous contribuerez à accélérer la croissance des solutions Microsoft 365 et Cloud Endpoint, y compris Windows 365 et Azure Virtual Desktop. Vous collaborerez étroitement avec les équipes d'excellence commerciale, de marketing, de conseil, de réussite client et de partenaires pour traduire la stratégie en une exécution locale efficace.\n Vous apporterez une compréhension approfondie du secteur de la solution et du marché, utiliserez les données et les idées pour identifier les opportunités et aider les équipes de terrain à transformer les priorités stratégiques en impact client. Vous dirigerez l'alignement entre les équipes, simplifierez l'exécution, optimiserez les possibilités de pipeline et vous assurerez que les vendeurs et les partenaires sont équipés pour répondre aux priorités des entreprises.\n Nous sommes à la recherche d'un professionnel de la vente, du marketing ou de l'entrée sur le marché très motivé qui aime résoudre des défis commerciaux complexes, influencer une organisation matricielle et transformer les idées en actions. Vous agirez comme un chef de file pour le domaine de la solution, suivrez la performance de l'entreprise, identifierez les occasions et les obstacles, et créerez de la clarté entre plusieurs intervenants.\n Ce rôle offre l'occasion d'approfondir votre sens de l'entreprise, de développer une expertise dans les solutions de productivité et de cloud alimentées par l'IA et d'influencer la manière dont Microsoft apporte sa stratégie aux clients et aux partenaires suisses.\n La mission de Microsoft est de donner à chaque personne et à chaque organisation de la planète les moyens de réaliser davantage. En tant qu'employés, nous nous associons à une mentalité de croissance, innovons pour responsabiliser les autres et collaborons à la réalisation de nos objectifs communs. Chaque jour, nous nous appuyons sur nos valeurs de respect, d'intégrité et de responsabilité pour créer une culture d'inclusion où chacun peut prospérer au travail et au-delà.\n\nResponsabilités\n\n• Conduire l'exécution sur le marché pour des solutions de productivité et de sécurité prêtes à l'intelligence artificielle, identifier les opportunités de croissance dans les solutions Microsoft 365, ME3 Suites et Cloud Endpoint et traduire les priorités stratégiques en plans d'exécution locaux clairs.\n\n• Diriger l'activation des ventes en s'associant avec des équipes sur le terrain pour accélérer les conversations avec les clients, le développement et l'exécution de pipelines sur plusieurs segments, en reliant les activités de vente et de marketing pour maximiser l'impact commercial.\n\n• Bâtir un alignement interfonctionnel entre les secteurs des ventes, de l'excellence commerciale, du marketing, du conseil, de la réussite client, des opérations et d'autres intervenants afin d'assurer l'exécution efficace des priorités, des processus, des outils et des rythmes d'affaires.\n\n• Partenaire avec l'organisation partenaire pour soutenir les activités de mise en marché menées par les partenaires locaux, la production de la demande et l'exécution du marché, en harmonie avec la stratégie de Microsoft et les priorités de la zone de solution.\n\n• Fournir un leadership en matière de produits et de marchés, en rassemblant les points de vue des clients, des partenaires et des intervenants sur le terrain, l'intelligence concurrentielle, les tendances en matière de ventes et la performance des entreprises afin de cerner les possibilités, les lacunes et les obstacles et d'informer les plans de mise en marché.\n\n• Utiliser les données et les idées pour stimuler l'action, établir des rythmes d'affaires efficaces, surveiller les performances et aider les dirigeants et les équipes de terrain à prioriser les investissements, les ressources et les opportunités qui peuvent accélérer la croissance.\n\n• Créer de la clarté et permettre l'exécution en simplifiant des concepts complexes, en communiquant efficacement les priorités, en supprimant les obstacles routiers et en influant sur les parties prenantes d'une organisation matricielle pour obtenir des résultats partagés.\n\nCompétences\n\nQualifications requises\n\n• Expérience de la facilitation des ventes, du développement des affaires, des ventes, des préventes, de la stratégie de marketing, de la planification des affaires, de la mise en marché ou d'une discipline commerciale connexe, ou expérience équivalente.\n\n• Expérience de la traduction d'une stratégie d'entreprise ou de mise en marché en exécution et de l'alignement des équipes dans une organisation complexe ou matricielle.\n\n• Expérience de l'utilisation des connaissances commerciales, des connaissances du marché et des données sur le rendement pour cerner les possibilités et appuyer la prise de décisions commerciales.\n Qualifications privilégiées\n\n• Expérience de gestion ou de soutien d'un portefeuille de produits ou de solutions, y compris la production de la demande, l'accélération du pipeline ou l'activation des ventes.\n\n• Expérience de travail avec technologie, cloud, AI, productivité, sécurité ou solutions connexes.\n\n• Expérience de partenariat dans les fonctions Ventes, Marketing, Partenaire, Succès client ou Opérations pour conduire les résultats d'affaires.\n\nField Product Marketing IC4 - L'échelle de rémunération de base typique pour ce rôle en Suisse est CHF 126,000.00 - CHF 208,000.00 par an. Certains rôles peuvent être admissibles aux prestations et autres rémunérations.\n\nTrouvez d'autres renseignements sur les avantages sociaux et la paye ici :\n https://careers.microsoft.com/v2/global/fr/corporate-pay/switzerland-corporate-pay.html\n\nCe poste sera ouvert pendant au moins 5 jours, les candidatures étant acceptées de façon continue jusqu'à ce que le poste soit comblé.\n\nMicrosoft est un employeur à chances égales. Tous les candidats qualifiés seront considérés pour un emploi sans égard à l'âge, à l'ascendance, à la citoyenneté, à la couleur, à la famille ou aux soins médicaux, à l'identité ou à l'expression de genre, à l'information génétique, à l'état d'immigration, à l'état matrimonial, à l'état médical, à l'origine nationale, à un handicap physique ou mental, à l'appartenance politique, à un ancien combattant protégé ou à un statut militaire protégé, à la race, à l'ethnicité, à la religion, au sexe (y compris la grossesse), à l'orientation sexuelle ou à toute autre caractéristique protégée par les lois, règlements et ordonnances locaux applicables. Si vous avez besoin d'aide en matière d'adaptation religieuse et/ou d'accommodement raisonnable en raison d'une déficience pendant le processus de demande, en savoir plus sur la demande d'adaptation."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393557020981",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-02T21:16:12.772Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393557020981",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 114500,
+      "salaryMax": 203000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 114500,
+          "maxValue": 203000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "The Circle 02",
+      "postalCode": "8058",
+      "firstSeenAt": "2026-10-02T21:16:12.772Z"
     }
   ]
 }

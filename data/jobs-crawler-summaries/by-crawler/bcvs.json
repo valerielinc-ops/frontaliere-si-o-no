@@ -1,7 +1,7 @@
 {
   "key": "bcvs",
   "label": "Banque Cantonale du Valais",
-  "generatedAt": "2026-10-02T09:30:42.800Z",
+  "generatedAt": "2026-10-02T21:30:04.605Z",
   "total": 7,
   "discovered": null,
   "parsed": 6,
@@ -14,10 +14,11 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 18950,
-  "avgDurationMs": 18950,
+  "durationMs": 6542,
+  "avgDurationMs": 6542,
   "durationHistory": [
-    18950
+    18950,
+    6542
   ],
   "newJobs": [
     {
@@ -32,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:19.972Z",
+      "crawledAt": "2026-10-02T21:29:52.896Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -70,7 +71,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:20.478Z",
+      "crawledAt": "2026-10-02T21:29:53.323Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -107,7 +108,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:20.982Z",
+      "crawledAt": "2026-10-02T21:29:53.750Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -143,7 +144,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:24.763Z",
+      "crawledAt": "2026-10-02T21:29:54.178Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -158,8 +159,8 @@
       "featured": false,
       "postedDate": "2026-09-28",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
-      "firstSeenAt": "2026-09-28T21:29:51.717Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:29:51.717Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -180,7 +181,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:27.888Z",
+      "crawledAt": "2026-10-02T21:29:54.712Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -216,7 +217,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:30.898Z",
+      "crawledAt": "2026-10-02T21:29:55.249Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -255,7 +256,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:36:34.864Z",
+      "crawledAt": "2026-10-01T09:26:34.056Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -282,7 +283,8 @@
         "richness": 21,
         "translation": 25,
         "completeness": 19
-      }
+      },
+      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693"
     }
   ]
 }

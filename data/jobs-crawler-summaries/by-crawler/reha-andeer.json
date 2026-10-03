@@ -1,25 +1,61 @@
 {
   "key": "reha-andeer",
   "label": "Reha Andeer",
-  "generatedAt": "2026-10-02T09:14:26.723Z",
+  "generatedAt": "2026-10-02T21:15:08.086Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "sourceBodyFailureCount": 0,
-  "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3663,
-  "avgDurationMs": 3663,
+  "durationMs": 3942,
+  "avgDurationMs": 3942,
   "durationHistory": [
-    3663
+    3663,
+    3942
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "reha-andeer-stelleninserat-pflegehelferin-f3cc47a60bb4",
+      "slug": "pflegehelferin-reha-andeer-andeer",
+      "company": "Reha Andeer",
+      "companyKey": "reha-andeer",
+      "companyDomain": "reha-andeer.ch",
+      "title": "Pflegehelferin",
+      "needsRetranslation": true,
+      "location": "Andeer",
+      "canton": "GR",
+      "url": "https://reha-andeer.ch/sites/default/files/2026-07/Stelleninserat-Pflegehelferin.pdf",
+      "applyUrl": "https://reha-andeer.ch/de/reha-andeer/offene-stellen-reha-andeer",
+      "source": "Reha Andeer Dedicated Parser (Drupal HTML + PDF)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T21:14:59.170Z",
+      "addressLocality": "Andeer",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7440",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Gesundheitswesen / Rehabilitation",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "reha-andeer-stelleninserat-pflegehelferin-f3cc47a60bb4",
@@ -60,5 +96,7 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": []
 }

@@ -43,6 +43,7 @@ import {
   type BorderWaitHistoryDay,
 } from '../build-plugins/borderWaitPagesPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
+import { MAX_HTML_BYTES } from '../scripts/audit-page-weight.mjs';
 
 const BORDER_WAIT_WIDGET_SOURCE = readFileSync(
   new URL('../public/embed/border-wait-widget.html', import.meta.url),
@@ -332,6 +333,15 @@ describe('borderWaitPagesPlugin — page generation', () => {
     const root = pages[buildRootHubPath('it')];
     for (const c of BORDER_WAIT_CROSSINGS) {
       expect(root).toContain(buildOggiPath('it', c));
+    }
+  });
+
+  it('keeps every localized root hub under the page-weight budget', () => {
+    for (const locale of BORDER_WAIT_LOCALES) {
+      const root = pages[buildRootHubPath(locale)];
+      expect(root).toMatch(/<ul\s+class=["']?bw-crossings(?:["'\s>])/);
+      expect(Buffer.byteLength(root, 'utf8'), `${locale} root hub exceeds MAX_HTML_BYTES`)
+        .toBeLessThanOrEqual(MAX_HTML_BYTES);
     }
   });
 

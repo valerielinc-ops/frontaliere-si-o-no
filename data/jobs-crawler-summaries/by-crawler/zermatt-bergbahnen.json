@@ -1,7 +1,7 @@
 {
   "key": "zermatt-bergbahnen",
   "label": "Zermatt Bergbahnen",
-  "generatedAt": "2026-10-02T09:24:53.429Z",
+  "generatedAt": "2026-10-02T21:26:00.353Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,10 +14,11 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5281,
-  "avgDurationMs": 5281,
+  "durationMs": 4628,
+  "avgDurationMs": 4628,
   "durationHistory": [
-    5281
+    5281,
+    4628
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -46,7 +47,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/elektroinstallateur-in-efz_job_3001247",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:43.978Z",
+      "crawledAt": "2026-10-02T21:25:51.339Z",
       "firstSeenAt": "2026-09-29T09:26:34.385Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -81,7 +82,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:44.585Z",
+      "crawledAt": "2026-10-02T21:25:51.904Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:33:46.526Z",
       "_qualityScore": 81,
@@ -117,7 +118,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:45.209Z",
+      "crawledAt": "2026-10-02T21:25:52.486Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:53:04.281Z",
       "_qualityScore": 83,

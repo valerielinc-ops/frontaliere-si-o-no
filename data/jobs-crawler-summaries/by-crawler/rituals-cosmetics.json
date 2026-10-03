@@ -1,29 +1,29 @@
 {
   "key": "rituals-cosmetics",
   "label": "Rituals Cosmetics Switzerland",
-  "generatedAt": "2026-10-02T09:23:19.233Z",
+  "generatedAt": "2026-10-02T21:25:21.050Z",
   "total": 665,
   "discovered": null,
-  "parsed": 665,
+  "parsed": 664,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 665,
   "authoritativeEmptySnapshot": false,
   "newCount": 127,
-  "updatedCount": 538,
+  "updatedCount": 505,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 630201,
-  "avgDurationMs": 630201,
+  "unchangedCount": 1,
+  "durationMs": 636644,
+  "avgDurationMs": 636644,
   "durationHistory": [
-    630201
+    630201,
+    636644
   ],
   "newJobs": [
     {
       "id": "rituals-cosmetics-f5bbd0ec9aab",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15158",
-      "slugDisambiguator": "r15158",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -34,7 +34,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15158",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:14.399Z",
+      "crawledAt": "2026-10-02T21:16:12.007Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -55,12 +55,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15158"
     },
     {
       "id": "rituals-cosmetics-bda61ff75b98",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15159",
-      "slugDisambiguator": "r15159",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -71,7 +71,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15159",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:15.390Z",
+      "crawledAt": "2026-10-02T21:16:12.914Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -92,12 +92,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15159"
     },
     {
       "id": "rituals-cosmetics-f01521c5d08f",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15160",
-      "slugDisambiguator": "r15160",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -108,7 +108,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15160",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:16.197Z",
+      "crawledAt": "2026-10-02T21:16:13.701Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -129,12 +129,12 @@
         "richness": 18,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15160"
     },
     {
       "id": "rituals-cosmetics-17883cefa757",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15161",
-      "slugDisambiguator": "r15161",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -145,7 +145,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15161",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:17.179Z",
+      "crawledAt": "2026-10-02T21:16:14.623Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -166,12 +166,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15161"
     },
     {
       "id": "rituals-cosmetics-33c4cbbd321c",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15162",
-      "slugDisambiguator": "r15162",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -182,7 +182,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15162",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:18.312Z",
+      "crawledAt": "2026-10-02T21:16:15.562Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -203,12 +203,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15162"
     },
     {
       "id": "rituals-cosmetics-3cee71b666a0",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15172",
-      "slugDisambiguator": "r15172",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -219,7 +219,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15172",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:19.096Z",
+      "crawledAt": "2026-10-02T21:16:16.483Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -240,12 +240,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15172"
     },
     {
       "id": "rituals-cosmetics-359d8333d161",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15173",
-      "slugDisambiguator": "r15173",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -256,7 +256,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15173",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:19.853Z",
+      "crawledAt": "2026-10-02T21:16:17.431Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -277,12 +277,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15173"
     },
     {
       "id": "rituals-cosmetics-5daf5c180241",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15174",
-      "slugDisambiguator": "r15174",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -293,7 +293,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15174",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:20.612Z",
+      "crawledAt": "2026-10-02T21:16:18.351Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -314,12 +314,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15174"
     },
     {
       "id": "rituals-cosmetics-b0a1af73bed8",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15175",
-      "slugDisambiguator": "r15175",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -330,7 +330,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Morbio-Inferiore-Serfontana/Mitarbeiter-Warenverrumung--m-w-d-_R15175",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:14:21.361Z",
+      "crawledAt": "2026-10-02T21:16:19.277Z",
       "addressLocality": "Morbio Inferiore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -351,12 +351,12 @@
         "richness": 14,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r15175"
     },
     {
       "id": "rituals-cosmetics-c640a1ca3a5e",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3932",
-      "slugDisambiguator": "r3932",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -367,7 +367,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-St-Jakob-Park/Mitarbeiter-Warenverrumung--m-w-d-_R3932",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:39.768Z",
+      "crawledAt": "2026-10-02T21:16:39.231Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -388,12 +388,12 @@
         "richness": 18,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r3932"
     },
     {
       "id": "rituals-cosmetics-6e9a8f8924f5",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3933",
-      "slugDisambiguator": "r3933",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -404,7 +404,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-St-Jakob-Park/Mitarbeiter-Warenverrumung--m-w-d-_R3933",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:40.516Z",
+      "crawledAt": "2026-10-02T21:16:40.124Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -425,12 +425,12 @@
         "richness": 18,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r3933"
     },
     {
       "id": "rituals-cosmetics-70267c14a97c",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3934",
-      "slugDisambiguator": "r3934",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -441,7 +441,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-St-Jakob-Park/Mitarbeiter-Warenverrumung--m-w-d-_R3934",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:41.247Z",
+      "crawledAt": "2026-10-02T21:16:40.881Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -462,12 +462,12 @@
         "richness": 18,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r3934"
     },
     {
       "id": "rituals-cosmetics-c0bce5e5e9ad",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3935",
-      "slugDisambiguator": "r3935",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -478,7 +478,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-St-Jakob-Park/Mitarbeiter-Warenverrumung--m-w-d-_R3935",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:41.995Z",
+      "crawledAt": "2026-10-02T21:16:41.648Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -499,12 +499,12 @@
         "richness": 18,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r3935"
     },
     {
       "id": "rituals-cosmetics-713367c07288",
       "slug": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3936",
-      "slugDisambiguator": "r3936",
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
       "companyDomain": "rituals.com",
@@ -515,7 +515,7 @@
       "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Basel-St-Jakob-Park/Mitarbeiter-Warenverrumung--m-w-d-_R3936",
       "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:42.729Z",
+      "crawledAt": "2026-10-02T21:16:42.454Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -536,7 +536,8 @@
         "richness": 18,
         "translation": 4,
         "completeness": 14
-      }
+      },
+      "slugDisambiguator": "r3936"
     },
     {
       "id": "rituals-cosmetics-ab884ce2d68b",
@@ -2274,5 +2275,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "rituals-cosmetics-ea94ea9319e9",
+      "slug": "consulente-vendite-bellezza-m-f-d-rituals-cosmetics-switzerland-zurich-1f4800",
+      "company": "Rituals Cosmetics Switzerland",
+      "companyKey": "rituals-cosmetics",
+      "companyDomain": "rituals.com",
+      "title": "Verkaufsberater Beauty (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zrich-Bahnhofstrae-69a/Verkaufsberater-Beauty--m-w-d-_R3551",
+      "source": "Rituals Cosmetics Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T09:16:51.497Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendite",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Cosmetica / Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-30",
+      "applyUrl": "https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zrich-Bahnhofstrae-69a/Verkaufsberater-Beauty--m-w-d-_R3551",
+      "jobReqId": "R3551",
+      "firstSeenAt": "2026-07-03T22:45:20.436Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 19
+      }
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berit-klinik",
-  "assembledAt": "2026-10-02T09:19:02.182Z",
+  "assembledAt": "2026-10-02T21:16:37.035Z",
   "jobs": [
     {
       "title": "Fachperson Marketing Assistenz Ceo 80–100%",
@@ -990,7 +990,7 @@
       },
       "slugByLocale": {
         "it": "ristorante-50-berit-klinik-wattwil",
-        "en": "internet-connection-berit-klinik-wattwil",
+        "en": "restaurant-50-berit-klinik-wattwil",
         "de": "restaurant-50-berit-klinik",
         "fr": "restaurant-50-berit-klinik-wattwil"
       },
@@ -1000,7 +1000,6 @@
       "id": "berit-klinik-3ff0c2424361",
       "previousSlugs": [
         "restaurant-50-berit-klinik",
-        "restaurant-50-berit-klinik-wattwil",
         "internet-connection-berit-klinik-wattwil"
       ],
       "previousSlugsByLocale": {
@@ -1009,7 +1008,6 @@
         ],
         "en": [
           "restaurant-50-berit-klinik",
-          "restaurant-50-berit-klinik-wattwil",
           "internet-connection-berit-klinik-wattwil"
         ]
       },
@@ -1101,7 +1099,7 @@
         }
       },
       "sourceIdentity": "url:https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }

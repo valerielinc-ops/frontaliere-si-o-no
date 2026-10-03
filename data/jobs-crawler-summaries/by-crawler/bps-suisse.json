@@ -1,16 +1,17 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-10-02T09:37:32.981Z",
+  "generatedAt": "2026-10-02T21:30:07.763Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5724,
-  "avgDurationMs": 5724,
+  "durationMs": 5652,
+  "avgDurationMs": 5652,
   "durationHistory": [
-    5724
+    5724,
+    5652
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +38,7 @@
       "currency": "CHF",
       "postedDate": "2026-10-02",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-02T09:37:23.070Z",
+      "crawledAt": "2026-10-02T21:29:55.856Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -79,7 +80,7 @@
       "currency": "CHF",
       "postedDate": "2026-10-02",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-02T09:37:23.612Z",
+      "crawledAt": "2026-10-02T21:29:56.260Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -121,7 +122,7 @@
       "currency": "CHF",
       "postedDate": "2026-10-02",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-02T09:37:24.041Z",
+      "crawledAt": "2026-10-02T21:29:56.634Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -163,7 +164,7 @@
       "currency": "CHF",
       "postedDate": "2026-10-02",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-02T09:37:24.417Z",
+      "crawledAt": "2026-10-02T21:29:56.948Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
