@@ -1064,7 +1064,7 @@ function buildHtml(args: BuildHtmlArgs): string {
           .join('')}</ul>`;
 
   // Stat tiles + primary CTA — universal across hub kinds. Tiles surface the
-  // total, the current page position, and the last-updated date so users get
+  // total and the current page position so users get
   // immediate context above the data area (rule #17).
   const tileLabelsGlobal = {
     it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina' },

@@ -151,13 +151,19 @@ describe('cached sitemap freshness', () => {
     const shard = 'sitemap-search-clusters-001.xml';
     const html = '<html><body>Unchanged substantive content</body></html>';
     const page = 'cerca-lavoro-ticino/ricerca-a/index.html';
-    const sitemap = `<urlset><url><loc>https://frontaliereticino.ch/a/</loc><lastmod>${oldDay}</lastmod><priority>0.6</priority></url></urlset>`;
+    const sitemap = '<urlset><url><loc>https://frontaliereticino.ch/a/</loc><priority>0.6</priority></url></urlset>';
+    const sourceDatedSitemap = `<urlset><url><loc>https://frontaliereticino.ch/blog/</loc><lastmod>${oldDay}</lastmod></url></urlset>`;
     write(dist, page, html);
     write(dist, shard, sitemap);
     // A different sitemap and an index have independent, valid date provenance.
-    write(dist, 'sitemap-blog.xml', sitemap);
+    write(dist, 'sitemap-blog.xml', sourceDatedSitemap);
     write(dist, 'sitemap.xml', `<sitemapindex><sitemap><loc>https://frontaliereticino.ch/${shard}</loc><lastmod>${oldDay}</lastmod></sitemap></sitemapindex>`);
     saveToCache(root, dist, KEY, [page, shard, 'sitemap-blog.xml', 'sitemap.xml'], [], [], [], []);
+    // A valid cache hit is disk-to-disk only. No post-copy migration may
+    // invalidate it because a second write is unavailable.
+    const writeAfterRestore = vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {
+      throw Object.assign(new Error('post-copy writes unavailable'), { code: 'EACCES' });
+    });
     const results: string[] = [];
     vi.useFakeTimers({ toFake: ['Date'] });
     for (const offset of [0, 2]) {
@@ -166,7 +172,7 @@ describe('cached sitemap freshness', () => {
       fs.mkdirSync(restoredDir);
       expect(await tryRestoreFromCache(root, restoredDir, KEY)).not.toBeNull();
       expect(fs.readFileSync(path.join(restoredDir, page), 'utf-8')).toBe(html);
-      expect(fs.readFileSync(path.join(restoredDir, 'sitemap-blog.xml'), 'utf-8')).toBe(sitemap);
+      expect(fs.readFileSync(path.join(restoredDir, 'sitemap-blog.xml'), 'utf-8')).toBe(sourceDatedSitemap);
       expect(fs.readFileSync(path.join(restoredDir, 'sitemap.xml'), 'utf-8')).toContain(`<lastmod>${oldDay}</lastmod>`);
       const restored = fs.readFileSync(path.join(restoredDir, shard), 'utf-8');
       expect(restored).not.toContain('<lastmod>');
@@ -174,5 +180,23 @@ describe('cached sitemap freshness', () => {
       results.push(restored);
     }
     expect(results[0]).toBe(results[1]);
+    expect(writeAfterRestore).not.toHaveBeenCalled();
   });
+
+  it('rejects a legacy build-date manifest before copying any output', async () => {
+    const dist = path.join(root, 'legacy-dist');
+    const shard = 'sitemap-search-clusters-001.xml';
+    write(dist, shard, '<urlset><url><loc>https://frontaliereticino.ch/a/</loc><lastmod>2026-01-01</lastmod></url></urlset>');
+    saveToCache(root, dist, KEY, [shard], [], [], [], []);
+    const manifestPath = path.join(root, '.cache', 'related-search-clusters', KEY, 'manifest.json');
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    manifest.version = 'v12';
+    fs.writeFileSync(manifestPath, JSON.stringify(manifest));
+    const copy = vi.spyOn(fs.promises, 'copyFile');
+    const restoredDir = path.join(root, 'restored-legacy');
+    expect(await tryRestoreFromCache(root, restoredDir, KEY)).toBeNull();
+    expect(copy).not.toHaveBeenCalled();
+    expect(fs.existsSync(path.join(restoredDir, shard))).toBe(false);
+  });
+
 });

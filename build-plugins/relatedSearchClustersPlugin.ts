@@ -465,7 +465,9 @@ const CACHE_KEY_INPUTS = [
 // until issue #4943: it no longer builds at all — it audits the live site over
 // HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
 // the host on every run since 2026-07-07.)
-const CACHE_VERSION = 'v12';
+// v13: aggregate sitemap URLs have no build-clock lastmod. Reject older
+// manifests before restoring any files; a current cache hit needs no rewriting.
+const CACHE_VERSION = 'v13';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
 // scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
@@ -662,24 +664,6 @@ export async function tryRestoreFromCache(
     return null;
   }
 
-  // Old cache entries advertised the build day as the page modification date.
-  // No substantive per-page timestamp is available for these aggregates. Remove
-  // the optional field from legacy shards too; a cache hit must not fake freshness.
-  if (fs.existsSync(distDir)) {
-    const shardRe = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
-    for (const file of fs.readdirSync(distDir)) {
-      if (!shardRe.test(file)) continue;
-      const p = path.join(distDir, file);
-      try {
-        const xml = fs.readFileSync(p, 'utf-8');
-        const next = xml.replace(/\s*<lastmod>[^<]*<\/lastmod>/g, '');
-        if (next !== xml) fs.writeFileSync(p, next, 'utf-8');
-      } catch (error) {
-        console.warn(`[related-search-clusters] cache INVALID: cannot migrate ${file}`, error);
-        return null;
-      }
-    }
-  }
   return { ...manifest, emittedCount: restored };
 }
 
