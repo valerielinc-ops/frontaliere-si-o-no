@@ -1187,6 +1187,33 @@ describe('employer insights technical deduplication', () => {
       emissionIdMissingObserved: 0,
       firstCompleteIdentityAt: '2026-09-08T22:00:00.000Z',
     });
+
+    const blocked = await queryGa4EmissionEvidence(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report: async () => ({
+        rowCount: 2,
+        rows: [
+          row('/statistiche/', '', '', '', 50),
+          {
+            dimensionValues: [
+              '20260909',
+              'job_apply',
+              'acme',
+              'role-it',
+              '/cerca-lavoro-ticino/role-it/',
+              '(not set)',
+            ],
+            metricValues: [{ value: '2' }, { value: '1' }, { value: '1' }],
+          },
+        ],
+      }),
+    });
+    expect(blocked.result.coverage).toMatchObject({
+      returned: 2,
+      emissionIdMissingObserved: 2,
+      firstCompleteIdentityAt: null,
+    });
   });
 
   it('does not attribute a sector-hub pageview to a job with the same short alias', () => {
