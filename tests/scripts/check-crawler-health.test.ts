@@ -349,13 +349,6 @@ describe('nextCrawlerState', () => {
   // in one place instead of five copy-pasted blocks.
   const emptyOkCohort: Array<{ slug: string; issue: string; why: string; priorNonZero: number; emptyStreak: number }> = [
     {
-      slug: 'temenos',
-      issue: '#4844',
-      why: 'Workday tenant rejects the locationCountry facet (HTTP 400); the strict-CH fallback walks the whole 16-posting board and finds no Swiss role',
-      priorNonZero: 1,
-      emptyStreak: 19,
-    },
-    {
       slug: 'veeam',
       issue: '#5060',
       why: 'Greenhouse board veeamsoftware returns 235 live postings, none matching the parser SWISS_LOCATION_RE; careers.veeam.com itself reports 0 jobs for Switzerland',

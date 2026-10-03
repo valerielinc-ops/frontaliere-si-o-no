@@ -1189,6 +1189,7 @@ describe('provesWorkdaySwissAbsentFromBoard', () => {
   ];
   const FR = { id: 'fr', descriptor: 'France', count: 25 };
   const CH = { id: '187134fccb084a0ea9b4b95f23890dbe', descriptor: 'Switzerland', count: 3 };
+  const GENEVA = { id: 'geneva', descriptor: 'ExCo Geneva', count: 1 };
 
   it('accepts a live board whose country facet omits Switzerland', () => {
     expect(provesWorkdaySwissAbsentFromBoard({ total: 35, postingCount: 20, facets: facet([FR]) }, { facetParameter: 'Country' })).toBe(true);
@@ -1204,6 +1205,7 @@ describe('provesWorkdaySwissAbsentFromBoard', () => {
     expect(provesWorkdaySwissAbsentFromBoard(ok, { facetParameter: 'locationCountry' })).toBe(false);
     expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, CH]) }, { facetParameter: 'Country' })).toBe(false);
     expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, { id: 'other', descriptor: 'Switzerland' }]) }, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, GENEVA]) }, { facetParameter: 'Country' })).toBe(false);
   });
 
   it('flattens nested facet groups to their leaves', () => {
