@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apg-sga",
-  "assembledAt": "2026-10-02T21:20:57.652Z",
+  "assembledAt": "2026-10-03T09:25:52.114Z",
   "jobs": [
     {
       "id": "apg-sga-8e5baee3415c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:52.181Z",
+      "crawledAt": "2026-10-03T09:25:46.713Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:51.582Z",
+      "crawledAt": "2026-10-03T09:25:46.158Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +153,8 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

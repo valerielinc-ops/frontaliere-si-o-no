@@ -53,7 +53,10 @@ a SAP SuccessFactors), l'estensione segue quella scheda e continua lì; ignora
 con account (SuccessFactors) la password non la scrive l'estensione: se il
 robot ha già creato l'account sull'alias, in coda, sotto «Account sui
 portali», **Mostra password** te la dà; altrimenti registralo tu sull'alias
-dell'ordine, l'estensione compila gli altri campi.
+dell'ordine, l'estensione compila gli altri campi. Sul modulo SuccessFactors apre i menu
+«Bitte auswählen» e sceglie l'opzione quando è caricata, e scrive la data di
+nascita nel suo campo calendario; le sezioni chiuse («Alle Abschnitte
+einblenden») e il CV («Lebenslauf hochladen») restano a te.
 
 ## Cosa non fa
 

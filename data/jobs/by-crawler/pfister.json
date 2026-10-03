@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pfister",
-  "assembledAt": "2026-10-02T21:21:36.374Z",
+  "assembledAt": "2026-10-03T09:24:16.446Z",
   "jobs": [
     {
       "id": "pfister-dd9bc0fc9c0e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/424626/3465/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:30.708Z",
+      "crawledAt": "2026-10-03T09:24:10.531Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -55,11 +55,13 @@
       "pensumMax": 50,
       "pensum": "50%",
       "previousSlugs": [
-        "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus"
+        "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus",
+        "personale-in-finanza-m-f-d-mobel-pfister-ag-thorishaus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus"
+          "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus",
+          "personale-in-finanza-m-f-d-mobel-pfister-ag-thorishaus"
         ],
         "en": [
           "sachbearbeiterin-finanzen-w-m-d-pfister-thorishaus"
@@ -81,7 +83,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-f9ec09d73da8",
@@ -90,7 +93,7 @@
         "it": "it-systemadministrator-e-applikationsmanagerin-m-w-d-mobel-pfister-ag-thorishaus",
         "en": "it-system-administrator-and-application-manager-m-f-d-mobel-pfister-ag-thorishaus",
         "de": "it-systemadministrator-und-applikationsmanagerin-w-m-d-pfister-thorishaus",
-        "fr": "administrateur-du-systeme-informatique-et-gestionnaire-d-applications-h-f-d-mobel-pfister-ag-thorishaus"
+        "fr": "it-systemadministrator-und-applikationsmanagerin-m-w-d-mobel-pfister-ag-thorishaus"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -115,7 +118,7 @@
       "url": "https://apply.refline.ch/424626/3462/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:30.277Z",
+      "crawledAt": "2026-10-03T09:24:10.019Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,6 +141,7 @@
       "pensum": "80%",
       "previousSlugs": [
         "it-systemadministrator-und-applikationsmanagerin-w-m-d-pfister-thorishaus",
+        "administrateur-du-systeme-informatique-et-gestionnaire-d-applications-h-f-d-mobel-pfister-ag-thorishaus",
         "it-systemadministrator-und-applikationsmanagerin-m-w-d-mobel-pfister-ag-thorishaus"
       ],
       "previousSlugsByLocale": {
@@ -149,6 +153,7 @@
         ],
         "fr": [
           "it-systemadministrator-und-applikationsmanagerin-w-m-d-pfister-thorishaus",
+          "administrateur-du-systeme-informatique-et-gestionnaire-d-applications-h-f-d-mobel-pfister-ag-thorishaus",
           "it-systemadministrator-und-applikationsmanagerin-m-w-d-mobel-pfister-ag-thorishaus"
         ]
       },
@@ -199,7 +204,7 @@
       "url": "https://apply.refline.ch/424626/3448/pub/3/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:29.853Z",
+      "crawledAt": "2026-10-03T09:24:09.577Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -280,7 +285,7 @@
       "url": "https://apply.refline.ch/424626/3438/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:29.424Z",
+      "crawledAt": "2026-10-03T09:24:07.890Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -302,11 +307,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "monteurin-w-m-d-pfister-thorishaus"
+        "monteurin-w-m-d-pfister-thorishaus",
+        "installatore-w-m-d-mobel-pfister-ag-thorishaus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "monteurin-w-m-d-pfister-thorishaus"
+          "monteurin-w-m-d-pfister-thorishaus",
+          "installatore-w-m-d-mobel-pfister-ag-thorishaus"
         ],
         "en": [
           "monteurin-w-m-d-pfister-thorishaus"
@@ -328,7 +335,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-9a11624b72d2",
@@ -361,7 +369,7 @@
       "url": "https://apply.refline.ch/424626/3437/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:27.720Z",
+      "crawledAt": "2026-10-03T09:24:07.452Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -383,11 +391,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "monteurin-w-m-d-pfister-suhr"
+        "monteurin-w-m-d-pfister-suhr",
+        "installatore-w-m-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "monteurin-w-m-d-pfister-suhr"
+          "monteurin-w-m-d-pfister-suhr",
+          "installatore-w-m-d-mobel-pfister-ag-suhr"
         ],
         "en": [
           "monteurin-w-m-d-pfister-suhr"
@@ -409,7 +419,8 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-2a3665ae9888",
@@ -442,7 +453,7 @@
       "url": "https://apply.refline.ch/424626/2883/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:27.297Z",
+      "crawledAt": "2026-10-03T09:24:06.950Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -467,14 +478,16 @@
         "wohntextilgestalterin-w-m-d-pfister-thorishaus",
         "wohntextilgestalterin-w-m-d-mobel-pfister-ag-thorishaus",
         "wohntextilgestalterin-m-w-d-mobel-pfister-ag-thorishaus",
-        "wohntextilgestalter-in-ausbildung-pfister-thorishaus"
+        "wohntextilgestalter-in-ausbildung-pfister-thorishaus",
+        "designer-tessile-residenziale-f-m-d-mobel-pfister-ag-thorishaus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wohntextilgestalterin-w-m-d-pfister-thorishaus",
           "wohntextilgestalterin-w-m-d-mobel-pfister-ag-thorishaus",
           "wohntextilgestalterin-m-w-d-mobel-pfister-ag-thorishaus",
-          "wohntextilgestalter-in-ausbildung-pfister-thorishaus"
+          "wohntextilgestalter-in-ausbildung-pfister-thorishaus",
+          "designer-tessile-residenziale-f-m-d-mobel-pfister-ag-thorishaus"
         ],
         "en": [
           "wohntextilgestalterin-w-m-d-mobel-pfister-ag-thorishaus"
@@ -533,7 +546,7 @@
       "url": "https://apply.refline.ch/424626/3393/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:26.880Z",
+      "crawledAt": "2026-10-03T09:24:06.500Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -555,11 +568,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "verkauferin-vorhange-im-aussendienst-w-m-d-region-zug-luzern-pfister-emmen"
+        "verkauferin-vorhange-im-aussendienst-w-m-d-region-zug-luzern-pfister-emmen",
+        "tende-nel-servizio-di-campo-f-m-d-regione-di-zug-luzern-mobel-pfister-ag-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-vorhange-im-aussendienst-w-m-d-region-zug-luzern-pfister-emmen"
+          "verkauferin-vorhange-im-aussendienst-w-m-d-region-zug-luzern-pfister-emmen",
+          "tende-nel-servizio-di-campo-f-m-d-regione-di-zug-luzern-mobel-pfister-ag-emmen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:27.041Z",
@@ -609,7 +624,7 @@
       "url": "https://apply.refline.ch/424626/3391/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:26.457Z",
+      "crawledAt": "2026-10-03T09:24:06.061Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -691,7 +706,7 @@
       "url": "https://apply.refline.ch/424626/3472/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:26.032Z",
+      "crawledAt": "2026-10-03T09:24:05.622Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -780,14 +795,6 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "shopper-m-w-d-mobel-pfister-ag-genf"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "shopper-m-w-d-mobel-pfister-ag-genf"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:30:06.189Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -801,6 +808,14 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "shopper-m-w-d-mobel-pfister-ag-genf"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "shopper-m-w-d-mobel-pfister-ag-genf"
+        ]
       },
       "crawlerMissStreak": 1
     },
@@ -835,7 +850,7 @@
       "url": "https://apply.refline.ch/424626/3470/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:25.602Z",
+      "crawledAt": "2026-10-03T09:24:05.180Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -857,11 +872,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "verkaufsberaterin-kuchen-w-m-d-pfister-pratteln"
+        "verkaufsberaterin-kuchen-w-m-d-pfister-pratteln",
+        "consulente-commerciale-in-cucine-m-f-d-mobel-pfister-ag-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberaterin-kuchen-w-m-d-pfister-pratteln"
+          "verkaufsberaterin-kuchen-w-m-d-pfister-pratteln",
+          "consulente-commerciale-in-cucine-m-f-d-mobel-pfister-ag-pratteln"
         ],
         "en": [
           "verkaufsberaterin-kuchen-w-m-d-pfister-pratteln"
@@ -883,7 +900,8 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-9816923f8655",
@@ -917,7 +935,7 @@
       "url": "https://apply.refline.ch/424626/3468/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:25.179Z",
+      "crawledAt": "2026-10-03T09:24:04.740Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -940,11 +958,13 @@
       "pensum": "60%",
       "previousSlugs": [
         "polydesignerin-3d-w-m-d-pfister-pratteln",
-        "polydesignerin-3d-w-m-d-mobel-pfister-ag-pratteln"
+        "polydesignerin-3d-w-m-d-mobel-pfister-ag-pratteln",
+        "polydesigner-in-3d-m-f-d-mobel-pfister-ag-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polydesignerin-3d-w-m-d-pfister-pratteln"
+          "polydesignerin-3d-w-m-d-pfister-pratteln",
+          "polydesigner-in-3d-m-f-d-mobel-pfister-ag-pratteln"
         ],
         "fr": [
           "polydesignerin-3d-w-m-d-mobel-pfister-ag-pratteln"
@@ -997,7 +1017,7 @@
       "url": "https://apply.refline.ch/424626/3469/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:24.756Z",
+      "crawledAt": "2026-10-03T09:24:04.300Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1019,11 +1039,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "abteilungsleiterin-home-living-w-m-d-pfister-pratteln"
+        "abteilungsleiterin-home-living-w-m-d-pfister-pratteln",
+        "capo-dipartimento-casa-living-m-f-d-mobel-pfister-ag-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiterin-home-living-w-m-d-pfister-pratteln"
+          "abteilungsleiterin-home-living-w-m-d-pfister-pratteln",
+          "capo-dipartimento-casa-living-m-f-d-mobel-pfister-ag-pratteln"
         ],
         "en": [
           "abteilungsleiterin-home-living-w-m-d-pfister-pratteln"
@@ -1079,7 +1101,7 @@
       "url": "https://apply.refline.ch/424626/3466/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:24.331Z",
+      "crawledAt": "2026-10-03T09:24:03.860Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1102,12 +1124,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "geschaftsfuhrerin-w-m-d-pfister-bern",
-        "geschaftsfuhrerin-w-m-d-mobel-pfister-ag-bern"
+        "geschaftsfuhrerin-w-m-d-mobel-pfister-ag-bern",
+        "amministratore-delegato-m-f-d-mobel-pfister-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrerin-w-m-d-pfister-bern",
-          "geschaftsfuhrerin-w-m-d-mobel-pfister-ag-bern"
+          "geschaftsfuhrerin-w-m-d-mobel-pfister-ag-bern",
+          "amministratore-delegato-m-f-d-mobel-pfister-ag-bern"
         ],
         "en": [
           "geschaftsfuhrerin-w-m-d-mobel-pfister-ag-bern"
@@ -1163,7 +1187,7 @@
       "url": "https://apply.refline.ch/424626/0521/pub/7/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:23.906Z",
+      "crawledAt": "2026-10-03T09:24:03.420Z",
       "addressLocality": "Marin",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1186,12 +1210,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "marin-gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-marin",
-        "marin-gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-marin"
+        "marin-gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-marin",
+        "marin-retail-manager-tessile-learning-mobel-pfister-ag-marin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marin-gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-marin",
-          "marin-gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-marin"
+          "marin-gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-marin",
+          "marin-retail-manager-tessile-learning-mobel-pfister-ag-marin"
         ],
         "en": [
           "marin-gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-marin"
@@ -1246,7 +1272,7 @@
       "url": "https://apply.refline.ch/424626/3460/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:23.480Z",
+      "crawledAt": "2026-10-03T09:24:02.971Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1268,11 +1294,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsberaterin-kuchen-w-m-d-pfister-thun"
+        "verkaufsberaterin-kuchen-w-m-d-pfister-thun",
+        "consulente-commerciale-in-cucine-m-f-d-mobel-pfister-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberaterin-kuchen-w-m-d-pfister-thun"
+          "verkaufsberaterin-kuchen-w-m-d-pfister-thun",
+          "consulente-commerciale-in-cucine-m-f-d-mobel-pfister-ag-thun"
         ],
         "en": [
           "verkaufsberaterin-kuchen-w-m-d-pfister-thun"
@@ -1294,7 +1322,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-c709b322ff93",
@@ -1327,7 +1356,7 @@
       "url": "https://apply.refline.ch/424626/3436/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:23.057Z",
+      "crawledAt": "2026-10-03T09:24:02.530Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1352,14 +1381,16 @@
         "verkauferin-home-living-w-m-d-pfister-pratteln",
         "home-living-textile-f-m-d-mobel-pfister-ag-pratteln",
         "fachverkauferin-home-living-textil-w-m-d-pfister-pratteln",
-        "textile-maison-et-vivant-f-m-d-mobel-pfister-ag-pratteln"
+        "textile-maison-et-vivant-f-m-d-mobel-pfister-ag-pratteln",
+        "home-living-m-f-d-mobel-pfister-ag-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-home-living-w-m-d-pfister-pratteln",
           "home-living-textile-f-m-d-mobel-pfister-ag-pratteln",
           "fachverkauferin-home-living-textil-w-m-d-pfister-pratteln",
-          "textile-maison-et-vivant-f-m-d-mobel-pfister-ag-pratteln"
+          "textile-maison-et-vivant-f-m-d-mobel-pfister-ag-pratteln",
+          "home-living-m-f-d-mobel-pfister-ag-pratteln"
         ],
         "en": [
           "verkauferin-home-living-w-m-d-pfister-pratteln",
@@ -1385,7 +1416,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-ff6074424926",
@@ -1419,7 +1451,7 @@
       "url": "https://apply.refline.ch/424626/3463/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:22.633Z",
+      "crawledAt": "2026-10-03T09:24:02.085Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1442,12 +1474,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "kuchenmonteurin-w-m-d-pfister-suhr",
-        "kuchenmonteurin-w-m-d-mobel-pfister-ag-suhr"
+        "kuchenmonteurin-w-m-d-mobel-pfister-ag-suhr",
+        "filetto-da-cucina-m-f-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kuchenmonteurin-w-m-d-pfister-suhr",
-          "kuchenmonteurin-w-m-d-mobel-pfister-ag-suhr"
+          "kuchenmonteurin-w-m-d-mobel-pfister-ag-suhr",
+          "filetto-da-cucina-m-f-d-mobel-pfister-ag-suhr"
         ],
         "en": [
           "kuchenmonteurin-w-m-d-mobel-pfister-ag-suhr"
@@ -1503,7 +1537,7 @@
       "url": "https://apply.refline.ch/424626/3464/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:22.209Z",
+      "crawledAt": "2026-10-03T09:24:01.639Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1526,12 +1560,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "einkaufsdisponentin-w-m-d-pfister-suhr",
-        "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
+        "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
+        "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "einkaufsdisponentin-w-m-d-pfister-suhr",
-          "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
+          "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr",
+          "inviatore-di-acquisto-m-f-d-mobel-pfister-ag-suhr"
         ],
         "en": [
           "einkaufsdisponentin-w-m-d-mobel-pfister-ag-suhr"
@@ -1586,7 +1622,7 @@
       "url": "https://apply.refline.ch/424626/3457/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:21.784Z",
+      "crawledAt": "2026-10-03T09:24:01.199Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1635,7 +1671,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-9c3ab52fa845",
@@ -1669,7 +1706,7 @@
       "url": "https://apply.refline.ch/424626/3456/pub/2/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:21.359Z",
+      "crawledAt": "2026-10-03T09:24:00.759Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1692,11 +1729,13 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "technische-r-sachbearbeiterin-kuchenplanung-w-m-d-pfister-suhr"
+          "technische-r-sachbearbeiterin-kuchenplanung-w-m-d-pfister-suhr",
+          "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr"
         ],
         "it": [
           "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr",
-          "technische-r-sachbearbeiterin-kuchenplanung-w-m-d-pfister-suhr"
+          "technische-r-sachbearbeiterin-kuchenplanung-w-m-d-pfister-suhr",
+          "controllo-tecnico-dei-dipendenti-m-f-d-mobel-pfister-ag-suhr"
         ],
         "en": [
           "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr"
@@ -1707,7 +1746,8 @@
       },
       "previousSlugs": [
         "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr",
-        "technische-r-sachbearbeiterin-kuchenplanung-w-m-d-pfister-suhr"
+        "technische-r-sachbearbeiterin-kuchenplanung-w-m-d-pfister-suhr",
+        "controllo-tecnico-dei-dipendenti-m-f-d-mobel-pfister-ag-suhr"
       ],
       "firstSeenAt": "2026-09-01T08:38:31.236Z",
       "salaryMin": 88000,
@@ -1755,7 +1795,7 @@
       "url": "https://apply.refline.ch/424626/3459/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:20.935Z",
+      "crawledAt": "2026-10-03T09:24:00.317Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1777,11 +1817,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "abteilungsleiterin-mobel-w-m-d-pfister-thun"
+        "abteilungsleiterin-mobel-w-m-d-pfister-thun",
+        "head-of-department-furniture-m-f-d-mobel-pfister-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiterin-mobel-w-m-d-pfister-thun"
+          "abteilungsleiterin-mobel-w-m-d-pfister-thun",
+          "head-of-department-furniture-m-f-d-mobel-pfister-ag-thun"
         ],
         "en": [
           "abteilungsleiterin-mobel-w-m-d-pfister-thun"
@@ -1803,7 +1845,8 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-c52965588eb5",
@@ -1837,7 +1880,7 @@
       "url": "https://apply.refline.ch/424626/3458/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:20.508Z",
+      "crawledAt": "2026-10-03T09:23:59.872Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1859,11 +1902,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "abteilungsleiterin-home-living-w-m-d-pfister-thun"
+        "abteilungsleiterin-home-living-w-m-d-pfister-thun",
+        "capo-dipartimento-home-living-m-f-d-mobel-pfister-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiterin-home-living-w-m-d-pfister-thun"
+          "abteilungsleiterin-home-living-w-m-d-pfister-thun",
+          "capo-dipartimento-home-living-m-f-d-mobel-pfister-ag-thun"
         ],
         "en": [
           "abteilungsleiterin-home-living-w-m-d-pfister-thun"
@@ -1919,7 +1964,7 @@
       "url": "https://apply.refline.ch/424626/3454/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:20.084Z",
+      "crawledAt": "2026-10-03T09:23:59.431Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1941,11 +1986,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-etoy"
+        "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-etoy",
+        "cabinetist-mounter-con-permesso-di-gatto-c1-c-m-f-d-mobel-pfister-ag-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-etoy"
+          "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-etoy",
+          "cabinetist-mounter-con-permesso-di-gatto-c1-c-m-f-d-mobel-pfister-ag-etoy"
         ],
         "en": [
           "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-etoy"
@@ -2001,7 +2048,7 @@
       "url": "https://apply.refline.ch/424626/3453/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:19.658Z",
+      "crawledAt": "2026-10-03T09:23:57.846Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2023,11 +2070,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-avry"
+        "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-avry",
+        "cabinetist-mounter-con-permesso-di-gatto-c1-c-m-f-d-mobel-pfister-ag-avry"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-avry"
+          "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-avry",
+          "cabinetist-mounter-con-permesso-di-gatto-c1-c-m-f-d-mobel-pfister-ag-avry"
         ],
         "en": [
           "ebeniste-monteur-euse-avec-permis-de-cat-c1-c-f-h-d-pfister-avry"
@@ -2083,7 +2132,7 @@
       "url": "https://apply.refline.ch/424626/3451/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:19.098Z",
+      "crawledAt": "2026-10-03T09:23:57.405Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2151,7 +2200,7 @@
       "url": "https://apply.refline.ch/424626/3450/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:17.721Z",
+      "crawledAt": "2026-10-03T09:23:56.962Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2219,7 +2268,7 @@
       "url": "https://apply.refline.ch/424626/3449/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:17.292Z",
+      "crawledAt": "2026-10-03T09:23:56.521Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2241,11 +2290,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "wohnberaterin-w-m-d-pfister-suhr"
+        "wohnberaterin-w-m-d-pfister-suhr",
+        "home-consulente-m-f-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wohnberaterin-w-m-d-pfister-suhr"
+          "wohnberaterin-w-m-d-pfister-suhr",
+          "home-consulente-m-f-d-mobel-pfister-ag-suhr"
         ],
         "en": [
           "wohnberaterin-w-m-d-pfister-suhr"
@@ -2301,7 +2352,7 @@
       "url": "https://apply.refline.ch/424626/3447/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:16.866Z",
+      "crawledAt": "2026-10-03T09:23:56.082Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2323,11 +2374,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkauferin-kuchen-w-m-d-pfister-suhr"
+        "verkauferin-kuchen-w-m-d-pfister-suhr",
+        "venditore-in-cucine-m-f-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-kuchen-w-m-d-pfister-suhr"
+          "verkauferin-kuchen-w-m-d-pfister-suhr",
+          "venditore-in-cucine-m-f-d-mobel-pfister-ag-suhr"
         ],
         "en": [
           "verkauferin-kuchen-w-m-d-pfister-suhr"
@@ -2383,7 +2436,7 @@
       "url": "https://apply.refline.ch/424626/3444/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:16.311Z",
+      "crawledAt": "2026-10-03T09:23:55.642Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2405,11 +2458,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkauferin-kuchen-w-m-d-pfister-affoltern-am-albis"
+        "verkauferin-kuchen-w-m-d-pfister-affoltern-am-albis",
+        "venditore-in-cucine-m-f-d-mobel-pfister-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-kuchen-w-m-d-pfister-affoltern-am-albis"
+          "verkauferin-kuchen-w-m-d-pfister-affoltern-am-albis",
+          "venditore-in-cucine-m-f-d-mobel-pfister-ag-affoltern-am-albis"
         ],
         "en": [
           "verkauferin-kuchen-w-m-d-pfister-affoltern-am-albis"
@@ -2464,7 +2519,7 @@
       "url": "https://apply.refline.ch/424626/3445/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:15.890Z",
+      "crawledAt": "2026-10-03T09:23:55.197Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2486,11 +2541,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
+        "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr",
+        "specialista-in-trasporti-stradali-cfc-ausbildung-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
+          "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr",
+          "specialista-in-trasporti-stradali-cfc-ausbildung-mobel-pfister-ag-suhr"
         ],
         "en": [
           "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
@@ -2512,7 +2569,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-113d128fad3a",
@@ -2545,7 +2603,7 @@
       "url": "https://apply.refline.ch/424626/2166/pub/22/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:15.466Z",
+      "crawledAt": "2026-10-03T09:23:54.756Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2567,11 +2625,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "kv-praktikantin-praktikant-lieferunterstutzung-pfister-suhr"
+        "kv-praktikantin-praktikant-lieferunterstutzung-pfister-suhr",
+        "supporto-di-consegna-kv-intern-internship-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-praktikantin-praktikant-lieferunterstutzung-pfister-suhr"
+          "kv-praktikantin-praktikant-lieferunterstutzung-pfister-suhr",
+          "supporto-di-consegna-kv-intern-internship-mobel-pfister-ag-suhr"
         ],
         "en": [
           "kv-praktikantin-praktikant-lieferunterstutzung-pfister-suhr"
@@ -2593,7 +2653,8 @@
           "maxValue": 99000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-b5ecac3867fe",
@@ -2627,7 +2688,7 @@
       "url": "https://apply.refline.ch/424626/3446/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:15.036Z",
+      "crawledAt": "2026-10-03T09:23:54.312Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2649,11 +2710,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
+        "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis",
+        "cucina-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
+          "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis",
+          "cucina-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis"
         ],
         "en": [
           "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
@@ -2708,7 +2771,7 @@
       "url": "https://apply.refline.ch/424626/3443/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:14.585Z",
+      "crawledAt": "2026-10-03T09:23:53.869Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2730,11 +2793,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "category-management-assistant-w-m-d-pfister-suhr"
+        "category-management-assistant-w-m-d-pfister-suhr",
+        "assistente-di-gestione-della-categoria-m-f-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "category-management-assistant-w-m-d-pfister-suhr"
+          "category-management-assistant-w-m-d-pfister-suhr",
+          "assistente-di-gestione-della-categoria-m-f-d-mobel-pfister-ag-suhr"
         ],
         "fr": [
           "category-management-assistant-w-m-d-pfister-suhr"
@@ -2753,7 +2818,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-fd16b7e13f70",
@@ -2786,7 +2852,7 @@
       "url": "https://apply.refline.ch/424626/2911/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:14.159Z",
+      "crawledAt": "2026-10-03T09:23:53.429Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2808,11 +2874,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "entwicklerin-digitales-business-ausbildung-pfister-suhr"
+        "entwicklerin-digitales-business-ausbildung-pfister-suhr",
+        "sviluppatore-nel-business-digitale-formazione-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entwicklerin-digitales-business-ausbildung-pfister-suhr"
+          "entwicklerin-digitales-business-ausbildung-pfister-suhr",
+          "sviluppatore-nel-business-digitale-formazione-mobel-pfister-ag-suhr"
         ],
         "en": [
           "entwicklerin-digitales-business-ausbildung-pfister-suhr"
@@ -2867,7 +2935,7 @@
       "url": "https://apply.refline.ch/424626/3440/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:13.733Z",
+      "crawledAt": "2026-10-03T09:23:52.974Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2891,14 +2959,17 @@
       "firstSeenAt": "2026-08-04T11:42:40.791Z",
       "previousSlugsByLocale": {
         "it": [
-          "sea-manager-w-m-d-pfister-suhr"
+          "sea-manager-w-m-d-pfister-suhr",
+          "digital-marketing-manager-w-m-d-pfister-suhr"
         ],
         "de": [
-          "sea-manager-w-m-d-pfister-suhr"
+          "sea-manager-w-m-d-pfister-suhr",
+          "digital-marketing-manager-w-m-d-pfister-suhr"
         ]
       },
       "previousSlugs": [
-        "sea-manager-w-m-d-pfister-suhr"
+        "sea-manager-w-m-d-pfister-suhr",
+        "digital-marketing-manager-w-m-d-pfister-suhr"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -2945,7 +3016,7 @@
       "url": "https://apply.refline.ch/424626/3439/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:13.308Z",
+      "crawledAt": "2026-10-03T09:23:52.533Z",
       "addressLocality": "Villeneuve",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2993,7 +3064,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-72e1620aef39",
@@ -3026,7 +3098,7 @@
       "url": "https://apply.refline.ch/424626/3435/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:12.893Z",
+      "crawledAt": "2026-10-03T09:23:52.092Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3049,12 +3121,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "gestionnaire-du-commerce-de-detail-menage-apprentissage-pfister-genf",
-        "gestionnaire-du-commerce-de-detail-menage-apprentissage-mobel-pfister-ag-genf"
+        "gestionnaire-du-commerce-de-detail-menage-apprentissage-mobel-pfister-ag-genf",
+        "responsabile-del-retail-household-learning-mobel-pfister-ag-genf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-du-commerce-de-detail-menage-apprentissage-pfister-genf",
-          "gestionnaire-du-commerce-de-detail-menage-apprentissage-mobel-pfister-ag-genf"
+          "gestionnaire-du-commerce-de-detail-menage-apprentissage-mobel-pfister-ag-genf",
+          "responsabile-del-retail-household-learning-mobel-pfister-ag-genf"
         ],
         "en": [
           "gestionnaire-du-commerce-de-detail-menage-apprentissage-pfister-genf"
@@ -3076,7 +3150,8 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-81738f7eaac2",
@@ -3110,7 +3185,7 @@
       "url": "https://apply.refline.ch/424626/3432/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:12.467Z",
+      "crawledAt": "2026-10-03T09:23:51.652Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3132,11 +3207,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsleiterin-mobel-kuchen-w-m-d-pfister-alchenfluh-lyssach"
+        "verkaufsleiterin-mobel-kuchen-w-m-d-pfister-alchenfluh-lyssach",
+        "mobili-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsleiterin-mobel-kuchen-w-m-d-pfister-alchenfluh-lyssach"
+          "verkaufsleiterin-mobel-kuchen-w-m-d-pfister-alchenfluh-lyssach",
+          "mobili-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
         ],
         "en": [
           "verkaufsleiterin-mobel-kuchen-w-m-d-pfister-alchenfluh-lyssach"
@@ -3191,7 +3268,7 @@
       "url": "https://apply.refline.ch/424626/3430/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:12.034Z",
+      "crawledAt": "2026-10-03T09:23:51.212Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3213,11 +3290,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachverkauferin-home-living-w-m-d-pfister-affoltern-am-albis"
+        "fachverkauferin-home-living-w-m-d-pfister-affoltern-am-albis",
+        "specialist-vendor-home-living-f-m-d-mobel-pfister-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverkauferin-home-living-w-m-d-pfister-affoltern-am-albis"
+          "fachverkauferin-home-living-w-m-d-pfister-affoltern-am-albis",
+          "specialist-vendor-home-living-f-m-d-mobel-pfister-ag-affoltern-am-albis"
         ],
         "en": [
           "fachverkauferin-home-living-w-m-d-pfister-affoltern-am-albis"
@@ -3239,7 +3318,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-5f2e0ad8b546",
@@ -3273,7 +3353,7 @@
       "url": "https://apply.refline.ch/424626/0376/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:11.599Z",
+      "crawledAt": "2026-10-03T09:23:50.771Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3296,12 +3376,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "polydesignerin-3d-w-m-d-4-jahrige-ausbildung-pfister-mels",
-        "polydesignerin-3d-ausbildung-pfister-mels"
+        "polydesignerin-3d-ausbildung-pfister-mels",
+        "polydesignerin-3d-f-m-d-formazione-quadriennale-mobel-pfister-ag-mels"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polydesignerin-3d-w-m-d-4-jahrige-ausbildung-pfister-mels",
-          "polydesignerin-3d-ausbildung-pfister-mels"
+          "polydesignerin-3d-ausbildung-pfister-mels",
+          "polydesignerin-3d-f-m-d-formazione-quadriennale-mobel-pfister-ag-mels"
         ],
         "en": [
           "polydesignerin-3d-w-m-d-4-jahrige-ausbildung-pfister-mels"
@@ -3357,7 +3439,7 @@
       "url": "https://apply.refline.ch/424626/1300/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:11.135Z",
+      "crawledAt": "2026-10-03T09:23:50.329Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3379,11 +3461,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachmann-frau-textilien-ausbildung-pfister-st-gallen"
+        "detailhandelsfachmann-frau-textilien-ausbildung-pfister-st-gallen",
+        "addetto-a-al-commercio-al-dettaglio-textilien-ausbildung-mobel-pfister-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachmann-frau-textilien-ausbildung-pfister-st-gallen"
+          "detailhandelsfachmann-frau-textilien-ausbildung-pfister-st-gallen",
+          "addetto-a-al-commercio-al-dettaglio-textilien-ausbildung-mobel-pfister-ag-st-gallen"
         ],
         "en": [
           "detailhandelsfachmann-frau-textilien-ausbildung-pfister-st-gallen"
@@ -3439,7 +3523,7 @@
       "url": "https://apply.refline.ch/424626/0383/pub/35/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:10.710Z",
+      "crawledAt": "2026-10-03T09:23:49.887Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3461,11 +3545,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachmann-frau-mobel-ausbildung-pfister-dubendorf"
+        "detailhandelsfachmann-frau-mobel-ausbildung-pfister-dubendorf",
+        "addetto-a-al-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachmann-frau-mobel-ausbildung-pfister-dubendorf"
+          "detailhandelsfachmann-frau-mobel-ausbildung-pfister-dubendorf",
+          "addetto-a-al-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-dubendorf"
         ],
         "en": [
           "detailhandelsfachmann-frau-mobel-ausbildung-pfister-dubendorf"
@@ -3521,7 +3607,7 @@
       "url": "https://apply.refline.ch/424626/0340/pub/20/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:10.284Z",
+      "crawledAt": "2026-10-03T09:23:49.437Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3543,11 +3629,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachmann-frau-mobel-ausbildung-pfister-emmen"
+        "detailhandelsfachmann-frau-mobel-ausbildung-pfister-emmen",
+        "addetto-a-al-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachmann-frau-mobel-ausbildung-pfister-emmen"
+          "detailhandelsfachmann-frau-mobel-ausbildung-pfister-emmen",
+          "addetto-a-al-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-emmen"
         ],
         "en": [
           "detailhandelsfachmann-frau-mobel-ausbildung-pfister-emmen"
@@ -3603,7 +3691,7 @@
       "url": "https://apply.refline.ch/424626/2360/pub/12/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:09.866Z",
+      "crawledAt": "2026-10-03T09:23:48.993Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3625,11 +3713,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachmann-frau-haushalt-ausbildung-pfister-affoltern-am-albis"
+        "detailhandelsfachmann-frau-haushalt-ausbildung-pfister-affoltern-am-albis",
+        "addetto-a-al-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachmann-frau-haushalt-ausbildung-pfister-affoltern-am-albis"
+          "detailhandelsfachmann-frau-haushalt-ausbildung-pfister-affoltern-am-albis",
+          "addetto-a-al-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-affoltern-am-albis"
         ],
         "en": [
           "detailhandelsfachmann-frau-haushalt-ausbildung-pfister-affoltern-am-albis"
@@ -3685,7 +3775,7 @@
       "url": "https://apply.refline.ch/424626/1634/pub/12/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:09.415Z",
+      "crawledAt": "2026-10-03T09:23:47.994Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3707,11 +3797,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-textilien-ausbildung-pfister-suhr"
+        "detailhandelsfachfrau-mann-textilien-ausbildung-pfister-suhr",
+        "impiegato-a-del-commercio-al-dettaglio-textilien-ausbildung-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-textilien-ausbildung-pfister-suhr"
+          "detailhandelsfachfrau-mann-textilien-ausbildung-pfister-suhr",
+          "impiegato-a-del-commercio-al-dettaglio-textilien-ausbildung-mobel-pfister-ag-suhr"
         ],
         "en": [
           "detailhandelsfachfrau-mann-textilien-ausbildung-pfister-suhr"
@@ -3767,7 +3859,7 @@
       "url": "https://apply.refline.ch/424626/2876/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:08.968Z",
+      "crawledAt": "2026-10-03T09:23:47.547Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3789,11 +3881,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-alchenfluh-lyssach"
+        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-alchenfluh-lyssach",
+        "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-alchenfluh-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-alchenfluh-lyssach"
+          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-alchenfluh-lyssach",
+          "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-alchenfluh-lyssach"
         ],
         "en": [
           "detailhandelsfachfrau-mann-textil-ausbildung-pfister-alchenfluh-lyssach"
@@ -3849,7 +3943,7 @@
       "url": "https://apply.refline.ch/424626/0382/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:07.978Z",
+      "crawledAt": "2026-10-03T09:23:47.107Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3871,11 +3965,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-dubendorf"
+        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-dubendorf",
+        "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-dubendorf"
+          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-dubendorf",
+          "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-dubendorf"
         ],
         "en": [
           "detailhandelsfachfrau-mann-textil-ausbildung-pfister-dubendorf"
@@ -3931,7 +4027,7 @@
       "url": "https://apply.refline.ch/424626/1074/pub/17/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:07.545Z",
+      "crawledAt": "2026-10-03T09:23:46.666Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3953,11 +4049,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-mels"
+        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-mels",
+        "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-mels"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-mels"
+          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-mels",
+          "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-mels"
         ],
         "en": [
           "detailhandelsfachfrau-mann-textil-ausbildung-pfister-mels"
@@ -4013,7 +4111,7 @@
       "url": "https://apply.refline.ch/424626/0386/pub/30/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:07.108Z",
+      "crawledAt": "2026-10-03T09:23:46.224Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4035,11 +4133,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-alchenfluh-lyssach"
+        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-alchenfluh-lyssach",
+        "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-alchenfluh-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-alchenfluh-lyssach"
+          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-alchenfluh-lyssach",
+          "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-alchenfluh-lyssach"
         ],
         "en": [
           "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-alchenfluh-lyssach"
@@ -4095,7 +4195,7 @@
       "url": "https://apply.refline.ch/424626/0373/pub/43/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:06.683Z",
+      "crawledAt": "2026-10-03T09:23:45.781Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4117,11 +4217,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-suhr"
+        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-suhr",
+        "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-suhr"
+          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-suhr",
+          "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-suhr"
         ],
         "en": [
           "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-suhr"
@@ -4177,7 +4279,7 @@
       "url": "https://apply.refline.ch/424626/2361/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:06.258Z",
+      "crawledAt": "2026-10-03T09:23:45.338Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4199,11 +4301,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-affoltern-am-albis"
+        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-affoltern-am-albis",
+        "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-affoltern-am-albis"
+          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-affoltern-am-albis",
+          "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-affoltern-am-albis"
         ],
         "en": [
           "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-affoltern-am-albis"
@@ -4258,7 +4362,7 @@
       "url": "https://apply.refline.ch/424626/0530/pub/18/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:05.836Z",
+      "crawledAt": "2026-10-03T09:23:44.856Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4280,11 +4384,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-mels"
+        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-mels",
+        "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-mels"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-mels"
+          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-mels",
+          "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-mels"
         ],
         "en": [
           "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-mels"
@@ -4306,7 +4412,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-08be5f790240",
@@ -4340,7 +4447,7 @@
       "url": "https://apply.refline.ch/424626/0814/pub/35/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:05.409Z",
+      "crawledAt": "2026-10-03T09:23:44.412Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4362,11 +4469,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-dubendorf"
+        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-dubendorf",
+        "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-dubendorf"
+          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-dubendorf",
+          "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-dubendorf"
         ],
         "en": [
           "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-dubendorf"
@@ -4422,7 +4531,7 @@
       "url": "https://apply.refline.ch/424626/0920/pub/29/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:04.983Z",
+      "crawledAt": "2026-10-03T09:23:43.969Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4444,11 +4553,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-suhr"
+        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-suhr",
+        "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-suhr"
+          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-suhr",
+          "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-suhr"
         ],
         "en": [
           "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-suhr"
@@ -4504,7 +4615,7 @@
       "url": "https://apply.refline.ch/424626/2877/pub/7/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:04.557Z",
+      "crawledAt": "2026-10-03T09:23:43.518Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4526,11 +4637,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-mels"
+        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-mels",
+        "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-mels"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-mels"
+          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-mels",
+          "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-mels"
         ],
         "en": [
           "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-mels"
@@ -4586,7 +4699,7 @@
       "url": "https://apply.refline.ch/424626/2874/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:04.132Z",
+      "crawledAt": "2026-10-03T09:23:43.067Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4608,11 +4721,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "recyclistin-ausbildung-pfister-suhr"
+        "recyclistin-ausbildung-pfister-suhr",
+        "recyclistin-formazione-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "recyclistin-ausbildung-pfister-suhr"
+          "recyclistin-ausbildung-pfister-suhr",
+          "recyclistin-formazione-mobel-pfister-ag-suhr"
         ],
         "en": [
           "recyclistin-ausbildung-pfister-suhr"
@@ -4668,7 +4783,7 @@
       "url": "https://apply.refline.ch/424626/0529/pub/25/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:03.706Z",
+      "crawledAt": "2026-10-03T09:23:42.622Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4691,12 +4806,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "polydesignerin-3d-w-m-d-4-jahrige-ausbildung-pfister-emmen",
-        "polydesignerin-3d-ausbildung-pfister-emmen"
+        "polydesignerin-3d-ausbildung-pfister-emmen",
+        "polydesignerin-3d-f-m-d-formazione-quadriennale-mobel-pfister-ag-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polydesignerin-3d-w-m-d-4-jahrige-ausbildung-pfister-emmen",
-          "polydesignerin-3d-ausbildung-pfister-emmen"
+          "polydesignerin-3d-ausbildung-pfister-emmen",
+          "polydesignerin-3d-f-m-d-formazione-quadriennale-mobel-pfister-ag-emmen"
         ],
         "en": [
           "polydesignerin-3d-w-m-d-4-jahrige-ausbildung-pfister-emmen"
@@ -4751,7 +4868,7 @@
       "url": "https://apply.refline.ch/424626/3427/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:03.281Z",
+      "crawledAt": "2026-10-03T09:23:42.163Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4774,12 +4891,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "polydesigner-3d-apprentissage-pfister-genf",
-        "polydesigner-3d-apprentissage-mobel-pfister-ag-genf"
+        "polydesigner-3d-apprentissage-mobel-pfister-ag-genf",
+        "polydesigner-3d-learning-mobel-pfister-ag-genf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polydesigner-3d-apprentissage-pfister-genf",
-          "polydesigner-3d-apprentissage-mobel-pfister-ag-genf"
+          "polydesigner-3d-apprentissage-mobel-pfister-ag-genf",
+          "polydesigner-3d-learning-mobel-pfister-ag-genf"
         ],
         "en": [
           "polydesigner-3d-apprentissage-pfister-genf"
@@ -4801,7 +4920,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-e62a6eaec509",
@@ -4834,7 +4954,7 @@
       "url": "https://apply.refline.ch/424626/0344/pub/39/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:02.856Z",
+      "crawledAt": "2026-10-03T09:23:41.720Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4856,11 +4976,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "logistikerin-efz-ausbildung-pfister-suhr"
+        "logistikerin-efz-ausbildung-pfister-suhr",
+        "logistikerin-cfc-ausbildung-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistikerin-efz-ausbildung-pfister-suhr"
+          "logistikerin-efz-ausbildung-pfister-suhr",
+          "logistikerin-cfc-ausbildung-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-10T12:03:14.331Z",
@@ -4876,7 +4998,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-45bda67d78f9",
@@ -4910,7 +5033,7 @@
       "url": "https://apply.refline.ch/424626/0349/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:02.438Z",
+      "crawledAt": "2026-10-03T09:23:41.275Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4932,11 +5055,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "logistikerin-eba-ausbildung-pfister-suhr"
+        "logistikerin-eba-ausbildung-pfister-suhr",
+        "logistikerin-afp-ausbildung-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistikerin-eba-ausbildung-pfister-suhr"
+          "logistikerin-eba-ausbildung-pfister-suhr",
+          "logistikerin-afp-ausbildung-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-10T12:03:13.842Z",
@@ -4985,7 +5110,7 @@
       "url": "https://apply.refline.ch/424626/3114/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:02.012Z",
+      "crawledAt": "2026-10-03T09:23:40.833Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5033,7 +5158,8 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-4cff3af170e7",
@@ -5067,7 +5193,7 @@
       "url": "https://apply.refline.ch/424626/1259/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:01.583Z",
+      "crawledAt": "2026-10-03T09:23:40.387Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -5090,11 +5216,13 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-du-commerce-de-detail-ameublement-formation-pfister-genf"
+          "gestionnaire-du-commerce-de-detail-ameublement-formation-pfister-genf",
+          "gestionnaire-du-commerce-de-detail-ameublement-f-m-d-3-ans-d-apprentissage-pfister-genf"
         ],
         "it": [
           "gestionnaire-du-commerce-de-detail-ameublement-f-m-d-3-ans-d-apprentissage-pfister-genf",
-          "gestionnaire-du-commerce-de-detail-ameublement-formation-pfister-genf"
+          "gestionnaire-du-commerce-de-detail-ameublement-formation-pfister-genf",
+          "gestionnaire-du-commerce-de-detail-ameublement-m-w-d-3-ans-d-apprentissage-mobel-pfister-ag-genf"
         ],
         "en": [
           "gestionnaire-du-commerce-de-detail-ameublement-f-m-d-3-ans-d-apprentissage-pfister-genf"
@@ -5105,7 +5233,8 @@
       },
       "previousSlugs": [
         "gestionnaire-du-commerce-de-detail-ameublement-f-m-d-3-ans-d-apprentissage-pfister-genf",
-        "gestionnaire-du-commerce-de-detail-ameublement-formation-pfister-genf"
+        "gestionnaire-du-commerce-de-detail-ameublement-formation-pfister-genf",
+        "gestionnaire-du-commerce-de-detail-ameublement-m-w-d-3-ans-d-apprentissage-mobel-pfister-ag-genf"
       ],
       "firstSeenAt": "2026-07-10T12:03:12.871Z",
       "salaryMin": 51100,
@@ -5153,7 +5282,7 @@
       "url": "https://apply.refline.ch/424626/0701/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:01.158Z",
+      "crawledAt": "2026-10-03T09:23:39.944Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5234,7 +5363,7 @@
       "url": "https://apply.refline.ch/424626/3426/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:21:00.731Z",
+      "crawledAt": "2026-10-03T09:23:39.478Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5282,7 +5411,8 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-2d47b0458b69",
@@ -5316,7 +5446,7 @@
       "url": "https://apply.refline.ch/424626/1135/pub/27/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:00.266Z",
+      "crawledAt": "2026-10-03T09:23:38.065Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5338,11 +5468,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-spreitenbach"
+        "detailhandelsfachfrau-mann-textil-ausbildung-pfister-spreitenbach",
+        "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-spreitenbach"
+          "detailhandelsfachfrau-mann-textil-ausbildung-pfister-spreitenbach",
+          "impiegato-a-del-commercio-al-dettaglio-textil-ausbildung-mobel-pfister-ag-spreitenbach"
         ],
         "en": [
           "detailhandelsfachfrau-mann-textil-ausbildung-pfister-spreitenbach"
@@ -5398,7 +5530,7 @@
       "url": "https://apply.refline.ch/424626/0686/pub/30/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:59.841Z",
+      "crawledAt": "2026-10-03T09:23:37.625Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5420,11 +5552,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-spreitenbach"
+        "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-spreitenbach",
+        "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-spreitenbach"
+          "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-spreitenbach",
+          "impiegato-a-del-commercio-al-dettaglio-mobel-ausbildung-mobel-pfister-ag-spreitenbach"
         ],
         "en": [
           "detailhandelsfachfrau-mann-mobel-ausbildung-pfister-spreitenbach"
@@ -5480,7 +5614,7 @@
       "url": "https://apply.refline.ch/424626/1275/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:59.414Z",
+      "crawledAt": "2026-10-03T09:23:37.183Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5502,11 +5636,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-pratteln"
+        "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-pratteln",
+        "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-pratteln"
+          "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-pratteln",
+          "impiegato-a-del-commercio-al-dettaglio-haushalt-ausbildung-mobel-pfister-ag-pratteln"
         ],
         "en": [
           "detailhandelsfachfrau-mann-haushalt-ausbildung-pfister-pratteln"
@@ -5562,7 +5698,7 @@
       "url": "https://apply.refline.ch/424626/3423/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:57.812Z",
+      "crawledAt": "2026-10-03T09:23:36.741Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5584,11 +5720,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "analytics-engineer-w-m-d-pfister-suhr"
+        "analytics-engineer-w-m-d-pfister-suhr",
+        "analytics-ingegnere-w-m-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytics-engineer-w-m-d-pfister-suhr"
+          "analytics-engineer-w-m-d-pfister-suhr",
+          "analytics-ingegnere-w-m-d-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:24.852Z",
@@ -5638,7 +5776,7 @@
       "url": "https://apply.refline.ch/424626/3417/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:57.381Z",
+      "crawledAt": "2026-10-03T09:23:36.298Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5661,18 +5799,21 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "handwerkprofi-im-kundendienst-w-m-d-pfister-suhr"
+          "handwerkprofi-im-kundendienst-w-m-d-pfister-suhr",
+          "sachbearbeiterin-kuchen-kundendienst-w-m-d-pfister-suhr"
         ],
         "it": [
           "sachbearbeiterin-kuchen-kundendienst-w-m-d-pfister-suhr",
           "sachbearbeiterin-kundendienst-w-m-d-pfister-suhr",
-          "handwerkprofi-im-kundendienst-w-m-d-pfister-suhr"
+          "handwerkprofi-im-kundendienst-w-m-d-pfister-suhr",
+          "servizio-cucina-f-m-d-mobel-pfister-ag-suhr"
         ]
       },
       "previousSlugs": [
         "sachbearbeiterin-kuchen-kundendienst-w-m-d-pfister-suhr",
         "sachbearbeiterin-kundendienst-w-m-d-pfister-suhr",
-        "handwerkprofi-im-kundendienst-w-m-d-pfister-suhr"
+        "handwerkprofi-im-kundendienst-w-m-d-pfister-suhr",
+        "servizio-cucina-f-m-d-mobel-pfister-ag-suhr"
       ],
       "firstSeenAt": "2026-07-04T12:18:22.687Z",
       "salaryMin": 64500,
@@ -5694,9 +5835,9 @@
       "slug": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
       "slugByLocale": {
         "it": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
-        "en": "real-estate-management-business-mobel-pfister-ag-suhr",
+        "en": "immobilien-administrator-mobel-pfister-ag-suhr",
         "de": "sachbearbeiterin-immobilienbewirtschaftung-gewerbe-pfister-suhr",
-        "fr": "gestion-immobiliere-mobel-pfister-ag-suhr"
+        "fr": "administrateur-immobilier-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -5721,7 +5862,7 @@
       "url": "https://apply.refline.ch/424626/3414/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:56.953Z",
+      "crawledAt": "2026-10-03T09:23:35.854Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5751,6 +5892,9 @@
         "comptables-du-personnel-et-des-biens-immobiliers-mobel-pfister-ag-suhr",
         "immobilien-accountant-mobel-pfister-ag-suhr",
         "comptable-immobilier-mobel-pfister-ag-suhr",
+        "real-estate-management-business-mobel-pfister-ag-suhr",
+        "gestion-immobiliere-mobel-pfister-ag-suhr",
+        "gestione-immobiliare-business-mobel-pfister-ag-suhr",
         "immobilien-administrator-mobel-pfister-ag-suhr",
         "administrateur-immobilier-mobel-pfister-ag-suhr"
       ],
@@ -5763,10 +5907,12 @@
           "sachbearbeiter-in-immobilienbuchhaltung-pfister-suhr",
           "comptables-du-personnel-et-des-biens-immobiliers-mobel-pfister-ag-suhr",
           "immobilien-accountant-mobel-pfister-ag-suhr",
-          "comptable-immobilier-mobel-pfister-ag-suhr"
+          "comptable-immobilier-mobel-pfister-ag-suhr",
+          "gestione-immobiliare-business-mobel-pfister-ag-suhr"
         ],
         "en": [
           "personnel-real-estate-accountants-mobel-pfister-ag-suhr",
+          "real-estate-management-business-mobel-pfister-ag-suhr",
           "immobilien-administrator-mobel-pfister-ag-suhr"
         ],
         "de": [
@@ -5774,6 +5920,7 @@
         ],
         "fr": [
           "comptables-du-personnel-et-des-biens-immobiliers-mobel-pfister-ag-suhr",
+          "gestion-immobiliere-mobel-pfister-ag-suhr",
           "administrateur-immobilier-mobel-pfister-ag-suhr"
         ]
       },
@@ -5823,7 +5970,7 @@
       "url": "https://apply.refline.ch/424626/2867/pub/13/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:56.525Z",
+      "crawledAt": "2026-10-03T09:23:35.410Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5846,12 +5993,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "kauffrau-kaufmann-w-m-d-3-jahrige-ausbildung-pfister-suhr",
-        "kauffrau-kaufmann-ausbildung-pfister-suhr"
+        "kauffrau-kaufmann-ausbildung-pfister-suhr",
+        "kauffrau-kaufmann-f-m-d-3-anni-di-formazione-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-kaufmann-w-m-d-3-jahrige-ausbildung-pfister-suhr",
-          "kauffrau-kaufmann-ausbildung-pfister-suhr"
+          "kauffrau-kaufmann-ausbildung-pfister-suhr",
+          "kauffrau-kaufmann-f-m-d-3-anni-di-formazione-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:20.080Z",
@@ -5867,13 +6016,14 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-0d61f03b0343",
       "slug": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
-        "it": "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr",
+        "it": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
         "en": "installer-carpenter-f-m-d-mobel-pfister-ag-suhr",
         "de": "monteurin-schreinerin-w-m-d-pfister-suhr",
         "fr": "installateur-menuisier-f-m-d-mobel-pfister-ag-suhr"
@@ -5901,7 +6051,7 @@
       "url": "https://apply.refline.ch/424626/1427/pub/62/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:56.087Z",
+      "crawledAt": "2026-10-03T09:23:34.964Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5924,12 +6074,16 @@
       "pensum": "100%",
       "previousSlugs": [
         "monteurin-schreinerin-w-m-d-pfister-suhr",
-        "montatore-falegname-f-m-d-mobel-pfister-ag-suhr"
+        "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
+        "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr",
+        "montatore-falegname-m-w-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteurin-schreinerin-w-m-d-pfister-suhr",
-          "montatore-falegname-f-m-d-mobel-pfister-ag-suhr"
+          "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
+          "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr",
+          "montatore-falegname-m-w-d-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:18.345Z",
@@ -5979,7 +6133,7 @@
       "url": "https://apply.refline.ch/424626/3385/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:55.658Z",
+      "crawledAt": "2026-10-03T09:23:34.526Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6034,7 +6188,7 @@
       "slug": "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
       "slugByLocale": {
         "it": "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
-        "en": "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
+        "en": "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach",
         "de": "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
         "fr": "vendeur-specialise-dans-les-cuisines-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
       },
@@ -6061,7 +6215,7 @@
       "url": "https://apply.refline.ch/424626/3384/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:55.228Z",
+      "crawledAt": "2026-10-03T09:23:34.085Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6084,13 +6238,17 @@
       "pensum": "80%",
       "previousSlugs": [
         "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
+        "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
+        "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
         "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach"
+          "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
+          "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
         ],
         "en": [
+          "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
           "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
         ]
       },
@@ -6140,7 +6298,7 @@
       "url": "https://apply.refline.ch/424626/3320/pub/8/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:54.798Z",
+      "crawledAt": "2026-10-03T09:23:33.644Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6162,11 +6320,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "online-customer-consultant-w-m-d-pfister-suhr"
+        "online-customer-consultant-w-m-d-pfister-suhr",
+        "online-customer-consulente-w-m-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "online-customer-consultant-w-m-d-pfister-suhr"
+          "online-customer-consultant-w-m-d-pfister-suhr",
+          "online-customer-consulente-w-m-d-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:12.693Z",
@@ -6182,7 +6342,8 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pfister-1b2a8bd05e6c",
@@ -6216,7 +6377,7 @@
       "url": "https://apply.refline.ch/424626/3341/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:54.365Z",
+      "crawledAt": "2026-10-03T09:23:33.201Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6239,11 +6400,13 @@
       "pensum": "50%",
       "previousSlugs": [
         "employee-service-information-f-m-d-mobel-pfister-ag-suhr",
-        "mitarbeiterin-service-information-w-m-d-pfister-suhr"
+        "mitarbeiterin-service-information-w-m-d-pfister-suhr",
+        "servizio-e-informazioni-dei-dipendenti-f-m-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-service-information-w-m-d-pfister-suhr"
+          "mitarbeiterin-service-information-w-m-d-pfister-suhr",
+          "servizio-e-informazioni-dei-dipendenti-f-m-d-mobel-pfister-ag-suhr"
         ],
         "en": [
           "employee-service-information-f-m-d-mobel-pfister-ag-suhr"
@@ -6268,7 +6431,7 @@
       "id": "pfister-4bb75534ef3a",
       "slug": "responsabile-di-reparto-assortimenti-specialistici-m-w-d-mobel-pfister-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "capo-dipartimento-di-specializzazione-f-m-d-mobel-pfister-ag-affoltern-am-albis",
+        "it": "responsabile-di-reparto-assortimenti-specialistici-m-w-d-mobel-pfister-ag-affoltern-am-albis",
         "en": "head-of-department-in-specialist-range-f-m-d-mobel-pfister-ag-affoltern-am-albis",
         "de": "abteilungsleiterin-fachsortimente-w-m-d-pfister-affoltern-am-albis",
         "fr": "chef-de-departement-dans-la-gamme-specialisee-f-m-d-mobel-pfister-ag-affoltern-am-albis"
@@ -6296,7 +6459,7 @@
       "url": "https://apply.refline.ch/424626/3340/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:53.944Z",
+      "crawledAt": "2026-10-03T09:23:32.759Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6319,12 +6482,16 @@
       "pensum": "100%",
       "previousSlugs": [
         "abteilungsleiterin-fachsortimente-w-m-d-pfister-affoltern-am-albis",
-        "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis"
+        "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis",
+        "capo-dipartimento-di-specializzazione-f-m-d-mobel-pfister-ag-affoltern-am-albis",
+        "responsabile-di-reparto-assortimenti-specialistici-m-w-d-mobel-pfister-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiterin-fachsortimente-w-m-d-pfister-affoltern-am-albis",
-          "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis"
+          "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis",
+          "capo-dipartimento-di-specializzazione-f-m-d-mobel-pfister-ag-affoltern-am-albis",
+          "responsabile-di-reparto-assortimenti-specialistici-m-w-d-mobel-pfister-ag-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:11.801Z",
@@ -6374,7 +6541,7 @@
       "url": "https://apply.refline.ch/424626/1374/pub/74/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:53.462Z",
+      "crawledAt": "2026-10-03T09:23:32.293Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6398,12 +6565,14 @@
       "previousSlugs": [
         "montatore-falegname-con-patente-cat-c1-c-suhr-mobel-pfister-ag-suhr",
         "monteur-schreiner-mit-fuhrerausweis-kat-c1-c-suhr-pfister-suhr",
-        "monteur-schreiner-con-fuhrerausweis-kat-c1-c-suhr-mobel-pfister-ag-suhr"
+        "monteur-schreiner-con-fuhrerausweis-kat-c1-c-suhr-mobel-pfister-ag-suhr",
+        "montatore-schreiner-con-c1-c-suhr-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montatore-falegname-con-patente-cat-c1-c-suhr-mobel-pfister-ag-suhr",
-          "monteur-schreiner-mit-fuhrerausweis-kat-c1-c-suhr-pfister-suhr"
+          "monteur-schreiner-mit-fuhrerausweis-kat-c1-c-suhr-pfister-suhr",
+          "montatore-schreiner-con-c1-c-suhr-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:11.330Z",
@@ -6584,7 +6753,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

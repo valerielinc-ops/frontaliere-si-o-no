@@ -99,6 +99,35 @@ describe('fill extension: JOIN steps', () => {
     expect(form.F.textOf(state.final)).toBe('Bewerben');
   });
 
+  // Coop's SuccessFactors form, mapped on 2026-10-03.
+  it('chooses in SuccessFactors’ picklists once their options load, and types its UI5 birth date', async () => {
+    const sf = page(`<label for="a">* Anrede</label><input id="a" aria-label="Anrede" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="an:_listSelect" aria-required="true" class="rcmpaginatedselectinput"><ul id="an:_listSelect" role="listbox"></ul>
+      <div class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required=""></ui5-date-picker-xweb-calendar-widget></div>`, 'https://career2.successfactors.eu/portalcareer');
+    sf.window.eval(`
+      const input = document.getElementById('a');
+      const list = document.getElementById('an:_listSelect');
+      input.addEventListener('click', () => setTimeout(() => {
+        list.innerHTML = '<li role="option">Bitte auswählen</li><li role="option">Frau</li><li role="option">Herr</li>';
+        for (const item of list.querySelectorAll('li')) item.addEventListener('click', () => { input.value = item.textContent; list.innerHTML = ''; });
+      }, 30));
+      customElements.define('ui5-date-picker-xweb-calendar-widget', class extends HTMLElement {
+        constructor() {
+          super();
+          this._value = '';
+          const root = this.attachShadow({ mode: 'open' });
+          root.innerHTML = '<input type="text">';
+          const inner = root.querySelector('input');
+          inner.addEventListener('keydown', (event) => { if (event.key === 'Enter') this._value = inner.value; });
+        }
+        get value() { return this._value; }
+      });`);
+    const sfKit = { ...kit, profile: { dateOfBirth: '1990-05-12' }, answers: [{ question: '* Anrede', answer: 'Herr', source: 'answers' }] };
+    const result = await sf.F.fillPage(sf.document, sfKit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect(result.missing).toEqual([]);
+    expect((sf.document.getElementById('a') as HTMLInputElement).value).toBe('Herr');
+    expect((sf.document.querySelector('[ui5-date-picker]') as any).value).toBe('12.05.1990');
+  });
+
   it('types the alias and moves on with «Continua», never «Continua con Google»', async () => {
     const { F, document } = page(`<form><div role="group"><label for="email">Email</label><input id="email" type="email" aria-label="Email" name="email" value=""></div>
       <button type="button" data-testid="ContinueButton"><span>Continua</span></button>

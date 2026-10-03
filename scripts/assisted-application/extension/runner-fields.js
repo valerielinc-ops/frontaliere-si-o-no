@@ -227,10 +227,41 @@
     if (tag === 'select') {
       field.options = [...element.options].slice(0, 300).map((option) => ({ value: option.value, label: clean(option.textContent) }));
     }
+    if (field.kind === 'combobox') {
+      // SuccessFactors' picklists (Coop, 2026-10-03): an input that shows
+      // «Bitte auswählen» and loads its options into the list it owns once
+      // opened. A select by another name: its options are read (extractFields).
+      field.ownedList = clean(element.getAttribute('aria-owns') || element.getAttribute('aria-controls') || '');
+      field.selectLike = Boolean(field.ownedList)
+        && (/^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez))\b/i.test(element.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(element.className || '')));
+    }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);
   }
   for (const entry of radios.values()) fields.push(entry);
+  // SAP UI5's date picker (SuccessFactors' «Geburtsdatum», Coop 2026-10-03):
+  // a web component whose input lives in its shadow root, out of the loop above.
+  for (const element of document.querySelectorAll('[ui5-date-picker]')) {
+    if (element.hasAttribute('disabled') || element.hasAttribute('readonly') || !visible(element)) continue;
+    const label = clean(element.getAttribute('accessible-name') || element.getAttribute('title') || labelFor(element));
+    fields.push({
+      id: idFor(element),
+      kind: 'text',
+      inputType: 'date',
+      name: '',
+      label,
+      required: element.hasAttribute('required') || REQUIRED_LABEL.test(label),
+      value: clean(element.value || element.getAttribute('value') || ''),
+      search: false,
+      maxLength: null,
+      accept: '',
+      autocomplete: '',
+      invalid: element.getAttribute('value-state') === 'Error',
+      widget: 'ui5-date',
+      datePattern: clean(element.getAttribute('format-pattern') || ''),
+      placeholder: clean(element.getAttribute('placeholder') || ''),
+    });
+  }
   // ARIA radio groups without a native input (JOIN's option cards,
   // <div role="radio" aria-checked>): one field per group, its question from
   // the group's label or the heading before it, each option by its own text

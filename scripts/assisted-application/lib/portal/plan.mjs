@@ -60,6 +60,8 @@ export function candidateRules(candidateLocale) {
 - Always fill the contact fields from identity: full/first/last name, e-mail, phone (split country code and number when the form asks them separately; a phone-type question is "mobile" for a mobile number such as +41 7x or +39 3xx). Street, postal code, city and country come from identity.address, city and country also from identity.location; date of birth and nationality from profile. A country is chosen as the option that names it in the form's language (Italia = Italien = Italy = Italie). What the data does not state is missing.
 - "How did you hear about us / Wie haben Sie von uns erfahren / Come hai saputo": the true answer is the job board frontaliereticino.ch — choose the option meaning online job board / internet / other website (or "other"), or write "frontaliereticino.ch" in a text field.
 - "Do you work / have you worked for us?": "No" when that employer is not among profile.employers or in the candidate's answers, otherwise it is missing.
+- "Does this application come from a recruitment / placement agency (Vermittlungsbüro, Personalvermittlung, agenzia per il lavoro, agence de placement)?": "No". The candidate applies personally: Frontaliere Ticino sends the candidate's own application, is no placement agency and never accepts an agency's terms.
+- Date fields with inputType "date": a fill action with the candidate's date in YYYY-MM-DD, as for kind "date".
 - A required field (asterisk, "erforderlich", or named in form.errors) that you cannot fill is never skipped: it goes in missingRequired.
 - Password fields are handled by the runner: skip them.
 - A field that already holds the right value: skip. A field marked invalid was rejected by the form on the last attempt (its messages are in form.errors): give it a corrected value, or put it in missingRequired when only the candidate can answer.
@@ -208,12 +210,26 @@ export function guardPlan(plan, fields, candidate = null) {
   const byId = new Map(fields.map((field) => [field.id, field]));
   const actions = [];
   const missing = [];
+  // «Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: … werden die
+  // AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis
+  // akzeptiert.)» (Coop, 2026-10-03): always its "No", whatever the plan says.
+  // The candidate applies personally and no agency's terms are ever accepted.
+  // Without a "No" among the options read (review of #11036), no answer at
+  // all: the plan's is dropped and the required field holds the submission.
+  const agencyIds = new Set(fields.filter((field) => isAgencyQuestion(field)).map((field) => field.id));
+  const agencyNo = new Map(fields.map((field) => [field.id, agencyNoOption(field)]).filter(([, option]) => option));
+  for (const [fieldId, option] of agencyNo) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
+  plan = {
+    ...plan,
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId)),
+  };
   for (const item of plan.missingRequired || []) {
     if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
   for (const action of plan.actions || []) {
@@ -273,6 +289,19 @@ export function guardPlan(plan, fields, candidate = null) {
     actions: actions.filter((action) => !asked.has(action.fieldId)),
     missingRequired: missing.filter((item) => asked.has(item.fieldId)),
   };
+}
+
+const AGENCY_RE = /(vermittlungsb[üu]ro|personalvermittl|placement agency|recruit(ment|ing) agency|staffing agency|agenzia (per il lavoro|di collocamento|interinale|per l['’]impiego)|agence (de placement|de recrutement|d['’]emploi|intérimaire))/i;
+const NO_OPTION_RE = /^(nein|no|non)$/i;
+
+export function isAgencyQuestion(field) {
+  return Boolean(field) && AGENCY_RE.test(String(field.label || ''));
+}
+
+/** The "No" of an agency question that offers one, else null. */
+export function agencyNoOption(field) {
+  if (!isAgencyQuestion(field)) return null;
+  return (field.options || []).find((option) => NO_OPTION_RE.test(String(option.label || '').trim())) || null;
 }
 
 // "Select One", "Bitte wählen", "-- Seleziona --": a dropdown still on its prompt holds nothing.

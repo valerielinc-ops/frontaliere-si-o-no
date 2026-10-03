@@ -412,12 +412,14 @@ export async function listSwissJobs(site, brand) {
           offset += limit;
         }
       } catch (error) {
-        if (error?.code !== 'WORKDAY_TOTAL_CHANGED' || queryAttempt >= WORKDAY_QUERY_RESTARTS) {
+        const restartablePaginationError = error?.code === 'WORKDAY_TOTAL_CHANGED'
+          || error?.code === 'WORKDAY_PAGINATION_REPEATED';
+        if (!restartablePaginationError || queryAttempt >= WORKDAY_QUERY_RESTARTS) {
           throw error;
         }
         const delayMs = WORKDAY_QUERY_RESTART_DELAY_MS * (queryAttempt + 1);
         console.warn(
-          `⚠️ Workday ${brand} ${searchText || 'empty'} search snapshot drifted; `
+          `⚠️ Workday ${brand} ${searchText || 'empty'} search pagination was not stable; `
           + `restarting query (${queryAttempt + 1}/${WORKDAY_QUERY_RESTARTS}) in ${delayMs}ms`,
         );
         await new Promise((resolve) => setTimeout(resolve, delayMs));
@@ -534,10 +536,12 @@ export function assertUniqueWorkdayPostings(
       );
     }
     if (seen.has(identity)) {
-      throw new Error(
+      const error = new Error(
         `Workday ${brand} ${searchText || 'empty'} search repeated posting identity `
         + `${identity} at offset ${offset}`,
       );
+      error.code = 'WORKDAY_PAGINATION_REPEATED';
+      throw error;
     }
     seen.add(identity);
   }

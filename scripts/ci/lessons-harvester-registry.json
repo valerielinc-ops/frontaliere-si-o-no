@@ -71,6 +71,13 @@
       "decidedAt": "2026-10-01T11:46:17Z",
       "ref": "#10479, #10393, #10105",
       "reason": "Fingerprint catch-all creato dalla ripetizione di `scripts/`: gli esempi coprono thin-content/quarantine, prova snapshot e metadata stale, senza un pattern preventivo comune oltre le regole gia' presenti."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
+      "outcome": "declined",
+      "decidedAt": "2026-10-03T10:32:59Z",
+      "ref": "#11011, #10448, #10393",
+      "reason": "Fingerprint catch-all basato su path `scripts/` e classe funnel: i finding coprono fallback titolo, parita' strutturale delle traduzioni e floor/prova snapshot, senza una bug class comune; AGENTS.md #6 copre gia' la validazione di dominio, contesto e sibling."
     }
   ]
 }
