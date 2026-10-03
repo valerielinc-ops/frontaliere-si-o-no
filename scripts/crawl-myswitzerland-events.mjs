@@ -1048,10 +1048,6 @@ async function main() {
     return;
   }
 
-  if (!limit && records.length > 0) {
-    if (ids) saveGenericCursor(targetedCheckpointPath, { selectionKey: selection.selectionKey, nextIndex: cursor, updatedAt: crawledAt });
-    else saveCursor(SOURCE.key, cursor, crawledAt);
-  }
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 
@@ -1090,6 +1086,12 @@ async function main() {
     detailFailureIds,
     detailAttemptCount: visited,
   });
+  // Advance the catalog only after the detail-failure policy accepts and
+  // writes this slice. A rejected batch must be retried from the same cursor.
+  if (!limit && records.length > 0) {
+    if (ids) saveGenericCursor(targetedCheckpointPath, { selectionKey: selection.selectionKey, nextIndex: cursor, updatedAt: crawledAt });
+    else saveCursor(SOURCE.key, cursor, crawledAt);
+  }
   console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed / ${bookingPriceBackfills.length} booking price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 

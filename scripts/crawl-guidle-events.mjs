@@ -684,10 +684,6 @@ async function main() {
     return;
   }
 
-  if (!limit && entries.length > 0) {
-    if (ids) saveGenericCursor(targetedCheckpoint, { selectionKey, nextIndex: cursor, updatedAt: crawledAt });
-    else saveCursor(SOURCE.key, cursor, crawledAt);
-  }
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 
@@ -722,6 +718,12 @@ async function main() {
     detailFailureIds,
     detailAttemptCount: visited,
   });
+  // Advance the catalog only after the detail-failure policy accepts and
+  // writes this slice. A rejected batch must be retried from the same cursor.
+  if (!limit && entries.length > 0) {
+    if (ids) saveGenericCursor(targetedCheckpoint, { selectionKey, nextIndex: cursor, updatedAt: crawledAt });
+    else saveCursor(SOURCE.key, cursor, crawledAt);
+  }
   console.log(
     `[guidle] merged ${events.length} event(s) (${goneIds.length} source disappearance(s) retained) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,
   );
