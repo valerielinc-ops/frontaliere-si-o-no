@@ -28,7 +28,8 @@
  *     the capital that starts a word is a boundary in the candidate's raw text;
  *   - a name that ran into the next sentence ("at Svag. Previously, I was…");
  *   - "as well as English" read as a job title, and a language named in the
- *     letter's language ("English") where the CV says "inglese";
+ *     letter's language ("English") where the CV says "inglese" (the name as a
+ *     whole word: "machine learning" holds no "Chinese");
  *   - a tool the posting names, quoted as something still to learn ("motivated
  *     to learn the hotel's LQA and Forbes standards"), is no claim of having it.
  */
@@ -300,19 +301,27 @@ function afterSentenceEnd(span) {
   return words.slice(start).join(' ');
 }
 
-// A language is named in the letter's language: "English" is the CV's "inglese" (accents folded).
+// A language is named in the letter's language: "English" is the CV's "inglese", «madrelingua italiana»,
+// «langue française» (accents folded). The forms a CV writes, never a stem: the stem of "Chinese" is in
+// "machine learning" (review of #11020).
 const LANGUAGE_NAMES = [
-  ['english', 'inglese', 'englisch', 'anglais'], ['german', 'tedesco', 'deutsch', 'allemand'], ['french', 'francese', 'franzosisch', 'francais'],
-  ['italian', 'italiano', 'italienisch', 'italien'], ['spanish', 'spagnolo', 'spanisch', 'espagnol'], ['portuguese', 'portoghese', 'portugiesisch', 'portugais'],
-  ['russian', 'russo', 'russisch', 'russe'], ['arabic', 'arabo', 'arabisch', 'arabe'], ['chinese', 'cinese', 'chinesisch', 'chinois'],
-  ['dutch', 'olandese', 'niederlandisch', 'neerlandais'], ['romanian', 'rumeno', 'romeno', 'rumanisch', 'roumain'], ['albanian', 'albanese', 'albanisch', 'albanais'],
-  ['serbian', 'serbo', 'serbisch', 'serbe'], ['croatian', 'croato', 'kroatisch', 'croate'], ['turkish', 'turco', 'turkisch', 'turc'],
-  ['polish', 'polacco', 'polnisch', 'polonais'], ['ukrainian', 'ucraino', 'ukrainisch', 'ukrainien'],
+  ['english', 'inglese', 'englisch', 'anglais', 'anglaise'], ['german', 'tedesco', 'tedesca', 'deutsch', 'allemand', 'allemande'],
+  ['french', 'francese', 'franzosisch', 'francais', 'francaise'], ['italian', 'italiano', 'italiana', 'italienisch', 'italien', 'italienne'],
+  ['spanish', 'spagnolo', 'spagnola', 'spanisch', 'espagnol', 'espagnole'], ['portuguese', 'portoghese', 'portugiesisch', 'portugais', 'portugaise'],
+  ['russian', 'russo', 'russa', 'russisch', 'russe'], ['arabic', 'arabo', 'araba', 'arabisch', 'arabe'], ['chinese', 'cinese', 'chinesisch', 'chinois', 'chinoise'],
+  ['dutch', 'olandese', 'niederlandisch', 'neerlandais', 'neerlandaise'], ['romanian', 'rumeno', 'rumena', 'romeno', 'romena', 'rumanisch', 'roumain', 'roumaine'],
+  ['albanian', 'albanese', 'albanisch', 'albanais', 'albanaise'], ['serbian', 'serbo', 'serba', 'serbisch', 'serbe'], ['croatian', 'croato', 'croata', 'kroatisch', 'croate'],
+  ['turkish', 'turco', 'turca', 'turkisch', 'turc', 'turque'], ['polish', 'polacco', 'polacca', 'polnisch', 'polonais', 'polonaise'],
+  ['ukrainian', 'ucraino', 'ukrainisch', 'ukrainien', 'ukrainienne'],
 ];
-/** A language's name is backed when the candidate's texts name that language, in any of the four languages. */
-function languageBacked(word, claimText) {
+/**
+ * A title's word is in the candidate's texts or the order line by a five-letter stem ("Leiter" is in
+ * "Teamleiter"). A language's name only as a whole word, in any of the four languages.
+ */
+function titleWordBacked(word, index) {
   const names = LANGUAGE_NAMES.find((group) => group.includes(word));
-  return Boolean(names) && names.some((name) => claimText.includes(name.slice(0, 5)));
+  if (names) return new RegExp(`(?<![\\p{L}\\p{N}])(?:${names.join('|')})(?![\\p{L}\\p{N}])`, 'u').test(`${index.claimText} ${index.namesText || ''}`);
+  return index.claimText.includes(word.slice(0, 5)) || (index.namesText || '').includes(word.slice(0, 5));
 }
 // "as well as English", "such as Excel": the "as" of a comparison, never "as <job title>".
 const COMPARISON_BEFORE_AS = /(?:\bas\s+well|\bsuch|\bas\s+soon|\bas\s+much|\bas\s+long|\bsame|\bcosì)\s+$/i;
@@ -419,8 +428,7 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
       if (COMPARISON_BEFORE_AS.test(text.slice(Math.max(0, match.index - 12), match.index))) continue;
       const title = untilSentenceEnd(match[2]);
       // The posting's own title is a name the candidate applies as ("mi candido come Product Manager").
-      const missing = significant(title).filter((word) => word.length >= 4 && !index.claimText.includes(word.slice(0, 5)) && !(index.namesText || '').includes(word.slice(0, 5))
-        && !languageBacked(word, index.claimText));
+      const missing = significant(title).filter((word) => word.length >= 4 && !titleWordBacked(word, index));
       if (!missing.length) continue;
       (match[1].toLowerCase() === 'als' ? advise : flag)(field, 'title', tidy(title), contextAround(text, match.index, match[0].length));
     }

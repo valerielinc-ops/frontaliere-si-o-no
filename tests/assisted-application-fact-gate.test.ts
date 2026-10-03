@@ -153,6 +153,18 @@ describe('fact gate: false alarms of 2026-10-03', () => {
     expect(verdict({ coverLetter: 'I worked as Japanese interpreter.' }, CONSULTANT).unsupported).toContain('title:Japanese');
   });
 
+  it('backs a language only by its own name as a whole word, in any of the four languages', () => {
+    // Review of #11020: the five-letter stem of "Chinese" is in "machine learning".
+    const course = { ...CONSULTANT, text: `${CONSULTANT.text}\nCorso di machine learning, 2022` };
+    expect(verdict({ coverLetter: 'I worked as Chinese interpreter.' }, course).unsupported).toContain('title:Chinese');
+    expect(verdict({ coverLetter: 'I worked as Chinese interpreter.' }, { ...CONSULTANT, text: `${CONSULTANT.text}\nCinese\nA2` }).unsupported).toEqual([]);
+    // The CV's own form of the name: «Français courant», «madrelingua italiana».
+    expect(verdict({ coverLetter: 'I worked as French interpreter.' }, { ...CONSULTANT, text: 'Dario Ferri\nFrançais courant' }).unsupported).toEqual([]);
+    expect(verdict({ coverLetter: 'I worked as Italian interpreter.' }, { ...CONSULTANT, text: 'Dario Ferri\nMadrelingua italiana' }).unsupported).toEqual([]);
+    // A country is not its language.
+    expect(verdict({ coverLetter: 'I worked as Russian interpreter.' }, { ...CONSULTANT, text: 'Dario Ferri\nNato in Russia' }).unsupported).toContain('title:Russian');
+  });
+
   it('keeps an employer name that carries an abbreviation, and one after a sentence end', () => {
     const sources = { ...CONSULTANT, text: `${CONSULTANT.text}\nPortiere, Hotel St. Moritz Palace, 2008\nImpiegato, Alpina Systems AG, 2007` };
     expect(verdict({ coverLetter: 'I worked at Hotel St. Moritz Palace for a season.' }, sources).unsupported).toEqual([]);
