@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-10-02T21:18:24.807Z",
+  "assembledAt": "2026-10-03T09:17:27.500Z",
   "jobs": [
     {
       "id": "cds-savognin-405-9cf102943bc6",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:18:20.263Z",
+      "crawledAt": "2026-10-03T09:17:22.844Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:18:20.260Z",
+      "crawledAt": "2026-10-03T09:17:22.841Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -165,7 +165,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cds-savognin-159-5df441a9b5eb",
@@ -199,7 +200,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/159.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:18:20.257Z",
+      "crawledAt": "2026-10-03T09:17:22.839Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -279,7 +280,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:18:20.254Z",
+      "crawledAt": "2026-10-03T09:17:22.836Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -353,7 +354,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:18:20.230Z",
+      "crawledAt": "2026-10-03T09:17:22.816Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",

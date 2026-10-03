@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ehc-vd",
-  "assembledAt": "2026-10-02T21:15:53.198Z",
+  "assembledAt": "2026-10-03T09:20:10.083Z",
   "jobs": [
     {
       "id": "ehc-vd-442b64f7073a",
@@ -34,7 +34,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-centre-medicauxpermanences-3128",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.957Z",
+      "crawledAt": "2026-10-03T09:20:02.065Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -72,12 +72,14 @@
       "previousSlugs": [
         "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
         "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
-          "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -130,7 +132,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-bloc-operatoire-anesthesieambulances-3126",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.955Z",
+      "crawledAt": "2026-10-03T09:20:02.064Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -166,12 +168,14 @@
       },
       "previousSlugs": [
         "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges",
-        "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges",
-          "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.983Z",
@@ -220,7 +224,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-soins-hospitaliers-3125",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.954Z",
+      "crawledAt": "2026-10-03T09:20:02.063Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -255,11 +259,13 @@
         ]
       },
       "previousSlugs": [
-        "offre-spontanee-soins-hospitaliers-ehc-vd-morges"
+        "offre-spontanee-soins-hospitaliers-ehc-vd-morges",
+        "offerta-di-lavoro-spontanea-assistenza-ospedaliera-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-soins-hospitaliers-ehc-vd-morges"
+          "offre-spontanee-soins-hospitaliers-ehc-vd-morges",
+          "offerta-di-lavoro-spontanea-assistenza-ospedaliera-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.982Z",
@@ -275,7 +281,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-61089c075b1f",
@@ -308,7 +315,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-techniqueinfrastructureachat-et-approit-3123",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.952Z",
+      "crawledAt": "2026-10-03T09:20:02.063Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -353,11 +360,13 @@
         ]
       },
       "previousSlugs": [
-        "offre-spontanee-technique-infrastructure-achat-et-appro-it-ehc-vd-morges"
+        "offre-spontanee-technique-infrastructure-achat-et-appro-it-ehc-vd-morges",
+        "offerta-spontanea-tecnica-infrastruttura-acquisto-e-approvv-it-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-technique-infrastructure-achat-et-appro-it-ehc-vd-morges"
+          "offre-spontanee-technique-infrastructure-achat-et-appro-it-ehc-vd-morges",
+          "offerta-spontanea-tecnica-infrastruttura-acquisto-e-approvv-it-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.981Z",
@@ -373,7 +382,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-44f5f7435eb8",
@@ -407,7 +417,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-intendancehotellerie-3121",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.951Z",
+      "crawledAt": "2026-10-03T09:20:02.062Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -442,11 +452,13 @@
         ]
       },
       "previousSlugs": [
-        "offre-spontanee-intendance-hotellerie-ehc-vd-morges"
+        "offre-spontanee-intendance-hotellerie-ehc-vd-morges",
+        "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-intendance-hotellerie-ehc-vd-morges"
+          "offre-spontanee-intendance-hotellerie-ehc-vd-morges",
+          "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.980Z",
@@ -495,7 +507,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-physiotherapieergotherapie-3120",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.950Z",
+      "crawledAt": "2026-10-03T09:20:02.062Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -533,11 +545,13 @@
       "previousSlugs": [
         "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges",
         "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges"
+          "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges",
+          "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
@@ -591,7 +605,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-medecinmedecin-en-formation-3119",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.949Z",
+      "crawledAt": "2026-10-03T09:20:02.061Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -609,11 +623,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "offre-spontanee-medecin-medecin-en-formation-ehc-vd-morges"
+        "offre-spontanee-medecin-medecin-en-formation-ehc-vd-morges",
+        "offerta-spontanea-medico-medico-in-formazione-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-medecin-medecin-en-formation-ehc-vd-morges"
+          "offre-spontanee-medecin-medecin-en-formation-ehc-vd-morges",
+          "offerta-spontanea-medico-medico-in-formazione-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.977Z",
@@ -663,7 +679,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-pharmacie-3118",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.949Z",
+      "crawledAt": "2026-10-03T09:20:02.060Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -681,11 +697,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "offre-spontanee-pharmacie-ehc-vd-morges"
+        "offre-spontanee-pharmacie-ehc-vd-morges",
+        "offerta-spontanea-farmacia-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-pharmacie-ehc-vd-morges"
+          "offre-spontanee-pharmacie-ehc-vd-morges",
+          "offerta-spontanea-farmacia-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.976Z",
@@ -735,7 +753,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-administrationsecretariat-medical-3116",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.947Z",
+      "crawledAt": "2026-10-03T09:20:02.059Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -753,11 +771,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "offre-spontanee-administration-secretariat-medical-ehc-vd-morges"
+        "offre-spontanee-administration-secretariat-medical-ehc-vd-morges",
+        "offerta-spontanea-amministrazione-segreteria-medica-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-administration-secretariat-medical-ehc-vd-morges"
+          "offre-spontanee-administration-secretariat-medical-ehc-vd-morges",
+          "offerta-spontanea-amministrazione-segreteria-medica-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.973Z",
@@ -807,7 +827,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-soins-et-hebergement-ems-catanimation-3117",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.948Z",
+      "crawledAt": "2026-10-03T09:20:02.060Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -825,11 +845,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "offre-spontanee-soins-et-hebergement-ems-cat-animation-ehc-vd-morges"
+        "offre-spontanee-soins-et-hebergement-ems-cat-animation-ehc-vd-morges",
+        "offerta-spontanea-cure-e-alloggio-ems-cat-animazione-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-soins-et-hebergement-ems-cat-animation-ehc-vd-morges"
+          "offre-spontanee-soins-et-hebergement-ems-cat-animation-ehc-vd-morges",
+          "offerta-spontanea-cure-e-alloggio-ems-cat-animazione-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.974Z",
@@ -879,7 +901,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-rhumatologie-fh-3384",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.946Z",
+      "crawledAt": "2026-10-03T09:20:02.058Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -899,11 +921,13 @@
       "previousSlugs": [
         "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges",
         "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "specialist-rheumatologist-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "specialist-rheumatologist-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medico-specialista-in-reumatologia-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges"
+          "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges",
+          "medico-specialista-in-reumatologia-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
@@ -960,7 +984,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-pediatre-avec-interet-pour-le-neurodeveloppement-fh-3532",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.944Z",
+      "crawledAt": "2026-10-03T09:20:02.057Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -980,12 +1004,14 @@
       "previousSlugs": [
         "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
         "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-        "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
+        "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "medico-pediatrico-con-interesse-nel-neurosviluppo-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
-          "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
+          "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+          "medico-pediatrico-con-interesse-nel-neurosviluppo-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny"
         ],
         "en": [
           "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
@@ -1037,7 +1063,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-endocrinologie-fh-3564",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.940Z",
+      "crawledAt": "2026-10-03T09:20:02.055Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1086,7 +1112,8 @@
         "specialist-rheumatologist-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "facharzt-fur-rheumatologie-w-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges",
-        "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1095,7 +1122,8 @@
           "specialist-rheumatologist-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
           "facharzt-fur-rheumatologie-w-m-ensemble-hospitalier-de-la-cote-ehc-morges",
           "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges",
-          "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "specialist-rheumatologist-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -1120,7 +1148,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-7e9aca1ea372",
@@ -1153,7 +1182,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-assistant-medecine-interne-fh-mai-2028-3603",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.939Z",
+      "crawledAt": "2026-10-03T09:20:02.054Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1171,11 +1200,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges"
+        "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+        "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges"
+          "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+          "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.913Z",
@@ -1191,7 +1222,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-d5740c81a7f7",
@@ -1224,7 +1256,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/atsso-assistant-technique-specialise-en-salle-doperation-fh-3643",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.936Z",
+      "crawledAt": "2026-10-03T09:20:02.051Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1242,11 +1274,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges"
+        "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges",
+        "atsso-assistente-tecnico-specializzato-in-sala-operatoria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges"
+          "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges",
+          "atsso-assistente-tecnico-specializzato-in-sala-operatoria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-06-16T13:19:26.488Z",
@@ -1262,7 +1296,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-f685590d802a",
@@ -1296,7 +1331,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-obesite-3646",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.935Z",
+      "crawledAt": "2026-10-03T09:20:02.050Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1322,7 +1357,8 @@
         "medecin-de-premier-recours-lusophone-hispanophone-ehc-vd-morges",
         "medico-specializzato-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges",
         "physician-specializing-in-obesity-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "arzt-spezialisiert-auf-fettleibigkeit-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "arzt-spezialisiert-auf-fettleibigkeit-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "specialista-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1332,7 +1368,8 @@
           "arzt-der-ersten-berufung-ensemble-hospitalier-de-la-cote-ehc-morges",
           "medecin-de-premier-recours-ehc-vd-morges",
           "medecin-de-premier-recours-lusophone-hispanophone-ehc-vd-morges",
-          "medico-specializzato-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "medico-specializzato-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "specialista-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "doctor-of-first-appeal-ensemble-hospitalier-de-la-cote-ehc-morges",
@@ -1392,7 +1429,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-de-premier-recours-3647",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.933Z",
+      "crawledAt": "2026-10-03T09:20:02.049Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1487,7 +1524,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/chef-de-clinique-soins-palliatifs-et-ctr-fh-3658",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.932Z",
+      "crawledAt": "2026-10-03T09:20:02.048Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1506,12 +1543,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsabile-della-cura-palliative-e-della-clinica-rtc-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
+        "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
+        "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-della-cura-palliative-e-della-clinica-rtc-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-          "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
+          "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
+          "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ]
       },
       "firstSeenAt": "2026-06-30T11:19:43.039Z",
@@ -1561,7 +1600,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/chef-de-clinique-en-ctr-fh-3657",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.929Z",
+      "crawledAt": "2026-10-03T09:20:02.046Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1588,7 +1627,8 @@
         "fisioterapista-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "occupational-therapist-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "ergotherapeut-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "ergotherapeute-ctr-ehc-vd-aubonne"
+        "ergotherapeute-ctr-ehc-vd-aubonne",
+        "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1601,7 +1641,8 @@
           "fisioterapista-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
           "occupational-therapist-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
           "ergotherapeut-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-          "ergotherapeute-ctr-ehc-vd-aubonne"
+          "ergotherapeute-ctr-ehc-vd-aubonne",
+          "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ],
         "en": [
           "medical-assistant-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
@@ -1659,7 +1700,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-chef-de-clinique-adjoint-en-medecine-interne-fh-3679",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.925Z",
+      "crawledAt": "2026-10-03T09:20:02.043Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1696,11 +1737,13 @@
         ]
       },
       "previousSlugs": [
-        "medecin-chef-de-clinique-adjoint-en-medecine-interne-f-h-ehc-vd-morges"
+        "medecin-chef-de-clinique-adjoint-en-medecine-interne-f-h-ehc-vd-morges",
+        "capo-clinica-adiuvante-in-medicina-interna-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-de-clinique-adjoint-en-medecine-interne-f-h-ehc-vd-morges"
+          "medecin-chef-de-clinique-adjoint-en-medecine-interne-f-h-ehc-vd-morges",
+          "capo-clinica-adiuvante-in-medicina-interna-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.959Z",
@@ -1716,7 +1759,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-55da2d6419b5",
@@ -1749,7 +1793,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-generaliste-3663",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.927Z",
+      "crawledAt": "2026-10-03T09:20:02.044Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1791,11 +1835,13 @@
       "previousSlugs": [
         "medecin-generaliste-ehc-vd-morges",
         "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-generaliste-ehc-vd-morges"
+          "medecin-generaliste-ehc-vd-morges",
+          "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "de": [
           "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
@@ -1848,7 +1894,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-socio-educatif-fh-3695",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.924Z",
+      "crawledAt": "2026-10-03T09:20:02.042Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1866,11 +1912,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-socio-educatif-f-h-ehc-vd-morges"
+        "assistant-socio-educatif-f-h-ehc-vd-morges",
+        "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-socio-educatif-f-h-ehc-vd-morges"
+          "assistant-socio-educatif-f-h-ehc-vd-morges",
+          "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "assistant-socio-educatif-f-h-ehc-vd-morges"
@@ -1892,7 +1940,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-2688c1b4b572",
@@ -1925,7 +1974,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-technique-en-sterilisation-fh-3706",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.922Z",
+      "crawledAt": "2026-10-03T09:20:02.041Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1945,13 +1994,15 @@
       "previousSlugs": [
         "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistant-technique-en-sterilisation-f-h-ehc-vd-morges"
+        "assistant-technique-en-sterilisation-f-h-ehc-vd-morges",
+        "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
           "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "assistant-technique-en-sterilisation-f-h-ehc-vd-morges"
+          "assistant-technique-en-sterilisation-f-h-ehc-vd-morges",
+          "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "assistant-technique-en-sterilisation-f-h-ehc-vd-morges"
@@ -1973,7 +2024,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-bec60a922940",
@@ -2006,7 +2058,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-centre-medical-du-simplon-3721",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.920Z",
+      "crawledAt": "2026-10-03T09:20:02.040Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2024,11 +2076,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-medical-f-h-centre-medical-du-simplon-ehc-vd-renens"
+        "assistant-medical-f-h-centre-medical-du-simplon-ehc-vd-renens",
+        "assistente-medico-m-f-centro-medico-di-simplon-ensemble-hospitalier-de-la-cote-ehc-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-medical-f-h-centre-medical-du-simplon-ehc-vd-renens"
+          "assistant-medical-f-h-centre-medical-du-simplon-ehc-vd-renens",
+          "assistente-medico-m-f-centro-medico-di-simplon-ensemble-hospitalier-de-la-cote-ehc-renens"
         ],
         "en": [
           "assistant-medical-f-h-centre-medical-du-simplon-ehc-vd-renens"
@@ -2047,7 +2101,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-57307d29e39b",
@@ -2080,7 +2135,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-centre-medical-de-chavannes-pres-renens-3720",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.919Z",
+      "crawledAt": "2026-10-03T09:20:02.039Z",
       "addressLocality": "Chavannes-près-Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2098,11 +2153,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-medical-f-h-centre-medical-de-chavannes-pres-renens-ehc-vd-chavannes-pres-renens"
+        "assistant-medical-f-h-centre-medical-de-chavannes-pres-renens-ehc-vd-chavannes-pres-renens",
+        "assistente-medico-m-f-chavannes-near-renens-medical-centre-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-medical-f-h-centre-medical-de-chavannes-pres-renens-ehc-vd-chavannes-pres-renens"
+          "assistant-medical-f-h-centre-medical-de-chavannes-pres-renens-ehc-vd-chavannes-pres-renens",
+          "assistente-medico-m-f-chavannes-near-renens-medical-centre-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens"
         ]
       },
       "firstSeenAt": "2026-09-03T23:15:15.824Z",
@@ -2118,7 +2175,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-2d908ec7d0c2",
@@ -2152,7 +2210,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/secretaire-medicale-fh-centre-medical-nedol-3719",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.917Z",
+      "crawledAt": "2026-10-03T09:20:02.038Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2170,11 +2228,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-medicale-f-h-centre-medical-nedol-ehc-vd-renens"
+        "secretaire-medicale-f-h-centre-medical-nedol-ehc-vd-renens",
+        "segretario-medico-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medicale-f-h-centre-medical-nedol-ehc-vd-renens"
+          "secretaire-medicale-f-h-centre-medical-nedol-ehc-vd-renens",
+          "segretario-medico-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens"
         ],
         "en": [
           "secretaire-medicale-f-h-centre-medical-nedol-ehc-vd-renens"
@@ -2230,7 +2290,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-soins-aigus-fh-3711",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.912Z",
+      "crawledAt": "2026-10-03T09:20:02.035Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2249,11 +2309,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-soins-aigus-f-h-ehc-vd-morges",
-        "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-soins-aigus-f-h-ehc-vd-morges"
+          "infirmier-soins-aigus-f-h-ehc-vd-morges",
+          "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "infirmier-soins-aigus-f-h-ehc-vd-morges"
@@ -2309,7 +2371,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-multisites-3718",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.910Z",
+      "crawledAt": "2026-10-03T09:20:02.034Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2327,11 +2389,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-medical-f-h-multisites-ehc-vd-morges"
+        "assistant-medical-f-h-multisites-ehc-vd-morges",
+        "assistente-medico-m-f-multisites-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-medical-f-h-multisites-ehc-vd-morges"
+          "assistant-medical-f-h-multisites-ehc-vd-morges",
+          "assistente-medico-m-f-multisites-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-09-03T23:15:15.812Z",
@@ -2347,7 +2411,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-c14fd017d9c0",
@@ -2380,7 +2445,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/neuropsychologue-fsp-3673",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.908Z",
+      "crawledAt": "2026-10-03T09:20:02.033Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2403,7 +2468,8 @@
         "independent-neuropsychologist-fsp-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "unabhangiger-neuropsychologe-fsp-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "neuropsychologue-fsp-independant-agree-f-h-ehc-vd-morges",
-        "neuropsychologue-fsp-independant-agree-f-h-ehc-vd-lavigny"
+        "neuropsychologue-fsp-independant-agree-f-h-ehc-vd-lavigny",
+        "neuropsicologo-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2412,7 +2478,8 @@
           "independent-neuropsychologist-fsp-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
           "unabhangiger-neuropsychologe-fsp-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
           "neuropsychologue-fsp-independant-agree-f-h-ehc-vd-morges",
-          "neuropsychologue-fsp-independant-agree-f-h-ehc-vd-lavigny"
+          "neuropsychologue-fsp-independant-agree-f-h-ehc-vd-lavigny",
+          "neuropsicologo-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny"
         ],
         "en": [
           "neuropsychologue-fsp-ehc-vd-lavigny",
@@ -2439,7 +2506,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-e31cc9607565",
@@ -2472,7 +2540,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-3736",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.900Z",
+      "crawledAt": "2026-10-03T09:20:02.027Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2528,7 +2596,8 @@
         "medicina-interna-assistente-medico-f-h-novembre-2027-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-assistant-medecine-interne-f-h-novembre-2027-ehc-vd-morges",
         "assistente-di-tirocinante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2550,7 +2619,8 @@
           "medecin-assistant-medecine-interne-f-h-novembre-2027-ehc-vd-morges",
           "assistente-di-tirocinante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
           "assistant-medical-f-h-ehc-vd-morges",
-          "medical-assistant-internal-medicine-f-h-november-2027-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "medical-assistant-internal-medicine-f-h-november-2027-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "de": [
           "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -2569,7 +2639,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-6e712cbc2ff6",
@@ -2602,7 +2673,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-en-psychiatrie-de-lage-avance-paa1-fh-3730",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.898Z",
+      "crawledAt": "2026-10-03T09:20:02.025Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2621,12 +2692,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-f-h-ehc-vd-morges",
-        "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistenza-sanitaria-psichiatrica-senior-paa1-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-f-h-ehc-vd-morges",
-          "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistenza-sanitaria-psichiatrica-senior-paa1-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-f-h-ehc-vd-morges"
@@ -2648,7 +2721,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-33b862c5c60f",
@@ -2681,7 +2755,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-en-psychiatrie-de-lage-avance-paa2-fh-3732",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.897Z",
+      "crawledAt": "2026-10-03T09:20:02.024Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2700,12 +2774,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-f-h-ehc-vd-morges",
-        "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistenza-sanitaria-psichiatrica-senior-paa2-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-f-h-ehc-vd-morges",
-          "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistenza-sanitaria-psichiatrica-senior-paa2-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-f-h-ehc-vd-morges"
@@ -2727,7 +2803,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-81c883a1ba46",
@@ -2760,7 +2837,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/aide-ergo-physio-etudiant-fh-3734",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.895Z",
+      "crawledAt": "2026-10-03T09:20:02.023Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2778,11 +2855,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-ergo-physio-etudiant-f-h-ehc-vd-aubonne"
+        "aide-ergo-physio-etudiant-f-h-ehc-vd-aubonne",
+        "studente-ergo-physio-aiuto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-ergo-physio-etudiant-f-h-ehc-vd-aubonne"
+          "aide-ergo-physio-etudiant-f-h-ehc-vd-aubonne",
+          "studente-ergo-physio-aiuto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ],
         "en": [
           "aide-ergo-physio-etudiant-f-h-ehc-vd-aubonne"
@@ -2804,7 +2883,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-8a29ae297aca",
@@ -2838,7 +2918,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/chef-dequipe-dintendance-fh-3735",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.891Z",
+      "crawledAt": "2026-10-03T09:20:02.019Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2856,11 +2936,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-d-equipe-d-intendance-f-h-ehc-vd-morges"
+        "chef-d-equipe-d-intendance-f-h-ehc-vd-morges",
+        "capo-del-team-stewardship-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-d-equipe-d-intendance-f-h-ehc-vd-morges"
+          "chef-d-equipe-d-intendance-f-h-ehc-vd-morges",
+          "capo-del-team-stewardship-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "chef-d-equipe-d-intendance-f-h-ehc-vd-morges"
@@ -2916,7 +2998,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/psychiatre-3745",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.887Z",
+      "crawledAt": "2026-10-03T09:20:02.015Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2935,12 +3017,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychiatre-ehc-vd-morges",
-        "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "psichiatra-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychiatre-ehc-vd-morges",
-          "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "psichiatra-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.957Z",
@@ -2989,7 +3073,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/dermatologue-3744",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.885Z",
+      "crawledAt": "2026-10-03T09:20:02.013Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3024,11 +3108,13 @@
       },
       "previousSlugs": [
         "dermatologue-ehc-vd-morges",
-        "dermatologue-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "dermatologue-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "dermatologo-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dermatologue-ehc-vd-morges"
+          "dermatologue-ehc-vd-morges",
+          "dermatologo-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "fr": [
           "dermatologue-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -3047,7 +3133,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-5267fc01e7f9",
@@ -3081,7 +3168,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/aide-ou-assc-ctr-3748",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.883Z",
+      "crawledAt": "2026-10-03T09:20:02.011Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3099,11 +3186,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-ou-assc-ctr-ehc-vd-aubonne"
+        "aide-ou-assc-ctr-ehc-vd-aubonne",
+        "aiuto-o-ctr-assc-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-ou-assc-ctr-ehc-vd-aubonne"
+          "aide-ou-assc-ctr-ehc-vd-aubonne",
+          "aiuto-o-ctr-assc-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ],
         "en": [
           "aide-ou-assc-ctr-ehc-vd-aubonne"
@@ -3156,7 +3245,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/technicien-biomedical-fh-3753",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.877Z",
+      "crawledAt": "2026-10-03T09:20:02.006Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3174,11 +3263,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-biomedical-f-h-ehc-vd-morges"
+        "technicien-biomedical-f-h-ehc-vd-morges",
+        "biomedico-tecnico-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-biomedical-f-h-ehc-vd-morges"
+          "technicien-biomedical-f-h-ehc-vd-morges",
+          "biomedico-tecnico-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "technicien-biomedical-f-h-ehc-vd-morges"
@@ -3234,7 +3325,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/aide-soignant-en-medecine-fh-3751",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.879Z",
+      "crawledAt": "2026-10-03T09:20:02.008Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3276,7 +3367,8 @@
         "infermiere-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "infirmier-f-h-ehc-vd-morges",
         "infermiera-di-collegamento-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "liaison-nurse-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "liaison-nurse-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistenza-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3298,7 +3390,8 @@
           "infermiera-di-collegamento-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
           "liaison-nurse-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
           "aide-soignant-en-medecine-f-h-ehc-vd-morges",
-          "aide-soignant-in-medicina-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "aide-soignant-in-medicina-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistenza-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "aide-soignant-en-medecine-f-h-ehc-vd-morges"
@@ -3354,7 +3447,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/electricien-fh-3756",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.875Z",
+      "crawledAt": "2026-10-03T09:20:02.005Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3372,11 +3465,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "electricien-f-h-ehc-vd-morges"
+        "electricien-f-h-ehc-vd-morges",
+        "elettricita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electricien-f-h-ehc-vd-morges"
+          "electricien-f-h-ehc-vd-morges",
+          "elettricita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "electricien-f-h-ehc-vd-morges"
@@ -3432,7 +3527,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-fh-3758",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.872Z",
+      "crawledAt": "2026-10-03T09:20:02.003Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3512,7 +3607,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-fh-en-ctr-3757",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.870Z",
+      "crawledAt": "2026-10-03T09:20:02.001Z",
       "addressLocality": "Gilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3601,7 +3696,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-fh-en-ctr-3759",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.862Z",
+      "crawledAt": "2026-10-03T09:20:01.997Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3679,7 +3774,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/chef-de-clinique-en-angiologie-fh-3762",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.857Z",
+      "crawledAt": "2026-10-03T09:20:01.995Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3697,11 +3792,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-clinique-en-angiologie-f-h-ehc-vd-morges"
+        "chef-de-clinique-en-angiologie-f-h-ehc-vd-morges",
+        "responsabile-della-clinica-angiologica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-clinique-en-angiologie-f-h-ehc-vd-morges"
+          "chef-de-clinique-en-angiologie-f-h-ehc-vd-morges",
+          "responsabile-della-clinica-angiologica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "chef-de-clinique-en-angiologie-f-h-ehc-vd-morges"
@@ -3757,7 +3854,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-cadre-en-angiologie-fh-3761",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.855Z",
+      "crawledAt": "2026-10-03T09:20:01.994Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3836,7 +3933,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-fh-3764",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.854Z",
+      "crawledAt": "2026-10-03T09:20:01.993Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3870,7 +3967,8 @@
         "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
         "social-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "sozialpadagogische-assistenz-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "assistant-socio-educatif-f-h-ehc-vd-aubonne"
+        "assistant-socio-educatif-f-h-ehc-vd-aubonne",
+        "assistente-sanitario-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3889,7 +3987,8 @@
           "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
           "social-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
           "sozialpadagogische-assistenz-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-          "assistant-socio-educatif-f-h-ehc-vd-aubonne"
+          "assistant-socio-educatif-f-h-ehc-vd-aubonne",
+          "assistente-sanitario-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ],
         "en": [
           "auxiliaire-de-sante-m-w-d-ensemble-hospitalier-de-la-cote-ehc-aubonne"
@@ -3911,7 +4010,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-a8a01f186a16",
@@ -3945,7 +4045,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-specialise-soins-intensifs-fh-3767",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.849Z",
+      "crawledAt": "2026-10-03T09:20:01.990Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3966,12 +4066,14 @@
         "infirmier-specialise-soins-intensifs-f-h-ehc-vd-morges",
         "infirmier-specialise-soins-intensifs-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
         "infermiere-specializzato-in-cure-intensive-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "fachkrankenschwester-pfleger-intensivpflege-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "fachkrankenschwester-pfleger-intensivpflege-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "infermiera-specializzata-in-terapia-intensiva-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-specialise-soins-intensifs-f-h-ehc-vd-morges",
-          "infermiere-specializzato-in-cure-intensive-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "infermiere-specializzato-in-cure-intensive-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "infermiera-specializzata-in-terapia-intensiva-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "de": [
           "infirmier-specialise-soins-intensifs-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
@@ -4025,7 +4127,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmierere-referente-du-cat-fh-3776",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.847Z",
+      "crawledAt": "2026-10-03T09:20:01.989Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4058,7 +4160,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
+          "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges",
+          "infermiere-di-riferimento-cat-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
@@ -4068,7 +4171,8 @@
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
+        "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges",
+        "infermiere-di-riferimento-cat-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ]
     },
     {
@@ -4103,7 +4207,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-chirurgie-fh-3775",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.844Z",
+      "crawledAt": "2026-10-03T09:20:01.987Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4122,11 +4226,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-en-chirurgie-f-h-ehc-vd-morges",
-        "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-en-chirurgie-f-h-ehc-vd-morges"
+          "infirmier-en-chirurgie-f-h-ehc-vd-morges",
+          "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "infirmier-en-chirurgie-f-h-ehc-vd-morges"
@@ -4183,7 +4289,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-soins-et-sante-communautaire-assc-chirurgie-fh-3774",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.842Z",
+      "crawledAt": "2026-10-03T09:20:01.985Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4258,7 +4364,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/agent-de-proprete-fh-3773",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.838Z",
+      "crawledAt": "2026-10-03T09:20:01.983Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4283,7 +4389,8 @@
         "cleaning-agent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "cleaning-agent-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "agente-di-pulizia-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4294,7 +4401,8 @@
           "cleaning-agent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
           "cleaning-agent-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
           "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-          "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "agente-di-pulizia-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ],
         "en": [
           "agent-de-proprete-f-h-ehc-vd-aubonne"
@@ -4322,10 +4430,10 @@
       "id": "ehc-vd-6b8047b12336",
       "slug": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
         "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "de": "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4350,7 +4458,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assc-assistant-soins-et-sante-communautaire-fh-3699",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.757Z",
+      "crawledAt": "2026-10-03T09:20:01.924Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4428,7 +4536,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-ghi-gestionnaire-en-hotellerie-intendance-fh-3747",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.762Z",
+      "crawledAt": "2026-10-03T09:20:01.927Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4507,7 +4615,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-informaticien-fh-3746",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.759Z",
+      "crawledAt": "2026-10-03T09:20:01.925Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4558,10 +4666,10 @@
       "id": "ehc-vd-df0b1cf28c41",
       "slug": "assistente-medico-di-apprenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "fr": "apprenti-assistant-medical-f-h-ehc-vd-morges",
         "it": "assistente-medico-di-apprenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "apprenti-assistant-medical-f-h-ehc-vd-morges",
-        "de": "apprenti-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "de": "apprenti-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "fr": "apprenti-assistant-medical-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4586,7 +4694,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assistant-medical-fh-3755",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.767Z",
+      "crawledAt": "2026-10-03T09:20:01.931Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4633,10 +4741,10 @@
       "id": "ehc-vd-ebc4eb1a18e4",
       "slug": "assistente-medico-addestratore-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "fr": "stagiaire-assistant-medical-f-h-ehc-vd-morges",
         "it": "assistente-medico-addestratore-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "trainee-medical-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "stagiaire-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "de": "stagiaire-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "fr": "stagiaire-assistant-medical-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4661,7 +4769,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-assistant-medical-fh-3754",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.764Z",
+      "crawledAt": "2026-10-03T09:20:01.929Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4711,10 +4819,10 @@
       "id": "ehc-vd-8adf953417c6",
       "slug": "apprendistato-esa-assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
-        "fr": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne",
         "it": "apprendistato-esa-assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "en": "apprenticeship-esa-socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "de": "apprenti-ase-assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "de": "apprenti-ase-assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "fr": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4739,7 +4847,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-ase-assistant-socio-educatif-fh-3771",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.833Z",
+      "crawledAt": "2026-10-03T09:20:01.981Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4816,7 +4924,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-asa-aide-en-soins-et-accompagnement-fh-3770",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.827Z",
+      "crawledAt": "2026-10-03T09:20:01.977Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4867,10 +4975,10 @@
       "id": "ehc-vd-d0383b037aff",
       "slug": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
-        "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne",
         "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "de": "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "de": "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4895,7 +5003,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assc-assistant-soins-et-sante-communautaire-fh-3769",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.802Z",
+      "crawledAt": "2026-10-03T09:20:01.961Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4972,7 +5080,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-mpc-fh-3766",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.771Z",
+      "crawledAt": "2026-10-03T09:20:01.933Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5021,12 +5129,12 @@
     },
     {
       "id": "ehc-vd-b1c8d45a02ad",
-      "slug": "omosessualita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slug": "sage-femme-f-h-ehc-vd-morges",
       "slugByLocale": {
         "fr": "sage-femme-f-h-ehc-vd-morges",
-        "it": "omosessualita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "midwife-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "hebamme-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "it": "sage-femme-f-h-ehc-vd-morges",
+        "en": "sage-femme-f-h-ehc-vd-morges",
+        "de": "sage-femme-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5034,23 +5142,23 @@
       "title": "Sage-femme (F/H)",
       "titleByLocale": {
         "fr": "Sage-femme (F/H)",
-        "it": "Omosessualità (M/F)",
-        "en": "Midwife (M/F)",
-        "de": "Hebamme (M/W)"
+        "it": "Sage-femme (F/H)",
+        "en": "Sage-femme (F/H)",
+        "de": "Sage-femme (F/H)"
       },
       "description": "Nous recherchons pour Hôpital de Morges un(e) :\n\nSage-femme (F/H) à 100%\n\nEntrée en poste dès que possible ou à convenir (idéalement pour décembre ou janvier).\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un Bachelor de sage-femme suisse ou un double bachelor d’infirmière et sage-femme suisse ou équivalent reconnu par la Croix Rouge Suisse\n\n• De très bonnes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\n• Un naturel empathique et ouvert offrant une prise charge aux familles fondée sur la bienveillance et le respect\n\n• Une expérience réussie dans une fonction similaire ou l'envie de vous développer au sein d’une institution favorisant la montée en compétences\n\nVOS OBJECTIFS\n\n• Assurer le suivi des femmes lors des consultations gynécologiques programmées ou d'urgence\n\n• Effectuer la surveillance du bien-être maternel et fœtal en cours de grossesse, durant le travail, l'accouchement et le post-partum\n\n• Pratiquer le suivi du travail et de l'accouchement de manière autonome lors de situations physiologiques et collaborer avec l'équipe médicale lors de situations pathologiques\n\n• Assurer la prise en soins du nouveau-né à la naissance\n\n• Organiser le suivi et l'accompagnement en vue du retour à domicile de la mère et de l'enfant en incluant le ou la partenaire\n\n• Dispenser des conseils pour l'allaitement dans le respect du label UNICEF \"Hôpital ami des bébé\"\n\n• Participer à l'encadrement des étudiants HES sages-femmes, infirmier-ère-s et ambulancier-ère-s dans le service Mère Enfant\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
       "descriptionByLocale": {
         "fr": "Nous recherchons pour Hôpital de Morges un(e) :\n\nSage-femme (F/H) à 100%\n\nEntrée en poste dès que possible ou à convenir (idéalement pour décembre ou janvier).\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un Bachelor de sage-femme suisse ou un double bachelor d’infirmière et sage-femme suisse ou équivalent reconnu par la Croix Rouge Suisse\n\n• De très bonnes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\n• Un naturel empathique et ouvert offrant une prise charge aux familles fondée sur la bienveillance et le respect\n\n• Une expérience réussie dans une fonction similaire ou l'envie de vous développer au sein d’une institution favorisant la montée en compétences\n\nVOS OBJECTIFS\n\n• Assurer le suivi des femmes lors des consultations gynécologiques programmées ou d'urgence\n\n• Effectuer la surveillance du bien-être maternel et fœtal en cours de grossesse, durant le travail, l'accouchement et le post-partum\n\n• Pratiquer le suivi du travail et de l'accouchement de manière autonome lors de situations physiologiques et collaborer avec l'équipe médicale lors de situations pathologiques\n\n• Assurer la prise en soins du nouveau-né à la naissance\n\n• Organiser le suivi et l'accompagnement en vue du retour à domicile de la mère et de l'enfant en incluant le ou la partenaire\n\n• Dispenser des conseils pour l'allaitement dans le respect du label UNICEF \"Hôpital ami des bébé\"\n\n• Participer à l'encadrement des étudiants HES sages-femmes, infirmier-ère-s et ambulancier-ère-s dans le service Mère Enfant\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-        "it": "Stiamo cercando un ospedale a Morges:\n\n100% (M/F) Moglie\n\nPostare il più presto possibile o essere concordato (in fine dicembre o gennaio).\n\nNoi ti\n\n• 5 settimane di vacanza annuale, 6 settimane dall'età di 50 anni. Possibilità di riscattare una settimana aggiuntiva di vacanza, così come 10 vacanze offerte.\n\n• Varie proposte che offrono flessibilità ( congedo non retribuito, congedo part-time, tempo di cambio pagato, ecc.).\n\n• Un piano di mobilità che include la partecipazione al tuo abbonamento in bicicletta, basket o trasporto pubblico, con un focus ambientale su un piano di sostenibilità istituzionale.\n\n• Remunerazione basata sulla valutazione dei vostri anni precedenti di esperienza professionale, così come bonus di anzianità all'interno dell'EHC.\n\n• Corsi di pilates gratuiti, partecipazione finanziaria a eventi sportivi come i 20 km di Losanna o Bike to Work, un catalogo di vantaggi che offrono sconti nei settori dello sport, del benessere, del tempo libero, della mobilità, dell'assicurazione e della finanza.\n\n• Bevande calde offerte al mattino e pasti a CHF 8.50 nelle nostre mense.\n\n• Una bevanda aziendale \"Pâquis Plage\" per condividere momenti di convivialità durante le belle giornate.\n\n• Opportunità per il cambiamento interno, secondo il vostro desiderio di sviluppo.\n\n• Molti corsi di formazione in-house o attestanti.\n\n• Un programma dedicato ai manager per aiutarli ad acquisire le competenze necessarie per gestire le loro squadre.\n\nTu lo sai\n\n• Laurea svizzera o infermiera svizzera e ostetrica doppia laurea o equivalente riconosciuto dalla Croce Rossa svizzera\n\n• Molto buone capacità di comunicazione e ascolto e un senso del lavoro di squadra multidisciplinare\n\n• Una cura naturale empatica e aperta per le famiglie basata sulla benevolenza e sul rispetto\n\n• Un'esperienza di successo in una funzione simile o il desiderio di svilupparsi all'interno di un'istituzione che incoraggia l'ascesa di competenze\n\nI tuoi obiettivi\n\n• Seguire le donne durante consultazioni ginecologiche pianificate o di emergenza\n\n• Monitorare il benessere materno e fetale durante la gravidanza, il lavoro, il parto e il post-parto\n\n• Seguire il lavoro e la consegna indipendentemente nelle situazioni fisiologiche e collaborare con il team medico in situazioni patologiche\n\n• Cura del neonato alla nascita\n\n• Organizza il follow-up e il supporto per il ritorno della madre e del bambino, incluso il partner\n\n• Fornire consigli per l'allattamento al seno in conformità con l'etichetta UNICEF \"ospedale amichevole bambino\"\n\n• Partecipare alla supervisione di HES midwives, infermieri e ambulanze-s studenti del Servizio Madre Bambino\n\nSiamo\n\n• Un'istituzione costituita da istituzioni di cura e riabilitazione acuta, una clinica privata, SME, centri medici e permanenze che si trovano nella regione di La Côte e la prima scuola di ipnosi clinica dedicata alla comunità di cura in Svizzera francofona.\n\n• Una rete di assistenza che consente molte opportunità di cambiamento interno in base alle aspirazioni e ai progetti di sviluppo dei dipendenti.\n\n• Più di 2.000 dipendenti che si occupano di pazienti e residenti della regione, condividono valori di Responsabilità, Proximità, Umanità, Competenza, in un ambiente agile favorevole alla realizzazione di progetti.\n\n• Una società di formazione impegnata in formazione di successione, con circa 80 apprendisti in 16 diversi scambi, 200 HES-ES tirocinanti e quasi 300 medici in formazione.\n\nEssere il prossimo evento della nostra rete.\n\nTi riconosci in questa descrizione?\nFare clic su Applica aggiungendo i seguenti documenti:\n CV, lettera di copertura, certificati di lavoro (necessario per il calcolo dei salari) e diplomi.\n Se la tua domanda è selezionata, ti verrà chiesto l'estratto dal tuo record penale.",
-        "en": "We are looking for a hospital in Morges:\n\n100% (M/F) Wife\n\nPosting as soon as possible or to be agreed (ideally for December or January).\n\nWE OFFER YOU\n\n• 5 weeks of annual vacation, 6 weeks from the age of 50. Possibility of redeeming an additional week of vacation, as well as 10 holidays offered.\n\n• Several proposals providing flexibility (unpaid leave, part-time leave, paid exchange time, etc.).\n\n• A mobility plan including participation in your cycling, basketball or public transport subscription, with an environmental focus on an institutional sustainability plan.\n\n• Remuneration based on the valuation of your previous years of professional experience, as well as seniority bonuses within the EHC.\n\n• Free pilates courses, financial participation in sporting events such as the 20km of Lausanne or Bike to Work, a catalogue of advantages offering discounts in the fields of sport, well-being, leisure, mobility, insurance and finance.\n\n• Hot drinks offered in the morning and meals at CHF 8.50 in our cafeterias.\n\n• A \"Pâquis Plage\" business drink to share moments of conviviality during the beautiful days.\n\n• Opportunities for internal change, according to your desire for development.\n\n• Many accessible in-house or certifying training.\n\n• A programme dedicated to managers to support them in acquiring the skills necessary to manage their teams.\n\nYOU MAY\n\n• Swiss midwife Bachelor or Swiss nurse and midwife double bachelor or equivalent recognized by the Swiss Red Cross\n\n• Very good communication and listening skills and a sense of multi-disciplinary team work\n\n• A natural empathic and open offering care for families based on benevolence and respect\n\n• A successful experience in a similar function or the desire to develop yourself within an institution that encourages the rise of skills\n\nYOUR OBJECTIVES\n\n• Follow-up of women during planned or emergency gynaecological consultations\n\n• Monitor maternal and foetal well-being during pregnancy, labour, childbirth and postpartum\n\n• Follow up work and delivery independently in physiological situations and collaborate with the medical team in pathological situations\n\n• Care for the newborn at birth\n\n• Organize follow-up and support for the return of the mother and child, including the partner\n\n• Provide advice for breastfeeding in compliance with the UNICEF label \"Baby friendly hospital\"\n\n• Participate in the supervision of HES midwives, nurse-s and ambulance-s students in the Mother Child Service\n\nWE ARE\n\n• An institution consisting of acute care and rehabilitation institutions, a private clinic, EMS, medical centres and permanences located in the region of La Côte and the first clinical hypnosis school dedicated to the care community in French-speaking Switzerland.\n\n• A network of care allowing many opportunities for internal change according to the aspirations and development projects of employees.\n\n• More than 2,000 employees taking care of patients and residents of the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment conducive to the realization of projects.\n\n• A training company engaged in succession training, with about 80 apprentices in 16 different trades, 200 HES-ES trainees and nearly 300 doctors in training.\n\nBE THE NEXT TALENT OF OUR CARE NETWORK.\n\nDo you recognize yourself in this description?\nClick Apply by adding the following documents:\n CV, cover letter, work certificates (necessary for the calculation of wages) and diplomas.\n If your application is selected, you will be asked for the extract from your criminal record.",
-        "de": "Wir suchen ein Krankenhaus in Morges:\n\n100% (M/W) Ehefrau\n\nPosting so bald wie möglich oder zu vereinbaren (idealerweise für Dezember oder Januar).\n\nWir bieten Ihnen\n\n• 5 Wochen Jahresurlaub, 6 Wochen ab dem 50. Lebensjahr. Möglichkeit, eine zusätzliche Woche Urlaub einzulösen, sowie 10 angebotene Ferien.\n\n• Mehrere Vorschläge, die Flexibilität bieten (unbezahlter Urlaub, Teilzeiturlaub, bezahlte Austauschzeit usw.).\n\n• Ein Mobilitätsplan, der die Teilnahme an Ihrem Fahrrad-, Basketball- oder öffentlichen Verkehrsabonnement umfasst, mit einem ökologischen Schwerpunkt auf einem institutionellen Nachhaltigkeitsplan.\n\n• Vergütung basierend auf der Bewertung Ihrer früheren Berufserfahrung sowie Senioritätsboni innerhalb des EHC.\n\n• Kostenlose Pilates-Kurse, finanzielle Teilnahme an Sportveranstaltungen wie den 20 km von Lausanne oder Bike to Work, ein Katalog von Vorteilen mit Rabatten in den Bereichen Sport, Wohlbefinden, Freizeit, Mobilität, Versicherung und Finanzen.\n\n• Morgens warme Getränke und Mahlzeiten für CHF 8.50 in unseren Cafeterias.\n\n• Ein \"Pâquis Plage\" Geschäftsgetränk, um Momente der Geselligkeit während der schönen Tage zu teilen.\n\n• Chancen für innere Veränderungen, entsprechend Ihrem Wunsch nach Entwicklung.\n\n• Viele zugängliche interne oder zertifizierende Schulungen.\n\n• Ein Programm, das Managern gewidmet ist, um sie beim Erwerb der Fähigkeiten zu unterstützen, die für das Management ihrer Teams erforderlich sind.\n\nDürfen\n\n• Schweizer Hebamme Bachelor oder Schweizer Krankenschwester und Hebamme Doppelbachelor oder gleichwertig vom Schweizerischen Roten Kreuz anerkannt\n\n• Sehr gute Kommunikation und Hörfähigkeiten und ein Gefühl für multidisziplinäre Teamarbeit\n\n• Eine natürliche empathische und offene Betreuung von Familien auf der Grundlage von Wohlwollen und Respekt\n\n• Eine erfolgreiche Erfahrung in einer ähnlichen Funktion oder der Wunsch, sich innerhalb einer Institution zu entwickeln, die den Aufstieg von Fähigkeiten fördert\n\nIhre ZIELE\n\n• Follow-up von Frauen während der geplanten oder Notfall gynäkologischen Konsultationen\n\n• Überwachung des Wohlbefindens von Mutter und Fötus während der Schwangerschaft, der Wehen, der Geburt und nach der Geburt\n\n• Arbeit und Lieferung unabhängig in physiologischen Situationen verfolgen und mit dem medizinischen Team in pathologischen Situationen zusammenarbeiten\n\n• Betreuung des Neugeborenen bei der Geburt\n\n• Organisation von Follow-up und Unterstützung für die Rückkehr von Mutter und Kind, einschließlich des Partners\n\n• Beratung für das Stillen in Übereinstimmung mit dem UNICEF-Label \"Baby friendly hospital\"\n\n• Beteiligen Sie sich an der Betreuung von Hebammen, Krankenschwestern und Krankenwagenschülern im Mutterkinddienst\n\nWIR SIND\n\n• Eine Einrichtung, bestehend aus Akut- und Rehabilitationseinrichtungen, einer Privatklinik, EMS, medizinischen Zentren und Dauerstationen in der Region La Côte und der ersten klinischen Hypnoseschule, die der Pflegegemeinschaft in der französischsprachigen Schweiz gewidmet ist.\n\n• Ein Netzwerk der Pflege, das viele Möglichkeiten für interne Veränderungen gemäß den Bestrebungen und Entwicklungsprojekten der Mitarbeiter ermöglicht.\n\n• Mehr als 2.000 Mitarbeiter kümmern sich um Patienten und Bewohner der Region und teilen Werte wie Verantwortung, Nähe, Menschlichkeit, Kompetenz in einem agilen Umfeld, das der Realisierung von Projekten förderlich ist.\n\n• Eine Ausbildungsfirma, die sich mit Nachfolgeausbildung beschäftigt, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Auszubildenden und fast 300 Ärzten in der Ausbildung.\n\nSei das nächste Talent unseres Pflegenetzes.\n\nErkennen Sie sich selbst in dieser Beschreibung?\nKlicken Sie auf Anwenden, indem Sie die folgenden Dokumente hinzufügen:\n Lebenslauf, Anschreiben, Arbeitsbescheinigungen (für die Berechnung der Löhne erforderlich) und Diplome.\n Wenn Ihre Bewerbung ausgewählt ist, werden Sie nach dem Auszug aus Ihrem Strafregister gefragt."
+        "it": "Nous recherchons pour Hôpital de Morges un(e) :\n\nSage-femme (F/H) à 100%\n\nEntrée en poste dès que possible ou à convenir (idéalement pour décembre ou janvier).\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un Bachelor de sage-femme suisse ou un double bachelor d’infirmière et sage-femme suisse ou équivalent reconnu par la Croix Rouge Suisse\n\n• De très bonnes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\n• Un naturel empathique et ouvert offrant une prise charge aux familles fondée sur la bienveillance et le respect\n\n• Une expérience réussie dans une fonction similaire ou l'envie de vous développer au sein d’une institution favorisant la montée en compétences\n\nVOS OBJECTIFS\n\n• Assurer le suivi des femmes lors des consultations gynécologiques programmées ou d'urgence\n\n• Effectuer la surveillance du bien-être maternel et fœtal en cours de grossesse, durant le travail, l'accouchement et le post-partum\n\n• Pratiquer le suivi du travail et de l'accouchement de manière autonome lors de situations physiologiques et collaborer avec l'équipe médicale lors de situations pathologiques\n\n• Assurer la prise en soins du nouveau-né à la naissance\n\n• Organiser le suivi et l'accompagnement en vue du retour à domicile de la mère et de l'enfant en incluant le ou la partenaire\n\n• Dispenser des conseils pour l'allaitement dans le respect du label UNICEF \"Hôpital ami des bébé\"\n\n• Participer à l'encadrement des étudiants HES sages-femmes, infirmier-ère-s et ambulancier-ère-s dans le service Mère Enfant\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+        "en": "Nous recherchons pour Hôpital de Morges un(e) :\n\nSage-femme (F/H) à 100%\n\nEntrée en poste dès que possible ou à convenir (idéalement pour décembre ou janvier).\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un Bachelor de sage-femme suisse ou un double bachelor d’infirmière et sage-femme suisse ou équivalent reconnu par la Croix Rouge Suisse\n\n• De très bonnes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\n• Un naturel empathique et ouvert offrant une prise charge aux familles fondée sur la bienveillance et le respect\n\n• Une expérience réussie dans une fonction similaire ou l'envie de vous développer au sein d’une institution favorisant la montée en compétences\n\nVOS OBJECTIFS\n\n• Assurer le suivi des femmes lors des consultations gynécologiques programmées ou d'urgence\n\n• Effectuer la surveillance du bien-être maternel et fœtal en cours de grossesse, durant le travail, l'accouchement et le post-partum\n\n• Pratiquer le suivi du travail et de l'accouchement de manière autonome lors de situations physiologiques et collaborer avec l'équipe médicale lors de situations pathologiques\n\n• Assurer la prise en soins du nouveau-né à la naissance\n\n• Organiser le suivi et l'accompagnement en vue du retour à domicile de la mère et de l'enfant en incluant le ou la partenaire\n\n• Dispenser des conseils pour l'allaitement dans le respect du label UNICEF \"Hôpital ami des bébé\"\n\n• Participer à l'encadrement des étudiants HES sages-femmes, infirmier-ère-s et ambulancier-ère-s dans le service Mère Enfant\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+        "de": "Nous recherchons pour Hôpital de Morges un(e) :\n\nSage-femme (F/H) à 100%\n\nEntrée en poste dès que possible ou à convenir (idéalement pour décembre ou janvier).\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un Bachelor de sage-femme suisse ou un double bachelor d’infirmière et sage-femme suisse ou équivalent reconnu par la Croix Rouge Suisse\n\n• De très bonnes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\n• Un naturel empathique et ouvert offrant une prise charge aux familles fondée sur la bienveillance et le respect\n\n• Une expérience réussie dans une fonction similaire ou l'envie de vous développer au sein d’une institution favorisant la montée en compétences\n\nVOS OBJECTIFS\n\n• Assurer le suivi des femmes lors des consultations gynécologiques programmées ou d'urgence\n\n• Effectuer la surveillance du bien-être maternel et fœtal en cours de grossesse, durant le travail, l'accouchement et le post-partum\n\n• Pratiquer le suivi du travail et de l'accouchement de manière autonome lors de situations physiologiques et collaborer avec l'équipe médicale lors de situations pathologiques\n\n• Assurer la prise en soins du nouveau-né à la naissance\n\n• Organiser le suivi et l'accompagnement en vue du retour à domicile de la mère et de l'enfant en incluant le ou la partenaire\n\n• Dispenser des conseils pour l'allaitement dans le respect du label UNICEF \"Hôpital ami des bébé\"\n\n• Participer à l'encadrement des étudiants HES sages-femmes, infirmier-ère-s et ambulancier-ère-s dans le service Mère Enfant\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
       },
       "location": "Morges",
       "canton": "VD",
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/sage-femme-fh-3777",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.754Z",
+      "crawledAt": "2026-10-03T09:20:01.921Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5082,29 +5190,36 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:15:44.754Z",
+      "firstSeenAt": "2026-10-03T09:20:01.921Z",
       "previousSlugsByLocale": {
         "it": [
-          "sage-femme-f-h-ehc-vd-morges"
+          "sage-femme-f-h-ehc-vd-morges",
+          "omosessualita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
-          "sage-femme-f-h-ehc-vd-morges"
+          "sage-femme-f-h-ehc-vd-morges",
+          "midwife-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "de": [
-          "sage-femme-f-h-ehc-vd-morges"
+          "sage-femme-f-h-ehc-vd-morges",
+          "hebamme-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
-        "sage-femme-f-h-ehc-vd-morges"
-      ]
+        "sage-femme-f-h-ehc-vd-morges",
+        "omosessualita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "midwife-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "hebamme-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-2d7e2cf333b9",
-      "slug": "community-health-assistant-medicina-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slug": "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
       "slugByLocale": {
         "fr": "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
-        "it": "community-health-assistant-medicina-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "community-health-assistant-assc-medicine-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "it": "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
+        "en": "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
         "de": "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -5113,8 +5228,8 @@
       "title": "Assistant soins et santé communautaire - ASSC médecine (F/H)",
       "titleByLocale": {
         "fr": "Assistant soins et santé communautaire - ASSC médecine (F/H)",
-        "it": "Community Health Assistant - Medicina ASSC (M/F)",
-        "en": "Community Health Assistant - ASSC medicine (M/F)",
+        "it": "Assistant soins et santé communautaire - ASSC médecine (F/H)",
+        "en": "Assistant soins et santé communautaire - ASSC médecine (F/H)",
         "de": "Assistent soins et santé communautaire - ASSC médecine (F/H)"
       },
       "description": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'hôpital de Morges un(e) :\n\nAssistant soins et santé communautaire - ASSC médecine (F/H) à 80-100%\n\nEntrée en poste dès que possible ou à convenir.\n\nLe service de médecine du 1er étage dispose de 40 lits, dont 6 dédiés aux soins palliatifs, et assure une prise en charge interdisciplinaire de patients relevant de soins palliatifs généraux et aigus.\n\nLe service de médecine du 2ème étage comprend 43 lits dont une moitié dédiés aux soins aigus aux seniors, avec une prise en charge interdisciplinaire dans un environnement adapté visant à favoriser et maintenir l’autonomie dans les activités de la vie quotidienne.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un CFC d'Assistant-e en soins et santé communautaire (ASSC).\n\n• De bonnes aptitudes organisationnelles (anticiper, planifier, coordonner).\n\n• Un sens de l'écoute et d'excellentes capacités relationnelles.\n\n• Une bonne maîtrise émotionnelle, de la proactivité et de la flexibilité.\n\nVOS OBJECTIFS\n\n• Assurer la prise en soins de la patientèle qui lui est confiée en tenant compte de ses besoins, des objectifs de soins et des ordres médicaux, dans son champs de compétence et sous délégation infirmière.\n\n• Soutenir le bien-être physique, social et psychique de la patientèle confiée et l'aider à organiser les activités quotidiennes.\n\n• Etre responsable de la prise en charge de l'environnement direct du patient en matière d'hygiène et de sécurité.\n\n• Optimiser les soins à travers une approche personnalisée, globale, pluridisciplinaire et interprofessionnelle.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
@@ -5130,7 +5245,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-soins-et-sante-communautaire-assc-medecine-fh-3778",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.750Z",
+      "crawledAt": "2026-10-03T09:20:01.918Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5165,14 +5280,18 @@
       "firstSeenAt": "2026-05-19T09:58:50.932Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
+          "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
+          "community-health-assistant-medicina-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
-          "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
+          "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
+          "community-health-assistant-assc-medicine-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
-        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
+        "community-health-assistant-medicina-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "community-health-assistant-assc-medicine-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ]
     },
     {
@@ -5263,7 +5382,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-e1a466d01e2f",
@@ -5379,7 +5499,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/pedopsychiatre-3473",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.945Z",
+      "crawledAt": "2026-10-03T09:20:02.058Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5420,11 +5540,13 @@
       },
       "previousSlugs": [
         "pedopsychiatre-ehc-vd-morges",
-        "pedopsychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "pedopsychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "psichiatra-infantile-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pedopsychiatre-ehc-vd-morges"
+          "pedopsychiatre-ehc-vd-morges",
+          "psichiatra-infantile-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "fr": [
           "pedopsychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -5443,7 +5565,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ehc-vd-fefde5aa41fe",
@@ -5619,12 +5742,12 @@
     },
     {
       "id": "ehc-vd-59bd52156ca7",
-      "slug": "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slug": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
       "slugByLocale": {
         "fr": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
-        "it": "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "sports-psychologist-in-psychotherapy-training-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "sportpsychologe-im-psychotherapietraining-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "it": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+        "en": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+        "de": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5632,23 +5755,23 @@
       "title": "Psychologue du sport en formation de psychothérapie",
       "titleByLocale": {
         "fr": "Psychologue du sport en formation de psychothérapie",
-        "it": "psicologo sportivo nella formazione psicoterapia",
-        "en": "Sports psychologist in psychotherapy training",
-        "de": "Sportpsychologe im Psychotherapietraining"
+        "it": "Psychologue du sport en formation de psychothérapie",
+        "en": "Psychologue du sport en formation de psychothérapie",
+        "de": "Psychologue du sport en formation de psychothérapie"
       },
       "description": "À deux pas de la gare de Morges, dans des locaux tout neufs, GO2, le centre romand de chirurgie et médecine du sport et des arts a été créé par une équipe spécialisée et passionnée. Il est destiné aux adolescent.e.s qui pratiquent régulièrement une activité physique, quel que soit leur niveau, que ce soit dans le cadre des loisirs, d’un club ou encore d’une catégorie élite. Cette équipe de médecins, chirurgiens ou thérapeutes, conseille également tout.e adolescent.e qui souhaite débuter ou reprendre une activité physique.\n\nNous recherchons pour notre centre Go2 situé à Morges un(e) :\n\nPsychologue du sport en formation de psychothérapie (F/H) à 20%\n\nEntrée en fonction dès que possible ou à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à prix préférentiels dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un master en psychologie exigé\n\n• Une formation postgrade en psychothérapie en cours exigé\n\n• Formation en psychologie du sport terminée, en cours ou de l'intérêt à se former lors du cursus 2027 – 2030\n\n• Un intérêt marqué pour le domaine du sport, de la performance et la réadaptation\n\n• Une capacité à travailler en équipe interdisciplinaire dans un environnement exigeant\n\n• D’excellentes compétences relationnelles et organisationnelles, esprit d’équipe\n\n• Un esprit d’initiative et une volonté de développer vos compétences\n\nVOS OBJECTIFS\n\n• Participer à l’évaluation psychologique d’adolescents et de jeunes adultes sportifs\n\n• Contribuer au renfort de l’activité du centre dans son champ de compétences\n\n• Accompagner des patients sportifs (amateurs à élite) dans une perspective de santé et de performance\n\n• Intervenir dans des problématiques telles que la gestion du stress, les troubles anxieux et les troubles de l’humeur, les troubles des conduites alimentaires, la reprise après blessures, l’addiction au sport, etc.\n\n• Collaborer avec les équipes médicales, thérapeutiques et sportives\n\n• Développer votre pratique sous supervision (si en formation)\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2300 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
       "descriptionByLocale": {
         "fr": "À deux pas de la gare de Morges, dans des locaux tout neufs, GO2, le centre romand de chirurgie et médecine du sport et des arts a été créé par une équipe spécialisée et passionnée. Il est destiné aux adolescent.e.s qui pratiquent régulièrement une activité physique, quel que soit leur niveau, que ce soit dans le cadre des loisirs, d’un club ou encore d’une catégorie élite. Cette équipe de médecins, chirurgiens ou thérapeutes, conseille également tout.e adolescent.e qui souhaite débuter ou reprendre une activité physique.\n\nNous recherchons pour notre centre Go2 situé à Morges un(e) :\n\nPsychologue du sport en formation de psychothérapie (F/H) à 20%\n\nEntrée en fonction dès que possible ou à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à prix préférentiels dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un master en psychologie exigé\n\n• Une formation postgrade en psychothérapie en cours exigé\n\n• Formation en psychologie du sport terminée, en cours ou de l'intérêt à se former lors du cursus 2027 – 2030\n\n• Un intérêt marqué pour le domaine du sport, de la performance et la réadaptation\n\n• Une capacité à travailler en équipe interdisciplinaire dans un environnement exigeant\n\n• D’excellentes compétences relationnelles et organisationnelles, esprit d’équipe\n\n• Un esprit d’initiative et une volonté de développer vos compétences\n\nVOS OBJECTIFS\n\n• Participer à l’évaluation psychologique d’adolescents et de jeunes adultes sportifs\n\n• Contribuer au renfort de l’activité du centre dans son champ de compétences\n\n• Accompagner des patients sportifs (amateurs à élite) dans une perspective de santé et de performance\n\n• Intervenir dans des problématiques telles que la gestion du stress, les troubles anxieux et les troubles de l’humeur, les troubles des conduites alimentaires, la reprise après blessures, l’addiction au sport, etc.\n\n• Collaborer avec les équipes médicales, thérapeutiques et sportives\n\n• Développer votre pratique sous supervision (si en formation)\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2300 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-        "it": "Vicino alla stazione di Morges, in nuovi locali, GO2, il Centro di Chirurgia Romana e Medicina dello Sport e delle Arti è stato creato da un team specializzato e appassionato. È destinato agli adolescenti che si impegnano regolarmente in attività fisica, indipendentemente dal loro livello, sia nel tempo libero, club o élite. Questo team di medici, chirurghi o terapeuti consiglia anche qualsiasi adolescente che desidera iniziare o riprendere attività fisica.\n\nStiamo cercando il nostro centro Go2 situato a Morges a:\n\npsicologo sportivo nella formazione di psicoterapia (M/F) al 20%\n\nIniziare il più presto possibile o concordare.\n\nNoi ti\n\n• 5 settimane di vacanza annuale, 6 settimane dall'età di 50 anni. Possibilità di riscattare una settimana aggiuntiva di vacanza, così come 10 vacanze offerte.\n\n• Varie proposte che offrono flessibilità ( congedo non retribuito, congedo part-time, tempo di cambio pagato, ecc.).\n\n• Remunerazione basata sulla valutazione dei vostri anni precedenti di esperienza professionale, così come bonus di anzianità all'interno dell'EHC.\n\n• Corsi di pilates gratuiti, partecipazione finanziaria a eventi sportivi come i 20 km di Losanna o Bike to Work, un catalogo di vantaggi che offrono sconti nei settori dello sport, del benessere, del tempo libero, della mobilità, dell'assicurazione e della finanza.\n\n• Bevande calde offerte al mattino e pasti a prezzi preferenziali nelle nostre mense.\n\n• Una bevanda aziendale \"Pâquis Plage\" per condividere momenti di convivialità durante le belle giornate.\n\n• Opportunità per il cambiamento interno, secondo il vostro desiderio di sviluppo.\n\n• Molti corsi di formazione in-house o attestanti.\n\n• Un programma dedicato ai manager per aiutarli ad acquisire le competenze necessarie per gestire le loro squadre.\n\nTu lo sai\n\n• Un master in psicologia richiesto\n\n• Formazione post-laurea in psicoterapia continua richiesta\n\n• Formazione in psicologia dello sport completata, corrente o interesse per la formazione durante il curriculum 2027 – 2030\n\n• Forte interesse per lo sport, le prestazioni e la riabilitazione\n\n• Una capacità di lavorare come team interdisciplinare in un ambiente esigente\n\n• Eccellente capacità relazionali e organizzative, spirito di squadra\n\n• Uno spirito di iniziativa e una volontà di sviluppare le vostre competenze\n\nI tuoi obiettivi\n\n• Partecipare alla valutazione psicologica di adolescenti e giovani adulti sportivi\n\n• Contribuire al rafforzamento delle attività del Centro nel suo campo di competenza\n\n• Accompagnamento di pazienti sportivi (elite dilettanti) da una prospettiva di salute e prestazioni\n\n• Intervento in questioni come la gestione dello stress, disturbi dell'ansia e dell'umore, disturbi alimentari, recupero dopo lesione, dipendenza dallo sport, ecc.\n\n• Collabora con team medici, terapeutici e sportivi\n\n• Sviluppa la tua pratica sotto supervisione (se in formazione)\n\nSiamo\n\n• Un'istituzione costituita da istituzioni di cura e riabilitazione acuta, una clinica privata, SME, centri medici e permanenze che si trovano nella regione di La Côte e la prima scuola di ipnosi clinica dedicata alla comunità di cura in Svizzera francofona.\n\n• Una rete di assistenza che consente molte opportunità di cambiamento interno in base alle aspirazioni e ai progetti di sviluppo dei dipendenti.\n\n• Più di 2.300 dipendenti che si occupano di pazienti e residenti della regione, condividono valori di Responsabilità, Proximità, Umanità, Competenza, in un ambiente agile che promuove la realizzazione di progetti.\n\n• Una società di formazione impegnata in formazione di successione, con circa 80 apprendisti in 16 diversi scambi, 200 HES-ES tirocinanti e quasi 300 medici in formazione.\n\nEssere il prossimo evento della nostra rete.\n\nTi riconosci in questa descrizione?\nFare clic su Applica aggiungendo i seguenti documenti:\n CV, lettera di copertura, certificati di lavoro (necessario per il calcolo dei salari) e diplomi.\n Se la tua domanda è selezionata, ti verrà chiesto l'estratto dal tuo record penale.",
-        "en": "Close to Morges station, in brand new premises, GO2, the Romaned Center of Surgery and Medicine of Sport and Arts was created by a specialized and passionate team. It is intended for adolescents who regularly engage in physical activity, regardless of their level, whether in leisure, club or elite. This team of doctors, surgeons or therapists also advises any teenager who wishes to start or resume physical activity.\n\nWe are looking for our Go2 center located in Morges a:\n\nSports psychologist in psychotherapy training (M/F) at 20%\n\nStart as soon as possible or agree.\n\nWE OFFER YOU\n\n• 5 weeks of annual vacation, 6 weeks from the age of 50. Possibility of redeeming an additional week of vacation, as well as 10 holidays offered.\n\n• Several proposals providing flexibility (unpaid leave, part-time leave, paid exchange time, etc.).\n\n• Remuneration based on the valuation of your previous years of professional experience, as well as seniority bonuses within the EHC.\n\n• Free pilates courses, financial participation in sporting events such as the 20km of Lausanne or Bike to Work, a catalogue of advantages offering discounts in the fields of sport, well-being, leisure, mobility, insurance and finance.\n\n• Hot drinks offered in the morning and meals at preferential prices in our cafeterias.\n\n• A \"Pâquis Plage\" business drink to share moments of conviviality during the beautiful days.\n\n• Opportunities for internal change, according to your desire for development.\n\n• Many accessible in-house or certifying training.\n\n• A programme dedicated to managers to support them in acquiring the skills necessary to manage their teams.\n\nYOU MAY\n\n• A master's degree in psychology required\n\n• Post-graduate training in ongoing psychotherapy required\n\n• Training in sports psychology completed, current or interest in training during the 2027 – 2030 curriculum\n\n• Strong interest in sport, performance and rehabilitation\n\n• An ability to work as an interdisciplinary team in a demanding environment\n\n• Excellent relational and organizational skills, team spirit\n\n• A spirit of initiative and a willingness to develop your skills\n\nYOUR OBJECTIVES\n\n• Participate in psychological assessment of adolescents and young sports adults\n\n• Contributing to the strengthening of the Centre's activities in its field of competence\n\n• Accompanying sports patients (elite amateurs) from a health and performance perspective\n\n• Intervention in issues such as stress management, anxiety and mood disorders, eating disorders, recovery after injury, addiction to sport, etc.\n\n• Collaborate with medical, therapeutic and sports teams\n\n• Develop your practice under supervision (if in training)\n\nWE ARE\n\n• An institution consisting of acute care and rehabilitation institutions, a private clinic, EMS, medical centres and permanences located in the region of La Côte and the first clinical hypnosis school dedicated to the care community in French-speaking Switzerland.\n\n• A network of care allowing many opportunities for internal change according to the aspirations and development projects of employees.\n\n• More than 2,300 employees taking care of patients and residents of the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment that promotes the realization of projects.\n\n• A training company engaged in succession training, with about 80 apprentices in 16 different trades, 200 HES-ES trainees and nearly 300 doctors in training.\n\nBE THE NEXT TALENT OF OUR CARE NETWORK.\n\nDo you recognize yourself in this description?\nClick Apply by adding the following documents:\n CV, cover letter, work certificates (necessary for the calculation of wages) and diplomas.\n If your application is selected, you will be asked for the extract from your criminal record.",
-        "de": "In der Nähe der Station Morges, in brandneuen Räumlichkeiten, GO2, wurde das Romaned Center of Surgery and Medicine of Sport and Arts von einem spezialisierten und leidenschaftlichen Team gegründet. Es ist für Jugendliche gedacht, die regelmäßig körperliche Aktivität ausüben, unabhängig von ihrem Niveau, ob in der Freizeit, Club oder Elite. Dieses Team von Ärzten, Chirurgen oder Therapeuten berät auch jeden Teenager, der körperliche Aktivität beginnen oder wieder aufnehmen möchte.\n\nWir suchen unser Go2-Center in Morges a:\n\nSportpsychologe in Psychotherapie-Ausbildung (M/W) bei 20%\n\nBeginnen Sie so schnell wie möglich oder stimmen Sie zu.\n\nWir bieten Ihnen\n\n• 5 Wochen Jahresurlaub, 6 Wochen ab dem 50. Lebensjahr. Möglichkeit, eine zusätzliche Woche Urlaub einzulösen, sowie 10 angebotene Ferien.\n\n• Mehrere Vorschläge, die Flexibilität bieten (unbezahlter Urlaub, Teilzeiturlaub, bezahlte Austauschzeit usw.).\n\n• Vergütung basierend auf der Bewertung Ihrer früheren Berufserfahrung sowie Senioritätsboni innerhalb des EHC.\n\n• Kostenlose Pilates-Kurse, finanzielle Teilnahme an Sportveranstaltungen wie den 20 km von Lausanne oder Bike to Work, ein Katalog von Vorteilen mit Rabatten in den Bereichen Sport, Wohlbefinden, Freizeit, Mobilität, Versicherung und Finanzen.\n\n• Heiße Getränke am Morgen und Mahlzeiten zu Vorzugspreisen in unseren Cafeterias angeboten.\n\n• Ein \"Pâquis Plage\" Geschäftsgetränk, um Momente der Geselligkeit während der schönen Tage zu teilen.\n\n• Chancen für innere Veränderungen, entsprechend Ihrem Wunsch nach Entwicklung.\n\n• Viele zugängliche interne oder zertifizierende Schulungen.\n\n• Ein Programm, das Managern gewidmet ist, um sie beim Erwerb der Fähigkeiten zu unterstützen, die für das Management ihrer Teams erforderlich sind.\n\nDürfen\n\n• Ein Master-Abschluss in Psychologie erforderlich\n\n• Postgraduierten-Ausbildung in laufender Psychotherapie erforderlich\n\n• Ausbildung in Sportpsychologie abgeschlossen, aktuell oder Interesse an Ausbildung während des Lehrplans 2027 - 2030\n\n• Starkes Interesse an Sport, Leistung und Rehabilitation\n\n• Die Fähigkeit, als interdisziplinäres Team in einem anspruchsvollen Umfeld zu arbeiten\n\n• Hervorragende relationale und organisatorische Fähigkeiten, Teamgeist\n\n• Ein Geist der Initiative und die Bereitschaft, Ihre Fähigkeiten zu entwickeln\n\nIhre ZIELE\n\n• Beteiligen Sie sich an der psychologischen Beurteilung von Jugendlichen und jungen Sportlern\n\n• Beitrag zur Stärkung der Tätigkeiten der Beobachtungsstelle in ihrem Zuständigkeitsbereich\n\n• Begleitung von Sportpatienten (Elite-Amateure) aus Gesundheits- und Leistungssicht\n\n• Eingriff in Themen wie Stressmanagement, Angst- und Stimmungsstörungen, Essstörungen, Erholung nach Verletzungen, Sportsucht usw.\n\n• Zusammenarbeit mit medizinischen, therapeutischen und Sportteams\n\n• Entwickeln Sie Ihre Praxis unter Aufsicht (wenn in der Ausbildung)\n\nWIR SIND\n\n• Eine Einrichtung, bestehend aus Akut- und Rehabilitationseinrichtungen, einer Privatklinik, EMS, medizinischen Zentren und Dauerstationen in der Region La Côte und der ersten klinischen Hypnoseschule, die der Pflegegemeinschaft in der französischsprachigen Schweiz gewidmet ist.\n\n• Ein Netzwerk der Pflege, das viele Möglichkeiten für interne Veränderungen gemäß den Bestrebungen und Entwicklungsprojekten der Mitarbeiter ermöglicht.\n\n• Mehr als 2.300 Mitarbeiter kümmern sich um Patienten und Bewohner der Region und teilen Werte wie Verantwortung, Nähe, Menschlichkeit, Kompetenz in einem agilen Umfeld, das die Realisierung von Projekten fördert.\n\n• Eine Ausbildungsfirma, die sich mit Nachfolgeausbildung beschäftigt, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Auszubildenden und fast 300 Ärzten in der Ausbildung.\n\nSei das nächste Talent unseres Pflegenetzes.\n\nErkennen Sie sich selbst in dieser Beschreibung?\nKlicken Sie auf Anwenden, indem Sie die folgenden Dokumente hinzufügen:\n Lebenslauf, Anschreiben, Arbeitsbescheinigungen (für die Berechnung der Löhne erforderlich) und Diplome.\n Wenn Ihre Bewerbung ausgewählt ist, werden Sie nach dem Auszug aus Ihrem Strafregister gefragt."
+        "it": "À deux pas de la gare de Morges, dans des locaux tout neufs, GO2, le centre romand de chirurgie et médecine du sport et des arts a été créé par une équipe spécialisée et passionnée. Il est destiné aux adolescent.e.s qui pratiquent régulièrement une activité physique, quel que soit leur niveau, que ce soit dans le cadre des loisirs, d’un club ou encore d’une catégorie élite. Cette équipe de médecins, chirurgiens ou thérapeutes, conseille également tout.e adolescent.e qui souhaite débuter ou reprendre une activité physique.\n\nNous recherchons pour notre centre Go2 situé à Morges un(e) :\n\nPsychologue du sport en formation de psychothérapie (F/H) à 20%\n\nEntrée en fonction dès que possible ou à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à prix préférentiels dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un master en psychologie exigé\n\n• Une formation postgrade en psychothérapie en cours exigé\n\n• Formation en psychologie du sport terminée, en cours ou de l'intérêt à se former lors du cursus 2027 – 2030\n\n• Un intérêt marqué pour le domaine du sport, de la performance et la réadaptation\n\n• Une capacité à travailler en équipe interdisciplinaire dans un environnement exigeant\n\n• D’excellentes compétences relationnelles et organisationnelles, esprit d’équipe\n\n• Un esprit d’initiative et une volonté de développer vos compétences\n\nVOS OBJECTIFS\n\n• Participer à l’évaluation psychologique d’adolescents et de jeunes adultes sportifs\n\n• Contribuer au renfort de l’activité du centre dans son champ de compétences\n\n• Accompagner des patients sportifs (amateurs à élite) dans une perspective de santé et de performance\n\n• Intervenir dans des problématiques telles que la gestion du stress, les troubles anxieux et les troubles de l’humeur, les troubles des conduites alimentaires, la reprise après blessures, l’addiction au sport, etc.\n\n• Collaborer avec les équipes médicales, thérapeutiques et sportives\n\n• Développer votre pratique sous supervision (si en formation)\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2300 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+        "en": "À deux pas de la gare de Morges, dans des locaux tout neufs, GO2, le centre romand de chirurgie et médecine du sport et des arts a été créé par une équipe spécialisée et passionnée. Il est destiné aux adolescent.e.s qui pratiquent régulièrement une activité physique, quel que soit leur niveau, que ce soit dans le cadre des loisirs, d’un club ou encore d’une catégorie élite. Cette équipe de médecins, chirurgiens ou thérapeutes, conseille également tout.e adolescent.e qui souhaite débuter ou reprendre une activité physique.\n\nNous recherchons pour notre centre Go2 situé à Morges un(e) :\n\nPsychologue du sport en formation de psychothérapie (F/H) à 20%\n\nEntrée en fonction dès que possible ou à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à prix préférentiels dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un master en psychologie exigé\n\n• Une formation postgrade en psychothérapie en cours exigé\n\n• Formation en psychologie du sport terminée, en cours ou de l'intérêt à se former lors du cursus 2027 – 2030\n\n• Un intérêt marqué pour le domaine du sport, de la performance et la réadaptation\n\n• Une capacité à travailler en équipe interdisciplinaire dans un environnement exigeant\n\n• D’excellentes compétences relationnelles et organisationnelles, esprit d’équipe\n\n• Un esprit d’initiative et une volonté de développer vos compétences\n\nVOS OBJECTIFS\n\n• Participer à l’évaluation psychologique d’adolescents et de jeunes adultes sportifs\n\n• Contribuer au renfort de l’activité du centre dans son champ de compétences\n\n• Accompagner des patients sportifs (amateurs à élite) dans une perspective de santé et de performance\n\n• Intervenir dans des problématiques telles que la gestion du stress, les troubles anxieux et les troubles de l’humeur, les troubles des conduites alimentaires, la reprise après blessures, l’addiction au sport, etc.\n\n• Collaborer avec les équipes médicales, thérapeutiques et sportives\n\n• Développer votre pratique sous supervision (si en formation)\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2300 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+        "de": "À deux pas de la gare de Morges, dans des locaux tout neufs, GO2, le centre romand de chirurgie et médecine du sport et des arts a été créé par une équipe spécialisée et passionnée. Il est destiné aux adolescent.e.s qui pratiquent régulièrement une activité physique, quel que soit leur niveau, que ce soit dans le cadre des loisirs, d’un club ou encore d’une catégorie élite. Cette équipe de médecins, chirurgiens ou thérapeutes, conseille également tout.e adolescent.e qui souhaite débuter ou reprendre une activité physique.\n\nNous recherchons pour notre centre Go2 situé à Morges un(e) :\n\nPsychologue du sport en formation de psychothérapie (F/H) à 20%\n\nEntrée en fonction dès que possible ou à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à prix préférentiels dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un master en psychologie exigé\n\n• Une formation postgrade en psychothérapie en cours exigé\n\n• Formation en psychologie du sport terminée, en cours ou de l'intérêt à se former lors du cursus 2027 – 2030\n\n• Un intérêt marqué pour le domaine du sport, de la performance et la réadaptation\n\n• Une capacité à travailler en équipe interdisciplinaire dans un environnement exigeant\n\n• D’excellentes compétences relationnelles et organisationnelles, esprit d’équipe\n\n• Un esprit d’initiative et une volonté de développer vos compétences\n\nVOS OBJECTIFS\n\n• Participer à l’évaluation psychologique d’adolescents et de jeunes adultes sportifs\n\n• Contribuer au renfort de l’activité du centre dans son champ de compétences\n\n• Accompagner des patients sportifs (amateurs à élite) dans une perspective de santé et de performance\n\n• Intervenir dans des problématiques telles que la gestion du stress, les troubles anxieux et les troubles de l’humeur, les troubles des conduites alimentaires, la reprise après blessures, l’addiction au sport, etc.\n\n• Collaborer avec les équipes médicales, thérapeutiques et sportives\n\n• Développer votre pratique sous supervision (si en formation)\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2300 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
       },
       "location": "Morges",
       "canton": "VD",
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/psychologue-du-sport-ou-psychologue-en-formation-fh-3639",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:15:44.938Z",
+      "crawledAt": "2026-10-03T09:20:02.053Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5680,21 +5803,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:15:44.938Z",
+      "firstSeenAt": "2026-10-03T09:20:02.053Z",
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+          "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
-          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+          "sports-psychologist-in-psychotherapy-training-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "de": [
-          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+          "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+          "sportpsychologe-im-psychotherapietraining-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
-        "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
-      ]
+        "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges",
+        "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "sports-psychologist-in-psychotherapy-training-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "sportpsychologe-im-psychotherapietraining-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ],
+      "needsRetranslation": true
     }
   ]
 }
