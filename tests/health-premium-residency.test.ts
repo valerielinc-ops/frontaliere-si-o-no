@@ -72,3 +72,19 @@ describe('exact domestic premium dimensions', () => {
     expect(() => assertDomesticHealthQuotes(quotes)).toThrow(/amount/);
   });
 });
+
+
+describe('static frontier health guidance', () => {
+  it('uses the Italy cohort range and excludes optional Swiss models in the healthcare block', () => {
+    const page = readFileSync('build-plugins/staticPagesPlugin.ts', 'utf8');
+    const block = page.split('// Block 5: Assicurazione Sanitaria')[1].split('// Block 6:')[0];
+    const data = buildEuPremiumSnapshot(fixture(2026), { year: 2026, sourceUrl });
+    const values = Object.values(data.countries.IT.insurers).map(insurer => euMonthlyPremium(insurer, '26+', false)!);
+    expect(block).toContain(`CHF ${Math.min(...values)} a CHF ${Math.max(...values).toFixed(2)}`);
+    expect(block).toContain('Paese di domicilio, non quelli del Cantone di lavoro');
+    expect(block).toContain('non sono disponibili franchigie opzionali né modelli HMO o Telmed');
+    expect(block).toContain(sourceUrl);
+    expect(block).toContain('La domanda deve essere formale');
+    expect(block).not.toMatch(/irrevocabile|franchigia massima|Assura e Agrisano/);
+  });
+});
