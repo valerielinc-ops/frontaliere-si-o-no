@@ -24,6 +24,7 @@ describe('health contribution factual consistency', () => {
     const answers = questions.map(question => locale === 'it'
       ? question.acceptedAnswer.text
       : FAQ_TRANSLATIONS[question.name][locale].a);
+    // cron-count-ok: six authored health FAQ topics; not a count from the transitive exchange-rate snapshot.
     expect(answers).toHaveLength(6);
     const visible = editorial[locale].join('\n');
     for (const answer of answers) expect(visible).toContain(answer);
