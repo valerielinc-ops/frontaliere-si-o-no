@@ -37,6 +37,19 @@ export const DEFAULT_HEALTH_PATH = path.join('data', 'loop-fleet', 'ledger', 'lo
 export const DEFAULT_MAX_AGE_HOURS = 48;
 export const MINIMUM_SAMPLE = 1;
 export const EXPECTED_LOOP_IDS = Object.freeze(Array.from({ length: 12 }, (_, index) => `L${index}`));
+/**
+ * Ledger rows recorded before this instant may predate the operational
+ * health columns (PR #8659, merged 2026-09-14T22:00:22Z). The last row
+ * without `operationalMetricsComplete` on ledger/loop-fleet is
+ * 2026-09-14T22:04:45.291Z (a run that checked out the pre-#8659 tree and
+ * finished after the merge); 498 such rows exist. The cutoff sits strictly
+ * after that last legacy row, with a margin of ~5 minutes, so the
+ * comparison `recordedAt < cutoff` exempts all 498 and nothing written by
+ * the current writer. Every future schema extension of this ledger needs
+ * its own dated constant like this one and its own boundary test.
+ */
+export const OPERATIONAL_FIELDS_REQUIRED_FROM = '2026-09-14T22:10:00.000Z';
+const OPERATIONAL_FIELDS_REQUIRED_FROM_MS = Date.parse(OPERATIONAL_FIELDS_REQUIRED_FROM);
 const CLOCK_SKEW_HOURS = 5 / 60;
 const HEALTH_STATUSES = new Set(['success', 'failure', 'timeout', 'skipped']);
 const QUOTA_DECISIONS = new Set(['hold', 'more discovery', 'less discovery']);
@@ -294,6 +307,7 @@ function validateCanonicalHealthHistory(history, {
   let artifactCollisions = 0;
   let completeOperationalRuns = 0;
   let incompleteOperationalRuns = 0;
+  let legacyOperationalRuns = 0;
   const missingOperationalFields = new Set();
   let operationalMetricsComplete = true;
 
@@ -301,6 +315,7 @@ function validateCanonicalHealthHistory(history, {
     const prefix = `canonicalHealth[${index}]`;
     const rowIssues = [];
     let rowOperationalMetricsComplete = true;
+    let rowPredatesOperationalFields = false;
     const execution = object(row?.execution) ? row.execution : null;
     const policy = policies.get(row?.loopId);
     if (!object(row)) {
@@ -354,7 +369,18 @@ function validateCanonicalHealthHistory(history, {
       }
       if (canonicalEvidencePaths(row).length === 0) rowIssues.push('evidence contains no artifact path');
 
-      for (const field of ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass']) {
+      // A row is legacy only when it lacks the telemetry marker AND was
+      // recorded before the writer existed. A row carrying the marker is
+      // always evaluated, whatever its date; a missing or invalid recordedAt
+      // never qualifies (the row already fails above).
+      rowPredatesOperationalFields = !Object.hasOwn(row, 'operationalMetricsComplete')
+        && stamp !== null
+        && stamp.getTime() < OPERATIONAL_FIELDS_REQUIRED_FROM_MS;
+      const requiredOperationalFields = rowPredatesOperationalFields
+        ? []
+        : ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass'];
+
+      for (const field of requiredOperationalFields) {
         if (!Object.hasOwn(row, field)) {
           missingOperationalFields.add(field);
           operationalMetricsComplete = false;
@@ -381,7 +407,10 @@ function validateCanonicalHealthHistory(history, {
           rowOperationalMetricsComplete = false;
         }
       }
-      if (!Object.hasOwn(row, 'operationalMetricsComplete')) {
+      if (rowPredatesOperationalFields) {
+        // Legacy row: exempt from the operational columns only; every other
+        // row check above still applies and it still counts as a valid run.
+      } else if (!Object.hasOwn(row, 'operationalMetricsComplete')) {
         missingOperationalFields.add('operationalMetricsComplete');
         operationalMetricsComplete = false;
         rowOperationalMetricsComplete = false;
@@ -417,7 +446,9 @@ function validateCanonicalHealthHistory(history, {
       } else {
         failedRuns += 1;
       }
-      if (rowOperationalMetricsComplete) {
+      if (rowPredatesOperationalFields) {
+        legacyOperationalRuns += 1;
+      } else if (rowOperationalMetricsComplete) {
         completeOperationalRuns += 1;
         retries += row.retryCount;
         quotaUnits += row.quotaUnits;
@@ -463,6 +494,7 @@ function validateCanonicalHealthHistory(history, {
       operationalMetricsComplete: records.length > 0 && operationalMetricsComplete,
       operationalMetricsCompleteRuns: completeOperationalRuns,
       operationalMetricsIncompleteRuns: incompleteOperationalRuns,
+      operationalMetricsLegacyRuns: legacyOperationalRuns,
       quality,
     },
   };
