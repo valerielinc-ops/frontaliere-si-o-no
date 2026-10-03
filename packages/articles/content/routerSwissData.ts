@@ -2577,6 +2577,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fisco-argovia-online-2026': { it: 'fisco-argovia-online-2026', en: 'swiss-tax-return-aargau-2026', de: 'steuererklaerung-aargau-2026', fr: 'declaration-impots-argovie-2026' },
  'pilastro3a-zurigo-strategia': { it: 'pilastro3a-zurigo-strategia', en: 'pillar3a-zurich-strategy', de: 'saeule3a-zuerich-strategie', fr: 'pilier3a-zurich-strategie' },
  'guida-terzo-3a-berna': { it: 'guida-terzo-3a-berna', en: 'swiss-3a-pillar-bern-guide', de: '3a-saeule-bern-leitfaden', fr: 'pilier-3a-berne-guide' },
+ 'lista-governo-ticino-2027': { it: 'lista-governo-ticino-2027', en: 'ticino-government-list-2027', de: 'tessiner-regierungs-liste-2027', fr: 'liste-gouvernement-tessin-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

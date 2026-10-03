@@ -7664,6 +7664,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-terzo-3a-berna.title': 'Schweizer Säule 3a: Vorteile 2026 im Kanton Bern',
     'blog.article.guida-terzo-3a-berna.excerpt': 'Leitfaden 2026 zur Säule 3a im Kanton Bern: indexierter Höchstbetrag, drei Steuerebenen und Vergleich von Bank- und Versicherungsanbietern.',
     'blog.article.guida-terzo-3a-berna.imageAlt': 'Person in der Schweiz prüft Unterlagen zur Säule 3a und zu Steuern',
+    'blog.article.lista-governo-ticino-2027.title': 'Weiter mit Ticino&Lavoro: Regierungsliste 2027',
+    'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli und Giovanni Albertini stehen für den Staatsrat vom 11 aprile 2027 auf der Liste.',
+    'blog.article.lista-governo-ticino-2027.imageAlt': 'Politische Präsentation in Lamone für die Tessiner Regierungsliste',
 };
 
 export default blogMetaChDe;

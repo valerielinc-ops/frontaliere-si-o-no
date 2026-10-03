@@ -7664,6 +7664,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-terzo-3a-berna.title': 'Troisième pilier 3a suisse : avantages 2026 dans le canton de Berne',
     'blog.article.guida-terzo-3a-berna.excerpt': 'Guide 2026 du pilier 3a dans le canton de Berne : plafond indexé, trois niveaux fiscaux et comparaison entre les prestataires bancaires et les assureurs.',
     'blog.article.guida-terzo-3a-berna.imageAlt': 'Résident suisse consultant des documents sur le pilier 3a et les impôts',
+    'blog.article.lista-governo-ticino-2027.title': 'En avant avec Ticino&Lavoro : liste Gouvernement 2027',
+    'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli et Giovanni Albertini figurent sur la liste du Conseil d\'État pour le 11 avril 2027.',
+    'blog.article.lista-governo-ticino-2027.imageAlt': 'Présentation politique à Lamone pour la liste au gouvernement tessinois',
 };
 
 export default blogMetaChFr;

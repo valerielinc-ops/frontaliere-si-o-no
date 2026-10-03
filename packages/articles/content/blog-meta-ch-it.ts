@@ -7664,6 +7664,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-terzo-3a-berna.title': 'Terzo pilastro 3a svizzera: vantaggi 2026 canton Berna',
     'blog.article.guida-terzo-3a-berna.excerpt': 'Guida 2026 al 3a nel canton Berna: massimale indicizzato, tre livelli fiscali e confronto tra provider bancari e assicurativi.',
     'blog.article.guida-terzo-3a-berna.imageAlt': 'Persona in Svizzera consulta documenti sul terzo pilastro 3a e sulle imposte',
+    'blog.article.lista-governo-ticino-2027.title': 'Avanti con Ticino&Lavoro: lista Governo 2027',
+    'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli e Giovanni Albertini sono in lista per il Consiglio di Stato dell\'11 aprile 2027.',
+    'blog.article.lista-governo-ticino-2027.imageAlt': 'Presentazione politica a Lamone per la lista al Governo ticinese',
 };
 
 export default blogMetaChIt;
