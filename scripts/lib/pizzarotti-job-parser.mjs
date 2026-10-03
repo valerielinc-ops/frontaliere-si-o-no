@@ -82,6 +82,24 @@ export function parsePizzarottiListings(html = '') {
 }
 
 /**
+ * Classify a parsed listing snapshot before the Swiss-location filter.
+ *
+ * An empty card set is not evidence that the source has no vacancies: it can
+ * also mean that the InRecruiting markup drifted. A non-empty card set with
+ * no Swiss rows is a valid filtered-empty observation and can be published.
+ */
+export function classifyPizzarottiListings(listings = []) {
+  const rows = Array.isArray(listings) ? listings : [];
+  const swissListings = rows.filter((row) => isPizzarottiSwissLocation(row.location));
+  return {
+    listings: swissListings,
+    discovered: rows.length,
+    lastFetchOutcome:
+      rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
+  };
+}
+
+/**
  * Extract total page count from InRecruiting pagination text "Pagina X di N".
  */
 export function parsePizzarottiPageCount(html = '') {
