@@ -110,6 +110,24 @@ export function parseAplusListings(html = '') {
 }
 
 /**
+ * Classify a parsed listing snapshot before the Swiss-location filter.
+ *
+ * Zero cards is not evidence that the source is empty: it can also indicate
+ * that the InRecruiting markup drifted. A non-empty card set filtered to zero
+ * Swiss rows is a valid empty result that can be published and monitored.
+ */
+export function classifyAplusListings(listings = []) {
+  const rows = Array.isArray(listings) ? listings : [];
+  const swissListings = rows.filter((row) => !row.location || isAplusSwissLocation(row.location));
+  return {
+    listings: swissListings,
+    discovered: rows.length,
+    lastFetchOutcome:
+      rows.length === 0 ? null : swissListings.length === 0 ? 'filtered_empty' : 'ok',
+  };
+}
+
+/**
  * Parse an InRecruiting detail page.
  *
  * Prefers JobPosting JSON-LD when present (InRecruiting embeds it on most
