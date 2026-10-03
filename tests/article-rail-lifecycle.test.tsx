@@ -10,7 +10,13 @@ beforeEach(() => {
   panels.length = 0;
   Object.defineProperty(window, 'innerHeight', { configurable: true, value: 800 });
   vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({ top: 100, bottom: 2100, height: 2000, left: 0, right: 300, width: 300, x: 0, y: 100, toJSON() {} });
-  vi.stubGlobal('ResizeObserver', class { observe() {} disconnect() {} });
+  vi.stubGlobal('ResizeObserver', class {
+    constructor(private callback: ResizeObserverCallback) {}
+    observe(target: Element) {
+      this.callback([{ target, contentRect: { height: 2000 } } as ResizeObserverEntry], this as unknown as ResizeObserver);
+    }
+    disconnect() {}
+  });
 });
 afterEach(() => { cleanup(); vi.clearAllTimers(); vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 describe('rail gutter shares GPT terminal decisions', () => {
