@@ -12405,6 +12405,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prezzi-carburanti-settembre.title': 'Schweizer Inflation: +1% im September bei den Treibstoffen',
     'blog.article.prezzi-carburanti-settembre.excerpt': 'Die Schweizer Inflation steigt im September im Jahresvergleich um 1%: Treibstoffe an der Spitze mit Heizöl +65%, Diesel +28,7% und Benzin +19,9%.',
     'blog.article.prezzi-carburanti-settembre.imageAlt': 'Tankstelle in der Schweiz mit abgestellten Autos',
+    'blog.article.a2-coldrerio-incidente-camion.title': 'Auffahrunfall auf der A2 bei Coldrerio: 73-Jähriger schwer verletzt',
+    'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Auto prallt auf der A2 bei Coldrerio gegen einen in der Notfallbucht stehenden Lastwagen: 68-Jährige leicht verletzt, 73-jähriger Passagier in Lebensgefahr.',
+    'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Verkehr und Rettungseinsatz auf der A2 bei Coldrerio nach einem Auffahrunfall',
 };
 
 export default blogMetaDe;

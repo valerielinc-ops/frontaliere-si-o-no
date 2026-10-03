@@ -12408,6 +12408,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.prezzi-carburanti-settembre.title': 'Inflation suisse : +1% en septembre pour les carburants',
     'blog.article.prezzi-carburanti-settembre.excerpt': 'L\'inflation suisse augmente de 1% sur un an en septembre : les carburants en tête avec le fioul à +65%, le diesel à +28,7% et l\'essence à +19,9%.',
     'blog.article.prezzi-carburanti-settembre.imageAlt': 'Station-service en Suisse avec des voitures garées',
+    'blog.article.a2-coldrerio-incidente-camion.title': 'Carambolage sur l\'A2 à Coldrerio : un homme de 73 ans grièvement blessé',
+    'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Une voiture percute un camion à l\'arrêt dans la niche d\'urgence sur l\'A2 à Coldrerio : une femme de 68 ans légèrement blessée, un passager de 73 ans en danger de mort.',
+    'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Trafic et secours sur l\'A2 à Coldrerio après une collision entre une voiture et un camion',
 };
 
 export default blogMetaFr;

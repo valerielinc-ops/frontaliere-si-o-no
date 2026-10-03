@@ -37204,6 +37204,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'a2-coldrerio-incidente-camion',
+ category: 'novita',
+ date: '2026-10-03T13:38:42.170Z',
+ image: '/images/blog/a2-coldrerio-incidente-camion.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

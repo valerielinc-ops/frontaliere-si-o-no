@@ -12407,6 +12407,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prezzi-carburanti-settembre.title': 'Inflazione Svizzera: +1% a settembre per i carburanti',
     'blog.article.prezzi-carburanti-settembre.excerpt': 'L\'inflazione svizzera sale dell\'1% annuo a settembre: carburanti in testa con olio combustibile +65%, diesel +28,7% e benzina +19,9%.',
     'blog.article.prezzi-carburanti-settembre.imageAlt': 'Distributore di carburante in Svizzera con auto in sosta',
+    'blog.article.a2-coldrerio-incidente-camion.title': 'Tamponamento sull\'A2 a Coldrerio: 73enne grave',
+    'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Auto contro camion fermo nella nicchia d\'emergenza sull\'A2 a Coldrerio: 68enne ferita lievemente, passeggero 73enne in pericolo di vita.',
+    'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Traffico e soccorsi sull\'A2 a Coldrerio dopo un tamponamento tra auto e camion',
 };
 
 export default blogMetaIt;

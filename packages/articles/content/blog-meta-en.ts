@@ -12406,6 +12406,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prezzi-carburanti-settembre.title': 'Swiss inflation: +1% in September driven by fuel',
     'blog.article.prezzi-carburanti-settembre.excerpt': 'Swiss inflation rises by 1% annually in September: fuels lead the way, with heating oil +65%, diesel +28,7% and petrol +19,9%.',
     'blog.article.prezzi-carburanti-settembre.imageAlt': 'Fuel station in Switzerland with cars parked nearby',
+    'blog.article.a2-coldrerio-incidente-camion.title': 'Rear-end collision on the A2 in Coldrerio: 73-year-old seriously injured',
+    'blog.article.a2-coldrerio-incidente-camion.excerpt': 'Car crashes into a truck stopped in the emergency lay-by on the A2 in Coldrerio: 68-year-old woman slightly injured, 73-year-old passenger in life-threatening condition.',
+    'blog.article.a2-coldrerio-incidente-camion.imageAlt': 'Traffic and emergency response on the A2 in Coldrerio after a car hit a truck',
 };
 
 export default blogMetaEn;
