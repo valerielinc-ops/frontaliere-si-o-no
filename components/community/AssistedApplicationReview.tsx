@@ -6,6 +6,7 @@ import { AssistedApplicationDocuments } from '@/components/community/AssistedApp
 import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
+import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
   fetchReview,
@@ -376,7 +377,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   if (followup) {
     const followupLocale = followup.locale || locale || 'it';
     return (
-      <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
+      <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-2xl px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}>
         <section ref={top} className="scroll-mt-4 space-y-5 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.assisted.pageEyebrow')}</p>
@@ -410,8 +411,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     );
   }
 
+  // The candidate's letter, CV lines, personal data and photo: never in a session replay.
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
+    <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-2xl px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}>
       <section ref={top} className="scroll-mt-4 space-y-6 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
         <div className="flex items-start gap-3">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent">
@@ -452,12 +454,23 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           )
         )}
 
-        {data && data.state === 'submitted' && (
+        {data && data.state === 'submitted' && (data.whatsappUrl ? (
+          // A WhatsApp application: the last step is the candidate's chat from the phone.
+          <div className="space-y-3 rounded-xl border border-success-border bg-success-subtle p-4" role="status">
+            <div className="flex items-start gap-3">
+              <MessageSquare className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
+              <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.submittedWhatsapp')}</p>
+            </div>
+            <a href={data.whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover">
+              <ExternalLink className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.openWhatsapp')}
+            </a>
+          </div>
+        ) : (
           <div className="flex items-start gap-3 rounded-xl border border-success-border bg-success-subtle p-4" role="status">
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
             <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.submitted')}</p>
           </div>
-        )}
+        ))}
 
         {data && data.state === 'owner_takeover' && (
           <div className="flex items-start gap-3 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status">

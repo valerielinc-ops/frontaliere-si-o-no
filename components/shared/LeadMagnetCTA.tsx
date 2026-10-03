@@ -31,7 +31,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
-import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
+import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
@@ -806,23 +806,11 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  return () => { cancelled = true; };
  }, [visible, user, locale]);
 
- // Pre-fill from auth
+ // Shared auth owns persisted-session restoration and deferred startup.
  useEffect(() => {
- const tryAuth = async () => {
- try {
- const [{ getAuth }, { getApp }] = await Promise.all([
- resilientImport(() => import('firebase/auth'), (m) => typeof m.getAuth === 'function'),
- resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
- ]);
- const auth = getAuth(await getApp());
- const unsub = auth.onAuthStateChanged((u) => {
- if (u?.email && !email) setEmail(u.email);
- unsub();
- });
- } catch { /* silent */ }
- };
- tryAuth();
- }, []);
+ const authEmail = getAuthEmail(user);
+ if (authEmail) setEmail((current) => current || authEmail);
+ }, [user]);
 
  // Visibility denominator, same shape as the existing `lead_magnet.banner.dismiss.<variant>`
  // and paired on the variant with `lead_magnet.form.subscribe.success_<variant>`.

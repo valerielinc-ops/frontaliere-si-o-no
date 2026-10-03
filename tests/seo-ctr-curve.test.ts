@@ -6,6 +6,14 @@ import {
   expectedCtrForPosition,
   ctrGapRatio,
   aggregateFamilyRows,
+  rankBelowCurvePagesByLostClicks,
+  renderBelowCurvePagesSection,
+  belowCurvePagesForState,
+  nextCtrMonitorCounter,
+  ctrMonitorCountedAnchor,
+  CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS,
+  BELOW_CURVE_ISSUE_PAGE_LIMIT,
+  BELOW_CURVE_STATE_PAGE_LIMIT,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
@@ -821,6 +829,134 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(agg.belowCurveCount).toBe(0);
     });
   });
+
+  describe('pagine sotto curva nella issue di famiglia (issue 5479)', () => {
+    // Il monitor calcolava gia' `belowCurvePages` e le buttava: la issue
+    // riceveva solo il numero di famiglia e il fixer chiudeva con «manca
+    // l'evidenza per pagina». Questi casi tengono la tabella nel body.
+    const MIN_IMPRESSIONS = 5;
+    // Posizione 3: CTR attesa letta dalla curva, non scritta a mano.
+    const expectedAt3 = expectedCtrForPosition(3);
+    const rows = [
+      // Sotto curva, tante impressioni ma divario piccolo: 1000 × (e − 0,55e).
+      { path: '/big-small-gap/', clicks: 0, impressions: 1000, position: 3, ctr: expectedAt3 * 0.55 },
+      // Sotto curva, meno impressioni ma CTR zero: 800 × e → perde di piu'.
+      { path: '/mid-zero-ctr/', clicks: 0, impressions: 800, position: 3, ctr: 0 },
+      // Sopra curva: mai in tabella, per quante impressioni abbia.
+      { path: '/healthy/', clicks: 900, impressions: 5000, position: 3, ctr: 0.18 },
+      // Sotto il minimo di impressioni: mai in tabella, anche a CTR zero.
+      { path: '/too-few/', clicks: 0, impressions: MIN_IMPRESSIONS - 1, position: 3, ctr: 0 },
+    ];
+
+    it('ordina per click persi stimati, non per impressioni', () => {
+      const agg = aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS });
+      // L'ordine nativo dell'aggregazione e' per impressioni…
+      expect(agg.belowCurvePages.map((p: { path: string }) => p.path)).toEqual(['/big-small-gap/', '/mid-zero-ctr/']);
+      // …quello della issue e' per click persi.
+      const ranked = rankBelowCurvePagesByLostClicks(agg.belowCurvePages);
+      expect(ranked.map((p: { path: string }) => p.path)).toEqual(['/mid-zero-ctr/', '/big-small-gap/']);
+      expect(ranked[0].lostClicks).toBeCloseTo(800 * expectedAt3, 6);
+      expect(ranked[1].lostClicks).toBeCloseTo(1000 * expectedAt3 * 0.45, 6);
+    });
+
+    it('riapplica il floor dopo aver normalizzato una CTR nulla da click e impressioni', () => {
+      const page = {
+        path: '/normalized-above-floor/',
+        clicks: 8,
+        impressions: 100,
+        ctr: null,
+        position: 1,
+        expectedCtr: 0.1,
+      };
+
+      expect(rankBelowCurvePagesByLostClicks([page])).toEqual([]);
+    });
+
+    it('la sezione elenca le pagine sotto curva ed esclude quelle sopra curva e sotto il minimo', () => {
+      const agg = aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS });
+      const section = renderBelowCurvePagesSection(agg.belowCurvePages);
+      expect(section).toContain('| Path | Impressioni | Posizione | CTR | CTR attesa | Click persi stimati |');
+      expect(section).not.toContain('/healthy/');
+      expect(section).not.toContain('/too-few/');
+      expect(section.indexOf('/mid-zero-ctr/')).toBeGreaterThan(-1);
+      expect(section.indexOf('/mid-zero-ctr/')).toBeLessThan(section.indexOf('/big-small-gap/'));
+      expect(section).toContain(
+        `| \`/mid-zero-ctr/\` | 800 | 3.0 | 0.00% | ${(expectedAt3 * 100).toFixed(2)}% | ${(800 * expectedAt3).toFixed(1)} |`,
+      );
+    });
+
+    it(`limita la tabella a ${BELOW_CURVE_ISSUE_PAGE_LIMIT} pagine e dichiara quante ne restano fuori`, () => {
+      const many = Array.from({ length: 40 }, (_, i) => ({
+        path: `/p-${String(i).padStart(2, '0')}/`,
+        clicks: 0,
+        impressions: 100 + i,
+        position: 3,
+        ctr: 0,
+      }));
+      const agg = aggregateFamilyRows(many, { minImpressions: MIN_IMPRESSIONS });
+      const section = renderBelowCurvePagesSection(agg.belowCurvePages);
+      const dataRows = section.split('\n').filter((line: string) => line.startsWith('| `/p-'));
+      expect(BELOW_CURVE_ISSUE_PAGE_LIMIT).toBe(15);
+      expect(dataRows).toHaveLength(BELOW_CURVE_ISSUE_PAGE_LIMIT);
+      // Le 15 che perdono di piu' sono quelle con piu' impressioni (CTR zero ovunque).
+      expect(dataRows[0]).toContain('/p-39/');
+      expect(dataRows[14]).toContain('/p-25/');
+      expect(section).toContain('15 di 40 pagine sotto curva');
+    });
+
+    it('con zero pagine sotto curva lo dice, invece di omettere la sezione', () => {
+      const agg = aggregateFamilyRows([rows[2]], { minImpressions: MIN_IMPRESSIONS });
+      const section = renderBelowCurvePagesSection(agg.belowCurvePages);
+      expect(section).toContain('Nessuna pagina sotto la soglia');
+      // Il criterio e' dichiarato: «sotto curva» e' 0,6 × la CTR attesa, non la curva piena.
+      expect(section).toContain('CTR < 0,6 × la CTR attesa');
+      expect(section).not.toContain('| Path |');
+    });
+
+    it('la tabella dichiara il criterio di «sotto curva»', () => {
+      const agg = aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS });
+      expect(renderBelowCurvePagesSection(agg.belowCurvePages)).toContain('Sotto curva = CTR < 0,6 × la CTR attesa');
+    });
+
+    it('lo state file riceve le prime cinque per click persi, con sei campi arrotondati', () => {
+      const many = Array.from({ length: 12 }, (_, i) => ({
+        path: `/s-${String(i).padStart(2, '0')}/`,
+        clicks: 0,
+        impressions: 100 + i,
+        position: 3,
+        ctr: 0,
+        query: 'campo estraneo che non deve finire nello state',
+      }));
+      const agg = aggregateFamilyRows(many, { minImpressions: MIN_IMPRESSIONS });
+      const forState = belowCurvePagesForState(agg.belowCurvePages);
+      expect(BELOW_CURVE_STATE_PAGE_LIMIT).toBe(5);
+      expect(forState).toHaveLength(BELOW_CURVE_STATE_PAGE_LIMIT);
+      expect(forState.map((p: { path: string }) => p.path)).toEqual(['/s-11/', '/s-10/', '/s-09/', '/s-08/', '/s-07/']);
+      for (const page of forState) {
+        expect(Object.keys(page)).toEqual(['path', 'impressions', 'position', 'ctr', 'expectedCtr', 'lostClicks']);
+      }
+      expect(forState[0]).toEqual({
+        path: '/s-11/',
+        impressions: 111,
+        position: 3,
+        ctr: 0,
+        expectedCtr: Number(expectedAt3.toFixed(4)),
+        lostClicks: Number((111 * expectedAt3).toFixed(1)),
+      });
+      // Ordine per click persi, non per impressioni: stesso caso della tabella.
+      const mixed = belowCurvePagesForState(aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS }).belowCurvePages);
+      expect(mixed.map((p: { path: string }) => p.path)).toEqual(['/mid-zero-ctr/', '/big-small-gap/']);
+      expect(belowCurvePagesForState(undefined)).toEqual([]);
+    });
+
+    it('il monitor usa la proiezione e la sezione del modulo della curva', () => {
+      // Il monitor esegue main() all'import: il cablaggio si controlla sul nome
+      // delle due funzioni, il comportamento e' nei casi qui sopra.
+      const monitor = readFileSync(join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+      expect(monitor).toContain('belowCurvePagesForState(');
+      expect(monitor).toContain('renderBelowCurvePagesSection(');
+    });
+  });
 });
 
 describe('registro famiglie — il punto cieco degli alias di locale (follow-up #5964)', () => {
@@ -964,5 +1100,157 @@ describe('registro auto-registrato (issue #7174)', () => {
     });
     expect(result.kind).toBe('unknown');
     expect(result.family).toBeNull();
+  });
+});
+
+// `consecutiveBelowRuns` e' pubblicato come «controlli settimanali
+// consecutivi». Finche' contava ogni run, un dispatch manuale lo muoveva in
+// entrambe le direzioni: misurato il 2026-10-03, a sei giorni dal cron, due
+// famiglie da 4 a 5, una da 1 a 2 (con issue aperta un giorno prima del
+// controllo settimanale) e una da 3 a 0 (serie cancellata).
+describe('contatore del monitor CTR: un controllo conteggiato per cadenza', () => {
+  const BASE_MS = Date.parse('2026-01-04T16:00:00.000Z');
+  const HOUR_MS = 3_600_000;
+  const at = (days: number, hours = 0) => new Date(BASE_MS + days * 24 * HOUR_MS + hours * HOUR_MS).toISOString();
+  const lastCounted = at(0);
+
+  it('conta il primo controllo di una famiglia mai vista', () => {
+    expect(nextCtrMonitorCounter(undefined, { belowTarget: true, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 1, lastCountedIso: at(0) });
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 0 }, { belowTarget: false, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 0, lastCountedIso: at(0) });
+  });
+
+  it('alla cadenza settimanale incrementa sotto target e azzera a target', () => {
+    const prior = { consecutiveBelowRuns: 3, lastCountedIso: lastCounted, lastCheckedIso: lastCounted };
+    expect(nextCtrMonitorCounter(prior, { belowTarget: true, nowIso: at(7) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 4, lastCountedIso: at(7) });
+    expect(nextCtrMonitorCounter(prior, { belowTarget: false, nowIso: at(7) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 0, lastCountedIso: at(7) });
+  });
+
+  it.each([
+    ['sotto target', true],
+    ['a target', false],
+  ])('un controllo fuori cadenza non muove il contatore (%s)', (_label, belowTarget) => {
+    const prior = { consecutiveBelowRuns: 3, lastCountedIso: lastCounted, lastCheckedIso: lastCounted };
+    for (const nowIso of [at(0, 1), at(1), at(5, 23)]) {
+      expect(nextCtrMonitorCounter(prior, { belowTarget, nowIso }))
+        .toEqual({ counted: false, consecutiveBelowRuns: 3, lastCountedIso: lastCounted });
+    }
+  });
+
+  it('regge il ritardo di una run schedulata in entrambe le direzioni', () => {
+    // Cron partito con 20 ore di ritardo, quello dopo puntuale: 6 giorni e 4 ore.
+    const late = { consecutiveBelowRuns: 1, lastCountedIso: at(0, 20) };
+    expect(nextCtrMonitorCounter(late, { belowTarget: true, nowIso: at(7) }).counted).toBe(true);
+    // Cron puntuale, quello dopo in ritardo: piu' di sette giorni.
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 1, lastCountedIso: lastCounted }, { belowTarget: true, nowIso: at(7, 20) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 2, lastCountedIso: at(7, 20) });
+    // Il confine e' incluso.
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 1, lastCountedIso: lastCounted }, {
+      belowTarget: true,
+      nowIso: at(CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS),
+    }).counted).toBe(true);
+  });
+
+  it('un controllo fuori cadenza non sposta la cadenza: il cron successivo conta', () => {
+    const prior = { consecutiveBelowRuns: 1, lastCountedIso: lastCounted, lastCheckedIso: lastCounted };
+    const manual = nextCtrMonitorCounter(prior, { belowTarget: true, nowIso: at(5, 22) });
+    expect(manual.counted).toBe(false);
+    const afterManual = { consecutiveBelowRuns: manual.consecutiveBelowRuns, lastCountedIso: manual.lastCountedIso, lastCheckedIso: at(5, 22) };
+    expect(nextCtrMonitorCounter(afterManual, { belowTarget: true, nowIso: at(7) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 2, lastCountedIso: at(7) });
+  });
+
+  it('usa lastCheckedIso come ancora per lo stato precedente a lastCountedIso', () => {
+    const legacy = { consecutiveBelowRuns: 4, lastCheckedIso: lastCounted };
+    expect(ctrMonitorCountedAnchor(legacy)).toBe(lastCounted);
+    expect(nextCtrMonitorCounter(legacy, { belowTarget: true, nowIso: at(1) }))
+      .toEqual({ counted: false, consecutiveBelowRuns: 4, lastCountedIso: lastCounted });
+    expect(nextCtrMonitorCounter(legacy, { belowTarget: true, nowIso: at(7) }).consecutiveBelowRuns).toBe(5);
+    expect(ctrMonitorCountedAnchor(undefined)).toBeNull();
+    expect(ctrMonitorCountedAnchor({ lastCountedIso: at(3), lastCheckedIso: at(4) })).toBe(at(3));
+  });
+
+  // Il ramo di errore del monitor scrive `lastCheckedIso` (il controllo c'e'
+  // stato) e riporta l'ancora cosi' com'era. Per una famiglia mai conteggiata
+  // l'ancora e' `null`, ed e' un `null` SCRITTO: non deve ricadere su
+  // `lastCheckedIso`, altrimenti il controllo valido che segue un errore
+  // risulta fuori cadenza per sei giorni.
+  it('un null esplicito in lastCountedIso vuol dire «mai conteggiato», non «campo assente»', () => {
+    const afterFirstError = { consecutiveBelowRuns: 1, lastCountedIso: null, lastCheckedIso: at(0) };
+    expect(ctrMonitorCountedAnchor(afterFirstError)).toBeNull();
+    expect(nextCtrMonitorCounter(afterFirstError, { belowTarget: true, nowIso: at(0, 1) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 2, lastCountedIso: at(0, 1) });
+  });
+
+  it('errore GSC e poi controllo valido: la famiglia nuova conta, quella gia\' conteggiata resta in cadenza', () => {
+    // Stessa scrittura del ramo di errore: { ...prior, lastCheckedIso, lastCountedIso: ancora(prior) }.
+    const errorWrite = (prior: Record<string, unknown>, nowIso: string) => ({
+      ...prior,
+      lastCheckedIso: nowIso,
+      lastCountedIso: ctrMonitorCountedAnchor(prior),
+    });
+
+    const neverSeen = errorWrite({ consecutiveBelowRuns: 0 }, at(0));
+    expect(neverSeen.lastCountedIso).toBeNull();
+    expect(nextCtrMonitorCounter(neverSeen, { belowTarget: true, nowIso: at(0, 2) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 1, lastCountedIso: at(0, 2) });
+
+    // Stato vecchio (senza il campo), conteggiato una settimana prima: l'errore
+    // del cron non sposta l'ancora, il re-run del giorno dopo conta.
+    const legacyThenError = errorWrite({ consecutiveBelowRuns: 3, lastCheckedIso: at(0) }, at(7));
+    expect(legacyThenError.lastCountedIso).toBe(at(0));
+    expect(nextCtrMonitorCounter(legacyThenError, { belowTarget: true, nowIso: at(8) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 4, lastCountedIso: at(8) });
+
+    // Conteggiata ieri, errore oggi: il re-run di oggi resta fuori cadenza.
+    const countedThenError = errorWrite({ consecutiveBelowRuns: 3, lastCountedIso: at(6), lastCheckedIso: at(6) }, at(7));
+    expect(nextCtrMonitorCounter(countedThenError, { belowTarget: true, nowIso: at(7, 1) }))
+      .toEqual({ counted: false, consecutiveBelowRuns: 3, lastCountedIso: at(6) });
+  });
+
+  it("un'ancora illeggibile o nel futuro non congela il contatore", () => {
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 2, lastCountedIso: 'non una data' }, { belowTarget: true, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 3, lastCountedIso: at(0) });
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 2, lastCountedIso: at(30) }, { belowTarget: true, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 3, lastCountedIso: at(0) });
+    expect(() => nextCtrMonitorCounter({}, { belowTarget: true, nowIso: 'ieri' })).toThrow(TypeError);
+  });
+
+  it("ignora un contatore precedente che non e' un intero positivo", () => {
+    for (const bad of [undefined, null, -2, 1.5, '3', Number.NaN]) {
+      expect(nextCtrMonitorCounter({ consecutiveBelowRuns: bad as never, lastCountedIso: lastCounted }, { belowTarget: true, nowIso: at(7) })
+        .consecutiveBelowRuns).toBe(1);
+    }
+  });
+
+  // Replay dell'incidente con gli istanti reali: ultimo cron il 27-09 alle
+  // 19:41Z, dispatch manuale il 03-10 alle 17:22Z, cron successivo il 04-10.
+  it('replay del 2026-10-03: il dispatch manuale non conta, il cron della domenica si', () => {
+    const lastCron = '2026-09-27T19:41:06.796Z';
+    const manualDispatch = '2026-10-03T17:22:17.500Z';
+    const sundayCron = '2026-10-04T16:05:00.000Z';
+    const families: Array<[number, boolean]> = [[4, true], [1, true], [3, false]];
+    for (const [runs, belowTarget] of families) {
+      const prior = { consecutiveBelowRuns: runs, lastCheckedIso: lastCron };
+      const manual = nextCtrMonitorCounter(prior, { belowTarget, nowIso: manualDispatch });
+      expect(manual).toEqual({ counted: false, consecutiveBelowRuns: runs, lastCountedIso: lastCron });
+      const sunday = nextCtrMonitorCounter(
+        { consecutiveBelowRuns: manual.consecutiveBelowRuns, lastCountedIso: manual.lastCountedIso, lastCheckedIso: manualDispatch },
+        { belowTarget: true, nowIso: sundayCron },
+      );
+      expect(sunday).toEqual({ counted: true, consecutiveBelowRuns: runs + 1, lastCountedIso: sundayCron });
+    }
+  });
+
+  it('il monitor delega il contatore e apre o commenta la issue solo su un controllo conteggiato', () => {
+    const monitor = readFileSync(join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+    expect(monitor).toContain('nextCtrMonitorCounter(prior, { belowTarget, nowIso })');
+    expect(monitor).not.toMatch(/consecutiveBelowRuns\s*\|\|\s*0\)\s*\+\s*1/);
+    expect(monitor).toContain('if (counted && consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE)');
+    expect(monitor).toContain('lastCountedIso: ctrMonitorCountedAnchor(prior)');
+    expect(monitor).toMatch(/lastCheckedIso: nowIso,\n\s+lastCountedIso,\n/);
   });
 });

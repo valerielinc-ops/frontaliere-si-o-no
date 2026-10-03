@@ -123,6 +123,7 @@ const SUMMARIES_DIR = path.join(
 );
 const HEALTH_STATE_PATH = path.join(ROOT, 'data', 'crawler-health.json');
 const HEALTH_ISSUES_PATH = path.join(ROOT, 'data', 'crawler-health-issues.json');
+const CRAWLER_QUARANTINE_PATH = path.join(ROOT, 'data', 'crawler-quarantine.json');
 
 // The site remains the canonical job-data repository. During the cross-repo
 // crawler migration, however, issue #6712 caused some valid crawler commits to
@@ -274,24 +275,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // reads the Prospective medium its redirect leads to and is no longer
   // expected to be empty — issue 5253.)
   'paraplegie',
-  // Psychiatriezentrum Münsingen (PZM, Prospective medium 1008606): the
-  // public career site (pzmag.ch/karriere) now 301-redirects to
-  // upz-bern.ch/karriere — PZM merged with UPD Bern into "Universitäres
-  // Psychiatrisches Zentrum Bern (UPZ)" (verified live 2026-07-11). The
-  // shared Prospective API is still live (71 postings on medium 1008606),
-  // but every listing's `links.directlink` now resolves to the generic
-  // `ohws.prospective.ch/public/v1/jobs/{id}` job-direct format instead of
-  // the `jobs.pzmag.ch` host this parser's `acceptDirectlinkHosts`
-  // allowlist requires — so 0 is the correct, permanent output for this
-  // companyKey, not a selector break. The former PZM roles (verified: e.g.
-  // "Dipl. Pflegefachperson im Nachtdienst ICM", Hunzigenallee 1
-  // Münsingen) are surfaced by the sibling `upd` crawler, which reads the
-  // merged UPZ vacancy set (Prospective medium 1000842, 30 of 107 postings
-  // in Münsingen on 2026-09-29) — so no coverage is lost. Retiring
-  // the dedicated crawler (removing it from `.github/workflows/
-  // crawler-group-10.yml`) is the complete follow-up but out of reach for
-  // the automated fixer (no `workflows` push scope); tracked in #4080.
-  'pzm-muensingen',
   // Würth International (Chur, GR): the careers listing
   // (https://www.wurth-international.com/web/en/wurthinternational/jobs_career/jobs/Jobs.php)
   // returns HTTP 200 with its unchanged structure but currently shows "Keine
@@ -375,8 +358,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // evidence lives in the #3797 issue comment; one-line summary here.
   // Workable API confirms `total:0`; page states "no job openings".
   'answerconsulting',
-  // e-lavoro.ch/node/91 explicit empty state, no listed vacancies.
-  'cerbios-pharma',
   // No jobs/careers page exists anywhere on chiccodoro.com.
   'chicco-doro',
   // jobs.ch profile shows "Jobs (0)"; no jobs/career page on citypop.com.
@@ -388,19 +369,12 @@ const EMPTY_OK_CRAWLERS = new Set([
   // `ferring` left this list on 2026-10-02: it now proves its Swiss zero every
   // run from the live Workday board (`proveSwissAbsentFromLiveBoard` on the
   // tenant's `Location_Country` facet, scripts/update-ferring-jobs.mjs).
-  // e-lavoro.ch/node/76 zero listings; jobopportunity.ch subdomain is dead
-  // (same defunct AITI e-recruiting platform migration as imerys).
-  'helsinn',
-  // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
-  'hugo-boss',
   // `imerys` left this list on 2026-10-02: the "corroborated zero" was a dead
   // source (the SmartRecruiters company no longer exists) while its Workday
   // board listed 3 Swiss reqs. It now proves its own zero every run
   // (`proveSwissAbsentFromLiveBoard`, scripts/update-imerys-jobs.mjs).
   // 38 real postings exist but Switzerland isn't even a location-filter option.
   'interroll',
-  // Greenhouse API: 21 active postings, all San Francisco/Remote-US, none CH.
-  'vir-biotechnology',
   // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
   'has-healthcare',
   // BENTELER (Jobs2Web tenant career.benteler.jobs): 143 postings live but
@@ -437,16 +411,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // after 2026-08-28. Parser healthy; re-arms when Montchoisi publishes again
   // (issue #7320).
   'clinique-de-montchoisi',
-  // Bally (Swiss luxury leather-goods house, HQ Caslano TI): the crawler was
-  // fixed (#3797) to pull from the real source — the SmartRecruiters tenant
-  // "Bally" (https://jobs.smartrecruiters.com/Bally), replacing the 4 dead
-  // bally.com/en-ch/careers.html-style URLs the old scraper 404'd against.
-  // Verified live 2026-07-08: the public API
-  // (https://api.smartrecruiters.com/v1/companies/Bally/postings) returns
-  // "totalFound":0 worldwide, not just for Switzerland — Bally genuinely has
-  // no open postings on this ATS right now. Parser is healthy and will pick
-  // up real jobs (CH-filtered) the moment any are published.
-  'bally',
   // `kone` left this list on 2026-10-02: the SmartRecruiters tenant `KONE1`
   // it read (1 posting, Belgium) was never KONE's board; its Workday site
   // lists the Swiss reqs (6 live). It now proves its own zero every run
@@ -465,22 +429,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // reappears. Same legitimately-empty regional-filter case as
   // manor/bracco/fnz.
   'clariant',
-  // Josef Müller Gemüse AG (Hünenberg ZG, produce/salad processing):
-  // verified live 2026-07-21 — the jobs.ch company-profile page
-  // (https://www.jobs.ch/de/firmen/33612-josef-mueller-gemuese-ag/) returns
-  // HTTP 200, the "Jobs (0)" tab counter and the
-  // `data-cy="company-no-vacancies"` block ("Derzeit sind keine
-  // Stellenangebote vorhanden") both confirm zero current postings, and no
-  // `/de/stellenangebote/detail/{uuid}/` links are present in the markup —
-  // parseJosefMuellerListing() correctly extracts 0 from a genuinely
-  // vacancy-free page. This is a small single-site produce processor
-  // (~170 employees) that previously had exactly one listing
-  // (lastNonZeroJobs: 1); it legitimately has stretches with no openings.
-  // The listing selector (URL-shape regex, not a class name) and the
-  // JobPosting JSON-LD detail parser are unchanged and healthy; re-arms
-  // automatically when jobs.ch lists a new vacancy. Same legitimately-empty
-  // small-employer case as linnea/banca-raiffeisen-vedeggio-cassarate/wuerth-international.
-  'josef-mueller',
   // Yapeal AG (Swiss mobile banking, Zürich): verified live 2026-07-25 — the
   // Personio XML feed (https://yapeal-ag.jobs.personio.de/xml) returns HTTP
   // 200 with a well-formed but empty `<workzag-jobs>` document (0
@@ -495,21 +443,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // automatically when Yapeal republishes a posting. Same
   // legitimately-empty small-employer case as linnea/josef-mueller (#4751).
   'yapeal',
-  // Temenos (Geneva-HQ banking software, Workday tenant temenos.wd103,
-  // site Temenoscareers): verified live 2026-08-05 — the tenant's location
-  // facet is `locationMainGroup`, so the canonical `locationCountry` facet
-  // that createWorkdaySwissParser sends is rejected with HTTP 400; the
-  // factory's documented fallback (refetch unfiltered + strict CH gate) then
-  // fetches the WHOLE board and gets `total: 16` postings, every one of them
-  // explicitly foreign (Paris, Sydney, Singapore, United States Remote,
-  // London, Bertrange LU, Bucharest, Chennai, Makati City). Zero Swiss roles
-  // — the Geneva HQ simply has no open req right now. The public careers
-  // site (careers.temenos.com → temenos.com/about-us/careers/) links to the
-  // same `Temenoscareers` Workday site, so there is no second board we are
-  // missing. Listing fetch + strict CH gate are healthy and re-arm the moment
-  // a Geneva/Swiss req is published. Same legitimately-empty
-  // regional-filter case as bracco/fnz (#4844).
-  'temenos',
   // Veeam Software (Baar ZG Swiss entity, Greenhouse board `veeamsoftware`):
   // verified live 2026-08-05 — https://boards-api.greenhouse.io/v1/boards/
   // veeamsoftware/jobs returns HTTP 200 with 235 postings worldwide (board
@@ -524,21 +457,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // fetch + Swiss filter are healthy and re-arm when a CH posting appears.
   // Same legitimately-empty regional-filter case as bracco/fnz (#5060).
   'veeam',
-  // Gavi, the Vaccine Alliance (Geneva, Salesforce fRecruit portal
-  // fs-2662.my.salesforce-sites.com): verified live 2026-08-05 — the listing
-  // page the parser fetches
-  // (https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJobList?portal=Global)
-  // returns HTTP 200 with its structure fully intact (same Visualforce
-  // `pbBody` page block, same "For the vacancies listed below…" copy, same
-  // Current Vacancies nav) but the results table is genuinely empty: the
-  // pager reads "Page 1 of 0" and the table body renders the portal's own
-  // "None found" empty state, with zero `vacancyNo=` links in the markup.
-  // Nothing for a selector to fail on — the international-health alliance
-  // simply has no open vacancy right now (it had 2 when the parser was
-  // written). Parser + Swiss canton gate are healthy and re-arm when a
-  // vacancy is republished. Same legitimately-empty small-employer case as
-  // linnea/josef-mueller (#5059).
-  'gavi',
   'rado',
   'swatch-group-assembly',
   // ^ rado + swatch-group-assembly (#5083, #5013): both are Swatch Group
@@ -801,18 +719,35 @@ async function listJsonSlugs(dir) {
 }
 
 /**
- * List all known crawler slugs: union of `data/jobs/by-crawler/*.json` and
- * `data/jobs-crawler-summaries/by-crawler/*.json`. A crawler that has never
- * produced an active-jobs shard (e.g. `earlyExit: true` on every run) only
- * ever writes the summary slice — reading BY_CRAWLER_DIR alone made those
- * crawlers permanently invisible to this monitor (issue #3797).
+ * List all active crawler slugs: union of `data/jobs/by-crawler/*.json` and
+ * `data/jobs-crawler-summaries/by-crawler/*.json`, excluding crawlers retired
+ * in `data/crawler-quarantine.json`. A retired crawler intentionally keeps its
+ * historical slices for route/data continuity, but those slices must not turn
+ * into a new stale/broken alert after its scheduler has been removed.
+ * A crawler that has never produced an active-jobs shard (e.g. `earlyExit: true`
+ * on every run) only ever writes the summary slice — reading BY_CRAWLER_DIR
+ * alone made those crawlers permanently invisible to this monitor (issue #3797).
  */
-async function listCrawlerSlugs() {
+async function readRetiredCrawlerSlugs() {
+  const registry = await readJsonSafe(CRAWLER_QUARANTINE_PATH);
+  const retired = registry && typeof registry === 'object' && !Array.isArray(registry)
+    ? registry.retired
+    : null;
+  if (!retired || typeof retired !== 'object' || Array.isArray(retired)) return new Set();
+  return new Set(Object.keys(retired));
+}
+
+async function listCrawlerSlugs({ retiredSlugs = null } = {}) {
   const [byCrawler, summaries] = await Promise.all([
     listJsonSlugs(BY_CRAWLER_DIR),
     listJsonSlugs(SUMMARIES_DIR),
   ]);
-  return [...new Set([...byCrawler, ...summaries])].sort();
+  const retired = retiredSlugs instanceof Set
+    ? retiredSlugs
+    : await readRetiredCrawlerSlugs();
+  return [...new Set([...byCrawler, ...summaries])]
+    .filter((slug) => !retired.has(slug))
+    .sort();
 }
 
 function shouldCarryForwardCrawlerSlug(slug) {
@@ -846,6 +781,16 @@ function summaryHasAuthoritativeEmpty(slug, summary) {
     LEGACY_SOURCE_PROVEN_EMPTY_CRAWLERS.has(slug) &&
     summary.sourceProvenEmpty === true
   );
+}
+
+/**
+ * Commit del sito che ha prodotto la summary (`codeCommit`, scritto da
+ * `writeSummaryCrawlerSlice`). `null` per le summary che precedono il campo o
+ * che non lo dichiarano in forma di sha completo: mai un valore dedotto.
+ */
+function observedCodeCommit(summary) {
+  const value = summary && typeof summary === 'object' ? summary.codeCommit : null;
+  return typeof value === 'string' && /^[0-9a-f]{40}$/.test(value) ? value : null;
 }
 
 async function inspectCrawler(slug) {
@@ -987,6 +932,7 @@ async function inspectCrawler(slug) {
     abortKind,
     earlyExit,
     exitCode,
+    codeCommit: observedCodeCommit(summary),
   };
 }
 
@@ -1105,6 +1051,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     abortKind,
     earlyExit,
     exitCode,
+    codeCommit: observedCodeCommit(summary),
   };
 }
 
@@ -1625,6 +1572,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _authoritativeEmptySnapshot: authoritativeEmpty,
       _lastObservedFetchOutcome: fetchOutcome,
       _lastObservedAbortKind: abortKind,
+      // Non entra in OBSERVATION_DIAGNOSTIC_FIELDS di proposito: il commit
+      // descrive l'osservazione vincente, e ereditarlo da quella scartata
+      // attribuirebbe a una run il codice di un'altra.
+      _lastObservedCodeCommit: observedCodeCommit(observation),
       _abortedRun: abortedRun,
     },
     reason,
@@ -1635,7 +1586,8 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 async function main() {
   const nowMs = Date.now();
   const nowIso = new Date(nowMs).toISOString();
-  const slugs = await listCrawlerSlugs();
+  const retiredSlugs = await readRetiredCrawlerSlugs();
+  const slugs = await listCrawlerSlugs({ retiredSlugs });
   if (slugs.length === 0) {
     console.warn('[health] No crawler files found; nothing to check.');
   }
@@ -1715,6 +1667,7 @@ async function main() {
         lastSeenAt: state.lastSuccessfulRunAt,
         status: issueStatus,
         consecutiveEmptyRuns: state.consecutiveEmptyRuns,
+        codeCommit: state._lastObservedCodeCommit ?? null,
       };
       // La scheda viaggia nel file, non nel workflow: la condizione di chiusura
       // di questa issue vive nel codice del closer (lo step "Close recovered
@@ -1731,6 +1684,21 @@ async function main() {
   // scratch companions are not crawler identities and must not survive forever
   // merely because an older monitor discovered them before isSliceFile existed.
   for (const [slug, prev] of Object.entries(prevCrawlers)) {
+    if (retiredSlugs.has(slug)) {
+      // Keep a retired crawler's prior state as a healthy, explicit marker so
+      // the monitor's existing issue closer can resolve an alert opened before
+      // the retirement. Its old summary remains available for SEO/data audits,
+      // but it is no longer an active health observation.
+      nextCrawlers[slug] = {
+        ...prev,
+        status: 'healthy',
+        advisory: false,
+        advisoryReason: null,
+        lastFailureReason: null,
+        _retired: true,
+      };
+      continue;
+    }
     if (!(slug in nextCrawlers) && shouldCarryForwardCrawlerSlug(slug)) {
       nextCrawlers[slug] = { ...prev, status: 'unknown', _missingAt: nowIso };
     }
@@ -1784,10 +1752,11 @@ export {
  * `advisory: false` per quello slug. Qui quella stessa condizione diventa
  * leggibile da chi raccoglie la issue, con il comando che la verifica.
  *
- * @param {{slug:string, status:string, reason:string, consecutiveEmptyRuns?:number}} issue
+ * @param {{slug:string, status:string, reason:string, consecutiveEmptyRuns?:number, codeCommit?:string|null}} issue
  */
 export function buildHealthScheda(issue) {
   const { slug, status } = issue;
+  const codeCommit = observedCodeCommit(issue);
   return buildScheda({
     causa: [
       `(ipotesi, da confermare.) Il crawler \`${slug}\` non pubblica piu' annunci freschi:`,
@@ -1807,6 +1776,9 @@ export function buildHealthScheda(issue) {
       'dal disco per due motivi: lo stato che il closer guarda e\' quello che il monitor',
       'committa su `main`, non uno ricalcolato in locale, e cosi\' verificare il criterio non',
       'lascia file dati modificati nel working tree di chi verifica.',
+      codeCommit
+        ? `Codice osservato: l'ultima summary e' stata prodotta dal commit \`${codeCommit}\` del sito. Una fix mergiata DOPO quel commit non ha ancora girato: \`git merge-base --is-ancestor <merge commit della fix> ${codeCommit}\` lo verifica prima di riaprire il parser.`
+        : "Codice osservato: l'ultima summary non dichiara `codeCommit`, quindi da qui non si puo' stabilire se una fix recente ha gia' girato.",
     ],
     osservatore: [
       '`.github/workflows/crawler-health-monitor.yml` — lo step "Close recovered',

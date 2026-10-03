@@ -96,6 +96,26 @@ describe('Imerys crawler — Workday source (tenant imerys, site IMERYS-Careers)
     expect(isImerysJob(jobs[0])).toBe(true);
   });
 
+  it('refetches the full board when the `Country` facet falsely reports zero', async () => {
+    const listCalls = mockImerysWorkday({
+      faceted: { total: 0, jobPostings: [] },
+      unfiltered: workdayFixture('imerys-careers-swiss-facet.json'),
+      details: {
+        '/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824': workdayFixture('imerys-detail-bodio.json'),
+      },
+    });
+
+    const jobs = await fetchAllImerysJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'MECHANICAL MAINTENANCE SUPERVISOR', location: 'Bodio', canton: 'TI' });
+    expect(listCalls.map((call) => call.body.appliedFacets)).toEqual([
+      { Country: ['187134fccb084a0ea9b4b95f23890dbe'] },
+      {},
+      {},
+    ]);
+  });
+
   it('publishes a proven zero when the live board lists no Swiss value in its country facet', async () => {
     mockImerysWorkday({ faceted: EMPTY_SWISS_FACET, unfiltered: LIVE_BOARD_WITHOUT_CH });
 
@@ -103,7 +123,7 @@ describe('Imerys crawler — Workday source (tenant imerys, site IMERYS-Careers)
 
     expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
-    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/live board 35 posting\(s\) in 9 countries .*Switzerland not among them/);
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/live board 35 posting\(s\) across 9 location value\(s\) .*Switzerland not among them/);
     expect(verdict(jobs)).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
   });
 

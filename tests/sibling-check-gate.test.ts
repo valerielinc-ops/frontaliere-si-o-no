@@ -279,12 +279,11 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
     git('config', 'user.email', 'test@example.com');
     git('config', 'user.name', 'test');
 
-    // alpha: il file che il branch tocca. beta ne condivide DUE costrutti
-    // (helper + campo) → aggancio forte. gamma ne condivide UNO solo, il nome
-    // di campo → aggancio debole, la classe che il 2026-09-05 era 20 su 22.
+    // beta usa il helper esportato: binding forte. gamma condivide soltanto
+    // un literal di dominio: debole, ma ancora da verificare.
     write('scripts/alpha.mjs', 'export function sharedComputeHelper() { return 1; }\nconst rawDescription = "a";\nexport { rawDescription };\n');
     write('scripts/beta.mjs', 'import { sharedComputeHelper } from "./alpha.mjs";\nconst rawDescription = sharedComputeHelper();\n');
-    write('scripts/gamma.mjs', 'const rawDescription = "gamma only";\nexport default rawDescription;\n');
+    write('scripts/gamma.mjs', 'const rawDescription = "shared-policy-value";\nexport default rawDescription;\n');
     // La coppia "altra sessione": foreign-session e' quello che verra' sporcato
     // senza commit, foreign-twin il gemello che quel lavoro tirerebbe dentro.
     write('scripts/foreign-session.mjs', 'export const x = 1;\n');
@@ -294,7 +293,7 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
     git('update-ref', 'refs/remotes/origin/main', 'HEAD');
 
     git('checkout', '-q', '-b', 'feature-x');
-    write('scripts/alpha.mjs', 'export function sharedComputeHelper() { return 42; }\nconst rawDescription = "changed";\nexport { rawDescription };\n');
+    write('scripts/alpha.mjs', 'export function sharedComputeHelper() { return 42; }\nconst rawDescription = "shared-policy-value";\nexport { rawDescription };\n');
     git('add', 'scripts/alpha.mjs');
     git('commit', '-q', '-m', 'feature');
 
@@ -596,7 +595,7 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
   });
 
   describe('difetto 4 — la forza dell\'aggancio è visibile', () => {
-    it('due costrutti condivisi → forte, un identificatore nudo → debole', () => {
+    it('binding condiviso → forte, literal di dominio → debole', () => {
       const r = runCheck('--head', 'feature-x');
       const beta = r.candidates.find((c: { file: string }) => c.file === 'scripts/beta.mjs');
       const gamma = r.candidates.find((c: { file: string }) => c.file === 'scripts/gamma.mjs');
@@ -610,7 +609,7 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       const res = runGate('gh pr create --head feature-x --title x --body "y"');
       expect(res.stdout).toMatch(/\[forte\] scripts\/beta\.mjs/);
       expect(res.stdout).toMatch(/\[debole\] scripts\/gamma\.mjs/);
-      expect(res.stdout).toMatch(/UN SOLO identificatore nudo/);
+      expect(res.stdout).toMatch(/evidenza limitata/);
     });
 
     it('un candidato debole BLOCCA ancora: è un ordinamento, non un filtro', () => {

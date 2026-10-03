@@ -415,6 +415,25 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(fs.existsSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'))).toBe(false);
   });
 
+  // Deploy run 37035643275: a hero with a plausible RIFF/WEBP header but bytes
+  // that no longer match it reached main and failed the thumbnail step.
+  it('refuses a WebP whose length contradicts its RIFF header', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp' }],
+      }),
+      'images/blog/blog-x.webp': webp(64).subarray(0, 40),
+    };
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('images/blog/blog-x.webp is not a WebP file');
+    expect(fs.existsSync(path.join(dir, 'public', 'images', 'blog', 'blog-x.webp'))).toBe(false);
+  });
+
   it('refuses an image over the generator’s own size cap', async () => {
     routes = {
       ...baseRoutes(),

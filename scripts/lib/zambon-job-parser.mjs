@@ -96,14 +96,6 @@ export function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
-  // Check for "no jobs" message
-  const bodyText = (document.body?.textContent || '').toLowerCase();
-  if (bodyText.includes('currently there are not open positions') ||
-      bodyText.includes('no open positions') ||
-      bodyText.includes('nessuna posizione aperta')) {
-    return [];
-  }
-
   // Strategy 1: Parse JSON-LD structured data
   const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
   for (const script of jsonLdScripts) {

@@ -11,6 +11,7 @@ import {
   buildSophiaGeneticsApplyUrl,
   fetchAllSophiaGeneticsJobs,
 } from '../scripts/lib/sophia-genetics-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const WIDGET_URL = 'https://apply.workable.com/api/v1/widget/accounts/sophia-genetics';
@@ -145,7 +146,9 @@ describe('SOPHiA GENETICS crawler parser', () => {
 
     it('returns empty array for empty/missing feed', () => {
       expect(parseSophiaGeneticsWidgetPayload({ jobs: [] })).toEqual([]);
-      expect(parseSophiaGeneticsWidgetPayload({})).toEqual([]);
+      const missingJobs = parseSophiaGeneticsWidgetPayload({});
+      expect(missingJobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(missingJobs)).toBe(false);
       expect(parseSophiaGeneticsWidgetPayload(null)).toEqual([]);
     });
 
@@ -231,7 +234,7 @@ describe('SOPHiA GENETICS crawler parser', () => {
       global.fetch = originalFetch;
     });
 
-    it('returns an empty array when the widget feed has no jobs', async () => {
+    it('marks a valid empty widget feed as an authoritative zero', async () => {
       global.fetch = vi.fn(async (url: string) => {
         expect(String(url)).toBe(WIDGET_URL);
         return new Response(JSON.stringify({ name: 'SOPHiA GENETICS', jobs: [] }), { status: 200 });
@@ -239,6 +242,7 @@ describe('SOPHiA GENETICS crawler parser', () => {
 
       const jobs = await fetchAllSophiaGeneticsJobs();
       expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
     });
 
     it('parses a successful feed, keeping only Swiss jobs and producing complete structured-data fields', async () => {

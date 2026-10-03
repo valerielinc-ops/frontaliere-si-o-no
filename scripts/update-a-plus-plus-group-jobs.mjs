@@ -45,14 +45,15 @@ import {
 import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseAplusListings,
+  classifyAplusListings,
   parseAplusJobDetail,
-  isAplusSwissLocation,
   inferAplusCanton,
   buildAplusLocalizedContent,
 } from './lib/a-plus-plus-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { createAplusPageFetcher } from './lib/a-plus-plus-fetch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -75,6 +76,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const BROWSER_UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36';
+const fetchText = createAplusPageFetcher({ listingUrl: LISTING_URL, userAgent: BROWSER_UA });
 
 /* ── Utilities ─────────────────────────────────────────────── */
 
@@ -98,17 +100,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  return fetchHtml(url, {
-    timeoutMs,
-    headers: {
-      Accept: 'text/html,application/xhtml+xml',
-      'Accept-Language': 'en-US,en;q=0.9',
-      'User-Agent': BROWSER_UA,
-    },
-  });
 }
 
 /* ── Matchers ──────────────────────────────────────────────── */
@@ -157,13 +148,16 @@ async function fetchListings() {
   console.log(`🔍 Fetching A++ Group jobs from InRecruiting: ${LISTING_URL}`);
   const html = await fetchText(LISTING_URL);
   const all = parseAplusListings(html);
-  const target = all.filter((row) => !row.location || isAplusSwissLocation(row.location));
-  console.log(`📋 Total listing cards: ${all.length}`);
-  console.log(`📋 Swiss-located cards: ${target.length}`);
-  for (const row of target) {
+  const discovery = classifyAplusListings(all);
+  console.log(`📋 Total listing cards: ${discovery.discovered}`);
+  console.log(`📋 Swiss-located cards: ${discovery.listings.length}`);
+  for (const row of discovery.listings) {
     console.log(`  📄 ${row.title}${row.location ? ` (${row.location})` : ''}`);
   }
-  return target;
+  if (discovery.discovered === 0) {
+    throw new Error('A++ Group listing page produced no vacancy cards; refusing to publish an empty snapshot.');
+  }
+  return discovery;
 }
 
 /* ── Build individual job ──────────────────────────────────── */
@@ -324,24 +318,18 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'a-plus-plus-group');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'a-plus-plus-group', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  A++ Group — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Portal: ${LISTING_URL}\n`);
 
-  const listings = await fetchListings();
-
-  if (listings.length === 0) {
-    console.log('\nℹ️  No Swiss-located A++ Group jobs found. Skipping merge & translation.');
-    updateAdapterConfig([]);
-    printCrawlChangeSummary(
-      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
-      COMPANY_NAME,
-    );
-    console.log('✅ A++ Group crawler complete (0 Swiss jobs).');
-    return;
-  }
+  const discovery = await fetchListings();
+  const listings = discovery.listings;
+  summaryCounts.discovered = discovery.discovered;
+  summaryCounts.parsed = listings.length;
+  summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
 
   const jobs = [];
   let skipped = 0;
@@ -356,10 +344,10 @@ async function main() {
     }
   }
   if (skipped > 0) {
-    console.warn(`  ⚠️  Skipped ${skipped}/${listings.length} detail pages due to errors`);
+    throw new Error(`Failed to fetch complete A++ Group job details (${skipped}/${listings.length} skipped)`);
   }
 
-  if (jobs.length === 0) {
+  if (jobs.length === 0 && discovery.lastFetchOutcome !== 'filtered_empty') {
     console.warn('⚠️  All detail fetches failed — preserving existing data.');
     printCrawlChangeSummary(
       { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
@@ -373,10 +361,12 @@ async function main() {
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for A++ Group jobs...');
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob,
-  });
+  if (jobs.length > 0) {
+    await translateMissingJobLocales({
+      dataJobsPath: DATA_JOBS,
+      isTargetJob,
+    });
+  }
 
   validateLocales();
 
@@ -394,6 +384,10 @@ async function main() {
     label: 'a-plus-plus-group',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

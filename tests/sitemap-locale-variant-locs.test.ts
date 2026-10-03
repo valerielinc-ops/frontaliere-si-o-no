@@ -305,25 +305,21 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
       }
     }
 
-    // The residue is the known duplicate-IT-alias set: /about/, /contact/ and
-    // /privacy-policy/ are self-canonical 200 pages whose hreflang "it" points
-    // at a DIFFERENT IT URL (/chi-siamo/, /contattaci/, /privacy/). That is a
-    // canonicalisation defect on those three aliases, not an hreflang-listing
-    // one — tracked separately. Asserted as a ceiling so fixing them (or
-    // adding another alias) surfaces here instead of drifting unnoticed.
-    expect(casualties.length).toBeLessThanOrEqual(3);
+    // Retired English utility aliases no longer appear in the canonical sitemap.
+    expect(casualties).toEqual([]);
   });
 
   it('recovers the alternates the defect removed from sitemap-pages.xml', () => {
     const { entries } = collectLocaleVariantEntries(sources, () => true);
     const before = countAnnotations(readSeeded('sitemap-pages.xml'));
-    // 1565: 1525 after the nine Grigioni/Vallese-Italy crossings (9 ×
+    // 1550: the previous 1565 annotations minus the 15 retired utility-alias
+    // annotations. Previous growth: nine Grigioni/Vallese-Italy crossings (9 ×
     // it/en/de/fr/x-default = 45), plus the four locale entries of the Stabio
     // petition and the four locale entries for employers (4 × 5 = 20 each).
     // The tripwire is kept as an exact count on purpose — the committed sitemap
     // is a static file nothing rebuilds, so an UNEXPLAINED change to it is exactly
     // what this assertion exists to surface.
-    expect(before).toBe(1565);
+    expect(before).toBe(1550);
 
     const withoutBackfill = sanitizeSitemapHreflangReciprocity(seeded);
     const withBackfill = sanitizeSitemapHreflangReciprocity([
@@ -335,12 +331,11 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
       const x = m.get('sitemap-pages.xml');
       return x === undefined ? before : countAnnotations(x);
     };
-    // Only the 15 annotations of the three non-self-referential aliases stay
-    // stripped; everything the defect took comes back. Derived from `before`
+    // Retired aliases were removed; every remaining annotation must survive. Derived from `before`
     // rather than restated as 1465: a literal floor silently goes slack when
     // the seeded sitemap grows (it would still pass here at 1525 while letting
     // 60 real annotations disappear), which is the opposite of what it guards.
-    expect(after(withBackfill)).toBeGreaterThanOrEqual(before - 15);
+    expect(after(withBackfill)).toBeGreaterThanOrEqual(before);
     expect(after(withBackfill)).toBeGreaterThan(after(withoutBackfill));
   });
 

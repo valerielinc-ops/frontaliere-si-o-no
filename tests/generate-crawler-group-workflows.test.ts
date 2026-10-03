@@ -71,7 +71,15 @@ function runTranslateQueueGuardFixture(guardRun: string, ghScript: string, runId
         GH_TOKEN: 'fixture-token',
       },
     });
-    return { stdout, output: fs.readFileSync(outputPath, 'utf8') };
+    // Un `gh` finto puo' registrare gli endpoint serviti in `gh-calls.log`
+    // accanto a `bin/` (`$(dirname "$0")/../gh-calls.log`): serve a provare
+    // quante volte il guard ha letto uno stato e a servire risposte diverse
+    // alla prima e alla seconda lettura dello stesso endpoint.
+    const callsPath = path.join(scratch, 'gh-calls.log');
+    const calls = fs.existsSync(callsPath)
+      ? fs.readFileSync(callsPath, 'utf8').split('\n').filter(Boolean)
+      : [];
+    return { stdout, output: fs.readFileSync(outputPath, 'utf8'), calls };
   } finally {
     fs.rmSync(scratch, { recursive: true, force: true });
   }
@@ -2688,12 +2696,42 @@ describe('cross-repo crawler execution artifacts', () => {
       'cancel-in-progress': false,
       queue: 'max',
     });
-    expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=100');
+    expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=');
     expect(guardStep.run).toContain('select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")');
     expect(guardStep.run).toContain('for run_status in queued pending waiting requested in_progress');
-    expect(guardStep.run).toContain('status_total_count');
-    expect(guardStep.run).toContain('status_returned_count');
-    expect(guardStep.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed');
+    expect(guardStep.run).toContain('per_page=${status_page_size}&page=${status_page}&status=${run_status}');
+    expect(guardStep.run).toContain('status_page_size=100');
+    expect(guardStep.run).toContain('status_page_limit=3');
+    // Una pagina corta chiude l'elenco. `total_count` decide una sola cosa: al
+    // tetto di pagine, se l'ultima pagina piena e' una troncatura vera. Nessun
+    // altro `fail_closed` puo' dipendere dal confronto fra conteggio e righe:
+    // quel confronto, sotto il tetto, e' cio' che spegneva la traduzione.
+    expect(guardStep.run).toContain('if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi');
+    expect(guardStep.run).not.toMatch(/"\$status_total_count" -gt/);
+    const guardCode: string[] = guardStep.run.split('\n')
+      .map((line: string) => line.trim())
+      .filter((line: string) => !line.startsWith('#'));
+    // L'invariante e' sul contenuto, non sulla formattazione: i comportamenti
+    // (tetto esatto, rilettura, unione) sono coperti dai test a fixture.
+    const countFailClosed = guardCode.filter((line) => line.includes('fail_closed') && line.includes('status_total_count'));
+    expect(countFailClosed.length).toBe(1);
+    expect(countFailClosed[0]).toContain('_truncated"');
+    const truncatedAt = guardCode.findIndex((line) => line.includes('_truncated"'));
+    // La rilettura di conferma: annota e decide sull'unione, non fallisce sul
+    // confronto fra conteggio e righe.
+    const confirmAt = guardCode.findIndex((line) => line.includes('"$status_rows_read" -lt "$status_total_count"'));
+    expect(confirmAt).toBeGreaterThan(truncatedAt);
+    const confirmBlock = guardCode.slice(confirmAt, guardCode.indexOf('fi', confirmAt));
+    expect(confirmBlock.some((line) => line.includes('read_status_rows'))).toBe(true);
+    expect(confirmBlock.filter((line) => line.includes('fail_closed')).every((line) => line.includes('_union"'))).toBe(true);
+    // Le letture passano tutte da guard_api: un solo budget di tempo.
+    expect(guardStep.run.match(/guard_total_timeout_seconds=/g)).toEqual(['guard_total_timeout_seconds=']);
+    expect(guardCode.filter((line) => /\bgh api\b/.test(line)).every((line) => line.includes('timeout --kill-after=0s'))).toBe(true);
+    expect(guardStep.run).toContain('echo "guard_error=${reason}" >> "$GITHUB_OUTPUT"');
+    expect(guardJob.outputs).toEqual({
+      run: '${{ steps.translate_queue_guard.outputs.run }}',
+      guard_error: '${{ steps.translate_queue_guard.outputs.guard_error }}',
+    });
     expect(guardStep.run).toContain('remaining_seconds');
     expect(guardStep.run).toContain('call_timeout_seconds');
     expect(guardStep.run).toContain('api_retry_limit=3');
@@ -2848,6 +2886,286 @@ esac
     expect(output).toContain('waiting_runs=2');
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
+  it('decide sulle righe quando total_count supera le righe restituite (coda fantasma)', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Conteggio fantasma persistente: stessa risposta alla prima lettura e alla
+    // rilettura di conferma. E' il caso che spegneva la traduzione.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain(
+      'queued total_count=3 but rows=0; confirm read total_count=3, rows=0; deciding on the union of both reads (0 row(s))',
+    );
+    expect(stdout).toContain('admits the oldest waiting run');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+    // Lo stato col conteggio fantasma e' stato riletto una volta; gli altri no.
+    const readsOf = (status: string) => calls.filter((endpoint) => endpoint.endsWith(`status=${status}`)).length;
+    expect(readsOf('pending')).toBe(1);
+    expect(readsOf('queued')).toBe(readsOf('pending') + 1);
+    expect(readsOf('in_progress')).toBe(readsOf('pending'));
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('la rilettura di conferma porta fra i candidati una run elencata in ritardo', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Prima lettura: il conteggio dichiara una run che l'elenco non mostra
+    // ancora. Seconda lettura: la run (piu' vecchia della corrente) compare.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+calls_log="$(dirname "$0")/../gh-calls.log"
+printf '%s\n' "$endpoint" >> "$calls_log"
+case "$endpoint" in
+  *"status=queued")
+    if [ "$(grep -c 'status=queued$' "$calls_log")" -eq 1 ]; then
+      printf '%s\n' '{"total_count":1,"workflow_runs":[]}'
+    else
+      printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":300,"created_at":"2026-09-30T09:00:00Z","status":"queued"}]}'
+    fi
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain(
+      'queued total_count=1 but rows=0; confirm read total_count=1, rows=1; deciding on the union of both reads (1 row(s))',
+    );
+    expect(stdout).toContain('found older run 300');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=1');
+    // Duplicato legittimo, non guard cieco: la run resta verde.
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('conta una sola volta la run letta sotto due stati (queued, poi in_progress)', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // La run 100 passa da queued a in_progress fra la lettura dei due stati:
+    // compare in entrambi gli elenchi. Vale l'ultima lettura (pesante attivo),
+    // quindi nessuno e' in attesa e la corrente e' ammessa dietro di lei.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"queued"}]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"},{"name":"translate_queue_guard","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"pending"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('found older run');
+    expect(stdout).toContain('1 heavy run(s) currently active and 0 waiting behind it');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+    expect(output).toMatch(/^guard_error=$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('a tetto esatto (ultima pagina piena, total_count uguale alle righe) decide sui dati', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Tre pagine piene e GitHub dichiara esattamente le righe lette: l'elenco e'
+    // completo. Una quarta pagina non esiste nella fixture: chiederla farebbe
+    // fallire il `gh` finto e il guard andrebbe in fail_closed.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"page=1&status=queued"|*"page=2&status=queued"|*"page=3&status=queued")
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 300, workflow_runs: [range(0; 100) | {id: (1000 + ($page * 100) + .), created_at: "2026-09-30T09:00:00Z", status: "queued"}]}'
+    ;;
+  *"page=1&status=pending"|*"page=1&status=waiting"|*"page=1&status=requested"|*"page=1&status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    const queuedPages = calls.filter((endpoint) => endpoint.endsWith('status=queued'));
+    const declaredRows = 300;
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).not.toContain('confirm read');
+    expect(stdout).toContain('found older run 1100');
+    expect(output).toContain('run=false');
+    expect(output).toContain(`waiting_runs=${declaredRows}`);
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+    // Ogni pagina letta una volta sola, fino al tetto e non oltre.
+    expect(new Set(queuedPages).size).toBe(queuedPages.length);
+    expect(queuedPages.length * 100).toBe(declaredRows);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed con guard_error quando la terza pagina è piena e total_count dichiara altre righe', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"page=1&status=queued"|*"page=2&status=queued"|*"page=3&status=queued")
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 450, workflow_runs: [range(0; 100) | {id: (1000 + ($page * 100) + .), created_at: "2026-09-30T09:00:00Z", status: "queued"}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain(
+      'could not inspect GitHub Actions (workflow_runs_queued_truncated; total_count=450, rows=300, pages=3)',
+    );
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=-1');
+    expect(output).toMatch(/^guard_error=workflow_runs_queued_truncated$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('legge tutte le pagine fino a quella parziale e decide sui dati', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // 120 run in coda: la piu' vecchia (id 7119) sta nella SECONDA pagina. Se il
+    // guard si fermasse alla prima, ammetterebbe o sceglierebbe la run sbagliata.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"page=1&status=queued")
+    jq -cn '{total_count: 120, workflow_runs: [range(0; 100) | {id: (7000 + .), created_at: "2026-09-30T09:30:00Z", status: "queued"}]}'
+    ;;
+  *"page=2&status=queued")
+    jq -cn '{total_count: 120, workflow_runs: [range(100; 120) | {id: (7000 + .), created_at: (if . == 119 then "2026-09-30T07:00:00Z" else "2026-09-30T09:30:00Z" end), status: "queued"}]}'
+    ;;
+  *"page=1&status=pending"|*"page=1&status=waiting"|*"page=1&status=requested"|*"page=1&status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('found older run 7119');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=120');
+    expect(output).toMatch(/^guard_error=$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('un guard cieco rende rossa la run invece di chiuderla in verde a vuoto', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardJob: any = translation.jobs.translate_queue_guard;
+    const guardIndex = guardJob.steps.findIndex((step: any) => step.id === 'translate_queue_guard');
+    const blindIndex = guardJob.steps
+      .findIndex((step: any) => step.name === 'Fail the run when the queue guard was blind');
+    const blindStep = guardJob.steps[blindIndex];
+
+    expect(blindIndex).toBeGreaterThan(guardIndex);
+    expect(blindStep.if).toBe("steps.translate_queue_guard.outputs.guard_error != ''");
+    expect(blindStep['continue-on-error']).toBeUndefined();
+    expect(guardJob['continue-on-error']).toBeUndefined();
+    expect(blindStep.env.GUARD_ERROR).toBe('${{ steps.translate_queue_guard.outputs.guard_error }}');
+    expect(blindStep.run).toContain(
+      'translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita',
+    );
+    expect(blindStep.run.trimEnd().endsWith('exit 1')).toBe(true);
+    // Il job pesante resta saltato: nessuna funzione di stato che lo riapra
+    // dopo il fallimento del guard.
+    expect(translation.jobs.translate.if).toBe("needs.translate_queue_guard.outputs.run == 'true'");
+
+    // Ogni uscita dello script dichiara guard_error: vuoto quando ha deciso sui
+    // dati (ammissione, duplicato, override manuale), valorizzato solo in fail_closed.
+    const guardRun: string = guardJob.steps[guardIndex].run;
+    const runWrites = guardRun.match(/echo "run=(?:true|false)" >> "\$GITHUB_OUTPUT"/g) ?? [];
+    const errorWrites = guardRun.match(/echo "guard_error=[^"]*" >> "\$GITHUB_OUTPUT"/g) ?? [];
+    // Contratto strutturale del codice generato, non del dataset:
+    // `translatePendingQueueGuardJob()` emette quattro rami di decisione
+    // (fail_closed, override manuale, ammissione e duplicato); questa asserzione
+    // garantisce che ogni decisione continui a dichiarare `run`.
+    // cron-count-ok: i quattro rami sono emessi da `translatePendingQueueGuardJob()`.
+    expect(runWrites).toHaveLength(4);
+    // Lo stesso codice emette un `guard_error` per ciascuno dei quattro rami;
+    // senza uno di questi output un guard cieco potrebbe restare verde o
+    // lasciare il job pesante in uno stato non deterministico.
+    // cron-count-ok: i quattro rami emettono tutti `guard_error`.
+    expect(errorWrites).toHaveLength(4);
+    expect(errorWrites.filter((line) => line.includes('guard_error=${reason}'))).toHaveLength(1);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
   it('non ammette il pesante quando la discovery API fallisce', () => {
     const { outDir } = generateArtifacts();
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
@@ -2859,6 +3177,7 @@ esac
     );
     expect(stdout).toContain('skipping the heavy run to keep the queue bounded');
     expect(output).toContain('run=false');
+    expect(output).toMatch(/^guard_error=workflow_runs_queued$/m);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {
