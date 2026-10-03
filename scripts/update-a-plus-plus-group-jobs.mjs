@@ -45,8 +45,8 @@ import {
 import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseAplusListings,
+  classifyAplusListings,
   parseAplusJobDetail,
-  isAplusSwissLocation,
   inferAplusCanton,
   buildAplusLocalizedContent,
 } from './lib/a-plus-plus-job-parser.mjs';
@@ -148,13 +148,16 @@ async function fetchListings() {
   console.log(`🔍 Fetching A++ Group jobs from InRecruiting: ${LISTING_URL}`);
   const html = await fetchText(LISTING_URL);
   const all = parseAplusListings(html);
-  const target = all.filter((row) => !row.location || isAplusSwissLocation(row.location));
-  console.log(`📋 Total listing cards: ${all.length}`);
-  console.log(`📋 Swiss-located cards: ${target.length}`);
-  for (const row of target) {
+  const discovery = classifyAplusListings(all);
+  console.log(`📋 Total listing cards: ${discovery.discovered}`);
+  console.log(`📋 Swiss-located cards: ${discovery.listings.length}`);
+  for (const row of discovery.listings) {
     console.log(`  📄 ${row.title}${row.location ? ` (${row.location})` : ''}`);
   }
-  return target;
+  if (discovery.discovered === 0) {
+    throw new Error('A++ Group listing page produced no vacancy cards; refusing to publish an empty snapshot.');
+  }
+  return discovery;
 }
 
 /* ── Build individual job ──────────────────────────────────── */
@@ -315,24 +318,18 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'a-plus-plus-group');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'a-plus-plus-group', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  A++ Group — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Portal: ${LISTING_URL}\n`);
 
-  const listings = await fetchListings();
-
-  if (listings.length === 0) {
-    console.log('\nℹ️  No Swiss-located A++ Group jobs found. Skipping merge & translation.');
-    updateAdapterConfig([]);
-    printCrawlChangeSummary(
-      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
-      COMPANY_NAME,
-    );
-    console.log('✅ A++ Group crawler complete (0 Swiss jobs).');
-    return;
-  }
+  const discovery = await fetchListings();
+  const listings = discovery.listings;
+  summaryCounts.discovered = discovery.discovered;
+  summaryCounts.parsed = listings.length;
+  summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
 
   const jobs = [];
   let skipped = 0;
@@ -350,7 +347,7 @@ async function main() {
     throw new Error(`Failed to fetch complete A++ Group job details (${skipped}/${listings.length} skipped)`);
   }
 
-  if (jobs.length === 0) {
+  if (jobs.length === 0 && discovery.lastFetchOutcome !== 'filtered_empty') {
     console.warn('⚠️  All detail fetches failed — preserving existing data.');
     printCrawlChangeSummary(
       { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
@@ -364,10 +361,12 @@ async function main() {
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for A++ Group jobs...');
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob,
-  });
+  if (jobs.length > 0) {
+    await translateMissingJobLocales({
+      dataJobsPath: DATA_JOBS,
+      isTargetJob,
+    });
+  }
 
   validateLocales();
 
@@ -385,6 +384,10 @@ async function main() {
     label: 'a-plus-plus-group',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
