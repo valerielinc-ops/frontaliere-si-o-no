@@ -12418,6 +12418,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.preventivo-ticino-2027-vitta.title': '2027 Ticino Budget: deficit close to 100 million',
     'blog.article.preventivo-ticino-2027-vitta.excerpt': 'Finance Director Christian Vitta presents the 2027 budget: possible debt exceeding 3 billion and a 360-degree review of revenue.',
     'blog.article.preventivo-ticino-2027-vitta.imageAlt': 'Government buildings in Bellinzona, site of the cantonal budget',
+    'blog.article.viabilita-varese-tre-valli-ottobre.title': 'Varese, Tre Valli traffic: closures on 3 and 4 October',
+    'blog.article.viabilita-varese-tre-valli-ottobre.excerpt': 'Time trial on Saturday 3 October (closures 11-18) and 10ª Gran Fondo on Sunday 4 October (via Sacco closed 00-18). Here are the details for passing through.',
+    'blog.article.viabilita-varese-tre-valli-ottobre.imageAlt': 'Road sign in a Ticino autumn landscape',
 };
 
 export default blogMetaEn;

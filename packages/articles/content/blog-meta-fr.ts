@@ -12420,6 +12420,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.preventivo-ticino-2027-vitta.title': 'Budget prévisionnel 2027 du Tessin : déficit proche de 100 millions',
     'blog.article.preventivo-ticino-2027-vitta.excerpt': 'Le directeur des finances Christian Vitta présente le budget prévisionnel 2027 : dette potentielle de plus de 3 milliards et réflexion à 360 degrés sur les recettes.',
     'blog.article.preventivo-ticino-2027-vitta.imageAlt': 'Bâtiments gouvernementaux à Bellinzona, siège du budget cantonal',
+    'blog.article.viabilita-varese-tre-valli-ottobre.title': 'Varese, circulation Tre Valli : fermetures 3 et 4 octobre',
+    'blog.article.viabilita-varese-tre-valli-ottobre.excerpt': 'Contre-la-montre samedi 3 octobre (fermetures 11-18) et 10e Gran Fondo dimanche 4 octobre (via Sacco fermée 00-18). Voici les détails pour les passages.',
+    'blog.article.viabilita-varese-tre-valli-ottobre.imageAlt': 'Panneau routier dans un paysage automnal ticinois',
 };
 
 export default blogMetaFr;

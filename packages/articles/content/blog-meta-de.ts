@@ -12417,6 +12417,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.preventivo-ticino-2027-vitta.title': 'Voranschlag 2027 Tessin: Defizit nahe 100 Millionen',
     'blog.article.preventivo-ticino-2027-vitta.excerpt': 'Der Finanzdirektor Christian Vitta präsentiert den Voranschlag 2027: Eine Verschuldung von über 3 Milliarden möglich und eine umfassende Betrachtung der Einnahmen.',
     'blog.article.preventivo-ticino-2027-vitta.imageAlt': 'Regierungsgebäude in Bellinzona, Sitz des Kantonsbudgets',
+    'blog.article.viabilita-varese-tre-valli-ottobre.title': 'Varese, Verkehr Tre Valli: Sperrungen 3. und 4. Oktober',
+    'blog.article.viabilita-varese-tre-valli-ottobre.excerpt': 'Zeitfahren am Samstag, 3. Oktober (Sperrungen 11-18) und 10ª Gran Fondo am Sonntag, 4. Oktober (via Sacco von 00-18 gesperrt). Hier die Details für die Durchfahrten.',
+    'blog.article.viabilita-varese-tre-valli-ottobre.imageAlt': 'Verkehrsschild in einer Tessiner Herbstlandschaft',
 };
 
 export default blogMetaDe;

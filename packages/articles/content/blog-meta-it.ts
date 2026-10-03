@@ -12419,6 +12419,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.preventivo-ticino-2027-vitta.title': 'Preventivo 2027 Ticino: disavanzo vicino ai 100 milioni',
     'blog.article.preventivo-ticino-2027-vitta.excerpt': 'Il direttore delle finanze Christian Vitta presenta il preventivo 2027: debito possibile oltre 3 miliardi e riflessione a 360 gradi sulle entrate.',
     'blog.article.preventivo-ticino-2027-vitta.imageAlt': 'Palazzi governativi di Bellinzona, sede del preventivo cantonale',
+    'blog.article.viabilita-varese-tre-valli-ottobre.title': 'Varese, viabilità Tre Valli: chiusure 3 e 4 ottobre',
+    'blog.article.viabilita-varese-tre-valli-ottobre.excerpt': 'Cronometro sabato 3 ottobre (chiusure 11-18) e 10ª Gran Fondo domenica 4 ottobre (via Sacco chiusa 00-18). Ecco i dettagli per i transiti.',
+    'blog.article.viabilita-varese-tre-valli-ottobre.imageAlt': 'Segnale stradale in un paesaggio autunnale ticinese',
 };
 
 export default blogMetaIt;
