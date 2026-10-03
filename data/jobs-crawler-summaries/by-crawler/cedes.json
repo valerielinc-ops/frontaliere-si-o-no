@@ -1,20 +1,19 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-03T09:12:33.009Z",
+  "generatedAt": "2026-10-03T21:11:57.672Z",
   "total": 3,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3823,
-  "avgDurationMs": 3823,
+  "durationMs": 3978,
+  "avgDurationMs": 3978,
   "durationHistory": [
-    4878,
-    4819,
-    3823
+    3978
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cedes-33d85e05de4e",
       "slug": "operator-in-smd-assembly-cedes-landquart",
@@ -37,49 +36,15 @@
       "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:24.879Z",
+      "crawledAt": "2026-10-03T21:11:49.958Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:12:24.879Z",
       "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
-      "_qualityScore": 66,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "cedes-33d85e05de4e",
-      "slug": "operator-in-smd-assembly-cedes-landquart",
-      "company": "CEDES AG",
-      "companyKey": "cedes",
-      "companyDomain": "cedes.com",
-      "title": "Operator in SMD Assembly",
-      "location": "Landquart",
-      "canton": "GR",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "postalCode": "7302",
-      "addressCountry": "CH",
-      "category": "technology",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-01",
-      "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
-      "source": "CEDES Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:17.069Z",
-      "firstSeenAt": "2026-10-01T21:13:08.795Z",
-      "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "translation": 13,
         "completeness": 17
       }
     },
@@ -105,7 +70,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:25.176Z",
+      "crawledAt": "2026-10-03T21:11:50.252Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "applyUrl": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "_qualityScore": 87,
@@ -138,7 +103,8 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:24.575Z",
+      "crawledAt": "2026-10-03T21:11:49.666Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "applyUrl": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "_qualityScore": 83,
@@ -151,5 +117,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

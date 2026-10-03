@@ -47,7 +47,7 @@ describe('Ferring — source-proven Swiss zero instead of an EMPTY_OK_CRAWLERS e
     expect(bodies[0].appliedFacets).toEqual({ Location_Country: ['187134fccb084a0ea9b4b95f23890dbe'] });
     expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
-    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/live board 54 posting\(s\) in 20 countries .*Switzerland not among them/);
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/live board 54 posting\(s\) across 20 location value\(s\) .*Switzerland not among them/);
     expect(evaluateAuthoritativeSnapshot(jobs, {
       validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(FERRING_COMPANY_NAME),
       allowAuthoritativeEmptySnapshot: true,

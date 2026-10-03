@@ -17,10 +17,6 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
-import {
-  L5_DECISION_SESSION_DIMENSION_API_NAME,
-  L5_DECISION_SESSION_PARAMETER,
-} from '../lib/ga4-l5-decision-dimension.mjs';
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
@@ -36,6 +32,20 @@ export const DEFAULT_L9_WINDOW_HOURS = 240;
  * mirror, while this read-only exporter avoids making PostHog quota or
  * retention the measurement gate. Keep the event contract explicit so the
  * validator and the application instrumentation cannot silently drift apart.
+ *
+ * No custom dimension is involved. The application sends the next-action
+ * event to GA4 only after a completion in the same GA4 session
+ * (`services/analytics.ts`, `logDecisionMoment`), so the sessions holding a
+ * next action are a subset of the sessions holding a completion and GA4's
+ * native `sessions` metric per event name is the whole measurement. A
+ * session-key dimension would need one of the property's 50 EVENT-scoped
+ * slots, which a monitor must never depend on.
+ *
+ * `nextActionGateEffectiveFrom` is the first GA4 calendar date on which the
+ * gate is the only producer of next-action events. Earlier days hold events
+ * sent without the gate (and bundles cached at the edge keep sending them for
+ * a while after the deploy), so they are not a subset measurement and never
+ * enter the window: the export starts at this date or stays unavailable.
  */
 export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionEvent: 'decision_moment_completed',
@@ -44,15 +54,13 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionTaskProperty: 'task_id',
   nextActionSurfaceProperty: 'decision_surface',
   nextActionIdProperty: 'action_id',
-  sessionKeyProperty: L5_DECISION_SESSION_PARAMETER,
-  sessionDimension: L5_DECISION_SESSION_DIMENSION_API_NAME,
-  gaSessionDimension: 'gaSessionId',
+  nextActionGate: 'emitted only after a completion in the same GA4 session',
+  nextActionGateEffectiveFrom: '2026-10-05',
   sessionMetric: 'sessions',
   source: 'GA4 Data API',
 });
 
 const DAY_MS = 86_400_000;
-const MAX_L5_SESSION_ROWS = 250_000;
 const L7_EVENT_NAMES = Object.freeze([
   'experiment_assignment',
   'experiment_exposure',
@@ -405,36 +413,6 @@ function writeJsonFile(outputPath, value) {
   fs.writeFileSync(absolute, JSON.stringify(value, null, 2) + '\n');
 }
 
-/**
- * Build one exact GA4 event-session report for the L5 contract. The caller
- * runs this once for completion and once for next action, then joins the
- * returned GA4-session/opaque decision-session pairs before any metric is
- * considered measured.
- */
-export function buildL5DecisionMomentReportBody({
-  eventName,
-  startDate,
-  endDate,
-  sessionDimension = L5_DECISION_EVENT_CONTRACT.sessionDimension,
-  gaSessionDimension = L5_DECISION_EVENT_CONTRACT.gaSessionDimension,
-} = {}) {
-  if (!text(eventName) || !text(startDate) || !text(endDate) || !text(sessionDimension) || !text(gaSessionDimension)) {
-    throw new Error('L5 decision-moment report requires eventName, startDate and endDate');
-  }
-  return {
-    dateRanges: [{ startDate, endDate }],
-    dimensions: [{ name: sessionDimension }, { name: gaSessionDimension }],
-    metrics: [{ name: 'sessions' }],
-    dimensionFilter: {
-      filter: {
-        fieldName: 'eventName',
-        stringFilter: { value: eventName, matchType: 'EXACT' },
-      },
-    },
-    limit: MAX_L5_SESSION_ROWS,
-  };
-}
-
 export function buildL5DecisionMomentExport({
   eligibleDecisionSessions,
   nextUsefulActions,
@@ -444,6 +422,9 @@ export function buildL5DecisionMomentExport({
 } = {}) {
   const eligible = nonNegativeCount(eligibleDecisionSessions, 'eligibleDecisionSessions');
   const next = nonNegativeCount(nextUsefulActions, 'nextUsefulActions');
+  // The client gate makes next-action sessions a subset of completion
+  // sessions. A larger numerator means the gate is not what produced the
+  // data, so the export must not be recorded as a measurement.
   if (next > eligible) throw new Error('GA4 returned nextUsefulActions greater than eligibleDecisionSessions');
   const generated = isoDate(generatedAt, 'L5 generatedAt');
   return {
@@ -460,7 +441,7 @@ export function buildL5DecisionMomentExport({
     telemetryWindow,
     scope: {
       denominator: 'distinct GA4 sessions with an explicit decision_moment_completed event',
-      numerator: 'denominator sessions with an explicit decision_moment_next_action event',
+      numerator: 'distinct GA4 sessions with an explicit decision_moment_next_action event, sent only after a completion in the same GA4 session',
       surface: 'declared decision surfaces',
     },
     evidence: {
@@ -486,26 +467,49 @@ export function buildL5DecisionMomentExport({
   };
 }
 
+/**
+ * Clamp the settled L5 window to the days on which the client gate was live.
+ * A window that ends before the gate has no gated day at all: that is not a
+ * measurement, so the caller records the outcome as unavailable.
+ */
+export function l5GatedDateRange(range, gateDate) {
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(String(gateDate ?? ''))) {
+    throw new Error('L5 event contract requires nextActionGateEffectiveFrom as YYYY-MM-DD');
+  }
+  if (gateDate > range.endDate) {
+    throw new Error(
+      `L5 next-action gate is effective from ${gateDate}: the settled window ends ${range.endDate} and holds no gated day yet`,
+    );
+  }
+  return {
+    startDate: gateDate > range.startDate ? gateDate : range.startDate,
+    endDate: range.endDate,
+  };
+}
+
 export async function exportL5({
   outputPath,
   now = new Date(),
   days = DEFAULT_L5_WINDOW_DAYS,
   propertyId = null,
   client = null,
+  eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
+  const range = l5GatedDateRange(ga4DateRange(Number(days), 2, now), eventContract.nextActionGateEffectiveFrom);
   const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
-  const range = ga4DateRange(Number(days), 2, now);
   const counts = await fetchL5DecisionMomentCounts({
     client: analytics,
     startDate: range.startDate,
     endDate: range.endDate,
     propertyId,
+    eventContract,
   });
   const outcome = buildL5DecisionMomentExport({
     eligibleDecisionSessions: counts.eligibleDecisionSessions,
     nextUsefulActions: counts.nextUsefulActions,
     generatedAt: now,
     telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
+    eventContract,
   });
   writeJsonFile(outputPath, outcome);
   return outcome;
@@ -995,79 +999,38 @@ export async function fetchGa4EventSessions({ client, eventName, startDate, endD
   return nonNegativeCount(value, `sessions for ${eventName}`);
 }
 
-function parseL5SessionKeys(report, {
-  eventName,
-  sessionDimension,
-  gaSessionDimension,
-} = {}) {
-  const rows = Array.isArray(report?.rows) ? report.rows : [];
-  const rowCount = nonNegativeCount(report?.rowCount ?? rows.length, `row count for ${eventName}`);
-  if (rowCount !== rows.length) {
-    throw new Error(`GA4 L5 report for ${eventName} is truncated (${rows.length} of ${rowCount} rows)`);
+/**
+ * Read one exact L5 event-session count. Unlike the generic reader this one
+ * refuses a thresholded, sampled or multi-row report: L5 publishes the number
+ * as an independent measurement, so an approximated total is not evidence.
+ */
+export async function fetchL5EventSessions({ client, eventName, startDate, endDate, propertyId } = {}) {
+  if (!text(eventName) || !text(startDate) || !text(endDate)) {
+    throw new Error('L5 decision-moment report requires eventName, startDate and endDate');
   }
+  const report = await client.request(
+    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(ga4EventSessionsBody({ eventName, startDate, endDate })),
+    },
+  );
   const metadata = report?.metadata || {};
   if (
     metadata.subjectToThresholding
     || metadata.dataLossFromOtherRow
     || (Array.isArray(metadata.samplingMetadatas) && metadata.samplingMetadatas.length > 0)
-    || (Array.isArray(metadata.dataTruncationReasons) && metadata.dataTruncationReasons.length > 0)
   ) {
     throw new Error(`GA4 L5 report for ${eventName} is incomplete or thresholded`);
   }
-  const headerIndex = Array.isArray(report?.dimensionHeaders)
-    ? report.dimensionHeaders.findIndex((header) => header?.name === sessionDimension)
-    : -1;
-  if (Array.isArray(report?.dimensionHeaders) && headerIndex === -1) {
-    throw new Error(`GA4 L5 report for ${eventName} is missing ${sessionDimension}`);
+  const rows = Array.isArray(report?.rows) ? report.rows : [];
+  if (rows.length > 1) {
+    throw new Error(`GA4 L5 report for ${eventName} returned ${rows.length} rows for a dimensionless total`);
   }
-  const gaSessionIndex = Array.isArray(report?.dimensionHeaders)
-    ? report.dimensionHeaders.findIndex((header) => header?.name === gaSessionDimension)
-    : 1;
-  if (Array.isArray(report?.dimensionHeaders) && gaSessionIndex === -1) {
-    throw new Error(`GA4 L5 report for ${eventName} is missing ${gaSessionDimension}`);
-  }
-  const sessionIndex = headerIndex === -1 ? 0 : headerIndex;
-  const sessions = new Set();
-  for (const [index, row] of rows.entries()) {
-    const decisionSessionId = row?.dimensionValues?.[sessionIndex]?.value;
-    const decisionSessionKey = typeof decisionSessionId === 'string' ? decisionSessionId.trim() : '';
-    if (!decisionSessionKey) {
-      throw new Error(`GA4 L5 report for ${eventName} has an invalid session key at row ${index + 1}`);
-    }
-    // Events emitted before the decision_session_id custom dimension existed
-    // appear in the settled rollout window as legacy `(not set)` rows. They
-    // are not evidence for L5, but must not poison the keyed rows that follow.
-    if (decisionSessionKey === '(not set)') continue;
-    const gaSessionId = row?.dimensionValues?.[gaSessionIndex]?.value;
-    const gaSessionKey = typeof gaSessionId === 'string' ? gaSessionId.trim() : '';
-    if (!gaSessionKey || gaSessionKey === '(not set)') {
-      throw new Error(`GA4 L5 report for ${eventName} has an invalid ${gaSessionDimension} at row ${index + 1}`);
-    }
-    sessions.add(JSON.stringify([gaSessionKey, decisionSessionKey]));
-  }
-  return sessions;
-}
-
-/** Read exact L5 event-session keys without accepting an aggregate-only report. */
-export async function fetchGa4EventSessionKeys({
-  client,
-  eventName,
-  startDate,
-  endDate,
-  propertyId,
-  sessionDimension = L5_DECISION_EVENT_CONTRACT.sessionDimension,
-  gaSessionDimension = L5_DECISION_EVENT_CONTRACT.gaSessionDimension,
-  bodyBuilder = buildL5DecisionMomentReportBody,
-} = {}) {
-  const data = await client.request(
-    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
-    {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(bodyBuilder({ eventName, startDate, endDate, sessionDimension, gaSessionDimension })),
-    },
-  );
-  return parseL5SessionKeys(data, { eventName, sessionDimension, gaSessionDimension });
+  // GA4 omits the row entirely when the event never occurred in the window.
+  const value = rows[0]?.metricValues?.[0]?.value ?? 0;
+  return nonNegativeCount(value, `sessions for ${eventName}`);
 }
 
 export function buildL3OutcomeExport({
@@ -1161,9 +1124,10 @@ export async function exportL3({ outputPath, now = new Date(), days = DEFAULT_L3
 }
 
 /**
- * Read the two L5 event-session key sets from the same settled GA4 window.
- * Separate exact-event reports preserve the event contract; the numerator is
- * measured only from the intersection of their GA4-session/custom-key pairs.
+ * Read the two L5 event-session counts from the same settled GA4 window.
+ * Each report is filtered on one exact event name; no join is needed because
+ * the application only sends the next-action event inside a session that
+ * already holds a completion.
  */
 export async function fetchL5DecisionMomentCounts({
   client,
@@ -1172,35 +1136,11 @@ export async function fetchL5DecisionMomentCounts({
   propertyId = null,
   eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
-  const gaSessionDimension = eventContract.gaSessionDimension || L5_DECISION_EVENT_CONTRACT.gaSessionDimension;
-  const [completionSessions, nextActionSessions] = await Promise.all([
-    fetchGa4EventSessionKeys({
-      client,
-      eventName: eventContract.completionEvent,
-      startDate,
-      endDate,
-      propertyId,
-      sessionDimension: eventContract.sessionDimension,
-      gaSessionDimension,
-    }),
-    fetchGa4EventSessionKeys({
-      client,
-      eventName: eventContract.nextActionEvent,
-      startDate,
-      endDate,
-      propertyId,
-      sessionDimension: eventContract.sessionDimension,
-      gaSessionDimension,
-    }),
+  const [eligibleDecisionSessions, nextUsefulActions] = await Promise.all([
+    fetchL5EventSessions({ client, eventName: eventContract.completionEvent, startDate, endDate, propertyId }),
+    fetchL5EventSessions({ client, eventName: eventContract.nextActionEvent, startDate, endDate, propertyId }),
   ]);
-  let nextUsefulActions = 0;
-  for (const sessionKey of nextActionSessions) {
-    if (completionSessions.has(sessionKey)) nextUsefulActions += 1;
-  }
-  return {
-    eligibleDecisionSessions: completionSessions.size,
-    nextUsefulActions,
-  };
+  return { eligibleDecisionSessions, nextUsefulActions };
 }
 
 function eventSet(rows) {

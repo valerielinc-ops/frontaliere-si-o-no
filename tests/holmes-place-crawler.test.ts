@@ -341,6 +341,51 @@ describe('Holmes Place crawler parser', () => {
     });
   });
 
+  describe('source-backed detail-page extraction', () => {
+    it('extracts the vacancy body while removing page chrome and application UI', () => {
+      const description = __testables.extractHolmesPlaceDetailDescriptionFromHtml(`
+        <header>Holmes Place navigation with unrelated marketing copy.</header>
+        <main class="job-detail">
+          <h1>Personal Trainer (m/w/d)</h1>
+          <div class="job-detail__description">${SOURCE_DESCRIPTION}</div>
+          <aside class="related-jobs">Other open roles and club links.</aside>
+          <form class="job-application"><button>Jetzt bewerben</button></form>
+        </main>
+        <footer>Cookie settings and legal links.</footer>
+      `);
+
+      expect(description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(description).toContain('Als Personal Trainer begleitest du');
+      expect(description).not.toContain('Jetzt bewerben');
+      expect(description).not.toContain('Other open roles');
+    });
+
+    it('rejects a detail page that has no source body of 50 words', () => {
+      expect(
+        __testables.extractHolmesPlaceDetailDescriptionFromHtml(
+          '<main class="job-detail"><h1>Club Manager</h1><p>Nur wenige Wörter.</p></main>',
+        ),
+      ).toBe('');
+    });
+
+    it('rejects generic page chrome when no vacancy-scoped container or JobPosting exists', () => {
+      const chrome = Array.from(
+        { length: 60 },
+        (_, index) => `Careers navigation and company information ${index + 1}`,
+      ).join(' ');
+
+      expect(
+        __testables.extractHolmesPlaceDetailDescriptionFromHtml(`
+          <main>
+            <h1>Club Manager</h1>
+            <p>Nur wenige Wörter.</p>
+            <p>${chrome}</p>
+          </main>
+        `),
+      ).toBe('');
+    });
+  });
+
   // ── Category / employment-type detection (fitness-chain taxonomy) ──
   describe('detectCategory', () => {
     it('classifies Personal Trainer roles', () => {

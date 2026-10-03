@@ -664,6 +664,145 @@ else if (args[0] === 'issue' && args[1] === 'view') {
     expect(calls).not.toContain('"--add-label","agent:fix-queued"');
   });
 
+  it('non riaccoda un padre già decomposto (bucket sealed con item open) e lo conta', () => {
+    // Il ramo «queue repair» gira a ogni run: senza il veto rimette `agent:fix-queued`
+    // su un tracker che il drainer ritoglie al tick dopo (#9443, #9508).
+    const tick = String.fromCharCode(96);
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      '- State: sealed',
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      '### FU-2026-09-09-001 — proteggi il comportamento',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+      '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+      '',
+    ].join('\n');
+    const runWith = (labels: Array<{ name: string }>) => {
+      const issue = {
+        number: 603,
+        title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+        body,
+        labels,
+        createdAt: new Date().toISOString(),
+      };
+      const log = join(binDir, 'decomposed-calls.log');
+      writeFileSync(log, '');
+      const fake = [
+        '#!/usr/bin/env node',
+        "const fs = require('node:fs');",
+        'const args = process.argv.slice(2);',
+        'const issue = ' + JSON.stringify(issue) + ';',
+        "fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');",
+        "if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));",
+        "else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));",
+      ].join('\n') + '\n';
+      writeFileSync(join(binDir, 'gh'), fake);
+      chmodSync(join(binDir, 'gh'), 0o755);
+      const out = execFileSync('node', [GATE], {
+        encoding: 'utf-8',
+        env: {
+          ...process.env,
+          PATH: binDir + ':' + (process.env.PATH ?? ''),
+          BATCH_PRS: '',
+          COLLECTION_OK: 'false',
+          DRY_RUN: '0',
+          GH_REPO: 'o/r',
+          CALL_LOG: log,
+        },
+      });
+      return { out, calls: readFileSync(log, 'utf-8') };
+    };
+
+    const parent = runWith([{ name: 'follow-up' }, { name: 'decomposed:1' }]);
+    expect(parent.out).toContain('nessuna nuova agent:fix-queued (decomposed:1 padre già decomposto)');
+    expect(parent.out).toMatch(/MINT_GATE_TALLY repo=o\/r queue_vetoed=1 reason=decomposed\n/);
+    expect(parent.calls).not.toContain('"--add-label","agent:fix-queued"');
+
+    const staged = runWith([{ name: 'follow-up' }, { name: 'agent:decompose-queued' }]);
+    expect(staged.out).toMatch(/MINT_GATE_TALLY repo=o\/r queue_vetoed=1 reason=decompose-stage\n/);
+    expect(staged.calls).not.toContain('"--add-label","agent:fix-queued"');
+
+    // Controllo: lo stesso bucket senza le label di decomposizione viene riparato.
+    const plain = runWith([{ name: 'follow-up' }, { name: 'maybe-resolved' }]);
+    expect(plain.calls).toContain('"--add-label","agent:fix-queued"');
+    expect(plain.out).not.toContain('queue_vetoed=');
+  });
+
+  it('la riga MINT_GATE_TALLY conta done_preserved sul processo vero', () => {
+    // Misura del difetto di FU-064 (bucket 10677): un item già `done` la cui
+    // accettazione oggi non è falsificabile resta nel corpo e la riga contabile lo
+    // conta. Bucket SEALED: il ramo `keep` non richiede la prova dei marker, e
+    // `tally.push` gira prima della biforcazione keep/skip.
+    const tick = String.fromCharCode(96);
+    const body = [
+      '## Batch',
+      '- Daily key: 2026-09-09 (Europe/Zurich)',
+      '- State: sealed',
+      '- Target repository: o/r',
+      '',
+      '## Item',
+      '',
+      '### FU-2026-09-09-001 — proteggi il comportamento',
+      '- State: open',
+      '- Sources: PR #8101',
+      '- Target file: ' + tick + 'scripts/example.mjs' + tick,
+      '- Original text:',
+      '  > il controllo non è sempre applicato',
+      '- Suggested action: aggiungi ' + tick + 'firstGuard()' + tick,
+      '- Acceptance token: ' + tick + 'firstGuard()' + tick,
+      '',
+      '### FU-2026-09-09-002 — rischio da rivalutare',
+      '- State: done',
+      '- Sources: PR #8102',
+      '- Suggested action: valuta il rischio in futuro',
+      '',
+    ].join('\n');
+    const issue = {
+      number: 604,
+      title: 'follow-up(daily:2026-09-09): 2 items — o/r',
+      body,
+      labels: [{ name: 'follow-up' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'done-preserved-calls.log');
+    writeFileSync(log, '');
+    const fake = [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      'const issue = ' + JSON.stringify(issue) + ';',
+      "fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');",
+      "if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));",
+      "else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));",
+    ].join('\n') + '\n';
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: binDir + ':' + (process.env.PATH ?? ''),
+        BATCH_PRS: '',
+        COLLECTION_OK: 'false',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+      },
+    });
+    expect(out).toMatch(/MINT_GATE_TALLY repo=o\/r pr=null issue=604 action=keep reason=already-sealed demoted=0 kept=2 done_preserved=1\n/);
+    // Il corpo non viene riscritto: l'item done non è stato tolto.
+    expect(readFileSync(log, 'utf-8')).not.toContain('"--body-file"');
+  });
+
   it('non accoda un daily bucket sealed quando una label è malformata', () => {
     const tick = String.fromCharCode(96);
     const body = [

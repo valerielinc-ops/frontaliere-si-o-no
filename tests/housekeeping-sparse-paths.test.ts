@@ -1,4 +1,4 @@
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -112,6 +112,53 @@ describe('housekeeping sparse path list', () => {
     expect(realList.paths.length).toBeGreaterThan(0);
     expect(realList.paths).toContain('scripts');
     expect(realList.listBlob).toMatch(/^[0-9a-f]{40,64}$/);
+  });
+
+  it('lists directories only: the second cone checkout rejects a file path', () => {
+    // Run corpus 37138786521 (2026-10-03): il secondo `actions/checkout` nella
+    // stessa directory esegue `git sparse-checkout set <lista>` su un indice
+    // gia' popolato, e in modalita' cone git rifiuta un path che non e' una
+    // directory («fatal: 'package.json' is not a directory»). Al primo
+    // checkout, a repository vuoto, il controllo non scatta: per questo la
+    // lista inline di prima funzionava. Qui la stessa sequenza gira su un
+    // repository vero, con la lista committata.
+    const root = mkdtempSync(join(tmpdir(), 'housekeeping-sparse-cone-'));
+    tempRoots.push(root);
+    const files = [
+      'package.json',
+      'package-lock.json',
+      LIST,
+      'public/images/excluded.png',
+      ...realList.paths.map((dir) => `${dir}/probe.txt`),
+    ];
+    for (const file of files) {
+      mkdirSync(join(root, dirname(file)), { recursive: true });
+      writeFileSync(join(root, file), file === LIST ? readFileSync(join(ROOT, LIST), 'utf8') : 'x\n');
+    }
+    const git = (...args: string[]) => spawnSync('git', args, { cwd: root, encoding: 'utf8' });
+    git('init', '-q');
+    git('add', '-A');
+    const commit = git(
+      '-c', 'user.name=test', '-c', 'user.email=test@example.invalid', '-c', 'commit.gpgsign=false',
+      'commit', '-q', '--no-verify', '-m', 'albero',
+    );
+    expect(commit.status, commit.stderr).toBe(0);
+
+    // Primo checkout del workflow: cono sulla sola directory della lista.
+    const first = git('sparse-checkout', 'set', '--cone', dirname(LIST));
+    expect(first.status, first.stderr).toBe(0);
+    // Secondo checkout: stessa directory, modalita' cone ereditata dal primo.
+    const second = git('sparse-checkout', 'set', ...realList.paths);
+    expect(second.status, second.stderr).toBe(0);
+
+    for (const dir of realList.paths) {
+      expect(existsSync(join(root, dir, 'probe.txt')), dir).toBe(true);
+    }
+    // I file di root arrivano dal cono senza essere elencati: `npm ci` li trova.
+    expect(existsSync(join(root, 'package.json'))).toBe(true);
+    expect(existsSync(join(root, 'package-lock.json'))).toBe(true);
+    // Cio' che sta fuori lista resta fuori.
+    expect(existsSync(join(root, 'public/images/excluded.png'))).toBe(false);
   });
 
   it('materializes every file the workflow entrypoints import', () => {

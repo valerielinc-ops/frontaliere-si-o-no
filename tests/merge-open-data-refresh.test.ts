@@ -1,6 +1,6 @@
-import { mergeRefreshContent } from '../scripts/ci/open-data-refresh-merge.mjs';
+import { imageContainerDefect, mergeRefreshContent } from '../scripts/ci/open-data-refresh-merge.mjs';
 
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -8,6 +8,40 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 const ROOT = path.resolve(__dirname, '..');
 const MERGE_SCRIPT = path.join(ROOT, 'scripts/ci/merge-open-data-refresh.mjs');
+
+/** A structurally valid WebP container around an arbitrary payload. */
+function webpContainer(payload: Buffer): Buffer {
+  const header = Buffer.alloc(12);
+  header.write('RIFF', 0, 'latin1');
+  header.writeUInt32LE(payload.length + 4, 4);
+  header.write('WEBP', 8, 'latin1');
+  return Buffer.concat([header, payload]);
+}
+
+const EVERY_BYTE = Buffer.from(Array.from({ length: 256 }, (_, index) => index));
+
+describe('imageContainerDefect', () => {
+  it('accepts image containers by content and ignores other paths', () => {
+    expect(imageContainerDefect('public/images/blog/a.webp', webpContainer(EVERY_BYTE))).toBeNull();
+    // The tree holds a JPEG named .png; sharp decodes by content, so must this.
+    const jpeg = Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), EVERY_BYTE]);
+    expect(imageContainerDefect('public/images/blog/a.png', jpeg)).toBeNull();
+    expect(imageContainerDefect('data/events.json', Buffer.from('{}'))).toBeNull();
+    expect(imageContainerDefect('public/images/blog/a.webp', null)).toBeNull();
+  });
+
+  it('names what is wrong with a mangled or truncated image', () => {
+    const valid = webpContainer(EVERY_BYTE);
+    // The incident: the blob was decoded and re-encoded as UTF-8 text.
+    const roundTripped = Buffer.from(valid.toString('utf8'), 'utf8');
+    expect(roundTripped.equals(valid)).toBe(false);
+    expect(imageContainerDefect('public/images/blog/a.webp', roundTripped)).toMatch(/RIFF/);
+    expect(imageContainerDefect('public/images/blog/a.webp', valid.subarray(0, 100)))
+      .toMatch(/declares \d+ bytes, file has 100/);
+    expect(imageContainerDefect('public/images/blog/a.webp', Buffer.from('<html>not an image</html>')))
+      .toMatch(/signature/);
+  });
+});
 
 describe('merge-open-data-refresh', () => {
   it('compares buffer contents and preserves binary snapshot changes and deletions', () => {
@@ -90,7 +124,7 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
     const file = 'public/images/blog/hero.webp';
     const added = 'public/images/blog/new-hero.webp';
     const original = Buffer.from([0, 128, 192, 255]);
-    const newest = Buffer.from(Array.from({ length: 256 }, (_, index) => index));
+    const newest = webpContainer(EVERY_BYTE);
     write(repo, file, original);
     git(repo, ['add', '-A']);
     git(repo, ['commit', '-q', '-m', 'base']);
@@ -112,6 +146,38 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
       '--path', 'public/images/blog'], { cwd: repo });
     expect(fs.readFileSync(path.join(repo, file))).toEqual(newest);
     expect(fs.readFileSync(path.join(repo, added))).toEqual(newest);
+  });
+
+  it('refuses to write an unreadable image and names it', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'merge-refresh-broken-image-'));
+    tmpDirs.push(repo);
+    git(repo, ['init', '-q', '-b', 'main']);
+    const good = 'public/images/blog/good.webp';
+    const broken = 'public/images/blog/broken.webp';
+    const valid = webpContainer(EVERY_BYTE);
+    write(repo, 'data/seed.json', '{}\n');
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'base']);
+    const base = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', '-b', 'chore/refresh']);
+    const remote = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', 'main']);
+    write(repo, good, valid);
+    write(repo, broken, Buffer.from(valid.toString('utf8'), 'utf8'));
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'refresh']);
+    const refresh = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', 'chore/refresh']);
+
+    const result = spawnSync(process.execPath, [MERGE_SCRIPT,
+      '--base', base, '--remote', remote, '--refresh', refresh,
+      '--path', 'public/images/blog'], { cwd: repo, encoding: 'utf8' });
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(`::error file=${broken}`);
+    expect(result.stderr).not.toContain(`file=${good}`);
+    expect(fs.existsSync(path.join(repo, broken))).toBe(false);
+    expect(fs.readFileSync(path.join(repo, good))).toEqual(valid);
   });
 
   it('applies the current run through symlinked directory and file paths', () => {

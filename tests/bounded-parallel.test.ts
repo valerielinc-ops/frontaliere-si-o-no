@@ -278,6 +278,7 @@ describe('the shard fan-outs use the shared driver, not a private batch barrier'
 
   const workflows = [
     '.github/workflows/deploy.yml',
+    '.github/workflows/deploy-publish.yml',
     '.github/workflows/compact-article-shard-history.yml',
   ];
 
@@ -314,11 +315,11 @@ describe('the shard fan-outs use the shared driver, not a private batch barrier'
   });
 
   it('the two push steps treat an unusable section order as fatal, never as a shorter list', () => {
-    const doc = YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8')) as {
-      jobs?: Record<string, { steps?: Array<{ name?: string; run?: string }> }>;
-    };
-    const pushSteps = Object.values(doc.jobs ?? {})
-      .flatMap((j) => j.steps ?? [])
+    const pushSteps = workflows
+      .map((wf) => YAML.parse(readFileSync(resolve(ROOT, wf), 'utf-8')) as {
+        jobs?: Record<string, { steps?: Array<{ name?: string; run?: string }> }>;
+      })
+      .flatMap((doc) => Object.values(doc.jobs ?? {}).flatMap((j) => j.steps ?? []))
       // Steps that INVOKE the push script, not the pack steps that only
       // reference it in a comment.
       .filter((s) => /bash scripts\/lib\/push-section-shard\.sh/.test(s.run ?? ''));

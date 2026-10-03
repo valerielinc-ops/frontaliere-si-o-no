@@ -1,18 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-10-03T09:25:46.579Z",
+  "generatedAt": "2026-10-03T21:26:14.447Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 19275,
-  "avgDurationMs": 19275,
+  "durationMs": 20643,
+  "avgDurationMs": 20643,
   "durationHistory": [
-    19898,
-    17615,
-    19275
+    20643
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -399,5 +397,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

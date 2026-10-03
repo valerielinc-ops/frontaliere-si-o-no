@@ -4,9 +4,10 @@
  * fetch, per-key stage-if-changed, and publish so a fix to any of those lands
  * everywhere at once instead of drifting across copy-pasted siblings.
  *
- * setRcParamWithEtag() is the dependency-free sibling for jobs that run
- * without `npm ci` (codex-auth-rotate.yml): REST + service-account JWT, the
- * same path as load-rc-env.mjs's fetchTemplateViaRest.
+ * updateRcTemplateWithEtag() (setRcParamWithEtag() for one parameter) is the
+ * dependency-free sibling for jobs that run without `npm ci`
+ * (codex-auth-rotate.yml): REST + service-account JWT, the same path as
+ * load-rc-env.mjs's fetchTemplateViaRest.
  */
 import { getServiceAccountAccessToken } from './google-service-account-token.mjs';
 
@@ -89,25 +90,35 @@ async function rcErrorDetail(response) {
 }
 
 /**
- * Sets one Remote Config parameter with optimistic concurrency: GET returns the
- * template with its ETag, PUT sends `If-Match: <etag>`
+ * Publishes a change of the Remote Config template with optimistic concurrency:
+ * GET returns the template with its ETag, PUT sends `If-Match: <etag>`
  * (https://firebase.google.com/docs/remote-config/use-config-rest#etag_usage_and_forced_updates).
  * A template changed by someone else in between is rejected (409/412) instead
  * of being overwritten: the loop re-reads and re-applies on top of it. 429/5xx
  * and network errors are retried the same way; the re-read also tells whether
- * an ambiguous PUT went through (value already equal → done). Never `If-Match: *`.
+ * an ambiguous PUT went through (nothing left to change → done). Never `If-Match: *`.
  *
- * `dryRun` reads and compares only: no PUT. Nothing here logs a value; `detail`
+ * `stage(template)` gets the template just read and returns what
+ * stageRcParamValue returns ({changed, template, error}); it runs once per
+ * attempt. One publish carries everything it staged. `attempts: 1` turns a
+ * conflict into a failure instead of a re-apply.
+ *
+ * `dryRun` reads and compares only: no PUT. `validateOnly` sends the same PUT
+ * (body and If-Match) to `?validate_only=true`, the REST form of the Admin
+ * SDK's validateTemplate: Remote Config checks the staged template and writes
+ * nothing, so a template it would refuse fails here and not at the publish
+ * (`validated` in the result). Nothing here logs a value; `detail`
  * carries only HTTP statuses and Google error statuses/messages. Throws only
  * when the service-account token exchange itself fails.
  *
- * @param {{credentials: {client_email:string, private_key:string, project_id:string}, name: string, value: string,
- *   description?: string, versionDescription?: string, dryRun?: boolean, attempts?: number, retryDelayMs?: number,
+ * @param {{credentials: {client_email:string, private_key:string, project_id:string},
+ *   stage: (template: object) => {changed: boolean, template?: object, error?: string},
+ *   versionDescription?: string, dryRun?: boolean, validateOnly?: boolean, attempts?: number, retryDelayMs?: number,
  *   fetchImpl?: typeof fetch, getAccessToken?: Function, sleep?: Function, onAccessToken?: Function}} options
- * @returns {Promise<{ok: boolean, changed?: boolean, dryRun?: boolean, attempt: number, detail?: string}>}
+ * @returns {Promise<{ok: boolean, changed?: boolean, dryRun?: boolean, validated?: boolean, attempt: number, detail?: string}>}
  */
-export async function setRcParamWithEtag({
-  credentials, name, value, description = '', versionDescription = `set ${name}`, dryRun = false,
+export async function updateRcTemplateWithEtag({
+  credentials, stage, versionDescription = '', dryRun = false, validateOnly = false,
   attempts = 4, retryDelayMs = 2_000, fetchImpl = fetch, getAccessToken = getServiceAccountAccessToken,
   sleep = defaultSleep, onAccessToken = () => {},
 }) {
@@ -131,11 +142,11 @@ export async function setRcParamWithEtag({
       const etag = got.headers.get('etag');
       const template = await got.json();
       if (!etag) return { ok: false, attempt, detail: 'GET remoteConfig returned no ETag' };
-      const staged = stageRcParamValue(template, name, value, description);
+      const staged = stage(template);
       if (staged.error) return { ok: false, attempt, detail: staged.error };
       if (!staged.changed) return { ok: true, changed: false, attempt };
       if (dryRun) return { ok: true, changed: true, dryRun: true, attempt };
-      const put = await fetchImpl(url, {
+      const put = await fetchImpl(validateOnly ? `${url}?validate_only=true` : url, {
         method: 'PUT',
         headers: { ...headers, 'Content-Type': 'application/json; UTF-8', 'If-Match': etag },
         body: JSON.stringify({
@@ -146,9 +157,9 @@ export async function setRcParamWithEtag({
         }),
         signal: AbortSignal.timeout(RC_REQUEST_TIMEOUT_MS),
       });
-      if (put.ok) return { ok: true, changed: true, attempt };
+      if (put.ok) return validateOnly ? { ok: true, changed: true, validated: true, attempt } : { ok: true, changed: true, attempt };
       const why = await rcErrorDetail(put);
-      detail = `PUT remoteConfig → HTTP ${put.status}${why ? ` (${why.slice(0, 200)})` : ''}`;
+      detail = `PUT remoteConfig${validateOnly ? '?validate_only=true' : ''} → HTTP ${put.status}${why ? ` (${why.slice(0, 200)})` : ''}`;
       if (put.status === 409 || put.status === 412 || retryableStatus(put.status)) continue;
       return { ok: false, attempt, detail };
     } catch (error) {
@@ -156,4 +167,20 @@ export async function setRcParamWithEtag({
     }
   }
   return { ok: false, attempt: attempts, detail };
+}
+
+/**
+ * updateRcTemplateWithEtag for one top-level parameter (stageRcParamValue).
+ *
+ * @param {{credentials: {client_email:string, private_key:string, project_id:string}, name: string, value: string,
+ *   description?: string, versionDescription?: string, dryRun?: boolean, attempts?: number, retryDelayMs?: number,
+ *   fetchImpl?: typeof fetch, getAccessToken?: Function, sleep?: Function, onAccessToken?: Function}} options
+ * @returns {Promise<{ok: boolean, changed?: boolean, dryRun?: boolean, attempt: number, detail?: string}>}
+ */
+export async function setRcParamWithEtag({ name, value, description = '', versionDescription = `set ${name}`, ...options }) {
+  return updateRcTemplateWithEtag({
+    ...options,
+    versionDescription,
+    stage: (template) => stageRcParamValue(template, name, value, description),
+  });
 }

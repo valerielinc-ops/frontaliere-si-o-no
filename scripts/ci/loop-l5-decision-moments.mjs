@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import {
   AUTONOMY_ORDER,
   actionClassForPolicy,
@@ -19,6 +19,8 @@ import {
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 
 export const LOOP_ID = 'L5';
+const ISSUE_TITLE = 'L5 Decision Moments: surface freshness or next action is not measurable';
+const ISSUE_WORKFLOW = 'Loop L5 Decision Moments';
 export const DEFAULT_FUEL_PATH = path.join('data', 'fuel-prices.json');
 export const DEFAULT_BORDER_PATH = path.join('data', 'border-wait-current.json');
 export const DEFAULT_PHARMACY_PATH = path.join('data', 'pharmacies-ticino-complete.json');
@@ -603,7 +605,8 @@ export async function runL5({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -697,16 +700,21 @@ export async function runL5({
   let issued = false;
   if (issue && !verdict.ok) {
     const issueResult = await createIssueImpl({
-      title: 'L5 Decision Moments: surface freshness or next action is not measurable',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 3,
       labels: ['monitoring', 'ux', 'loop-l5'],
-      workflow: 'Loop L5 Decision Moments',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     if (!issueResult || issueResult.persisted !== true) {
-      throw new Error('L5 issue persistence failed: createGithubIssue did not confirm persisted=true');
+      throw new Error('L5 issue persistence failed: reportLoopIssue did not confirm persisted=true');
     }
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);

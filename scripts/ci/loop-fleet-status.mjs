@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
 import {
   LIFECYCLE_EVENT_TYPES,
   summarizeLifecycleEvents as summarizeLifecycleEventsContract,
@@ -213,10 +214,17 @@ function ghRaw(args, { allowFailure = false } = {}) {
   }
 }
 
+// La cadenza piu' lenta fra i loop e' settimanale (L7, L9): 21 giorni coprono
+// tre giri. Senza finestra `created` un elenco per `branch` puo' tornare fermo
+// a settimane prima (scripts/ci/lib/run-listing-window.mjs) e `--limit 1`
+// consegnerebbe come «ultima run» la prima riga di quell'elenco: la piu'
+// recente si sceglie quindi in locale su `createdAt`.
+const LATEST_RUN_WINDOW_DAYS = 21;
+
 function latestRun(workflow) {
-  const runs = gh(['run', 'list', '--workflow', workflow, '--branch', 'main', '--status', 'completed', '--limit', '1', '--json', 'databaseId,conclusion,status,createdAt,updatedAt,url,headSha'], { allowFailure: true });
+  const runs = gh(['run', 'list', '--workflow', workflow, '--branch', 'main', '--status', 'completed', '--created', createdSinceFilter(LATEST_RUN_WINDOW_DAYS), '--limit', '20', '--json', 'databaseId,conclusion,status,createdAt,updatedAt,url,headSha'], { allowFailure: true });
   if (!Array.isArray(runs)) return { run: null, error: 'GitHub Actions API is unreadable' };
-  return { run: runs[0] || null, error: runs.length ? null : 'no completed run found' };
+  return { run: newestFirst(runs)[0] || null, error: runs.length ? null : 'no completed run found' };
 }
 
 function workflowForPolicy(policy) {

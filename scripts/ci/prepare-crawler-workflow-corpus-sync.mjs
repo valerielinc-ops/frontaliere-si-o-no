@@ -13,6 +13,7 @@ import {
   createCrawlerGroupIds,
   deriveCrawlerGroupIdsFromContract,
 } from '../lib/crawler-generation-group-ids.mjs';
+import { WATCHDOG_RUNTIME_PATH, manifestDigest } from './translate-watchdog-pin.mjs';
 
 export const CRAWLER_WORKFLOW_FILES = [
   ...createCrawlerGroupIds(24).map((group) => `crawler-group-${group}.yml`),
@@ -229,8 +230,19 @@ function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloa
     : payloads.get(path.basename(sitePath));
 }
 
-/** Consente rispetto a main soltanto le baseline crawler owned censite sopra. */
-export function assertCrawlerManifestDelta({ baseManifest, currentManifest, crawlerWorkflowFiles } = {}) {
+/**
+ * Consente rispetto a main soltanto le baseline crawler owned censite sopra.
+ * Con `watchdogRuntimeDigest` (il digest del runtime del watchdog translate
+ * presente nel checkout) ammette in piu' un solo campo non owned: la
+ * `baseline.corpus` della voce `corpus-only` di quel runtime, e solo se vale
+ * quel digest — e' il rinfresco del pin che viaggia con `translate-pending.yml`.
+ */
+export function assertCrawlerManifestDelta({
+  baseManifest,
+  currentManifest,
+  crawlerWorkflowFiles,
+  watchdogRuntimeDigest,
+} = {}) {
   if (!baseManifest || !currentManifest) throw new Error('baseManifest and currentManifest are required');
   const expected = structuredClone(baseManifest);
   const discoveredWorkflowFiles = crawlerWorkflowFiles ?? [
@@ -270,6 +282,15 @@ export function assertCrawlerManifestDelta({ baseManifest, currentManifest, craw
       }
     } else {
       expected.files.push(structuredClone(current));
+    }
+  }
+  if (watchdogRuntimeDigest) {
+    const isWatchdogEntry = (entry) => entry.path === WATCHDOG_RUNTIME_PATH
+      && entry.mode === 'corpus-only' && entry.baseline?.site === null;
+    const baseEntry = (expected.files ?? []).find(isWatchdogEntry);
+    const currentEntry = (currentManifest.files ?? []).find(isWatchdogEntry);
+    if (baseEntry && currentEntry?.baseline.corpus === watchdogRuntimeDigest) {
+      baseEntry.baseline.corpus = watchdogRuntimeDigest;
     }
   }
   if (JSON.stringify(currentManifest) !== JSON.stringify(expected)) {
@@ -397,11 +418,16 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  const [sourceDir, corpusRoot] = process.argv.slice(2);
+  const [sourceDir, corpusRoot, watchdogRuntimeFile] = process.argv.slice(2);
   if (sourceDir === '--assert-manifest-delta') {
     const baseManifest = JSON.parse(fs.readFileSync(0, 'utf8'));
     const currentManifest = JSON.parse(readRequired(corpusRoot).toString('utf8'));
-    assertCrawlerManifestDelta({ baseManifest, currentManifest });
+    // Terzo argomento facoltativo: il runtime del watchdog translate nel
+    // checkout del corpus. Assente dal disco = nessuna deroga.
+    const watchdogRuntimeDigest = watchdogRuntimeFile && fs.existsSync(watchdogRuntimeFile)
+      ? manifestDigest(fs.readFileSync(watchdogRuntimeFile))
+      : undefined;
+    assertCrawlerManifestDelta({ baseManifest, currentManifest, watchdogRuntimeDigest });
     console.log('Crawler loop-sync manifest delta is confined to its owned baselines.');
     process.exit(0);
   }

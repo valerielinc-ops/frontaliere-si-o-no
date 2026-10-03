@@ -7,7 +7,22 @@ import YAML from 'yaml';
 import {
   CRAWLER_WORKFLOW_FILES,
   CORPUS_OBSERVER_FILES,
+  assertCrawlerManifestDelta,
+  prepareCrawlerWorkflowCorpusSync,
 } from '../../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
+import {
+  PIN_BODY_SECTIONS,
+  UNREFRESHABLE_TITLE,
+  unrefreshableAnnotation,
+  WATCHDOG_RUNTIME_PATH,
+  assertTranslatePendingArtifact,
+  assertWatchdogRuntimeDelta,
+  evaluateWatchdogTargetAssumptions,
+  gitBlobSha,
+  manifestDigest,
+  renderPinBodySections,
+  replacePinBodySections,
+} from '../../scripts/ci/translate-watchdog-pin.mjs';
 
 import {
   CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
@@ -82,10 +97,33 @@ describe('crawler workflow corpus transport', () => {
     expect(script).toContain('gh pr create --repo "$target_repo" --base main --head "$head_ref"');
     expect(script).toContain('git push -u origin "HEAD:$target_branch"');
     expect(script).not.toMatch(/git push[^\n]*(--force|HEAD:main|origin main)/);
-    expect(script).not.toMatch(/gh pr edit/);
-    expect(script).toContain('branch updated without replacing its body');
+    expect(script).toContain('branch updated, body kept except its watchdog pin sections');
     expect(script.indexOf('assert_transport_paths origin/main...HEAD'))
       .toBeLessThan(script.indexOf('git push -u origin "HEAD:$target_branch"'));
+  });
+
+  // Corpus PR 2066: il body dichiarava il pin del primo trasporto mentre il diff,
+  // ritrasportato, ne portava un altro. Sulla PR gia' aperta si riscrivono SOLO
+  // le sezioni del pin, e solo dopo il gate del body; titolo, label e resto no.
+  it('sulla PR gia aperta aggiorna solo le sezioni del pin, passando dal gate del body', () => {
+    const openBranch = script.slice(script.indexOf('if [ -n "$open_number" ]; then\n  # Non riscrivere'), script.indexOf('\nelse\n  if ! gh pr create'));
+    expect(openBranch.length).toBeGreaterThan(0);
+    // Invocazioni reali (argomento quotato o variabile), non i messaggi `::error::`.
+    const edits = [...script.matchAll(/gh pr edit ["$][^\n]*/g)].map((match) => match[0]);
+    expect(edits).toEqual(['gh pr edit "$open_number" --repo "$target_repo" --body-file "$updated_body"; then']);
+    expect(openBranch).toContain(edits[0]);
+    expect(openBranch).toContain('gh pr view "$open_number" --repo "$target_repo" --json body --jq .body > "$current_body"');
+    const update = openBranch.indexOf('--update-body "$current_body" "$pin_state" "$updated_body"');
+    const gate = openBranch.indexOf('pr-body-check-gate.mjs" --body-file "$updated_body"');
+    const edit = openBranch.indexOf('gh pr edit');
+    expect(update).toBeGreaterThan(-1);
+    expect(gate).toBeGreaterThan(update);
+    expect(edit).toBeGreaterThan(gate);
+    expect(openBranch).toContain('[ "$update_gate_status" -ne 0 ]');
+    // Il ramo di creazione resta quello di prima e la PR aperta non ne passa.
+    expect(openBranch).not.toContain('gh pr create');
+    expect(script.slice(script.indexOf('\nelse\n  if ! gh pr create'))).not.toContain('gh pr edit');
+    expect(script).not.toMatch(/gh pr edit[^\n]*(--title|--add-label|--remove-label|--body ")/);
   });
 
   it('deriva dal contratto l allowlist dei workflow esecutivi e rifiuta delete', () => {
@@ -434,4 +472,498 @@ fi
       fs.rmSync(tmp, { recursive: true, force: true });
     }
   }, 30_000);
+
+  it('lo sparse checkout del job contiene ogni script Node che la consegna esegue, con i suoi import', () => {
+    const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v7');
+    const sparsePaths = new Set(String(checkout.with['sparse-checkout'])
+      .split(/\r?\n/)
+      .map((entry) => entry.trim().replace(/^\//, ''))
+      .filter(Boolean));
+    const pending = [...script.matchAll(/\$site_root\/(scripts\/[A-Za-z0-9_./-]+\.mjs)/g)]
+      .map((match) => path.join(ROOT, match[1]));
+    expect(pending.length).toBeGreaterThan(0);
+    const visited = new Set<string>();
+    while (pending.length > 0) {
+      const current = pending.pop()!;
+      if (visited.has(current)) continue;
+      visited.add(current);
+      const source = fs.readFileSync(current, 'utf8');
+      for (const match of source.matchAll(/(?:\bfrom\s+|\bimport\s*)['"](\.[^'"]+)['"]/g)) {
+        pending.push(path.resolve(path.dirname(current), match[1]));
+      }
+    }
+    const missing = [...visited]
+      .map((file) => path.relative(ROOT, file).split(path.sep).join('/'))
+      .filter((file) => !sparsePaths.has(file))
+      .sort();
+    expect(missing).toEqual([]);
+    expect(on.push.paths).toContain('scripts/ci/translate-watchdog-pin.mjs');
+  });
+});
+
+// Il corpus tiene un pin sul blob di `translate-pending.yml` nel runtime del
+// suo watchdog. Corpus #1998 e #2052: il trasporto consegnava il workflow nuovo
+// senza il pin e la PR di lockstep restava rossa finche' qualcuno non lo
+// rinfrescava a mano (20 ore su #2052).
+describe('crawler workflow corpus transport — pin del watchdog translate', () => {
+  const TRANSLATE_WORKFLOW = '.github/workflows/translate-pending.yml';
+  const MANIFEST = 'scripts/ci/loop-sync-manifest.json';
+  const WATCHDOG_REASON = 'fixture: runtime corpus-only del watchdog translate';
+  const siteArtifact = fs.readFileSync(path.join(ROOT, '.github/corpus-workflows/translate-pending.yml'));
+  const runtimeSource = (pin: string) => [
+    "export const TARGET_WORKFLOW_PATH = '.github/workflows/translate-pending.yml';",
+    `export const TARGET_WORKFLOW_BLOB_SHA = '${pin}';`,
+    "const ALLOWED_EVENTS = new Set(['schedule', 'workflow_dispatch']);",
+    "export const holds = (job) => job?.name === 'translate' && job?.status === 'in_progress';",
+    '',
+  ].join('\n');
+
+  /** Corpus finto con workflow, runtime del watchdog e manifest coerenti fra loro. */
+  function setupCorpus(tmp: string, { workflow, siteRoot = ROOT }: { workflow: Buffer | string; siteRoot?: string }) {
+    const seed = path.join(tmp, 'seed');
+    const remote = path.join(tmp, 'corpus.git');
+    const bin = path.join(tmp, 'bin');
+    const bodyCopy = path.join(tmp, 'pr-body.md');
+    const pin = gitBlobSha(Buffer.from(workflow));
+    const runtime = runtimeSource(pin);
+    fs.mkdirSync(path.join(seed, 'scripts/ci'), { recursive: true });
+    fs.mkdirSync(path.join(seed, '.github/workflows'), { recursive: true });
+    fs.mkdirSync(bin, { recursive: true });
+    fs.writeFileSync(path.join(seed, TRANSLATE_WORKFLOW), workflow);
+    fs.writeFileSync(path.join(seed, WATCHDOG_RUNTIME_PATH), runtime);
+    fs.writeFileSync(path.join(seed, MANIFEST), `${JSON.stringify({
+      files: [
+        { path: 'generator/data/corpus-owned.json', mode: 'corpus-only', reason: 'fixture owned only by corpus' },
+        {
+          path: WATCHDOG_RUNTIME_PATH,
+          mode: 'corpus-only',
+          reason: WATCHDOG_REASON,
+          baseline: { site: null, corpus: manifestDigest(Buffer.from(runtime)), alignedAt: '2026-01-01' },
+        },
+      ],
+    }, null, 2)}\n`);
+    const git = (args: string[], cwd = seed) => execFileSync('git', args, { cwd, stdio: 'pipe', encoding: 'utf8' });
+    git(['init', '-b', 'main']);
+    git(['config', 'user.name', 'test']);
+    git(['config', 'user.email', 'test@example.com']);
+    git(['add', '.']);
+    git(['commit', '-m', 'seed']);
+    execFileSync('git', ['clone', '--bare', seed, remote], { stdio: 'pipe' });
+
+    const ghStub = path.join(bin, 'gh');
+    fs.writeFileSync(ghStub, `#!/usr/bin/env bash
+set -euo pipefail
+if [ "$1 $2" = "api user" ]; then
+  printf '%s\\n' 'valerielinc-ops'
+elif [ "$1 $2" = "pr list" ]; then
+  printf '%s\\n' "\${GH_STUB_LIST_JSON:-[]}"
+elif [ "$1 $2" = "pr view" ]; then
+  # Come gh pr view --jq .body: il body seguito da un newline.
+  cat "$GH_STUB_BODY"; printf '\\n'
+elif [ "$1 $2" = "pr create" ] || [ "$1 $2" = "pr edit" ]; then
+  printf '%s\\n' "$1 $2" >> "$GH_STUB_BODY.calls"
+  while [ "$#" -gt 0 ]; do
+    if [ "$1" = "--body-file" ]; then cp "$2" "$GH_STUB_BODY"; fi
+    shift
+  done
+  printf '%s\\n' 'https://example.test/pull/1'
+else
+  exit 2
+fi
+`);
+    fs.chmodSync(ghStub, 0o700);
+    const env = {
+      ...process.env,
+      PATH: `${bin}:${process.env.PATH}`,
+      ARTICLES_REPO_PAT: 'test-token-not-a-secret',
+      GITHUB_SHA: '0123456789abcdef0123456789abcdef01234567',
+      GITHUB_WORKSPACE: siteRoot,
+      CRAWLER_SYNC_TARGET_URL: remote,
+      GH_STUB_BODY: bodyCopy,
+      // Con FORCE_COLOR i `console.log` numerici dello script escono colorati
+      // e i suoi confronti interi falliscono: l'esito non deve dipendere dal terminale.
+      FORCE_COLOR: '0',
+      GIT_CONFIG_GLOBAL: '/dev/null',
+      GIT_CONFIG_NOSYSTEM: '1',
+    };
+    const branch = 'crawler-workflows-lockstep-0123456789ab';
+    const show = (ref: string) => execFileSync('git', ['--git-dir', remote, 'show', ref], { encoding: 'utf8' });
+    const run = (extraEnv: Record<string, string> = {}) => execFileSync('bash', [path.join(siteRoot, 'scripts/ci/sync-crawler-workflows-to-corpus.sh')], {
+      cwd: siteRoot,
+      env: { ...env, ...extraEnv },
+      stdio: 'pipe',
+      encoding: 'utf8',
+    });
+    const changedPaths = () => execFileSync('git', ['--git-dir', remote, 'diff', '--name-only', 'main', branch], { encoding: 'utf8' })
+      .split('\n').filter(Boolean);
+    const watchdogEntry = () => JSON.parse(show(`${branch}:${MANIFEST}`)).files
+      .find((entry: { path: string }) => entry.path === WATCHDOG_RUNTIME_PATH);
+    return { remote, branch, pin, runtime, bodyCopy, show, run, changedPaths, watchdogEntry };
+  }
+
+  it('cambio di translate-pending.yml: pin e baseline del manifest rinfrescati nello stesso commit', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-pin-'));
+    try {
+      const corpus = setupCorpus(tmp, { workflow: 'name: workflow rivisto in passato\n' });
+      corpus.run();
+
+      // L'albero consegnato e' quello in cui il test del corpus passa: pin = blob
+      // sha del workflow nuovo, digest del manifest = sha256[0..16] del runtime.
+      const deliveredBlob = execFileSync('git', ['--git-dir', corpus.remote, 'rev-parse', `${corpus.branch}:${TRANSLATE_WORKFLOW}`], { encoding: 'utf8' }).trim();
+      expect(deliveredBlob).toBe(gitBlobSha(siteArtifact));
+      const deliveredRuntime = corpus.show(`${corpus.branch}:${WATCHDOG_RUNTIME_PATH}`);
+      expect(deliveredRuntime).toBe(runtimeSource(deliveredBlob));
+      expect(corpus.watchdogEntry()).toEqual({
+        path: WATCHDOG_RUNTIME_PATH,
+        mode: 'corpus-only',
+        reason: WATCHDOG_REASON,
+        baseline: { site: null, corpus: manifestDigest(Buffer.from(deliveredRuntime)), alignedAt: '2026-01-01' },
+      });
+      expect(corpus.changedPaths()).toEqual(expect.arrayContaining([TRANSLATE_WORKFLOW, WATCHDOG_RUNTIME_PATH, MANIFEST]));
+      // Un solo commit: workflow e pin non possono arrivare separati.
+      expect(execFileSync('git', ['--git-dir', corpus.remote, 'rev-list', '--count', `main..${corpus.branch}`], { encoding: 'utf8' }).trim()).toBe('1');
+      expect(execFileSync('git', ['--git-dir', corpus.remote, 'log', '-1', '--format=%B', corpus.branch], { encoding: 'utf8' }))
+        .toContain('Refresh translate watchdog pin');
+      const body = fs.readFileSync(corpus.bodyCopy, 'utf8');
+      expect(body).toContain(`pin del watchdog rinfrescato: \`${corpus.pin}\` → \`${deliveredBlob}\``);
+      expect(body.indexOf('pin del watchdog rinfrescato')).toBeLessThan(body.indexOf('## Non implementato (ancora)'));
+      expect(body).not.toContain(UNREFRESHABLE_TITLE);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  }, 30_000);
+
+  it('translate-pending.yml invariato: il runtime del watchdog non viene toccato', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-pin-'));
+    try {
+      const corpus = setupCorpus(tmp, { workflow: siteArtifact });
+      corpus.run();
+      const changed = corpus.changedPaths();
+      expect(changed).toContain(MANIFEST);
+      expect(changed).not.toContain(WATCHDOG_RUNTIME_PATH);
+      expect(changed).not.toContain(TRANSLATE_WORKFLOW);
+      expect(corpus.show(`${corpus.branch}:${WATCHDOG_RUNTIME_PATH}`)).toBe(corpus.runtime);
+      expect(corpus.watchdogEntry().baseline.corpus).toBe(manifestDigest(Buffer.from(corpus.runtime)));
+      expect(fs.readFileSync(corpus.bodyCopy, 'utf8')).not.toContain('pin del watchdog');
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  }, 30_000);
+
+  it('workflow nuovo senza job translate: pin NON rinfrescato, avviso nel body e job rosso col titolo stabile', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-pin-'));
+    try {
+      // Sito finto: stessi script, ma un artifact translate-pending senza il job
+      // `translate` (rinominato), dichiarato coerentemente dal contratto.
+      // Contiene SOLO i path dello sparse checkout del job: la consegna deve
+      // riuscire con quelli. `realpath`: gli script riconoscono il proprio
+      // avvio confrontando argv con il path reale del modulo.
+      const siteRoot = path.join(fs.realpathSync(tmp), 'site');
+      const source = path.join(siteRoot, '.github/corpus-workflows');
+      const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v7');
+      for (const entry of String(checkout.with['sparse-checkout']).split(/\r?\n/)) {
+        const relative = entry.trim().replace(/^\//, '').replace(/\/$/, '');
+        if (!relative) continue;
+        fs.mkdirSync(path.dirname(path.join(siteRoot, relative)), { recursive: true });
+        fs.cpSync(path.join(ROOT, relative), path.join(siteRoot, relative), { recursive: true });
+      }
+      const renamed = siteArtifact.toString('utf8').replace(/^ {2}translate:$/m, '  translate_all:');
+      expect(renamed).not.toBe(siteArtifact.toString('utf8'));
+      fs.writeFileSync(path.join(source, 'translate-pending.yml'), renamed);
+      const sha256 = (content: Buffer | string) => execFileSync('shasum', ['-a', '256'], { input: content, encoding: 'utf8' }).slice(0, 64);
+      const contractPath = path.join(source, 'contract.json');
+      const contract = fs.readFileSync(contractPath, 'utf8');
+      expect(contract.split(sha256(siteArtifact))).toHaveLength(2);
+      fs.writeFileSync(contractPath, contract.replace(sha256(siteArtifact), sha256(renamed)));
+
+      const corpus = setupCorpus(tmp, { workflow: 'name: workflow rivisto in passato\n', siteRoot });
+      let failure: { status?: number; stdout?: string } = {};
+      try {
+        corpus.run();
+      } catch (error) {
+        failure = error as typeof failure;
+      }
+      expect(failure.status).toBe(1);
+      expect(failure.stdout).toContain(unrefreshableAnnotation('error', '').slice(0, -2));
+      expect(failure.stdout).toMatch(/^::error title=Lockstep crawler%3A pin del watchdog translate non rinfrescabile[^\n]*job `translate` assente dal workflow$/m);
+
+      // La consegna e' avvenuta comunque: il rosso del corpus e' il segnale.
+      expect(corpus.show(`${corpus.branch}:${TRANSLATE_WORKFLOW}`)).toBe(renamed);
+      expect(corpus.changedPaths()).not.toContain(WATCHDOG_RUNTIME_PATH);
+      expect(corpus.show(`${corpus.branch}:${WATCHDOG_RUNTIME_PATH}`)).toBe(corpus.runtime);
+      expect(corpus.watchdogEntry().baseline.corpus).toBe(manifestDigest(Buffer.from(corpus.runtime)));
+      const body = fs.readFileSync(corpus.bodyCopy, 'utf8');
+      const pending = body.slice(body.indexOf('## Non implementato (ancora)'));
+      expect(pending).toContain(`- blocked: decisione del proprietario. ${UNREFRESHABLE_TITLE}`);
+      expect(pending).toContain('**Motivo:** job `translate` assente dal workflow. **Prossimo passo:**');
+      expect(body).not.toContain('pin del watchdog rinfrescato');
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  }, 30_000);
+
+  it('assert_translate_pending_artifact fallisce su un artifact diverso dal contratto o senza il gate richiesto', () => {
+    // La guardia gira dopo la copia e prima che qualunque file venga messo in stage.
+    expect(script).toMatch(/^assert_translate_pending_artifact\(\) \{$/m);
+    const prepared = script.indexOf('"$site_root/.github/corpus-workflows" "$PWD"\nassert_translate_pending_artifact\n');
+    expect(prepared).toBeGreaterThan(-1);
+    expect(prepared).toBeLessThan(script.indexOf('git add -- '));
+
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-artifact-'));
+    try {
+      const sourceDir = path.join(ROOT, '.github/corpus-workflows');
+      const delivered = path.join(tmp, TRANSLATE_WORKFLOW);
+      fs.mkdirSync(path.dirname(delivered), { recursive: true });
+      fs.writeFileSync(delivered, siteArtifact);
+      expect(() => assertTranslatePendingArtifact({ sourceDir, corpusRoot: tmp })).not.toThrow();
+
+      fs.writeFileSync(delivered, `${siteArtifact.toString('utf8')}# mirror stantio\n`);
+      expect(() => assertTranslatePendingArtifact({ sourceDir, corpusRoot: tmp })).toThrow(/does not match the contract/);
+      fs.rmSync(delivered);
+      expect(() => assertTranslatePendingArtifact({ sourceDir, corpusRoot: tmp })).toThrow(/missing from the corpus checkout/);
+
+      // Contratto e artifact coerenti fra loro, ma senza il gate `repair_lane_budget`.
+      const gateless = siteArtifact.toString('utf8').replace(/^(\s+)id: repair_lane_budget$/m, '$1id: other_gate');
+      const staleSource = path.join(tmp, 'source');
+      fs.mkdirSync(staleSource);
+      fs.writeFileSync(path.join(staleSource, 'contract.json'), JSON.stringify({
+        artifacts: [{
+          file: 'translate-pending.yml',
+          artifactSha256: execFileSync('shasum', ['-a', '256'], { input: gateless, encoding: 'utf8' }).slice(0, 64),
+        }],
+      }));
+      fs.writeFileSync(delivered, gateless);
+      expect(() => assertTranslatePendingArtifact({ sourceDir: staleSource, corpusRoot: tmp }))
+        .toThrow(/lacks the required gate step `repair_lane_budget`/);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
+  it('rinfresca solo se il workflow rispetta le presunzioni statiche del runtime del watchdog', () => {
+    const runtime = runtimeSource('0'.repeat(40));
+    const workflowText = siteArtifact.toString('utf8');
+    const violations = (text: string) => evaluateWatchdogTargetAssumptions({ workflow: text, runtime });
+    expect(violations(workflowText)).toEqual([]);
+    expect(violations(workflowText.replace(/^ {2}translate:$/m, '  translate_all:')))
+      .toEqual(['job `translate` assente dal workflow']);
+    expect(violations(workflowText.replace(/^ {6}group: jobs-data-pipeline$/m, '      group: another-mutex')).join('\n'))
+      .toContain('non tiene il mutex `jobs-data-pipeline`');
+    expect(violations(workflowText.replace(/^ {6}cancel-in-progress: false$/m, '      cancel-in-progress: true')).join('\n'))
+      .toContain('cancel-in-progress: false');
+    expect(violations(workflowText.replace(/^ {4}timeout-minutes: 350$/m, '    timeout-minutes: 720')).join('\n'))
+      .toContain('non e\' un intero entro 350');
+    expect(violations(workflowText.replace(/^ {2}workflow_dispatch:$/m, '  push:')).join('\n'))
+      .toContain('trigger fuori dagli eventi ammessi dal watchdog');
+    expect(violations(workflowText.replace(/^jobs:$/m, 'concurrency: jobs-data-pipeline\njobs:')).join('\n'))
+      .toContain('`concurrency` a livello di workflow');
+    // Il mutex deve stare sul SOLO job bersaglio: un guard dentro il mutex
+    // (in blocco o inline) cambia chi e' il detentore.
+    const otherJobs = [...workflowText.slice(workflowText.indexOf('\njobs:\n')).matchAll(/^ {2}([A-Za-z0-9_-]+):$/gm)]
+      .map((match) => match[1])
+      .filter((name) => name !== 'translate');
+    expect(otherJobs.length).toBeGreaterThan(0);
+    const guard = otherJobs[0];
+    expect(violations(workflowText.replace(
+      `\n  ${guard}:\n`,
+      `\n  ${guard}:\n    concurrency:\n      group: jobs-data-pipeline\n      cancel-in-progress: false\n`,
+    ))).toEqual([`il job \`${guard}\` dichiara \`concurrency\`: il mutex \`jobs-data-pipeline\` deve stare sul solo job \`translate\``]);
+    expect(violations(workflowText.replace(`\n  ${guard}:\n`, `\n  ${guard}:\n    concurrency: another-group\n`)).join('\n'))
+      .toContain(`il job \`${guard}\` dichiara \`concurrency\``);
+    expect(violations(workflowText.replace(`\n  ${guard}:\n`, `\n  "${guard}":\n`)).join('\n'))
+      .toContain('job in forma non generata');
+    // Runtime che non dichiara piu' il job bersaglio: nessun rinfresco alla cieca.
+    expect(evaluateWatchdogTargetAssumptions({ workflow: workflowText, runtime: 'export const X = 1;\n' }))
+      .toHaveLength(1);
+  });
+
+  it('il path del runtime nell allowlist ammette solo la riga del pin e la sua baseline', () => {
+    const base = runtimeSource('a'.repeat(40));
+    const workflowBytes = Buffer.from('name: consegnato\n');
+    const pinned = runtimeSource(gitBlobSha(workflowBytes));
+    expect(assertWatchdogRuntimeDelta({ baseRuntime: base, currentRuntime: base, workflowBytes })).toBeNull();
+    expect(assertWatchdogRuntimeDelta({ baseRuntime: base, currentRuntime: pinned, workflowBytes }))
+      .toEqual({ previousPin: 'a'.repeat(40), nextPin: gitBlobSha(workflowBytes) });
+    expect(() => assertWatchdogRuntimeDelta({ baseRuntime: base, currentRuntime: `${pinned}export const smuggled = 1;\n`, workflowBytes }))
+      .toThrow(/beyond its target workflow pin/);
+    expect(() => assertWatchdogRuntimeDelta({ baseRuntime: base, currentRuntime: runtimeSource('b'.repeat(40)), workflowBytes }))
+      .toThrow(/does not match the delivered workflow/);
+    expect(() => assertWatchdogRuntimeDelta({ baseRuntime: undefined, currentRuntime: pinned, workflowBytes }))
+      .toThrow(/may not add or remove/);
+    expect(script.indexOf('--describe "$PWD" "$pin_state"'))
+      .toBeLessThan(script.indexOf('git push -u origin "HEAD:$target_branch"'));
+
+    const entry = (corpus: string, reason = WATCHDOG_REASON) => ({
+      path: WATCHDOG_RUNTIME_PATH,
+      mode: 'corpus-only',
+      reason,
+      baseline: { site: null, corpus, alignedAt: '2026-01-01' },
+    });
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-manifest-'));
+    try {
+      // Manifest reale del trasporto: il preparatore aggiunge le voci owned.
+      fs.mkdirSync(path.join(tmp, 'scripts/ci'), { recursive: true });
+      fs.writeFileSync(path.join(tmp, MANIFEST), JSON.stringify({ files: [entry('1111111111111111')] }));
+      prepareCrawlerWorkflowCorpusSync({
+        sourceDir: path.join(ROOT, '.github/corpus-workflows'),
+        corpusRoot: tmp,
+        alignedAt: '2026-01-01',
+      });
+      const prepared = fs.readFileSync(path.join(tmp, MANIFEST), 'utf8');
+      const delta = (current: ReturnType<typeof entry>, watchdogRuntimeDigest?: string) => () => {
+        const currentManifest = JSON.parse(prepared);
+        currentManifest.files[0] = current;
+        assertCrawlerManifestDelta({
+          baseManifest: { files: [entry('1111111111111111')] },
+          currentManifest,
+          watchdogRuntimeDigest,
+        });
+      };
+      const outsideOwned = /outside its owned baselines/;
+      expect(delta(entry('1111111111111111'))).not.toThrow();
+      // La deroga vale solo per il digest del file realmente nel checkout…
+      expect(delta(entry('2222222222222222'), '2222222222222222')).not.toThrow();
+      expect(delta(entry('2222222222222222'))).toThrow(outsideOwned);
+      expect(delta(entry('2222222222222222'), '3333333333333333')).toThrow(outsideOwned);
+      // …e solo per `baseline.corpus`: nessun altro campo della voce puo' cambiare.
+      expect(delta(entry('2222222222222222', 'reason riscritta'), '2222222222222222')).toThrow(outsideOwned);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
+  // Corpus PR 2066: primo trasporto col pin `bb1c1e69…`, ritrasporto dopo un
+  // cambio di translate-pending.yml col pin `befa1307…`, body fermo al primo.
+  // Titolo di fallimento: «Lockstep crawler: il body della PR di trasporto
+  // dichiara un pin diverso dal diff».
+  describe('body della PR gia aperta: la riga del pin segue la consegna', () => {
+    const { implemented: IMPL, pending: PEND } = PIN_BODY_SECTIONS;
+    const pinLine = (from: string, to: string) => `${IMPL.legacyPrefix} \`${from}\` → \`${to}\` (resto della riga).\n`;
+    const blockedLine = `${PEND.legacyPrefix}: il pin resta \`x\`. **Motivo:** m. **Prossimo passo:** p.\n`;
+    const head = [
+      '## Implementato',
+      '',
+      '- in questa PR: primo bullet del trasporto.',
+      '- in questa PR: secondo bullet,',
+      '  con una riga di continuazione.',
+    ].join('\n');
+    const tail = [
+      '',
+      '## Non implementato (ancora)',
+      '',
+      '- in questa PR, per scelta: bullet fisso. **Motivo:** m. **Prossimo passo:** p.',
+      '- blocked: review del corpus.',
+    ].join('\n');
+    const sections = (lines: { implemented?: string; pending?: string }) => renderPinBodySections(lines);
+
+    it('con i marcatori sostituisce solo il loro interno e lascia byte per byte il resto', () => {
+      const created = sections({ implemented: pinLine('a'.repeat(40), 'b'.repeat(40)) });
+      const body = `${head}\n${created.implemented}- in questa PR: aggiunto dall'orchestratore dopo la creazione.\n${tail}\n${created.pending}\nCloses #4242\n\n### Review\n\nnota libera\n`;
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)), pending: blockedLine });
+      const { body: updated, changed } = replacePinBodySections(body, next);
+      expect(changed).toBe(true);
+      expect(updated).toBe(body
+        .replace(created.implemented, next.implemented)
+        .replace(created.pending, next.pending));
+      expect(updated.split(IMPL.legacyPrefix)).toHaveLength(2);
+      expect(updated).not.toContain('b'.repeat(40));
+      // Contenuto invariato: nessuna scrittura richiesta.
+      expect(replacePinBodySections(updated, next)).toEqual({ body: updated, changed: false });
+      // Il pin che smette di cambiare svuota la sezione ma ne lascia i marcatori.
+      const emptied = replacePinBodySections(updated, sections({})).body;
+      expect(emptied).toContain(`${IMPL.start}\n${IMPL.end}\n- in questa PR: aggiunto`);
+      expect(emptied).not.toContain(IMPL.legacyPrefix);
+      expect(emptied).not.toContain(PEND.legacyPrefix);
+    });
+
+    it('senza marcatori sostituisce la riga generata in place, senza duplicarla', () => {
+      const body = `${head}\n${pinLine('a'.repeat(40), 'b'.repeat(40))}${tail}\n\nAddresses nanakokyobashi-rgb/frontaliere-articles#1314\n`;
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)) });
+      const { body: updated } = replacePinBodySections(body, next);
+      expect(updated).toBe(`${head}\n${next.implemented}${tail}\n${next.pending}\nAddresses nanakokyobashi-rgb/frontaliere-articles#1314\n`);
+      expect(updated.split(IMPL.legacyPrefix)).toHaveLength(2);
+      // Una seconda passata trova i marcatori e non cambia niente.
+      expect(replacePinBodySections(updated, next).changed).toBe(false);
+    });
+
+    it('senza riga ne marcatori inserisce le sezioni dopo l ultimo bullet di quella giusta', () => {
+      const body = `${head}\n\nCloses #4242\n${tail}\n`;
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)), pending: blockedLine });
+      expect(replacePinBodySections(body, next).body)
+        .toBe(`${head}\n${next.implemented}\nCloses #4242\n${tail}\n${next.pending}`);
+    });
+
+    it('preserva i CRLF di un body modificato dalla UI e fallisce chiuso su marcatori ambigui', () => {
+      const created = sections({ implemented: pinLine('a'.repeat(40), 'b'.repeat(40)) });
+      const lf = `${head}\n${created.implemented}${tail}\n${created.pending}`;
+      const crlf = lf.replace(/\n/g, '\r\n');
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)) });
+      const { body: updated } = replacePinBodySections(crlf, next);
+      expect(updated).toBe(replacePinBodySections(lf, next).body.replace(/\n/g, '\r\n'));
+      expect(() => replacePinBodySections(`${lf}${IMPL.start}\n`, next)).toThrow(/non accoppiati/);
+      expect(() => replacePinBodySections('nessuna sezione\n', next)).toThrow(/assente dal body/);
+      expect(() => replacePinBodySections(lf, { implemented: 'riga senza marcatori\n', pending: next.pending }))
+        .toThrow(/coppia di marcatori/);
+    });
+
+    it('ritrasporto su PR aperta: il body dichiara il pin del diff, il testo dell orchestratore resta', () => {
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-pin-body-'));
+      try {
+        // Sito finto con i soli path dello sparse checkout del job, per poter
+        // cambiare translate-pending.yml (e il suo hash nel contratto) fra due trasporti.
+        const siteRoot = path.join(fs.realpathSync(tmp), 'site');
+        const source = path.join(siteRoot, '.github/corpus-workflows');
+        const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v7');
+        for (const entry of String(checkout.with['sparse-checkout']).split(/\r?\n/)) {
+          const relative = entry.trim().replace(/^\//, '').replace(/\/$/, '');
+          if (!relative) continue;
+          fs.mkdirSync(path.dirname(path.join(siteRoot, relative)), { recursive: true });
+          fs.cpSync(path.join(ROOT, relative), path.join(siteRoot, relative), { recursive: true });
+        }
+        const sha256 = (content: Buffer | string) => execFileSync('shasum', ['-a', '256'], { input: content, encoding: 'utf8' }).slice(0, 64);
+        const reworked = `${siteArtifact.toString('utf8')}# ritrasporto dopo un cambio del workflow\n`;
+
+        const corpus = setupCorpus(tmp, { workflow: 'name: workflow rivisto in passato\n', siteRoot });
+        const calls = `${corpus.bodyCopy}.calls`;
+        corpus.run();
+        const created = fs.readFileSync(corpus.bodyCopy, 'utf8');
+        const firstLine = `pin del watchdog rinfrescato: \`${corpus.pin}\` → \`${gitBlobSha(siteArtifact)}\``;
+        expect(created).toContain(`${IMPL.start}\n- in questa PR: ${firstLine}`);
+        expect(created).toContain(`${PEND.start}\n${PEND.end}\n`);
+
+        // L'orchestratore arricchisce il body dopo la creazione.
+        const orchestrated = `${created.replace(`${IMPL.end}\n`, `${IMPL.end}\n- in questa PR: nota dell'orchestratore aggiunta dopo la creazione.\n`)}\nCloses #4242\n`;
+        fs.writeFileSync(corpus.bodyCopy, orchestrated);
+
+        // Il sito cambia translate-pending.yml: il ritrasporto porta un pin nuovo.
+        fs.writeFileSync(path.join(source, 'translate-pending.yml'), reworked);
+        const contractPath = path.join(source, 'contract.json');
+        fs.writeFileSync(contractPath, fs.readFileSync(contractPath, 'utf8').replace(sha256(siteArtifact), sha256(reworked)));
+        const openPr = JSON.stringify([{
+          number: 2066,
+          headRefName: corpus.branch,
+          baseRefName: 'main',
+          headRepositoryOwner: { login: 'nanakokyobashi-rgb' },
+          headRepository: { name: 'frontaliere-articles' },
+          author: { login: 'valerielinc-ops' },
+          isCrossRepository: false,
+        }]);
+        corpus.run({ GH_STUB_LIST_JSON: openPr });
+
+        const deliveredPin = /^export const TARGET_WORKFLOW_BLOB_SHA = '([a-f0-9]{40})';$/m
+          .exec(corpus.show(`${corpus.branch}:${WATCHDOG_RUNTIME_PATH}`))?.[1];
+        expect(deliveredPin).toBe(gitBlobSha(reworked));
+        const updated = fs.readFileSync(corpus.bodyCopy, 'utf8');
+        expect(updated).toBe(orchestrated.replace(firstLine, `pin del watchdog rinfrescato: \`${corpus.pin}\` → \`${deliveredPin}\``));
+        expect(fs.readFileSync(calls, 'utf8').split('\n').filter(Boolean)).toEqual(['pr create', 'pr edit']);
+
+        // Stessa consegna di nuovo: body gia' allineato, nessuna scrittura.
+        corpus.run({ GH_STUB_LIST_JSON: openPr });
+        expect(fs.readFileSync(corpus.bodyCopy, 'utf8')).toBe(updated);
+        expect(fs.readFileSync(calls, 'utf8').split('\n').filter(Boolean)).toEqual(['pr create', 'pr edit']);
+      } finally {
+        fs.rmSync(tmp, { recursive: true, force: true });
+      }
+    }, 60_000);
+  });
 });

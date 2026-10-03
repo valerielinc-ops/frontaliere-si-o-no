@@ -69,10 +69,18 @@ jobs:
         run: |
           git config user.name "alerts-bot"
           git config user.email "alerts-bot@frontaliereticino.ch"
-          # Stage modified state files BEFORE rebase so rebase doesn't fail
-          # on unstaged changes from the alerts runner.
-          git add data/alert-snoozes.json data/quality-alerts-history.jsonl 2>/dev/null || true
-          git pull --rebase --autostash origin main
+          # Commit FIRST, integrate after. The previous order was
+          # `git add` -> `git pull --rebase --autostash` -> `git diff --cached`:
+          # whenever main had moved since checkout, the autostash put the
+          # staged edits aside and re-applied them UNSTAGED, so the index was
+          # empty, this step printed "No alert state changes to commit" and
+          # the history stopped on 2026-09-26 behind a green job (run
+          # 36997640781). A local commit survives the rebase that
+          # git-push-with-retry.sh runs on a non-fast-forward rejection.
+          # No `2>/dev/null || true` on the add: both files are tracked, and a
+          # swallowed failure stages nothing and reads as "no changes" too.
+          # tests/workflow-autostash-staged-state.test.ts guards the sequence.
+          git add data/alert-snoozes.json data/quality-alerts-history.jsonl
           if git diff --cached --quiet; then
             echo "No alert state changes to commit"
             exit 0

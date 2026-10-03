@@ -61,7 +61,7 @@ import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const read = (rel: string) => readFileSync(resolve(ROOT, rel), 'utf-8');
-const DEPLOY = read('.github/workflows/deploy.yml');
+const DEPLOY = `${read('.github/workflows/deploy.yml')}\n${read('.github/workflows/deploy-publish.yml')}`;
 
 describe('the Worker route table is readable, and says what is apex-keyed', () => {
   const patterns = readWorkerRoutePatterns();

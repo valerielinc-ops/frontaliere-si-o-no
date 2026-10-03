@@ -68,7 +68,8 @@ git sparse-checkout set \
   '/scripts/ci/lib/crawler-generation-observer-report.mjs' \
   '/scripts/ci/lib/crawler-generation-token.mjs' \
   '/scripts/ci/lib/github-actions-read-client.mjs' \
-  '/scripts/ci/loop-sync-manifest.json'
+  '/scripts/ci/loop-sync-manifest.json' \
+  '/scripts/ci/translate-queue-recovery.mjs'
 git checkout main
 git config user.name 'Valerie Linc'
 git config user.email 'valerielinc@gmail.com'
@@ -115,11 +116,37 @@ close_superseded_transport_pr() {
   gh pr close "$superseded_number" --repo "$target_repo" --delete-branch --comment "$reason"
 }
 
+# Guardia di consegna: dopo la copia, l'artifact `translate-pending.yml` nel
+# checkout del corpus deve coincidere con quello dichiarato dal contratto e
+# contenere i gate richiesti. Una consegna verde non lascia un mirror stantio.
+assert_translate_pending_artifact() {
+  node "$site_root/scripts/ci/translate-watchdog-pin.mjs" \
+    --assert-artifact "$site_root/.github/corpus-workflows" "$PWD"
+}
+
+# Il corpus tiene un pin sul blob di `translate-pending.yml` nel runtime del suo
+# watchdog (`TARGET_WORKFLOW_BLOB_SHA`). Il pin si rinfresca nello stesso commit
+# della consegna, ma solo se era coerente col workflow che il corpus aveva prima
+# (branch di trasporto o main): i due blob si leggono PRIMA che il preparatore
+# sovrascriva il file.
+watchdog_runtime=scripts/ci/translate-queue-recovery.mjs
+translate_workflow=.github/workflows/translate-pending.yml
+pin_state="$work/watchdog-pin"
+branch_translate_blob=$(git rev-parse -q --verify "HEAD:$translate_workflow" || true)
+main_translate_blob=$(git rev-parse -q --verify "origin/main:$translate_workflow" || true)
+
 node "$site_root/scripts/ci/prepare-crawler-workflow-corpus-sync.mjs" \
   "$site_root/.github/corpus-workflows" "$PWD"
+assert_translate_pending_artifact
+node "$site_root/scripts/ci/translate-watchdog-pin.mjs" \
+  --refresh "$PWD" "$pin_state" "$branch_translate_blob" "$main_translate_blob"
+pin_status=$(cat "$pin_state/status")
 git show origin/main:scripts/ci/loop-sync-manifest.json | \
   node "$site_root/scripts/ci/prepare-crawler-workflow-corpus-sync.mjs" \
-    --assert-manifest-delta "$PWD/scripts/ci/loop-sync-manifest.json"
+    --assert-manifest-delta "$PWD/scripts/ci/loop-sync-manifest.json" "$PWD/$watchdog_runtime"
+if [ -f "$watchdog_runtime" ]; then
+  git add -- "$watchdog_runtime"
+fi
 git add -- \
   .github/workflows/crawler-group-*.yml \
   .github/workflows/crawler-generation-observer-shadow.yml \
@@ -142,6 +169,8 @@ const paths = [
   ...contract.observers.map(({ target }) => target),
   'generator/data/crawler-cross-repo-contract.json',
   'scripts/ci/loop-sync-manifest.json',
+  // Solo la riga del pin: lo impone `--describe` sul delta completo.
+  'scripts/ci/translate-queue-recovery.mjs',
 ];
 process.stdout.write(paths.join('\n'));
 NODE
@@ -175,7 +204,12 @@ if [ -n "$deleted" ]; then
 fi
 
 if ! git diff --cached --quiet; then
-  git commit -m "Lockstep crawler workflows with frontaliere-si-o-no@${GITHUB_SHA:0:8}"
+  if [ "$pin_status" = refreshed ]; then
+    git commit -m "Lockstep crawler workflows with frontaliere-si-o-no@${GITHUB_SHA:0:8}" \
+      -m "Refresh translate watchdog pin (TARGET_WORKFLOW_BLOB_SHA) to the delivered translate-pending.yml."
+  else
+    git commit -m "Lockstep crawler workflows with frontaliere-si-o-no@${GITHUB_SHA:0:8}"
+  fi
 else
   echo 'Delivery commit already exists on the remote branch; ensuring its PR after a prior partial failure.'
 fi
@@ -183,8 +217,16 @@ fi
 # Il guard decisivo è sull'INTERO delta della branch, non solo sullo staged di
 # questa run: una branch orfana/PR preesistente non può contrabbandare file che
 # il preparatore di oggi non ha toccato. Il test dedicato è un observer hashato
-# e trasportato; nessun file corpus-only o altro path corpus è ammesso.
+# e trasportato; nessun altro path corpus è ammesso. L'unico file corpus-only
+# nell'allowlist è il runtime del watchdog translate, e solo per la riga del
+# suo pin: `--describe` fallisce se il delta della branch contiene altro.
 assert_transport_paths origin/main...HEAD
+if git show "origin/main:$watchdog_runtime" > "$pin_state/base-runtime.mjs" 2>/dev/null; then
+  :
+else
+  rm -f "$pin_state/base-runtime.mjs"
+fi
+node "$site_root/scripts/ci/translate-watchdog-pin.mjs" --describe "$PWD" "$pin_state"
 full_deleted=$(git diff --diff-filter=D --name-only origin/main...HEAD)
 if [ -n "$full_deleted" ]; then
   echo '::error::crawler transport branch contains deletions in its complete delta'
@@ -216,12 +258,18 @@ cat > "$body" <<'BODY'
 
 - in questa PR: aggiorna esclusivamente i file di trasporto effettivamente presenti nel diff della branch; l'allowlist fail-closed impedisce di includere gemelli già allineati o path estranei.
 - in questa PR: la branch di consegna viene aggiornata senza push su `main`; test, review automatica e auto-merge `## LGTM` del corpus restano obbligatori prima che la schedulazione cambi.
+BODY
+# Riga calcolata sul delta della branch, non su questa run: resta nel body
+# anche quando la PR viene aperta da un retry successivo al commit.
+cat "$pin_state/implemented.md" >> "$body"
+cat >> "$body" <<'BODY'
 
 ## Non implementato (ancora)
 
-- in questa PR, per scelta: nessun dato del corpus, engine o host viene copiato; il trasporto resta limitato ai file elencati dal diff e validati dall'allowlist. **Motivo:** questo job trasferisce solo gli artifact di workflow autorizzati e non deve alterare il runtime del corpus. **Prossimo passo:** mantenere l'allowlist aggiornata quando cambia il contratto di trasporto.
+- in questa PR, per scelta: nessun dato del corpus, engine o host viene copiato; il trasporto resta limitato ai file elencati dal diff e validati dall'allowlist. **Motivo:** questo job trasferisce solo gli artifact di workflow autorizzati e non altera il runtime del corpus, salvo la sola riga del pin `TARGET_WORKFLOW_BLOB_SHA` del watchdog translate quando dichiarata sopra. **Prossimo passo:** mantenere l'allowlist aggiornata quando cambia il contratto di trasporto.
 - blocked: il ciclo autonomo del corpus deve completare la review della HEAD e apporre `## LGTM`; fino ad allora non è autorizzato alcun merge diretto o manuale.
 BODY
+cat "$pin_state/pending.md" >> "$body"
 
 set +e
 node "$site_root/scripts/ci/pr-body-check-gate.mjs" --body-file "$body"
@@ -244,7 +292,33 @@ head_ref=$(git rev-parse --abbrev-ref HEAD)
 if [ -n "$open_number" ]; then
   # Non riscrivere il body: review finding, Closes e contesto aggiunti dopo la
   # creazione appartengono all'orchestratore e devono sopravvivere agli schedule.
-  echo "Crawler workflow transport PR #$open_number already open; branch updated without replacing its body."
+  # Fanno eccezione le sole sezioni delimitate del pin, che descrivono il diff
+  # di QUESTA consegna: un ritrasporto che cambia il pin le deve seguire
+  # (corpus PR 2066: body col pin `bb1c1e69…`, diff con `befa1307…`).
+  echo "Crawler workflow transport PR #$open_number already open; branch updated, body kept except its watchdog pin sections."
+  current_body="$work/pr-body-current.md"
+  updated_body="$work/pr-body-updated.md"
+  if ! gh pr view "$open_number" --repo "$target_repo" --json body --jq .body > "$current_body"; then
+    # exit 1 per scelta, come il ramo di creazione: il workflow ritenta e la
+    # consegna e' idempotente; un warning lascerebbe il body col pin vecchio.
+    echo "::error::gh pr view #$open_number fallito; branch gia' pushato, sezioni del pin nel body non verificate"
+    exit 1
+  fi
+  if ! node "$site_root/scripts/ci/translate-watchdog-pin.mjs" \
+    --update-body "$current_body" "$pin_state" "$updated_body"; then
+    echo "::warning::body della PR di trasporto #$open_number senza una collocazione univoca per la riga del pin; body lasciato invariato"
+  elif [ -f "$updated_body" ]; then
+    set +e
+    node "$site_root/scripts/ci/pr-body-check-gate.mjs" --body-file "$updated_body"
+    update_gate_status=$?
+    set -e
+    if [ "$update_gate_status" -ne 0 ]; then
+      echo "::warning::body aggiornato della PR di trasporto #$open_number rifiutato dal gate (exit $update_gate_status); body lasciato invariato"
+    elif ! gh pr edit "$open_number" --repo "$target_repo" --body-file "$updated_body"; then
+      echo "::error::gh pr edit #$open_number fallito; branch gia' pushato, body col pin precedente"
+      exit 1
+    fi
+  fi
 else
   if ! gh pr create --repo "$target_repo" --base main --head "$head_ref" \
     --title 'Lockstep crawler workflows with the site' --body-file "$body"; then
@@ -252,3 +326,8 @@ else
     exit 1
   fi
 fi
+
+# Ultimo passo, a consegna e PR garantite: un pin non rinfrescabile lascia la
+# PR del corpus rossa per un motivo che richiede una revisione umana del
+# runtime. Il job del sito non lo dichiara verde: fallisce col titolo stabile.
+node "$site_root/scripts/ci/translate-watchdog-pin.mjs" --fail-if-unrefreshable "$pin_state"

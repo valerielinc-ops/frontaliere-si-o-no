@@ -274,9 +274,7 @@ const HealthInsurance: React.FC = () => {
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">Nota per frontalieri</p>
  <p>
- {'I frontalieri possono scegliere tra LAMal svizzera o SSN italiano (diritto d\'opzione). '}
- {'La scelta va comunicata entro 3 mesi dall\'inizio dell\'attività ed è '}
- <strong>irrevocabile</strong>{'. Premi indicativi — verifica su '}
+ <span dangerouslySetInnerHTML={{ __html: t('health.warningText') }} />{' Premi indicativi — verifica su '}
  <a href="https://www.priminfo.admin.ch/it/praemien" target="_blank" rel="noopener noreferrer" className="underline font-bold">priminfo.admin.ch</a>.
  </p>
  </div>

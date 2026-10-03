@@ -93,6 +93,7 @@ import {
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
 import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
 import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
+import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
 import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
@@ -404,7 +405,10 @@ export const manageRedazioneAdmin = onRequest(
 // returns signed CV links and performs every status/refund mutation server-side;
 // `firestore.rules` keeps the candidate-facing collection non-listable.
 export const manageAssistedApplicationAdmin = onRequest(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  // 512MiB and 60 s, as assistedApplicationReview: the owner's edit of the letter
+  // compiles it with Typst here, and a process killed for memory cannot fall
+  // back to the standard-font writer as a failed compile does.
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: true },
   async (req, res) => {
     try {
       const { status, body } = await handleAssistedApplicationAdmin(req);
@@ -2471,6 +2475,17 @@ export const sweepAssistedApplicationFollowups = onSchedule(
       if (summary.processed) console.log('[sweepAssistedApplicationFollowups]', JSON.stringify(summary.results));
     } catch (error) {
       console.error('[sweepAssistedApplicationFollowups]', error instanceof Error ? error.message : String(error));
+    }
+    // The self-check of the PDF renderer rides on this function (512MiB, as the
+    // endpoints that rebuild the PDFs): once a day, after each deploy or flip of
+    // the switch and at every run while it fails (rendererCheckDue), whatever the
+    // automation flag says, and never at the sweep's expense.
+    try {
+      const check = await runRendererCheck({ db: getAdminDb() });
+      if (check?.status === 'failed') console.error('[sweepAssistedApplicationFollowups] PDF renderer failed', JSON.stringify(check));
+      else if (check) console.log('[sweepAssistedApplicationFollowups] PDF renderer', JSON.stringify(check));
+    } catch (error) {
+      console.error('[sweepAssistedApplicationFollowups] PDF renderer check', error instanceof Error ? error.message : String(error));
     }
   },
 );

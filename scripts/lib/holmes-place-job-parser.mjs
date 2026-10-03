@@ -68,8 +68,9 @@
  * The current Swiss career page exposes a real `/jobs/{slug}` detail URL for
  * each card, while the companion `checkout.holmesplace.ch` CareerTable uses a
  * tabular listing. The parser keeps those detail URLs as the job identity and
- * uses the CareerTable only as a source fallback when the main page is blocked
- * or its card layout changes.
+ * enriches each row from its own detail page before publishing. The CareerTable
+ * remains a source fallback when the main page is blocked or its card layout
+ * changes.
  *
  * HQ / per-branch addresses — Holmes Place Switzerland runs MULTIPLE
  * physical gym branches, not one office, so a single canton-wide HQ
@@ -391,6 +392,36 @@ const CAREER_MARKER_RE = /(?:karriere|carri[eè]re|career|stellen(?:angebote)?|p
 const CAREER_TABLE_CONTAINER_SELECTOR = '.c-careerTable, .c-careerTable__table, .cvHolder';
 const CAREER_TABLE_ROW_SELECTOR = 'tr, .c-careerTable__row, [data-job-id], [data-career-id]';
 const CAREER_CONTEXT_SELECTOR = '.section-two-text-wrapper, .beginnen-paragraph';
+const DETAIL_BODY_SELECTORS = [
+  '[data-job-description]',
+  '[data-description]',
+  '.job-detail__description',
+  '.job-description',
+  '.career-detail__content',
+  '.career-detail',
+  '.job-detail',
+  '.job-content',
+  '.career-content',
+];
+const DETAIL_NOISE_SELECTOR = [
+  'script',
+  'style',
+  'noscript',
+  'nav',
+  'header',
+  'footer',
+  'aside',
+  'form',
+  'button',
+  '[role="navigation"]',
+  '[class*="apply"]',
+  '[class*="related"]',
+  '[class*="share"]',
+  '[class*="cookie"]',
+  '[class*="consent"]',
+].join(', ');
+const PER_DETAIL_DELAY_MS = 1_500;
+const DETAIL_WAIT_NETWORK_IDLE_MS = 10_000;
 
 function annotateListings(listings, fetchOutcome, fetchDetail = '') {
   Object.defineProperties(listings, {
@@ -641,6 +672,96 @@ export function hasHolmesPlaceCareerMarkup(html = '', baseUrl = CAREER_URL) {
   }
 }
 
+function extractJsonLdJobDescription(document) {
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    let parsed;
+    try {
+      parsed = JSON.parse(script.textContent || '');
+    } catch {
+      continue;
+    }
+    const candidates = [
+      ...(Array.isArray(parsed) ? parsed : [parsed]),
+      ...(Array.isArray(parsed?.['@graph']) ? parsed['@graph'] : []),
+    ];
+    const jobPosting = candidates.find((candidate) => {
+      const type = candidate?.['@type'];
+      return type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
+    });
+    const description = bodyTextOf(jobPosting?.description || '');
+    if (meetsSourceBodyFloor(description)) return description;
+  }
+  return '';
+}
+
+function sourceBodyFromDetailElement(element) {
+  const clone = element.cloneNode(true);
+  clone.querySelectorAll(DETAIL_NOISE_SELECTOR).forEach((node) => node.remove());
+  return bodyTextOf(clone.innerHTML || '');
+}
+
+/**
+ * Extract only the vacancy body from a rendered Holmes Place detail page.
+ * Generic page chrome is removed before the shared source-body floor is
+ * applied; a short page therefore cannot become publishable by accident.
+ */
+export function extractHolmesPlaceDetailDescriptionFromHtml(html = '', baseUrl = CAREER_URL) {
+  const dom = new JSDOM(String(html || ''), { url: baseUrl });
+  try {
+    const structuredDescription = extractJsonLdJobDescription(dom.window.document);
+    if (structuredDescription) return structuredDescription;
+
+    for (const selector of DETAIL_BODY_SELECTORS) {
+      for (const element of dom.window.document.querySelectorAll(selector)) {
+        const description = sourceBodyFromDetailElement(element);
+        if (meetsSourceBodyFloor(description)) return description;
+      }
+    }
+    return '';
+  } finally {
+    dom.window.close();
+  }
+}
+
+async function fetchHolmesPlaceDetailDescription(context, detailUrl) {
+  if (!isJobDetailHref(detailUrl)) return '';
+  let page = null;
+  try {
+    page = await fetchWithRateLimit(context, detailUrl, { minDelayMs: PER_DETAIL_DELAY_MS });
+    try {
+      await page.waitForLoadState('networkidle', { timeout: DETAIL_WAIT_NETWORK_IDLE_MS });
+    } catch {
+      /* networkidle is best-effort; inspect the rendered DOM regardless */
+    }
+    const description = extractHolmesPlaceDetailDescriptionFromHtml(
+      await page.content(),
+      page.url() || detailUrl,
+    );
+    if (!description) {
+      console.warn(`   ⚠️ Holmes Place detail page has no source body: ${detailUrl}`);
+    }
+    return description;
+  } catch (err) {
+    console.warn(`   ⚠️ Holmes Place detail fetch failed for ${detailUrl}: ${err?.message || err}`);
+    return '';
+  } finally {
+    await page?.close().catch(() => undefined);
+  }
+}
+
+async function enrichHolmesPlaceListings(context, listings) {
+  const enriched = [];
+  for (const listing of listings) {
+    let description = listing.description || '';
+    if (listing.url) {
+      const detailDescription = await fetchHolmesPlaceDetailDescription(context, listing.url);
+      if (meetsSourceBodyFloor(detailDescription)) description = detailDescription;
+    }
+    enriched.push(description ? { ...listing, description } : listing);
+  }
+  return enriched;
+}
+
 function annotateNormalizedJobs(jobs, rawListings, fallbackOutcome = 'selector_miss') {
   const rawOutcome = rawListings?.fetchOutcome;
   Object.defineProperties(jobs, {
@@ -695,7 +816,12 @@ async function fetchJobListings() {
         const listings = extractHolmesPlaceListingsFromHtml(html, page.url() || sourceUrl);
         if (hasHolmesPlaceCareerMarkup(html, page.url() || sourceUrl)) sawRecognizedPage = true;
         if (listings.length > 0) {
-          return annotateListings(listings, 'ok', `${sourceUrl} listings=${listings.length}`);
+          const enrichedListings = await enrichHolmesPlaceListings(context, listings);
+          return annotateListings(
+            enrichedListings,
+            'ok',
+            `${sourceUrl} listings=${listings.length} detailEnriched=${enrichedListings.filter((listing) => listing.description).length}`,
+          );
         }
         console.warn(`   ⚠️ Holmes Place career page rendered but exposed no validated job rows: ${sourceUrl}`);
       } catch (err) {
@@ -825,5 +951,6 @@ export const __testables = {
   extractHolmesPlaceListingsFromDocument,
   extractHolmesPlaceListingsFromHtml,
   hasHolmesPlaceCareerMarkup,
+  extractHolmesPlaceDetailDescriptionFromHtml,
   buildHolmesPlaceJobSlug,
 };
