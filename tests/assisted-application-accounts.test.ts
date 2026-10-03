@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   CREATE_ACCOUNT_RE,
   authPageKind,
+  asksExistingPassword,
   codeField,
   hostKey,
   inlineAccountForm,
@@ -54,6 +55,13 @@ describe('portal account pages', () => {
     // A page without any <form> (script-driven): the page is the form.
     expect(inlineAccountForm({ fields: [field('f1', 'password', 'Password'), file('f2', 'CV')] })).toBe(true);
     expect(inlineAccountForm({ fields: [file('f2', 'CV')] })).toBe(false);
+    // Review of #11033: a password the account already has, inside the application's form, is a login.
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Login password', { form: 0, name: 'current-password' }), file('f2', 'Resume', { form: 0 })] })).toBe(false);
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Password', { form: 0, autocomplete: 'current-password' }), file('f2', 'Resume', { form: 0 })] })).toBe(false);
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Passwort (Anmeldung)', { form: 0 }), file('f2', 'Lebenslauf', { form: 0 })] })).toBe(false);
+    // umantis' own: «Password», autocomplete "new-password", next to «Email address/login».
+    expect(asksExistingPassword(field('f3', 'password', 'Password', { autocomplete: 'new-password', name: 'form_data12' }))).toBe(false);
+    expect(asksExistingPassword(field('f3', 'password', 'Mot de passe actuel'))).toBe(true);
   });
 
   it('makes a password every usual policy accepts: 20 characters, 16 on SuccessFactors', () => {

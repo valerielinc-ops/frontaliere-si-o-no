@@ -55,6 +55,11 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // A form that names the company needs no posting; an order that names nothing is never stopped.
     expect(formPostingMatch(`Grand Hotel Esempio · ${form}`, job)).toBe('match');
     expect(formPostingMatch('anything', {}, { postingMatched: true })).toBe('unknown');
+    // Review of #11033: a form that names another employer of the kind is a stop, whatever the posting said.
+    expect(formPostingMatch('Concierge — Other Hotel', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Concierge - Application | Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
+    // …while one that is silent about the employer goes on with the role alone.
+    expect(formPostingMatch('Concierge — Application Tracking System', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('match');
   });
 
   it('takes a form with its own password field for the form only when its button sends an application', () => {
