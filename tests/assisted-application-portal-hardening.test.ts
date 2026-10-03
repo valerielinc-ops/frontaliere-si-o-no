@@ -78,9 +78,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // Any company the form names by its legal form is another employer too, whatever its words.
     expect(formPostingMatch('Concierge — Palace Resort AG', job, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch('Concierge · Altra Azienda Sagl · Candidatura', job, { postingMatched: true })).toBe('mismatch');
-    expect(namesAnotherEmployer('Concierge — Other Hotel', job.company)).toBe(true);
-    expect(namesAnotherEmployer('Concierge — Palace Resort AG', job.company)).toBe(true);
-    expect(namesAnotherEmployer('Concierge - Application | Application Tracking System', job.company)).toBe(false);
+    expect(namesAnotherEmployer('Concierge — Other Hotel', job)).toBe(true);
+    expect(namesAnotherEmployer('Concierge — Palace Resort AG', job)).toBe(true);
+    expect(namesAnotherEmployer('Concierge - Application | Application Tracking System', job)).toBe(false);
+    // Second review of #11033: a shared word proves nothing without a context that identifies an employer.
+    // Its acceptance: «Concierge — Hotel application» → match, «Concierge — Other Hotel» → mismatch.
+    expect(formPostingMatch('Concierge — Hotel application', job, { postingMatched: true })).toBe('match');
+    expect(formPostingMatch('Concierge — Other Hotel', job, { postingMatched: true })).toBe('mismatch');
+    expect(namesAnotherEmployer('Concierge — Hotel application', job)).toBe(false);
+    // The page's own words and the role next to the shared word name nobody…
+    expect(formPostingMatch('Hotel Concierge · Bewerbung im Hotel Bereich · Hotel Jobs', job, { postingMatched: true })).toBe('match');
+    // …a proper name around it does, and so does a host.
+    expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
+    expect(namesAnotherEmployer('Concierge https://careers.recruiting-0000.example/apply', job)).toBe(false);
     // The whole name on the form is the direct match, as ever.
     expect(formPostingMatch('Concierge — Grand Hotel Esempio', job, { postingMatched: true })).toBe('match');
     expect(formPostingMatch('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' }, { postingMatched: true })).toBe('match');

@@ -346,16 +346,40 @@ export function postingMatch(pageText, job = {}) {
 // A company named by its legal form: «Palace Resort AG», «Altra Azienda Sagl», «Other Hotel Ltd».
 const LEGAL_FORM_NAME_RE = /\p{Lu}[\p{L}\p{N}&.'’-]*(?:\s+\p{Lu}[\p{L}\p{N}&.'’-]*){0,4},?\s+(?:AG|SA|GmbH|Sagl|S[aà]rl|Srl|S\.p\.A\.|SpA|Ltd|Inc|LLC|KG|SE)(?![\p{L}\p{N}])/u;
 
+// A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
+const FORM_VOCABULARY = new Set([
+  'application', 'applications', 'apply', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
+  'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
+  'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+]);
+// A proper name: two or more capitalised words in a row («Other Hotel», «Grand Resort»).
+const NAME_RUN_RE = /\p{Lu}[\p{L}\p{N}'’&-]*(?:\s+\p{Lu}[\p{L}\p{N}'’&-]*)+/gu;
+
 /**
- * The form names an employer that is not the order's (review of #11033): a
- * part of the order's company name without the rest («Concierge — Other
- * Hotel» for «Grand Hotel Esempio»), or any company by its legal form
- * («Palace Resort AG»). The order's own whole name never gets here: it is
- * postingMatch's direct match.
+ * The form names an employer that is not the order's (review of #11033). A
+ * word shared with the order's company proves nothing by itself («Hotel
+ * application» on Grand Hotel Esempio's own form): it must stand in a context
+ * that identifies an employer —
+ *   - a proper name or a host label that holds a word of the order's company
+ *     next to a word that is neither the company's, nor the role's, nor the
+ *     page's own vocabulary («Concierge — Other Hotel», «Grand Resort»,
+ *     «jobs.other-hotel.example»);
+ *   - or any company named by its legal form («Palace Resort AG»).
+ * The order's own whole name never gets here: it is postingMatch's direct match.
  */
-export function namesAnotherEmployer(formText, company) {
-  const onForm = new Set(nameWords(formText));
-  return nameWords(company).some((word) => onForm.has(word)) || LEGAL_FORM_NAME_RE.test(String(formText || ''));
+export function namesAnotherEmployer(formText, job = {}) {
+  const text = String(formText || '');
+  if (LEGAL_FORM_NAME_RE.test(text)) return true;
+  const ours = new Set(nameWords(job.company));
+  if (!ours.size) return false;
+  const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
+  const foreignName = (words) => words.some((word) => ours.has(word)) && words.some((word) => !neutral.has(word));
+  for (const [run] of text.matchAll(NAME_RUN_RE)) if (foreignName(nameWords(run))) return true;
+  for (const [, host] of text.matchAll(/https?:\/\/([a-z0-9.-]+)/gi)) {
+    if (host.toLowerCase().split('.').some((label) => foreignName(nameWords(label)))) return true;
+  }
+  return false;
 }
 
 /**
@@ -375,7 +399,7 @@ export function formPostingMatch(formText, job = {}, { postingMatched = false } 
   const direct = postingMatch(formText, job);
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
-  if (namesAnotherEmployer(formText, job.company)) return 'mismatch';
+  if (namesAnotherEmployer(formText, job)) return 'mismatch';
   return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
 }
 
