@@ -42,6 +42,9 @@
  * non si arrende: copia/ragionamento LLM in fix-untranslated-titles (fasi 2a.2 e
  * 2d, ogni run), slot mancante via `needsRetranslation` dell'assemblatore (2b).
  */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   DEFAULT_JOB_LOCALES,
   isTitleSourceCopy,
@@ -208,6 +211,112 @@ function lookupKeys(job) {
 }
 
 /**
+ * Indice multi-chiave dei job di uno slice, per ritrovare la versione
+ * precedente di un job (stessa ricerca di applyTranslationHold).
+ *
+ * @param {object[]} jobs
+ * @returns {Map<string, object>}
+ */
+export function indexTranslationHoldPriors(jobs) {
+  const priorByKey = new Map();
+  for (const prior of Array.isArray(jobs) ? jobs : []) {
+    if (!prior || typeof prior !== 'object') continue;
+    for (const key of lookupKeys(prior)) {
+      if (!priorByKey.has(key)) priorByKey.set(key, prior);
+    }
+  }
+  return priorByKey;
+}
+
+/**
+ * @param {object} job
+ * @param {Map<string, object>} priorByKey
+ * @returns {object|null}
+ */
+export function findTranslationHoldPrior(job, priorByKey) {
+  if (!job || typeof job !== 'object' || !(priorByKey instanceof Map)) return null;
+  for (const key of lookupKeys(job)) {
+    const prior = priorByKey.get(key);
+    if (prior) return prior;
+  }
+  return null;
+}
+
+/**
+ * Il job non è ancora ammesso in modo definitivo: porta il timbro (trattenuto,
+ * oppure tradotto ma non ancora rilasciato), la sua versione nello slice su
+ * disco lo porta, oppure è un arrivo nuovo con il titolo non tradotto, che
+ * writeJobsCrawlerSlice timbrerà. Il registro immutabile degli slug registra
+ * solo i job ammessi: un URL mai servito non deve entrarci, perché da lì
+ * mine-all-job-slugs lo trasformerebbe in un soft landing anche dopo che il
+ * job ha lasciato lo slice.
+ *
+ * @param {object} job
+ * @param {Map<string, object>} priorByKey  indice dello slice su disco
+ * @returns {boolean}
+ */
+export function isAwaitingAdmission(job, priorByKey) {
+  if (!isTranslationGatedJob(job)) return false;
+  if (job?.[TRANSLATION_HOLD_FIELD]) return true;
+  const prior = findTranslationHoldPrior(job, priorByKey);
+  if (prior) return Boolean(prior[TRANSLATION_HOLD_FIELD]);
+  return !hasPublishableTitles(job);
+}
+
+const DEFAULT_SLICES_DIR = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..',
+  '..',
+  'data',
+  'jobs',
+  'by-crawler',
+);
+
+/**
+ * Indice dei job degli slice di agenzia su disco: l'autorità sull'ammissione,
+ * perché è lì che writeJobsCrawlerSlice scrive il timbro. Uno slice assente o
+ * illeggibile conta come vuoto (ogni arrivo non tradotto è in attesa).
+ *
+ * @param {{ slicesDir?: string, keys?: string[] }} [opts]
+ * @returns {Map<string, object>}
+ */
+export function loadTranslationHoldPriorIndex({
+  slicesDir = DEFAULT_SLICES_DIR,
+  keys = TRANSLATION_HOLD_CRAWLER_KEYS,
+} = {}) {
+  const jobs = [];
+  for (const key of keys) {
+    if (!isTranslationHoldCrawlerKey(key)) continue;
+    try {
+      const data = JSON.parse(fs.readFileSync(path.join(slicesDir, `${normalizeKey(key)}.json`), 'utf8'));
+      const sliceJobs = Array.isArray(data) ? data : data?.jobs;
+      if (Array.isArray(sliceJobs)) jobs.push(...sliceJobs);
+    } catch { /* slice assente: nessun job ammesso da ritrovare */ }
+  }
+  return indexTranslationHoldPriors(jobs);
+}
+
+/**
+ * isAwaitingAdmission con l'indice caricato al primo job di agenzia che ne ha
+ * bisogno: un merge senza job di agenzia non legge nessuno slice.
+ *
+ * @param {{ slicesDir?: string }} [opts]
+ * @returns {(job: object) => boolean}
+ */
+export function createAwaitingAdmissionCheck({ slicesDir } = {}) {
+  const indexes = new Map();
+  return (job) => {
+    if (!isTranslationGatedJob(job)) return false;
+    if (job?.[TRANSLATION_HOLD_FIELD]) return true;
+    const key = normalizeKey(job.companyKey);
+    if (!indexes.has(key)) {
+      indexes.set(key, loadTranslationHoldPriorIndex({ ...(slicesDir ? { slicesDir } : {}), keys: [key] }));
+    }
+    return isAwaitingAdmission(job, indexes.get(key));
+  };
+}
+
+/**
  * Timbra lo stato di ammissione al momento in cui il crawler scrive lo slice.
  *
  * - job già presente nello slice su disco e non trattenuto (pubblicato prima di
@@ -241,20 +350,10 @@ export function applyTranslationHold(crawlerKey, nextJobs, existingJobs, { now =
     return stats;
   }
   stats.gated = true;
-  const priorByKey = new Map();
-  for (const prior of Array.isArray(existingJobs) ? existingJobs : []) {
-    if (!prior || typeof prior !== 'object') continue;
-    for (const key of lookupKeys(prior)) {
-      if (!priorByKey.has(key)) priorByKey.set(key, prior);
-    }
-  }
+  const priorByKey = indexTranslationHoldPriors(existingJobs);
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
-    let prior = null;
-    for (const key of lookupKeys(job)) {
-      prior = priorByKey.get(key) || null;
-      if (prior) break;
-    }
+    const prior = findTranslationHoldPrior(job, priorByKey);
     if (prior?.[TRANSLATION_HOLD_RELEASED_FIELD] && !job[TRANSLATION_HOLD_RELEASED_FIELD]) {
       job[TRANSLATION_HOLD_RELEASED_FIELD] = prior[TRANSLATION_HOLD_RELEASED_FIELD];
     }

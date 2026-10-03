@@ -65,7 +65,7 @@ import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
-import { isHeldFromPublication } from './translation-publication-hold.mjs';
+import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 
@@ -8997,6 +8997,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   }
 
   const slugRegistry = loadSlugRegistry();
+  // Agency admission threshold: the registry holds only admitted jobs. Judged
+  // against the agency slice on disk, not against this merge's inputs: in the
+  // crawler's localization pass (crawler-template Step 5) `existingJobs` is a
+  // scratch copy and a new arrival is not stamped until writeJobsCrawlerSlice.
+  const awaitingAdmission = createAwaitingAdmissionCheck(
+    options.translationHoldSlicesDir ? { slicesDir: options.translationHoldSlicesDir } : {},
+  );
   let registryHits = 0;
   let registryNewEntries = 0;
   let registryDemotions = 0;
@@ -9054,7 +9061,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       // only the source-locale slug, so the other locales never get pinned and
       // churn every crawl → old per-locale URL stranded. Persisting the current
       // real translation makes the registry immutable per-locale going forward.
-      registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
+      if (!awaitingAdmission(job)) registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
       const lost = captureLostSlugs(job, prevSlugByLocale, prevSlug);
       if (lost.length > 0) registryDemotions += lost.length;
       usedSlugs.add(job.slug);
@@ -9071,12 +9078,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     job.slug = candidate;
     usedSlugs.add(candidate);
-    // A job held out of publication for translation has no public URL yet:
-    // pinning its source-language slug would make it immutable before the
-    // translated title exists, and mine-all-job-slugs would turn the registry
-    // entry into an expired soft-landing for a route nobody was ever served.
-    // It is registered on the first pass after release, like a new job.
-    if (isHeldFromPublication(job)) continue;
+    // A job held out of publication for translation, or a new agency arrival
+    // the slice writer is about to hold, has no public URL yet: pinning its
+    // source-language slug would freeze it before the translated title exists,
+    // and mine-all-job-slugs would turn the registry entry into an expired
+    // soft-landing for a route nobody was ever served — even after the job has
+    // left its slice. It is registered on the first pass after release.
+    if (awaitingAdmission(job)) continue;
     const sizeBefore = Object.keys(slugRegistry).length;
     registerJobSlug(job, slugRegistry);
     if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;

@@ -10,6 +10,7 @@
  * registro degli slug, alert. L'assemblatore vero gira in
  * tests/scripts/assemble-translation-hold.test.ts.
  */
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -28,7 +29,13 @@ import {
 } from '../scripts/lib/translation-publication-hold.mjs';
 import { archiveRemovedJobsToSlice } from '../scripts/lib/expired-jobs-archive.mjs';
 import { selectNewlyPublishedJobs } from '../scripts/send-company-alerts.mjs';
-import { isHeldOnlySlugForSource, mineActiveJobs } from '../scripts/mine-all-job-slugs.mjs';
+import {
+  isHeldOnlySlugForSource,
+  mergeMinedSources,
+  mineActiveJobs,
+  mineGitRemovedSlugs,
+  mineSlugRegistry,
+} from '../scripts/mine-all-job-slugs.mjs';
 import { releaseTranslationHolds } from '../scripts/release-translation-holds.mjs';
 
 const DAY = 86_400_000;
@@ -285,7 +292,7 @@ describe('nessuna pagina scaduta, soft landing o alert per un job trattenuto', (
     const { mergeAndDeduplicate } = await import('../scripts/lib/dedicated-crawler-common.mjs');
     const held = { ...agencyJob(1, { [TRANSLATION_HOLD_FIELD]: daysAgo(2) }), description: 'x'.repeat(200), source: 'Company Careers Crawler' };
     const published = { ...translated(agencyJob(2)), description: 'y'.repeat(200), source: 'Company Careers Crawler' };
-    mergeAndDeduplicate([], [held, published], {});
+    mergeAndDeduplicate([], [held, published], {}, { translationHoldSlicesDir: dir });
     const registry = JSON.parse(fs.readFileSync(regPath, 'utf8'));
     const pinned = Object.values(registry).map((entry: any) => (typeof entry === 'string' ? entry : entry.canonicalSlug));
     expect(pinned.some((slug) => String(slug).includes('-2-'))).toBe(true);
@@ -301,5 +308,123 @@ describe('nessuna pagina scaduta, soft landing o alert per un job trattenuto', (
     const standing = translated(agencyJob(2, { firstSeenAt: daysAgo(6) }));
     const selected = selectNewlyPublishedJobs([released, standing], now, 6 * 60 * 60 * 1000);
     expect(selected.map((job: Job) => job.id)).toEqual([released.id]);
+  });
+});
+
+describe('un job trattenuto che lascia lo slice prima del rilascio non diventa un soft landing', () => {
+  const git = (cwd: string, ...args: string[]) => execFileSync('git', [
+    '-c', 'commit.gpgsign=false', '-c', 'user.name=hold-test', '-c', 'user.email=hold-test@example.invalid', ...args,
+  ], { cwd, encoding: 'utf8' });
+  const crawled = (job: Job): Job => ({ ...job, description: `${job.title} `.repeat(12), source: 'Company Careers Crawler' });
+  const routeSlugs = (job: Job): string[] => [job.slug, ...Object.values(job.slugByLocale || {}) as string[], ...(job.previousSlugs || [])];
+  const registeredSlugs = (regPath: string): Set<string> => {
+    const out = new Set<string>();
+    for (const entry of Object.values(JSON.parse(fs.readFileSync(regPath, 'utf8'))) as any[]) {
+      if (typeof entry === 'string') { out.add(entry); continue; }
+      if (entry?.canonicalSlug) out.add(entry.canonicalSlug);
+      for (const value of Object.values(entry?.slugByLocale || {})) out.add(String(value));
+    }
+    return out;
+  };
+  const writeSlice = (dir: string, jobs: Job[]) => {
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'sta.json'), `${JSON.stringify({ crawlerKey: 'sta', jobs }, null, 2)}\n`);
+  };
+
+  it('the crawler localization pass does not register a new untranslated arrival before the slice writer stamps it', async () => {
+    const dir = tmpDir('held-first-crawl-');
+    const slicesDir = path.join(dir, 'by-crawler');
+    const regPath = path.join(dir, 'slug-registry.json');
+    fs.writeFileSync(regPath, '{}', 'utf-8');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = regPath;
+    const grandfathered = crawled(agencyJob(1));
+    const stampedOnDisk = crawled(agencyJob(4, { [TRANSLATION_HOLD_FIELD]: daysAgo(2) }));
+    writeSlice(slicesDir, [grandfathered, stampedOnDisk]);
+    const { mergeAndDeduplicate } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    // crawler-template Step 5: the scratch copy carries no stamp yet.
+    const newArrival = crawled(agencyJob(2));
+    const translatedArrival = crawled(translated(agencyJob(3)));
+    const scratchCopyOfHeld = crawled(agencyJob(4));
+    mergeAndDeduplicate([grandfathered, newArrival, translatedArrival, scratchCopyOfHeld], [], {}, {
+      localizeExistingOnly: true,
+      translationHoldSlicesDir: slicesDir,
+    });
+    const registered = registeredSlugs(regPath);
+    expect(registered.has(grandfathered.slug)).toBe(true); // already public: unchanged
+    expect(registered.has(translatedArrival.slug)).toBe(true); // admitted on arrival
+    for (const slug of routeSlugs(newArrival)) expect(registered.has(slug)).toBe(false);
+    for (const slug of routeSlugs(scratchCopyOfHeld)) expect(registered.has(slug)).toBe(false);
+  });
+
+  it('registry, git history and slices: the departed held job is mined nowhere; the released job keeps its held-era slugs', async () => {
+    const repo = tmpDir('held-departed-repo-');
+    const slicesDir = path.join(repo, 'data', 'jobs', 'by-crawler');
+    const regPath = path.join(tmpDir('held-departed-registry-'), 'slug-registry.json');
+    fs.writeFileSync(regPath, '{}', 'utf-8');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = regPath;
+    const { mergeAndDeduplicate } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    git(repo, 'init', '-q');
+    const commit = (jobs: Job[], message: string) => {
+      writeSlice(slicesDir, jobs);
+      git(repo, 'add', '-A');
+      git(repo, 'commit', '-q', '-m', message);
+    };
+
+    // Before: two published (pre-threshold) agency jobs.
+    const published = crawled(agencyJob(1));
+    const expiring = crawled(agencyJob(4));
+    commit([published, expiring], 'seed');
+
+    // First crawl of two untranslated arrivals: localization pass, then the
+    // slice writer stamps them.
+    const departing = crawled(agencyJob(2));
+    const releasedLater = crawled(agencyJob(3));
+    mergeAndDeduplicate([published, expiring, departing, releasedLater], [], {}, {
+      localizeExistingOnly: true, translationHoldSlicesDir: slicesDir,
+    });
+    const crawl1 = [published, expiring, departing, releasedLater].map((job) => ({ ...job }));
+    applyTranslationHold('sta', crawl1, [published, expiring], { now: daysAgo(2) });
+    commit(crawl1, 'crawl: two agency arrivals held');
+
+    // translate-pending translates one of them; slug regeneration keeps the
+    // held-era slugs as bridges, the release step admits it.
+    const heldEra = crawl1.find((job) => job.id === releasedLater.id)!;
+    const released: Job = {
+      ...translated(heldEra),
+      slug: 'polimeccanico-a-produzione-cnc-3-sta-personal-ag-zurich',
+      slugByLocale: {
+        it: 'polimeccanico-a-produzione-cnc-3-sta-personal-ag-zurich',
+        en: 'cnc-production-polymechanic-3-sta-personal-ag-zurich',
+        de: heldEra.slugByLocale.de,
+        fr: 'polymecanicien-ne-production-cnc-3-sta-personal-ag-zurich',
+      },
+      previousSlugs: [heldEra.slugByLocale.it, heldEra.slugByLocale.en, heldEra.slugByLocale.fr],
+    };
+    const crawl2 = crawl1.map((job) => (job.id === released.id ? released : job));
+    expect(releaseTranslatedHolds(crawl2, { now: daysAgo(1) })).toBe(1);
+    commit(crawl2, 'translate-pending: release');
+    // Next pass over the admitted job registers it.
+    mergeAndDeduplicate(crawl2, [], {}, { localizeExistingOnly: true, translationHoldSlicesDir: slicesDir });
+
+    // The held job and an ordinary published job leave the source.
+    const heldDeparted = crawl2.find((job) => job.id === departing.id)!;
+    expect(isHeldFromPublication(heldDeparted)).toBe(true);
+    commit(crawl2.filter((job) => job.id !== departing.id && job.id !== expiring.id), 'crawl: two jobs gone');
+
+    const gitMined = mineGitRemovedSlugs({ cwd: repo });
+    for (const slug of routeSlugs(heldDeparted)) expect(gitMined.has(slug)).toBe(false);
+    expect(gitMined.has(expiring.slug)).toBe(true); // a public removal is still mined
+    const registered = registeredSlugs(regPath);
+    for (const slug of routeSlugs(heldDeparted)) expect(registered.has(slug)).toBe(false);
+    expect(registered.has(released.slug)).toBe(true); // registered once admitted
+
+    const { allSlugs } = mergeMinedSources([
+      { name: 'Active jobs', fn: () => mineActiveJobs(slicesDir) },
+      { name: 'Slug registry', fn: () => mineSlugRegistry(regPath) },
+      { name: 'Git history (removed slugs)', fn: () => mineGitRemovedSlugs({ cwd: repo }) },
+    ]);
+    for (const slug of routeSlugs(heldDeparted)) expect(allSlugs.has(slug)).toBe(false);
+    for (const slug of [...routeSlugs(released), ...routeSlugs(heldEra)]) expect(allSlugs.has(slug)).toBe(true);
+    for (const slug of [...routeSlugs(published), ...routeSlugs(expiring)]) expect(allSlugs.has(slug)).toBe(true);
   });
 });

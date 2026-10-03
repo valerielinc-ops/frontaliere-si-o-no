@@ -192,6 +192,9 @@ describe('soglia di ammissione agenzie — writer + assemblatore reali', () => {
 
     const projection = assemble({ JOBS_INCLUDE_TRANSLATION_HELD: '1' });
     expect(ids(projection.data)).toEqual(['coop-hold-9', 'sta-hold-1', 'sta-hold-2', 'sta-hold-3']);
+    // The stamp travels with the job: translate-pending's writers (scatter,
+    // relocalize) and its registry guard read it from data/jobs.json.
+    expect(projection.data.find((job) => job.id === 'sta-hold-2')?.translationHoldSince).toBeTruthy();
     // The projection is for translate-pending only: the site count is unchanged.
     expect(readJson('data/jobs-meta.json').totalJobs).toBe(3);
   });
