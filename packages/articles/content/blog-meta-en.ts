@@ -12436,6 +12436,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-pusher-consegne-domicilio.title': 'Como, drug dealer arrested for home deliveries',
     'blog.article.como-pusher-consegne-domicilio.excerpt': 'The State Police of Como arrested a 48-year-old man: 51.45 grams of cocaine in 86 doses, 120 euros, and another 141.18 grams of cocaine seized.',
     'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Como, State Police operation against drug dealing in the city.',
+    'blog.article.martina-bonalumi-podio-canottaggio.title': 'Martina Bonalumi: double international podium finish in the eight',
+    'blog.article.martina-bonalumi-podio-canottaggio.excerpt': 'The coxswain of Dumenza wins bronze at the FISU World University Championships in Canada and silver at the Under-23 European Championships in Poland.',
+    'blog.article.martina-bonalumi-podio-canottaggio.imageAlt': 'Rowing boat on an alpine lake',
 };
 
 export default blogMetaEn;
