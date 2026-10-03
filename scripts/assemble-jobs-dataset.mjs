@@ -3180,7 +3180,11 @@ async function assembleJobs() {
     // across the corpus. Conflicting source rows cannot safely nominate a
     // crawler stamp, so the assembled field remains the only inference input.
     const sourceAmbiguous = sourceLookup.status === 'ambiguous';
-    const crawlerCanton = sourceAmbiguous ? '' : sourceRecord?.canton || (job.canton || '');
+    const crawlerCanton = sourceAmbiguous
+      ? ''
+      : sourceRecord
+        ? sourceRecord.canton
+        : (job.canton || '');
     const city = String(job.addressLocality || job.location || '').trim();
     const location = job.location;
     const hasCity = city.length >= 2 && city !== 'CH';
