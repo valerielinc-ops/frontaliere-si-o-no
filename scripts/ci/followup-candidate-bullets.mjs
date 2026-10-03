@@ -287,6 +287,25 @@ export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, 
  * @param {Array<{number: number|string, bullets?: object[], error?: string}>} entries
  * @param {{manifestOk: boolean, repos?: {site: string, corpus: string}}} meta
  */
+/**
+ * Le regole con cui il triage legge la sezione. Stanno QUI, nel testo generato
+ * accanto ai dati che governano, e non nel prompt del workflow: GitHub rifiuta
+ * un prompt block scalar oltre 20.000 caratteri (`PROMPT_SCALAR_LIMIT` in
+ * `scripts/ci/validate-modified-workflows.mjs`), e il prompt di
+ * `post-merge-followup.yml` ci era arrivato sopra portandosele dentro. Nel
+ * prompt resta il riassunto vincolante; il dettaglio viaggia col bundle.
+ */
+export const CANDIDATE_BULLETS_READING_RULES = Object.freeze([
+  '### Regole di lettura',
+  '',
+  '- `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` / «falso positivo» · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` («Nessuno» con motivo) → NON creare issue: decide questa sezione, non una rilettura.',
+  '- `candidate: false` con `reason: hard-exclude` → è un match LESSICALE, non un verdetto: il triage applica le proprie regole hard-exclude, compresa l\'eccezione del residuo che mescola una prova live con un\'edit concreta (quello resta actionable).',
+  '- `candidate: true` significa AMMISSIBILE, non «da coniare»: l\'item passa comunque dai filtri successivi (hard-exclude, condizione di accettazione, dedup, in-flight overlap).',
+  '- `candidate: true` con `blocked: <causa>` → resta candidato; la causa va nel campo `Blocked on:` dell\'item. Se la causa NON è di codice (fonte esterna, terzi, decisione attesa) l\'item si conia con `State: blocked`: resta tracciato e non entra nella selezione del fixer.',
+  '- `candidate: true` senza stato → resta candidato (fail-safe: un residuo non qualificato è lavoro potenzialmente dovuto, e tacerlo è peggio che generare una traccia).',
+  '- Solo `kind: bullet` è materia di conio decisa da questa sezione. `kind: prose` è una riga non di lista (continuazione del bullet che la precede, o una nota): va letta come contesto e coniata solo se da sola descrive lavoro residuo. Le righe di servizio (`Closes`/`Addresses #N`, `Follow-up item:`) non sono in questa sezione e non si coniano.',
+]);
+
 export function renderCandidateBulletsSection(entries, { manifestOk, repos = DEFAULT_REPOS }) {
   const lines = [
     '## Candidate bullets',
@@ -297,6 +316,8 @@ export function renderCandidateBulletsSection(entries, { manifestOk, repos = DEF
     '`candidate: true` = ammissibile, soggetto ai filtri del triage. `routes[].repo` + `targetPath` = `Target repository` + `Target file`',
     `(\`site\` = ${repos.site}, \`corpus\` = ${repos.corpus}, \`unknown\` = non verificato).`,
     `Manifest di mirror: ${manifestOk ? 'letto' : 'NON leggibile (ogni route è `unknown`)'}.`,
+    '',
+    ...CANDIDATE_BULLETS_READING_RULES,
     '',
   ];
   for (const entry of entries) {

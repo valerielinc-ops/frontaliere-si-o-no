@@ -2,6 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
+import {
+  CANDIDATE_BULLETS_READING_RULES,
+  renderCandidateBulletsSection,
+} from '../scripts/ci/followup-candidate-bullets.mjs';
+import { validateWorkflowText } from '../scripts/ci/validate-modified-workflows.mjs';
 
 const workflowPath = path.resolve('.github/workflows/post-merge-followup.yml');
 
@@ -66,6 +71,30 @@ describe('post-merge follow-up triage prompt', () => {
     expect(absent).toBeLessThan(prompt.indexOf('scripts/ci/gate-minted-followups.mjs'));
     expect(prompt).toContain('NON trova oggi');
     expect(prompt).toContain('already-on-main');
+  });
+
+  // GitHub rifiuta un prompt block scalar (e il blocco `with:` che lo contiene)
+  // oltre 20.000 caratteri: il workflow non parte e nessun test di contenuto lo
+  // dice. E' la stessa funzione del gate «Validate modified workflows», qui
+  // perche' chi tocca il prompt lo veda in locale. Il dettaglio delle regole
+  // vive nella sezione generata proprio per tenere il prompt sotto il limite.
+  it('prompt e blocco with restano sotto il limite di GitHub', () => {
+    const text = fs.readFileSync(workflowPath, 'utf8');
+    expect(validateWorkflowText('.github/workflows/post-merge-followup.yml', text)).toEqual([]);
+  });
+
+  it('rimanda alle regole di lettura che la sezione generata porta con se\'', () => {
+    expect(prompt).toContain('«Regole di lettura»');
+    expect(CANDIDATE_BULLETS_READING_RULES[0]).toBe('### Regole di lettura');
+    const section = renderCandidateBulletsSection([], { manifestOk: true });
+    for (const rule of CANDIDATE_BULLETS_READING_RULES) expect(section).toContain(rule);
+    // Le sei regole di dettaglio: nel prompt resta solo il riassunto.
+    expect(section).toMatch(/`candidate: false` con `reason: closing-state` \(`in questa PR`/);
+    expect(section).toMatch(/`reason: hard-exclude` → è un match LESSICALE/);
+    expect(section).toMatch(/`candidate: true` significa AMMISSIBILE/);
+    expect(section).toMatch(/`candidate: true` con `blocked: <causa>`[^\n]*`State: blocked`/);
+    expect(section).toMatch(/`candidate: true` senza stato → resta candidato/);
+    expect(section).toMatch(/Solo `kind: bullet` è materia di conio[^\n]*`kind: prose`/);
   });
 
   it('instrada con le route del bundle e marca quelle non verificate', () => {
