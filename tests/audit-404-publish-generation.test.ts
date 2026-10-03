@@ -52,23 +52,36 @@ function loadHelpers(env: Record<string, string> = {}) {
   const src = `
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
     const process = { env: ${JSON.stringify(env)} };
+    const flatString = (value) => value;
     ${pick('localeOf')}
+    ${pick('extractAlternateHrefs')}
     ${constBlock('SECTION_BY_ROUTE_PREFIX')}
     ${pick('shardOwnerOf')}
     ${pick('ownerGeneration')}
     ${pick('classifyOffender')}
     ${pick('splitByGeneration')}
+    ${pick('isSourceSnapshotNewer')}
+    ${pick('splitHubOffenders')}
     ${constBlock('SHARD_MAX_AGE_H')}
     ${pick('generationSummary')}
-    return { shardOwnerOf, classifyOffender, splitByGeneration, generationSummary };
+    return { extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, splitHubOffenders, generationSummary };
   `;
   // eslint-disable-next-line no-new-func
   return new Function(src)() as {
+    extractAlternateHrefs: (xml: string) => string[];
     shardOwnerOf: (p: string) => { kind: string; section?: string; loc: string };
     classifyOffender: (p: string, gen: unknown) => string;
     splitByGeneration: (paths: string[], gen: unknown) => { unserved: string[]; skew: string[] };
+    splitHubOffenders: (
+      offenders: Array<Record<string, unknown>>,
+      deployedSitemapPaths: Set<string>,
+      sourceAssembledAtByCompany: Map<string, string>,
+      deployedAt: string | null,
+      generation: unknown,
+    ) => { unserved: Array<Record<string, unknown>>; publishSkew: Array<Record<string, unknown>>; sourceSkew: Array<Record<string, unknown>> };
     generationSummary: (gen: unknown, now?: number) => {
       apexSha: string | null;
+      apexAt: string | null;
       shardsTotal: number;
       shardsSameGeneration: number;
       offGeneration: Array<{ shard: string }>;
@@ -78,6 +91,20 @@ function loadHelpers(env: Record<string, string> = {}) {
 }
 
 const APEX = 'b4ece24cbb661929f597d667fe3a507a5aa1c8ee';
+
+describe('deployed sitemap inventory — locale alternates are part of the set', () => {
+  it('extracts xhtml alternate hrefs without changing the <loc> coverage count', () => {
+    const { extractAlternateHrefs } = loadHelpers();
+    expect(extractAlternateHrefs(`
+      <url><loc>https://frontaliereticino.ch/cerca-lavoro-ticino/</loc>
+      <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/jobs-im-tessin/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/trouver-emploi-tessin/" /></url>
+    `)).toEqual([
+      'https://frontaliereticino.ch/de/jobs-im-tessin/',
+      'https://frontaliereticino.ch/fr/trouver-emploi-tessin/',
+    ]);
+  });
+});
 
 describe('shardOwnerOf — which repo actually serves a path', () => {
   const { shardOwnerOf } = loadHelpers();
@@ -143,6 +170,88 @@ describe('classifyOffender — sound verdict vs snapshot skew', () => {
     expect(unserved).toEqual(['/en/find-jobs-ticino/a', '/fr/c']);
     expect(skew).toEqual(['/de/jobs-im-tessin/b', '/de/border-wait/x/2026-07']);
     expect(unserved.length + skew.length).toBe(paths.length);
+  });
+});
+
+describe('splitHubOffenders — current crawler data vs deployed pages', () => {
+  const generation = {
+    apexSha: APEX,
+    shards: {},
+    sectionShards: { ticino: { de: { sha: 'b4ece24c', at: '2026-10-02T08:00:00Z' } } },
+  };
+
+  it('defers a canonical hub absent from the live sitemap only when its source is newer', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const result = splitHubOffenders(
+      [{
+        company: 'Città di Locarno',
+        locale: 'de',
+        builderUrl: '/de/jobs-im-tessin/unternehmen-citta-di-locarno',
+        expectedUrl: '/de/jobs-im-tessin/unternehmen-citta-di-locarno',
+      }],
+      new Set(),
+      new Map([['Città di Locarno', '2026-10-02T09:10:46Z']]),
+      '2026-10-02T08:00:00Z',
+      generation,
+    );
+    expect(result.sourceSkew).toHaveLength(1);
+    expect(result.unserved).toHaveLength(0);
+    expect(result.publishSkew).toHaveLength(0);
+  });
+
+  it('keeps old or ambiguous missing hubs as failures', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const base = {
+      company: 'Old Company',
+      locale: 'de',
+      builderUrl: '/de/jobs-im-tessin/unternehmen-old-company',
+      expectedUrl: '/de/jobs-im-tessin/unternehmen-old-company',
+    };
+    const result = splitHubOffenders(
+      [base, { ...base, company: 'Unknown Company', builderUrl: '/de/jobs-im-tessin/unternehmen-unknown-company', expectedUrl: '/de/jobs-im-tessin/unternehmen-unknown-company' }],
+      new Set(),
+      new Map([['Old Company', '2026-10-01T08:00:00Z']]),
+      '2026-10-02T08:00:00Z',
+      generation,
+    );
+    expect(result.unserved.map((o) => o.company)).toEqual(['Old Company', 'Unknown Company']);
+    expect(result.sourceSkew).toHaveLength(0);
+  });
+
+  it('never defers a wrong locale prefix as source skew', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const offGeneration = {
+      ...generation,
+      sectionShards: { ticino: { de: { sha: 'aaaaaaaa', at: '2026-10-02T08:30:00Z' } } },
+    };
+    const result = splitHubOffenders(
+      [{
+        company: 'Città di Locarno',
+        locale: 'de',
+        builderUrl: '/de/jobs-im-tessin/azienda-citta-di-locarno',
+        expectedUrl: '/de/jobs-im-tessin/unternehmen-citta-di-locarno',
+      }],
+      new Set(),
+      new Map([['Città di Locarno', '2026-10-02T09:10:46Z']]),
+      '2026-10-02T08:00:00Z',
+      offGeneration,
+    );
+    expect(result.unserved).toHaveLength(1);
+    expect(result.publishSkew).toHaveLength(0);
+    expect(result.sourceSkew).toHaveLength(0);
+  });
+});
+
+describe('sitemap inventory completeness', () => {
+  it('fails before newsletter hub classification when a child fetch fails', () => {
+    const childFailure = SCRIPT.indexOf('failedSitemapChildren.push(child)');
+    const guard = SCRIPT.indexOf('if (failedSitemapChildren.length > 0)');
+    const newsletterCheck = SCRIPT.indexOf('// ── (B) NEWSLETTER HUB-LINK CORRECTNESS');
+
+    expect(childFailure).toBeGreaterThan(-1);
+    expect(guard).toBeGreaterThan(childFailure);
+    expect(guard).toBeLessThan(newsletterCheck);
+    expect(SCRIPT.slice(guard, newsletterCheck)).toContain('process.exit(2)');
   });
 });
 
