@@ -356,7 +356,7 @@ async function main() {
     }
   }
   if (skipped > 0) {
-    console.warn(`  ⚠️  Skipped ${skipped}/${listings.length} detail pages due to errors`);
+    throw new Error(`Failed to fetch complete A++ Group job details (${skipped}/${listings.length} skipped)`);
   }
 
   if (jobs.length === 0) {
