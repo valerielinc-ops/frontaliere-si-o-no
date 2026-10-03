@@ -30,6 +30,11 @@
  * the outbound jobup.ch apply link — no JSON-LD JobPosting block is present,
  * so this parser builds the description from the visible rich-text block.
  *
+ * If the embedded Company Page stops exposing its cards, the employer's
+ * Jobup company profile is used as a same-publisher fallback. This preserves
+ * the fail-closed behavior for an actually unreadable source while avoiding a
+ * false zero when JobCloud changes the embedded page URL or markup.
+ *
  * Small volume (3 open postings, confirmed live) is expected and normal for
  * a cantonal Red Cross section of this size — same class as Hospice général
  * (4) / EPI Genève (11), not a sign of a broken source.
@@ -77,6 +82,8 @@ const LISTING_ID = '1773421929172x328595190866247700';
 const ATS_HOST = 'company.jobcloud.ch';
 // locale-segment-ok: '/fr/' is JobCloud's own Company Page URL path, the org only publishes this listing in French
 const LISTING_URL = `https://${ATS_HOST}/fr/job-list/${LISTING_ID}`;
+const JOBUP_HOST = 'www.jobup.ch';
+const JOBUP_COMPANY_URL = 'https://www.jobup.ch/fr/societes/26216-croix-rouge-fribourgeoise/emplois/';
 
 const SECTOR = 'Sociale / Socio-sanitario';
 
@@ -135,7 +142,7 @@ export function isCroixRougeFribourgeoiseJob(job) {
 
 /**
  * Validate that a URL belongs to Croix-Rouge fribourgeoise's own domain or
- * the JobCloud company-page host that actually serves the job postings.
+ * one of the two JobCloud-hosted public job pages used by this parser.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -143,7 +150,9 @@ export function isTrustedDomain(rawUrl = '') {
     return (
       host === ATS_HOST ||
       host === CROIX_ROUGE_FRIBOURGEOISE_COMPANY_DOMAIN ||
-      host === `www.${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_DOMAIN}`
+      host === `www.${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_DOMAIN}` ||
+      host === JOBUP_HOST ||
+      host === 'jobup.ch'
     );
   } catch {
     return false;
@@ -173,6 +182,8 @@ function detectExperienceLevel(title = '') {
 function detectEmploymentType(occupationRange = '', title = '') {
   const t = normalize(title);
   if (/\b(apprenti|stagiaire|stage|praktikant|lernende?)\b/.test(t)) return 'INTERN';
+  if (/\bpart[\s-]?time|teilzeit|temps\s+partiel/.test(normalize(occupationRange))) return 'PART_TIME';
+  if (/\bfull[\s-]?time|vollzeit|temps\s+plein/.test(normalize(occupationRange))) return 'FULL_TIME';
   const matches = [...String(occupationRange || '').matchAll(/(\d{1,3})\s*%/g)].map((m) => Number(m[1]));
   const max = matches.length ? Math.max(...matches) : null;
   if (max !== null && max > 0 && max < 90) return 'PART_TIME';
@@ -236,12 +247,43 @@ export function resolveAddress(rawLocation = '') {
  * @returns {string[]} Unique relative hrefs, e.g. ["/fr/jobs/{uuid}", ...].
  */
 export function extractListingLinks(html = '') {
-  const re = /href="(\/[a-z]{2}\/jobs\/[0-9a-fA-F-]{36})"/g;
+  const re = /href\s*=\s*(["'])((?:https?:\/\/company\.jobcloud\.ch)?\/[a-z]{2}\/jobs\/[0-9a-fA-F-]{36}\/?(?:[?#][^"']*)?)\1/gi;
   const seen = new Set();
   let m;
   // eslint-disable-next-line no-cond-assign
   while ((m = re.exec(html)) !== null) {
-    seen.add(m[1]);
+    const rawHref = decodeNumericEntities(m[2]).replace(/&amp;/g, '&');
+    try {
+      const parsed = new URL(rawHref, `https://${ATS_HOST}`);
+      if (parsed.hostname.toLowerCase() !== ATS_HOST) continue;
+      seen.add(rawHref.startsWith('/') ? `${parsed.pathname}${parsed.search}` : parsed.href);
+    } catch {
+      // Ignore malformed source links and keep scanning the listing page.
+    }
+  }
+  return [...seen];
+}
+
+/**
+ * Extract Jobup company-profile detail links. Jobup currently renders these
+ * cards server-side, but the profile has used both relative and absolute
+ * hrefs (and both quote styles) over time.
+ */
+export function extractJobupListingLinks(html = '') {
+  const re = /href\s*=\s*(["'])((?:https?:\/\/(?:www\.)?jobup\.ch)?\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-fA-F-]{36}\/?(?:[?#][^"']*)?)\1/gi;
+  const seen = new Set();
+  let m;
+  // eslint-disable-next-line no-cond-assign
+  while ((m = re.exec(html)) !== null) {
+    const rawHref = decodeNumericEntities(m[2]).replace(/&amp;/g, '&');
+    try {
+      const parsed = new URL(rawHref, `https://${JOBUP_HOST}`);
+      const host = parsed.hostname.toLowerCase();
+      if (host !== JOBUP_HOST && host !== 'jobup.ch') continue;
+      seen.add(parsed.href);
+    } catch {
+      // Ignore malformed source links and keep scanning the listing page.
+    }
   }
   return [...seen];
 }
@@ -256,9 +298,12 @@ export function extractListingLinks(html = '') {
  */
 function extractKeyInfoValue(html, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(`${escaped}:?</div><div class="text-size-small">([^<]*)</div>`);
+  const re = new RegExp(
+    `<div[^>]*>\\s*${escaped}:?\\s*</div>\\s*<div[^>]*class=["'][^"']*\\btext-size-small\\b[^"']*["'][^>]*>([\\s\\S]*?)</div>`,
+    'i',
+  );
   const m = html.match(re);
-  return m ? normalizeSpace(decodeNumericEntities(m[1])) : '';
+  return m ? normalizeSpace(decodeNumericEntities(stripHtml(m[1]))) : '';
 }
 
 /**
@@ -285,8 +330,68 @@ function extractRichTextBlock(html = '') {
  * @returns {string}
  */
 function extractApplyUrl(html = '') {
-  const m = html.match(/<a href="([^"]+)"[^>]*id="job-ad-apply-btn"/);
-  return m ? decodeNumericEntities(m[1]).replace(/&amp;/g, '&') : '';
+  const m = html.match(/<a\b[^>]*href\s*=\s*(["'])([^"']+)\1[^>]*id\s*=\s*(["'])job-ad-apply-btn\3/i);
+  return m ? decodeNumericEntities(m[2]).replace(/&amp;/g, '&') : '';
+}
+
+function extractJobupPostingJsonLd(html = '') {
+  const blocks = html.match(/<script\b[^>]*type\s*=\s*(["'])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/gi) || [];
+  for (const block of blocks) {
+    const payload = block.replace(/^<script\b[^>]*>/i, '').replace(/<\/script>$/i, '').trim();
+    try {
+      const parsed = JSON.parse(payload);
+      const candidates = [
+        ...(Array.isArray(parsed) ? parsed : [parsed]),
+        ...(Array.isArray(parsed?.['@graph']) ? parsed['@graph'] : []),
+      ];
+      const posting = candidates.find((candidate) => {
+        const type = candidate?.['@type'];
+        return type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
+      });
+      if (posting) return posting;
+    } catch {
+      // A page can carry unrelated or malformed JSON-LD before JobPosting.
+    }
+  }
+  return null;
+}
+
+function extractJobupLocation(posting) {
+  const rawLocation = Array.isArray(posting?.jobLocation) ? posting.jobLocation[0] : posting?.jobLocation;
+  const address = rawLocation?.address || {};
+  const postalCode = normalizeSpace(address.postalCode || '');
+  const city = normalizeSpace(address.addressLocality || rawLocation?.name || '');
+  return [postalCode, city].filter(Boolean).join(', ');
+}
+
+function extractJobupDescription(html, posting) {
+  const jsonLdDescription = posting?.description;
+  if (jsonLdDescription) return normalizeSpace(stripHtml(decodeNumericEntities(jsonLdDescription)));
+
+  const bodyMatch = html.match(/<[^>]+class=["'][^"']*\bC_PBODYHTML\b[^"']*["'][^>]*>([\s\S]*?)(?:<h2\b[^>]*>\s*Autres recherches|<\/main>|$)/i);
+  return bodyMatch ? normalizeSpace(stripHtml(bodyMatch[1])) : '';
+}
+
+function normalizePostedDate(rawDate = '') {
+  const value = normalizeSpace(rawDate);
+  if (/^\d{4}-\d{2}-\d{2}/.test(value)) return value.slice(0, 10);
+  return parseSwissShortDate(value);
+}
+
+function isJobupDetailUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, `https://${JOBUP_HOST}`);
+    const host = parsed.hostname.toLowerCase();
+    return (host === JOBUP_HOST || host === 'jobup.ch')
+      && /\/(?:fr\/emplois|en\/jobs)\/detail\//.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function toDetailUrl(rawHref = '') {
+  if (isJobupDetailUrl(rawHref)) return new URL(rawHref, `https://${JOBUP_HOST}`).href;
+  return new URL(rawHref, `https://${ATS_HOST}`).href;
 }
 
 /**
@@ -295,20 +400,33 @@ function extractApplyUrl(html = '') {
  * @returns {Promise<object|null>} Parsed detail fields, or null on failure.
  */
 async function fetchJobDetail(href) {
-  const detailUrl = `https://${ATS_HOST}${href}`;
+  const detailUrl = toDetailUrl(href);
+  const isJobupDetail = isJobupDetailUrl(detailUrl);
   try {
     const html = await fetchHtml(detailUrl);
-    const titleMatch = stripScriptsAndStyles(html).match(/<h1>([^<]*)<\/h1>/);
-    const title = titleMatch ? normalizeSpace(decodeNumericEntities(titleMatch[1])) : '';
-    const richTextHtml = extractRichTextBlock(html);
-    const description = normalizeSpace(stripHtml(richTextHtml));
-    const datePosted = parseSwissShortDate(extractKeyInfoValue(html, 'Date de publication'));
-    const occupationRange = extractKeyInfoValue(html, 'Taux d’activité');
-    const contractTypeRaw = extractKeyInfoValue(html, 'Type de contrat');
-    const lieuDeTravail = extractKeyInfoValue(html, 'Lieu de travail');
-    const applyUrl = extractApplyUrl(html);
+    const visibleHtml = stripScriptsAndStyles(html);
+    const posting = isJobupDetail ? extractJobupPostingJsonLd(html) : null;
+    const titleMatch = visibleHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
+    const title = normalizeSpace(decodeNumericEntities(posting?.title || (titleMatch ? stripHtml(titleMatch[1]) : '')));
+    const description = isJobupDetail
+      ? extractJobupDescription(html, posting)
+      : normalizeSpace(stripHtml(extractRichTextBlock(html)));
+    const datePosted = isJobupDetail
+      ? normalizePostedDate(posting?.datePosted)
+      : parseSwissShortDate(extractKeyInfoValue(html, 'Date de publication'));
+    const occupationRange = isJobupDetail
+      ? normalizeSpace(posting?.employmentType || visibleHtml.match(/\b\d{1,3}(?:\s*[–-]\s*\d{1,3})?\s*%/)?.[0] || '')
+      : extractKeyInfoValue(html, 'Taux d’activité');
+    const contractTypeRaw = isJobupDetail
+      ? normalizeSpace(posting?.employmentType || '')
+      : extractKeyInfoValue(html, 'Type de contrat');
+    const lieuDeTravail = isJobupDetail
+      ? extractJobupLocation(posting)
+      : extractKeyInfoValue(html, 'Lieu de travail');
+    const applyUrl = isJobupDetail ? '' : extractApplyUrl(html);
+    const employmentType = isJobupDetail ? normalizeSpace(posting?.employmentType || '') : '';
 
-    return { detailUrl, title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl };
+    return { detailUrl, title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl, employmentType };
   } catch (err) {
     console.warn(`  ⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: failed to fetch detail ${detailUrl}: ${err?.message || err}`);
     return null;
@@ -329,15 +447,26 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
   console.log(`🔍 Fetching ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL} (JobCloud Company Page)\n`);
 
-  let listingHtml;
+  let listingHtml = '';
+  let links = [];
   try {
     listingHtml = await fetchHtml(LISTING_URL);
+    links = extractListingLinks(listingHtml);
   } catch (err) {
-    console.error(`❌ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: failed to fetch listing page: ${err?.message || err}`);
-    return [];
+    console.warn(`⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: JobCloud listing unavailable: ${err?.message || err}`);
   }
 
-  const links = extractListingLinks(listingHtml);
+  if (!links.length) {
+    console.warn('⚠️ JobCloud listing exposed no job links; trying the Jobup company profile fallback.');
+    try {
+      listingHtml = await fetchHtml(JOBUP_COMPANY_URL);
+      links = extractJobupListingLinks(listingHtml);
+      if (links.length) console.log(`  📋 Jobup listings found: ${links.length}`);
+    } catch (err) {
+      console.warn(`⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: Jobup fallback unavailable: ${err?.message || err}`);
+    }
+  }
+
   if (!links.length) {
     console.warn('⚠️ No job listings found.');
     return [];
@@ -348,7 +477,17 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
   for (const href of links) {
     const detail = await fetchJobDetail(href);
     if (!detail) continue;
-    const { detailUrl, title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl } = detail;
+    const {
+      detailUrl,
+      title,
+      description,
+      datePosted,
+      occupationRange,
+      contractTypeRaw,
+      lieuDeTravail,
+      applyUrl,
+      employmentType: sourceEmploymentType,
+    } = detail;
     if (!title || title.length < 3) continue;
 
     const { city, canton, postalCode, streetAddress } = resolveAddress(lieuDeTravail);
@@ -356,7 +495,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} croix-rouge-fribourgeoise ${city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(occupationRange, title);
+    const employmentType = sourceEmploymentType || detectEmploymentType(occupationRange, title);
     const postedDate = datePosted || new Date().toISOString().split('T')[0];
 
     const job = {
@@ -374,7 +513,9 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
       location: city || HQ.city,
       canton,
       url: detailUrl,
-      source: 'Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)',
+      source: detailUrl.includes('jobup.ch')
+        ? 'Croix-Rouge fribourgeoise Dedicated Parser (Jobup company profile)'
+        : 'Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 

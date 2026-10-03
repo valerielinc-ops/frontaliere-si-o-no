@@ -7,6 +7,7 @@ import {
   isTrustedDomain,
   resolveAddress,
   extractListingLinks,
+  extractJobupListingLinks,
   fetchAllCroixRougeFribourgeoiseJobs,
 } from '../scripts/lib/croix-rouge-fribourgeoise-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -68,6 +69,11 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
     it('trusts the primary marketing domain (with and without www)', () => {
       expect(isTrustedDomain('https://croix-rouge-fr.ch/fr/emploi')).toBe(true);
       expect(isTrustedDomain('https://www.croix-rouge-fr.ch/fr/emploi')).toBe(true);
+    });
+
+    it('trusts the Jobup fallback detail host', () => {
+      expect(isTrustedDomain('https://www.jobup.ch/fr/emplois/detail/a55e0f5b-afe7-4406-a15c-d0a73ef159fd/')).toBe(true);
+      expect(isTrustedDomain('https://jobup.ch/fr/emplois/detail/a55e0f5b-afe7-4406-a15c-d0a73ef159fd/')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -148,6 +154,31 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
 
     it('returns an empty array when no job links are present', () => {
       expect(extractListingLinks('<html><body>no jobs</body></html>')).toEqual([]);
+    });
+
+    it('accepts absolute URLs, single quotes and a trailing slash after markup drift', () => {
+      const html = `
+        <a href='https://company.jobcloud.ch/fr/jobs/962b0a39-e87f-4de4-a068-58083fcebac5/'>A</a>
+        <a href="/fr/jobs/a55e0f5b-afe7-4406-a15c-d0a73ef159fd?list=1773421929172x328595190866247700">B</a>
+      `;
+      expect(extractListingLinks(html)).toEqual([
+        'https://company.jobcloud.ch/fr/jobs/962b0a39-e87f-4de4-a068-58083fcebac5/',
+        '/fr/jobs/a55e0f5b-afe7-4406-a15c-d0a73ef159fd?list=1773421929172x328595190866247700',
+      ]);
+    });
+  });
+
+  describe('extractJobupListingLinks', () => {
+    it('extracts and deduplicates Jobup company-profile detail links', () => {
+      const html = `
+        <a href="https://www.jobup.ch/fr/emplois/detail/a55e0f5b-afe7-4406-a15c-d0a73ef159fd/">A</a>
+        <a href='/fr/emplois/detail/a55e0f5b-afe7-4406-a15c-d0a73ef159fd/'>A duplicate</a>
+        <a href='https://www.jobup.ch/fr/emplois/detail/962b0a39-e87f-4de4-a068-58083fcebac5/'>B</a>
+      `;
+      expect(extractJobupListingLinks(html)).toEqual([
+        'https://www.jobup.ch/fr/emplois/detail/a55e0f5b-afe7-4406-a15c-d0a73ef159fd/',
+        'https://www.jobup.ch/fr/emplois/detail/962b0a39-e87f-4de4-a068-58083fcebac5/',
+      ]);
     });
   });
 
@@ -429,5 +460,56 @@ describe('fetchAllCroixRougeFribourgeoiseJobs (JobCloud Company Page listing + d
     expect(jobs).toHaveLength(1);
     expect(jobs[0].description.length).toBeGreaterThan(0);
     expect(jobs[0].description).toMatch(/Croix-Rouge fribourgeoise/);
+  });
+
+  it('falls back to the live Jobup company profile when JobCloud exposes no listing links', async () => {
+    const detailUrl = 'https://www.jobup.ch/fr/emplois/detail/a55e0f5b-afe7-4406-a15c-d0a73ef159fd/';
+    const posting = {
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Responsable du service Soutien à domicile',
+      description: '<p>La Croix-Rouge fribourgeoise recherche une personne pour assurer la coordination du service et accompagner les bénéficiaires au quotidien.</p>',
+      datePosted: '2026-09-22',
+      employmentType: 'PART_TIME',
+      jobLocation: {
+        address: {
+          streetAddress: 'Rue Guillaume-Techtermann 2',
+          postalCode: '1700',
+          addressLocality: 'Fribourg',
+          addressCountry: 'CH',
+        },
+      },
+    };
+
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
+      const target = String(url);
+      if (target.includes('/job-list/')) {
+        return { ok: true, status: 200, text: async () => '<html><body>JobCloud cards unavailable</body></html>' } as unknown as Response;
+      }
+      if (target.includes('/societes/26216-croix-rouge-fribourgeoise/emplois/')) {
+        return {
+          ok: true,
+          status: 200,
+          text: async () => `<html><body><a href="${detailUrl}">job</a></body></html>`,
+        } as unknown as Response;
+      }
+      if (target === detailUrl) {
+        return {
+          ok: true,
+          status: 200,
+          text: async () => `<html><body><h1>${posting.title}</h1><script type="application/ld+json">${JSON.stringify(posting)}</script></body></html>`,
+        } as unknown as Response;
+      }
+      throw new Error(`unexpected URL ${target}`);
+    });
+
+    const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].url).toBe(detailUrl);
+    expect(jobs[0].source).toContain('Jobup company profile');
+    expect(jobs[0].postedDate).toBe('2026-09-22');
+    expect(jobs[0].employmentType).toBe('PART_TIME');
+    expect(jobs[0].streetAddress).toBe('Rue G.-Techtermann 2');
+    expect(jobs[0].description.length).toBeGreaterThan(50);
   });
 });
