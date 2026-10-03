@@ -10,6 +10,7 @@ import {
   CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
 } from '../scripts/generate-crawler-group-workflows.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
+import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const orchestratorPath = '.github/workflows/orchestrate-crawlers.yml';
@@ -366,6 +367,18 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(staleCode.run).toContain('if [ "$FALLBACK_STALE" != "true" ]; then');
     expect(staleCode.run).toContain('scripts/lib/github-issue-creator.mjs --resolve');
     expect(staleCode.run.match(/--title "\$ISSUE_TITLE"/g)).toHaveLength(2);
+    // Si apre solo se l'ondata è partita: niente issue da un dry-run o da uno
+    // step dell'ondata fallito. La guardia sta DOPO il ramo `--resolve`.
+    expect(staleCode.env.DRY_RUN).toBe("${{ inputs.dry_run || 'false' }}");
+    expect(staleCode.env.GENERATION_WAVE_OUTCOME).toBe("${{ steps.generation_wave.outcome || 'skipped' }}");
+    const launchGuard = 'if [ "$DRY_RUN" = "true" ] || [ "$GENERATION_WAVE_OUTCOME" != "success" ]; then';
+    expect(staleCode.run).toContain(launchGuard);
+    expect(staleCode.run.indexOf(launchGuard)).toBeGreaterThan(staleCode.run.indexOf('--resolve'));
+    expect(staleCode.run.indexOf(launchGuard)).toBeLessThan(staleCode.run.lastIndexOf('--title "$ISSUE_TITLE"'));
+    // Issue di condizione senza fix di codice: `keep-open` la tiene fuori dal
+    // routing del triage, che altrimenti la manda dritta al fixer.
+    expect(staleCode.run).toContain('--label keep-open');
+    expect(classifyIssue(staleCode.env.ISSUE_TITLE, ['priority:high', 'Bug', 'keep-open']).route).toBe('none');
     expect(preflight.env.GENERATION_PREFLIGHT_OUTPUT).toBe('${{ runner.temp }}/crawler-generation-dispatch/preflight.json');
     const translationDispatch = steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
     expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');

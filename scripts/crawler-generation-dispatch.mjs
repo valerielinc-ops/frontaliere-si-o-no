@@ -1033,6 +1033,14 @@ async function readSiteContractAt({ request, sleep, ref }) {
 // che lo ha sostituito: lo si usa solo dopo aver riletto il contratto a quel
 // ref, così una storia non lineare ricade sul commit introduttivo invece di
 // eseguire codice che presuppone workflow diversi.
+// LIMITE noto: `parents[0]` è l'ultimo commit di `main` con quel contratto
+// solo se il commit che lo ha sostituito sta sulla first-parent di `main`
+// (squash merge, la regola del repo). Se il cambio arrivasse con un merge
+// commit non squash, la cronologia elencherebbe il commit del BRANCH e il suo
+// genitore sarebbe uno stato intermedio della PR con lo stesso contratto:
+// supera la rilettura e viene scelto con `stale: false`. Il contratto resta
+// compatibile, quindi l'ondata è corretta ma può essere più arretrata del
+// necessario; la misura affidabile del ritardo è `commitsBehindMain`.
 async function resolveLatestCompatibleSiteCodeCommit({ request, sleep, remoteContract, supersedingEntry }) {
   const parentCommit = supersedingEntry?.parents?.[0]?.sha;
   if (!COMMIT_RE.test(parentCommit ?? '')) return { reason: 'superseding_parent_unavailable' };

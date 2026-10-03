@@ -304,6 +304,12 @@ jobs:
       # È una issue di CONDIZIONE, aperta di proposito da un run verde: titolo
       # stabile, e lo stesso step la chiude appena un preflight pronto non è
       # più arretrato. Un preflight bloccato non prova niente e non la tocca.
+      # Si APRE solo se l'ondata è partita davvero: con dry-run o con lo step
+      # dell'ondata fallito nessun crawler ha girato sul commit arretrato.
+      # Label `keep-open`: la causa sta fuori dal repo (lockstep del corpus o
+      # lettura API fallita) e non ha una fix di codice. Senza, il triage la
+      # classifica `crawler` e le dà subito `agent:fix`, bruciando l'unico
+      # slot diretto del fixer; `--resolve` la chiude comunque.
       - name: Report crawler wave pinned to stale site code
         if: always() && steps.generation_preflight.outputs.ready == 'true'
         continue-on-error: true
@@ -318,12 +324,18 @@ jobs:
           SITE_MAIN_COMMIT: ${{ github.sha }}
           CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GENERATION_WAVE_OUTCOME: ${{ steps.generation_wave.outcome || 'skipped' }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           if [ "$FALLBACK_STALE" != "true" ]; then
             node scripts/lib/github-issue-creator.mjs --resolve \
               --title "$ISSUE_TITLE" \
               --workflow "$GITHUB_WORKFLOW" \
               --run-url "$RUN_URL"
+            exit 0
+          fi
+          if [ "$DRY_RUN" = "true" ] || [ "$GENERATION_WAVE_OUTCOME" != "success" ]; then
+            echo "::notice::fallback arretrato ma nessuna ondata lanciata (dry-run=$DRY_RUN, wave=$GENERATION_WAVE_OUTCOME): issue non aperta."
             exit 0
           fi
           node scripts/lib/github-issue-creator.mjs \
@@ -345,6 +357,7 @@ jobs:
           torna a verificare il genitore." \
             --priority 2 \
             --label Bug \
+            --label keep-open \
             --workflow "$GITHUB_WORKFLOW"
 
       - name: Upload crawler generation dispatch checkpoint
