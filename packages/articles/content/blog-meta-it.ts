@@ -12390,6 +12390,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Disoccupazione frontalieri, le regole potrebbero cambiare',
     'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'Le attuali regole per i frontalieri residenti in Italia prevedono la NASpI. Una revisione europea potrebbe spostare la competenza al Paese dell\'ultima occupazione dopo 22 settimane consecutive.',
     'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Vista panoramica del lago di Lugano al mattino, con le montagne e la città sullo sfondo, simbolo di lavoro transfrontaliero.',
+    'blog.article.svizzera-tassa-ingresso-franchi.title': 'Svizzera, tassa d\'ingresso fino a 4mila franchi',
+    'blog.article.svizzera-tassa-ingresso-franchi.excerpt': 'La proposta svizzera prevede un\'imposta di incentivazione tra 2mila e 4mila franchi, legata alla clausola di salvaguardia per i cittadini UE.',
+    'blog.article.svizzera-tassa-ingresso-franchi.imageAlt': 'Strada di confine in Ticino con segnaletica svizzera e traffico leggero.',
 };
 
 export default blogMetaIt;

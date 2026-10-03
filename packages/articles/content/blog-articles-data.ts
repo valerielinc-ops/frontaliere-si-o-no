@@ -37159,6 +37159,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-tassa-ingresso-franchi',
+ category: 'fiscale',
+ date: '2026-10-03T07:17:00.733Z',
+ image: '/images/blog/svizzera-tassa-ingresso-franchi.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12389,6 +12389,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Unemployment for cross-border workers, the rules could change',
     'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'The current rules for cross-border workers residing in Italy provide for NASpI. A European revision could shift responsibility to the country of last employment after 22 consecutive weeks.',
     'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Panoramic view of Lake Lugano in the morning, with mountains and the city in the background, symbolizing cross-border work.',
+    'blog.article.svizzera-tassa-ingresso-franchi.title': 'Switzerland, entry tax of up to 4 thousand francs',
+    'blog.article.svizzera-tassa-ingresso-franchi.excerpt': 'The Swiss proposal provides for an incentive tax between 2 thousand and 4 thousand francs, linked to the safeguard clause for EU citizens.',
+    'blog.article.svizzera-tassa-ingresso-franchi.imageAlt': 'Border road in Ticino with Swiss signs and light traffic.',
 };
 
 export default blogMetaEn;

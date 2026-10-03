@@ -12391,6 +12391,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Chômage des frontaliers, les règles pourraient changer',
     'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'Les règles actuelles pour les travailleurs frontaliers résidant en Italie prévoient la NASpI. Une révision européenne pourrait transférer la compétence au pays du dernier emploi après 22 semaines consécutives.',
     'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Vue panoramique du lac de Lugano le matin, avec les montagnes et la ville en arrière-plan, symbolisant le travail transfrontalier.',
+    'blog.article.svizzera-tassa-ingresso-franchi.title': 'Suisse, taxe d\'entrée jusqu\'à 4mila francs',
+    'blog.article.svizzera-tassa-ingresso-franchi.excerpt': 'La proposition suisse prévoit une taxe incitative comprise entre 2mila et 4mila francs, liée à la clause de sauvegarde pour les citoyens de l\'UE.',
+    'blog.article.svizzera-tassa-ingresso-franchi.imageAlt': 'Route frontalière au Tessin avec signalisation suisse et trafic léger.',
 };
 
 export default blogMetaFr;

@@ -12388,6 +12388,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Arbeitslosigkeit bei Grenzgängern: Die Regeln könnten sich ändern',
     'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'Die derzeitigen Regeln für in Italien wohnhafte Grenzgänger sehen die NASpI vor. Eine europäische Reform könnte die Zuständigkeit nach 22 aufeinanderfolgenden Wochen auf das Land der letzten Beschäftigung verlagern.',
     'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Panoramablick auf den Luganersee am Morgen, mit Bergen und Stadt im Hintergrund, symbolisch für grenzüberschreitende Arbeit.',
+    'blog.article.svizzera-tassa-ingresso-franchi.title': 'Schweiz: Eintrittsgebühr bis zu 4.000 Franken',
+    'blog.article.svizzera-tassa-ingresso-franchi.excerpt': 'Der Schweizer Vorschlag beinhaltet eine Anreizsteuer zwischen 2.000 und 4.000 Franken, die an die Schutzklausel für EU-Bürger gekoppelt ist.',
+    'blog.article.svizzera-tassa-ingresso-franchi.imageAlt': 'Grenzstrasse im Tessin mit Schweizer Beschilderung und wenig Verkehr.',
 };
 
 export default blogMetaDe;
