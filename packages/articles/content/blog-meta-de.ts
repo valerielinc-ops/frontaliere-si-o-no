@@ -12402,6 +12402,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furto-noranco-arresti-garage.title': 'Autodiebstahl in Noranco: drei Festnahmen und wiedergefundene Fahrzeuge',
     'blog.article.furto-noranco-arresti-garage.excerpt': 'Drei in Noranco gestohlene Luxusautos wurden wiedergefunden. Drei Personen, ein 20-jähriger Italiener, ein 21-jähriger Algerier und ein 25-jähriger Franzose, wohnhaft in Frankreich, wurden festgenommen.',
     'blog.article.furto-noranco-arresti-garage.imageAlt': 'Bild einer sicheren Garage mit Schutzsystemen, die an Präventionsmaßnahmen gegen Diebstähle im Tessin erinnert.',
+    'blog.article.prezzi-carburanti-settembre.title': 'Schweizer Inflation: +1% im September bei den Treibstoffen',
+    'blog.article.prezzi-carburanti-settembre.excerpt': 'Die Schweizer Inflation steigt im September im Jahresvergleich um 1%: Treibstoffe an der Spitze mit Heizöl +65%, Diesel +28,7% und Benzin +19,9%.',
+    'blog.article.prezzi-carburanti-settembre.imageAlt': 'Tankstelle in der Schweiz mit abgestellten Autos',
 };
 
 export default blogMetaDe;

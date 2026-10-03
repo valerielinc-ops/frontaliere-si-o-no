@@ -12405,6 +12405,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furto-noranco-arresti-garage.title': 'Vol de voitures à Noranco : trois arrestations et véhicules récupérés',
     'blog.article.furto-noranco-arresti-garage.excerpt': 'Trois voitures haut de gamme volées à Noranco ont été récupérées. Trois personnes, un Italien de 20 ans, un Algérien de 21 ans et un Français de 25 ans, résidant en France, ont été interpellées.',
     'blog.article.furto-noranco-arresti-garage.imageAlt': 'Image d\'un garage sécurisé avec des systèmes de protection, rappelant les mesures de prévention contre les vols au Tessin.',
+    'blog.article.prezzi-carburanti-settembre.title': 'Inflation suisse : +1% en septembre pour les carburants',
+    'blog.article.prezzi-carburanti-settembre.excerpt': 'L\'inflation suisse augmente de 1% sur un an en septembre : les carburants en tête avec le fioul à +65%, le diesel à +28,7% et l\'essence à +19,9%.',
+    'blog.article.prezzi-carburanti-settembre.imageAlt': 'Station-service en Suisse avec des voitures garées',
 };
 
 export default blogMetaFr;
