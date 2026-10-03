@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-02T10:37:30.370Z",
+  "lastRunAt": "2026-10-03T09:59:04.805Z",
   "findings": {
     "source-unavailable|source:ga4": {
       "code": "source-unavailable",
       "url": "source:ga4",
-      "consecutiveRuns": 1,
+      "consecutiveRuns": 2,
       "firstSeenAt": "2026-10-02T10:37:30.370Z",
-      "lastSeenAt": "2026-10-02T10:37:30.370Z",
-      "detail": "GA4 incomplete or restricted response (100000/137540 rows); observed pages retained, absence is not zero traffic"
+      "lastSeenAt": "2026-10-03T09:59:04.805Z",
+      "detail": "GA4 incomplete or restricted response (100000/139837 rows); observed pages retained, absence is not zero traffic"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": false
+  "lastActionable": true
 }
