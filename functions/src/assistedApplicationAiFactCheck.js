@@ -21,6 +21,16 @@
  *   - an employer or a job title the sources never name is blocked; a
  *     capitalised word the text only echoes from the posting is reported to
  *     the operator as an advisory, not blocked ("Semester", "Profil").
+ *
+ * False alarms closed on 2026-10-03 (a real order: six flags, nothing invented;
+ * each one stops the draft at the owner and discards the tailored CV):
+ *   - a PDF text layer that glues a token to the next word ("B1Intermedio"):
+ *     the capital that starts a word is a boundary in the candidate's raw text;
+ *   - a name that ran into the next sentence ("at Svag. Previously, I was…");
+ *   - "as well as English" read as a job title, and a language named in the
+ *     letter's language ("English") where the CV says "inglese";
+ *   - a tool the posting names, quoted as something still to learn ("motivated
+ *     to learn the hotel's LQA and Forbes standards"), is no claim of having it.
  */
 
 import { mentionsVocabularyTool, vocabularyTools } from './lib/toolVocabulary.js';
@@ -132,10 +142,19 @@ export function claimTokens(text) {
   return [...vocabulary, ...shaped].sort((left, right) => left.index - right.index);
 }
 
+/**
+ * A PDF text layer may glue a token to the word after it ("B1Intermedio:",
+ * the column of a table): in the raw text the capital that starts that word
+ * is a boundary. Never a lowercase run ("B1x") nor a digit ("B12").
+ */
+function gluedInRaw(raw, token) {
+  return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(String(token))}(?=\\p{Lu}\\p{Ll})`, 'u').test(String(raw || ''));
+}
+
 /** Whether the candidate's texts back a claim token (by its vocabulary aliases when it has a name). */
 export function backsClaim({ folded, raw }, claim) {
   if (claim.name && mentionsVocabularyTool(raw, claim.name)) return true;
-  return mentionsTool(folded, claim.token);
+  return mentionsTool(folded, claim.token) || gluedInRaw(raw, claim.token);
 }
 
 /**
@@ -227,6 +246,20 @@ const quotesRequirement = (text, index) => {
   return NEGATION_CUE.test(clause) && REQUIREMENT_CUE.test(clause);
 };
 
+// "I am motivated to learn the hotel's LQA and Forbes standards": a tool the
+// posting names, in a clause that says it is still to be learnt (or not had),
+// is the candidate being honest about a gap, not a claim of having it.
+const LEARN_CUE = /(imparar|apprender|acquisir|approfondir|formarmi|familiarizzar|\blernen|erlernen|anzueignen|aneignen|einarbeiten|einzuarbeiten|vertraut (?:zu )?machen|apprendre|me former|acquérir|me familiariser|\blearn|\bacquir|familiari[sz]e|get up to speed)/i;
+const quotesGap = (text, index) => {
+  const clause = clauseAround(text, index);
+  return LEARN_CUE.test(clause) || NEGATION_CUE.test(clause);
+};
+/** Every run of a token is a word of the posting ("LQA", "ISO 9001"). */
+const postingNames = (echoWords, token) => {
+  const runs = foldText(token).split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  return Boolean(echoWords) && runs.length > 0 && runs.every((run) => echoWords.has(run));
+};
+
 // Legal forms that close an employer's name ("Esempio Software Srl", "Alpina Systems AG").
 const LEGAL_FORM = String.raw`(?:AG|SA|GmbH|Sagl|SAGL|Srl|SRL|S\.r\.l\.|SpA|S\.p\.A\.|Sàrl|SARL|SNC|Snc|KG|Ltd|Inc|LLC)`;
 const CAPITALISED = String.raw`\p{Lu}[\p{L}\p{N}&'’.-]*`;
@@ -248,6 +281,41 @@ const tidy = (span) => span.trim().replace(/[.,;:!?’'-]+$/u, '');
 const LEADING = /^(?:(?:In|Bei|Bij|Chez|At|Da|Presso|Nella|Nel|Alla|Al|Der|Die|Das|Den|La|Le|Il|Lo|The)\s+)+/u;
 const employerName = (span) => tidy(span).replace(LEADING, '');
 const significant = (span) => foldText(span).split(/[^\p{L}\p{N}]+/u).filter((word) => word.length >= 3 && !NOT_AN_ENTITY.has(word));
+
+// "at Svag. Previously, I was…": a word closed by a full stop ends the sentence, and the name with
+// it. Not an abbreviation ("St. Moritz", "Dott. Rossi", "S.p.A."): short, known, or with inner dots.
+const ABBREVIATIONS = new Set(['dott', 'prof', 'corp', 'dipl', 'univ', 'hosp', 'mons', 'gebr', 'bros']);
+const endsSentence = (word) => /^\p{Lu}[\p{L}\p{N}&'’-]{3,}\.$/u.test(word) && !ABBREVIATIONS.has(foldText(word.slice(0, -1)));
+/** The part of a name before the sentence ends ("Svag. Previously" → "Svag."). */
+function untilSentenceEnd(span) {
+  const words = String(span).trim().split(/\s+/);
+  const end = words.findIndex((word, position) => position < words.length - 1 && endsSentence(word));
+  return end === -1 ? String(span) : words.slice(0, end + 1).join(' ');
+}
+/** The part of a name after the last sentence end before it ("Rossi. Alpina Systems AG" → "Alpina Systems AG"). */
+function afterSentenceEnd(span) {
+  const words = String(span).trim().split(/\s+/);
+  let start = 0;
+  for (let position = 0; position < words.length - 1; position += 1) if (endsSentence(words[position])) start = position + 1;
+  return words.slice(start).join(' ');
+}
+
+// A language is named in the letter's language: "English" is the CV's "inglese" (accents folded).
+const LANGUAGE_NAMES = [
+  ['english', 'inglese', 'englisch', 'anglais'], ['german', 'tedesco', 'deutsch', 'allemand'], ['french', 'francese', 'franzosisch', 'francais'],
+  ['italian', 'italiano', 'italienisch', 'italien'], ['spanish', 'spagnolo', 'spanisch', 'espagnol'], ['portuguese', 'portoghese', 'portugiesisch', 'portugais'],
+  ['russian', 'russo', 'russisch', 'russe'], ['arabic', 'arabo', 'arabisch', 'arabe'], ['chinese', 'cinese', 'chinesisch', 'chinois'],
+  ['dutch', 'olandese', 'niederlandisch', 'neerlandais'], ['romanian', 'rumeno', 'romeno', 'rumanisch', 'roumain'], ['albanian', 'albanese', 'albanisch', 'albanais'],
+  ['serbian', 'serbo', 'serbisch', 'serbe'], ['croatian', 'croato', 'kroatisch', 'croate'], ['turkish', 'turco', 'turkisch', 'turc'],
+  ['polish', 'polacco', 'polnisch', 'polonais'], ['ukrainian', 'ucraino', 'ukrainisch', 'ukrainien'],
+];
+/** A language's name is backed when the candidate's texts name that language, in any of the four languages. */
+function languageBacked(word, claimText) {
+  const names = LANGUAGE_NAMES.find((group) => group.includes(word));
+  return Boolean(names) && names.some((name) => claimText.includes(name.slice(0, 5)));
+}
+// "as well as English", "such as Excel": the "as" of a comparison, never "as <job title>".
+const COMPARISON_BEFORE_AS = /(?:\bas\s+well|\bsuch|\bas\s+soon|\bas\s+much|\bas\s+long|\bsame|\bcosì)\s+$/i;
 
 /** An employer's name is backed when its last words before the legal form appear in a source. */
 function employerBacked(span, entityText) {
@@ -330,24 +398,31 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     const claimSide = { folded: index.claimText, raw: index.claimRaw };
     for (const claim of claims) {
       if (isMasked(claim.index) || backsClaim(claimSide, claim)) continue;
+      // Named by the posting and quoted as still to learn (or not had): the gap said honestly, no claim.
+      if (postingNames(index.echoWords, claim.token) && quotesGap(text, claim.index)) continue;
       flag(field, 'tool', claim.token, contextAround(text, claim.index, claim.length));
     }
     // Employers: a name closed by a legal form, or introduced by presso/chez/at.
     for (const match of text.matchAll(EMPLOYER_RE)) {
-      if (!employerBacked(match[0], index.entityText)) flag(field, 'employer', employerName(match[0]), contextAround(text, match.index, match[0].length));
+      const name = afterSentenceEnd(match[0]);
+      if (!employerBacked(name, index.entityText)) flag(field, 'employer', employerName(name), contextAround(text, match.index, match[0].length));
     }
     for (const match of text.matchAll(AT_EMPLOYER_RE)) {
-      if (significant(match[1]).some((word) => !index.entityText.includes(` ${word} `))) {
-        flag(field, 'employer', tidy(match[1]), contextAround(text, match.index, match[0].length));
+      const name = untilSentenceEnd(match[1]);
+      if (significant(name).some((word) => !index.entityText.includes(` ${word} `))) {
+        flag(field, 'employer', tidy(name), contextAround(text, match.index, match[0].length));
       }
     }
     // Job titles: every significant word of "come/en tant que/as <Title>" in the candidate's texts or the
     // order line, by a five-letter stem. German capitalises every noun, so after "als" it is an advisory.
     for (const match of text.matchAll(AS_TITLE_RE)) {
+      if (COMPARISON_BEFORE_AS.test(text.slice(Math.max(0, match.index - 12), match.index))) continue;
+      const title = untilSentenceEnd(match[2]);
       // The posting's own title is a name the candidate applies as ("mi candido come Product Manager").
-      const missing = significant(match[2]).filter((word) => word.length >= 4 && !index.claimText.includes(word.slice(0, 5)) && !(index.namesText || '').includes(word.slice(0, 5)));
+      const missing = significant(title).filter((word) => word.length >= 4 && !index.claimText.includes(word.slice(0, 5)) && !(index.namesText || '').includes(word.slice(0, 5))
+        && !languageBacked(word, index.claimText));
       if (!missing.length) continue;
-      (match[1].toLowerCase() === 'als' ? advise : flag)(field, 'title', tidy(match[2]), contextAround(text, match.index, match[0].length));
+      (match[1].toLowerCase() === 'als' ? advise : flag)(field, 'title', tidy(title), contextAround(text, match.index, match[0].length));
     }
     // Advisory: a capitalised word the text echoes from the posting and no source of the candidate names.
     if (index.echoWords) {

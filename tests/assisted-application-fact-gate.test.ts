@@ -118,6 +118,48 @@ describe('fact gate: the 17 cases of the study 2026-10-02', () => {
   });
 });
 
+// A real order of 2026-10-03 (a hotel concierge posting): six flags, nothing invented. An invented person here.
+describe('fact gate: false alarms of 2026-10-03', () => {
+  const CONSULTANT = {
+    // The PDF's text layer glues the level to the next word of its table ("B1Intermedio:").
+    text: 'Dario Ferri\nConsulente assicurativo e previdenziale, Vesta, Varese, 2019 – 2024\nConsulente finanziario, Studio Alfa, Como, 2015 – 2019\n'
+      + 'Addetto alla ristorazione e al catering, 2010 – 2015\nCompetenze: contatto con i clienti, strumenti digitali\n'
+      + 'Lingue\nItaliano\nLINGUA MADRE\nInglese\nB1Intermedio:\nFrancese\nB1Intermedio:\nTedesco\nB1Intermedio:',
+    posting: 'Concierge (m/w/d). Several years of experience as a Concierge within the 5-star hotel industry. Sound knowledge and practical experience with LQA and Forbes standards. '
+      + 'Business fluent German and English. Excellent knowledge of the Engadin region, or the motivation to acquire it quickly.',
+    order: ['Concierge (m/w/d)', 'Grand Hotel Esempio', 'Dario Ferri'].join('\n'),
+    answers: '',
+    place: 'Pontresina',
+  };
+  const LETTER = 'I worked as an insurance and pension consultant at Vesta. Previously, I was an insurance and financial consultant. '
+    + 'My languages include English, German and French at B1 intermediate level. '
+    + 'I am motivated to get to know the Engadin quickly and to learn the hotel\'s LQA and Forbes standards.';
+  const SHORT = 'I bring client-facing and service-coordination skills, as well as English, German and French at B1 level. I am motivated to learn the Engadin and the hotel\'s LQA and Forbes standards.';
+
+  it('passes the honest letter: a level glued in the CV, a name before a new sentence, languages, a standard to learn', () => {
+    expect(verdict({ coverLetter: LETTER, motivationShort: SHORT }, CONSULTANT)).toMatchObject({ ok: true, unsupported: [] });
+  });
+
+  it('still blocks the same words when they are a claim', () => {
+    // The standard claimed as experience, not as something to learn.
+    expect(verdict({ coverLetter: 'I have applied the LQA and Forbes standards for years.' }, CONSULTANT).unsupported).toContain('tool:LQA');
+    // A level the CV does not give, glued or not ("B1Intermedio" never backs a C1, nor a B12).
+    expect(verdict({ coverLetter: 'I speak German at C1 level.' }, CONSULTANT).unsupported).toContain('tool:C1');
+    expect(verdict({ coverLetter: 'I am certified B12.' }, CONSULTANT).unsupported).toContain('tool:B12');
+    // An employer no source names, before a new sentence too.
+    expect(verdict({ coverLetter: 'I worked at Globex. Previously, I was a consultant.' }, CONSULTANT).unsupported).toContain('employer:Globex');
+    // A job title the CV does not have stays a claim; a language the CV does not name stays one too.
+    expect(verdict({ coverLetter: 'I worked as Head Concierge for years.' }, { ...CONSULTANT, order: 'x\ny\nDario Ferri' }).unsupported).toContain('title:Head Concierge');
+    expect(verdict({ coverLetter: 'I worked as Japanese interpreter.' }, CONSULTANT).unsupported).toContain('title:Japanese');
+  });
+
+  it('keeps an employer name that carries an abbreviation, and one after a sentence end', () => {
+    const sources = { ...CONSULTANT, text: `${CONSULTANT.text}\nPortiere, Hotel St. Moritz Palace, 2008\nImpiegato, Alpina Systems AG, 2007` };
+    expect(verdict({ coverLetter: 'I worked at Hotel St. Moritz Palace for a season.' }, sources).unsupported).toEqual([]);
+    expect(verdict({ coverLetter: 'I left Varese. Alpina Systems AG was my first employer.' }, sources).unsupported).toEqual([]);
+  });
+});
+
 describe('fact gate of the tailored CV', () => {
   const profile = {
     headline: 'Sviluppatore web', location: 'Como',
