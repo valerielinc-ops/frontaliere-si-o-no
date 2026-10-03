@@ -82,6 +82,18 @@ describe('German border municipality above-floor page render (#4882)', () => {
     expect(hub.html).toContain('Le regole comuni del corridoio');
     expect(hub.html).toContain('certificato di residenza');
   });
+
+  it('keeps every translated leaf above the indexable word floor', () => {
+    for (const locale of GERMAN_LOCALES) {
+      const { wordCount } = renderAboveFloorPage({
+        municipality: konstanz,
+        locale,
+        dateStamp: '2026-07-29',
+        distDir: DIST,
+      });
+      expect(wordCount, locale).toBeGreaterThan(50);
+    }
+  });
 });
 
 describe('German border municipality below-floor bridge + self-map (#4882)', () => {
