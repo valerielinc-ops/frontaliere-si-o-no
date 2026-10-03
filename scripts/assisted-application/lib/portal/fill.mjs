@@ -156,6 +156,13 @@ async function chooseInOwnedList(page, field, locator, value) {
     throw new Error('option_not_found');
   }
   await option.click({ timeout: ACTION_TIMEOUT_MS });
+  // SuccessFactors writes the choice into the input a moment after the click
+  // (Coop, 2026-10-03: «Nein» was there, the check had looked too early).
+  for (let waited = 0; waited < 3000; waited += 200) {
+    const shown = await locator.evaluate((element, label) => element.value === label && element.getAttribute('aria-expanded') !== 'true', value).catch(() => false);
+    if (shown) return;
+    await page.waitForTimeout(200);
+  }
 }
 
 /** SAP UI5's date picker: its own input, in its shadow root, in the pattern it states. */
@@ -166,9 +173,15 @@ async function fillUi5Date(locator, field, value) {
   const text = pattern.replace('yyyy', String(date.year)).replace('MM', String(date.month).padStart(2, '0')).replace('dd', String(date.day).padStart(2, '0'));
   const input = locator.locator('input').first();
   await input.fill(text, { timeout: ACTION_TIMEOUT_MS });
-  await input.press('Enter').catch(() => {});
+  // Committed by leaving the field (its change), never by Enter: on Coop's
+  // SuccessFactors an Enter submitted the form (run 37118242131: the page came
+  // back with its sections closed and nothing kept), outside the submission guard.
   await input.press('Tab').catch(() => {});
-  if (await locator.evaluate((element) => String(element.value || ''), null, { timeout: 2000 }).catch(() => '') !== text) throw new Error('date_not_registered');
+  for (let waited = 0; ; waited += 200) {
+    if (await locator.evaluate((element) => String(element.value || ''), null, { timeout: 2000 }).catch(() => '') === text) return;
+    if (waited >= 2000) throw new Error('date_not_registered');
+    await locator.page().waitForTimeout(200);
+  }
 }
 
 /** "YYYY-MM-DD", "DD.MM.YYYY" and "DD/MM/YYYY" → a date picker target. */

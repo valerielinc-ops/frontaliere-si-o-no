@@ -78,8 +78,12 @@ function fakePortal() {
             list.innerHTML = ['Bitte auswählen', ...options].map((option) => '<li role="option">' + option + '</li>').join('');
             for (const item of list.querySelectorAll('li')) {
               item.addEventListener('click', () => {
-                if (item.textContent !== 'Bitte auswählen') { input.value = item.textContent; document.getElementById(hiddenId).value = item.textContent; }
-                close();
+                list.innerHTML = '';
+                // SuccessFactors writes the choice a moment after the click.
+                setTimeout(() => {
+                  if (item.textContent !== 'Bitte auswählen') { input.value = item.textContent; document.getElementById(hiddenId).value = item.textContent; }
+                  close();
+                }, 400);
               });
             }
           }, 1500);
@@ -87,6 +91,8 @@ function fakePortal() {
         input.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
       };
       picklist('anrede-in', 'an:_listSelect', 'anrede-v', ['Frau', 'Herr']);
+      // As on Coop's SuccessFactors (run 37118242131): an Enter in the form submits it.
+      document.addEventListener('keydown', (event) => { if (event.key === 'Enter' && event.isTrusted) { event.preventDefault(); document.querySelector('form').requestSubmit(); } });
       picklist('agency-in', 'ag:_listSelect', 'agency-v', ['Ja', 'Nein']);
       // UI5's date picker: its input in an open shadow root, its value set on change or Enter.
       customElements.get('ui5-date-picker-xweb-calendar-widget') || customElements.define('ui5-date-picker-xweb-calendar-widget', class extends HTMLElement {
@@ -98,7 +104,6 @@ function fakePortal() {
           const input = root.querySelector('input');
           const commit = () => { if (/^\\d{2}\\.\\d{2}\\.\\d{4}$/.test(input.value)) { this._value = input.value; document.getElementById('birth-v').value = input.value; } };
           input.addEventListener('change', commit);
-          input.addEventListener('keydown', (event) => { if (event.key === 'Enter') commit(); });
         }
         get value() { return this._value; }
       });
