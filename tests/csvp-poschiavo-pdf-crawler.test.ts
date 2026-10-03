@@ -23,7 +23,11 @@ vi.mock('@/scripts/lib/pdf-job-content.mjs', async (importOriginal) => {
   return { ...actual, extractPdfJobContentFromUrl };
 });
 
-import { fetchAllCsvpPoschiavoJobs } from '@/scripts/lib/csvp-poschiavo-job-parser.mjs';
+import {
+  fetchAllCsvpPoschiavoJobs,
+  isCsvpPoschiavoAuthoritativeEmptyPage,
+} from '@/scripts/lib/csvp-poschiavo-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 const LISTING_HTML = `
   <article>
@@ -36,6 +40,12 @@ const PDF_TEXT = `Il Centro sanitario Valposchiavo cerca un Responsabile informa
 Compiti principali: Gestione del software clinico e delle relative interfacce. Supporto di primo livello (1st Level Support).
 Collaborazione con i fornitori di servizi IT esterni. Supporto e sviluppo della digitalizzazione interna.
 Profilo richiesto: formazione informatica, esperienza nella gestione di progetti, ottime conoscenze di italiano e tedesco.`;
+
+const EMPTY_CATEGORY_HTML = `
+  <main>
+    <h1>Cerchiamo</h1>
+    <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+  </main>`;
 
 describe('CSVP crawler — PDF-backed description', () => {
   afterEach(() => {
@@ -69,5 +79,26 @@ describe('CSVP crawler — PDF-backed description', () => {
     expect(jobs).toHaveLength(1);
     const desc = jobs[0].descriptionByLocale?.it || jobs[0].description || '';
     expect(desc).toContain('80 - 100% (m/f)');
+  });
+
+  it('marks Joomla’s explicit empty category as an authoritative zero', async () => {
+    fetchHtml.mockResolvedValue(EMPTY_CATEGORY_HTML);
+
+    const jobs = await fetchAllCsvpPoschiavoJobs();
+
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(EMPTY_CATEGORY_HTML)).toBe(true);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs).toEqual([]);
+    expect(jobs).toHaveProperty('authoritativeEmptyEvidence', expect.stringContaining('empty-category'));
+  });
+
+  it('keeps an unrecognised zero unproven so selector drift stays fail-closed', async () => {
+    fetchHtml.mockResolvedValue('<html><head><title>Temporary error</title></head><body></body></html>');
+
+    const jobs = await fetchAllCsvpPoschiavoJobs();
+
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage('<html><body></body></html>')).toBe(false);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(jobs).toEqual([]);
   });
 });

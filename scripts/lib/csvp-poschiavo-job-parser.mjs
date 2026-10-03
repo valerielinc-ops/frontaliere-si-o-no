@@ -10,6 +10,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { extractPdfJobContentFromUrl, buildPdfBackedDescription } from './pdf-job-content.mjs';
 import {
   fetchHtml,
@@ -27,6 +28,11 @@ export const CSVP_POSCHIAVO_COMPANY_DOMAIN = 'csvp.ch';
 
 const LISTING_URL = 'https://www.csvp.ch/it/lavora-con-noi/cerchiamo';
 const BASE_URL = 'https://www.csvp.ch';
+
+// Joomla renders this explicit message when the configured "Cerchiamo"
+// category has no published articles. A bare parser zero is deliberately not
+// enough: it could also mean that the page changed or a challenge was served.
+export const CSVP_POSCHIAVO_EMPTY_CATEGORY_RE = /Non ci sono articoli in questa categoria\./i;
 
 export function isCsvpPoschiavoJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -71,6 +77,10 @@ export function parseCsvpListing(html) {
   return out;
 }
 
+export function isCsvpPoschiavoAuthoritativeEmptyPage(html = '') {
+  return CSVP_POSCHIAVO_EMPTY_CATEGORY_RE.test(htmlToText(html));
+}
+
 /** Fragments only the crawler's former footer wrote. */
 export const CSVP_POSCHIAVO_FABRICATED_DESCRIPTION_RE =
   /(?:^|\n)Dettagli \(PDF\): https?:|Centro Sanitario Valposchiavo — Ospedale San Sisto, Poschiavo \(GR\)\./;
@@ -81,7 +91,17 @@ export async function fetchAllCsvpPoschiavoJobs() {
   const html = await fetchHtml(LISTING_URL);
   const items = parseCsvpListing(html);
   console.log(`  ✓ ${items.length} offerte trovate`);
-  if (!items.length) return [];
+  if (!items.length) {
+    if (isCsvpPoschiavoAuthoritativeEmptyPage(html)) {
+      const evidence = `${LISTING_URL} rendered Joomla's explicit empty-category message`;
+      console.log(`  🧩 Source-proven zero: ${evidence}`);
+      return markAuthoritativeEmptySnapshot([], evidence);
+    }
+    // Keep selector drift and an unrecognised/error page fail-closed. The
+    // standard pipeline preserves the previous slice and crawler-health stays
+    // unhealthy until the parser is repaired.
+    return [];
+  }
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
