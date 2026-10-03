@@ -1923,7 +1923,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  return false;
  }
  })();
- const robotsDirective = hasFilterQuery
+ const robotsDirective = hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
