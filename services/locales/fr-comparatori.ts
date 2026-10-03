@@ -13,7 +13,6 @@ const frComparatori: Record<string, string> = {
  'companies.filterPublishedJobs': 'Avec offres d’emploi publiées',
  'companies.jobsPublishedSingle': '{count} offre publiée',
  'companies.jobsPublishedPlural': '{count} offres publiées',
- 'strumenti.payslip': 'Fiche de paie',
  'strumenti.carCost': 'Coût auto',
  'strumenti.permitCompare': 'G vs B',
  'strumenti.livability': 'Habitabilité',

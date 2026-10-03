@@ -242,3 +242,19 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(injectLocaleMainNav(fragment, 'de')).toBe(fragment);
   });
 });
+
+
+describe('localized no-JavaScript homepage fallback', () => {
+  it.each(NON_IT_LOCALES)('replaces Italian content on /%s/ and preserves CSS fallback', locale => {
+    const template = fs.readFileSync('index.html', 'utf8');
+    const css = '<noscript><link rel="stylesheet" href="/assets/test.css"></noscript>';
+    const output = renderLocaleRootShell(template.replace('</body>', css + '</body>'), locale);
+    const fallback = output.match(/<noscript id="homepage-nojs">([\s\S]*?)<\/noscript>/)?.[1];
+    expect(fallback).toBeTruthy();
+    expect(fallback).not.toContain('Calcola il tuo');
+    expect(fallback).toContain(`href="/${SITE_MAP_PAGE_DIR[locale]}/"`);
+    expect(output).toContain(css);
+    expect(renderLocaleRootShell(output, locale).match(/<noscript id="homepage-nojs">[\s\S]*?<\/noscript>/)?.[0])
+      .toBe(output.match(/<noscript id="homepage-nojs">[\s\S]*?<\/noscript>/)?.[0]);
+  });
+});

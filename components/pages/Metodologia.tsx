@@ -31,7 +31,7 @@ import { useNavigation } from '@/services/NavigationContext';
 export const Metodologia: React.FC = () => {
   const nav = useNavigation();
 
-  const lastReviewed = '2026-06-16';
+  const lastReviewed = '2026-10-03';
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
@@ -77,14 +77,15 @@ export const Metodologia: React.FC = () => {
         {/* Pipeline editoriale */}
         <Section icon={Workflow} title="Pipeline editoriale">
           <p>
-            Ogni articolo segue una pipeline a cinque fasi, sempre nella
-            stessa sequenza:
+            La produzione comprende raccolta delle fonti, generazione assistita,
+            controlli automatici e pubblicazione. Le verifiche redazionali
+            e le correzioni possono avvenire anche dopo la pubblicazione:
           </p>
           <ol className="mt-3 space-y-2 list-decimal list-inside marker:text-accent">
             <NumberItem>
               <strong>Raccolta fonti</strong>: identificazione e lettura
-              integrale delle fonti primarie pertinenti (testi normativi,
-              comunicati ufficiali, dati statistici, sentenze).
+              delle fonti pertinenti: testi normativi, comunicati ufficiali,
+              dati statistici e notizie attribuite a testate giornalistiche.
             </NumberItem>
             <NumberItem>
               <strong>Bozza assistita da IA</strong>: un modello linguistico
@@ -93,16 +94,16 @@ export const Metodologia: React.FC = () => {
               fonti e divieto di affermazioni non supportate.
             </NumberItem>
             <NumberItem>
-              <strong>Revisione redazionale</strong>: un editor verifica
-              ogni paragrafo, riscrive le parti deboli, controlla la
-              coerenza con altri articoli del sito e adatta il testo alla
-              situazione concreta del frontaliere italo-svizzero.
+              <strong>Revisione redazionale</strong>: i contenuti possono essere
+              sottoposti a verifica e correzione da parte della redazione.
+              La firma di un articolo non certifica da sola una revisione
+              umana di ogni affermazione.
             </NumberItem>
             <NumberItem>
-              <strong>Fact-checking</strong>: ogni dato numerico (aliquote,
-              importi, date, scadenze) viene verificato sulla fonte
-              primaria. I link a fonti esterne sono testati e devono
-              puntare a documenti aggiornati.
+              <strong>Fact-checking</strong>: i controlli automatici aiutano a
+              individuare incoerenze e fonti mancanti, ma non equivalgono
+              a una verifica umana o a un parere professionale. Per aliquote,
+              importi e scadenze, il riferimento resta la fonte ufficiale citata.
             </NumberItem>
             <NumberItem>
               <strong>Pubblicazione e tracciamento</strong>: l'articolo
@@ -125,12 +126,9 @@ export const Metodologia: React.FC = () => {
             Usiamo modelli linguistici di nuova generazione (Claude di
             Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire
             strutture e tradurre i contenuti tra italiano, inglese, tedesco
-            e francese. L'IA è un assistente, non un autore autonomo:{' '}
-            <strong>
-              ogni articolo è revisionato dalla redazione prima della
-              pubblicazione
-            </strong>
-            .
+            e francese. La pipeline può pubblicare contenuti generati
+            automaticamente dopo i controlli tecnici. Non dichiariamo una
+            revisione umana preventiva per ogni articolo.
           </p>
           <p className="mt-3">
             Per garantire affidabilità applichiamo regole rigide:
@@ -142,8 +140,10 @@ export const Metodologia: React.FC = () => {
               normative.
             </BulletItem>
             <BulletItem>
-              Le bozze IA non vengono mai pubblicate senza una passata di
-              revisione umana che riscrive almeno il 30% del testo.
+              La generazione automatica può produrre errori: i lettori
+              possono segnalarli alla redazione tramite il registro delle
+              correzioni. Non applichiamo una percentuale garantita di
+              riscrittura umana.
             </BulletItem>
             <BulletItem>
               I marchi e i nomi propri (banche, casse malati, datori di
@@ -152,9 +152,9 @@ export const Metodologia: React.FC = () => {
               localizzazione.
             </BulletItem>
             <BulletItem>
-              Ogni articolo include la dicitura "bozza assistita da
-              intelligenza artificiale, revisionata dalla redazione" in
-              testa al corpo del testo.
+              La disclosure distingue i contributi originali degli autori
+              dai contenuti prodotti con assistenza automatica.
+              Non certifica una revisione umana non documentata.
             </BulletItem>
           </ul>
         </Section>
@@ -162,10 +162,10 @@ export const Metodologia: React.FC = () => {
         {/* Fonti primarie */}
         <Section icon={BookOpen} title="Fonti primarie">
           <p>
-            Per ogni argomento usiamo esclusivamente fonti primarie e
-            verificabili. Le fonti secondarie (giornali, blog, forum) sono
-            consultate solo come segnale di attualità, mai come sorgente
-            unica di un dato.
+            Privilegiamo le fonti primarie per norme, importi e scadenze.
+            Le notizie possono basarsi anche su fonti giornalistiche,
+            attribuite e collegate nel testo. Una notizia riportata non
+            equivale a una verifica indipendente della fonte primaria.
           </p>
           <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
             {[

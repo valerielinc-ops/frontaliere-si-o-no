@@ -10,6 +10,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
+  renderEventsIndexPage,
   eventLd,
   cleanEventText,
   pathForEventDetail,
@@ -1533,5 +1534,23 @@ describe('other-events-page <title> budget for a long-name canton (regression: i
       expect(titleTag.length).toBeGreaterThan(0);
       expect(titleTag.length).toBeLessThanOrEqual(66);
     }
+  });
+});
+
+
+describe('event navigation uses localized destinations', () => {
+  it.each([
+    ['en', '/en/cross-border-articles/', '/en/calculate-salary/'],
+    ['de', '/de/grenzgaenger-artikel/', '/de/gehalt-berechnen/'],
+    ['fr', '/fr/articles-frontalier/', '/fr/calculer-salaire/'],
+  ] as const)('renders valid article and calculator links in %s', (locale, blog, calculator) => {
+    const { html } = renderEventsIndexPage({
+      locale, cantonStats: [], events: [], dateStamp: new Date().toISOString().slice(0, 10),
+      weekendDays: new Set(), distDir: os.tmpdir(),
+    });
+    expect(html).toContain(`href="${blog}"`);
+    expect(html).toContain(`href="${calculator}"`);
+    expect(html).not.toContain(`href="/${locale}/articoli-frontaliere/"`);
+    expect(html).not.toContain(`href="/${locale}/calcola-stipendio/"`);
   });
 });

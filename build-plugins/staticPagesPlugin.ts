@@ -70,6 +70,7 @@ import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 import { buildFaqHubPath } from '../data/faq-hub/routes';
 import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../services/pharmacies/types';
 import { COMMUNICATIONS_PAGE_PATH } from '../services/communicationChannels';
+import { SITE_MAP_PAGE_DIR } from './shared/siteMapPageDir';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 // Same story, same rail, the other eleven pills: the guide/fisco hrefs below
 // were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
@@ -1340,7 +1341,15 @@ export function injectLocaleMainNav(html: string, locale: HpSeoLocale): string {
  * so removing the injection from the ratchet is what makes the test go red.
  */
 export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'): string {
+ const noJsCopy = {
+   en: ['Interactive calculators require JavaScript. You can still read the guides and browse the links below.', 'Browse the site'],
+   de: ['Die interaktiven Rechner benötigen JavaScript. Sie können weiterhin die Ratgeber lesen und die folgenden Links nutzen.', 'Website erkunden'],
+   fr: ['Les calculateurs interactifs nécessitent JavaScript. Vous pouvez toujours lire les guides et parcourir les liens ci-dessous.', 'Parcourir le site'],
+ }[locale];
  let out = replaceHomepageSeoHead(html, locale);
+ // Replace only the content fallback; stylesheet noscript blocks must survive.
+ out = out.replace(/<noscript\b[^>]*\bid="homepage-nojs"[^>]*>[\s\S]*?<\/noscript>/i,
+   `<noscript id="homepage-nojs"><p>${noJsCopy[0]} <a href="/${SITE_MAP_PAGE_DIR[locale]}/">${noJsCopy[1]}</a></p></noscript>`);
  out = out.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
  out = out.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
  out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
@@ -4651,7 +4660,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
  editorialBlocks.push(
- `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (Nuovo Accordo 2026 ratificato, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Ogni articolo cita le fonti primarie, include riferimenti normativi aggiornati e collega direttamente ai simulatori della piattaforma così da passare dalla notizia alla stima numerica in pochi click. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
+ `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (Nuovo Accordo 2026 ratificato, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano le fonti utilizzate, che possono essere documenti ufficiali o notizie giornalistiche attribuite, e gli strumenti pertinenti della piattaforma. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
  // Visible CTA → full A-Z archive. Critical for crawler reachability:
  // closes the BFS path from this index to /articoli-frontaliere/tutti/
@@ -4865,11 +4874,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
- `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. Ogni articolo segue una pipeline editoriale a cinque fasi — raccolta delle fonti primarie, bozza assistita da intelligenza artificiale, revisione redazionale, fact-checking e pubblicazione tracciata. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
+ `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. La produzione comprende raccolta delle fonti, generazione assistita, controlli automatici e pubblicazione tracciata. Le verifiche redazionali e le correzioni possono avvenire anche dopo la pubblicazione. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
  `<h2 class="s-o3IET6">Strumenti di intelligenza artificiale e revisione umana</h2>`,
- `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. L'IA è un assistente, non un autore autonomo: ogni articolo è revisionato dalla redazione prima della pubblicazione.`,
+ `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. La pipeline può pubblicare contenuti generati automaticamente dopo i controlli tecnici. Non dichiariamo una revisione umana preventiva per ogni articolo: i controlli automatici non equivalgono a una verifica umana o a un parere professionale.`,
  `<h2 class="s-o3IET6">Fonti primarie utilizzate</h2>`,
- `Per ogni argomento usiamo esclusivamente fonti primarie e verificabili: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le fonti utilizzate per ciascun articolo sono linkate direttamente nel testo.`,
+ `Privilegiamo le fonti primarie per norme, importi e scadenze: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le notizie possono basarsi anche su fonti giornalistiche, attribuite e collegate nel testo. Una notizia riportata non equivale a una verifica indipendente della fonte primaria.`,
  `<h2 class="s-o3IET6">Standard giornalistici</h2>`,
  `Aderiamo agli standard di riferimento del giornalismo economico-finanziario: separazione netta tra fatti e opinioni, attribuzione esplicita di ogni dato numerico, citazioni verbatim, verificabilità di ogni affermazione importante, imparzialità rispetto a banche, casse malati e datori di lavoro, trasparenza sugli autori.`,
  `<h2 class="s-o3IET6">Politica di aggiornamento e correzioni</h2>`,

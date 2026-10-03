@@ -6887,7 +6887,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Metodologia editoriale — Come scriviamo gli articoli",
  "url": `${BASE_URL}/metodologia/`,
  "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
- "lastReviewed": "2026-06-16T00:00:00+02:00",
+ "lastReviewed": "2026-10-03T00:00:00+02:00",
  "inLanguage": "it",
  "isPartOf": { "@id": `${BASE_URL}/#website` },
  "about": {
