@@ -20,7 +20,10 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
-import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import {
   createSpecUrlPolicy,
   geographyFieldsForDecision,
@@ -766,6 +769,7 @@ export async function fetchAllFachkraftJobs(options = {}) {
       droppedMissingGeography++;
       continue;
     }
+    const structuredGeography = sourceBackedSwissGeographyFields(listing, { location, canton });
     const descriptionText = normalizeSpace(stripHtml(listing.description || ''));
     if (!isPublishableFachkraftDescription(descriptionText)) continue;
     const publicUrl = listing.url || CAREER_URL;
@@ -794,10 +798,10 @@ export async function fetchAllFachkraftJobs(options = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(structuredGeography?.addressLocality || listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(structuredGeography?.addressRegion || listing.addressRegion || canton),
+      addressCountry: normalizeSpace(structuredGeography?.addressCountry || listing.addressCountry || "CH"),
+      country: normalizeSpace(structuredGeography?.addressCountry || listing.addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),

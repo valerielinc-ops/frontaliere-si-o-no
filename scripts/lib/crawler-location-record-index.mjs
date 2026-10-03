@@ -6,9 +6,14 @@ function normalizeJobId(value) {
   return String(value || '').trim().toLowerCase();
 }
 
-function locationRecord(job) {
+function normalizeCrawler(value) {
+  return String(value || '').trim();
+}
+
+function locationRecord(job, { crawler = '' } = {}) {
   const sourceLocationCanton = String(job.sourceLocationCanton || '').trim().toUpperCase();
   return {
+    crawler: normalizeCrawler(crawler),
     canton: String(job.canton || '').trim().toUpperCase(),
     city: String(job.addressLocality || job.location || '').trim(),
     location: String(job.location || '').trim(),
@@ -19,7 +24,8 @@ function locationRecord(job) {
 function sameLocationRecord(left, right) {
   const leftSource = left.sourceLocationCanton || '';
   const rightSource = right.sourceLocationCanton || '';
-  return left.canton === right.canton
+  return left.crawler === right.crawler
+    && left.canton === right.canton
     && left.city === right.city
     && left.location === right.location
     && (!leftSource || !rightSource || leftSource === rightSource);
@@ -41,6 +47,10 @@ function addUniqueRecord(index, key, record) {
 /**
  * Index crawler location evidence by the per-record ID, with URL identity as
  * a fallback only when it maps consistently to one location record.
+ *
+ * `crawler` is supplied by the slice loader, rather than inferred from the
+ * company name: one crawler can publish several brands and the parser file is
+ * the actionable provenance the audit must expose.
  */
 export function createCrawlerLocationRecordIndex() {
   const byJobId = new Map();
@@ -48,10 +58,10 @@ export function createCrawlerLocationRecordIndex() {
   let size = 0;
 
   return {
-    add(job) {
+    add(job, source = {}) {
       if (!job || typeof job !== 'object' || Array.isArray(job)) return;
 
-      const record = locationRecord(job);
+      const record = locationRecord(job, source);
       if (!record.canton && !record.city) return;
       size += 1;
 

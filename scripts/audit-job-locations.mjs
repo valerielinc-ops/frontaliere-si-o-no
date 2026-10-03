@@ -179,12 +179,13 @@ function loadCrawlerRecords() {
   const index = createCrawlerLocationRecordIndex();
   if (!existsSync(dir)) return index;
   for (const file of listSliceFileNames(dir)) {
+    const crawler = file.replace(/\.json$/i, '');
     let doc;
     try { doc = JSON.parse(readFileSync(join(dir, file), 'utf8')); } catch { continue; }
     const slice = Array.isArray(doc) ? doc : (doc.jobs || []);
     for (const job of slice) {
       if (!job || typeof job !== 'object') continue;
-      index.add(job);
+      index.add(job, { crawler });
     }
   }
   return index;
@@ -202,6 +203,16 @@ function sameRecordedPlace(crawlerCity, publishedCity) {
   if (a === b) return true;
   const inner = swissCityFromLocationField(crawlerCity);
   return Boolean(inner) && inner.toLowerCase() === b;
+}
+
+function crawlerEvidence(crawlerRecord) {
+  if (!crawlerRecord) return {};
+  return {
+    crawler: crawlerRecord.crawler || '(unknown)',
+    crawlerCanton: crawlerRecord.canton || '(none)',
+    crawlerCity: crawlerRecord.city || '(none)',
+    crawlerLocation: crawlerRecord.location || '(none)',
+  };
 }
 
 function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
@@ -282,6 +293,7 @@ for (const job of jobsToAudit) {
   // `addressLocality` fallback `city` above, because it is the rendered string
   // whose shape is in question.
   const rawLocation = norm(job.location || '');
+  const crawlerRecord = crawlerRecordById.get(job);
   if (rawLocation) {
     const parts = splitJobLocation(rawLocation, cantonUpper);
     const crawler = norm(job.companyKey || '') || company || 'unknown';
@@ -335,26 +347,40 @@ for (const job of jobsToAudit) {
   // changed LOCALITY means the pipeline invented a location, so that is what
   // lands in the alarming bucket; a bare canton-stamp difference is recorded
   // separately as context and never trips the "must never produce" verdict.
-  const crawlerRecord = crawlerRecordById.get(job);
-  if (crawlerRecord && cantonUpper) {
+  if (crawlerRecord) {
     const crawlerCity = crawlerRecord.city;
     const entry = {
-      id, company, city: city || '(empty)',
+      id,
+      stableId: id,
+      company,
+      city: city || '(empty)',
+      publishedCity: city || '(empty)',
+      publishedLocation: rawLocation || '(empty)',
       storedCanton: cantonUpper,
-      crawlerCanton: crawlerRecord.canton || '(none)',
-      crawlerCity: crawlerCity || '(none)',
+      publishedCanton: cantonUpper || '(none)',
+      ...crawlerEvidence(crawlerRecord),
       inferredCanton: city ? inferAnyCanton(city) || '(none)' : '(none)',
     };
     if (crawlerCity && city && !sameRecordedPlace(crawlerCity, city)) {
       results.crawlerLocationRewritten.push(entry);
-    } else if (crawlerRecord.canton && crawlerRecord.canton !== cantonUpper) {
+    } else if (crawlerRecord.canton && cantonUpper && crawlerRecord.canton !== cantonUpper) {
       results.crawlerCantonStampDiffers.push(entry);
     }
   }
 
   // Empty location
   if (!city || city === 'CH' || city.length < 2) {
-    results.emptyLocation.push({ id, company, city, storedCanton });
+    results.emptyLocation.push({
+      id,
+      stableId: id,
+      company,
+      city,
+      storedCanton,
+      publishedCity: city || '(empty)',
+      publishedLocation: rawLocation || '(empty)',
+      publishedCanton: cantonUpper || '(none)',
+      ...crawlerEvidence(crawlerRecord),
+    });
     continue;
   }
 
@@ -488,12 +514,12 @@ if (results.crawlerLocationRewritten.length > 0) {
   console.log('\n' + '─'.repeat(70));
   console.log('📌 PUBLISHED LOCALITY CONTRADICTS THE CRAWLER RECORD');
   console.log('─'.repeat(70));
-  const byCompany = {};
+  const byCrawler = {};
   for (const o of results.crawlerLocationRewritten) {
-    const key = `${o.company} — crawler="${o.crawlerCity}" (${o.crawlerCanton}) → published="${o.city}" (${o.storedCanton})`;
-    byCompany[key] = (byCompany[key] || 0) + 1;
+    const key = `${o.crawler} — ${o.company} — source="${o.crawlerLocation}" (${o.crawlerCanton}) → published="${o.publishedLocation}" (${o.storedCanton})`;
+    byCrawler[key] = (byCrawler[key] || 0) + 1;
   }
-  for (const [key, count] of Object.entries(byCompany).sort((a, b) => b[1] - a[1])) {
+  for (const [key, count] of Object.entries(byCrawler).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${count.toString().padStart(4)} × ${key}`);
   }
 
