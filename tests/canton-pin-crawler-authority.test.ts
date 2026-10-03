@@ -207,6 +207,23 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
     })).toBe('AG');
   });
 
+  it('preserves the assembled canton when a matched source row has only locality', () => {
+    const crawlerCanton = resolveCrawlerCantonForAssembly({
+      sourceLookup: { status: 'found', record: { canton: '' } },
+      jobCanton: 'AG',
+    });
+    expect(crawlerCanton).toBe('AG');
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Reinach',
+      locationText: 'Reinach',
+      crawlerCanton,
+    })).toBe('AG');
+    expect(resolveCrawlerCantonForAssembly({
+      sourceLookup: { status: 'found', record: { canton: 'TI' } },
+      jobCanton: 'AG',
+    })).toBe('TI');
+  });
+
   it('does not hide a location/crawler conflict by choosing the marker', () => {
     expect(inferCantonFromJobEvidence({
       cityText: 'Basel',

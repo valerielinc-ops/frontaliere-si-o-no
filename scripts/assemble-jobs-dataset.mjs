@@ -107,7 +107,8 @@ export function resolveSourceBackedIpersonalCanton(job = {}) {
 }
 
 /**
- * Preserve the assembled canton when the raw source identity is ambiguous.
+ * Preserve the assembled canton when the raw source identity is ambiguous
+ * or its matched record has no canton.
  * Conflicting source rows cannot nominate one crawler stamp safely, but the
  * assembled row still carries the best per-record fallback for downstream
  * locality inference.
@@ -123,7 +124,7 @@ export function resolveCrawlerCantonForAssembly({
   const sourceRecord = sourceLookup?.status === 'found' ? sourceLookup.record : null;
   if (sourceBackedCanton) return sourceBackedCanton;
   if (sourceLookup?.status === 'ambiguous') return jobCanton || '';
-  return sourceRecord ? sourceRecord.canton : (jobCanton || '');
+  return sourceRecord?.canton || jobCanton || '';
 }
 
 function isHttpsJobUrl(value) {
