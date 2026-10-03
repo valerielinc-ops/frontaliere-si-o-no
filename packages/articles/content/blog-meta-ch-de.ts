@@ -7607,6 +7607,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-berna-quadro-2026.title': 'Mieten im Kanton Bern und eidgenössische Mietregeln',
     'blog.article.affitti-berna-quadro-2026.excerpt': 'Analyse des Immobilienmarktes im Kanton Bern und der geltenden eidgenössischen Vorschriften zur Kaution und zu Mietverträgen.',
     'blog.article.affitti-berna-quadro-2026.imageAlt': 'Wohngebäude und Mietmarkt im Kanton Bern',
+    'blog.article.locazione-cauzione-basilea-2026.title': 'Mieten in der Schweiz 2026: Regeln und Fokus Basel',
+    'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Mietkaution, Kündigung durch den Vermieter und Anfechtung innerhalb von 30 Tagen, mit Fokus auf den Kanton Basel und den in jedem Kanton gleichen bundesrechtlichen Rahmen.',
+    'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Schweizer Wohnhäuser und Mietregeln im Kanton Basel',
 };
 
 export default blogMetaChDe;

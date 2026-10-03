@@ -7607,6 +7607,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-berna-quadro-2026.title': 'Loyers dans le canton de Berne et règles fédérales en matière de location',
     'blog.article.affitti-berna-quadro-2026.excerpt': 'Analyse du marché immobilier dans le canton de Berne et des normes fédérales en vigueur relatives à la garantie locative et aux contrats de location.',
     'blog.article.affitti-berna-quadro-2026.imageAlt': 'Immeubles résidentiels et marché locatif dans le canton de Berne',
+    'blog.article.locazione-cauzione-basilea-2026.title': 'Locations en Suisse 2026 : règles et focus sur Bâle',
+    'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Dépôt de garantie, congé donné par le bailleur et contestation dans un délai de 30 jours, en mettant l\'accent sur le canton de Bâle et sur le cadre fédéral identique dans chaque canton.',
+    'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Immeubles résidentiels suisses et règles locatives dans le canton de Bâle',
 };
 
 export default blogMetaChFr;

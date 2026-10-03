@@ -7607,6 +7607,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-berna-quadro-2026.title': 'Rentals in the canton of Bern and federal tenancy rules',
     'blog.article.affitti-berna-quadro-2026.excerpt': 'Analysis of the real estate market in the canton of Bern and of the federal regulations currently in force concerning security deposits and rental agreements.',
     'blog.article.affitti-berna-quadro-2026.imageAlt': 'Residential buildings and rental market in the canton of Bern',
+    'blog.article.locazione-cauzione-basilea-2026.title': 'Rentals in Switzerland 2026: rules and focus on Basel',
+    'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Security deposit, landlord\'s notice of termination and challenge within 30 days, with a focus on the canton of Basel and the federal framework that is the same in every canton.',
+    'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Swiss residential buildings and rental rules in the canton of Basel',
 };
 
 export default blogMetaChEn;

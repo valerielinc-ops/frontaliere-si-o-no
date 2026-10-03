@@ -7607,6 +7607,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-berna-quadro-2026.title': 'Affitti nel canton Berna e regole federali della locazione',
     'blog.article.affitti-berna-quadro-2026.excerpt': 'Analisi del mercato immobiliare nel canton Berna e delle norme federali sulla cauzione e sui contratti di locazione in vigore.',
     'blog.article.affitti-berna-quadro-2026.imageAlt': 'Edifici residenziali e mercato degli affitti nel canton Berna',
+    'blog.article.locazione-cauzione-basilea-2026.title': 'Affitti in Svizzera 2026: regole e focus Basilea',
+    'blog.article.locazione-cauzione-basilea-2026.excerpt': 'Deposito cauzionale, disdetta del locatore e contestazione entro 30 giorni, con focus sul canton Basilea e sul quadro federale uguale in ogni cantone.',
+    'blog.article.locazione-cauzione-basilea-2026.imageAlt': 'Edifici residenziali svizzeri e regole per gli affitti nel canton Basilea',
 };
 
 export default blogMetaChIt;
