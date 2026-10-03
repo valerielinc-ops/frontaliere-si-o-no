@@ -85,6 +85,7 @@ describe('crawler location record index', () => {
     index.add(job);
 
     expect(index.get(job)).toEqual({
+      crawler: '',
       canton: 'SZ',
       city: 'Seewen',
       location: 'Seewen',
