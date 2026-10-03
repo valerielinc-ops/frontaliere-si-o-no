@@ -348,12 +348,18 @@ export function postingMatch(pageText, job = {}) {
  * often names the role and never the company (umantis for Grand Hotel
  * Kronenhof, 2026-10-03: «Concierge - Application», at most the group's
  * name): the company was read on the posting the runner came from
- * (`postingMatched`), the role is read on the form, every word of it. A form
- * reached any other way is judged by postingMatch alone.
+ * (`postingMatched`), the role is read on the form, every word of it. Only a
+ * form that is silent about the employer: one that names part of the
+ * employer's name and not all of it («Concierge — Other Hotel» for «Grand
+ * Hotel Esempio») names another employer, and is a stop whatever the posting
+ * said (review of #11033). A form reached any other way is judged by
+ * postingMatch alone.
  */
 export function formPostingMatch(formText, job = {}, { postingMatched = false } = {}) {
   const direct = postingMatch(formText, job);
   if (direct !== 'mismatch' || !postingMatched) return direct;
+  const onForm = new Set(nameWords(formText));
+  if (nameWords(job.company).some((word) => onForm.has(word))) return 'mismatch';
   return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
 }
 

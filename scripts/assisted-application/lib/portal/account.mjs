@@ -78,12 +78,26 @@ export function authPageKind(snapshot) {
  * first, the form's own send button creates the account. A sign-in or a
  * registration page never asks for a CV: the file field sent with the
  * password (the same <form>, or a page without any) tells them apart. A login
- * box next to a guest form sits in a <form> of its own and stays a login.
+ * box next to a guest form sits in a <form> of its own and stays a login. So
+ * does a password the account already has, asked inside the application's own
+ * form («Login password», autocomplete "current-password"): a new password
+ * typed there would only be a failed sign-in (review of #11033).
  */
 export function inlineAccountForm(snapshot) {
   const sentWith = (field) => `${field.frame ?? 0}:${field.form ?? -1}`;
-  const passwordForms = new Set(snapshot.fields.filter((field) => field.inputType === 'password').map(sentWith));
-  return passwordForms.size > 0 && snapshot.fields.some((field) => field.kind === 'file' && passwordForms.has(sentWith(field)));
+  const passwords = snapshot.fields.filter((field) => field.inputType === 'password');
+  if (!passwords.length || passwords.some(asksExistingPassword)) return false;
+  const passwordForms = new Set(passwords.map(sentWith));
+  return snapshot.fields.some((field) => field.kind === 'file' && passwordForms.has(sentWith(field)));
+}
+
+// The password of an account that exists: by the browser's own hint, or by the field's words.
+const EXISTING_PASSWORD_RE = /(current.?password|\blog.?in\b|\bsign.?in\b|anmeld|einlogg|\baccedi\b|\baccesso\b|connexion|aktuell|attuale|\bactuel|existing|bestehend|esistente|existant)/i;
+
+/** A password field that asks for the one an existing account has, never for a new one. */
+export function asksExistingPassword(field) {
+  return String(field?.autocomplete || '').trim().toLowerCase() === 'current-password'
+    || EXISTING_PASSWORD_RE.test(`${field?.label || ''} ${field?.name || ''}`);
 }
 
 // SuccessFactors refuses more than 18 characters (Coop, 2026-10-02); every
