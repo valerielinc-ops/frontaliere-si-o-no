@@ -76,6 +76,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { CALC_HREF } from './shared/calcHref';
+import { hasSalaryIntent } from '../services/jobSearchIntent';
 import { buildSalaryAnswer, searchSalaryMedian } from './shared/searchSalaryAnswer';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -581,7 +582,9 @@ function renderPage(opts: {
   );
 
   const medianSalary = searchSalaryMedian(matchingJobs);
-  const salaryExplanation = buildSalaryAnswer(locale, medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : '');
+  const salaryExplanation = hasSalaryIntent(cluster.canonicalQuery)
+    ? buildSalaryAnswer(locale, medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : '')
+    : '';
   const topEmployers = topCounts(matchingJobs.map((j) => j.company), 5);
   const topCities = topCounts(matchingJobs.map((j) => j.addressLocality || j.location), 3);
 
@@ -680,7 +683,7 @@ function renderPage(opts: {
         <ul class="s-qVzgqV">${cityList}</ul>
       </div>` : ''}
     </section>
-    <p class="s-WzYXnb">${esc(salaryExplanation)}</p>
+    ${salaryExplanation ? `<p class="s-WzYXnb">${esc(salaryExplanation)}</p>` : ''}
     <section class="s-KZc0LQ">
       <h2 class="s-sOn5-B">${esc(t('orphanLanding.resultsLabel', 'Openings'))}</h2>
       ${matchingJobs.length > 0
