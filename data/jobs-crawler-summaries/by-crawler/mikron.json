@@ -1,20 +1,19 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-03T09:29:15.740Z",
+  "generatedAt": "2026-10-03T21:27:17.922Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 17600,
-  "avgDurationMs": 17600,
+  "durationMs": 16208,
+  "avgDurationMs": 16208,
   "durationHistory": [
-    14432,
-    14344,
-    17600
+    16208
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/electrical-software-engineer-mfd",
       "applyUrl": "https://www.mikron.com/en/electrical-software-engineer-mfd",
@@ -39,6 +38,7 @@
         "location": "Agno"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:29:09.375Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "_qualityScore": 62,
@@ -48,9 +48,7 @@
         "translation": 4,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
       "applyUrl": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -260,7 +258,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -269,5 +267,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

@@ -112,6 +112,18 @@ function allTypes(value: any): string[] {
 }
 
 describe('job-board emitted output', () => {
+  it.each([
+    ['it', 'Pagina generata', 'Aggiornato'],
+    ['en', 'Page generated', 'Updated'],
+    ['de', 'Seite erstellt', 'Aktualisiert'],
+    ['fr', 'Page générée', 'Mis à jour'],
+  ] as const)('labels the city page build clock as generation in %s', (locale, generated, updated) => {
+    const document = htmlDoc(`${hubPath(locale, 'ZH')}zurich/`);
+    const eyebrow = document.querySelector('header .sx-kick')?.textContent || '';
+    expect(eyebrow).toContain(generated);
+    expect(eyebrow).not.toContain(updated);
+  });
+
   it('uses the loaded listing snapshot for all hub counts and geographic metadata', () => {
     for (const locale of locales) {
       const index = JSON.parse(fs.readFileSync(path.join(root, 'dist/data', `jobs-${locale}-index.json`), 'utf8'));

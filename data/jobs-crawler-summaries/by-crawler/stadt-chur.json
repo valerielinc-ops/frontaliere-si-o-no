@@ -1,12 +1,17 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-10-03T09:37:38.122Z",
+  "generatedAt": "2026-10-03T21:37:49.963Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 895199,
+  "avgDurationMs": 895199,
+  "durationHistory": [
+    895199
+  ],
   "newJobs": [],
   "updatedJobs": [
     {
@@ -32,7 +37,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
-      "crawledAt": "2026-10-03T09:37:32.489Z",
+      "crawledAt": "2026-10-03T21:37:46.630Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -50,10 +55,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "durationMs": 895313,
-  "avgDurationMs": 895313,
-  "durationHistory": [
-    895245,
-    895313
-  ]
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

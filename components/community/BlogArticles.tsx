@@ -23,6 +23,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
+import { articleSourceDate, articleSchemaDates, compareArticleSourceDates } from '@/services/articleSourceDates';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
 import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
@@ -1612,8 +1613,7 @@ function BlogArticles({
  '@type': 'NewsArticle',
  headline: title,
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
- datePublished: `${article.date}T00:00:00+01:00`,
- dateModified: `${(article.updatedAt || article.date).slice(0, 10)}T00:00:00+01:00`,
+ ...articleSchemaDates(article),
  author: ldAuthorName
  ? {
  '@type': 'Person',
@@ -1743,7 +1743,7 @@ function BlogArticles({
  const filtered = selectedCategory === 'all'
  ? [...articles]
  : articles.filter(a => a.category === selectedCategory);
- return filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+ return filtered.sort(compareArticleSourceDates);
  }, [selectedCategory, articles]);
 
  const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
@@ -2048,10 +2048,12 @@ function BlogArticles({
  });
  };
 
- const formatDate = (dateStr: string): string => {
- const d = new Date(dateStr);
+ const formatDate = (dateStr?: string): string => {
+ const sourceDate = articleSourceDate(dateStr);
+ if (!sourceDate) return '';
+ const d = new Date(sourceDate);
  const localeMap: Record<string, string> = { it: 'it-IT', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' };
- return d.toLocaleDateString(localeMap[locale] ?? 'it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+ return d.toLocaleDateString(localeMap[locale] ?? 'it-IT', { day: 'numeric', month: 'long', year: 'numeric', ...(sourceDate.length === 10 ? { timeZone: 'UTC' } : {}) });
  };
 
  // ── Loading blog translations ──────────────────────
@@ -2323,18 +2325,20 @@ function BlogArticles({
  {t('blog.byline')}
  </span>
  )}
+ {articleSourceDate(article.date) && (<>
  <span className="text-edge">|</span>
  <span className="flex items-center gap-1">
  <Calendar size={14} />
- <time dateTime={article.date.slice(0, 10)} itemProp="datePublished">
+ <time dateTime={articleSourceDate(article.date)} itemProp="datePublished">
  {t('blog.publishedOn')} {formatDate(article.date)}
  </time>
  </span>
- {article.updatedAt && article.updatedAt !== article.date.slice(0, 10) && (
+ </>)}
+ {articleSourceDate(article.updatedAt) && articleSourceDate(article.updatedAt) !== articleSourceDate(article.date) && (
  <span className="flex items-center gap-1 text-success">
  <RefreshCw size={12} />
- <time dateTime={article.updatedAt.slice(0, 10)} itemProp="dateModified">
- {t('blog.updatedOn')} {formatDate(article.updatedAt)}
+ <time dateTime={articleSourceDate(article.updatedAt)} itemProp="dateModified">
+ {t('blog.updatedOn')} {formatDate(article.updatedAt ?? '')}
  </time>
  </span>
  )}
@@ -3042,11 +3046,11 @@ function BlogArticles({
  <Clock size={12} />
  {estimateReadingMinutes(pageArticles[0].id, t)} min
  </span>
- <span className="text-xs text-on-accent/80">{formatDate(pageArticles[0].date)}</span>
- {pageArticles[0].updatedAt && pageArticles[0].updatedAt !== pageArticles[0].date.slice(0, 10) && (
+ {articleSourceDate(pageArticles[0].date) && <span className="text-xs text-on-accent/80">{formatDate(pageArticles[0].date)}</span>}
+ {articleSourceDate(pageArticles[0].updatedAt) && articleSourceDate(pageArticles[0].updatedAt) !== articleSourceDate(pageArticles[0].date) && (
  <span className="inline-flex items-center gap-1 text-xs text-on-accent/80">
  <RefreshCw size={10} />
- {t('blog.updatedOn')} {formatDate(pageArticles[0].updatedAt)}
+ {t('blog.updatedOn')} {formatDate(pageArticles[0].updatedAt ?? '')}
  </span>
  )}
  </div>
@@ -3123,20 +3127,22 @@ function BlogArticles({
  {t('blog.hasCalculator')}
  </span>
  )}
- {article.updatedAt && article.updatedAt !== article.date.slice(0, 10) && (
+ {articleSourceDate(article.updatedAt) && articleSourceDate(article.updatedAt) !== articleSourceDate(article.date) && (
  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-success-subtle text-success">
  <RefreshCw size={9} />
- {t('blog.updatedOn')} {formatDate(article.updatedAt)}
+ {t('blog.updatedOn')} {formatDate(article.updatedAt ?? '')}
  </span>
  )}
  </div>
  <div className="mt-auto flex items-center justify-between">
  <div className="flex items-center gap-2 text-xs text-muted">
+ {articleSourceDate(article.date) && (<>
  <span className="flex items-center gap-1">
  <Calendar size={11} />
  {formatDate(article.date)}
  </span>
  <span className="text-edge">·</span>
+ </>)}
  <span className="flex items-center gap-1">
  <Clock size={11} />
  {estimateReadingMinutes(article.id, t)} min
