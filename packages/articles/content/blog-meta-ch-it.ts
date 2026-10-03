@@ -7658,6 +7658,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fisco-argovia-online-2026.title': 'Dichiarazione imposte svizzera: guida 2026 in Argovia',
     'blog.article.fisco-argovia-online-2026.excerpt': 'La guida 2026 alla dichiarazione delle imposte in Argovia spiega IFD, imposte cantonali e comunali, moltiplicatore e procedura online.',
     'blog.article.fisco-argovia-online-2026.imageAlt': 'Ufficio fiscale cantonale svizzero con laptop e documenti della dichiarazione 2026.',
+    'blog.article.pilastro3a-zurigo-strategia.title': 'Terzo pilastro 3a: vantaggi 2026 nel canton Zurigo',
+    'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Guida 2026 al terzo pilastro 3a nel canton Zurigo: tre livelli fiscali, moltiplicatore comunale e provider bancari o assicurativi.',
+    'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Documenti fiscali svizzeri e piano 3a su una scrivania con skyline di Zurigo.',
 };
 
 export default blogMetaChIt;

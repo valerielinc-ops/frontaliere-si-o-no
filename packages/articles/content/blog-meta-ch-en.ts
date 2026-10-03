@@ -7658,6 +7658,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fisco-argovia-online-2026.title': 'Swiss tax return: 2026 guide in Aargau',
     'blog.article.fisco-argovia-online-2026.excerpt': 'The 2026 guide to filing taxes in Aargau explains IFD, cantonal and municipal taxes, the multiplier and the online procedure.',
     'blog.article.fisco-argovia-online-2026.imageAlt': 'Swiss cantonal tax office with a laptop and 2026 tax return documents.',
+    'blog.article.pilastro3a-zurigo-strategia.title': 'Third pillar 3a: 2026 advantages in the canton of Zurich',
+    'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Guide 2026 to the third pillar 3a in the canton of Zurich: three tax levels, municipal multiplier and banking or insurance providers.',
+    'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Swiss tax papers and a 3a savings plan on a desk with Zurich skyline.',
 };
 
 export default blogMetaChEn;
