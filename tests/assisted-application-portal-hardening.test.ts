@@ -93,6 +93,14 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(namesAnotherEmployer('Concierge — Hotel application', job)).toBe(false);
     expect(namesAnotherEmployer('CONCIERGE | HOTEL SPLENDIDE', job)).toBe(true);
     expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
+    // Review of #11064: the kind of employer is the page's vocabulary too, whatever the order's company is called.
+    const palace = { title: 'Concierge', company: 'Palace Resort AG' };
+    expect(formPostingMatch('Concierge — Hotel application', palace, { postingMatched: true })).toBe('match');
+    expect(formPostingMatch('Concierge — Hotel Splendide', palace, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Concierge — Other Hotel', palace, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Infermiera — Hospital application', { title: 'Infermiera', company: 'Clinica Esempio' }, { postingMatched: true })).toBe('match');
+    // …but next to a word of the order's company it is a name: «Esempio Resort» is not «Grand Hotel Esempio».
+    expect(formPostingMatch('Concierge — Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
     // A place in the title is a stop too (Valerie's retry goes on): never a guess about what the word is.
     expect(viaPosting('Concierge | Pontresina')).toBe('mismatch');
     // 2. Below the title, only the word next to a word of the order's company counts.

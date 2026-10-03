@@ -352,6 +352,13 @@ const FORM_VOCABULARY = new Set([
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
 ]);
+// The kind of employer, alone in a title, names nobody: «Hotel application» is a hotel's form, whoever
+// the hotel is (review of #11064). Next to a word of the order's company it is a name, though:
+// «Esempio Resort» is not «Grand Hotel Esempio» (the neighbour rule does not take these for neutral).
+const EMPLOYER_KIND_WORDS = new Set([
+  'hotel', 'hotels', 'hotellerie', 'resort', 'restaurant', 'ristorante', 'gastronomie', 'spital', 'hospital', 'ospedale', 'hopital',
+  'klinik', 'clinica', 'clinique', 'bank', 'banca', 'banque', 'group', 'gruppe', 'gruppo', 'groupe',
+]);
 // Filler between two words: skipped when looking for the word next to a company word.
 const FILLER_WORDS = new Set([
   'the', 'and', 'for', 'our', 'your', 'with', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
@@ -372,7 +379,8 @@ const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
  *      «Concierge — Other Resort», «Concierge — Other Hotel». Any word there
  *      that is neither the role's, nor the order's company's, nor the page's
  *      own vocabulary («Hotel application», «Hotel Application Process»,
- *      «Application Tracking System») declares someone else. A place or a
+ *      «Application Tracking System»), nor a kind of employer («hotel»,
+ *      «clinica») declares someone else. A place or a
  *      department in the title stops the run too: Valerie's retry goes on,
  *      which costs less than an application to the wrong employer;
  *   2. the word NEXT TO a word of the order's company, anywhere, in the same
@@ -388,7 +396,7 @@ export function namesAnotherEmployer(formText, job = {}) {
   const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
   const text = String(formText || '');
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
-  if (title.some((word) => !filler(word) && !neutral.has(word))) return true;
+  if (title.some((word) => !filler(word) && !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word))) return true;
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     for (const [index, word] of words.entries()) {
