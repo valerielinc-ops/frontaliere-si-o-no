@@ -579,6 +579,7 @@ jobs:
             package.json
             scripts/ci/
             scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
             .github/actions/report-failure/
             .github/workflows/deploy-publish.yml
             .github/workflows/post-deploy-validate-dist.yml
