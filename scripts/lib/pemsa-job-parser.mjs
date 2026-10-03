@@ -1,3 +1,4 @@
+import { hasPostingDateProvenance, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
@@ -366,6 +367,7 @@ export function mergePemsaJobRecord(prev, job) {
   const merged = {
     ...prev,
     ...fresh,
+    ...(hasPostingDateProvenance(prev) || hasPostingDateProvenance(fresh) ? mergeSourcePostingDates(prev, fresh) : {}),
     sourceLang,
     titleByLocale: mergeLocaleTextMap(prev.titleByLocale, fresh.titleByLocale || {}, 3, sourceLang),
     descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, fresh.descriptionByLocale || {}, 30, sourceLang),
