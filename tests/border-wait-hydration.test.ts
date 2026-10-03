@@ -133,7 +133,7 @@ describe('border-wait pages — hydration injection', () => {
     expect(html).toContain('data-bw-live-badge');
   });
 
-  it('marks every crossing row of the root hub table with `data-bw-crossing`', () => {
+  it('marks every crossing item of the root hub with `data-bw-crossing`', () => {
     const html = pages[buildRootHubPath('it')];
     expect(html).toBeDefined();
     // At least the two crossings in our fixture must appear.
