@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { compareFrontierSsnWithLamal, estimateAnnualFrontierSsnEUR } from '../services/frontierHealthContribution';
+import { compareFrontierSsnWithLamal, estimateAnnualFrontierSsnEUR, normalizeFrontierSsnRate } from '../services/frontierHealthContribution';
+
+describe('calculator SSN rate input boundary', () => {
+  it.each([
+    [0, 3],
+    [10, 6],
+  ])('keeps an entered %i%% rate aligned with the calculated %i%% rate', (enteredRate, normalizedRate) => {
+    expect(normalizeFrontierSsnRate(enteredRate)).toBe(normalizedRate);
+  });
+});
 
 describe('frontier-worker SSN annual limits (DM 14 November 2025, article 1)', () => {
   it.each([
