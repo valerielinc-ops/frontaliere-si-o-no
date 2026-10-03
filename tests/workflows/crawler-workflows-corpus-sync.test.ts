@@ -727,6 +727,21 @@ fi
       .toContain('trigger fuori dagli eventi ammessi dal watchdog');
     expect(violations(workflowText.replace(/^jobs:$/m, 'concurrency: jobs-data-pipeline\njobs:')).join('\n'))
       .toContain('`concurrency` a livello di workflow');
+    // Il mutex deve stare sul SOLO job bersaglio: un guard dentro il mutex
+    // (in blocco o inline) cambia chi e' il detentore.
+    const otherJobs = [...workflowText.slice(workflowText.indexOf('\njobs:\n')).matchAll(/^ {2}([A-Za-z0-9_-]+):$/gm)]
+      .map((match) => match[1])
+      .filter((name) => name !== 'translate');
+    expect(otherJobs.length).toBeGreaterThan(0);
+    const guard = otherJobs[0];
+    expect(violations(workflowText.replace(
+      `\n  ${guard}:\n`,
+      `\n  ${guard}:\n    concurrency:\n      group: jobs-data-pipeline\n      cancel-in-progress: false\n`,
+    ))).toEqual([`il job \`${guard}\` dichiara \`concurrency\`: il mutex \`jobs-data-pipeline\` deve stare sul solo job \`translate\``]);
+    expect(violations(workflowText.replace(`\n  ${guard}:\n`, `\n  ${guard}:\n    concurrency: another-group\n`)).join('\n'))
+      .toContain(`il job \`${guard}\` dichiara \`concurrency\``);
+    expect(violations(workflowText.replace(`\n  ${guard}:\n`, `\n  "${guard}":\n`)).join('\n'))
+      .toContain('job in forma non generata');
     // Runtime che non dichiara piu' il job bersaglio: nessun rinfresco alla cieca.
     expect(evaluateWatchdogTargetAssumptions({ workflow: workflowText, runtime: 'export const X = 1;\n' }))
       .toHaveLength(1);

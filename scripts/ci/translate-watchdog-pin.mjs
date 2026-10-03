@@ -181,6 +181,21 @@ export function evaluateWatchdogTargetAssumptions({ workflow, runtime } = {}) {
     violations.push(`job \`${jobName}\` assente dal workflow`);
     return violations;
   }
+  // Il mutex vale per il SOLO job bersaglio: un altro job con `concurrency`
+  // (il guard della coda dentro il mutex, in qualunque forma, anche inline)
+  // cambia chi risulta «detentore» e falsa la soglia del watchdog. Un header di
+  // job in forma non generata fallisce chiuso.
+  for (const header of jobs.filter((line) => /^ {2}[^\s#]/.test(line))) {
+    const otherJob = /^ {2}([A-Za-z0-9_-]+):\s*(?:#.*)?$/.exec(header)?.[1];
+    if (!otherJob) {
+      violations.push(`job in forma non generata sotto \`jobs:\` (\`${header.trim()}\`): presunzioni non verificabili`);
+      continue;
+    }
+    if (otherJob === jobName) continue;
+    if (jobBlock(jobs, otherJob).some((line) => /^ {4}['"]?concurrency['"]?\s*:/.test(line))) {
+      violations.push(`il job \`${otherJob}\` dichiara \`concurrency\`: il mutex \`${WATCHDOG_TARGET_MUTEX_GROUP}\` deve stare sul solo job \`${jobName}\``);
+    }
+  }
   const properties = jobProperties(block);
   if (properties.has('name') && unquote(properties.get('name').value) !== jobName) {
     violations.push(`il job \`${jobName}\` ha un \`name\` diverso: l'API non lo riporterebbe come \`${jobName}\``);
