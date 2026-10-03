@@ -958,6 +958,7 @@ async function main() {
   }
 
   const events = [];
+  const detailFailureIds = [];
   let detailOk = 0;
   let detailFail = 0;
   let visited = 0;
@@ -974,7 +975,10 @@ async function main() {
     const rec = records[cursor];
     const enrichment = await fetchDetailEnrichment(rec.perLocaleHits);
     if (enrichment) detailOk += 1;
-    else detailFail += 1;
+    else {
+      detailFail += 1;
+      detailFailureIds.push(eventStableId(SOURCE.key, rec.objectID));
+    }
 
     const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
     if (mapped) {
@@ -1083,6 +1087,8 @@ async function main() {
     freshEvents: freshEvents,
     goneIds: [],
     crawledAt,
+    detailFailureIds,
+    detailAttemptCount: visited,
   });
   console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed / ${bookingPriceBackfills.length} booking price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }

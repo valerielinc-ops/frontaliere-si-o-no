@@ -326,9 +326,11 @@ export function extractTioDetailMetadata(html) {
  */
 export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
   const out = [];
+  const detailFailureIds = [];
   for (const ev of events) {
     const html = ev.url ? await fetchFn(ev.url) : null;
     const metadata = html ? extractTioDetailMetadata(html) : {};
+    if (!html || Object.keys(metadata).length === 0) detailFailureIds.push(ev.id);
     const detailComune = metadata.address?.locality
       ? resolveComune({ venue: metadata.address.locality, title: '', region: '' }).comune
       : undefined;
@@ -345,6 +347,14 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
     out.push(fillEventPeopleDefaults(next, SOURCE));
     if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
+  Object.defineProperty(out, 'detailFailureIds', {
+    value: detailFailureIds,
+    enumerable: false,
+  });
+  Object.defineProperty(out, 'detailAttemptCount', {
+    value: events.length,
+    enumerable: false,
+  });
   return out;
 }
 
@@ -557,6 +567,8 @@ async function main() {
   // BEFORE mirroring images or writing the slice — see
   // `enrichEventsWithPrice` above.
   const pricedEvents = await enrichEventsWithPrice(events);
+  const detailFailureIds = pricedEvents.detailFailureIds || [];
+  const detailAttemptCount = pricedEvents.detailAttemptCount ?? events.length;
   const withPrice = pricedEvents.filter((e) => e.price).length;
   const withDescription = pricedEvents.filter((e) => e.description).length;
   const withAddress = pricedEvents.filter((e) => e.address).length;
@@ -606,6 +618,8 @@ async function main() {
     freshEvents: translatedEvents,
     goneIds: [],
     crawledAt,
+    detailFailureIds,
+    detailAttemptCount,
   });
   console.log(`[tio-agenda] merged ${translatedEvents.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }

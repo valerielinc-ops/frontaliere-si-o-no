@@ -578,6 +578,7 @@ async function main() {
 
   const events = [];
   const goneIds = [];
+  const detailFailureIds = [];
   let goneEverywhere = 0;
   let driftSuspected = 0;
   let resolvedComune = 0;
@@ -610,9 +611,11 @@ async function main() {
         // this run's contribution (neither added nor removed); the
         // aggregate detailFetchesOk-based guard below surfaces the drift.
         driftSuspected += 1;
+        detailFailureIds.push(eventStableId(SOURCE.key, code));
       } else {
         goneEverywhere += 1;
         goneIds.push(eventStableId(SOURCE.key, code));
+        detailFailureIds.push(eventStableId(SOURCE.key, code));
       }
     } else {
       const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
@@ -716,6 +719,8 @@ async function main() {
     freshEvents: translatedEvents,
     goneIds,
     crawledAt,
+    detailFailureIds,
+    detailAttemptCount: visited,
   });
   console.log(
     `[guidle] merged ${events.length} event(s) (${goneIds.length} source disappearance(s) retained) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,

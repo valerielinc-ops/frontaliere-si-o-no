@@ -177,6 +177,7 @@ export function createAgendaCrawler(config) {
     let pagesFail = 0;
     let emptyStreak = 0;
     let maxSeenDate = '';
+    const detailFailureIds = [];
 
     for (let i = 0; i < iterations; i += 1) {
       const html = await fetchHtml(baseUrl(i));
@@ -243,9 +244,12 @@ export function createAgendaCrawler(config) {
       let enriched = event;
       if (enrichEvent) {
         try {
-          enriched = { ...event, ...await enrichEvent(event, fetchHtml) };
+          const detailResult = await enrichEvent(event, fetchHtml);
+          if (detailResult?.detailFetchFailed === true) detailFailureIds.push(event.id);
+          enriched = { ...event, ...detailResult };
         } catch (err) {
           console.warn(`[${sourceKey}] detail enrichment failed for ${event.id}: ${err?.message || err}`);
+          detailFailureIds.push(event.id);
         }
         await sleep(politeDelayMs);
       }
@@ -269,9 +273,18 @@ export function createAgendaCrawler(config) {
       freshEvents: sorted,
       goneIds: [],
       crawledAt,
+      detailFailureIds,
+      detailAttemptCount: events.length,
     });
     console.log(`[${sourceKey}] merged ${sorted.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
-    return { events: sorted, pagesOk, pagesFail, written: true };
+    return {
+      events: sorted,
+      pagesOk,
+      pagesFail,
+      written: true,
+      detailFailureIds,
+      detailAttemptCount: events.length,
+    };
   }
 
   return { fetchHtml, crawl };
