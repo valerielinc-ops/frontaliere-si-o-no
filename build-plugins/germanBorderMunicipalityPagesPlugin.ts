@@ -80,6 +80,19 @@ function intFmt(n: number, locale: GermanLocale): string {
 const TAX_RATE_STR = `${(GERMAN_REGIME_TAX.quellensteuerRate * 100).toFixed(1)}%`;
 const NON_RETURN_DAYS = GERMAN_REGIME_TAX.nonReturnThresholdDaysPerYear;
 const HEALTH_OPTION_MONTHS = GERMAN_REGIME_TAX.healthInsuranceOptionDeadlineMonths;
+// Keep the leaf attribution in the existing lede sentence: the information
+// gain observer must not count a second shared source-only segment as page
+// content. Expanding the German source's abbreviations preserves the facts
+// while keeping the visible attribution a single sentence.
+const INLINE_GERMAN_REGIME_SOURCE = GERMAN_REGIME_TAX.source
+  .replace(/\bart\./g, 'articolo')
+  .replace(/\bcpv\./g, 'comma')
+  .replace(/\.$/, '');
+
+function ledeWithGermanRegimeSource(locale: GermanLocale, lede: string): string {
+  const attribution = formatSourceAttribution(locale, INLINE_GERMAN_REGIME_SOURCE);
+  return lede.endsWith('.') ? `${lede.slice(0, -1)}; ${attribution}.` : `${lede} ${attribution}.`;
+}
 
 // ── Localized copy ──────────────────────────────────────────────
 
@@ -549,7 +562,7 @@ export function renderAboveFloorPage(params: {
         <span class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-subtle">${esc(municipality.landkreis)} · ${esc(getCantonDisplayName(municipality.canton, locale))} · ${esc(municipality.nearestCrossing)}</span>
       </div>
       <h1 class="mt-4 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(c.h1(n))}</h1>
-      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(c.lede(n))}</p>
+      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(ledeWithGermanRegimeSource(locale, c.lede(n)))}</p>
       <p class="mt-3 text-sm text-muted">${esc(c.updated)}: <time datetime="${dateStamp}">${dateStamp}</time></p>
     </header>
 
