@@ -60,6 +60,17 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
   'feed_endpoint_unavailable',
 ]);
 
+/**
+ * Outcomes where the runner could not reliably inspect the source content.
+ * These may use the `connection-level-fetch` early-exit cause; a selector miss
+ * or a source-side endpoint response must remain distinguishable from them.
+ */
+export const CRAWLER_TRANSPORT_FAILURE_OUTCOMES = new Set([
+  'anti_bot_block',
+  'connection_error',
+  'exhausted_retry',
+]);
+
 /** Causes recorded by the process-exit summary guard for an early run. */
 export const CRAWLER_ABORT_KINDS = new Set([
   'no-jobs-parsed',
