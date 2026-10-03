@@ -649,7 +649,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.blocking).toBe(false);
   });
 
-  it('approves an applicable outside-only Important without requiring an LGTM', async () => {
+  it('requires an LGTM even for an applicable outside-only Important', async () => {
     const outsideOnlyReview = {
       ...historicalImportantReview,
       body: reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
@@ -664,7 +664,8 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       mutate: false,
     });
 
-    expect(result.approved).toBe(true);
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
     expect(result.classification.outsideOnly).toBe(true);
     expect(result.classification.blocking).toBe(false);
   });
@@ -692,7 +693,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.outsideOnly).toBe(true);
   });
 
-  it('allows an explicitly non-funnel question beside an outside-only finding', async () => {
+  it('requires an LGTM beside an outside-only finding even for a non-funnel question', async () => {
     const outsideOnlyReview = {
       ...historicalImportantReview,
       body: [
@@ -710,7 +711,8 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       mutate: false,
     });
 
-    expect(result.approved).toBe(true);
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/manca ## LGTM/i);
     expect(result.classification.outsideOnly).toBe(true);
   });
 
