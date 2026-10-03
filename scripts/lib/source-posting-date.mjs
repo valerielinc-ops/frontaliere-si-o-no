@@ -1,4 +1,4 @@
-import { resolveReportedPostingDate } from '../../shared/jobPostingDate.mjs';
+import { resolveReportedPostingDate } from './job-posting-date.mjs';
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
