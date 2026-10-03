@@ -269,6 +269,39 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
 }
 
 /**
+ * Project a resolved source geography into the structured address fields used
+ * by a published job row. The resolver deliberately returns only the compact
+ * `{ location, canton }` identity because most callers only need that pair;
+ * parsers that publish schema.org fields must use the resolved canton again,
+ * rather than copying a raw `addressRegion` that may be a display name or a
+ * stale value from a different extraction stage.
+ *
+ * @param {unknown} value source location or structured source evidence
+ * @param {{location: string, canton: string, addressCountry?: string}|null} [resolved]
+ * @returns {{location: string, canton: string, addressLocality: string, addressRegion: string, addressCountry?: string}|null}
+ */
+export function sourceBackedSwissGeographyFields(value, resolved = null) {
+  const geography = resolved || resolveSourceBackedSwissGeography(value);
+  if (!geography) return null;
+  const evidence = value && typeof value === 'object' ? /** @type {any} */ (value) : {};
+  const addressLocality = String(
+    evidence.addressLocality || String(geography.location || '').split(/[,;/|]/)[0],
+  ).replace(/\s+/g, ' ').trim();
+  const addressCountry = String(
+    evidence.addressCountry || evidence.country || geography.addressCountry || '',
+  ).replace(/\s+/g, ' ').trim();
+  return {
+    ...geography,
+    addressLocality,
+    // `geography.canton` is the value the source resolver actually verified.
+    // Never copy the raw structured field here: that is the mismatch this
+    // projection prevents at the parser → assembler handoff.
+    addressRegion: geography.canton,
+    ...(addressCountry ? { addressCountry } : {}),
+  };
+}
+
+/**
  * Stable identity of a location evidence candidate: the six address fields
  * that make two candidates the same place. Anything else a producer hangs on
  * the object (source url, extractor name) is provenance, not identity.

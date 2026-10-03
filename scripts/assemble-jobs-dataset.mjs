@@ -84,6 +84,26 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export { inferCantonFromJobEvidence };
 
+const SOURCE_BACKED_IPERSONAL_PARSERS = new Set([
+  'med-ipersonal:iPersonal AG Dedicated Parser',
+  'ipersonal:MediPersonal Dedicated Parser',
+]);
+
+/**
+ * Return only the structured canton already verified by the iPersonal source
+ * resolver. This is intentionally not inferred from `location`: the generic
+ * BFS path below remains responsible for every other crawler.
+ *
+ * @param {Record<string, any>} job
+ * @returns {string}
+ */
+export function resolveSourceBackedIpersonalCanton(job = {}) {
+  const identity = `${String(job?.companyKey || '').trim()}:${String(job?.source || '').trim()}`;
+  if (!SOURCE_BACKED_IPERSONAL_PARSERS.has(identity)) return '';
+  const region = String(job?.addressRegion || '').trim().toUpperCase().replace(/^CH-/, '');
+  return isTargetCanton(region) ? region : '';
+}
+
 function isHttpsJobUrl(value) {
   if (typeof value !== 'string' || !value.trim()) return false;
   try {
@@ -498,13 +518,14 @@ function humanizeCompanyKey(key) {
  * authority is exactly the one the source wrote, only spelled absolutely.
  *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number, applyUrlBackfilled: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, sourceGeographyReconciled: number, urlNormalized: number, applyUrlBackfilled: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
   let companyFixed = 0;
   let localityBackfilled = 0;
   let regionDefaulted = 0;
+  let sourceGeographyReconciled = 0;
   let urlNormalized = 0;
   let applyUrlBackfilled = 0;
   for (const job of jobs) {
@@ -557,12 +578,25 @@ export function normalizeParsedJobsForSlice(jobs) {
       localityBackfilled++;
     }
 
-    if (!job.addressRegion && job.canton) {
+    const sourceCanton = resolveSourceBackedIpersonalCanton(job);
+    if (sourceCanton) {
+      const changed = job.canton !== sourceCanton || job.addressRegion !== sourceCanton;
+      job.canton = sourceCanton;
+      job.addressRegion = sourceCanton;
+      if (changed) sourceGeographyReconciled++;
+    } else if (!job.addressRegion && job.canton) {
       job.addressRegion = String(job.canton).toUpperCase();
       regionDefaulted++;
     }
   }
-  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized, applyUrlBackfilled };
+  return {
+    locationFixed,
+    localityBackfilled,
+    regionDefaulted,
+    sourceGeographyReconciled,
+    urlNormalized,
+    applyUrlBackfilled,
+  };
 }
 
 function assemblerIdentity(job = {}) {
@@ -2412,8 +2446,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
+  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.sourceGeographyReconciled > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0) {
+    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, source geography reconciled ${norm.sourceGeographyReconciled}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
@@ -3161,16 +3195,17 @@ async function assembleJobs() {
     // overwrites it. resolveCantonAgainstPin needs the provenance to tell a
     // stale pin (which the crawler may heal) from a drifting inference (which
     // it may not) — see the precedence note there.
-    const crawlerCanton = job.canton || '';
+    const sourceBackedCanton = resolveSourceBackedIpersonalCanton(job);
+    const crawlerCanton = sourceBackedCanton || job.canton || '';
     const city = String(job.addressLocality || job.location || '').trim();
     const hasCity = city.length >= 2 && city !== 'CH';
-    const rawInferred = hasCity
+    const rawInferred = sourceBackedCanton || (hasCity
       ? inferCantonFromJobEvidence({
         cityText: city,
         locationText: job.location,
         crawlerCanton,
       })
-      : null;
+      : null);
     // Guard: only accept the inference if it lands in a canton the funnel
     // actually serves (has a URL section). Otherwise leave the canton as-is
     // (empty stays empty — recognizable — rather than silently becoming an
@@ -3195,7 +3230,14 @@ async function assembleJobs() {
     // EXCEPT when the only evidence is a bare canton-name label overriding an
     // already-different, non-empty canton — see isWeakCantonOnlyLabelOverride
     // (#4570).
-    if (inferred && job.canton !== inferred && !isWeakCantonOnlyLabelOverride(job.canton, city)) {
+    if (sourceBackedCanton) {
+      // The structured region was already verified by the iPersonal source
+      // resolver. Keep it paired with `canton`; a BFS lookup must not invent a
+      // replacement for source evidence at the assembly boundary.
+      if (job.canton !== sourceBackedCanton) cantonFixes++;
+      job.canton = sourceBackedCanton;
+      job.addressRegion = sourceBackedCanton;
+    } else if (inferred && job.canton !== inferred && !isWeakCantonOnlyLabelOverride(job.canton, city)) {
       if (job.canton) cantonFixes++;
       else cantonFilled++;
       job.canton = inferred;
