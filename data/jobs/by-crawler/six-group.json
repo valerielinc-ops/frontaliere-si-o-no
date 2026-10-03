@@ -1,6 +1,6 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-10-02T21:29:47.573Z",
+  "assembledAt": "2026-10-03T09:31:38.980Z",
   "jobs": [
     {
       "id": "six-group-4a6ec905243c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.six-group.com/job/Geneva-Senior-Sales-&-Account-Managerin-Banking-Romandie-%2880-100%29/1433979833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:40.346Z",
+      "crawledAt": "2026-10-03T09:30:58.621Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -57,14 +57,17 @@
       "firstSeenAt": "2026-09-10T23:24:01.349Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich"
+          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich",
+          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-geneva"
         ],
         "de": [
-          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich"
+          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich",
+          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-geneva"
         ]
       },
       "previousSlugs": [
-        "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich"
+        "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich",
+        "senior-sales-account-manager-in-banking-romandie-80-100-six-group-geneva"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -112,7 +115,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Account-Manager/1412679833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:39.728Z",
+      "crawledAt": "2026-10-03T09:30:58.047Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -148,7 +151,8 @@
         "strategy-manager-six-group-zurich",
         "strategiemanager-six-group-zurich",
         "gestionnaire-de-strategie-six-group-zurich",
-        "marketing-manager-80-100-six-group-zurich"
+        "marketing-manager-80-100-six-group-zurich",
+        "gestione-account-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -170,7 +174,8 @@
           "strategy-manager-six-group-zurich",
           "strategiemanager-six-group-zurich",
           "gestionnaire-de-strategie-six-group-zurich",
-          "marketing-manager-80-100-six-group-zurich"
+          "marketing-manager-80-100-six-group-zurich",
+          "gestione-account-six-group-zurich"
         ],
         "en": [
           "senior-account-manager-80-100-six-group-zurich",
@@ -235,7 +240,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Working-Student-Customer-Support-60-70/1435606533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:36.994Z",
+      "crawledAt": "2026-10-03T09:31:33.409Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,11 +258,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "working-student-customer-support-60-70-six-group-zurich"
+        "working-student-customer-support-60-70-six-group-zurich",
+        "supporto-clienti-degli-studenti-di-lavoro-60-70-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-customer-support-60-70-six-group-zurich"
+          "working-student-customer-support-60-70-six-group-zurich",
+          "supporto-clienti-degli-studenti-di-lavoro-60-70-six-group-zurich"
         ],
         "fr": [
           "working-student-customer-support-60-70-six-group-zurich"
@@ -309,7 +316,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-AI-Software-Architect/1435758133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:36.180Z",
+      "crawledAt": "2026-10-03T09:31:32.538Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -327,11 +334,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-software-architect-six-group-zurich"
+        "ai-software-architect-six-group-zurich",
+        "ai-software-architetto-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-software-architect-six-group-zurich"
+          "ai-software-architect-six-group-zurich",
+          "ai-software-architetto-six-group-zurich"
         ],
         "de": [
           "ai-software-architect-six-group-zurich"
@@ -353,7 +362,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-3c53f2b232cf",
@@ -387,7 +397,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-IAM-Business-Analyst-%2880-100%29/1436066033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:34.481Z",
+      "crawledAt": "2026-10-03T09:31:30.605Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -468,7 +478,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Strategy-&-Business-Development-Securities-Services/1415188733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:33.425Z",
+      "crawledAt": "2026-10-03T09:31:29.686Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -489,14 +499,16 @@
         "head-strategy-business-development-securities-services-six-group-zurich",
         "sviluppo-della-strategia-di-testa-80-100-six-group-zurich",
         "head-strategy-development-80-100-six-group-zurich",
-        "developpement-de-la-strategie-du-chef-80-100-six-group-zurich"
+        "developpement-de-la-strategie-du-chef-80-100-six-group-zurich",
+        "strategia-di-testa-e-sviluppo-commerciale-servizi-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-strategy-business-development-securities-services-six-group-zurich",
           "sviluppo-della-strategia-di-testa-80-100-six-group-zurich",
           "head-strategy-development-80-100-six-group-zurich",
-          "developpement-de-la-strategie-du-chef-80-100-six-group-zurich"
+          "developpement-de-la-strategie-du-chef-80-100-six-group-zurich",
+          "strategia-di-testa-e-sviluppo-commerciale-servizi-six-group-zurich"
         ],
         "de": [
           "head-strategy-development-80-100-six-group-zurich"
@@ -519,7 +531,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-d30e137579d4",
@@ -552,7 +565,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Fraud-Monitoring-%28100%29/1437212933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:30.835Z",
+      "crawledAt": "2026-10-03T09:31:26.322Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -570,11 +583,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-fraud-monitoring-100-six-group-zurich"
+        "specialist-fraud-monitoring-100-six-group-zurich",
+        "fraud-analyst-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-fraud-monitoring-100-six-group-zurich"
+          "specialist-fraud-monitoring-100-six-group-zurich",
+          "fraud-analyst-100-six-group-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:10:13.675Z",
@@ -590,16 +605,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-7a2c122794ec",
       "slug": "senior-software-ingegnere-80-100-six-group-zurich",
       "slugByLocale": {
-        "it": "senior-software-engineer-80-100-six-group-zurich-2",
+        "it": "senior-software-ingegnere-80-100-six-group-zurich",
         "en": "senior-software-engineer-80-100-six-group-zurich-2",
         "de": "senior-software-engineer-80-100-six-group-zurich-o2vik5",
-        "fr": "senior-software-engineer-80-100-six-group-zurich-2"
+        "fr": "senior-software-ingenieur-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -623,7 +639,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1437516233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:30.329Z",
+      "crawledAt": "2026-10-03T09:31:25.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -642,16 +658,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-software-engineer-80-100-six-group-zurich",
+        "senior-software-engineer-80-100-six-group-zurich-2",
+        "senior-software-ingegnere-80-100-six-group-zurich",
         "senior-software-ingenieur-80-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-80-100-six-group-zurich"
+          "senior-software-engineer-80-100-six-group-zurich",
+          "senior-software-engineer-80-100-six-group-zurich-2",
+          "senior-software-ingegnere-80-100-six-group-zurich"
         ],
         "de": [
           "senior-software-engineer-80-100-six-group-zurich"
         ],
         "fr": [
+          "senior-software-engineer-80-100-six-group-zurich-2",
           "senior-software-ingenieur-80-100-six-group-zurich"
         ]
       },
@@ -668,7 +689,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-17a70a5f217b",
@@ -701,7 +723,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Marketing-Events/1437825633/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:29.809Z",
+      "crawledAt": "2026-10-03T09:31:25.117Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -719,11 +741,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-marketing-events-six-group-zurich"
+        "internship-marketing-events-six-group-zurich",
+        "eventi-di-marketing-di-stage-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-marketing-events-six-group-zurich"
+          "internship-marketing-events-six-group-zurich",
+          "eventi-di-marketing-di-stage-six-group-zurich"
         ],
         "fr": [
           "internship-marketing-events-six-group-zurich"
@@ -742,7 +766,8 @@
           "maxValue": 112500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-7d7794763ee6",
@@ -775,7 +800,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Cash-Related-CA-%2880-100%29/1427975933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:28.955Z",
+      "crawledAt": "2026-10-03T09:31:24.562Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -793,11 +818,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-cash-related-c-a-80-100-six-group-olten"
+        "specialist-cash-related-c-a-80-100-six-group-olten",
+        "contanti-specialistici-correlati-c-a-80-100-six-group-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-cash-related-c-a-80-100-six-group-olten"
+          "specialist-cash-related-c-a-80-100-six-group-olten",
+          "contanti-specialistici-correlati-c-a-80-100-six-group-olten"
         ]
       },
       "firstSeenAt": "2026-08-20T09:48:44.472Z",
@@ -813,7 +840,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-37bc86b93aaf",
@@ -837,16 +865,16 @@
       "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSpecialist Second Level Support\n\nZurich |  bis zu 40% Home Office möglich | Reference 8283\n\nDu arbeitest gerne in einem dynamischen Team und agilen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter Match!\nSIX Terravis arbeitet zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kolleginnen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unser technischen und fachlichen 3rd-Level Support. Wir freuen uns auf deine Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen sowie Beheben einfacher Störungen\n\n• Neue sowie bestehende Kunden vor Ort oder Online schulen\n\n• Erstellung und Pflege der Benutzeranleitungen und Webinare\n\nDas bringst du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch-, oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeitsweise\n\n• Schnelle Auffassungsgabe, strukturierte Vorgehensweise, sowie selbständiges Erledigen der zugeteilten Aufgaben\n\n• Technisches Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
       "descriptionByLocale": {
         "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSpecialist Second Level Support\n\nZurich |  bis zu 40% Home Office möglich | Reference 8283\n\nDu arbeitest gerne in einem dynamischen Team und agilen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter Match!\nSIX Terravis arbeitet zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kolleginnen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unser technischen und fachlichen 3rd-Level Support. Wir freuen uns auf deine Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen sowie Beheben einfacher Störungen\n\n• Neue sowie bestehende Kunden vor Ort oder Online schulen\n\n• Erstellung und Pflege der Benutzeranleitungen und Webinare\n\nDas bringst du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch-, oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeitsweise\n\n• Schnelle Auffassungsgabe, strukturierte Vorgehensweise, sowie selbständiges Erledigen der zugeteilten Aufgaben\n\n• Technisches Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nSupporto specialistico di secondo livello\n\nZurigo | bis zu 40% Home Office möglich | Riferimento 8283\n\nDu arbeitest gerne in einem dynamischen Team und agilen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter Match!\nSIX Terravis arbeitet zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kolleginnen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unser technischen und fachlichen 3rd-Level Support. Wir freuen uns auf deine Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen sowieben einfacher Störungen\n\n• Neue sowiende bestehende Kunden vor Ort oder Online schulen\n\n• Erstellung und Pflege der Benutzeranleitungen und Webinare\n\nDas brings du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch-, oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeitsweise\n\n• Schnelle Auffasungsgabe, strukturierte Vorgehensweise, sowie selbständiges Erledigen der zugeteilten Aufgaben\n\n• Technisches Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Julia Schmidt al numero +41583998670 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSpezialisierter Second Level Support\n\nZürich | bis zu 40% Home Office möglich | Referenz 8283\n\nDu arbeitest gerne in einem dynamischen Team und agilen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter match.\nSIX Terravis arbeiten zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kollegen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unseren technischen und fachlichen 3rd-Level Support. Wir freuen uns auf Ihre Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen und Beheben einfache Störungen\n\n• Neue bestehende Kunden vor Ort oder Online-Schulen\n\n• Aufbau und Pflege der Benutzeranleitungen und Webinare\n\nDas bringt du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch- oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeit\n\n• Schnelle Auffassungsgabe, strukturierte Vorgehensweise, sowie selbständige Erledigen der verwendeten Aufgaben\n\n• Technisches Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nAppui spécialisé de deuxième niveau\n\nZurich, bis zu 40% Home Office möglich\n\nDu arbeitest gerne in einem dynamischen Team und aglen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter Match!\nSIX Terravis arbeitet zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kolleginnen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unser technischen und fachlichen 3rd-Level Support. Wir freuen uns auf deine Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen sowie Beheben einfacher Störungen\n\n• Neue sowie bestehende Kunden vor Ort oder Online schulen\n\n• Erstellung und Pflege der Benutzeranleitungen und Webinare\n\nDas apporte du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch-, oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeitsweise\n\n• Schnelle Auffassungsgabe, strukturierte Vorgehensweise, sowie selbständiges Erledigen der zugeteilten Aufgaben\n\n• Techniques Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSpecialist Second Level Support\n\nZurich |  bis zu 40% Home Office möglich | Reference 8283\n\nDu arbeitest gerne in einem dynamischen Team und agilen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter Match!\nSIX Terravis arbeitet zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kolleginnen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unser technischen und fachlichen 3rd-Level Support. Wir freuen uns auf deine Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen sowie Beheben einfacher Störungen\n\n• Neue sowie bestehende Kunden vor Ort oder Online schulen\n\n• Erstellung und Pflege der Benutzeranleitungen und Webinare\n\nDas bringst du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch-, oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeitsweise\n\n• Schnelle Auffassungsgabe, strukturierte Vorgehensweise, sowie selbständiges Erledigen der zugeteilten Aufgaben\n\n• Technisches Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSpecialist Second Level Support\n\nZurich |  bis zu 40% Home Office möglich | Reference 8283\n\nDu arbeitest gerne in einem dynamischen Team und agilen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter Match!\nSIX Terravis arbeitet zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kolleginnen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unser technischen und fachlichen 3rd-Level Support. Wir freuen uns auf deine Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen sowie Beheben einfacher Störungen\n\n• Neue sowie bestehende Kunden vor Ort oder Online schulen\n\n• Erstellung und Pflege der Benutzeranleitungen und Webinare\n\nDas bringst du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch-, oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeitsweise\n\n• Schnelle Auffassungsgabe, strukturierte Vorgehensweise, sowie selbständiges Erledigen der zugeteilten Aufgaben\n\n• Technisches Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSpecialist Second Level Support\n\nZurich |  bis zu 40% Home Office möglich | Reference 8283\n\nDu arbeitest gerne in einem dynamischen Team und agilen Umfeld? Du koordinierst gerne Anfragen und Anliegen unterschiedlichster Kundengruppen? Dann sind wir vielleicht dein perfekter Match!\nSIX Terravis arbeitet zwischen Banken, Grundbuchämtern und Notaren an der Digitalisierung von Schuldbrief-Prozessen. Zusammen mit deinen Kolleginnen und Kollegen bist du Ansprechpartner/in für unsere externen Kunden wie auch für unser technischen und fachlichen 3rd-Level Support. Wir freuen uns auf deine Bewerbungsunterlagen.\n\nDas sind deine Aufgaben\n\n• Mündliche und schriftliche Kundenbetreuung im Support von Banken, Notaren und Grundbuchämter\n\n• Voranalysieren von Störungsmeldungen und Fragen sowie Beheben einfacher Störungen\n\n• Neue sowie bestehende Kunden vor Ort oder Online schulen\n\n• Erstellung und Pflege der Benutzeranleitungen und Webinare\n\nDas bringst du mit\n\n• Erfahrung im Bereich Notariats-, Grundbuch-, oder Hypothekarwesen\n\n• Verhandlungssichere Deutschkenntnisse – Französisch oder Italienisch von Vorteil\n\n• Kunden- und lösungsorientierte Arbeitsweise\n\n• Schnelle Auffassungsgabe, strukturierte Vorgehensweise, sowie selbständiges Erledigen der zugeteilten Aufgaben\n\n• Technisches Flair und Verständnis für IT-Applikationen, Erfahrung im IT-Support ist ein Plus\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Second-Level-Support/1438283433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:28.417Z",
+      "crawledAt": "2026-10-03T09:31:23.605Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -878,7 +906,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:29:28.417Z"
+      "firstSeenAt": "2026-10-03T09:31:23.605Z",
+      "needsRetranslation": true
     },
     {
       "id": "six-group-ffcb3ea0bc79",
@@ -902,16 +931,16 @@
       "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Transformation Specialist\n\nZurich, Warsaw |  Up to 40% working from home possible | Reference 8175\n\nWe are looking for a Data Transformation Specialist to drive process transformation and automation initiatives within Financial Information Data Operations. This role combines deep business knowledge of financial instrument data with strong technical capabilities to identify inefficiencies, redesign processes, and implement scalable automation solutions.\n\nThe successful candidate will work closely with stakeholders across Switzerland, Spain, the UK, and Poland, contributing directly to strategic transformation objectives and operational excellence initiatives.\n\nThis is an excellent opportunity for someone who enjoys combining technology, data, and business process improvement to deliver measurable business impact.\n\nWhat You Will Do\n\n• Analyze existing business and data processes and identify opportunities for automation and optimization.\n\n• Design and implement future-state solutions that improve efficiency, scalability, and data quality.\n\n• Translate business requirements into practical technical solutions.\n\n• Drive transformation initiatives related to financial instrument data, reference data, corporate actions, and structured products.\n\n• Collaborate with cross-functional teams and stakeholders across multiple locations.\n\n• Challenge existing processes and proactively identify opportunities for improvement.\n\n• Support change management activities to ensure successful adoption of new solutions.\n\n• Establish controls and monitoring mechanisms to maintain data quality and operational excellence.\n\n• Contribute to strategic initiatives aimed at modernizing and enhancing Data Operations capabilities.\n\nWhat You Bring\n\n• Strong business knowledge of financial instrument data, namely related to corporate actions, reference data, structured products\n\n• Experience translating business requirements into operational and technical solutions.\n\n• Strong process automation and transformation experience.\n\n• Hands-on experience with Databricks (mandatory).\n\n• Excellent stakeholder management and communication skills.\n\n• Self-driven mindset with the ability to work independently and drive initiatives forward.\n\n• 3-5 years of relevant experience in data transformation, process improvement, financial data operations, or related fields.\n\n• Python, SQL, other automation or programming languages\n\n• Experience with business process redesign and operational transformation initiatives\n\n• English (C1 level or higher)\n\n• Global Collaboration\n\n• Work closely with colleagues across Switzerland, Spain, the UK, and Poland in a truly international environment.\n\n• Confident and approachable when working with both technical and non-technical stakeholders.\n\n• Proactive and self-motivated.\n\n• Comfortable challenging existing processes and proposing better alternatives.\n\n• Curious, solution-oriented, and willing to ask questions.\n\n• Able to balance independent work with strong collaboration across teams.\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at +48 538 562 645\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
       "descriptionByLocale": {
         "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Transformation Specialist\n\nZurich, Warsaw |  Up to 40% working from home possible | Reference 8175\n\nWe are looking for a Data Transformation Specialist to drive process transformation and automation initiatives within Financial Information Data Operations. This role combines deep business knowledge of financial instrument data with strong technical capabilities to identify inefficiencies, redesign processes, and implement scalable automation solutions.\n\nThe successful candidate will work closely with stakeholders across Switzerland, Spain, the UK, and Poland, contributing directly to strategic transformation objectives and operational excellence initiatives.\n\nThis is an excellent opportunity for someone who enjoys combining technology, data, and business process improvement to deliver measurable business impact.\n\nWhat You Will Do\n\n• Analyze existing business and data processes and identify opportunities for automation and optimization.\n\n• Design and implement future-state solutions that improve efficiency, scalability, and data quality.\n\n• Translate business requirements into practical technical solutions.\n\n• Drive transformation initiatives related to financial instrument data, reference data, corporate actions, and structured products.\n\n• Collaborate with cross-functional teams and stakeholders across multiple locations.\n\n• Challenge existing processes and proactively identify opportunities for improvement.\n\n• Support change management activities to ensure successful adoption of new solutions.\n\n• Establish controls and monitoring mechanisms to maintain data quality and operational excellence.\n\n• Contribute to strategic initiatives aimed at modernizing and enhancing Data Operations capabilities.\n\nWhat You Bring\n\n• Strong business knowledge of financial instrument data, namely related to corporate actions, reference data, structured products\n\n• Experience translating business requirements into operational and technical solutions.\n\n• Strong process automation and transformation experience.\n\n• Hands-on experience with Databricks (mandatory).\n\n• Excellent stakeholder management and communication skills.\n\n• Self-driven mindset with the ability to work independently and drive initiatives forward.\n\n• 3-5 years of relevant experience in data transformation, process improvement, financial data operations, or related fields.\n\n• Python, SQL, other automation or programming languages\n\n• Experience with business process redesign and operational transformation initiatives\n\n• English (C1 level or higher)\n\n• Global Collaboration\n\n• Work closely with colleagues across Switzerland, Spain, the UK, and Poland in a truly international environment.\n\n• Confident and approachable when working with both technical and non-technical stakeholders.\n\n• Proactive and self-motivated.\n\n• Comfortable challenging existing processes and proposing better alternatives.\n\n• Curious, solution-oriented, and willing to ask questions.\n\n• Able to balance independent work with strong collaboration across teams.\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at +48 538 562 645\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nSpecialista della trasformazione dei dati\n\nZurigo, Varsavia | Fino al 40% di lavoro da casa possibile | Riferimento 8175\n\nSiamo alla ricerca di uno specialista della trasformazione dei dati per guidare le iniziative di trasformazione e automazione dei processi all'interno delle operazioni di dati di informazione finanziaria. Questo ruolo combina una profonda conoscenza commerciale dei dati degli strumenti finanziari con forti capacità tecniche per identificare inefficienze, processi di riprogettazione e implementare soluzioni di automazione scalabile.\n\nIl candidato di successo lavorerà a stretto contatto con le parti interessate in Svizzera, Spagna, Regno Unito e Polonia, contribuendo direttamente agli obiettivi di trasformazione strategica e alle iniziative di eccellenza operativa.\n\nQuesta è un'ottima opportunità per qualcuno che si diverte a combinare tecnologia, dati e miglioramento dei processi aziendali per fornire un impatto commerciale misurabile.\n\nCosa farai\n\n• Analizzare i processi aziendali e dati esistenti e identificare le opportunità di automazione e ottimizzazione.\n\n• Progettare e implementare soluzioni future-state che migliorano l'efficienza, la scalabilità e la qualità dei dati.\n\n• Traduci i requisiti aziendali in soluzioni tecniche pratiche.\n\n• Iniziative di trasformazione dell'azionamento relative ai dati dello strumento finanziario, ai dati di riferimento, alle azioni aziendali e ai prodotti strutturati.\n\n• Collabora con team e stakeholder interfunzionali in più sedi.\n\n• Sfidare i processi esistenti e identificare proattivamente le opportunità di miglioramento.\n\n• Sostenere le attività di gestione dei cambiamenti per garantire l'adozione di nuove soluzioni.\n\n• Stabilire controlli e meccanismi di monitoraggio per mantenere la qualità dei dati e l'eccellenza operativa.\n\n• Contribuire a iniziative strategiche finalizzate a modernizzare e migliorare le capacità di Data Operations.\n\nChe cosa porta\n\n• Forte conoscenza aziendale dei dati degli strumenti finanziari, in particolare relativi alle azioni aziendali, ai dati di riferimento, ai prodotti strutturati\n\n• Esperienza nel tradurre i requisiti aziendali in soluzioni operative e tecniche.\n\n• Forte automazione di processo e esperienza di trasformazione.\n\n• Esperienza pratica con Databricks (obbligatorio).\n\n• Eccellente capacità di gestione e comunicazione degli stakeholder.\n\n• mentalità auto-driven con la capacità di lavorare in modo indipendente e guidare iniziative in avanti.\n\n• 3-5 anni di esperienza rilevante nella trasformazione dei dati, miglioramento dei processi, operazioni di dati finanziari o campi correlati.\n\n• Python, SQL, altri linguaggi di automazione o programmazione\n\n• Esperienza con iniziative di riprogettazione dei processi aziendali e di trasformazione operativa\n\n• Inglese (livello C1 o superiore)\n\n• Collaborazione globale\n\n• Lavorare a stretto contatto con colleghi in Svizzera, Spagna, Regno Unito e Polonia in un ambiente veramente internazionale.\n\n• Confidente e si avvicina quando si lavora con gli stakeholder tecnici e non tecnici.\n\n• Proattivo e auto-motivato.\n\n• Confortevole sfidare i processi esistenti e proporre alternative migliori.\n\n• Curioso, orientato alla soluzione, e disposto a porre domande.\n\n• In grado di bilanciare il lavoro indipendente con una forte collaborazione tra team.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Agnieszka Leputa al numero +48 538 562 645\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSpezialist für Datentransformation\n\nZürich, Warschau | Bis zu 40% von zu Hause aus arbeiten möglich | Referenz 8175\n\nWir suchen einen Datentransformationsspezialisten, der Prozesstransformations- und Automatisierungsinitiativen im Bereich Financial Information Data Operations vorantreibt. Diese Rolle kombiniert fundiertes betriebswirtschaftliches Wissen über Finanzinstrumentdaten mit starken technischen Fähigkeiten, um Ineffizienzen zu erkennen, Prozesse neu zu gestalten und skalierbare Automatisierungslösungen zu implementieren.\n\nDer erfolgreiche Kandidat wird eng mit Interessengruppen in der Schweiz, Spanien, Großbritannien und Polen zusammenarbeiten und direkt zu strategischen Transformationszielen und operativen Exzellenzinitiativen beitragen.\n\nDies ist eine hervorragende Gelegenheit für jemanden, der gerne Technologie, Daten und Geschäftsprozessverbesserungen kombiniert, um messbare Geschäftsauswirkungen zu erzielen.\n\nWas Sie tun werden\n\n• Analysieren Sie bestehende Geschäfts- und Datenprozesse und identifizieren Sie Möglichkeiten zur Automatisierung und Optimierung.\n\n• Design und Implementierung von Zukunftslösungen, die die Effizienz, Skalierbarkeit und Datenqualität verbessern.\n\n• Übersetzen Sie Geschäftsanforderungen in praktische technische Lösungen.\n\n• Förderung von Transformationsinitiativen im Zusammenhang mit Finanzinstrumentdaten, Referenzdaten, Unternehmensmaßnahmen und strukturierten Produkten.\n\n• Zusammenarbeit mit funktionsübergreifenden Teams und Stakeholdern an mehreren Standorten.\n\n• Bestehende Prozesse herausfordern und proaktiv Verbesserungsmöglichkeiten identifizieren.\n\n• Unterstützung von Change Management-Aktivitäten, um eine erfolgreiche Einführung neuer Lösungen sicherzustellen.\n\n• Einrichtung von Kontroll- und Überwachungsmechanismen zur Aufrechterhaltung der Datenqualität und operativen Exzellenz.\n\n• Beitrag zu strategischen Initiativen zur Modernisierung und Verbesserung der Datenbetriebsfähigkeiten.\n\nWas du mitbringst\n\n• Starkes betriebswirtschaftliches Wissen über Finanzinstrumentdaten, insbesondere in Bezug auf Kapitalmaßnahmen, Referenzdaten, strukturierte Produkte\n\n• Erfahrung in der Übersetzung von Geschäftsanforderungen in operative und technische Lösungen.\n\n• Starke Erfahrung in Prozessautomatisierung und Transformation.\n\n• Praktische Erfahrung mit Databricks (obligatorisch).\n\n• Exzellentes Stakeholder-Management und Kommunikationsfähigkeiten.\n\n• Selbstgesteuerte Denkweise mit der Fähigkeit, unabhängig zu arbeiten und Initiativen voranzutreiben.\n\n• 3-5 Jahre einschlägige Erfahrung in der Datentransformation, Prozessverbesserung, Finanzdatenoperationen oder verwandten Bereichen.\n\n• Python, SQL, andere Automatisierungs- oder Programmiersprachen\n\n• Erfahrung mit Business Process Redesign und operativen Transformationsinitiativen\n\n• Englisch (C1-Niveau oder höher)\n\n• Globale Zusammenarbeit\n\n• Arbeiten Sie eng mit Kollegen in der Schweiz, Spanien, Großbritannien und Polen in einem wirklich internationalen Umfeld zusammen.\n\n• Zuversichtlich und zugänglich, wenn Sie sowohl mit technischen als auch mit nicht-technischen Stakeholdern zusammenarbeiten.\n\n• Proaktiv und selbstmotiviert.\n\n• Komfortabel, bestehende Prozesse herauszufordern und bessere Alternativen vorzuschlagen.\n\n• Neugierig, lösungsorientiert und bereit, Fragen zu stellen.\n\n• Kann unabhängige Arbeit mit einer starken Zusammenarbeit zwischen Teams in Einklang bringen.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Agnieszka Leputa unter +48 538 562 645 an\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nSpécialiste de la transformation des données\n\nZurich, Varsovie : jusqu'à 40 % de travail à domicile possible\n\nNous sommes à la recherche d'un spécialiste de la transformation des données pour diriger des initiatives de transformation des processus et d'automatisation au sein des Opérations de données d'information financière. Ce rôle combine une connaissance approfondie des données d'instruments financiers avec de solides capacités techniques pour identifier les inefficacités, remodeler les processus et mettre en œuvre des solutions d'automatisation évolutives.\n\nLe candidat retenu travaillera en étroite collaboration avec les parties prenantes à travers la Suisse, l'Espagne, le Royaume-Uni et la Pologne, contribuant directement aux objectifs de transformation stratégique et aux initiatives d'excellence opérationnelle.\n\nC'est une excellente occasion pour quelqu'un qui aime combiner la technologie, les données et l'amélioration des processus d'affaires pour obtenir un impact opérationnel mesurable.\n\nCe que vous ferez\n\n• Analyser les processus commerciaux et de données existants et identifier les possibilités d'automatisation et d'optimisation.\n\n• Concevoir et mettre en œuvre des solutions à l'avenir qui améliorent l'efficacité, l'évolutivité et la qualité des données.\n\n• Traduire les exigences commerciales en solutions techniques pratiques.\n\n• Diriger les initiatives de transformation liées aux données sur les instruments financiers, aux données de référence, aux actions organisationnelles et aux produits structurés.\n\n• Collaborer avec des équipes interfonctionnelles et des intervenants dans plusieurs endroits.\n\n• Définer les processus existants et identifier proactivement les possibilités d'amélioration.\n\n• Appuyer les activités de gestion du changement pour assurer l'adoption réussie de nouvelles solutions.\n\n• Établir des mécanismes de contrôle et de surveillance pour maintenir la qualité des données et l'excellence opérationnelle.\n\n• Contribuer aux initiatives stratégiques visant à moderniser et à améliorer les capacités d'exploitation des données.\n\nCe que vous apportez\n\n• Forte connaissance des données relatives aux instruments financiers, à savoir les actions des entreprises, les données de référence, les produits structurés\n\n• Expérience de la traduction des exigences opérationnelles en solutions opérationnelles et techniques.\n\n• Forte expérience d'automatisation des processus et de transformation.\n\n• Expérience pratique avec Databricks (obligatoire).\n\n• Excellentes compétences en gestion des intervenants et en communication.\n\n• Un état d'esprit autonome capable de travailler de façon indépendante et de faire avancer les initiatives.\n\n• 3 à 5 ans d'expérience pertinente en matière de transformation des données, d'amélioration des processus, d'exploitation des données financières ou de domaines connexes.\n\n• Python, SQL, autres langages d'automatisation ou de programmation\n\n• Expérience de la refonte des processus opérationnels et des initiatives de transformation opérationnelle\n\n• Anglais (C1 ou plus)\n\n• Collaboration mondiale\n\n• Travailler en étroite collaboration avec des collègues de toute la Suisse, de l'Espagne, du Royaume-Uni et de la Pologne dans un environnement véritablement international.\n\n• Confiance et facilité d'approche lors de la collaboration avec les intervenants techniques et non techniques.\n\n• Proactive et automotivée.\n\n• Des processus modernes et stimulants et de meilleures alternatives.\n\n• Curieux, orienté vers la solution et prêt à poser des questions.\n\n• Capacité d'équilibrer le travail indépendant avec une solide collaboration entre les équipes.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Agnieszka Leputa au +48 538 562 645\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Transformation Specialist\n\nZurich, Warsaw |  Up to 40% working from home possible | Reference 8175\n\nWe are looking for a Data Transformation Specialist to drive process transformation and automation initiatives within Financial Information Data Operations. This role combines deep business knowledge of financial instrument data with strong technical capabilities to identify inefficiencies, redesign processes, and implement scalable automation solutions.\n\nThe successful candidate will work closely with stakeholders across Switzerland, Spain, the UK, and Poland, contributing directly to strategic transformation objectives and operational excellence initiatives.\n\nThis is an excellent opportunity for someone who enjoys combining technology, data, and business process improvement to deliver measurable business impact.\n\nWhat You Will Do\n\n• Analyze existing business and data processes and identify opportunities for automation and optimization.\n\n• Design and implement future-state solutions that improve efficiency, scalability, and data quality.\n\n• Translate business requirements into practical technical solutions.\n\n• Drive transformation initiatives related to financial instrument data, reference data, corporate actions, and structured products.\n\n• Collaborate with cross-functional teams and stakeholders across multiple locations.\n\n• Challenge existing processes and proactively identify opportunities for improvement.\n\n• Support change management activities to ensure successful adoption of new solutions.\n\n• Establish controls and monitoring mechanisms to maintain data quality and operational excellence.\n\n• Contribute to strategic initiatives aimed at modernizing and enhancing Data Operations capabilities.\n\nWhat You Bring\n\n• Strong business knowledge of financial instrument data, namely related to corporate actions, reference data, structured products\n\n• Experience translating business requirements into operational and technical solutions.\n\n• Strong process automation and transformation experience.\n\n• Hands-on experience with Databricks (mandatory).\n\n• Excellent stakeholder management and communication skills.\n\n• Self-driven mindset with the ability to work independently and drive initiatives forward.\n\n• 3-5 years of relevant experience in data transformation, process improvement, financial data operations, or related fields.\n\n• Python, SQL, other automation or programming languages\n\n• Experience with business process redesign and operational transformation initiatives\n\n• English (C1 level or higher)\n\n• Global Collaboration\n\n• Work closely with colleagues across Switzerland, Spain, the UK, and Poland in a truly international environment.\n\n• Confident and approachable when working with both technical and non-technical stakeholders.\n\n• Proactive and self-motivated.\n\n• Comfortable challenging existing processes and proposing better alternatives.\n\n• Curious, solution-oriented, and willing to ask questions.\n\n• Able to balance independent work with strong collaboration across teams.\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at +48 538 562 645\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Transformation Specialist\n\nZurich, Warsaw |  Up to 40% working from home possible | Reference 8175\n\nWe are looking for a Data Transformation Specialist to drive process transformation and automation initiatives within Financial Information Data Operations. This role combines deep business knowledge of financial instrument data with strong technical capabilities to identify inefficiencies, redesign processes, and implement scalable automation solutions.\n\nThe successful candidate will work closely with stakeholders across Switzerland, Spain, the UK, and Poland, contributing directly to strategic transformation objectives and operational excellence initiatives.\n\nThis is an excellent opportunity for someone who enjoys combining technology, data, and business process improvement to deliver measurable business impact.\n\nWhat You Will Do\n\n• Analyze existing business and data processes and identify opportunities for automation and optimization.\n\n• Design and implement future-state solutions that improve efficiency, scalability, and data quality.\n\n• Translate business requirements into practical technical solutions.\n\n• Drive transformation initiatives related to financial instrument data, reference data, corporate actions, and structured products.\n\n• Collaborate with cross-functional teams and stakeholders across multiple locations.\n\n• Challenge existing processes and proactively identify opportunities for improvement.\n\n• Support change management activities to ensure successful adoption of new solutions.\n\n• Establish controls and monitoring mechanisms to maintain data quality and operational excellence.\n\n• Contribute to strategic initiatives aimed at modernizing and enhancing Data Operations capabilities.\n\nWhat You Bring\n\n• Strong business knowledge of financial instrument data, namely related to corporate actions, reference data, structured products\n\n• Experience translating business requirements into operational and technical solutions.\n\n• Strong process automation and transformation experience.\n\n• Hands-on experience with Databricks (mandatory).\n\n• Excellent stakeholder management and communication skills.\n\n• Self-driven mindset with the ability to work independently and drive initiatives forward.\n\n• 3-5 years of relevant experience in data transformation, process improvement, financial data operations, or related fields.\n\n• Python, SQL, other automation or programming languages\n\n• Experience with business process redesign and operational transformation initiatives\n\n• English (C1 level or higher)\n\n• Global Collaboration\n\n• Work closely with colleagues across Switzerland, Spain, the UK, and Poland in a truly international environment.\n\n• Confident and approachable when working with both technical and non-technical stakeholders.\n\n• Proactive and self-motivated.\n\n• Comfortable challenging existing processes and proposing better alternatives.\n\n• Curious, solution-oriented, and willing to ask questions.\n\n• Able to balance independent work with strong collaboration across teams.\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at +48 538 562 645\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Transformation Specialist\n\nZurich, Warsaw |  Up to 40% working from home possible | Reference 8175\n\nWe are looking for a Data Transformation Specialist to drive process transformation and automation initiatives within Financial Information Data Operations. This role combines deep business knowledge of financial instrument data with strong technical capabilities to identify inefficiencies, redesign processes, and implement scalable automation solutions.\n\nThe successful candidate will work closely with stakeholders across Switzerland, Spain, the UK, and Poland, contributing directly to strategic transformation objectives and operational excellence initiatives.\n\nThis is an excellent opportunity for someone who enjoys combining technology, data, and business process improvement to deliver measurable business impact.\n\nWhat You Will Do\n\n• Analyze existing business and data processes and identify opportunities for automation and optimization.\n\n• Design and implement future-state solutions that improve efficiency, scalability, and data quality.\n\n• Translate business requirements into practical technical solutions.\n\n• Drive transformation initiatives related to financial instrument data, reference data, corporate actions, and structured products.\n\n• Collaborate with cross-functional teams and stakeholders across multiple locations.\n\n• Challenge existing processes and proactively identify opportunities for improvement.\n\n• Support change management activities to ensure successful adoption of new solutions.\n\n• Establish controls and monitoring mechanisms to maintain data quality and operational excellence.\n\n• Contribute to strategic initiatives aimed at modernizing and enhancing Data Operations capabilities.\n\nWhat You Bring\n\n• Strong business knowledge of financial instrument data, namely related to corporate actions, reference data, structured products\n\n• Experience translating business requirements into operational and technical solutions.\n\n• Strong process automation and transformation experience.\n\n• Hands-on experience with Databricks (mandatory).\n\n• Excellent stakeholder management and communication skills.\n\n• Self-driven mindset with the ability to work independently and drive initiatives forward.\n\n• 3-5 years of relevant experience in data transformation, process improvement, financial data operations, or related fields.\n\n• Python, SQL, other automation or programming languages\n\n• Experience with business process redesign and operational transformation initiatives\n\n• English (C1 level or higher)\n\n• Global Collaboration\n\n• Work closely with colleagues across Switzerland, Spain, the UK, and Poland in a truly international environment.\n\n• Confident and approachable when working with both technical and non-technical stakeholders.\n\n• Proactive and self-motivated.\n\n• Comfortable challenging existing processes and proposing better alternatives.\n\n• Curious, solution-oriented, and willing to ask questions.\n\n• Able to balance independent work with strong collaboration across teams.\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at +48 538 562 645\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-Data-Transformation-Specialist/1428692333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:27.640Z",
+      "crawledAt": "2026-10-03T09:31:21.469Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -943,7 +972,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:29:27.640Z"
+      "firstSeenAt": "2026-10-03T09:31:21.469Z",
+      "needsRetranslation": true
     },
     {
       "id": "six-group-daca2b8c0f86",
@@ -977,7 +1007,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-System-Engineer/1407843933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:26.146Z",
+      "crawledAt": "2026-10-03T09:31:22.050Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1052,7 +1082,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Requirements-Engineer-%2880-100%29/1440470833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:23.085Z",
+      "crawledAt": "2026-10-03T09:31:17.661Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1115,7 +1145,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Fraud-Services-%28100%29/1440523333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:22.565Z",
+      "crawledAt": "2026-10-03T09:31:17.068Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1133,11 +1163,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-fraud-services-100-six-group-zurich"
+        "head-fraud-services-100-six-group-zurich",
+        "servizi-di-frode-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-fraud-services-100-six-group-zurich"
+          "head-fraud-services-100-six-group-zurich",
+          "servizi-di-frode-100-six-group-zurich"
         ],
         "de": [
           "head-fraud-services-100-six-group-zurich"
@@ -1159,7 +1191,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-856d1af21c8d",
@@ -1192,7 +1225,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Web-Access-Management-Engineer-80-100/1429528333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:22.010Z",
+      "crawledAt": "2026-10-03T09:31:16.501Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1222,7 +1255,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-1160a9aa14d8",
@@ -1255,7 +1289,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:21.504Z",
+      "crawledAt": "2026-10-03T09:31:15.938Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1285,7 +1319,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-4f662f001e8f",
@@ -1318,7 +1353,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Application-Engineer/1440812533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:20.960Z",
+      "crawledAt": "2026-10-03T09:31:15.314Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1348,7 +1383,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-32e50bc78f8d",
@@ -1381,7 +1417,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Fraud-Analyst-%28100%29/1440904933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:20.462Z",
+      "crawledAt": "2026-10-03T09:31:14.105Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1399,11 +1435,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-fraud-analyst-100-six-group-zurich"
+        "specialist-fraud-analyst-100-six-group-zurich",
+        "specialista-fraud-analista-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-fraud-analyst-100-six-group-zurich"
+          "specialist-fraud-analyst-100-six-group-zurich",
+          "specialista-fraud-analista-100-six-group-zurich"
         ],
         "fr": [
           "specialist-fraud-analyst-100-six-group-zurich"
@@ -1422,7 +1460,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-d7355992db8c",
@@ -1455,7 +1494,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Chargeback-Specialist-%2880-100%29/1440913133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:19.948Z",
+      "crawledAt": "2026-10-03T09:31:14.720Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1485,7 +1524,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-b80b9c13934c",
@@ -1519,7 +1559,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Internship-Tax-Services/1430474233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:18.833Z",
+      "crawledAt": "2026-10-03T09:31:12.298Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1537,11 +1577,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-tax-services-six-group-olten"
+        "internship-tax-services-six-group-olten",
+        "servizi-fiscali-di-stage-six-group-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-tax-services-six-group-olten"
+          "internship-tax-services-six-group-olten",
+          "servizi-fiscali-di-stage-six-group-olten"
         ],
         "fr": [
           "internship-tax-services-six-group-olten"
@@ -1594,7 +1636,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Proxy-Voting-Services-%2880-100%29/1430452433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:18.343Z",
+      "crawledAt": "2026-10-03T09:31:12.887Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1633,7 +1675,7 @@
         "en": "incident-problem-manager-80-100-six-group-zurich",
         "it": "incident-problem-manager-80-100-six-group-zurich",
         "de": "incident-problem-manager-80-100-six-group-zurich",
-        "fr": "gestionnaire-d-incidents-et-de-problemes-80-100-six-group-zurich"
+        "fr": "incident-problem-manager-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -1643,14 +1685,14 @@
         "en": "Incident & Problem Manager (80 - 100%)",
         "it": "Incident & Problem Manager (80 - 100%)",
         "de": "Incident & Problem Manager (80 - 100%)",
-        "fr": "Gestionnaire d'incidents et de problèmes (80 - 100%)"
+        "fr": "Incident & Problem Manager (80 - 100%)"
       },
       "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich |  up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
       "descriptionByLocale": {
         "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich |  up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIncident & Problem Manager (80 - 100%)\n\nZurigo | Fino al 40% Home office possibile | Riferimento 8293\n\nVuoi lavorare in un ambiente altamente dinamico? Sei motivato a garantire servizi affidabili e una comunicazione affidabile per le banche svizzere durante situazioni critiche? Cerchiamo un Business Incident Manager per unire il nostro team di BBS Operations a Zurigo, responsabile della gestione degli incidenti da una prospettiva aziendale, della comunicazione chiara e del miglioramento continuo. Partecipa a un team che valorizza affidabilità, collaborazione e proprietà nella fornitura di servizi stabili e orientati al cliente.\n\nCosa farai\n\n• valutare gli incidenti da una vista d'impatto aziendale e client, completando la gestione tecnica da parte dei team di controllo\n\n• garantire una comunicazione chiara e tempestiva, preparare aggiornamenti e report degli incidenti per i clienti e gli stakeholder interni\n\n• coordinare le azioni di follow-up e sostenere la transizione alla gestione dei problemi, garantendo una corretta documentazione e chiusura\n\n• agire come interfaccia tra operazioni, team IT e fornitori esterni durante gli incidenti per allineare le priorità e le azioni\n\n• partecipare a 7×24 on-call duty, sostenendo incidenti business-critical al di fuori dell'orario di lavoro standard\n\nChe cosa porta\n\n• esperienza con i framework di gestione dei servizi IT come ITIL o simili processi di incidente strutturati\n\n• forte comprensione delle operazioni di servizio e dei processi aziendali; esperienza aggiuntiva nei pagamenti o negli ambienti di elaborazione delle transazioni è un plus\n\n• capacità di strutturare informazioni complesse e comunicare chiaramente a diversi gruppi di stakeholder\n\n• alto livello di proprietà e di responsabilità quando si tratta di situazioni critiche e incidenti sensibili al tempo\n\n• competenze linguistiche necessarie: inglese e tedesco (spoken e scritto)\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nIncident & Problem Manager (80 - 100%)\n\nZürich | bis zu 40% Home Office möglich | Referenz 8293\n\nMöchten Sie in einem hochdynamischen Umfeld arbeiten? Sind Sie motiviert, in kritischen Situationen zuverlässige Dienstleistungen und vertrauenswürdige Kommunikation für Schweizer Banken zu gewährleisten? Wir suchen einen Business Incident Manager für unser BBS Operations Team in Zürich, der für das Management von Vorfällen aus geschäftlicher Sicht, die Sicherstellung einer klaren Kommunikation und die Unterstützung kontinuierlicher Verbesserungen verantwortlich ist. Werden Sie Teil eines Teams, das Wert auf Zuverlässigkeit, Zusammenarbeit und Eigenverantwortung bei der Bereitstellung stabiler und kundenorientierter Dienstleistungen legt.\n\nWas Sie tun werden\n\n• Beurteilen von Vorfällen aus einer Geschäfts- und Kundeneinflussansicht und ergänzen die technische Abwicklung durch Leitstellenteams\n\n• Gewährleistung einer klaren und zeitnahen Kommunikation, Erstellung von Incident Updates und Berichten für Kunden und interne Stakeholder\n\n• Koordinierung von Folgemaßnahmen und Unterstützung des Übergangs zum Problemmanagement, Gewährleistung einer ordnungsgemäßen Dokumentation und Schließung\n\n• als Schnittstelle zwischen Betriebsabläufen, IT-Teams und externen Anbietern bei Vorfällen fungieren, um Prioritäten und Maßnahmen aufeinander abzustimmen\n\n• Teilnahme am 7×24 Bereitschaftsdienst, Unterstützung geschäftskritischer Vorfälle außerhalb der üblichen Arbeitszeiten\n\nWas du mitbringst\n\n• Erfahrung mit IT Service Management Frameworks wie ITIL oder ähnlichen strukturierten Incident Prozessen\n\n• starkes Verständnis von Service-Operationen und Geschäftsprozessen; zusätzliche Erfahrung in Zahlungs- oder Transaktionsverarbeitungsumgebungen ist ein Plus\n\n• Fähigkeit, komplexe Informationen zu strukturieren und klar mit verschiedenen Stakeholdergruppen zu kommunizieren\n\n• Hohes Maß an Eigenverantwortung und Rechenschaftspflicht beim Umgang mit kritischen Situationen und zeitkritischen Vorfällen\n\n• benötigte Sprachkenntnisse: Englisch und Deutsch (gesprochen und geschrieben)\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nGestionnaire d'incidents et de problèmes (80 - 100%)\n\nZurich jusqu'à 40% Home office possible\n\nVoulez-vous travailler dans un environnement très dynamique? Êtes-vous motivé à assurer des services fiables et une communication fiable pour les banques suisses dans des situations critiques? Nous sommes à la recherche d'un Business Incident Manager pour rejoindre notre équipe BBS Operations à Zurich, responsable de la gestion des incidents du point de vue de l'entreprise, de la communication claire et de l'amélioration continue. Faites partie d'une équipe qui valorise la fiabilité, la collaboration et la propriété dans la prestation de services stables et axés sur le client.\n\nCe que vous ferez\n\n• évaluer les incidents du point de vue de l'impact sur l'entreprise et le client, en complétant la manipulation technique par les équipes du centre de contrôle\n\n• assurer une communication claire et opportune, préparer des mises à jour des incidents et des rapports pour les clients et les intervenants internes\n\n• coordonner les actions de suivi et soutenir la transition vers la gestion des problèmes, en veillant à ce que la documentation nécessaire et la clôture\n\n• agir comme interface entre les opérations, les équipes informatiques et les fournisseurs externes lors des incidents pour aligner les priorités et les actions\n\n• participer à 7×24 en service de garde, soutenir les incidents critiques pour les entreprises en dehors des heures de travail normales\n\nCe que vous apportez\n\n• Expérience des cadres de gestion des services de TI tels que l'ITIL ou des processus d'incident structurés similaires\n\n• une bonne compréhension des opérations de service et des processus opérationnels; une expérience supplémentaire dans les environnements de paiement ou de traitement des transactions est un plus\n\n• capacité de structurer l'information complexe et de communiquer clairement aux différents groupes d'intervenants\n\n• niveau élevé de prise en charge et de responsabilisation lors du traitement de situations critiques et d'incidents assortis de délais\n\n• Compétences linguistiques nécessaires : anglais et allemand (parlé et écrit)\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich |  up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich |  up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich |  up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background."
       },
       "needsRetranslation": true,
       "location": "Zürich",
@@ -1658,7 +1700,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:17.543Z",
+      "crawledAt": "2026-10-03T09:31:11.411Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1690,7 +1732,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:29:17.543Z"
+      "firstSeenAt": "2026-10-03T09:31:11.411Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-d-incidents-et-de-problemes-80-100-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-d-incidents-et-de-problemes-80-100-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-cf4cb8123866",
@@ -1724,7 +1774,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1431073433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:16.222Z",
+      "crawledAt": "2026-10-03T09:31:10.148Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1788,7 +1838,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Sales-&-Products-Primary-Markets/1441725233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:14.152Z",
+      "crawledAt": "2026-10-03T09:31:07.596Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1806,11 +1856,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-sales-products-primary-markets-six-group-zurich"
+        "internship-sales-products-primary-markets-six-group-zurich",
+        "vendite-di-stage-e-prodotti-mercati-primari-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-sales-products-primary-markets-six-group-zurich"
+          "internship-sales-products-primary-markets-six-group-zurich",
+          "vendite-di-stage-e-prodotti-mercati-primari-six-group-zurich"
         ],
         "de": [
           "internship-sales-products-primary-markets-six-group-zurich"
@@ -1866,7 +1918,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Product-Manager-Payment-Fraud-Services/1427503733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:13.362Z",
+      "crawledAt": "2026-10-03T09:31:06.660Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1929,7 +1981,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-IT-Workplace-Support-Specialist/1443142233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:11.391Z",
+      "crawledAt": "2026-10-03T09:31:04.361Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1993,7 +2045,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Settlement-%2880%29/1391925233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:10.874Z",
+      "crawledAt": "2026-10-03T09:31:03.457Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2014,14 +2066,16 @@
         "specialist-settlement-80-six-group-olten",
         "specialista-risoluzione-80-100-six-group-olten",
         "specialist-settlement-80-100-six-group-olten",
-        "specialiste-de-la-resolution-80-100-six-group-olten"
+        "specialiste-de-la-resolution-80-100-six-group-olten",
+        "specialista-settlement-80-six-group-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-settlement-80-six-group-olten",
           "specialista-risoluzione-80-100-six-group-olten",
           "specialist-settlement-80-100-six-group-olten",
-          "specialiste-de-la-resolution-80-100-six-group-olten"
+          "specialiste-de-la-resolution-80-100-six-group-olten",
+          "specialista-settlement-80-six-group-olten"
         ],
         "de": [
           "specialist-settlement-80-100-six-group-olten"
@@ -2077,7 +2131,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Payment-Specialist-%2880-100%29/1422930133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:29:09.825Z",
+      "crawledAt": "2026-10-03T09:31:02.550Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2107,7 +2161,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-c90980c3db3a",
@@ -2141,7 +2196,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Observability-Engineer/1293318201/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:08.379Z",
+      "crawledAt": "2026-10-03T09:31:00.822Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2159,11 +2214,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-observability-engineer-six-group-zurich"
+        "senior-observability-engineer-six-group-zurich",
+        "ingegnere-senior-di-osservabilita-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-observability-engineer-six-group-zurich"
+          "senior-observability-engineer-six-group-zurich",
+          "ingegnere-senior-di-osservabilita-six-group-zurich"
         ]
       },
       "firstSeenAt": "2026-07-28T22:06:32.175Z",
@@ -2243,7 +2300,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
