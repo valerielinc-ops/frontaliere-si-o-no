@@ -72,12 +72,37 @@ describe('crawler location record index', () => {
     });
   });
 
+  it('retains source canton evidence for a normalized homonym', () => {
+    const index = createCrawlerLocationRecordIndex();
+    const job = {
+      id: 'galenica-seewen',
+      url: 'https://jobs.galenica.com/it/jobs/#job.id=12692413',
+      addressLocality: 'Seewen',
+      canton: 'SZ',
+      location: 'Seewen',
+      sourceLocationCanton: 'SZ',
+    };
+    index.add(job);
+
+    expect(index.get(job)).toEqual({
+      crawler: '',
+      canton: 'SZ',
+      city: 'Seewen',
+      location: 'Seewen',
+      sourceLocationCanton: 'SZ',
+    });
+  });
+
   it('rejects a duplicate record id when its location evidence conflicts', () => {
     const index = createCrawlerLocationRecordIndex();
     index.add({ id: 'duplicated', url: 'https://jobs.example/1', addressLocality: 'Bern', canton: 'BE' });
     index.add({ id: 'duplicated', url: 'https://jobs.example/2', addressLocality: 'Lausanne', canton: 'VD' });
 
     expect(index.get({ id: 'duplicated', url: 'https://jobs.example/1' })).toBeNull();
+    expect(index.getWithStatus({ id: 'duplicated', url: 'https://jobs.example/1' })).toEqual({
+      record: null,
+      status: 'ambiguous',
+    });
   });
 
   it('keeps crawler provenance with the source location record', () => {
