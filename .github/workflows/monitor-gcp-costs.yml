@@ -1,15 +1,24 @@
 name: GCP Cost Monitor
 
-# Daily guard on the Google Cloud usage that becomes the bill
+# Guard on the Google Cloud usage that becomes the bill
 # (scripts/monitor-gcp-costs.mjs). In September 2026 Firestore reads went
 # from 0.3-1 M a day to 75-90 M (225 M reads, 75.61 CHF on "Cloud Firestore
 # Read Ops Zurich") and nobody noticed: the 10 CHF billing budget emails only
-# the billing-account admins. This run reads Cloud Monitoring for the last
+# the billing-account admins. Each run reads Cloud Monitoring for the last
 # 24 hours, opens or comments one stable-title issue when a driver is over its
 # daily threshold, and resolves it once every driver is back under.
 #
-# 07:23 UTC: after the night window in which the September crawler ran
-# (~22:30-10:00 UTC), so a bad night is reported the same morning.
+# The punctual trigger is Cloud Scheduler, every 6 hours at 01:23, 07:23,
+# 13:23 and 19:23 UTC: dispatchGcpCostMonitor in functions/index.js
+# (functions/src/gcpCostMonitorDispatch.js) sends a workflow_dispatch with no
+# inputs, so `dry_run` keeps its `false` default and the issue is written.
+#
+# The native cron below is only a safety net. GitHub creates it hours late
+# (2026-10-02 at 13:57 UTC, 2026-10-03 at 12:37 UTC for the 07:23 slot), but
+# its clock does not depend on the GCP project this monitor watches, so it
+# still runs if Cloud Scheduler or the function is down. An extra run is
+# harmless: the window is a rolling 24 hours and the issue has a fixed title
+# (github-issue-creator comments the open one instead of opening a second).
 
 on:
   schedule:
