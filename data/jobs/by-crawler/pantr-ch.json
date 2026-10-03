@@ -269,20 +269,6 @@
       "applyUrl": "https://pantr.ch/jobs/steuerberater-159/",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:35:20.251Z",
       "previousSlugs": [
         "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
         "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144"
@@ -299,7 +285,20 @@
           "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
         ]
       },
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-01T09:35:20.251Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "pantr-ch-a6cd462ca484",
@@ -569,20 +568,6 @@
       "applyUrl": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:35:20.247Z",
       "previousSlugs": [
         "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
         "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554"
@@ -596,7 +581,20 @@
           "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
         ]
       },
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-01T09:35:20.247Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

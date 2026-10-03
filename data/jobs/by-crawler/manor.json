@@ -441,7 +441,6 @@
       "id": "manor-6026e84a6db3",
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 37500,
       "salaryMax": 46900,
       "currency": "CHF",
@@ -1611,8 +1610,47 @@
         "fr": "Collaborateur/trice vente (Confection Messieurs) 80%"
       },
       "sourceLang": "fr",
-      "crawledAt": "",
       "id": "manor-fe9b16814351",
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekiou",
+        "sales-collaborator-means-80-manor-ag-monthey",
+        "sales-collaborator-mittel-80-manor-ag-monthey",
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+          "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
+          "collaboratore-di-vendita-means-80-manor-ag-monthey",
+          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey",
+          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekiou",
+          "sales-collaborator-means-80-manor-ag-monthey",
+          "sales-collaborator-mittel-80-manor-ag-monthey",
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
+          "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou"
+        ],
+        "en": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+          "sales-collaborator-means-80-manor-ag-monthey"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+          "sales-collaborator-mittel-80-manor-ag-monthey"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+        ]
+      },
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 57600,
       "salaryMax": 88800,
       "currency": "CHF",
@@ -1627,32 +1665,7 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035955/",
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
-          "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
-          "collaboratore-di-vendita-means-80-manor-ag-monthey",
-          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
-        ],
-        "en": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
-        ],
-        "de": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
-        ],
-        "fr": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
-        ]
-      },
-      "previousSlugs": [
-        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
-        "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
-        "collaboratore-di-vendita-means-80-manor-ag-monthey",
-        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
-      ],
-      "needsRetranslation": true
+      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035955/"
     },
     {
       "title": "Collaborateur/trice vente (Confection Messieurs) 50%",
@@ -8477,10 +8490,10 @@
         "fr": "gestionnaire-de-projet-gestion-des-installations-100-manor-ag-basel-projektleiter-facility-management"
       },
       "titleByLocale": {
-        "it": "Projektleiter Facility Management 100%",
-        "en": "Projektleiter Facility Management 100%",
+        "it": "Project Manager Facility Management 100%",
+        "en": "Project Manager Facility Management 100%",
         "de": "Projektleiter Facility Management 100%",
-        "fr": "Projektleiter Facility Management 100%"
+        "fr": "Gestionnaire de projet Gestion des installations 100%"
       },
       "sourceLang": "de",
       "id": "manor-6ae5a7162e1c",
@@ -10663,7 +10676,6 @@
       },
       "firstSeenAt": "2026-09-07T15:20:28.335Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 23600,
       "salaryMax": 36200,
       "currency": "CHF",
@@ -12586,7 +12598,6 @@
       },
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -12651,7 +12662,6 @@
       },
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -12787,7 +12797,6 @@
       },
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -12852,7 +12861,6 @@
       },
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -16210,7 +16218,6 @@
       },
       "firstSeenAt": "2026-07-22T22:35:47.906Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -17688,8 +17695,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Chur-Visual-Merchandising-Manager-100/1353667055/",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Supermarkt Epicerie 50%",
@@ -18107,7 +18113,6 @@
       },
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 24900,
       "salaryMax": 38300,
       "currency": "CHF",

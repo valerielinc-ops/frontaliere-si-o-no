@@ -159,8 +159,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-9e9c2ed0e9da",
@@ -316,8 +315,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-b591bfe0cc9b",
@@ -597,7 +595,10 @@
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Manager--Sr-Analyst--Tax_148457",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:38:00.281Z",
+      "previousSlugs": [
+        "manager-sr-analyst-tax-logitech-ch",
+        "manager-sr-analista-tax-logitech-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "manager-sr-analyst-tax-logitech-ch",
@@ -610,10 +611,7 @@
           "manager-sr-analyst-tax-logitech-ch"
         ]
       },
-      "previousSlugs": [
-        "manager-sr-analyst-tax-logitech-ch",
-        "manager-sr-analista-tax-logitech-lausanne"
-      ],
+      "firstSeenAt": "2026-09-30T21:38:00.281Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -627,8 +625,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-a39cf27f9345",

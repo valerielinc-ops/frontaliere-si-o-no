@@ -358,8 +358,7 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-cbda7d9905c5",
@@ -447,11 +446,86 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
+          "vendeur-se-m-w-d-aldi-suisse-winterthur",
+          "membro-vendita-m-w-d-aldi-suisse-winterthur",
+          "sales-associate-m-w-d-aldi-suisse-aadorf",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+          "vendeur-se-m-w-d-aldi-suisse-aadorf",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+          "sales-associate-m-w-d-aldi-suisse-meilen",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
+          "vendeur-se-m-w-d-aldi-suisse-meilen",
+          "commercant-m-w-d-aldi-suisse-meilen",
+          "employe-de-vente-m-w-d-aldi-suisse-meilen",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
+          "sales-associate-m-w-d-aldi-suisse-uster",
+          "vendeur-se-m-w-d-aldi-suisse-uster",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+          "sales-associate-m-w-d-aldi-suisse-amriswil"
+        ],
+        "en": [
+          "sales-associate-m-w-d-aldi-suisse-zurich"
+        ],
+        "fr": [
+          "vendeur-se-m-w-d-aldi-suisse-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "vendeur-se-m-w-d-aldi-suisse-amriswil",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-16",
+        "sales-associate-m-w-d-aldi-suisse-langenthal",
+        "vendeur-se-m-w-d-aldi-suisse-langenthal",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur-jqqp2b",
+        "sales-associate-m-w-d-aldi-suisse-winterthur-b714a0",
+        "vendeur-se-m-w-d-aldi-suisse-winterthur-b714a0",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-17",
+        "sales-associate-m-w-d-aldi-suisse-rorschach",
+        "vendeur-se-m-w-d-aldi-suisse-rorschach",
+        "commercant-m-w-d-aldi-suisse-rorschach",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-12",
+        "sales-associate-m-w-d-aldi-suisse-uster-77582a",
+        "vendeur-se-m-w-d-aldi-suisse-uster-77582a",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-pfaffikon",
+        "sales-associate-m-w-d-aldi-suisse-pfaffikon",
+        "vendeur-se-m-w-d-aldi-suisse-pfaffikon",
+        "sales-associate-m-w-d-aldi-suisse-zurich",
+        "vendeur-se-m-w-d-aldi-suisse-zurich",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur-nkcazu",
+        "sales-associate-m-w-d-aldi-suisse-winterthur",
+        "commercant-m-w-d-aldi-suisse-winterthur",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
+        "vendeur-se-m-w-d-aldi-suisse-winterthur",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur",
+        "sales-associate-m-w-d-aldi-suisse-aadorf",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "vendeur-se-m-w-d-aldi-suisse-aadorf",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+        "sales-associate-m-w-d-aldi-suisse-meilen",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
+        "vendeur-se-m-w-d-aldi-suisse-meilen",
+        "commercant-m-w-d-aldi-suisse-meilen",
+        "employe-de-vente-m-w-d-aldi-suisse-meilen",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
+        "sales-associate-m-w-d-aldi-suisse-uster",
+        "vendeur-se-m-w-d-aldi-suisse-uster",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+        "sales-associate-m-w-d-aldi-suisse-amriswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -584,8 +658,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-77911a6504df",
@@ -705,8 +778,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-73f67bec30e8",
@@ -1328,8 +1400,7 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-0eeb651ef869",
@@ -1931,8 +2002,7 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-a9057891683d",
@@ -2552,8 +2622,7 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-209242d66fcb",
@@ -4369,8 +4438,7 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-3c5feb5c157d",
@@ -5604,8 +5672,7 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-2d4bd26f9fa0",
@@ -7729,8 +7796,7 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "aldi-suisse-ab52f65e4c90",
@@ -7935,8 +8001,7 @@
           "maxValue": 71500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

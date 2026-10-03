@@ -80,8 +80,7 @@
           "maxValue": 109000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-67ba1566fd0c",
@@ -163,8 +162,7 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-12db5f0109b1",
@@ -246,8 +244,7 @@
           "maxValue": 123500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-9954ebe55a67",
@@ -416,8 +413,7 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-bbdba71f49bf",
@@ -916,8 +912,7 @@
           "maxValue": 109000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-37a9fae88f1b",
@@ -994,8 +989,7 @@
           "maxValue": 195000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-264730413036",
@@ -1075,8 +1069,7 @@
           "maxValue": 48600,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-4616accdd6e5",
@@ -1156,8 +1149,7 @@
           "maxValue": 123500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-2132758406ea",
@@ -1237,8 +1229,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-f23df2623305",
@@ -1326,8 +1317,7 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-37e420c8653a",
@@ -1646,8 +1636,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-06a069304cd9",
@@ -1727,8 +1716,7 @@
           "maxValue": 100200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-4153f9edda02",
@@ -1873,8 +1861,7 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-d99f5ac4e6d5",
@@ -2047,8 +2034,7 @@
           "maxValue": 55300,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "concordia-5bed31e51da9",
@@ -3636,7 +3622,35 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-02T23:09:05.742Z"
+      "firstSeenAt": "2026-09-02T23:09:05.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-assicurativo-in-100-a-lucerna-concordia-luzern",
+          "insurance-consultant-in-100-in-lucerne-concordia-luzern",
+          "consultant-en-assurance-in-100-a-lucerne-concordia-luzern",
+          "consulente-clienti-in-70-a-lucerna-concordia-luzern",
+          "customer-advisor-in-70-in-lucerne-concordia-luzern",
+          "kundenberater-in-70-in-luzern-concordia-luzern",
+          "conseiller-client-in-70-a-lucerne-concordia-luzern",
+          "conseiller-client-in-70-in-lucerne-concordia-luzern"
+        ],
+        "en": [
+          "insurance-consultant-in-100-in-lucerne-concordia-luzern"
+        ],
+        "fr": [
+          "consultant-en-assurance-in-100-a-lucerne-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-assicurativo-in-100-a-lucerna-concordia-luzern",
+        "insurance-consultant-in-100-in-lucerne-concordia-luzern",
+        "consultant-en-assurance-in-100-a-lucerne-concordia-luzern",
+        "consulente-clienti-in-70-a-lucerna-concordia-luzern",
+        "customer-advisor-in-70-in-lucerne-concordia-luzern",
+        "kundenberater-in-70-in-luzern-concordia-luzern",
+        "conseiller-client-in-70-a-lucerne-concordia-luzern",
+        "conseiller-client-in-70-in-lucerne-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-d005ad910e46",
@@ -3692,11 +3706,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-60-in-zug-und-cham-concordia-zug"
+          "kundenberater-in-60-in-zug-und-cham-concordia-zug",
+          "servizio-clienti-60-in-zug-e-cham-concordia-zug",
+          "customer-service-in-60-in-zug-and-cham-concordia-zug",
+          "service-clientele-en-60-a-zug-et-cham-concordia-zug"
+        ],
+        "en": [
+          "customer-service-in-60-in-zug-and-cham-concordia-zug"
+        ],
+        "fr": [
+          "service-clientele-en-60-a-zug-et-cham-concordia-zug"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-60-in-zug-und-cham-concordia-zug"
+        "kundenberater-in-60-in-zug-und-cham-concordia-zug",
+        "servizio-clienti-60-in-zug-e-cham-concordia-zug",
+        "customer-service-in-60-in-zug-and-cham-concordia-zug",
+        "service-clientele-en-60-a-zug-et-cham-concordia-zug"
       ],
       "salaryMin": 47400,
       "salaryMax": 72900,
@@ -3778,7 +3804,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-02T13:36:03.470Z"
+      "firstSeenAt": "2026-09-02T13:36:03.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servizio-clienti-in-60-a-olten-concordia-olten",
+          "customer-service-in-60-in-olten-concordia-olten",
+          "service-clientele-en-60-a-olten-concordia-olten",
+          "consulente-clienti-60-a-olten-concordia-olten",
+          "service-a-la-clientele-en-60-a-olten-concordia-olten"
+        ],
+        "en": [
+          "customer-service-in-60-in-olten-concordia-olten"
+        ],
+        "fr": [
+          "service-clientele-en-60-a-olten-concordia-olten"
+        ]
+      },
+      "previousSlugs": [
+        "servizio-clienti-in-60-a-olten-concordia-olten",
+        "customer-service-in-60-in-olten-concordia-olten",
+        "service-clientele-en-60-a-olten-concordia-olten",
+        "consulente-clienti-60-a-olten-concordia-olten",
+        "service-a-la-clientele-en-60-a-olten-concordia-olten"
+      ]
     }
   ]
 }

@@ -3813,8 +3813,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "anker-swiss-1c4d1f2e50c8",
@@ -4356,8 +4355,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "anker-swiss-274a91d2635a",
@@ -9775,8 +9773,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "anker-swiss-ad607e876b86",
@@ -15962,7 +15959,10 @@
       "applyUrl": "https://anker-swiss.ch/stellen/kranfuehrer-1435055/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:23:35.554Z",
+      "previousSlugs": [
+        "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116",
+        "operatore-di-gru-al-100-anker-swiss-ticino-ag-zug-0efb3116"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116",
@@ -15975,10 +15975,7 @@
           "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116"
         ]
       },
-      "previousSlugs": [
-        "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116",
-        "operatore-di-gru-al-100-anker-swiss-ticino-ag-zug-0efb3116"
-      ],
+      "firstSeenAt": "2026-09-30T21:23:35.554Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -15991,8 +15988,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "anker-swiss-daeeada9930e",
@@ -16212,7 +16208,6 @@
         ]
       },
       "firstSeenAt": "2026-10-02T21:27:35.211Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -16544,7 +16539,6 @@
         ]
       },
       "firstSeenAt": "2026-10-02T21:27:35.209Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -16715,7 +16709,6 @@
         ]
       },
       "firstSeenAt": "2026-10-02T21:27:35.208Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -16803,7 +16796,6 @@
         ]
       },
       "firstSeenAt": "2026-10-02T21:27:35.209Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -16966,7 +16958,6 @@
         ]
       },
       "firstSeenAt": "2026-10-02T21:27:35.208Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",

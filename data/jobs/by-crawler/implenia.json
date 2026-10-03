@@ -520,8 +520,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-0837b16de240",
@@ -604,7 +603,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "crawlerMissStreak": 1
     },
     {
@@ -679,8 +677,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-5a0dcbfa393c",
@@ -980,8 +977,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-be33c942baa6",
@@ -1063,8 +1059,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-d5557eff7e08",
@@ -1963,8 +1958,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-5428d781d7bc",
@@ -2043,8 +2037,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-1fad18a5ef56",
@@ -2119,8 +2112,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-6620966555fe",
@@ -2348,8 +2340,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-42e7aa003138",
@@ -2715,8 +2706,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-050f09b29e45",
@@ -2796,8 +2786,7 @@
           "maxValue": 82000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-7e2dcd8b97b1",
@@ -3120,7 +3109,6 @@
           "chef-de-projet-ingenierie-de-la-fondation-speciale-implenia-opfikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-11T23:03:44.147Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -3293,8 +3281,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-b37431587563",
@@ -4177,8 +4164,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-c0bbfbc455f7",
@@ -4252,8 +4238,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "implenia-9e766e4ba792",
@@ -4502,8 +4487,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-588e8da9b6c8",
@@ -4669,8 +4653,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-ec0ab0787641",
@@ -5615,7 +5598,7 @@
       "slug": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "it": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
-        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
         "de": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "construction-de-bois-de-contremaitre-m-f-d-80-100-implenia-rumlang"
       },
@@ -5664,7 +5647,9 @@
         "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+        "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
+        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5676,7 +5661,8 @@
           "costruzione-di-legname-m-f-d-80-100-implenia-rumlang"
         ],
         "en": [
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3"
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
         ],
         "fr": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
@@ -5769,8 +5755,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

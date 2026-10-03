@@ -232,8 +232,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-0d9efb191709",
@@ -328,8 +327,7 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-750d55e3dbd9",
@@ -523,8 +521,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-b4d2e26ed5a4",
@@ -1771,8 +1768,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-aad52488d08a",
@@ -1971,8 +1967,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-3bb0582ab8d5",
@@ -2052,8 +2047,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-07664661acfa",
@@ -2214,8 +2208,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-fce4eeded52d",
@@ -3316,8 +3309,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-ea282489a3fc",
@@ -4335,8 +4327,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitaeler-schaffhausen-2955a59e948d",
@@ -4344,7 +4335,7 @@
       "slugByLocale": {
         "it": "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
         "en": "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen",
-        "de": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen",
+        "de": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen-15c3jx",
         "fr": "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -4403,6 +4394,9 @@
         ],
         "fr": [
           "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "de": [
+          "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:45:03.777Z",
@@ -4419,8 +4413,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitaeler-schaffhausen-1419855404dc",
@@ -4513,7 +4506,7 @@
       "slugByLocale": {
         "it": "assistente-medico-ambulatorio-psichiatrico-spitaler-schaffhausen-schaffhausen",
         "en": "assistant-doctor-assistant-psychiatric-clinic-spitaler-schaffhausen-schaffhausen",
-        "de": "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
+        "de": "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen-74bxom",
         "fr": "medecin-assistant-clinique-psychiatrique-assistante-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -4583,6 +4576,9 @@
         "fr": [
           "medecin-assistant-assistant-en-psychiatrie-spitaler-schaffhausen-schaffhausen",
           "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "de": [
+          "assistenzarztin-assistenzarzt-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:45:03.774Z",
@@ -4607,7 +4603,7 @@
       "slugByLocale": {
         "it": "assistente-assistente-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen",
         "en": "assistant-assistant-psychiatric-clinic-spitaler-schaffhausen-schaffhausen",
-        "de": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
+        "de": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen-q4d99m",
         "fr": "assistant-assistant-de-la-clinique-psychiatrique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -4675,6 +4671,9 @@
         ],
         "fr": [
           "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "de": [
+          "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:45:03.768Z",
@@ -4699,7 +4698,7 @@
       "slugByLocale": {
         "it": "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
         "en": "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen",
-        "de": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
+        "de": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen-17mlz0",
         "fr": "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -4776,6 +4775,9 @@
         ],
         "fr": [
           "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "de": [
+          "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:45:03.782Z",
@@ -4792,8 +4794,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitaeler-schaffhausen-969536106e2d",

@@ -131,6 +131,7 @@
       "jobReqId": "5fc108a3-d274-433d-9a59-17a2f335b244",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-01T09:35:16.217Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -143,9 +144,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-01T09:35:16.217Z",
-      "needsRetranslation": true
+      }
     },
     {
       "id": "beekeeper-6bd5944da725",

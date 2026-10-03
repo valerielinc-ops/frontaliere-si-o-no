@@ -457,6 +457,20 @@
       "jobReqId": "744000152861818",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-de-direction-h-f-90-a-100-cdi-direction-generale-hospice-general-geneve",
+        "assistente-di-gestione-m-f-dal-90-al-100-cdi-direzione-generale-hospice-general-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-de-direction-h-f-90-a-100-cdi-direction-generale-hospice-general-geneve",
+          "assistente-di-gestione-m-f-dal-90-al-100-cdi-direzione-generale-hospice-general-geneve-switzerland"
+        ],
+        "en": [
+          "assistant-de-direction-h-f-90-a-100-cdi-direction-generale-hospice-general-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-10-01T09:11:19.551Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -469,22 +483,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-01T09:11:19.551Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-de-direction-h-f-90-a-100-cdi-direction-generale-hospice-general-geneve",
-          "assistente-di-gestione-m-f-dal-90-al-100-cdi-direzione-generale-hospice-general-geneve-switzerland"
-        ],
-        "en": [
-          "assistant-de-direction-h-f-90-a-100-cdi-direction-generale-hospice-general-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-de-direction-h-f-90-a-100-cdi-direction-generale-hospice-general-geneve",
-        "assistente-di-gestione-m-f-dal-90-al-100-cdi-direzione-generale-hospice-general-geneve-switzerland"
-      ],
-      "needsRetranslation": true
+      }
     }
   ]
 }

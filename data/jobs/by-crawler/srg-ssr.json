@@ -833,8 +833,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "needsRetranslation": true
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-0829b0ebec26",
@@ -928,8 +927,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "needsRetranslation": true
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-14fee8af4584",
@@ -1809,8 +1807,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "needsRetranslation": true
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-87aa68e5aab1",
@@ -2749,7 +2746,25 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-23T23:35:23.454Z"
+      "firstSeenAt": "2026-09-23T23:35:23.454Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-dello-sviluppo-srg-ssr-zurich",
+          "development-manager-srg-ssr-zurich",
+          "directeur-du-developpement-srg-ssr-zurich"
+        ],
+        "en": [
+          "development-manager-srg-ssr-zurich"
+        ],
+        "fr": [
+          "directeur-du-developpement-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-dello-sviluppo-srg-ssr-zurich",
+        "development-manager-srg-ssr-zurich",
+        "directeur-du-developpement-srg-ssr-zurich"
+      ]
     }
   ]
 }

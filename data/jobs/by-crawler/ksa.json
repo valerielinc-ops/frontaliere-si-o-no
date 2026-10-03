@@ -163,7 +163,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau-ca1a26",
-        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
         "fr": "med-assistant-pratique-kantonsspital-aarau-ksa-aarau-ca1a26"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -246,7 +246,7 @@
         "it": "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-in-child-wishing-consultation-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztmlg"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -352,7 +352,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -404,7 +404,6 @@
           "nachdiplomstudiengang-dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T22:32:44.725Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -706,8 +705,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-e757110d087f",
@@ -1210,7 +1208,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1254,7 +1252,8 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1264,7 +1263,8 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "needsRetranslation": true,
@@ -1448,8 +1448,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-e852978d46db",
@@ -2142,8 +2141,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-48044f2d35ed",
@@ -2473,9 +2471,9 @@
       "slug": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2563,7 +2561,7 @@
       "slugByLocale": {
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau-917953",
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -3204,8 +3202,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-455217732b9e",
@@ -3834,7 +3831,7 @@
       "slugByLocale": {
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau-d76b02",
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zti72",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -3979,7 +3976,7 @@
       "slugByLocale": {
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
         "fr": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -4211,8 +4208,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-ade538bd57af",
@@ -4292,8 +4288,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-57a2762e5a94",
@@ -4780,7 +4775,7 @@
       "slugByLocale": {
         "it": "medico-senior-kantonsspital-aarau-ksa-aarau",
         "en": "senior-physician-kantonsspital-aarau-ksa-aarau",
-        "de": "oberarztin-oberarzt-ksa-ch",
+        "de": "oberarztin-oberarzt-ksa-ch-9ztiv6",
         "fr": "medecin-principal-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -4835,6 +4830,9 @@
         ],
         "fr": [
           "oberarztin-oberarzt-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "oberarztin-oberarzt-ksa-ch"
         ]
       },
       "needsRetranslation": true,
@@ -5187,7 +5185,7 @@
       "slugByLocale": {
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-e9833d",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau-e9833d",
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zu4gl",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-e9833d"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -7666,7 +7664,7 @@
       "slugByLocale": {
         "it": "medico-senior-medico-senior-kantonsspital-aarau-ksa-aarau",
         "en": "senior-physician-senior-physician-kantonsspital-aarau-ksa-aarau",
-        "de": "oberarztin-oberarzt-ksa-ch",
+        "de": "oberarztin-oberarzt-ksa-ch-9ztiyj",
         "fr": "medecin-superieur-medecin-superieur-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -7967,7 +7965,7 @@
       "slugByLocale": {
         "it": "segretario-medico-kantonsspital-aarau-ksa-aarau",
         "en": "arztsekretar-in-kantonsspital-aarau-ksa-aarau",
-        "de": "arztsekretar-in-ksa-ch",
+        "de": "arztsekretar-in-ksa-ch-9ztiwu",
         "fr": "arztsekretar-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",

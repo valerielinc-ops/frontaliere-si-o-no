@@ -242,8 +242,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "etat-de-vaud-5891",
@@ -559,8 +558,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "etat-de-vaud-5909",
@@ -800,8 +798,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "etat-de-vaud-5899",
@@ -1126,7 +1123,7 @@
         "it": "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "projektmanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "fr": "chef-fe-de-projet-etat-de-vaud-lausanne"
+        "fr": "chef-fe-de-projet-etat-de-vaud-lausanne-j6x92k"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -1358,8 +1355,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "etat-de-vaud-5933",
@@ -1441,8 +1437,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "etat-de-vaud-5931",
@@ -2149,8 +2144,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "etat-de-vaud-5903",
@@ -3125,7 +3119,7 @@
       "id": "etat-de-vaud-5968",
       "slug": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
       "slugByLocale": {
-        "fr": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+        "fr": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6x8xb",
         "it": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
         "en": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
         "de": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
@@ -3189,6 +3183,9 @@
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
       "previousSlugsByLocale": {
         "it": [
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+        ],
+        "fr": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
         ]
       },

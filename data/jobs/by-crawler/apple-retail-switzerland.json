@@ -248,7 +248,6 @@
           "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:19:38.774Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -406,7 +405,6 @@
           "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -575,8 +573,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-42d907712cae",
@@ -1319,7 +1316,10 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200686336/internship-computer-vision-machine-learning-research?team=MLAI",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:19:02.445Z",
+      "previousSlugs": [
+        "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch",
+        "internship-computer-vision-machine-learning-ricerca-apple-retail-switzerland-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch",
@@ -1332,10 +1332,7 @@
           "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch"
         ]
       },
-      "previousSlugs": [
-        "internship-computer-vision-machine-learning-research-apple-retail-switzerland-ch",
-        "internship-computer-vision-machine-learning-ricerca-apple-retail-switzerland-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:19:02.445Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1349,8 +1346,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-c03692b941a9",

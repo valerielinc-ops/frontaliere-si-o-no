@@ -90,8 +90,7 @@
       },
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship"
     },
     {
       "id": "corner-banca-62309aa78f00",
@@ -418,8 +417,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109"
     },
     {
       "id": "corner-banca-5c5ec31e11d9",
@@ -519,8 +517,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116"
     },
     {
       "id": "corner-banca-72b82d085ee9",
@@ -619,8 +616,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114"
     },
     {
       "id": "corner-banca-b9c65289862a",
@@ -773,6 +769,16 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
       "crawledAt": "2026-10-02T21:39:35.724Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
+          "customer-retention-e-growth-ref-1118-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
+        "customer-retention-e-growth-ref-1118-corner-banca-lugano"
+      ],
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -791,18 +797,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
-      "previousSlugsByLocale": {
-        "it": [
-          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
-          "customer-retention-e-growth-ref-1118-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
-        "customer-retention-e-growth-ref-1118-corner-banca-lugano"
-      ],
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118"
     },
     {
       "id": "corner-banca-e13869b20e59",
@@ -895,8 +890,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128"
     },
     {
       "id": "corner-banca-e77e18a8741a",
@@ -970,8 +964,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129"
     },
     {
       "id": "corner-banca-3132975eb0ea",

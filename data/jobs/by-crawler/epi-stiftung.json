@@ -90,8 +90,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-stiftung-013adb9de1cc",
@@ -269,8 +268,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-stiftung-97ca81325307",
@@ -363,8 +361,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-stiftung-f3082bfffe12",
@@ -681,8 +678,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "epi-stiftung-c40cff3b420b",
@@ -1322,11 +1318,25 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich"
+          "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich",
+          "team-leader-team-leader-day-centres-creative-studio-e-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+          "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+          "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+          "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-8xmke2"
+        ],
+        "en": [
+          "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-zurich"
+        ],
+        "fr": [
+          "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich"
         ]
       },
       "previousSlugs": [
-        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich"
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-und-seniorenclub-epi-stiftung-zurich",
+        "team-leader-team-leader-day-centres-creative-studio-e-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+        "team-leader-team-leader-day-centres-creative-studio-and-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+        "chef-d-equipe-team-leader-day-centres-creative-studio-et-senior-club-schweizerische-epilepsie-stiftung-epi-zurich",
+        "teamleiterin-teamleiter-tagesstatten-kreativatelier-e-seniorenclub-schweizerische-8xmke2"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

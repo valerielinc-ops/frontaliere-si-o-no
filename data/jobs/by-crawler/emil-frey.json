@@ -184,7 +184,6 @@
           "consulente-di-vendita-automobilistica-land-rover-emil-frey-ostermundigen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:52:28.406Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -446,7 +445,6 @@
           "consulente-vendite-nuove-auto-emil-frey-brugg-be"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:52:28.349Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -783,8 +781,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-6560d0b4fc95",
@@ -858,8 +855,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-f6a5608f54d8",
@@ -1013,8 +1009,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-11d5f0c10a2c",
@@ -1170,8 +1165,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-acacc536835a",
@@ -1187,7 +1181,7 @@
       "companyDomain": "emilfrey.ch",
       "title": "Teamleiter Werkstatt / Werkstattkoordinator",
       "titleByLocale": {
-        "it": "Teamleiter Werkstatt / Werkstattkoordinator",
+        "it": "Team leader workshop / coordinatore workshop",
         "en": "Team leader workshop / workshop coordinator",
         "de": "Teamleiter Werkstatt / Werkstattkoordinator",
         "fr": "Atelier du chef d'équipe / coordinateur de l'atelier"
@@ -1238,7 +1232,6 @@
           "teamleiter-werkstatt-werkstattkoordinator-emil-frey-erlenbach-zh"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:12:00.231Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1722,8 +1715,7 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-391324a23950",
@@ -1899,8 +1891,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-5ae8ce1cf212",
@@ -2140,8 +2131,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-994740db31be",
@@ -2802,8 +2792,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-86f2c0d5a822",
@@ -3274,8 +3263,7 @@
           "maxValue": 180500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-c1d2adbb9acc",
@@ -4577,8 +4565,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-ad6583f4511a",
@@ -4894,8 +4881,7 @@
           "maxValue": 66900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-27382c86f201",
@@ -5381,8 +5367,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-6a1ecd671308",
@@ -5589,8 +5574,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-17c6f1bc1ac9",
@@ -5670,8 +5654,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-4b58d7c7b756",
@@ -5890,8 +5873,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-19e107e5ef19",
@@ -5971,8 +5953,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-4fbecfa4ddca",
@@ -6163,17 +6144,17 @@
       "hiringOrganizationName": "Herold Fahrzeugvermietung AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:18:04.937Z",
+      "previousSlugs": [
+        "customer-service-representative-100-luzern-emil-frey-luzern",
+        "servizio-clienti-representative-100-luzern-emil-frey-luzern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "customer-service-representative-100-luzern-emil-frey-luzern",
           "servizio-clienti-representative-100-luzern-emil-frey-luzern"
         ]
       },
-      "previousSlugs": [
-        "customer-service-representative-100-luzern-emil-frey-luzern",
-        "servizio-clienti-representative-100-luzern-emil-frey-luzern"
-      ],
+      "firstSeenAt": "2026-09-30T21:18:04.937Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -6186,8 +6167,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-7233f1eacf68",
