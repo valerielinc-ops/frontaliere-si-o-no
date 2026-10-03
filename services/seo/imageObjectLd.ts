@@ -66,7 +66,7 @@ export function resolveHttpUrl(value: unknown, fallback: unknown, field: string)
 }
 
 export interface OrganizationCreator {
-  '@type': 'Organization' | 'NewsMediaOrganization';
+  '@type': 'Organization' | 'NewsMediaOrganization' | readonly ('Organization' | 'NewsMediaOrganization')[];
   '@id'?: string;
   name: string;
   url?: string;
@@ -79,6 +79,18 @@ export interface PersonCreator {
 }
 
 export type ImageCreator = OrganizationCreator | PersonCreator;
+
+/** JSON-LD permits either a single type or an array of types. */
+export function isOrganizationCreatorType(value: unknown): boolean {
+  const types = Array.isArray(value) ? value : [value];
+  return types.some((type) => type === 'Organization' || type === 'NewsMediaOrganization');
+}
+
+export function isSiteOrganizationCreator(value: { '@type'?: unknown; name?: unknown; url?: unknown }): boolean {
+  return isOrganizationCreatorType(value['@type'])
+    && value.name === SITE_ORG.name
+    && (value.url === undefined || value.url === SITE_ORG.url || value.url === SITE_ORG.url.replace(/\/$/, ''));
+}
 
 export interface ImageObjectInput {
   /**
@@ -156,7 +168,11 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
   }
 
   const resolvedCreator: ImageCreator = creator
-    ? { ...creator, '@type': creator['@type'] === 'NewsMediaOrganization' ? 'Organization' : creator['@type'] }
+    ? {
+      ...creator,
+      '@type': isOrganizationCreatorType(creator['@type']) ? 'Organization' : creator['@type'],
+      ...(isSiteOrganizationCreator(creator) ? { '@id': (creator as OrganizationCreator)['@id'] ?? SITE_ORGANIZATION_ID } : {}),
+    }
     : { ...SITE_ORG };
 
   const out: ImageObjectLd = {

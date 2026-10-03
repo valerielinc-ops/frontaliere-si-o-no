@@ -1,5 +1,6 @@
 import { TYPES_ACCEPT_IN_LANGUAGE } from './inlanguage-whitelist';
 import { ORGANIZATION_ID, ORGANIZATION_LD } from './organizationLd';
+import { isSiteOrganizationCreator } from './imageObjectLd';
 
 const ARTICLE_SCHEMA_TYPES = new Set(['Article', 'NewsArticle', 'BlogPosting']);
 const DEFAULT_ARTICLE_IMAGE = 'https://frontaliereticino.ch/og-image.png';
@@ -98,15 +99,7 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
  // Legacy records include both anonymous Organization nodes and the
  // NewsMediaOrganization subtype Google rejects in creator/publisher fields.
  // Preserve the stable identity while emitting Google's supported base type.
- if (
-  (record['@type'] === 'Organization' || record['@type'] === 'NewsMediaOrganization')
-  && record.name === ORGANIZATION_LD.name
-  && (
-    record.url === undefined
-    || record.url === ORGANIZATION_LD.url
-    || record.url === ORGANIZATION_LD.url.replace(/\/$/, '')
-  )
- ) {
+ if (isSiteOrganizationCreator(record)) {
   record['@type'] = ORGANIZATION_LD['@type'];
   record['@id'] ??= ORGANIZATION_ID;
  }

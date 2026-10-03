@@ -223,18 +223,22 @@ describe('the canonical #organization entity', () => {
     });
   });
 
-  it('repairs the creator and publisher types Google flagged without changing their identity', () => {
+  it.each([
+    'NewsMediaOrganization',
+    ['NewsMediaOrganization', 'Organization'],
+    ['Organization', 'NewsMediaOrganization'],
+  ].map((creatorType) => ({ creatorType })))('repairs creator and publisher type $creatorType without changing their identity', ({ creatorType }) => {
     const legacy = {
-      '@type': 'NewsMediaOrganization', '@id': ORGANIZATION_ID,
+      '@type': creatorType,
       name: 'Frontaliere Ticino', url: `${BASE_URL}/`,
     };
     for (const type of ['Dataset', 'ImageObject', 'Article']) {
       const output = normalizeStructuredData({ '@type': type, creator: legacy, publisher: legacy });
       for (const entity of [output.creator, output.publisher]) {
-        expect(entity).toEqual({ ...legacy, '@type': 'Organization' });
+        expect(entity).toEqual({ ...legacy, '@type': 'Organization', '@id': ORGANIZATION_ID });
       }
     }
-    expect(legacy['@type']).toBe('NewsMediaOrganization');
+    expect(legacy['@type']).toEqual(creatorType);
   });
 
   it('detects an anonymous site Organization literal and ignores identified or foreign ones', () => {
