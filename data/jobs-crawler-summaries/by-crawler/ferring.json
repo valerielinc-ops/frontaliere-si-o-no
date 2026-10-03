@@ -1,23 +1,27 @@
 {
   "key": "ferring",
   "label": "Ferring Pharmaceuticals",
-  "generatedAt": "2026-10-03T09:31:53.788Z",
+  "generatedAt": "2026-10-03T21:27:25.957Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 1868,
+  "avgDurationMs": 1868,
+  "durationHistory": [
+    1868
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

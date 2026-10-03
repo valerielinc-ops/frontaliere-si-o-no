@@ -1,18 +1,16 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-10-03T09:11:11.801Z",
-  "total": 362,
+  "generatedAt": "2026-10-03T21:11:18.323Z",
+  "total": 361,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 116286,
-  "avgDurationMs": 116286,
+  "durationMs": 117949,
+  "avgDurationMs": 117949,
   "durationHistory": [
-    104317,
-    113463,
-    116286
+    117949
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,7 +40,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -50,43 +48,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Assistente di farmacia AFC",
-      "company": "Amavita (Galenica)",
-      "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692241",
-      "location": "Fribourg",
-      "canton": "FR",
-      "country": "CH",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "postalCode": "1700",
-      "streetAddress": "Chemin de Bethléem 3",
-      "category": "healthcare",
-      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692241-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg-fr-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
-      "postedDate": "",
-      "source": "company-website",
-      "sourceLang": "fr",
-      "slug": "galenica-amavita-assistente-di-farmacia-afc-fribourg",
-      "id": "galenica-a708b665900f",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

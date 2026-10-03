@@ -1,18 +1,16 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-10-03T09:42:01.429Z",
-  "total": 883,
+  "generatedAt": "2026-10-03T21:35:34.380Z",
+  "total": 858,
   "newCount": 0,
-  "updatedCount": 133,
+  "updatedCount": 138,
   "removedCount": 0,
-  "unchangedCount": 750,
-  "durationMs": 783258,
-  "avgDurationMs": 783258,
+  "unchangedCount": 720,
+  "durationMs": 512055,
+  "avgDurationMs": 512055,
   "durationHistory": [
-    387306,
-    369723,
-    783258
+    512055
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1757,6 +1755,7 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1816,6 +1815,7 @@
       "addressLocality": "Belgrad",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1978,6 +1978,7 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2184,6 +2185,7 @@
       "addressLocality": "Collombey",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -3134,5 +3136,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

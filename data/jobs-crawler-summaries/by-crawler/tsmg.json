@@ -1,7 +1,7 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-10-03T09:36:32.733Z",
+  "generatedAt": "2026-10-03T21:28:31.000Z",
   "total": 116,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -12,12 +12,10 @@
   "updatedCount": 116,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16667,
-  "avgDurationMs": 16667,
+  "durationMs": 19786,
+  "avgDurationMs": 19786,
   "durationHistory": [
-    21744,
-    27006,
-    16667
+    19786
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -593,6 +591,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -630,6 +629,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -857,6 +857,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -895,6 +896,7 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -933,6 +935,7 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1171,5 +1174,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

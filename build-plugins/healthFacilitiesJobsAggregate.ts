@@ -176,7 +176,7 @@ function buildSnapshot(
   let fresh30 = 0;
   for (const job of jobs) {
     const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
   const median = realSalaryMedianChf(healthcareJobs) ?? realSalaryMedianChf(jobs);

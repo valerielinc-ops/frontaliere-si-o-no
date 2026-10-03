@@ -1,7 +1,7 @@
 {
   "key": "vereinaklosters",
   "label": "Vereina",
-  "generatedAt": "2026-10-03T09:33:33.304Z",
+  "generatedAt": "2026-10-03T21:30:50.294Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -9,20 +9,19 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 6935,
+  "avgDurationMs": 6935,
+  "durationHistory": [
+    6935
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "authoritativeEmptySnapshot": true,
-  "durationMs": 35575,
-  "avgDurationMs": 35575,
-  "durationHistory": [
-    27200,
-    26875,
-    35575
-  ]
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

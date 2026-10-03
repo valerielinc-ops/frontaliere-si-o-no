@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-10-03T09:10:54.346Z",
+  "generatedAt": "2026-10-03T21:13:43.164Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,12 +14,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5654,
-  "avgDurationMs": 5654,
+  "durationMs": 4458,
+  "avgDurationMs": 4458,
   "durationHistory": [
-    4798,
-    5246,
-    5654
+    4458
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:43.349Z",
+      "crawledAt": "2026-10-03T21:13:35.481Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +73,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:43.773Z",
+      "crawledAt": "2026-10-03T21:13:35.950Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -115,7 +113,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:42.464Z",
+      "crawledAt": "2026-10-03T21:13:34.526Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,7 +153,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:42.921Z",
+      "crawledAt": "2026-10-03T21:13:35.014Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,5 +182,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

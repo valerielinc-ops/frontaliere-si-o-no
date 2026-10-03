@@ -1,6 +1,6 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-10-03T09:28:03.502Z",
+  "assembledAt": "2026-10-03T21:25:44.409Z",
   "jobs": [
     {
       "id": "visionapartments-e3a15eb09025",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8bbb2905-8b67-4ba8-b8e0-b0925f727b12/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:27:58.499Z",
+      "crawledAt": "2026-10-03T21:25:39.188Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

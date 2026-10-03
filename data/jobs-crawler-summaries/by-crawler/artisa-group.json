@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-10-03T09:25:10.445Z",
+  "generatedAt": "2026-10-03T21:23:05.205Z",
   "total": 1,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,12 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2144,
-  "avgDurationMs": 2144,
+  "durationMs": 1738,
+  "avgDurationMs": 1738,
   "durationHistory": [
-    2363,
-    1765,
-    2144
+    1738
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,16 +46,17 @@
       "streetAddress": "Via Nassa 5",
       "postalCode": "6900",
       "firstSeenAt": "2026-09-28T21:19:59.384Z",
+      "sourceIdentity": "url:https://artisagroup.com/carriera",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
         "completeness": 25
-      },
-      "sourceIdentity": "url:https://artisagroup.com/carriera"
+      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

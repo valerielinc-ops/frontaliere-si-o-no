@@ -1,10 +1,16 @@
 // @vitest-environment node
 
+import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   classifyPizzarottiListings,
   parsePizzarottiListings,
 } from '../scripts/lib/pizzarotti-job-parser.mjs';
+
+const PIZZAROTTI_UPDATER = fs.readFileSync(
+  new URL('../scripts/update-pizzarotti-jobs.mjs', import.meta.url),
+  'utf8',
+);
 
 describe('Pizzarotti listing classification', () => {
   it('reports a non-empty source filtered to zero Swiss listings', () => {
@@ -23,6 +29,12 @@ describe('Pizzarotti listing classification', () => {
 
     expect(result.discovered).toBe(0);
     expect(result.lastFetchOutcome).toBeNull();
+  });
+
+  it('lets a parsed-but-geographically-filtered empty snapshot pass the shrink guard', () => {
+    expect(PIZZAROTTI_UPDATER).toContain(
+      "skipShrinkGuard: discovery.lastFetchOutcome === 'filtered_empty',",
+    );
   });
 
   it('keeps Swiss cards after parsing the InRecruiting listing markup', () => {

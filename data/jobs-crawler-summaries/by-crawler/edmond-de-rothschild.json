@@ -1,7 +1,7 @@
 {
   "key": "edmond-de-rothschild",
   "label": "Edmond de Rothschild",
-  "generatedAt": "2026-10-03T09:21:25.874Z",
+  "generatedAt": "2026-10-03T21:16:41.101Z",
   "total": 7,
   "discovered": null,
   "parsed": 6,
@@ -12,14 +12,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9609,
-  "avgDurationMs": 9609,
+  "durationMs": 6438,
+  "avgDurationMs": 6438,
   "durationHistory": [
-    8217,
-    8457,
-    9609
+    6438
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3056",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:21:13.462Z",
+      "crawledAt": "2026-10-03T21:16:30.375Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -75,7 +73,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3039",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:21:14.300Z",
+      "crawledAt": "2026-10-03T21:16:30.903Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -114,7 +112,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3006",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:21:15.277Z",
+      "crawledAt": "2026-10-03T21:16:31.389Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -153,7 +151,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2911",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:21:16.192Z",
+      "crawledAt": "2026-10-03T21:16:31.873Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -192,7 +190,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2818",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:21:16.934Z",
+      "crawledAt": "2026-10-03T21:16:32.365Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -231,7 +229,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2796",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:21:17.619Z",
+      "crawledAt": "2026-10-03T21:16:32.851Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -258,51 +256,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "edmond-de-rothschild-f860842788ec",
-      "slug": "auditore-interno-it-capo-delle-missioni-edmond-de-rothschild-switzerland",
-      "company": "Edmond de Rothschild",
-      "companyKey": "edmond-de-rothschild",
-      "companyDomain": "edmond-de-rothschild.com",
-      "title": "Auditeur Interne IT - Responsable de Missions",
-      "needsRetranslation": false,
-      "location": "Switzerland",
-      "canton": "GE",
-      "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2864",
-      "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:22:47.241Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "GE",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2864",
-      "jobReqId": "2864",
-      "firstSeenAt": "2026-09-26T14:03:53.023Z",
-      "salaryMin": 174500,
-      "salaryMax": 306000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "edmond-de-rothschild-c456fb830d3e",
@@ -337,7 +291,8 @@
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -346,5 +301,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
