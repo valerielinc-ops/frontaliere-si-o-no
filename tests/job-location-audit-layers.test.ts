@@ -21,6 +21,7 @@ import {
   stripLocationRegionMarkers,
 } from '../scripts/lib/job-location-plausibility.mjs';
 import { buildAssembledJobIdentity, buildStableJobIdentity } from '../scripts/lib/job-identity.mjs';
+import { migrateLegacyCantonPins } from '../scripts/lib/job-canton-pin-migration.mjs';
 import { resolveGalenicaCanton } from '../scripts/update-galenica-jobs.mjs';
 import { inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 
@@ -174,5 +175,25 @@ describe('source-backed Galenica location audit — issue #11049', () => {
     const moutier = { url: 'https://jobs.galenica.com/it/jobs/#job.id=12692287' };
     expect(buildStableJobIdentity(sion)).toBe(buildStableJobIdentity(moutier));
     expect(buildAssembledJobIdentity(sion)).not.toBe(buildAssembledJobIdentity(moutier));
+  });
+
+  it('migrates a shared legacy Galenica pin to deterministic fragment keys', () => {
+    const pins = { 'url:https://jobs.galenica.com/it/jobs/': 'TI' };
+    const jobs = [
+      { url: 'https://jobs.galenica.com/it/jobs/#job.id=1', canton: 'BE' },
+      { url: 'https://jobs.galenica.com/it/jobs/#job.id=2', canton: 'JU' },
+    ];
+
+    const first = migrateLegacyCantonPins(pins, jobs);
+    expect(pins).toEqual({
+      'url:https://jobs.galenica.com/it/jobs/#job.id=1': 'BE',
+      'url:https://jobs.galenica.com/it/jobs/#job.id=2': 'JU',
+    });
+
+    const snapshot = JSON.stringify(pins);
+    const second = migrateLegacyCantonPins(pins, jobs);
+    expect(first).toEqual({ legacyKeysRemoved: 1, fragmentPinsWritten: 2, skippedGroups: 0 });
+    expect(second).toEqual({ legacyKeysRemoved: 0, fragmentPinsWritten: 0, skippedGroups: 0 });
+    expect(JSON.stringify(pins)).toBe(snapshot);
   });
 });

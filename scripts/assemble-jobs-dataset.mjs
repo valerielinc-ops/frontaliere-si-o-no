@@ -79,6 +79,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
+import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -3172,6 +3173,16 @@ async function assembleJobs() {
   let cantonPins = {};
   try { cantonPins = JSON.parse(fs.readFileSync(cantonPinsPath, 'utf-8')) || {}; }
   catch { cantonPins = {}; }
+  const legacyPinMigration = migrateLegacyCantonPins(cantonPins, swissValidated);
+  if (legacyPinMigration.legacyKeysRemoved > 0 || legacyPinMigration.fragmentPinsWritten > 0) {
+    console.log(
+      `  🔑 Canton pin migration: split ${legacyPinMigration.legacyKeysRemoved} legacy key(s) `
+        + `into ${legacyPinMigration.fragmentPinsWritten} fragment pin(s)`,
+    );
+  }
+  if (legacyPinMigration.skippedGroups > 0) {
+    console.warn(`  ⚠️  Canton pin migration: left ${legacyPinMigration.skippedGroups} ambiguous/incomplete legacy group(s) untouched`);
+  }
   let cantonPinsFrozen = 0;
   let cantonPinsAdded = 0;
   let cantonPinsCorrected = 0;
@@ -3278,6 +3289,21 @@ async function assembleJobs() {
       else if (decision.outcome === 'pin-corrected') cantonPinsCorrected++;
       else if (decision.outcome === 'pin-added') cantonPinsAdded++;
     }
+  }
+  // A job may have carried an empty/stale canton before the resolution pass
+  // above, so it could not participate in the pre-lookup migration. Retry
+  // after resolution to remove the legacy shared key once every fragment has
+  // a usable current canton; this remains idempotent for already-migrated
+  // groups.
+  const resolvedLegacyPinMigration = migrateLegacyCantonPins(cantonPins, swissValidated);
+  if (resolvedLegacyPinMigration.legacyKeysRemoved > 0 || resolvedLegacyPinMigration.fragmentPinsWritten > 0) {
+    console.log(
+      `  🔑 Canton pin migration (post-resolution): split ${resolvedLegacyPinMigration.legacyKeysRemoved} legacy key(s) `
+        + `into ${resolvedLegacyPinMigration.fragmentPinsWritten} fragment pin(s)`,
+    );
+  }
+  if (resolvedLegacyPinMigration.skippedGroups > 0) {
+    console.warn(`  ⚠️  Canton pin migration (post-resolution): left ${resolvedLegacyPinMigration.skippedGroups} ambiguous/incomplete legacy group(s) untouched`);
   }
   try {
     fs.writeFileSync(cantonPinsPath, JSON.stringify(cantonPins) + '\n', 'utf-8');
