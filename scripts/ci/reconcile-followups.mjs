@@ -45,6 +45,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  FOLLOWUP_ITEM_ID_SINGLE_RE,
   bucketState,
   dailyKeyFromBucketBody,
   dailyBucketInfo,
@@ -62,6 +63,8 @@ import {
   splitFollowupItems,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { inertCommentText, itemMetricLine, parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export { hasEnumeratedItems };
 
@@ -253,10 +256,34 @@ export function isStrongAutoCloseEvidence(matchedTokens, { acceptanceToken = '' 
   return uniq.length >= 2;
 }
 
+/** Insieme normalizzato di ID item (Set, array o null). */
+function itemIdSet(ids) {
+  if (!ids) return new Set();
+  return new Set([...ids].map((id) => String(id ?? '').trim().toUpperCase()).filter(Boolean));
+}
+
+/**
+ * Gli item che il gate sul conio ha marcato `FU_ITEM_BORN_SATISFIED`: il loro
+ * token di accettazione era GIA' vero quando l'item e' nato, quindi trovarlo
+ * oggi nel file non misura nessun lavoro. Riceve i marker gia' filtrati per
+ * autore fidato (`parseItemMarkers`).
+ * @param {Array<{type: string, item: string}>} markers
+ * @returns {Set<string>}
+ */
+export function bornSatisfiedItemIds(markers) {
+  return itemIdSet((Array.isArray(markers) ? markers : [])
+    .filter((marker) => marker?.type === 'born-satisfied')
+    .map((marker) => marker.item));
+}
+
 /**
  * Item-level close gate for a sealed daily bucket. Every item must be structurally
  * readable, accepted, explicitly `done`, token-confirmed, and backed by strong evidence.
  * A single unresolved/ambiguous/weak item vetoes the whole issue.
+ *
+ * `bornSatisfiedIds`: item il cui token era gia' vero al conio. Il token non
+ * prova nulla per loro, quindi bloccano con `born-satisfied-token` anche se
+ * sono `done`: il bucket lo chiude una persona con evidenza, non il reconciler.
  */
 export function dailyBucketCloseGate(
   body,
@@ -264,6 +291,7 @@ export function dailyBucketCloseGate(
   expectedDailyKey = null,
   expectedTargetRepository = null,
   expectedItemCount = null,
+  bornSatisfiedIds = null,
 ) {
   if (hasUnterminatedMarkdownFence(body)) {
     return { blocks: true, reason: 'unterminated-markdown-fence', validItems: [], unresolvedItems: [] };
@@ -293,12 +321,18 @@ export function dailyBucketCloseGate(
   if (state !== 'sealed') return { blocks: true, reason: 'bucket-collecting', validItems: items, unresolvedItems: items };
   const invalid = items.filter((item) => !hasFalsifiableAcceptance(item.text));
   if (invalid.length) return { blocks: true, reason: 'invalid-item', validItems: items.filter((item) => !invalid.includes(item)), unresolvedItems: invalid };
+  const born = itemIdSet(bornSatisfiedIds);
   const evidenceById = new Map();
   const unresolvedItems = [];
   const weakItems = [];
+  const bornSatisfiedItems = [];
   for (const item of items) {
     const result = detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken });
     evidenceById.set(item.id, result.evidence || []);
+    if (born.has(item.id)) {
+      bornSatisfiedItems.push(item);
+      continue;
+    }
     if (item.state !== 'done' || !result.resolved) unresolvedItems.push(item);
     if (!isStrongAutoCloseEvidence(
       (result.evidence || []).map((entry) => entry.tok),
@@ -306,21 +340,29 @@ export function dailyBucketCloseGate(
     )) weakItems.push(item);
   }
   if (unresolvedItems.length) {
-    return { blocks: true, reason: 'valid-item-unconfirmed', validItems: items, unresolvedItems, evidenceById };
+    return { blocks: true, reason: 'valid-item-unconfirmed', validItems: items, unresolvedItems, bornSatisfiedItems, evidenceById };
+  }
+  if (bornSatisfiedItems.length) {
+    return { blocks: true, reason: 'born-satisfied-token', validItems: items, unresolvedItems: bornSatisfiedItems, bornSatisfiedItems, evidenceById };
   }
   if (weakItems.length) {
-    return { blocks: true, reason: 'weak-item-evidence', validItems: items, unresolvedItems: weakItems, evidenceById };
+    return { blocks: true, reason: 'weak-item-evidence', validItems: items, unresolvedItems: weakItems, bornSatisfiedItems, evidenceById };
   }
-  return { blocks: false, reason: null, validItems: items, unresolvedItems: [], evidenceById };
+  return { blocks: false, reason: null, validItems: items, unresolvedItems: [], bornSatisfiedItems, evidenceById };
 }
 
-/** Mark only token-confirmed daily items as done; never infer completion from prose. */
+/**
+ * Mark only token-confirmed daily items as done; never infer completion from prose.
+ * Un item in `bornSatisfiedIds` resta com'e': il suo token era vero gia' al
+ * conio e non conferma nulla (finisce in `bornSatisfied`, non in `changes`).
+ */
 export function reconcileDailyItems(
   body,
   io,
   expectedDailyKey = null,
   expectedTargetRepository = null,
   expectedItemCount = null,
+  bornSatisfiedIds = null,
 ) {
   const source = String(body || '');
   if (hasUnterminatedMarkdownFence(source)) {
@@ -352,8 +394,10 @@ export function reconcileDailyItems(
   if (bucketState(source) !== 'sealed') {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'bucket-collecting' };
   }
+  const born = itemIdSet(bornSatisfiedIds);
   let nextBody = source;
   const changes = [];
+  const bornSatisfied = [];
   const evidenceById = new Map();
   for (const item of items) {
     const result = hasFalsifiableAcceptance(item.text)
@@ -361,6 +405,10 @@ export function reconcileDailyItems(
       : { resolved: false, evidence: [] };
     evidenceById.set(item.id, result.evidence || []);
     if (result.resolved && (item.state === 'open' || item.state === 'in-progress')) {
+      if (born.has(item.id)) {
+        bornSatisfied.push(item.id);
+        continue;
+      }
       const updated = updateFollowupItemState(nextBody, item.id, 'done');
       if (updated) {
         nextBody = updated;
@@ -368,7 +416,137 @@ export function reconcileDailyItems(
       }
     }
   }
-  return { body: nextBody, changed: nextBody !== source, changes, evidenceById, reason: null };
+  return { body: nextBody, changed: nextBody !== source, changes, bornSatisfied, evidenceById, reason: null };
+}
+
+export const BUCKET_VERIFY_REQUEST_MARKER = 'FU_BUCKET_VERIFY_REQUEST';
+const BUCKET_VERIFY_REQUEST_RE = new RegExp(`<!--\\s*${BUCKET_VERIFY_REQUEST_MARKER}:\\s*items=([^\\s>]*)\\s*-->`, 'gu');
+
+/** `<!-- FU_BUCKET_VERIFY_REQUEST: items=FU-…,FU-… -->` (ID validati, ordine stabile). */
+export function bucketVerifyRequestMarker(ids) {
+  const list = [...itemIdSet(ids)];
+  if (!list.length || list.some((id) => !FOLLOWUP_ITEM_ID_SINGLE_RE.test(id))) {
+    throw new TypeError(`item-id-invalidi:${list.join(',')}`);
+  }
+  return `<!-- ${BUCKET_VERIFY_REQUEST_MARKER}: items=${list.sort().join(',')} -->`;
+}
+
+/**
+ * Unione degli ID gia' coperti da richieste di verifica precedenti, letta dai
+ * SOLI commenti di autori fidati (chiunque puo' commentare una issue pubblica:
+ * un marker falso non deve zittire una richiesta dovuta).
+ * @returns {Set<string>}
+ */
+export function bucketVerifyRequestCoverage(comments, { isTrusted } = {}) {
+  const covered = new Set();
+  if (!Array.isArray(comments) || typeof isTrusted !== 'function') return covered;
+  for (const comment of comments) {
+    if (!isTrusted(comment)) continue;
+    for (const match of String(comment?.body ?? '').matchAll(BUCKET_VERIFY_REQUEST_RE)) {
+      for (const raw of match[1].split(',')) {
+        const id = raw.trim().toUpperCase();
+        if (FOLLOWUP_ITEM_ID_SINGLE_RE.test(id)) covered.add(id);
+      }
+    }
+  }
+  return covered;
+}
+
+/**
+ * Decisione pura: chiedere una verifica esplicita per un bucket `sealed` che
+ * non ha piu' item `open` ne' `in-progress` ma ha almeno un item non
+ * confermato (non `done`, oppure `done` su un token gia' vero al conio).
+ * Idempotente per COPERTURA: se l'unione degli ID dei marker precedenti
+ * contiene gia' tutti gli ID in attesa, non si riposta. Non chiude mai nulla.
+ * @returns {{action: 'request'|'none', reason: string, items: object[], newIds: string[]}}
+ */
+export function decideBucketVerifyRequest({ body, bornSatisfiedIds = null, comments = [], isTrusted } = {}) {
+  const none = (reason, items = []) => ({ action: 'none', reason, items, newIds: [] });
+  if (bucketState(body) !== 'sealed') return none('bucket-not-sealed');
+  const items = parseFollowupItems(body);
+  if (!items.length) return none('no-items');
+  if (items.some((item) => item.state === 'open' || item.state === 'in-progress')) return none('items-open');
+  const born = itemIdSet(bornSatisfiedIds);
+  const pending = items.filter((item) => item.state !== 'done' || born.has(item.id));
+  if (!pending.length) return none('all-done');
+  const covered = bucketVerifyRequestCoverage(comments, { isTrusted });
+  const newIds = pending.map((item) => item.id).filter((id) => !covered.has(id));
+  if (!newIds.length) return none('already-requested', pending);
+  return { action: 'request', reason: 'awaiting-verification', items: pending, newIds };
+}
+
+function lastMarkerFor(markers, type, itemId) {
+  return (Array.isArray(markers) ? markers : []).filter((marker) => marker?.type === type && marker.item === itemId).at(-1) ?? null;
+}
+
+function codeSpan(value) {
+  const text = inertCommentText(String(value ?? '').replace(/`/gu, ''));
+  return text ? `\`${text}\`` : '';
+}
+
+/**
+ * Il commento di richiesta di verifica. Per ogni item: stato, motivo del
+ * blocco (`FU_ITEM_BLOCKED`), evidenza (`FU_ITEM_EVIDENCE`), `Target file` e
+ * riga METRICA della scheda. Il testo dell'item passa da `inertCommentText`:
+ * il commento e' firmato da un bot fidato e non deve poter comporre marker.
+ * @param {{items: object[], markers?: object[], bornSatisfiedIds?: Iterable<string>|null}} input
+ */
+export function bucketVerifyRequestBody({ items, markers = [], bornSatisfiedIds = null }) {
+  const born = itemIdSet(bornSatisfiedIds);
+  const lines = [
+    bucketVerifyRequestMarker(items.map((item) => item.id)),
+    '🔎 **Richiesta di verifica**: questo bucket non ha piu\' item `open` ne\' `in-progress`, ma non tutti gli item sono `done` confermati. Il reconciler non lo chiude: serve una verifica esplicita, item per item.',
+    '',
+    '**Misura la METRICA: PR mergiata, commit e run verde provano che la PR esiste, non che l\'item sia risolto.**',
+  ];
+  for (const item of items) {
+    const blocked = lastMarkerFor(markers, 'blocked', item.id);
+    const evidence = lastMarkerFor(markers, 'evidence', item.id);
+    const evidenceText = evidence
+      ? [
+        evidence.pr ? `PR #${evidence.pr}` : null,
+        `commit \`${String(evidence.commit).slice(0, 12)}\``,
+        `run ${evidence.run}`,
+        `legame \`${evidence.link}\``,
+      ].filter(Boolean).join(', ')
+      : 'nessuna evidenza registrata';
+    const metric = itemMetricLine(item);
+    lines.push(
+      '',
+      `**\`${item.id}\`**`,
+      `- Stato: \`${item.state || 'non leggibile'}\``,
+      `- Motivo del blocco: ${blocked ? `\`${blocked.reason}\`` : 'nessun marker di blocco'}`,
+      `- Evidenza: ${evidenceText}`,
+      `- Target file: ${codeSpan(item.targetFile) || 'non dichiarato'}`,
+      metric ? `- METRICA | COMANDO: ${metric}` : '- METRICA | COMANDO: assente nella scheda',
+      born.has(item.id)
+        ? '- Token di accettazione gia\' vero al conio (FU_ITEM_BORN_SATISFIED): trovarlo nel file non conferma l\'item.'
+        : null,
+    );
+  }
+  lines.push(
+    '',
+    'Esito: se la METRICA e\' al bersaglio, chiudi il bucket con l\'evidenza della misura; se il difetto c\'e\' ancora, riporta l\'item a `State: open`. Il reconciler non chiude da qui: chiude una persona con evidenza o il token di accettazione.',
+  );
+  return lines.filter((line) => line !== null).join('\n');
+}
+
+/**
+ * Riga di log per bucket, una per issue giornaliera:
+ * `bucket #N: done=<a> open=<b> blocked=<c> awaiting=<ID,…> born_satisfied=<ID,…> reason=<motivo>`.
+ * `open` conta anche `in-progress`; `awaiting` sono gli item ne' aperti ne' `done`.
+ */
+export function dailyBucketSummaryLine({ number, body, bornSatisfiedIds = null, reason }) {
+  const items = parseFollowupItems(body);
+  const born = itemIdSet(bornSatisfiedIds);
+  const isOpen = (item) => item.state === 'open' || item.state === 'in-progress';
+  const list = (ids) => (ids.length ? ids.join(',') : '-');
+  const done = items.filter((item) => item.state === 'done').length;
+  const open = items.filter(isOpen).length;
+  const blocked = items.filter((item) => item.state === 'blocked').length;
+  const awaiting = items.filter((item) => !isOpen(item) && item.state !== 'done').map((item) => item.id);
+  const bornIds = items.filter((item) => born.has(item.id)).map((item) => item.id);
+  return `bucket #${number}: done=${done} open=${open} blocked=${blocked} awaiting=${list(awaiting)} born_satisfied=${list(bornIds)} reason=${reason || 'closable'}`;
 }
 
 /**
@@ -566,6 +744,8 @@ function main() {
   const flagged = [];
   const closed = [];
   const unclassifiableCandidates = [];
+  const bucketLines = [];
+  const verifyRequests = [];
   let unclassifiableSkipped = 0;
 
   for (let iss of issues) {
@@ -591,7 +771,17 @@ function main() {
     const daily = dailyBucketInfo(iss.title || '');
     let resolved;
     let evidence;
+    let bornSatisfied = null;
     if (daily) {
+      // I marker a grana item stanno nei commenti. Senza commenti leggibili non
+      // si sa se un token era gia' vero al conio: niente `done`, niente chiusura.
+      if (comments === undefined) comments = readIssueComments(iss.number);
+      if (!Array.isArray(comments)) {
+        console.log(`::warning::reconcile-followups: impossibile leggere i commenti di #${iss.number}; bucket lasciato invariato (nessun done, nessuna richiesta di verifica)`);
+        continue;
+      }
+      const itemMarkers = parseItemMarkers(comments, { isTrusted: isTrustedAuthor });
+      bornSatisfied = bornSatisfiedItemIds(itemMarkers);
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
@@ -601,7 +791,11 @@ function main() {
         daily.dailyKey,
         daily.targetRepository,
         daily.itemCount,
+        bornSatisfied,
       );
+      for (const id of itemReconciliation.bornSatisfied || []) {
+        console.log(`#${iss.number}: item ${id} token presente ma gia' vero al conio (FU_ITEM_BORN_SATISFIED) → non marcato done.`);
+      }
       let reconciledBody = itemReconciliation.body;
       if (itemReconciliation.changed) {
         if (DRY_RUN) {
@@ -634,9 +828,41 @@ function main() {
         daily.dailyKey,
         daily.targetRepository,
         daily.itemCount,
+        bornSatisfied,
       );
+      const bucketLine = dailyBucketSummaryLine({
+        number: iss.number,
+        body: reconciledBody,
+        bornSatisfiedIds: bornSatisfied,
+        reason: bucketGate.blocks ? bucketGate.reason : null,
+      });
+      console.log(bucketLine);
+      bucketLines.push(bucketLine);
       if (bucketGate.blocks) {
         console.log(`#${iss.number} daily:${daily.dailyKey}: bucket aperto (${bucketGate.reason}), item non ancora tutti provati.`);
+        // Solo su un bucket strutturalmente valido e sigillato: un difetto di
+        // forma (chiave, repository, conteggio) non e' un item da verificare.
+        if (itemReconciliation.reason === null) {
+          const request = decideBucketVerifyRequest({
+            body: reconciledBody,
+            bornSatisfiedIds: bornSatisfied,
+            comments,
+            isTrusted: isTrustedAuthor,
+          });
+          if (request.action === 'request') {
+            try {
+              verifyRequests.push({
+                number: iss.number,
+                ids: request.items.map((item) => item.id),
+                body: bucketVerifyRequestBody({ items: request.items, markers: itemMarkers, bornSatisfiedIds: bornSatisfied }),
+              });
+            } catch (e) {
+              console.log(`::warning::reconcile-followups: richiesta di verifica per #${iss.number} non componibile (${String(e?.message ?? e).slice(0, 80)})`);
+            }
+          } else if (request.reason === 'already-requested') {
+            console.log(`#${iss.number}: richiesta di verifica gia' postata per ${request.items.map((item) => item.id).join(',')} → nessun nuovo commento.`);
+          }
+        }
         continue;
       }
       iss = { ...iss, body: reconciledBody };
@@ -670,6 +896,7 @@ function main() {
         dailyInfo?.dailyKey,
         dailyInfo?.targetRepository,
         dailyInfo?.itemCount,
+        bornSatisfied,
       );
     }
     const isAggregate = aggGate.blocks;
@@ -748,13 +975,29 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     gh(['issue', 'close', String(c.number), ...repoArgs, '--reason', 'completed'], { allowFail: true });
   }
 
-  const summary = `Reconcile follow-ups: scanned ${issues.length}, cache-skipped ${unclassifiableSkipped}, cache-marked ${unclassifiableCandidates.length}, flagged ${flagged.length}, auto-closed ${closed.length}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
+  // Richiesta di verifica: bucket sigillati senza item aperti e con item non
+  // confermati. Un commento consultivo + `maybe-resolved` (stadio di verifica);
+  // mai una chiusura da qui.
+  for (const v of verifyRequests) {
+    console.log(`#${v.number} → richiesta di verifica (${v.ids.join(',')})`);
+    if (DRY_RUN) continue;
+    const posted = gh(['issue', 'comment', String(v.number), ...repoArgs, '--body', v.body], { allowFail: true });
+    if (posted === null) {
+      console.log(`::warning::reconcile-followups: richiesta di verifica per #${v.number} non postata; si ripete al prossimo giro`);
+      continue;
+    }
+    gh(['issue', 'edit', String(v.number), ...repoArgs, '--add-label', LABEL], { allowFail: true });
+  }
+
+  const summary = `Reconcile follow-ups: scanned ${issues.length}, cache-skipped ${unclassifiableSkipped}, cache-marked ${unclassifiableCandidates.length}, flagged ${flagged.length}, auto-closed ${closed.length}, verify_requested=${verifyRequests.length}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
   console.log(summary);
   if (process.env.GITHUB_STEP_SUMMARY) {
     const uc = unclassifiableCandidates.map((c) => `- 🔎 #${c.number} ${c.title} (aggregate non classificabile, resta aperta)`).join('\n');
     const fl = flagged.map((f) => `- 🟡 #${f.number} ${f.title} (flag: ${f.reason}, ${f.evidence.length} match)`).join('\n');
     const cl = closed.map((c) => `- ✅ #${c.number} ${c.title} (auto-closed, ${c.evidence.length} match)`).join('\n');
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl].filter(Boolean).join('\n')}\n`);
+    const vr = verifyRequests.map((v) => `- 🔎 #${v.number} richiesta di verifica: ${v.ids.join(',')}`).join('\n');
+    const bk = bucketLines.map((line) => `- \`${line}\``).join('\n');
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl, vr, bk].filter(Boolean).join('\n')}\n`);
   }
 }
 

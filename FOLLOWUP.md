@@ -128,6 +128,8 @@ Conseguenza: senza `- Suggested action:` con token-codice l'item non sopravvive.
 
 Il ramo è in `hasFalsifiableAcceptance()`, condiviso da apertura/chiusura. Item ammesso senza token mantiene `detectAlreadyResolved()` a `false`: allarga il conio, non la chiusura.
 
+**Un token già presente al conio non conferma l'item.** Un item marcato `FU_ITEM_BORN_SATISFIED` dal gate sul conio non diventa `done` per quel token e blocca la chiusura del bucket (`born-satisfied-token`): lo chiude una persona con evidenza.
+
 **Il metro vale sulla tua `Suggested action`, non sul grezzo; il token si DERIVA.** `suggestedActionText()` grezzo include `Original text`, la chiusura no: falso match → `no-valid-item`. `citedTokens()` può dare `["manifest.counts"]` sul grezzo e `[]` sull'item. Aggiungi file/simbolo/campo (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1`), non identificatore/path nudo rifiutato da `isDistinctiveToken()`. Rinuncia solo senza nulla da toccare.
 
 ## Dedup
@@ -233,6 +235,8 @@ Tutti `Dropped`/`Skipped` (zero item da QUESTA PR, anche con bucket esistente) �
 2. **2ª conferma** (la issue porta GIÀ `maybe-resolved` da un run precedente, è ANCORA risolta, ha il nostro commento-marker, è un bucket con **tutti** gli item validi `done` — oppure una legacy **single-item** —, **non** ha label keep-open/strategica, e l'evidenza è **forte**) → **auto-close** `--reason completed` + label `fu-resolved-auto`.
 
 Per un bucket il veto è item-per-item: body/ID/stato/acceptance/item/token/evidenza invalidi impediscono la chiusura. Chiudi solo con **ogni item valido** `done` e prova `isStrongAutoCloseEvidence()`. Fix parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`. Le label **keep-open/pinned/revenue/tracker/do-not-close** sono veti umani; rimozione dopo il flag = **obiezione umana**. `RECONCILE_NO_AUTOCLOSE=1` torna flag-only. Logica in `tests/reconcile-followups-decision.test.ts`; matcher `issue-fix` in `followup-resolution-match.mjs`, AGENTS.md #6.
+
+**Un verdetto `already-fixed` annota l'item, non lo chiude.** L'item resta `blocked` con la sua evidenza; un bucket sigillato senza item `open` riceve UNA richiesta di verifica (`FU_BUCKET_VERIFY_REQUEST`, con la METRICA da misurare), mai una chiusura.
 
 Gap: un refactor senza token non viene flaggato; reconcile cerca token verbatim.
 
