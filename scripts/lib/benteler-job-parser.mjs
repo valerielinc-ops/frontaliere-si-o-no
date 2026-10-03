@@ -2,7 +2,7 @@
 /**
  * Benteler job parser — Fetcher and job builder.
  *
- * Source: https://career.benteler.jobs/search/?locale=en_US
+ * Source: https://career.benteler.jobs/go/All-Jobs/3197201/
  *
  * ISSUE #3797 FALSE-NEGATIVE FIX: the previous parser targeted
  * `career.benteler.com` (a TYPO3 marketing site, not a job board at all)
@@ -11,7 +11,7 @@
  * SuccessFactors "Jobs2Web" career site at `career.benteler.jobs`. It is
  * fully server-rendered HTML (no JS/API needed) — listing rows are
  * `<tr class="data-row">` blocks with `jobTitle-link`/`jobLocation`
- * spans, paginated via `?startrow=N` (25 rows/page), and detail pages
+ * spans, paginated via the path segment `/3197201/{startrow}/` (25 rows/page), and detail pages
  * carry schema.org `JobPosting` microdata.
  *
  * ISSUE #3893 DETAIL-STAGE FIX (verified live 2026-07-11): this tenant's
@@ -50,11 +50,23 @@ export const BENTELER_COMPANY_NAME = 'Benteler';
 export const BENTELER_COMPANY_DOMAIN = 'benteler.com';
 
 const CAREER_HOST = 'career.benteler.jobs';
-const CAREER_URL = `https://${CAREER_HOST}/search/?locale=en_US`;
+const CAREER_BASE = `https://${CAREER_HOST}/go/All-Jobs/3197201/`;
+const CAREER_QUERY = 'q=&sortColumn=referencedate&sortDirection=desc';
 const HQ = getCompanyDefaults('benteler');
 
 const PAGE_SIZE = 25;
 const MAX_PAGES = 40; // safety cap (40 * 25 = 1000 rows)
+
+/**
+ * Build a Jobs2Web listing URL. Benteler's tenant now exposes the
+ * server-rendered board under `/go/All-Jobs/3197201/`; the old `/search/`
+ * route only returns the JavaScript shell and therefore parses as zero rows.
+ * Pagination is a path segment, not `?startrow=N`.
+ */
+export function buildListingUrl(startrow = 0) {
+  const pagePath = startrow > 0 ? `${startrow}/` : '';
+  return `${CAREER_BASE}${pagePath}?${CAREER_QUERY}`;
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -233,7 +245,7 @@ async function listSwissJobs() {
   let expectedTotal = 0;
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
-    const url = `${CAREER_URL}&startrow=${startrow}`;
+    const url = buildListingUrl(startrow);
     let html;
     try {
       html = await fetchHtml(url, { timeoutMs });
@@ -354,7 +366,7 @@ async function fetchJobDetail(href) {
  * Returns an array of ParsedJob objects (source-locale only).
  */
 export async function fetchAllBentelerJobs() {
-  console.log(`🔍 Fetching Benteler jobs from ${CAREER_URL}`);
+  console.log(`🔍 Fetching Benteler jobs from ${buildListingUrl()}`);
   console.log(`   Filter: Switzerland (jobLocation text)\n`);
 
   const listings = await listSwissJobs();
