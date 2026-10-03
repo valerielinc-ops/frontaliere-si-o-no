@@ -137,8 +137,9 @@ export function parseLoopState(body) {
 /**
  * ETA del campione minimo, pura. Il ritmo è `current / windowDays`; un
  * campione a zero ha ritmo zero qualunque sia la finestra. `etaDays: null`
- * vuol dire «non raggiungibile» (ritmo zero) o «non calcolabile» (finestra
- * non dichiarata): in entrambi i casi conta come oltre l'orizzonte.
+ * vuol dire «non raggiungibile» (ritmo zero) o «non calcolabile» (ritmo non
+ * derivabile dal campione, per esempio uno stock senza finestra di misura):
+ * in entrambi i casi conta come oltre l'orizzonte.
  */
 export function sampleEta({ current, minimum, windowDays } = {}) {
   const cur = Number.isInteger(current) && current >= 0 ? current : null;
@@ -169,11 +170,11 @@ export function isBeyondSampleHorizon(eta) {
 function etaText(eta) {
   if (Number.isFinite(eta?.etaDays)) return `${eta.etaDays} giorni`;
   if (eta?.ratePerDay === 0) return 'non raggiungibile (ritmo zero)';
-  return 'non calcolabile (finestra di misura non dichiarata)';
+  return 'non calcolabile (ritmo non derivabile dal campione)';
 }
 
 function sampleLine(eta) {
-  const window = eta.windowDays === null ? 'finestra non dichiarata' : `finestra di ${eta.windowDays} giorni`;
+  const window = eta.windowDays === null ? 'senza finestra di misura' : `finestra di ${eta.windowDays} giorni`;
   const rate = eta.ratePerDay === null ? 'ritmo non misurato' : `ritmo ${eta.ratePerDay} al giorno`;
   return `${eta.current ?? '?'} su ${eta.minimum ?? '?'} (${window}); ${rate}; ETA ${etaText(eta)} (orizzonte ${SAMPLE_HORIZON_DAYS} giorni)`;
 }
