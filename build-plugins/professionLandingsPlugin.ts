@@ -241,6 +241,8 @@ function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -587,10 +589,7 @@ function renderPage(opts: {
     </nav>
     ${renderLandingHero(id, locale, {
       openings: snapshot.liveCount,
-      // Same curated source as the salary stat tile (statSalaryValue), so the
-      // hero lede and the tile agree by construction — the live aggregate
-      // median is polluted by default-estimated salaries.
-      medianSalary: facts.medianSalaryChf,
+      // The editorial estimate is labelled in the tile and prose below.
     }, copy.h1, copy.denseLede)}
     <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
