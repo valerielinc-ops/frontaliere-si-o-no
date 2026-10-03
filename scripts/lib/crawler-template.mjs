@@ -149,8 +149,8 @@ import {
 } from '../jobs-url-helper.mjs';
 import {
   CRAWLER_ABORT_KINDS,
-  CRAWLER_FETCH_FAILURE_OUTCOMES,
   CRAWLER_FETCH_OUTCOMES,
+  fetchOutcomeAllowsStampedEmpty,
 } from './crawler-fetch-outcome.mjs';
 import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { normalizeDetailDrop, detailDropSummaryFields } from './crawler-detail-drop.mjs';
@@ -907,7 +907,7 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
   }
   const stampedProofHonoured = !validateAuthoritativeSnapshot
     && allowAuthoritativeEmptySnapshot !== false
-    && !CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome)
+    && fetchOutcomeAllowsStampedEmpty(fetchOutcome)
     && isAuthoritativeEmptySnapshot(parsedJobs);
   if (stampedProofHonoured) authoritativeSnapshotVerified = true;
   return {
@@ -1152,6 +1152,16 @@ export async function runStandardCrawlerPipeline(config) {
   if (CRAWLER_FETCH_OUTCOMES.has(fetchMetadata?.fetchOutcome)) {
     counts.lastFetchOutcome = fetchMetadata.fetchOutcome;
   }
+  // The outcome exactly as the parser reported it. The summary keeps only the
+  // recognised vocabulary (above), but the stamped-zero decision below must see
+  // an unrecognised value too: read as "nothing reported", it would let a
+  // parser that names an unknown failure retire every stored job.
+  const reportedFetchOutcome = fetchMetadata?.fetchOutcome ?? counts.lastFetchOutcome;
+  if (reportedFetchOutcome != null && !CRAWLER_FETCH_OUTCOMES.has(reportedFetchOutcome)) {
+    console.warn(
+      `\n⚠️ ${companyLabel}: unrecognised fetchOutcome ${JSON.stringify(String(reportedFetchOutcome).slice(0, 80))} — a stamped empty snapshot will not be honoured on this run.`,
+    );
+  }
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
@@ -1203,7 +1213,7 @@ export async function runStandardCrawlerPipeline(config) {
       allowAuthoritativeEmptySnapshot,
       authoritativeSnapshotScope,
       companyLabel,
-      fetchOutcome: counts.lastFetchOutcome,
+      fetchOutcome: reportedFetchOutcome,
     },
   );
 

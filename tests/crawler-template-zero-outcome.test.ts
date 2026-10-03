@@ -120,6 +120,8 @@ import {
   CRAWLER_ABORT_KINDS,
   CRAWLER_FETCH_FAILURE_OUTCOMES,
   normalizeAbortKind,
+  CRAWLER_FETCH_OUTCOMES,
+  fetchOutcomeAllowsStampedEmpty,
 } from '../scripts/lib/crawler-fetch-outcome.mjs';
 
 const SCRATCH_PATH = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${COMPANY_KEY}.json`);
@@ -238,6 +240,40 @@ describe('parser-stamped zero: honoured by default, without runner wiring', () =
       expectSliceUntouched();
     },
   );
+
+  // A value outside the vocabulary is a producer bug. The summary reads it as
+  // "nothing reported" on purpose (a typo must not flip a health verdict), but
+  // the stamped-zero decision must not: with the stamp honoured, a parser that
+  // names an unknown failure would retire every stored job and skip the shrink
+  // guard.
+  it.each([
+    ['an unknown failure name', 'unknown-failure'],
+    ['a typo of a known failure', 'selector-miss'],
+    ['an empty string', ''],
+    ['a non-string value', 503],
+  ])('(g) refuses a stamp next to an unrecognised fetch outcome: %s', async (_label, fetchOutcome) => {
+    const counts = await runPipeline(async () => ({ jobs: stampedEmpty(), fetchOutcome }));
+    expect(counts).toMatchObject({ abortKind: 'no-jobs-parsed', lastFetchOutcome: null });
+    expectSliceUntouched();
+  });
+
+  it('honours a stamp next to the outcomes that assert the zero is legitimate', () => {
+    const proven = { authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true };
+    const refused = { authoritativeSnapshotVerified: false, authoritativeEmptySnapshot: false };
+    for (const fetchOutcome of CRAWLER_FETCH_OUTCOMES) {
+      const expected = CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) ? refused : proven;
+      expect(evaluateAuthoritativeSnapshot(stampedEmpty(), { fetchOutcome }), fetchOutcome).toEqual(expected);
+      expect(fetchOutcomeAllowsStampedEmpty(fetchOutcome), fetchOutcome).toBe(expected === proven);
+    }
+    for (const absent of [null, undefined]) {
+      expect(evaluateAuthoritativeSnapshot(stampedEmpty(), { fetchOutcome: absent })).toEqual(proven);
+      expect(fetchOutcomeAllowsStampedEmpty(absent)).toBe(true);
+    }
+    for (const unknown of ['unknown-failure', 'OK', '', 0, false, {}, []]) {
+      expect(evaluateAuthoritativeSnapshot(stampedEmpty(), { fetchOutcome: unknown as never })).toEqual(refused);
+      expect(fetchOutcomeAllowsStampedEmpty(unknown)).toBe(false);
+    }
+  });
 
   it('does not synthesize a fetch outcome the parser did not report', async () => {
     const counts = await runPipeline(async () => stampedEmpty());

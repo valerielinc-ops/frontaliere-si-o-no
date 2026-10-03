@@ -95,6 +95,28 @@ export const CRAWLER_ABORT_KINDS = new Set([
 ]);
 
 /**
+ * May a parser-stamped empty snapshot be honoured after this self-reported
+ * fetch outcome?
+ *
+ * Only when the run reported nothing at all (parsers that predate the field),
+ * or reported an outcome that itself asserts the zero is legitimate (`ok`,
+ * `filtered_empty`). Every other non-null value fails closed: a recognised
+ * failure contradicts the stamp, and a value outside the vocabulary is a
+ * producer bug. `normalizeFetchOutcome` reads an unknown string as `null` so a
+ * typo cannot flip a health verdict; here the same reading would let that typo
+ * retire every stored job, so this predicate takes the RAW value.
+ *
+ * @param {unknown} value the outcome exactly as the parser reported it
+ * @returns {boolean}
+ */
+export function fetchOutcomeAllowsStampedEmpty(value) {
+  if (value === null || value === undefined) return true;
+  return typeof value === 'string'
+    && CRAWLER_FETCH_OUTCOMES.has(value)
+    && !CRAWLER_FETCH_FAILURE_OUTCOMES.has(value);
+}
+
+/**
  * Read a slice's (or parser's) self-reported outcome, or `null` when it is
  * absent or not a recognised value. An unknown string is a producer bug, and
  * reading it as evidence would let a typo (`selector-miss`) flip a verdict.
