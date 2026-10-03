@@ -42,6 +42,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -175,7 +176,8 @@ export function buildSophiaGeneticsApplyUrl(shortcode) {
  * label from the first occurrence.
  */
 export function parseSophiaGeneticsWidgetPayload(payload) {
-  const rawJobs = Array.isArray(payload?.jobs) ? payload.jobs : [];
+  const hasJobsArray = Array.isArray(payload?.jobs);
+  const rawJobs = hasJobsArray ? payload.jobs : [];
   const byShortcode = new Map();
   for (const raw of rawJobs) {
     if (!raw || typeof raw !== 'object' || !raw.shortcode) continue;
@@ -188,7 +190,14 @@ export function parseSophiaGeneticsWidgetPayload(payload) {
       publishedDate: raw.published_on || raw.created_at || '',
     });
   }
-  return Array.from(byShortcode.values());
+  const listings = Array.from(byShortcode.values());
+  if (hasJobsArray && rawJobs.length === 0) {
+    return markAuthoritativeEmptySnapshot(
+      listings,
+      `Workable widget ${WIDGET_API_URL} returned a valid jobs array with zero current listings`,
+    );
+  }
+  return listings;
 }
 
 /**
