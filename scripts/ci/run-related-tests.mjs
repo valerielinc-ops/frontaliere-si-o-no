@@ -552,11 +552,6 @@ if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
   }
   console.log('test file(s) changed → running the test-tree lints.');
 }
-if (!fullSuiteRequired) {
-  for (const test of triggeredSourceTreeLints) {
-    if (isRunnableTest(test)) related.add(test);
-  }
-}
 let usedFullFallback = fullSuiteRequired;
 const assetCandidate = isRelatedAsset;
 const assetScopeAllows = (test, asset) => {
@@ -610,6 +605,16 @@ if (!fullSuiteRequired && related.size === 0 && sourceCandidates.length > 0) {
     for (const test of allTests) related.add(test);
     usedFullFallback = true;
     console.log('No static related edge found → running all tracked tests conservatively.');
+  }
+}
+// I lint dell'albero dei sorgenti entrano DOPO la decisione sul fallback, mai
+// prima: il perimetro del gate dei segreti copre quasi ogni sorgente, quindi
+// aggiunti prima renderebbero `related.size` sempre almeno 1 e il fallback
+// conservativo qui sopra non scatterebbe più per nessun sorgente senza test.
+// Un lint che enumera l'albero non dice nulla su chi importa il file cambiato.
+if (!fullSuiteRequired) {
+  for (const test of triggeredSourceTreeLints) {
+    if (isRunnableTest(test)) related.add(test);
   }
 }
 const tests = [...related].filter((file) => existsSync(file)).sort();
