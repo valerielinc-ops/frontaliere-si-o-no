@@ -344,6 +344,19 @@ describe('candidate review API', () => {
     expect(store.read(`${BASE}/automation/flow`)?.formOverrides).toBeUndefined();
   });
 
+  // Owner decision 2026-10-03: a WhatsApp application is sent once the candidate has its link.
+  it('repeats the WhatsApp link of an application sent that way, once it is sent', async () => {
+    const link = 'https://prod.pastahr.com/api/v1/redirect/COFU2003?remote_job_id=167757';
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    const view = async () => (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body;
+    await orderRef.set({ submissionChannel: 'whatsapp', whatsappApplyUrl: link }, { merge: true });
+    expect((await view()).whatsappUrl).toBeNull();
+    await orderRef.collection('automation').doc('flow').set({ state: 'submitted', submittedVia: 'whatsapp' }, { merge: true });
+    expect(await view()).toMatchObject({ state: 'submitted', whatsappUrl: link });
+    await orderRef.set({ whatsappApplyUrl: 'javascript:alert(1)' }, { merge: true });
+    expect((await view()).whatsappUrl).toBeNull();
+  });
+
   it('confirms a portal handoff only from the handoff state', async () => {
     const early = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'confirm_submitted' } }, deps());
     expect(early.status).toBe(409);

@@ -914,6 +914,8 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.waiting.owner_review': "La candidatura è in verifica finale: tra poco ricevi l’email per approvarla.",
  'jobBoard.assisted.review.waiting.submitting': "Hai approvato: la tua candidatura è in coda d’invio e parte entro pochi minuti. Puoi chiudere questa pagina: ti scrivo appena è partita.",
  'jobBoard.assisted.review.submitted': "La tua candidatura è stata inviata. In bocca al lupo!",
+ 'jobBoard.assisted.review.submittedWhatsapp': "Per questo annuncio l’azienda riceve le candidature solo via WhatsApp: ti ho mandato per email il link e i passaggi. Apri il link dal telefono, invia il messaggio già scritto e rispondi alle domande dell’assistente in chat. In bocca al lupo!",
+ 'jobBoard.assisted.review.openWhatsapp': "Apri la candidatura su WhatsApp",
  'jobBoard.assisted.review.takeover': "Valerie sta seguendo personalmente la tua candidatura: ti scrive a breve.",
  'jobBoard.assisted.review.heldByQuestions': "Prima dell’invio servono alcune risposte (campi con *). Finché mancano, la candidatura non parte.",
  'jobBoard.assisted.review.heldByDocuments': "Prima dell’invio mancano alcuni documenti richiesti dall’annuncio: caricali qui sotto, oppure scegli di inviare senza. Finché mancano, la candidatura non parte.",

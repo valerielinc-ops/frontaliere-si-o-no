@@ -150,6 +150,38 @@ describe('assisted application concierge copy', () => {
     expect(email.html).toContain('remboursement');
   });
 
+  // Owner decision 2026-10-03: a WhatsApp application (Coop's apprenticeships, PastaHR)
+  // is sent once the candidate has its link and the steps, and this e-mail is that.
+  it('turns the «inviata» e-mail of a WhatsApp application into its link and steps, in every language', () => {
+    const link = 'https://prod.pastahr.com/api/v1/redirect/COFU2003?utm_medium=prospective-job-description&remote_job_id=167757';
+    const pages: Record<string, string> = {
+      it: '/cerca-lavoro-ticino/', fr: '/fr/trouver-emploi-tessin/', de: '/de/jobs-im-tessin/', en: '/en/find-jobs-ticino/',
+    };
+    const only: Record<string, string> = { it: 'solo via WhatsApp', fr: 'uniquement par WhatsApp', de: 'nur über WhatsApp', en: 'only on WhatsApp' };
+    const whatsappOrder = (extra: Record<string, unknown> = {}) => paidOrder({
+      submissionStatus: 'submitted', submittedAt: new Date('2026-10-03T09:00:00Z'), submissionChannel: 'whatsapp', whatsappApplyUrl: link, ...extra,
+    });
+    for (const [locale, page] of Object.entries(pages)) {
+      const email = buildCustomerEmail('submitted', whatsappOrder({ orderPageUrl: `https://frontaliereticino.ch${page}?assisted_application_order_id=order-1` }), 'order-1', { nowMs: NOW });
+      expect(email.locale).toBe(locale);
+      expect(email.subject).toContain('WhatsApp');
+      expect(email.text).toContain(only[locale]);
+      expect(email.text).toMatch(/\n1\. .+\n2\. .+\n3\. .+\n4\. /);
+      expect(email.text).toContain(link);
+      expect(email.html).toContain(`href="${link.replace(/&/g, '&amp;')}"`);
+      expect(email.html).not.toMatch(/undefined|\[object/);
+    }
+    const italian = buildCustomerEmail('submitted', whatsappOrder(), 'order-1', { nowMs: NOW });
+    expect(italian.subject).toBe("La tua candidatura a Clinica Esempio: l'ultimo passo è su WhatsApp");
+    expect(italian.text).toContain('Nessuno può farlo al posto tuo');
+    expect(italian.html).toContain('<title>L&#39;ultimo passo è su WhatsApp — Frontaliere Ticino</title>');
+    // Any other channel, or a link that is not https, keeps the usual «inviata».
+    expect(buildCustomerEmail('submitted', whatsappOrder({ whatsappApplyUrl: 'javascript:alert(1)' }), 'order-1', { nowMs: NOW }).subject)
+      .toBe('Ho inviato la tua candidatura a Clinica Esempio');
+    expect(buildCustomerEmail('submitted', whatsappOrder({ submissionChannel: 'email' }), 'order-1', { nowMs: NOW }).subject)
+      .toBe('Ho inviato la tua candidatura a Clinica Esempio');
+  });
+
   it('never trusts a foreign return URL for the link we sign as Valerie', () => {
     expect(buildOrderPageUrl({ orderPageUrl: 'https://evil.example/x', locale: 'de' }, 'abc'))
       .toBe('https://frontaliereticino.ch/de/jobs-im-tessin/?assisted_application_order_id=abc');
@@ -369,6 +401,17 @@ describe('follow-up emails', () => {
     const [customer] = payloads();
     expect(customer.subject).toBe('Ho inviato la tua candidatura a Clinica Esempio');
     expect(customer.html).toContain('1 ottobre 2026');
+  });
+
+  it('sends a WhatsApp application its link and steps when the robot marks it submitted', async () => {
+    const link = 'https://prod.pastahr.com/api/v1/redirect/COFU2003?remote_job_id=167757';
+    store['order-1'] = paidOrder({ submissionStatus: 'submitted', submittedAt: new Date('2026-10-03T09:00:00Z'), submissionChannel: 'whatsapp', whatsappApplyUrl: link });
+    await handleAssistedApplicationOrderWritten(
+      paidOrder({ submissionStatus: 'in_progress', submissionChannel: 'whatsapp', whatsappApplyUrl: link }), store['order-1'], 'order-1', { db, nowMs: NOW },
+    );
+    const [customer] = payloads();
+    expect(customer.subject).toBe("La tua candidatura a Clinica Esempio: l'ultimo passo è su WhatsApp");
+    expect(customer.text).toContain(link);
   });
 
   it('sends one 48 h reminder while the materials are still missing', async () => {
