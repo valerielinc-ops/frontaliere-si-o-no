@@ -7595,6 +7595,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tariffe-usa-agenda-seco.title': 'SECO: Neue US-Zölle und Bundesbeschluss 2026',
     'blog.article.tariffe-usa-agenda-seco.excerpt': 'Die US-Zölle variieren bis zu 12,5% auf Importe aus der Schweiz; am 29. November 2026 die Abstimmung über das Kriegsmaterialgesetz.',
     'blog.article.tariffe-usa-agenda-seco.imageAlt': 'SECO-Dokumente zu neuen US-Zöllen für Importe aus der Schweiz.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Mieten in der Schweiz 2026: Regeln, Kaution und Genf',
+    'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Mietkaution bis zu drei Monatsmieten, Sperrkonto und 30 Tage zur Anfechtung der Kündigung durch den Vermieter: die auch in Genf geltenden Regeln.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Wohngebäude in Genf als Bild für den Schweizer Mietwohnungsmarkt',
 };
 
 export default blogMetaChDe;

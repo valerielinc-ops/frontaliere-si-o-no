@@ -7595,6 +7595,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tariffe-usa-agenda-seco.title': 'SECO: nuovi dazi USA e voto federale 2026',
     'blog.article.tariffe-usa-agenda-seco.excerpt': 'Dazi USA variabili fino al 12,5% sulle importazioni dalla Svizzera; il 29 novembre 2026 il voto sulla legge sul materiale bellico.',
     'blog.article.tariffe-usa-agenda-seco.imageAlt': 'Documenti sulla SECO e sui nuovi dazi statunitensi per le importazioni dalla Svizzera.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Affitti Svizzera 2026: regole, deposito e Ginevra',
+    'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Deposito cauzionale fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta del locatore: le regole valide anche a Ginevra.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Palazzo residenziale a Ginevra, immagine del mercato degli affitti svizzero',
 };
 
 export default blogMetaChIt;

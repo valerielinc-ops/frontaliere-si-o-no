@@ -7595,6 +7595,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tariffe-usa-agenda-seco.title': 'SECO : nouveaux droits de douane américains et votation fédérale 2026',
     'blog.article.tariffe-usa-agenda-seco.excerpt': 'Droits de douane américains variables pouvant atteindre 12,5% sur les importations en provenance de Suisse ; le 29 novembre 2026, vote sur la loi sur le matériel de guerre.',
     'blog.article.tariffe-usa-agenda-seco.imageAlt': 'Documents du SECO sur les nouveaux droits américains visant les importations suisses.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Locations en Suisse 2026 : règles, garantie et Genève',
+    'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Garantie de loyer jusqu\'à trois mois de loyer, compte bloqué et 30 jours pour contester le congé du bailleur : les règles qui s\'appliquent également à Genève.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Immeuble résidentiel à Genève, symbole du marché locatif suisse',
 };
 
 export default blogMetaChFr;

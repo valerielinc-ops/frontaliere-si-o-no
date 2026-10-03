@@ -7595,6 +7595,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tariffe-usa-agenda-seco.title': 'SECO: New US Tariffs and 2026 Federal Vote',
     'blog.article.tariffe-usa-agenda-seco.excerpt': 'Variable U.S. tariffs of up to 12.5% on imports from Switzerland; vote on the War Materiel Act on November 29, 2026.',
     'blog.article.tariffe-usa-agenda-seco.imageAlt': 'SECO documents about new US tariffs on imports from Switzerland.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.title': 'Swiss Rentals 2026: rules, deposit and Geneva',
+    'blog.article.garanzia-disdetta-locazione-ginevra.excerpt': 'Security deposit of up to three months\' rent, blocked account and 30 days to challenge the landlord\'s termination: rules also valid in Geneva.',
+    'blog.article.garanzia-disdetta-locazione-ginevra.imageAlt': 'Residential building in Geneva, illustrating Switzerland\'s rental market',
 };
 
 export default blogMetaChEn;

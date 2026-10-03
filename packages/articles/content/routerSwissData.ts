@@ -2554,6 +2554,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'diritti-inquilino-ginevra-2026': { it: 'diritti-inquilino-ginevra-2026', en: 'geneva-tenant-rights-2026', de: 'mietrecht-genf-2026', fr: 'droits-locataire-geneve-2026' },
  'swissair-grounding-memoria-ferita': { it: 'swissair-grounding-memoria-ferita', en: 'swissair-grounding-memory-wound', de: 'swissair-grounding-erinnerung-wunde', fr: 'swissair-grounding-memoire-blessure' },
  'tariffe-usa-agenda-seco': { it: 'tariffe-usa-agenda-seco', en: 'seco-us-tariffs-federal-vote', de: 'seco-us-zoelle-bundesabstimmung', fr: 'seco-droits-us-vote-federal' },
+ 'garanzia-disdetta-locazione-ginevra': { it: 'garanzia-disdetta-locazione-ginevra', en: 'swiss-rental-market-geneva-2026', de: 'mietmarkt-schweiz-genf-2026', fr: 'marche-locatif-suisse-geneve-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
