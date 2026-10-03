@@ -44,6 +44,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseArtificialyCareerPage,
+  parseArtificialyLinkedInJobPage,
   isArtificialySwissRelevant,
   inferArtificialyCanton,
   inferArtificialyCategory,
@@ -78,6 +79,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 3000;
+const DETAIL_DELAY_MS = 250;
 
 /**
  * A listing without at least the source-body floor is metadata, not an
@@ -151,15 +153,66 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
+function isLinkedInJobUrl(rawUrl = '') {
+  return /^https?:\/\/(?:[a-z-]+\.)?linkedin\.com\/jobs\/view\//i.test(String(rawUrl || ''));
+}
+
+/**
+ * The career page is a listing surface: its cards carry only short summaries.
+ * Resolve their LinkedIn detail pages before applying the source-body floor so
+ * a markup change cannot turn every otherwise-live vacancy into an empty crawl.
+ */
+async function enrichArtificialyListings(listings) {
+  const enriched = [];
+  const stats = { attempted: 0, fetchFailures: 0, selectorMisses: 0 };
+
+  for (const listing of listings) {
+    if (meetsSourceBodyFloor(listing?.description || '') || !isLinkedInJobUrl(listing?.applyUrl)) {
+      enriched.push(listing);
+      continue;
+    }
+
+    stats.attempted += 1;
+    try {
+      const detailHtml = await fetchText(listing.applyUrl);
+      const detail = parseArtificialyLinkedInJobPage(detailHtml);
+      if (detail.description) {
+        enriched.push({ ...listing, description: detail.description });
+      } else {
+        stats.selectorMisses += 1;
+        enriched.push(listing);
+        console.warn(`  ⚠️ No publishable LinkedIn source body for ${listing.title}`);
+      }
+    } catch (err) {
+      stats.fetchFailures += 1;
+      enriched.push(listing);
+      console.warn(`  ⚠️ LinkedIn detail fetch failed for ${listing.title}: ${err.message}`);
+    }
+
+    if (DETAIL_DELAY_MS > 0) await sleep(DETAIL_DELAY_MS);
+  }
+
+  return { listings: enriched, stats };
+}
+
 async function fetchCareerPage() {
+  let fetchedPage = false;
+  let blockedPage = false;
+  let discoveredCount = 0;
+  let detailAttempts = 0;
+  let detailFetchFailures = 0;
+  let detailSelectorMisses = 0;
+
   for (const url of CAREER_URLS) {
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  Fetching ${url} (attempt ${attempt + 1})...`);
         const html = await fetchText(url);
+        fetchedPage = true;
         const { items: parsedItems, blocked } = parseArtificialyCareerPage(html);
 
         if (blocked) {
+          blockedPage = true;
           console.log(`  Cloudflare challenge detected on ${url}`);
           if (attempt < MAX_RETRIES) {
             console.log(`  Retrying in ${RETRY_DELAY_MS / 1000}s...`);
@@ -169,13 +222,24 @@ async function fetchCareerPage() {
           break;
         }
 
-        const items = filterArtificialyListingsWithIndexableSourceBody(parsedItems);
+        discoveredCount = Math.max(discoveredCount, parsedItems.length);
+        const enriched = await enrichArtificialyListings(parsedItems);
+        detailAttempts += enriched.stats.attempted;
+        detailFetchFailures += enriched.stats.fetchFailures;
+        detailSelectorMisses += enriched.stats.selectorMisses;
+        const items = filterArtificialyListingsWithIndexableSourceBody(enriched.listings);
         if (items.length > 0) {
           console.log(`  Found ${items.length} jobs from ${url}`);
-          return items;
+          return {
+            items,
+            discovered: parsedItems.length,
+            parsed: items.length,
+            fetchOutcome: 'ok',
+            abortKind: null,
+          };
         }
 
-        const thinCount = parsedItems.length - items.length;
+        const thinCount = enriched.listings.length - items.length;
         const reason = thinCount > 0
           ? `${thinCount} listing(s) had no indexable source body (under 50 words)`
           : 'no jobs extracted';
@@ -190,20 +254,47 @@ async function fetchCareerPage() {
       }
     }
   }
-  return [];
+
+  const fetchOutcome = !fetchedPage
+    ? 'connection_error'
+    : blockedPage && discoveredCount === 0
+      ? 'anti_bot_block'
+      : discoveredCount > 0 && detailFetchFailures === detailAttempts && detailAttempts > 0
+        ? 'connection_error'
+        : 'selector_miss';
+  const abortKind = fetchOutcome === 'connection_error' || fetchOutcome === 'anti_bot_block'
+    ? 'connection-level-fetch'
+    : 'no-jobs-parsed';
+  if (detailSelectorMisses > 0) {
+    console.warn(`  ⚠️ ${detailSelectorMisses} LinkedIn detail page(s) did not expose a publishable body`);
+  }
+  return {
+    items: [],
+    discovered: discoveredCount,
+    parsed: 0,
+    fetchOutcome,
+    abortKind,
+  };
 }
 
 async function fetchAllListings() {
   console.log('Fetching Artificialy career page...');
 
-  const items = await fetchCareerPage();
-  console.log(`Total jobs found: ${items.length}`);
+  const result = await fetchCareerPage();
+  console.log(`Total jobs found: ${result.items.length}`);
 
   // Keep only jobs with a location in one of the 26 target cantons.
-  const swissJobs = items.filter(isArtificialySwissRelevant);
+  const swissJobs = result.items.filter(isArtificialySwissRelevant);
   console.log(`Swiss target locations: ${swissJobs.length}`);
 
-  return swissJobs;
+  const filteredEmpty = result.items.length > 0 && swissJobs.length === 0;
+  return {
+    ...result,
+    items: swissJobs,
+    parsed: swissJobs.length,
+    fetchOutcome: filteredEmpty ? 'filtered_empty' : result.fetchOutcome,
+    abortKind: filteredEmpty ? null : result.abortKind,
+  };
 }
 
 function buildArtificialyJob(row) {
@@ -358,17 +449,44 @@ function cleanStoredJobsOnSoftExit() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Artificialy');
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Artificialy', counts);
   console.log('===============================================');
   console.log('  Artificialy — Dedicated Crawler');
   console.log('===============================================');
   console.log(`  URLs: ${CAREER_URLS.join(', ')}\n`);
 
-  const listings = await fetchAllListings();
+  const crawl = await fetchAllListings();
+  counts.discovered = crawl.discovered;
+  counts.parsed = crawl.parsed;
+  counts.lastFetchOutcome = crawl.fetchOutcome;
+  counts.abortKind = crawl.abortKind;
+  const listings = crawl.items;
   if (listings.length === 0) {
     console.log('No Artificialy Swiss-located jobs found — skipping merge.');
     console.log('(Site may be blocked by Cloudflare managed challenge)');
     printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'Artificialy');
+    if (crawl.fetchOutcome === 'filtered_empty') {
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: COMPANY_NAME,
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: crawl.discovered,
+        parsed: crawl.parsed,
+        written: 0,
+        lastFetchOutcome: crawl.fetchOutcome,
+        abortKind: null,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: 0,
+        unchangedCount: 0,
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: [],
+        unchangedJobs: [],
+      });
+    }
     await cleanStoredJobsOnSoftExit();
     return;
   }
@@ -401,6 +519,11 @@ async function main() {
     label: 'Artificialy',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome || 'ok',
+    abortKind: null,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

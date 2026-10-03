@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildArtificialyLocalizedContent,
   isArtificialyCloudflareBlockedPage,
+  parseArtificialyLinkedInJobPage,
   parseArtificialyCareerPage,
 } from '../scripts/lib/artificialy-job-parser.mjs';
 
@@ -68,6 +69,31 @@ describe('Artificialy career parser', () => {
       blocked: false,
       items: [expect.objectContaining({ title: 'Platform Engineer', location: 'Zurich' })],
     });
+  });
+
+  it('extracts a publishable source body from the LinkedIn detail container', () => {
+    const body = Array.from({ length: 6 }, () =>
+      'Build reliable machine learning systems for Swiss clients across research deployment monitoring and continuous improvement.',
+    ).join(' ');
+    const result = parseArtificialyLinkedInJobPage(`
+      <html><body>
+        <nav>Recommended jobs and account navigation</nav>
+        <div class="description__text description__text--rich">
+          <section class="show-more-less-html">
+            <div class="show-more-less-html__markup"><p>${body}</p><ul><li>Work with product teams.</li></ul></div>
+          </section>
+        </div>
+      </body></html>`);
+
+    expect(result).toMatchObject({ blocked: false, description: expect.stringContaining('Build reliable') });
+    expect(result.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+  });
+
+  it('does not turn a LinkedIn summary below the source floor into a job body', () => {
+    const result = parseArtificialyLinkedInJobPage(`
+      <div class="show-more-less-html__markup"><p>Short listing summary only.</p></div>`);
+
+    expect(result).toEqual({ description: '', blocked: false });
   });
 
   it('does not pass listing-only metadata into the crawler pipeline', () => {

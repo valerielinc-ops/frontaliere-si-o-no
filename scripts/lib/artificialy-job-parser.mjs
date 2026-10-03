@@ -122,6 +122,54 @@ function extractJsonLdJobs(html) {
 }
 
 /**
+ * Extract the full posting body from a LinkedIn guest job page.
+ *
+ * Artificialy's own career page contains only a short card summary. The
+ * linked LinkedIn posting carries the source-backed responsibilities and
+ * requirements needed to clear the shared 50-word source-body floor. Keep
+ * this parser deliberately scoped to LinkedIn's job-description containers;
+ * stripping the whole document would mix navigation and recommended jobs into
+ * the posting body.
+ */
+export function parseArtificialyLinkedInJobPage(html = '') {
+  const source = String(html || '');
+  if (!source || isArtificialyCloudflareBlockedPage(source)) {
+    return { description: '', blocked: Boolean(source) };
+  }
+
+  const candidates = [];
+  const blockPattern = /<([a-z][\w-]*)\b[^>]*class=(['"])[^'"]*\b(?:show-more-less-html__markup|description__text|job-details__main-content)\b[^'"]*\2[^>]*>([\s\S]*?)<\/\1>/gi;
+  for (const match of source.matchAll(blockPattern)) {
+    const text = stripHtml(match[3] || '');
+    if (text) candidates.push(text);
+  }
+
+  // LinkedIn has also exposed the guest posting body through JobPosting JSON-LD
+  // on some page variants. Reuse the same source text when that representation
+  // is present instead of relying on a single presentation-layer selector.
+  const scriptPattern = /<script[^>]*type\s*=\s*['"]application\/ld\+json['"][^>]*>([\s\S]*?)<\/script>/gi;
+  for (const match of source.matchAll(scriptPattern)) {
+    try {
+      const data = JSON.parse(match[1]);
+      const entries = Array.isArray(data) ? data : [data];
+      for (const entry of entries) {
+        const types = Array.isArray(entry?.['@type']) ? entry['@type'] : [entry?.['@type']];
+        if (!types.includes('JobPosting') || !entry.description) continue;
+        const text = stripHtml(entry.description);
+        if (text) candidates.push(text);
+      }
+    } catch {
+      // Ignore malformed/non-JSON scripts; the HTML containers remain usable.
+    }
+  }
+
+  const description = candidates
+    .sort((a, b) => b.length - a.length)
+    .find((text) => meetsSourceBodyFloor(text)) || '';
+  return { description, blocked: false };
+}
+
+/**
  * Strategy 2: Extract jobs from HTML job cards.
  * Looks for common career page patterns: sections/divs with job titles and locations.
  */
