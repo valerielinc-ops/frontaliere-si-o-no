@@ -11,6 +11,7 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l9-employer-activation.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
@@ -28,6 +29,7 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l9-employer-activation.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
@@ -69,6 +71,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l9-employer-activation.mjs
             /scripts/ci/export-loop-outcomes.mjs
+            /scripts/lib/ga4-l5-decision-dimension.mjs
             /scripts/lib/ga4-service-account.mjs
             /scripts/lib/ga4-l5-decision-dimension.mjs
             /scripts/lib/analytics-settled-window.mjs

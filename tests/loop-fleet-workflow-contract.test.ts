@@ -77,6 +77,30 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('includes the exporter transitive dependency in every sparse loop consumer', () => {
+    const dependency = 'scripts/lib/ga4-l5-decision-dimension.mjs';
+    const consumers = [
+      'loop-l1-reliability.yml',
+      'loop-l2-demand-utility.yml',
+      'loop-l3-job-quality.yml',
+      'loop-l4-alert-return.yml',
+      'loop-l5-decision-moments.yml',
+      'loop-l7-experiment-allocator.yml',
+      'loop-l9-employer-activation.yml',
+    ];
+
+    for (const name of consumers) {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
+      const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
+      const sparseCheckout = source.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/u)?.[1] ?? '';
+
+      expect(pushPaths, name).toContain(`- '${dependency}'`);
+      expect(pullRequestPaths, name).toContain(`- '${dependency}'`);
+      expect(sparseCheckout, name).toContain(`/${dependency}`);
+    }
+  });
+
   it('does not feed an append-only ledger merge back into L11', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'technical-operations-supervisor.yml'), 'utf8');
     const pushBlock = source.match(/\n  push:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
