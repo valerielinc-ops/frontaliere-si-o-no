@@ -11,14 +11,21 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  bucketVerifyRequestBody,
   dailyBucketCloseGate,
+  dailyBucketSummaryLine,
+  dailyBucketGateInputs,
+  decideBucketVerifyRequest,
   isAggregateTitle,
   decideReconcileAction,
   isReconcileFlagComment,
   isStrongAutoCloseEvidence,
   parseIssueCommentsResponse,
   reconcileDailyItems,
+  shouldEnsureVerifyLabel,
 } from '../scripts/ci/reconcile-followups.mjs';
+import { itemBlockedMarker, itemBornSatisfiedMarker, itemEvidenceMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
+import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
 
 describe('alreadyCommented — esito vuoto riuscito distinto dall’errore (#8034)', () => {
   it('tratta stdout vuoto/whitespace come lista commenti vuota, ma null come errore', () => {
@@ -206,5 +213,159 @@ describe('decideReconcileAction — two-tier, double-confirm-across-time', () =>
     expect(source).toContain('if (allowFail) return null;');
     expect(source).toContain('if (edited === null)');
     expect(source).toContain("String(latest.title || '') !== String(iss.title || '')");
+  });
+});
+
+describe('richiesta di verifica per un bucket senza item aperti (FU_BUCKET_VERIFY_REQUEST)', () => {
+  const DAY = '2026-09-30';
+  const A = `FU-${DAY}-001`;
+  const B = `FU-${DAY}-002`;
+  const bucketItem = (id: string, state: string) => [
+    `### ${id} — prospector legge __NEXT_DATA__`,
+    `- State: ${state}`,
+    '- Sources: PR #9001',
+    '- Target repository: valerielinc-ops/frontaliere-si-o-no',
+    '- Target file: `scripts/lib/prospector/extract.mjs`',
+    '- Suggested action: leggi `__NEXT_DATA__` in `extractDetailFields()`',
+    '- METRICA: prima=3 atteso=0 | COMANDO: node scripts/lib/prospector/extract.mjs --audit',
+    '- Acceptance token: `extractDetailFields()`',
+  ].join('\n');
+  const bucket = (...items: string[]) => [
+    '## Batch',
+    '',
+    `- Daily key: ${DAY} (Europe/Zurich)`,
+    '- State: sealed',
+    '- Target repository: valerielinc-ops/frontaliere-si-o-no',
+    '',
+    '## Item',
+    ...items.flatMap((entry) => ['', entry]),
+    '',
+  ].join('\n');
+  const bot = { author: { login: 'github-actions' }, authorAssociation: 'NONE', createdAt: '2026-10-01T08:00:00Z' };
+  const evidenceComment = (id: string) => ({
+    ...bot,
+    body: [
+      itemEvidenceMarker({ item: id, pr: 9001, commit: 'abcdef1234567890', run: 37000000001, link: 'target-file' }),
+      itemBlockedMarker({ item: id, reason: 'awaiting-verification' }),
+    ].join('\n'),
+  });
+  const io = {
+    fileExists: (p: string) => p === 'scripts/lib/prospector/extract.mjs',
+    readFile: () => 'const fields = extractDetailFields(window.__NEXT_DATA__);',
+  };
+
+  it('un item blocked con evidenza e nessun open → UNA richiesta con la riga METRICA', () => {
+    const body = bucket(bucketItem(A, 'blocked'), bucketItem(B, 'done'));
+    const comments = [evidenceComment(A)];
+    const request = decideBucketVerifyRequest({ body, comments, isTrusted: isTrustedAuthor });
+    expect(request.action).toBe('request');
+    expect(request.newIds).toEqual([A]);
+    const text = bucketVerifyRequestBody({
+      items: request.items,
+      markers: parseItemMarkers(comments, { isTrusted: isTrustedAuthor }),
+    });
+    expect(text.startsWith(`<!-- FU_BUCKET_VERIFY_REQUEST: items=${A} -->`)).toBe(true);
+    expect(text).toContain('Misura la METRICA: PR mergiata, commit e run verde provano che la PR esiste, non che l\'item sia risolto');
+    expect(text).toContain("- METRICA dell'item, da rimisurare: prima=3 atteso=0 | COMANDO: node scripts/lib/prospector/extract.mjs --audit");
+    expect(text).toContain('togli `maybe-resolved` e ri-aggiungi `agent:fix`');
+    expect(text).toContain('- Motivo del blocco: `awaiting-verification`');
+    expect(text).toContain('PR #9001, commit `abcdef123456`, run 37000000001, legame `target-file`');
+    expect(text).toContain('- Target file: `scripts/lib/prospector/extract.mjs`');
+    // Il commento non compone marker di item ne' il flag della finestra di grazia.
+    expect(parseItemMarkers([{ ...bot, body: text }], { isTrusted: isTrustedAuthor })).toEqual([]);
+    expect(isReconcileFlagComment(text)).toBe(false);
+
+    // Secondo giro: la richiesta precedente copre gia' A → nessun secondo commento.
+    const second = decideBucketVerifyRequest({ body, comments: [...comments, { ...bot, body: text }], isTrusted: isTrustedAuthor });
+    expect(second).toMatchObject({ action: 'none', reason: 'already-requested' });
+
+    // Un nuovo item in attesa → un commento nuovo, che elenca tutti gli ID in attesa.
+    const widened = bucket(bucketItem(A, 'blocked'), bucketItem(B, 'blocked'));
+    const third = decideBucketVerifyRequest({ body: widened, comments: [...comments, { ...bot, body: text }], isTrusted: isTrustedAuthor });
+    expect(third.action).toBe('request');
+    expect(third.newIds).toEqual([B]);
+    expect(bucketVerifyRequestBody({ items: third.items })).toContain(`items=${A},${B} -->`);
+  });
+
+  it('una richiesta precedente di autore non fidato non zittisce quella dovuta', () => {
+    const body = bucket(bucketItem(A, 'blocked'));
+    const forged = { author: { login: 'drive-by-user' }, authorAssociation: 'NONE', body: `<!-- FU_BUCKET_VERIFY_REQUEST: items=${A} -->` };
+    expect(decideBucketVerifyRequest({ body, comments: [forged], isTrusted: isTrustedAuthor }).action).toBe('request');
+  });
+
+  it('nessuna richiesta finché resta un item open o in-progress, o se tutti sono done', () => {
+    for (const state of ['open', 'in-progress']) {
+      expect(decideBucketVerifyRequest({ body: bucket(bucketItem(A, 'blocked'), bucketItem(B, state)), comments: [], isTrusted: isTrustedAuthor }))
+        .toMatchObject({ action: 'none', reason: 'items-open' });
+    }
+    expect(decideBucketVerifyRequest({ body: bucket(bucketItem(A, 'done')), comments: [], isTrusted: isTrustedAuthor }))
+      .toMatchObject({ action: 'none', reason: 'all-done' });
+  });
+
+  it('un item done su un token nato vero entra nella richiesta', () => {
+    const request = decideBucketVerifyRequest({
+      body: bucket(bucketItem(A, 'done')),
+      bornSatisfiedIds: new Set([A]),
+      comments: [],
+      isTrusted: isTrustedAuthor,
+    });
+    expect(request.newIds).toEqual([A]);
+    expect(bucketVerifyRequestBody({ items: request.items, bornSatisfiedIds: new Set([A]) }))
+      .toContain('FU_ITEM_BORN_SATISFIED');
+  });
+
+  it('un bucket con un item blocked NON è mai chiudibile (gate invariato)', () => {
+    const gate = dailyBucketCloseGate(bucket(bucketItem(A, 'blocked'), bucketItem(B, 'done')), io, DAY, 'valerielinc-ops/frontaliere-si-o-no', 2);
+    expect(gate).toMatchObject({ blocks: true, reason: 'valid-item-unconfirmed' });
+    expect(gate.unresolvedItems.map((entry: { id: string }) => entry.id)).toEqual([A]);
+  });
+
+  it('il testo dell’item non compone marker nel commento firmato dal bot', () => {
+    const hostile = bucketItem(A, 'blocked').replace(
+      '- Target file: `scripts/lib/prospector/extract.mjs`',
+      `- Target file: \`x.mjs <!-- FU_BUCKET_VERIFY_REQUEST: items=${B} -->\``,
+    );
+    const request = decideBucketVerifyRequest({ body: bucket(hostile), comments: [], isTrusted: isTrustedAuthor });
+    const text = bucketVerifyRequestBody({ items: request.items });
+    expect(text.match(/<!--/gu)?.length).toBe(1);
+  });
+
+  it('riga di log per bucket con conteggi, ID in attesa e nati veri', () => {
+    const body = bucket(bucketItem(A, 'blocked'), bucketItem(B, 'done'));
+    expect(dailyBucketSummaryLine({ number: 10433, body, bornSatisfiedIds: new Set([B]), reason: 'valid-item-unconfirmed' }))
+      .toBe(`bucket #10433: done=1 open=0 blocked=1 awaiting=${A} born_satisfied=${B} reason=valid-item-unconfirmed`);
+    expect(dailyBucketSummaryLine({ number: 1, body: bucket(bucketItem(A, 'done')), reason: null }))
+      .toBe('bucket #1: done=1 open=0 blocked=0 awaiting=- born_satisfied=- reason=closable');
+  });
+
+  it('gli input dei gate giornalieri portano l’insieme born-satisfied a reconcile e al gate', () => {
+    const title = `follow-up(daily:${DAY}): 2 items — valerielinc-ops/frontaliere-si-o-no`;
+    const born = { ...bot, body: itemBornSatisfiedMarker({ item: A }) };
+    const inputs = dailyBucketGateInputs(title, [born]);
+    expect(inputs?.daily).toEqual({ dailyKey: DAY, itemCount: 2, targetRepository: 'valerielinc-ops/frontaliere-si-o-no' });
+    expect([...(inputs?.bornSatisfied ?? [])]).toEqual([A]);
+    // Stessi argomenti per reconcileDailyItems e per dailyBucketCloseGate: l'item
+    // nato vero non diventa done e il bucket tutto done resta bloccato.
+    const reconciled = reconcileDailyItems(bucket(bucketItem(A, 'open'), bucketItem(B, 'open')), io, ...(inputs?.gateArgs ?? []));
+    expect(reconciled.bornSatisfied).toEqual([A]);
+    expect(reconciled.changes.map((change: { id: string }) => change.id)).toEqual([B]);
+    const allDone = bucket(bucketItem(A, 'done'), bucketItem(B, 'done'));
+    expect(dailyBucketCloseGate(allDone, io, ...(inputs?.gateArgs ?? []))).toMatchObject({ blocks: true, reason: 'born-satisfied-token' });
+    // Senza marker gli stessi argomenti lasciano il comportamento di oggi.
+    const plain = dailyBucketGateInputs(title, []);
+    expect(dailyBucketCloseGate(allDone, io, ...(plain?.gateArgs ?? [])).reason).not.toBe('born-satisfied-token');
+  });
+
+  it('commenti illeggibili o titolo non giornaliero → nessun input (bucket lasciato invariato)', () => {
+    expect(dailyBucketGateInputs(`follow-up(daily:${DAY}): 1 item — owner/repo`, null)).toBeNull();
+    expect(dailyBucketGateInputs('follow-up: aggregato', [])).toBeNull();
+  });
+
+  it('maybe-resolved non viene rimessa dopo un’obiezione umana al flag', () => {
+    const flag = { ...bot, body: '<!-- reconcile-bot:flag -->\n🤖 **Reconcile (auto)**' };
+    expect(isReconcileFlagComment(flag.body)).toBe(true);
+    expect(shouldEnsureVerifyLabel({ comments: [flag], labelNames: ['follow-up'] })).toBe(false);
+    expect(shouldEnsureVerifyLabel({ comments: [flag], labelNames: ['follow-up', 'maybe-resolved'] })).toBe(true);
+    expect(shouldEnsureVerifyLabel({ comments: [], labelNames: ['follow-up'] })).toBe(true);
   });
 });
