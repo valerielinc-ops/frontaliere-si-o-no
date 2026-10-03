@@ -118,7 +118,7 @@ function hasExplicitEmptyListingState(html) {
 
   // Only the site's structural listing-count node can authorize zero. Missing,
   // duplicated, or non-exact count markup fails closed and preserves prior jobs.
-  return countValues.length > 0 && countValues.every((value) => value === 0);
+  return countValues.length === 1 && countValues[0] === 0;
 }
 
 const AUTHORITATIVE_EMPTY_EVIDENCE =
