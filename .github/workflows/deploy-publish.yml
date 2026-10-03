@@ -132,12 +132,11 @@ jobs:
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
-          needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
-          contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), matrix.locale) }}
+          needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
     strategy:
       fail-fast: false
       matrix:
-        locale: [en, de, fr]
+        locale: ${{ fromJSON(needs.resolve-publish-plan.outputs.tail_locales) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     concurrency:

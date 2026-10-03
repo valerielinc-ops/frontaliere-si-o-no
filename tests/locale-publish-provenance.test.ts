@@ -322,6 +322,11 @@ describe('locale publish workflow wiring', () => {
     expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
     expect(publish.jobs['resolve-nonit-publish'].needs).toEqual(['resolve-publish-plan', 'publish-nonit-shards']);
+    const tailJob = publish.jobs['publish-nonit-shards'];
+    expect(String(tailJob.strategy.matrix.locale)).toContain(
+      'fromJSON(needs.resolve-publish-plan.outputs.tail_locales)',
+    );
+    expect(String(tailJob.if)).not.toContain('matrix.locale');
     expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'deploy']);
     expect(publish.jobs['validate-live'].with.healthy_locales).toContain('resolve-nonit-publish');
     const recheck = (deployJob.steps as Array<Record<string, any>>)
