@@ -44,6 +44,7 @@ import {
 } from '@/services/emailSuppression.mjs';
 import { ADVERTISING_REACTIVATED_AT_FIELD } from '@/services/communicationChannels';
 import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';
+import { hasSubscriptionBasis } from '@/services/subscriberConsent.mjs';
 import { getLocale, type Locale } from '@/services/i18n';
 import { resilientImport } from '@/services/resilientImport';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
@@ -60,6 +61,12 @@ export interface SubscriptionPreferencesControllerProps {
  token?: string;
  /** Required when mode === 'auth'. Firebase Auth UID. */
  userId?: string;
+ /**
+  * Auth mode: whether Firebase Auth marks the account's address verified. The
+  * saved-jobs digest reaches an account without a central subscriber row only
+  * then (scripts/send-saved-jobs-digest.mjs), so the switch needs it to say so.
+  */
+ emailVerified?: boolean;
  /** Optional locale override. Defaults to current site locale. */
  locale?: Locale;
  /** Optional error reporter — for embedding in profile pages. */
@@ -637,8 +644,12 @@ async function authLoadFullStatus(email: string): Promise<{
  const optOutBinding = isNewsletterOptOutBinding(data);
  const isActive = data.isActive === true || data.active === true;
  newsletter = {
+ // A row with no relationship is not a subscription, whatever status a
+ // webhook or the suppression decay wrote on it: the saved-jobs digest
+ // record is the case (functions/src/lib/subscriberConsent.js), and the
+ // newsletter sender skips it by the same predicate.
  subscribed:
- !accountDeleted && !optOutBinding &&
+ !accountDeleted && !optOutBinding && hasSubscriptionBasis(data) &&
  (isActive || status === 'confirmed' || status === 'pending'),
  autologinEnabled: data.autologin_enabled !== false,
  dailyBriefFrequency: DAILY_BRIEF_FREQUENCIES.includes(data.daily_brief_frequency_override)
@@ -875,7 +886,7 @@ function briefTierToOption(days: number): DailyBriefFrequency {
  * Function, tracked separately. The digest's own "manage" link already points
  * at the profile, so the loop closes there.
  */
-async function authLoadSavedJobsDigest(userId: string, email: string): Promise<boolean> {
+async function authLoadSavedJobsDigest(userId: string, email: string, emailVerified: boolean): Promise<boolean> {
  const { getFirestore, doc, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -892,12 +903,15 @@ async function authLoadSavedJobsDigest(userId: string, email: string): Promise<b
  ]);
  // A channel opt-out always wins. This channel is activated separately by the
  // saved-jobs action/preference, so the base registration is not enough.
+ // Without a central row the sender creates the digest's own record before
+ // the first send, for a verified address only (owner decision 2026-10-03):
+ // until then the switch must already say what Monday will do.
  const digest = snap.exists() ? (snap.data() || {}).savedJobsDigest : null;
  const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
  const hasGlobalStop = hasExplicitGlobalEmailStop(subscriberData);
  return digest?.optedOut !== true
   && !hasGlobalStop
-  && Boolean(subscriberData)
+  && (Boolean(subscriberData) || emailVerified)
   && digest?.optedIn === true;
 }
 
@@ -1816,6 +1830,7 @@ export function SubscriptionPreferencesController({
  // everything off `email` alone. The saved-jobs digest is the first control
  // whose document is keyed by uid, so this is where it starts being read.
  userId,
+ emailVerified = false,
  locale,
  onError,
 }: SubscriptionPreferencesControllerProps) {
@@ -1915,7 +1930,7 @@ export function SubscriptionPreferencesController({
  // cost the reader the newsletter and job-alert controls that did load.
  if (userId) {
  try {
- const enabled = await authLoadSavedJobsDigest(userId, email);
+ const enabled = await authLoadSavedJobsDigest(userId, email, emailVerified);
  if (!cancelled) {
  setDigestEnabled(enabled);
  setDigestAvailable(true);
@@ -1959,7 +1974,7 @@ export function SubscriptionPreferencesController({
  cancelled = true;
  };
  // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [mode, email, token, userId]);
+ }, [mode, email, token, userId, emailVerified]);
 
  const flashSaved = (key: string) => {
  setSavedTickKey(key);
