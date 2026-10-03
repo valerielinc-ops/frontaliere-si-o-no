@@ -1,7 +1,7 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-10-02T09:10:56.317Z",
+  "generatedAt": "2026-10-03T09:11:35.102Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,12 +12,14 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3785,
-  "avgDurationMs": 3785,
+  "durationMs": 3757,
+  "avgDurationMs": 3757,
   "durationHistory": [
-    3785
+    3785,
+    5067,
+    3757
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,13 +30,13 @@
       "companyKey": "clinique-cic",
       "companyDomain": "cliniquecic-saxon.ch",
       "title": "Infirmier·ère",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Saxon",
       "canton": "VS",
       "url": "https://www.jobup.ch/fr/emplois/detail/198a04bf-c7b2-44aa-9d81-49f92a330378/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:10:47.304Z",
+      "crawledAt": "2026-10-03T09:11:27.508Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -71,7 +73,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9c51a18f-a41d-4618-b1fe-a6ad0492d29a/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:10:47.949Z",
+      "crawledAt": "2026-10-03T09:11:28.275Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -96,6 +98,47 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "clinique-cic-292bdf46db97",
+      "slug": "assistente-medico-80-clinique-cic-clarens-clarens",
+      "company": "Clinique CIC Clarens",
+      "companyKey": "clinique-cic",
+      "companyDomain": "cliniquecic-saxon.ch",
+      "title": "Assistant-e médical-e 80%",
+      "location": "Clarens",
+      "canton": "VD",
+      "url": "https://www.jobup.ch/fr/emplois/detail/cdd6d93e-1a41-45dd-91fd-cc0db5c69882/",
+      "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-29T21:14:10.987Z",
+      "addressLocality": "Clarens",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1815",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/cdd6d93e-1a41-45dd-91fd-cc0db5c69882/",
+      "firstSeenAt": "2026-09-02T13:33:14.646Z",
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 23,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }

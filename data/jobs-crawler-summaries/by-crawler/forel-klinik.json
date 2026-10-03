@@ -1,7 +1,7 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-10-02T09:25:05.638Z",
+  "generatedAt": "2026-10-03T09:29:55.632Z",
   "total": 2,
   "discovered": null,
   "parsed": 3,
@@ -13,11 +13,13 @@
   "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3701,
-  "avgDurationMs": 3701,
+  "unchangedCount": 1,
+  "durationMs": 5038,
+  "avgDurationMs": 5038,
   "durationHistory": [
-    3701
+    3701,
+    3801,
+    5038
   ],
   "newJobs": [
     {
@@ -33,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:57.392Z",
+      "crawledAt": "2026-10-03T09:29:45.293Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -46,7 +48,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/75a4d4b7-f2e9-4f08-9fc8-558c1cf419e1/detail?lang=DE",
       "_qualityScore": 64,
       "_qualityBreakdown": {
@@ -71,7 +73,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:57.824Z",
+      "crawledAt": "2026-10-03T09:29:45.877Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +110,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:58.275Z",
+      "crawledAt": "2026-10-03T09:29:46.461Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -134,5 +136,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "forel-klinik-0937a4ff38e0",
+      "slug": "praktikant-in-sport-e-bewegungstherapie-50-80-forel-klinik-ellikon-an-der-thur",
+      "company": "Forel Klinik",
+      "companyKey": "forel-klinik",
+      "companyDomain": "forel-klinik.ch",
+      "title": "Praktikant/in Sport- und Bewegungstherapie 50-80%",
+      "needsRetranslation": true,
+      "location": "Ellikon an der Thur",
+      "canton": "ZH",
+      "url": "https://jobs.dualoo.com/portal/w1f713hy/49e6b2ad-024c-47ab-a22b-2718cb238e2b/detail?lang=DE",
+      "source": "Forel Klinik Dedicated Parser (Dualoo)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T09:31:37.111Z",
+      "addressLocality": "Ellikon an der Thur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8548",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/49e6b2ad-024c-47ab-a22b-2718cb238e2b/detail?lang=DE",
+      "firstSeenAt": "2026-08-12T10:40:19.452Z",
+      "salaryMin": 42800,
+      "salaryMax": 78800,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ]
 }

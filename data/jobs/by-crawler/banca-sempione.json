@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-10-02T09:21:24.319Z",
+  "assembledAt": "2026-10-03T09:23:02.707Z",
   "jobs": [
     {
       "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
@@ -95,7 +95,6 @@
       "id": "banca-sempione-00a6adcf50af",
       "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 45000,
       "salaryMax": 76500,
       "currency": "CHF",
@@ -115,7 +114,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/"
+      "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",

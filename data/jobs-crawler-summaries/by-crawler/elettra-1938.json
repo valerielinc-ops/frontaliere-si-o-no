@@ -1,7 +1,7 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-10-02T09:26:09.489Z",
+  "generatedAt": "2026-10-03T09:23:54.996Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,10 +14,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6837,
-  "avgDurationMs": 6837,
+  "durationMs": 7714,
+  "avgDurationMs": 7714,
   "durationHistory": [
-    6837
+    6837,
+    6828,
+    7714
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:25:58.074Z",
+      "crawledAt": "2026-10-03T09:23:43.751Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -70,7 +72,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:25:59.496Z",
+      "crawledAt": "2026-10-03T09:23:45.366Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",

@@ -51,6 +51,8 @@ export function candidateRules(candidateLocale) {
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
+- Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): only from what the candidate said (answers.salutation, or an answer in portalQuestionsAnswered), choosing the option that means the same in the form's language. Never guess it from the first name: when the candidate has not said, a required one is missing.
+- A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
 - select and radio: value must be exactly one of the field's option labels.
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
@@ -58,6 +60,8 @@ export function candidateRules(candidateLocale) {
 - Always fill the contact fields from identity: full/first/last name, e-mail, phone (split country code and number when the form asks them separately; a phone-type question is "mobile" for a mobile number such as +41 7x or +39 3xx). Street, postal code, city and country come from identity.address, city and country also from identity.location; date of birth and nationality from profile. A country is chosen as the option that names it in the form's language (Italia = Italien = Italy = Italie). What the data does not state is missing.
 - "How did you hear about us / Wie haben Sie von uns erfahren / Come hai saputo": the true answer is the job board frontaliereticino.ch — choose the option meaning online job board / internet / other website (or "other"), or write "frontaliereticino.ch" in a text field.
 - "Do you work / have you worked for us?": "No" when that employer is not among profile.employers or in the candidate's answers, otherwise it is missing.
+- "Does this application come from a recruitment / placement agency (Vermittlungsbüro, Personalvermittlung, agenzia per il lavoro, agence de placement)?": "No". The candidate applies personally: Frontaliere Ticino sends the candidate's own application, is no placement agency and never accepts an agency's terms.
+- Date fields with inputType "date": a fill action with the candidate's date in YYYY-MM-DD, as for kind "date".
 - A required field (asterisk, "erforderlich", or named in form.errors) that you cannot fill is never skipped: it goes in missingRequired.
 - Password fields are handled by the runner: skip them.
 - A field that already holds the right value: skip. A field marked invalid was rejected by the form on the last attempt (its messages are in form.errors): give it a corrected value, or put it in missingRequired when only the candidate can answer.
@@ -97,6 +101,21 @@ export const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsange
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
+
+// The consents an application itself needs (the prompt's rule, re-checked in code): the privacy
+// notice, the processing of the data, the terms. Never what the candidate may refuse and still
+// apply, nor a box that also declares a fact (a permit, a licence, a level).
+const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
+const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
+// «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state.
+const DECLARES_FACT = /(permit|bewilligung|permesso di (lavoro|soggiorno|domicilio)|\bvisa\b|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b)/i;
+
+/** A required checkbox that is the application's own consent, and nothing else. */
+export function ownConsent(field) {
+  const label = String(field?.label || '');
+  return field?.kind === 'checkbox' && Boolean(field.required) && OWN_CONSENT.test(label)
+    && !OPTIONAL_CONSENT.test(label) && !DECLARES_FACT.test(label);
+}
 
 /** A quote of the candidate's data: non-trivial and really in it. */
 export function evidenceInData(knownValues, evidence) {
@@ -191,12 +210,26 @@ export function guardPlan(plan, fields, candidate = null) {
   const byId = new Map(fields.map((field) => [field.id, field]));
   const actions = [];
   const missing = [];
+  // «Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: … werden die
+  // AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis
+  // akzeptiert.)» (Coop, 2026-10-03): always its "No", whatever the plan says.
+  // The candidate applies personally and no agency's terms are ever accepted.
+  // Without a "No" among the options read (review of #11036), no answer at
+  // all: the plan's is dropped and the required field holds the submission.
+  const agencyIds = new Set(fields.filter((field) => isAgencyQuestion(field)).map((field) => field.id));
+  const agencyNo = new Map(fields.map((field) => [field.id, agencyNoOption(field)]).filter(([, option]) => option));
+  for (const [fieldId, option] of agencyNo) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
+  plan = {
+    ...plan,
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId)),
+  };
   for (const item of plan.missingRequired || []) {
     if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
   for (const action of plan.actions || []) {
@@ -239,13 +272,36 @@ export function guardPlan(plan, fields, candidate = null) {
   // A required field the plan leaves empty (omitted or skipped) is never
   // submitted blank: unless the page already holds a value, it is a question.
   for (const field of fields) {
-    if (field.required && !answered.has(field.id) && !holdsValue(field)) ask(field);
+    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
+    // The application's own consent is no question for the candidate: the
+    // mandate covers it, so the box the plan left alone is ticked here (umantis,
+    // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
+    // and went to the candidate as a text question).
+    if (ownConsent(field)) {
+      actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
+      answered.add(field.id);
+      continue;
+    }
+    ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));
   return {
     actions: actions.filter((action) => !asked.has(action.fieldId)),
     missingRequired: missing.filter((item) => asked.has(item.fieldId)),
   };
+}
+
+const AGENCY_RE = /(vermittlungsb[üu]ro|personalvermittl|placement agency|recruit(ment|ing) agency|staffing agency|agenzia (per il lavoro|di collocamento|interinale|per l['’]impiego)|agence (de placement|de recrutement|d['’]emploi|intérimaire))/i;
+const NO_OPTION_RE = /^(nein|no|non)$/i;
+
+export function isAgencyQuestion(field) {
+  return Boolean(field) && AGENCY_RE.test(String(field.label || ''));
+}
+
+/** The "No" of an agency question that offers one, else null. */
+export function agencyNoOption(field) {
+  if (!isAgencyQuestion(field)) return null;
+  return (field.options || []).find((option) => NO_OPTION_RE.test(String(option.label || '').trim())) || null;
 }
 
 // "Select One", "Bitte wählen", "-- Seleziona --": a dropdown still on its prompt holds nothing.

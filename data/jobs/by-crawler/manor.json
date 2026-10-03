@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-10-02T09:29:52.531Z",
+  "assembledAt": "2026-10-03T09:29:14.377Z",
   "jobs": [
     {
       "title": "Collaborateur/trice caisse (Parfumerie) 80%",
@@ -39,26 +39,9 @@
         "fr": "Collaborateur/trice caisse (Parfumerie) 80%"
       },
       "sourceLang": "fr",
-      "id": "manor-bb62efc7c940",
-      "previousSlugs": [
-        "manor-collaborateur-trice-caisse-parfumerie-80-monthey",
-        "collaboratore-caisse-parfumerie-80-manor-ag-monthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-caisse-parfumerie-80-monthey",
-          "collaboratore-caisse-parfumerie-80-manor-ag-monthey"
-        ],
-        "en": [
-          "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
-        ],
-        "de": [
-          "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:25:53.204Z",
       "crawledAt": "",
+      "id": "manor-bb62efc7c940",
       "salaryMin": 57600,
       "salaryMax": 88800,
       "currency": "CHF",
@@ -73,7 +56,22 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-caisse-%28Parfumerie%29-80/1370162555/"
+      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-caisse-%28Parfumerie%29-80/1370162555/",
+      "firstSeenAt": "2026-10-01T09:25:53.204Z",
+      "previousSlugs": [
+        "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
+        ],
+        "en": [
+          "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
+        ],
+        "de": [
+          "manor-collaborateur-trice-caisse-parfumerie-80-monthey"
+        ]
+      }
     },
     {
       "title": "Mitarbeiter*in Logistik 30%",
@@ -294,22 +292,6 @@
       },
       "sourceLang": "fr",
       "id": "manor-42a1ca362fda",
-      "previousSlugs": [
-        "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis",
-        "responsabile-settore-boucherie-volaille-100-manor-ag-chavannes-de-bogis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis",
-          "responsabile-settore-boucherie-volaille-100-manor-ag-chavannes-de-bogis"
-        ],
-        "en": [
-          "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis"
-        ],
-        "de": [
-          "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
       "salaryMin": 83500,
@@ -326,7 +308,23 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Chavannes-de-Bogis-Responsable-secteur-%28BoucherieVolaille%29-100/1370043555/"
+      "applyUrl": "https://positions.manor.ch/job/Chavannes-de-Bogis-Responsable-secteur-%28BoucherieVolaille%29-100/1370043555/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis",
+          "responsabile-settore-boucherie-volaille-100-manor-ag-chavannes-de-bogis"
+        ],
+        "en": [
+          "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis"
+        ],
+        "de": [
+          "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis"
+        ]
+      },
+      "previousSlugs": [
+        "manor-responsable-secteur-boucherie-volaille-100-chavannes-de-bogis",
+        "responsabile-settore-boucherie-volaille-100-manor-ag-chavannes-de-bogis"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf 60%",
@@ -366,10 +364,9 @@
       },
       "sourceLang": "de",
       "id": "manor-7b73385b843f",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-60-liestal",
-        "collaboratore-trice-in-vendita-60-manor-ag-liestal"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-60-liestal",
@@ -382,9 +379,10 @@
           "manor-mitarbeiter-in-verkauf-60-liestal"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-60-liestal",
+        "collaboratore-trice-in-vendita-60-manor-ag-liestal"
+      ],
       "salaryMin": 44400,
       "salaryMax": 68100,
       "currency": "CHF",
@@ -496,16 +494,6 @@
       },
       "sourceLang": "fr",
       "id": "manor-0116b8ae22d3",
-      "previousSlugs": [
-        "manor-caviste-50-geneve",
-        "carte-50-manor-ag-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-caviste-50-geneve",
-          "carte-50-manor-ag-geneve"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
       "salaryMin": 36000,
@@ -522,7 +510,17 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Caviste-50/1370044955/"
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Caviste-50/1370044955/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-caviste-50-geneve",
+          "carte-50-manor-ag-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "manor-caviste-50-geneve",
+        "carte-50-manor-ag-geneve"
+      ]
     },
     {
       "title": "Collaborateur/trice supermarché (Epicerie) 50%",
@@ -619,19 +617,19 @@
       },
       "sourceLang": "de",
       "id": "manor-2a79ceca065e",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-home-haushalt-50-biel",
-        "collaboratore-trice-in-kasse-home-haushalt-50-manor-ag-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-kasse-home-haushalt-50-biel",
           "collaboratore-trice-in-kasse-home-haushalt-50-manor-ag-biel"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-home-haushalt-50-biel",
+        "collaboratore-trice-in-kasse-home-haushalt-50-manor-ag-biel"
+      ],
       "salaryMin": 38800,
       "salaryMax": 59300,
       "currency": "CHF",
@@ -686,10 +684,9 @@
       },
       "sourceLang": "de",
       "id": "manor-0a24225f7f38",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-bijouterie-50-biel",
-        "collaboratore-trice-in-vendita-bijouterie-50-manor-ag-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-bijouterie-50-biel",
@@ -702,9 +699,10 @@
           "manor-mitarbeiter-in-verkauf-bijouterie-50-biel"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-bijouterie-50-biel",
+        "collaboratore-trice-in-vendita-bijouterie-50-manor-ag-biel"
+      ],
       "salaryMin": 38800,
       "salaryMax": 59300,
       "currency": "CHF",
@@ -761,14 +759,12 @@
       "id": "manor-a5b0961b160a",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-40-biel",
-        "vendite-di-collaboratore-players-40-manor-ag-biel",
-        "collaborateur-trice-vente-jouets-40-manor-ag-biel"
+        "vendite-di-collaboratore-players-40-manor-ag-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-40-biel",
-          "vendite-di-collaboratore-players-40-manor-ag-biel",
-          "collaborateur-trice-vente-jouets-40-manor-ag-biel"
+          "vendite-di-collaboratore-players-40-manor-ag-biel"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-40-biel"
@@ -834,10 +830,9 @@
       },
       "sourceLang": "de",
       "id": "manor-63a04db42465",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-spielwaren-40-biel",
-        "collaboratore-trice-in-vendita-spielwaren-40-manor-ag-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-spielwaren-40-biel",
@@ -850,9 +845,10 @@
           "manor-mitarbeiter-in-verkauf-spielwaren-40-biel"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-spielwaren-40-biel",
+        "collaboratore-trice-in-vendita-spielwaren-40-manor-ag-biel"
+      ],
       "salaryMin": 31000,
       "salaryMax": 47400,
       "currency": "CHF",
@@ -907,10 +903,9 @@
       },
       "sourceLang": "de",
       "id": "manor-4e92aabcfca0",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-parfumerie-50-biel",
-        "collaboratore-trice-in-vendita-parfumerie-50-manor-ag-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-parfumerie-50-biel",
@@ -923,9 +918,10 @@
           "manor-mitarbeiter-in-verkauf-parfumerie-50-biel"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-parfumerie-50-biel",
+        "collaboratore-trice-in-vendita-parfumerie-50-manor-ag-biel"
+      ],
       "salaryMin": 38800,
       "salaryMax": 59300,
       "currency": "CHF",
@@ -980,10 +976,9 @@
       },
       "sourceLang": "de",
       "id": "manor-74d2eb6a3000",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
-        "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:53:59.307Z",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
@@ -992,16 +987,17 @@
         "en": [
           "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
         ],
-        "de": [
+        "fr": [
           "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
         ],
-        "fr": [
+        "de": [
           "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:53:59.307Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
+        "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel"
+      ],
       "salaryMin": 23300,
       "salaryMax": 35600,
       "currency": "CHF",
@@ -1056,25 +1052,8 @@
       },
       "sourceLang": "fr",
       "id": "manor-85548a3a4dd9",
-      "previousSlugs": [
-        "manor-collaborateur-trice-vente-parfumerie-50-biel",
-        "collaboratore-di-vendita-parfumerie-50-manor-ag-biel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-vente-parfumerie-50-biel",
-          "collaboratore-di-vendita-parfumerie-50-manor-ag-biel"
-        ],
-        "en": [
-          "manor-collaborateur-trice-vente-parfumerie-50-biel"
-        ],
-        "de": [
-          "manor-collaborateur-trice-vente-parfumerie-50-biel"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 38800,
       "salaryMax": 59300,
       "currency": "CHF",
@@ -1089,7 +1068,24 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Biel-Collaborateurtrice-vente-%28Parfumerie%29-50/1370031055/"
+      "applyUrl": "https://positions.manor.ch/job/Biel-Collaborateurtrice-vente-%28Parfumerie%29-50/1370031055/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-parfumerie-50-biel",
+          "collaboratore-di-vendita-parfumerie-50-manor-ag-biel"
+        ],
+        "en": [
+          "manor-collaborateur-trice-vente-parfumerie-50-biel"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-parfumerie-50-biel"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-parfumerie-50-biel",
+        "collaboratore-di-vendita-parfumerie-50-manor-ag-biel"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/trice servizio (Manora) 70%",
@@ -1243,22 +1239,6 @@
       },
       "sourceLang": "fr",
       "id": "manor-5a45d3480c25",
-      "previousSlugs": [
-        "manor-collaborateur-trice-caisse-papeterie-50-geneve",
-        "collaboratore-caisse-papetery-50-manor-ag-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-caisse-papeterie-50-geneve",
-          "collaboratore-caisse-papetery-50-manor-ag-geneve"
-        ],
-        "en": [
-          "manor-collaborateur-trice-caisse-papeterie-50-geneve"
-        ],
-        "de": [
-          "manor-collaborateur-trice-caisse-papeterie-50-geneve"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
@@ -1276,7 +1256,23 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-caisse-%28Papeterie%29-50/1370015355/"
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-caisse-%28Papeterie%29-50/1370015355/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-caisse-papeterie-50-geneve",
+          "collaboratore-caisse-papetery-50-manor-ag-geneve"
+        ],
+        "en": [
+          "manor-collaborateur-trice-caisse-papeterie-50-geneve"
+        ],
+        "de": [
+          "manor-collaborateur-trice-caisse-papeterie-50-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-caisse-papeterie-50-geneve",
+        "collaboratore-caisse-papetery-50-manor-ag-geneve"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Jouets / Lego) 50%",
@@ -1316,25 +1312,8 @@
       },
       "sourceLang": "fr",
       "id": "manor-9d730898306f",
-      "previousSlugs": [
-        "manor-collaborateur-trice-vente-jouets-lego-50-geneve",
-        "vendite-di-collaboratore-players-lego-50-manor-ag-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-vente-jouets-lego-50-geneve",
-          "vendite-di-collaboratore-players-lego-50-manor-ag-geneve"
-        ],
-        "en": [
-          "manor-collaborateur-trice-vente-jouets-lego-50-geneve"
-        ],
-        "de": [
-          "manor-collaborateur-trice-vente-jouets-lego-50-geneve"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -1349,7 +1328,24 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Jouets-Lego%29-50/1370012055/"
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Jouets-Lego%29-50/1370012055/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-jouets-lego-50-geneve",
+          "vendite-di-collaboratore-players-lego-50-manor-ag-geneve"
+        ],
+        "en": [
+          "manor-collaborateur-trice-vente-jouets-lego-50-geneve"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-jouets-lego-50-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-jouets-lego-50-geneve",
+        "vendite-di-collaboratore-players-lego-50-manor-ag-geneve"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice vente (Jouets / Playmobil) 45%",
@@ -1389,25 +1385,8 @@
       },
       "sourceLang": "fr",
       "id": "manor-266b6983a541",
-      "previousSlugs": [
-        "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve",
-        "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve",
-          "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve"
-        ],
-        "en": [
-          "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve"
-        ],
-        "de": [
-          "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 32400,
       "salaryMax": 50000,
       "currency": "CHF",
@@ -1422,7 +1401,24 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Jouets-Playmobil%29-45/1370019655/"
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Jouets-Playmobil%29-45/1370019655/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve",
+          "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve"
+        ],
+        "en": [
+          "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-jouets-playmobil-45-geneve",
+        "vendite-di-collaboratore-players-playmobil-45-manor-ag-geneve"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice vente (Jouets) 40%",
@@ -1464,14 +1460,12 @@
       "id": "manor-0fa3e9eb3375",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-40-geneve",
-        "vendite-di-collaboratore-players-40-manor-ag-geneve",
-        "collaborateur-trice-vente-jouets-40-manor-ag-geneve"
+        "vendite-di-collaboratore-players-40-manor-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-40-geneve",
-          "vendite-di-collaboratore-players-40-manor-ag-geneve",
-          "collaborateur-trice-vente-jouets-40-manor-ag-geneve"
+          "vendite-di-collaboratore-players-40-manor-ag-geneve"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-40-geneve"
@@ -1539,14 +1533,12 @@
       "id": "manor-1a22d0cd4c7f",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-confection-messieurs-60-monthey",
-        "collaboratore-di-vendita-means-60-manor-ag-monthey",
-        "collaborateur-trice-vente-confection-messieurs-60-manor-ag-monthey"
+        "collaboratore-di-vendita-means-60-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-confection-messieurs-60-monthey",
-          "collaboratore-di-vendita-means-60-manor-ag-monthey",
-          "collaborateur-trice-vente-confection-messieurs-60-manor-ag-monthey"
+          "collaboratore-di-vendita-means-60-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-messieurs-60-monthey"
@@ -1611,33 +1603,8 @@
         "fr": "Collaborateur/trice vente (Confection Messieurs) 80%"
       },
       "sourceLang": "fr",
-      "id": "manor-fe9b16814351",
-      "previousSlugs": [
-        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
-        "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
-        "collaboratore-di-vendita-means-80-manor-ag-monthey",
-        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
-          "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
-          "collaboratore-di-vendita-means-80-manor-ag-monthey",
-          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
-        ],
-        "en": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
-        ],
-        "de": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
-        ],
-        "fr": [
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
-        ]
-      },
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
-      "needsRetranslation": true,
+      "id": "manor-fe9b16814351",
       "salaryMin": 57600,
       "salaryMax": 88800,
       "currency": "CHF",
@@ -1652,7 +1619,46 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035955/"
+      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035955/",
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+          "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
+          "collaboratore-di-vendita-means-80-manor-ag-monthey",
+          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey",
+          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekiou",
+          "sales-collaborator-means-80-manor-ag-monthey",
+          "sales-collaborator-mittel-80-manor-ag-monthey",
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
+          "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou"
+        ],
+        "en": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+          "sales-collaborator-means-80-manor-ag-monthey"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+          "sales-collaborator-mittel-80-manor-ag-monthey"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekiou",
+        "sales-collaborator-means-80-manor-ag-monthey",
+        "sales-collaborator-mittel-80-manor-ag-monthey",
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekiou"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice vente (Confection Messieurs) 50%",
@@ -1694,14 +1700,12 @@
       "id": "manor-6e302bc6d131",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-confection-messieurs-50-monthey",
-        "collaboratore-di-vendita-mezzi-50-manor-ag-monthey",
-        "collaborateur-trice-vente-confection-messieurs-50-manor-ag-monthey"
+        "collaboratore-di-vendita-mezzi-50-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-confection-messieurs-50-monthey",
-          "collaboratore-di-vendita-mezzi-50-manor-ag-monthey",
-          "collaborateur-trice-vente-confection-messieurs-50-manor-ag-monthey"
+          "collaboratore-di-vendita-mezzi-50-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-messieurs-50-monthey"
@@ -1767,22 +1771,6 @@
       },
       "sourceLang": "fr",
       "id": "manor-f9b3e42d1e90",
-      "previousSlugs": [
-        "manor-collaborateur-trice-caisse-parfumerie-60-monthey",
-        "collaboratore-caisse-parfumerie-60-manor-ag-monthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-caisse-parfumerie-60-monthey",
-          "collaboratore-caisse-parfumerie-60-manor-ag-monthey"
-        ],
-        "en": [
-          "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
-        ],
-        "de": [
-          "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
@@ -1800,7 +1788,23 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-caisse-%28Parfumerie%29-60/1370036555/"
+      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-caisse-%28Parfumerie%29-60/1370036555/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-caisse-parfumerie-60-monthey",
+          "collaboratore-caisse-parfumerie-60-manor-ag-monthey"
+        ],
+        "en": [
+          "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
+        ],
+        "de": [
+          "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-caisse-parfumerie-60-monthey",
+        "collaboratore-caisse-parfumerie-60-manor-ag-monthey"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Bijouterie) 80%",
@@ -1840,25 +1844,8 @@
       },
       "sourceLang": "fr",
       "id": "manor-005825701d1d",
-      "previousSlugs": [
-        "manor-collaborateur-trice-vente-bijouterie-80-monthey",
-        "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-vente-bijouterie-80-monthey",
-          "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey"
-        ],
-        "en": [
-          "manor-collaborateur-trice-vente-bijouterie-80-monthey"
-        ],
-        "de": [
-          "manor-collaborateur-trice-vente-bijouterie-80-monthey"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 57600,
       "salaryMax": 88800,
       "currency": "CHF",
@@ -1873,7 +1860,24 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Bijouterie%29-80/1370043855/"
+      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Bijouterie%29-80/1370043855/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-bijouterie-80-monthey",
+          "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey"
+        ],
+        "en": [
+          "manor-collaborateur-trice-vente-bijouterie-80-monthey"
+        ],
+        "de": [
+          "manor-collaborateur-trice-vente-bijouterie-80-monthey"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-bijouterie-80-monthey",
+        "collaboratore-di-vendita-bijouterie-80-manor-ag-monthey"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice caisse (Supermarché) 50%",
@@ -2468,13 +2472,11 @@
       "sourceLang": "fr",
       "id": "manor-4c71a3be7249",
       "previousSlugs": [
-        "manor-collaborateur-trice-caisse-food-40-morges",
-        "collaboratore-caisse-food-40-manor-ag-morges"
+        "manor-collaborateur-trice-caisse-food-40-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-caisse-food-40-morges",
-          "collaboratore-caisse-food-40-manor-ag-morges"
+          "manor-collaborateur-trice-caisse-food-40-morges"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-food-40-morges"
@@ -2500,7 +2502,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Morges-Collaborateurtrice-caisse-%28Food%29-40/1369908155/"
+      "applyUrl": "https://positions.manor.ch/job/Morges-Collaborateurtrice-caisse-%28Food%29-40/1369908155/",
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Verkauf Damenkonfektion 20%",
@@ -2895,15 +2898,15 @@
       },
       "postedDate": "2026-09-29",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-jouets-50-manor-ag-geneve",
+      "slug": "vendite-di-collaboratore-players-50-manor-ag-geneve",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-jouets-50-manor-ag-geneve",
+        "it": "vendite-di-collaboratore-players-50-manor-ag-geneve",
         "en": "collaborator-sales-players-50-manor-ag-geneve",
         "de": "mitarbeiterverkaufe-spieler-50-manor-ag-geneve",
         "fr": "manor-collaborateur-trice-vente-jouets-50-geneve-j33la7"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Jouets) 50%",
+        "it": "Vendite di Collaboratore (Players) 50%",
         "en": "Collaborator sales (Players) 50%",
         "de": "Mitarbeiterverkäufe (Spieler) 50%",
         "fr": "Collaborateur/trice vente (Jouets) 50%"
@@ -2913,13 +2916,13 @@
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-50-geneve",
         "manor-collaborateur-trice-vente-jouets-50-geneve-2",
-        "vendite-di-collaboratore-players-50-manor-ag-geneve"
+        "collaborateur-trice-vente-jouets-50-manor-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-50-geneve",
           "manor-collaborateur-trice-vente-jouets-50-geneve-2",
-          "vendite-di-collaboratore-players-50-manor-ag-geneve"
+          "collaborateur-trice-vente-jouets-50-manor-ag-geneve"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-50-geneve"
@@ -2931,7 +2934,6 @@
           "manor-collaborateur-trice-vente-jouets-50-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:27:57.072Z",
       "crawledAt": "",
       "salaryMin": 36000,
@@ -3363,7 +3365,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Vevey-Collaborateurtrice-Merchandising-%28non-food%29-80/1369897555/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice vente (Bijouterie) 80%",
@@ -4357,7 +4359,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Home-&-M%C3%A9nage%29-60/1369564455/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice caisse (Home&Ménage) 70%",
@@ -5101,6 +5103,7 @@
       "sourceLang": "de",
       "id": "manor-ae10fcc1dedc",
       "previousSlugs": [
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs",
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e",
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
         "in-der-zeitschrift-montagsaus-ilffe-emanor-20-manor-ag-hochdorf",
@@ -5110,6 +5113,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs",
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-9pzn7e",
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
           "employees-in-logistics-emanor-assembly-assistance-20-manor-ag-hochdorf",
@@ -5268,63 +5272,6 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Parfumerie%29-50/1369318055/"
-    },
-    {
-      "title": "Collaborateur/trice supermarché (Boulangerie) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie%29-50/1369318655/",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressRegion": "GE",
-      "canton": "GE",
-      "country": "CH",
-      "category": "hospitality",
-      "employmentType": "PART_TIME",
-      "description": "Dynamisme\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
-      "descriptionByLocale": {
-        "en": "Dynamisme\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
-        "de": "Dynamisme\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
-        "fr": "Dynamisme\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
-        "it": "Dynamisme\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-      },
-      "postedDate": "2026-09-23",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
-      "slugByLocale": {
-        "it": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
-        "en": "supermarche-co-operator-boulangerie-50-manor-ag-geneve",
-        "de": "supermarche-co-operator-boulangerie-50-manor-ag-geneve",
-        "fr": "cooperateur-supermarche-boulangerie-50-manor-ag-geneve"
-      },
-      "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Boulangerie) 50%",
-        "en": "Supermarché co-operator (Boulangerie) 50%",
-        "de": "Supermarché Co-operator (Boulangerie) 50%",
-        "fr": "Coopérateur Supermarché (Boulangerie) 50%"
-      },
-      "sourceLang": "fr",
-      "id": "manor-8d3da03c2c67",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:53:59.307Z",
-      "crawledAt": "",
-      "salaryMin": 32800,
-      "salaryMax": 41300,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 32800,
-          "maxValue": 41300,
-          "unitText": "YEAR"
-        }
-      },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie%29-50/1369318655/"
     },
     {
       "title": "Collaboratore/trice cassa (Confezione Uomo) 40%",
@@ -6372,24 +6319,24 @@
       "employmentType": "PART_TIME",
       "description": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter",
       "descriptionByLocale": {
-        "en": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter",
         "de": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter",
-        "fr": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter",
-        "it": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
+        "it": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter",
+        "en": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter",
+        "fr": "connaitre de domaine de la confection dames et mode.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
       },
       "postedDate": "2026-09-21",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel-0ad7cf",
+      "slug": "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel-0ad7cf",
-        "en": "mitarbeiter-in-sales-damenkonfektion-30-manor-ag-biel",
+        "it": "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
+        "en": "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
         "de": "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
-        "fr": "mitarbeiter-in-vente-damenkonfektion-30-manor-ag-biel"
+        "fr": "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita (Damenkonfektion) 30%",
-        "en": "Mitarbeiter*in Sales (Damenkonfektion) 30%",
         "de": "Mitarbeiter*in Verkauf (Damenkonfektion) 30%",
+        "en": "Mitarbeiter*in Sales (Damenkonfektion) 30%",
         "fr": "Mitarbeiter*in Vente (Damenkonfektion) 30%"
       },
       "sourceLang": "de",
@@ -6397,19 +6344,22 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel-2",
         "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
-        "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel-0ad7cf"
+        "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel-0ad7cf",
+        "mitarbeiter-in-sales-damenkonfektion-30-manor-ag-biel",
+        "mitarbeiter-in-vente-damenkonfektion-30-manor-ag-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel-2",
-          "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
-          "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel-0ad7cf"
+          "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
         ],
         "en": [
-          "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
+          "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
+          "mitarbeiter-in-sales-damenkonfektion-30-manor-ag-biel"
         ],
         "fr": [
-          "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel"
+          "manor-mitarbeiter-in-verkauf-damenkonfektion-30-biel",
+          "mitarbeiter-in-vente-damenkonfektion-30-manor-ag-biel"
         ]
       },
       "needsRetranslation": true,
@@ -6600,13 +6550,11 @@
       "sourceLang": "de",
       "id": "manor-0bd185d30549",
       "previousSlugs": [
-        "manor-buyer-herren-fashion-100-basel",
-        "compratore-moda-uomo-100-manor-ag-basel"
+        "manor-buyer-herren-fashion-100-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-buyer-herren-fashion-100-basel",
-          "compratore-moda-uomo-100-manor-ag-basel"
+          "manor-buyer-herren-fashion-100-basel"
         ]
       },
       "needsRetranslation": true,
@@ -7156,15 +7104,15 @@
       },
       "postedDate": "2026-09-17",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-caisse-confection-dames-50-nyon",
+      "slug": "collaboratore-caisse-confezione-signore-50-manor-ag-nyon",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-caisse-confection-dames-50-nyon",
+        "it": "collaboratore-caisse-confezione-signore-50-manor-ag-nyon",
         "en": "eur-5-million-for-the-construction-of-a-new-building-site-in-the-city-of-lille-manor-ag-nyon",
         "de": "5-mio-eur-fur-den-bau-einer-neuen-baustelle-in-lille-manor-ag-nyon",
         "fr": "collaborateur-mere-caisse-defense-dames-50-manor-ag-nyon"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice caisse (Confection Dames) 50%",
+        "it": "Collaboratore caisse (Confezione Signore) 50%",
         "en": "EUR 5 million for the construction of a new building site in the city of Lille.",
         "de": "5 Mio. EUR für den Bau einer neuen Baustelle in Lille.",
         "fr": "Collaborateur/mère caisse (Défense Dames) 50%"
@@ -7188,7 +7136,15 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Nyon-Collaborateurtrice-caisse-%28Confection-Dames%29-50/1368728855/"
+      "applyUrl": "https://positions.manor.ch/job/Nyon-Collaborateurtrice-caisse-%28Confection-Dames%29-50/1368728855/",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-caisse-confection-dames-50-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-caisse-confection-dames-50-nyon"
+      ]
     },
     {
       "title": "Collaborateur/trice service 80%",
@@ -7255,7 +7211,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Vevey-Collaborateurtrice-service-80/1368730055/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Verkauf 40%",
@@ -8113,15 +8069,15 @@
       },
       "postedDate": "2026-09-14",
       "source": "company-website",
-      "slug": "collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-manor-ag-delemont",
+      "slug": "vendita-collaboratore-bijouterie-orologi-student-20-manor-ag-delemont",
       "slugByLocale": {
-        "it": "collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-manor-ag-delemont",
+        "it": "vendita-collaboratore-bijouterie-orologi-student-20-manor-ag-delemont",
         "en": "collaborator-sales-bijouterie-watches-student-20-manor-ag-delemont",
         "de": "mitarbeiter-verkauf-bijouterie-uhren-student-20-manor-ag-delemont",
         "fr": "manor-collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-delemont"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Bijouterie & Montres) Etudiant/e 20%",
+        "it": "Vendita Collaboratore (Bijouterie & Orologi) Student 20%",
         "en": "Collaborator sales (Bijouterie & Watches) Student 20%",
         "de": "Mitarbeiter Verkauf (Bijouterie & Uhren) Student 20%",
         "fr": "Collaborateur/trice vente (Bijouterie & Montres) Etudiant/e 20%"
@@ -8130,14 +8086,14 @@
       "id": "manor-1e629d560021",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-delemont",
-        "vendita-collaboratore-bijouterie-orologi-student-20-manor-ag-delemont",
-        "studente-20-manor-ag-delemont"
+        "studente-20-manor-ag-delemont",
+        "collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-manor-ag-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-delemont",
-          "vendita-collaboratore-bijouterie-orologi-student-20-manor-ag-delemont",
-          "studente-20-manor-ag-delemont"
+          "studente-20-manor-ag-delemont",
+          "collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-manor-ag-delemont"
         ],
         "en": [
           "manor-collaborateur-trice-vente-bijouterie-montres-etudiant-e-20-delemont"
@@ -8528,10 +8484,10 @@
         "fr": "gestionnaire-de-projet-gestion-des-installations-100-manor-ag-basel-projektleiter-facility-management"
       },
       "titleByLocale": {
-        "it": "Projektleiter Facility Management 100%",
-        "en": "Projektleiter Facility Management 100%",
+        "it": "Project Manager Facility Management 100%",
+        "en": "Project Manager Facility Management 100%",
         "de": "Projektleiter Facility Management 100%",
-        "fr": "Projektleiter Facility Management 100%"
+        "fr": "Gestionnaire de projet Gestion des installations 100%"
       },
       "sourceLang": "de",
       "id": "manor-6ae5a7162e1c",
@@ -9496,7 +9452,7 @@
         "fr": "collaborateur-cassette-papeterie-60-manor-ag-vevey-collaborateurtrice-caisse-papeterie"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice caisse (Papeterie) 60%",
+        "it": "Collaboratore caisse (Papetery) 60%",
         "en": "Cashier/Cashiering Employee (Stationery) 60%",
         "de": "Maschinen zum Bearbeiten von Papier (Papetie) 60%",
         "fr": "Machine à travailler/caisse (Papetie) 60%"
@@ -9704,7 +9660,7 @@
         "fr": "collaborateur-trice-marchandises-visuelles-non-alimentaires-50-manor-ag-geneve-1-collaborateurtrice-visual"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice Polydesigner 3D (Non Food) 50%",
+        "it": "Collaboratore Polydesigner 3D (Non Food) 50%",
         "en": "Partner of the European Commission (EUR)",
         "de": "Partner der Europäischen Kommission (EUR)",
         "fr": "Collaborateur/trice - Marchandises visuelles (non alimentaires) 50%"
@@ -10546,15 +10502,15 @@
       },
       "postedDate": "2026-09-09",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-parfumerie-60-vevey-collaborateurtrice-vente-parfumerie",
+      "slug": "collaboratore-di-vendita-parfumerie-60-manor-ag-vevey",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-parfumerie-60-vevey-collaborateurtrice-vente-parfumerie",
+        "it": "collaboratore-di-vendita-parfumerie-60-manor-ag-vevey",
         "en": "collaborator-wind-machine-parfumerie-60-manor-ag-vevey",
         "de": "kollaborator-windmaschine-parfumerie-60-manor-ag-vevey",
         "fr": "collaborateur-chaine-vente-parfumerie-60-manor-ag-vevey"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Parfumerie) 60%",
+        "it": "Collaboratore di vendita (Parfumerie) 60%",
         "en": "Collaborator/wind machine (Parfumerie) 60%",
         "de": "Kollaborator/Windmaschine (Parfumerie) 60%",
         "fr": "Collaborateur/chaîne vente (Parfumerie) 60%"
@@ -10563,11 +10519,13 @@
       "id": "manor-0039507abd03",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-parfumerie-60-vevey",
-        "collaborator-wind-machine-parfumerie-60-manor-ag-vevey"
+        "collaborator-wind-machine-parfumerie-60-manor-ag-vevey",
+        "manor-collaborateur-trice-vente-parfumerie-60-vevey-collaborateurtrice-vente-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-vente-parfumerie-60-vevey"
+          "manor-collaborateur-trice-vente-parfumerie-60-vevey",
+          "manor-collaborateur-trice-vente-parfumerie-60-vevey-collaborateurtrice-vente-parfumerie"
         ],
         "en": [
           "collaborator-wind-machine-parfumerie-60-manor-ag-vevey"
@@ -11032,7 +10990,7 @@
         "fr": "collaborateur-compagnie-caisse-20-manor-ag-marin-epagnier-collaborateurtrice-caisse"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice Caisse Etudiant 20%",
+        "it": "Collaboratore/trice Caisse Etudiant 20%",
         "en": "Student Cashier 20%",
         "de": "Student Kassier/in 20%",
         "fr": "Tél.: +44 (0) 2 544 544 744"
@@ -11408,7 +11366,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Biel-Collaborateurtrice-logistique-CDD-40/1367257455/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter/in Logistik 30%",
@@ -11487,7 +11445,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Biel-Mitarbeiterin-Logistik-30/1367257355/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice Merchandising (Hardgoods) 50%",
@@ -11875,14 +11833,12 @@
       "id": "manor-6c1fcc5d3bf1",
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-20-zurich",
-        "manor-mitarbeiter-in-verkauf-20-zurich-mitarbeiterin-verkauf-20",
-        "collaboratore-trice-in-vendita-20-manor-ag-zurich"
+        "manor-mitarbeiter-in-verkauf-20-zurich-mitarbeiterin-verkauf-20"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-20-zurich",
-          "manor-mitarbeiter-in-verkauf-20-zurich-mitarbeiterin-verkauf-20",
-          "collaboratore-trice-in-vendita-20-manor-ag-zurich"
+          "manor-mitarbeiter-in-verkauf-20-zurich-mitarbeiterin-verkauf-20"
         ]
       },
       "needsRetranslation": true,
@@ -11902,7 +11858,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-20/1366176655/"
+      "applyUrl": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-20/1366176655/",
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Visual Merchandising 70%",
@@ -12117,7 +12074,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Vevey-Boucher%C3%A8re-100/1366210955/"
+      "applyUrl": "https://positions.manor.ch/job/Vevey-Boucher%C3%A8re-100/1366210955/",
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice Caisse (Home, Ménage) 100%",
@@ -12150,7 +12108,7 @@
         "fr": "manor-collaborateur-trice-caisse-home-menage-100-fribourg-collaborateurtrice-caisse-home"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice Caisse (Home, Ménage) 100%",
+        "it": "Collaboratore Caisse (Home, Household) 100%",
         "en": "Cashier (Home, Household) 100%",
         "de": "Kassierer/in (Wohnen, Haushalt) 100%",
         "fr": "Collaborateur/trice Caisse (Home, Ménage) 100%"
@@ -12247,7 +12205,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-Caisse-%28Jouets%29-50/1366046155/"
+      "applyUrl": "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-Caisse-%28Jouets%29-50/1366046155/",
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice vente (Papeterie) 50%",
@@ -12312,7 +12271,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-vente-%28Papeterie%29-50/1366041355/"
+      "applyUrl": "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-vente-%28Papeterie%29-50/1366041355/",
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice Caisse (jouets) 100%",
@@ -12345,7 +12305,7 @@
         "fr": "caissier-ere-jouets-100-manor-ag-fribourg"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice Caisse (jouets) 100%",
+        "it": "Scatola di Collaboratore (giochi) 100%",
         "en": "Cashier (Toys) 100%",
         "de": "Kassierer/in (Spielwaren) 100%",
         "fr": "Caissier/ère (Jouets) 100%"
@@ -12362,7 +12322,6 @@
       },
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "currency": "CHF",
@@ -13327,7 +13286,7 @@
         "fr": "tel-44-0-2-544-744-manor-ag-vevey-collaborateurtrice-cuisine-manora"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice cuisine (Manora) 60%",
+        "it": "Cucina (Manora) 60%",
         "en": "Kitchen Collaborator (Manora) 60%",
         "de": "Küchenmitarbeiter/in (Manora) 60%",
         "fr": "Tél.: +44 (0) 2 544 744"
@@ -13470,7 +13429,7 @@
         "fr": "manor-collaborateur-trice-logistique-80-geneve-1-collaborateurtrice-logistique"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice logistique 80%",
+        "it": "Collaboratore logistico 80%",
         "en": "Logistics Collaborator 80%",
         "de": "Logistik-Mitarbeiter 80%",
         "fr": "Collaborateur/trice logistique 80%"
@@ -14271,7 +14230,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-80/1365152855/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice supermarché (Charcuterie & Fromages) 50%",
@@ -14304,7 +14263,7 @@
         "fr": "partenaire-du-nombre-de-supermarches-charcuterie-dagas-50-manor-ag-fribourg"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Charcuterie & Fromages) 50%",
+        "it": "Supermercato Collaboratore (Charcuterie & Cheeses) 50%",
         "en": "Supermarket Associate (Deli & Cheese) 50%",
         "de": "Supermarktmitarbeiter/in (Feinkost & Käse) 50%",
         "fr": "Partenaire du nombre de supermarchés (Charcuterie & Dagas) 50%"
@@ -14424,7 +14383,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Sierre-Collaborateurtrice-service-%28Manora%29-60/1364973255/",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "needsRetranslation": true
     },
     {
@@ -14499,7 +14458,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Basel-Mitarbeiterin-Visual-Merchandising-%28Home-&-Living%29-100/1365022755/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Kasse (X-Mas Market) 100%",
@@ -15156,7 +15115,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-LogisticWareneingang-80/1364621855/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Verkauf Parfümerie 60%",
@@ -16147,7 +16106,7 @@
         "fr": "cooperateur-supermarche-poissonnerie-50-manor-ag-sion-collaborateurtrice-supermarche-poissonnerie"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Poissonnerie) 50%",
+        "it": "Collaboratore del supermercato (Fisheries) 50%",
         "en": "Supermarché co-operator (Poissonnerie) 50%",
         "de": "Supermarché-Kooperator (Poissonnerie) 50%",
         "fr": "Coopérateur Supermarché (Poissonnerie) 50%"
@@ -16371,7 +16330,7 @@
         "fr": "travaille-avec-le-nombre-de-travailleurs-dans-l-union-europeenne-manor-ag-vevey"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Epicerie) 45%",
+        "it": "Collaboratore del supermercato (Epicerie) 45%",
         "en": "Worked with the number of workers in the European Union",
         "de": "Arbeitet mit der Zahl der Arbeitnehmer in der Europäischen Union",
         "fr": "Travaille avec le nombre de travailleurs dans l'Union européenne"
@@ -16843,7 +16802,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Parf%C3%BCmerie-20/1361596855/",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "title": "Mitarbeiter*in Verkauf 40%",
@@ -17572,7 +17531,7 @@
       },
       "titleByLocale": {
         "it": "Assistant Floor Manager 100%",
-        "en": "Assistant/e Floor Manager (Confection dames) 100%",
+        "en": "Assistant Floor Manager 100%",
         "de": "Assistent/e Floor Manager (Confection dames) 100%",
         "fr": "Assistante/Chef de Floor E (Confiserie Dames) à 100 %"
       },
@@ -17590,7 +17549,6 @@
       },
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -17605,7 +17563,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistante-Floor-Manager-%28Confection-dames%29-100/1359016255/"
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistante-Floor-Manager-%28Confection-dames%29-100/1359016255/",
+      "needsRetranslation": true
     },
     {
       "title": "Assistant/e Floor Manager (Beauty) 100%",
@@ -17639,7 +17598,7 @@
       },
       "titleByLocale": {
         "it": "Assistente responsabile piano (bellezza) 100%",
-        "en": "Assistant/e Floor Manager (Beauty) 100%",
+        "en": "Assistant Floor Manager (Beauty) 100%",
         "de": "Assistent/e Floor Manager (Beauty) 100%",
         "fr": "Gestionnaire adjoint d'étage (Beauté) 100%"
       },
@@ -17659,7 +17618,6 @@
       },
       "firstSeenAt": "2026-08-13T22:19:19.718Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 116500,
       "salaryMax": 162500,
       "currency": "CHF",
@@ -17674,7 +17632,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistante-Floor-Manager-%28Beauty%29-100/1359017755/"
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistante-Floor-Manager-%28Beauty%29-100/1359017755/",
+      "needsRetranslation": true
     },
     {
       "title": "Visual Merchandising Manager 100%",
@@ -17739,7 +17698,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Chur-Visual-Merchandising-Manager-100/1353667055/",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "needsRetranslation": true
     },
     {
@@ -17911,27 +17870,29 @@
       "slugByLocale": {
         "it": "manor-droguiste-dermacenter-60-chavannes-de-bogis-droguiste",
         "en": "drogiste-dermacentrer-60-manor-ag-chavannes-de-bogis",
-        "de": "droguiste-dermacenter-60-manor-ag-chavannes-de-bogis",
+        "de": "drogenkonsument-dermacenter-60-manor-ag-chavannes-de-bogis",
         "fr": "drogiste-dermac-60-manor-ag-chavannes-de-bogis"
       },
       "titleByLocale": {
-        "it": "Droguiste (Dermacenter) 60%",
+        "it": "utente di droga (Dermacenter) 60%",
         "en": "Drogiste (Dermacentrer) 60%",
-        "de": "Droguiste (Dermacenter) 60%",
+        "de": "Drogenkonsument (Dermacenter) 60%",
         "fr": "Drogiste (Dermac) 60%"
       },
       "sourceLang": "fr",
       "id": "manor-249745891a2c",
       "previousSlugs": [
         "manor-droguiste-dermacenter-60-chavannes-de-bogis",
-        "drogiste-dermacenter-60-manor-ag-chavannes-de-bogis"
+        "drogiste-dermacenter-60-manor-ag-chavannes-de-bogis",
+        "droguiste-dermacenter-60-manor-ag-chavannes-de-bogis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-droguiste-dermacenter-60-chavannes-de-bogis"
         ],
         "de": [
-          "drogiste-dermacenter-60-manor-ag-chavannes-de-bogis"
+          "drogiste-dermacenter-60-manor-ag-chavannes-de-bogis",
+          "droguiste-dermacenter-60-manor-ag-chavannes-de-bogis"
         ]
       },
       "needsRetranslation": true,
@@ -18321,6 +18282,755 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Thun-Mitarbeiterin-Service-50/1354960355/"
+    },
+    {
+      "title": "Collaborateur/trice caisse (Papeterie) 70%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Papeterie%29-70/1370304455/",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "category": "sales",
+      "employmentType": "PART_TIME",
+      "description": "expérience en caisse\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "expérience en caisse\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "expérience en caisse\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "expérience en caisse\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "expérience en caisse\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-caisse-papeterie-70-lausanne",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-caisse-papeterie-70-lausanne",
+        "en": "manor-collaborateur-trice-caisse-papeterie-70-lausanne",
+        "de": "manor-collaborateur-trice-caisse-papeterie-70-lausanne",
+        "fr": "manor-collaborateur-trice-caisse-papeterie-70-lausanne"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice caisse (Papeterie) 70%",
+        "fr": "Collaborateur/trice caisse (Papeterie) 70%",
+        "en": "Collaborateur/trice caisse (Papeterie) 70%",
+        "de": "Collaborateur/trice caisse (Papeterie) 70%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-d35b3a3ed346",
+      "salaryMin": 50400,
+      "salaryMax": 77700,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50400,
+          "maxValue": 77700,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Papeterie%29-70/1370304455/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Boucher/ère 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Boucher%C3%A8re-100/1370311655/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "retail",
+      "employmentType": "FULL_TIME",
+      "description": "Flexible\nconnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Flexible\nconnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Flexible\nconnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Flexible\nconnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Flexible\nconnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-boucher-ere-100-geneve",
+      "slugByLocale": {
+        "it": "manor-boucher-ere-100-geneve",
+        "en": "manor-boucher-ere-100-geneve",
+        "de": "manor-boucher-ere-100-geneve",
+        "fr": "manor-boucher-ere-100-geneve"
+      },
+      "titleByLocale": {
+        "it": "Boucher/ère 100%",
+        "fr": "Boucher/ère 100%",
+        "en": "Boucher/ère 100%",
+        "de": "Boucher/ère 100%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-e5f1b101a9d7",
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Boucher%C3%A8re-100/1370311655/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Collaborateur/trice supermarché (Charcuteries & Fromages) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Charcuteries-&-Fromages%29-50/1370312155/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "retail",
+      "employmentType": "PART_TIME",
+      "description": "Flexible\ndynamique\ncommercant\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Flexible\ndynamique\ncommercant\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Flexible\ndynamique\ncommercant\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Flexible\ndynamique\ncommercant\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Flexible\ndynamique\ncommercant\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
+        "en": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
+        "de": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
+        "fr": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice supermarché (Charcuteries & Fromages) 50%",
+        "fr": "Collaborateur/trice supermarché (Charcuteries & Fromages) 50%",
+        "en": "Collaborateur/trice supermarché (Charcuteries & Fromages) 50%",
+        "de": "Collaborateur/trice supermarché (Charcuteries & Fromages) 50%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-d4233a844da2",
+      "salaryMin": 36000,
+      "salaryMax": 55500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36000,
+          "maxValue": 55500,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Charcuteries-&-Fromages%29-50/1370312155/",
+      "firstSeenAt": "2026-09-19T23:05:15.844Z"
+    },
+    {
+      "title": "Collaborateur/trice supermarché (Fruits & Légumes) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Fruits-&-L%C3%A9gumes%29-50/1370310955/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "retail",
+      "employmentType": "PART_TIME",
+      "description": "Flexible\nDynamique\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Flexible\nDynamique\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Flexible\nDynamique\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Flexible\nDynamique\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Flexible\nDynamique\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-fruits-legumes-50-geneve",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-supermarche-fruits-legumes-50-geneve",
+        "en": "manor-collaborateur-trice-supermarche-fruits-legumes-50-geneve",
+        "de": "manor-collaborateur-trice-supermarche-fruits-legumes-50-geneve",
+        "fr": "manor-collaborateur-trice-supermarche-fruits-legumes-50-geneve"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice supermarché (Fruits & Légumes) 50%",
+        "fr": "Collaborateur/trice supermarché (Fruits & Légumes) 50%",
+        "en": "Collaborateur/trice supermarché (Fruits & Légumes) 50%",
+        "de": "Collaborateur/trice supermarché (Fruits & Légumes) 50%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-247b76cca0ed",
+      "salaryMin": 36000,
+      "salaryMax": 55500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36000,
+          "maxValue": 55500,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Fruits-&-L%C3%A9gumes%29-50/1370310955/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Poissonnier/ère 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Poissonnier%C3%A8re-100/1370311155/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "retail",
+      "employmentType": "FULL_TIME",
+      "description": "Flexible\nConnaissance et respect des règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Flexible\nConnaissance et respect des règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Flexible\nConnaissance et respect des règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Flexible\nConnaissance et respect des règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Flexible\nConnaissance et respect des règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-poissonnier-ere-100-geneve",
+      "slugByLocale": {
+        "it": "manor-poissonnier-ere-100-geneve",
+        "en": "manor-poissonnier-ere-100-geneve",
+        "de": "manor-poissonnier-ere-100-geneve",
+        "fr": "manor-poissonnier-ere-100-geneve"
+      },
+      "titleByLocale": {
+        "it": "Poissonnier/ère 100%",
+        "fr": "Poissonnier/ère 100%",
+        "en": "Poissonnier/ère 100%",
+        "de": "Poissonnier/ère 100%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-0e6d670d524a",
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Poissonnier%C3%A8re-100/1370311155/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Collaborateur/trice supermarché (Boulangerie) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie%29-50/1370312655/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "hospitality",
+      "employmentType": "PART_TIME",
+      "description": "Dynamique\nFlexible\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Dynamique\nFlexible\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Dynamique\nFlexible\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Dynamique\nFlexible\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Dynamique\nFlexible\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+        "en": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+        "de": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+        "fr": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice supermarché (Boulangerie) 50%",
+        "fr": "Collaborateur/trice supermarché (Boulangerie) 50%",
+        "en": "Collaborateur/trice supermarché (Boulangerie) 50%",
+        "de": "Collaborateur/trice supermarché (Boulangerie) 50%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-0987082df2a8",
+      "salaryMin": 32800,
+      "salaryMax": 41300,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 32800,
+          "maxValue": 41300,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie%29-50/1370312655/",
+      "firstSeenAt": "2026-09-23T23:53:59.307Z"
+    },
+    {
+      "title": "Collaborateur/trice caisse (Food) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-caisse-%28Food%29-50/1370312955/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "sales",
+      "employmentType": "PART_TIME",
+      "description": "Rédaction et réponse de mail à la clientèle\nSérieux\nCréatif, confection de paniers garnis\nFlexibilité\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Rédaction et réponse de mail à la clientèle\nSérieux\nCréatif, confection de paniers garnis\nFlexibilité\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Rédaction et réponse de mail à la clientèle\nSérieux\nCréatif, confection de paniers garnis\nFlexibilité\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Rédaction et réponse de mail à la clientèle\nSérieux\nCréatif, confection de paniers garnis\nFlexibilité\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Rédaction et réponse de mail à la clientèle\nSérieux\nCréatif, confection de paniers garnis\nFlexibilité\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-caisse-food-50-geneve",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-caisse-food-50-geneve",
+        "en": "manor-collaborateur-trice-caisse-food-50-geneve",
+        "de": "manor-collaborateur-trice-caisse-food-50-geneve",
+        "fr": "manor-collaborateur-trice-caisse-food-50-geneve"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice caisse (Food) 50%",
+        "fr": "Collaborateur/trice caisse (Food) 50%",
+        "en": "Collaborateur/trice caisse (Food) 50%",
+        "de": "Collaborateur/trice caisse (Food) 50%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-0940347af572",
+      "salaryMin": 36000,
+      "salaryMax": 55500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36000,
+          "maxValue": 55500,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-caisse-%28Food%29-50/1370312955/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Collaborateur/trice supermarché (Produits Frais) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Produits-Frais%29-50/1370311355/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "retail",
+      "employmentType": "PART_TIME",
+      "description": "Dynamique rapide\nflexible\netat d'esprit positif\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Dynamique rapide\nflexible\netat d'esprit positif\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Dynamique rapide\nflexible\netat d'esprit positif\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Dynamique rapide\nflexible\netat d'esprit positif\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Dynamique rapide\nflexible\netat d'esprit positif\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-produits-frais-50-geneve",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-supermarche-produits-frais-50-geneve",
+        "en": "manor-collaborateur-trice-supermarche-produits-frais-50-geneve",
+        "de": "manor-collaborateur-trice-supermarche-produits-frais-50-geneve",
+        "fr": "manor-collaborateur-trice-supermarche-produits-frais-50-geneve"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice supermarché (Produits Frais) 50%",
+        "fr": "Collaborateur/trice supermarché (Produits Frais) 50%",
+        "en": "Collaborateur/trice supermarché (Produits Frais) 50%",
+        "de": "Collaborateur/trice supermarché (Produits Frais) 50%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-cfffdd0f6def",
+      "salaryMin": 36000,
+      "salaryMax": 55500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36000,
+          "maxValue": 55500,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Produits-Frais%29-50/1370311355/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Collaborateur/trice vente (Home & Ménage) 70%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Home-&-M%C3%A9nage%29-70/1370323555/",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "category": "sales",
+      "employmentType": "PART_TIME",
+      "description": "aime le contact client, la vente\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "aime le contact client, la vente\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "aime le contact client, la vente\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "aime le contact client, la vente\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "aime le contact client, la vente\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-vente-home-menage-70-lausanne",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-vente-home-menage-70-lausanne",
+        "en": "manor-collaborateur-trice-vente-home-menage-70-lausanne",
+        "de": "manor-collaborateur-trice-vente-home-menage-70-lausanne",
+        "fr": "manor-collaborateur-trice-vente-home-menage-70-lausanne"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice vente (Home & Ménage) 70%",
+        "fr": "Collaborateur/trice vente (Home & Ménage) 70%",
+        "en": "Collaborateur/trice vente (Home & Ménage) 70%",
+        "de": "Collaborateur/trice vente (Home & Ménage) 70%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-3e224b6a0eae",
+      "salaryMin": 50400,
+      "salaryMax": 77700,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50400,
+          "maxValue": 77700,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Home-&-M%C3%A9nage%29-70/1370323555/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Visual Merchandising Manager (non food) 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Chavannes-de-Bogis-Visual-Merchandising-Manager-%28non-food%29-100/1370323155/",
+      "location": "Chavannes de Bogis",
+      "addressLocality": "Chavannes de Bogis",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "category": "design",
+      "employmentType": "FULL_TIME",
+      "description": "- Excellente compétences de Management et Leadership (Conduite d'entretien, coaching / formation des collaborateurs)\n- Compétences de planification et coordination de l'ensemble des activités Visual en magasin\n- Planification e t réalisation de projets, transformations, événements et activités.\n- sens du détail et vue d'ensemble\n- Tendances de la mode, Styling\n- Excellente capacité de représentation de l'espace\n- Compétences manuelles et techniques de présentation\n- Ouverture aux nouvelles technologies / solutions\nlogicielles\n- Maîtrise rapide de l'environnement numérique",
+      "descriptionByLocale": {
+        "fr": "- Excellente compétences de Management et Leadership (Conduite d'entretien, coaching / formation des collaborateurs)\n- Compétences de planification et coordination de l'ensemble des activités Visual en magasin\n- Planification e t réalisation de projets, transformations, événements et activités.\n- sens du détail et vue d'ensemble\n- Tendances de la mode, Styling\n- Excellente capacité de représentation de l'espace\n- Compétences manuelles et techniques de présentation\n- Ouverture aux nouvelles technologies / solutions\nlogicielles\n- Maîtrise rapide de l'environnement numérique",
+        "it": "- Excellente compétences de Management et Leadership (Conduite d'entretien, coaching / formation des collaborateurs)\n- Compétences de planification et coordination de l'ensemble des activités Visual en magasin\n- Planification e t réalisation de projets, transformations, événements et activités.\n- sens du détail et vue d'ensemble\n- Tendances de la mode, Styling\n- Excellente capacité de représentation de l'espace\n- Compétences manuelles et techniques de présentation\n- Ouverture aux nouvelles technologies / solutions\nlogicielles\n- Maîtrise rapide de l'environnement numérique",
+        "en": "- Excellente compétences de Management et Leadership (Conduite d'entretien, coaching / formation des collaborateurs)\n- Compétences de planification et coordination de l'ensemble des activités Visual en magasin\n- Planification e t réalisation de projets, transformations, événements et activités.\n- sens du détail et vue d'ensemble\n- Tendances de la mode, Styling\n- Excellente capacité de représentation de l'espace\n- Compétences manuelles et techniques de présentation\n- Ouverture aux nouvelles technologies / solutions\nlogicielles\n- Maîtrise rapide de l'environnement numérique",
+        "de": "- Excellente compétences de Management et Leadership (Conduite d'entretien, coaching / formation des collaborateurs)\n- Compétences de planification et coordination de l'ensemble des activités Visual en magasin\n- Planification e t réalisation de projets, transformations, événements et activités.\n- sens du détail et vue d'ensemble\n- Tendances de la mode, Styling\n- Excellente capacité de représentation de l'espace\n- Compétences manuelles et techniques de présentation\n- Ouverture aux nouvelles technologies / solutions\nlogicielles\n- Maîtrise rapide de l'environnement numérique"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-visual-merchandising-manager-non-food-100-chavannes-de-bogis",
+      "slugByLocale": {
+        "it": "manor-visual-merchandising-manager-non-food-100-chavannes-de-bogis",
+        "en": "manor-visual-merchandising-manager-non-food-100-chavannes-de-bogis",
+        "de": "manor-visual-merchandising-manager-non-food-100-chavannes-de-bogis",
+        "fr": "manor-visual-merchandising-manager-non-food-100-chavannes-de-bogis"
+      },
+      "titleByLocale": {
+        "it": "Visual Merchandising Manager (non food) 100%",
+        "en": "Visual Merchandising Manager (non food) 100%",
+        "fr": "Visual Merchandising Manager (non food) 100%",
+        "de": "Visual Merchandising Manager (non food) 100%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-c7ef7d8969a3",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Chavannes-de-Bogis-Visual-Merchandising-Manager-%28non-food%29-100/1370323155/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Pâtissier/ère 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-P%C3%A2tissier%C3%A8re-50/1370325555/",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "category": "hospitality",
+      "employmentType": "PART_TIME",
+      "description": "Flexibilité\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Flexibilité\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Flexibilité\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Flexibilité\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Flexibilité\nConnaissance et respect règles d'hygiène\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-patissier-ere-50-geneve",
+      "slugByLocale": {
+        "it": "manor-patissier-ere-50-geneve",
+        "en": "manor-patissier-ere-50-geneve",
+        "de": "manor-patissier-ere-50-geneve",
+        "fr": "manor-patissier-ere-50-geneve"
+      },
+      "titleByLocale": {
+        "it": "Pâtissier/ère 50%",
+        "fr": "Pâtissier/ère 50%",
+        "en": "Pâtissier/ère 50%",
+        "de": "Pâtissier/ère 50%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-f7130d1a65e5",
+      "salaryMin": 32800,
+      "salaryMax": 41300,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 32800,
+          "maxValue": 41300,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-P%C3%A2tissier%C3%A8re-50/1370325555/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Conseiller/ère de vente (Sport) 60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Lausanne-Conseiller%C3%A8re-de-vente-%28Sport%29-60/1370331455/",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "category": "sales",
+      "employmentType": "PART_TIME",
+      "description": "Savoir faire\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Savoir faire\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Savoir faire\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Savoir faire\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Savoir faire\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "slug": "manor-conseiller-ere-de-vente-sport-60-lausanne",
+      "slugByLocale": {
+        "it": "manor-conseiller-ere-de-vente-sport-60-lausanne",
+        "en": "manor-conseiller-ere-de-vente-sport-60-lausanne",
+        "de": "manor-conseiller-ere-de-vente-sport-60-lausanne",
+        "fr": "manor-conseiller-ere-de-vente-sport-60-lausanne"
+      },
+      "titleByLocale": {
+        "it": "Conseiller/ère de vente (Sport) 60%",
+        "fr": "Conseiller/ère de vente (Sport) 60%",
+        "en": "Conseiller/ère de vente (Sport) 60%",
+        "de": "Conseiller/ère de vente (Sport) 60%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "manor-de196a150b61",
+      "salaryMin": 43200,
+      "salaryMax": 66600,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 43200,
+          "maxValue": 66600,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Lausanne-Conseiller%C3%A8re-de-vente-%28Sport%29-60/1370331455/",
+      "firstSeenAt": "2026-10-03T09:29:03.390Z"
+    },
+    {
+      "title": "Collaborateur/trice vente (Confection Messieurs) 80%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035455/",
+      "location": "Monthey",
+      "addressLocality": "Monthey",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressRegion": "VS",
+      "canton": "VS",
+      "country": "CH",
+      "category": "sales",
+      "employmentType": "PART_TIME",
+      "description": "Disponibilité, Flexible,\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+      "descriptionByLocale": {
+        "fr": "Disponibilité, Flexible,\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "it": "Disponibilité, Flexible,\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "en": "Disponibilité, Flexible,\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente",
+        "de": "Disponibilité, Flexible,\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
+      },
+      "postedDate": "2026-09-30",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "en": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "de": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "fr": "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice vente (Confection Messieurs) 80%",
+        "fr": "Collaborateur/trice vente (Confection Messieurs) 80%",
+        "en": "Collaborateur/trice vente (Confection Messieurs) 80%",
+        "de": "Collaborateur/trice vente (Confection Messieurs) 80%"
+      },
+      "sourceLang": "fr",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2"
+      ],
+      "id": "manor-ca0cfe19242a",
+      "salaryMin": 57600,
+      "salaryMax": 88800,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57600,
+          "maxValue": 88800,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035455/",
+      "firstSeenAt": "2026-09-30T21:28:02.065Z"
     }
   ]
 }

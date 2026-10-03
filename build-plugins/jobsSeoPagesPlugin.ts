@@ -11869,7 +11869,7 @@ ${staticAnalyticsHtml}
            inLanguage: entry.locale,
            isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
            about: { '@type': 'Thing', name: display },
-           provider: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+           provider: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
            mainEntity: {
              '@type': 'ItemList',
              numberOfItems: collectionListTotal ?? totalJobs,
@@ -15136,6 +15136,7 @@ ${staticAnalyticsHtml}
  let relocatedActiveCount = 0;
  const historicalArchiveCopy: Record<string, {
   notice: string;
+  headingQualifier: string;
   original: string;
   details: string;
   noDescription: string;
@@ -15145,6 +15146,7 @@ ${staticAnalyticsHtml}
  }> = {
   it: {
    notice: 'Questa pagina storica conserva il contenuto disponibile dell\'annuncio originale. La posizione non è più attiva, ma l\'URL resta raggiungibile per chi arriva da un motore di ricerca o da un link salvato.',
+   headingQualifier: 'Annuncio archiviato',
    original: 'Contenuto dell\'annuncio archiviato',
    details: 'Dettagli storici',
    noDescription: 'Il testo originale non è più disponibile nell\'archivio, ma conserviamo il riferimento della posizione, dell\'azienda e della località per non spezzare questo URL storico.',
@@ -15154,6 +15156,7 @@ ${staticAnalyticsHtml}
   },
   en: {
    notice: 'This historical page preserves the available content from the original listing. The position is no longer active, but the URL remains reachable for people arriving from search or a saved link.',
+   headingQualifier: 'Archived listing',
    original: 'Archived listing content',
    details: 'Historical details',
    noDescription: 'The original text is no longer available in the archive, but we retain the role, employer and location reference so this historical URL remains useful.',
@@ -15163,6 +15166,7 @@ ${staticAnalyticsHtml}
   },
   de: {
    notice: 'Diese historische Seite bewahrt die verfügbaren Inhalte des ursprünglichen Inserats. Die Stelle ist nicht mehr aktiv, aber die URL bleibt für Besucher aus Suchmaschinen oder gespeicherten Links erreichbar.',
+   headingQualifier: 'Archiviertes Inserat',
    original: 'Archivierter Inseratstext',
    details: 'Historische Angaben',
    noDescription: 'Der ursprüngliche Text ist im Archiv nicht mehr verfügbar. Angaben zu Position, Arbeitgeber und Ort bleiben jedoch erhalten, damit diese historische URL nützlich bleibt.',
@@ -15172,6 +15176,7 @@ ${staticAnalyticsHtml}
   },
   fr: {
    notice: 'Cette page historique conserve le contenu disponible de l\'annonce originale. Le poste n\'est plus actif, mais l\'URL reste accessible depuis un moteur de recherche ou un lien enregistré.',
+   headingQualifier: 'Annonce archivée',
    original: 'Contenu de l\'annonce archivée',
    details: 'Détails historiques',
    noDescription: 'Le texte original n\'est plus disponible dans l\'archive, mais nous conservons la référence du poste, de l\'employeur et du lieu afin que cette URL historique reste utile.',
@@ -15232,10 +15237,10 @@ ${staticAnalyticsHtml}
    archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
   ].filter(Boolean).join('');
   const staticBody = [
-   // Location in the heading (shared/historicalArchiveHeading.ts): the
-   // title drops it when it does not fit, so a heading without it was the
-   // title verbatim on every such page (audit:all/h1-title-duplicates).
-   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location))}</h1>`,
+   // Keep the location in the heading when known. For slug-only historical
+   // records, the truthful translated qualifier prevents the fallback H1
+   // from becoming byte-identical to the SERP title.
+   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location, copy.headingQualifier))}</h1>`,
    `<p><strong>${copy.notice}</strong></p>`,
    descriptionHtml
     ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`

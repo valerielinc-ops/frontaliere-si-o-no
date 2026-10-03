@@ -1,23 +1,25 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-10-02T09:09:12.800Z",
-  "total": 10,
+  "generatedAt": "2026-10-03T09:09:23.875Z",
+  "total": 11,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 10,
+  "written": 11,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 34598,
-  "avgDurationMs": 34598,
+  "durationMs": 36695,
+  "avgDurationMs": 36695,
   "durationHistory": [
-    34598
+    34598,
+    35729,
+    36695
   ],
   "newJobs": [],
   "updatedJobs": [

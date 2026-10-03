@@ -352,7 +352,7 @@ export function renderFacilityPage(
     url: canonicalUrl,
     dateModified: dateStamp,
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,

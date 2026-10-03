@@ -1,7 +1,7 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-10-02T09:10:50.193Z",
+  "generatedAt": "2026-10-03T09:12:03.880Z",
   "total": 1,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,11 +9,6 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4803,
-  "avgDurationMs": 4803,
-  "durationHistory": [
-    4803
-  ],
   "newJobs": [
     {
       "id": "citta-di-locarno-impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno",
@@ -40,7 +35,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=c3d0f2a5-4111-4488-abfc-facb9f5041f8,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:10:41.179Z",
+      "crawledAt": "2026-10-03T09:11:56.937Z",
       "needsRetranslation": true,
       "_qualityScore": 73,
       "_qualityBreakdown": {
@@ -53,5 +48,12 @@
   ],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "durationMs": 3939,
+  "avgDurationMs": 3939,
+  "durationHistory": [
+    4803,
+    3725,
+    3939
+  ]
 }

@@ -23,7 +23,7 @@
 
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
   const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
-  const CONFIRM_RE = /(thank you for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
+  const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
   // «Später bewerben» (Prospective.ch, Coop): keeps the posting for later, never starts the application.
@@ -235,6 +235,12 @@
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
       if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: questionOf(picker) || labelOf(picker), required: true });
     }
+    // SAP UI5's date picker (SuccessFactors' «Geburtsdatum», Coop): its input lives in its shadow root.
+    for (const picker of doc.querySelectorAll('[ui5-date-picker]')) {
+      if (!isShown(picker) || picker.hasAttribute('disabled') || picker.hasAttribute('readonly')) continue;
+      const label = picker.getAttribute('accessible-name') || picker.getAttribute('title') || labelOf(picker);
+      entries.push({ kind: 'ui5-date', element: picker, label, labels: [label], required: picker.hasAttribute('required'), pattern: picker.getAttribute('format-pattern') || '' });
+    }
     const controls = doc.querySelectorAll('input, textarea, select');
     const radiosByName = new Map();
     for (const element of controls) {
@@ -322,6 +328,8 @@
     if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
     if (entry.kind === 'combobox') {
+      // A SuccessFactors picklist holds its choice in the input itself.
+      if (selectLike(element)) return !String(element.value || '').trim() || SELECT_PROMPT_RE.test(String(element.value).trim());
       if (String(element.value || '').trim()) return false;
       // react-select shows the choice next to the input, or a placeholder.
       const box = comboBox(element);
@@ -451,7 +459,7 @@
       return entry.required && CONSENT_RE.test(label) && !MARKETING_RE.test(label) ? { check: true } : null;
     }
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
-    const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
+    const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     const value = family ? identityValue(family, kit) : '';
     if (value) return { value, family };
     if (entry.kind === 'textarea' && LETTER_RE.test(normalize(entry.label)) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
@@ -488,7 +496,26 @@
   }
 
   /** react-select and its kin: type to filter, click the matching option. */
+  // SuccessFactors' picklists: «Bitte auswählen», options loaded into the list it owns once opened (up to ~4 s).
+  const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez))\b/i;
+  function selectLike(input) {
+    return Boolean(input.getAttribute('aria-owns') || input.getAttribute('aria-controls'))
+      && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(input.className || '')));
+  }
+
   async function chooseInCombobox(input, answer) {
+    if (selectLike(input)) {
+      // A select by another name: opened, never typed into.
+      press(input);
+      const option = await waitFor(() => bestOption(optionsNear(input).filter((item) => !SELECT_PROMPT_RE.test(item.label)), answer), Math.max(config.waitMs, 8000));
+      if (!option) {
+        fire(input, 'keydown', { key: 'Escape' });
+        return false;
+      }
+      press(option.element);
+      await sleep(config.stepMs * 2);
+      return true;
+    }
     const box = comboBox(input);
     if (box) press(box);
     input.focus?.();
@@ -657,6 +684,18 @@
       }
       case 'date':
         return chooseDate(element, answer.value);
+      case 'ui5-date': {
+        // Typed into its own input in the pattern it states, then committed by its input and change events.
+        const inner = element.shadowRoot?.querySelector('input');
+        const date = parseDate(answer.value);
+        if (!inner || !date) return false;
+        const pattern = /dd/.test(entry.pattern) && /MM/.test(entry.pattern) && /yyyy/.test(entry.pattern) ? entry.pattern : 'dd.MM.yyyy';
+        const text = pattern.replace('yyyy', String(date.year)).replace('MM', String(date.month).padStart(2, '0')).replace('dd', String(date.day).padStart(2, '0'));
+        // setValue raises its input and change: no Enter, which submits SuccessFactors' form.
+        setValue(inner, text);
+        await sleep(config.stepMs);
+        return String(element.value || '') === text;
+      }
       default: {
         let value = String(answer.value);
         if (entry.kind === 'native-date' || answer.family === 'birthDate') value = formatForInput(element, value);

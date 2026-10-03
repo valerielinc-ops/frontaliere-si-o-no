@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3981.title': "Candidature assistée : nous vous disons s’il manque une exigence",
+ 'whatsNew.v3981.fitNotice.title': "Exigences qui ne ressortent pas du CV",
+ 'whatsNew.v3981.fitNotice.desc': "Avant l’envoi, la page de votre candidature indique quelles exigences indispensables de l’annonce ne ressortent pas de votre CV. La candidature continue quand même : vous décidez de les préciser dans vos réponses ou de l’envoyer telle quelle.",
  'whatsNew.v3980.title': "Candidature assistée : CV et lettre à la suisse",
  'whatsNew.v3980.cvReview.title': "Vous vérifiez votre CV ligne par ligne",
  'whatsNew.v3980.cvReview.desc': "Sur la page de votre candidature, chaque ligne reformulée apparaît à côté de la ligne de votre CV : choisissez celle à envoyer ou écrivez-la vous-même. Vous pouvez aussi ajouter une photo au CV, courante en Suisse alémanique et facultative ailleurs.",
@@ -872,6 +875,12 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.error.invalid_file': "Le fichier est illisible ou n’existe plus. Réessayez.",
  'jobBoard.assisted.review.error.storage_unavailable': "Le téléversement n’est pas disponible pour le moment. Réessayez bientôt.",
  'jobBoard.assisted.review.autoApproveAt': "Si vous ne faites rien, la candidature partira automatiquement telle quelle {deadline}.",
+ 'jobBoard.assisted.review.fit.partialTitle': "Certaines exigences de l’annonce ne ressortent pas de votre CV",
+ 'jobBoard.assisted.review.fit.partialBody': "La candidature part quand même. Nous vous le disons avant l’envoi, pour que vous décidiez : si vous les remplissez, écrivez-le dans les réponses ci-dessous ou demandez-nous une modification.",
+ 'jobBoard.assisted.review.fit.lowTitle': "Votre profil ne couvre pas une exigence indispensable de l’annonce",
+ 'jobBoard.assisted.review.fit.lowBody': "L’entreprise pourrait écarter la candidature pour cette raison. Vous pouvez l’envoyer quand même : si vous remplissez l’exigence et que le CV ne le montre pas, écrivez-le dans les réponses ci-dessous ou demandez-nous une modification.",
+ 'jobBoard.assisted.review.fit.missing': "ne ressort pas du CV",
+ 'jobBoard.assisted.review.fit.partial': "ressort seulement en partie",
  'jobBoard.assisted.review.questionsTitle': "Informations demandées par l’entreprise",
  'jobBoard.assisted.review.yes': "Oui",
  'jobBoard.assisted.review.no': "Non",

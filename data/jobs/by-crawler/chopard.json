@@ -1,6 +1,6 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-10-02T09:11:53.909Z",
+  "assembledAt": "2026-10-03T09:15:52.179Z",
   "jobs": [
     {
       "id": "chopard-5dded0f8e2fc",
@@ -33,7 +33,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:47.895Z",
+      "crawledAt": "2026-10-03T09:15:46.027Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -53,7 +53,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:09:12.285Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -66,7 +65,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "chopard-34282272bd03",
@@ -99,7 +99,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:47.890Z",
+      "crawledAt": "2026-10-03T09:15:46.024Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -164,7 +164,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:47.887Z",
+      "crawledAt": "2026-10-03T09:15:46.020Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -229,7 +229,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:47.883Z",
+      "crawledAt": "2026-10-03T09:15:46.017Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -295,7 +295,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:47.880Z",
+      "crawledAt": "2026-10-03T09:15:45.997Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -315,13 +315,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "apprentice-micromechanic-m-f-d-chopard-fleurier"
+        "apprenti-micromecanicien-h-f-d-chopard-fleurier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-          "apprentice-micromechanic-m-f-d-chopard-fleurier"
+          "apprenti-micromecanicien-h-f-d-chopard-fleurier"
         ],
         "en": [
           "apprenti-micromecanicien-h-f-d-chopard-fleurier"
@@ -376,7 +374,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:47.861Z",
+      "crawledAt": "2026-10-03T09:15:45.974Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -396,13 +394,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-crm-chopard-meyrin",
-        "global-responsabile-crm-chopard-meyrin"
+        "global-head-of-crm-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-crm-chopard-meyrin",
-          "global-responsabile-crm-chopard-meyrin"
+          "global-head-of-crm-chopard-meyrin"
         ],
         "de": [
           "global-head-of-crm-chopard-meyrin"
@@ -457,7 +453,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:47.859Z",
+      "crawledAt": "2026-10-03T09:15:45.970Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -477,20 +473,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "communication-executive-assistant-h-f-chopard-meyrin",
-        "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin"
+        "communication-executive-assistant-h-f-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "communication-executive-assistant-h-f-chopard-meyrin",
-          "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin"
+          "communication-executive-assistant-h-f-chopard-meyrin"
         ],
         "de": [
           "communication-executive-assistant-h-f-chopard-meyrin"
         ]
       },
       "firstSeenAt": "2026-09-29T21:11:42.946Z",
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "salarySource": "estimated",
@@ -503,15 +496,16 @@
           "maxValue": 109000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "chopard-bc33f961df14",
       "slug": "decorateur-angleur-h-f-d-chopard-fleurier-2",
       "slugByLocale": {
         "it": "decorateur-angleur-h-f-d-chopard-fleurier-2",
-        "en": "decorateur-angleur-h-f-d-chopard-fleurier-2",
-        "de": "decorateur-angleur-h-f-d-chopard-fleurier-2",
+        "en": "decorator-angler-m-f-d-chopard-fleurier",
+        "de": "dekorateur-angler-m-w-d-chopard-fleurier",
         "fr": "decorateur-angleur-h-f-d-chopard-fleurier"
       },
       "company": "Chopard",
@@ -520,16 +514,16 @@
       "title": "Décorateur Angleur (H/F/D)",
       "titleByLocale": {
         "it": "Décorateur Angleur (f/m/d)",
-        "en": "Décorateur Angleur (H/F/D)",
-        "de": "Décorateur Angleur (H/F/D)",
+        "en": "Decorator Angler (M/F/D)",
+        "de": "Dekorateur Angler (M/W/D)",
         "fr": "Décorateur Angleur (H/F/D)"
       },
-      "description": "Votre mission Assurer le processus de décoration et d’anglage au micromoteur sur les pièces de nos mouvements, dans le respect des délais, de la qualité et des normes de sécurité. \n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle.",
+      "description": "Votre mission Assurer le processus de décoration et d’anglage au micromoteur sur les pièces de nos mouvements, dans le respect des délais, de la qualité et des normes de sécurité.\n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle.",
       "descriptionByLocale": {
         "it": "Votre mission Assurer le processus de décoration et d’anglage au micromoteur sur les pièces de nos mouvements, dans le respect des délais, de la qualité et des normes de sécurité.\n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle.",
         "en": "Votre mission Assurer le processus de décoration et d’anglage au micromoteur sur les pièces de nos mouvements, dans le respect des délais, de la qualité et des normes de sécurité.\n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle.",
         "de": "Votre mission Assurer le processus de décoration et d’anglage au micromoteur sur les pièces de nos mouvements, dans le respect des délais, de la qualité et des normes de sécurité.\n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle.",
-        "fr": "Votre mission Assurer le processus de décoration et d’anglage au micromoteur sur les pièces de nos mouvements, dans le respect des délais, de la qualité et des normes de sécurité. \n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle."
+        "fr": "Votre mission Assurer le processus de décoration et d’anglage au micromoteur sur les pièces de nos mouvements, dans le respect des délais, de la qualité et des normes de sécurité.\n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle."
       },
       "location": "Fleurier",
       "canton": "GE",
@@ -577,7 +571,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

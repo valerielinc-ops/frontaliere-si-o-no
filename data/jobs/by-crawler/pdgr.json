@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-10-02T09:25:46.245Z",
+  "assembledAt": "2026-10-03T09:24:37.850Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:40.101Z",
+      "crawledAt": "2026-10-03T09:24:32.767Z",
       "addressLocality": "Igis / Landquart / Untervaz",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:39.037Z",
+      "crawledAt": "2026-10-03T09:24:31.606Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:37.983Z",
+      "crawledAt": "2026-10-03T09:24:30.400Z",
       "addressLocality": "Cazis / Chur / Ilanz / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:36.877Z",
+      "crawledAt": "2026-10-03T09:24:29.146Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -311,7 +311,6 @@
         "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
       ],
       "firstSeenAt": "2026-07-29T22:40:25.836Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -325,7 +324,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "pdgr-50243c271eb8",
@@ -358,7 +358,7 @@
       "url": "https://www.pdgr.ch/jobs/informatikerin-informatiker/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:35.832Z",
+      "crawledAt": "2026-10-03T09:24:27.914Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -442,7 +442,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:34.800Z",
+      "crawledAt": "2026-10-03T09:24:26.716Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -538,7 +538,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:33.716Z",
+      "crawledAt": "2026-10-03T09:24:25.473Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -605,7 +605,6 @@
         "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -619,7 +618,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "pdgr-1ee4b4ff95de",
@@ -652,7 +652,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:32.624Z",
+      "crawledAt": "2026-10-03T09:24:24.324Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -748,7 +748,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:31.546Z",
+      "crawledAt": "2026-10-03T09:24:23.163Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -835,7 +835,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:30.479Z",
+      "crawledAt": "2026-10-03T09:24:21.977Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -913,7 +913,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:29.428Z",
+      "crawledAt": "2026-10-03T09:24:20.798Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1002,7 +1002,6 @@
         "senior-doctor-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1049,7 +1048,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:28.308Z",
+      "crawledAt": "2026-10-03T09:24:19.594Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1117,7 +1116,6 @@
         "psicologo-senior-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1131,7 +1129,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "pdgr-c9fc518561fc",
@@ -1164,7 +1163,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:27.169Z",
+      "crawledAt": "2026-10-03T09:24:18.429Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1222,7 +1221,6 @@
         "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1269,7 +1267,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:26.098Z",
+      "crawledAt": "2026-10-03T09:24:17.312Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1328,7 +1326,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1375,7 +1372,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:25.030Z",
+      "crawledAt": "2026-10-03T09:24:16.161Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1432,7 +1429,6 @@
         "dipl-assistente-sanitaria-hf-fh-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1479,7 +1475,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:22.887Z",
+      "crawledAt": "2026-10-03T09:24:13.781Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1548,7 +1544,6 @@
         "medico-senior-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1562,7 +1557,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "pdgr-a77b7c3ef761",
@@ -1595,7 +1591,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:21.848Z",
+      "crawledAt": "2026-10-03T09:24:12.556Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1683,7 +1679,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1730,7 +1725,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:19.735Z",
+      "crawledAt": "2026-10-03T09:24:10.176Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1828,7 +1823,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:18.686Z",
+      "crawledAt": "2026-10-03T09:24:08.925Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1923,7 +1918,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:17.625Z",
+      "crawledAt": "2026-10-03T09:24:07.777Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2015,7 +2010,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:15.493Z",
+      "crawledAt": "2026-10-03T09:24:05.371Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2114,7 +2109,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:13.394Z",
+      "crawledAt": "2026-10-03T09:24:02.963Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2208,7 +2203,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:12.324Z",
+      "crawledAt": "2026-10-03T09:24:01.709Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2292,7 +2287,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:11.268Z",
+      "crawledAt": "2026-10-03T09:24:00.535Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2374,7 +2369,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:10.204Z",
+      "crawledAt": "2026-10-03T09:23:59.383Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2458,7 +2453,7 @@
       "url": "https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:08.087Z",
+      "crawledAt": "2026-10-03T09:23:57.048Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2542,7 +2537,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:07.025Z",
+      "crawledAt": "2026-10-03T09:23:55.914Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2630,7 +2625,7 @@
       "url": "https://www.pdgr.ch/jobs/gaertner-in-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:05.967Z",
+      "crawledAt": "2026-10-03T09:23:54.736Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2673,7 +2668,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:23:20.801Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2687,7 +2681,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "pdgr-d6e4f98002d7",
@@ -2720,7 +2715,7 @@
       "url": "https://www.pdgr.ch/jobs/arbeitsagoge-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:04.917Z",
+      "crawledAt": "2026-10-03T09:23:53.408Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2805,7 +2800,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-organisation-fachentwicklung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:03.855Z",
+      "crawledAt": "2026-10-03T09:23:52.251Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2891,7 +2886,7 @@
       "url": "https://www.pdgr.ch/jobs/kunsttherapeut-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.683Z",
+      "crawledAt": "2026-10-03T09:23:50.997Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2979,7 +2974,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:01.395Z",
+      "crawledAt": "2026-10-03T09:23:49.752Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3065,7 +3060,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:00.309Z",
+      "crawledAt": "2026-10-03T09:23:48.592Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3149,7 +3144,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:59.231Z",
+      "crawledAt": "2026-10-03T09:23:47.325Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -3235,7 +3230,7 @@
       "url": "https://www.pdgr.ch/jobs/beauftragte-r-fuer-die-un-brk-peer-mitarbeiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:58.168Z",
+      "crawledAt": "2026-10-03T09:23:46.170Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3312,7 +3307,7 @@
       "url": "https://www.pdgr.ch/jobs/logopaede-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:55.969Z",
+      "crawledAt": "2026-10-03T09:23:43.798Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3353,9 +3348,9 @@
       "id": "pdgr-fe64dad4ad93",
       "slug": "collaboratore-trice-in-roomservice-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
+        "de": "mitarbeiter-in-roomservice-pdgr-ch",
         "it": "collaboratore-trice-in-roomservice-psychiatrische-dienste-graubunden-cazis",
         "en": "mitarbeiter-in-roomservice-psychiatrische-dienste-graubunden-cazis",
-        "de": "mitarbeiter-in-roomservice-pdgr-ch",
         "fr": "mitarbeiter-in-roomservice-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -3363,24 +3358,24 @@
       "companyDomain": "pdgr.ch",
       "title": "Mitarbeiter/-in Roomservice",
       "titleByLocale": {
+        "de": "Mitarbeiter/-in Roomservice",
         "it": "Collaboratore/trice/-in Roomservice",
         "en": "Mitarbeiter/-in Roomservice",
-        "de": "Mitarbeiter/-in Roomservice",
         "fr": "Mitarbeiter/-in Roomservice"
       },
       "description": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Beverin in Cazis und sind Teil eines engagierten Hotellerie-Teams. In direktem Kontakt mit unseren Patientinnen und Patienten gestalten Sie den Aufenthalt mit, übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.)\n\n- Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus\n\n- Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche\n\n- Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Raumpflege, Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten\n\n- Ihre Arbeitszeiten variieren von Montag bis Freitag von 08.00 bis 18.30 Uhr und am Wochenende von 07.00 bis 18.30 Uhr (mit Zimmerstunde)\n\n- Sie sind bereit auch auf anderen Stationen auszuhelfen\n\nUnser Anforderungsprofil:\n- Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung im Bereich Hotellerie / Gastronomie\n\n- Sie sind eine ruhige, geduldige sowie körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\n- Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch die Wochenenden, sind für Sie selbstverständlich\n\n- Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben\n\n- Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
       "descriptionByLocale": {
-        "it": "I dintorni:\nLavorano in un ambiente moderno sui reparti della clinica Beverin a Cazis e fanno parte di un team dedicato del settore alberghiero. In contatto diretto con i nostri pazienti, si aiuta a modellare il soggiorno, assumere compiti domestici e beneficiare di un ambiente di lavoro solidale e collegiale.\n\nI loro compiti:\n- Si occupano dei nostri pazienti di cibo (ordinare i pasti, servire i pasti, ecc.)\n\n- Essi svolgono tutte le attività domestiche incl. Pulizia di base sulla stazione in modo indipendente e professionale\n\n- La sua area di attività sta lavorando nel salone, in camera e in cucina\n\n- Sei responsabile del rispetto dei nostri elevati standard di qualità nel settore della manutenzione, pulizia e senso di ordine\n\n- Con la vostra natura impegnata e sentita siete un arricchimento per l'operazione e quindi per i nostri pazienti\n\n- Le ore di lavoro variano da lunedì a venerdì dalle 08.00 alle 18.30 e nei fine settimana dalle 07.00 alle 18.30 (con ora di camera)\n\n- Siete anche pronti ad aiutare in altre stazioni\n\nIl nostro profilo di requisito:\n- Preferibilmente avete completato la formazione nel campo dell'ospitalità / ristorazione\n\n- Sei una personalità calma, paziente e fisicamente robusta con un alto livello di impegno e consapevolezza del servizio.\n\n- Alta disponibilità operativa e flessibilità in un'operazione di 7 giorni e quindi anche i fine settimana sono una questione naturalmente per voi\n\n- Lavoro di squadra, fedeltà e flessibilità sono importanti per voi\n\n- Sono affidabili, dutiful e lavoro speditivamente\n\n- Hanno un aspetto ben tenuto, così come molto buone competenze tedesche e informatiche\n\nVi offriamo:\n- Un'attività versatile e variegata in un'operazione vivace\n\n- Puoi contribuire alla tua esperienza in varie aree del settore dell'ospitalità\n\n- Lavori in un ambiente piacevole e sociale\n\n- Si beneficiano di condizioni di lavoro progressive (sopra i benefici sociali medi, crediti per le vacanze di almeno 30 giorni)\n\n- Hai la possibilità di frequentare ulteriori corsi di istruzione",
-        "en": "Your surroundings:\nThey work in a modern environment on the wards of the clinic Beverin in Cazis and are part of a dedicated hotel industry team. In direct contact with our patients, you help shape the stay, take on domestic tasks and benefit from a supportive, collegial working environment.\n\nTheir tasks:\n- They look after our patients about food (ordering meals, serving meals, etc.)\n\n- They carry out all domestic activities incl. Basic cleaning on the station independently and professionally\n\n- Her area of activity is working in the lounge, room and station kitchen\n\n- You are responsible for compliance with our high quality standards in the area of room maintenance, cleanliness and sense of order\n\n- With your committed and heartfelt nature you are an enrichment for the operation and therefore for our patients\n\n- Your working hours vary from Monday to Friday from 08.00 to 18.30 and on weekends from 07.00 to 18.30 (with room hour)\n\n- You are also ready to help out on other stations\n\nOur requirement profile:\n- You preferably have completed training in the field of hospitality / catering\n\n- You are a calm, patient and physically robust personality with a high level of commitment and service awareness.\n\n- High operational readiness and flexibility in a 7-day operation and thus also the weekends are a matter of course for you\n\n- Teamwork, loyalty and flexibility are important to you\n\n- They are reliable, dutiful and work speditively\n\n- They have a well-kept appearance as well as very good German and computer skills\n\nWe offer you:\n- A versatile and varied activity in a lively operation\n\n- You can contribute your experience in various areas of the hospitality industry\n\n- You work in a pleasant, social environment\n\n- You benefit from progressive working conditions (above average social benefits, holiday credits of at least 30 days)\n\n- You have the opportunity to attend further education courses",
         "de": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Beverin in Cazis und sind Teil eines engagierten Hotellerie-Teams. In direktem Kontakt mit unseren Patientinnen und Patienten gestalten Sie den Aufenthalt mit, übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.)\n\n- Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus\n\n- Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche\n\n- Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Raumpflege, Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten\n\n- Ihre Arbeitszeiten variieren von Montag bis Freitag von 08.00 bis 18.30 Uhr und am Wochenende von 07.00 bis 18.30 Uhr (mit Zimmerstunde)\n\n- Sie sind bereit auch auf anderen Stationen auszuhelfen\n\nUnser Anforderungsprofil:\n- Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung im Bereich Hotellerie / Gastronomie\n\n- Sie sind eine ruhige, geduldige sowie körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\n- Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch die Wochenenden, sind für Sie selbstverständlich\n\n- Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben\n\n- Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-        "fr": "Votre environnement:\nIls travaillent dans un environnement moderne dans les quartiers de la clinique Beverin à Cazis et font partie d'une équipe dédiée de l'industrie hôtelière. En contact direct avec nos patients, vous aidez à façonner le séjour, à assumer des tâches domestiques et à bénéficier d'un environnement de travail collégial et solidaire.\n\nLeurs tâches :\n- Ils s'occupent de nos patients sur la nourriture (commander des repas, servir des repas, etc.)\n\n- Ils exercent toutes les activités domestiques, y compris : Nettoyage de base sur la station indépendamment et professionnellement\n\n- Son domaine d'activité travaille dans le salon, la salle et la gare cuisine\n\n- Vous êtes responsable du respect de nos normes de qualité élevées en matière d'entretien des chambres, de propreté et de sens de l'ordre\n\n- Avec votre engagement et votre cœur, vous êtes un enrichissement pour l'opération et donc pour nos patients\n\n- Vos heures de travail varient du lundi au vendredi de 08h00 à 18h30 et le week-end de 07h00 à 18h30 (avec l'heure de la chambre)\n\n- Vous êtes également prêt à aider d'autres stations\n\nNotre profil d'exigence :\n- Vous avez de préférence terminé une formation dans le domaine de l'hôtellerie / restauration\n\n- Vous êtes une personnalité calme, patiente et physiquement robuste avec un haut niveau d'engagement et de sensibilisation au service.\n\n- Une grande disponibilité opérationnelle et une grande flexibilité dans une opération de 7 jours et donc aussi les week-ends sont une question de bien sûr pour vous\n\n- Le travail d'équipe, la loyauté et la flexibilité sont importants pour vous\n\n- Ils sont fiables, dignes de foi et travaillent de façon rapide\n\n- Ils ont une apparence bien entretenue ainsi que de très bonnes compétences en allemand et en informatique\n\nNous vous offrons:\n- Une activité polyvalente et variée dans une opération animée\n\n- Vous pouvez apporter votre expérience dans différents domaines de l'industrie hôtelière\n\n- Vous travaillez dans un environnement social agréable\n\n- Vous bénéficiez de conditions de travail progressives (au-dessus des prestations sociales moyennes, crédits de vacances d'au moins 30 jours)\n\n- Vous avez la possibilité de suivre des cours d'enseignement supérieur"
+        "it": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Beverin in Cazis und sind Teil eines engagierten Hotellerie-Teams. In direktem Kontakt mit unseren Patientinnen und Patienten gestalten Sie den Aufenthalt mit, übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.)\n\n- Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus\n\n- Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche\n\n- Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Raumpflege, Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten\n\n- Ihre Arbeitszeiten variieren von Montag bis Freitag von 08.00 bis 18.30 Uhr und am Wochenende von 07.00 bis 18.30 Uhr (mit Zimmerstunde)\n\n- Sie sind bereit auch auf anderen Stationen auszuhelfen\n\nUnser Anforderungsprofil:\n- Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung im Bereich Hotellerie / Gastronomie\n\n- Sie sind eine ruhige, geduldige sowie körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\n- Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch die Wochenenden, sind für Sie selbstverständlich\n\n- Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben\n\n- Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "en": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Beverin in Cazis und sind Teil eines engagierten Hotellerie-Teams. In direktem Kontakt mit unseren Patientinnen und Patienten gestalten Sie den Aufenthalt mit, übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.)\n\n- Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus\n\n- Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche\n\n- Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Raumpflege, Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten\n\n- Ihre Arbeitszeiten variieren von Montag bis Freitag von 08.00 bis 18.30 Uhr und am Wochenende von 07.00 bis 18.30 Uhr (mit Zimmerstunde)\n\n- Sie sind bereit auch auf anderen Stationen auszuhelfen\n\nUnser Anforderungsprofil:\n- Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung im Bereich Hotellerie / Gastronomie\n\n- Sie sind eine ruhige, geduldige sowie körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\n- Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch die Wochenenden, sind für Sie selbstverständlich\n\n- Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben\n\n- Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "fr": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Beverin in Cazis und sind Teil eines engagierten Hotellerie-Teams. In direktem Kontakt mit unseren Patientinnen und Patienten gestalten Sie den Aufenthalt mit, übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.)\n\n- Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus\n\n- Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche\n\n- Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Raumpflege, Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten\n\n- Ihre Arbeitszeiten variieren von Montag bis Freitag von 08.00 bis 18.30 Uhr und am Wochenende von 07.00 bis 18.30 Uhr (mit Zimmerstunde)\n\n- Sie sind bereit auch auf anderen Stationen auszuhelfen\n\nUnser Anforderungsprofil:\n- Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung im Bereich Hotellerie / Gastronomie\n\n- Sie sind eine ruhige, geduldige sowie körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\n- Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch die Wochenenden, sind für Sie selbstverständlich\n\n- Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben\n\n- Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen"
       },
       "location": "Cazis",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:54.900Z",
+      "crawledAt": "2026-10-03T09:23:42.613Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3395,23 +3390,23 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice/",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "facility": "Hotellerie auf Station",
       "pensumMin": 50,
       "pensumMax": 60,
       "pensum": "50 - 60%",
       "previousSlugs": [
-        "mitarbeiter-in-roomservice-pdgr-ch",
-        "collaboratore-trice-in-roomservice-psychiatrische-dienste-graubunden-cazis"
+        "mitarbeiter-in-roomservice-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-roomservice-pdgr-ch",
-          "collaboratore-trice-in-roomservice-psychiatrische-dienste-graubunden-cazis"
+          "mitarbeiter-in-roomservice-pdgr-ch"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:27:41.246Z",
+      "firstSeenAt": "2026-10-03T09:23:42.613Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -3431,9 +3426,9 @@
       "id": "pdgr-3d7333a27d5b",
       "slug": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
         "it": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-        "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
         "fr": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -3441,24 +3436,24 @@
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
       "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
         "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagogen/in HF",
         "en": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
-        "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
         "fr": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF"
       },
       "description": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
       "descriptionByLocale": {
-        "it": "I dintorni:\nLa stazione di psicoterapia Salvorta è una stazione aperta con 30 posti letto. Al centro del nostro concetto terapeutico è la terapia basata sulla mentalizzazione (MBT). Trattiamo donne e uomini con depressione, ansia, compulsivo, mangiare, trauma e disturbi della personalità. Un altro focus del trattamento è il trattamento di disturbi del dolore e tinnito decompensato. Inoltre, l'unità di psicoterapia offre sei letti per un trattamento madre/padre.\n\nI loro compiti:\n- Essi accompagnano e sostengono i pazienti come parte di un singolo processo di trattamento psicoterapeutico\n\n- In qualità di fornitore di assistenza sanitaria, si assume la responsabilità per la pianificazione, l'implementazione e la valutazione di cura e trattamento\n\n- Essi consigliano e accompagnano i parenti e li coinvolgono nel processo di trattamento in modo orientato alle risorse\n\n- Contribuisci attivamente le tue osservazioni e valutazioni professionali alla cooperazione interprofessionale\n\n- Pianifica, guida e valuta le terapie del gruppo di cura\n\n- Si collegano con specialisti interni ed esterni e contribuiscono a una qualità di trattamento continua\n\n- Formano un ambiente apprezzativo e terapeutico e promuovono lo sviluppo e la stabilizzazione individuale dei nostri pazienti.\n\n- Si mantiene una comunicazione aperta, rispettosa e orientata alla persona\n\nIl nostro profilo di requisito:\n- Hai una laurea in dipl. Professionista HF o Dipl. Social Pedagogue / Social Pedagogue HF\n\n- Idealmente, si porterà esperienza nel campo psichiatrico o psicoterapeutico\n\n- Incontri persone con malattie mentali empaticamente, professionalmente e con apprezzamento\n\n- Lavori in modo indipendente, responsabile e hai un'alta capacità di riflettere\n\n- Essi apprezzano la cooperazione interprofessionale e hanno forti competenze sociali e autonome\n\n- Sono interessati a concetti di trattamento psicoterapeutico e hanno idealmente la conoscenza di approcci basati sulla mentalizzazione.\n\nVi offriamo:\n- Si assume un lavoro vario e responsabile in un team motivato e interprofessionale\n\n- Hai l'opportunità di modellare e implementare il trattamento e la cura si avvicina professionalmente e organizzativamente\n\n- Approfittate della nostra offerta di formazione interna e di ulteriore formazione – supportiamo anche le vostre esigenze di formazione esterna\n\n- Con modelli di lavoro part-time, 6 settimane di vacanza e congedo non retribuito, un equilibrio ottimale della vita lavorativa",
-        "en": "Your surroundings:\nThe Salvorta psychotherapy station is an open-guided station with 30 beds. At the heart of our therapeutic concept is mentalization-based therapy (MBT). We treat women and men with depression, anxiety, compulsive, eating, trauma and personality disorders. Another focus of treatment is the treatment of pain disorders and decompensated tinnitus. In addition, the psychotherapy unit offers six beds for a mother/father child treatment.\n\nTheir tasks:\n- They accompany and support patients as part of an individual psychotherapeutic treatment process\n\n- As a nursing care provider, you take responsibility for the planning, implementation and evaluation of care and treatment\n\n- They advise and accompany relatives and involve them in the treatment process in a resource-oriented manner\n\n- You actively contribute your professional observations and assessments to interprofessional cooperation\n\n- You plan, guide and evaluate nursing group therapies\n\n- They network with internal and external specialists and contribute to a continuous treatment quality\n\n- They shape an appreciative, therapeutic environment and promote the individual development and stabilization of our patients.\n\n- You maintain an open, respectful and person-oriented communication\n\nOur requirement profile:\n- You have a degree as a dipl. Care professional HF or Dipl. Social Pedagogue / Social Pedagogue HF\n\n- Ideally, you will bring experience in the psychiatric or psychotherapeutic field\n\n- You meet people with mental illnesses empathetically, professionally and appreciatively\n\n- You work independently, responsibly and have a high ability to reflect\n\n- They value interprofessional cooperation and have strong social and self-competences\n\n- They are interested in psychotherapeutic treatment concepts and ideally have knowledge of mentalization-based approaches.\n\nWe offer you:\n- You take on a varied and responsible job in a motivated, interprofessional team\n\n- You have the opportunity to shape and implement the treatment and care approaches professionally and organizationally\n\n- Take advantage of our internal training and further education offer – we also support your external training needs\n\n- With part-time work models, 6 weeks of vacation and unpaid leave, an optimal work-life balance",
         "de": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
-        "fr": "Votre environnement:\nLa station de psychothérapie Salvorta est une station ouverte avec 30 lits. Au cœur de notre concept thérapeutique se trouve la thérapie à base de mentalisation (MBT). Nous traitons les femmes et les hommes avec dépression, anxiété, compulsive, alimentation, traumatisme et troubles de la personnalité. Un autre objectif du traitement est le traitement des troubles de la douleur et des acouphènes décompensés. En outre, l'unité de psychothérapie offre six lits pour un traitement mère/père.\n\nLeurs tâches :\n- Ils accompagnent et soutiennent les patients dans le cadre d'un traitement psychothérapeutique individuel\n\n- En tant que fournisseur de soins infirmiers, vous assumez la responsabilité de la planification, de la mise en oeuvre et de l'évaluation des soins et des traitements.\n\n- Ils conseillent et accompagnent les proches et les associent au processus de traitement de manière axée sur les ressources.\n\n- Vous contribuez activement vos observations et évaluations professionnelles à la coopération interprofessionnelle\n\n- Vous planifiez, guidez et évaluez les thérapies de groupe\n\n- Ils travaillent en réseau avec des spécialistes internes et externes et contribuent à une qualité de traitement continue\n\n- Ils forment un environnement appréciatif et thérapeutique et favorisent le développement individuel et la stabilisation de nos patients.\n\n- Vous maintenez une communication ouverte, respectueuse et orientée vers la personne\n\nNotre profil d'exigence :\n- Vous avez un diplôme de dipl. Soins professionnels HF ou Dipl. Pédagogue Social / Pédagogue Social HF\n\n- Idéalement, vous apporterez une expérience dans le domaine psychiatrique ou psychothérapeutique\n\n- Vous rencontrez des personnes souffrant de maladies mentales avec empathie, professionnalisme et reconnaissance\n\n- Vous travaillez de façon indépendante, responsable et avez une grande capacité de réflexion\n\n- Ils valorisent la coopération interprofessionnelle et ont des compétences sociales et personnelles fortes\n\n- Ils sont intéressés par les concepts de traitement psychothérapeutique et idéalement ont une connaissance des approches basées sur la mentalisation.\n\nNous vous offrons:\n- Vous prenez un emploi varié et responsable dans une équipe motivée et interprofessionnelle\n\n- Vous avez la possibilité de façonner et de mettre en oeuvre les approches de traitement et de soins professionnellement et organisationnellement.\n\n- Profitez de notre offre de formation interne et de formation continue – nous soutenons également vos besoins de formation externe\n\n- Avec des modèles de travail à temps partiel, 6 semaines de vacances et de congés non rémunérés, un équilibre optimal entre le travail et la vie personnelle"
+        "it": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance"
       },
       "location": "Cazis",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:53.848Z",
+      "crawledAt": "2026-10-03T09:23:41.384Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3473,20 +3468,20 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-3/",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Erwachsenenpsychiatrie",
       "facility": "Affektive Erkrankungen",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-        "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-          "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3505,6 +3500,162 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-27670c3c4890",
+      "slug": "collaboratore-trice-in-raumpflege-transportdienst-psychiatrische-dienste-graubunden-chur",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-raumpflege-transportdienst-pdgr-ch",
+        "it": "collaboratore-trice-in-raumpflege-transportdienst-psychiatrische-dienste-graubunden-chur",
+        "en": "mitarbeiter-in-raumpflege-transportdienst-psychiatrische-dienste-graubunden-chur",
+        "fr": "mitarbeiter-in-raumpflege-transportdienst-psychiatrische-dienste-graubunden-chur"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Mitarbeiter/-in Raumpflege & Transportdienst",
+      "titleByLocale": {
+        "de": "Mitarbeiter/-in Raumpflege & Transportdienst",
+        "it": "Collaboratore/trice/-in Raumpflege & Transportdienst",
+        "en": "Mitarbeiter/-in Raumpflege & Transportdienst",
+        "fr": "Mitarbeiter/-in Raumpflege & Transportdienst"
+      },
+      "description": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie übernehmen verschiedene Aufgaben im Transportdienst und unterstützen bei Transportaufträgen\n\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie übernehmen verschiedene Aufgaben im Transportdienst und unterstützen bei Transportaufträgen\n\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "it": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie übernehmen verschiedene Aufgaben im Transportdienst und unterstützen bei Transportaufträgen\n\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "en": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie übernehmen verschiedene Aufgaben im Transportdienst und unterstützen bei Transportaufträgen\n\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "fr": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie übernehmen verschiedene Aufgaben im Transportdienst und unterstützen bei Transportaufträgen\n\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-transportdienst/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T09:23:40.172Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-03",
+      "applyUrl": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-transportdienst/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "facility": "Raumpflege & Transportdienst",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-raumpflege-transportdienst-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-raumpflege-transportdienst-pdgr-ch"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-03T09:23:40.172Z"
+    },
+    {
+      "id": "pdgr-0c3d5c4b5188",
+      "slug": "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-chur",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-raumpflege-pdgr-ch",
+        "it": "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-chur",
+        "en": "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-chur",
+        "fr": "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-chur"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Mitarbeiter/-in Raumpflege",
+      "titleByLocale": {
+        "de": "Mitarbeiter/-in Raumpflege",
+        "it": "Collaboratore/trice/-in Raumpflege",
+        "en": "Mitarbeiter/-in Raumpflege",
+        "fr": "Mitarbeiter/-in Raumpflege"
+      },
+      "description": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "it": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "en": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
+        "fr": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T09:23:38.984Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-03",
+      "applyUrl": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "facility": "Raumpflege",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-raumpflege-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-raumpflege-pdgr-ch"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-03T09:23:38.984Z"
     }
   ]
 }

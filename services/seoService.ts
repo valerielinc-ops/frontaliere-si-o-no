@@ -16,7 +16,12 @@ import { clearAssetCaches, isChunkLoadError, isModuleParseError } from './resili
 import { cdnDataUrl } from './cdnDataBase';
 import { seededJobMatchesSlug } from './seededExpiredJob';
 import { normalizeStructuredData } from './seo/schema-normalizers';
-import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription, buildLocalizedGlossaryMetaDescription } from './seo/glossaryTermDefinitions';
+import {
+ GLOSSARY_HUB_SEO,
+ GLOSSARY_TERM_DEFINITIONS,
+ truncateForMetaDescription,
+ buildLocalizedGlossaryMetaDescription,
+} from './seo/glossaryTermDefinitions';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorRegistry } from './seo/articleAuthorUrl';
 import { translateSchema } from './seo/schema-translators';
@@ -110,7 +115,7 @@ import { ORGANIZATION_LD } from './seo/organizationLd';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
- * Using NewsMediaOrganization with expert-level knowsAbout signals.
+ * Using Organization with expert-level knowsAbout signals.
  * Reused across all structured data to ensure consistency.
  *
  * Includes inline E-E-A-T fields (name, description, knowsAbout) alongside
@@ -118,7 +123,7 @@ import { ORGANIZATION_LD } from './seo/organizationLd';
  * signals even without resolving the referenced #organization entity.
  */
 export const SCHEMA_AUTHOR = {
- "@type": "NewsMediaOrganization",
+ "@type": "Organization",
  "@id": `${BASE_URL}/#organization`,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,
@@ -146,7 +151,7 @@ export const SCHEMA_PUBLISHER = ORGANIZATION_LD;
  * for knowledge graph consistency.
  */
 export const SCHEMA_EXPERT_AUTHOR = {
- "@type": "NewsMediaOrganization",
+ "@type": "Organization",
  "@id": `${BASE_URL}/#organization`,
  "name": "Redazione Frontaliere Ticino",
  "url": `${BASE_URL}/chi-siamo/`,
@@ -1353,6 +1358,20 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  description: metadata.description,
  keywords: metadata.keywords,
  };
+ }
+
+ // Keep the localized glossary hub head on the same registry as the SSG.
+ // Term pages use resolveLocalizedGlossarySeo below; this branch covers the
+ // corresponding root route instead of letting the generic section fallback
+ // become the source of truth for one of the two renderers.
+ if (section === 'glossario') {
+  const hub = GLOSSARY_HUB_SEO[locale];
+  const title = buildTitleWithBrand(hub.title);
+  return {
+   title,
+   description: hub.description,
+   keywords: getLocalizedSeoKeywords(hub.title, locale, metadata.keywords),
+  };
  }
 
  const titleKey = SEO_SECTION_TITLE_KEY_MAP[section];

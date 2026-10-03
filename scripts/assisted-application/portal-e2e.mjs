@@ -20,7 +20,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
-import { submitViaPortal } from './lib/portal/portal.mjs';
+import { acceptPrivacyStatement, submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
@@ -31,19 +31,154 @@ const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 const SF_JOB = '/sf/career?company=tenant1000103&career_ns=job_application&career_job_req_id=170044';
 // SuccessFactors' password policy (8–18 characters) follows its host name.
 const sfOrigin = (server) => `http://career2.successfactors.localhost:${server.address().port}`;
+// umantis as a hotel's career page links to it (2026-10-03): another host, the form's address names no company.
+const UMANTIS_FORM = '/Vacancies/717/Application/New/2';
+// The same form with its photo and documents in sections still closed (review of #11033).
+const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
+const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [] };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false };
+  // umantis, 2026-10-03: the application form itself asks for the account's password.
+  const umantis = { accounts: new Map(), applications: [], refused: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
+  // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
+  // uploads, «Submit final application». The page names the role, never the company.
+  const umantisPhoto = '<label for="ph">Photo</label><input id="ph" type="file" name="photo">';
+  const umantisDocuments = '<label for="cl">Cover letter</label><input id="cl" type="file" name="letter">'
+    + '<label for="cv">Resume *</label><input id="cv" type="file" name="cv">'
+    + '<label for="od">Other documents</label><input id="od" type="file" name="other">';
+  // closed: the photo and the documents come into the page only once «Expand all sections» is pressed,
+  // so the page first shows a password and a send button, and no file field.
+  const umantisForm = (error = '', { closed = false } = {}) => page('Concierge - Application | Application Tracking System', `<nav><a href="/umantis-login">Login</a><a role="button" tabindex="0" href="/umantis-recruiters">Login for recruiters</a></nav>
+    <h1>Concierge</h1><p>Click on Login if you have already set up your profile.</p>${error ? `<p role="alert">${error}</p>` : ''}
+    ${closed ? '<button type="button" id="expand">Expand all sections</button>' : ''}
+    ${form(closed ? UMANTIS_CLOSED_FORM : UMANTIS_FORM, `${closed ? '<div id="photo-section"></div>' : umantisPhoto}
+      <fieldset><legend>Title *</legend><label><input type="radio" name="title" value="ms"> Ms</label><label><input type="radio" name="title" value="mr"> Mr</label><label><input type="radio" name="title" value="other"> Other</label></fieldset>
+      <label for="fn">First name *</label><input id="fn" name="first">
+      <label for="ln">Last name *</label><input id="ln" name="last">
+      <label for="em">Email address/login *</label><input id="em" type="text" name="mail">
+      <label for="pw">Password *</label><input id="pw" type="password" name="pwd" autocomplete="new-password">
+      <p>The password must be at least 7 characters long. Password must contain special characters, numbers, upper and lower case letters</p>
+      <label for="tel">Cell phone *</label><input id="tel" name="phone">
+      ${closed ? '<div id="documents-section"></div>' : umantisDocuments}
+      <label for="hear">How did you hear about us? *</label><select id="hear" name="hear"><option value="">Please select</option><option value="home">Company homepage</option><option value="board">Online job board</option><option value="misc">Miscellaneous</option></select>
+      <label><input type="checkbox" name="employee"> I am a current employee of your company</label>
+      <fieldset><legend>Data release *</legend><label><input type="radio" name="release" value="keep"> I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.</label><label><input type="radio" name="release" value="delete"> I would like my data to be deleted once the present application process is complete.</label></fieldset>
+      <label><input type="checkbox" name="privacy"> I agree to the Privacy Policy Statement *</label>
+      <input type="hidden" id="letter_stored" name="letter_stored" value=""><input type="hidden" id="cv_stored" name="cv_stored" value="">
+      <button type="submit">Submit final application</button>`, true)}
+    <script>
+      // As on umantis: a file is sent as soon as it is chosen, one at a time. A second choice
+      // while the first still travels drops the first (the letter left at 15% on 2026-10-03).
+      let travelling = null;
+      // On the document: the file fields of a closed section come into the page later.
+      document.addEventListener('change', (event) => {
+        const stored = { cl: 'letter_stored', cv: 'cv_stored' }[event.target.id];
+        if (!stored) return;
+        if (travelling) travelling.abort();
+        const upload = new AbortController();
+        travelling = upload;
+        fetch('/umantis-upload', { method: 'POST', body: event.target.id, signal: upload.signal })
+          .then(() => { document.getElementById(stored).value = '1'; if (travelling === upload) travelling = null; })
+          .catch(() => {});
+      });
+      ${closed ? `document.getElementById('expand').addEventListener('click', (event) => {
+        document.getElementById('photo-section').innerHTML = ${JSON.stringify(umantisPhoto)};
+        document.getElementById('documents-section').innerHTML = ${JSON.stringify(umantisDocuments)};
+        event.target.remove();
+      });` : ''}
+    </script>`);
   const readBody = (req) => new Promise((resolve) => {
     const chunks = [];
     req.on('data', (chunk) => chunks.push(chunk));
     req.on('end', () => resolve(Buffer.concat(chunks).toString('latin1')));
   });
   const sessionOf = (req) => /sid=([a-z0-9]+)/.exec(req.headers.cookie || '')?.[1];
+  // Coop's SuccessFactors application page as mapped on 2026-10-03: its sections
+  // closed behind «Alle Abschnitte einblenden», the CV only through «Lebenslauf
+  // hochladen», a dialog whose file input exists once it is open and uploads at
+  // once; «Bewerben» with something missing comes back with the portal's errors.
+  const sfApplyPage = (errors = []) => page('Karrierechancen: Bewerbung', `<h1>Coop</h1><h2>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h2>
+    ${errors.length ? `<div role="alert"><p>Bitte korrigieren Sie die folgenden Fehler.</p>${errors.map((error) => `<p>${error}</p>`).join('')}</div>` : ''}
+    <button type="button" id="expand">Alle Abschnitte einblenden</button>
+    ${form('/sf/apply', `<section id="docs"${errors.length ? '' : ' hidden'}><h3>Meine Dokumente</h3><span>Lebenslauf *</span> <span id="cvname"></span>
+        <button type="button" id="cvbtn" aria-haspopup="dialog">Lebenslauf hochladen</button><input type="hidden" name="cv" id="cvdone" value=""></section>
+      <section id="profile"${errors.length ? '' : ' hidden'}><label for="v">* Vorname</label><input id="v" name="first" required><label for="n">* Nachname</label><input id="n" name="last" required><label for="m">* E-Mail</label><input id="m" type="email" name="mail" required>
+        <label for="anrede-in">* Anrede</label><input id="anrede-in" aria-label="Anrede" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="an:_listSelect" aria-required="true" aria-expanded="false" class="rcmpaginatedselectinput"><input type="hidden" name="anrede" id="anrede-v"><ul id="an:_listSelect" role="listbox"></ul>
+        <label for="97:_datepicker">Geburtsdatum:*</label><div id="97:_datepicker" class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" title="Geburtsdatum" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required="" placeholder="TT.MM.JJJJ"></ui5-date-picker-xweb-calendar-widget></div><input type="hidden" name="birth" id="birth-v">
+        <label for="agency-in">* Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: Mit Einreichen des Dossiers werden die AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis akzeptiert.)</label><input id="agency-in" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="ag:_listSelect" aria-required="true" aria-expanded="false" class="rcmpaginatedselectinput"><input type="hidden" name="agency" id="agency-v"><ul id="ag:_listSelect" role="listbox"></ul>
+      </section>
+      <button type="button">Speichern</button><button type="submit">Bewerben</button>`)}
+    <div role="dialog" id="up" hidden></div>
+    <script>
+      // A flaky portal (review of #11022): the first click on each control is dropped.
+      const flaky = ${coop.flaky ? 'true' : 'false'};
+      const dropped = new Set();
+      const dropsFirst = (id) => flaky && !dropped.has(id) && dropped.add(id);
+      document.getElementById('expand').addEventListener('click', () => { if (dropsFirst('expand')) return; for (const id of ['docs', 'profile']) document.getElementById(id).hidden = false; });
+      // A picklist: its options load a moment after it opens, into the list it owns.
+      const picklist = (inputId, listId, hiddenId, options, writesAfterMs = 400) => {
+        const input = document.getElementById(inputId);
+        const list = document.getElementById(listId);
+        const close = () => { list.innerHTML = ''; input.setAttribute('aria-expanded', 'false'); };
+        input.addEventListener('click', () => {
+          input.setAttribute('aria-expanded', 'true');
+          list.innerHTML = '';
+          setTimeout(() => {
+            list.innerHTML = ['Bitte auswählen', ...options].map((option) => '<li role="option">' + option + '</li>').join('');
+            for (const item of list.querySelectorAll('li')) {
+              item.addEventListener('click', () => {
+                list.innerHTML = '';
+                // SuccessFactors writes the choice a moment after the click.
+                setTimeout(() => {
+                  if (item.textContent !== 'Bitte auswählen') { input.value = item.textContent; document.getElementById(hiddenId).value = item.textContent; }
+                  close();
+                }, writesAfterMs);
+              });
+            }
+          }, 1500);
+        });
+        input.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+      };
+      picklist('anrede-in', 'an:_listSelect', 'anrede-v', ['Frau', 'Herr']);
+      // As on Coop's SuccessFactors (run 37118242131): an Enter in the form submits it.
+      document.addEventListener('keydown', (event) => { if (event.key === 'Enter' && event.isTrusted) { event.preventDefault(); document.querySelector('form').requestSubmit(); } });
+      // Review of #11061: a choice written at 2.9 s still counts (the runner waits 3 s and looks once more).
+      picklist('agency-in', 'ag:_listSelect', 'agency-v', ['Ja', 'Nein'], 2900);
+      // UI5's date picker: its input in an open shadow root, its value set on change or Enter.
+      customElements.get('ui5-date-picker-xweb-calendar-widget') || customElements.define('ui5-date-picker-xweb-calendar-widget', class extends HTMLElement {
+        constructor() {
+          super();
+          this._value = '';
+          const root = this.attachShadow({ mode: 'open' });
+          root.innerHTML = '<input type="text" placeholder="TT.MM.JJJJ" style="width:120px">';
+          const input = root.querySelector('input');
+          const commit = () => { if (/^\\d{2}\\.\\d{2}\\.\\d{4}$/.test(input.value)) { this._value = input.value; document.getElementById('birth-v').value = input.value; } };
+          input.addEventListener('change', commit);
+        }
+        get value() { return this._value; }
+      });
+      document.getElementById('cvbtn').addEventListener('click', () => {
+        if (dropsFirst('cvbtn')) return;
+        const dialog = document.getElementById('up');
+        dialog.innerHTML = '<p>Quelle für das Hochladen der Datei auswählen</p><label for="f">Von Gerät hochladen</label><input type="file" id="f">';
+        dialog.hidden = false;
+        document.getElementById('f').addEventListener('change', async (event) => {
+          const file = event.target.files[0];
+          const body = new FormData();
+          body.append('cv', file);
+          await fetch('/sf/upload', { method: 'POST', body });
+          document.getElementById('cvdone').value = '1';
+          document.getElementById('cvname').textContent = file.name;
+          dialog.hidden = true;
+          dialog.innerHTML = '';
+        });
+      });
+    </script>`);
 
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://portal.test');
@@ -73,7 +208,7 @@ function fakePortal() {
     if (url.pathname.startsWith('/ohws/redirect/')) return redirect(`${sfOrigin(server)}${SF_JOB}`);
     if (route === 'GET /sf/career') {
       if (coop.sessions.has(sessionOf(req))) {
-        return send(page('Karrierechancen: Bewerbung', `<h1>Coop</h1><h2>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h2>${form('/sf/apply', '<label for="v">Vorname: *</label><input id="v" name="first" required><label for="n">Nachname: *</label><input id="n" name="last" required><label for="m">E-Mail-Adresse: *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf: *</label><input id="cv" type="file" name="cv" required><button type="button">Entwurf speichern</button><button type="submit">Bewerben</button>', true)}`));
+        return send(sfApplyPage());
       }
       return send(page('Karrierechancen: Anmelden', `<p>Haben Sie schon ein Konto? Mit bestehendem Profil anmelden und bewerben</p>${form('/sf/login', '<label for="u">E-Mail-Adresse:*</label><input id="u" type="text" name="username" required><label for="p">Kennwort:*</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<p><a href="/sf/register">Noch kein Profil? Hier registrieren</a> und direkt bewerben</p>`));
     }
@@ -84,7 +219,8 @@ function fakePortal() {
       coop.sessions.add(sid);
       return redirect(SF_JOB, { 'set-cookie': `sid=${sid}; Path=/` });
     }
-    // «Konto anlegen»: the privacy statement opens only for a chosen country, in a dialog.
+    // «Konto anlegen»: the privacy statement opens only for a chosen country,
+    // and its required review checkbox enables the dialog's accept button.
     if (route === 'GET /sf/register') {
       return send(page('Karrierechancen: Konto anlegen', `${form('/sf/register', `<label for="e1">E-Mail-Adresse: *</label><input id="e1" type="text" name="email" required>
         <label for="e2">E-Mail-Adresse erneut eingeben: *</label><input id="e2" type="text" name="email2" required>
@@ -95,16 +231,34 @@ function fakePortal() {
         <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
         <input type="hidden" id="dpcs" name="dpcs" value="">
         <label for="dataPrivacyId">Datenschutzerklärung:*</label><a id="dataPrivacyId" role="button" tabindex="0" aria-haspopup="dialog">Datenschutzerklärung lesen und akzeptieren.</a>
+        <div role="dialog" id="unrelatedDialog"><label><input type="checkbox" id="outsideReview"> I have reviewed this privacy notice.</label><button type="button" id="outsideAccept">Accept</button></div>
         <button type="submit">Konto anlegen</button>`)}
-        <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><button type="button" id="ok">Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
+        <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><label><input type="checkbox" id="dpcsReview" name="dpcsReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label><button type="button" id="ok" disabled>Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
         <script>
           const dialog = document.getElementById('dpcsDialog');
-          document.getElementById('dataPrivacyId').addEventListener('click', () => { if (document.getElementById('c').value) dialog.hidden = false; });
-          document.getElementById('ok').addEventListener('click', () => { document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
+          const review = document.getElementById('dpcsReview');
+          const accept = document.getElementById('ok');
+          document.getElementById('outsideAccept').addEventListener('click', () => { document.cookie = 'outsideAccept=1; Path=/'; });
+          review.addEventListener('change', () => { accept.disabled = !review.checked; });
+          // As on Coop's SuccessFactors, the password repeat checks itself on
+          // blur and the statement click is lost while that request is active.
+          let checking = false;
+          document.getElementById('p2').addEventListener('blur', () => {
+            checking = true;
+            fetch('/sf/pwd-policy', { method: 'POST' }).finally(() => { checking = false; });
+          });
+          document.getElementById('dataPrivacyId').addEventListener('click', () => { if (!checking && document.getElementById('c').value) dialog.hidden = false; });
+          accept.addEventListener('click', () => { if (!review.checked) return; document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
           document.getElementById('no').addEventListener('click', () => { dialog.hidden = true; });
         </script>`));
     }
+    if (route === 'POST /sf/pwd-policy') {
+      await new Promise((done) => setTimeout(done, 1200));
+      res.writeHead(200, { 'content-type': 'application/json' });
+      return res.end('{"ok":true}');
+    }
     if (route === 'POST /sf/register') {
+      if (/outsideAccept=1/.test(req.headers.cookie || '')) coop.outsideAccept += 1;
       const body = new URLSearchParams(await readBody(req));
       const password = String(body.get('p1') || '');
       const problems = [
@@ -125,9 +279,27 @@ function fakePortal() {
       coop.sessions.add(sid);
       return redirect(SF_JOB, { 'set-cookie': `sid=${sid}; Path=/` });
     }
-    if (route === 'POST /sf/apply') {
+    if (route === 'POST /sf/upload') {
       const raw = await readBody(req);
-      coop.applications.push({ hasCv: /filename="CV_/.test(raw), first: /name="first"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
+      if (/filename="CV_/.test(raw)) coop.cvUploads += 1;
+      res.writeHead(200, { 'content-type': 'application/json' });
+      return res.end('{"ok":true}');
+    }
+    if (route === 'POST /sf/apply') {
+      const body = new URLSearchParams(await readBody(req));
+      const errors = [
+        body.get('cv') !== '1' && 'Lebenslauf ist erforderlich',
+        !body.get('first') && 'Vorname ist erforderlich',
+        !body.get('last') && 'Nachname ist erforderlich',
+        !body.get('anrede') && 'Anrede ist erforderlich',
+        !body.get('birth') && 'Geburtsdatum ist erforderlich',
+        !body.get('agency') && 'Stammt diese Bewerbung von einem Vermittlungsbüro? ist erforderlich',
+      ].filter(Boolean);
+      if (errors.length) {
+        coop.validationRefusals += 1;
+        return send(sfApplyPage(errors));
+      }
+      coop.applications.push({ hasCv: coop.cvUploads > 0, first: body.get('first') || '', anrede: body.get('anrede'), birth: body.get('birth'), agency: body.get('agency') });
       return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
     }
     if (route === 'GET /login') {
@@ -239,10 +411,46 @@ function fakePortal() {
       state.widgetApplications.push({ hasCv: /filename="CV_/.test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
+    // A hotel's own career page: «Apply» opens umantis, on another host, in a new tab.
+    if (route === 'GET /hotel-job') {
+      return send(page('Concierge (m/w/d) | Grand Hotel Esempio', `<h1>Concierge (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
+        <button type="button">ACCEPT COOKIES</button><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a>`));
+    }
+    if (route === `GET ${UMANTIS_FORM}`) return send(umantisForm());
+    if (route === 'GET /hotel-job-closed') {
+      return send(page('Concierge (m/w/d) | Grand Hotel Esempio', `<h1>Concierge (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
+        <a target="_blank" href="${umantisOrigin(server)}${UMANTIS_CLOSED_FORM}">Apply</a>`));
+    }
+    if (route === `GET ${UMANTIS_CLOSED_FORM}`) return send(umantisForm('', { closed: true }));
+    if (route === 'POST /umantis-upload') {
+      await new Promise((done) => setTimeout(done, 1500));
+      res.writeHead(200, { 'content-type': 'application/json' });
+      return res.end('{"stored":true}');
+    }
+    if (route === `POST ${UMANTIS_FORM}`) {
+      const raw = await readBody(req);
+      const value = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
+      const sent = (name) => new RegExp(`name="${name}"; filename="[^"]+"`).test(raw);
+      const password = value('pwd');
+      const weak = password.length < 7 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/\d/.test(password) || !/[^A-Za-z0-9]/.test(password);
+      const missing = ['title', 'first', 'last', 'mail', 'phone', 'hear', 'release', 'privacy'].filter((name) => !value(name));
+      // A file chosen but not stored yet never arrives with the application.
+      const problems = [...missing, weak && 'password', (!sent('cv') || !value('cv_stored')) && 'resume', sent('letter') && !value('letter_stored') && 'cover letter'].filter(Boolean);
+      if (problems.length) {
+        umantis.refused.push(problems.join(','));
+        return send(umantisForm(`Please complete: ${problems.join(', ')}`));
+      }
+      umantis.accounts.set(value('mail'), password);
+      umantis.applications.push({
+        first: value('first'), title: value('title'), hear: value('hear'), release: value('release'), employee: Boolean(value('employee')),
+        cv: /name="cv"; filename="CV_/.test(raw), letter: sent('letter'), photo: sent('photo'), other: sent('other'),
+      });
+      return send(page('Application', '<h1>Thank you very much for your application</h1><p>We will get in touch with you.</p>'));
+    }
     res.writeHead(404);
     res.end();
   });
-  return { server, state, coop };
+  return { server, state, coop, umantis };
 }
 
 /**
@@ -266,17 +474,31 @@ function fakeAgent(prompt) {
   return turn('act', day ? [{ ref: day[1], action: 'click', value: '', document: 'none', question: 'Geburtsdatum *', answer: '1990-05-12', source }] : []);
 }
 
+// A password field must never reach the planner: the runner types it (account.mjs).
+let plannerSawPassword = false;
+
 /** Planner stand-in: answers by label, as the real planner does for these fields. */
 async function fakeCodex({ prompt }) {
   if (prompt.includes('{"agentPage"')) return fakeAgent(prompt);
   const form = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly'))).form;
+  if (form.fields.some((field) => /password|kennwort/i.test(field.label))) plannerSawPassword = true;
   const actions = form.fields.map((field) => {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
-    if (/datenschutz/i.test(field.label)) return act('check', '', { source: 'consent' });
-    if (/vorname/i.test(field.label)) return act('fill', 'Luca');
+    if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
+    if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
+    if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
+    if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
+    if (/vorname|first name/i.test(field.label)) return act('fill', 'Luca');
     if (/land\/region/i.test(field.label)) return act('select', 'Italien', { source: 'profile' });
-    if (/nachname/i.test(field.label)) return act('fill', 'Bianchi');
+    if (/nachname|last name/i.test(field.label)) return act('fill', 'Bianchi');
+    // umantis' form: no photo and no other document to give, the letter in its own field.
+    if (/photo|other documents/i.test(field.label)) return act('skip', '', { source: 'rule' });
+    if (/cover letter/i.test(field.label)) return act('upload', '', { document: 'cover_letter', source: 'documents' });
+    if (/cell phone/i.test(field.label)) return act('fill', '+41 79 000 00 00');
+    if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
+    if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
+    if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
     return act('skip', '', { source: 'rule' });
   });
@@ -284,7 +506,7 @@ async function fakeCodex({ prompt }) {
 }
 
 async function main() {
-  const { server, state, coop } = fakePortal();
+  const { server, state, coop, umantis } = fakePortal();
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
   const saved = new Map();
@@ -506,19 +728,82 @@ async function main() {
       async waitForVerification() { return null; },
     };
     const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
+    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12' }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
-    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts });
+    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
     const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
     check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
       coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
-      && coop.refused.length === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
+      && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
       && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
+    check('Coop: SuccessFactors’ picklists, its UI5 birth date and «Vermittlungsbüro?» (always Nein) are filled',
+      coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
+    check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
+      coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
+      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed');
     check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
-    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
+    // This time the portal drops the first click on the sections and on the CV dialog.
+    coop.flaky = true;
+    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    coop.flaky = false;
+    check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
+      coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
+      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
+    // Review of #11015: a lost first click gets its own 8 s retry window.
+    const slowBrowser = await launchChromium({ headless: true, executablePath });
+    const slowPage = await slowBrowser.newPage();
+    await slowPage.setContent(`<a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
+      <div role="dialog" id="d" hidden><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
+      <script>
+        // The first click is lost. Only the second click starts the 6 s open.
+        let clicks = 0;
+        document.getElementById('t').addEventListener('click', () => { clicks += 1; if (clicks === 2) setTimeout(() => { document.getElementById('d').hidden = false; }, 6000); });
+        document.getElementById('ok').addEventListener('click', () => { document.getElementById('v').value = '1'; document.getElementById('d').hidden = true; });
+      </script>`);
+    const slow = await acceptPrivacyStatement(slowPage, await extractFields(slowPage, { listboxOptions: false }));
+    check('a lost first privacy click is retried with a fresh 8 s window', slow === 'accepted' && await slowPage.locator('#v').inputValue() === '1');
+    await slowBrowser.close();
+    // Grand Hotel Kronenhof (2026-10-03): the posting's «Apply» opens umantis in a new tab; its form
+    // asks for the account's password itself and names the role, never the company.
+    const hotelSaved = new Map();
+    const hotelAccounts = {
+      async load(host) { return hotelSaved.get(host) || null; },
+      async save(host, { email, password }) { hotelSaved.set(host, { email, password, status: 'pending', createdAt: Date.now(), verifiedAt: null }); },
+      async mark(host, patch) { hotelSaved.set(host, { ...hotelSaved.get(host), ...patch }); },
+      async discard(host) { hotelSaved.delete(host); },
+      async waitForVerification() { return null; },
+    };
+    const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge (m/w/d)' };
+    const hotelHost = new URL(umantisOrigin(server)).hostname;
+    const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
+      && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
+      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'));
+    check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
+    let guardCalls = 0;
+    const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });
+    const sentToHotel = umantis.applications[0] || {};
+    const hotelPassword = hotelSaved.get(hotelHost)?.password || '';
+    check('umantis: the form is sent once behind the submission guard, with the CV and the letter stored one after the other in their own fields, and no photo', hotel.event.type === 'submit_succeeded'
+      && guardCalls === 1 && umantis.applications.length === 1 && umantis.refused.length === 0 && sentToHotel.cv && sentToHotel.letter && !sentToHotel.photo && !sentToHotel.other
+      && sentToHotel.first === 'Luca' && sentToHotel.title === 'mr' && sentToHotel.hear === 'board' && sentToHotel.release === 'delete' && !sentToHotel.employee);
+    check('umantis: the account is the order’s (alias, the stored password) and is marked created', hotelPassword.length >= 7
+      && umantis.accounts.get(ALIAS) === hotelPassword && hotelSaved.get(hotelHost)?.status === 'created');
+    check('the password is in no evidence, and no password field ever reached the planner', Boolean(hotelPassword)
+      && !JSON.stringify(hotel.evidence).includes(hotelPassword) && !plannerSawPassword);
+    const otherRole = await run({ applyUrl: `${base}/hotel-job`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
+    check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
+      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1);
+    // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
+    const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
+    check('umantis: a password page whose CV field sits in a closed section is opened first, then filled as the form (never taken for a login)', closedSections.event.type === 'dry_run_ready'
+      && !closedSections.event.stage && closedSections.evidence.finalButton?.label === 'Submit final application' && closedAuth.join(',') === 'inline'
+      && closedSections.evidence.postingMatch === 'match' && closedSections.evidence.steps.some((step) => (step.actions || []).some((action) => action.document === 'cv')));
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');

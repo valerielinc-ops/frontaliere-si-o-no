@@ -1,16 +1,18 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-02T09:11:48.271Z",
+  "generatedAt": "2026-10-03T09:11:04.359Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 8715,
-  "avgDurationMs": 8715,
+  "durationMs": 10105,
+  "avgDurationMs": 10105,
   "durationHistory": [
-    8715
+    8715,
+    8787,
+    10105
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -444,6 +446,46 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Jurist/in",
+      "slug": "jurist-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19847",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-10",
+      "validThrough": "2026-10-14",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-0ff3bc3f4d94",
+      "needsRetranslation": true,
+      "salaryMin": 89000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-10T23:06:37.551Z",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": []
 }

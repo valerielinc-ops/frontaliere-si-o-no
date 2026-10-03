@@ -1,7 +1,7 @@
 {
   "key": "cippatrasporti",
   "label": "Cippà Trasporti SA",
-  "generatedAt": "2026-10-02T09:23:29.334Z",
+  "generatedAt": "2026-10-03T09:20:04.445Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -14,10 +14,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5283,
-  "avgDurationMs": 5283,
+  "durationMs": 4692,
+  "avgDurationMs": 4692,
   "durationHistory": [
-    5283
+    5283,
+    5231,
+    4692
   ],
   "newJobs": [
     {
@@ -32,7 +34,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:23:22.191Z",
+      "crawledAt": "2026-10-03T09:19:55.363Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -69,7 +71,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:23:22.341Z",
+      "crawledAt": "2026-10-03T09:19:55.438Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -105,7 +107,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:23:22.298Z",
+      "crawledAt": "2026-10-03T09:19:55.495Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -119,8 +121,8 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
-      "firstSeenAt": "2026-08-24T10:37:33.780Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:37:33.780Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-10-02T09:33:39.616Z",
+  "assembledAt": "2026-10-03T09:36:17.152Z",
   "jobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
@@ -117,7 +117,6 @@
         "canton": "AG",
         "location": "Zofingen"
       },
-      "needsRetranslation": true,
       "crawledAt": "",
       "id": "postfinance-2809f6c4dbc0",
       "salaryMin": 64500,
@@ -136,7 +135,18 @@
       },
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-10-02T09:33:37.172Z"
+      "firstSeenAt": "2026-10-03T09:36:14.852Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-w-m-d-postfinance",
+          "devops-ingegnere-w-m-d-postfinance-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-w-m-d-postfinance",
+        "devops-ingegnere-w-m-d-postfinance-zofingen"
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
@@ -253,10 +263,9 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "id": "postfinance-88eacf7ad27d",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:32:58.564Z",
       "crawledAt": "",
+      "id": "postfinance-88eacf7ad27d",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -272,7 +281,8 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-10-01T09:32:58.564Z"
     },
     {
       "url": "https://jobs.postfinance.ch/job/People-Attraction-Manager-%28wmd%29-befristet/74829-de_DE",
@@ -1000,13 +1010,11 @@
       },
       "id": "postfinance-bfd54ef1cf94",
       "previousSlugs": [
-        "senior-fullstack-engineer-w-m-d-postfinance",
-        "senior-fullstack-ingegnere-w-m-d-postfinance-bern"
+        "senior-fullstack-engineer-w-m-d-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-fullstack-engineer-w-m-d-postfinance",
-          "senior-fullstack-ingegnere-w-m-d-postfinance-bern"
+          "senior-fullstack-engineer-w-m-d-postfinance"
         ]
       },
       "needsRetranslation": true,
@@ -1027,7 +1035,8 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://jobs.postfinance.ch/job/Delivery-Team-Lead-Digital-Commerce-Payments-%28wmd%29/74764-de_DE",
@@ -1655,13 +1664,11 @@
       },
       "id": "postfinance-c9714700c6d7",
       "previousSlugs": [
-        "kubernetes-engineer-postfinance",
-        "kubernetes-ingegnere-postfinance-bern"
+        "kubernetes-engineer-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kubernetes-engineer-postfinance",
-          "kubernetes-ingegnere-postfinance-bern"
+          "kubernetes-engineer-postfinance"
         ],
         "fr": [
           "kubernetes-engineer-postfinance"
@@ -1685,7 +1692,8 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Software-Engineer-Acquiring-&-Merchants-%28wmd%29/74709-de_DE",
@@ -1762,7 +1770,75 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
+      "title": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "description": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in erkennst du ihre Bedürfnisse und begleitest sie mit kompetenter Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du entwickelst gemeinsam mit deinem Team Lösungen, die einfach und relevant sind, und stärkst so nachhaltig die Kundenbeziehung. Mit deinem Einsatz trägst du dazu bei, die Zukunft der Beratung bei PostFinance persönlich und wirkungsvoll zu gestalten.\n\nDas kannst du bewirken\n\n- Du übernimmst die Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche zu Anlegen, Vorsorgen und Finanzieren\n\n- Du planst deinen Tag selbstständig, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit hoher Eigenverantwortung\n\n- Du bringst deine Ideen ein und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\n- Du baust dein Wissen gezielt aus, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\n- Du übernimmst optional die Stellvertretung der Filialleitung\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf sowie Weiterbildungen im Banking und/oder in der Vorsorge\n\n- Erfahrung in der Anlage- und Vorsorgeberatung sowie Begeisterung für Finanzthemen\n\n- Offenes und empathisches Auftreten mit Fokus auf Vertrauensbildung und Kundenzentrierung\n\n- Ausgeprägte Fähigkeiten in der Kundenakquise und im Bearbeiten von Leads\n\n- Kollegiale und hilfsbereite Persönlichkeit mit Freude an der Zusammenarbeit und am gemeinsamen Erfolg.\n\n- Sehr gute Deutsch- und Englischkenntnisse sowie zusätzliche Sprachkenntnisse als Plus",
+      "descriptionByLocale": {
+        "de": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in erkennst du ihre Bedürfnisse und begleitest sie mit kompetenter Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du entwickelst gemeinsam mit deinem Team Lösungen, die einfach und relevant sind, und stärkst so nachhaltig die Kundenbeziehung. Mit deinem Einsatz trägst du dazu bei, die Zukunft der Beratung bei PostFinance persönlich und wirkungsvoll zu gestalten.\n\nDas kannst du bewirken\n\n- Du übernimmst die Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche zu Anlegen, Vorsorgen und Finanzieren\n\n- Du planst deinen Tag selbstständig, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit hoher Eigenverantwortung\n\n- Du bringst deine Ideen ein und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\n- Du baust dein Wissen gezielt aus, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\n- Du übernimmst optional die Stellvertretung der Filialleitung\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf sowie Weiterbildungen im Banking und/oder in der Vorsorge\n\n- Erfahrung in der Anlage- und Vorsorgeberatung sowie Begeisterung für Finanzthemen\n\n- Offenes und empathisches Auftreten mit Fokus auf Vertrauensbildung und Kundenzentrierung\n\n- Ausgeprägte Fähigkeiten in der Kundenakquise und im Bearbeiten von Leads\n\n- Kollegiale und hilfsbereite Persönlichkeit mit Freude an der Zusammenarbeit und am gemeinsamen Erfolg.\n\n- Sehr gute Deutsch- und Englischkenntnisse sowie zusätzliche Sprachkenntnisse als Plus",
+        "it": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in erkennst du ihre Bedürfnisse und begleitest sie mit kompetenter Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du entwickelst gemeinsam mit deinem Team Lösungen, die einfach und relevant sind, und stärkst so nachhaltig die Kundenbeziehung. Mit deinem Einsatz trägst du dazu bei, die Zukunft der Beratung bei PostFinance persönlich und wirkungsvoll zu gestalten.\n\nDas kannst du bewirken\n\n- Du übernimmst die Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche zu Anlegen, Vorsorgen und Finanzieren\n\n- Du planst deinen Tag selbstständig, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit hoher Eigenverantwortung\n\n- Du bringst deine Ideen ein und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\n- Du baust dein Wissen gezielt aus, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\n- Du übernimmst optional die Stellvertretung der Filialleitung\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf sowie Weiterbildungen im Banking und/oder in der Vorsorge\n\n- Erfahrung in der Anlage- und Vorsorgeberatung sowie Begeisterung für Finanzthemen\n\n- Offenes und empathisches Auftreten mit Fokus auf Vertrauensbildung und Kundenzentrierung\n\n- Ausgeprägte Fähigkeiten in der Kundenakquise und im Bearbeiten von Leads\n\n- Kollegiale und hilfsbereite Persönlichkeit mit Freude an der Zusammenarbeit und am gemeinsamen Erfolg.\n\n- Sehr gute Deutsch- und Englischkenntnisse sowie zusätzliche Sprachkenntnisse als Plus",
+        "en": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in erkennst du ihre Bedürfnisse und begleitest sie mit kompetenter Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du entwickelst gemeinsam mit deinem Team Lösungen, die einfach und relevant sind, und stärkst so nachhaltig die Kundenbeziehung. Mit deinem Einsatz trägst du dazu bei, die Zukunft der Beratung bei PostFinance persönlich und wirkungsvoll zu gestalten.\n\nDas kannst du bewirken\n\n- Du übernimmst die Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche zu Anlegen, Vorsorgen und Finanzieren\n\n- Du planst deinen Tag selbstständig, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit hoher Eigenverantwortung\n\n- Du bringst deine Ideen ein und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\n- Du baust dein Wissen gezielt aus, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\n- Du übernimmst optional die Stellvertretung der Filialleitung\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf sowie Weiterbildungen im Banking und/oder in der Vorsorge\n\n- Erfahrung in der Anlage- und Vorsorgeberatung sowie Begeisterung für Finanzthemen\n\n- Offenes und empathisches Auftreten mit Fokus auf Vertrauensbildung und Kundenzentrierung\n\n- Ausgeprägte Fähigkeiten in der Kundenakquise und im Bearbeiten von Leads\n\n- Kollegiale und hilfsbereite Persönlichkeit mit Freude an der Zusammenarbeit und am gemeinsamen Erfolg.\n\n- Sehr gute Deutsch- und Englischkenntnisse sowie zusätzliche Sprachkenntnisse als Plus",
+        "fr": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in erkennst du ihre Bedürfnisse und begleitest sie mit kompetenter Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du entwickelst gemeinsam mit deinem Team Lösungen, die einfach und relevant sind, und stärkst so nachhaltig die Kundenbeziehung. Mit deinem Einsatz trägst du dazu bei, die Zukunft der Beratung bei PostFinance persönlich und wirkungsvoll zu gestalten.\n\nDas kannst du bewirken\n\n- Du übernimmst die Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche zu Anlegen, Vorsorgen und Finanzieren\n\n- Du planst deinen Tag selbstständig, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit hoher Eigenverantwortung\n\n- Du bringst deine Ideen ein und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\n- Du baust dein Wissen gezielt aus, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\n- Du übernimmst optional die Stellvertretung der Filialleitung\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf sowie Weiterbildungen im Banking und/oder in der Vorsorge\n\n- Erfahrung in der Anlage- und Vorsorgeberatung sowie Begeisterung für Finanzthemen\n\n- Offenes und empathisches Auftreten mit Fokus auf Vertrauensbildung und Kundenzentrierung\n\n- Ausgeprägte Fähigkeiten in der Kundenakquise und im Bearbeiten von Leads\n\n- Kollegiale und hilfsbereite Persönlichkeit mit Freude an der Zusammenarbeit und am gemeinsamen Erfolg.\n\n- Sehr gute Deutsch- und Englischkenntnisse sowie zusätzliche Sprachkenntnisse als Plus"
+      },
+      "titleByLocale": {
+        "de": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage",
+        "it": "Senior Kundenberater:in Privatkunden con Schwerpunkt Anlage",
+        "en": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage",
+        "fr": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage"
+      },
+      "slug": "senior-kundenberater-in-privatkunden-mit-schwerpunkt-anlage-postfinance",
+      "slugByLocale": {
+        "de": "senior-kundenberater-in-privatkunden-mit-schwerpunkt-anlage-postfinance",
+        "it": "senior-kundenberater-in-privatkunden-mit-schwerpunkt-anlage-postfinance",
+        "en": "senior-kundenberater-in-privatkunden-mit-schwerpunkt-anlage-postfinance",
+        "fr": "senior-kundenberater-in-privatkunden-mit-schwerpunkt-anlage-postfinance"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "02.10.26",
+      "validThrough": "30.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "id": "postfinance-e95aed9c3540",
+      "salaryMin": 117000,
+      "salaryMax": 180000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 117000,
+          "maxValue": 180000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-03T09:36:14.852Z"
     }
   ]
 }

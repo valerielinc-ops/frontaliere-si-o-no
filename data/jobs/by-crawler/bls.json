@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-10-02T09:21:51.109Z",
+  "assembledAt": "2026-10-03T09:22:35.338Z",
   "jobs": [
     {
       "id": "bls-7afab74d709b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/8988a228-5190-40c9-863b-e0e52b394870",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:35.904Z",
+      "crawledAt": "2026-10-03T09:22:21.003Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -122,7 +122,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-lokomotiven/5ecfee78-9a11-46c9-9e59-4fae639bea2a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:35.107Z",
+      "crawledAt": "2026-10-03T09:22:20.206Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,10 +155,8 @@
           "Bereitschaft zu unregelmässigen Arbeitszeiten, Spätdienst und Wochenendarbeit"
         ]
       },
-      "previousSlugs": [
-        "instandhalter-in-lokomotiven-bls-ch",
-        "tecnico-di-manutenzione-locomotive-bls-ag-spiez"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:40:04.080Z",
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-lokomotiven-bls-ch",
@@ -171,8 +169,10 @@
           "instandhalter-in-lokomotiven-bls-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T23:40:04.080Z",
+      "previousSlugs": [
+        "instandhalter-in-lokomotiven-bls-ch",
+        "tecnico-di-manutenzione-locomotive-bls-ag-spiez"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -219,7 +219,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugbereitsteller-in/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:34.295Z",
+      "crawledAt": "2026-10-03T09:22:19.399Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -321,7 +321,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in/03c64118-291d-47b3-8c2e-ed41dfcb5ab3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:33.480Z",
+      "crawledAt": "2026-10-03T09:22:18.571Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,7 +431,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/devops-engineer/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:32.680Z",
+      "crawledAt": "2026-10-03T09:22:17.778Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -522,7 +522,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/d31bf417-0bf5-4aff-be08-d38c97a45489",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:31.859Z",
+      "crawledAt": "2026-10-03T09:22:16.987Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -627,7 +627,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:31.172Z",
+      "crawledAt": "2026-10-03T09:22:16.319Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -734,7 +734,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachverantwortliche-r-iam/0b8a0bd1-28e7-47d7-bf45-01c2994d28e8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:30.363Z",
+      "crawledAt": "2026-10-03T09:22:15.508Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -833,7 +833,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/eb773d02-256e-42d4-9642-bf3001f4fd68",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:29.552Z",
+      "crawledAt": "2026-10-03T09:22:14.711Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -931,7 +931,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/diagnostiker-in/b9bdabad-d3bc-4317-980e-40cb73672195",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:28.872Z",
+      "crawledAt": "2026-10-03T09:22:14.048Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -965,10 +965,8 @@
           "Bereitschaft zu Nacht- und Wochenendarbeit"
         ]
       },
-      "previousSlugs": [
-        "diagnostiker-in-bls-ch",
-        "diagnostico-bls-ag-spiez"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T23:39:56.296Z",
       "previousSlugsByLocale": {
         "it": [
           "diagnostiker-in-bls-ch",
@@ -981,8 +979,10 @@
           "diagnostiker-in-bls-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T23:39:56.296Z",
+      "previousSlugs": [
+        "diagnostiker-in-bls-ch",
+        "diagnostico-bls-ag-spiez"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1029,7 +1029,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:28.173Z",
+      "crawledAt": "2026-10-03T09:22:13.370Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1119,7 +1119,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-sap-technologie/24e78809-44d5-4b7f-a597-b68042dea70f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:27.354Z",
+      "crawledAt": "2026-10-03T09:22:12.561Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1210,7 +1210,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/pruefungsexpert-in-lokpersonal/0fc2069f-6477-44ad-bb7b-bde8f3e8ec83",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:26.537Z",
+      "crawledAt": "2026-10-03T09:22:11.744Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1242,10 +1242,8 @@
           "Ruhige, wertschätzende Kommunikation um in Prüfungssituationen Sicherheit und Vertrauen auszustrahlen"
         ]
       },
-      "previousSlugs": [
-        "prufungsexpert-in-lokpersonal-bls-ch",
-        "personale-esperto-di-esame-bls-ag-bern"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:17:03.518Z",
       "previousSlugsByLocale": {
         "it": [
           "prufungsexpert-in-lokpersonal-bls-ch",
@@ -1258,8 +1256,10 @@
           "prufungsexpert-in-lokpersonal-bls-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-29T21:17:03.518Z",
+      "previousSlugs": [
+        "prufungsexpert-in-lokpersonal-bls-ch",
+        "personale-esperto-di-esame-bls-ag-bern"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1306,7 +1306,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/expert-in-testfahrten/ba933d5a-1e6d-4f5b-af6f-3d82e5d3199b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:25.716Z",
+      "crawledAt": "2026-10-03T09:22:10.936Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1340,10 +1340,8 @@
           "Organisationstalent, Ausdauer und die Gabe, verschiedene Anspruchsgruppen erfolgreich zu koordinieren"
         ]
       },
-      "previousSlugs": [
-        "expert-in-testfahrten-bls-ch",
-        "test-drive-esperti-bls-ag-spiez"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:20:01.610Z",
       "previousSlugsByLocale": {
         "it": [
           "expert-in-testfahrten-bls-ch",
@@ -1356,8 +1354,10 @@
           "expert-in-testfahrten-bls-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:20:01.610Z",
+      "previousSlugs": [
+        "expert-in-testfahrten-bls-ch",
+        "test-drive-esperti-bls-ag-spiez"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1404,7 +1404,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/disponent-in-leitstelle/bcd75593-bb72-4dcb-a737-645e151018f6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:25.032Z",
+      "crawledAt": "2026-10-03T09:22:10.141Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1504,7 +1504,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-produktmanagement-vertrieb/44ebf6c5-6272-4b61-a700-179715d9cb19",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:24.357Z",
+      "crawledAt": "2026-10-03T09:22:09.342Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1598,7 +1598,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/wagenmeister-in-tkc-muttenz/82af7fe7-c1a5-4cef-9ab8-5aa8f4c777e3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:23.671Z",
+      "crawledAt": "2026-10-03T09:22:08.512Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1632,18 +1632,18 @@
           "Selbstständige, belastbare und initiative Persönlichkeit mit ausgeprägtem Teamgeist"
         ]
       },
-      "previousSlugs": [
-        "wagenmeister-in-tkc-muttenz-bls-ch",
-        "maestro-del-carro-tkc-muttenz-bls-ag-muttenz"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T05:03:00.022Z",
       "previousSlugsByLocale": {
         "it": [
           "wagenmeister-in-tkc-muttenz-bls-ch",
           "maestro-del-carro-tkc-muttenz-bls-ag-muttenz"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T05:03:00.022Z",
+      "previousSlugs": [
+        "wagenmeister-in-tkc-muttenz-bls-ch",
+        "maestro-del-carro-tkc-muttenz-bls-ag-muttenz"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1663,9 +1663,9 @@
       "id": "bls-aeb7fcea907f",
       "slug": "dispatcher-in-betriebszentrale-spiez-bls-ch",
       "slugByLocale": {
+        "de": "dispatcher-in-betriebszentrale-spiez-bls-ch",
         "it": "dispatcher-in-betriebszentrale-spiez-bls-ch",
         "en": "dispatcher-in-betriebszentrale-spiez-bls-ch",
-        "de": "dispatcher-in-betriebszentrale-spiez-bls-ch",
         "fr": "dispatcher-in-betriebszentrale-spiez-bls-ch"
       },
       "company": "BLS AG",
@@ -1673,16 +1673,16 @@
       "companyDomain": "bls.ch",
       "title": "Dispatcher:in Betriebszentrale Spiez",
       "titleByLocale": {
+        "de": "Dispatcher:in Betriebszentrale Spiez",
         "it": "Dispatcher:in Betriebszentrale Spiez",
         "en": "Dispatcher:in Betriebszentrale Spiez",
-        "de": "Dispatcher:in Betriebszentrale Spiez",
         "fr": "Dispatcher:in Betriebszentrale Spiez"
       },
       "description": "Das Bahnnetz braucht dich! Unsere Betriebsabläufe sind bis ins Detail durchgeplant – und genau hier kommst du ins Spiel. Mit deinem Weitblick, deinem Organisationstalent und einem Gespür für Feinheiten triffst du die Entscheidungen, die den Bahnverkehr jeden Tag ein Stück besser machen. Du sorgst für reibungslose Abläufe, noch bessere Anschlüsse und dafür, dass unsere Partner und Kunden stets klar, rechtzeitig und zuverlässig informiert sind.\n\nDas wartet auf dich:\n\n• Du stellst sicher, dass der Bahnbetrieb effizient, diskriminierungsfrei und pünktlich läuft – in allen Betriebslagen\n\n• Du nutzt die verfügbaren Trassen und Intervalle optimal aus und holst das Maximum aus unserem Netz heraus\n\n• Du informierst Partner und Kunden korrekt, zielgerichtet und rechtzeitig\n\n• Du analysierst Betriebsabläufe und hilfst mit, diese kontinuierlich zu verbessern\n\nDas bringst du mit:\n\n• Ausbildung als Zugverkehrsleiter:in oder gleichwertiger Abschluss\n\n• Französischkenntnisse A2; Italienischkenntnisse erwünscht (können erlernt werden)\n\n• Durchsetzungsvermögen sowie hohes Sicherheitsbewusstsein\n\n• Hohe Affinität für die Anwendung von modernen Leittechniksystemen\n\n• Freude am Analysieren von Abläufen und Prozessen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
       "descriptionByLocale": {
+        "de": "Das Bahnnetz braucht dich! Unsere Betriebsabläufe sind bis ins Detail durchgeplant – und genau hier kommst du ins Spiel. Mit deinem Weitblick, deinem Organisationstalent und einem Gespür für Feinheiten triffst du die Entscheidungen, die den Bahnverkehr jeden Tag ein Stück besser machen. Du sorgst für reibungslose Abläufe, noch bessere Anschlüsse und dafür, dass unsere Partner und Kunden stets klar, rechtzeitig und zuverlässig informiert sind.\n\nDas wartet auf dich:\n\n• Du stellst sicher, dass der Bahnbetrieb effizient, diskriminierungsfrei und pünktlich läuft – in allen Betriebslagen\n\n• Du nutzt die verfügbaren Trassen und Intervalle optimal aus und holst das Maximum aus unserem Netz heraus\n\n• Du informierst Partner und Kunden korrekt, zielgerichtet und rechtzeitig\n\n• Du analysierst Betriebsabläufe und hilfst mit, diese kontinuierlich zu verbessern\n\nDas bringst du mit:\n\n• Ausbildung als Zugverkehrsleiter:in oder gleichwertiger Abschluss\n\n• Französischkenntnisse A2; Italienischkenntnisse erwünscht (können erlernt werden)\n\n• Durchsetzungsvermögen sowie hohes Sicherheitsbewusstsein\n\n• Hohe Affinität für die Anwendung von modernen Leittechniksystemen\n\n• Freude am Analysieren von Abläufen und Prozessen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "it": "Das Bahnnetz braucht dich! Unsere Betriebsabläufe sind bis ins Detail durchgeplant – und genau hier kommst du ins Spiel. Mit deinem Weitblick, deinem Organisationstalent und einem Gespür für Feinheiten triffst du die Entscheidungen, die den Bahnverkehr jeden Tag ein Stück besser machen. Du sorgst für reibungslose Abläufe, noch bessere Anschlüsse und dafür, dass unsere Partner und Kunden stets klar, rechtzeitig und zuverlässig informiert sind.\n\nDas wartet auf dich:\n\n• Du stellst sicher, dass der Bahnbetrieb effizient, diskriminierungsfrei und pünktlich läuft – in allen Betriebslagen\n\n• Du nutzt die verfügbaren Trassen und Intervalle optimal aus und holst das Maximum aus unserem Netz heraus\n\n• Du informierst Partner und Kunden korrekt, zielgerichtet und rechtzeitig\n\n• Du analysierst Betriebsabläufe und hilfst mit, diese kontinuierlich zu verbessern\n\nDas bringst du mit:\n\n• Ausbildung als Zugverkehrsleiter:in oder gleichwertiger Abschluss\n\n• Französischkenntnisse A2; Italienischkenntnisse erwünscht (können erlernt werden)\n\n• Durchsetzungsvermögen sowie hohes Sicherheitsbewusstsein\n\n• Hohe Affinität für die Anwendung von modernen Leittechniksystemen\n\n• Freude am Analysieren von Abläufen und Prozessen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "en": "Das Bahnnetz braucht dich! Unsere Betriebsabläufe sind bis ins Detail durchgeplant – und genau hier kommst du ins Spiel. Mit deinem Weitblick, deinem Organisationstalent und einem Gespür für Feinheiten triffst du die Entscheidungen, die den Bahnverkehr jeden Tag ein Stück besser machen. Du sorgst für reibungslose Abläufe, noch bessere Anschlüsse und dafür, dass unsere Partner und Kunden stets klar, rechtzeitig und zuverlässig informiert sind.\n\nDas wartet auf dich:\n\n• Du stellst sicher, dass der Bahnbetrieb effizient, diskriminierungsfrei und pünktlich läuft – in allen Betriebslagen\n\n• Du nutzt die verfügbaren Trassen und Intervalle optimal aus und holst das Maximum aus unserem Netz heraus\n\n• Du informierst Partner und Kunden korrekt, zielgerichtet und rechtzeitig\n\n• Du analysierst Betriebsabläufe und hilfst mit, diese kontinuierlich zu verbessern\n\nDas bringst du mit:\n\n• Ausbildung als Zugverkehrsleiter:in oder gleichwertiger Abschluss\n\n• Französischkenntnisse A2; Italienischkenntnisse erwünscht (können erlernt werden)\n\n• Durchsetzungsvermögen sowie hohes Sicherheitsbewusstsein\n\n• Hohe Affinität für die Anwendung von modernen Leittechniksystemen\n\n• Freude am Analysieren von Abläufen und Prozessen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "de": "Das Bahnnetz braucht dich! Unsere Betriebsabläufe sind bis ins Detail durchgeplant – und genau hier kommst du ins Spiel. Mit deinem Weitblick, deinem Organisationstalent und einem Gespür für Feinheiten triffst du die Entscheidungen, die den Bahnverkehr jeden Tag ein Stück besser machen. Du sorgst für reibungslose Abläufe, noch bessere Anschlüsse und dafür, dass unsere Partner und Kunden stets klar, rechtzeitig und zuverlässig informiert sind.\n\nDas wartet auf dich:\n\n• Du stellst sicher, dass der Bahnbetrieb effizient, diskriminierungsfrei und pünktlich läuft – in allen Betriebslagen\n\n• Du nutzt die verfügbaren Trassen und Intervalle optimal aus und holst das Maximum aus unserem Netz heraus\n\n• Du informierst Partner und Kunden korrekt, zielgerichtet und rechtzeitig\n\n• Du analysierst Betriebsabläufe und hilfst mit, diese kontinuierlich zu verbessern\n\nDas bringst du mit:\n\n• Ausbildung als Zugverkehrsleiter:in oder gleichwertiger Abschluss\n\n• Französischkenntnisse A2; Italienischkenntnisse erwünscht (können erlernt werden)\n\n• Durchsetzungsvermögen sowie hohes Sicherheitsbewusstsein\n\n• Hohe Affinität für die Anwendung von modernen Leittechniksystemen\n\n• Freude am Analysieren von Abläufen und Prozessen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "fr": "Das Bahnnetz braucht dich! Unsere Betriebsabläufe sind bis ins Detail durchgeplant – und genau hier kommst du ins Spiel. Mit deinem Weitblick, deinem Organisationstalent und einem Gespür für Feinheiten triffst du die Entscheidungen, die den Bahnverkehr jeden Tag ein Stück besser machen. Du sorgst für reibungslose Abläufe, noch bessere Anschlüsse und dafür, dass unsere Partner und Kunden stets klar, rechtzeitig und zuverlässig informiert sind.\n\nDas wartet auf dich:\n\n• Du stellst sicher, dass der Bahnbetrieb effizient, diskriminierungsfrei und pünktlich läuft – in allen Betriebslagen\n\n• Du nutzt die verfügbaren Trassen und Intervalle optimal aus und holst das Maximum aus unserem Netz heraus\n\n• Du informierst Partner und Kunden korrekt, zielgerichtet und rechtzeitig\n\n• Du analysierst Betriebsabläufe und hilfst mit, diese kontinuierlich zu verbessern\n\nDas bringst du mit:\n\n• Ausbildung als Zugverkehrsleiter:in oder gleichwertiger Abschluss\n\n• Französischkenntnisse A2; Italienischkenntnisse erwünscht (können erlernt werden)\n\n• Durchsetzungsvermögen sowie hohes Sicherheitsbewusstsein\n\n• Hohe Affinität für die Anwendung von modernen Leittechniksystemen\n\n• Freude am Analysieren von Abläufen und Prozessen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
       },
       "location": "Spiez",
@@ -1690,7 +1690,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/dispatcher-in-betriebszentrale-spiez/63dd0fa6-5c46-4de4-b299-ddee2591397f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:21:22.986Z",
+      "crawledAt": "2026-10-03T09:22:07.646Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1725,7 +1725,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:20:32.611Z",
+      "firstSeenAt": "2026-10-03T09:22:07.646Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1740,6 +1740,88 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-0f895fa37c69",
+      "slug": "automatiker-in-stv-berufsbildner-in-bls-ch",
+      "slugByLocale": {
+        "de": "automatiker-in-stv-berufsbildner-in-bls-ch",
+        "it": "automatiker-in-stv-berufsbildner-in-bls-ch",
+        "en": "automatiker-in-stv-berufsbildner-in-bls-ch",
+        "fr": "automatiker-in-stv-berufsbildner-in-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Automatiker:in stv. Berufsbildner:in",
+      "titleByLocale": {
+        "de": "Automatiker:in stv. Berufsbildner:in",
+        "it": "Automatiker:in stv. Berufsbildner:in",
+        "en": "Automatiker:in stv. Berufsbildner:in",
+        "fr": "Automatiker:in stv. Berufsbildner:in"
+      },
+      "description": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Vielfältige Wartungsarbeiten sowie anspruchsvolle Reparaturen an Triebzügen der Personenfahrzeugflotte und deren Systemen erledigen\n\n• Störungsanalysen an Fahrzeugen und Komponenten durchführen\n\n• Unterstützung sowie Vertretung des Berufbildners in der Werkstatt Spiez im Bereich der Automatik-Lernender\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Lehre als Automatiker:in oder gleichwertige Ausbildung\n\n• Begeisterung am Anleiten, Motivieren und Weiterentwickeln junger Menschen\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse\n\n• Freude an unregelmässigen Arbeitszeiten (Nacht- und Wochenendarbeit)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Vielfältige Wartungsarbeiten sowie anspruchsvolle Reparaturen an Triebzügen der Personenfahrzeugflotte und deren Systemen erledigen\n\n• Störungsanalysen an Fahrzeugen und Komponenten durchführen\n\n• Unterstützung sowie Vertretung des Berufbildners in der Werkstatt Spiez im Bereich der Automatik-Lernender\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Lehre als Automatiker:in oder gleichwertige Ausbildung\n\n• Begeisterung am Anleiten, Motivieren und Weiterentwickeln junger Menschen\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse\n\n• Freude an unregelmässigen Arbeitszeiten (Nacht- und Wochenendarbeit)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Vielfältige Wartungsarbeiten sowie anspruchsvolle Reparaturen an Triebzügen der Personenfahrzeugflotte und deren Systemen erledigen\n\n• Störungsanalysen an Fahrzeugen und Komponenten durchführen\n\n• Unterstützung sowie Vertretung des Berufbildners in der Werkstatt Spiez im Bereich der Automatik-Lernender\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Lehre als Automatiker:in oder gleichwertige Ausbildung\n\n• Begeisterung am Anleiten, Motivieren und Weiterentwickeln junger Menschen\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse\n\n• Freude an unregelmässigen Arbeitszeiten (Nacht- und Wochenendarbeit)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Vielfältige Wartungsarbeiten sowie anspruchsvolle Reparaturen an Triebzügen der Personenfahrzeugflotte und deren Systemen erledigen\n\n• Störungsanalysen an Fahrzeugen und Komponenten durchführen\n\n• Unterstützung sowie Vertretung des Berufbildners in der Werkstatt Spiez im Bereich der Automatik-Lernender\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Lehre als Automatiker:in oder gleichwertige Ausbildung\n\n• Begeisterung am Anleiten, Motivieren und Weiterentwickeln junger Menschen\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse\n\n• Freude an unregelmässigen Arbeitszeiten (Nacht- und Wochenendarbeit)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Vielfältige Wartungsarbeiten sowie anspruchsvolle Reparaturen an Triebzügen der Personenfahrzeugflotte und deren Systemen erledigen\n\n• Störungsanalysen an Fahrzeugen und Komponenten durchführen\n\n• Unterstützung sowie Vertretung des Berufbildners in der Werkstatt Spiez im Bereich der Automatik-Lernender\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Lehre als Automatiker:in oder gleichwertige Ausbildung\n\n• Begeisterung am Anleiten, Motivieren und Weiterentwickeln junger Menschen\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute Deutschkenntnisse\n\n• Freude an unregelmässigen Arbeitszeiten (Nacht- und Wochenendarbeit)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Spiez",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/automatiker-in-stv-berufsbildner-in/11a39962-bc21-4f6a-baf9-9aac970393f0",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T09:22:06.964Z",
+      "addressLocality": "Spiez",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3700",
+      "streetAddress": "Krattigstrasse 1A",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "validThrough": "2026-12-30",
+      "pensum": "60-100%",
+      "salary": "88418",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/11a39962-bc21-4f6a-baf9-9aac970393f0",
+      "requirements": [
+        "Erfolgreich abgeschlossene Lehre als Automatiker:in oder gleichwertige Ausbildung",
+        "Begeisterung am Anleiten, Motivieren und Weiterentwickeln junger Menschen",
+        "EDV Anwenderkenntnisse",
+        "Sehr gute Deutschkenntnisse",
+        "Freude an unregelmässigen Arbeitszeiten (Nacht- und Wochenendarbeit)"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Erfolgreich abgeschlossene Lehre als Automatiker:in oder gleichwertige Ausbildung",
+          "Begeisterung am Anleiten, Motivieren und Weiterentwickeln junger Menschen",
+          "EDV Anwenderkenntnisse",
+          "Sehr gute Deutschkenntnisse",
+          "Freude an unregelmässigen Arbeitszeiten (Nacht- und Wochenendarbeit)"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-10-03T09:22:06.964Z"
     }
   ]
 }

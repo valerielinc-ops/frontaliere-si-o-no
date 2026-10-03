@@ -36,8 +36,8 @@ function outcomes(overrides: Record<string, unknown> = {}) {
     generatedAt: NOW.toISOString(),
     independent: true,
     evidence: {
-      source: 'posthog-decision-surface-export',
-      sourceRefs: ['decision-surfaces', 'posthog'],
+      source: 'ga4-decision-surface-export',
+      sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
     },
     eligibleDecisionSessions: 120,
     nextUsefulActions: 45,
@@ -69,6 +69,16 @@ describe('L5 Decision Moments', () => {
     expect(verdict.candidates.map((candidate) => candidate.surface)).toEqual(['border', 'pharmacy']);
   });
 
+  it('recognizes every domain duty status while rejecting unknown states', () => {
+    for (const status of ['pending_review', 'expired', 'conflicting']) {
+      const verdict = validate({ duties: duties({ duties: [{ ...duties().duties[0], status }] }) });
+      expect(verdict.issues).not.toContain('duties[0]: status is invalid');
+    }
+
+    const verdict = validate({ duties: duties({ duties: [{ ...duties().duties[0], status: 'unknown' }] }) });
+    expect(verdict.issues).toContain('duties[0]: status is invalid');
+  });
+
   it('keeps emitted candidates inside the validated registry policy', () => {
     const registry = JSON.parse(fs.readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
     const verdict = validateDecisionMoments({ fuel: fuel(), border: border(), pharmacies: pharmacies(), duties: duties(), outcomes: outcomes() }, { now: NOW, registry });
@@ -85,13 +95,13 @@ describe('L5 Decision Moments', () => {
       border: border(),
       pharmacies: pharmacies(),
       duties: duties(),
-      outcomes: outcomes({ evidence: { source: 'posthog-decision-surface-export', sourceRefs: ['decision-surfaces'] } }),
+      outcomes: outcomes({ evidence: { source: 'ga4-decision-surface-export', sourceRefs: ['decision-surfaces'] } }),
     }, { now: NOW, registry });
 
     expect(verdict.ok).toBe(false);
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.outcomes.quality).toBe('partial');
-    expect(verdict.issues.join(' ')).toContain('must include registry source refs: posthog');
+    expect(verdict.issues.join(' ')).toContain('must include registry source refs: ga4-decision-surface');
   });
 
   it('keeps missing outcomes partial and metrics numeric zeros', () => {

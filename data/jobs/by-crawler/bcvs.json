@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-10-02T09:30:44.542Z",
+  "assembledAt": "2026-10-03T09:28:34.370Z",
   "jobs": [
     {
       "id": "bcvs-479c7c8ed449",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:30.898Z",
+      "crawledAt": "2026-10-03T09:28:23.246Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,13 +67,11 @@
         ]
       },
       "previousSlugs": [
-        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
-        "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
+        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
-          "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
+          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
         ],
         "en": [
           "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
@@ -83,7 +81,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:48:06.057Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -96,7 +93,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcvs-9ee203f89972",
@@ -129,7 +127,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:27.888Z",
+      "crawledAt": "2026-10-03T09:28:22.785Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -157,20 +155,17 @@
         ]
       },
       "previousSlugs": [
-        "responsable-data-ia-bcvs-sion",
-        "gestione-dati-e-ia-banque-cantonale-du-valais-sion"
+        "responsable-data-ia-bcvs-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-data-ia-bcvs-sion",
-          "gestione-dati-e-ia-banque-cantonale-du-valais-sion"
+          "responsable-data-ia-bcvs-sion"
         ],
         "en": [
           "responsable-data-ia-bcvs-sion"
         ]
       },
       "firstSeenAt": "2026-09-28T21:29:52.591Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -183,7 +178,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcvs-a7ac7dab4c55",
@@ -216,7 +212,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:24.763Z",
+      "crawledAt": "2026-10-03T09:28:22.323Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -244,20 +240,17 @@
         ]
       },
       "previousSlugs": [
-        "data-analyst-bi-expert-bcvs-sion",
-        "data-analista-bi-expert-banque-cantonale-du-valais-sion"
+        "data-analyst-bi-expert-bcvs-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-analyst-bi-expert-bcvs-sion",
-          "data-analista-bi-expert-banque-cantonale-du-valais-sion"
+          "data-analyst-bi-expert-bcvs-sion"
         ],
         "de": [
           "data-analyst-bi-expert-bcvs-sion"
         ]
       },
       "firstSeenAt": "2026-09-28T21:29:51.717Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -270,7 +263,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcvs-9887e8d5b2a3",
@@ -303,7 +297,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:20.982Z",
+      "crawledAt": "2026-10-03T09:28:21.861Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -335,17 +329,14 @@
         ]
       },
       "previousSlugs": [
-        "gestionnaire-back-office-credits-bcvs-sion",
-        "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
+        "gestionnaire-back-office-credits-bcvs-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-back-office-credits-bcvs-sion",
-          "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
+          "gestionnaire-back-office-credits-bcvs-sion"
         ]
       },
       "firstSeenAt": "2026-04-13T10:04:10.904Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -358,7 +349,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcvs-add4d1a4e3d9",
@@ -391,7 +383,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:20.478Z",
+      "crawledAt": "2026-10-03T09:28:21.400Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -418,10 +410,8 @@
           "Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale."
         ]
       },
-      "previousSlugs": [
-        "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:25:25.329Z",
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projets-it-business-analyste-bcvs-sion",
@@ -434,8 +424,10 @@
           "chef-fe-de-projets-it-business-analyste-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:25:25.329Z",
+      "previousSlugs": [
+        "chef-fe-de-projets-it-business-analyste-bcvs-sion",
+        "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion"
+      ],
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -481,7 +473,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:30:19.972Z",
+      "crawledAt": "2026-10-03T09:28:20.940Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -494,7 +486,7 @@
       "sector": "Banca / Finanza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "requirements": [
         "Vous disposez d’une formation supérieure dans le domaine informatique (EPFL, HES ou équivalent) et bénéficiez de plusieurs années d’expérience dans le développement de solutions IA, idéalement dans un environnement bancaire.",
@@ -528,7 +520,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:30:19.972Z"
+      "firstSeenAt": "2026-10-03T09:28:20.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-ia-bcvs-sion",
+          "esperto-ia-banque-cantonale-du-valais-sion"
+        ],
+        "de": [
+          "expert-ia-bcvs-sion",
+          "sachverstandiger-ia-banque-cantonale-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "expert-ia-bcvs-sion",
+        "esperto-ia-banque-cantonale-du-valais-sion",
+        "sachverstandiger-ia-banque-cantonale-du-valais-sion"
+      ]
     }
   ]
 }

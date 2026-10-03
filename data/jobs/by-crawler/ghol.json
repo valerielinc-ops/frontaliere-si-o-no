@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-02T09:25:07.658Z",
+  "assembledAt": "2026-10-03T09:24:50.820Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,8 +47,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.072Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-03T09:24:46.275Z",
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
         "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -89,7 +88,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ghol-52354c0ae92c",
@@ -136,8 +136,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.071Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-03T09:24:46.274Z",
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -246,7 +245,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.068Z",
+      "crawledAt": "2026-10-03T09:24:46.273Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -324,7 +323,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.066Z",
+      "crawledAt": "2026-10-03T09:24:46.272Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
@@ -402,7 +401,7 @@
       "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.064Z",
+      "crawledAt": "2026-10-03T09:24:46.271Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -495,7 +494,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.063Z",
+      "crawledAt": "2026-10-03T09:24:46.270Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique",
@@ -568,13 +567,12 @@
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "url": "https://app.beehire.com/invite/I_TEMIvLa",
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.061Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-03T09:24:46.269Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -588,7 +586,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:25:01.061Z"
+      "firstSeenAt": "2026-10-03T09:24:46.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest",
+          "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest",
+          "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest",
+        "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "needsRetranslation": true
     }
   ]
 }

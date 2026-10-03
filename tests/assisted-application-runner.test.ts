@@ -144,7 +144,11 @@ describe('draft mode', () => {
     // Evidence the CV does not contain is not kept as evidence.
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
     // The posting asks for a salary expectation: the question is added even though the model forgot it.
-    expect(draft.questions).toEqual([expect.objectContaining({ id: 'salary_expectation', required: true, source: 'rule' })]);
+    expect(draft.questions).toEqual([
+      expect.objectContaining({ id: 'salary_expectation', required: true, source: 'rule' }),
+      // The application leaves through a portal's form (Lever): the form of address is asked now, optional.
+      expect.objectContaining({ id: 'salutation', required: false, type: 'choice', options: ['Signor', 'Signora', 'Altro'], source: 'rule' }),
+    ]);
     // "7 anni" is not in the CV: flagged for the operator.
     expect(draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
     expect(bucket.files.has(draft.coverLetterPdfKey)).toBe(true);
@@ -497,6 +501,19 @@ describe('submit mode', () => {
     expect(await submit(refusedAfterClick.db, clicksThenRefused)).toMatchObject({ type: 'submit_failed', error: 'portal_refused' });
     expect(refusedAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'portal_refused' } });
     expect(await submissionGuard(refusedAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
+
+    // Coop's SuccessFactors, 2026-10-03: «Bewerben» answered with the portal's own
+    // validation, then questions for the candidate: nothing left, released.
+    const validationAfterClick = createMemoryFirestore();
+    const clicksThenValidation = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_needs_candidate', questions: [{ question: 'Strasse und Hausnummer', type: 'text' }] }, evidence: { steps: [], finalOutcomes: ['validation'] } }; };
+    expect(await submit(validationAfterClick.db, clicksThenValidation)).toMatchObject({ type: 'submit_needs_candidate' });
+    expect(validationAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'portal_validation' } });
+    expect(await submissionGuard(validationAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
+    // A validation, then a click whose outcome is unknown: kept "sending".
+    const validationThenUnknown = createMemoryFirestore();
+    const clicksTwice = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: { steps: [], finalOutcomes: ['validation', 'ambiguous'] } }; };
+    expect(await submit(validationThenUnknown.db, clicksTwice)).toMatchObject({ type: 'submit_failed', error: 'portal_ambiguous' });
+    expect(validationThenUnknown.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
   });
 
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {

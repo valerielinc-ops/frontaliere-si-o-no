@@ -1,7 +1,7 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-10-02T09:24:12.088Z",
+  "generatedAt": "2026-10-03T09:21:39.116Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -14,10 +14,12 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1925,
-  "avgDurationMs": 1925,
+  "durationMs": 2161,
+  "avgDurationMs": 2161,
   "durationHistory": [
-    1925
+    1925,
+    1892,
+    2161
   ],
   "newJobs": [],
   "updatedJobs": [],

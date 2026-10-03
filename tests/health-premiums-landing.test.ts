@@ -870,16 +870,21 @@ describe('generateHealthPremiumsPages — content quality', () => {
     }
   });
 
-  it('leaf pages emit Product JSON-LD with CHF AggregateOffer', () => {
+  it('leaf pages describe insurance services with real CHF premium ranges', () => {
     for (const [path, html] of Object.entries(generation.pages)) {
       if (classify(path) !== 'leaf') continue;
 
-      const productBlockMatch = html.match(
-        /<script type="application\/ld\+json">(\{[^<]*"@type":"Product"[^<]*\})<\/script>/,
+      const serviceBlockMatch = html.match(
+        /<script type="application\/ld\+json">(\{[^<]*"@type":"Service"[^<]*\})<\/script>/,
       );
-      expect(productBlockMatch, `leaf ${path} has no Product LD`).not.toBeNull();
-      if (!productBlockMatch) continue;
-      const parsed = JSON.parse(productBlockMatch[1]);
+      expect(serviceBlockMatch, `leaf ${path} has no Service LD`).not.toBeNull();
+      if (!serviceBlockMatch) continue;
+      const parsed = JSON.parse(serviceBlockMatch[1]);
+      expect(parsed.serviceType).toBe('Health insurance');
+      expect(parsed.areaServed['@type']).toBe('AdministrativeArea');
+      expect(parsed).not.toHaveProperty('aggregateRating');
+      expect(parsed).not.toHaveProperty('review');
+      expect(html).not.toContain('"@type":"Product"');
       expect(parsed.offers['@type']).toBe('AggregateOffer');
       expect(parsed.offers.priceCurrency).toBe('CHF');
       expect(typeof parsed.offers.lowPrice).toBe('string');

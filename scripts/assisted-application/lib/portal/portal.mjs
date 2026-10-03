@@ -9,7 +9,9 @@
  * 2026-10-01); an unresolved challenge still ends in a handoff.
  * A login page is handled by account.mjs: an
  * account on the order's alias, created by the runner and verified through
- * the order's inbox. A required answer only the candidate can give ends in
+ * the order's inbox. An application form that asks for the account's password
+ * itself (umantis) is the form: filled and sent as any other, the password
+ * with it. A required answer only the candidate can give ends in
  * `submit_needs_candidate` with the question; the flow asks it on the review
  * page and dispatches the submission again.
  * A click on "submit" whose outcome cannot be confirmed is never retried
@@ -21,7 +23,7 @@
  */
 
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -341,6 +343,113 @@ export function postingMatch(pageText, job = {}) {
   return title.every(variant) ? 'match' : 'mismatch';
 }
 
+// A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
+const FORM_VOCABULARY = new Set([
+  'application', 'applications', 'apply', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
+  'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
+  'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+  'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
+  'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
+]);
+// The kind of employer, alone in a title, names nobody: «Hotel application» is a hotel's form, whoever
+// the hotel is (review of #11064). Next to a word of the order's company it is a name, though:
+// «Esempio Resort» is not «Grand Hotel Esempio» (the neighbour rule does not take these for neutral).
+const EMPLOYER_KIND_WORDS = new Set([
+  'hotel', 'hotels', 'hotellerie', 'resort', 'restaurant', 'ristorante', 'gastronomie', 'spital', 'hospital', 'ospedale', 'hopital',
+  'klinik', 'clinica', 'clinique', 'bank', 'banca', 'banque', 'group', 'gruppe', 'gruppo', 'groupe',
+]);
+// Filler between two words: skipped when looking for the word next to a company word.
+const FILLER_WORDS = new Set([
+  'the', 'and', 'for', 'our', 'your', 'with', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
+  'als', 'von', 'vom', 'zum', 'zur', 'mit', 'per', 'con', 'una', 'uno', 'nel', 'nella', 'dei', 'del', 'della', 'degli', 'gli', 'les', 'pour',
+  'chez', 'avec', 'aux', 'une',
+]);
+const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
+// What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
+const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
+
+/**
+ * The form names an employer that is not the order's (reviews of #11033).
+ * `formText` is the page's title on its first line, then its text. Two
+ * places say who the employer is, and nothing else on the page does (the ATS's
+ * own «Powered by Palace Resort AG» in a footer is nobody's employer):
+ *
+ *   1. the page's title. Next to the role it holds the employer or nothing:
+ *      «Concierge — Other Resort», «Concierge — Other Hotel». Any word there
+ *      that is neither the role's, nor the order's company's, nor the page's
+ *      own vocabulary («Hotel application», «Hotel Application Process»,
+ *      «Application Tracking System»), nor a kind of employer («hotel»,
+ *      «clinica») declares someone else. A place or a
+ *      department in the title stops the run too: Valerie's retry goes on,
+ *      which costs less than an application to the wrong employer;
+ *   2. the word NEXT TO a word of the order's company, anywhere, in the same
+ *      phrase and with filler skipped: «Other Hotel», «other hotel»,
+ *      «Other-Hotel», «jobs.other-hotel.example».
+ *
+ * Case and separators do not matter. The order's own whole name never gets
+ * here: it is postingMatch's direct match.
+ */
+export function namesAnotherEmployer(formText, job = {}) {
+  const ours = new Set(nameWords(job.company));
+  if (!ours.size) return false;
+  const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
+  const text = String(formText || '');
+  const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
+  if (title.some((word) => !filler(word) && !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word))) return true;
+  for (const phrase of text.split(PHRASE_END_RE)) {
+    const words = normalizeWords(phrase).split(' ').filter(Boolean);
+    for (const [index, word] of words.entries()) {
+      if (!ours.has(word)) continue;
+      for (const step of [-1, 1]) {
+        let at = index + step;
+        while (words[at] !== undefined && filler(words[at])) at += step;
+        if (words[at] !== undefined && !neutral.has(words[at])) return true;
+      }
+    }
+  }
+  return false;
+}
+
+/**
+ * The form the posting's own apply button opened. An ATS on another host
+ * often names the role and never the company (umantis for Grand Hotel
+ * Kronenhof, 2026-10-03: «Concierge - Application», nothing of the employer):
+ * the company was read on the posting the runner came from
+ * (`postingMatched`), the role is read on the form, every word of it.
+ *
+ * Only for a form that is silent about the employer. One that names another
+ * employer (namesAnotherEmployer) is a stop, whatever the posting said and
+ * whatever the role: «Concierge — Other Hotel» is never «Grand Hotel
+ * Esempio»'s form. A form reached any other way is judged by postingMatch
+ * alone.
+ */
+export function formPostingMatch(formText, job = {}, { postingMatched = false } = {}) {
+  const direct = postingMatch(formText, job);
+  if (direct !== 'mismatch' || !postingMatched) return direct;
+  // A conflicting employer identity on the form: no fallback to the role.
+  if (namesAnotherEmployer(formText, job)) return 'mismatch';
+  return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
+}
+
+// A send button that names an application: «Submit final application»,
+// «Bewerbung absenden», «Invia candidatura», «Envoyer ma candidature».
+const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
+
+/**
+ * The application form asks for its account's password itself (account.mjs)
+ * and its button sends an application: the form, not a login page. A bare
+ * «Submit» or «Konto erstellen» under a password stays a registration.
+ */
+export function ownAccountForm(snapshot) {
+  return Boolean(snapshot.passwordVisible) && inlineAccountForm(snapshot) && sendsApplication(snapshot);
+}
+
+/** The page's button sends an application («Submit final application»), whatever else the page asks. */
+export function sendsApplication(snapshot) {
+  return (snapshot.buttons || []).some((button) => SUBMIT_RE.test(button.text) && NAMES_APPLICATION_RE.test(button.text));
+}
+
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
 function questionsFrom(missingRequired) {
   const questions = [];
@@ -392,25 +501,232 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   return { snapshot: after, reopen: true };
 }
 
-// SuccessFactors' required privacy statement (Coop, 2026-10-02) is no box: a
-// link opens a dialog, only once the country is chosen, whose «Akzeptieren»
-// fills a hidden field. The application's own required consent (plan.mjs),
-// never a newsletter or a job alert.
+// SuccessFactors' required privacy statement (Coop, 2026-10-02) starts as a
+// link, only once the country is chosen. Its dialog can require a separate
+// “I have reviewed…” checkbox before «Akzeptieren» becomes enabled. This is
+// the application's own required consent (plan.mjs), never a newsletter or a
+// job alert.
 export const PRIVACY_STATEMENT_RE = /(lesen und akzeptieren|leggere e accettare|lire et accepter|read and accept)/i;
-const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|accetta|accetto|accettare|accepter|j'accepte)$/i;
+export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
+export const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|agree|zustimmen|accetta|accetto|accettare|accepter|j['’]accepte)(?:\s+(?:und|and|et|e)\s+.*)?\W*$/i;
+
+function dialogKey(control) {
+  if (control?.dialogId) return String(control.dialogId);
+  // Accept snapshots made before dialogId was added can still be inspected,
+  // but a boolean cannot identify one dialog among several.
+  return typeof control?.dialog === 'string' ? control.dialog : '';
+}
+
+function isDialogControl(control) {
+  return control?.dialog === true || Boolean(dialogKey(control));
+}
+
+function dialogToken(control) {
+  const key = dialogKey(control);
+  return key ? `${control.frame || 0}:${key}` : '';
+}
+
+function visibleDialogTokens(snapshot = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.fields) ? snapshot.fields : []),
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+  ];
+  return new Set(controls.map(dialogToken).filter(Boolean));
+}
+
+function candidateScore(candidate) {
+  // A disabled accept button is the DPCS state before its required review
+  // checkbox is selected. Prefer it when this function receives a standalone
+  // snapshot without the before/after dialog context used by the caller.
+  if (candidate.accept?.disabled) return 3;
+  if (candidate.accept) return 2;
+  return candidate.review ? 1 : 0;
+}
+
+export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = null, preferredDialogToken = '' } = {}) {
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const allowed = allowedDialogTokens === null ? null : new Set(allowedDialogTokens);
+  const inScope = (control) => {
+    const token = dialogToken(control);
+    return token && (!allowed || allowed.has(token));
+  };
+  // The page can retain another modal with an enabled "Accept" control next
+  // to the DPCS dialog. Keep candidate lookups in one dialog and frame. The
+  // live flow passes the token of the dialog that appeared after the trigger;
+  // the disabled-button preference keeps direct snapshot inspection safe too.
+  const dialogFields = fields.filter((field) => isDialogControl(field) && inScope(field));
+  const dialogButtons = buttons.filter((button) => isDialogControl(button) && inScope(button));
+  const reviewFields = dialogFields.filter((field) => field.kind === 'checkbox'
+    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  const candidateTokens = new Set([
+    ...reviewFields.map(dialogToken),
+    ...dialogButtons.map(dialogToken),
+  ].filter(Boolean));
+  const candidates = [...candidateTokens].map((token) => {
+    const review = reviewFields.find((field) => dialogToken(field) === token) || null;
+    const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token);
+    return { token, review, accept: findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
+  });
+  const preferred = preferredDialogToken
+    ? candidates.find((candidate) => candidate.token === preferredDialogToken) || null
+    : null;
+  const candidate = preferred || candidates
+    .map((item, index) => ({ item, index }))
+    .sort((left, right) => candidateScore(right.item) - candidateScore(left.item) || right.index - left.index)[0]?.item || null;
+  const review = candidate?.review || null;
+  return {
+    trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
+    review,
+    // A disabled accept button is useful evidence while the required review
+    // box is being checked; the caller still waits for it to become enabled.
+    accept: candidate?.accept || null,
+    dialogToken: candidate?.token || '',
+  };
+}
+
+async function scrollPrivacyStatement(page) {
+  await Promise.all(page.frames().map((frame) => frame.evaluate(() => {
+    const dialogs = [...document.querySelectorAll('[role="dialog"], [aria-modal="true"]')];
+    for (const dialog of dialogs) {
+      for (const element of [dialog, ...dialog.querySelectorAll('*')]) {
+        if (element.scrollHeight > element.clientHeight + 4) element.scrollTop = element.scrollHeight;
+      }
+    }
+  }).catch(() => {})));
+}
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
-async function acceptPrivacyStatement(page, snapshot) {
-  const trigger = findButton(snapshot.buttons, PRIVACY_STATEMENT_RE);
-  if (!trigger) return 'none';
-  await clickButton(page, trigger).catch(() => {});
+export async function acceptPrivacyStatement(page, snapshot) {
+  if (!privacyConsentControls(snapshot).trigger) return 'none';
+  // The last field filled (the password repeat) checks itself on blur:
+  // SuccessFactors asks its password policy and a click on the statement's
+  // link meanwhile is lost. Blur first, wait for that request, then open the
+  // dialog; retry once if the portal redraws the form during the first click.
+  await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
+  await settle(page);
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const deadline = Date.now() + 8_000;
+    const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+    const trigger = privacyConsentControls(currentSnapshot).trigger;
+    if (!trigger) break;
+    const beforeDialogTokens = visibleDialogTokens(currentSnapshot);
+    let openedDialogToken = '';
+    const controlsForOpenedDialog = (current) => {
+      const currentDialogTokens = visibleDialogTokens(current);
+      const newlyOpened = [...currentDialogTokens].filter((token) => !beforeDialogTokens.has(token));
+      let controls = privacyConsentControls(current, {
+        allowedDialogTokens: openedDialogToken ? [openedDialogToken] : newlyOpened,
+        preferredDialogToken: openedDialogToken,
+      });
+      // A portal may replace the dialog node after its checkbox changes. If
+      // that gives it a new snapshot token, keep the replacement in scope but
+      // never fall back to an older unrelated modal.
+      if (!controls.dialogToken && openedDialogToken && newlyOpened.length) {
+        controls = privacyConsentControls(current, { allowedDialogTokens: newlyOpened });
+      }
+      if (controls.dialogToken) openedDialogToken = controls.dialogToken;
+      return controls;
+    };
+    await clickButton(page, trigger).catch(() => {});
+    await scrollPrivacyStatement(page);
+    while (Date.now() <= deadline) {
+      const current = await extractFields(page, NAVIGATION).catch(() => null);
+      if (current) {
+        const controls = controlsForOpenedDialog(current);
+        if (controls.review && !controls.review.checked) {
+          await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} });
+          await scrollPrivacyStatement(page);
+        }
+        const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
+        const accept = controlsForOpenedDialog(refreshed || {}).accept;
+        if (accept && !accept.disabled) {
+          try {
+            await clickButton(page, accept);
+            await page.waitForTimeout(800);
+            return 'accepted';
+          } catch {
+            // A portal can replace the dialog button after the review checkbox;
+            // rescan and retry within the bounded window.
+          }
+        }
+      }
+      if (Date.now() >= deadline) break;
+      await page.waitForTimeout(200);
+    }
+    await settle(page);
+  }
+  return 'unavailable';
+}
+
+// SuccessFactors (Coop, 2026-10-03): the application page shows its sections
+// closed («Alle Abschnitte einblenden»), one field in sight, and a «Bewerben»
+// pressed on it only meets the portal's validation. Its CV goes in through
+// «Lebenslauf hochladen», a dialog whose file input exists only once open.
+export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
+export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|télécharger|joindre|importer)|(upload|carica|caricare|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
+
+// Tries per page and action in one run: a click a portal drops is tried again
+// at once, a page that never opens does not hold the run (review of #11022).
+const MAX_SECTION_TRIES = 3;
+
+/** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
+async function uploadThroughDialog(page, trigger, file) {
   try {
-    await page.getByRole('dialog').getByRole('button', { name: PRIVACY_ACCEPT_RE }).first().click({ timeout: 8_000 });
+    await trigger.click({ timeout: 6_000 });
   } catch {
     return 'unavailable';
   }
-  await page.waitForTimeout(800);
-  return 'accepted';
+  const input = page.locator('[role="dialog"] input[type="file"], [aria-modal="true"] input[type="file"]').first();
+  try {
+    await input.waitFor({ state: 'attached', timeout: 8_000 });
+    await input.setInputFiles(file);
+  } catch {
+    await page.keyboard.press('Escape').catch(() => {});
+    return 'unavailable';
+  }
+  // The dialog closes once the portal holds the file (SuccessFactors reads it first).
+  const closed = await input.waitFor({ state: 'detached', timeout: 60_000 }).then(() => true, () => false);
+  await settle(page);
+  return closed ? 'uploaded' : 'uploaded_unconfirmed';
+}
+
+/**
+ * Before a page is planned: its closed sections opened, and the CV put in a
+ * dialog's file input when the page has no file field of its own. A page is
+ * done only once the action is seen to work (more fields in sight, the file
+ * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
+ * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable'}>}
+ */
+export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map() } = {}) {
+  let current = snapshot;
+  const where = anonymizePath(page.url());
+  const attempt = (key) => {
+    const count = (tries.get(key) || 0) + 1;
+    tries.set(key, count);
+    return count <= MAX_SECTION_TRIES;
+  };
+  const expandKey = `expand|${where}`;
+  while (!done.has(expandKey) && findButton(current.buttons, EXPAND_ALL_RE) && attempt(expandKey)) {
+    const before = current.fields.length;
+    await clickButton(page, findButton(current.buttons, EXPAND_ALL_RE)).catch(() => {});
+    await settle(page);
+    await page.waitForTimeout(1000);
+    current = await extractFields(page);
+    if (current.fields.length > before) done.add(expandKey);
+  }
+  const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
+  const cvKey = `cv|${where}`;
+  let cv;
+  while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
+    const trigger = page.getByRole('button', { name: CV_UPLOAD_RE }).first();
+    if (!await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
+    cv = await uploadThroughDialog(page, trigger, cvFile);
+    current = await extractFields(page);
+    // A file that went in, confirmed or not, never goes in twice.
+    if (cv !== 'unavailable') done.add(cvKey);
+  }
+  return cv ? { snapshot: current, cv } : { snapshot: current };
 }
 
 /**
@@ -484,6 +800,30 @@ async function handleAuth({ page, snapshot, ctx }) {
   await ctx.accounts.mark(host, { status: 'created' });
   if (outcome === 'verify') return noted(await verifyAccount({ page, host, sinceMs, ctx, snapshot: after }));
   return noted({ snapshot: after, reopen: !after.passwordVisible });
+}
+
+/**
+ * The password of an application form that creates its own account
+ * (ownAccountForm): the one this order already holds for the portal, else a
+ * new one, stored (encrypted) BEFORE it is typed, as for a registration page:
+ * a run that dies after the send click still knows it. A dry run types one it
+ * never stores (its form is never sent, so no account comes of it).
+ * @param {Map<string,string>} passwords the run's own, by host (re-typed when the page is planned again)
+ * @returns {Promise<boolean>} every password field took it
+ */
+async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
+  const host = new URL(page.url()).hostname;
+  let password = passwords.get(host) || (await ctx.accounts.load(host))?.password || '';
+  if (!password) {
+    password = newPortalPassword({ portal: host });
+    if (ctx.dryRun) ctx.accounts.mask?.(password);
+    else await ctx.accounts.save(host, { email: ctx.candidate.identity.email, password });
+  }
+  passwords.set(host, password);
+  const fields = snapshot.fields.filter((field) => field.inputType === 'password');
+  const results = await applyActions(page, snapshot.fields, fields.map((field) => ({ fieldId: field.id, action: 'fill', value: password })), {});
+  // Only whether it went in: the filler's own message may quote what it typed.
+  return results.length === fields.length && results.every((result) => result.ok);
 }
 
 /**
@@ -704,22 +1044,38 @@ export async function submitViaPortal(ctx) {
     });
     evidence.liveness = { result: rendered.result, code: rendered.code };
     if (isHardClosed(rendered)) return { event: { type: 'posting_closed', reason: rendered.code }, evidence };
+    // The posting itself, before its apply button: where the company is read
+    // when the form behind the button names only the role (formPostingMatch).
+    const postingUrl = page.url();
+    const postingNamed = postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${postingUrl}`, ctx.job) === 'match';
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
-    const formMatch = async () => postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${page.url()}`, ctx.job);
+    const formMatch = async () => {
+      const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
+      const result = formPostingMatch(seen, ctx.job, { postingMatched: postingNamed && page.url() !== postingUrl });
+      // Said in the evidence: the company was read on the posting, the form names only the role.
+      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = 'posting_page';
+      return result;
+    };
     const match = await formMatch();
     evidence.postingMatch = match;
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
-    let postingCheckPending = match === 'mismatch' && snapshot.passwordVisible && !ctx.skipPostingCheck;
+    // An application form with its own password field is the form: checked now.
+    let postingCheckPending = match === 'mismatch' && snapshot.passwordVisible && !ownAccountForm(snapshot) && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
+    // The passwords this run typed into application forms that create their own account, by host.
+    const ownPasswords = new Map();
     const uploaded = new Set();
+    // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
+    const openedOnce = new Set();
+    const openTries = new Map();
     // What went into the form, question by question (career-ops application-answers):
     // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
     const given = new Map();
@@ -746,6 +1102,7 @@ export async function submitViaPortal(ctx) {
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
+          secrets: [...ownPasswords.values()],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
           log,
         });
@@ -765,7 +1122,32 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
-      if (snapshot.passwordVisible) {
+      // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
+      const openSections = async () => {
+        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
+        snapshot = opened.snapshot;
+        if (opened.cv) {
+          evidence.steps.at(-1).cv = opened.cv;
+          if (opened.cv !== 'unavailable') record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
+        }
+      };
+      // A password page whose button sends an application may be the form with its
+      // sections still closed, the CV field inside one (review of #11033): it is the
+      // form's page, so the posting is checked and the sections are opened BEFORE it
+      // is taken for a login page.
+      if (snapshot.passwordVisible && !ownAccountForm(snapshot) && sendsApplication(snapshot)) {
+        if (postingCheckPending) {
+          postingCheckPending = false;
+          evidence.postingMatch = await formMatch();
+          if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
+        }
+        await openSections();
+      }
+      // The form asks for its account's password itself (umantis): no login
+      // page to get through, the password is typed with the rest of the form.
+      let ownAccount = ownAccountForm(snapshot);
+      if (ownAccount && !ctx.accounts) return await handoff('account');
+      if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
         const auth = await handleAuth({ page, snapshot, ctx });
         evidence.steps.at(-1).auth = {
@@ -796,6 +1178,9 @@ export async function submitViaPortal(ctx) {
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
       }
+      await openSections();
+      // A section just opened may hold the form’s own password field.
+      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot);
       // Inside the form, any page with a field is planned: a step with one
       // question and its Next disabled until it is answered (JOIN's work
       // authorization) is not a dead end. Nothing to fill and nowhere to go is.
@@ -808,7 +1193,9 @@ export async function submitViaPortal(ctx) {
       let after = snapshot;
       let unclearQuestions = [];
       if (workable(snapshot)) {
-        const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        // The planner never sees a password field, nor what a retry finds typed in it.
+        const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
+        const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
         // A required field with no readable label is no question for the
         // candidate ("select-input-_r_p_"): the agent finds its question on the page.
         const unclear = plan.missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
@@ -831,6 +1218,11 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+        if (ownAccount) {
+          const typed = await typeOwnPassword({ page, snapshot, ctx, passwords: ownPasswords });
+          evidence.steps.at(-1).auth = { kind: 'inline', outcome: !typed ? 'password_not_typed' : ctx.dryRun ? 'dry_run' : 'ok' };
+          if (!typed) return await handoff('account');
+        }
 
         after = await extractFields(page, NAVIGATION);
         // The portal moved to another page by itself (JOIN registers the e-mail
@@ -943,11 +1335,14 @@ export async function submitViaPortal(ctx) {
       diagnostics.finalClick();
       await final.click();
       const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      (evidence.finalOutcomes ||= []).push(outcome);
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       log(`portal outcome: ${outcome}`);
       if (outcome === 'confirmed') {
+        // The application went, and with it the account its form asked a password for.
+        for (const host of ownPasswords.keys()) await ctx.accounts.mark(host, { status: 'created' }).catch(() => {});
         // The portal confirmed: what this run had to learn is remembered for the next one (level 2).
         const learnedFinal = final.by === 'agent' || !SUBMIT_RE.test(final.label) ? { path: anonymizePath(finalUrl), label: final.label } : null;
         if (ctx.knowledge && (learnedFinal || namedNext.length)) {

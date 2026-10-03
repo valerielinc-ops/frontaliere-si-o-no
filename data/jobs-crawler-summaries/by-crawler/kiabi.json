@@ -1,7 +1,7 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-10-02T09:13:52.056Z",
+  "generatedAt": "2026-10-03T09:13:54.284Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
@@ -9,16 +9,10 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
-  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3355,
-  "avgDurationMs": 3355,
-  "durationHistory": [
-    3355
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [
@@ -64,5 +58,11 @@
       }
     }
   ],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "authoritativeEmptySnapshot": true,
+  "durationMs": 3355,
+  "avgDurationMs": 3355,
+  "durationHistory": [
+    3355
+  ]
 }

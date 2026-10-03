@@ -1,16 +1,18 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-10-02T09:35:10.946Z",
+  "generatedAt": "2026-10-03T09:36:48.418Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 69782,
-  "avgDurationMs": 69782,
+  "durationMs": 169010,
+  "avgDurationMs": 169010,
   "durationHistory": [
-    69782
+    69782,
+    149695,
+    169010
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +37,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-02T09:35:04.783Z",
+      "crawledAt": "2026-10-02T21:32:31.299Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -98,7 +100,8 @@
         "richness": 21,
         "translation": 23,
         "completeness": 19
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ],
   "removedJobs": [],

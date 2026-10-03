@@ -1,6 +1,6 @@
 {
   "crawlerKey": "delvitech-sa",
-  "assembledAt": "2026-10-02T09:23:30.869Z",
+  "assembledAt": "2026-10-03T09:25:30.350Z",
   "jobs": [
     {
       "title": "Application Engineer",
@@ -531,7 +531,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -556,7 +556,6 @@
       },
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-d624f7e54b9b",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mechanical-engineer-delvitech-mendrisio"
@@ -579,7 +578,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:23:28.366Z"
+      "firstSeenAt": "2026-10-03T09:25:27.867Z",
+      "needsRetranslation": true
     },
     {
       "title": "Software Development and Validation Engineer",
@@ -599,7 +599,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -624,7 +624,6 @@
       },
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-bfc600631968",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -639,7 +638,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:23:28.366Z"
+      "firstSeenAt": "2026-10-03T09:25:27.867Z",
+      "needsRetranslation": true
     }
   ]
 }

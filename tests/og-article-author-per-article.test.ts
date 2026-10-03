@@ -98,11 +98,11 @@ describe('article:author names the article author, not the Redazione', () => {
     // The same author appears on many pages. A stable fragment identifier lets
     // crawlers reconcile those Person nodes instead of treating every page as
     // a new anonymous entity. The publisher fallback uses the canonical
-    // NewsMediaOrganization type already declared by organizationLd.ts.
+    // Organization type already declared by organizationLd.ts.
     expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{resolvedAuthor\.slug\}\/\#person`/);
-    expect(src).toMatch(/worksFor: \{ '@type': 'NewsMediaOrganization'/);
+    expect(src).toMatch(/worksFor: \{ '@type': 'Organization'/);
     expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{reviewerAuthor\.slug\}\/\#person`/);
-    expect(src).toMatch(/'@type': 'NewsMediaOrganization' as const/);
+    expect(src).toMatch(/'@type': 'Organization' as const/);
   });
 });
 

@@ -1,23 +1,29 @@
 {
   "key": "elprom",
   "label": "elprom",
-  "generatedAt": "2026-10-02T09:26:27.061Z",
+  "generatedAt": "2026-10-03T09:23:08.226Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 4628,
+  "avgDurationMs": 4628,
+  "durationHistory": [
+    4373,
+    4628
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
+  "abortKind": "no-jobs-parsed",
   "earlyExit": true,
   "exitCode": 0
 }

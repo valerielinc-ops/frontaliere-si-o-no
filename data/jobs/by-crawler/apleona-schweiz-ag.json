@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apleona-schweiz-ag",
-  "assembledAt": "2026-10-02T09:25:53.815Z",
+  "assembledAt": "2026-10-03T09:28:18.962Z",
   "jobs": [
     {
       "id": "apleona-schweiz-ag-a0a6929b8778",
@@ -76,7 +76,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "apleona-schweiz-ag-0c321ce5ced8",
@@ -149,7 +150,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "apleona-schweiz-ag-da03e256d1e6",
@@ -182,7 +184,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2569/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.610Z",
+      "crawledAt": "2026-10-03T09:28:14.211Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -255,7 +257,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2571/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.307Z",
+      "crawledAt": "2026-10-03T09:28:13.909Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -318,7 +320,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2572/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.006Z",
+      "crawledAt": "2026-10-03T09:28:13.607Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -394,7 +396,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2554/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:46.702Z",
+      "crawledAt": "2026-10-03T09:28:13.304Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -464,7 +466,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2573/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:46.401Z",
+      "crawledAt": "2026-10-03T09:28:13.002Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -527,7 +529,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2548/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:46.100Z",
+      "crawledAt": "2026-10-03T09:28:12.701Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -631,7 +633,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2525/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:45.796Z",
+      "crawledAt": "2026-10-03T09:28:12.388Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -694,7 +696,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2574/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:45.494Z",
+      "crawledAt": "2026-10-03T09:28:12.086Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -710,20 +712,6 @@
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2574/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
-        ],
-        "en": [
-          "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
-        ],
-        "fr": [
-          "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:28:03.838Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -737,7 +725,151 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
+        ],
+        "en": [
+          "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
+        ],
+        "fr": [
+          "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "objektleiter-m-w-d-apleona-schweiz-ag-liestal"
+      ]
+    },
+    {
+      "id": "apleona-schweiz-ag-2922d3471608",
+      "slug": "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug",
+      "slugByLocale": {
+        "de": "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug",
+        "it": "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug",
+        "en": "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug",
+        "fr": "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug"
+      },
+      "company": "Apleona Schweiz AG",
+      "companyKey": "apleona-schweiz-ag",
+      "companyDomain": "recruitingapp-2765.umantis.com",
+      "title": "Sektorleiter Unterhaltsreinigung (m/w/d)",
+      "titleByLocale": {
+        "de": "Sektorleiter Unterhaltsreinigung (m/w/d)",
+        "it": "Sektorleiter Unterhaltsreinigung (m/w/d)",
+        "en": "Sektorleiter Unterhaltsreinigung (m/w/d)",
+        "fr": "Sektorleiter Unterhaltsreinigung (m/w/d)"
+      },
+      "description": "Aufgaben\n• Umsetzen der reibungslosen Unterhaltsreinigung gemäss Kundenvertrag\n• Organisieren und Optimieren der Arbeitsabläufe inkl. Qualitätskontrollen\n• Materialbewirtschaftung und Überwachen des Materialverbrauchs\n• Unterstützen bei der Rekrutierung von Reinigungsmitarbeitenden und Ferienvertretungen\n• Mitarbeiterführung (Einführung, Einsatz- und Ferienplanung, Schulung, Erfassung von Arbeitszeiten und Absenzen, Rapportierung von personellen Veränderungen an die jeweiligen Schnittstellen, etc.)\n• Organisieren und Rapportieren von Regieleistungen\n• Unterstützung des Leiter Reinigung bei administrativen und betrieblichen Abläufen\n• Arbeitssicherheit, Gesundheitsschutz und den fachgerechten Umgang mit Maschinen und Geräten sicherstellen\n• Personelle und fachliche Führung von einer grösseren Anzahl Mitarbeitenden\n• Wirtschaftliche Steuerung und Überwachung der Budgeteinhaltung\n• Sicherstellung einer qualitativ hochstehenden Leistungserbringung in den verantwortlichen Bereichen\n• Zusammenarbeit mit diversen externen Lieferanten und internen Ansprechpersonen in den FM-Mandaten und zentralen Abteilungen\n• Kontrollen vor Ort bei Kunden\n\nAnforderungen\n• Mehrere Jahre erfolgreiche Berufs- und Führungserfahrung in der Reinigung\n• Verhandlungssicher in Deutsch und Englisch\n• Zuverlässige Persönlichkeit mit sicherem Auftreten gegenüber internen und externen Kunden\n• Wirtschaftliche Sichtweise und Freude im Umgang mit Mitarbeitenden\n• Aktive Mitarbeit bei Gestaltung von Neuerungen und Weiterentwicklung\n• Hohe Eigenmotivation und Selbstständigkeit\n• Ausgewiesene Erfahrung in der Teamführung ist zwingend notwendig\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n• Gute PC-Kenntnisse (MS Office) und Bereitschaft zur Anwendung diverser interner Tools\n• Exakte, strukturierte und selbstständige Arbeitsweise\n• Hohes Qualitätsbewusstsein, ausgeprägte Kundenorientierung und einwandfreie Umgangsformen\n• Tadelloser Leumund\n\nWir bieten:\n• Anstellung nach GAV\n• Regelmässige Arbeitstätigkeiten\n• Mitarbeiter/in Schulung",
+      "descriptionByLocale": {
+        "de": "Aufgaben\n• Umsetzen der reibungslosen Unterhaltsreinigung gemäss Kundenvertrag\n• Organisieren und Optimieren der Arbeitsabläufe inkl. Qualitätskontrollen\n• Materialbewirtschaftung und Überwachen des Materialverbrauchs\n• Unterstützen bei der Rekrutierung von Reinigungsmitarbeitenden und Ferienvertretungen\n• Mitarbeiterführung (Einführung, Einsatz- und Ferienplanung, Schulung, Erfassung von Arbeitszeiten und Absenzen, Rapportierung von personellen Veränderungen an die jeweiligen Schnittstellen, etc.)\n• Organisieren und Rapportieren von Regieleistungen\n• Unterstützung des Leiter Reinigung bei administrativen und betrieblichen Abläufen\n• Arbeitssicherheit, Gesundheitsschutz und den fachgerechten Umgang mit Maschinen und Geräten sicherstellen\n• Personelle und fachliche Führung von einer grösseren Anzahl Mitarbeitenden\n• Wirtschaftliche Steuerung und Überwachung der Budgeteinhaltung\n• Sicherstellung einer qualitativ hochstehenden Leistungserbringung in den verantwortlichen Bereichen\n• Zusammenarbeit mit diversen externen Lieferanten und internen Ansprechpersonen in den FM-Mandaten und zentralen Abteilungen\n• Kontrollen vor Ort bei Kunden\n\nAnforderungen\n• Mehrere Jahre erfolgreiche Berufs- und Führungserfahrung in der Reinigung\n• Verhandlungssicher in Deutsch und Englisch\n• Zuverlässige Persönlichkeit mit sicherem Auftreten gegenüber internen und externen Kunden\n• Wirtschaftliche Sichtweise und Freude im Umgang mit Mitarbeitenden\n• Aktive Mitarbeit bei Gestaltung von Neuerungen und Weiterentwicklung\n• Hohe Eigenmotivation und Selbstständigkeit\n• Ausgewiesene Erfahrung in der Teamführung ist zwingend notwendig\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n• Gute PC-Kenntnisse (MS Office) und Bereitschaft zur Anwendung diverser interner Tools\n• Exakte, strukturierte und selbstständige Arbeitsweise\n• Hohes Qualitätsbewusstsein, ausgeprägte Kundenorientierung und einwandfreie Umgangsformen\n• Tadelloser Leumund\n\nWir bieten:\n• Anstellung nach GAV\n• Regelmässige Arbeitstätigkeiten\n• Mitarbeiter/in Schulung",
+        "it": "Aufgaben\n• Umsetzen der reibungslosen Unterhaltsreinigung gemäss Kundenvertrag\n• Organisieren und Optimieren der Arbeitsabläufe inkl. Qualitätskontrollen\n• Materialbewirtschaftung und Überwachen des Materialverbrauchs\n• Unterstützen bei der Rekrutierung von Reinigungsmitarbeitenden und Ferienvertretungen\n• Mitarbeiterführung (Einführung, Einsatz- und Ferienplanung, Schulung, Erfassung von Arbeitszeiten und Absenzen, Rapportierung von personellen Veränderungen an die jeweiligen Schnittstellen, etc.)\n• Organisieren und Rapportieren von Regieleistungen\n• Unterstützung des Leiter Reinigung bei administrativen und betrieblichen Abläufen\n• Arbeitssicherheit, Gesundheitsschutz und den fachgerechten Umgang mit Maschinen und Geräten sicherstellen\n• Personelle und fachliche Führung von einer grösseren Anzahl Mitarbeitenden\n• Wirtschaftliche Steuerung und Überwachung der Budgeteinhaltung\n• Sicherstellung einer qualitativ hochstehenden Leistungserbringung in den verantwortlichen Bereichen\n• Zusammenarbeit mit diversen externen Lieferanten und internen Ansprechpersonen in den FM-Mandaten und zentralen Abteilungen\n• Kontrollen vor Ort bei Kunden\n\nAnforderungen\n• Mehrere Jahre erfolgreiche Berufs- und Führungserfahrung in der Reinigung\n• Verhandlungssicher in Deutsch und Englisch\n• Zuverlässige Persönlichkeit mit sicherem Auftreten gegenüber internen und externen Kunden\n• Wirtschaftliche Sichtweise und Freude im Umgang mit Mitarbeitenden\n• Aktive Mitarbeit bei Gestaltung von Neuerungen und Weiterentwicklung\n• Hohe Eigenmotivation und Selbstständigkeit\n• Ausgewiesene Erfahrung in der Teamführung ist zwingend notwendig\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n• Gute PC-Kenntnisse (MS Office) und Bereitschaft zur Anwendung diverser interner Tools\n• Exakte, strukturierte und selbstständige Arbeitsweise\n• Hohes Qualitätsbewusstsein, ausgeprägte Kundenorientierung und einwandfreie Umgangsformen\n• Tadelloser Leumund\n\nWir bieten:\n• Anstellung nach GAV\n• Regelmässige Arbeitstätigkeiten\n• Mitarbeiter/in Schulung",
+        "en": "Aufgaben\n• Umsetzen der reibungslosen Unterhaltsreinigung gemäss Kundenvertrag\n• Organisieren und Optimieren der Arbeitsabläufe inkl. Qualitätskontrollen\n• Materialbewirtschaftung und Überwachen des Materialverbrauchs\n• Unterstützen bei der Rekrutierung von Reinigungsmitarbeitenden und Ferienvertretungen\n• Mitarbeiterführung (Einführung, Einsatz- und Ferienplanung, Schulung, Erfassung von Arbeitszeiten und Absenzen, Rapportierung von personellen Veränderungen an die jeweiligen Schnittstellen, etc.)\n• Organisieren und Rapportieren von Regieleistungen\n• Unterstützung des Leiter Reinigung bei administrativen und betrieblichen Abläufen\n• Arbeitssicherheit, Gesundheitsschutz und den fachgerechten Umgang mit Maschinen und Geräten sicherstellen\n• Personelle und fachliche Führung von einer grösseren Anzahl Mitarbeitenden\n• Wirtschaftliche Steuerung und Überwachung der Budgeteinhaltung\n• Sicherstellung einer qualitativ hochstehenden Leistungserbringung in den verantwortlichen Bereichen\n• Zusammenarbeit mit diversen externen Lieferanten und internen Ansprechpersonen in den FM-Mandaten und zentralen Abteilungen\n• Kontrollen vor Ort bei Kunden\n\nAnforderungen\n• Mehrere Jahre erfolgreiche Berufs- und Führungserfahrung in der Reinigung\n• Verhandlungssicher in Deutsch und Englisch\n• Zuverlässige Persönlichkeit mit sicherem Auftreten gegenüber internen und externen Kunden\n• Wirtschaftliche Sichtweise und Freude im Umgang mit Mitarbeitenden\n• Aktive Mitarbeit bei Gestaltung von Neuerungen und Weiterentwicklung\n• Hohe Eigenmotivation und Selbstständigkeit\n• Ausgewiesene Erfahrung in der Teamführung ist zwingend notwendig\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n• Gute PC-Kenntnisse (MS Office) und Bereitschaft zur Anwendung diverser interner Tools\n• Exakte, strukturierte und selbstständige Arbeitsweise\n• Hohes Qualitätsbewusstsein, ausgeprägte Kundenorientierung und einwandfreie Umgangsformen\n• Tadelloser Leumund\n\nWir bieten:\n• Anstellung nach GAV\n• Regelmässige Arbeitstätigkeiten\n• Mitarbeiter/in Schulung",
+        "fr": "Aufgaben\n• Umsetzen der reibungslosen Unterhaltsreinigung gemäss Kundenvertrag\n• Organisieren und Optimieren der Arbeitsabläufe inkl. Qualitätskontrollen\n• Materialbewirtschaftung und Überwachen des Materialverbrauchs\n• Unterstützen bei der Rekrutierung von Reinigungsmitarbeitenden und Ferienvertretungen\n• Mitarbeiterführung (Einführung, Einsatz- und Ferienplanung, Schulung, Erfassung von Arbeitszeiten und Absenzen, Rapportierung von personellen Veränderungen an die jeweiligen Schnittstellen, etc.)\n• Organisieren und Rapportieren von Regieleistungen\n• Unterstützung des Leiter Reinigung bei administrativen und betrieblichen Abläufen\n• Arbeitssicherheit, Gesundheitsschutz und den fachgerechten Umgang mit Maschinen und Geräten sicherstellen\n• Personelle und fachliche Führung von einer grösseren Anzahl Mitarbeitenden\n• Wirtschaftliche Steuerung und Überwachung der Budgeteinhaltung\n• Sicherstellung einer qualitativ hochstehenden Leistungserbringung in den verantwortlichen Bereichen\n• Zusammenarbeit mit diversen externen Lieferanten und internen Ansprechpersonen in den FM-Mandaten und zentralen Abteilungen\n• Kontrollen vor Ort bei Kunden\n\nAnforderungen\n• Mehrere Jahre erfolgreiche Berufs- und Führungserfahrung in der Reinigung\n• Verhandlungssicher in Deutsch und Englisch\n• Zuverlässige Persönlichkeit mit sicherem Auftreten gegenüber internen und externen Kunden\n• Wirtschaftliche Sichtweise und Freude im Umgang mit Mitarbeitenden\n• Aktive Mitarbeit bei Gestaltung von Neuerungen und Weiterentwicklung\n• Hohe Eigenmotivation und Selbstständigkeit\n• Ausgewiesene Erfahrung in der Teamführung ist zwingend notwendig\n• Gute Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n• Gute PC-Kenntnisse (MS Office) und Bereitschaft zur Anwendung diverser interner Tools\n• Exakte, strukturierte und selbstständige Arbeitsweise\n• Hohes Qualitätsbewusstsein, ausgeprägte Kundenorientierung und einwandfreie Umgangsformen\n• Tadelloser Leumund\n\nWir bieten:\n• Anstellung nach GAV\n• Regelmässige Arbeitstätigkeiten\n• Mitarbeiter/in Schulung"
+      },
+      "location": "Region Zug",
+      "canton": "ZG",
+      "url": "https://recruitingapp-2765.umantis.com/Vacancies/2570/Description/1",
+      "source": "Apleona Schweiz AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T09:28:11.784Z",
+      "addressLocality": "Region Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-03",
+      "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2570/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:28:11.784Z"
+    },
+    {
+      "id": "apleona-schweiz-ag-deb3689fb1d1",
+      "slug": "immobilienbewirtschafter-m-w-d-80-100-mit-teamleitungsoption-apleona-schweiz-ag-koniz",
+      "slugByLocale": {
+        "de": "immobilienbewirtschafter-m-w-d-80-100-mit-teamleitungsoption-apleona-schweiz-ag-koniz",
+        "it": "immobilienbewirtschafter-m-w-d-80-100-mit-teamleitungsoption-apleona-schweiz-ag-koniz",
+        "en": "immobilienbewirtschafter-m-w-d-80-100-mit-teamleitungsoption-apleona-schweiz-ag-koniz",
+        "fr": "immobilienbewirtschafter-m-w-d-80-100-mit-teamleitungsoption-apleona-schweiz-ag-koniz"
+      },
+      "company": "Apleona Schweiz AG",
+      "companyKey": "apleona-schweiz-ag",
+      "companyDomain": "recruitingapp-2765.umantis.com",
+      "title": "Immobilienbewirtschafter (m/w/d) 80 - 100%, (mit Teamleitungsoption)",
+      "titleByLocale": {
+        "de": "Immobilienbewirtschafter (m/w/d) 80 - 100%, (mit Teamleitungsoption)",
+        "it": "Immobilienbewirtschafter (m/w/d) 80 - 100%, (con Teamleitungsoption)",
+        "en": "Immobilienbewirtschafter (m/w/d) 80 - 100%, (mit Teamleitungsoption)",
+        "fr": "Immobilienbewirtschafter (m/w/d) 80 - 100%, (mit Teamleitungsoption)"
+      },
+      "description": "Deine Aufgaben\nDu brennst für anspruchsvolle Immobilienportfolios, übernimmst gerne Verantwortung und verstehst es, Fachlichkeit mit Kundenorientierung und Teamspirit zu verbinden?\nDann gestaltest du bei uns als Immobilienbewirtschafter (m/w/d) oder sogar als Teamleiter Immobilienbewirtschaftung nicht nur die Bewirtschaftung von Wohn- und Gewerbeliegenschaften, sondern prägst direkt die Qualität unseres Services und die Zufriedenheit unserer Kundschaft. Diese Stelle bietet Entwicklungspotential und ist nach Vereinbarung zu besetzen.\n• Eigenverantwortliche kaufmännische und technische Verwaltung von hochwertiger Wohn- und Geschäftsliegenschaften\n• Beobachtung Entwicklungen auf dem Mietmarkt und im Mietrecht\n• Aktive Betreuung der Neu- und Bestandsmieter:innen sowie umfassendes Mietvertragsmanagement\n• Effektives Leerstandmanagement inklusive Anschlussvermietung\n• Verhandlung und Erstellung von Geschäfts- und Ergänzungsmietverträgen\n• Durchführung von und Objektabnahmen und -übergaben sowie Begleitung von Mieterausbauprojekten\n• Erstellung und Überprüfung detaillierter Heiz- und Betriebskostenabrechnungen\n• Ausarbeitung lösungsorientierter Anträge an Auftraggeber\n• Erstellung von aussagekräftigen Reports\n• Prognoseerstellung, Budgetierung und Planung mit Ergebnisverantwortung\n• Führung und Koordination von zugewiesenen Sachbearbeiter:innen und Hauswart:innen bzw. FM-Dienstleistern (als Teamleiter:in führst du in der Regel 6-8 Mitarbeitende)\n• Wahrnehmung von Spezialaufgaben und Mitarbeit in Projekten (insbesondere in der Teamleitungs-Funktion)\n\nDeine Anforderungen\n• Erfolgreicher Abschluss Immobilien-Bewirtschafter:in mit eidgenössichem Fachausweis\n• Mehrjährige Erfahrung in der Bewirtschaftung von Wohn- und Gewerbeliegenschaften sowie in der Verhandlung und Gestaltung von Geschäftsmietverträgen, Anhängen und Nachträgen\n• Stilsicheres Deutsch in Wort und Schrift\n• Gute IT-Anwendungskenntnisse (MS-Office-Programme, ev. REM)\n• Charismatisches Auftreten und ausgeprägte soziale Kompetenzen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, sowie Französisch und Englischkenntnisse von Vorteil\n• Gültiger Führerausweis und eigenes PW sind erforderlich\nDann freuen wir uns darauf, dich kennenzulernen. Teile uns in deiner vollständigen Bewerbung gerne mit, ob du dich eher in der Rolle als Teamleiter:in oder als Immobilienbewirtschafter:in siehst unter Angabe deiner Gehaltsvorstellung. – wir prüfen gemeinsam, welches Profil am besten zu dir und unserem Mandat passt.",
+      "descriptionByLocale": {
+        "de": "Deine Aufgaben\nDu brennst für anspruchsvolle Immobilienportfolios, übernimmst gerne Verantwortung und verstehst es, Fachlichkeit mit Kundenorientierung und Teamspirit zu verbinden?\nDann gestaltest du bei uns als Immobilienbewirtschafter (m/w/d) oder sogar als Teamleiter Immobilienbewirtschaftung nicht nur die Bewirtschaftung von Wohn- und Gewerbeliegenschaften, sondern prägst direkt die Qualität unseres Services und die Zufriedenheit unserer Kundschaft. Diese Stelle bietet Entwicklungspotential und ist nach Vereinbarung zu besetzen.\n• Eigenverantwortliche kaufmännische und technische Verwaltung von hochwertiger Wohn- und Geschäftsliegenschaften\n• Beobachtung Entwicklungen auf dem Mietmarkt und im Mietrecht\n• Aktive Betreuung der Neu- und Bestandsmieter:innen sowie umfassendes Mietvertragsmanagement\n• Effektives Leerstandmanagement inklusive Anschlussvermietung\n• Verhandlung und Erstellung von Geschäfts- und Ergänzungsmietverträgen\n• Durchführung von und Objektabnahmen und -übergaben sowie Begleitung von Mieterausbauprojekten\n• Erstellung und Überprüfung detaillierter Heiz- und Betriebskostenabrechnungen\n• Ausarbeitung lösungsorientierter Anträge an Auftraggeber\n• Erstellung von aussagekräftigen Reports\n• Prognoseerstellung, Budgetierung und Planung mit Ergebnisverantwortung\n• Führung und Koordination von zugewiesenen Sachbearbeiter:innen und Hauswart:innen bzw. FM-Dienstleistern (als Teamleiter:in führst du in der Regel 6-8 Mitarbeitende)\n• Wahrnehmung von Spezialaufgaben und Mitarbeit in Projekten (insbesondere in der Teamleitungs-Funktion)\n\nDeine Anforderungen\n• Erfolgreicher Abschluss Immobilien-Bewirtschafter:in mit eidgenössichem Fachausweis\n• Mehrjährige Erfahrung in der Bewirtschaftung von Wohn- und Gewerbeliegenschaften sowie in der Verhandlung und Gestaltung von Geschäftsmietverträgen, Anhängen und Nachträgen\n• Stilsicheres Deutsch in Wort und Schrift\n• Gute IT-Anwendungskenntnisse (MS-Office-Programme, ev. REM)\n• Charismatisches Auftreten und ausgeprägte soziale Kompetenzen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, sowie Französisch und Englischkenntnisse von Vorteil\n• Gültiger Führerausweis und eigenes PW sind erforderlich\nDann freuen wir uns darauf, dich kennenzulernen. Teile uns in deiner vollständigen Bewerbung gerne mit, ob du dich eher in der Rolle als Teamleiter:in oder als Immobilienbewirtschafter:in siehst unter Angabe deiner Gehaltsvorstellung. – wir prüfen gemeinsam, welches Profil am besten zu dir und unserem Mandat passt.",
+        "it": "Deine Aufgaben\nDu brennst für anspruchsvolle Immobilienportfolios, übernimmst gerne Verantwortung und verstehst es, Fachlichkeit mit Kundenorientierung und Teamspirit zu verbinden?\nDann gestaltest du bei uns als Immobilienbewirtschafter (m/w/d) oder sogar als Teamleiter Immobilienbewirtschaftung nicht nur die Bewirtschaftung von Wohn- und Gewerbeliegenschaften, sondern prägst direkt die Qualität unseres Services und die Zufriedenheit unserer Kundschaft. Diese Stelle bietet Entwicklungspotential und ist nach Vereinbarung zu besetzen.\n• Eigenverantwortliche kaufmännische und technische Verwaltung von hochwertiger Wohn- und Geschäftsliegenschaften\n• Beobachtung Entwicklungen auf dem Mietmarkt und im Mietrecht\n• Aktive Betreuung der Neu- und Bestandsmieter:innen sowie umfassendes Mietvertragsmanagement\n• Effektives Leerstandmanagement inklusive Anschlussvermietung\n• Verhandlung und Erstellung von Geschäfts- und Ergänzungsmietverträgen\n• Durchführung von und Objektabnahmen und -übergaben sowie Begleitung von Mieterausbauprojekten\n• Erstellung und Überprüfung detaillierter Heiz- und Betriebskostenabrechnungen\n• Ausarbeitung lösungsorientierter Anträge an Auftraggeber\n• Erstellung von aussagekräftigen Reports\n• Prognoseerstellung, Budgetierung und Planung mit Ergebnisverantwortung\n• Führung und Koordination von zugewiesenen Sachbearbeiter:innen und Hauswart:innen bzw. FM-Dienstleistern (als Teamleiter:in führst du in der Regel 6-8 Mitarbeitende)\n• Wahrnehmung von Spezialaufgaben und Mitarbeit in Projekten (insbesondere in der Teamleitungs-Funktion)\n\nDeine Anforderungen\n• Erfolgreicher Abschluss Immobilien-Bewirtschafter:in mit eidgenössichem Fachausweis\n• Mehrjährige Erfahrung in der Bewirtschaftung von Wohn- und Gewerbeliegenschaften sowie in der Verhandlung und Gestaltung von Geschäftsmietverträgen, Anhängen und Nachträgen\n• Stilsicheres Deutsch in Wort und Schrift\n• Gute IT-Anwendungskenntnisse (MS-Office-Programme, ev. REM)\n• Charismatisches Auftreten und ausgeprägte soziale Kompetenzen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, sowie Französisch und Englischkenntnisse von Vorteil\n• Gültiger Führerausweis und eigenes PW sind erforderlich\nDann freuen wir uns darauf, dich kennenzulernen. Teile uns in deiner vollständigen Bewerbung gerne mit, ob du dich eher in der Rolle als Teamleiter:in oder als Immobilienbewirtschafter:in siehst unter Angabe deiner Gehaltsvorstellung. – wir prüfen gemeinsam, welches Profil am besten zu dir und unserem Mandat passt.",
+        "en": "Deine Aufgaben\nDu brennst für anspruchsvolle Immobilienportfolios, übernimmst gerne Verantwortung und verstehst es, Fachlichkeit mit Kundenorientierung und Teamspirit zu verbinden?\nDann gestaltest du bei uns als Immobilienbewirtschafter (m/w/d) oder sogar als Teamleiter Immobilienbewirtschaftung nicht nur die Bewirtschaftung von Wohn- und Gewerbeliegenschaften, sondern prägst direkt die Qualität unseres Services und die Zufriedenheit unserer Kundschaft. Diese Stelle bietet Entwicklungspotential und ist nach Vereinbarung zu besetzen.\n• Eigenverantwortliche kaufmännische und technische Verwaltung von hochwertiger Wohn- und Geschäftsliegenschaften\n• Beobachtung Entwicklungen auf dem Mietmarkt und im Mietrecht\n• Aktive Betreuung der Neu- und Bestandsmieter:innen sowie umfassendes Mietvertragsmanagement\n• Effektives Leerstandmanagement inklusive Anschlussvermietung\n• Verhandlung und Erstellung von Geschäfts- und Ergänzungsmietverträgen\n• Durchführung von und Objektabnahmen und -übergaben sowie Begleitung von Mieterausbauprojekten\n• Erstellung und Überprüfung detaillierter Heiz- und Betriebskostenabrechnungen\n• Ausarbeitung lösungsorientierter Anträge an Auftraggeber\n• Erstellung von aussagekräftigen Reports\n• Prognoseerstellung, Budgetierung und Planung mit Ergebnisverantwortung\n• Führung und Koordination von zugewiesenen Sachbearbeiter:innen und Hauswart:innen bzw. FM-Dienstleistern (als Teamleiter:in führst du in der Regel 6-8 Mitarbeitende)\n• Wahrnehmung von Spezialaufgaben und Mitarbeit in Projekten (insbesondere in der Teamleitungs-Funktion)\n\nDeine Anforderungen\n• Erfolgreicher Abschluss Immobilien-Bewirtschafter:in mit eidgenössichem Fachausweis\n• Mehrjährige Erfahrung in der Bewirtschaftung von Wohn- und Gewerbeliegenschaften sowie in der Verhandlung und Gestaltung von Geschäftsmietverträgen, Anhängen und Nachträgen\n• Stilsicheres Deutsch in Wort und Schrift\n• Gute IT-Anwendungskenntnisse (MS-Office-Programme, ev. REM)\n• Charismatisches Auftreten und ausgeprägte soziale Kompetenzen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, sowie Französisch und Englischkenntnisse von Vorteil\n• Gültiger Führerausweis und eigenes PW sind erforderlich\nDann freuen wir uns darauf, dich kennenzulernen. Teile uns in deiner vollständigen Bewerbung gerne mit, ob du dich eher in der Rolle als Teamleiter:in oder als Immobilienbewirtschafter:in siehst unter Angabe deiner Gehaltsvorstellung. – wir prüfen gemeinsam, welches Profil am besten zu dir und unserem Mandat passt.",
+        "fr": "Deine Aufgaben\nDu brennst für anspruchsvolle Immobilienportfolios, übernimmst gerne Verantwortung und verstehst es, Fachlichkeit mit Kundenorientierung und Teamspirit zu verbinden?\nDann gestaltest du bei uns als Immobilienbewirtschafter (m/w/d) oder sogar als Teamleiter Immobilienbewirtschaftung nicht nur die Bewirtschaftung von Wohn- und Gewerbeliegenschaften, sondern prägst direkt die Qualität unseres Services und die Zufriedenheit unserer Kundschaft. Diese Stelle bietet Entwicklungspotential und ist nach Vereinbarung zu besetzen.\n• Eigenverantwortliche kaufmännische und technische Verwaltung von hochwertiger Wohn- und Geschäftsliegenschaften\n• Beobachtung Entwicklungen auf dem Mietmarkt und im Mietrecht\n• Aktive Betreuung der Neu- und Bestandsmieter:innen sowie umfassendes Mietvertragsmanagement\n• Effektives Leerstandmanagement inklusive Anschlussvermietung\n• Verhandlung und Erstellung von Geschäfts- und Ergänzungsmietverträgen\n• Durchführung von und Objektabnahmen und -übergaben sowie Begleitung von Mieterausbauprojekten\n• Erstellung und Überprüfung detaillierter Heiz- und Betriebskostenabrechnungen\n• Ausarbeitung lösungsorientierter Anträge an Auftraggeber\n• Erstellung von aussagekräftigen Reports\n• Prognoseerstellung, Budgetierung und Planung mit Ergebnisverantwortung\n• Führung und Koordination von zugewiesenen Sachbearbeiter:innen und Hauswart:innen bzw. FM-Dienstleistern (als Teamleiter:in führst du in der Regel 6-8 Mitarbeitende)\n• Wahrnehmung von Spezialaufgaben und Mitarbeit in Projekten (insbesondere in der Teamleitungs-Funktion)\n\nDeine Anforderungen\n• Erfolgreicher Abschluss Immobilien-Bewirtschafter:in mit eidgenössichem Fachausweis\n• Mehrjährige Erfahrung in der Bewirtschaftung von Wohn- und Gewerbeliegenschaften sowie in der Verhandlung und Gestaltung von Geschäftsmietverträgen, Anhängen und Nachträgen\n• Stilsicheres Deutsch in Wort und Schrift\n• Gute IT-Anwendungskenntnisse (MS-Office-Programme, ev. REM)\n• Charismatisches Auftreten und ausgeprägte soziale Kompetenzen\n• Sehr gute Deutschkenntnisse in Wort und Schrift, sowie Französisch und Englischkenntnisse von Vorteil\n• Gültiger Führerausweis und eigenes PW sind erforderlich\nDann freuen wir uns darauf, dich kennenzulernen. Teile uns in deiner vollständigen Bewerbung gerne mit, ob du dich eher in der Rolle als Teamleiter:in oder als Immobilienbewirtschafter:in siehst unter Angabe deiner Gehaltsvorstellung. – wir prüfen gemeinsam, welches Profil am besten zu dir und unserem Mandat passt."
+      },
+      "location": "Köniz-Liebefeld",
+      "canton": "BE",
+      "url": "https://recruitingapp-2765.umantis.com/Vacancies/2575/Description/1",
+      "source": "Apleona Schweiz AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T09:28:11.482Z",
+      "addressLocality": "Köniz-Liebefeld",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-03",
+      "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2575/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:28:11.482Z"
     }
   ]
 }

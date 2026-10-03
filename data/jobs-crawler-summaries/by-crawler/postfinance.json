@@ -1,16 +1,18 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-10-02T09:33:42.533Z",
+  "generatedAt": "2026-10-03T09:36:20.231Z",
   "total": 23,
   "newCount": 1,
-  "updatedCount": 22,
+  "updatedCount": 24,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 22431,
-  "avgDurationMs": 22431,
+  "durationMs": 20997,
+  "avgDurationMs": 20997,
   "durationHistory": [
-    22431
+    22431,
+    22984,
+    20997
   ],
   "newJobs": [
     {
@@ -48,6 +50,44 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
+      "title": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "slug": "senior-kundenberater-in-privatkunden-mit-schwerpunkt-anlage-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "02.10.26",
+      "validThrough": "30.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
         "completeness": 9
       }
     }
@@ -565,12 +605,19 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "crawledAt": "",
-      "_qualityScore": 83,
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 9
+        "completeness": 14
       }
     },
     {
@@ -885,12 +932,19 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:32:08.390Z",
       "crawledAt": "",
-      "_qualityScore": 71,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 9
+        "completeness": 14
       }
     },
     {
@@ -931,7 +985,7 @@
       "salarySource": "estimated",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1027,6 +1081,100 @@
       "salarySource": "estimated",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/AI-Engineer-Chat-und-Voicebot/74762-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/AI-Engineer-Chat-und-Voicebot/74762-de_DE",
+      "title": "AI-Engineer Chat- und Voicebot",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "ai-ingegnere-chat-e-voicebot-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "15.09.26",
+      "validThrough": "07.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-5149afc9b3ce",
+      "firstSeenAt": "2026-09-23T11:57:45.123Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Review-Manager-im-Bereich-Corporate-Governance-%28wmd%29/74563-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Review-Manager-im-Bereich-Corporate-Governance-%28wmd%29/74563-de_DE",
+      "title": "Review-Manager im Bereich Corporate Governance (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "responsabile-della-gestione-aziendale-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Recht und Compliance"
+      ],
+      "category": [
+        "Büro-Recht und Compliance"
+      ],
+      "datePosted": "31.08.26",
+      "validThrough": "30.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-36c4f1f13f8b",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:09:37.382Z",
+      "crawledAt": "",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
       "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {

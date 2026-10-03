@@ -69,6 +69,11 @@
  *       across a representative company sample, and verify each one exists in
  *       the served set. This directly reproduces the EOC incident: the
  *       `azienda-` form on /de/ is absent from the de shard → flagged.
+ *       A current crawler snapshot can, however, advance after the deployed
+ *       apex has published its sitemap. A canonical hub absent from the live
+ *       sitemap is deferred only when its slice `assembledAt` is newer than
+ *       the deployed apex commit; old missing hubs and builder-prefix errors
+ *       remain failures.
  *
  * Both are checked STATICALLY (fast, no per-URL network) against the served
  * set. `--live` adds an HTTP confirmation probe of a small sample against the
@@ -125,6 +130,7 @@ import {
   companyHubUrlIfEmitted,
 } from '../services/newsletter-content.mjs';
 import { SECTION_LEGACY_TI as SECTION_BY_LOCALE } from '../build-plugins/shared/cantonResolvers.mjs';
+import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 
 const execFileP = promisify(execFile);
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -132,6 +138,7 @@ const ROOT = join(__dirname, '..');
 const DIST = join(ROOT, 'dist');
 const DATA_DIR = join(ROOT, 'data');
 const HOST = 'https://frontaliereticino.ch';
+const GITHUB_COMMIT_API = 'https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/commits';
 
 // ── Locale routing maps ──────────────────────────────────────────────────────
 // SECTION_BY_LOCALE is imported (not copied) from cantonResolvers.SECTION_LEGACY_TI,
@@ -270,6 +277,35 @@ function fetchText(url, timeoutMs = 30_000) {
   });
 }
 
+// The deployed apex commit is published as a SHA, not as a timestamp. Prefer
+// the local checkout (cheap and offline); scheduled audit checkouts are shallow
+// and often do not contain the deployed commit, so fall back to the public
+// commit API. If both sources fail, callers keep the fail-closed verdict for a
+// missing hub rather than treating an unmeasurable snapshot as skew.
+async function resolveApexCommitAt(sha) {
+  if (!sha) return null;
+  try {
+    const { stdout } = await execFileP(
+      'git',
+      ['show', '-s', '--format=%cI', `${sha}^{commit}`],
+      { timeout: 8_000, maxBuffer: 1024 * 1024 },
+    );
+    const local = stdout.trim();
+    if (Number.isFinite(Date.parse(local))) return local;
+  } catch { /* shallow checkout or unavailable object — use the API below */ }
+
+  try {
+    const raw = await fetchText(`${GITHUB_COMMIT_API}/${encodeURIComponent(sha)}`);
+    const payload = JSON.parse(raw);
+    const remote = payload?.commit?.committer?.date || payload?.commit?.author?.date;
+    if (Number.isFinite(Date.parse(remote))) return remote;
+    log(`[404]   WARN deployed commit ${sha} has no usable timestamp`);
+  } catch (error) {
+    log(`[404]   WARN could not resolve deployed commit time for ${sha}: ${error.message}`);
+  }
+  return null;
+}
+
 function headStatus(url, timeoutMs = 15_000) {
   return new Promise((resolve) => {
     const req = https.request(url, { method: 'GET', headers: { 'User-Agent': 'audit-404-risk/1.0' } }, (res) => {
@@ -311,6 +347,19 @@ function extractLocs(xml) {
   // and the derived paths outlive it in a cross-sitemap accumulator — see
   // scripts/lib/flat-string.mjs (issue #7419).
   while ((m = re.exec(xml)) !== null) out.push(flatString(m[1].trim()));
+  return out;
+}
+
+// Localised sitemap variants are commonly emitted as xhtml:link alternates
+// inside the same <url> block rather than as their own <loc>. Check (A) must
+// continue to count only <loc> entries, while check (B) needs the complete
+// deployed URL inventory to distinguish a newly published source record from
+// a hub that the deployed build forgot to emit.
+function extractAlternateHrefs(xml) {
+  const out = [];
+  const re = /<xhtml:link\b[^>]*\bhref\s*=\s*(["'])(.*?)\1[^>]*>/gi;
+  let m;
+  while ((m = re.exec(xml)) !== null) out.push(flatString(m[2].trim()));
   return out;
 }
 
@@ -456,7 +505,7 @@ async function buildServedSet() {
     itSource: null,
     distRoutes: 0,
     // Filled below: which deploy each side of the comparison came from.
-    generation: { apexSha: null, shards: {}, sectionShards: {} },
+    generation: { apexSha: null, apexAt: null, shards: {}, sectionShards: {} },
   };
 
   // Main IT routes: prefer local dist; else use the live IT sitemap <loc>s.
@@ -680,6 +729,7 @@ function generationSummary(gen, now = Date.now()) {
   const offGeneration = rows.filter((r) => !isSame(r));
   return {
     apexSha: gen.apexSha,
+    apexAt: gen.apexAt ?? null,
     maxAgeHours: SHARD_MAX_AGE_H,
     shardsTotal: rows.length,
     shardsSameGeneration: rows.length - offGeneration.length,
@@ -704,6 +754,27 @@ function generationSummary(gen, now = Date.now()) {
 // Returns both the company sample AND the full jobs array — the latter feeds
 // `buildCompanyHubSlugSet(jobs)` so check (B) can gate on the same TI-only
 // allow-set the real newsletter builder uses (issue #3557).
+async function loadCompanySourceTimestamps(companyNames) {
+  const wanted = new Set(companyNames);
+  const newest = new Map();
+  if (wanted.size === 0) return newest;
+
+  for (const slicePath of listSliceFilePaths(join(DATA_DIR, 'jobs', 'by-crawler'))) {
+    try {
+      const raw = JSON.parse(await readFile(slicePath, 'utf8'));
+      const assembledAt = String(raw?.assembledAt || '');
+      if (!Number.isFinite(Date.parse(assembledAt)) || !Array.isArray(raw?.jobs)) continue;
+      for (const job of raw.jobs) {
+        const name = String(job?.company || job?.companyName || '').trim();
+        if (!wanted.has(name)) continue;
+        const previous = newest.get(name);
+        if (!previous || Date.parse(assembledAt) > Date.parse(previous)) newest.set(name, assembledAt);
+      }
+    } catch { /* the assembler has already validated the active dataset */ }
+  }
+  return newest;
+}
+
 async function loadCompanySample(limit) {
   // Try assembled jobs dataset, then a few known fallbacks. Each entry → a
   // company display name; we only need a representative spread of slugs.
@@ -735,7 +806,11 @@ async function loadCompanySample(limit) {
   // a real, currently-active TI employer, so it passes the TI-only gate below).
   names.add('EOC Ente Ospedaliero Cantonale');
   const companies = [...names].map((name) => ({ name, slug: slugifyCompanyName(name) })).filter((c) => c.slug);
-  return { companies, jobs: jobs || [] };
+  return {
+    companies,
+    jobs: jobs || [],
+    sourceAssembledAtByCompany: await loadCompanySourceTimestamps(companies.map(({ name }) => name)),
+  };
 }
 
 // The path the REAL newsletter builder emits for a company hub, for the given
@@ -754,6 +829,51 @@ function expectedHubPath(slug, locale) {
   return normPath(`/${board}/${COMPANY_ROUTE_PREFIX[locale]}-${slug}`);
 }
 
+function isSourceSnapshotNewer(company, sourceAssembledAtByCompany, deployedAt) {
+  const sourceAt = Date.parse(sourceAssembledAtByCompany?.get(company) || '');
+  const deployed = Date.parse(deployedAt || '');
+  return Number.isFinite(sourceAt) && Number.isFinite(deployed) && sourceAt > deployed;
+}
+
+/**
+ * Split company-hub findings without confusing a moving source snapshot with
+ * a same-snapshot missing page. The builder mismatch branch is deliberately
+ * checked first: a bad locale prefix is a real URL bug even when the current
+ * crawler data is newer than the deployed site.
+ */
+function splitHubOffenders(
+  offenders,
+  deployedSitemapPaths,
+  sourceAssembledAtByCompany,
+  deployedAt,
+  generation,
+) {
+  const unserved = [];
+  const publishSkew = [];
+  const sourceSkew = [];
+  for (const offender of offenders) {
+    const builderMismatch = offender.expectedUrl !== offender.builderUrl;
+    if (builderMismatch) {
+      // A wrong locale prefix is a real builder defect, regardless of which
+      // generation the owning shard currently exposes.
+      unserved.push(offender);
+      continue;
+    }
+    if (
+      !deployedSitemapPaths.has(offender.builderUrl)
+      && isSourceSnapshotNewer(offender.company, sourceAssembledAtByCompany, deployedAt)
+    ) {
+      sourceSkew.push({
+        ...offender,
+        reason: 'current crawler snapshot is newer than the deployed apex sitemap',
+      });
+      continue;
+    }
+    (classifyOffender(offender.builderUrl, generation) === 'unserved' ? unserved : publishSkew).push(offender);
+  }
+  return { unserved, publishSkew, sourceSkew };
+}
+
 // ───────────────────────────────────────────────────────────────────────────
 async function main() {
   log('[404] building served-path set (main IT + shards) …');
@@ -765,6 +885,8 @@ async function main() {
   try {
     meta.generation.apexSha = (await fetchText(`${HOST}/commit-hash.txt`)).trim().toLowerCase() || null;
     log(`[404] apex generation: ${meta.generation.apexSha}`);
+    meta.generation.apexAt = await resolveApexCommitAt(meta.generation.apexSha);
+    if (meta.generation.apexAt) log(`[404] apex commit time: ${meta.generation.apexAt}`);
   } catch (e) {
     log(`[404]   WARN could not read ${HOST}/commit-hash.txt (${e.message}) — every offender will be reported as unserved`);
   }
@@ -782,17 +904,32 @@ async function main() {
   log('[404] (A) sitemap coverage — fetching sitemap index …');
   let sitemapOffenders = [];
   let sitemapTotal = 0;
+  const deployedSitemapPaths = new Set();
+  const failedSitemapChildren = [];
   try {
     const indexXml = await fetchText(`${HOST}/sitemap.xml`);
     const children = extractLocs(indexXml).filter((u) => /\.xml(\?|$)/i.test(u));
     for (const child of children) {
       let xml;
-      try { xml = await fetchText(child); } catch (e) { log(`[404]   WARN sitemap ${child}: ${e.message}`); continue; }
+      try {
+        xml = await fetchText(child);
+      } catch (e) {
+        log(`[404]   WARN sitemap ${child}: ${e.message}`);
+        failedSitemapChildren.push(child);
+        continue;
+      }
       for (const loc of extractLocs(xml)) {
         if (/\.xml(\?|$)/i.test(loc)) continue; // nested index, already followed
         const p = normPath(loc);
         sitemapTotal++;
+        deployedSitemapPaths.add(p);
         if (!resolves(p)) sitemapOffenders.push(p);
+      }
+      // A locale alternate is part of the deployed sitemap contract even when
+      // only the canonical <loc> is counted by check (A).
+      for (const href of extractAlternateHrefs(xml)) {
+        const p = normPath(href);
+        if (!/\.xml(\?|$)/i.test(href)) deployedSitemapPaths.add(p);
       }
     }
   } catch (e) {
@@ -800,6 +937,10 @@ async function main() {
     // Silently reporting 0/0 (+ (B)=0 post-fix) would exit green on a broken run
     // — the same "silently green" trap the shard floor guards against.
     log(`[404]   FATAL: sitemap index fetch failed: ${e.message}`);
+    process.exit(2);
+  }
+  if (failedSitemapChildren.length > 0) {
+    log(`[404]   FATAL: sitemap inventory incomplete; child fetch failed for ${failedSitemapChildren.join(', ')}`);
     process.exit(2);
   }
   const sitemapSplit = splitByGeneration(sitemapOffenders, meta.generation);
@@ -819,7 +960,7 @@ async function main() {
 
   // ── (B) NEWSLETTER HUB-LINK CORRECTNESS ────────────────────────────────
   log('[404] (B) newsletter hub-link correctness …');
-  const { companies, jobs } = await loadCompanySample(SAMPLE);
+  const { companies, jobs, sourceAssembledAtByCompany } = await loadCompanySample(SAMPLE);
   // TI-only allow-set the real newsletter gates company-hub links through
   // (issue #3557) — a company outside this set gets NO link at all, so it's
   // not a would-be-404, it's correctly-absent.
@@ -829,7 +970,8 @@ async function main() {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const url = builderHubPath(name, locale, emittedSlugs); // what the REAL builder emits (TI-gated)
       if (!url) continue; // builder emits no link for this company/locale — correctly gated, nothing to 404-check
-      if (!resolves(url)) {
+      const absentFromDeployedSitemap = !deployedSitemapPaths.has(url);
+      if (absentFromDeployedSitemap || !resolves(url)) {
         const expected = expectedHubPath(slug, locale);
         hubOffenders.push({
           company: name,
@@ -838,24 +980,28 @@ async function main() {
           expectedUrl: expected,
           reason: expected !== url
             ? `builder emits wrong locale prefix → expected '${COMPANY_ROUTE_PREFIX[locale]}-'`
-            : 'hub page not present in served set',
+            : absentFromDeployedSitemap
+              ? 'hub URL is absent from the deployed sitemap and served set'
+              : 'hub page not present in served set',
         });
       }
     }
   }
-  // Same generation split as (A) — a company hub on an off-generation shard is
-  // the identical measurement artifact.
-  const hubUnserved = [];
-  const hubSkew = [];
-  for (const o of hubOffenders) {
-    (classifyOffender(o.builderUrl, meta.generation) === 'unserved' ? hubUnserved : hubSkew).push(o);
-  }
+  const { unserved: hubUnserved, publishSkew: hubSkew, sourceSkew: hubSourceSkew } = splitHubOffenders(
+    hubOffenders,
+    deployedSitemapPaths,
+    sourceAssembledAtByCompany,
+    meta.generation.apexAt,
+    meta.generation,
+  );
   report.checks.newsletterHubLinks = {
     companiesSampled: companies.length,
     wouldBe404: hubUnserved.length,
     sample: hubUnserved.slice(0, LIMIT),
     publishSkew: hubSkew.length,
     publishSkewSample: hubSkew.slice(0, LIMIT),
+    sourceSkew: hubSourceSkew.length,
+    sourceSkewSample: hubSourceSkew.slice(0, LIMIT),
     offendersBeforeGenerationSplit: hubOffenders.length,
   };
 
@@ -868,6 +1014,7 @@ async function main() {
       ...sitemapSplit.unserved.slice(0, Math.ceil(LIVE_N / 2)),
       ...hubUnserved.slice(0, Math.floor(LIVE_N / 2)).map((o) => o.builderUrl),
       ...sitemapSplit.skew,
+      ...hubSourceSkew.map((o) => o.builderUrl),
     ].slice(0, LIVE_N);
     const live = [];
     for (const p of probe) {
@@ -914,8 +1061,12 @@ async function main() {
   if (b.publishSkew) {
     process.stdout.write(`    + ${b.publishSkew} hub link(s) on an off-generation shard — snapshot skew, not a verdict\n`);
   }
+  if (b.sourceSkew) {
+    process.stdout.write(`    + ${b.sourceSkew} hub link(s) from a newer crawler snapshot — source publish skew, not a same-generation verdict\n`);
+    for (const o of b.sourceSkewSample) process.stdout.write(`      ~ [${o.locale}] ${o.builderUrl}\n`);
+  }
   process.stdout.write(`\nTOTAL would-be-404s: ${total404}`);
-  const skewTotal = (a.publishSkew || 0) + (b.publishSkew || 0);
+  const skewTotal = (a.publishSkew || 0) + (b.publishSkew || 0) + (b.sourceSkew || 0);
   process.stdout.write(skewTotal ? ` (+ ${skewTotal} deferred as publish skew)\n` : '\n');
 
   if (JSON_OUT) {

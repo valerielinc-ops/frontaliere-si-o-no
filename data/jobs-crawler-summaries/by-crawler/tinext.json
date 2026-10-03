@@ -1,22 +1,15 @@
 {
   "key": "tinext",
   "label": "Tinext SA",
-  "generatedAt": "2026-10-02T09:26:44.242Z",
+  "generatedAt": "2026-10-03T09:27:39.865Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "written": 0,
-  "authoritativeEmptySnapshot": true,
-  "sourceProvenEmpty": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 1132,
-  "avgDurationMs": 1132,
-  "durationHistory": [
-    1132
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [
@@ -59,5 +52,12 @@
       }
     }
   ],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "authoritativeEmptySnapshot": true,
+  "sourceProvenEmpty": true,
+  "durationMs": 1132,
+  "avgDurationMs": 1132,
+  "durationHistory": [
+    1132
+  ]
 }

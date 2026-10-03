@@ -1,16 +1,18 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-10-02T09:25:52.066Z",
+  "generatedAt": "2026-10-03T09:23:31.982Z",
   "total": 15,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 15,
   "unchangedCount": 0,
-  "durationMs": 1802,
-  "avgDurationMs": 1802,
+  "durationMs": 1473,
+  "avgDurationMs": 1473,
   "durationHistory": [
-    1802
+    1802,
+    1803,
+    1473
   ],
   "newJobs": [
     {
@@ -31,7 +33,7 @@
       "sector": "Consulenza IT",
       "source": "relewant-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",

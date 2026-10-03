@@ -1,16 +1,18 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-10-02T09:23:46.239Z",
-  "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
+  "generatedAt": "2026-10-03T09:25:17.777Z",
+  "total": 10,
+  "newCount": 2,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6015,
-  "avgDurationMs": 6015,
+  "unchangedCount": 1,
+  "durationMs": 6623,
+  "avgDurationMs": 6623,
   "durationHistory": [
-    6015
+    6015,
+    5486,
+    6623
   ],
   "newJobs": [
     {
@@ -43,16 +45,45 @@
         "translation": 4,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
-      "id": "davos-klosters-bergbahnen-6f08343cd9a8",
-      "slug": "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
+      "id": "davos-klosters-bergbahnen-2429818f1d17",
+      "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
       "companyDomain": "davosklosters.ch",
-      "title": "Mitarbeiter:in Booking Office Mountain Hotels",
+      "title": "Hausabwart PP Parsenn Aush. TD Parsenn",
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-03",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3942409",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T09:25:09.791Z",
+      "needsRetranslation": true,
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3942409",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "davos-klosters-bergbahnen-ce7e03bfcefe",
+      "slug": "masseur-in-kosmetiker-in-hotel-mountain-plaza-davos-klosters-bergbahnen-davos",
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen",
+      "companyDomain": "davosklosters.ch",
+      "title": "Masseur:in / Kosmetiker:in Hotel Mountain Plaza",
       "location": "Davos",
       "canton": "GR",
       "addressLocality": "Davos",
@@ -62,21 +93,23 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
+      "postedDate": "2026-10-03",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Kosmetiker-in-Hotel-Mountain-Plaza_j_3887486",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:37.198Z",
-      "firstSeenAt": "2026-09-28T21:20:55.886Z",
-      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
-      "_qualityScore": 82,
+      "crawledAt": "2026-10-03T09:25:10.218Z",
+      "needsRetranslation": true,
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Kosmetiker-in-Hotel-Mountain-Plaza_j_3887486",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 4,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "davos-klosters-bergbahnen-cf4b041277f7",
       "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
@@ -100,19 +133,19 @@
       "crawledAt": "2026-10-01T21:23:35.192Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:53:18.816Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3940214",
-      "addressRegion": "GR",
-      "crawlerMissStreak": 1,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 10,
         "completeness": 19
-      }
+      },
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "davos-klosters-bergbahnen-c8fb0d7b8310",
@@ -134,7 +167,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:35.635Z",
+      "crawledAt": "2026-10-03T09:25:08.546Z",
       "firstSeenAt": "2026-09-27T05:53:17.644Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "_qualityScore": 82,
@@ -165,7 +198,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:35.831Z",
+      "crawledAt": "2026-10-03T09:25:08.754Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:56:17.794Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
@@ -197,7 +230,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.424Z",
+      "crawledAt": "2026-10-03T09:25:09.377Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T11:55:22.607Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
@@ -229,7 +262,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.618Z",
+      "crawledAt": "2026-10-03T09:25:09.585Z",
       "firstSeenAt": "2026-09-23T23:49:03.575Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "_qualityScore": 82,
@@ -260,7 +293,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.035Z",
+      "crawledAt": "2026-10-03T09:25:08.962Z",
       "firstSeenAt": "2026-06-09T11:17:26.005Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "_qualityScore": 82,
@@ -291,7 +324,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.230Z",
+      "crawledAt": "2026-10-03T09:25:09.170Z",
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "_qualityScore": 82,
@@ -304,5 +337,42 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "davos-klosters-bergbahnen-6f08343cd9a8",
+      "slug": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen-ag",
+      "companyDomain": "davosklosters.ch",
+      "title": "Mitarbeiter:in Booking Office Mountain Hotels",
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-28",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T09:20:43.092Z",
+      "firstSeenAt": "2026-09-28T21:20:55.886Z",
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ]
 }

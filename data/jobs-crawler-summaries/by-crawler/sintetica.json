@@ -1,16 +1,18 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-02T09:08:47.028Z",
+  "generatedAt": "2026-10-03T09:08:58.254Z",
   "total": 7,
-  "newCount": 4,
-  "updatedCount": 7,
+  "newCount": 5,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8066,
-  "avgDurationMs": 8066,
+  "durationMs": 9231,
+  "avgDurationMs": 9231,
   "durationHistory": [
-    8066
+    8066,
+    10353,
+    9231
   ],
   "newJobs": [
     {
@@ -29,7 +31,7 @@
       "streetAddress": "Via Penate 5",
       "slug": "local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-sintetica",
       "category": "pharma",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -40,11 +42,11 @@
       },
       "sourceLang": "en",
       "needsRetranslation": true,
-      "_qualityScore": 42,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
-        "translation": 2,
+        "richness": 20,
+        "translation": 4,
         "completeness": 15
       }
     },
@@ -64,7 +66,7 @@
       "streetAddress": "Via Penate 5",
       "slug": "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
       "category": "science",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -99,7 +101,7 @@
       "streetAddress": "Via Penate 5",
       "slug": "spontaneous-application-mendrisio-site-ticino-sintetica",
       "category": "general",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -134,7 +136,7 @@
       "streetAddress": "Rue de l'Ecluse 28",
       "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
       "category": "general",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-10-02T09:10:34.247Z",
+  "assembledAt": "2026-10-03T09:10:26.675Z",
   "jobs": [
     {
       "id": "swisslog-d719156fe6e5",
@@ -17,7 +17,7 @@
       "title": "Controls Software Service Engineer (Siemens) (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere del Servizio Software di Controllo (Siemens) (m/f/d)",
-        "en": "Controls Software Service Engineer (Siemens) (m/w/d)",
+        "en": "Controls Software Service Engineer (Siemens) (m/f/d)",
         "de": "Controls Software Service Ingenieur (Siemens) (m/w/d)",
         "fr": "Ingénieur Service Logiciel de Contrôle (Siemens) (h/f/d)"
       },
@@ -33,7 +33,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:10:26.956Z",
+      "crawledAt": "2026-10-03T09:10:12.392Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -76,7 +76,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:07:43.774Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -89,7 +88,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swisslog-34572dec2de5",
@@ -122,7 +122,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:10:26.956Z",
+      "crawledAt": "2026-10-03T09:10:12.401Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -160,7 +160,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:41:26.496Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -173,7 +172,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swisslog-b368fd2bd87c",
@@ -206,7 +206,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:10:26.955Z",
+      "crawledAt": "2026-10-03T09:10:12.391Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -271,7 +271,7 @@
       "title": "Apprentice Computer Scientist (m/w/d)",
       "titleByLocale": {
         "it": "Apprendista informatico (m/f/d)",
-        "en": "Apprentice Computer Scientist (m/w/d)",
+        "en": "Apprentice Computer Scientist (m/f/d)",
         "de": "Apprentice Computer Scientist (m/w/d)",
         "fr": "Apprentis en informatique (m/f/d)"
       },
@@ -287,7 +287,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:10:26.954Z",
+      "crawledAt": "2026-10-03T09:10:12.388Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -319,7 +319,6 @@
           "apprentice-computer-scientist-m-w-d-swisslog-buchs-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:29:21.809Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -350,7 +349,7 @@
       "title": "Software Project Manager (m/w/d)",
       "titleByLocale": {
         "it": "Software Project Manager (m/f/d)",
-        "en": "Software Project Manager (m/w/d)",
+        "en": "Software Project Manager (m/f/d)",
         "de": "Software Project Manager (m/w/d)",
         "fr": "Gestionnaire de projet logiciel (m/f/d)"
       },
@@ -366,7 +365,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:10:26.953Z",
+      "crawledAt": "2026-10-03T09:10:12.390Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -403,7 +402,6 @@
           "gestionnaire-de-projet-technique-m-f-d-swisslog-buchs-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:32:14.801Z",
       "salaryMin": 99500,
       "salaryMax": 169500,

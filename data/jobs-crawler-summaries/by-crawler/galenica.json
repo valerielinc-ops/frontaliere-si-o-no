@@ -1,16 +1,18 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-10-02T09:10:54.068Z",
-  "total": 355,
+  "generatedAt": "2026-10-03T09:11:11.801Z",
+  "total": 362,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 104317,
-  "avgDurationMs": 104317,
+  "durationMs": 116286,
+  "avgDurationMs": 116286,
   "durationHistory": [
-    104317
+    104317,
+    113463,
+    116286
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,6 +49,41 @@
         "richness": 22,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "title": "Assistente di farmacia AFC",
+      "company": "Amavita (Galenica)",
+      "companyKey": "galenica",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692241",
+      "location": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "postalCode": "1700",
+      "streetAddress": "Chemin de Bethléem 3",
+      "category": "healthcare",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692241-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg-fr-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
+      "source": "company-website",
+      "sourceLang": "fr",
+      "slug": "galenica-amavita-assistente-di-farmacia-afc-fribourg",
+      "id": "galenica-a708b665900f",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
       }
     }
   ],

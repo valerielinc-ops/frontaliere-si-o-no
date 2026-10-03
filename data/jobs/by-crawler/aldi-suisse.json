@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-10-02T09:26:16.999Z",
+  "assembledAt": "2026-10-03T09:23:38.734Z",
   "jobs": [
     {
       "id": "aldi-suisse-96f2f8de71f8",
@@ -87,7 +87,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442163933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:57.850Z",
+      "crawledAt": "2026-10-03T09:23:19.442Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse",
         "direttore-di-filiale-aggiunto-m-f-d-aldi-suisse-biberist"
@@ -205,7 +205,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442143933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:57.847Z",
+      "crawledAt": "2026-10-03T09:23:19.437Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
         "stellvertretender-filialleiter-m-w-d-aldi-suisse",
@@ -328,7 +328,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1389180133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:57.843Z",
+      "crawledAt": "2026-10-03T09:23:19.433Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse",
         "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
@@ -346,7 +346,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:13.101Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -359,7 +358,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-cbda7d9905c5",
@@ -438,20 +438,98 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "url": "https://www.jobs.aldi.ch/job/1443637333",
       "applyUrl": "https://www.jobs.aldi.ch/job/1443637333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.506Z",
+      "crawledAt": "2026-10-03T09:23:18.055Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
+          "vendeur-se-m-w-d-aldi-suisse-winterthur",
+          "membro-vendita-m-w-d-aldi-suisse-winterthur",
+          "sales-associate-m-w-d-aldi-suisse-aadorf",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+          "vendeur-se-m-w-d-aldi-suisse-aadorf",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+          "sales-associate-m-w-d-aldi-suisse-meilen",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
+          "vendeur-se-m-w-d-aldi-suisse-meilen",
+          "commercant-m-w-d-aldi-suisse-meilen",
+          "employe-de-vente-m-w-d-aldi-suisse-meilen",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
+          "sales-associate-m-w-d-aldi-suisse-uster",
+          "vendeur-se-m-w-d-aldi-suisse-uster",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+          "sales-associate-m-w-d-aldi-suisse-amriswil",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "sales-associate-m-w-d-aldi-suisse-zurich",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "vendeur-se-m-w-d-aldi-suisse-zurich",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "vendeur-se-m-w-d-aldi-suisse-amriswil",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-16",
+        "sales-associate-m-w-d-aldi-suisse-langenthal",
+        "vendeur-se-m-w-d-aldi-suisse-langenthal",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur-jqqp2b",
+        "sales-associate-m-w-d-aldi-suisse-winterthur-b714a0",
+        "vendeur-se-m-w-d-aldi-suisse-winterthur-b714a0",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-rorschach",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-17",
+        "sales-associate-m-w-d-aldi-suisse-rorschach",
+        "vendeur-se-m-w-d-aldi-suisse-rorschach",
+        "commercant-m-w-d-aldi-suisse-rorschach",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-uster",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-12",
+        "sales-associate-m-w-d-aldi-suisse-uster-77582a",
+        "vendeur-se-m-w-d-aldi-suisse-uster-77582a",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-pfaffikon",
+        "sales-associate-m-w-d-aldi-suisse-pfaffikon",
+        "vendeur-se-m-w-d-aldi-suisse-pfaffikon",
+        "sales-associate-m-w-d-aldi-suisse-zurich",
+        "vendeur-se-m-w-d-aldi-suisse-zurich",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur-nkcazu",
+        "sales-associate-m-w-d-aldi-suisse-winterthur",
+        "commercant-m-w-d-aldi-suisse-winterthur",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
+        "vendeur-se-m-w-d-aldi-suisse-winterthur",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur",
+        "sales-associate-m-w-d-aldi-suisse-aadorf",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "vendeur-se-m-w-d-aldi-suisse-aadorf",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
+        "sales-associate-m-w-d-aldi-suisse-meilen",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-hd00zn",
+        "vendeur-se-m-w-d-aldi-suisse-meilen",
+        "commercant-m-w-d-aldi-suisse-meilen",
+        "employe-de-vente-m-w-d-aldi-suisse-meilen",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
+        "sales-associate-m-w-d-aldi-suisse-uster",
+        "vendeur-se-m-w-d-aldi-suisse-uster",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-amriswil",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
+        "sales-associate-m-w-d-aldi-suisse-amriswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -552,7 +630,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442157033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.500Z",
+      "crawledAt": "2026-10-03T09:23:18.049Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
@@ -572,7 +650,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:51:36.452Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -585,7 +662,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-77911a6504df",
@@ -671,7 +749,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442150933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.496Z",
+      "crawledAt": "2026-10-03T09:23:18.036Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -693,7 +771,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:51:36.452Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -706,7 +783,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-73f67bec30e8",
@@ -792,7 +870,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1440794733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:55.034Z",
+      "crawledAt": "2026-10-03T09:23:16.549Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
@@ -916,7 +994,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1440325033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:55.030Z",
+      "crawledAt": "2026-10-03T09:23:16.544Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -1042,7 +1120,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1432775933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:55.026Z",
+      "crawledAt": "2026-10-03T09:23:16.537Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
@@ -1172,7 +1250,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1431008633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:53.624Z",
+      "crawledAt": "2026-10-03T09:23:15.021Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
@@ -1294,7 +1372,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1429640633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:53.622Z",
+      "crawledAt": "2026-10-03T09:23:15.018Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-7",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -1316,7 +1394,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:49:07.130Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -1329,7 +1406,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-0eeb651ef869",
@@ -1412,7 +1490,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1427689233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:51.745Z",
+      "crawledAt": "2026-10-03T09:23:11.966Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-k37c6b",
@@ -1531,7 +1609,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425979333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:51.738Z",
+      "crawledAt": "2026-10-03T09:23:11.963Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
@@ -1649,7 +1727,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425967933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:50.228Z",
+      "crawledAt": "2026-10-03T09:23:10.333Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
@@ -1772,7 +1850,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412308533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:50.223Z",
+      "crawledAt": "2026-10-03T09:23:10.328Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
@@ -1890,7 +1968,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412267233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:50.217Z",
+      "crawledAt": "2026-10-03T09:23:10.325Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -1919,7 +1997,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T11:18:54.893Z",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
@@ -1932,7 +2009,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-a9057891683d",
@@ -2015,7 +2093,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412286433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:48.323Z",
+      "crawledAt": "2026-10-03T09:23:08.857Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2140,7 +2218,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412286933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:46.826Z",
+      "crawledAt": "2026-10-03T09:23:07.140Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-5",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2265,7 +2343,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412264633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:46.818Z",
+      "crawledAt": "2026-10-03T09:23:07.134Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-6",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2385,7 +2463,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412271933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:46.808Z",
+      "crawledAt": "2026-10-03T09:23:07.126Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-7",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2512,7 +2590,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:44.934Z",
+      "crawledAt": "2026-10-03T09:23:05.472Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-9",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2540,7 +2618,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:27:15.705Z",
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 87500,
       "salarySource": "estimated",
@@ -2553,7 +2630,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-209242d66fcb",
@@ -2636,7 +2714,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421207733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:44.929Z",
+      "crawledAt": "2026-10-03T09:23:05.469Z",
       "previousSlugs": [
         "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
@@ -2765,7 +2843,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421207033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:44.926Z",
+      "crawledAt": "2026-10-03T09:23:05.467Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2898,7 +2976,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421281433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:43.156Z",
+      "crawledAt": "2026-10-03T09:23:03.974Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-11",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3029,7 +3107,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421212133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:43.152Z",
+      "crawledAt": "2026-10-03T09:23:03.967Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-12",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3158,7 +3236,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421211533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:43.150Z",
+      "crawledAt": "2026-10-03T09:23:03.963Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-13",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3289,7 +3367,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421209133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:41.205Z",
+      "crawledAt": "2026-10-03T09:23:02.404Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-14",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3413,7 +3491,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421282133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:41.194Z",
+      "crawledAt": "2026-10-03T09:23:02.400Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-15",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3544,7 +3622,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421211133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:41.191Z",
+      "crawledAt": "2026-10-03T09:23:02.398Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3673,7 +3751,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410321233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:39.421Z",
+      "crawledAt": "2026-10-03T09:23:00.885Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-17",
@@ -3802,7 +3880,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410325833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:39.419Z",
+      "crawledAt": "2026-10-03T09:23:00.882Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3933,7 +4011,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410322333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:39.415Z",
+      "crawledAt": "2026-10-03T09:23:00.868Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-19",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4062,7 +4140,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410319933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:37.928Z",
+      "crawledAt": "2026-10-03T09:22:59.335Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4193,7 +4271,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410313133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:37.924Z",
+      "crawledAt": "2026-10-03T09:22:59.330Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4324,7 +4402,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410697333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:37.916Z",
+      "crawledAt": "2026-10-03T09:22:59.295Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-22",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4357,7 +4435,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T22:11:16.227Z",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
@@ -4370,7 +4447,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-3c5feb5c157d",
@@ -4453,7 +4531,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410315233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:36.326Z",
+      "crawledAt": "2026-10-03T09:22:57.870Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4582,7 +4660,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410325133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:36.323Z",
+      "crawledAt": "2026-10-03T09:22:57.867Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-24",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4713,7 +4791,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410321833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:36.315Z",
+      "crawledAt": "2026-10-03T09:22:57.859Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-26",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4840,7 +4918,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410323133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:35.012Z",
+      "crawledAt": "2026-10-03T09:22:56.342Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-29",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -4967,7 +5045,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410313833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:35.009Z",
+      "crawledAt": "2026-10-03T09:22:56.340Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-30",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -5089,7 +5167,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410322733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:35.004Z",
+      "crawledAt": "2026-10-03T09:22:56.335Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-30",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -5205,7 +5283,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410309733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:33.630Z",
+      "crawledAt": "2026-10-03T09:22:54.854Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-32",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -5330,7 +5408,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410247033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:33.627Z",
+      "crawledAt": "2026-10-03T09:22:54.851Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-34",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -5445,7 +5523,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410312533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:32.256Z",
+      "crawledAt": "2026-10-03T09:22:53.359Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-33",
@@ -5561,7 +5639,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1420613033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:32.253Z",
+      "crawledAt": "2026-10-03T09:22:53.357Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-37",
         "lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
@@ -5592,7 +5670,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T22:10:59.480Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -5605,7 +5682,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-2d4bd26f9fa0",
@@ -5688,7 +5766,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410320233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:32.250Z",
+      "crawledAt": "2026-10-03T09:22:53.354Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-38",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -5813,7 +5891,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410317633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:30.888Z",
+      "crawledAt": "2026-10-03T09:22:51.877Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-39",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -5938,7 +6016,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410317233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:30.884Z",
+      "crawledAt": "2026-10-03T09:22:51.874Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-40",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -6058,7 +6136,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410315833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:30.879Z",
+      "crawledAt": "2026-10-03T09:22:51.871Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-42",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -6180,7 +6258,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410311433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:29.562Z",
+      "crawledAt": "2026-10-03T09:22:50.479Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-43",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -6292,7 +6370,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410318733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:29.560Z",
+      "crawledAt": "2026-10-03T09:22:50.477Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-40",
@@ -6408,7 +6486,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410316733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:29.556Z",
+      "crawledAt": "2026-10-03T09:22:50.473Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-45",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -6456,9 +6534,9 @@
     },
     {
       "id": "aldi-suisse-37fc8ced2038",
-      "slug": "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
+      "slug": "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
+        "it": "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana",
         "en": "sales-collaborator-m-f-d-aldi-suisse-crans-montana",
         "de": "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana",
         "fr": "collaborateur-de-vente-m-f-d-aldi-suisse"
@@ -6468,7 +6546,7 @@
       "companyDomain": "aldi.ch",
       "title": "Collaborateur de vente (m/f/d)",
       "titleByLocale": {
-        "it": "Collaborateur de vente (m/f/d)",
+        "it": "Collaboratore di vendita (m/f/d)",
         "en": "Sales Collaborator (m/f/d)",
         "de": "Vertriebsmitarbeiter (m/w/d)",
         "fr": "Collaborateur de vente (m/f/d)"
@@ -6538,17 +6616,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1437388833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:27.783Z",
+      "crawledAt": "2026-10-03T09:22:49.036Z",
       "previousSlugs": [
         "collaborateur-de-vente-m-f-d-aldi-suisse",
         "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana",
-        "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana"
+        "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-de-vente-m-f-d-aldi-suisse",
           "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana",
-          "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana"
+          "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana"
         ],
         "en": [
           "collaborateur-de-vente-m-f-d-aldi-suisse"
@@ -6619,7 +6697,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1428694033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:26.367Z",
+      "crawledAt": "2026-10-03T09:22:47.371Z",
       "previousSlugs": [
         "aushilfe-verkauf-m-w-d-aldi-suisse",
         "aushilfe-vendita-m-w-d-aldi-suisse-zweisimmen",
@@ -6715,7 +6793,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425567733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:26.365Z",
+      "crawledAt": "2026-10-03T09:22:47.369Z",
       "previousSlugs": [
         "aushilfe-verkauf-m-w-d-aldi-suisse",
         "aushilfe-verkauf-m-w-d-aldi-suisse-2",
@@ -6837,7 +6915,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1426391533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:26.363Z",
+      "crawledAt": "2026-10-03T09:22:47.367Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bulle"
@@ -6951,7 +7029,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:24.966Z",
+      "crawledAt": "2026-10-03T09:22:45.935Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
@@ -7072,7 +7150,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421215833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:24.963Z",
+      "crawledAt": "2026-10-03T09:22:45.933Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
@@ -7197,7 +7275,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421219733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:24.958Z",
+      "crawledAt": "2026-10-03T09:22:45.928Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-3",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
@@ -7320,7 +7398,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:23.485Z",
+      "crawledAt": "2026-10-03T09:22:44.532Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
@@ -7445,7 +7523,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421220833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:23.477Z",
+      "crawledAt": "2026-10-03T09:22:44.524Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
@@ -7572,7 +7650,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421215133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:23.469Z",
+      "crawledAt": "2026-10-03T09:22:44.512Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
@@ -7695,7 +7773,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421213133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:22.032Z",
+      "crawledAt": "2026-10-03T09:22:42.934Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
@@ -7717,7 +7795,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:25:00.784Z",
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 87500,
       "salarySource": "estimated",
@@ -7730,7 +7807,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-ab52f65e4c90",
@@ -7813,7 +7891,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421220233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:22.028Z",
+      "crawledAt": "2026-10-03T09:22:42.928Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
@@ -7921,9 +7999,8 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1427296933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:25:20.557Z",
+      "crawledAt": "2026-10-03T09:22:41.449Z",
       "firstSeenAt": "2026-08-18T10:19:27.720Z",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "salarySource": "estimated",
@@ -7936,7 +8013,8 @@
           "maxValue": 71500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

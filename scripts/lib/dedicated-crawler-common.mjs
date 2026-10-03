@@ -69,9 +69,26 @@ import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
-function isUnsupportedSourceLang(sourceLang) {
+export function isUnsupportedSourceLang(sourceLang) {
   const normalized = String(sourceLang || '').trim().toLowerCase();
   return Boolean(normalized) && !DEFAULT_LOCALES.includes(normalized);
+}
+
+// A source language outside the four published locales cannot be copied into
+// an indexed slot when translation is unavailable. Keep the deploy gate green
+// with an honest, locale-specific generic label and leave the record flagged
+// for the translation queue. These labels are deliberately not the source
+// title, so an unmapped Romansh title never becomes a published source-copy.
+const UNSUPPORTED_SOURCE_TITLE_FALLBACKS = Object.freeze({
+  it: 'Posizione',
+  en: 'Job opening',
+  de: 'Stellenangebot',
+  fr: "Offre d'emploi",
+});
+
+export function safeUnsupportedSourceTitle(locale) {
+  const normalized = String(locale || '').trim().toLowerCase();
+  return UNSUPPORTED_SOURCE_TITLE_FALLBACKS[normalized] || 'Job opening';
 }
 
 function sourceLanguageLabel(sourceLang) {
@@ -370,6 +387,12 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
 
   const dictionaries = {
     it: [
+      // Romansh SRG/RTR role titles → Italian. These deterministic entries are
+      // a deploy-safe fallback when the unsupported-source LLM rung is empty;
+      // unknown Romansh titles remain queued for a real translation.
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Redattrice / Redattore'],
+      [/\bRedactura\b/gi, 'Redattrice'],
+      [/\bRedactur\b/gi, 'Redattore'],
       [/\bWissenschaftlich-technische\/r Mitarbeiter\/in\b/gi, 'Collaboratore/trice scientifico-tecnico/a'],
       [/\bDetailhandelsfachfrau\/-mann\b/gi, 'Impiegato/a del commercio al dettaglio'],
       [/\bDetailhandelsfachmann\/-frau\b/gi, 'Addetto/a al commercio al dettaglio'],
@@ -505,6 +528,10 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bApprenticeship\b/gi, 'Apprendistato'],
     ],
     de: [
+      // Romansh SRG/RTR role titles → German (see the Italian dictionary above).
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Redaktorin / Redaktor'],
+      [/\bRedactura\b/gi, 'Redaktorin'],
+      [/\bRedactur\b/gi, 'Redaktor'],
       // Italian job titles → German
       [/\bFresatore\b/gi, 'Fräser'],
       [/\bTornitore\b/gi, 'Dreher'],
@@ -566,6 +593,10 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bApprenticeship\b/gi, 'Ausbildung'],
     ],
     en: [
+      // Romansh SRG/RTR role titles → English (see the Italian dictionary above).
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Editor'],
+      [/\bRedactura\b/gi, 'Editor'],
+      [/\bRedactur\b/gi, 'Editor'],
       // Italian job titles → English
       [/\bFresatore\b/gi, 'Milling Operator'],
       [/\bTornitore\b/gi, 'Lathe Operator'],
@@ -612,6 +643,10 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bCDD d'avril à mai\b/gi, 'fixed-term contract from April to May'],
     ],
     fr: [
+      // Romansh SRG/RTR role titles → French (see the Italian dictionary above).
+      [/\bRedactura\s*\/\s*Redactur\b/gi, 'Rédactrice / Rédacteur'],
+      [/\bRedactura\b/gi, 'Rédactrice'],
+      [/\bRedactur\b/gi, 'Rédacteur'],
       // Guard against common mistranslations
       [/\bTechnical Lead\b/gi, 'Responsable technique'],
       [/\bTech Lead\b/gi, 'Responsable technique'],
@@ -1608,31 +1643,30 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         job.needsRetranslation = true;
         jobChanged = true;
       }
-      // Fallback: if title is still empty or too short (< 3 chars) after all hardening,
-      // copy source title as placeholder. Covers jobs never translated or where a bad
-      // 1-char artifact (e.g. '_') was stored. The translate pipeline will retranslate.
-      //
-      // S2 — why this wrong-language write is still here (2026-08-10).
-      // It contradicts FRO-263 below (:1570-1590), which refuses the same copy
-      // for the same reason and leaves the slot empty; this one runs first and
-      // wins. The contradiction is real but it is NOT safe to resolve in favour
-      // of FRO-263 yet, and the check is mechanical:
-      // `validate-translation-completeness.mjs` `collectBlockingIssues()` still
-      // pushes `missing/short title` for `title.length < 3` and `main()` still
-      // `process.exit(1)` on it. That exit code is read by
-      // translate-pending.yml ("Trigger deploy", ~line 395) and by
-      // post-deploy-validate-dist.yml (~line 501) — an empty slot therefore
-      // stops the deploy trigger outright. The 2026-08-10 honesty pass (#5557)
-      // deliberately left that blocking rule byte-identical ("Anything added
-      // here tightens the deploy gate — do not"), so it did NOT unblock this.
-      // Precondition for deleting the copy: the ≥3-char rule must stop being a
-      // blocking issue for non-source locales (or the writer must guarantee a
-      // real translation), and only then does FRO-263 become the single policy.
-      // Until then the copy stays, and the `needsRetranslation` it raises is what
-      // routes the slot to a real translation.
-      if (String(job.titleByLocale[locale] || '').trim().length < 3 && baseTitle) {
+      // Fallback: if title is still empty or too short (< 3 chars) after all
+      // hardening, use a known deterministic translation for unsupported source
+      // languages. Unknown titles receive a locale-safe generic label for the
+      // deploy gate and stay flagged for the LLM queue; never copy an
+      // unsupported source verbatim.
+      if (String(job.titleByLocale[locale] || '').trim().length < 3) {
         const placeholder = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
-        if (placeholder && DEFAULT_LOCALES.includes(titleSourceLang)) {
+        const deterministicFallback = isUnsupportedSourceLang(titleSourceLang)
+          ? heuristicTranslateJobTitle(placeholder, locale)
+          : '';
+        if (deterministicFallback && hasUsableTitle(deterministicFallback) &&
+            deterministicFallback.toLowerCase() !== placeholder.toLowerCase() &&
+            !isLowQualityLocalizedTitle(deterministicFallback)) {
+          job.titleByLocale[locale] = deterministicFallback;
+          job.needsRetranslation = true;
+          jobChanged = true;
+        } else if (isUnsupportedSourceLang(titleSourceLang)) {
+          const safeTitle = safeUnsupportedSourceTitle(locale);
+          if (String(job.titleByLocale[locale] || '').trim() !== safeTitle) {
+            job.titleByLocale[locale] = safeTitle;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          }
+        } else if (placeholder && DEFAULT_LOCALES.includes(titleSourceLang)) {
           job.titleByLocale[locale] = placeholder;
           job.needsRetranslation = true;
           jobChanged = true;
@@ -2576,11 +2610,19 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   if (locale === sourceLang) return cleanTitle;
   // Brand-name guard: restore any protected brand that a translator accidentally translated.
   const _rb = (t) => restoreProtectedBrands(cleanTitle, t);
+  const deterministicFallback = () => {
+    const fallback = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
+    if (hasUsableTitle(fallback) && fallback.toLowerCase() !== cleanTitle.toLowerCase()
+        && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
+      return fallback;
+    }
+    return '';
+  };
 
   // The local/free translation engines do not support an unsupported source
-  // such as Romansh. Use the cloud LLM directly, and leave the slot empty when
-  // it is unavailable instead of copying or heuristically rewriting the
-  // source title into a published locale.
+  // such as Romansh. Use the cloud LLM directly; if it is unavailable, use
+  // only a known deterministic role-title translation. Unknown source titles
+  // still return empty and remain queued instead of being copied verbatim.
   if (isUnsupportedSourceLang(sourceLang)) {
     const cacheKey = buildAiCacheKey
       ? buildAiCacheKey('translate-title-unsupported-source-v1', [cleanTitle, locale, sourceLang])
@@ -2590,7 +2632,11 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       if (cached && cached !== AI_CACHE_RAW_SENTINEL && hasUsableTitle(cached)
           && cached.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(cached);
     }
-    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') return '';
+    if (!hasLiveTranslationModel(ctx) || typeof callLLM !== 'function') {
+      const fallback = deterministicFallback();
+      if (fallback && cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, fallback);
+      return fallback;
+    }
     const prompt = [
       `Translate this job title from ${sourceLanguageLabel(sourceLang)} to ${locale}.`,
       '- Translate the role naturally and completely.',
@@ -2606,8 +2652,10 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
         if (cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, translated);
         return translated;
       }
-    } catch { /* leave the job queued for the next LLM attempt */ }
-    return '';
+    } catch { /* use the deterministic fallback below */ }
+    const fallback = deterministicFallback();
+    if (fallback && cacheKey && setCachedAiResponse) setCachedAiResponse(cacheKey, fallback);
+    return fallback;
   }
 
   // Local pipeline first
@@ -2699,9 +2747,8 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       setCachedAiResponse(cacheKey, restoredFallback);
       return restoredFallback;
     }
-    const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
-    if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase() &&
-        !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(heuristic))) {
+    const heuristic = deterministicFallback();
+    if (heuristic) {
       setCachedAiResponse(cacheKey, heuristic);
       return heuristic;
     }
@@ -2712,9 +2759,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   // No cache — simple fallback
   const simple = await freeTranslateObserved(ctx, { text: cleanTitle, sourceLang, targetLang: locale });
   if (hasUsableTitle(simple) && simple.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(simple);
-  const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
-  if (hasUsableTitle(heuristic) && heuristic.toLowerCase() !== cleanTitle.toLowerCase()) return heuristic;
-  return '';
+  return deterministicFallback();
 }
 
 export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {
@@ -2995,6 +3040,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     if (!out.needsRetranslation) return false;
     const value = nsFn(text || '');
     if (!value) return false;
+    // Generic labels are deploy-safe placeholders emitted for unmapped
+    // unsupported-source titles. Treat the exact placeholder as queued work,
+    // otherwise a valid-looking label would permanently bypass title repair.
+    if (isUnsupportedSourceLang(titleSourceLang) &&
+        value.toLowerCase() === safeUnsupportedSourceTitle(locale).toLowerCase()) {
+      return true;
+    }
     return titleVerdictFor(locale, value).untranslated;
   };
 
@@ -3191,9 +3243,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(forced))) {
           return { locale, title: forced };
         }
-        const fallback = isUnsupportedSourceLang(titleSourceLang)
-          ? ''
-          : heuristicTranslateJobTitle(sourceTitle, locale);
+        // The heuristic contains only explicit, quality-reviewed title mappings;
+        // it is safe for unsupported sources because an unmapped title is
+        // returned unchanged and therefore rejected below.
+        const fallback = heuristicTranslateJobTitle(sourceTitle, locale);
         if (hasUsableTitle(fallback) && fallback.toLowerCase() !== sourceTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
           return { locale, title: fallback };

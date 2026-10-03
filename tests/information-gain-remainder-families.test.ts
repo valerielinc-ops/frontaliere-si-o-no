@@ -33,7 +33,11 @@ import { readFileSync } from 'node:fs';
 import { fingerprintPage, scoreCohorts, MIN_COHORT_PAGES } from '@/scripts/lib/informationGain.mjs';
 import { SECTION_EDITORIAL } from '@/build-plugins/editorialContent';
 import { renderBorderCrossingGuideDetail } from '@/build-plugins/shared/borderCrossingGuideDetail';
-import { renderGlossaryTermDetail, localizedGlossaryLede } from '@/build-plugins/shared/glossaryTermDetail';
+import {
+  renderGlossaryTermDetail,
+  localizedGlossaryLede,
+  resolveGlossaryTermIdFromItalianPath,
+} from '@/build-plugins/shared/glossaryTermDetail';
 import {
   borderCrossingLabel,
   buildBorderCrossingDescription,
@@ -49,6 +53,7 @@ import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from '@/build-plugi
 import { ALL_CANTON_PROFESSION_IDS, type AnyProfessionId } from '@/build-plugins/professionLandingsData';
 import type { ProfessionJobsSnapshot } from '@/build-plugins/professionJobsAggregate';
 import itStats from '@/services/locales/it-stats';
+import { GLOSSARY_HUB_SEO, GLOSSARY_TERM_DEFINITIONS } from '@/services/seo/glossaryTermDefinitions';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type Rendered = { urlPath: string; html: string };
@@ -202,6 +207,38 @@ const renderGlossaryFamily = (locale: Exclude<Locale, 'it'>, withDetail: boolean
     ];
     return { urlPath: `${GLOSSARY_BASE[locale]}${termSlug(id)}/`, html: composeSsgPage({ title, h1, lede, blocks }) };
   });
+
+describe('shell SSG del glossario: path sorgente canonico e copy locale', () => {
+  const termRegistry = new Map([['ainp', 'ainp']]);
+  const sourcePath = '/glossario-frontaliere/ainp/';
+
+  for (const locale of LOCALES) {
+    it(`${locale}: root e leaf non ricadono nello shell generico`, () => {
+      const localizedPath = `${GLOSSARY_BASE[locale]}ainp/`;
+      // The translated route is intentionally not a key in the Italian
+      // registry. buildPage must pass its canonical source path when it
+      // renders a hreflang variant.
+      expect(resolveGlossaryTermIdFromItalianPath(localizedPath, termRegistry)).toBe(locale === 'it' ? 'ainp' : undefined);
+      const termId = resolveGlossaryTermIdFromItalianPath(sourcePath, termRegistry);
+      expect(termId).toBe('ainp');
+
+      const lede = locale === 'it'
+        ? GLOSSARY_TERM_DEFINITIONS.ainp
+        : localizedGlossaryLede(termId!, locale);
+      expect(lede).toBeTruthy();
+      expect(lede).not.toMatch(/Definition and explanation|Definition und Erklärung|Définition et explication/);
+
+      const detail = renderGlossaryTermDetail(termId!, locale).join(' ');
+      expect(detail).toContain(locale === 'it' ? 'Esempio' : locale === 'en' ? 'Example' : locale === 'de' ? 'Beispiel' : 'Exemple');
+      expect(detail).not.toContain('Definition und Erklärung von');
+
+      const rootCopy = SECTION_EDITORIAL['/glossario-frontaliere/'][locale].join(' ');
+      expect(rootCopy.length).toBeGreaterThan(100);
+      expect(rootCopy).not.toContain('Practical tools, updated data and reliable guides');
+      expect(GLOSSARY_HUB_SEO[locale].description).not.toContain('Practical tools, updated data and reliable guides');
+    });
+  }
+});
 
 describe('glossario localizzato (staticPagesPlugin → shared/glossaryTermDetail)', () => {
   // Misurato il 2026-10-02 su questa composizione: 37,5-41,2 % sulle tre

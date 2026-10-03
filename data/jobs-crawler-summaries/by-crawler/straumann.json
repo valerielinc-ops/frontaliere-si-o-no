@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-02T09:11:19.059Z",
+  "generatedAt": "2026-10-03T09:10:12.505Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,10 +14,12 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4433,
-  "avgDurationMs": 4433,
+  "durationMs": 5064,
+  "avgDurationMs": 5064,
   "durationHistory": [
-    4433
+    4433,
+    4838,
+    5064
   ],
   "newJobs": [
     {
@@ -32,7 +34,7 @@
       "url": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:11:12.597Z",
+      "crawledAt": "2026-10-03T09:10:03.139Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -70,7 +72,7 @@
       "url": "https://careers.straumann.com/global/en/job/22089/ip-administrative-assistant-temporary-part-time-50",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:12.317Z",
+      "crawledAt": "2026-10-03T09:10:02.852Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -107,7 +109,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:11:11.983Z",
+      "crawledAt": "2026-10-03T09:10:02.579Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -144,7 +146,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:11.466Z",
+      "crawledAt": "2026-10-03T09:10:02.289Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",

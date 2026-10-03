@@ -480,9 +480,9 @@ function renderPage(opts: {
     url: canonicalUrl,
     datePublished: dateStamp,
     dateModified: dateStamp,
-    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'NewsMediaOrganization',
+      '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
@@ -516,7 +516,7 @@ function renderPage(opts: {
     url: canonicalUrl,
     inLanguage: locale,
     license: 'https://creativecommons.org/licenses/by/4.0/',
-    creator: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    creator: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     distribution: [
       {
         '@type': 'DataDownload',

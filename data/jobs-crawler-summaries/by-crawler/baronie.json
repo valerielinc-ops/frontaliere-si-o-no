@@ -1,7 +1,7 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-10-02T09:25:15.086Z",
+  "generatedAt": "2026-10-03T09:23:49.910Z",
   "total": 2,
   "discovered": 5,
   "parsed": 2,
@@ -10,10 +10,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9214,
-  "avgDurationMs": 9214,
+  "durationMs": 8998,
+  "avgDurationMs": 8998,
   "durationHistory": [
-    9214
+    9214,
+    8657,
+    8998
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +37,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -73,7 +75,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",

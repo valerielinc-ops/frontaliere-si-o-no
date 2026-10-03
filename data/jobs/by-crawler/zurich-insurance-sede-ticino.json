@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zurich-insurance-sede-ticino",
-  "assembledAt": "2026-10-02T09:26:24.989Z",
+  "assembledAt": "2026-10-03T09:22:10.414Z",
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1373656357",
@@ -11,6 +11,7 @@
         "de": "legal-counsel-haftpflicht-korperschaden-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "conseiller-juridique-responsabilite-dommages-materiels-h-f-d-zurich-insurance-zurich-1373656357"
       },
+      "slugDisambiguator": "1373656357",
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
       "companyDomain": "zurich.ch",
@@ -34,7 +35,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Legal-Counsel-Haftpflicht-K%C3%B6rperschaden-%28mwd%29/1373656357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-10-01",
       "datePosted": "2026-10-01",
       "addressLocality": "Zürich",
@@ -52,7 +53,20 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:25:32.335Z",
       "previousSlugs": [
         "legal-counsel-haftpflicht-korperschaden-m-w-d-zurich-insurance-sede-ticino-zurich"
       ],
@@ -67,21 +81,7 @@
           "legal-counsel-haftpflicht-korperschaden-m-w-d-zurich-insurance-sede-ticino-zurich"
         ]
       },
-      "slugDisambiguator": "1373656357",
-      "firstSeenAt": "2026-10-01T09:25:32.335Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "zurich-insurance-sede-ticino-1373661557",
@@ -92,6 +92,7 @@
         "de": "disaster-inspector-dinge-und-haftung-wallis-m-w-d-zurich-insurance-sion-1373661557",
         "fr": "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
       },
+      "slugDisambiguator": "1373661557",
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
       "companyDomain": "zurich.ch",
@@ -115,7 +116,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Sion-Inspecteur-de-sinistres-Choses-et-responsabilit%C3%A9-civile-Valais-%28hfd%29/1373661557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-10-01",
       "datePosted": "2026-10-01",
       "addressLocality": "Sion",
@@ -134,16 +135,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "previousSlugs": [
-        "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
-        ]
-      },
-      "slugDisambiguator": "1373661557",
-      "firstSeenAt": "2026-10-01T09:25:32.335Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -156,6 +147,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-10-01T09:25:32.335Z",
+      "previousSlugs": [
+        "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
+        ],
+        "en": [
+          "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
+        ],
+        "de": [
+          "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
+        ]
       }
     },
     {
@@ -163,9 +169,9 @@
       "slug": "sachbearbeiter-berufliche-previdenza-bvg-im-crm-services-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "sachbearbeiter-berufliche-previdenza-bvg-im-crm-services-m-w-d-zurich-insurance-zurich",
-        "en": "personnel-occupational-provision-bvg-in-the-crm-services-m-f-d-zurich-insurance-zurich-1373655357",
+        "en": "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357",
         "de": "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-sede-ticino",
-        "fr": "formation-professionnelle-bvg-dans-les-services-crm-h-f-d-zurich-insurance-zurich-1373655357"
+        "fr": "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -173,16 +179,16 @@
       "title": "Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services (m/w/d)",
       "titleByLocale": {
         "it": "Sachbearbeiter berufliche previdenza (BVG) im CRM Services (m/w/d)",
-        "en": "Personnel occupational provision (BVG) in the CRM Services (m/f/d)",
+        "en": "Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services (m/w/d)",
         "de": "Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services (m/w/d)",
-        "fr": "Formation professionnelle (BVG) dans les services CRM (h/f/d)"
+        "fr": "Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services (m/w/d)"
       },
       "description": "137230 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nDie berufliche Vorsorge interessiert dich und du möchtest dich in diesem Bereich weiterentwickeln? Du arbeitest gerne in einem dynamischen, multilingualen Team und bietest unseren Kundinnen und Kunden eine ausgezeichnete, lösungsorientierte Beratung?\n\nAls Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services verstärkst du bei Zurich Schweiz den Geschäftsbereich Life, Customer & Distribution Management CLP im Team Customer Relationship Management & Romandie, CRM Services und leistest einen wichtigen Beitrag zu unserem gemeinsamen Erfolg.\n\nIn dieser Funktion bist du zentrale Ansprechperson für unsere Kundschaft sowie externe Partner rund um die berufliche Vorsorge. Du berätst und unterstützt sie in allen Fragen zur beruflichen Vorsorge und machst komplexe Themen verständlich. Gemeinsam mit deinem dynamischen, multilingualen Team in Oerlikon betreust du deine Kundinnen und Kunden über den gesamten Lebenszyklus ihrer Verträge und sorgst für eine hohe Servicequalität.\n\nDas erwartet dich\n\n• Du betreust die dir zugeteilten BVG-Grosskunden im Sammelstiftungsgeschäft direkt und persönlich – umfassend über den gesamten Lebenszyklus des Vertrags.\n\n• Du verarbeitest Vertragsmutationen (Neugeschäfte, Übernahmen, Planänderungen etc.) sowie Mutationen der Destinatäre (Eintritt, Austritt, Scheidung, Wohneigentum etc.).\n\n• Du unterstützt die Verkaufs- und Vertriebseinheiten wie Customer Relationship Manager, Broker und Agenturen aktiv bei fachlichen Fragestellungen.\n\n• Du koordinierst dich mit anderen Teams im Fachbereich Kollektivleben sowie weiteren internen Bereichen wie IT, Finanzbuchhaltung, Leistungsdienst und Rechtsdienst, damit die Abläufe für unsere Kunden reibungslos funktionieren.\n\nDas zeichnet dich aus\n\n• Erfolgreich abgeschlossene Ausbildung in der Versicherungsbranche (VBV-Zertifizierung von Vorteil) oder relevante Berufserfahrung ergänzt durch Weiterbildungen im Bereich der beruflichen Vorsorge oder in verwandten Themen (von Vorteil).\n\n• Ausgeprägte Kundenorientierung und die Fähigkeit, komplexe Sachverhalte verständlich zu erklären und Lösungen zu präsentieren\n\n• Starke Umsetzungsfähigkeit und die Fähigkeit, Projekte effizient und zielgerichtet voranzutreiben\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nGut zu wissen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Oerlikon, Zürich\n\nStellenantritt: ab Sofort oder nach Vereinbarung\n\nReisetätigkeit: keine regelmässige Reisetätigkeit; punktuelle Teilnahme an 3-4 Events pro Jahr\n\nHybrides Arbeiten: bis zu 40%\n\nAlles rund um deine Bewerbung\n\nDu kannst dich in einem ersten Schritt direkt online bei uns bewerben – dafür benötigst du nur deinen Lebenslauf. Weitere Informationen zum Bewerbungsprozess findest du hier .\n\nWir legen Wert auf einen effizienten und wertschätzenden Bewerbungsprozess. Das Talent Acquisition Team prüft deine Bewerbung persönlich, ohne Einsatz künstlicher Intelligenz. Ab deinem ersten persönlichen Kennenlernen mit der zuständigen Führungskraft erhältst du von uns immer eine individuelle Rückmeldung. Denn wir sind überzeugt: Aussagekräftiges Feedback basiert auf dem persönlichen Austausch.\n\nFür diese Position arbeiten wir nicht mit Personalvermittlungen zusammen. Unaufgefordert eingereichte Bewerbungen werden weder berücksichtigt noch vergütet.\n\nHast du noch Fragen? Silke, Talent Acquisition Consultant steht dir unter +41 44 628 20 59 gerne zur Verfügung.\n\nNeugierig geworden?\n\nErfahre mehr über Zurich Schweiz als Arbeitgeberin.\n\nklicke hier\n\nZurich Versicherungs-Gesellschaft AG | Talent Acquisition Zurich Schweiz",
       "descriptionByLocale": {
-        "it": "137230 | 80 - 100% | Oerlikon, Zurich | Hybrid\n\nSei interessato alla fornitura di lavoro e vorresti sviluppare ulteriormente in questo settore? Ti piace lavorare in un team dinamico e multilingue e offrire ai nostri clienti un consiglio eccellente e orientato alla soluzione?\n\nIn qualità di responsabile della pensione professionale (BVG) in CRM Services, rafforzerete la divisione Life, Customer & Distribution Management CLP a Zurigo in Svizzera nel team Customer Relationship Management & Romandie, CRM Services e dare un importante contributo al nostro successo congiunto.\n\nIn questa funzione, sei la persona di contatto centrale per i nostri clienti e partner esterni per la fornitura professionale. Si consiglia e li supporta in tutte le domande riguardanti le pensioni professionali e rendere comprensibili argomenti complessi. Insieme al vostro team dinamico e multilingue di Oerlikon, supporterete i vostri clienti durante tutto il ciclo di vita dei loro contratti e garantire un'alta qualità del servizio.\n\nQuesto è ciò che vi aspetta\n\n• Lei sostiene direttamente e personalmente i principali clienti BVG assegnati a Lei nel business di fondazione collettiva – in modo completo su tutto il ciclo di vita del contratto.\n\n• Elabori mutazioni contrattuali (nuovi affari, acquisizioni, cambiamenti di piano, ecc.) e mutazioni dei destinatari (ingresso, uscita, divorzio, proprietà di casa, ecc.).\n\n• Supporti attivamente le unità di vendita e di vendita come Customer Relationship Manager, broker e agenzie in questioni tecniche.\n\n• Potrai coordinare con altri team nel campo della vita collettiva così come altre aree interne come IT, contabilità finanziaria, servizio e servizi legali, in modo che i processi per i nostri clienti lavorano senza intoppi.\n\nQuesto ti fa a pezzi\n\n• Formazione completata con successo nel settore assicurativo (VBV certificazione di vantaggio) o esperienza professionale rilevante integrata da ulteriore formazione nel settore delle pensioni professionali o argomenti correlati (vantaggi).\n\n• Forte orientamento del cliente e la capacità di spiegare problemi complessi in modo comprensibile e soluzioni attuali\n\n• Forte capacità di implementazione e la capacità di guidare progetti in avanti in modo efficiente e mirato\n\n• Lavoro di squadra e godimento di lavorare con diversi stakeholder\n\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nBuono a sapersi\n\nTempo parziale o a tempo pieno: 80 - 100%\n\nLuogo di lavoro: Oerlikon, Zurigo\n\nLavoro: d'ora in poi o d'accordo\n\nattività di viaggio: non regolare attività di viaggio; Partecipazione a 3-4 eventi all'anno\n\nLavoro ibrido: fino al 40%\n\nTutto sulla tua applicazione\n\nÈ possibile applicare direttamente a noi online in un primo passo – hai solo bisogno del tuo CV. Ulteriori informazioni sul processo di applicazione possono essere trovate qui.\n\nNoi attribuiamo importanza ad un processo di applicazione efficiente e apprezzabile. Il Talent Acquisition Team esaminerà personalmente la tua applicazione senza utilizzare l'intelligenza artificiale. Dal tuo primo incontro personale con il responsabile, riceverai sempre un feedback individuale da parte nostra. Perché siamo convinti: un feedback significativo si basa sullo scambio personale.\n\nPer questa posizione, non lavoriamo con agenzie di reclutamento. Le domande non richieste non sono considerate o remunerate.\n\nHai delle domande? Silke, Talent Acquisition Consultant è a vostra disposizione su +41 44 628 20 59.\n\nSei diventato curioso?\n\nScopri di più su Zurigo Svizzera come datore di lavoro.\n\nClicca qui\n\nZurich Insurance Company AG | Talent Acquisizione Zurigo Svizzera",
-        "en": "137230 | 80 - 100% | Oerlikon, Zurich | Hybrid\n\nAre you interested in occupational provision and would you like to develop further in this area? Do you enjoy working in a dynamic, multilingual team and offer our customers excellent, solution-oriented advice?\n\nAs a professional pension manager (BVG) in CRM Services, you will strengthen the Life, Customer & Distribution Management CLP division at Zurich Switzerland in the Customer Relationship Management & Romandie, CRM Services team and make an important contribution to our joint success.\n\nIn this function, you are the central contact person for our customers as well as external partners for occupational provision. You advise and support them in all questions regarding occupational pensions and make complex topics understandable. Together with your dynamic, multilingual team in Oerlikon, you will support your customers throughout the entire lifecycle of their contracts and ensure a high quality of service.\n\nThis is what awaits you\n\n• You directly and personally support the major BVG customers assigned to you in the collective foundation business – comprehensively over the entire life cycle of the contract.\n\n• You process contract mutations (new business, takeovers, plan changes, etc.) as well as mutations of the destinataries (entry, exit, divorce, home ownership, etc.).\n\n• You actively support the sales and sales units such as Customer Relationship Manager, brokers and agencies in technical issues.\n\n• You will coordinate with other teams in the field of collective living as well as other internal areas such as IT, financial accounting, service and legal services, so that the processes for our customers work smoothly.\n\nThis sets you apart\n\n• Successfully completed training in the insurance industry (VBV certification of advantage) or relevant professional experience supplemented by further training in the field of occupational pensions or related topics (advantageous).\n\n• Strong customer orientation and the ability to explain complex issues in an understandable way and present solutions\n\n• Strong implementation capability and the ability to drive forward projects efficiently and purposefully\n\n• Teamwork and enjoyment of working with different stakeholders\n\n• Very good knowledge of German and English in word and writing\n\nGood to know\n\nPart-time or full-time: 80 - 100%\n\nPlace of work: Oerlikon, Zurich\n\nJob: from now on or by agreement\n\ntravel activity: not regular travel activity; Participation in 3-4 events per year\n\nHybrid work: up to 40%\n\nEverything about your application\n\nYou can apply directly to us online in a first step – you only need your CV. More information about the application process can be found here.\n\nWe attach importance to an efficient and appreciative application process. The Talent Acquisition Team will personally review your application without using artificial intelligence. From your first personal meeting with the responsible manager, you will always receive individual feedback from us. Because we are convinced: meaningful feedback is based on personal exchange.\n\nFor this position, we do not work with recruitment agencies. Unsolicited applications shall not be considered or remunerated.\n\nDo you have any questions? Silke, Talent Acquisition Consultant is at your disposal on +41 44 628 20 59.\n\nHave you become curious?\n\nLearn more about Zurich Switzerland as an employer.\n\nClick here\n\nZurich Insurance Company AG | Talent Acquisition Zurich Switzerland",
         "de": "137230 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nDie berufliche Vorsorge interessiert dich und du möchtest dich in diesem Bereich weiterentwickeln? Du arbeitest gerne in einem dynamischen, multilingualen Team und bietest unseren Kundinnen und Kunden eine ausgezeichnete, lösungsorientierte Beratung?\n\nAls Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services verstärkst du bei Zurich Schweiz den Geschäftsbereich Life, Customer & Distribution Management CLP im Team Customer Relationship Management & Romandie, CRM Services und leistest einen wichtigen Beitrag zu unserem gemeinsamen Erfolg.\n\nIn dieser Funktion bist du zentrale Ansprechperson für unsere Kundschaft sowie externe Partner rund um die berufliche Vorsorge. Du berätst und unterstützt sie in allen Fragen zur beruflichen Vorsorge und machst komplexe Themen verständlich. Gemeinsam mit deinem dynamischen, multilingualen Team in Oerlikon betreust du deine Kundinnen und Kunden über den gesamten Lebenszyklus ihrer Verträge und sorgst für eine hohe Servicequalität.\n\nDas erwartet dich\n\n• Du betreust die dir zugeteilten BVG-Grosskunden im Sammelstiftungsgeschäft direkt und persönlich – umfassend über den gesamten Lebenszyklus des Vertrags.\n\n• Du verarbeitest Vertragsmutationen (Neugeschäfte, Übernahmen, Planänderungen etc.) sowie Mutationen der Destinatäre (Eintritt, Austritt, Scheidung, Wohneigentum etc.).\n\n• Du unterstützt die Verkaufs- und Vertriebseinheiten wie Customer Relationship Manager, Broker und Agenturen aktiv bei fachlichen Fragestellungen.\n\n• Du koordinierst dich mit anderen Teams im Fachbereich Kollektivleben sowie weiteren internen Bereichen wie IT, Finanzbuchhaltung, Leistungsdienst und Rechtsdienst, damit die Abläufe für unsere Kunden reibungslos funktionieren.\n\nDas zeichnet dich aus\n\n• Erfolgreich abgeschlossene Ausbildung in der Versicherungsbranche (VBV-Zertifizierung von Vorteil) oder relevante Berufserfahrung ergänzt durch Weiterbildungen im Bereich der beruflichen Vorsorge oder in verwandten Themen (von Vorteil).\n\n• Ausgeprägte Kundenorientierung und die Fähigkeit, komplexe Sachverhalte verständlich zu erklären und Lösungen zu präsentieren\n\n• Starke Umsetzungsfähigkeit und die Fähigkeit, Projekte effizient und zielgerichtet voranzutreiben\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nGut zu wissen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Oerlikon, Zürich\n\nStellenantritt: ab Sofort oder nach Vereinbarung\n\nReisetätigkeit: keine regelmässige Reisetätigkeit; punktuelle Teilnahme an 3-4 Events pro Jahr\n\nHybrides Arbeiten: bis zu 40%\n\nAlles rund um deine Bewerbung\n\nDu kannst dich in einem ersten Schritt direkt online bei uns bewerben – dafür benötigst du nur deinen Lebenslauf. Weitere Informationen zum Bewerbungsprozess findest du hier .\n\nWir legen Wert auf einen effizienten und wertschätzenden Bewerbungsprozess. Das Talent Acquisition Team prüft deine Bewerbung persönlich, ohne Einsatz künstlicher Intelligenz. Ab deinem ersten persönlichen Kennenlernen mit der zuständigen Führungskraft erhältst du von uns immer eine individuelle Rückmeldung. Denn wir sind überzeugt: Aussagekräftiges Feedback basiert auf dem persönlichen Austausch.\n\nFür diese Position arbeiten wir nicht mit Personalvermittlungen zusammen. Unaufgefordert eingereichte Bewerbungen werden weder berücksichtigt noch vergütet.\n\nHast du noch Fragen? Silke, Talent Acquisition Consultant steht dir unter +41 44 628 20 59 gerne zur Verfügung.\n\nNeugierig geworden?\n\nErfahre mehr über Zurich Schweiz als Arbeitgeberin.\n\nklicke hier\n\nZurich Versicherungs-Gesellschaft AG | Talent Acquisition Zurich Schweiz",
-        "fr": "137230: 80 - 100%: Oerlikon, Zurich: hybride\n\nÊtes-vous intéressé par l'offre professionnelle et souhaitez-vous vous développer davantage dans ce domaine? Vous aimez travailler dans une équipe dynamique et multilingue et offrir à nos clients d'excellents conseils axés sur la solution ?\n\nEn tant que gestionnaire professionnel des pensions (BVG) en CRM Services, vous renforcerez la division Life, Customer & Distribution Management CLP de Zurich Suisse dans l'équipe Customer Relationship Management & Romandie, CRM Services et apporterez une contribution importante à notre réussite commune.\n\nDans cette fonction, vous êtes la personne de contact centrale pour nos clients ainsi que des partenaires externes pour la prestation professionnelle. Vous les conseillez et les soutenez dans toutes les questions concernant les pensions professionnelles et faites comprendre des sujets complexes. Avec votre équipe dynamique et multilingue à Oerlikon, vous accompagnerez vos clients tout au long du cycle de vie de leurs contrats et assurerez une qualité de service élevée.\n\nC'est ce qui vous attend.\n\n• Vous soutenez directement et personnellement les principaux clients BVG qui vous ont été assignés dans le cadre de la fondation collective – de manière exhaustive sur l'ensemble du cycle de vie du contrat.\n\n• Vous traitez les mutations contractuelles (nouvelles affaires, prises de contrôle, changements de plan, etc.) ainsi que les mutations des destinaires (entrée, sortie, divorce, propriété, etc.).\n\n• Vous soutenez activement les unités de vente et de vente telles que Customer Relationship Manager, courtiers et agences dans les questions techniques.\n\n• Vous coordonnerez avec d'autres équipes dans le domaine de la vie collective ainsi qu'avec d'autres domaines internes tels que l'informatique, la comptabilité financière, les services et les services juridiques, afin que les processus pour nos clients fonctionnent en douceur.\n\nCela vous distingue\n\n• Formation réussie dans le secteur de l'assurance (certification d'avantage VBV) ou expérience professionnelle pertinente complétée par une formation continue dans le domaine des pensions professionnelles ou des sujets connexes (avantages).\n\n• Une forte orientation du client et la capacité d'expliquer les problèmes complexes de manière compréhensible et de présenter des solutions\n\n• Forte capacité de mise en œuvre et capacité de faire avancer les projets de manière efficace et ciblée\n\n• Travail d'équipe et plaisir de travailler avec différentes parties prenantes\n\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nBon à savoir\n\nTemps partiel ou temps plein: 80 - 100%\n\nLieu de travail: Oerlikon, Zurich\n\nEmploi: désormais ou par accord\n\nactivité de voyage: activité de voyage non régulière; participation à 3-4 événements par année\n\nTravail hybride: jusqu'à 40%\n\nTout sur votre application\n\nVous pouvez vous adresser directement à nous en ligne dans un premier temps – vous n'avez besoin que de votre CV. Vous trouverez plus d'informations sur le processus de demande ici.\n\nNous attachons de l'importance à un processus de demande efficace et apprécié. L'équipe d'acquisition de talents examinera personnellement votre demande sans utiliser l'intelligence artificielle. Dès votre première rencontre personnelle avec le gestionnaire responsable, vous recevrez toujours des commentaires individuels de notre part. Parce que nous sommes convaincus : une rétroaction significative est basée sur un échange personnel.\n\nPour ce poste, nous ne travaillons pas avec les agences de recrutement. Les demandes non sollicitées ne sont ni examinées ni rémunérées.\n\nVous avez des questions ? Silke, Talent Acquisition Consultant est à votre disposition au +41 44 628 20 59.\n\nTu es devenu curieux ?\n\nEn savoir plus sur Zurich Suisse en tant qu'employeur.\n\nCliquez ici\n\nZurich Insurance Company AG... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+        "it": "137230 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nDie berufliche Vorsorge interessiert dich und du möchtest dich in diesem Bereich weiterentwickeln? Du arbeitest gerne in einem dynamischen, multilingualen Team und bietest unseren Kundinnen und Kunden eine ausgezeichnete, lösungsorientierte Beratung?\n\nAls Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services verstärkst du bei Zurich Schweiz den Geschäftsbereich Life, Customer & Distribution Management CLP im Team Customer Relationship Management & Romandie, CRM Services und leistest einen wichtigen Beitrag zu unserem gemeinsamen Erfolg.\n\nIn dieser Funktion bist du zentrale Ansprechperson für unsere Kundschaft sowie externe Partner rund um die berufliche Vorsorge. Du berätst und unterstützt sie in allen Fragen zur beruflichen Vorsorge und machst komplexe Themen verständlich. Gemeinsam mit deinem dynamischen, multilingualen Team in Oerlikon betreust du deine Kundinnen und Kunden über den gesamten Lebenszyklus ihrer Verträge und sorgst für eine hohe Servicequalität.\n\nDas erwartet dich\n\n• Du betreust die dir zugeteilten BVG-Grosskunden im Sammelstiftungsgeschäft direkt und persönlich – umfassend über den gesamten Lebenszyklus des Vertrags.\n\n• Du verarbeitest Vertragsmutationen (Neugeschäfte, Übernahmen, Planänderungen etc.) sowie Mutationen der Destinatäre (Eintritt, Austritt, Scheidung, Wohneigentum etc.).\n\n• Du unterstützt die Verkaufs- und Vertriebseinheiten wie Customer Relationship Manager, Broker und Agenturen aktiv bei fachlichen Fragestellungen.\n\n• Du koordinierst dich mit anderen Teams im Fachbereich Kollektivleben sowie weiteren internen Bereichen wie IT, Finanzbuchhaltung, Leistungsdienst und Rechtsdienst, damit die Abläufe für unsere Kunden reibungslos funktionieren.\n\nDas zeichnet dich aus\n\n• Erfolgreich abgeschlossene Ausbildung in der Versicherungsbranche (VBV-Zertifizierung von Vorteil) oder relevante Berufserfahrung ergänzt durch Weiterbildungen im Bereich der beruflichen Vorsorge oder in verwandten Themen (von Vorteil).\n\n• Ausgeprägte Kundenorientierung und die Fähigkeit, komplexe Sachverhalte verständlich zu erklären und Lösungen zu präsentieren\n\n• Starke Umsetzungsfähigkeit und die Fähigkeit, Projekte effizient und zielgerichtet voranzutreiben\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nGut zu wissen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Oerlikon, Zürich\n\nStellenantritt: ab Sofort oder nach Vereinbarung\n\nReisetätigkeit: keine regelmässige Reisetätigkeit; punktuelle Teilnahme an 3-4 Events pro Jahr\n\nHybrides Arbeiten: bis zu 40%\n\nAlles rund um deine Bewerbung\n\nDu kannst dich in einem ersten Schritt direkt online bei uns bewerben – dafür benötigst du nur deinen Lebenslauf. Weitere Informationen zum Bewerbungsprozess findest du hier .\n\nWir legen Wert auf einen effizienten und wertschätzenden Bewerbungsprozess. Das Talent Acquisition Team prüft deine Bewerbung persönlich, ohne Einsatz künstlicher Intelligenz. Ab deinem ersten persönlichen Kennenlernen mit der zuständigen Führungskraft erhältst du von uns immer eine individuelle Rückmeldung. Denn wir sind überzeugt: Aussagekräftiges Feedback basiert auf dem persönlichen Austausch.\n\nFür diese Position arbeiten wir nicht mit Personalvermittlungen zusammen. Unaufgefordert eingereichte Bewerbungen werden weder berücksichtigt noch vergütet.\n\nHast du noch Fragen? Silke, Talent Acquisition Consultant steht dir unter +41 44 628 20 59 gerne zur Verfügung.\n\nNeugierig geworden?\n\nErfahre mehr über Zurich Schweiz als Arbeitgeberin.\n\nklicke hier\n\nZurich Versicherungs-Gesellschaft AG | Talent Acquisition Zurich Schweiz",
+        "en": "137230 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nDie berufliche Vorsorge interessiert dich und du möchtest dich in diesem Bereich weiterentwickeln? Du arbeitest gerne in einem dynamischen, multilingualen Team und bietest unseren Kundinnen und Kunden eine ausgezeichnete, lösungsorientierte Beratung?\n\nAls Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services verstärkst du bei Zurich Schweiz den Geschäftsbereich Life, Customer & Distribution Management CLP im Team Customer Relationship Management & Romandie, CRM Services und leistest einen wichtigen Beitrag zu unserem gemeinsamen Erfolg.\n\nIn dieser Funktion bist du zentrale Ansprechperson für unsere Kundschaft sowie externe Partner rund um die berufliche Vorsorge. Du berätst und unterstützt sie in allen Fragen zur beruflichen Vorsorge und machst komplexe Themen verständlich. Gemeinsam mit deinem dynamischen, multilingualen Team in Oerlikon betreust du deine Kundinnen und Kunden über den gesamten Lebenszyklus ihrer Verträge und sorgst für eine hohe Servicequalität.\n\nDas erwartet dich\n\n• Du betreust die dir zugeteilten BVG-Grosskunden im Sammelstiftungsgeschäft direkt und persönlich – umfassend über den gesamten Lebenszyklus des Vertrags.\n\n• Du verarbeitest Vertragsmutationen (Neugeschäfte, Übernahmen, Planänderungen etc.) sowie Mutationen der Destinatäre (Eintritt, Austritt, Scheidung, Wohneigentum etc.).\n\n• Du unterstützt die Verkaufs- und Vertriebseinheiten wie Customer Relationship Manager, Broker und Agenturen aktiv bei fachlichen Fragestellungen.\n\n• Du koordinierst dich mit anderen Teams im Fachbereich Kollektivleben sowie weiteren internen Bereichen wie IT, Finanzbuchhaltung, Leistungsdienst und Rechtsdienst, damit die Abläufe für unsere Kunden reibungslos funktionieren.\n\nDas zeichnet dich aus\n\n• Erfolgreich abgeschlossene Ausbildung in der Versicherungsbranche (VBV-Zertifizierung von Vorteil) oder relevante Berufserfahrung ergänzt durch Weiterbildungen im Bereich der beruflichen Vorsorge oder in verwandten Themen (von Vorteil).\n\n• Ausgeprägte Kundenorientierung und die Fähigkeit, komplexe Sachverhalte verständlich zu erklären und Lösungen zu präsentieren\n\n• Starke Umsetzungsfähigkeit und die Fähigkeit, Projekte effizient und zielgerichtet voranzutreiben\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nGut zu wissen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Oerlikon, Zürich\n\nStellenantritt: ab Sofort oder nach Vereinbarung\n\nReisetätigkeit: keine regelmässige Reisetätigkeit; punktuelle Teilnahme an 3-4 Events pro Jahr\n\nHybrides Arbeiten: bis zu 40%\n\nAlles rund um deine Bewerbung\n\nDu kannst dich in einem ersten Schritt direkt online bei uns bewerben – dafür benötigst du nur deinen Lebenslauf. Weitere Informationen zum Bewerbungsprozess findest du hier .\n\nWir legen Wert auf einen effizienten und wertschätzenden Bewerbungsprozess. Das Talent Acquisition Team prüft deine Bewerbung persönlich, ohne Einsatz künstlicher Intelligenz. Ab deinem ersten persönlichen Kennenlernen mit der zuständigen Führungskraft erhältst du von uns immer eine individuelle Rückmeldung. Denn wir sind überzeugt: Aussagekräftiges Feedback basiert auf dem persönlichen Austausch.\n\nFür diese Position arbeiten wir nicht mit Personalvermittlungen zusammen. Unaufgefordert eingereichte Bewerbungen werden weder berücksichtigt noch vergütet.\n\nHast du noch Fragen? Silke, Talent Acquisition Consultant steht dir unter +41 44 628 20 59 gerne zur Verfügung.\n\nNeugierig geworden?\n\nErfahre mehr über Zurich Schweiz als Arbeitgeberin.\n\nklicke hier\n\nZurich Versicherungs-Gesellschaft AG | Talent Acquisition Zurich Schweiz",
+        "fr": "137230 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nDie berufliche Vorsorge interessiert dich und du möchtest dich in diesem Bereich weiterentwickeln? Du arbeitest gerne in einem dynamischen, multilingualen Team und bietest unseren Kundinnen und Kunden eine ausgezeichnete, lösungsorientierte Beratung?\n\nAls Sachbearbeiter berufliche Vorsorge (BVG) im CRM Services verstärkst du bei Zurich Schweiz den Geschäftsbereich Life, Customer & Distribution Management CLP im Team Customer Relationship Management & Romandie, CRM Services und leistest einen wichtigen Beitrag zu unserem gemeinsamen Erfolg.\n\nIn dieser Funktion bist du zentrale Ansprechperson für unsere Kundschaft sowie externe Partner rund um die berufliche Vorsorge. Du berätst und unterstützt sie in allen Fragen zur beruflichen Vorsorge und machst komplexe Themen verständlich. Gemeinsam mit deinem dynamischen, multilingualen Team in Oerlikon betreust du deine Kundinnen und Kunden über den gesamten Lebenszyklus ihrer Verträge und sorgst für eine hohe Servicequalität.\n\nDas erwartet dich\n\n• Du betreust die dir zugeteilten BVG-Grosskunden im Sammelstiftungsgeschäft direkt und persönlich – umfassend über den gesamten Lebenszyklus des Vertrags.\n\n• Du verarbeitest Vertragsmutationen (Neugeschäfte, Übernahmen, Planänderungen etc.) sowie Mutationen der Destinatäre (Eintritt, Austritt, Scheidung, Wohneigentum etc.).\n\n• Du unterstützt die Verkaufs- und Vertriebseinheiten wie Customer Relationship Manager, Broker und Agenturen aktiv bei fachlichen Fragestellungen.\n\n• Du koordinierst dich mit anderen Teams im Fachbereich Kollektivleben sowie weiteren internen Bereichen wie IT, Finanzbuchhaltung, Leistungsdienst und Rechtsdienst, damit die Abläufe für unsere Kunden reibungslos funktionieren.\n\nDas zeichnet dich aus\n\n• Erfolgreich abgeschlossene Ausbildung in der Versicherungsbranche (VBV-Zertifizierung von Vorteil) oder relevante Berufserfahrung ergänzt durch Weiterbildungen im Bereich der beruflichen Vorsorge oder in verwandten Themen (von Vorteil).\n\n• Ausgeprägte Kundenorientierung und die Fähigkeit, komplexe Sachverhalte verständlich zu erklären und Lösungen zu präsentieren\n\n• Starke Umsetzungsfähigkeit und die Fähigkeit, Projekte effizient und zielgerichtet voranzutreiben\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nGut zu wissen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Oerlikon, Zürich\n\nStellenantritt: ab Sofort oder nach Vereinbarung\n\nReisetätigkeit: keine regelmässige Reisetätigkeit; punktuelle Teilnahme an 3-4 Events pro Jahr\n\nHybrides Arbeiten: bis zu 40%\n\nAlles rund um deine Bewerbung\n\nDu kannst dich in einem ersten Schritt direkt online bei uns bewerben – dafür benötigst du nur deinen Lebenslauf. Weitere Informationen zum Bewerbungsprozess findest du hier .\n\nWir legen Wert auf einen effizienten und wertschätzenden Bewerbungsprozess. Das Talent Acquisition Team prüft deine Bewerbung persönlich, ohne Einsatz künstlicher Intelligenz. Ab deinem ersten persönlichen Kennenlernen mit der zuständigen Führungskraft erhältst du von uns immer eine individuelle Rückmeldung. Denn wir sind überzeugt: Aussagekräftiges Feedback basiert auf dem persönlichen Austausch.\n\nFür diese Position arbeiten wir nicht mit Personalvermittlungen zusammen. Unaufgefordert eingereichte Bewerbungen werden weder berücksichtigt noch vergütet.\n\nHast du noch Fragen? Silke, Talent Acquisition Consultant steht dir unter +41 44 628 20 59 gerne zur Verfügung.\n\nNeugierig geworden?\n\nErfahre mehr über Zurich Schweiz als Arbeitgeberin.\n\nklicke hier\n\nZurich Versicherungs-Gesellschaft AG | Talent Acquisition Zurich Schweiz"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -190,7 +196,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Sachbearbeiter-berufliche-Vorsorge-%28BVG%29-im-CRM-Services-%28mwd%29/1373655357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-10-01",
       "datePosted": "2026-10-01",
       "addressLocality": "Zürich",
@@ -207,25 +213,31 @@
       "currency": "CHF",
       "featured": false,
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "needsRetranslation": true,
       "previousSlugs": [
         "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-sede-ticino",
-        "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
+        "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357",
+        "personnel-occupational-provision-bvg-in-the-crm-services-m-f-d-zurich-insurance-zurich-1373655357",
+        "formation-professionnelle-bvg-dans-les-services-crm-h-f-d-zurich-insurance-zurich-1373655357"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-sede-ticino"
         ],
         "en": [
-          "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
+          "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357",
+          "personnel-occupational-provision-bvg-in-the-crm-services-m-f-d-zurich-insurance-zurich-1373655357"
         ],
         "fr": [
-          "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
+          "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357",
+          "formation-professionnelle-bvg-dans-les-services-crm-h-f-d-zurich-insurance-zurich-1373655357"
         ]
       },
       "slugDisambiguator": "1373655357",
-      "firstSeenAt": "2026-10-01T21:26:15.703Z",
+      "firstSeenAt": "2026-10-03T09:21:41.355Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -272,7 +284,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Process-Excellence-Expert-%28mwd%29/1373536257/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-30",
       "datePosted": "2026-09-30",
       "addressLocality": "Zürich",
@@ -290,18 +302,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
-        ],
-        "fr": [
-          "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
-        ]
-      },
       "slugDisambiguator": "1373536257",
       "firstSeenAt": "2026-09-30T21:28:11.107Z",
       "salaryMin": 113000,
@@ -316,7 +316,19 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "zurich-insurance-sede-ticino-1373560757",
@@ -350,7 +362,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Process-Excellence-Expert-%28mwd%29/1373560757/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-30",
       "datePosted": "2026-09-30",
       "addressLocality": "Zürich",
@@ -369,14 +381,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "previousSlugs": [
-        "senior-process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
-        ]
-      },
       "slugDisambiguator": "1373560757",
       "firstSeenAt": "2026-09-30T21:28:11.107Z",
       "salaryMin": 189000,
@@ -391,6 +395,14 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "senior-process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-process-excellence-expert-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
       }
     },
     {
@@ -425,7 +437,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Property-&-Casualty-Risk-Manager-80-100/1373463257/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-29",
       "datePosted": "2026-09-29",
       "addressLocality": "Zürich",
@@ -492,7 +504,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Fachspezialist-Leistungen-BVG-%28mwd%29/1373417157/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-29",
       "datePosted": "2026-09-29",
       "addressLocality": "Zürich",
@@ -573,7 +585,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Ceded-Reinsurance-Manager-100/1373356957/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-28",
       "datePosted": "2026-09-28",
       "addressLocality": "Zürich",
@@ -640,7 +652,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Junior-Compliance-Data-Analytics%2C-Automation-and-Power-BI-Specialist-80-100%2C-temporary-for-11-mnths/1373333357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-28",
       "datePosted": "2026-09-28",
       "addressLocality": "Zürich",
@@ -721,7 +733,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-P&C-Solution-Architect-%28All-Guidewire-Centers-&-Zurich-Solutions%29-%28mfd%29/1373274457/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-28",
       "datePosted": "2026-09-28",
       "addressLocality": "Zürich",
@@ -803,7 +815,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Fachspezialist-Einzelleben-DE-%2B-IT-oder-FR-%28mwd%29/1373295057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-28",
       "datePosted": "2026-09-28",
       "addressLocality": "Zürich",
@@ -884,7 +896,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Sion-Expert-en-v%C3%A9hicules-St_-Maurice%2C-Valais-%28hfd%29/1373342557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-28",
       "datePosted": "2026-09-28",
       "addressLocality": "Sion",
@@ -962,7 +974,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Sachbearbeiter-Schaden-Assistance-Franz%C3%B6sisch-%28mwd%29/1365200757/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-26",
       "datePosted": "2026-09-26",
       "addressLocality": "Zürich",
@@ -1040,7 +1052,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Head-Transactions-Real-Estate-%28mwd%29/1373207957/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-25",
       "datePosted": "2026-09-25",
       "addressLocality": "Zürich",
@@ -1118,7 +1130,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Luzern-Gruppenleitung-Kundenteam-Unfall-Kriens-Leistungen-Personenversicherungen-%28mwd%29/1373206657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-25",
       "datePosted": "2026-09-25",
       "addressLocality": "Luzern",
@@ -1199,7 +1211,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Kundenberater-Direct-Sales-DEFR-%28mwd%29/1373036757/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-24",
       "datePosted": "2026-09-24",
       "addressLocality": "Zürich",
@@ -1279,7 +1291,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Leitung-Leistungen-R%C3%BCckdeckungen-%28mwd%29/1373062057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-24",
       "datePosted": "2026-09-24",
       "addressLocality": "Zürich",
@@ -1297,7 +1309,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich"
       ],
@@ -1326,7 +1337,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurich-insurance-sede-ticino-1366805957",
@@ -1360,7 +1372,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Skills-Strategy-&-AI-Capability-Lead-80-100/1366805957/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-23",
       "datePosted": "2026-09-23",
       "addressLocality": "Zürich",
@@ -1438,7 +1450,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Crissier-Gestionnaire-de-sinistres-accidents-%28hfd%29/1372924257/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-23",
       "datePosted": "2026-09-23",
       "addressLocality": "Crissier",
@@ -1456,7 +1468,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier",
         "gestionnaire-de-sinistres-accidents-m-w-d-zurich-insurance-crissier"
@@ -1484,7 +1495,8 @@
           "maxValue": 156000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurich-insurance-sede-ticino-1372808257",
@@ -1518,7 +1530,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Schadenspezialist-Sach-&-Haft-%28mwd%29/1372808257/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-22",
       "datePosted": "2026-09-22",
       "addressLocality": "Zürich",
@@ -1642,7 +1654,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "zurich-insurance-sede-ticino-1372586657",
@@ -1676,7 +1689,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Property-&-Lease-Manager-%28mwd%29/1372586657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-18",
       "datePosted": "2026-09-18",
       "addressLocality": "Zürich",
@@ -1751,7 +1764,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Underwriting-Portfolio-Analyst-Motor-&-Haushalt-%28mwd%29/1372152057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-15",
       "datePosted": "2026-09-15",
       "addressLocality": "Zürich",
@@ -1829,7 +1842,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Project-Coordinator-Digital-Real-Estate-&-PropTech-%28mwd%29/1371928557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-11",
       "datePosted": "2026-09-11",
       "addressLocality": "Zürich",
@@ -1847,7 +1860,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "project-coordinator-digital-real-estate-proptech-m-w-d-zurich-insurance-sede-ticino-zurich"
       ],
@@ -1869,7 +1881,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurich-insurance-sede-ticino-1371975857",
@@ -1903,7 +1916,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Schadenspezialist-Cyberversicherung-%28mwd%29/1371975857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-11",
       "datePosted": "2026-09-11",
       "addressLocality": "Zürich",
@@ -1953,81 +1966,6 @@
       }
     },
     {
-      "id": "zurich-insurance-sede-ticino-1371876057",
-      "slug": "responsabile-soluzioni-actuariali-vita-80-100-zurich-insurance-sede-ticino-zurich-1371876057",
-      "slugByLocale": {
-        "it": "responsabile-soluzioni-actuariali-vita-80-100-zurich-insurance-sede-ticino-zurich-1371876057",
-        "en": "life-actuarial-solutions-lead-80-100-zurich-insurance-sede-ticino-zurich",
-        "de": "life-actuariary-solutions-lead-80-100-zurich-insurance-sede-ticino-zurich-1371876057",
-        "fr": "solutions-actuarielles-a-vie-plomb-80-100-zurich-insurance-sede-ticino-zurich-1371876057"
-      },
-      "company": "Zurich Insurance",
-      "companyKey": "zurich-insurance-sede-ticino",
-      "companyDomain": "zurich.ch",
-      "title": "Life Actuarial Solutions Lead (80-100%)",
-      "titleByLocale": {
-        "it": "Lead (80-100%)",
-        "en": "Life Actuarial Solutions Lead (80-100%)",
-        "de": "Lebensversicherungslösungen führend (80-100%)",
-        "fr": "Solutions de vie pour le plomb (80-100%)"
-      },
-      "description": "Unique Selling Proposition\n\nDo you want to shape the applications that Life actuaries across Zurich rely on every quarter for reporting and analysis purpose? Do you enjoy turning local business needs into global solutions? Join our Group Actuarial Systems team and take ownership of our Life actuarial reporting and analytics application landscape supporting IFRS and local GAAP reporting, regulatory (e.g. SST) and management reporting, forecasting, planning and scenario analysis.\n\nIn this role, you will be the link between Life actuaries in our business units, Group and the teams who build and support the solutions. You will shape the roadmap, deliver through our actuarial support team in Bratislava and our IT delivery team in Barcelona, and look beyond what users ask for — spotting opportunities in AI, automation and agentic workflows, working closely with our Data Scientist. Guided by our values of forward-thinking, togetherness and results orientation, you will help make actuarial reporting simpler and smarter across the Group.\n\nWhat you will do\n\n• Own the Life actuarial reporting and analytics application landscape end-to-end, from business requirements through delivery to BAU support and enhancements.\n\n• Partner with Life actuarial teams across business units to understand their processes, resolve business issues and support them through reporting cycles.\n\n• Generalise local requirements into global, reusable solutions rather than bespoke builds, owning and prioritising the Life reporting applications roadmap.\n\n• Deliver through others, steering our actuarial support team in Bratislava and IT delivery team in Barcelona.\n\n• Identify enhancement opportunities beyond user requests, including AI-enabled features, automation and agentic workflows.\n\nWhat you bring\n\n• Qualified actuary with 10+ years' experience in Life actuarial roles, ideally in financial reporting, actuarial valuation or regulatory reporting.\n\n• Track record of delivering through distributed, cross-functional teams and managing senior stakeholders across functions and markets.\n\n• Ability to abstract local needs into global, scalable solutions and to challenge bespoke thinking.\n\n• Interest in technology and a forward-thinking view on AI, automation and process improvement.\n\n• Strong communication and influencing skills in English, with a collaborative, cross-cultural approach.\n\nYou belong here.\n\nImagine working in one of the world’s most sustainable workplaces. At Quai Zurich Campus , you’ll enjoy an environment designed to help you thrive, with benefits that support your well-being and impact, and opportunities to perform at your best, surrounded by top talent and supportive colleagues.\n\nYou’ll have access to healthy food options, fitness facilities, and bright, collaborative spaces that spark creativity. Located in the heart of Zurich on the shores of Lake Zurich, the campus offers excellent public transportation links, making your commute simple.\n\nGrow with us through access to learning resources, on-the-job development, and continuous empowerment and support. Be part of a team that is creating a brighter future together.\n\nAbout Us\n\nZurich is a leading multi-line insurer, serving over 82 million customers in more than 200 countries and territories with more than 65,000 employees.\nFor over 150 years, Zurich has been transforming insurance – offering not just protection, but also prevention services that promote well-being and climate resilience.\nGuided by our purpose to ‘create a brighter future together,’ we aim to be one of the most responsible and impactful businesses in the world.\n\nWe look forward to receiving your online application today!\n\nInformation for recruitment agencies\n\nZurich does not accept any applications from recruitment agencies for this position. We refuse any responsibility for unsolicited applications, as well as any associated fees.\n\nWhy Zurich\n\nAt Zurich, we like to think outside the box and challenge the status quo. We take an optimistic approach by focusing on the positives and constantly asking What can go right?\n\nWe are an equal opportunity employer who knows that each employee is unique - that’s what makes our team so great!\nJoin us as we constantly explore new ways to protect our customers and the planet .\n\n• Location(s): CH - Zürich\n\n• Remote working: No\n\n• Schedule: Full Time\n\n• Recruiter name: Natalia Dzieglo",
-      "descriptionByLocale": {
-        "it": "Proposizione unica S6\n\nVuoi configurare le applicazioni che Life attua in Zurigo si affidano a ogni trimestre per scopi di reporting e analisi? Ti piace trasformare le esigenze aziendali locali in soluzioni globali? Unisciti al nostro team di Gruppo Attuarial Systems e appropriati del nostro Life attuarial reporting e analytics application landscape che supporta gli IFRS e i derivati locali, la regolamentazione (ad esempio SST) e la reporting gestionale, la previsione, la pianificazione e l'analisi degli scenari.\n\nIn questo ruolo, sarete il collegamento tra gli attuari di Life nelle nostre business unit, il Gruppo e i team che costruiscono e supportano le soluzioni. Definirete la roadmap, consegnerete attraverso il nostro team di supporto attuariale a Bratislava e il nostro team di consegna IT a Barcellona, e guarderete oltre a ciò che gli utenti chiedono. Scoprire opportunità in AI, automazione e flussi di lavoro di workflows di agente agente, lavorando in stretta collaborazione con il nostro Data Scientist. Guidati dai nostri valori di lungimiranza, amicizia e orientamento ai risultati, aiuterete a rendere i report attuariali più semplici e intelligenti in tutto il Gruppo.\n\nCosa farai?\n\n• Possedere l'applicazione di reporting e analisi di Life attuariale end-to-end, dai requisiti aziendali fino al supporto BAU e ai miglioramenti.\n\n• Collaborare con i team attuariali Life attraverso le business unit per comprendere i processi, risolvere i problemi aziendali e supportarli attraverso cicli di reporting.\n\n• Generalizzare i requisiti locali in soluzioni globali e riutilizzabili piuttosto che costruire bespoke, possedere e dare priorità alla tabella di marcia per le applicazioni di reporting Life.\n\n• Consegna tramite altri, guidando il nostro team di supporto attuariale a Bratislava e il team di consegna IT a Barcellona.\n\n• Identificare le opportunità di miglioramento oltre le richieste degli utenti, comprese le funzioni abilitate con AI, l'automazione e i flussi di lavoro di agentic.\n\nCosa porti?\n\n• Attuario qualificato con esperienza di oltre 10 anni nei ruoli attuariali di Vita, idealmente nella segnalazione finanziaria, nella valutazione attuariale o nella segnalazione normativa.\n\n• Tracciare i risultati della fornitura attraverso squadre distribuite e interfunzionali e la gestione di soggetti di alto livello attraverso funzioni e mercati.\n\n• Capacità di astrarre le esigenze locali in soluzioni globali e di scalare e di sfidare il pensiero su misura.\n\n• Interesse per la tecnologia e visione lungimirante su AI, automazione e miglioramento dei processi.\n\n• Una forte comunicazione e competenze influenzanti in inglese, con un approccio collaborativo e interculturale.\n\nIl tuo posto e' qui.\n\nImagine lavora in uno dei luoghi di lavoro più sostenibili al mondo. Al Campus Quai Zurigo, potrete godere di un ambiente progettato per aiutarvi a prosperare, con benefici che sostengono il vostro benessere e impatto, e opportunità di prestazioni al meglio, circondati da grandi talenti e colleghi di supporto.\n\nAvrete accesso a opzioni alimentari sane, strutture per il fitness e spazi luminosi e collaborativi che stimolano la creatività. Situato nel cuore di Zurigo, sulle rive del Lago di Zurigo, il campus offre ottimi collegamenti con i mezzi pubblici, rendendo il vostro viaggio semplice.\n\nCrescere con noi attraverso l'accesso alle risorse di apprendimento, lo sviluppo sul posto di lavoro, e la continua responsabilizzazione e il supporto. Essere parte di un team che sta creando un futuro più luminoso insieme.\n\nChi siamo\n\nZurigo è un'assicuratore leader in più di 200 paesi e territori con più di 65.000 dipendenti. Da oltre 150 anni Zurigo trasforma le assicurazioni. Offre non solo protezione, ma anche servizi di prevenzione che promuovono il benessere e la resilienza climatica. Guidati dal nostro obiettivo di creare insieme un futuro più luminoso, ci proponiamo di essere una delle aziende più responsabili e influenti al mondo.\n\nNon vediamo l'ora di ricevere la tua applicazione online oggi!",
-        "en": "Unique Selling Proposition\n\nDo you want to shape the applications that Life actuaries across Zurich rely on every quarter for reporting and analysis purpose? Do you enjoy turning local business needs into global solutions? Join our Group Actuarial Systems team and take ownership of our Life actuarial reporting and analytics application landscape supporting IFRS and local GAAP reporting, regulatory (e.g. SST) and management reporting, forecasting, planning and scenario analysis.\n\nIn this role, you will be the link between Life actuaries in our business units, Group and the teams who build and support the solutions. You will shape the roadmap, deliver through our actuarial support team in Bratislava and our IT delivery team in Barcelona, and look beyond what users ask for — spotting opportunities in AI, automation and agentic workflows, working closely with our Data Scientist. Guided by our values of forward-thinking, togetherness and results orientation, you will help make actuarial reporting simpler and smarter across the Group.\n\nWhat you will do\n\n• Own the Life actuarial reporting and analytics application landscape end-to-end, from business requirements through delivery to BAU support and enhancements.\n\n• Partner with Life actuarial teams across business units to understand their processes, resolve business issues and support them through reporting cycles.\n\n• Generalise local requirements into global, reusable solutions rather than bespoke builds, owning and prioritising the Life reporting applications roadmap.\n\n• Deliver through others, steering our actuarial support team in Bratislava and IT delivery team in Barcelona.\n\n• Identify enhancement opportunities beyond user requests, including AI-enabled features, automation and agentic workflows.\n\nWhat you bring\n\n• Qualified actuary with 10+ years' experience in Life actuarial roles, ideally in financial reporting, actuarial valuation or regulatory reporting.\n\n• Track record of delivering through distributed, cross-functional teams and managing senior stakeholders across functions and markets.\n\n• Ability to abstract local needs into global, scalable solutions and to challenge bespoke thinking.\n\n• Interest in technology and a forward-thinking view on AI, automation and process improvement.\n\n• Strong communication and influencing skills in English, with a collaborative, cross-cultural approach.\n\nYou belong here.\n\nImagine working in one of the world’s most sustainable workplaces. At Quai Zurich Campus , you’ll enjoy an environment designed to help you thrive, with benefits that support your well-being and impact, and opportunities to perform at your best, surrounded by top talent and supportive colleagues.\n\nYou’ll have access to healthy food options, fitness facilities, and bright, collaborative spaces that spark creativity. Located in the heart of Zurich on the shores of Lake Zurich, the campus offers excellent public transportation links, making your commute simple.\n\nGrow with us through access to learning resources, on-the-job development, and continuous empowerment and support. Be part of a team that is creating a brighter future together.\n\nAbout Us\n\nZurich is a leading multi-line insurer, serving over 82 million customers in more than 200 countries and territories with more than 65,000 employees.\nFor over 150 years, Zurich has been transforming insurance – offering not just protection, but also prevention services that promote well-being and climate resilience.\nGuided by our purpose to ‘create a brighter future together,’ we aim to be one of the most responsible and impactful businesses in the world.\n\nWe look forward to receiving your online application today!\n\nInformation for recruitment agencies\n\nZurich does not accept any applications from recruitment agencies for this position. We refuse any responsibility for unsolicited applications, as well as any associated fees.\n\nWhy Zurich\n\nAt Zurich, we like to think outside the box and challenge the status quo. We take an optimistic approach by focusing on the positives and constantly asking What can go right?\n\nWe are an equal opportunity employer who knows that each employee is unique - that’s what makes our team so great!\nJoin us as we constantly explore new ways to protect our customers and the planet .\n\n• Location(s): CH - Zürich\n\n• Remote working: No\n\n• Schedule: Full Time\n\n• Recruiter name: Natalia Dzieglo",
-        "de": "Einzigartiger Verkaufsvorschlag\n\nSie wollen die Anwendungen gestalten, auf die sich Life-Actuaries in Zürich für jeden Quartal verlassen, um Berichts- und Analysezwecke zu nutzen? Sie möchten gerne lokale Geschäftsbedürfnisse in globale Lösungen verwandeln? Schließen Sie sich unserem Team von Group Actuarial Systems an und übernehmen Sie die Verantwortung für unsere Life-Actuarial Reporting and Analytics Application Landscape, die IFRS und lokale GAAP-Reporting, regulatorische (z.B. SST) und Management Reporting, Prognose, Planung und Szenarioanalyse unterstützt.\n\nIn dieser Funktion werden Sie die Verbindung zwischen den Lebensaktuarien in unseren Geschäftseinheiten, der Gruppe und den Teams, die die Lösungen aufbauen und unterstützen. Sie werden die Roadmap gestalten, über unser versicherungsmathematisches Support-Team in Bratislava und unser IT-Lieferteam in Barcelona liefern und über das hinaus schauen, was die Nutzer verlangen – die Möglichkeiten in den Bereichen KI, Automatisierung und agentische Workflows zu erkennen, und eng mit unserem Data Scientist zusammenarbeiten. Geleitet von unseren Werten des Forward-Thinking, der Zusammengehörigkeit und der Ergebnisorientierung helfen Sie, die versicherungsmathematische Berichterstattung im gesamten Konzern einfacher und intelligenter zu gestalten.\n\nWas du tun wirst\n\n• Das Life-Amatrikulations- und Analyse-Anwendungslandschaft von Ende zu Ende, von den Geschäftsanforderungen über die Lieferung bis hin zu Support und Verbesserungen in der bau.\n\n• Partner mit Life-Aktuarienteams in allen Geschäftsbereichen, um ihre Prozesse zu verstehen, Geschäftsprobleme zu lösen und sie durch Berichtszyklen zu unterstützen.\n\n• Verallgemeinern Sie lokale Anforderungen in globale, wiederverwendbare Lösungen anstatt maßgeschneiderte Builds, Eigentümer und Priorisierung der Life-Reporting-Anwendungen Roadmap.\n\n• Liefern Sie durch andere, steuern Sie unser versicherungsmathematisches Support-Team in Bratislava und IT-Lieferung in Barcelona.\n\n• Ermittlung von Verbesserungsmöglichkeiten über Benutzeranfragen hinaus, einschließlich KI-fähigen Funktionen, Automatisierung und agentischen Workflows.\n\nWas du mitbringst\n\n• Qualifizierte Versicherungsmathematik mit mehr als 10 Jahren Erfahrung in der Lebensmathematik, idealerweise in der Finanzberichterstattung, versicherungsmathematischen Bewertung oder in der regulatorischen Berichterstattung.\n\n• Verfolgen Sie die Ergebnisse der Bereitstellung durch verteilte, funktionsübergreifende Teams und leiten Sie hochrangige Stakeholder über Funktionen und Märkte hinweg.\n\n• Fähigkeit, lokale Bedürfnisse in globale, skalierbare Lösungen zu bündeln und maßgeschneidertes Denken herauszufordern.\n\n• Interesse an Technologie und einem zukunftsweisenden Blick auf KI, Automatisierung und Prozessverbesserung.\n\n• Starke Kommunikation und Einflussnahme auf Englisch, mit einem kollaborativen, kulturübergreifenden Ansatz.\n\nDu gehörst hierher.\n\nStellen Sie sich vor, Sie arbeiten in einem der weltweit nachhaltigsten Arbeitsplätze. Am Campus Quai Zürich genießen Sie ein Umfeld, das Ihnen helfen soll, zu gedeihen, mit Vorteilen, die Ihr Wohlbefinden und Ihre Wirkung unterstützen, und Möglichkeiten, sich in Ihrer besten Form zu entfalten, umgeben von Spitzentalenten und unterstützenden Kollegen.\n\nSie haben Zugang zu gesunden Speisen, Fitnesseinrichtungen und hellen, kollaborativen Räumen, die Kreativität wecken. Im Herzen von Zürich am Ufer des Zürichsees gelegen, bietet der Campus eine hervorragende Anbindung an öffentliche Verkehrsmittel, die Ihren Weg einfach machen.\n\nWachsen Sie mit uns durch den Zugang zu Lernressourcen, die Entwicklung am Arbeitsplatz und kontinuierliche Empowerment und Unterstützung. Seien Sie Teil eines Teams, das eine bessere gemeinsame Zukunft schafft.\n\nÜber uns\n\nZürich ist ein führender Mehrlinienversicherer und betreut über 82 Millionen Kunden in mehr als 200 Ländern und Territorien mit mehr als 65.000 Mitarbeitern. Seit über 150 Jahren transformiert Zürich die Versicherung – nicht nur mit Schutz, sondern auch mit Präventionsdienstleistungen, die Wohlbefinden und Klimabeständigkeit fördern. Geleitet von unserem Ziel, „eine bessere Zukunft gemeinsam zu schaffen, wollen wir eines der verantwortungsvollsten und wirksamsten Unternehmen der Welt sein.\n\nWir freuen uns auf Ihre Online-Bewerbung!",
-        "fr": "Proposition unique de vente\n\nVoulez-vous façonner les applications que Life actuaires à Zurich comptent sur chaque trimestre pour la production de rapports et d'analyses? Vous aimez transformer les besoins des entreprises locales en solutions globales? Rejoignez notre équipe Groupe Actuarial Systems et prenez en charge notre paysage d'applications actuarielles Life supportant les IFRS et les rapports GAAP locaux, la réglementation (par exemple SST) et les rapports de gestion, la prévision, la planification et l'analyse de scénarios.\n\nDans ce rôle, vous serez le lien entre les Life Actuaries de nos unités professionnelles, Groupe et les équipes qui construisent et soutiennent les solutions. Vous façonnerez la feuille de route, fournirez par notre équipe de soutien actuariel à Bratislava et notre équipe de livraison informatique à Barcelone, et regarderez au-delà de ce que les utilisateurs demandent - repérer des opportunités dans l'IA, l'automatisation et les workflows agents, en travaillant en étroite collaboration avec notre Data Scientist.\n\nCe que vous ferez\n\n• Possèdent le paysage de l'analyse et de l'analyse actuarielle Life, des exigences opérationnelles aux améliorations et au soutien de l'UAB.\n\n• S'associer aux équipes actuarielles Life dans les unités opérationnelles pour comprendre leurs processus, résoudre les problèmes opérationnels et les soutenir au moyen de cycles de rapports.\n\n• Diffuser les exigences locales en solutions globales et réutilisables plutôt que de créer des solutions sur mesure, en possédant et en priorisant la feuille de route pour les applications de rapports Life.\n\n• Diriger notre équipe de soutien actuariel à Bratislava et l'équipe de prestation informatique à Barcelone.\n\n• Identifier les possibilités de mise en valeur au-delà des demandes des utilisateurs, y compris les fonctionnalités compatibles avec l'IA, l'automatisation et les flux de travail des agents.\n\nCe que vous apportez\n\n• Actuaire qualifié avec 10 ans d'expérience dans les rôles actuariels Life, idéalement dans l'information financière, l'évaluation actuarielle ou l'information réglementaire.\n\n• Suivre les résultats obtenus grâce à des équipes réparties et interfonctionnelles et gérer les principaux acteurs sur l'ensemble des fonctions et des marchés.\n\n• Capacité d'abstraction des besoins locaux dans des solutions globales et évolutives et de remettre en question la pensée sur mesure.\n\n• Intérêt pour la technologie et une vision prospective de l'IA, de l'automatisation et de l'amélioration des processus.\n\n• Une communication forte et des compétences influentes en anglais, avec une approche collaborative et interculturelle.\n\nTu es ici.\n\nImaginez travailler dans l'un des lieux de travail les plus durables. Au campus Quai Zurich, vous apprécierez un environnement conçu pour vous aider à prospérer, avec des avantages qui soutiennent votre bien-être et votre impact, et des occasions de se produire à votre meilleur, entouré de talents et de collègues de soutien.\n\nVous aurez accès à des options de restauration saine, des installations de fitness et des espaces de collaboration lumineux qui éveillent la créativité. Situé au cœur de Zurich sur les rives du lac de Zurich, le campus offre d'excellentes liaisons de transport en commun, ce qui vous facilite la circulation.\n\nFaites partie d'une équipe qui crée un avenir meilleur ensemble.\n\nÀ propos de nous\n\nZurich est un assureur multiligne de premier plan, qui dessert plus de 82 millions de clients dans plus de 200 pays et territoires avec plus de 65 000 employés. Depuis plus de 150 ans, Zurich transforme l'assurance – en offrant non seulement une protection, mais aussi des services de prévention qui favorisent le bien-être et la résilience climatique.\n\nNous avons hâte de recevoir votre candidature en ligne aujourd'hui!"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-Life-Actuarial-Solutions-Lead-%2880-100%29/1371876057/",
-      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Life-Actuarial-Solutions-Lead-%2880-100%29/1371876057/",
-      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
-      "postedDate": "2026-09-10",
-      "datePosted": "2026-09-10",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "",
-      "category": "engineering",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Insurance",
-      "currency": "CHF",
-      "featured": false,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "life-actuarial-solutions-lead-80-100-zurich-insurance-sede-ticino-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "life-actuarial-solutions-lead-80-100-zurich-insurance-sede-ticino-zurich"
-        ]
-      },
-      "slugDisambiguator": "1371876057",
-      "firstSeenAt": "2026-09-10T21:56:54.891Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "zurich-insurance-sede-ticino-1371660557",
       "slug": "senior-pricing-attuario-della-vita-aziendale-e-delle-pensioni-m-f-d-zurich-insurance-sede-ticino-zurich-1371660557",
       "slugByLocale": {
@@ -2059,7 +1997,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Pricing-Actuary-Corporate-Life-&-Pensions-%28mwd%29/1371660557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-09",
       "datePosted": "2026-09-09",
       "addressLocality": "Zürich",
@@ -2137,7 +2075,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Claims-Performance-Manager-Motorfahrzeuge-%28mwd%29/1371331957/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-04",
       "datePosted": "2026-09-04",
       "addressLocality": "Zürich",
@@ -2268,7 +2206,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "zurich-insurance-sede-ticino-1370918057",
@@ -2302,7 +2241,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Lead-IT-FAR-Solution-Architect-80-100/1370918057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-09-01",
       "datePosted": "2026-09-01",
       "addressLocality": "Zürich",
@@ -2320,7 +2259,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "lead-it-far-solution-architect-80-100-zurich-insurance-sede-ticino-zurich"
       ],
@@ -2346,7 +2284,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-pz5d7i",
@@ -2380,7 +2319,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Schadenspezialist-MF-Auslandschaden-%28mwd%29/1370829357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-08-31",
       "datePosted": "2026-08-31",
       "addressLocality": "Zürich",
@@ -2462,7 +2401,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Global-Head-of-Risk-Advisory/1370691857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-08-28",
       "datePosted": "2026-08-28",
       "addressLocality": "Zürich",
@@ -2486,7 +2425,6 @@
           "additional languages are an advantage."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "global-head-of-risk-advisory-zurich-insurance-sede-ticino-lugano"
       ],
@@ -2508,7 +2446,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ssyk51",
@@ -2542,7 +2481,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Global-Head-of-Climate-Resilience-80-100/1370234057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-08-24",
       "datePosted": "2026-08-24",
       "addressLocality": "Zürich",
@@ -2566,7 +2505,6 @@
           "additional languages are an advantage."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "global-head-of-climate-resilience-80-100-zurich-insurance-sede-ticino-lugano"
       ],
@@ -2588,7 +2526,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ssx7xw",
@@ -2622,7 +2561,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Schadeninspektor-Sach-und-Haftpflichtversicherung-Region-Innerschweiz-und-Aargau-%28mwd%29/1370236357/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-08-24",
       "datePosted": "2026-08-24",
       "addressLocality": "Zürich",
@@ -2690,7 +2629,7 @@
       "title": "Workplace Services Engineer 80-100% (m/w/d)",
       "titleByLocale": {
         "it": "Workplace Services Ingegnere 80-100% (m/w/d)",
-        "en": "Workplace Services Engineer 80-100% (m/w/d)",
+        "en": "Workplace Services Engineer 80-100% (m/f/d)",
         "de": "Workplace Services Ingenieur 80-100% (m/w/d)",
         "fr": "Workplace Services Ingénieur 80-100% (m/w/d)"
       },
@@ -2707,7 +2646,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Workplace-Services-Engineer-80-100-%28mwd%29/1358259657/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-07-10",
       "datePosted": "2026-08-07",
       "addressLocality": "Zürich",
@@ -2729,7 +2668,6 @@
           "Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "workplace-services-engineer-80-100-m-w-d-zurich-insurance-sede-ticino-services-engineer-80-100-m-w-d-stellendetails-zurich-insurance-company"
       ],
@@ -2751,7 +2689,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ue4qc4",
@@ -2785,7 +2724,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Finanzplaner-%28mwd%29/1366203457/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-07-10",
       "datePosted": "2026-08-07",
       "addressLocality": "Zürich",
@@ -2807,7 +2746,6 @@
           "Stilsichere Deutschkenntnisse;"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "finanzplaner-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybrid",
         "finanzplaner-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybrides-arbeiten-bis-zu-40-li-hybrid-ue4qc4",
@@ -2852,7 +2790,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-hqf53m",
@@ -2886,7 +2825,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Fachspezialist-Einzelleben-Neugesch%C3%A4ft-%28DEFR%29-%28mwd%29/1365689557/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-04",
       "addressLocality": "Zürich",
@@ -2951,7 +2890,7 @@
       "title": "Lead Data Solutions Engineer Einzelleben (m/w/d)",
       "titleByLocale": {
         "it": "Senior Data Solutions Ingegnere Einzelleben (m/w/d) 80 - 100%",
-        "en": "Lead Data Solutions Engineer Einzelleben (m/w/d)",
+        "en": "Lead Data Solutions Engineer Single Life (m/f/d)",
         "de": "Lead Data Solutions Ingenieur Einzelleben (m/w/d)",
         "fr": "Senior Data Solutions Ingénieur Einzelleben (m/w/d) 80 - 100%"
       },
@@ -2968,7 +2907,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Lead-Data-Solutions-Engineer-Einzelleben-%28mwd%29/1362412057/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-27",
       "addressLocality": "Zürich",
@@ -2999,7 +2938,6 @@
           "Hervorragende Kommunikationsfähigkeiten in Deutsch und Englisch;"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "senior-data-solutions-engineer-einzelleben-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-oerlikon-hybride-s-arbeiten-bis-zu-40-li-hybrid"
       ],
@@ -3021,7 +2959,8 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-qerbe5",
@@ -3055,7 +2994,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Crissier-Gestionnaire-sinistres-maladie-bilingue-fran%C3%A7ais-et-allemand-%28fhd%29/1362611857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-29",
       "addressLocality": "Crissier",
@@ -3151,7 +3090,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Kriens-Spezialist-Kundenteam-KTG-%28mwd%29/826021702/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-07-06",
       "datePosted": "2026-08-06",
       "addressLocality": "Kriens",
@@ -3218,7 +3157,7 @@
         "it": "Alto responsabile del rispetto delle norme commerciali e delle sanzioni economiche 80-100%",
         "en": "Senior Compliance Officer Trade & Economic Sanctions 80-100%",
         "de": "Senior Compliance Officer Trade & Economic Sanktionen 80-100%",
-        "fr": "Senior Compliance Officer Trade & Economic Sanctions 80-100%"
+        "fr": "Agent principal de conformité Sanctions commerciales et économiques 80-100%"
       },
       "description": "Interested in exploring the world of Group Compliance? Curious about working in a stimulating and challenging environment of a multinational company? We are looking for a talent with a positive can-do attitude who is able to think \"out of the box”.\n\nApply for this exciting position in Zurich’s Group Compliance department and support our Financial Crime Team, based in Zurich, Switzerland. You will be reporting to the Head of Financial Crime within Group Compliance.\n\nYou will be in charge of the Trade & Economic Sanctions Compliance framework for the Zurich Insurance Group and support the Head of Financial Crime in key areas including Anti-Money Laundering (AML), Bribery & Corruption, and Automatic Exchange of Information (AEI), in close collaboration with many team members in a truly international environment.\n\nThe role provides a great opportunity to collaborate closely with many experts, while being empowered to bring in and present own ideas.\n\nAs a trusted advisor, you will combine subject-matter expertise with sound judgment, curiosity, adaptability and a collaborative mindset, translating regulatory and ethical requirements into practical, business-relevant solutions.\n\nWhat you will do\n\nAs the Trade & Economic Sanctions Senior Compliance Officer you will oversee and maintain the Trade & Economic Sanctions Framework. You will:\n\n• Monitor, interpret, and translate global sanctions developments (EU, US/OFAC, UN, UK, Swiss) into actionable guidance for business units, including executive summaries and impact assessments.\n\n• Act as a central subject matter expert providing risk-based advice on complex, high-risk sanctions cases across jurisdictions, influencing go/no-go business decisions.\n\n• Review and provide assessment on referred sanctions cases (e.g. pre-bind, renewal, claims) involving sanctioned countries, persons, ownership structures, or indirect exposure such as transit routes and reinsurance arrangements.\n\n• Lead the assessment of new regulations and executive orders, including extraterritorial impacts, and coordinate group-wide response actions such as exposure mapping and business instructions.\n\n• Define and maintain global sanctions screening standards, including screening lists, baseline rules, keywords, and calibration of tools to ensure effectiveness and risk-based targeting.\n\n• Oversee and challenge sanctions screening effectiveness, including testing, periodic reviews, and ensuring alignment between screening outputs and policy administration systems.\n\n• Provide second-line oversight and guidance across the full lifecycle (onboarding, ongoing monitoring, claims), ensuring that high-risk cases are appropriately escalated and assessed.\n\n• Advise on and coordinate responses to sanctions breaches, regulatory inquiries, and licensing matters, including interaction with regulators and authorities where required.\n\n• Collaborate closely with Group Legal and external counsel on complex or conflicting legal scenarios (e.g. cross-border conflicts of law, sanctions clause wording, or legal uncertainty).\n\n• Deliver training, communication, and ongoing support to business units and local compliance teams, ensuring consistent understanding and implementation of the Group TES Framework globally.\n\nWhat you bring\n\n• At least 10 years of relevant professional experiences in Compliance with a focus on Financial Crime and Sanctions, including demonstrable hands-on responsibility for the design, implementation and oversight of Sanctions frameworks and controls.\n\n• Strong background in relevant laws & regulations (US, UK, UN, EU and Swiss) as well as industry standards, with proven experience in applying multi-jurisdictional sanctions regimes in practice, ideally in the insurance sector.\n\n• Proven track record in managing complex sanctions topics, including screening, investigations, escalations, licensing/authorities engagement, and advisory support to the business across multiple jurisdictions, ideally within an international insurance group.\n\n• Demonstrated learning agility, intellectual curiosity and openness to new technologies, ways of working and evolving regulatory expectations\n\n• Strong collaboration, communication and influencing skills, with the ability to build trusted relationships and work effectively across functions, cultures and levels of seniority\n\n• Ability to prioritize effectively, navigate complexity and use digital collaboration tools confidently in a dynamic international environment\n\n• Strong analytical skills with economics/finance/business administration/law and background, preferably with a Master’s degree in one of these fields\n\n• Ability to deliver effective management information and reporting\n\n• Strong interpersonal skills to deal with a wide range of internal and external stakeholders, in particular credibility and capability to work closely with senior management as well as regulators and external authorities where required.\n\n• Ability to cope efficiently with multi-task situations and to work independently including in a fast-evolving geopolitical and regulatory environment.\n\n• Strong presentation and communication skills\n\n• Good command of MS applications (Power Point, Excel, Word, Outlook) and sharing platforms (SharePoint, MS 365)\n\n• Knowledge of sanctions screening and case management systems (e.g. World-Check, Fircosoft, Actimize or equivalent)\n\n• Fluent written and spoken English is essential\n\nYou belong here.\n\nImagine working in one of the world’s most sustainable workplaces. At Quai Zurich Campus , you’ll enjoy an environment designed to help you thrive, with benefits that support your well-being and impact, and opportunities to perform at your best, surrounded by top talent and supportive colleagues.\n\nYou’ll have access to healthy food options, fitness facilities, and bright, collaborative spaces that spark creativity. Located in the heart of Zurich on the shores of Lake Zurich, the campus offers excellent public transportation links, making your commute simple.\n\nGrow with us through access to learning resources, on-the-job development, and continuous empowerment and support. Be part of a team that is creating a brighter future together.\n\nAbout Us\n\nZurich is a leading multi-line insurer, serving over 82 million customers in more than 200 countries and territories with more than 65,000 employees.\nFor over 150 years, Zurich has been transforming insurance – offering not just protection, but also prevention services that promote well-being and climate resilience.\nGuided by our purpose to ‘create a brighter future together,’ we aim to be one of the most responsible and impactful businesses in the world.\n\nWe look forward to receiving your online application today!\n\nInformation for recruitment agencies\n\nZurich does not accept any applications from recruitment agencies for this position. We refuse any responsibility for unsolicited applications, as well as any associated fees.\n\nWhy Zurich\n\nAt Zurich, we like to think outside the box and challenge the status quo. We take an optimistic approach by focusing on the positives and constantly asking What can go right?\n\nWe are an equal opportunity employer who knows that each employee is unique - that’s what makes our team so great!\nJoin us as we constantly explore new ways to protect our customers and the planet .\n\n• Location(s): CH - Zürich\n\n• Remote working: Hybrid\n\n• Schedule: Full Time\n\n• Recruiter name: Grace Cunningham",
       "descriptionByLocale": {
@@ -3233,7 +3172,7 @@
       "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Compliance-Officer-Trade-&-Economic-Sanctions-80-100/1365559857/",
       "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:25:56.087Z",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
       "postedDate": "2026-07-03",
       "datePosted": "2026-07-03",
       "addressLocality": "Zürich",
@@ -3294,7 +3233,7 @@
       "title": "AI & Life IT Risk Manager (m/w/d)",
       "titleByLocale": {
         "it": "AI & Life IT Risk Manager (m/f/d)",
-        "en": "AI & Life IT Risk Manager (m/w/d)",
+        "en": "AI & Life IT Risk Manager (m/f/d)",
         "de": "AI & Life IT Risk Manager (m/w/d)",
         "fr": "AI & Life IT Risk Manager (h/f/d)"
       },
@@ -3358,8 +3297,165 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "zurich-insurance-sede-ticino-1373818457",
+      "slug": "senior-actuarial-analyst-economic-modelling-statistics-zurich-insurance-sede-ticino-zurich",
+      "slugByLocale": {
+        "en": "senior-actuarial-analyst-economic-modelling-statistics-zurich-insurance-sede-ticino-zurich",
+        "it": "senior-actuarial-analyst-economic-modelling-statistics-zurich-insurance-sede-ticino-zurich",
+        "de": "senior-actuarial-analyst-economic-modelling-statistics-zurich-insurance-sede-ticino-zurich",
+        "fr": "senior-actuarial-analyst-economic-modelling-statistics-zurich-insurance-sede-ticino-zurich"
+      },
+      "slugDisambiguator": "1373818457",
+      "company": "Zurich Insurance",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "companyDomain": "zurich.ch",
+      "title": "Senior Actuarial Analyst (Economic Modelling & Statistics)",
+      "titleByLocale": {
+        "en": "Senior Actuarial Analyst (Economic Modelling & Statistics)",
+        "it": "Senior Actuarial Analista (Economic Modelling & Statistics)",
+        "de": "Senior Actuarial Analyst (Economic Modelling & Statistics)",
+        "fr": "Senior Actuarial Analyste (Economic Modelling & Statistics)"
+      },
+      "description": "137385 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nAre you motivated by the opportunity to shape economic valuation and financial reporting for Zurich Switzerland’s life insurance business? Would you like to combine your actuarial expertise with economic modelling, data analytics and automation to deliver meaningful insights for business decisions?\n\nIn this role, you will strengthen the Life business unit within IL Economic Modelling & Statistics at Zurich Switzerland and make an important contribution to our shared success. You will take responsibility for economic valuation models and actuarial metrics, including IFRS 17 and SST, and translate complex analyses into clear business insights. At the same time, you will further develop our models, processes and automation and contribute your expertise to key actuarial initiatives.\n\nWhat you can expect\n\n• You develop, maintain and enhance economic valuation models in PROPHET for Life Insurance Switzerland.\n\n• You deliver, review and challenge actuarial metrics for IFRS 17 and SST, ensuring accurate and timely results.\n\n• You translate complex actuarial analyses into clear insights and recommendations for senior management.\n\n• You lead and contribute to key actuarial projects, initiatives and ad-hoc analyses.\n\n• You improve and automate actuarial processes and models using tools such as SQL, PROPHET, Python and R.\n\nWhat makes you stand out\n\n• University degree in actuarial science, mathematics, physics or a comparable quantitative field.\n\n• Fully or nearly qualified actuary (SAA/SAV or equivalent) with relevant professional experience in actuarial or analytical roles.\n\n• Strong experience in developing, maintaining and critically reviewing actuarial models and financial metrics.\n\n• Strong technical and analytical capabilities, including experience with relevant modelling, data and automation tools.\n\n• Strong communication and collaboration skills combined with fluency in English.\n\nGood to know\n\nPart-time or full-time: 80 - 100%\n\nWork location : Oerlikon, Zurich\n\nStart date : from 01.11.2026 or by agreement\n\nTravel: No travel required\n\nHybrid working: up to 40%\n\nEverything about your application\n\nAs a first step, you can apply directly online. All you need is your CV. You can find further information about the application process here .\n\nWe are committed to an efficient and respectful application process. Our Talent Acquisition team reviews your application personally, without the use of artificial intelligence. After your first personal meeting with the responsible hiring manager, you will always receive individual feedback from us, because we believe meaningful feedback is based on personal dialogue.\n\nFor this position, we do not work with recruitment agencies. Unsolicited applications will neither be considered nor compensated.\n\nDo you have any questions? Bernd, Senior Talent Acquisition Consultant will be happy to assist you on +41 44 628 42 14.\n\nCurious to learn more?\n\nDiscover Zurich Switzerland as an employer.\n\nclick here\n\nZurich Insurance Company Ltd | Talent Acquisition Zurich Switzerland",
+      "descriptionByLocale": {
+        "en": "137385 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nAre you motivated by the opportunity to shape economic valuation and financial reporting for Zurich Switzerland’s life insurance business? Would you like to combine your actuarial expertise with economic modelling, data analytics and automation to deliver meaningful insights for business decisions?\n\nIn this role, you will strengthen the Life business unit within IL Economic Modelling & Statistics at Zurich Switzerland and make an important contribution to our shared success. You will take responsibility for economic valuation models and actuarial metrics, including IFRS 17 and SST, and translate complex analyses into clear business insights. At the same time, you will further develop our models, processes and automation and contribute your expertise to key actuarial initiatives.\n\nWhat you can expect\n\n• You develop, maintain and enhance economic valuation models in PROPHET for Life Insurance Switzerland.\n\n• You deliver, review and challenge actuarial metrics for IFRS 17 and SST, ensuring accurate and timely results.\n\n• You translate complex actuarial analyses into clear insights and recommendations for senior management.\n\n• You lead and contribute to key actuarial projects, initiatives and ad-hoc analyses.\n\n• You improve and automate actuarial processes and models using tools such as SQL, PROPHET, Python and R.\n\nWhat makes you stand out\n\n• University degree in actuarial science, mathematics, physics or a comparable quantitative field.\n\n• Fully or nearly qualified actuary (SAA/SAV or equivalent) with relevant professional experience in actuarial or analytical roles.\n\n• Strong experience in developing, maintaining and critically reviewing actuarial models and financial metrics.\n\n• Strong technical and analytical capabilities, including experience with relevant modelling, data and automation tools.\n\n• Strong communication and collaboration skills combined with fluency in English.\n\nGood to know\n\nPart-time or full-time: 80 - 100%\n\nWork location : Oerlikon, Zurich\n\nStart date : from 01.11.2026 or by agreement\n\nTravel: No travel required\n\nHybrid working: up to 40%\n\nEverything about your application\n\nAs a first step, you can apply directly online. All you need is your CV. You can find further information about the application process here .\n\nWe are committed to an efficient and respectful application process. Our Talent Acquisition team reviews your application personally, without the use of artificial intelligence. After your first personal meeting with the responsible hiring manager, you will always receive individual feedback from us, because we believe meaningful feedback is based on personal dialogue.\n\nFor this position, we do not work with recruitment agencies. Unsolicited applications will neither be considered nor compensated.\n\nDo you have any questions? Bernd, Senior Talent Acquisition Consultant will be happy to assist you on +41 44 628 42 14.\n\nCurious to learn more?\n\nDiscover Zurich Switzerland as an employer.\n\nclick here\n\nZurich Insurance Company Ltd | Talent Acquisition Zurich Switzerland",
+        "it": "137385 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nAre you motivated by the opportunity to shape economic valuation and financial reporting for Zurich Switzerland’s life insurance business? Would you like to combine your actuarial expertise with economic modelling, data analytics and automation to deliver meaningful insights for business decisions?\n\nIn this role, you will strengthen the Life business unit within IL Economic Modelling & Statistics at Zurich Switzerland and make an important contribution to our shared success. You will take responsibility for economic valuation models and actuarial metrics, including IFRS 17 and SST, and translate complex analyses into clear business insights. At the same time, you will further develop our models, processes and automation and contribute your expertise to key actuarial initiatives.\n\nWhat you can expect\n\n• You develop, maintain and enhance economic valuation models in PROPHET for Life Insurance Switzerland.\n\n• You deliver, review and challenge actuarial metrics for IFRS 17 and SST, ensuring accurate and timely results.\n\n• You translate complex actuarial analyses into clear insights and recommendations for senior management.\n\n• You lead and contribute to key actuarial projects, initiatives and ad-hoc analyses.\n\n• You improve and automate actuarial processes and models using tools such as SQL, PROPHET, Python and R.\n\nWhat makes you stand out\n\n• University degree in actuarial science, mathematics, physics or a comparable quantitative field.\n\n• Fully or nearly qualified actuary (SAA/SAV or equivalent) with relevant professional experience in actuarial or analytical roles.\n\n• Strong experience in developing, maintaining and critically reviewing actuarial models and financial metrics.\n\n• Strong technical and analytical capabilities, including experience with relevant modelling, data and automation tools.\n\n• Strong communication and collaboration skills combined with fluency in English.\n\nGood to know\n\nPart-time or full-time: 80 - 100%\n\nWork location : Oerlikon, Zurich\n\nStart date : from 01.11.2026 or by agreement\n\nTravel: No travel required\n\nHybrid working: up to 40%\n\nEverything about your application\n\nAs a first step, you can apply directly online. All you need is your CV. You can find further information about the application process here .\n\nWe are committed to an efficient and respectful application process. Our Talent Acquisition team reviews your application personally, without the use of artificial intelligence. After your first personal meeting with the responsible hiring manager, you will always receive individual feedback from us, because we believe meaningful feedback is based on personal dialogue.\n\nFor this position, we do not work with recruitment agencies. Unsolicited applications will neither be considered nor compensated.\n\nDo you have any questions? Bernd, Senior Talent Acquisition Consultant will be happy to assist you on +41 44 628 42 14.\n\nCurious to learn more?\n\nDiscover Zurich Switzerland as an employer.\n\nclick here\n\nZurich Insurance Company Ltd | Talent Acquisition Zurich Switzerland",
+        "de": "137385 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nAre you motivated by the opportunity to shape economic valuation and financial reporting for Zurich Switzerland’s life insurance business? Would you like to combine your actuarial expertise with economic modelling, data analytics and automation to deliver meaningful insights for business decisions?\n\nIn this role, you will strengthen the Life business unit within IL Economic Modelling & Statistics at Zurich Switzerland and make an important contribution to our shared success. You will take responsibility for economic valuation models and actuarial metrics, including IFRS 17 and SST, and translate complex analyses into clear business insights. At the same time, you will further develop our models, processes and automation and contribute your expertise to key actuarial initiatives.\n\nWhat you can expect\n\n• You develop, maintain and enhance economic valuation models in PROPHET for Life Insurance Switzerland.\n\n• You deliver, review and challenge actuarial metrics for IFRS 17 and SST, ensuring accurate and timely results.\n\n• You translate complex actuarial analyses into clear insights and recommendations for senior management.\n\n• You lead and contribute to key actuarial projects, initiatives and ad-hoc analyses.\n\n• You improve and automate actuarial processes and models using tools such as SQL, PROPHET, Python and R.\n\nWhat makes you stand out\n\n• University degree in actuarial science, mathematics, physics or a comparable quantitative field.\n\n• Fully or nearly qualified actuary (SAA/SAV or equivalent) with relevant professional experience in actuarial or analytical roles.\n\n• Strong experience in developing, maintaining and critically reviewing actuarial models and financial metrics.\n\n• Strong technical and analytical capabilities, including experience with relevant modelling, data and automation tools.\n\n• Strong communication and collaboration skills combined with fluency in English.\n\nGood to know\n\nPart-time or full-time: 80 - 100%\n\nWork location : Oerlikon, Zurich\n\nStart date : from 01.11.2026 or by agreement\n\nTravel: No travel required\n\nHybrid working: up to 40%\n\nEverything about your application\n\nAs a first step, you can apply directly online. All you need is your CV. You can find further information about the application process here .\n\nWe are committed to an efficient and respectful application process. Our Talent Acquisition team reviews your application personally, without the use of artificial intelligence. After your first personal meeting with the responsible hiring manager, you will always receive individual feedback from us, because we believe meaningful feedback is based on personal dialogue.\n\nFor this position, we do not work with recruitment agencies. Unsolicited applications will neither be considered nor compensated.\n\nDo you have any questions? Bernd, Senior Talent Acquisition Consultant will be happy to assist you on +41 44 628 42 14.\n\nCurious to learn more?\n\nDiscover Zurich Switzerland as an employer.\n\nclick here\n\nZurich Insurance Company Ltd | Talent Acquisition Zurich Switzerland",
+        "fr": "137385 | 80 - 100% | Oerlikon, Zürich | Hybrid\n\nAre you motivated by the opportunity to shape economic valuation and financial reporting for Zurich Switzerland’s life insurance business? Would you like to combine your actuarial expertise with economic modelling, data analytics and automation to deliver meaningful insights for business decisions?\n\nIn this role, you will strengthen the Life business unit within IL Economic Modelling & Statistics at Zurich Switzerland and make an important contribution to our shared success. You will take responsibility for economic valuation models and actuarial metrics, including IFRS 17 and SST, and translate complex analyses into clear business insights. At the same time, you will further develop our models, processes and automation and contribute your expertise to key actuarial initiatives.\n\nWhat you can expect\n\n• You develop, maintain and enhance economic valuation models in PROPHET for Life Insurance Switzerland.\n\n• You deliver, review and challenge actuarial metrics for IFRS 17 and SST, ensuring accurate and timely results.\n\n• You translate complex actuarial analyses into clear insights and recommendations for senior management.\n\n• You lead and contribute to key actuarial projects, initiatives and ad-hoc analyses.\n\n• You improve and automate actuarial processes and models using tools such as SQL, PROPHET, Python and R.\n\nWhat makes you stand out\n\n• University degree in actuarial science, mathematics, physics or a comparable quantitative field.\n\n• Fully or nearly qualified actuary (SAA/SAV or equivalent) with relevant professional experience in actuarial or analytical roles.\n\n• Strong experience in developing, maintaining and critically reviewing actuarial models and financial metrics.\n\n• Strong technical and analytical capabilities, including experience with relevant modelling, data and automation tools.\n\n• Strong communication and collaboration skills combined with fluency in English.\n\nGood to know\n\nPart-time or full-time: 80 - 100%\n\nWork location : Oerlikon, Zurich\n\nStart date : from 01.11.2026 or by agreement\n\nTravel: No travel required\n\nHybrid working: up to 40%\n\nEverything about your application\n\nAs a first step, you can apply directly online. All you need is your CV. You can find further information about the application process here .\n\nWe are committed to an efficient and respectful application process. Our Talent Acquisition team reviews your application personally, without the use of artificial intelligence. After your first personal meeting with the responsible hiring manager, you will always receive individual feedback from us, because we believe meaningful feedback is based on personal dialogue.\n\nFor this position, we do not work with recruitment agencies. Unsolicited applications will neither be considered nor compensated.\n\nDo you have any questions? Bernd, Senior Talent Acquisition Consultant will be happy to assist you on +41 44 628 42 14.\n\nCurious to learn more?\n\nDiscover Zurich Switzerland as an employer.\n\nclick here\n\nZurich Insurance Company Ltd | Talent Acquisition Zurich Switzerland"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Actuarial-Analyst-%28Economic-Modelling-&-Statistics%29/1373818457/",
+      "applyUrl": "https://www.careers.zurich.com/job/Z%C3%BCrich-Senior-Actuarial-Analyst-%28Economic-Modelling-&-Statistics%29/1373818457/",
+      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
+      "postedDate": "2026-10-02",
+      "datePosted": "2026-10-02",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "",
+      "category": "engineering",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Insurance",
+      "currency": "CHF",
+      "featured": false,
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:21:41.355Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "senior-actuarial-analyst-wirtschaftliche-modellierung-statistik-zurich-insurance-zurich-1373818457"
+        ]
+      },
+      "previousSlugs": [
+        "senior-actuarial-analyst-wirtschaftliche-modellierung-statistik-zurich-insurance-zurich-1373818457"
+      ]
+    },
+    {
+      "id": "zurich-insurance-sede-ticino-1373817357",
+      "slug": "responsable-d-equipe-affaires-privees-brokers-romandie-h-f-d-zurich-insurance-sede-ticino",
+      "slugByLocale": {
+        "fr": "responsable-d-equipe-affaires-privees-brokers-romandie-h-f-d-zurich-insurance-sede-ticino",
+        "it": "responsable-d-equipe-affaires-privees-brokers-romandie-h-f-d-zurich-insurance-sede-ticino",
+        "en": "responsable-d-equipe-affaires-privees-brokers-romandie-h-f-d-zurich-insurance-sede-ticino",
+        "de": "responsable-d-equipe-affaires-privees-brokers-romandie-h-f-d-zurich-insurance-sede-ticino"
+      },
+      "slugDisambiguator": "1373817357",
+      "company": "Zurich Insurance",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "companyDomain": "zurich.ch",
+      "title": "Responsable d'équipe Affaires privées - Brokers Romandie (h/f/d)",
+      "titleByLocale": {
+        "fr": "Responsable d'équipe Affaires privées - Brokers Romandie (h/f/d)",
+        "it": "Responsable d'équipe Affaires privées - Brokers Romandie (f/m/d)",
+        "en": "Responsable d'équipe Affaires privées - Brokers Romandie (h/f/d)",
+        "de": "Responsable d'équipe Affaires privées - Brokers Romandie (h/f/d)"
+      },
+      "description": "137389 | 80 - 100% | Crissier, Vaud | Hybrid\n\nEs-tu passionné(e) par le développement des relations avec les courtiers et la gestion d’une équipe performante ? Aimes-tu relever des défis commerciaux tout en assurant un service de qualité et en atteignant des objectifs ambitieux ?\n\nRejoins Zurich Suisse et mets ton expertise au service du secteur Brokers, au sein de l’équipe des Broker Account Managers Romandie.\n\nEn tant que Responsable d’équipe Affaires privées - Brokers Romandie, tu auras l’opportunité de piloter une équipe dynamique et de jouer un rôle clé dans le développement des relations avec les courtiers de la région Ouest. Tu seras au cœur de la stratégie de Zurich, en collaborant avec différentes parties prenantes internes et externes pour garantir une prise en charge optimale des courtiers et la réalisation des objectifs commerciaux.\n\nTes missions\n\n• Encadrement d’une équipe, définition d’objectifs individuels et collectifs, et accompagnement du développement professionnel des collaboratrices et collaborateurs, dans une culture de collaboration et d’amélioration continue\n\n• Développement et gestion des relations avec les courtiers clés de la région Ouest, mise en œuvre de stratégies de croissance et suivi des indicateurs clés de performance\n\n• Coordination des flux entre les équipes Broker Account Management Persona Line (BAMPL) et Entry Point afin de garantir un service efficace et de qualité\n\n• Contribution à la planification commerciale, au suivi de la rentabilité des portefeuilles et à la promotion des solutions Zurich auprès des courtiers\n\n• Participation active aux initiatives de digitalisation et d’amélioration continue, dans le respect des standards Zurich en matière de conformité et de protection des données\n\nTon profil\n\n• Formation supérieure en économie, gestion, assurance ou équivalent, idéalement complétée par une certification dans le domaine de l’assurance\n\n• Expérience confirmée en gestion de courtiers et en management d’équipe, avec des compétences avérées en coaching et en pilotage de la performance\n\n• Solide compréhension des produits d’assurance, des processus d’underwriting et des outils CRM/digitaux\n\n• Excellentes compétences en communication, une capacité à collaborer avec des parties prenantes variées et un esprit d’initiative\n\n• Maîtrise du français et une bonne connaissance de l’allemand et/ou de l’anglais comme atout important\n\nBon à savoir\n\nTemps partiel ou temps plein : 80 - 100%\n\nLieu de travail : Crissier, Vaud\n\nEntrée en fonction : dès le 01.01.2027 ou à convenir\n\nDéplacements professionnels : jusqu’à 10% par an\n\nTravail hybride : jusqu’à 40%\n\nTout savoir sur ta candidature\n\nDans un premier temps, tu peux postuler directement en ligne. Il te suffit de joindre ton CV. Tu trouveras ici de plus amples informations sur le processus de candidature.\n\nNous accordons de l’importance à un processus de candidature efficace et respectueux. L’équipe Talent Acquisition examine personnellement ta candidature, sans recourir à l’intelligence artificielle. Dès ton premier entretien avec la personne responsable du recrutement, tu reçois toujours un retour personnalisé de notre part. Car nous sommes convaincus qu’un feedback pertinent repose sur un échange personnel.\n\nPour ce poste, nous ne collaborons pas avec des agences de recrutement. Les candidatures spontanées ne seront ni prises en compte ni rémunérées.\n\nAs-tu encore des questions ? Manuela, Senior Talent Acquisition Consultant, se tient volontiers à ta disposition au +41 44 628 32 25.\n\nCurieux d’en savoir plus ?\n\nDécouvre Zurich Suisse comme employeur.\n\nclique ici\n\nZurich Compagnie d’Assurances SA | Talent Acquisition Zurich Suisse",
+      "descriptionByLocale": {
+        "fr": "137389 | 80 - 100% | Crissier, Vaud | Hybrid\n\nEs-tu passionné(e) par le développement des relations avec les courtiers et la gestion d’une équipe performante ? Aimes-tu relever des défis commerciaux tout en assurant un service de qualité et en atteignant des objectifs ambitieux ?\n\nRejoins Zurich Suisse et mets ton expertise au service du secteur Brokers, au sein de l’équipe des Broker Account Managers Romandie.\n\nEn tant que Responsable d’équipe Affaires privées - Brokers Romandie, tu auras l’opportunité de piloter une équipe dynamique et de jouer un rôle clé dans le développement des relations avec les courtiers de la région Ouest. Tu seras au cœur de la stratégie de Zurich, en collaborant avec différentes parties prenantes internes et externes pour garantir une prise en charge optimale des courtiers et la réalisation des objectifs commerciaux.\n\nTes missions\n\n• Encadrement d’une équipe, définition d’objectifs individuels et collectifs, et accompagnement du développement professionnel des collaboratrices et collaborateurs, dans une culture de collaboration et d’amélioration continue\n\n• Développement et gestion des relations avec les courtiers clés de la région Ouest, mise en œuvre de stratégies de croissance et suivi des indicateurs clés de performance\n\n• Coordination des flux entre les équipes Broker Account Management Persona Line (BAMPL) et Entry Point afin de garantir un service efficace et de qualité\n\n• Contribution à la planification commerciale, au suivi de la rentabilité des portefeuilles et à la promotion des solutions Zurich auprès des courtiers\n\n• Participation active aux initiatives de digitalisation et d’amélioration continue, dans le respect des standards Zurich en matière de conformité et de protection des données\n\nTon profil\n\n• Formation supérieure en économie, gestion, assurance ou équivalent, idéalement complétée par une certification dans le domaine de l’assurance\n\n• Expérience confirmée en gestion de courtiers et en management d’équipe, avec des compétences avérées en coaching et en pilotage de la performance\n\n• Solide compréhension des produits d’assurance, des processus d’underwriting et des outils CRM/digitaux\n\n• Excellentes compétences en communication, une capacité à collaborer avec des parties prenantes variées et un esprit d’initiative\n\n• Maîtrise du français et une bonne connaissance de l’allemand et/ou de l’anglais comme atout important\n\nBon à savoir\n\nTemps partiel ou temps plein : 80 - 100%\n\nLieu de travail : Crissier, Vaud\n\nEntrée en fonction : dès le 01.01.2027 ou à convenir\n\nDéplacements professionnels : jusqu’à 10% par an\n\nTravail hybride : jusqu’à 40%\n\nTout savoir sur ta candidature\n\nDans un premier temps, tu peux postuler directement en ligne. Il te suffit de joindre ton CV. Tu trouveras ici de plus amples informations sur le processus de candidature.\n\nNous accordons de l’importance à un processus de candidature efficace et respectueux. L’équipe Talent Acquisition examine personnellement ta candidature, sans recourir à l’intelligence artificielle. Dès ton premier entretien avec la personne responsable du recrutement, tu reçois toujours un retour personnalisé de notre part. Car nous sommes convaincus qu’un feedback pertinent repose sur un échange personnel.\n\nPour ce poste, nous ne collaborons pas avec des agences de recrutement. Les candidatures spontanées ne seront ni prises en compte ni rémunérées.\n\nAs-tu encore des questions ? Manuela, Senior Talent Acquisition Consultant, se tient volontiers à ta disposition au +41 44 628 32 25.\n\nCurieux d’en savoir plus ?\n\nDécouvre Zurich Suisse comme employeur.\n\nclique ici\n\nZurich Compagnie d’Assurances SA | Talent Acquisition Zurich Suisse",
+        "it": "137389 | 80 - 100% | Crissier, Vaud | Hybrid\n\nEs-tu passionné(e) par le développement des relations avec les courtiers et la gestion d’une équipe performante ? Aimes-tu relever des défis commerciaux tout en assurant un service de qualité et en atteignant des objectifs ambitieux ?\n\nRejoins Zurich Suisse et mets ton expertise au service du secteur Brokers, au sein de l’équipe des Broker Account Managers Romandie.\n\nEn tant que Responsable d’équipe Affaires privées - Brokers Romandie, tu auras l’opportunité de piloter une équipe dynamique et de jouer un rôle clé dans le développement des relations avec les courtiers de la région Ouest. Tu seras au cœur de la stratégie de Zurich, en collaborant avec différentes parties prenantes internes et externes pour garantir une prise en charge optimale des courtiers et la réalisation des objectifs commerciaux.\n\nTes missions\n\n• Encadrement d’une équipe, définition d’objectifs individuels et collectifs, et accompagnement du développement professionnel des collaboratrices et collaborateurs, dans une culture de collaboration et d’amélioration continue\n\n• Développement et gestion des relations avec les courtiers clés de la région Ouest, mise en œuvre de stratégies de croissance et suivi des indicateurs clés de performance\n\n• Coordination des flux entre les équipes Broker Account Management Persona Line (BAMPL) et Entry Point afin de garantir un service efficace et de qualité\n\n• Contribution à la planification commerciale, au suivi de la rentabilité des portefeuilles et à la promotion des solutions Zurich auprès des courtiers\n\n• Participation active aux initiatives de digitalisation et d’amélioration continue, dans le respect des standards Zurich en matière de conformité et de protection des données\n\nTon profil\n\n• Formation supérieure en économie, gestion, assurance ou équivalent, idéalement complétée par une certification dans le domaine de l’assurance\n\n• Expérience confirmée en gestion de courtiers et en management d’équipe, avec des compétences avérées en coaching et en pilotage de la performance\n\n• Solide compréhension des produits d’assurance, des processus d’underwriting et des outils CRM/digitaux\n\n• Excellentes compétences en communication, une capacité à collaborer avec des parties prenantes variées et un esprit d’initiative\n\n• Maîtrise du français et une bonne connaissance de l’allemand et/ou de l’anglais comme atout important\n\nBon à savoir\n\nTemps partiel ou temps plein : 80 - 100%\n\nLieu de travail : Crissier, Vaud\n\nEntrée en fonction : dès le 01.01.2027 ou à convenir\n\nDéplacements professionnels : jusqu’à 10% par an\n\nTravail hybride : jusqu’à 40%\n\nTout savoir sur ta candidature\n\nDans un premier temps, tu peux postuler directement en ligne. Il te suffit de joindre ton CV. Tu trouveras ici de plus amples informations sur le processus de candidature.\n\nNous accordons de l’importance à un processus de candidature efficace et respectueux. L’équipe Talent Acquisition examine personnellement ta candidature, sans recourir à l’intelligence artificielle. Dès ton premier entretien avec la personne responsable du recrutement, tu reçois toujours un retour personnalisé de notre part. Car nous sommes convaincus qu’un feedback pertinent repose sur un échange personnel.\n\nPour ce poste, nous ne collaborons pas avec des agences de recrutement. Les candidatures spontanées ne seront ni prises en compte ni rémunérées.\n\nAs-tu encore des questions ? Manuela, Senior Talent Acquisition Consultant, se tient volontiers à ta disposition au +41 44 628 32 25.\n\nCurieux d’en savoir plus ?\n\nDécouvre Zurich Suisse comme employeur.\n\nclique ici\n\nZurich Compagnie d’Assurances SA | Talent Acquisition Zurich Suisse",
+        "en": "137389 | 80 - 100% | Crissier, Vaud | Hybrid\n\nEs-tu passionné(e) par le développement des relations avec les courtiers et la gestion d’une équipe performante ? Aimes-tu relever des défis commerciaux tout en assurant un service de qualité et en atteignant des objectifs ambitieux ?\n\nRejoins Zurich Suisse et mets ton expertise au service du secteur Brokers, au sein de l’équipe des Broker Account Managers Romandie.\n\nEn tant que Responsable d’équipe Affaires privées - Brokers Romandie, tu auras l’opportunité de piloter une équipe dynamique et de jouer un rôle clé dans le développement des relations avec les courtiers de la région Ouest. Tu seras au cœur de la stratégie de Zurich, en collaborant avec différentes parties prenantes internes et externes pour garantir une prise en charge optimale des courtiers et la réalisation des objectifs commerciaux.\n\nTes missions\n\n• Encadrement d’une équipe, définition d’objectifs individuels et collectifs, et accompagnement du développement professionnel des collaboratrices et collaborateurs, dans une culture de collaboration et d’amélioration continue\n\n• Développement et gestion des relations avec les courtiers clés de la région Ouest, mise en œuvre de stratégies de croissance et suivi des indicateurs clés de performance\n\n• Coordination des flux entre les équipes Broker Account Management Persona Line (BAMPL) et Entry Point afin de garantir un service efficace et de qualité\n\n• Contribution à la planification commerciale, au suivi de la rentabilité des portefeuilles et à la promotion des solutions Zurich auprès des courtiers\n\n• Participation active aux initiatives de digitalisation et d’amélioration continue, dans le respect des standards Zurich en matière de conformité et de protection des données\n\nTon profil\n\n• Formation supérieure en économie, gestion, assurance ou équivalent, idéalement complétée par une certification dans le domaine de l’assurance\n\n• Expérience confirmée en gestion de courtiers et en management d’équipe, avec des compétences avérées en coaching et en pilotage de la performance\n\n• Solide compréhension des produits d’assurance, des processus d’underwriting et des outils CRM/digitaux\n\n• Excellentes compétences en communication, une capacité à collaborer avec des parties prenantes variées et un esprit d’initiative\n\n• Maîtrise du français et une bonne connaissance de l’allemand et/ou de l’anglais comme atout important\n\nBon à savoir\n\nTemps partiel ou temps plein : 80 - 100%\n\nLieu de travail : Crissier, Vaud\n\nEntrée en fonction : dès le 01.01.2027 ou à convenir\n\nDéplacements professionnels : jusqu’à 10% par an\n\nTravail hybride : jusqu’à 40%\n\nTout savoir sur ta candidature\n\nDans un premier temps, tu peux postuler directement en ligne. Il te suffit de joindre ton CV. Tu trouveras ici de plus amples informations sur le processus de candidature.\n\nNous accordons de l’importance à un processus de candidature efficace et respectueux. L’équipe Talent Acquisition examine personnellement ta candidature, sans recourir à l’intelligence artificielle. Dès ton premier entretien avec la personne responsable du recrutement, tu reçois toujours un retour personnalisé de notre part. Car nous sommes convaincus qu’un feedback pertinent repose sur un échange personnel.\n\nPour ce poste, nous ne collaborons pas avec des agences de recrutement. Les candidatures spontanées ne seront ni prises en compte ni rémunérées.\n\nAs-tu encore des questions ? Manuela, Senior Talent Acquisition Consultant, se tient volontiers à ta disposition au +41 44 628 32 25.\n\nCurieux d’en savoir plus ?\n\nDécouvre Zurich Suisse comme employeur.\n\nclique ici\n\nZurich Compagnie d’Assurances SA | Talent Acquisition Zurich Suisse",
+        "de": "137389 | 80 - 100% | Crissier, Vaud | Hybrid\n\nEs-tu passionné(e) par le développement des relations avec les courtiers et la gestion d’une équipe performante ? Aimes-tu relever des défis commerciaux tout en assurant un service de qualité et en atteignant des objectifs ambitieux ?\n\nRejoins Zurich Suisse et mets ton expertise au service du secteur Brokers, au sein de l’équipe des Broker Account Managers Romandie.\n\nEn tant que Responsable d’équipe Affaires privées - Brokers Romandie, tu auras l’opportunité de piloter une équipe dynamique et de jouer un rôle clé dans le développement des relations avec les courtiers de la région Ouest. Tu seras au cœur de la stratégie de Zurich, en collaborant avec différentes parties prenantes internes et externes pour garantir une prise en charge optimale des courtiers et la réalisation des objectifs commerciaux.\n\nTes missions\n\n• Encadrement d’une équipe, définition d’objectifs individuels et collectifs, et accompagnement du développement professionnel des collaboratrices et collaborateurs, dans une culture de collaboration et d’amélioration continue\n\n• Développement et gestion des relations avec les courtiers clés de la région Ouest, mise en œuvre de stratégies de croissance et suivi des indicateurs clés de performance\n\n• Coordination des flux entre les équipes Broker Account Management Persona Line (BAMPL) et Entry Point afin de garantir un service efficace et de qualité\n\n• Contribution à la planification commerciale, au suivi de la rentabilité des portefeuilles et à la promotion des solutions Zurich auprès des courtiers\n\n• Participation active aux initiatives de digitalisation et d’amélioration continue, dans le respect des standards Zurich en matière de conformité et de protection des données\n\nTon profil\n\n• Formation supérieure en économie, gestion, assurance ou équivalent, idéalement complétée par une certification dans le domaine de l’assurance\n\n• Expérience confirmée en gestion de courtiers et en management d’équipe, avec des compétences avérées en coaching et en pilotage de la performance\n\n• Solide compréhension des produits d’assurance, des processus d’underwriting et des outils CRM/digitaux\n\n• Excellentes compétences en communication, une capacité à collaborer avec des parties prenantes variées et un esprit d’initiative\n\n• Maîtrise du français et une bonne connaissance de l’allemand et/ou de l’anglais comme atout important\n\nBon à savoir\n\nTemps partiel ou temps plein : 80 - 100%\n\nLieu de travail : Crissier, Vaud\n\nEntrée en fonction : dès le 01.01.2027 ou à convenir\n\nDéplacements professionnels : jusqu’à 10% par an\n\nTravail hybride : jusqu’à 40%\n\nTout savoir sur ta candidature\n\nDans un premier temps, tu peux postuler directement en ligne. Il te suffit de joindre ton CV. Tu trouveras ici de plus amples informations sur le processus de candidature.\n\nNous accordons de l’importance à un processus de candidature efficace et respectueux. L’équipe Talent Acquisition examine personnellement ta candidature, sans recourir à l’intelligence artificielle. Dès ton premier entretien avec la personne responsable du recrutement, tu reçois toujours un retour personnalisé de notre part. Car nous sommes convaincus qu’un feedback pertinent repose sur un échange personnel.\n\nPour ce poste, nous ne collaborons pas avec des agences de recrutement. Les candidatures spontanées ne seront ni prises en compte ni rémunérées.\n\nAs-tu encore des questions ? Manuela, Senior Talent Acquisition Consultant, se tient volontiers à ta disposition au +41 44 628 32 25.\n\nCurieux d’en savoir plus ?\n\nDécouvre Zurich Suisse comme employeur.\n\nclique ici\n\nZurich Compagnie d’Assurances SA | Talent Acquisition Zurich Suisse"
+      },
+      "location": "Crissier",
+      "canton": "VD",
+      "url": "https://www.careers.zurich.com/job/Crissier-Responsable-d'%C3%A9quipe-Affaires-priv%C3%A9es-Brokers-Romandie-%28hfd%29/1373817357/",
+      "applyUrl": "https://www.careers.zurich.com/job/Crissier-Responsable-d'%C3%A9quipe-Affaires-priv%C3%A9es-Brokers-Romandie-%28hfd%29/1373817357/",
+      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-03T09:21:41.355Z",
+      "postedDate": "2026-10-02",
+      "datePosted": "2026-10-02",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "category": "finance",
+      "contract": "temporary",
+      "employmentType": "TEMPORARY",
+      "experienceLevel": "mid",
+      "sector": "Insurance",
+      "currency": "CHF",
+      "featured": false,
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:21:41.355Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "team-leader-private-affairs-brokers-romandie-m-f-d-zurich-insurance-crissier-1373817357"
+        ],
+        "de": [
+          "team-leader-private-affairs-broker-romandie-m-w-d-zurich-insurance-crissier-1373817357"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-private-affairs-brokers-romandie-m-f-d-zurich-insurance-crissier-1373817357",
+        "team-leader-private-affairs-broker-romandie-m-w-d-zurich-insurance-crissier-1373817357"
+      ]
     }
   ]
 }

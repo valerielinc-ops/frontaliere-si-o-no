@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
+import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
 const root = new URL('..', import.meta.url);
 const read = (file: string) => readFileSync(new URL(file, root), 'utf8');
@@ -11,6 +13,20 @@ function reporterSteps(job: any) {
 }
 
 describe('workflow failure reporting stays coupled to the central scanner contract', () => {
+  it.each(['deploy-publish', 'issue-fix'])('%s checks out the complete reporter import graph', (workflow) => {
+    const source = parse(`.github/workflows/${workflow}.yml`);
+    const checkout = source.jobs['report-failure'].steps.find(
+      (step: any) => step.uses?.startsWith('actions/checkout@'),
+    );
+    const paths = checkout.with['sparse-checkout'].split('\n').map((line: string) => line.trim()).filter(Boolean);
+    const closure = collectRelativeImportClosure(fileURLToPath(root), 'scripts/ci/report-workflow-failure.mjs');
+    expect(closure).toContain('scripts/cathedral-seo-gates-check.mjs');
+    for (const dependency of closure) {
+      expect(paths.some((entry: string) => entry.endsWith('/') ? dependency.startsWith(entry) : dependency === entry),
+        `${workflow}: missing reporter dependency ${dependency}`).toBe(true);
+    }
+  });
+
   it('reports both issue-fix failure jobs after their logs are complete', () => {
     const source = parse('.github/workflows/issue-fix.yml');
     const job = source.jobs['report-failure'];

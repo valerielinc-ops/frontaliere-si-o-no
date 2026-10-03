@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcv",
-  "assembledAt": "2026-10-02T09:14:59.458Z",
+  "assembledAt": "2026-10-03T09:19:47.367Z",
   "jobs": [
     {
       "id": "bcv-3b53649bc9c8",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Analyste-D%C3%A9veloppeur-IT-Trading/1390833833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:53.938Z",
+      "crawledAt": "2026-10-03T09:19:39.953Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -71,7 +71,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:19.315Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -84,7 +83,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-b3f4a0f7b6dd",
@@ -117,7 +117,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-successorale-ou-conseiller-successoral-R%C3%A9gion-Lausanne/1411874433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:53.253Z",
+      "crawledAt": "2026-10-03T09:19:21.831Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -154,7 +154,6 @@
         "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-09-02T13:36:26.503Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -167,7 +166,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-7c732f1b3265",
@@ -200,7 +200,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Sp%C3%A9cialiste-en-financement-immobilier-Acquisition-et-d%C3%A9veloppement/1282231601/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:52.547Z",
+      "crawledAt": "2026-10-03T09:19:23.382Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -283,7 +283,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Apprenties-ou-apprentis-de-commerce-Banque-ao%C3%BBt-2027/1426475433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:51.831Z",
+      "crawledAt": "2026-10-03T09:19:34.861Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "title": "Product Manager - Trafic des paiements",
       "titleByLocale": {
         "it": "Product Manager - Trafic dei Pagamenti",
-        "en": "Product Manager - Trafic des paiements",
+        "en": "Product Manager - Payment traffic",
         "de": "Product Manager - Zahlungsverkehr",
         "fr": "Product Manager - Trafic des paiements"
       },
@@ -364,7 +364,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Product-Manager-Trafic-des-paiements/1254978701/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:51.122Z",
+      "crawledAt": "2026-10-03T09:19:29.177Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -401,7 +401,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:24.288Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -447,7 +446,7 @@
       "url": "https://jobs.bcv.ch/job/Stagiaires-maturantes-ou-maturants-mars-2027/1431013433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:50.362Z",
+      "crawledAt": "2026-10-03T09:19:38.391Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -528,7 +527,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Senior-credit-officer-PME-Pros-Immobilier-Particuliers/1440007133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:49.663Z",
+      "crawledAt": "2026-10-03T09:19:41.704Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -607,7 +606,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-d'applications-bancaires-domaine-Op%C3%A9rations-de-March%C3%A9/1408671433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:48.837Z",
+      "crawledAt": "2026-10-03T09:19:33.237Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -645,7 +644,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:04.866Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -658,7 +656,8 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-c194b16f2c74",
@@ -691,7 +690,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Conseiller-ou-Conseill%C3%A8re-PME-sp%C3%A9cialis%C3%A9%28e%29-R%C3%A9gion-Chablais/1407738733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:48.188Z",
+      "crawledAt": "2026-10-03T09:19:36.662Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -757,7 +756,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:58.690Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -770,7 +768,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-949095af3d5b",
@@ -803,7 +802,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-Senior-Private-Banking-Key-Clients/1242200201/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:47.543Z",
+      "crawledAt": "2026-10-03T09:19:39.176Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -854,7 +853,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:11.588Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -900,7 +898,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Analyse-d%C3%A9veloppeur-CA-Gen-Cobol/1414462733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:46.862Z",
+      "crawledAt": "2026-10-03T09:19:25.057Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -975,7 +973,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-Secr%C3%A9tariat-g%C3%A9n%C3%A9ral-de-la-BCV/1441409733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:46.187Z",
+      "crawledAt": "2026-10-03T09:19:22.616Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1056,7 +1054,7 @@
       "url": "https://jobs.bcv.ch/job/Vevey-Conseiller-ou-Conseill%C3%A8re-PME-sp%C3%A9cialis%C3%A9%28e%29-R%C3%A9gion-Riviera/1420578833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:45.438Z",
+      "crawledAt": "2026-10-03T09:19:27.631Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1086,7 +1084,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:32:45.206Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1099,7 +1096,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-1107e504b010",
@@ -1132,7 +1130,7 @@
       "url": "https://jobs.bcv.ch/job/Cash-Manager-pour-la-client%C3%A8le-des-entreprises/1438347133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:44.741Z",
+      "crawledAt": "2026-10-03T09:19:37.460Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1182,36 +1180,36 @@
     },
     {
       "id": "bcv-28c1931d3da9",
-      "slug": "assistante-ou-assistant-trade-finanza-banque-cantonale-vaudoise-lausanne",
+      "slug": "assistante-ou-assistant-trade-finance-bcv-lausanne",
       "slugByLocale": {
-        "it": "assistante-ou-assistant-trade-finanza-banque-cantonale-vaudoise-lausanne",
-        "en": "assistant-or-assistant-trade-finance-banque-cantonale-vaudoise-lausanne",
-        "de": "assistante-ou-assistent-trade-finanzen-banque-cantonale-vaudoise-lausanne",
-        "fr": "assistante-ou-assistant-trade-finance-bcv-lausanne"
+        "fr": "assistante-ou-assistant-trade-finance-bcv-lausanne",
+        "it": "assistante-ou-assistant-trade-finance-bcv-lausanne",
+        "en": "assistante-ou-assistant-trade-finance-bcv-lausanne",
+        "de": "assistante-ou-assistant-trade-finance-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
       "companyDomain": "bcv.ch",
       "title": "Assistante ou Assistant Trade Finance",
       "titleByLocale": {
+        "fr": "Assistante ou Assistant Trade Finance",
         "it": "Assistante ou Assistant Trade Finanza",
-        "en": "Assistant or Assistant Trade Finance",
-        "de": "Assistante ou Assistent Trade Finanzen",
-        "fr": "Assistante ou Assistant Trade Finance"
+        "en": "Assistante ou Assistant Trade Finance",
+        "de": "Assistante ou Assistent Trade Finanzen"
       },
       "description": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Assistante ou Assistant Trade Finance Vos missions principales:\n• appuyer les responsables de relation dans les tâches administratives,\n• participer à l'élaboration des protocoles de crédit,\n• acquérir les connaissances du métier en vue d'assumer à terme le suivi des opérations transactionnelles d'un portefeuille de clients. Votre profil:\n• formation bancaire et/ou première expérience dans le domaine du Trade Finance,\n• sens des responsabilités et de l’organisation,\n• maîtrise du français, très bonnes connaissances orales et écrites de l’anglais.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
       "descriptionByLocale": {
-        "it": "E se la tua storia professionale continua al BCV? Unisciti alla prima banca universale nel cantone di Vaud, una delle banche più forti del mondo, e ai suoi 2.000 collaboratori. Prendere parte al successo di un'istituzione valutato AA da Standard & Poors dal 2011 e contribuire alla crescita del tessuto economico Vaud così come per l'attrattiva e la vitalità della nostra regione. Per la nostra Divisione Imprese, stiamo cercando uno o più:\n\nAssistente di annuncio o Assistente Commerciale Finanza I vostri compiti principali:\n• sostenere i responsabili delle relazioni nei compiti amministrativi,\n• partecipare allo sviluppo di protocolli di credito,\n• acquisire la conoscenza del business al fine di monitorare in ultima analisi le operazioni transazionali di un portafoglio clienti. Il tuo profilo:\n• formazione bancaria e/o prima esperienza nel settore delle finanze commerciali,\n• senso di responsabilità e organizzazione,\n• padronanza del francese, molto buona conoscenza orale e scritta dell'inglese.\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, una della tua carriera, una della tua banca, una della nostra regione.",
-        "en": "What if your professional history continues at the BCV? Join the first universal bank in the canton of Vaud, one of the strongest banks in the world, and its 2,000 collaborators. Take part in the success of an institution rated AA by Standard & Poors since 2011 and contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of our region. For our Enterprise Division, we are looking for one or more:\n\nAnnouncement Assistant or Assistant Trade Finance Your main tasks:\n• support relationship managers in administrative tasks,\n• participate in the development of credit protocols,\n• acquire the knowledge of the business with a view to ultimately monitoring the transactional operations of a client portfolio. Your profile:\n• banking training and/or first experience in the field of Trade Finance,\n• sense of responsibility and organisation,\n• mastery of French, very good oral and written knowledge of English.\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let us write together three stories, one of your career, one of your bank, one of our region.",
-        "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Schließen Sie sich der ersten Universalbank im Kanton Waadt, einer der stärksten Banken der Welt, und ihren 2.000 Mitarbeitern an. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution und tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität unserer Region bei. Für unsere Enterprise Division suchen wir eine oder mehrere:\n\nAnkündigungsassistent oder Assistent Trade Finance Ihre Hauptaufgaben:\n• Unterstützung von Relationship Managern bei administrativen Aufgaben,\n• an der Entwicklung von Kreditprotokollen mitwirken,\n• Erwerb von Geschäftskenntnissen, um letztlich die Transaktionsvorgänge eines Kundenportfolios zu überwachen. Ihr Profil:\n• Bankausbildung und/oder erste Erfahrung im Bereich Trade Finance,\n• Verantwortungsbewusstsein und Organisation,\n• Beherrschung von Französisch, sehr gute mündliche und schriftliche Englischkenntnisse.\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, eine Ihrer Karriere, eine Ihrer Bank, eine unserer Region.",
-        "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Assistante ou Assistant Trade Finance Vos missions principales:\n• appuyer les responsables de relation dans les tâches administratives,\n• participer à l'élaboration des protocoles de crédit,\n• acquérir les connaissances du métier en vue d'assumer à terme le suivi des opérations transactionnelles d'un portefeuille de clients. Votre profil:\n• formation bancaire et/ou première expérience dans le domaine du Trade Finance,\n• sens des responsabilités et de l’organisation,\n• maîtrise du français, très bonnes connaissances orales et écrites de l’anglais.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
+        "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Assistante ou Assistant Trade Finance Vos missions principales:\n• appuyer les responsables de relation dans les tâches administratives,\n• participer à l'élaboration des protocoles de crédit,\n• acquérir les connaissances du métier en vue d'assumer à terme le suivi des opérations transactionnelles d'un portefeuille de clients. Votre profil:\n• formation bancaire et/ou première expérience dans le domaine du Trade Finance,\n• sens des responsabilités et de l’organisation,\n• maîtrise du français, très bonnes connaissances orales et écrites de l’anglais.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
+        "it": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Assistante ou Assistant Trade Finance Vos missions principales:\n• appuyer les responsables de relation dans les tâches administratives,\n• participer à l'élaboration des protocoles de crédit,\n• acquérir les connaissances du métier en vue d'assumer à terme le suivi des opérations transactionnelles d'un portefeuille de clients. Votre profil:\n• formation bancaire et/ou première expérience dans le domaine du Trade Finance,\n• sens des responsabilités et de l’organisation,\n• maîtrise du français, très bonnes connaissances orales et écrites de l’anglais.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
+        "en": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Assistante ou Assistant Trade Finance Vos missions principales:\n• appuyer les responsables de relation dans les tâches administratives,\n• participer à l'élaboration des protocoles de crédit,\n• acquérir les connaissances du métier en vue d'assumer à terme le suivi des opérations transactionnelles d'un portefeuille de clients. Votre profil:\n• formation bancaire et/ou première expérience dans le domaine du Trade Finance,\n• sens des responsabilités et de l’organisation,\n• maîtrise du français, très bonnes connaissances orales et écrites de l’anglais.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
+        "de": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Entreprises , nous recherchons une ou un :\n\nAnnonce Assistante ou Assistant Trade Finance Vos missions principales:\n• appuyer les responsables de relation dans les tâches administratives,\n• participer à l'élaboration des protocoles de crédit,\n• acquérir les connaissances du métier en vue d'assumer à terme le suivi des opérations transactionnelles d'un portefeuille de clients. Votre profil:\n• formation bancaire et/ou première expérience dans le domaine du Trade Finance,\n• sens des responsabilités et de l’organisation,\n• maîtrise du français, très bonnes connaissances orales et écrites de l’anglais.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobs.bcv.ch/job/Lausanne-Assistante-ou-Assistant-Trade-Finance/1443342333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:44.067Z",
+      "crawledAt": "2026-10-03T09:19:29.981Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1228,20 +1226,29 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://jobs.bcv.ch/job/Lausanne-Assistante-ou-Assistant-Trade-Finance/1443342333/",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "fr": []
+      },
       "sfJobId": "1443342333",
-      "firstSeenAt": "2026-10-01T21:17:39.295Z",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:19:29.981Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistante-ou-assistant-trade-finance-bcv-lausanne"
+          "assistante-ou-assistant-trade-finance-bcv-lausanne",
+          "assistante-ou-assistant-trade-finanza-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
-          "assistante-ou-assistant-trade-finance-bcv-lausanne"
+          "assistante-ou-assistant-trade-finance-bcv-lausanne",
+          "assistant-or-assistant-trade-finance-banque-cantonale-vaudoise-lausanne"
+        ],
+        "de": [
+          "assistante-ou-assistent-trade-finanzen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
-        "assistante-ou-assistant-trade-finance-bcv-lausanne"
+        "assistante-ou-assistant-trade-finance-bcv-lausanne",
+        "assistante-ou-assistant-trade-finanza-banque-cantonale-vaudoise-lausanne",
+        "assistant-or-assistant-trade-finance-banque-cantonale-vaudoise-lausanne",
+        "assistante-ou-assistent-trade-finanzen-banque-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1255,7 +1262,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-1997ac59870c",
@@ -1288,7 +1296,7 @@
       "url": "https://jobs.bcv.ch/job/Morges-Conseill%C3%A8re-ou-Conseiller-Private-Banking-Key-Clients-&-Entrepreneurs-Morges/1429188533/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:43.406Z",
+      "crawledAt": "2026-10-03T09:19:26.764Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1318,7 +1326,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T22:15:02.330Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1331,7 +1338,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-d7de5dc6d379",
@@ -1348,7 +1356,7 @@
       "title": "IT Business Analyst - domaine Opérations de Marché",
       "titleByLocale": {
         "it": "IT Business Analista - domaine Opérations de Marché",
-        "en": "IT Business Analyst - domaine Opérations de Marché",
+        "en": "IT Business Analyst - Market Operations domain",
         "de": "IT Business Analyst - Bereich Market Operations",
         "fr": "IT Business Analyste - domaine Opérations de Marché"
       },
@@ -1364,7 +1372,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-IT-Business-Analyst-domaine-Op%C3%A9rations-de-March%C3%A9/1374027533/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:42.677Z",
+      "crawledAt": "2026-10-03T09:19:28.414Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1404,7 +1412,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:26.214Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1417,7 +1424,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-751db784c591",
@@ -1450,7 +1458,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-d'agence-Villars/1070859301/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:41.838Z",
+      "crawledAt": "2026-10-03T09:19:30.774Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1531,7 +1539,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-%C3%A0-distance/1435367333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:41.128Z",
+      "crawledAt": "2026-10-03T09:19:34.044Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1564,7 +1572,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:10.864Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1577,7 +1584,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-ee3c739c5248",
@@ -1610,7 +1618,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-r%C3%A9gionale-ou-Responsable-r%C3%A9gional-PME-R%C3%A9gion-Chablais/1434865933/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:40.451Z",
+      "crawledAt": "2026-10-03T09:19:24.242Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1691,7 +1699,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Gestionnaire-avoirs-sans-nouvelles/1433973833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:39.670Z",
+      "crawledAt": "2026-10-03T09:19:31.573Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1729,7 +1737,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:29:18.649Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1742,7 +1749,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-8b48b818e4d3",
@@ -1775,7 +1783,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Corporate-Sales-Rates-&-FX/1277101301/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:38.921Z",
+      "crawledAt": "2026-10-03T09:19:40.766Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1861,7 +1869,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-projets-IT-SAP/1383719133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:38.242Z",
+      "crawledAt": "2026-10-03T09:19:35.849Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1960,7 +1968,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-projet-Etat-major-Finance-&-Risques/1434450333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:37.572Z",
+      "crawledAt": "2026-10-03T09:19:25.829Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1999,7 +2007,6 @@
         "responsable-projet-etat-major-finance-risques-bcv-lausanne"
       ],
       "firstSeenAt": "2026-09-07T15:09:40.644Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2012,7 +2019,8 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-c9e31df39b0d",
@@ -2045,7 +2053,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-%C3%A0-distance-Client%C3%A8le-Internationale-%28orientation-compliance%29/1426085933/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:36.761Z",
+      "crawledAt": "2026-10-03T09:19:32.454Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2081,7 +2089,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:10:44.623Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -2094,7 +2101,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-5e76431e9e02",
@@ -2127,7 +2135,7 @@
       "url": "https://jobs.bcv.ch/job/Payerne-Responsable-r%C3%A9gional-Private-Banking-Broye/1188391001/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:36.073Z",
+      "crawledAt": "2026-10-03T09:19:21.046Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2168,7 +2176,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:17.681Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2181,7 +2188,8 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-e96d207349d9",
@@ -2198,7 +2206,7 @@
       "title": "Responsable de plateformes IT Distribution Marketing - Chef de service",
       "titleByLocale": {
         "it": "Responsabile della Piattaforma IT Marketing Distribuzione - Capo Dipartimento",
-        "en": "Responsable de plateformes IT Distribution Marketing - Chef de service",
+        "en": "IT Platform Manager Distribution Marketing - Head of Department",
         "de": "IT Platform Manager Distribution Marketing - Abteilungsleiter",
         "fr": "Responsable de plateformes IT Distribution Marketing - Chef de service"
       },
@@ -2214,7 +2222,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-plateformes-IT-Distribution-Marketing-Chef-de-service/1406030833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:35.379Z",
+      "crawledAt": "2026-10-03T09:19:20.262Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2254,7 +2262,6 @@
           "it-platform-manager-distribution-marketing-leiter-service-banque-cantonale-vaudoise-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:00.579Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
@@ -2301,7 +2308,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-Private-Banking-Lausanne/1436963233/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:34.685Z",
+      "crawledAt": "2026-10-03T09:19:19.295Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2336,7 +2343,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:52:17.469Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -2349,7 +2355,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-3f531eb2b597",
@@ -2366,7 +2373,7 @@
       "title": "Responsable du secteur Conseil Private Banking & Advisory",
       "titleByLocale": {
         "it": "Capo della Consulenza, Private Banking & Advisory",
-        "en": "Responsable du secteur Conseil Private Banking & Advisory",
+        "en": "Head of Private Banking & Advisory",
         "de": "Leiter Private Banking & Advisory",
         "fr": "Responsable du secteur Conseil Private Banking & Advisory"
       },
@@ -2382,7 +2389,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-secteur-Conseil-Private-Banking-&-Advisory/1265629801/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:34.020Z",
+      "crawledAt": "2026-10-03T09:19:18.511Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2420,7 +2427,6 @@
           "sektormanager-private-banking-advisory-banque-cantonale-vaudoise-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:15.798Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -2467,7 +2473,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-r%C3%A9gional-Private-Banking-Chablais/1265000701/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:33.352Z",
+      "crawledAt": "2026-10-03T09:19:17.736Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2503,7 +2509,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:14.928Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2516,7 +2521,8 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcv-03d708f5e39d",
@@ -2549,7 +2555,7 @@
       "url": "https://jobs.bcv.ch/job/Verwaltungssachbearbeiterin-BVG/1281964401/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:32.639Z",
+      "crawledAt": "2026-10-03T09:19:16.914Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2632,7 +2638,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-secteur-conseil-pr%C3%A9voyance-priv%C3%A9e/1408024733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:31.951Z",
+      "crawledAt": "2026-10-03T09:19:15.941Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",

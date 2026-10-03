@@ -1,7 +1,7 @@
 {
   "key": "clinica-varini",
   "label": "Clinica Varini",
-  "generatedAt": "2026-10-02T09:12:22.984Z",
+  "generatedAt": "2026-10-03T09:11:30.926Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -14,10 +14,12 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2264,
-  "avgDurationMs": 2264,
+  "durationMs": 4441,
+  "avgDurationMs": 4441,
   "durationHistory": [
-    2264
+    2264,
+    3844,
+    4441
   ],
   "newJobs": [],
   "updatedJobs": [],

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-10-02T09:35:08.051Z",
+  "assembledAt": "2026-10-03T09:36:46.627Z",
   "jobs": [
     {
       "id": "company-a24znt",
@@ -27,7 +27,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-02T09:35:04.783Z",
+      "crawledAt": "2026-10-02T21:32:31.299Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
@@ -186,6 +186,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
       "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true
     }
   ]

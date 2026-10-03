@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-10-02T09:24:46.648Z",
+  "assembledAt": "2026-10-03T09:28:31.098Z",
   "jobs": [
     {
       "id": "unispital-basel-a292aece20e2",
@@ -33,7 +33,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/unterassistentin-unterassistent-anaesthesie/666447ec-3d5c-4f30-bd11-b54c4ee6449e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.526Z",
+      "crawledAt": "2026-10-03T09:26:10.149Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-gesundheit-und-soziales-ags-innere-medizin-7-2/9673921d-a4b5-406e-9378-7abb01503b29",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.525Z",
+      "crawledAt": "2026-10-03T09:26:10.148Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -196,7 +196,6 @@
         "assistentin-assistent-gesundheit-e-soziales-ags-innere-medizin-7-2-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.334Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -209,7 +208,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-50f443dec3dd",
@@ -226,7 +226,7 @@
       "title": "Fellowship (abdominelle und onkologische Radiologie)",
       "titleByLocale": {
         "it": "Fellowship (radiologia addominale e oncologica)",
-        "en": "Fellowship (abdominelle und onkologische Radiologie)",
+        "en": "Fellowship (abdominal and oncological radiology)",
         "de": "Fellowship (abdominelle und onkologische Radiologie)",
         "fr": "Bourse (radiologie abdominale et oncologique)"
       },
@@ -242,7 +242,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellowship-abdominelle-und-onkologische-radiologie/2d972151-90c7-41ae-9d1f-1a6228154040",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.525Z",
+      "crawledAt": "2026-10-03T09:26:10.149Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -275,7 +275,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -304,7 +303,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Fellowship (Kardiothorakale Radiologie)",
       "titleByLocale": {
-        "it": "Fellowship (Kardiothorakale Radiologie)",
+        "it": "Fellowship (Cardiothoracic Radiology)",
         "en": "Fellowship (Kardiothorakale Radiologies)",
         "de": "Fellowship (Kardiothorakale Radiologie)",
         "fr": "Bourse (Kardiothorakale Radiologie)"
@@ -321,7 +320,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellowship-kardiothorakale-radiologie/7d2a5df8-3a9c-4809-ae18-7a2d645a88d6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.524Z",
+      "crawledAt": "2026-10-03T09:26:10.148Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -351,7 +350,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -380,7 +378,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Fellow (Cardiology)",
       "titleByLocale": {
-        "it": "Fellow (Cardiology)",
+        "it": "Fellow (Cardiologia)",
         "en": "Fellow (Cardiology)",
         "de": "Fellow (Kardiologie)",
         "fr": "Fellow (Cardiologie)"
@@ -397,7 +395,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellow-cardiology/f71b7678-049a-46bf-980d-a82e8c913ba4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:22:52.523Z",
+      "crawledAt": "2026-10-03T09:26:10.147Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -477,7 +475,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin/0c569d6e-ae5c-49ae-a32e-d8cf1ebbf701",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.522Z",
+      "crawledAt": "2026-10-03T09:26:10.146Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -507,7 +505,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -520,7 +517,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-ce0eeedb2f51",
@@ -553,7 +551,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachperson-innere-medizin-7-2/aad40bdd-8e33-4c70-86d7-202449ff707c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.522Z",
+      "crawledAt": "2026-10-03T09:26:10.146Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -633,7 +631,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-gesundheit-und-soziales-neurologische-bettenstation/84d902bb-ae9f-40b9-a2a8-239f10e4892d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.521Z",
+      "crawledAt": "2026-10-03T09:26:10.145Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -671,7 +669,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.335Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -717,7 +714,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstuetzungszwischendienst/a29677cb-5181-4072-b935-fa19f0d0c9d7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.520Z",
+      "crawledAt": "2026-10-03T09:26:10.145Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -802,7 +799,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-notfallmedizin/2a9815e1-73ab-49cc-bf85-127c8f18dadf",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.519Z",
+      "crawledAt": "2026-10-03T09:26:10.143Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -905,7 +902,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/1575375a-adc8-4d9c-badb-7342b0920740",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.518Z",
+      "crawledAt": "2026-10-03T09:26:10.143Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1019,7 +1016,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel",
-          "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel"
+          "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-hematologie-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
@@ -1029,7 +1027,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1043,7 +1040,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-3a74ce8f15b1",
@@ -1076,7 +1074,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/211bb65d-6bf4-459e-b6fb-90773dab92fa",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.517Z",
+      "crawledAt": "2026-10-03T09:26:10.142Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1097,15 +1095,13 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-6pj87o",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel-2f3e22"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-          "dipl-infermieristica-professionale-hf-fh-universitatsspital-basel-basel-2f3e22"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2"
@@ -1114,7 +1110,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1128,7 +1123,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2b18bfb9f371",
@@ -1161,7 +1157,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-gesundheit-fage/9cc115ec-4957-4154-a58b-80d278609f57",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.517Z",
+      "crawledAt": "2026-10-03T09:26:10.142Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1264,7 +1260,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ags-im-stundenlohn/0438db39-4e1d-4458-91ef-558648dfb19f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.516Z",
+      "crawledAt": "2026-10-03T09:26:10.141Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1314,7 +1310,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.621Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1327,7 +1322,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-b04eae5e3978",
@@ -1360,7 +1356,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool/c791542d-8743-4887-ab2c-93fcf70dded2",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.515Z",
+      "crawledAt": "2026-10-03T09:26:10.139Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1390,7 +1386,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:20:47.073Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1436,7 +1431,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/hauptverantwortliche-r-berufsbildung-pflege-vbb/9e39762b-159e-4157-95e3-f70c25c8d30b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.514Z",
+      "crawledAt": "2026-10-03T09:26:10.138Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1517,7 +1512,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachperson-fuer-kardiale-sonographie-cardiac-sonographer/e31d0253-ee0c-4920-8db7-0672dc05f711",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.513Z",
+      "crawledAt": "2026-10-03T09:26:10.137Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1599,7 +1594,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-radioonkologie/20fcc673-eb38-4650-acff-8106ad6f415f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.512Z",
+      "crawledAt": "2026-10-03T09:26:10.135Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1681,7 +1676,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizinische-r-praxisassistent-in-oder-fachangestellte-r-gesundheit-medizinische-poliklinik/0c94a8da-3b86-43e2-a1b7-2417e4599520",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.512Z",
+      "crawledAt": "2026-10-03T09:26:10.136Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1762,7 +1757,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-haematologie-claraspital/aa5157e8-21ab-4c65-8a85-94ba1c243bb9",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.511Z",
+      "crawledAt": "2026-10-03T09:26:10.134Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1796,7 +1791,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:09:51.132Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1842,7 +1836,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/hebamme-geburtsabteilung/052a2e4f-be5f-454b-bc5e-65964eeeafb6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.510Z",
+      "crawledAt": "2026-10-03T09:26:10.133Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1949,7 +1943,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-innere-medizin/0d996b2d-75c2-4a40-9c03-1f62e303536d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.509Z",
+      "crawledAt": "2026-10-03T09:26:10.132Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2022,7 +2016,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-angiologie/3990387e-4204-43bc-a2c9-778247db2fee",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.508Z",
+      "crawledAt": "2026-10-03T09:26:10.131Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2101,7 +2095,7 @@
       "title": "Medizinproduktetechnologin / Medizinproduktetechnologe",
       "titleByLocale": {
         "it": "Tecnologo del dispositivo medico / Tecnologo del dispositivo medico",
-        "en": "Medizinproduktetechnologin / Medizinproduktetechnologe",
+        "en": "Medical device technologist / Medical device technologist",
         "de": "Medizinproduktetechnologin / Medizinproduktetechnologe",
         "fr": "Technologue des instruments médicaux / Technologue des instruments médicaux"
       },
@@ -2117,7 +2111,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizinproduktetechnologin-medizinproduktetechnologe/ee5e240a-c369-4d38-a919-ac5b143f87b8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.507Z",
+      "crawledAt": "2026-10-03T09:26:10.130Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2152,7 +2146,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2198,7 +2191,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/mitarbeiter-in-medizin-betriebstechnik/54cb4c80-1346-4f3c-bdc5-d33e05c61fe8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.505Z",
+      "crawledAt": "2026-10-03T09:26:10.129Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2272,7 +2265,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-mpa-hno/edf679a1-f9e6-4e58-b649-da9963dd6e5e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.504Z",
+      "crawledAt": "2026-10-03T09:26:10.128Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2321,7 +2314,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:54:29.199Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2334,7 +2326,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-51f067e8f34b",
@@ -2367,7 +2360,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/study-nurse-coordinator/81ac2962-2ba5-4080-8e1e-bf6186e627ad",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.503Z",
+      "crawledAt": "2026-10-03T09:26:10.126Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2459,7 +2452,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/chefapothekerin-chefapotheker/6c6dfcf9-d207-4b3c-a59b-b51570d99e9b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.502Z",
+      "crawledAt": "2026-10-03T09:26:10.125Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2533,7 +2526,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-pflegeassistent-in-medizin-6-2/95c3fea4-66f5-44d4-9fd2-7e8761339147",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.500Z",
+      "crawledAt": "2026-10-03T09:26:10.124Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2624,7 +2617,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/praktikant-in-klinikadministration/1ae11de5-88da-448c-a5c9-4c5ae1929e12",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.499Z",
+      "crawledAt": "2026-10-03T09:26:10.123Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2698,7 +2691,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/hebamme-oder-study-nurse-klinische-forschung/7bf89440-0df1-4983-8f0d-62c6171f168d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.498Z",
+      "crawledAt": "2026-10-03T09:26:10.122Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2777,7 +2770,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/betreuungsassistenz-kita/7b6f2a30-468a-4d37-bbc2-892465bdb6cf",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.498Z",
+      "crawledAt": "2026-10-03T09:26:10.123Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2851,7 +2844,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-haematologie/65a6f54d-24c6-4800-b809-095af66d8da8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.497Z",
+      "crawledAt": "2026-10-03T09:26:10.121Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2931,7 +2924,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-dermatopathologie/02d966f9-1bc8-4158-9f2e-bb547a3bf718",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.497Z",
+      "crawledAt": "2026-10-03T09:26:10.122Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3060,7 +3053,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-psychosomatik/1de6dc1d-84b5-432c-b446-8c4a8e2ee507",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.496Z",
+      "crawledAt": "2026-10-03T09:26:10.120Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3144,7 +3137,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/strategische-r-einkaeufer-in-non-medical-mit-portfolioverantwortung/919147b5-80c5-451c-a43f-3564323f0472",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.495Z",
+      "crawledAt": "2026-10-03T09:26:10.120Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3204,7 +3197,7 @@
       "title": "GCP/GMP-Expertin/Experte (Translationale Regulatorik)",
       "titleByLocale": {
         "it": "GCP/GMP-Expert (regolazione relazionale)",
-        "en": "GCP/GMP-Expertin/Experte (Translationale Regulatorik)",
+        "en": "GCP/GMP-Expert (Translational Regulatory)",
         "de": "GCP/GMP-Expertin/Experte (Translationale Regulatorik)",
         "fr": "GCP/GMP-Expert (réglementation de la traduction)"
       },
@@ -3220,7 +3213,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/gcp-gmp-expertin-experte-translationale-regulatorik/5eb52ad1-708a-40b6-9a01-69086df0048b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.494Z",
+      "crawledAt": "2026-10-03T09:26:10.119Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3297,7 +3290,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/stv-stationsleitung-endoskopie-standort-claraspital-usb/075b3941-59fd-456e-94bf-71ee8b782f98",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.494Z",
+      "crawledAt": "2026-10-03T09:26:10.119Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3378,7 +3371,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-erfahrung-als-berufsbildner-in-lungenstation/52d00394-dfda-49c3-bed0-c2bad6e758df",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.493Z",
+      "crawledAt": "2026-10-03T09:26:10.118Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3463,7 +3456,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-lungenstation/6d815006-f27c-472e-aef4-414069c67659",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.492Z",
+      "crawledAt": "2026-10-03T09:26:10.117Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3541,7 +3534,7 @@
       "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH (Lungenstation)",
       "titleByLocale": {
         "it": "Dipl. Specialista infermieristico HF/FH",
-        "en": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH (Lungenstation)",
+        "en": "Dipl. Nursing specialist HF/FH (pulmonary ward)",
         "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH (Lungenstation)",
         "fr": "Dipl. Spécialiste des soins infirmiers (HF/FH)"
       },
@@ -3557,7 +3550,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation/22b809fb-7364-4b89-9b52-d3cb5be42b15",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.492Z",
+      "crawledAt": "2026-10-03T09:26:10.117Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3637,7 +3630,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/administrative-standortleitung-ortho-trauma-standort-bethesda-spital/66710453-e97d-4fca-a938-ca60d019d6bc",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.491Z",
+      "crawledAt": "2026-10-03T09:26:10.115Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3711,7 +3704,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/teamleiterin-teamleiter-pflege-medizinische-poliklinik/8098d386-ccef-417b-8139-0baf5b63c556",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.491Z",
+      "crawledAt": "2026-10-03T09:26:10.116Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3777,7 +3770,7 @@
       "title": "Pflegeexpertin/Pflegeexperte (Palliative Care)",
       "titleByLocale": {
         "it": "Esperto di cura (Palliative Care)",
-        "en": "Pflegeexpertin/Pflegeexperte (Palliative Care)",
+        "en": "Care expert (Palliative Care)",
         "de": "Pflegeexpertin/Pflegeexperte (Palliative Care)",
         "fr": "Expert en soins palliatifs"
       },
@@ -3793,7 +3786,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/pflegeexpertin-pflegeexperte-palliative-care/192d6af2-3e11-4ce7-8ac8-0e10f1aed1fa",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.490Z",
+      "crawledAt": "2026-10-03T09:26:10.115Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3870,7 +3863,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-hr-time-management/bcdd1041-1049-43a9-b338-dfaef2245c32",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.488Z",
+      "crawledAt": "2026-10-03T09:26:10.114Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3965,7 +3958,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/mitarbeiter-in-klinische-forschung-monitoring-projektmanagement/d9b851a7-b28c-4077-a2a8-57f76140e410",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.487Z",
+      "crawledAt": "2026-10-03T09:26:10.114Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4050,7 +4043,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/psychologin-psychologe-psychosomatik/8d9f82c4-a8d4-4195-959d-1af6c6726cd4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.486Z",
+      "crawledAt": "2026-10-03T09:26:10.113Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4122,7 +4115,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium/fc081427-4407-4854-974b-800ac059ca03",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.485Z",
+      "crawledAt": "2026-10-03T09:26:10.112Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4209,7 +4202,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachperson-betriebsunterhalt-efz-lehrstelle/1efe7d20-d080-4d16-a723-2fdbdea39ca4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.484Z",
+      "crawledAt": "2026-10-03T09:26:10.112Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4283,7 +4276,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/chemiker-in-oder-pharmazeut-in/48a1ffc5-dc46-4c8e-8431-24b4a64d41ff",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.483Z",
+      "crawledAt": "2026-10-03T09:26:10.111Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4363,7 +4356,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/forschungspraktikantin-forschungspraktikant-psychosomatik/12cdd06b-72ab-433e-86fb-9bc99e03021c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.482Z",
+      "crawledAt": "2026-10-03T09:26:10.110Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4407,83 +4400,6 @@
       }
     },
     {
-      "id": "unispital-basel-2c36392c4df1",
-      "slug": "servizi-di-assistenza-alle-imprese-universitatsspital-basel-basel",
-      "slugByLocale": {
-        "it": "servizi-di-assistenza-alle-imprese-universitatsspital-basel-basel",
-        "en": "business-support-facility-services-universitatsspital-basel-basel",
-        "de": "business-support-facility-services-unispital-basel-ch",
-        "fr": "services-aux-entreprises-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Business Support Facility Services",
-      "titleByLocale": {
-        "it": "Servizi di assistenza alle imprese",
-        "en": "Business Support Facility Services",
-        "de": "Business Support Facility Services",
-        "fr": "Services aux entreprises"
-      },
-      "description": "Dein Weg ins #TeamUSB\n\n## FSE - Facility Services FSEL - Leitung Facility Services\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.01.2027\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Aktive Begleitung und Steuerung bereichsübergreifender Projekte, Transformationsvorhaben und Entwicklungsthemen innerhalb von Facility Services\n• Analyse und Optimierung von Prozessen, Rollen, Schnittstellen und Organisationsstrukturen mit Fokus auf Facility Management, Hauswirtschaft und Spitalbetrieb\n• Aufbau und Weiterentwicklung von Kennzahlen, Reportings und Steuerungsinformationen zur transparenten Ressourcen- und Leistungssteuerung\n• Erarbeitung von Entscheidungsgrundlagen, Business Cases und betriebswirtschaftlichen Analysen für die Leitung Facility Services und die Unterabteilungsleitungen\n• Förderung digitaler Arbeitsweisen durch den gezielten Einsatz von Microsoft 365, digitalen Tools und KI-gestützten Anwendungen im Führungs- und Arbeitsalltag\n\n## Das bringen Sie mit\n• Höhere Ausbildung oder Weiterbildung im Bereich Facility Management, Hauswirtschaft, Hotellerie oder in einer vergleichbaren Fachrichtung\n• Mehrjährige Erfahrung im Spitalumfeld, in Facility Services, Hauswirtschaft, Hotellerie oder einer vergleichbaren serviceorientierten Betriebsorganisation\n• Erfahrung in Projektarbeit, Prozessoptimierung, Organisationsentwicklung oder bereichsübergreifender Koordination\n• Gutes Verständnis für betriebliche Abläufe, Ressourcenplanung, Kennzahlen, Reportings und betriebswirtschaftliche Entscheidungsgrundlagen\n• Strukturierte, selbständige und verbindliche Persönlichkeit mit analytischem Denken, Umsetzungsstärke und Freude an Veränderung und Zusammenarbeit\n\n## Benefits dieser Stelle\n• Neu geschaffene Schlüsselrolle bei der Weiterentwicklung von Facility Services am Universitätsspital Basel\n• Hoher Gestaltungsspielraum und direkte Zusammenarbeit mit der Leitung Facility Services\n• Vielfältige Themen an der Schnittstelle von Facility Management, Hauswirtschaft, Prozessen, Digitalisierung und Betriebswirtschaft\n• Möglichkeit, konkrete Verbesserungen im Spitalbetrieb sichtbar und wirksam umzusetzen\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nFSE - Facility Services, FSEL - Leitung Facility Services\nDas können Sie bewegen\nDas bringen Sie mit",
-      "descriptionByLocale": {
-        "it": "Dein Weg ins #TeamUSB\n\n## FSE - Facility Services FSEL - Leitung Facility Services\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.01.2027\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Aktive Begleitung und Steuerung bereichsübergreifender Projekte, Transformationsvorhaben und Entwicklungsthemen innerhalb von Facility Services\n• Analyse und Optimierung von Prozessen, Rollen, Schnittstellen und Organisationsstrukturen mit Fokus auf Facility Management, Hauswirtschaft und Spitalbetrieb\n• Aufbau und Weiterentwicklung von Kennzahlen, Reportings und Steuerungsinformationen zur transparenten Ressourcen- und Leistungssteuerung\n• Erarbeitung von Entscheidungsgrundlagen, Business Cases und betriebswirtschaftlichen Analysen für die Leitung Facility Services und die Unterabteilungsleitungen\n• Förderung digitaler Arbeitsweisen durch den gezielten Einsatz von Microsoft 365, digitalen Tools und KI-gestützten Anwendungen im Führungs- und Arbeitsalltag\n\n## Das bringen Sie mit\n• Höhere Ausbildung oder Weiterbildung im Bereich Facility Management, Hauswirtschaft, Hotellerie oder in einer vergleichbaren Fachrichtung\n• Mehrjährige Erfahrung im Spitalumfeld, in Facility Services, Hauswirtschaft, Hotellerie oder einer vergleichbaren serviceorientierten Betriebsorganisation\n• Erfahrung in Projektarbeit, Prozessoptimierung, Organisationsentwicklung oder bereichsübergreifender Koordination\n• Gutes Verständnis für betriebliche Abläufe, Ressourcenplanung, Kennzahlen, Reportings und betriebswirtschaftliche Entscheidungsgrundlagen\n• Strukturierte, selbständige und verbindliche Persönlichkeit mit analytischem Denken, Umsetzungsstärke und Freude an Veränderung und Zusammenarbeit\n\n## Benefits dieser Stelle\n• Neu geschaffene Schlüsselrolle bei der Weiterentwicklung von Facility Services am Universitätsspital Basel\n• Hoher Gestaltungsspielraum und direkte Zusammenarbeit mit der Leitung Facility Services\n• Vielfältige Themen an der Schnittstelle von Facility Management, Hauswirtschaft, Prozessen, Digitalisierung und Betriebswirtschaft\n• Möglichkeit, konkrete Verbesserungen im Spitalbetrieb sichtbar und wirksam umzusetzen\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nFSE - Facility Services, FSEL - Leitung Facility Services\nDas können Sie bewegen\nDas bringen Sie mit",
-        "en": "Dein Weg ins #TeamUSB\n\n## FSE - Facility Services FSEL - Leitung Facility Services\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.01.2027\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Aktive Begleitung und Steuerung bereichsübergreifender Projekte, Transformationsvorhaben und Entwicklungsthemen innerhalb von Facility Services\n• Analyse und Optimierung von Prozessen, Rollen, Schnittstellen und Organisationsstrukturen mit Fokus auf Facility Management, Hauswirtschaft und Spitalbetrieb\n• Aufbau und Weiterentwicklung von Kennzahlen, Reportings und Steuerungsinformationen zur transparenten Ressourcen- und Leistungssteuerung\n• Erarbeitung von Entscheidungsgrundlagen, Business Cases und betriebswirtschaftlichen Analysen für die Leitung Facility Services und die Unterabteilungsleitungen\n• Förderung digitaler Arbeitsweisen durch den gezielten Einsatz von Microsoft 365, digitalen Tools und KI-gestützten Anwendungen im Führungs- und Arbeitsalltag\n\n## Das bringen Sie mit\n• Höhere Ausbildung oder Weiterbildung im Bereich Facility Management, Hauswirtschaft, Hotellerie oder in einer vergleichbaren Fachrichtung\n• Mehrjährige Erfahrung im Spitalumfeld, in Facility Services, Hauswirtschaft, Hotellerie oder einer vergleichbaren serviceorientierten Betriebsorganisation\n• Erfahrung in Projektarbeit, Prozessoptimierung, Organisationsentwicklung oder bereichsübergreifender Koordination\n• Gutes Verständnis für betriebliche Abläufe, Ressourcenplanung, Kennzahlen, Reportings und betriebswirtschaftliche Entscheidungsgrundlagen\n• Strukturierte, selbständige und verbindliche Persönlichkeit mit analytischem Denken, Umsetzungsstärke und Freude an Veränderung und Zusammenarbeit\n\n## Benefits dieser Stelle\n• Neu geschaffene Schlüsselrolle bei der Weiterentwicklung von Facility Services am Universitätsspital Basel\n• Hoher Gestaltungsspielraum und direkte Zusammenarbeit mit der Leitung Facility Services\n• Vielfältige Themen an der Schnittstelle von Facility Management, Hauswirtschaft, Prozessen, Digitalisierung und Betriebswirtschaft\n• Möglichkeit, konkrete Verbesserungen im Spitalbetrieb sichtbar und wirksam umzusetzen\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nFSE - Facility Services, FSEL - Leitung Facility Services\nDas können Sie bewegen\nDas bringen Sie mit",
-        "de": "Dein Weg ins #TeamUSB\n\n## FSE - Facility Services FSEL - Leitung Facility Services\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.01.2027\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Aktive Begleitung und Steuerung bereichsübergreifender Projekte, Transformationsvorhaben und Entwicklungsthemen innerhalb von Facility Services\n• Analyse und Optimierung von Prozessen, Rollen, Schnittstellen und Organisationsstrukturen mit Fokus auf Facility Management, Hauswirtschaft und Spitalbetrieb\n• Aufbau und Weiterentwicklung von Kennzahlen, Reportings und Steuerungsinformationen zur transparenten Ressourcen- und Leistungssteuerung\n• Erarbeitung von Entscheidungsgrundlagen, Business Cases und betriebswirtschaftlichen Analysen für die Leitung Facility Services und die Unterabteilungsleitungen\n• Förderung digitaler Arbeitsweisen durch den gezielten Einsatz von Microsoft 365, digitalen Tools und KI-gestützten Anwendungen im Führungs- und Arbeitsalltag\n\n## Das bringen Sie mit\n• Höhere Ausbildung oder Weiterbildung im Bereich Facility Management, Hauswirtschaft, Hotellerie oder in einer vergleichbaren Fachrichtung\n• Mehrjährige Erfahrung im Spitalumfeld, in Facility Services, Hauswirtschaft, Hotellerie oder einer vergleichbaren serviceorientierten Betriebsorganisation\n• Erfahrung in Projektarbeit, Prozessoptimierung, Organisationsentwicklung oder bereichsübergreifender Koordination\n• Gutes Verständnis für betriebliche Abläufe, Ressourcenplanung, Kennzahlen, Reportings und betriebswirtschaftliche Entscheidungsgrundlagen\n• Strukturierte, selbständige und verbindliche Persönlichkeit mit analytischem Denken, Umsetzungsstärke und Freude an Veränderung und Zusammenarbeit\n\n## Benefits dieser Stelle\n• Neu geschaffene Schlüsselrolle bei der Weiterentwicklung von Facility Services am Universitätsspital Basel\n• Hoher Gestaltungsspielraum und direkte Zusammenarbeit mit der Leitung Facility Services\n• Vielfältige Themen an der Schnittstelle von Facility Management, Hauswirtschaft, Prozessen, Digitalisierung und Betriebswirtschaft\n• Möglichkeit, konkrete Verbesserungen im Spitalbetrieb sichtbar und wirksam umzusetzen\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nFSE - Facility Services, FSEL - Leitung Facility Services\nDas können Sie bewegen\nDas bringen Sie mit",
-        "fr": "Dein Weg ins #TeamUSB\n\n## FSE - Facility Services FSEL - Leitung Facility Services\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.01.2027\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Aktive Begleitung und Steuerung bereichsübergreifender Projekte, Transformationsvorhaben und Entwicklungsthemen innerhalb von Facility Services\n• Analyse und Optimierung von Prozessen, Rollen, Schnittstellen und Organisationsstrukturen mit Fokus auf Facility Management, Hauswirtschaft und Spitalbetrieb\n• Aufbau und Weiterentwicklung von Kennzahlen, Reportings und Steuerungsinformationen zur transparenten Ressourcen- und Leistungssteuerung\n• Erarbeitung von Entscheidungsgrundlagen, Business Cases und betriebswirtschaftlichen Analysen für die Leitung Facility Services und die Unterabteilungsleitungen\n• Förderung digitaler Arbeitsweisen durch den gezielten Einsatz von Microsoft 365, digitalen Tools und KI-gestützten Anwendungen im Führungs- und Arbeitsalltag\n\n## Das bringen Sie mit\n• Höhere Ausbildung oder Weiterbildung im Bereich Facility Management, Hauswirtschaft, Hotellerie oder in einer vergleichbaren Fachrichtung\n• Mehrjährige Erfahrung im Spitalumfeld, in Facility Services, Hauswirtschaft, Hotellerie oder einer vergleichbaren serviceorientierten Betriebsorganisation\n• Erfahrung in Projektarbeit, Prozessoptimierung, Organisationsentwicklung oder bereichsübergreifender Koordination\n• Gutes Verständnis für betriebliche Abläufe, Ressourcenplanung, Kennzahlen, Reportings und betriebswirtschaftliche Entscheidungsgrundlagen\n• Strukturierte, selbständige und verbindliche Persönlichkeit mit analytischem Denken, Umsetzungsstärke und Freude an Veränderung und Zusammenarbeit\n\n## Benefits dieser Stelle\n• Neu geschaffene Schlüsselrolle bei der Weiterentwicklung von Facility Services am Universitätsspital Basel\n• Hoher Gestaltungsspielraum und direkte Zusammenarbeit mit der Leitung Facility Services\n• Vielfältige Themen an der Schnittstelle von Facility Management, Hauswirtschaft, Prozessen, Digitalisierung und Betriebswirtschaft\n• Möglichkeit, konkrete Verbesserungen im Spitalbetrieb sichtbar und wirksam umzusetzen\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nFSE - Facility Services, FSEL - Leitung Facility Services\nDas können Sie bewegen\nDas bringen Sie mit"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/business-support-facility-services/fa75e5cb-b582-48cf-92ea-c9cf4c390afc",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.481Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27802",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-support-facility-services-unispital-basel-ch",
-        "servizi-di-assistenza-alle-imprese-universitatsspital-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-support-facility-services-unispital-basel-ch",
-          "servizi-di-assistenza-alle-imprese-universitatsspital-basel-basel"
-        ],
-        "fr": [
-          "business-support-facility-services-unispital-basel-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T07:20:53.603Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "unispital-basel-c4d8f55a082d",
       "slug": "le-ostetriche-senior-universitatsspital-basel-basel",
       "slugByLocale": {
@@ -4514,7 +4430,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/leitende-hebamme/f48227d6-be2a-460d-ba04-50d7e82fb608",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.480Z",
+      "crawledAt": "2026-10-03T09:26:10.109Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4619,7 +4535,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-zusatzfunktion-berufsbildnerin-berufsbildner-1/a6f85182-e8c1-49ad-8f8c-d06c4229b16f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.480Z",
+      "crawledAt": "2026-10-03T09:26:10.110Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4699,7 +4615,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/md-phd-stelle-schnittstelle-zwischen-klinischer-und-experimenteller-neurologie/ebb17a12-c3ec-459f-b7d0-475bcf472e34",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.479Z",
+      "crawledAt": "2026-10-03T09:26:10.108Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4799,7 +4715,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dentalassistent-in-ambulatorium-chirurgie/7c15ffe8-cdd6-4fc3-99f1-23ed9f7ba526",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.478Z",
+      "crawledAt": "2026-10-03T09:26:10.108Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4885,7 +4801,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/kuechenangestellte-r-eba-lehrstelle/38706b5f-f7e3-42c6-8cad-2b2455a71258",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.477Z",
+      "crawledAt": "2026-10-03T09:26:10.106Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4974,7 +4890,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-efz-lehrstelle/f6746dfd-b2e7-477a-aa0a-cbc9fa7cd3a3",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.477Z",
+      "crawledAt": "2026-10-03T09:26:10.107Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5056,7 +4972,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/kauffrau-kaufmann-eba-lehrstelle/02d57d46-12c3-424f-9f7a-730329da716f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.476Z",
+      "crawledAt": "2026-10-03T09:26:10.105Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5143,7 +5059,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/logistikerin-logistiker-efz-intralogistik-lehrstelle/20e271f4-7438-4d22-9d81-951610ed8d84",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.476Z",
+      "crawledAt": "2026-10-03T09:26:10.106Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5230,7 +5146,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/informatikerin-informatiker-plattformentwicklung-lehrstelle/572ea5eb-249a-474e-9424-1140ac526af0",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.475Z",
+      "crawledAt": "2026-10-03T09:26:10.105Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5322,7 +5238,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/koechin-koch-efz-lehrstelle/ce994bcb-4576-4251-8b80-bfcbe1cc3123",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.474Z",
+      "crawledAt": "2026-10-03T09:26:10.104Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5409,7 +5325,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/praktikantin-praktikant-wms-servicecenter-med-dokumentation/f80e2891-7c25-4dca-9a37-ecff86361ed1",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.473Z",
+      "crawledAt": "2026-10-03T09:26:10.103Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5504,7 +5420,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/systemgastronomie-fachmann-fachfrau-efz-lehrstelle/941abff4-1c11-4751-a098-35497ea9a1c0",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.473Z",
+      "crawledAt": "2026-10-03T09:26:10.103Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5595,7 +5511,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/systemgastronomiepraktiker-in-eba-lehrstelle/3ea51ab7-51ad-4e1d-9077-feb18ee97f17",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.472Z",
+      "crawledAt": "2026-10-03T09:26:10.102Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5684,7 +5600,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-lehrstelle/db57f3e1-a54e-4c72-8096-e6f7da7ffe3c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.471Z",
+      "crawledAt": "2026-10-03T09:26:10.101Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5800,7 +5716,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/praktikantin-praktikant-wms-time-management/d51976e4-1b4a-4bef-8d81-524b5ab2663d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.471Z",
+      "crawledAt": "2026-10-03T09:26:10.101Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5895,7 +5811,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/logistikerin-logistiker-efz-fachrichtung-lagertechnik-lagerlogistik-lehrstelle/4a7f6b99-50ae-45e5-8fb9-b1127d55702f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.470Z",
+      "crawledAt": "2026-10-03T09:26:10.100Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5984,7 +5900,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-radioonkologie/19e53917-45fa-4b9b-a4d4-9bf26e6882ac",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.469Z",
+      "crawledAt": "2026-10-03T09:26:10.099Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6070,7 +5986,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/logistiker-in-efz-fachrichtung-lagertechnik-stationslogistik-lehrstelle/b0a366cb-e167-4936-87f6-8da4ea0c3ea2",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.469Z",
+      "crawledAt": "2026-10-03T09:26:10.099Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6159,7 +6075,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/arztsekretaer-in-medizinische-r-praxisassistent-in-onkologie/be0ec025-a2ec-4828-9434-2ff1bf214429",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.468Z",
+      "crawledAt": "2026-10-03T09:26:10.098Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6245,7 +6161,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-fh-strahlentherapie-und-radioonkologie/cf1359b5-8da9-41ae-ae72-598fb0e0aade",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.467Z",
+      "crawledAt": "2026-10-03T09:26:10.097Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6342,7 +6258,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/md-phd-position-interface-of-clinical-and-experimental-neurology/5ea033a4-d02c-4217-a337-641323f4a119",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:22:52.467Z",
+      "crawledAt": "2026-10-03T09:26:10.098Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6431,7 +6347,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/forschungskoordinatorin-forschungskoordinator-radioonkologie/360a7bfb-da80-458f-974a-8e126ea9c868",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.466Z",
+      "crawledAt": "2026-10-03T09:26:10.094Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6513,7 +6429,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/teamleiterin-teamleiter-op-technik/aea49850-06db-46e3-ab0e-728708debf44",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.465Z",
+      "crawledAt": "2026-10-03T09:26:10.093Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6593,7 +6509,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/teamleiterin-teamleiter-op-technik/e78cf8a9-087d-42aa-a167-c20327d3cd9f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.463Z",
+      "crawledAt": "2026-10-03T09:26:10.092Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6670,7 +6586,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-gefaesschirurgie-zmsi-urologie/580a59f9-995e-490e-b74d-a54fdd25f52a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.462Z",
+      "crawledAt": "2026-10-03T09:26:10.092Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6752,7 +6668,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/nachdiplomstudium-nds-anaesthesiepflege/fc4e15eb-8e5e-49a0-bead-8dd1db251e9c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.461Z",
+      "crawledAt": "2026-10-03T09:26:10.091Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6857,7 +6773,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/biomedizinische-r-analytiker-in-hf/e0c09d4e-e89f-4c3f-99df-9965d28d5437",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.461Z",
+      "crawledAt": "2026-10-03T09:26:10.091Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6939,7 +6855,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation/2bb77e62-329e-4d1b-9559-b94906f1659f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.460Z",
+      "crawledAt": "2026-10-03T09:26:10.090Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7025,7 +6941,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/kinderbetreuerin-kinderbetreuer/23ba2421-0c16-4176-9137-b4d990d8c469",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.459Z",
+      "crawledAt": "2026-10-03T09:26:10.089Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7107,7 +7023,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-expertin-experte-nds-hf-ip-intensivstation/6709f69f-34aa-4fed-9335-084fc931fa19",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.459Z",
+      "crawledAt": "2026-10-03T09:26:10.089Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7218,7 +7134,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-notfallmedizin/9aa23b37-7309-41ab-97d9-01a6a01bb03a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.458Z",
+      "crawledAt": "2026-10-03T09:26:10.088Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7321,7 +7237,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/nachdiplomstudium-nds-intensivpflege/a36c6431-143c-4c49-962b-f0ec3cec7e3b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.457Z",
+      "crawledAt": "2026-10-03T09:26:10.086Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7408,7 +7324,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-pflegeassistent-in-onkologisch-chirurgische-station/905bd501-b361-44d5-b09e-a1ec12b994e4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.457Z",
+      "crawledAt": "2026-10-03T09:26:10.087Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7496,7 +7412,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit/c8b697ab-0e92-4a0c-998f-776c74fcfd69",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.456Z",
+      "crawledAt": "2026-10-03T09:26:10.085Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7587,7 +7503,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-experte-expertin-nds-anaesthesiepflege/b82b16de-fae8-4405-b3fb-55260af50e50",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.455Z",
+      "crawledAt": "2026-10-03T09:26:10.083Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7670,7 +7586,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-mpa-anaesthesiologie/5d6867a6-850b-4f24-9a88-3735629c4aa6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.455Z",
+      "crawledAt": "2026-10-03T09:26:10.084Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7746,11 +7662,11 @@
         "de": "Fachfrau / -mann Gesundheit (FaGe) Anästhesiepflege & Aufwachraum",
         "fr": "Santé professionnelle (FaGe) Soins d'anesthésie et salle de récupération"
       },
-      "description": "Dein Weg ins #TeamUSB\n\n## Anästhesiologie\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.10.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie bereiten Patient*innen präoperativ vor und betreuen sie im Rahmen des USB-Delegationskonzepts\n• Sie stellen die Verfügbarkeit von Verbrauchsmaterialien und Medikamenten sicher und übernehmen deren Bewirtschaftung und Bestellung\n• Sie führen Reinigungs- und Desinfektionsarbeiten fachgerecht gemäss den geltenden Hygieneplänen durch\n• Sie bereiten Anästhesiebeistellwagen und medizinische Geräte fachgerecht auf und sorgen für deren Einsatzbereitschaft\n• Sie gewährleisten die fachgerechte Ver- und Entsorgung wiederverwendbarer Materialien und Sterilisationsartikel und arbeiten dabei aktiv mit verschiedenen Berufsgruppen zusammen\n\n## Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n• Sie bringen Berufserfahrung im Spitalbereich mit\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie behalten auch in einem dynamischen Arbeitsumfeld den Überblick und setzen Prioritäten sicher\n• Sie sind flexibel, arbeiten gerne im Team und unterstützen Ihre Kolleg*innen zuverlässig\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAnästhesiologie\nDas können Sie bewegen",
+      "description": "Dein Weg ins #TeamUSB\n\n## Anästhesiologie\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.11.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie bereiten Patient*innen präoperativ vor und betreuen sie im Rahmen des USB-Delegationskonzepts\n• Sie stellen die Verfügbarkeit von Verbrauchsmaterialien und Medikamenten sicher und übernehmen deren Bewirtschaftung und Bestellung\n• Sie führen Reinigungs- und Desinfektionsarbeiten fachgerecht gemäss den geltenden Hygieneplänen durch\n• Sie bereiten Anästhesiebeistellwagen und medizinische Geräte fachgerecht auf und sorgen für deren Einsatzbereitschaft\n• Sie gewährleisten die fachgerechte Ver- und Entsorgung wiederverwendbarer Materialien und Sterilisationsartikel und arbeiten dabei aktiv mit verschiedenen Berufsgruppen zusammen\n\n## Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n• Sie bringen Berufserfahrung im Spitalbereich mit\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie behalten auch in einem dynamischen Arbeitsumfeld den Überblick und setzen Prioritäten sicher\n• Sie sind flexibel, arbeiten gerne im Team und unterstützen Ihre Kolleg*innen zuverlässig\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAnästhesiologie\nDas können Sie bewegen",
       "descriptionByLocale": {
         "it": "Dein Weg ins #TeamUSB\n\n## Anästhesiologie\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.10.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie bereiten Patient*innen präoperativ vor und betreuen sie im Rahmen des USB-Delegationskonzepts\n• Sie stellen die Verfügbarkeit von Verbrauchsmaterialien und Medikamenten sicher und übernehmen deren Bewirtschaftung und Bestellung\n• Sie führen Reinigungs- und Desinfektionsarbeiten fachgerecht gemäss den geltenden Hygieneplänen durch\n• Sie bereiten Anästhesiebeistellwagen und medizinische Geräte fachgerecht auf und sorgen für deren Einsatzbereitschaft\n• Sie gewährleisten die fachgerechte Ver- und Entsorgung wiederverwendbarer Materialien und Sterilisationsartikel und arbeiten dabei aktiv mit verschiedenen Berufsgruppen zusammen\n\n## Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n• Sie bringen Berufserfahrung im Spitalbereich mit\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie behalten auch in einem dynamischen Arbeitsumfeld den Überblick und setzen Prioritäten sicher\n• Sie sind flexibel, arbeiten gerne im Team und unterstützen Ihre Kolleg*innen zuverlässig\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAnästhesiologie\nDas können Sie bewegen",
         "en": "Dein Weg ins #TeamUSB\n\n## Anästhesiologie\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.10.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie bereiten Patient*innen präoperativ vor und betreuen sie im Rahmen des USB-Delegationskonzepts\n• Sie stellen die Verfügbarkeit von Verbrauchsmaterialien und Medikamenten sicher und übernehmen deren Bewirtschaftung und Bestellung\n• Sie führen Reinigungs- und Desinfektionsarbeiten fachgerecht gemäss den geltenden Hygieneplänen durch\n• Sie bereiten Anästhesiebeistellwagen und medizinische Geräte fachgerecht auf und sorgen für deren Einsatzbereitschaft\n• Sie gewährleisten die fachgerechte Ver- und Entsorgung wiederverwendbarer Materialien und Sterilisationsartikel und arbeiten dabei aktiv mit verschiedenen Berufsgruppen zusammen\n\n## Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n• Sie bringen Berufserfahrung im Spitalbereich mit\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie behalten auch in einem dynamischen Arbeitsumfeld den Überblick und setzen Prioritäten sicher\n• Sie sind flexibel, arbeiten gerne im Team und unterstützen Ihre Kolleg*innen zuverlässig\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAnästhesiologie\nDas können Sie bewegen",
-        "de": "Dein Weg ins #TeamUSB\n\n## Anästhesiologie\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.10.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie bereiten Patient*innen präoperativ vor und betreuen sie im Rahmen des USB-Delegationskonzepts\n• Sie stellen die Verfügbarkeit von Verbrauchsmaterialien und Medikamenten sicher und übernehmen deren Bewirtschaftung und Bestellung\n• Sie führen Reinigungs- und Desinfektionsarbeiten fachgerecht gemäss den geltenden Hygieneplänen durch\n• Sie bereiten Anästhesiebeistellwagen und medizinische Geräte fachgerecht auf und sorgen für deren Einsatzbereitschaft\n• Sie gewährleisten die fachgerechte Ver- und Entsorgung wiederverwendbarer Materialien und Sterilisationsartikel und arbeiten dabei aktiv mit verschiedenen Berufsgruppen zusammen\n\n## Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n• Sie bringen Berufserfahrung im Spitalbereich mit\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie behalten auch in einem dynamischen Arbeitsumfeld den Überblick und setzen Prioritäten sicher\n• Sie sind flexibel, arbeiten gerne im Team und unterstützen Ihre Kolleg*innen zuverlässig\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAnästhesiologie\nDas können Sie bewegen",
+        "de": "Dein Weg ins #TeamUSB\n\n## Anästhesiologie\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.11.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie bereiten Patient*innen präoperativ vor und betreuen sie im Rahmen des USB-Delegationskonzepts\n• Sie stellen die Verfügbarkeit von Verbrauchsmaterialien und Medikamenten sicher und übernehmen deren Bewirtschaftung und Bestellung\n• Sie führen Reinigungs- und Desinfektionsarbeiten fachgerecht gemäss den geltenden Hygieneplänen durch\n• Sie bereiten Anästhesiebeistellwagen und medizinische Geräte fachgerecht auf und sorgen für deren Einsatzbereitschaft\n• Sie gewährleisten die fachgerechte Ver- und Entsorgung wiederverwendbarer Materialien und Sterilisationsartikel und arbeiten dabei aktiv mit verschiedenen Berufsgruppen zusammen\n\n## Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n• Sie bringen Berufserfahrung im Spitalbereich mit\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie behalten auch in einem dynamischen Arbeitsumfeld den Überblick und setzen Prioritäten sicher\n• Sie sind flexibel, arbeiten gerne im Team und unterstützen Ihre Kolleg*innen zuverlässig\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAnästhesiologie\nDas können Sie bewegen",
         "fr": "Dein Weg ins #TeamUSB\n\n## Anästhesiologie\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.10.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie bereiten Patient*innen präoperativ vor und betreuen sie im Rahmen des USB-Delegationskonzepts\n• Sie stellen die Verfügbarkeit von Verbrauchsmaterialien und Medikamenten sicher und übernehmen deren Bewirtschaftung und Bestellung\n• Sie führen Reinigungs- und Desinfektionsarbeiten fachgerecht gemäss den geltenden Hygieneplänen durch\n• Sie bereiten Anästhesiebeistellwagen und medizinische Geräte fachgerecht auf und sorgen für deren Einsatzbereitschaft\n• Sie gewährleisten die fachgerechte Ver- und Entsorgung wiederverwendbarer Materialien und Sterilisationsartikel und arbeiten dabei aktiv mit verschiedenen Berufsgruppen zusammen\n\n## Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe)\n• Sie bringen Berufserfahrung im Spitalbereich mit\n• Sie verfügen über sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie behalten auch in einem dynamischen Arbeitsumfeld den Überblick und setzen Prioritäten sicher\n• Sie sind flexibel, arbeiten gerne im Team und unterstützen Ihre Kolleg*innen zuverlässig\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAnästhesiologie\nDas können Sie bewegen"
       },
       "location": "Basel",
@@ -7758,7 +7674,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-mann-gesundheit-fage-anaesthesiepflege-aufwachraum/e179ef41-1498-42ba-bbf4-e50981ae034d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.454Z",
+      "crawledAt": "2026-10-03T09:26:10.083Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7828,7 +7744,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (IMC)",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (IMC)",
+        "it": "Dipl. Infermieristica professionale HF/FH (IMC)",
         "en": "Dipl. Nursing professional HF/FH (IMC)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (IMC)",
         "fr": "Dipl. Professionnels des soins infirmiers HF/FH (IMC)"
@@ -7845,7 +7761,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-imc/0204aedc-ef1c-4ae2-ae25-b5a5ead8ab98",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.453Z",
+      "crawledAt": "2026-10-03T09:26:10.081Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7951,7 +7867,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-fuer-gesundheit-und-soziales-ags-imc/65f10f90-1a4d-455b-ab72-8e7c15e7e384",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.453Z",
+      "crawledAt": "2026-10-03T09:26:10.082Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8020,7 +7936,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T06:56:59.075Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8066,7 +7981,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/duales-studium-dhbw-wirtschaftsinformatik-application-management/148bcd2a-f28b-4478-a784-08933b82dae9",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.452Z",
+      "crawledAt": "2026-10-03T09:26:10.081Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8145,7 +8060,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/biomedizinische-r-analytiker-in-hf/81181103-d872-4704-aefe-2d3ab4cd44aa",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.451Z",
+      "crawledAt": "2026-10-03T09:26:10.080Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8219,7 +8134,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/duales-studium-dhbw-bwl-gesundheitsmanagement/7c775fe8-f6ea-4ba4-9810-9c6ca630d517",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.451Z",
+      "crawledAt": "2026-10-03T09:26:10.080Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8298,7 +8213,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin/f8f9fe1e-632b-4d81-afc9-832e3c30df58",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.450Z",
+      "crawledAt": "2026-10-03T09:26:10.079Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8378,7 +8293,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-neurologische-poliklinik-mit-schwerpunkt-ms-ambulatorium/6a5fe847-8000-4a38-bb58-a08d200055b0",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.449Z",
+      "crawledAt": "2026-10-03T09:26:10.078Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8441,10 +8356,10 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Med. Praxisassistentin / Praxisassistent (MPA) Notfallzentrum",
       "titleByLocale": {
-        "it": "Med. Praxisassistentin / Praxisassistent (MPA) Notfallzentrum",
-        "en": "Med. Praxisassistentin / Praxisassistent (MPA) Notfallzentrum",
+        "it": "Med. Praxisassistentin / Praxisassistent (MPA) Centro di emergenza",
+        "en": "Med. Praxisassistentin / Praxisassistent (MPA) Emergency Center",
         "de": "Med. Praxisassistentin / Praxisassistent (MPA) Notfallzentrum",
-        "fr": "Med. Praxisassistentin / Praxisassistent (MPA) Notfallzentrum"
+        "fr": "Med. Praxisassistantin / Praxisassisant (MPA) Centre d'urgence"
       },
       "description": "Dein Weg ins #TeamUSB\n\n## Notfallzentrum\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.10.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Sie gestalten den Alltag im Notfallzentrum aktiv mit, sowohl administrativ als auch im direkten Patientenkontakt\n• Sie arbeiten selbstständig und fördern durch Ihre Unterstützung die enge Zusammenarbeit mit der Pflege\n• Gemeinsam mit Pflegefachpersonen und Ärzteschaft sind Sie Teil eines interprofessionellen Teams auf Augenhöhe\n• Sie begleiten unsere Patientinnen und Patienten administrativ während ihres gesamten Aufenthalts im Notfallzentrum\n• Sie unterstützen diagnostische Massnahmen wie Blutentnahmen oder EKGs in enger Zusammenarbeit mit Pflege und Ärzteschaft\n• Sie koordinieren Abläufe rund um unsere Patientinnen und Patienten und organisieren unter anderem Patiententransport\n\n## Das bringen Sie mit\n• Abgeschlossene Ausbildung als MPA mit idealerweise mindestens einem Jahr Berufserfahrung\n• Organisationstalent sowie ausgeprägte Sozialkompetenz\n• Freude an interprofessioneller Zusammenarbeit und ein hohes Mass an Eigenverantwortung\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Gute EDV-Anwenderkenntnisse\n• Bereitschaft zu Einsätzen im Tag- und Spätdienst sowie an Wochenenden\n\n## Benefits dieser Stelle\n• Keine Nachtdienste\n• Ein engagiertes, unterstützendes Team mit starkem Zusammenhalt\n• Abwechslungsreiches und vielseitiges Aufgabengebiet mit Entwicklungsmöglichkeiten\n• Aktiver fachlicher Austausch und gelebte Zusammenarbeit im Notfallzentrum\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nNotfallzentrum\nDas können Sie bewegen\nDas bringen Sie mit",
       "descriptionByLocale": {
@@ -8458,7 +8373,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-mpa-notfallzentrum/525df248-8609-4bdc-98f4-330ae206e925",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.449Z",
+      "crawledAt": "2026-10-03T09:26:10.078Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8532,7 +8447,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/teamleitung-time-management/6a46fbde-36d4-4438-98d5-6d6a17f08d78",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.448Z",
+      "crawledAt": "2026-10-03T09:26:10.077Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8596,7 +8511,7 @@
       "title": "Case Managerin / Case Manager",
       "titleByLocale": {
         "it": "Case Manager / Case Manager",
-        "en": "Case Managerin / Case Manager",
+        "en": "Case Manager / Case Manager",
         "de": "Case Managerin / Case Manager",
         "fr": "Gestionnaire de cas / Gestionnaire de cas"
       },
@@ -8612,7 +8527,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/case-managerin-case-manager/64abc3c9-4120-4b06-ad57-92284d50deb6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.447Z",
+      "crawledAt": "2026-10-03T09:26:10.076Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8642,7 +8557,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:02:19.850Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -8688,7 +8602,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool/f1195889-d785-4314-923e-b8770d9d8c91",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.447Z",
+      "crawledAt": "2026-10-03T09:26:10.076Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8779,7 +8693,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie/abc843af-1f73-4205-bc33-78e7d9afc7a5",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.446Z",
+      "crawledAt": "2026-10-03T09:26:10.075Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8865,7 +8779,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/teamleitung-hr-administration/262d4f86-9e43-4bf8-9ff3-3fef3dce7265",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.445Z",
+      "crawledAt": "2026-10-03T09:26:10.075Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8945,7 +8859,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie/2dbb30b2-240b-426d-b469-1f0fbab5fd16",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.444Z",
+      "crawledAt": "2026-10-03T09:26:10.073Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9025,7 +8939,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/teamleitung-patientenadministration/b2b5e9c1-990b-47a8-bb3e-1c16f6376e80",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.444Z",
+      "crawledAt": "2026-10-03T09:26:10.074Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9099,7 +9013,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachleitung-pflege-gynaekologisch-onkologisches-ambulatorium-brustklinik/a3a92cfd-ba06-4147-b55a-b41614892875",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.443Z",
+      "crawledAt": "2026-10-03T09:26:10.073Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9176,7 +9090,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-oder-oberaerztin-oberarzt-palliative-care/ab4b0368-e6d9-40a4-bcfd-7f9a7994db7b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.442Z",
+      "crawledAt": "2026-10-03T09:26:10.071Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9261,7 +9175,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/administrative-r-mitarbeiter-in/226f9436-8b4b-4562-a01e-dab219c9b2fc",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.442Z",
+      "crawledAt": "2026-10-03T09:26:10.072Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9344,7 +9258,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/wundexpertin-wundexperte-dermatologie/9d7456a1-3a53-4b2e-995e-b1fe44c153f2",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.441Z",
+      "crawledAt": "2026-10-03T09:26:10.071Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9424,7 +9338,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-interdisziplinaere-privatbettenstation/ac5ea827-4c8f-4b85-bd38-e4e8f1724c45",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.440Z",
+      "crawledAt": "2026-10-03T09:26:10.070Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9506,7 +9420,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/stationslogistiker-in/70c3ae28-fdc0-4935-bf0f-b52965e5e8d1",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.439Z",
+      "crawledAt": "2026-10-03T09:26:10.069Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9588,7 +9502,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/ueberwachungs-poolstudentin-poolstudent/9c7e28d7-be25-47a0-aadd-946627c88bc0",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.439Z",
+      "crawledAt": "2026-10-03T09:26:10.069Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9668,7 +9582,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/stationsleiterin-stationsleiter-lungenstation/ea6d98fe-67a3-4cbc-ab8f-fa701752ae6e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.438Z",
+      "crawledAt": "2026-10-03T09:26:10.068Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9750,7 +9664,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/senior-systementwickler-in-clinical-applications/69c85e68-3fab-44c9-a462-0552fb99a83e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.437Z",
+      "crawledAt": "2026-10-03T09:26:10.067Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9824,7 +9738,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation/f4c01c38-b3d9-4b7f-abce-1493b7a1479f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.436Z",
+      "crawledAt": "2026-10-03T09:26:10.066Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9898,7 +9812,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/leitung-klinikadministration/6073e790-842d-4813-9ff1-43d05f8ae29c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.435Z",
+      "crawledAt": "2026-10-03T09:26:10.065Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9972,7 +9886,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/doktorand-in-kardiologie/3365b575-d25f-430e-ae83-1c18e4bc5d25",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.434Z",
+      "crawledAt": "2026-10-03T09:26:10.064Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10019,7 +9933,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Radiologiefachfrau / Radiologiefachmann HF MRI",
       "titleByLocale": {
-        "it": "Radiologiefachfrau / Radiologiefachmann HF MRI",
+        "it": "Specialista di radiologia / Specialista di radiologia HF MRI",
         "en": "Radiology specialist / Radiology specialist HF MRI",
         "de": "Radiologiefachfrau / Radiologiefachmann HF MRI",
         "fr": "Spécialiste en radiologie / Spécialiste en radiologie HF IRM"
@@ -10036,7 +9950,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-mri/b5f2cfad-f70d-4fd4-85b9-95712eb45e81",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.432Z",
+      "crawledAt": "2026-10-03T09:26:10.064Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10082,7 +9996,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.973Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10111,7 +10024,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Radiologiefachfrau/Radiologiefachmann HF/FH",
       "titleByLocale": {
-        "it": "Radiologiefachfrau/Radiologiefachmann HF/FH",
+        "it": "Specialista di radiologia HF/FH",
         "en": "Radiology specialist HF/FH",
         "de": "Radiologiefachfrau/Radiologiefachmann HF/FH",
         "fr": "Spécialiste de radiologie HF/FH"
@@ -10128,7 +10041,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-fh/d92004b5-ea4a-4059-90eb-c65d3e1dd6bf",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.431Z",
+      "crawledAt": "2026-10-03T09:26:10.056Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10214,7 +10127,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dokumentationsassistenz/223e3829-1c65-4ffc-9c5f-396be136a2ec",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.431Z",
+      "crawledAt": "2026-10-03T09:26:10.063Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10296,7 +10209,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-konventionelles-roentgen/56e7bdbb-2dff-4d01-9050-8d6df2151417",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.430Z",
+      "crawledAt": "2026-10-03T09:26:10.055Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10378,7 +10291,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/administrative-r-mitarbeiter-in/0cef46e1-2961-4bae-a2ad-6b0923e07bee",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.425Z",
+      "crawledAt": "2026-10-03T09:26:10.054Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10458,7 +10371,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzpsychologin-assistenzpsychologe-psychosomatik/c55c4440-cd0a-480a-8198-8bd9cdb5159b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.424Z",
+      "crawledAt": "2026-10-03T09:26:10.053Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10540,7 +10453,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/ernaehrungsberater-in-bsc/9bab77c1-5018-4fdd-aa15-f2ed78485930",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.423Z",
+      "crawledAt": "2026-10-03T09:26:10.052Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10558,11 +10471,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "ernahrungsberater-in-bsc-universitatsspital-basel-basel-ofbivj",
         "ernahrungsberater-in-bsc-unispital-basel-ch",
         "ernahrungsberater-in-bsc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ernahrungsberater-in-bsc-universitatsspital-basel-basel-ofbivj",
           "ernahrungsberater-in-bsc-unispital-basel-ch",
           "ernahrungsberater-in-bsc-universitatsspital-basel-basel"
         ]
@@ -10597,7 +10512,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "it": "Dipl. Infermiera / Infermiera specialista HF/FH",
         "en": "Dipl. Nurse / Nurse specialist HF/FH",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF/FH"
@@ -10635,15 +10550,13 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-3",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-to40o4",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "dipl-infermiera-infermiera-specialista-hf-fh-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-3",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-          "dipl-infermiera-infermiera-specialista-hf-fh-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-3"
@@ -10656,7 +10569,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10702,7 +10614,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizinische-r-praxisassistent-in-mpa/71a41130-ff2b-428e-9495-795f053ebff7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.421Z",
+      "crawledAt": "2026-10-03T09:26:10.051Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10776,7 +10688,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/studentische-aushilfe/65b25261-91bf-4173-8bee-6521d7c6a54e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.420Z",
+      "crawledAt": "2026-10-03T09:26:10.049Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10793,22 +10705,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27865",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "studentische-aushilfe-unispital-basel-ch",
-        "assistenza-agli-studenti-universitatsspital-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "studentische-aushilfe-unispital-basel-ch",
-          "assistenza-agli-studenti-universitatsspital-basel-basel"
-        ],
-        "en": [
-          "studentische-aushilfe-unispital-basel-ch"
-        ],
-        "fr": [
-          "studentische-aushilfe-unispital-basel-ch"
-        ]
-      },
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10821,6 +10717,20 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "studentische-aushilfe-unispital-basel-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ],
+        "en": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ],
+        "fr": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ]
       }
     },
     {
@@ -10854,7 +10764,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-herzzentrum/4c3319d8-f8e4-4b15-a0a1-0c9250f57eec",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.419Z",
+      "crawledAt": "2026-10-03T09:26:10.048Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10871,10 +10781,7 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27783",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
-        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
@@ -10884,7 +10791,10 @@
           "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
+        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10930,7 +10840,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizincodiererin-medizincodierer/585b713c-3f3e-4ab6-9614-7764e07d2239",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.417Z",
+      "crawledAt": "2026-10-03T09:26:10.046Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -10947,16 +10857,10 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27686",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizincodiererin-medizincodierer-unispital-basel-ch",
-        "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
-        "coder-medico-coder-medico-universitatsspital-basel-basel"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "medizincodiererin-medizincodierer-unispital-basel-ch",
-          "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
-          "coder-medico-coder-medico-universitatsspital-basel-basel"
+          "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
         ],
         "en": [
           "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
@@ -10965,8 +10869,10 @@
           "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
         ]
       },
-      "firstSeenAt": "2026-07-03T23:45:57.171Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "medizincodiererin-medizincodierer-unispital-basel-ch",
+        "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10979,7 +10885,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-03T23:45:57.171Z"
     },
     {
       "id": "unispital-basel-3ad364033f14",
@@ -11002,9 +10909,9 @@
       },
       "description": "Dein Weg ins #TeamUSB\n\n## Akutmedizin / Privat/-Halbprivatstation\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\nper sofort\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n• Selbständige Organisation des eigenen Arbeitsbereiches\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n• Zielorientierte Zusammenarbeit und Vernetzung\n\n## Das bringen Sie mit\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\n## Benefits dieser Stelle\n• Umsetzung des Konzeptes der personenzentrierten Pflege, bei dem die Patientin bzw. der Patient im Mittelpunkt steht\n• Möglichkeiten zur kontinuierlichen fachlichen und persönlichen Weiterbildung\n• Spannende und vielseitige Patientensituationen in einem dynamischen, universitären Umfeld\n• Aktive Einbeziehung der Mitarbeitenden in Entscheidungsprozesse der Pflegepraxis\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAkutmedizin / Privat/-Halbprivatstation\nDas können Sie bewegen\nDas bringen Sie mit",
       "descriptionByLocale": {
+        "de": "Dein Weg ins #TeamUSB\n\n## Akutmedizin / Privat/-Halbprivatstation\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\nper sofort\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n• Selbständige Organisation des eigenen Arbeitsbereiches\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n• Zielorientierte Zusammenarbeit und Vernetzung\n\n## Das bringen Sie mit\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\n## Benefits dieser Stelle\n• Umsetzung des Konzeptes der personenzentrierten Pflege, bei dem die Patientin bzw. der Patient im Mittelpunkt steht\n• Möglichkeiten zur kontinuierlichen fachlichen und persönlichen Weiterbildung\n• Spannende und vielseitige Patientensituationen in einem dynamischen, universitären Umfeld\n• Aktive Einbeziehung der Mitarbeitenden in Entscheidungsprozesse der Pflegepraxis\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAkutmedizin / Privat/-Halbprivatstation\nDas können Sie bewegen\nDas bringen Sie mit",
         "it": "Dein Weg ins #TeamUSB\n\n## Akutmedizin / Privat/-Halbprivatstation\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\nper sofort\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n• Selbständige Organisation des eigenen Arbeitsbereiches\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n• Zielorientierte Zusammenarbeit und Vernetzung\n\n## Das bringen Sie mit\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\n## Benefits dieser Stelle\n• Umsetzung des Konzeptes der personenzentrierten Pflege, bei dem die Patientin bzw. der Patient im Mittelpunkt steht\n• Möglichkeiten zur kontinuierlichen fachlichen und persönlichen Weiterbildung\n• Spannende und vielseitige Patientensituationen in einem dynamischen, universitären Umfeld\n• Aktive Einbeziehung der Mitarbeitenden in Entscheidungsprozesse der Pflegepraxis\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAkutmedizin / Privat/-Halbprivatstation\nDas können Sie bewegen\nDas bringen Sie mit",
         "en": "Dein Weg ins #TeamUSB\n\n## Akutmedizin / Privat/-Halbprivatstation\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\nper sofort\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n• Selbständige Organisation des eigenen Arbeitsbereiches\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n• Zielorientierte Zusammenarbeit und Vernetzung\n\n## Das bringen Sie mit\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\n## Benefits dieser Stelle\n• Umsetzung des Konzeptes der personenzentrierten Pflege, bei dem die Patientin bzw. der Patient im Mittelpunkt steht\n• Möglichkeiten zur kontinuierlichen fachlichen und persönlichen Weiterbildung\n• Spannende und vielseitige Patientensituationen in einem dynamischen, universitären Umfeld\n• Aktive Einbeziehung der Mitarbeitenden in Entscheidungsprozesse der Pflegepraxis\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAkutmedizin / Privat/-Halbprivatstation\nDas können Sie bewegen\nDas bringen Sie mit",
-        "de": "Dein Weg ins #TeamUSB\n\n## Akutmedizin / Privat/-Halbprivatstation\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\nper sofort\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n• Selbständige Organisation des eigenen Arbeitsbereiches\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n• Zielorientierte Zusammenarbeit und Vernetzung\n\n## Das bringen Sie mit\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\n## Benefits dieser Stelle\n• Umsetzung des Konzeptes der personenzentrierten Pflege, bei dem die Patientin bzw. der Patient im Mittelpunkt steht\n• Möglichkeiten zur kontinuierlichen fachlichen und persönlichen Weiterbildung\n• Spannende und vielseitige Patientensituationen in einem dynamischen, universitären Umfeld\n• Aktive Einbeziehung der Mitarbeitenden in Entscheidungsprozesse der Pflegepraxis\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAkutmedizin / Privat/-Halbprivatstation\nDas können Sie bewegen\nDas bringen Sie mit",
         "fr": "Dein Weg ins #TeamUSB\n\n## Akutmedizin / Privat/-Halbprivatstation\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\nper sofort\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Professionelle Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten\n• Selbständige Organisation des eigenen Arbeitsbereiches\n• Punktuelle Anleitung und Betreuung von Lernenden verschiedener Berufsgruppen (HF/FH, FaGe)\n• Zielorientierte Zusammenarbeit und Vernetzung\n\n## Das bringen Sie mit\n• Abgeschlossene Berufsausbildung als dipl. Pflegefachfrau/Pflegefachmann HF/FH mit Erfahrung, vorzugsweise im Akutbereich\n• Motivation zur Mitgestaltung und Weiterentwicklung pflegerischer Standards und Prozesse\n• Interesse an Teamentwicklung und die Fähigkeit zur produktiven Zusammenarbeit in interprofessionellen Teams\n• Flexibilität und Bereitschaft sich auf fortlaufende Veränderungen in einem dynamischen Umfeld einzulassen\n• Freude am Pflegeberuf mit der Fachrichtung Innere Medizin und dermatologische Erkrankungen\n\n## Benefits dieser Stelle\n• Umsetzung des Konzeptes der personenzentrierten Pflege, bei dem die Patientin bzw. der Patient im Mittelpunkt steht\n• Möglichkeiten zur kontinuierlichen fachlichen und persönlichen Weiterbildung\n• Spannende und vielseitige Patientensituationen in einem dynamischen, universitären Umfeld\n• Aktive Einbeziehung der Mitarbeitenden in Entscheidungsprozesse der Pflegepraxis\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nAkutmedizin / Privat/-Halbprivatstation\nDas können Sie bewegen\nDas bringen Sie mit"
       },
       "location": "Basel",
@@ -11012,7 +10919,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin/e5ec36ee-30a1-4b03-968e-2fa566b849e6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.415Z",
+      "crawledAt": "2026-10-03T09:26:10.045Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -11028,15 +10935,29 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27417",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
+        "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
+        "dipl-nursing-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
+          "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+          "dipl-nursing-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel"
         ]
       },
       "needsRetranslation": true,
@@ -11086,7 +11007,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/leiter-in-servicemanagement-betrieb/ac474d4a-3a43-426a-8c33-c999888628fa",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:22:52.412Z",
+      "crawledAt": "2026-10-03T09:26:10.042Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -11127,7 +11048,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:22:52.412Z"
+      "firstSeenAt": "2026-10-03T09:26:10.042Z"
     }
   ]
 }

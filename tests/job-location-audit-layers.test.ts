@@ -18,6 +18,7 @@ import { describe, expect, it } from 'vitest';
 import {
   descriptionRepeatsRegion,
   implausibilityReasons,
+  stripLocationRegionMarkers,
 } from '../scripts/lib/job-location-plausibility.mjs';
 
 describe('implausibilityReasons — layer 6', () => {
@@ -127,5 +128,20 @@ describe('descriptionRepeatsRegion — layer 5, the frozen half', () => {
     expect(descriptionRepeatsRegion(withDescription('x'), '', 'BE')).toBeNull();
     expect(descriptionRepeatsRegion(withDescription('x'), 'Bern', '')).toBeNull();
     expect(descriptionRepeatsRegion({ descriptionByLocale: {} }, 'Bern', 'BE')).toBeNull();
+  });
+});
+
+describe('stripLocationRegionMarkers — source description cleanup', () => {
+  it('removes only the location marker that layer 5 would flag', () => {
+    expect(stripLocationRegionMarkers(
+      '• Location: Konolfingen, CH, Kanton BE, Schweiz\nDie Stelle ist Teil eines realen Teams.',
+      'Konolfingen',
+      'BE',
+    )).toBe('• Location: Konolfingen, Schweiz\nDie Stelle ist Teil eines realen Teams.');
+  });
+
+  it('preserves legitimate geographic prose without the country marker', () => {
+    const description = 'Standort: Aarau (Kanton AG). Das Team arbeitet vor Ort.';
+    expect(stripLocationRegionMarkers(description, 'Aarau', 'AG')).toBe(description);
   });
 });

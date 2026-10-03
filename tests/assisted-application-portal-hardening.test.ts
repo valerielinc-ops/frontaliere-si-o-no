@@ -4,6 +4,11 @@ import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/port
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
+  formPostingMatch,
+  namesAnotherEmployer,
+  ownAccountForm,
+  sendsApplication,
+  privacyConsentControls,
   postingMatch,
   PREREAD_CHANNELS,
   readPortalQuestions,
@@ -36,6 +41,218 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044', job)).toBe('match');
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Migros&career_ns=job_application', job)).toBe('mismatch');
     expect(postingMatch('Coop Genossenschaft · Bäcker:in', job)).toBe('match');
+  });
+
+  // umantis for a hotel, 2026-10-03: the form names the role («Concierge - Application»), never the employer.
+  it('reads the company on the posting and the role on the form its apply button opened', () => {
+    const job = { company: 'Grand Hotel Esempio', title: 'Concierge (m/w/d)' };
+    // As the runner composes it: the page's title, then its text, then its address.
+    const form = 'Concierge - Application | Application Tracking System\nConcierge\nClick on Login if you have already set up your profile.\nhttps://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
+    // The form alone: a stop, as before.
+    expect(formPostingMatch(form, job)).toBe('mismatch');
+    // Opened by the apply button of a posting that named the company: the role is enough.
+    expect(formPostingMatch(form, job, { postingMatched: true })).toBe('match');
+    // Never another role of the same employer, and never without a role to read.
+    expect(formPostingMatch(form, { ...job, title: 'Chef de Rang' }, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch(form, { company: job.company }, { postingMatched: true })).toBe('mismatch');
+    // A form that names the company needs no posting; an order that names nothing is never stopped.
+    expect(formPostingMatch(`Grand Hotel Esempio · ${form}`, job)).toBe('match');
+    expect(formPostingMatch(`Concierge\nBewerbung bei Grand Hotel Esempio`, job, { postingMatched: true })).toBe('match');
+    expect(formPostingMatch('anything', {}, { postingMatched: true })).toBe('unknown');
+    // Review of #11033: a form that names another employer of the kind is a stop, whatever the posting said.
+    expect(formPostingMatch('Concierge — Other Hotel', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Concierge - Application | Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
+    // …while one that is silent about the employer goes on with the role alone.
+    expect(formPostingMatch('Concierge — Application Tracking System', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('match');
+  });
+
+  // Reviews of #11033 on the employer a form names. Their acceptances as written, for
+  // company "Grand Hotel Esempio", title "Concierge", postingMatched true.
+  it('takes for another employer only the word next to a word of the order’s company, whatever the case or the separator', () => {
+    const job = { company: 'Grand Hotel Esempio', title: 'Concierge' };
+    const viaPosting = (formText: string, order: Record<string, string> = job) => formPostingMatch(formText, order, { postingMatched: true });
+    // First review: a form that names another employer with the same role is a stop.
+    expect(viaPosting('Concierge — Other Hotel')).toBe('mismatch');
+    // Second: a shared word proves nothing by itself.
+    expect(viaPosting('Concierge — Hotel application')).toBe('match');
+    // Third: neither a generic heading nor a company named elsewhere on the page (the ATS's own footer).
+    expect(viaPosting('Concierge — Hotel Application Process\nPowered by Palace Resort AG')).toBe('match');
+    // Third: the other employer in lower case, or joined by a hyphen, is still another employer.
+    expect(viaPosting('Concierge — other hotel')).toBe('mismatch');
+    expect(viaPosting('Concierge — Other-Hotel')).toBe('mismatch');
+
+    // Fourth: an employer in the page's title with no word in common with the order's company.
+    expect(viaPosting('Concierge — Other Resort')).toBe('mismatch');
+    expect(viaPosting('Concierge — Palace Resort AG')).toBe('mismatch');
+
+    // 1. The title (the first line) holds the role, the company's own words and the page's vocabulary, or it is a stop.
+    expect(viaPosting('Concierge - Application | Application Tracking System\nConcierge\nPowered by Palace Resort AG')).toBe('match');
+    expect(viaPosting('Hotel Concierge · Bewerbung im Hotel Bereich · Hotel Jobs')).toBe('match');
+    expect(viaPosting('Concierge (m/w/d) 80-100% | Karriereportal')).toBe('match');
+    expect(namesAnotherEmployer('Grand Hotel · Concierge', job)).toBe(false);
+    expect(namesAnotherEmployer('Concierge — Hotel application', job)).toBe(false);
+    expect(namesAnotherEmployer('CONCIERGE | HOTEL SPLENDIDE', job)).toBe(true);
+    expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
+    // Review of #11064: the kind of employer is the page's vocabulary too, whatever the order's company is called.
+    const palace = { title: 'Concierge', company: 'Palace Resort AG' };
+    expect(formPostingMatch('Concierge — Hotel application', palace, { postingMatched: true })).toBe('match');
+    expect(formPostingMatch('Concierge — Hotel Splendide', palace, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Concierge — Other Hotel', palace, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Infermiera — Hospital application', { title: 'Infermiera', company: 'Clinica Esempio' }, { postingMatched: true })).toBe('match');
+    // …but next to a word of the order's company it is a name: «Esempio Resort» is not «Grand Hotel Esempio».
+    expect(formPostingMatch('Concierge — Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
+    // A place in the title is a stop too (Valerie's retry goes on): never a guess about what the word is.
+    expect(viaPosting('Concierge | Pontresina')).toBe('mismatch');
+    // 2. Below the title, only the word next to a word of the order's company counts.
+    expect(viaPosting('Concierge — Other Hotel', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('mismatch');
+    expect(viaPosting('Concierge\nWelcome to the Other Hotel careers page')).toBe('mismatch');
+    expect(viaPosting('Concierge - Application\nhttps://jobs.other-hotel.example/apply')).toBe('mismatch');
+    expect(viaPosting('Concierge\nBewerbung als Concierge (m/w/d) im Grand Resort')).toBe('mismatch');
+    expect(viaPosting('Concierge\nDeine Bewerbung im Hotel Bereich. Splendide Aussichten\nhttps://careers.recruiting-0000.example/apply')).toBe('match');
+    expect(viaPosting('Concierge\nFirst name\nLast name\nPalace Resort AG — all rights reserved')).toBe('match');
+    expect(namesAnotherEmployer('anything', {})).toBe(false);
+
+    // Without a posting that named the company there is no fallback at all.
+    expect(formPostingMatch('Concierge — Application Tracking System', job)).toBe('mismatch');
+    expect(formPostingMatch('Concierge — Application Tracking System', job, { postingMatched: false })).toBe('mismatch');
+    // The whole name on the form is the direct match, as ever.
+    expect(viaPosting('Concierge — Grand Hotel Esempio')).toBe('match');
+    expect(viaPosting('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('match');
+  });
+
+  it('knows a page whose button sends an application, whatever else it asks', () => {
+    // Third review of #11033: a password and «Submit final application», the CV field still in a closed section.
+    const closed = { passwordVisible: true, fields: [{ id: 'f1', kind: 'text', inputType: 'password', label: 'Password', form: 0 }], buttons: [{ text: 'Expand all sections' }, { text: 'Submit final application' }] };
+    expect(sendsApplication(closed)).toBe(true);
+    expect(ownAccountForm(closed)).toBe(false);
+    // Once the section is open the CV is sent with the password: the form, not a login page.
+    expect(ownAccountForm({ ...closed, fields: [...closed.fields, { id: 'f2', kind: 'file', inputType: 'file', label: 'Resume', form: 0 }] })).toBe(true);
+    // A login page sends no application.
+    expect(sendsApplication({ buttons: [{ text: 'Anmelden' }, { text: 'Konto erstellen' }] })).toBe(false);
+    expect(sendsApplication({ buttons: [{ text: 'Submit' }] })).toBe(false);
+    expect(sendsApplication({})).toBe(false);
+  });
+
+  it('takes a form with its own password field for the form only when its button sends an application', () => {
+    const fields = [{ id: 'f1', kind: 'text', inputType: 'password', label: 'Password', form: 0 }, { id: 'f2', kind: 'file', inputType: 'file', label: 'Resume', form: 0 }];
+    const page = (text: string, extra: Record<string, unknown> = {}) => ({ passwordVisible: true, fields, buttons: [{ text: 'Login for recruiters' }, { text }], ...extra });
+    expect(ownAccountForm(page('Submit final application'))).toBe(true);
+    expect(ownAccountForm(page('Bewerbung absenden'))).toBe(true);
+    expect(ownAccountForm(page('Invia candidatura'))).toBe(true);
+    // A registration that also takes a CV: its button creates an account, the login pages handle it.
+    expect(ownAccountForm(page('Konto erstellen'))).toBe(false);
+    expect(ownAccountForm(page('Submit'))).toBe(false);
+    // No password on the page, or no CV sent with it.
+    expect(ownAccountForm(page('Submit final application', { passwordVisible: false }))).toBe(false);
+    expect(ownAccountForm(page('Submit final application', { fields: [fields[0]] }))).toBe(false);
+    expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
+  });
+
+  it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: true, dialogId: 'other-modal', frame: 0 },
+        { id: 'privacy', text: 'Datenschutzerklärung lesen und akzeptieren.', disabled: false, dialog: false },
+        { id: 'accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
+      ],
+      fields: [
+        { id: 'abo', kind: 'checkbox', name: 'abo', label: 'Job-Abo', checked: false, dialog: false },
+        {
+          id: 'outside-review',
+          kind: 'checkbox',
+          name: 'otherPrivacyReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: true,
+          dialog: true,
+          dialogId: 'other-modal',
+          frame: 0,
+        },
+        {
+          id: 'review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
+        },
+      ],
+    });
+    expect(controls.trigger).toMatchObject({ id: 'privacy' });
+    expect(controls.review).toMatchObject({ id: 'review', checked: false });
+    expect(controls.review?.id).not.toBe('abo');
+    expect(controls.review?.id).not.toBe('outside-review');
+    expect(controls.accept).toMatchObject({ id: 'accept', disabled: true });
+    expect(controls.accept?.id).not.toBe('outside-accept');
+  });
+
+  it('prefers the newly opened DPCS dialog when an earlier modal has a matching review', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: true, dialogId: 'other-modal', frame: 0 },
+        { id: 'dpcs-accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
+      ],
+      fields: [
+        {
+          id: 'outside-review',
+          kind: 'checkbox',
+          name: 'otherReview',
+          label: 'I have reviewed this privacy notice.',
+          checked: false,
+          dialog: true,
+          dialogId: 'other-modal',
+          frame: 0,
+        },
+        {
+          id: 'dpcs-review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
+        },
+      ],
+    });
+    expect(controls.review).toMatchObject({ id: 'dpcs-review' });
+    expect(controls.accept).toMatchObject({ id: 'dpcs-accept', disabled: true });
+    expect(controls.review?.id).not.toBe('outside-review');
+    expect(controls.accept?.id).not.toBe('outside-accept');
+  });
+
+  it('prefers the newest DPCS dialog when matching modal accepts are both disabled', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'old-accept', text: 'Accept', disabled: true, dialog: true, dialogId: 'old-modal', frame: 0 },
+        { id: 'dpcs-accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
+      ],
+      fields: [
+        {
+          id: 'old-review',
+          kind: 'checkbox',
+          name: 'oldPrivacyReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'old-modal',
+          frame: 0,
+        },
+        {
+          id: 'dpcs-review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
+        },
+      ],
+    });
+    expect(controls.review).toMatchObject({ id: 'dpcs-review' });
+    expect(controls.accept).toMatchObject({ id: 'dpcs-accept', disabled: true });
   });
 
   it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
