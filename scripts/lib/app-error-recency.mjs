@@ -18,6 +18,13 @@
  * TEMPO e di HOST, non di firma: non zittisce nessuna classe di errore.
  */
 
+// Il filtro di produzione e la sua RE2 vivono nell'helper GA4, che li usa in
+// `fetchGa4ErrorEntries`: la dipendenza va da qui all'helper. Il contrario
+// rompe i workflow che elencano l'helper file per file nello sparse-checkout.
+import { PRODUCTION_HOST_REGEXP, productionAppErrorFilter } from './ga4-service-account.mjs';
+
+export { PRODUCTION_HOST_REGEXP, productionAppErrorFilter };
+
 /** Giorni che contano come «recenti» per coniare o riconfermare una issue. */
 export const APP_ERROR_RECENT_DAYS = 7;
 
@@ -28,38 +35,12 @@ export const APP_ERROR_RECENT_DAYS = 7;
  */
 export const APP_ERROR_RECENCY_ROW_LIMIT = 25000;
 
-/** RE2 per `hostName` (GA4 `FULL_REGEXP`): l'apex e i suoi sottodomini. */
-export const PRODUCTION_HOST_REGEXP = '^(.+\\.)?frontaliereticino\\.ch$';
-
 const PRODUCTION_HOST_RE = new RegExp(PRODUCTION_HOST_REGEXP, 'i');
 
 /** True per l'host di produzione (apex o sottodominio), porta esclusa. */
 export function isProductionHost(host) {
   const bare = String(host ?? '').trim().toLowerCase().replace(/:\d+$/, '');
   return PRODUCTION_HOST_RE.test(bare);
-}
-
-/**
- * `dimensionFilter` GA4: l'evento richiesto, solo dall'host di produzione, e
- * (se dati) solo per i messaggi elencati.
- *
- * @param {string} eventName
- * @param {{ messages?: string[] }} [opts]
- */
-export function productionAppErrorFilter(eventName, { messages } = {}) {
-  const expressions = [
-    { filter: { fieldName: 'eventName', stringFilter: { value: eventName, matchType: 'EXACT' } } },
-    { filter: { fieldName: 'hostName', stringFilter: { value: PRODUCTION_HOST_REGEXP, matchType: 'FULL_REGEXP' } } },
-  ];
-  if (Array.isArray(messages) && messages.length) {
-    expressions.push({
-      filter: {
-        fieldName: 'customEvent:error_message',
-        inListFilter: { values: messages, caseSensitive: true },
-      },
-    });
-  }
-  return { andGroup: { expressions } };
 }
 
 /** Le dimensioni che identificano una voce di `appErrors`, nell'ordine della query. */
