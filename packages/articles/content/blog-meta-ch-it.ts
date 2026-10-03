@@ -7586,6 +7586,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.title': 'Affitti Svizzera 2026: mercato immobiliare nel canton Zurigo',
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.excerpt': 'Affitti in Svizzera nel 2026: cauzione massima di tre mesi, disdetta del locatore e contestazione entro 30 giorni, con focus sul canton Zurigo.',
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.imageAlt': 'Edificio residenziale svizzero e panorama urbano legati al mercato degli affitti',
+    'blog.article.diritti-inquilino-ginevra-2026.title': 'Affitti in Svizzera 2026: mercato e regole a Ginevra',
+    'blog.article.diritti-inquilino-ginevra-2026.excerpt': 'Deposito fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta: le regole federali valgono anche nel canton Ginevra e negli altri Cantoni.',
+    'blog.article.diritti-inquilino-ginevra-2026.imageAlt': 'Palazzi residenziali svizzeri in un quartiere urbano, simbolo del mercato degli affitti',
 };
 
 export default blogMetaChIt;

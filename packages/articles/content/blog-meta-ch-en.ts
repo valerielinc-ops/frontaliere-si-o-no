@@ -7586,6 +7586,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.title': 'Swiss Rents 2026: real estate market in the canton of Zurich',
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.excerpt': 'Rents in Switzerland in 2026: maximum security deposit of three months, landlord\'s termination notice and challenge within 30 days, with a focus on the canton of Zurich.',
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.imageAlt': 'Swiss residential building and urban view linked to the rental market',
+    'blog.article.diritti-inquilino-ginevra-2026.title': 'Rentals in Switzerland 2026: market and regulations in Geneva',
+    'blog.article.diritti-inquilino-ginevra-2026.excerpt': 'Deposit up to three months, escrow account and 30 days to challenge the cancellation: the federal rules also apply in the canton of Geneva and the other cantons.',
+    'blog.article.diritti-inquilino-ginevra-2026.imageAlt': 'Swiss residential buildings in an urban neighborhood, representing the rental market',
 };
 
 export default blogMetaChEn;

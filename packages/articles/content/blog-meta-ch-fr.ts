@@ -7586,6 +7586,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.title': 'Locations en Suisse 2026 : marché immobilier dans le canton de Zurich',
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.excerpt': 'Locations en Suisse en 2026 : garantie de loyer de trois mois maximum, résiliation par le bailleur et contestation dans les 30 jours, avec un focus sur le canton de Zurich.',
     'blog.article.affitti-zurigo-cauzione-disdetta-2026.imageAlt': 'Immeuble résidentiel suisse et vue urbaine liés au marché locatif',
+    'blog.article.diritti-inquilino-ginevra-2026.title': 'Location en Suisse 2026 : marché et règles à Genève',
+    'blog.article.diritti-inquilino-ginevra-2026.excerpt': 'Dépôt jusqu\'à trois mensualités, compte lié et 30 jours pour contester la résiliation : les règles fédérales s\'appliquent également dans le canton de Genève et dans les autres cantons.',
+    'blog.article.diritti-inquilino-ginevra-2026.imageAlt': 'Immeubles résidentiels suisses dans un quartier urbain, symbole du marché locatif',
 };
 
 export default blogMetaChFr;
