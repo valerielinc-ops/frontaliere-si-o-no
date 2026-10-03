@@ -34,6 +34,8 @@ import {
 } from '../scripts/assemble-jobs-dataset.mjs';
 // @ts-expect-error — plain .mjs lib, no type declarations
 import { inferAnyCanton, isTargetCanton } from '../scripts/lib/target-swiss-locations.mjs';
+// @ts-expect-error — plain .mjs lib, no type declarations
+import { createCrawlerLocationRecordIndex } from '../scripts/lib/crawler-location-record-index.mjs';
 
 /** Test fixtures must never carry absolute dates (AGENTS.md → test fixtures). */
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
@@ -121,6 +123,39 @@ describe('resolveCantonAgainstPin — the job outranks the ledger', () => {
 });
 
 describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () => {
+  it('keeps the source locality over a stale listing marker and crawler stamp (#11047)', () => {
+    const source = {
+      id: 'company-xesxqv',
+      url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/cfa3560b-5496-4c27-a752-7653a8532449',
+      addressLocality: 'Rüti ZH',
+      location: 'Lachen SZ',
+      canton: 'SZ',
+    };
+    const index = createCrawlerLocationRecordIndex();
+    index.add(source);
+    const sourceRecord = index.getWithStatus({
+      id: source.id,
+      url: source.url,
+      addressLocality: 'Rüti ZH',
+      location: 'Lachen SZ',
+      canton: 'SZ',
+    });
+
+    expect(sourceRecord.status).toBe('found');
+    expect(sourceRecord.record).toEqual({ canton: 'SZ', city: 'Rüti ZH', location: 'Lachen SZ' });
+    expect(inferCantonFromJobEvidence({
+      cityText: sourceRecord.record.city,
+      locationText: sourceRecord.record.location,
+      crawlerCanton: sourceRecord.record.canton,
+    })).toBe('ZH');
+    expect(resolveCantonAgainstPin({
+      jobCanton: 'ZH',
+      inferredCanton: 'ZH',
+      pinnedCanton: 'SZ',
+      crawlerCanton: 'SZ',
+    })).toMatchObject({ canton: 'ZH', pin: 'ZH', outcome: 'pin-corrected' });
+  });
+
   it('uses an explicit location marker when it agrees with the crawler canton', () => {
     expect(inferCantonFromJobEvidence({
       cityText: 'Pfäffikon',
