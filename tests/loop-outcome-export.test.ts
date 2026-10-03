@@ -156,7 +156,17 @@ describe('read-only loop outcome exporters', () => {
           calls.push({ url, init });
           const body = JSON.parse(String(init.body));
           const eventName = body.dimensionFilter.filter.stringFilter.value;
-          return { rows: [{ metricValues: [{ value: eventName === 'decision_moment_completed' ? '120' : '45' }] }] };
+          const sessionKeys = eventName === 'decision_moment_completed'
+            ? Array.from({ length: 120 }, (_, index) => `session-${index}`)
+            : Array.from({ length: 45 }, (_, index) => `session-${index}`);
+          return {
+            dimensionHeaders: [{ name: 'customEvent:decision_session_id' }],
+            rowCount: sessionKeys.length,
+            rows: sessionKeys.map((value) => ({
+              dimensionValues: [{ value }],
+              metricValues: [{ value: '1' }],
+            })),
+          };
         },
       } as any,
     });
@@ -167,6 +177,7 @@ describe('read-only loop outcome exporters', () => {
       const body = JSON.parse(String(call.init.body));
       expect(body).toMatchObject({
         dateRanges: [{ startDate: '2026-09-03', endDate: '2026-09-10' }],
+        dimensions: [{ name: 'customEvent:decision_session_id' }],
         metrics: [{ name: 'sessions' }],
         dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT' } } },
       });
@@ -375,6 +386,7 @@ describe('read-only loop outcome exporters', () => {
     });
     expect(query).toMatchObject({
       dateRanges: [{ startDate: '2026-09-05', endDate: '2026-09-12' }],
+      dimensions: [{ name: 'customEvent:decision_session_id' }],
       metrics: [{ name: 'sessions' }],
       dimensionFilter: {
         filter: {
@@ -382,6 +394,7 @@ describe('read-only loop outcome exporters', () => {
           stringFilter: { value: 'decision_moment_completed', matchType: 'EXACT' },
         },
       },
+      limit: 250_000,
     });
 
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
@@ -392,8 +405,17 @@ describe('read-only loop outcome exporters', () => {
       client: {
         request: async (_url: string, init: RequestInit) => {
           const body = JSON.parse(String(init.body));
-          calls.push(body.dimensionFilter.filter.stringFilter.value);
-          return { rows: [{ metricValues: [{ value: body.dimensionFilter.filter.stringFilter.value === 'decision_moment_completed' ? '123' : '7' }] }] };
+          const eventName = body.dimensionFilter.filter.stringFilter.value;
+          calls.push(eventName);
+          const sessionKeys = eventName === 'decision_moment_completed' ? ['A', 'B'] : ['B', 'C'];
+          return {
+            dimensionHeaders: [{ name: 'customEvent:decision_session_id' }],
+            rowCount: sessionKeys.length,
+            rows: sessionKeys.map((value) => ({
+              dimensionValues: [{ value }],
+              metricValues: [{ value: '1' }],
+            })),
+          };
         },
       },
     });
@@ -402,8 +424,8 @@ describe('read-only loop outcome exporters', () => {
     expect(output).toMatchObject({
       loopId: 'L5',
       independent: true,
-      eligibleDecisionSessions: 123,
-      nextUsefulActions: 7,
+      eligibleDecisionSessions: 2,
+      nextUsefulActions: 1,
       evidence: {
         sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
       },

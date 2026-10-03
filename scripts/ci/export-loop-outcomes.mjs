@@ -40,11 +40,14 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionTaskProperty: 'task_id',
   nextActionSurfaceProperty: 'decision_surface',
   nextActionIdProperty: 'action_id',
+  sessionKeyProperty: 'decision_session_id',
+  sessionDimension: 'customEvent:decision_session_id',
   sessionMetric: 'sessions',
   source: 'GA4 Data API',
 });
 
 const DAY_MS = 86_400_000;
+const MAX_L5_SESSION_ROWS = 250_000;
 const L7_EVENT_NAMES = Object.freeze([
   'experiment_assignment',
   'experiment_exposure',
@@ -399,14 +402,31 @@ function writeJsonFile(outputPath, value) {
 
 /**
  * Build one exact GA4 event-session report for the L5 contract. The caller
- * runs this once for completion and once for next action; the validator keeps
- * the latter bounded by the former before any metric is considered measured.
+ * runs this once for completion and once for next action, then joins the
+ * returned opaque decision-session keys before any metric is considered
+ * measured.
  */
-export function buildL5DecisionMomentReportBody({ eventName, startDate, endDate } = {}) {
-  if (!text(eventName) || !text(startDate) || !text(endDate)) {
+export function buildL5DecisionMomentReportBody({
+  eventName,
+  startDate,
+  endDate,
+  sessionDimension = L5_DECISION_EVENT_CONTRACT.sessionDimension,
+} = {}) {
+  if (!text(eventName) || !text(startDate) || !text(endDate) || !text(sessionDimension)) {
     throw new Error('L5 decision-moment report requires eventName, startDate and endDate');
   }
-  return ga4EventSessionsBody({ eventName, startDate, endDate });
+  return {
+    dateRanges: [{ startDate, endDate }],
+    dimensions: [{ name: sessionDimension }],
+    metrics: [{ name: 'sessions' }],
+    dimensionFilter: {
+      filter: {
+        fieldName: 'eventName',
+        stringFilter: { value: eventName, matchType: 'EXACT' },
+      },
+    },
+    limit: MAX_L5_SESSION_ROWS,
+  };
 }
 
 export function buildL5DecisionMomentExport({
@@ -969,6 +989,60 @@ export async function fetchGa4EventSessions({ client, eventName, startDate, endD
   return nonNegativeCount(value, `sessions for ${eventName}`);
 }
 
+function parseL5SessionKeys(report, { eventName, sessionDimension } = {}) {
+  const rows = Array.isArray(report?.rows) ? report.rows : [];
+  const rowCount = nonNegativeCount(report?.rowCount ?? rows.length, `row count for ${eventName}`);
+  if (rowCount !== rows.length) {
+    throw new Error(`GA4 L5 report for ${eventName} is truncated (${rows.length} of ${rowCount} rows)`);
+  }
+  const metadata = report?.metadata || {};
+  if (
+    metadata.subjectToThresholding
+    || metadata.dataLossFromOtherRow
+    || (Array.isArray(metadata.samplingMetadatas) && metadata.samplingMetadatas.length > 0)
+    || (Array.isArray(metadata.dataTruncationReasons) && metadata.dataTruncationReasons.length > 0)
+  ) {
+    throw new Error(`GA4 L5 report for ${eventName} is incomplete or thresholded`);
+  }
+  const headerIndex = Array.isArray(report?.dimensionHeaders)
+    ? report.dimensionHeaders.findIndex((header) => header?.name === sessionDimension)
+    : -1;
+  if (Array.isArray(report?.dimensionHeaders) && headerIndex === -1) {
+    throw new Error(`GA4 L5 report for ${eventName} is missing ${sessionDimension}`);
+  }
+  const sessionIndex = headerIndex === -1 ? 0 : headerIndex;
+  const sessions = new Set();
+  for (const [index, row] of rows.entries()) {
+    const sessionKey = row?.dimensionValues?.[sessionIndex]?.value;
+    if (!text(sessionKey) || sessionKey === '(not set)') {
+      throw new Error(`GA4 L5 report for ${eventName} has an invalid session key at row ${index + 1}`);
+    }
+    sessions.add(sessionKey.trim());
+  }
+  return sessions;
+}
+
+/** Read exact L5 event-session keys without accepting an aggregate-only report. */
+export async function fetchGa4EventSessionKeys({
+  client,
+  eventName,
+  startDate,
+  endDate,
+  propertyId,
+  sessionDimension = L5_DECISION_EVENT_CONTRACT.sessionDimension,
+  bodyBuilder = buildL5DecisionMomentReportBody,
+} = {}) {
+  const data = await client.request(
+    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(bodyBuilder({ eventName, startDate, endDate, sessionDimension })),
+    },
+  );
+  return parseL5SessionKeys(data, { eventName, sessionDimension });
+}
+
 export function buildL3OutcomeExport({
   eligibleJobSessions,
   validHandoffs,
@@ -1060,9 +1134,9 @@ export async function exportL3({ outputPath, now = new Date(), days = DEFAULT_L3
 }
 
 /**
- * Read the two L5 event-session counts from the same settled GA4 window.
- * Separate exact-event reports preserve the shared GA4 session metric while
- * the outcome builder rejects an impossible numerator.
+ * Read the two L5 event-session key sets from the same settled GA4 window.
+ * Separate exact-event reports preserve the event contract; the numerator is
+ * measured only from the intersection of their keys.
  */
 export async function fetchL5DecisionMomentCounts({
   client,
@@ -1071,26 +1145,30 @@ export async function fetchL5DecisionMomentCounts({
   propertyId = null,
   eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
-  const [eligibleDecisionSessions, nextUsefulActions] = await Promise.all([
-    fetchGa4EventSessions({
+  const [completionSessions, nextActionSessions] = await Promise.all([
+    fetchGa4EventSessionKeys({
       client,
       eventName: eventContract.completionEvent,
       startDate,
       endDate,
       propertyId,
-      bodyBuilder: buildL5DecisionMomentReportBody,
+      sessionDimension: eventContract.sessionDimension,
     }),
-    fetchGa4EventSessions({
+    fetchGa4EventSessionKeys({
       client,
       eventName: eventContract.nextActionEvent,
       startDate,
       endDate,
       propertyId,
-      bodyBuilder: buildL5DecisionMomentReportBody,
+      sessionDimension: eventContract.sessionDimension,
     }),
   ]);
+  let nextUsefulActions = 0;
+  for (const sessionKey of nextActionSessions) {
+    if (completionSessions.has(sessionKey)) nextUsefulActions += 1;
+  }
   return {
-    eligibleDecisionSessions,
+    eligibleDecisionSessions: completionSessions.size,
     nextUsefulActions,
   };
 }

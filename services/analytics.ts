@@ -438,6 +438,31 @@ const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
 const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
 const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
 let l2UsefulActionEmitted = false;
+const L5_DECISION_SESSION_STORAGE_KEY = 'fr_l5_decision_session_v1';
+let l5DecisionSessionId: string | null = null;
+
+/**
+ * Keep the two L5 events joinable in GA4 without sending a PostHog-only
+ * session identifier. The value is opaque and scoped to the browser tab's
+ * session storage; storage failures fall back to the current page lifetime.
+ */
+function getL5DecisionSessionId(): string {
+ if (l5DecisionSessionId) return l5DecisionSessionId;
+ if (typeof window !== 'undefined') {
+  try {
+   const stored = window.sessionStorage.getItem(L5_DECISION_SESSION_STORAGE_KEY);
+   if (stored) {
+    l5DecisionSessionId = stored;
+    return stored;
+   }
+  } catch { /* blocked storage — use the in-memory fallback below */ }
+ }
+ l5DecisionSessionId = createAnalyticsEmissionIdSource();
+ if (typeof window !== 'undefined') {
+  try { window.sessionStorage.setItem(L5_DECISION_SESSION_STORAGE_KEY, l5DecisionSessionId); } catch { /* best effort */ }
+ }
+ return l5DecisionSessionId;
+}
 
 function claimL2UsefulAction(): boolean {
  if (l2UsefulActionEmitted) return false;
@@ -488,6 +513,15 @@ const log = (eventName: string, params?: Record<string, any>) => {
 
  logFirebaseOnly(eventName, enrichedParams);
  maybeEmitL2UsefulAction(eventName, enrichedParams);
+};
+
+/** Emit L5's session join key to Firebase/GA4 while keeping PostHog historical. */
+const logDecisionMoment = (eventName: string, params: Record<string, any>) => {
+ const enrichedParams = enrichEventParams(eventName, params);
+ const posthogParams = { ...enrichedParams };
+ delete posthogParams.decision_session_id;
+ posthogCapture(eventName, posthogParams);
+ logFirebaseOnly(eventName, enrichedParams);
 };
 
 const setProps = (properties: Record<string, string>) => {
@@ -1955,21 +1989,24 @@ export const Analytics = {
  },
 
  /**
-  * L5 decision-surface outcome contract. These fields are categorical only:
-  * no user-entered answers, labels or destination URLs are sent. The outcome
-  * exporter joins the two events by PostHog session id.
+ * L5 decision-surface outcome contract. These fields are categorical only:
+ * no user-entered answers, labels or destination URLs are sent. The outcome
+ * exporter joins the two Firebase/GA4 events by an opaque decision-session
+ * key that is not mirrored into the historical PostHog payload.
   */
  trackDecisionMomentCompleted: (surface: string, task: string) => {
-  log(DECISION_MOMENT_COMPLETED_EVENT, {
+  logDecisionMoment(DECISION_MOMENT_COMPLETED_EVENT, {
    decision_surface: truncate(surface, 60),
    task_id: truncate(task, 80),
+   decision_session_id: getL5DecisionSessionId(),
   });
  },
 
  trackDecisionMomentNextAction: (surface: string, action: string) => {
-  log(DECISION_MOMENT_NEXT_ACTION_EVENT, {
+  logDecisionMoment(DECISION_MOMENT_NEXT_ACTION_EVENT, {
    decision_surface: truncate(surface, 60),
    action_id: truncate(action, 80),
+   decision_session_id: getL5DecisionSessionId(),
   });
  },
 

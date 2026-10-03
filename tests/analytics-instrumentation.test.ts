@@ -197,9 +197,11 @@ describe('analytics.ts — L5 decision-moment contract', () => {
     const nextAction = analyticsSrc.match(/trackDecisionMomentNextAction:[\s\S]*?\n \},/);
     expect(completion?.[0]).toMatch(/decision_surface:/);
     expect(completion?.[0]).toMatch(/task_id:/);
+    expect(completion?.[0]).toMatch(/decision_session_id:/);
     expect(completion?.[0]).not.toMatch(/email|answer|target_url|href/i);
     expect(nextAction?.[0]).toMatch(/decision_surface:/);
     expect(nextAction?.[0]).toMatch(/action_id:/);
+    expect(nextAction?.[0]).toMatch(/decision_session_id:/);
     expect(nextAction?.[0]).not.toMatch(/email|answer|target_url|href/i);
   });
 });
