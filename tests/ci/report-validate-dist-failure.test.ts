@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -34,6 +34,13 @@ const {
   selectResolvableTitles,
   redactWorkflowPaths,
   resolveMode,
+  reportDist,
+  measureBuildFreshness,
+  releaseParkedRecurrences,
+  parseValidatedBuildMarker,
+  parkedReleaseDecision,
+  shouldParkNewIssue,
+  PARK_LABELS,
   TITLE_PREFIX,
   LEGACY_TITLE,
   DEDUP_TITLE_PREFIX_LEN,
@@ -515,5 +522,202 @@ describe('ciclo di vita per gate (owner 2026-10-02: ogni errore una issue)', () 
     resolveMode({ dryRun: false });
     const closes = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'close').map((a) => a[2]);
     expect(closes.sort()).toEqual(['200', '201']);
+  });
+});
+
+/**
+ * LC-09 — freschezza della build validata. Caso misurato: 11117/11118 aperte
+ * alle 13:38Z del 2026-10-03 sul build 5121254f5 (run 37099011095, creata alle
+ * 05:11:15Z), con le fix su `main` dalle 05:46Z/05:59Z e la build successiva
+ * 37107091990 già riuscita alle 11:35Z: issue nuove, subito in triage, su un
+ * difetto già corretto.
+ */
+describe('freschezza della build validata (LC-09)', () => {
+  const REPO = 'valerielinc-ops/frontaliere-si-o-no';
+  const STALE_REF = '5121254f5c491ebeb5c475926b81f3c06553bffc';
+  const MAIN_SHA = '7acf7f1c854aaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+  const NEWER_REF = '1cc0b46716bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+  const HREFLANG_TITLE = 'Validation Failure (dist): audit:hreflang';
+  const STALE = { mainSha: MAIN_SHA, mainAhead: 14, newerBuild: true, newerRunId: '37107091990' };
+
+  type Route = (args: string[]) => string | undefined;
+  /** Mock di `gh` per argomenti: la prima route che risponde vince; il resto è ''. */
+  function routeGh(...routes: Route[]) {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      for (const r of routes) {
+        const out = r(args);
+        if (out !== undefined) return out;
+      }
+      return '';
+    });
+  }
+  const failing: Route = (a) => (a[0] === 'api' && /\/compare\//.test(a[1]) ? (() => { throw new Error('HTTP 502'); })() : undefined);
+  const mainHead: Route = (a) => (a[0] === 'api' && a[1].endsWith('/commits/main') ? `${MAIN_SHA}\n` : undefined);
+  const compareAhead = (n: number): Route => (a) => (a[0] === 'api' && /\/compare\//.test(a[1]) ? JSON.stringify({ status: 'ahead', ahead_by: n }) : undefined);
+  const deployRun: Route = (a) => (a[0] === 'api' && /\/actions\/runs\/37099011095$/.test(a[1])
+    ? JSON.stringify({ workflow_id: 233284293, created_at: '2026-10-03T05:11:15Z' }) : undefined);
+  const deployRuns = (rows: unknown[]): Route => (a) => (a[0] === 'api' && /\/actions\/workflows\/233284293\/runs\?/.test(a[1])
+    ? JSON.stringify(rows) : undefined);
+  const REAL_ROWS = [
+    { id: 37120074315, head_sha: 'ac5bf7c0e0fcccccccccccccccccccccccccccccc', created_at: '2026-10-03T11:34:13Z' },
+    { id: 37107091990, head_sha: NEWER_REF, created_at: '2026-10-03T07:39:57Z' },
+    { id: 37099011095, head_sha: STALE_REF, created_at: '2026-10-03T05:11:15Z' },
+  ];
+
+  it('issue nuova, main avanti di 14 e build più recente riuscita → fu-parked + fu-data-pending e marker', () => {
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }));
+    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang', ...PARK_LABELS]);
+    expect(PARK_LABELS).toEqual(['fu-parked', 'fu-data-pending']);
+    expect(payload.body).toContain(`<!-- VALIDATED_BUILD: sha=${STALE_REF} main_ahead=14 newer_build=true main=${MAIN_SHA} -->`);
+    // Il marker sta sotto «Build SHA», non in coda: un body troncato lo conserva.
+    expect(payload.body.indexOf('VALIDATED_BUILD')).toBeGreaterThan(payload.body.indexOf('## Build SHA'));
+    expect(payload.body.indexOf('VALIDATED_BUILD')).toBeLessThan(payload.body.indexOf('## Job/step falliti'));
+    expect(payload.body).toContain('https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/37107091990');
+  });
+
+  it('issue nuova, main_ahead = 0 → instradamento normale (nessuna label di parcheggio)', () => {
+    const fresh = { ...STALE, mainAhead: 0 };
+    expect(shouldParkNewIssue(fresh)).toBe(false);
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: fresh }));
+    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang']);
+    expect(payload.body).toContain('main_ahead=0 newer_build=true');
+  });
+
+  it('main avanti ma nessuna build più recente → instradamento normale', () => {
+    expect(shouldParkNewIssue({ ...STALE, newerBuild: false })).toBe(false);
+    expect(shouldParkNewIssue({ ...STALE, newerBuild: null })).toBe(false);
+  });
+
+  it('compare che fallisce → main_ahead=unknown, instradamento normale (mai un numero inventato)', () => {
+    routeGh(mainHead, failing, deployRun, deployRuns(REAL_ROWS));
+    const f = measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '37099011095' });
+    expect(f.mainAhead).toBeNull();
+    expect(f.newerBuild).toBe(true);
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: f }));
+    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang']);
+    expect(payload.body).toContain(`main_ahead=unknown newer_build=true main=${MAIN_SHA}`);
+  });
+
+  it('misura sul caso reale: build successiva dallo stesso workflow della run di build, run vecchie scartate', () => {
+    routeGh(mainHead, compareAhead(289), deployRun, deployRuns([
+      ...REAL_ROWS,
+      // il listato `branch=…&status=success` a volte restituisce run vecchie
+      { id: 31930304228, head_sha: 'dddddddddddddddddddddddddddddddddddddddd', created_at: '2026-08-16T00:00:00Z' },
+    ]));
+    const f = measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '37099011095' });
+    expect(f).toEqual({ mainSha: MAIN_SHA, mainAhead: 289, newerBuild: true, newerRunId: '37120074315' });
+    const listCall = ghCalls().find((a) => /\/actions\/workflows\/233284293\/runs\?/.test(a[1]))!;
+    expect(listCall[1]).toContain('branch=main');
+    expect(listCall[1]).toContain('status=success');
+    expect(listCall[1]).toContain(`created=${encodeURIComponent('>=2026-10-03T05:11:15Z')}`);
+    // Solo la build validata stessa e run vecchie → nessuna build successiva.
+    routeGh(mainHead, compareAhead(289), deployRun, deployRuns([REAL_ROWS[2]]));
+    expect(measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '37099011095' }).newerBuild).toBe(false);
+    // Senza deploy_run_id la seconda prova non è misurabile.
+    expect(measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '' }).newerBuild).toBeNull();
+  });
+
+  it('marker: il parse rilegge ciò che il body scrive', () => {
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }));
+    expect(parseValidatedBuildMarker(payload.body)).toEqual({
+      sha: STALE_REF, mainAhead: 14, newerBuild: true, mainSha: MAIN_SHA,
+    });
+    expect(parseValidatedBuildMarker('nessun marker')).toBeNull();
+  });
+
+  describe('validazione successiva', () => {
+    const parkedBody = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }))[0].body;
+    const parkedList: Route = (a) => (a[0] === 'issue' && a[1] === 'list' && a.includes('fu-parked')
+      ? JSON.stringify([{ number: 11118, title: HREFLANG_TITLE, body: parkedBody }]) : undefined);
+    const behind = (n: number): Route => (a) => (a[0] === 'api' && a[1].includes(`/compare/${MAIN_SHA}...`)
+      ? JSON.stringify({ status: n === 0 ? 'ahead' : 'diverged', behind_by: n }) : undefined);
+    const edits = () => ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'edit');
+
+    it('gate ancora rosso su una build che contiene il main di allora → le due label vengono tolte', () => {
+      routeGh(parkedList, behind(0));
+      const out = releaseParkedRecurrences({ repo: REPO, runId: '37120125747', deployRef: NEWER_REF, failingTitles: [HREFLANG_TITLE] });
+      expect(out).toEqual([{ number: 11118, decision: 'release' }]);
+      const [edit] = edits();
+      expect(edit.slice(0, 3)).toEqual(['issue', 'edit', '11118']);
+      expect(edit).toEqual(expect.arrayContaining(['--remove-label', 'fu-parked', 'fu-data-pending']));
+      expect(ghCalls().some((a) => a[0] === 'issue' && a[1] === 'comment' && a[2] === '11118')).toBe(true);
+    });
+
+    it('build che ancora non contiene il main di allora, o stessa build rivalidata → resta parcheggiata', () => {
+      routeGh(parkedList, behind(3));
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: NEWER_REF, failingTitles: [HREFLANG_TITLE] }))
+        .toEqual([{ number: 11118, decision: 'keep' }]);
+      routeGh(parkedList, behind(0));
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: STALE_REF, failingTitles: [HREFLANG_TITLE] }))
+        .toEqual([{ number: 11118, decision: 'keep' }]);
+      expect(edits()).toHaveLength(0);
+    });
+
+    it('contenimento non misurabile → sblocco (fail-closed verso il fixer); gate non rosso → nessun tocco', () => {
+      routeGh(parkedList, failing);
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: NEWER_REF, failingTitles: [HREFLANG_TITLE] }))
+        .toEqual([{ number: 11118, decision: 'release' }]);
+      execFileSync.mockReset();
+      routeGh(parkedList, behind(0));
+      expect(releaseParkedRecurrences({ repo: REPO, deployRef: NEWER_REF, failingTitles: ['Validation Failure (dist): gate:seo-source'] }))
+        .toEqual([]);
+      expect(edits()).toHaveLength(0);
+    });
+
+    it('issue con fu-data-pending ma senza le due prove nel marker non è un parcheggio del reporter', () => {
+      const marker = parseValidatedBuildMarker(`<!-- VALIDATED_BUILD: sha=${STALE_REF} main_ahead=0 newer_build=true main=${MAIN_SHA} -->`);
+      expect(parkedReleaseDecision({ marker, deployRef: NEWER_REF, contains: true })).toBe('skip');
+      expect(parkedReleaseDecision({ marker: null, deployRef: NEWER_REF, contains: null })).toBe('skip');
+    });
+  });
+
+  describe('reportDist end-to-end (gh simulato)', () => {
+    const LOG = '2026-10-03T13:30:00.0000000Z ❌ FAIL  audit:hreflang                             12.00 rc=1\n';
+    const jobs: Route = (a) => (a[0] === 'api' && /\/actions\/runs\/37120000000\/jobs/.test(a[1])
+      ? JSON.stringify({ jobs: [{ id: 1, name: 'validate-dist / validate-dist-postbuild', conclusion: 'failure', html_url: 'u', steps: [] }] })
+      : undefined);
+    const log: Route = (a) => (a[0] === 'api' && /\/actions\/jobs\/1\/logs$/.test(a[1]) ? LOG : undefined);
+    const openIssues = (rows: unknown[]): Route => (a) => (a[0] === 'issue' && a[1] === 'list' && !a.includes('fu-parked')
+      ? JSON.stringify(a[a.indexOf('--state') + 1] === 'open' ? rows : []) : undefined);
+    const created: Route = (a) => (a[0] === 'issue' && a[1] === 'create' ? 'https://github.com/x/y/issues/11200' : undefined);
+
+    beforeEach(() => {
+      Object.assign(process.env, {
+        GH_REPO: REPO, RUN_ID: '37120000000', RUN_ATTEMPT: '1',
+        INPUT_DEPLOY_RUN_ID: '37099011095', INPUT_DEPLOY_REF: STALE_REF, DIST_RESULT: 'failure',
+      });
+    });
+    afterEach(() => {
+      for (const k of ['RUN_ID', 'RUN_ATTEMPT', 'INPUT_DEPLOY_RUN_ID', 'INPUT_DEPLOY_REF', 'DIST_RESULT']) delete process.env[k];
+    });
+
+    it('issue nuova su build arretrata → creata con fu-parked + fu-data-pending', async () => {
+      routeGh(jobs, log, mainHead, compareAhead(14), deployRun, deployRuns(REAL_ROWS), openIssues([]), created);
+      await reportDist({ dryRun: false });
+      const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
+      expect(create).toBeDefined();
+      expect(create).toEqual(expect.arrayContaining(['--label', 'fu-parked', 'fu-data-pending']));
+      expect(create[create.indexOf('--body') + 1]).toContain('VALIDATED_BUILD: sha=' + STALE_REF + ' main_ahead=14 newer_build=true');
+    });
+
+    it('ricorrenza su issue già aperta e instradata → solo commento, nessun parcheggio', async () => {
+      const open = [{ number: 11000, title: HREFLANG_TITLE, url: 'u', state: 'OPEN', labels: [{ name: 'agent:fix-queued' }] }];
+      routeGh(jobs, log, mainHead, compareAhead(14), deployRun, deployRuns(REAL_ROWS), openIssues(open), created);
+      await reportDist({ dryRun: false });
+      const calls = ghCalls();
+      expect(calls.some((a) => a[0] === 'issue' && a[1] === 'create')).toBe(false);
+      expect(calls.some((a) => a[0] === 'issue' && a[1] === 'comment' && a[2] === '11000')).toBe(true);
+      // Nessuna scrittura porta le label di parcheggio (l'unica menzione è la lettura dei parcheggiati).
+      const writes = calls.filter((a) => !(a[0] === 'issue' && a[1] === 'list'));
+      expect(writes.some((a) => a.includes('fu-parked') || a.includes('fu-data-pending'))).toBe(false);
+    });
+
+    it('misure fallite → issue nuova creata e instradata come prima', async () => {
+      routeGh(jobs, log, openIssues([]), created); // commits/main, compare, runs: tutte ''
+      await reportDist({ dryRun: false });
+      const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
+      expect(create.includes('fu-parked')).toBe(false);
+      expect(create[create.indexOf('--body') + 1]).toContain('main_ahead=unknown newer_build=unknown main=unknown');
+    });
   });
 });

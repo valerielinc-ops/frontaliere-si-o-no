@@ -63,6 +63,18 @@
  *   questo run sono passati: una issue si chiude quando il SUO gate rientra,
  *   non quando l'intero run torna verde.
  *
+ * Freschezza della build validata (LC-09): la validazione finisce ore dopo la
+ * build, quindi la issue NUOVA di un gate può nascere su una build che precede
+ * la fix già su `main` (misurato: 11117/11118 aperte alle 13:38Z del 2026-10-03
+ * sul build 5121254f5, con le fix su `main` dalle 05:46Z/05:59Z e una build
+ * successiva già riuscita alle 11:35Z). Il reporter misura `main` avanti di
+ * quanto e se esiste una build successiva riuscita, lo scrive nel body
+ * (marker `VALIDATED_BUILD`) e, solo con entrambe le prove, crea la issue
+ * nuova parcheggiata (`fu-parked` + `fu-data-pending`): visibile, ma fuori
+ * dalla coda del fixer fino alla validazione successiva, che la chiude (gate
+ * verde, `resolvePassedGates`) o la sblocca (gate ancora rosso su una build
+ * che contiene il `main` di allora). Misura ignota → instradamento di sempre.
+ *
  * Exit code: SEMPRE 0 in report/resolve (il reporter gira in step
  * `continue-on-error` dopo un rosso vero: mai aggiungere un secondo rosso).
  * Non-zero solo per uso errato dei flag.
@@ -326,6 +338,100 @@ function runUrl(repo, id) {
   return `https://github.com/${repo}/actions/runs/${id}`;
 }
 
+/* ── freschezza della build validata (LC-09) ─────────────────────────── */
+
+/**
+ * Parcheggio ritentabile che il ciclo ha già: il drain di
+ * scripts/ci/followup-drainer.mjs non promuove una issue `fu-parked`, il suo
+ * PARKED-RETRY la ri-accoda col cooldown lungo di `fu-data-pending`, e
+ * `fu-parked` sta in ROUTING_LABELS di scripts/ci/triage-sweep.mjs. Nessuna
+ * label nuova.
+ */
+export const PARK_LABELS = Object.freeze(['fu-parked', 'fu-data-pending']);
+const VALIDATED_BUILD_RE = /<!-- VALIDATED_BUILD: ([^>]*?) -->/;
+
+function fmtMeasure(v) {
+  return v === null || v === undefined ? 'unknown' : String(v);
+}
+
+/**
+ * Marker macchina della build validata. `main` è lo SHA di `main` al momento
+ * della misura: alla validazione successiva serve a dire se la nuova build lo
+ * contiene (cioè se contiene ogni fix che `main` aveva allora).
+ * @param {string} deployRef
+ * @param {{ mainSha: string|null, mainAhead: number|null, newerBuild: boolean|null }} f
+ */
+export function validatedBuildMarker(deployRef, f) {
+  return `<!-- VALIDATED_BUILD: sha=${deployRef || 'unknown'} main_ahead=${fmtMeasure(f?.mainAhead)} newer_build=${fmtMeasure(f?.newerBuild)} main=${f?.mainSha || 'unknown'} -->`;
+}
+
+/** Il marker dal body di una issue; null se assente. Pura. */
+export function parseValidatedBuildMarker(body) {
+  const m = VALIDATED_BUILD_RE.exec(String(body || ''));
+  if (!m) return null;
+  const fields = Object.fromEntries(
+    m[1].trim().split(/\s+/).map((kv) => kv.split('=')).filter((p) => p.length === 2),
+  );
+  const ahead = /^\d+$/.test(fields.main_ahead || '') ? Number(fields.main_ahead) : null;
+  const newer = fields.newer_build === 'true' ? true : fields.newer_build === 'false' ? false : null;
+  const sha = (v) => (/^[0-9a-f]{7,40}$/i.test(v || '') ? v : null);
+  return { sha: sha(fields.sha), mainAhead: ahead, newerBuild: newer, mainSha: sha(fields.main) };
+}
+
+/**
+ * La issue NUOVA va parcheggiata? Solo con ENTRAMBE le prove misurate: `main`
+ * avanti rispetto alla build validata, e una build successiva già riuscita la
+ * cui validazione arriverà. Qualunque `null` (misura fallita) → false: la
+ * issue resta instradata come prima (fail-closed verso il fixer). Pura.
+ */
+export function shouldParkNewIssue(f) {
+  return Boolean(f) && Number.isInteger(f.mainAhead) && f.mainAhead > 0 && f.newerBuild === true;
+}
+
+/**
+ * Righe del body sotto «Build SHA»: la misura in chiaro + il marker. Pura.
+ * Lessico scelto apposta per NON far scattare DATA_PENDING_RE del drainer su
+ * una issue non parcheggiata.
+ */
+export function freshnessLines(deployRef, f, { repo = '' } = {}) {
+  const ahead = Number.isInteger(f?.mainAhead)
+    ? (f.mainAhead === 0
+      ? '`main` coincide con questa build (0 commit avanti)'
+      : `\`main\` (\`${String(f.mainSha).slice(0, 11)}\`) è avanti di ${f.mainAhead} commit rispetto a questa build`)
+    : 'distanza da `main` non misurabile (lettura API fallita)';
+  const newer = f?.newerBuild === true
+    ? `build successiva già riuscita: sì${f.newerRunId && repo ? ` (${runUrl(repo, f.newerRunId)})` : ''}`
+    : f?.newerBuild === false
+      ? 'build successiva già riuscita: no'
+      : 'build successiva già riuscita: non determinabile';
+  const lines = [`- **Freschezza della build validata:** ${ahead} · ${newer}`];
+  if (shouldParkNewIssue(f)) {
+    lines.push(
+      `- **Instradamento:** issue nuova parcheggiata (\`${PARK_LABELS.join('` + `')}\`): questa build precede \`main\` e una build più recente è già riuscita, quindi il difetto può essere già corretto. La validazione successiva chiude la issue se il gate rientra, oppure toglie il parcheggio se il gate resta rosso su una build che contiene il \`main\` qui sopra.`,
+    );
+  }
+  lines.push(validatedBuildMarker(deployRef, f));
+  return lines;
+}
+
+/**
+ * Sblocco di una issue parcheggiata dal reporter, alla validazione successiva
+ * in cui il suo gate è ancora rosso. Pura.
+ *  - 'skip'    : non è un parcheggio di questo reporter (marker assente o senza
+ *                le due prove): non è affar nostro;
+ *  - 'keep'    : stessa build rivalidata, o build che ancora non contiene il
+ *                `main` di allora → la prova non è cambiata, resta parcheggiata;
+ *  - 'release' : la build contiene il `main` di allora (ricorrenza vera), o il
+ *                contenimento non è misurabile (fail-closed verso il fixer).
+ * @param {{ marker: ReturnType<typeof parseValidatedBuildMarker>, deployRef: string, contains: boolean|null }} input
+ */
+export function parkedReleaseDecision({ marker, deployRef, contains }) {
+  if (!marker || !shouldParkNewIssue(marker)) return 'skip';
+  if (deployRef && marker.sha && deployRef === marker.sha) return 'keep';
+  if (contains === false) return 'keep';
+  return 'release';
+}
+
 function fence(text) {
   return '```text\n' + String(text || '').replace(/```/g, '`​``') + '\n```';
 }
@@ -348,6 +454,7 @@ function fence(text) {
  *                  summaryLines?: string[], excerpt?: string, logNote?: string }[],
  *   pkgScripts?: Record<string, string>,
  *   reports?: Record<string, { report: Record<string, unknown> | null, source: string }>,
+ *   freshness?: { mainSha: string|null, mainAhead: number|null, newerBuild: boolean|null, newerRunId?: string|null } | null,
  * }} input
  * @returns {{ title: string, labels: string[], body: string, priority: number, gate: string | null }[]}
  */
@@ -356,7 +463,13 @@ export function buildIssuePayloads(input) {
     repo, runId, runAttempt = '1',
     deployRunId = '', deployRef = '', deployEvent = '',
     results = {}, failedJobs = [], pkgScripts = {}, reports = {},
+    freshness = null,
   } = input;
+  // Le label di parcheggio valgono solo alla CREAZIONE: createGithubIssue le
+  // applica in `gh issue create`, mentre una ricorrenza su issue già aperta è
+  // un commento (e una riapertura non tocca le label). Il parcheggio resta
+  // quindi confinato alla issue nuova per costruzione.
+  const parkLabels = shouldParkNewIssue(freshness) ? [...PARK_LABELS] : [];
 
   // gate → job che l'ha riportato (primo vince: i gate sono per-job)
   const gateRows = new Map();
@@ -380,6 +493,7 @@ export function buildIssuePayloads(input) {
     deployRef
       ? `- **Build SHA:** \`${deployRef}\` (= \`deploy_ref\` = \`workflow_run.head_sha\`: il commit della BUILD. Per un run innescato da workflow_run \`github.sha\` NON è questo commit — non usarlo.)`
       : '- **Build SHA:** non disponibile (deploy_ref non passato: run legacy o dispatch manuale — NON ripiegare su github.sha, che per workflow_run non è il commit della build)',
+    ...(freshness ? freshnessLines(deployRef, freshness, { repo }) : []),
     deployEvent ? `- **Trigger build:** ${deployEvent}` : null,
     jobResults,
     '',
@@ -488,7 +602,7 @@ export function buildIssuePayloads(input) {
       // disinnesca il fixer. Un punto solo, applicato sempre.
       return {
         title: titleForGate(gate),
-        labels: ['Bug', gateLabel(gate)],
+        labels: ['Bug', gateLabel(gate), ...parkLabels],
         body: redactWorkflowPaths(body),
         priority: issuePriorityForGate(gate),
         gate,
@@ -517,7 +631,7 @@ export function buildIssuePayloads(input) {
     '',
     ...suggestedAction(primaryGate),
   ].join('\n');
-  return [{ title: LEGACY_TITLE, labels: ['Bug'], body: redactWorkflowPaths(body), priority: 1, gate: null }];
+  return [{ title: LEGACY_TITLE, labels: ['Bug', ...parkLabels], body: redactWorkflowPaths(body), priority: 1, gate: null }];
 }
 
 /** Titoli aperti che il resolve deve chiudere: legacy + per-gate, dedup. */
@@ -596,9 +710,122 @@ function firstFailedStep(job) {
   return (job.steps || []).find((s) => s.conclusion === 'failure')?.name || '';
 }
 
+function ghJson(args) {
+  const out = gh(args, { maxBuffer: 32 * 1024 * 1024 });
+  if (out === null) return null;
+  try {
+    return JSON.parse(out);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * `head` contiene `base`? Dal compare: `behind_by` conta i commit di `base`
+ * assenti da `head`. null su lettura fallita, mai un numero inventato.
+ */
+function buildContainsCommit(repo, base, head) {
+  if (!repo || !base || !head) return null;
+  const cmp = ghJson(['api', `repos/${repo}/compare/${base}...${head}`, '--jq', '{status: .status, behind_by: .behind_by}']);
+  return Number.isInteger(cmp?.behind_by) ? cmp.behind_by === 0 : null;
+}
+
+/**
+ * Freschezza della build validata. Tre letture, ognuna best-effort (null su
+ * qualunque errore):
+ *  - `main` risolto a uno SHA (il marker lo conserva per la validazione dopo);
+ *  - `ahead_by` di `compare/<deployRef>...<main>`;
+ *  - build successiva riuscita: dalla STESSA sorgente da cui il reporter
+ *    conosce `deployRunId` (la run di build che ha innescato la validazione):
+ *    si legge il suo workflow e il suo `created_at`, e si cercano run dello
+ *    stesso workflow, su `main`, riuscite, create dopo, a uno SHA diverso.
+ *    Il filtro `created>=` più il ricontrollo locale proteggono dal listato
+ *    `branch=…&status=success` che a volte restituisce run vecchie.
+ * @returns {{ mainSha: string|null, mainAhead: number|null, newerBuild: boolean|null, newerRunId: string|null }}
+ */
+export function measureBuildFreshness({ repo, deployRef, deployRunId }) {
+  const out = { mainSha: null, mainAhead: null, newerBuild: null, newerRunId: null };
+  if (!repo || !deployRef) return out;
+  const main = gh(['api', `repos/${repo}/commits/main`, '--jq', '.sha']);
+  const mainSha = /^[0-9a-f]{40}$/i.test(String(main || '').trim()) ? String(main).trim() : null;
+  if (mainSha) {
+    out.mainSha = mainSha;
+    const cmp = ghJson(['api', `repos/${repo}/compare/${deployRef}...${mainSha}`, '--jq', '{status: .status, ahead_by: .ahead_by}']);
+    if (Number.isInteger(cmp?.ahead_by)) out.mainAhead = cmp.ahead_by;
+  }
+  if (!deployRunId) return out;
+  const run = ghJson(['api', `repos/${repo}/actions/runs/${deployRunId}`, '--jq', '{workflow_id: .workflow_id, created_at: .created_at}']);
+  const createdMs = Date.parse(run?.created_at || '');
+  if (!run?.workflow_id || !Number.isFinite(createdMs)) return out;
+  const created = encodeURIComponent(`>=${run.created_at}`);
+  const list = ghJson(['api',
+    `repos/${repo}/actions/workflows/${run.workflow_id}/runs?branch=main&status=success&created=${created}&per_page=50`,
+    '--jq', '[.workflow_runs[] | {id: .id, head_sha: .head_sha, created_at: .created_at}]']);
+  if (!Array.isArray(list)) return out;
+  const newer = list
+    .filter((r) => String(r.id) !== String(deployRunId)
+      && r.head_sha && r.head_sha !== deployRef
+      && Date.parse(r.created_at || '') > createdMs)
+    .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+  out.newerBuild = newer.length > 0;
+  out.newerRunId = newer[0] ? String(newer[0].id) : null;
+  return out;
+}
+
+/**
+ * Alla validazione successiva: le issue parcheggiate da questo reporter il cui
+ * gate è ANCORA rosso vengono sbloccate se la build corrente contiene il `main`
+ * registrato nel marker (ricorrenza vera → instradamento normale: senza label
+ * di routing la riprende triage-sweep). Gate verde → le chiude
+ * resolvePassedGates, come prima. Best-effort, mai un throw.
+ * @returns {{ number: number, decision: string }[]}
+ */
+export function releaseParkedRecurrences({ repo, runId = '', deployRef, failingTitles }) {
+  const failing = new Set(failingTitles || []);
+  if (failing.size === 0) return [];
+  const repoArgs = repo ? ['--repo', repo] : [];
+  const parked = ghJson(['issue', 'list', '--state', 'open',
+    ...PARK_LABELS.flatMap((l) => ['--label', l]),
+    '--limit', '100', '--json', 'number,title,body', ...repoArgs]);
+  if (!Array.isArray(parked)) return [];
+  const outcomes = [];
+  for (const iss of parked) {
+    if (!failing.has(iss.title)) continue;
+    const marker = parseValidatedBuildMarker(iss.body);
+    const sameBuild = Boolean(marker?.sha && deployRef && marker.sha === deployRef);
+    // Il compare costa una chiamata: solo per i parcheggi di questo reporter
+    // su una build diversa da quella che li ha aperti.
+    const contains = !shouldParkNewIssue(marker) || sameBuild ? null : buildContainsCommit(repo, marker.mainSha, deployRef);
+    const decision = parkedReleaseDecision({ marker, deployRef, contains });
+    outcomes.push({ number: iss.number, decision });
+    if (decision !== 'release') {
+      if (decision === 'keep') {
+        console.log(`[report-validate-dist-failure] #${iss.number} resta parcheggiata: ${sameBuild
+          ? `è di nuovo la build \`${deployRef}\` che l'ha aperta`
+          : `la build \`${deployRef}\` non contiene ancora \`${marker.mainSha}\``}.`);
+      }
+      continue;
+    }
+    const edited = gh(['issue', 'edit', String(iss.number),
+      ...PARK_LABELS.flatMap((l) => ['--remove-label', l]), ...repoArgs]);
+    if (edited === null) {
+      console.error(`[report-validate-dist-failure] sblocco di #${iss.number} fallito (gh issue edit)`);
+      continue;
+    }
+    const why = contains === true
+      ? `la build \`${deployRef}\` contiene \`${marker.mainSha}\`, cioè il \`main\` di quando la issue è stata parcheggiata`
+      : `il contenimento di \`${marker.mainSha}\` nella build \`${deployRef || 'unknown'}\` non è misurabile, quindi si torna all'instradamento normale`;
+    gh(['issue', 'comment', String(iss.number), '--body',
+      `▶️ **Parcheggio tolto** — il gate è ancora rosso${runId && repo ? ` nella validazione ${runUrl(repo, runId)}` : ''} e ${why}: è una ricorrenza vera, la issue torna nella coda del fixer.`,
+      ...repoArgs]);
+    console.log(`[report-validate-dist-failure] #${iss.number} sbloccata (${PARK_LABELS.join(' + ')} tolte).`);
+  }
+  return outcomes;
+}
+
 /* ── modalità ────────────────────────────────────────────────────────── */
 
-function reportDist({ dryRun }) {
+export function reportDist({ dryRun }) {
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
   const runId = process.env.RUN_ID || process.env.GITHUB_RUN_ID || '';
   const runAttempt = process.env.RUN_ATTEMPT || process.env.GITHUB_RUN_ATTEMPT || '1';
@@ -645,14 +872,22 @@ function reportDist({ dryRun }) {
 
   const failedGateNames = failedJobs.flatMap((j) => (j.gates || []).map((g) => g.gate));
   const reports = loadGateReports(failedGateNames, process.env.VALIDATE_DIST_REPORTS_DIR || '', `${runId}-${runAttempt}`);
-  const payloads = buildIssuePayloads({
+  const payloadInput = {
     repo, runId, runAttempt, deployRunId, deployRef, deployEvent,
     results, failedJobs, pkgScripts: readPkgScripts(), reports,
-  });
+  };
+  let payloads = buildIssuePayloads(payloadInput);
+  // La freschezza si misura solo se c'è almeno una issue da scrivere: un run
+  // i cui gate rossi sono tutti di cathedral non spende le letture.
+  const freshness = payloads.length > 0 ? measureBuildFreshness({ repo, deployRef, deployRunId }) : null;
+  if (freshness) {
+    console.log(`[report-validate-dist-failure] ${validatedBuildMarker(deployRef, freshness)}`);
+    payloads = buildIssuePayloads({ ...payloadInput, freshness });
+  }
   const resolvable = gatesToResolve([...passedGates], failedGateNames);
 
   if (dryRun) {
-    process.stdout.write(JSON.stringify({ payloads, resolvable: resolvable.map(titleForGate) }, null, 2) + '\n');
+    process.stdout.write(JSON.stringify({ payloads, resolvable: resolvable.map(titleForGate), freshness }, null, 2) + '\n');
     return Promise.resolve();
   }
 
@@ -675,7 +910,9 @@ function reportDist({ dryRun }) {
       exactTitle: payload.gate !== null,
     })),
     Promise.resolve(),
-  ).then(() => resolvePassedGates(repo, runId, resolvable));
+  )
+    .then(() => releaseParkedRecurrences({ repo, runId, deployRef, failingTitles: payloads.map((p) => p.title) }))
+    .then(() => resolvePassedGates(repo, runId, resolvable));
 }
 
 /**
