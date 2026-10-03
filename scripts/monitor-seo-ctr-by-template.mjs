@@ -5,15 +5,21 @@
  *
  * Weekly: for each monitored template family (scripts/lib/seo-ctr-curve.mjs),
  * pulls a trailing 14-day GSC CTR and compares it against the family's
- * target. A family below target for 2 CONSECUTIVE scheduled runs (~2 weeks
+ * target. A family below target for 2 CONSECUTIVE COUNTED checks (~2 weeks
  * at the weekly cron cadence) opens a GitHub issue via
  * scripts/lib/github-issue-creator.mjs with a stable, dedup-friendly title —
- * re-runs while still below threshold post a comment on the same issue
+ * later counted checks still below threshold post a comment on the same issue
  * instead of duplicating it (github-issue-creator's built-in title-prefix
  * dedup). Recovering above target resets the counter; no auto-close (left to
  * human review, consistent with the rest of the monitor fleet).
  *
- * State persisted in data/seo-ctr-monitor-state.json so consecutive-run
+ * A check is COUNTED at most once per cadence (nextCtrMonitorCounter in
+ * scripts/lib/seo-ctr-curve.mjs): a manual dispatch or a re-run a few days
+ * after a counted check re-reads almost the same 14-day window, so it
+ * refreshes the evidence in the state file and in the log but neither moves
+ * the counter nor opens or comments an issue.
+ *
+ * State persisted in data/seo-ctr-monitor-state.json so consecutive-check
  * counting survives across scheduled workflow invocations.
  *
  * Also runs a family-discovery pass each week: pulls site-wide GSC pages
@@ -50,6 +56,8 @@ import {
   aggregateFamilyRows,
   belowCurvePagesForState,
   renderBelowCurvePagesSection,
+  nextCtrMonitorCounter,
+  ctrMonitorCountedAnchor,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
@@ -345,21 +353,33 @@ async function main() {
       console.warn(`   ⚠️ errore GSC, salto questo giro: ${e.message}`);
       // Don't touch the counter on a fetch failure — avoid false escalation
       // from a transient API blip.
-      state.families[family.id] = { ...prior, lastCheckedIso: nowIso, lastError: e.message };
+      // ...and don't move the cadence either: this check counted nothing, so
+      // the anchor stays where the last counted check left it.
+      state.families[family.id] = {
+        ...prior,
+        lastCheckedIso: nowIso,
+        lastCountedIso: ctrMonitorCountedAnchor(prior),
+        lastError: e.message,
+      };
       continue;
     }
 
     const belowTarget = ctr !== null && target !== null && ctr < target;
-    const consecutiveBelowRuns = belowTarget ? (prior.consecutiveBelowRuns || 0) + 1 : 0;
+    const { counted, consecutiveBelowRuns, lastCountedIso } = nextCtrMonitorCounter(prior, { belowTarget, nowIso });
+    const offCadence = `controllo fuori cadenza, non conteggiato (ultimo conteggiato: ${lastCountedIso}; contatore fermo a ${consecutiveBelowRuns})`;
 
     if (belowTarget) {
-      console.log(`   ⚠️ sotto soglia (giro consecutivo #${consecutiveBelowRuns})`);
+      console.log(counted
+        ? `   ⚠️ sotto soglia (controllo consecutivo #${consecutiveBelowRuns})`
+        : `   ⚠️ sotto soglia — ${offCadence}`);
       console.log(renderBelowCurvePagesSection(belowCurvePages).replace(/^/gm, '   '));
-      if (consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE) {
+      // Escalation only on a counted check: the issue text says "N controlli
+      // settimanali consecutivi" and an off-cadence run is not one of them.
+      if (counted && consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE) {
         await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns, belowCurvePages });
       }
     } else {
-      console.log('   ✅ CTR nella norma');
+      console.log(counted ? '   ✅ CTR nella norma' : `   ✅ CTR nella norma — ${offCadence}`);
     }
 
     state.families[family.id] = {
@@ -369,6 +389,7 @@ async function main() {
       lastTargetCtr: target,
       lastBelowCurvePages: belowCurvePagesForState(belowCurvePages),
       lastCheckedIso: nowIso,
+      lastCountedIso,
       lastError: null,
     };
   }

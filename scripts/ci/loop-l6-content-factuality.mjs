@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import {
   actionClassForPolicy,
   buildDecision,
@@ -16,6 +16,8 @@ import {
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 
 export const LOOP_ID = 'L6';
+const ISSUE_TITLE = 'L6 Content Factuality: independent source verdict is missing or invalid';
+const ISSUE_WORKFLOW = 'Loop L6 Content Learning and Factuality';
 export const DEFAULT_HISTORY_PATH = path.join('data', 'quality-alerts-history.jsonl');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'content-factuality-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -535,7 +537,8 @@ export async function runL6({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -670,16 +673,21 @@ export async function runL6({
   let issued = false;
   if (issue && !verdict.ok) {
     const issueResult = await createIssueImpl({
-      title: 'L6 Content Factuality: independent source verdict is missing or invalid',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'content-quality', 'loop-l6'],
-      workflow: 'Loop L6 Content Learning and Factuality',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     if (!issueResult || issueResult.persisted !== true) {
-      throw new Error('L6 issue persistence failed: createGithubIssue did not confirm persisted=true');
+      throw new Error('L6 issue persistence failed: reportLoopIssue did not confirm persisted=true');
     }
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten, outcome });
   if (resultFile) files.push(resultFile);

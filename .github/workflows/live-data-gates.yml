@@ -1,7 +1,8 @@
 name: live-data gates
 
-# I 118 file di test che leggono DATI VIVI, tolti dal job bloccante delle PR il
-# 2026-09-19. Questo file è l'indirizzo nuovo: non è una cancellazione, è un
+# I file di test che leggono DATI VIVI (elenco calcolato da
+# `scripts/ci/live-data-test-guard.mjs --monitor-files`), tolti dal job
+# bloccante delle PR il 2026-09-19. Questo file è l'indirizzo nuovo: non è una cancellazione, è un
 # trasloco, e la differenza sta tutta in chi paga il rosso.
 #
 # ─── PERCHÉ NON POSSONO STARE NEL GATE DELLE PR ───────────────────────────

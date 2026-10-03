@@ -439,38 +439,55 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     let jobs;
     try {
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      // AbortSignal is advisory for injected/proxy fetch implementations. If
+      // one ignores it, aborting alone leaves this await pending; once the
+      // timer is the last active handle Node exits with code 0 and the summary
+      // guard records an unobserved early exit (null counters). Keep the timer
+      // as a real rejection as well as an abort signal.
+      let rejectTimeout;
+      const timeoutError = new Error(`Coop API request timed out at offset ${offset} after ${timeoutMs}ms.`);
+      timeoutError.name = 'TimeoutError';
+      const timeoutPromise = new Promise((_, reject) => {
+        rejectTimeout = reject;
+      });
+      const timer = setTimeout(() => {
+        controller.abort();
+        rejectTimeout(timeoutError);
+      }, timeoutMs);
 
-      let res;
-      let data;
       try {
-        res = await fetchImpl(apiUrl, {
-          signal: controller.signal,
-          headers: {
-            Accept: 'application/json',
-            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-          },
-        });
-        if (res.ok) {
-          data = await res.json();
+        const data = await Promise.race([
+          (async () => {
+            const res = await fetchImpl(apiUrl, {
+              signal: controller.signal,
+              headers: {
+                Accept: 'application/json',
+                'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+              },
+            });
+            if (!res?.ok) {
+              const error = new Error(`Coop discovery failed at offset ${offset}: API returned HTTP ${res?.status ?? 'unknown'}.`);
+              if (Number.isFinite(res?.status)) error.status = res.status;
+              throw error;
+            }
+            return res.json();
+          })(),
+          timeoutPromise,
+        ]);
+        jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
+        if (typeof data?.total === 'number') {
+          apiTotals.add(data.total);
+          if (apiTotal === null) apiTotal = data.total;
         }
       } finally {
         clearTimeout(timer);
       }
-
-      if (!res.ok) {
-        console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
-        break;
-      }
-
-      jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
-      if (typeof data?.total === 'number') {
-        apiTotals.add(data.total);
-        if (apiTotal === null) apiTotal = data.total;
-      }
     } catch (err) {
       console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
-      break;
+      // Do not turn an unreadable/unfinished page into an empty discovery.
+      // The caller's crawler-level handler preserves the last valid slice and
+      // records a connection-level abort for transport errors.
+      throw err;
     }
 
     if (jobs.length === 0) {
