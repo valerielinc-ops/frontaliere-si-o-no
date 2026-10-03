@@ -102,6 +102,7 @@ function annotationsForJob(annotationsByJob, jobId) {
  */
 export function decideBuildLocaleRecovery({
   run,
+  workflow,
   jobs,
   artifacts,
   annotationsByJob = {},
@@ -117,7 +118,7 @@ export function decideBuildLocaleRecovery({
   if (!runId || !SHA_RE.test(runSha) || !SHA_RE.test(expected) || runSha.toLowerCase() !== expected.toLowerCase()) {
     return recoverySkip('provenance-sha-mismatch', 'run SHA is missing or differs from the current workflow SHA');
   }
-  if (run?.path !== DEPLOY_WORKFLOW_PATH || run?.name !== DEPLOY_WORKFLOW_NAME) {
+  if (workflow?.path !== DEPLOY_WORKFLOW_PATH || run?.name !== DEPLOY_WORKFLOW_NAME) {
     return recoverySkip('provenance-workflow-mismatch', 'the observed run is not the canonical deploy workflow');
   }
   if (run?.head_branch !== 'main') {
@@ -310,6 +311,11 @@ async function inspectBuildLocaleRecovery({
       jobs = Array.isArray(jobsPayload?.jobs) ? jobsPayload.jobs : [];
     }
 
+    if (!run?.workflow_url) {
+      throw new Error('workflow run has no workflow_url for provenance lookup');
+    }
+    const workflow = ghJson(['api', run.workflow_url]);
+
     const artifactsPayload = ghJson([
       'api',
       `${runPath}/artifacts?name=${encodeURIComponent(PREPARED_SNAPSHOT_ARTIFACT)}&per_page=100`,
@@ -324,6 +330,7 @@ async function inspectBuildLocaleRecovery({
 
     return decideBuildLocaleRecovery({
       run,
+      workflow,
       jobs,
       artifacts: artifactsPayload?.artifacts,
       annotationsByJob,

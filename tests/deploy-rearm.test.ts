@@ -38,10 +38,16 @@ const selfRun = (headSha = HEAD): Run => ({ id: SELF, headSha, status: 'in_progr
 const RECOVERY_RUN = {
   id: 42,
   name: 'Deploy to GitHub Pages',
-  path: '.github/workflows/deploy.yml',
+  workflow_id: 777,
+  workflow_url: 'https://api.github.com/repos/o/r/actions/workflows/777',
   head_branch: 'main',
   head_sha: HEAD,
   run_attempt: 1,
+};
+const RECOVERY_WORKFLOW = {
+  id: RECOVERY_RUN.workflow_id,
+  name: RECOVERY_RUN.name,
+  path: '.github/workflows/deploy.yml',
 };
 const PREPARED_SNAPSHOT = {
   name: 'prepared-snapshot',
@@ -74,6 +80,7 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
   it('retries exactly the one leg whose Build step was host-killed', () => {
     const decision = decideBuildLocaleRecovery({
       run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
       jobs: [localeJob()],
       artifacts: [PREPARED_SNAPSHOT],
       expectedSha: HEAD,
@@ -89,6 +96,7 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
   it('does not reinterpret a concluded application failure as host loss', () => {
     const decision = decideBuildLocaleRecovery({
       run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
       jobs: [localeJob({
         steps: [
           { number: 15, name: 'Build (BUILD_LOCALE=de)', status: 'completed', conclusion: 'failure' },
@@ -107,6 +115,7 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
   it('accepts only the proven job-timeout annotation as the other transient signature', () => {
     const decision = decideBuildLocaleRecovery({
       run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
       jobs: [localeJob({
         conclusion: 'cancelled',
         steps: [{ number: 15, name: 'Build (BUILD_LOCALE=de)', status: 'completed', conclusion: 'cancelled' }],
@@ -126,6 +135,7 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
   it('stops after one job-level recovery attempt', () => {
     const decision = decideBuildLocaleRecovery({
       run: { ...RECOVERY_RUN, run_attempt: 2 },
+      workflow: RECOVERY_WORKFLOW,
       jobs: [localeJob({ run_attempt: 2 })],
       artifacts: [PREPARED_SNAPSHOT],
       expectedSha: HEAD,
@@ -143,6 +153,7 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
 
     expect(decideBuildLocaleRecovery({
       run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
       jobs: [localeJob()],
       artifacts: [wrongSnapshot],
       expectedSha: HEAD,
@@ -151,6 +162,7 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
 
     expect(decideBuildLocaleRecovery({
       run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
       jobs: [wrongSha],
       artifacts: [PREPARED_SNAPSHOT],
       expectedSha: HEAD,
@@ -161,6 +173,7 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
   it('refuses a partial choice when more than one locale leg has the signature', () => {
     const decision = decideBuildLocaleRecovery({
       run: RECOVERY_RUN,
+      workflow: RECOVERY_WORKFLOW,
       jobs: [
         localeJob(),
         localeJob({
