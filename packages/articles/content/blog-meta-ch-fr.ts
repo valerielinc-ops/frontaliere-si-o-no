@@ -7631,6 +7631,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-regole-deposito-argovia-2026.title': 'Locations en Suisse : règles relatives au dépôt de garantie 2026',
     'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Guide pratique des règles relatives aux locations en Suisse et en Argovie pour 2026 : limite maximale de trois mensualités, compte bloqué et vérifications contractuelles.',
     'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Marche immobilier et regles de location en Suisse et en Argovie',
+    'blog.article.locazione-cauzione-argovia-2026.title': 'Location en Suisse 2026 : caution et résiliation en Argovie',
+    'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Caution jusqu\'à trois mensualités, compte lié et 30 jours pour contester la résiliation : les règles fédérales pour les loyers en Argovie en 2026.',
+    'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Immeubles résidentiels suisses pour le marché locatif 2026',
 };
 
 export default blogMetaChFr;

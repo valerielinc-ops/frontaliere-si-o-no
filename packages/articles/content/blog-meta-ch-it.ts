@@ -7631,6 +7631,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-regole-deposito-argovia-2026.title': 'Affitti in Svizzera: regole sul deposito cauzionale 2026',
     'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Guida pratica alle regole sugli affitti in Svizzera e in Argovia per il 2026: limite massimo di tre mensilità, conto vincolato e verifiche contrattuali.',
     'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Mercato immobiliare e regole sugli affitti in Svizzera e canton Argovia',
+    'blog.article.locazione-cauzione-argovia-2026.title': 'Affitti in Svizzera 2026: cauzione e disdetta in Argovia',
+    'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Deposito cauzionale fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta: le regole federali per gli affitti in Argovia nel 2026.',
+    'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Edifici residenziali svizzeri per il mercato degli affitti 2026',
 };
 
 export default blogMetaChIt;

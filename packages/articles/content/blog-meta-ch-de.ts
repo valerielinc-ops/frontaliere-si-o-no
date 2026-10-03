@@ -7631,6 +7631,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-regole-deposito-argovia-2026.title': 'Mieten in der Schweiz: Regeln zur Mietkaution 2026',
     'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Praktischer Leitfaden zu den Mietregeln in der Schweiz und im Aargau für 2026: Höchstgrenze von drei Monatsmieten, Sperrkonto und Vertragsprüfungen.',
     'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Immobilienmarkt und Mietregeln in der Schweiz und im Kanton Aargau',
+    'blog.article.locazione-cauzione-argovia-2026.title': 'Mieten in der Schweiz 2026: Kaution und Kündigung im Aargau',
+    'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Kaution von bis zu drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung anzufechten: die Bundesregeln für Mietverhältnisse im Aargau im Jahr 2026.',
+    'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Schweizer Wohngebäude für den Mietmarkt 2026',
 };
 
 export default blogMetaChDe;

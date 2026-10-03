@@ -7631,6 +7631,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-regole-deposito-argovia-2026.title': 'Renting in Switzerland: security deposit rules 2026',
     'blog.article.affitti-regole-deposito-argovia-2026.excerpt': 'Practical guide to rental rules in Switzerland and Aargau for 2026: maximum limit of three months\' rent, blocked account, and contractual checks.',
     'blog.article.affitti-regole-deposito-argovia-2026.imageAlt': 'Real estate market and rental rules in Switzerland and Aargau',
+    'blog.article.locazione-cauzione-argovia-2026.title': 'Swiss Rentals 2026: Deposit & Notice in Aargau',
+    'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Security deposit of up to three months\' rent, blocked account, and 30 days to challenge the notice of termination: the federal rules for rentals in Aargau in 2026.',
+    'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Swiss residential buildings for the 2026 rental market',
 };
 
 export default blogMetaChEn;
