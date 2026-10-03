@@ -1,7 +1,7 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-10-02T21:14:50.645Z",
+  "generatedAt": "2026-10-03T09:20:06.234Z",
   "total": 4,
   "discovered": null,
   "parsed": 2,
@@ -14,11 +14,12 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5188,
-  "avgDurationMs": 5188,
+  "durationMs": 4261,
+  "avgDurationMs": 4261,
   "durationHistory": [
     3888,
-    5188
+    5188,
+    4261
   ],
   "newJobs": [
     {
