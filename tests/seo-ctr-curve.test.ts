@@ -9,6 +9,9 @@ import {
   rankBelowCurvePagesByLostClicks,
   renderBelowCurvePagesSection,
   belowCurvePagesForState,
+  nextCtrMonitorCounter,
+  ctrMonitorCountedAnchor,
+  CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS,
   BELOW_CURVE_ISSUE_PAGE_LIMIT,
   BELOW_CURVE_STATE_PAGE_LIMIT,
   effectiveTargetCtr,
@@ -1097,5 +1100,157 @@ describe('registro auto-registrato (issue #7174)', () => {
     });
     expect(result.kind).toBe('unknown');
     expect(result.family).toBeNull();
+  });
+});
+
+// `consecutiveBelowRuns` e' pubblicato come «controlli settimanali
+// consecutivi». Finche' contava ogni run, un dispatch manuale lo muoveva in
+// entrambe le direzioni: misurato il 2026-10-03, a sei giorni dal cron, due
+// famiglie da 4 a 5, una da 1 a 2 (con issue aperta un giorno prima del
+// controllo settimanale) e una da 3 a 0 (serie cancellata).
+describe('contatore del monitor CTR: un controllo conteggiato per cadenza', () => {
+  const BASE_MS = Date.parse('2026-01-04T16:00:00.000Z');
+  const HOUR_MS = 3_600_000;
+  const at = (days: number, hours = 0) => new Date(BASE_MS + days * 24 * HOUR_MS + hours * HOUR_MS).toISOString();
+  const lastCounted = at(0);
+
+  it('conta il primo controllo di una famiglia mai vista', () => {
+    expect(nextCtrMonitorCounter(undefined, { belowTarget: true, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 1, lastCountedIso: at(0) });
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 0 }, { belowTarget: false, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 0, lastCountedIso: at(0) });
+  });
+
+  it('alla cadenza settimanale incrementa sotto target e azzera a target', () => {
+    const prior = { consecutiveBelowRuns: 3, lastCountedIso: lastCounted, lastCheckedIso: lastCounted };
+    expect(nextCtrMonitorCounter(prior, { belowTarget: true, nowIso: at(7) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 4, lastCountedIso: at(7) });
+    expect(nextCtrMonitorCounter(prior, { belowTarget: false, nowIso: at(7) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 0, lastCountedIso: at(7) });
+  });
+
+  it.each([
+    ['sotto target', true],
+    ['a target', false],
+  ])('un controllo fuori cadenza non muove il contatore (%s)', (_label, belowTarget) => {
+    const prior = { consecutiveBelowRuns: 3, lastCountedIso: lastCounted, lastCheckedIso: lastCounted };
+    for (const nowIso of [at(0, 1), at(1), at(5, 23)]) {
+      expect(nextCtrMonitorCounter(prior, { belowTarget, nowIso }))
+        .toEqual({ counted: false, consecutiveBelowRuns: 3, lastCountedIso: lastCounted });
+    }
+  });
+
+  it('regge il ritardo di una run schedulata in entrambe le direzioni', () => {
+    // Cron partito con 20 ore di ritardo, quello dopo puntuale: 6 giorni e 4 ore.
+    const late = { consecutiveBelowRuns: 1, lastCountedIso: at(0, 20) };
+    expect(nextCtrMonitorCounter(late, { belowTarget: true, nowIso: at(7) }).counted).toBe(true);
+    // Cron puntuale, quello dopo in ritardo: piu' di sette giorni.
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 1, lastCountedIso: lastCounted }, { belowTarget: true, nowIso: at(7, 20) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 2, lastCountedIso: at(7, 20) });
+    // Il confine e' incluso.
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 1, lastCountedIso: lastCounted }, {
+      belowTarget: true,
+      nowIso: at(CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS),
+    }).counted).toBe(true);
+  });
+
+  it('un controllo fuori cadenza non sposta la cadenza: il cron successivo conta', () => {
+    const prior = { consecutiveBelowRuns: 1, lastCountedIso: lastCounted, lastCheckedIso: lastCounted };
+    const manual = nextCtrMonitorCounter(prior, { belowTarget: true, nowIso: at(5, 22) });
+    expect(manual.counted).toBe(false);
+    const afterManual = { consecutiveBelowRuns: manual.consecutiveBelowRuns, lastCountedIso: manual.lastCountedIso, lastCheckedIso: at(5, 22) };
+    expect(nextCtrMonitorCounter(afterManual, { belowTarget: true, nowIso: at(7) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 2, lastCountedIso: at(7) });
+  });
+
+  it('usa lastCheckedIso come ancora per lo stato precedente a lastCountedIso', () => {
+    const legacy = { consecutiveBelowRuns: 4, lastCheckedIso: lastCounted };
+    expect(ctrMonitorCountedAnchor(legacy)).toBe(lastCounted);
+    expect(nextCtrMonitorCounter(legacy, { belowTarget: true, nowIso: at(1) }))
+      .toEqual({ counted: false, consecutiveBelowRuns: 4, lastCountedIso: lastCounted });
+    expect(nextCtrMonitorCounter(legacy, { belowTarget: true, nowIso: at(7) }).consecutiveBelowRuns).toBe(5);
+    expect(ctrMonitorCountedAnchor(undefined)).toBeNull();
+    expect(ctrMonitorCountedAnchor({ lastCountedIso: at(3), lastCheckedIso: at(4) })).toBe(at(3));
+  });
+
+  // Il ramo di errore del monitor scrive `lastCheckedIso` (il controllo c'e'
+  // stato) e riporta l'ancora cosi' com'era. Per una famiglia mai conteggiata
+  // l'ancora e' `null`, ed e' un `null` SCRITTO: non deve ricadere su
+  // `lastCheckedIso`, altrimenti il controllo valido che segue un errore
+  // risulta fuori cadenza per sei giorni.
+  it('un null esplicito in lastCountedIso vuol dire «mai conteggiato», non «campo assente»', () => {
+    const afterFirstError = { consecutiveBelowRuns: 1, lastCountedIso: null, lastCheckedIso: at(0) };
+    expect(ctrMonitorCountedAnchor(afterFirstError)).toBeNull();
+    expect(nextCtrMonitorCounter(afterFirstError, { belowTarget: true, nowIso: at(0, 1) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 2, lastCountedIso: at(0, 1) });
+  });
+
+  it('errore GSC e poi controllo valido: la famiglia nuova conta, quella gia\' conteggiata resta in cadenza', () => {
+    // Stessa scrittura del ramo di errore: { ...prior, lastCheckedIso, lastCountedIso: ancora(prior) }.
+    const errorWrite = (prior: Record<string, unknown>, nowIso: string) => ({
+      ...prior,
+      lastCheckedIso: nowIso,
+      lastCountedIso: ctrMonitorCountedAnchor(prior),
+    });
+
+    const neverSeen = errorWrite({ consecutiveBelowRuns: 0 }, at(0));
+    expect(neverSeen.lastCountedIso).toBeNull();
+    expect(nextCtrMonitorCounter(neverSeen, { belowTarget: true, nowIso: at(0, 2) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 1, lastCountedIso: at(0, 2) });
+
+    // Stato vecchio (senza il campo), conteggiato una settimana prima: l'errore
+    // del cron non sposta l'ancora, il re-run del giorno dopo conta.
+    const legacyThenError = errorWrite({ consecutiveBelowRuns: 3, lastCheckedIso: at(0) }, at(7));
+    expect(legacyThenError.lastCountedIso).toBe(at(0));
+    expect(nextCtrMonitorCounter(legacyThenError, { belowTarget: true, nowIso: at(8) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 4, lastCountedIso: at(8) });
+
+    // Conteggiata ieri, errore oggi: il re-run di oggi resta fuori cadenza.
+    const countedThenError = errorWrite({ consecutiveBelowRuns: 3, lastCountedIso: at(6), lastCheckedIso: at(6) }, at(7));
+    expect(nextCtrMonitorCounter(countedThenError, { belowTarget: true, nowIso: at(7, 1) }))
+      .toEqual({ counted: false, consecutiveBelowRuns: 3, lastCountedIso: at(6) });
+  });
+
+  it("un'ancora illeggibile o nel futuro non congela il contatore", () => {
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 2, lastCountedIso: 'non una data' }, { belowTarget: true, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 3, lastCountedIso: at(0) });
+    expect(nextCtrMonitorCounter({ consecutiveBelowRuns: 2, lastCountedIso: at(30) }, { belowTarget: true, nowIso: at(0) }))
+      .toEqual({ counted: true, consecutiveBelowRuns: 3, lastCountedIso: at(0) });
+    expect(() => nextCtrMonitorCounter({}, { belowTarget: true, nowIso: 'ieri' })).toThrow(TypeError);
+  });
+
+  it("ignora un contatore precedente che non e' un intero positivo", () => {
+    for (const bad of [undefined, null, -2, 1.5, '3', Number.NaN]) {
+      expect(nextCtrMonitorCounter({ consecutiveBelowRuns: bad as never, lastCountedIso: lastCounted }, { belowTarget: true, nowIso: at(7) })
+        .consecutiveBelowRuns).toBe(1);
+    }
+  });
+
+  // Replay dell'incidente con gli istanti reali: ultimo cron il 27-09 alle
+  // 19:41Z, dispatch manuale il 03-10 alle 17:22Z, cron successivo il 04-10.
+  it('replay del 2026-10-03: il dispatch manuale non conta, il cron della domenica si', () => {
+    const lastCron = '2026-09-27T19:41:06.796Z';
+    const manualDispatch = '2026-10-03T17:22:17.500Z';
+    const sundayCron = '2026-10-04T16:05:00.000Z';
+    const families: Array<[number, boolean]> = [[4, true], [1, true], [3, false]];
+    for (const [runs, belowTarget] of families) {
+      const prior = { consecutiveBelowRuns: runs, lastCheckedIso: lastCron };
+      const manual = nextCtrMonitorCounter(prior, { belowTarget, nowIso: manualDispatch });
+      expect(manual).toEqual({ counted: false, consecutiveBelowRuns: runs, lastCountedIso: lastCron });
+      const sunday = nextCtrMonitorCounter(
+        { consecutiveBelowRuns: manual.consecutiveBelowRuns, lastCountedIso: manual.lastCountedIso, lastCheckedIso: manualDispatch },
+        { belowTarget: true, nowIso: sundayCron },
+      );
+      expect(sunday).toEqual({ counted: true, consecutiveBelowRuns: runs + 1, lastCountedIso: sundayCron });
+    }
+  });
+
+  it('il monitor delega il contatore e apre o commenta la issue solo su un controllo conteggiato', () => {
+    const monitor = readFileSync(join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+    expect(monitor).toContain('nextCtrMonitorCounter(prior, { belowTarget, nowIso })');
+    expect(monitor).not.toMatch(/consecutiveBelowRuns\s*\|\|\s*0\)\s*\+\s*1/);
+    expect(monitor).toContain('if (counted && consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE)');
+    expect(monitor).toContain('lastCountedIso: ctrMonitorCountedAnchor(prior)');
+    expect(monitor).toMatch(/lastCheckedIso: nowIso,\n\s+lastCountedIso,\n/);
   });
 });
