@@ -7643,6 +7643,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.inquilini-cantoni-disdetta.title': 'Affitti Svizzera 2026: mercato immobiliare Argovia',
     'blog.article.inquilini-cantoni-disdetta.excerpt': 'Mercato degli affitti svizzero nel 2026: in Argovia cauzione massima di tre mensilità, modulo cantonale e 30 giorni per contestare.',
     'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Edificio residenziale svizzero con documenti per un contratto d\'affitto',
+    'blog.article.fisco-zurigo-guida-online.title': 'Dichiarazione imposte svizzera 2026: guida a Zurigo',
+    'blog.article.fisco-zurigo-guida-online.excerpt': 'Nel 2026 la dichiarazione distingue IFD, imposte cantonali e comunali: a Zurigo contano legge e moltiplicatore del Cantone e del Comune.',
+    'blog.article.fisco-zurigo-guida-online.imageAlt': 'Dichiarazione fiscale svizzera su una scrivania, con lo skyline di Zurigo sullo sfondo.',
 };
 
 export default blogMetaChIt;

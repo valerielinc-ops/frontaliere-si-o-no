@@ -7643,6 +7643,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.inquilini-cantoni-disdetta.title': 'Mieten Schweiz 2026: Immobilienmarkt Aargau',
     'blog.article.inquilini-cantoni-disdetta.excerpt': 'Schweizer Mietmarkt 2026: Im Aargau gelten eine maximale Kaution von drei Monatsmieten, ein kantonales Formular und 30 Tage für eine Anfechtung.',
     'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Schweizer Wohngebäude mit Unterlagen für einen Mietvertrag',
+    'blog.article.fisco-zurigo-guida-online.title': 'Schweizer Steuererklärung 2026: Leitfaden für Zürich',
+    'blog.article.fisco-zurigo-guida-online.excerpt': 'Im Jahr 2026 unterscheidet die Steuererklärung zwischen IFD sowie kantonalen und kommunalen Steuern: In Zürich sind das Gesetz und der Steuerfuss des Kantons und der Gemeinde maßgeblich.',
+    'blog.article.fisco-zurigo-guida-online.imageAlt': 'Schweizer Steuerunterlagen auf einem Schreibtisch vor der Skyline von Zürich.',
 };
 
 export default blogMetaChDe;

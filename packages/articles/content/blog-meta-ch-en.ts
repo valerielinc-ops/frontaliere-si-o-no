@@ -7643,6 +7643,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.inquilini-cantoni-disdetta.title': 'Swiss rentals 2026: Aargau real estate market',
     'blog.article.inquilini-cantoni-disdetta.excerpt': 'Swiss rental market in 2026: in Aargau, a maximum deposit of three months’ rent, a cantonal form, and 30 days to contest.',
     'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Swiss residential building with documents for a rental contract',
+    'blog.article.fisco-zurigo-guida-online.title': 'Swiss tax return 2026: guide to Zurich',
+    'blog.article.fisco-zurigo-guida-online.excerpt': 'In 2026, the tax return distinguishes between IFD, cantonal taxes and municipal taxes: in Zurich, the law and multiplier of the canton and municipality matter.',
+    'blog.article.fisco-zurigo-guida-online.imageAlt': 'Swiss tax return papers on a desk with the Zurich skyline in the background.',
 };
 
 export default blogMetaChEn;

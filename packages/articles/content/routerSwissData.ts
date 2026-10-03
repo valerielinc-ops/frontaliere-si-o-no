@@ -2570,6 +2570,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dazio-ue-pacchi-posta': { it: 'dazio-ue-pacchi-posta', en: 'eu-tariff-swiss-post-parcels', de: 'eu-zoll-swiss-post-pakete', fr: 'droits-ue-colis-poste-suisse' },
  'spedizioni-ue-posta-svizzera': { it: 'spedizioni-ue-posta-svizzera', en: 'eu-duties-small-parcels-swiss-post', de: 'eu-zoll-kleine-pakete-schweizerische-post', fr: 'droits-ue-petits-colis-poste-suisse' },
  'inquilini-cantoni-disdetta': { it: 'inquilini-cantoni-disdetta', en: 'swiss-rent-tenant-rights', de: 'mietrecht-schweiz-argau', fr: 'location-suisse-argovie' },
+ 'fisco-zurigo-guida-online': { it: 'fisco-zurigo-guida-online', en: 'zurich-tax-return-online-guide', de: 'steuererklaerung-zuerich-online-ratgeber', fr: 'declaration-impots-zurich-guide-en-ligne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

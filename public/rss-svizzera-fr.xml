@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 03 Oct 2026 08:05:54 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 08:33:46 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,81 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Déclaration fiscale suisse 2026 : guide de Zurich</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/declaration-impots-zurich-guide-en-ligne/</link>
+      <description><![CDATA[En 2026, la déclaration distingue IFD, impôts cantonaux et communaux : à Zurich, la loi et le multiplicateur du canton et de la commune comptent.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Trois niveaux : IFD, cantonal et communal
+- Chaque canton possède sa propre loi et son propre multiplicateur
+- L'AFC/ESTV gère l'IFD et la TVA
+- La commune applique le multiplicateur cantonal
+
+## Faits clés
+- Focus → canton de Zurich
+- Structure → impôt fédéral direct, cantonal, communal
+- Compétence IFD/TVA → AFC/ESTV
+- Compétence cantonale/communale → administrations cantonales
+- Prévoyance sociale → OFAS/BSV
+- Statistiques → OFS/BFS
+
+Trois niveaux composent le cadre de la déclaration suisse : l'impôt fédéral direct, l'impôt cantonal et l'impôt communal. Dans le canton de Zurich, la lecture correcte part de cette séparation : chaque canton dispose de sa propre loi et de son propre multiplicateur, tandis que les communes appliquent un multiplicateur sur le montant cantonal. La donnée fiscale ne doit donc pas être lue comme un taux unique national.
+
+Pour s'orienter dans la déclaration d'impôt, la première étape consiste à distinguer qui gère chaque composante. L'AFC/ESTV s'occupe de l'IFD et de la TVA. Les administrations cantonales, en revanche, gèrent la fiscalité cantonale et communale. La procédure en ligne doit être lue selon cette double directive : une partie fédérale et une partie liée au canton et à la commune.
+
+### Les autorités à ne pas confondre
+
+La prévoyance sociale relève d'un autre périmètre. L'OFAS/BSV concerne l'AVS, l'AI et la LPP, mais ne fixe pas les impôts. L'OFS/BFS produit des statistiques et ne fixe pas de taux. Pour ceux qui lisent leurs postes de salaire avant la déclaration, la distinction entre AVS/AHV, LPP/BVG et impôts évite d'attribuer à un office de prévoyance une compétence fiscale qu'il n'a pas.
+
+La LAMal/KVG appartient également à un domaine séparé. Pour les résidents en Suisse, l'assurance-maladie est obligatoire et doit être souscrite dans les trois mois suivant l'arrivée. Elle est privée, fonctionne avec des primes par tête et n'est ni une taxe ni une cotisation salariale. Les primes varient selon le canton et la région ; la réduction des primes est une subvention cantonale. Ces éléments ne remplacent pas la distinction entre IFD, impôt cantonal et impôt communal.
+
+La même prudence s'impose avec la TVA. Sa compétence relève de l'AFC/ESTV, mais la TVA ne modifie pas les trois niveaux de la déclaration énumérés ci-dessus. En 2026, quiconque utilise la procédure en ligne dans le canton de Zurich doit donc maintenir séparés le niveau fiscal, l'autorité compétente et les postes de prévoyance ou d'assurance. C'est la base pour comparer Zurich avec les autres cantons sans transférer automatiquement des lois ou des multiplicateurs d'un territoire à l'autre.
+La lecture pratique de la déclaration change lorsque l'on sépare les impôts des retenues sur le salaire. Les pourcentages des cotisations ne sont pas des taux d'imposition cantonaux et ne peuvent pas remplacer la loi ou le multiplicateur du canton. Pour quiconque compare le canton de Zurich à un autre territoire, le premier filtre est donc la nature du poste, et pas seulement sa valeur en pourcentage.
+
+### Les pourcentages salariaux ont une fonction distincte
+
+Les principaux postes liés au salaire suivent des règles différentes :
+
+| Poste | Donnée à lire |
+|---|---|
+| AVS/AI/APG | 5.3% à la charge du salarié ; 10.6% au total avec l'employeur |
+| AC | 1.1% jusqu'au plafond annuel |
+| LAA | 0.7–1.5% selon le secteur |
+| LPP/BVG | salaire coordonné : 7% (25–34), 10% (35–44), 15% (45–54), 18% (55+) jusqu'à l'âge de référence |
+
+La différence entre la part individuelle et le total est décisive : les 5.3% d'AVS/AI/APG sont à la charge du salarié, tandis que les 10.6% comprennent également la part de l'employeur. L'AC est indiquée jusqu'à un plafond annuel, sans qu'il soit nécessaire ici de convertir ce plafond en un montant. Pour la LPP/BVG, les pourcentages se rapportent au salaire coordonné et changent avec la tranche d'âge. Il faut donc lire busta paga svizzera par catégories, sans additionner des postes différents comme s'il s'agissait d'un seul impôt.
+
+La comparaison entre les cantons suit le même critère. Chaque canton a sa propre loi et son propre multiplicateur ; la commune applique le multiplicateur à l'impôt cantonal. Le salaire minimum n'est pas non plus un seuil fédéral : il n'existe pas de salaire minimum fédéral, tandis que certains cantons en ont un qui leur est propre. Cette donnée concerne le marché du travail et ne remplace pas la reconstitution des trois niveaux fiscaux.
+
+### LAMal/KVG : des primes distinctes de la fiscalité
+
+La LAMal/KVG requiert une lecture distincte. Pour les résidents, elle est obligatoire, doit être souscrite dans les trois mois suivant l'arrivée, est privée et prévoit des primes par personne. Elle n'est ni une taxe ni une cotisation salariale. Les primes varient selon le canton et la région ; la réduction des primes est un subside cantonal. Pour les adultes, les franchises sont de CHF 300, 500, 1000, 1500, 2000 et 2500. Lorsqu'on compare avec la déclaration, ces informations servent à éviter que les primes, les cotisations salariales et les impôts soient attribués au même niveau. Pour approfondir la question de la santé, consultez le guide LAMal e cassa malati.
+
+## Outils utiles pour la planification
+Pour estimer votre stratégie retraite, utilisez le planificateur retraite et le simulateur 3e pilier.
+Une procédure ordonnée pour 2026 commence par le périmètre fiscal et s'achève par un contrôle des postes relatifs à la prévoyance et à l'assurance. Le critère n'est pas de chercher un pourcentage unique, mais d'attribuer chaque élément à l'autorité et au niveau corrects.
+
+### Procédure en cinq étapes
+
+1. Identifiez le canton et la commune de la déclaration. Pour le canton de Zurich, ouvrez la procédure en ligne du canton et séparez dès le début l'IFD, l'impôt cantonal et l'impôt communal.
+
+2. Notez l'échéance cantonale indiquée pour la procédure. Le calendrier à suivre est celui du canton, sans le remplacer par une date nationale.
+
+3. Vérifiez les déductions admises dans la procédure en ligne. Chaque canton a sa propre loi: ne transférez pas automatiquement des critères ou des postes d'un autre canton.
+
+4. Attribuez chaque poste au bon service. AFC/ESTV concerne l'IFD et la TVA; les administrations cantonales gèrent l'impôt cantonal et communal. OFAS/BSV concerne l'AVS, l'AI et la LPP, tandis que l'OFS/BFS produit des statistiques et non des taux.
+
+5. Effectuez le contrôle final sur les éléments de salaire et d'assurance. Gardez séparées les cotisations AVS/AI/APG, AC, LAA et LPP des primes LAMal. Si l'assurance concerne une arrivée en Suisse, rappelez-vous le délai de trois mois et la réduction cantonale des primes.
+
+Les chiffres indexés chaque année nécessitent un contrôle supplémentaire. Pour le plafond de l'AC, pour les primes moyennes de la LAMal et pour d'autres montants qui changent annuellement, utilisez la valeur de la source officielle se référant à l'année correcte au lieu d'insérer un chiffre non vérifié. La procédure reste ainsi lisible même lorsque l'on compare Zurich et les autres cantons: le niveau fiscal, l'autorité, l'échéance et les postes économiques restent quatre contrôles distincts.
+
+Pour approfondir l'impact de l'AVS et de la LPP sur votre situation personnelle, consultez le guide AVS et LPP. Pour une estimation opérationnelle du revenu et des impôts, utilisez le calculateur de salaire et d'impôts.]]></content:encoded>
+      <pubDate>Sat, 03 Oct 2026 08:33:46 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/fisco-zurigo-guida-online</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/fisco-zurigo-guida-online.webp" medium="image"/>
+    </item>
     <item>
       <title>Locations en Suisse 2026 : marché immobilier d’Argovie</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/location-suisse-argovie/</link>
@@ -3653,74 +3728,6 @@ Pour transformer ce sujet en un contrôle concret de vos revenus, utilisez le ca
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/automazione-ia-amministrazione-federale</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/automazione-ia-amministrazione-federale.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Faillites d&apos;entreprises en Suisse : +37 % en neuf mois</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/faillites-entreprises-suisses-neuf-mois/</link>
-      <description><![CDATA[Au cours des neuf premiers mois, 11 412 faillites ont été enregistrées en Suisse, soit une hausse de 37 % par rapport à 2025. Le Tessin et les Grisons affichent des chiffres supérieurs à la moyenne ; 40 487 nouvelles entreprises ont été créées.]]></description>
-      <content:encoded><![CDATA[## En bref
-- 11 412 faillites au cours des neuf premiers mois
-- +37 % par rapport à la même période en 2025
-- Bâtiment : 1 380 entreprises, +13 %
-- Tessin : 721 faillites, +48 %
-
-## Chiffres clés
-- Source → Crif
-- Période → janvier-septembre
-- Modification → à compter du 1er janvier 2025
-- Nouvelles entreprises → 40 487, +2 %
-
-Au cours des neuf premiers mois de l'année, 11 412 faillites ont été enregistrées en Suisse, soit 37 % de plus qu'à la même période en 2025. La note porte la mention ATS, sous la forme Keystone-ATS, et s'appuie sur les données publiées par Crif, une société active dans la lutte contre la fraude, les contrôles de solvabilité et l'information destinée aux entreprises et aux particuliers.
-
-### Les secteurs les plus touchés
-Le secteur de la construction compte 1 380 entreprises concernées, soit une hausse de 13 %. Viennent ensuite la restauration, avec 1 019 entreprises et une hausse de 20 %, et le commerce de détail, avec 895 entreprises et une augmentation de 51 %. Le tableau sectoriel met donc en évidence trois domaines distincts, sans que la source ne fournisse d’explications supplémentaires sur les entreprises individuelles.
-
-Au niveau régional, le Tessin et les Grisons affichent des variations supérieures à la moyenne nationale : au Tessin, on recense 721 faillites, soit 48 % de plus, tandis que dans les Grisons, ce chiffre s’élève à 218, avec une hausse de 95 %. En chiffres absolus, c’est à Zurich que l’on observe le nombre le plus élevé, avec 1 850 faillites et une hausse de 28 %, à Genève, avec 1 369 faillites et une hausse de 65 %, et dans le canton de Vaud, avec 1 006 faillites et une hausse de 30 %.
-
-Crif signale également un changement en matière de créations d’entreprises. Entre janvier et septembre, 40 487 nouvelles entreprises ont été créées, soit une hausse de 2 % en glissement annuel. Le conseil aux entreprises arrive en tête de ce classement avec 3 499 nouvelles entreprises et une hausse de 25 % ; suivis par le secteur immobilier, avec 3'032 entreprises et une hausse de 6 %, la construction, avec 2'896 entreprises et une hausse de 5 %, et le commerce de détail, avec 2'823 nouvelles entreprises et une baisse de 12 %. Au Tessin, on dénombre 1 806 nouvelles entreprises, soit une hausse de 9 % ; dans les Grisons, 853, soit une hausse de 8,1 %.
-
-La hausse des faillites s'explique également par un facteur réglementaire. À compter du 1er janvier 2025, les dettes fiscales des entreprises inscrites au registre du commerce pourront faire l'objet d'une procédure de faillite. Auparavant, les autorités ne pouvaient recouvrer les impôts impayés que par voie de saisie.
-## Comment interpréter ces données
-
-Le chiffre national ne reflète pas à lui seul la situation de chaque entreprise. La source fournit des informations sur les procédures de faillite, les variations en pourcentage, les secteurs et les cantons, mais n'indique pas le montant des dettes, le nombre de salariés concernés ni l'issue de chaque cas. La distinction pratique se fait entre les chiffres absolus et les variations : un canton peut enregistrer moins de cas tout en affichant une hausse plus marquée, tandis qu'un autre peut concentrer davantage de faillites sans pour autant dépasser la moyenne nationale.
-
-### La modification fiscale change la donne
-La référence au 1er janvier 2025 empêche de considérer cette hausse de 37 % comme un indicateur pur de la conjoncture économique. Crif cite la modification législative comme l’une des raisons de cette augmentation, et non comme la seule explication. À partir de 2025, pour les entreprises inscrites au registre du commerce, la dette fiscale pourra faire l’objet d’une procédure de faillite ; auparavant, le recouvrement des impôts impayés passait uniquement par la saisie. La source décrit donc un changement de mode de recouvrement, mais ne communique pas de nouveaux montants d’impôts ni de nouveaux taux.
-
-Le terme « dettes fiscales » reste général. L’information ne fait pas la distinction entre l’impôt fédéral direct, la TVA et les impôts cantonaux ou communaux, et n’indique pas non plus quelle administration a engagé les différentes procédures. Il n’est donc pas correct d’attribuer à un canton une affaire fiscale spécifique que le texte ne documente pas. Ceux qui souhaitent approfondir leur situation peuvent se référer au formulaire dichiarazione delle imposte, mais la source ne fournit pas de formulaires, de délais individuels ni de procédure différente de celle décrite.
-
-La source statistique doit également être distinguée. Ces chiffres sont publiés par Crif : ils ne sont pas présentés comme une série du SECO, de l’UST/BFS ou de la BNS/SNB. Les données disponibles proviennent de cette société active dans les contrôles de solvabilité et l’information destinée aux entreprises et aux particuliers. Sur le plan territorial, la comparaison reste celle fournie par cantons et régions, sans données communales ni classement complet.
-
-Le double mouvement entre faillites et nouvelles entreprises requiert la même prudence. La source fait état d’une croissance globale de 2 % des nouvelles activités, mais aussi de variations sectorielles différentes, dont une baisse de 12 % dans le commerce de détail. Elle ne fournit pas de solde, de durée de vie moyenne des entreprises ni d’explication causale. Toute conclusion supplémentaire irait au-delà des données publiées.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le change CHF-EUR et les banques pour frontaliers.
-## Ce qu'il faut vérifier avant d'utiliser les chiffres
-
-Pour une entreprise, un salarié ou toute personne qui observe le marché cantonal, l'analyse la plus prudente repose sur cinq vérifications. Il ne s'agit pas d'une procédure de faillite, mais d'un moyen d'éviter toute confusion entre les informations disponibles.
-
-### Une fiche en cinq étapes
-
-1. Définissez la période. La comparaison porte sur la période de janvier à septembre et mesure le nombre de faillites par rapport à la même période de 2025. Ne généralisez pas automatiquement ces données à l’ensemble de l’année.
-
-2. Identifiez le périmètre. Notez le secteur concerné : construction, restauration ou commerce de détail pour les faillites ; conseil aux entreprises, immobilier, construction ou commerce de détail pour les nouvelles entreprises. Les variations varient selon les catégories.
-
-3. Distinguez le territoire et la taille. Pour le canton considéré, notez à la fois le nombre absolu et le pourcentage. La comparaison entre le Tessin, les Grisons, Zurich, Genève et Vaud ne doit pas être interprétée à l’aune d’un seul indicateur.
-
-4. Vérifiez le statut juridique. S’il s’agit d’une entreprise inscrite au registre du commerce, tenez compte du fait qu’à compter du 1er janvier 2025, les créances fiscales pourront être recouvrées dans le cadre de la procédure de faillite. La source n’indique pas de montants minimaux, de délais supplémentaires ni de documents à présenter.
-
-5. Distinguez bien ces deux flux. Les 11 412 faillites et les 40 487 nouvelles entreprises sont des grandeurs différentes. La source ne calcule pas de solde entre ces deux données et ne permet pas de transformer la différence en une prévision concernant l’emploi ou les revenus.
-
-Pour ceux qui évaluent une entreprise ou un secteur, ce tableau permet d'éviter deux erreurs opposées : interpréter la hausse de +37 % comme si chaque cas avait la même cause, ou utiliser la création de nouvelles entreprises pour compenser l'augmentation des faillites. Le texte ne fournit pas de procédure individuelle pour traiter les cas ; ajouter des étapes non décrites reviendrait à aller au-delà de la source.
-
-La consultation peut être complétée par les outils éditoriaux consacrés aux codes aziende che assumono et dichiarazione delle imposte, sans confondre un guide avec les données Crif. Pour estimer l’effet sur le revenu disponible, utilisez le code calcolatore stipendio e imposte.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/forte-aumento-dei-fallimenti-aziendali-in-svizzera/92156067)*]]></content:encoded>
-      <pubDate>Fri, 02 Oct 2026 11:28:26 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/bancarotte-imprese-nove-mesi</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bancarotte-imprese-nove-mesi.webp" medium="image"/>
     </item>
   </channel>
 </rss>

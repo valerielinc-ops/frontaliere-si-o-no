@@ -22957,6 +22957,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'fisco-zurigo-guida-online',
+    category: 'fiscale',
+    date: '2026-10-03T08:33:46.697Z',
+    image: '/images/blog/fisco-zurigo-guida-online.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -7643,6 +7643,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.inquilini-cantoni-disdetta.title': 'Locations en Suisse 2026 : marché immobilier d’Argovie',
     'blog.article.inquilini-cantoni-disdetta.excerpt': 'Marché suisse des loyers en 2026 : en Argovie, caution maximale de trois mensualités, formulaire cantonal et 30 jours pour contester.',
     'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Immeuble résidentiel suisse et documents pour un contrat de location',
+    'blog.article.fisco-zurigo-guida-online.title': 'Déclaration fiscale suisse 2026 : guide de Zurich',
+    'blog.article.fisco-zurigo-guida-online.excerpt': 'En 2026, la déclaration distingue IFD, impôts cantonaux et communaux : à Zurich, la loi et le multiplicateur du canton et de la commune comptent.',
+    'blog.article.fisco-zurigo-guida-online.imageAlt': 'Documents fiscaux suisses sur un bureau, avec la skyline de Zurich en arrière-plan.',
 };
 
 export default blogMetaChFr;
