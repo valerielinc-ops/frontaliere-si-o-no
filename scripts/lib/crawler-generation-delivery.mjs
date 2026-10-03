@@ -21,10 +21,14 @@
  *   the crawl failed, and only while they are a strict minority and a sibling
  *   delivered: every member that crawled delivered, nothing was lost on the
  *   way to `main`. The generation is still incomplete (it is not `published`).
- * - `crawler_failed`: `wait_failed` together with any other reason. Inside a
- *   red group this is one of: a crawl that succeeded and left no receipt (a
- *   delivery loss), half or more of the members failed, or a member whose
- *   crawl outcome is unknown.
+ *   A manifest from the finalizer before member grain whose only reason is
+ *   `wait_failed` (every receipt accepted, every slice persisted, wait red)
+ *   also reads as `published_partial`: no data was lost; the ledger on main
+ *   held 0 such rows when member grain was introduced.
+ * - `crawler_failed`: `wait_failed` together with any other reason, e.g. a
+ *   crawl that succeeded and left no receipt (a delivery loss), half or more
+ *   of the members failed, no sibling delivered, a crawl outcome that is
+ *   unknown or systemic, or a remote/slice fault; the reasons say which.
  * - `token_missing`: the run carried no generation token.
  * - `not_persisted`: no ledger record for the group in this generation (the
  *   group never finalized, or its ledger commit was lost).

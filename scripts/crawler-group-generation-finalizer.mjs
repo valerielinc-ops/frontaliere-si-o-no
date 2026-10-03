@@ -153,10 +153,16 @@ const RUNNER_SHUTDOWN_EXIT = 143;
  * Read each member's CRAWL exit (`<crawlerId>.crawl-exit`, one integer on one
  * line) from the group state directory. Only positive proof counts: an absent,
  * empty, oversized, non-numeric or unreadable file is `unknown`, and so is
- * anything that is not a regular file. `<crawlerId>.status` is deliberately
- * NOT consulted: it is the exit of the whole member body, which is non-zero
- * also when the crawl succeeded and the commit descriptor failed, the very
- * loss the delivery gate must keep red.
+ * anything that is not a regular file. The file key is the roster crawler id
+ * (`JOBS_HOUSEKEEPING_SCOPE`, the identity receipts carry), NOT the launcher
+ * slug: for the step-id overrides they differ (group-07 launches `guess` with
+ * scope `guess-europe`, `vf` with `vf-international-the-north-face-timberland`).
+ * The writer (CR-04b) must write `$state_dir/<JOBS_HOUSEKEEPING_SCOPE>.crawl-exit`;
+ * a slug-keyed file reads as `unknown` and keeps `receipt_missing` (fail closed).
+ * The member `<slug>.status` file is deliberately NOT consulted: it is the
+ * exit of the whole member body, which is non-zero also when the crawl
+ * succeeded and the commit descriptor failed, the very loss the delivery gate
+ * must keep red.
  */
 export function readMemberCrawlOutcomes(stateDir, crawlerIds) {
   const outcomes = {};
@@ -179,7 +185,11 @@ export function readMemberCrawlOutcomes(stateDir, crawlerIds) {
   return outcomes;
 }
 
-/** Group state directory shared with the generated member launchers (`<slug>.status` lives there). */
+/**
+ * Group state directory shared with the generated member launchers
+ * (`<slug>.status` lives there; `<crawlerId>.crawl-exit` must go there too,
+ * keyed by `JOBS_HOUSEKEEPING_SCOPE`, see readMemberCrawlOutcomes).
+ */
 export function memberCrawlStateDir(runnerTemp, group) {
   return path.join(runnerTemp, 'crawler-generation', `group-${group}`);
 }

@@ -133,7 +133,7 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
     const why = token === null
       ? `no settled generation in the ledger (${report.counts.token_missing} group(s) with tokenless records)`
       : `${report.counts.published}/${report.expectedGroups} groups published, ${report.counts.green_undelivered} green run(s) without delivery, ${report.counts.token_missing} without generation token, `
-        + `${report.counts.crawler_failed} crawler_failed (a crawl that succeeded left no receipt, or half or more of the members failed, or a crawl outcome is unknown), `
+        + `${report.counts.crawler_failed} crawler_failed (wait_failed plus at least one other reason, e.g. a crawl that succeeded left no receipt, half or more of the members failed, no sibling delivered, a crawl outcome unknown/systemic, or a remote/slice fault; see the per-group Reasons column), `
         + `${report.counts.not_persisted} not persisted, ${report.counts.published_partial} published_partial; ${publishedOf} delivery_faults=${report.deliveryFaults}`;
     annotate(`::error title=Crawler generation not delivered::${why}\n`);
   } else if (!report.delivered) {
@@ -142,7 +142,7 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
       .map((group) => `${group} (run ${report.groups[group].callerRunId ?? 'unknown'})`);
     annotate(`::warning title=Crawler generation incomplete::${publishedOf} published_partial=${report.counts.published_partial} `
       + `delivery_faults=0 delivered=false; partial groups: ${partial.join(', ')}. `
-      + 'No delivery fault, but the generation is not complete: a minority of members failed their own crawl.\n');
+      + 'No delivery fault, but the generation is not complete: the group wait failed while every member that crawled delivered.\n');
   }
   if (summaryPath) {
     try { fs.appendFileSync(summaryPath, formatCrawlerDeliveryMarkdown(report)); } catch { /* summary is best-effort */ }

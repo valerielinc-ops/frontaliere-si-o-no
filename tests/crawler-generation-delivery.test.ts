@@ -387,8 +387,14 @@ describe('member grain: a partial group is incomplete, not a delivery fault', ()
     expect(crawlerDeliveryGateExitCode({ generationToken: '500-1', expectedGroups: 24 })).toBe(1);
   });
 
-  // Waves can run on a site commit older or newer than the reader.
-  it('creates no new green across versions', () => {
+  // Waves can run on a site commit older or newer than the reader. This covers
+  // the two reason sets the versions exchange: the pair stays red under the new
+  // gate, and `['wait_failed']` is red under a reconstruction of the old
+  // classifier and is a valid ledger row. It does NOT cover an old manifest
+  // whose only reason is `wait_failed` (every receipt accepted): the new gate
+  // reads that as published_partial, a green without data loss (0 such rows in
+  // the ledger when member grain was introduced).
+  it('keeps the exchanged reason sets red across finalizer/gate versions', () => {
     // Old finalizer + new gate: the pair is still a fault.
     expect(gate(fleet({ '23': CRAWLER_FAILED })).exit).toBe(1);
     // New finalizer + old gate: the classifier before member grain read any
