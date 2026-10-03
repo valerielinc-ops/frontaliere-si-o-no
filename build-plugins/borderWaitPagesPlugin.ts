@@ -2335,6 +2335,52 @@ interface HubInputs {
   distDir?: string;
 }
 
+/**
+ * Render the all-crossings root hub as compact cards rather than repeating the
+ * mobile table utility classes and column labels 143 times. Regional hubs keep
+ * the accessible table because their smaller scopes benefit from the explicit
+ * column layout; the root hub needs the card layout to stay within the shared
+ * page-weight budget as the crossing registry grows.
+ */
+function renderRootCrossingList(inp: {
+  locale: BorderWaitLocale;
+  crossings: ReadonlyArray<BorderCrossingSlug>;
+  current: BorderWaitCurrent;
+  today: Date;
+  copy: Copy;
+  freshnessCopy: typeof BORDER_FRESHNESS_COPY[BorderWaitLocale];
+  hubSourceLabelMap: string;
+}): string {
+  const { locale, crossings, current, today, copy, freshnessCopy, hubSourceLabelMap } = inp;
+  const rows = crossings.map((c) => {
+    const snap = current.perCrossing[c];
+    const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
+    const src: WaitSource = snap?.source ?? 'static';
+    const waitFmt = wait === null ? '—' : `${wait} min`;
+    const updated = formatSourceDate(snap?.lastUpdate, locale, today) ?? freshnessCopy.missing;
+    const readingState = borderReadingState(snap?.lastUpdate, today);
+    const observedAt = sourceDateIso(snap?.lastUpdate, today);
+    const sc = statusColor(readingState === 'live' ? wait : null);
+    return `<li class="bw-crossing" data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${observedAt ? Date.parse(snap!.lastUpdate) : ''}">
+      <div class="bw-crossing-main">
+        <div class="bw-crossing-title">
+          <a class="bw-crossing-link" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_crossing" href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE}">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+        </div>
+        <div class="bw-crossing-readout">
+          <span class="bw-readout-label">${esc(copy.waitMinutesLabel)}</span>
+          <strong class="bw-wait-value" data-bw-field="totalCrossingMinutes" data-bw-tone-bg data-bw-tone-fg style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:14px;font-weight:700;white-space:nowrap;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</strong>
+        </div>
+      </div>
+      <div class="bw-crossing-meta">
+        <span>${esc(freshnessCopy.observed)} <time data-bw-field="lastUpdate"${observedAt ? ` datetime="${observedAt}"` : ''}>${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</time></span>
+        <span>${esc(copy.sourceLabel)} ${sourceLink(src, sourceLabel(src, copy))}</span>
+      </div>
+    </li>`;
+  }).join('');
+
+  return `<ul class="bw-crossings" data-bw-source-labels="${esc(hubSourceLabelMap)}" aria-labelledby="crossingTable">${rows}</ul>`;
+}
+
 function renderHubPage(inp: HubInputs): string {
   const { locale, region, current, today, alternates, distDir } = inp;
   const copy = COPY[locale];
@@ -2365,12 +2411,13 @@ function renderHubPage(inp: HubInputs): string {
   };
   const introTagline = taglineByLocale[locale];
 
-  // Build live table of all crossings in scope. Each <tr> carries the
-  // data-bw-crossing attribute so the shared hydration asset can swap the
-  // pre-rendered minute count AND the source label with the fresh Firestore
-  // values at runtime. The source→label map is locale-invariant → build once
-  // here, not per row. Live sources only (no 'static' → "Dati statistici" copy
-  // never lands in the HTML).
+  // Build the live crossing surface. Regional hubs use a table; the root hub
+  // uses compact cards because repeating the responsive table classes and
+  // mobile labels for all 143 crossings exceeded the page-weight budget. Each
+  // item carries data-bw-crossing so the shared hydration asset can swap the
+  // pre-rendered minute count, date and source at runtime. The source→label
+  // map is locale-invariant → build once here, not per item. Live sources only
+  // (no 'static' → "Dati statistici" copy never lands in the HTML).
   const hubSourceLabelMap = JSON.stringify({
     bazg: copy.sourceBazg,
     here: copy.sourceHere,
@@ -2388,7 +2435,7 @@ function renderHubPage(inp: HubInputs): string {
     'official+webcam': copy.sourceOfficialWebcam,
     webcam: copy.sourceWebcam,
   });
-  const rows = crossingsInScope.map((c) => {
+  const rows = region ? crossingsInScope.map((c) => {
     const snap = current.perCrossing[c];
     const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
     const src: WaitSource = snap?.source ?? 'static';
@@ -2413,11 +2460,12 @@ function renderHubPage(inp: HubInputs): string {
         ${sourceLink(src, sourceLabel(src, copy))}
       </td>
     </tr>`;
-  });
+  }) : [];
 
-  // One set of rows for both layouts: live hydration updates the same values.
-  // Explicit roles preserve table semantics when mobile CSS changes display.
-  const tableHtml = `<div class="s-card" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="padding:0"><table role="table" aria-labelledby="crossingTable" class="block w-full border-collapse md:table">
+  // One hydration contract serves both layouts. Regional tables retain explicit
+  // roles for their column headers; root cards use semantic list items.
+  const tableHtml = region
+    ? `<div class="s-card" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="padding:0"><table role="table" aria-labelledby="crossingTable" class="block w-full border-collapse md:table">
     <thead role="rowgroup" class="sr-only md:not-sr-only md:table-header-group"><tr role="row">
       <th scope="col" role="columnheader" class="s-thd">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
@@ -2427,7 +2475,16 @@ function renderHubPage(inp: HubInputs): string {
       <th scope="col" role="columnheader" class="s-thd">${esc(copy.sourceLabel)}</th>
     </tr></thead>
     <tbody role="rowgroup" class="block md:table-row-group">${rows.join('')}</tbody>
-  </table></div>`;
+  </table></div>`
+    : renderRootCrossingList({
+        locale,
+        crossings: crossingsInScope,
+        current,
+        today,
+        copy,
+        freshnessCopy,
+        hubSourceLabelMap,
+      });
 
   // "Best crossing right now" hero, with a "traffico fluido" fallback
   // banner when every crossing reports 0 min (upstream data degenerate

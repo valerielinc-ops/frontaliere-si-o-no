@@ -35,6 +35,15 @@ describe('historicalArchiveHeading', () => {
     expect(historicalArchiveHeading(' Pianificatore ', ' ', ' ')).toBe('Pianificatore');
   });
 
+  it('qualifica i record senza località senza inventare dati', () => {
+    expect(historicalArchiveHeading('Pianificatore', 'Hitachi Energy', '', 'Annuncio archiviato'))
+      .toBe('Pianificatore — Hitachi Energy — Annuncio archiviato');
+    expect(historicalArchiveHeading('Pianificatore', '', '', 'Annuncio archiviato'))
+      .toBe('Pianificatore — Annuncio archiviato');
+    expect(historicalArchiveHeading('Pianificatore', 'Hitachi Energy', 'Zürich', 'Annuncio archiviato'))
+      .toBe('Pianificatore — Hitachi Energy, Zürich');
+  });
+
   it.each(OBSERVED)('con località nota l\'h1 non coincide più col title: %s', (role, company, location) => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const title = composeSerpJobTitle(role, company, location, locale);
@@ -47,7 +56,7 @@ describe('historicalArchiveHeading', () => {
     const start = src.indexOf('const buildHistoricalArchiveHtml = (');
     expect(start).toBeGreaterThan(-1);
     const body = src.slice(start, src.indexOf('return buildSoftLandingHtml(', start));
-    expect(body).toContain('`<h1>${esc(historicalArchiveHeading(titleRaw, company, location))}</h1>`');
+    expect(body).toContain('`<h1>${esc(historicalArchiveHeading(titleRaw, company, location, copy.headingQualifier))}</h1>`');
     expect(body).not.toMatch(/<h1>\$\{esc\(titleRaw\)\}/);
   });
 });

@@ -15,6 +15,7 @@ import { buildPath, type AppRoute } from '@/services/router';
 import { ensureLocaleLoaded, setLocale, type Locale } from '@/services/i18n';
 import { localizedGlossaryMetaDescription } from '@/build-plugins/shared/glossaryTermDetail';
 import { clampMetaDescription } from '@/build-plugins/shared/titleSuffix';
+import { GLOSSARY_HUB_SEO } from '@/services/seo/glossaryTermDefinitions';
 
 // setup-common mocca seoService per tutta la suite: qui serve quello vero.
 vi.doUnmock('@/services/seoService');
@@ -49,5 +50,20 @@ describe('head SPA di un termine di glossario localizzato', () => {
         expect(document.title).not.toMatch(/^Page /);
       });
     }
+
+    it(`${locale}: la root usa il copy SEO localizzato condiviso`, async () => {
+      const path = buildPath({ activeTab: 'glossario' } as AppRoute, locale as Locale);
+      window.history.replaceState({}, '', path);
+      await ensureLocaleLoaded(locale);
+      setLocale(locale);
+      document.head.innerHTML = '<title>stale</title><meta name="description" content="stale">';
+
+      await seo.updateMetaTags('glossario');
+
+      const expected = GLOSSARY_HUB_SEO[locale];
+      expect(meta('meta[name="description"]')).toBe(clampMetaDescription(expected.description, undefined, locale));
+      expect(document.title).toContain(expected.title);
+      expect(document.title).not.toMatch(/^Page /);
+    });
   }
 });

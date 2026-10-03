@@ -1,7 +1,7 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-10-02T09:13:55.581Z",
+  "generatedAt": "2026-10-02T21:14:28.507Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,10 +14,11 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4640,
-  "avgDurationMs": 4640,
+  "durationMs": 4440,
+  "avgDurationMs": 4440,
   "durationHistory": [
-    4640
+    4640,
+    4440
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -46,7 +47,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/mitarbeiter-in-human-resources-80-100",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:46.146Z",
+      "crawledAt": "2026-10-02T21:14:19.226Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:19:13.663Z",
       "_qualityScore": 85,
@@ -82,9 +83,9 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-m-w-d-70-tourist-information-sils",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:46.542Z",
-      "firstSeenAt": "2026-08-12T21:56:51.841Z",
+      "crawledAt": "2026-10-02T21:14:19.480Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-12T21:56:51.841Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,

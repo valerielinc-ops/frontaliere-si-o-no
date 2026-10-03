@@ -24,6 +24,7 @@ import {
   type AssistedApplicationCandidateEmail,
 } from '@/services/assistedApplicationAdminService';
 import { trackAssistedApplicationEvent } from '@/services/assistedApplicationExperiment';
+import { NEXT_STEP_GROUP_LABELS, nextStepFor, type NextStep, type NextStepGroup } from '@/services/assistedApplicationNextStep';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
 type QueueFilter = AssistedApplicationAdminStatus | 'all';
@@ -70,6 +71,34 @@ const NEXT_STATUS_OPTIONS: Record<AssistedApplicationAdminStatus, Array<{
   blocked: [{ status: 'in_progress', label: 'Riprendi lavorazione' }],
   refunded: [],
 };
+
+// Whose move it is (services/assistedApplicationNextStep.ts): the owner's first, then what is
+// stuck on a fix, then what only waits.
+const NEXT_STEP_ORDER: NextStepGroup[] = ['owner', 'fix', 'candidate', 'robot', 'done'];
+const NEXT_STEP_STYLES: Record<NextStepGroup, string> = {
+  owner: 'bg-warning-subtle text-warning border-warning-border',
+  fix: 'bg-danger-subtle text-danger border-danger-border',
+  candidate: 'bg-info-subtle text-info border-info-border',
+  robot: 'bg-surface-alt text-subtle border-edge',
+  done: 'bg-success-subtle text-success border-success-border',
+};
+
+function NextStepIcon({ group }: { group: NextStepGroup }) {
+  if (group === 'done') return <CheckCircle2 size={13} aria-hidden="true" />;
+  if (group === 'fix') return <AlertTriangle size={13} aria-hidden="true" />;
+  if (group === 'owner') return <UserCheck size={13} aria-hidden="true" />;
+  if (group === 'robot') return <Loader2 size={13} aria-hidden="true" />;
+  return <Clock3 size={13} aria-hidden="true" />;
+}
+
+function NextStepBadge({ step }: { step: NextStep }) {
+  return (
+    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${NEXT_STEP_STYLES[step.group]}`}>
+      <NextStepIcon group={step.group} />
+      {step.label}
+    </span>
+  );
+}
 
 function formatDate(value: string | null): string {
   if (!value) return '—';
@@ -206,6 +235,7 @@ export default function AssistedApplicationAdmin() {
   const { user } = useAuth();
   const [orders, setOrders] = useState<AssistedApplicationAdminOrder[]>([]);
   const [filter, setFilter] = useState<QueueFilter>('all');
+  const [stepFilter, setStepFilter] = useState<NextStepGroup | 'all'>('all');
   const [notesByOrder, setNotesByOrder] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -246,9 +276,22 @@ export default function AssistedApplicationAdmin() {
     return result;
   }, [orders]);
 
-  const visibleOrders = filter === 'all'
-    ? orders
-    : orders.filter((order) => order.submissionStatus === filter);
+  // The next move of each order, and how many orders wait on each side.
+  const steps = useMemo(() => new Map(orders.map((order) => [order.orderId, nextStepFor(order)])), [orders]);
+  const stepCounts = useMemo(() => {
+    const result: Record<NextStepGroup, number> = { owner: 0, fix: 0, candidate: 0, robot: 0, done: 0 };
+    steps.forEach((step) => { result[step.group] += 1; });
+    return result;
+  }, [steps]);
+  const groupOf = (order: AssistedApplicationAdminOrder): NextStepGroup => steps.get(order.orderId)?.group || 'owner';
+
+  // What needs the owner comes first; within a group the queue's own order is kept.
+  const visibleOrders = orders
+    .filter((order) => filter === 'all' || order.submissionStatus === filter)
+    .filter((order) => stepFilter === 'all' || groupOf(order) === stepFilter)
+    .map((order, index) => ({ order, index }))
+    .sort((a, b) => NEXT_STEP_ORDER.indexOf(groupOf(a.order)) - NEXT_STEP_ORDER.indexOf(groupOf(b.order)) || a.index - b.index)
+    .map(({ order }) => order);
 
   const transition = async (
     order: AssistedApplicationAdminOrder,
@@ -349,6 +392,30 @@ export default function AssistedApplicationAdmin() {
         ))}
       </div>
 
+      <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filtra per prossima mossa">
+        <span className="text-xs font-semibold uppercase tracking-wide text-muted">Prossima mossa</span>
+        <button
+          type="button"
+          aria-pressed={stepFilter === 'all'}
+          onClick={() => setStepFilter('all')}
+          className={`min-h-[36px] rounded-full border px-3 text-xs font-semibold ${stepFilter === 'all' ? 'border-accent bg-accent-subtle text-accent' : 'border-edge text-subtle hover:text-body'}`}
+        >
+          Tutte ({orders.length})
+        </button>
+        {NEXT_STEP_ORDER.map((group) => (
+          <button
+            key={group}
+            type="button"
+            aria-pressed={stepFilter === group}
+            onClick={() => setStepFilter(stepFilter === group ? 'all' : group)}
+            className={`inline-flex min-h-[36px] items-center gap-1 rounded-full border px-3 text-xs font-semibold ${stepFilter === group ? NEXT_STEP_STYLES[group] : 'border-edge text-subtle hover:text-body'}`}
+          >
+            <NextStepIcon group={group} />
+            {NEXT_STEP_GROUP_LABELS[group]} ({stepCounts[group]})
+          </button>
+        ))}
+      </div>
+
       {loading ? (
         <div className="flex items-center gap-2 rounded-xl border border-edge bg-surface p-6 text-sm text-subtle" role="status">
           <Loader2 size={16} className="animate-spin" aria-hidden="true" /> Caricamento coda candidature…
@@ -361,6 +428,7 @@ export default function AssistedApplicationAdmin() {
         <div className="space-y-4">
           {visibleOrders.map((order) => {
             const options = NEXT_STATUS_OPTIONS[order.submissionStatus];
+            const step = steps.get(order.orderId) || nextStepFor(order);
             return (
               <article key={order.orderId} className="rounded-2xl border border-edge bg-surface p-4 shadow-sm sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
@@ -369,8 +437,15 @@ export default function AssistedApplicationAdmin() {
                     <h3 className="mt-1 text-base font-bold text-strong">{order.jobTitle || order.jobId || 'Annuncio non indicato'}</h3>
                     <p className="mt-1 text-xs text-muted">Ordine {order.orderId} · creato {formatDate(order.createdAt)}</p>
                   </div>
-                  <StatusBadge status={order.submissionStatus} />
+                  <div className="flex flex-wrap items-center justify-end gap-2">
+                    <NextStepBadge step={step} />
+                    <StatusBadge status={order.submissionStatus} />
+                  </div>
                 </div>
+
+                <p className={`mt-3 rounded-xl border px-3 py-2 text-sm ${NEXT_STEP_STYLES[step.group]}`}>
+                  <strong>{NEXT_STEP_GROUP_LABELS[step.group]}.</strong> <span className="text-body">{step.detail}</span>
+                </p>
 
                 <dl className="mt-4 grid gap-4 border-t border-edge pt-4 sm:grid-cols-2 lg:grid-cols-5">
                   <DataRow label="Candidato">

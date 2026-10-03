@@ -453,35 +453,45 @@ async function scrollPrivacyStatement(page) {
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
 export async function acceptPrivacyStatement(page, snapshot) {
-  const trigger = privacyConsentControls(snapshot).trigger;
-  if (!trigger) return 'none';
-  await clickButton(page, trigger).catch(() => {});
-  await scrollPrivacyStatement(page);
-
+  if (!privacyConsentControls(snapshot).trigger) return 'none';
+  // The last field filled (the password repeat) checks itself on blur:
+  // SuccessFactors asks its password policy and a click on the statement's
+  // link meanwhile is lost. Blur first, wait for that request, then open the
+  // dialog; retry once if the portal redraws the form during the first click.
+  await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
+  await settle(page);
   const deadline = Date.now() + 8_000;
-  while (Date.now() <= deadline) {
-    const current = await extractFields(page, NAVIGATION).catch(() => null);
-    if (current) {
-      const controls = privacyConsentControls(current);
-      if (controls.review && !controls.review.checked) {
-        await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} });
-        await scrollPrivacyStatement(page);
-      }
-      const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
-      const accept = privacyConsentControls(refreshed || {}).accept;
-      if (accept && !accept.disabled) {
-        try {
-          await clickButton(page, accept);
-          await page.waitForTimeout(800);
-          return 'accepted';
-        } catch {
-          // A portal can replace the dialog button after the review checkbox;
-          // rescan and retry within the bounded window.
+  for (let attempt = 0; attempt < 2 && Date.now() <= deadline; attempt += 1) {
+    const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+    const trigger = privacyConsentControls(currentSnapshot).trigger;
+    if (!trigger) break;
+    await clickButton(page, trigger).catch(() => {});
+    await scrollPrivacyStatement(page);
+    while (Date.now() <= deadline) {
+      const current = await extractFields(page, NAVIGATION).catch(() => null);
+      if (current) {
+        const controls = privacyConsentControls(current);
+        if (controls.review && !controls.review.checked) {
+          await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} });
+          await scrollPrivacyStatement(page);
+        }
+        const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
+        const accept = privacyConsentControls(refreshed || {}).accept;
+        if (accept && !accept.disabled) {
+          try {
+            await clickButton(page, accept);
+            await page.waitForTimeout(800);
+            return 'accepted';
+          } catch {
+            // A portal can replace the dialog button after the review checkbox;
+            // rescan and retry within the bounded window.
+          }
         }
       }
+      if (Date.now() >= deadline) break;
+      await page.waitForTimeout(200);
     }
-    if (Date.now() >= deadline) break;
-    await page.waitForTimeout(200);
+    await settle(page);
   }
   return 'unavailable';
 }

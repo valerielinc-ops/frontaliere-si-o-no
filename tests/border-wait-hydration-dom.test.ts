@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 /**
  * Runs the real border-wait hydration IIFE against the real emitted markup of
- * the root hub table, a per-crossing leaf page and the live map landing.
+ * the root hub list, a per-crossing leaf page and the live map landing.
  *
  * Regression: the IIFE used to toggle class `bw-live` on every hydrated
  * `[data-bw-crossing]` container, but `.bw-live` is the live badge pill in
@@ -123,7 +123,7 @@ describe('border-wait mobile labels survive live updates', () => {
 
 describe('border-wait hydration — container classes stay untouched', () => {
   const cases: Array<[string, () => string]> = [
-    ['root hub table rows', () => pages[buildRootHubPath('it')]],
+    ['root hub crossing items', () => pages[buildRootHubPath('it')]],
     ['regional hub table rows', () => pages[buildRegionalHubPath('en', 'ticino-como')]],
     ['leaf status card and comparison rows', () => pages[buildOggiPath('it', 'chiasso-brogeda')]],
     ['live map crossing cards', () => renderPage({ locale: 'it', dateStamp: SNAPSHOT_AT.slice(0, 10), current: FIXTURE_CURRENT }).html],
@@ -203,7 +203,7 @@ describe('border-wait hydration — present-tense blocks follow the live reading
     expect(swapHost('hub')?.getAttribute('data-bw-swap-state')).toBe('fluid-measured');
     expect(swapShown('hub')).toContain('Traffico fluido sui valichi misurati');
     expect(slotText('hub', 'measured')).toBe('2');
-    expect(slotText('hub', 'total')).toBe(String(document.querySelectorAll('tr[data-bw-crossing]').length));
+    expect(slotText('hub', 'total')).toBe(String(document.querySelectorAll('[data-bw-crossing]').length));
     expect(swapShown('hub')).not.toContain('Tempi di attesa non disponibili');
   });
 

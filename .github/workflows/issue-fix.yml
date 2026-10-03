@@ -1982,6 +1982,7 @@ jobs:
             package.json
             scripts/ci/
             scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
             .github/actions/report-failure/
             .github/workflows/issue-fix.yml
           sparse-checkout-cone-mode: false

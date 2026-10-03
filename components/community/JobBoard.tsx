@@ -9813,7 +9813,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ...canonicalResidualSections,
  ];
  const hybridLayoutEnabled = false;
- const applyUrl = buildReferralUrl(selectedJob);
  const applyMode = (selectedJob as { applyMode?: string }).applyMode;
  const isInHouseApply = applyMode === 'in_house' || applyMode === 'forward_email';
  const renderApplicationIntentConsent = (className = 'mt-2 text-xs text-muted') => (
@@ -10191,14 +10190,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
  <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
  <div className="flex items-start gap-3 sm:gap-4">
- <a
- href={isInHouseApply ? '#candidatura' : applyUrl}
- target={isInHouseApply ? undefined : '_blank'}
- rel="nofollow noopener noreferrer"
- onClick={(e) => {
-  e.preventDefault();
-  handleApply(selectedJob, 'job_board_apply_header_logo');
- }}
+ <button
+ type="button"
+ onClick={() => handleApply(selectedJob, 'job_board_apply_header_logo')}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  >
@@ -10215,21 +10209,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) : (
  <Building2 className="w-9 h-9 text-muted" />
  )}
- </a>
+ </button>
  <div className="min-w-0 flex-1">
  <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight break-words [hyphens:auto]">
- <a
- href={isInHouseApply ? '#candidatura' : applyUrl}
- target={isInHouseApply ? undefined : '_blank'}
- rel="nofollow noopener noreferrer"
- onClick={(e) => {
-  e.preventDefault();
-  handleApply(selectedJob, 'job_board_apply_header_title');
- }}
- className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+ <button
+ type="button"
+ onClick={() => handleApply(selectedJob, 'job_board_apply_header_title')}
+ className="text-left hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >
  {selectedJobTitle}
- </a>
+ </button>
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
  <p className="mt-1 text-sm text-body break-words">

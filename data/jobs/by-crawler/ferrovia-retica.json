@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-10-02T09:16:36.940Z",
+  "assembledAt": "2026-10-02T21:16:47.371Z",
   "jobs": [
     {
       "title": "Quereinstieg Zugverkehrsleitung (100%)",
@@ -21,15 +21,18 @@
       "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur",
+      "slug": "linea-di-traffico-del-treno-di-entrata-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
-        "it": "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur",
-        "en": "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur",
+        "it": "linea-di-traffico-del-treno-di-entrata-100-ferrovia-retica-rhb-chur",
+        "en": "cross-entry-train-traffic-line-100-ferrovia-retica-rhb-chur",
         "de": "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur",
-        "fr": "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur"
+        "fr": "ligne-de-trafic-ferroviaire-a-entree-croisee-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
-        "de": "Quereinstieg Zugverkehrsleitung (100%)"
+        "de": "Quereinstieg Zugverkehrsleitung (100%)",
+        "it": "Linea di traffico del treno di entrata (100%)",
+        "en": "Cross-entry Train Traffic Line (100%)",
+        "fr": "Ligne de trafic ferroviaire à entrée croisée (100 %)"
       },
       "percentage": "",
       "crawledAt": "",
@@ -51,7 +54,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:16:29.386Z"
+      "firstSeenAt": "2026-10-02T21:16:39.160Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur"
+        ],
+        "en": [
+          "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur"
+        ],
+        "fr": [
+          "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur"
+      ]
     },
     {
       "title": "Auftragsleiter/in Komponenten (50-100 %)",
@@ -456,45 +473,41 @@
       "applyUrl": "https://www.rhb.ch/it/job/leiter-in-hr-operations-and-systeme-60_2026-2254/"
     },
     {
-      "title": "Ingenieur/in Fahrbahnstrategie (80-100%)",
+      "title": "Teamleiter/in Personaleinsatzplanung (80-100%)",
       "company": "Ferrovia Retica (RhB)",
       "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/ingenieur-in-fahrbahnstrategie-80-100_2026-2252/",
+      "url": "https://www.rhb.ch/it/job/teamleiter-in-personaleinsatzplanung-80-100_2026-2264/",
       "location": "Chur",
       "canton": "GR",
       "country": "CH",
       "postalCode": "7000",
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "description": "Cosa puoi fare\n• Mitgestaltung der strategische Zukunft der Fahrbahn bei der RhB\n\n• Die RhB im Meterspurzentrum Fahrbahn (RAILplus) vertreten\n\n• Weiterentwicklung von Standards, Richtlinien und Planungsgrundlagen\n\n• Fachliche Beratung sowie Unterstützung des Dienstbereichs Planung Fahrbahn\n\n• Gestaltung nachhaltiger und wirtschaftlicher Fahrbahnlösungen\n Ecco perché sei la persona giusta\n• Solide ingenieurtechnische Ausbildung mit Praxisbezug\n\n• Expertise in Fahrbahn, Infrastruktur und Assetmanagement\n\n• Strategischer Weitblick und analytisches Denken\n\n• Überzeugendes Auftreten und ausgeprägte Kommunikationsstärke\n\n• Hohe Eigenverantwortung und fachliche Leadership-Qualitäten\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "category": "technology",
+      "description": "Nel nuovo settore Produzione assumerai un ruolo dirigenziale centrale con ampio margine di iniziativa. Insieme al tuo team sarai responsabile della pianificazione integrata dell'offerta e della produzione della RhB e guiderai l'evoluzione verso un'organizzazione moderna orientata ai processi. Contribuirai a progetti strategici per il futuro, allo sviluppo della produzione e alla gestione aziendale come membro del team direttivo. Metti a disposizione le tue competenze, la tua esperienza di leadership e la tua passione per il mondo ferroviario per contribuire attivamente al futuro della RhB.\n\nCosa puoi fare\n• Du übernimmst die fachliche und personelle Führung eines Teams der Personaleinsatzplanung\n\n• Du entwickelst deine Mitarbeitenden weiter, setzt Prioritäten und unterstützt bei anspruchsvollen Planungsaufgaben\n\n• Du arbeitest operativ in der Personaleinsatzplanung mit und stellst eine stabile und wirtschaftliche Planung sicher\n\n• Du koordinierst die Zusammenarbeit mit internen Schnittstellen und sorgst für eine wirkungsvolle Abstimmung zwischen den Planungsbereichen\n\n• Du gestaltest Veränderungen sowie Prozess- und Systemoptimierungen aktiv mit und unterstützt den Leiter Personaleinsatzplanung bei übergeordneten Führungsaufgaben\n Ecco perché sei la persona giusta\n• Du verfügst über mehrjährige Erfahrung in der Planung, idealerweise in der Personaleinsatzplanung oder im Umfeld des öffentlichen Verkehrs\n\n• Du möchtest Führungsverantwortung übernehmen oder deine Führungserfahrung gezielt weiterentwickeln\n\n• Du arbeitest strukturiert, präzise und behältst auch unter Zeitdruck den Überblick\n\n• Du kommunizierst klar, adressatengerecht und bringst unterschiedliche Interessen erfolgreich zusammen\n\n• Du handelst eigenverantwortlich, denkst vernetzt und hast Freude daran, Veränderungen aktiv mitzugestalten\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "descriptionByLocale": {
+        "de": "Nel nuovo settore Produzione assumerai un ruolo dirigenziale centrale con ampio margine di iniziativa. Insieme al tuo team sarai responsabile della pianificazione integrata dell'offerta e della produzione della RhB e guiderai l'evoluzione verso un'organizzazione moderna orientata ai processi. Contribuirai a progetti strategici per il futuro, allo sviluppo della produzione e alla gestione aziendale come membro del team direttivo. Metti a disposizione le tue competenze, la tua esperienza di leadership e la tua passione per il mondo ferroviario per contribuire attivamente al futuro della RhB.\n\nCosa puoi fare\n• Du übernimmst die fachliche und personelle Führung eines Teams der Personaleinsatzplanung\n\n• Du entwickelst deine Mitarbeitenden weiter, setzt Prioritäten und unterstützt bei anspruchsvollen Planungsaufgaben\n\n• Du arbeitest operativ in der Personaleinsatzplanung mit und stellst eine stabile und wirtschaftliche Planung sicher\n\n• Du koordinierst die Zusammenarbeit mit internen Schnittstellen und sorgst für eine wirkungsvolle Abstimmung zwischen den Planungsbereichen\n\n• Du gestaltest Veränderungen sowie Prozess- und Systemoptimierungen aktiv mit und unterstützt den Leiter Personaleinsatzplanung bei übergeordneten Führungsaufgaben\n Ecco perché sei la persona giusta\n• Du verfügst über mehrjährige Erfahrung in der Planung, idealerweise in der Personaleinsatzplanung oder im Umfeld des öffentlichen Verkehrs\n\n• Du möchtest Führungsverantwortung übernehmen oder deine Führungserfahrung gezielt weiterentwickeln\n\n• Du arbeitest strukturiert, präzise und behältst auch unter Zeitdruck den Überblick\n\n• Du kommunizierst klar, adressatengerecht und bringst unterschiedliche Interessen erfolgreich zusammen\n\n• Du handelst eigenverantwortlich, denkst vernetzt und hast Freude daran, Veränderungen aktiv mitzugestalten\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB"
+      },
       "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "ingenieur-in-fahrbahnstrategie-80-100-ferrovia-retica-rhb-chur",
+      "slug": "teamleiter-in-personaleinsatzplanung-80-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
-        "it": "ingenieur-in-fahrbahnstrategie-80-100-ferrovia-retica-rhb-chur",
-        "en": "ingenieur-in-fahr-hilgenstrategie-8-100-ferrovia-retica-rhb-chur",
-        "de": "ingenieur-in-fahrbahnstrategie-80-100-ferrovia-retica-rhb-chur",
-        "fr": "ingenieur-in-fahrbahnstrategie-80-100-ferrovia-retica-rhb-chur"
+        "it": "teamleiter-in-personaleinsatzplanung-80-100-ferrovia-retica-rhb-chur",
+        "en": "teamleiter-in-personaleinsatzplanung-80-100-ferrovia-retica-rhb-chur",
+        "de": "teamleiter-in-personaleinsatzplanung-80-100-ferrovia-retica-rhb-chur",
+        "fr": "teamleiter-in-personaleinsatzplanung-80-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
-        "en": "Ingenieur/in Fahr-Hilgenstrategie (8-100)",
-        "de": "Ingenieur/in Fahrbahnstrategie (80-100%)",
-        "fr": "Ingénieur/en Fahrbahntragie (80-100%)"
+        "de": "Teamleiter/in Personaleinsatzplanung (80-100%)"
       },
       "percentage": "80-100%",
       "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Co-design del futuro strategico della strada a RhB\n\n• Il RhB nel centro metro lane della strada (RAILplus) rappresentato\n\n• Ulteriore sviluppo di standard, orientamenti e basi di pianificazione\n\n• Consulenza tecnica e supporto del dipartimento di pianificazione stradale\n\n• Progettazione di soluzioni stradali sostenibili ed economiche 11'\" si la persona giusta\n• Formazione in ingegneria solida con rilevanza pratica\n\n• Competenza in materia di gestione stradale, infrastrutturale e patrimoniale\n\n• Visione strategica e pensiero analitico\n\n• Aspetto convincente e comunicazione forte\n\n• Alto livello di proprietà e qualità di leadership professionale Co ti offriamo\n• 2a classe di abbonamento generale\n\n• Biglietti gratuiti e sconti sui viaggi all'estero\n\n• Telefono cellulare a pagamento e abbonamento per uso commerciale e privato\n\n• Modelli flessibili part-time\n\n• Prestazioni sociali e fondo pensione attraenti con prestazioni molto buone\n\n• Acquisto supplementare di vacanze\n\n• possibilità di formazione interna ed esterna con il sostegno finanziario del RhB",
-        "en": "Cosa puoi ·\n• Co-design of the strategic future of the road at RhB\n\n• The RhB in the metro lane center of the road (RAILplus) represented\n\n• Further development of standards, guidelines and planning bases\n\n• Technical advice and support of the planning department on the road\n\n• Design of sustainable and economical road solutions Ecco perché sei la persona giusta\n• Solid engineering training with practical relevance\n\n• Expertise in road, infrastructure and asset management\n\n• Strategic vision and analytical thinking\n\n• Convincing appearance and strong communication\n\n• High level of ownership and professional leadership qualities Cosa ti offriamo\n• 2nd class general subscription\n\n• Free tickets and discounts on rail trips abroad\n\n• Paid mobile phone and subscription for business and private use\n\n• Flexible part-time models\n\n• Attractive social benefits and pension fund with very good benefits\n\n• Additional purchase of holidays\n\n• possibility of internal and external training with financial support from the RhB",
-        "de": "Cosa puoi fare\n• Mitgestaltung der strategische Zukunft der Fahrbahn bei der RhB\n\n• Die RhB im Meterspurzentrum Fahrbahn (RAILplus) vertreten\n\n• Weiterentwicklung von Standards, Richtlinien und Planungsgrundlagen\n\n• Fachliche Beratung sowie Unterstützung des Dienstbereichs Planung Fahrbahn\n\n• Gestaltung nachhaltiger und wirtschaftlicher Fahrbahnlösungen\nEcco perché sei la persona giusta\n• Solide ingenieurtechnische Ausbildung mit Praxisbezug\n\n• Expertise in Fahrbahn, Infrastruktur und Assetmanagement\n\n• Strategischer Weitblick und analytisches Denken\n\n• Überzeugendes Auftreten und ausgeprägte Kommunikationsstärke\n\n• Hohe Eigenverantwortung und fachliche Leadership-Qualitäten\nCosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-        "fr": "Cosa puoi ·\n• Co-conception de l'avenir stratégique de la route à RhB\n\n• Le RHB dans le centre de la voie de métro de la route (RAILplus) représenté\n\n• Poursuite de l'élaboration de normes, de directives et de bases de planification\n\n• Conseils techniques et soutien du département de planification sur la route\n\n• Conception de solutions routières durables et économiques Ecco perché sei la persona giusta\n• Formation en ingénierie solide et pertinente\n\n• Expertise en gestion des routes, des infrastructures et des actifs\n\n• Vision stratégique et réflexion analytique\n\n• Aspect convaincant et communication forte\n\n• Niveau élevé de propriété et de leadership professionnel Cosa ti offriamo\n• Abonnement général de 2e classe\n\n• Billets gratuits et réductions sur les voyages ferroviaires à l'étranger\n\n• Téléphone mobile payant et abonnement pour les entreprises et les particuliers\n\n• Modèles flexibles à temps partiel\n\n• Prestations sociales et fonds de pension attrayantes avec de très bonnes prestations\n\n• Achat de vacances supplémentaires\n\n• possibilité de formation interne et externe avec le soutien financier du RHB"
-      },
       "needsRetranslation": true,
+      "applyUrl": "https://www.rhb.ch/it/job/teamleiter-in-personaleinsatzplanung-80-100_2026-2264/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
-      "salaryMin": 67000,
+      "salaryMin": 60000,
       "salaryMax": 102000,
       "currency": "CHF",
       "salarySource": "estimated",
@@ -503,15 +516,12 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 67000,
+          "minValue": 60000,
           "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T13:45:28.270Z",
-      "retranslationAttempts": 2,
-      "sourceIdentity": "url:https://www.rhb.ch/it/job/ingenieur-in-fahrbahnstrategie-80-100_2026-2252",
-      "applyUrl": "https://www.rhb.ch/it/job/ingenieur-in-fahrbahnstrategie-80-100_2026-2252/"
+      "firstSeenAt": "2026-10-02T21:16:39.160Z"
     }
   ]
 }
