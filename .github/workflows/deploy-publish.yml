@@ -68,6 +68,7 @@ jobs:
       healthy_locales: ${{ steps.plan.outputs.healthy_locales }}
       stale_locales: ${{ steps.plan.outputs.stale_locales }}
       stale_reasons: ${{ steps.plan.outputs.stale_reasons }}
+      tail_locales: ${{ steps.plan.outputs.tail_locales }}
       reason: ${{ steps.plan.outputs.reason }}
     steps:
       - name: Checkout admission validator
@@ -118,6 +119,1168 @@ jobs:
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
   # ───────────────────────────────────────────────────────────────────────
+  # ───────────────────────────────────────────────────────────────────────
+  # publish-nonit-shards: the expensive non-IT section/locale tail runs after
+  # the build matrix has released its six-hour critical path. The source
+  # artifact is admitted only by resolve-publish-plan; the CDN gate remains
+  # fail-closed and the final receipt is the only input that can promote a
+  # locale from stale to healthy for validation/live checks.
+  # ───────────────────────────────────────────────────────────────────────
+  publish-nonit-shards:
+    name: Publish non-IT shard tail (${{ matrix.locale }})
+    needs: resolve-publish-plan
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+          contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), matrix.locale) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        locale: [en, de, fr]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    concurrency:
+      group: nonit-shard-tail-${{ matrix.locale }}
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    env:
+      BUILD_LOCALE: ${{ matrix.locale }}
+      DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+      SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+      SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - name: Record non-IT tail job start
+        run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
+
+      - name: Checkout source workflow SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: nonit-node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.nonit-node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Download non-IT source artifact
+        id: download-locale-source
+        uses: actions/download-artifact@v8
+        with:
+          name: locale-shard-source-${{ matrix.locale }}-${{ github.event.workflow_run.id }}
+          path: ${{ runner.temp }}/locale-shard-source
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract non-IT source artifact
+        id: extract-locale-source
+        run: |
+          set -euo pipefail
+          source_tar="$(find "$RUNNER_TEMP/locale-shard-source" -type f -name '*.tar' -print -quit 2>/dev/null || true)"
+          test -n "$source_tar"
+          rm -rf dist
+          mkdir -p dist
+          tar -C dist -xf "$source_tar"
+          test -s dist/build-id.txt
+          test -s "dist/${BUILD_LOCALE}.html"
+          test -s "dist/${BUILD_LOCALE}/index.html"
+
+      - name: Wait for IT CDN push (cross-workflow ordering guard)
+        id: cdn-gate
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_RUN_ID: ${{ github.event.workflow_run.id }}
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          CDN_WAIT_TIMEOUT_S: 2700
+          CDN_WAIT_MARGIN_WARN_S: 600
+          CDN_IT_JOB_NAME: build-locale (it)
+          CDN_IT_READY_STEP_NAME: ''
+          CDN_JOB_DEADLINE_S: 21600
+          CDN_JOB_FINISH_RESERVE_S: 600
+        run: bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
+      # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
+      # Section shard push FIRST (before the offload below) so
+      # push-section-shard.sh stages the RAW subtree and offloads its own
+      # copy exactly once; then strip it so the locale shard drops below the
+      # 10 GB Pages cap. One repo PER (section, locale) (frontaliere-<section>-<loc>).
+      # Push gates on the deploy key; strip on <SECTION>_SHARD_LIVE + the push
+      # ok-marker.
+      - name: Push section shards (non-IT → frontaliere-<section>-<loc>)
+        id: push-section-shards-nonit
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        env:
+          SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
+          SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
+          SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
+          SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
+          SHARD_SVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_SVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_SVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_SVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_ZURIGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_IT_DEPLOY_KEY }}
+          SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
+          SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
+          SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
+          SHARD_ARGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_IT_DEPLOY_KEY }}
+          SHARD_ARGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_EN_DEPLOY_KEY }}
+          SHARD_ARGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_DE_DEPLOY_KEY }}
+          SHARD_ARGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_FR_DEPLOY_KEY }}
+          SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
+          SHARD_APPENZELLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_EN_DEPLOY_KEY }}
+          SHARD_APPENZELLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_DE_DEPLOY_KEY }}
+          SHARD_APPENZELLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_FR_DEPLOY_KEY }}
+          SHARD_BASILEA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_IT_DEPLOY_KEY }}
+          SHARD_BASILEA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_EN_DEPLOY_KEY }}
+          SHARD_BASILEA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_DE_DEPLOY_KEY }}
+          SHARD_BASILEA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_FR_DEPLOY_KEY }}
+          SHARD_BERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_IT_DEPLOY_KEY }}
+          SHARD_BERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_EN_DEPLOY_KEY }}
+          SHARD_BERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_DE_DEPLOY_KEY }}
+          SHARD_BERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_FR_DEPLOY_KEY }}
+          SHARD_FRIBURGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_IT_DEPLOY_KEY }}
+          SHARD_FRIBURGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_EN_DEPLOY_KEY }}
+          SHARD_FRIBURGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_DE_DEPLOY_KEY }}
+          SHARD_FRIBURGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_FR_DEPLOY_KEY }}
+          SHARD_GINEVRA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_IT_DEPLOY_KEY }}
+          SHARD_GINEVRA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_EN_DEPLOY_KEY }}
+          SHARD_GINEVRA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_DE_DEPLOY_KEY }}
+          SHARD_GINEVRA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_FR_DEPLOY_KEY }}
+          SHARD_GLARONA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_IT_DEPLOY_KEY }}
+          SHARD_GLARONA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_EN_DEPLOY_KEY }}
+          SHARD_GLARONA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_DE_DEPLOY_KEY }}
+          SHARD_GLARONA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_FR_DEPLOY_KEY }}
+          SHARD_GRIGIONI_IT_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_IT_DEPLOY_KEY }}
+          SHARD_GRIGIONI_EN_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_EN_DEPLOY_KEY }}
+          SHARD_GRIGIONI_DE_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_DE_DEPLOY_KEY }}
+          SHARD_GRIGIONI_FR_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_FR_DEPLOY_KEY }}
+          SHARD_GIURA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_IT_DEPLOY_KEY }}
+          SHARD_GIURA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_EN_DEPLOY_KEY }}
+          SHARD_GIURA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_DE_DEPLOY_KEY }}
+          SHARD_GIURA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_FR_DEPLOY_KEY }}
+          SHARD_LUCERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_IT_DEPLOY_KEY }}
+          SHARD_LUCERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_EN_DEPLOY_KEY }}
+          SHARD_LUCERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_DE_DEPLOY_KEY }}
+          SHARD_LUCERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_FR_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_IT_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_IT_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_EN_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_EN_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_DE_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_DE_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_FR_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_FR_DEPLOY_KEY }}
+          SHARD_NIDVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_IT_DEPLOY_KEY }}
+          SHARD_NIDVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_EN_DEPLOY_KEY }}
+          SHARD_NIDVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_DE_DEPLOY_KEY }}
+          SHARD_NIDVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_FR_DEPLOY_KEY }}
+          SHARD_OBVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_IT_DEPLOY_KEY }}
+          SHARD_OBVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_EN_DEPLOY_KEY }}
+          SHARD_OBVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_DE_DEPLOY_KEY }}
+          SHARD_OBVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_FR_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_IT_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_EN_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_DE_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_FR_DEPLOY_KEY }}
+          SHARD_SOLETTA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_IT_DEPLOY_KEY }}
+          SHARD_SOLETTA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_EN_DEPLOY_KEY }}
+          SHARD_SOLETTA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_DE_DEPLOY_KEY }}
+          SHARD_SOLETTA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_FR_DEPLOY_KEY }}
+          SHARD_SVITTO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_IT_DEPLOY_KEY }}
+          SHARD_SVITTO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_EN_DEPLOY_KEY }}
+          SHARD_SVITTO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_DE_DEPLOY_KEY }}
+          SHARD_SVITTO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_FR_DEPLOY_KEY }}
+          SHARD_TURGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_IT_DEPLOY_KEY }}
+          SHARD_TURGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_EN_DEPLOY_KEY }}
+          SHARD_TURGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_DE_DEPLOY_KEY }}
+          SHARD_TURGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_FR_DEPLOY_KEY }}
+          SHARD_URI_IT_DEPLOY_KEY: ${{ secrets.SHARD_URI_IT_DEPLOY_KEY }}
+          SHARD_URI_EN_DEPLOY_KEY: ${{ secrets.SHARD_URI_EN_DEPLOY_KEY }}
+          SHARD_URI_DE_DEPLOY_KEY: ${{ secrets.SHARD_URI_DE_DEPLOY_KEY }}
+          SHARD_URI_FR_DEPLOY_KEY: ${{ secrets.SHARD_URI_FR_DEPLOY_KEY }}
+          SHARD_VAUD_IT_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_IT_DEPLOY_KEY }}
+          SHARD_VAUD_EN_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_EN_DEPLOY_KEY }}
+          SHARD_VAUD_DE_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_DE_DEPLOY_KEY }}
+          SHARD_VAUD_FR_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_FR_DEPLOY_KEY }}
+          SHARD_VALLESE_IT_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_IT_DEPLOY_KEY }}
+          SHARD_VALLESE_EN_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_EN_DEPLOY_KEY }}
+          SHARD_VALLESE_DE_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_DE_DEPLOY_KEY }}
+          SHARD_VALLESE_FR_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_FR_DEPLOY_KEY }}
+          SHARD_ZUGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_IT_DEPLOY_KEY }}
+          SHARD_ZUGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_EN_DEPLOY_KEY }}
+          SHARD_ZUGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_DE_DEPLOY_KEY }}
+          SHARD_ZUGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_FR_DEPLOY_KEY }}
+          SHARD_SANGALLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_IT_DEPLOY_KEY }}
+          SHARD_SANGALLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_EN_DEPLOY_KEY }}
+          SHARD_SANGALLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_DE_DEPLOY_KEY }}
+          SHARD_SANGALLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_FR_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          # Off unless the repo variable is exactly `changed` (delta mode only):
+          # CDN-rewrite only the files the delta push reads — see
+          # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
+          SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
+          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
+          GITHUB_SHA: ${{ github.event.workflow_run.head_sha }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
+          # shard push stays unpublished. The job already grants `issues: write`.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          # Issue #4881 Fase 5 — see ogPagesPlugin.ts's closeBundle docblock
+          # and the IT-leg push step above for the full contract.
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+        run: |
+          set -uo pipefail
+          # Wall-time della fase (#7301): `SECONDS` riparte da 0 a ogni step (ogni
+          # `run:` e' una bash nuova) e il trap EXIT lo emette su OGNI uscita —
+          # inclusa quella fatale sull'ordering qui sotto — cosi' la storia non
+          # perde la fase proprio quando e' andata storta. Stesso pattern dello
+          # step `Build` (`wall_seconds`), letto da "Append post-build phase
+          # timings row" in fondo al job.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          loc="${{ matrix.locale }}"
+          # Each section pushes to its OWN shard repo — one section's push
+          # failure (e.g. a corrupted remote clone) must never skip the
+          # others. bp_run_bounded records each failing section instead of
+          # aborting the fan-out; the step still ends non-zero (red in the
+          # Actions UI) when any section genuinely failed. Incident
+          # 2026-07-24 (run 30057726623): svizzera-it's push failure silently
+          # aborted the old loop before zurigo-it was even attempted.
+          # Bounded-parallel, not unbounded: push-section-shard.sh's own
+          # header documents issue #4734 — concurrent `stage` clones (up to
+          # several GB each for ticino/svizzera/zurigo) piling up unfreed
+          # exhausted runner disk even under the OLD sequential loop. The cap
+          # is UNCHANGED at 4 and bp_run_bounded enforces it as a hard ceiling
+          # on IN-FLIGHT pushes, so peak `stage` usage is what it was.
+          # Sliding window + longest-first ordering (issue #5130) — see the
+          # IT-leg push step above and scripts/lib/bounded-parallel.sh.
+          source scripts/lib/bounded-parallel.sh
+
+          # bounded-parallel.sh invokes the worker by name.
+          # shellcheck disable=SC2329
+          push_one() {
+            local section="$1" skip_var
+            # #4881 Fase 5: same exclusion as the IT-leg push step above —
+            # build no longer emitted this section, so a full-replace push
+            # here would force-push a near-empty dist/ tree over the shard.
+            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
+            if [ "${!skip_var:-}" = "true" ]; then
+              echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
+              return 0
+            fi
+            if bash scripts/lib/push-section-shard.sh "$section" "$loc" dist; then
+              return 0
+            fi
+            echo "::warning::$section-$loc shard push step failed — continuing to the next section"
+            return 1
+          }
+
+          # Fatal on an ordering failure — see the IT-leg push step above.
+          order="$(bp_section_order dist "$loc")" || {
+            echo "::error::could not order the section list — refusing to push a partial set of shards"
+            exit 1
+          }
+          echo "section push order (longest-first): $(echo "$order" | tr '\n' ' ')"
+
+          export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-$loc.txt"
+          fail=0
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 push_one "${ordered_sections[@]}" || fail=1
+          # Same visibility contract as the IT leg above — see that comment.
+          if [ -s "$BP_FAILED_FILE" ]; then
+            node scripts/ci/report-shard-push-failure.mjs \
+              --locale "$loc" --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
+          fi
+          exit "$fail"
+
+      # ── Purge the sections just pushed (apex AND origin), batched (#5513) ──
+      # Same gap and same fix as the IT leg above — see that step's comment
+      # for the full rationale (ok-marker gate, not outcome, batched calls).
+      - name: Purge edge for pushed section shards (apex AND origin)
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        env:
+          LOCALE: ${{ matrix.locale }}
+        run: |
+          set -uo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::warning::CF_API_TOKEN missing after the Remote Config load — section shards are updated, but the edge keeps serving cached copies until ORIGIN_CACHE_TTL (7200s) expires"
+            exit 0
+          fi
+          sections=()
+          for marker in "$RUNNER_TEMP"/shard-ok-*-"$LOCALE"; do
+            [ -e "$marker" ] || continue
+            name="$(basename "$marker")"
+            sections+=("${name#shard-ok-}")
+          done
+          sections=("${sections[@]%-"$LOCALE"}")
+          if [ "${#sections[@]}" -eq 0 ]; then
+            echo "no section shard-ok markers for $LOCALE — nothing to purge"
+            exit 0
+          fi
+          fail=0
+          while IFS= read -r batch_urls; do
+            [ -z "$batch_urls" ] && continue
+            node scripts/cf-purge-cache.mjs "--files=$batch_urls" || {
+              echo "::warning::a section purge batch failed — those URLs keep serving the previous build until the TTL expires"
+              fail=1
+            }
+          done < <(node scripts/ci/section-shard-purge-urls.mjs "$LOCALE" "${sections[@]}")
+          exit "$fail"
+
+      # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
+      # fast path — see the IT leg's "Pack section shard dist" step above for
+      # the full rationale (git-clone fallback was ~12min wall across the 4
+      # legs combined, run 28564001685). Per-section LIVE gate lives INSIDE
+      # the loop (not the step `if:`) since each section has its own repo
+      # variable.
+      - name: Pack section shard dist (tar) for post-deploy validation
+        if: matrix.locale != 'it'
+        id: pack-section-shards-nonit
+        continue-on-error: true
+        env:
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+        run: |
+          set -uo pipefail
+          # Wall-time della fase (#7301) — vedi lo step di push sopra per il
+          # perche' del trap EXIT invece di un echo finale.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          loc="${{ matrix.locale }}"
+          # Bounded-parallel (cap 4) — see the IT leg's "Pack section shard
+          # dist" step above for the full rationale. Same shared
+          # sliding-window driver and same longest-first order (memoised by
+          # the push step, so no second walk of dist).
+          source scripts/lib/bounded-parallel.sh
+          # SHARD_DELTA_CDN_REWRITE=changed: the push rewrote only the files it
+          # read and completes each staged copy in background. Barrier FIRST,
+          # before any live gate — the staged files are hardlinked to
+          # dist/<sub>, which later steps read for non-stripped sections. It
+          # waits for every pass and re-runs a failed one synchronously; a
+          # section still failing is not packed (see shard-cdn-rewrite.sh for
+          # why its dist/<sub> stays safe). With the variable off there is no
+          # partial marker: both calls are no-ops.
+          source scripts/lib/shard-cdn-rewrite.sh
+          shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
+          pack_section() {
+            local section="$1"
+            local live_var
+            live_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
+            if [ "${!live_var:-}" != "true" ]; then
+              return 0
+            fi
+            # Gate on the push ok-marker — see the IT leg's "Pack section
+            # shard dist" step above (issue #4881 Fase 5 audit finding) for
+            # the full rationale.
+            if [ ! -f "$RUNNER_TEMP/shard-ok-$section-$loc" ]; then
+              echo "no push ok-marker for $section-$loc (push skipped/failed this run) — validate-dist will fall back to git clone"
+              return 0
+            fi
+            # Never pack a staged copy the deferred CDN rewrite did not complete.
+            shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section" "$loc" || return 0
+            local slug sub src packed_n persisted_src_n live_src_n
+            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
+            sub="$loc/$slug"
+            src="$RUNNER_TEMP/${section}-src-$loc/dist"
+            if [ ! -d "$src/$sub" ]; then
+              echo "no staged $section-$loc subtree (push skipped/failed) — validate-dist will fall back to git clone"
+              return 0
+            fi
+            live_src_n=$(find "$src/$sub" -type f | wc -l)
+            # Independent shrink guard (issue #6283) — see the IT leg's "Pack
+            # section shard dist" step above for the full rationale: compare
+            # the LIVE count against the baseline push-section-shard.sh
+            # persisted right after staging, independent of the secondary
+            # tar-vs-source comparison below.
+            if [ -f "$RUNNER_TEMP/shard-srcn-$section-$loc" ]; then
+              persisted_src_n="$(cat "$RUNNER_TEMP/shard-srcn-$section-$loc")"
+              if [ "$live_src_n" -ne "$persisted_src_n" ]; then
+                echo "::warning::$section-$loc subtree shrank between push and pack (persisted src_n=$persisted_src_n, live=$live_src_n) — skipping pack, validate-dist will fall back to git-clone"
+                return 0
+              fi
+            fi
+            if ! packed_n=$(tar -C "$src" -cvf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+              echo "::warning::$section-dist-$loc.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
+              return 0
+            fi
+            ls -lh "$RUNNER_TEMP/$section-dist-$loc.tar"
+            # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack section
+            # shard dist" step above for the full rationale: this tar and
+            # push-section-shard.sh's own push both read the SAME already-offloaded
+            # "$src/$sub" staged copy, nothing mutates it in between, so a count
+            # mismatch here can only mean a tar bug — discard rather than upload a
+            # tar validate-dist could trust incorrectly. SECONDARY guard now: the
+            # independent shrink check above is the primary defence against a
+            # between-steps shrink.
+            if [ "$packed_n" -ne "$live_src_n" ]; then
+              echo "::warning::$section-dist-$loc.tar file count mismatch (packed=$packed_n src=$live_src_n) — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
+            fi
+            rm -rf "$src"
+          }
+          # Degrade to the plain list rather than pack nothing — see the IT
+          # leg's "Pack section shard dist" step above.
+          order="$(bp_section_order dist "$loc")" || {
+            echo "::warning::could not order the section list — packing in list order"
+            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+          }
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 pack_section "${ordered_sections[@]}" || true
+      - name: Upload shard batch 1 dist for post-deploy validation
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-1-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/appenzello-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/argovia-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/articolifrontaliere-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload shard batch 2 dist for post-deploy validation
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-2-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/berna-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/friburgo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/ginevra-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload shard batch 3 dist for post-deploy validation
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-3-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/grigioni-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/lucerna-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/neuchatel-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload shard batch 4 dist for post-deploy validation
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-4-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/sangallo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/sciaffusa-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/soletta-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload shard batch 5 dist for post-deploy validation
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-5-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/ticino-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/turgovia-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/uri-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload shard batch 6 dist for post-deploy validation
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-6-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+
+      - name: Strip section subtrees (non-IT)
+        if: matrix.locale != 'it'
+        env:
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+          ARGOVIA_SHARD_LIVE: ${{ vars.ARGOVIA_SHARD_LIVE }}
+          APPENZELLO_SHARD_LIVE: ${{ vars.APPENZELLO_SHARD_LIVE }}
+          BASILEA_SHARD_LIVE: ${{ vars.BASILEA_SHARD_LIVE }}
+          BERNA_SHARD_LIVE: ${{ vars.BERNA_SHARD_LIVE }}
+          FRIBURGO_SHARD_LIVE: ${{ vars.FRIBURGO_SHARD_LIVE }}
+          GINEVRA_SHARD_LIVE: ${{ vars.GINEVRA_SHARD_LIVE }}
+          GLARONA_SHARD_LIVE: ${{ vars.GLARONA_SHARD_LIVE }}
+          GRIGIONI_SHARD_LIVE: ${{ vars.GRIGIONI_SHARD_LIVE }}
+          GIURA_SHARD_LIVE: ${{ vars.GIURA_SHARD_LIVE }}
+          LUCERNA_SHARD_LIVE: ${{ vars.LUCERNA_SHARD_LIVE }}
+          NEUCHATEL_SHARD_LIVE: ${{ vars.NEUCHATEL_SHARD_LIVE }}
+          NIDVALDO_SHARD_LIVE: ${{ vars.NIDVALDO_SHARD_LIVE }}
+          OBVALDO_SHARD_LIVE: ${{ vars.OBVALDO_SHARD_LIVE }}
+          SCIAFFUSA_SHARD_LIVE: ${{ vars.SCIAFFUSA_SHARD_LIVE }}
+          SOLETTA_SHARD_LIVE: ${{ vars.SOLETTA_SHARD_LIVE }}
+          SVITTO_SHARD_LIVE: ${{ vars.SVITTO_SHARD_LIVE }}
+          TURGOVIA_SHARD_LIVE: ${{ vars.TURGOVIA_SHARD_LIVE }}
+          URI_SHARD_LIVE: ${{ vars.URI_SHARD_LIVE }}
+          VAUD_SHARD_LIVE: ${{ vars.VAUD_SHARD_LIVE }}
+          VALLESE_SHARD_LIVE: ${{ vars.VALLESE_SHARD_LIVE }}
+          ZUGO_SHARD_LIVE: ${{ vars.ZUGO_SHARD_LIVE }}
+          SANGALLO_SHARD_LIVE: ${{ vars.SANGALLO_SHARD_LIVE }}
+          ARTICOLIFRONTALIERE_SHARD_LIVE: ${{ vars.ARTICOLIFRONTALIERE_SHARD_LIVE }}
+          ARTICOLISVIZZERA_SHARD_LIVE: ${{ vars.ARTICOLISVIZZERA_SHARD_LIVE }}
+          # Issue #4881 Fase 5: same exclusion as the IT-leg strip step —
+          # see that step's comment for the rationale.
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+        run: |
+          set -uo pipefail
+          # Bounded-parallel, identical to the IT-leg strip step above — see that
+          # step's comment for why concurrent strips are output-identical and why
+          # they raise no ceiling the push step's cap protects.
+          source scripts/lib/bounded-parallel.sh
+
+          LOC='${{ matrix.locale }}'
+          strip_one() {
+            local section="$1" skip_var
+            skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
+            if [ "${!skip_var:-}" = "true" ]; then
+              echo "$section-$LOC: BUILD_EMIT_SKIP=true — build never emitted this section, no ok-marker, nothing to strip"
+              return 0
+            fi
+            bash scripts/lib/strip-section-subtree.sh "$section" "$LOC" dist
+          }
+
+          order="$(bp_section_order dist "$LOC")" || {
+            echo "::warning::could not order the section list — stripping in list order"
+            order="$(bash scripts/lib/deploy-shard-sections.sh)"
+          }
+          # Same exit-status contract as the IT-leg step: unchanged, visibility only.
+          export BP_FAILED_FILE="$RUNNER_TEMP/shard-strip-failed-$LOC.txt"
+          mapfile -t ordered_sections <<< "$order"
+          bp_run_bounded 4 strip_one "${ordered_sections[@]}" || true
+          if [ -s "$BP_FAILED_FILE" ]; then
+            echo "::warning::section strip failed for: $(paste -sd, "$BP_FAILED_FILE") — those subtrees stay in the $LOC shard (artifact may exceed the 10 GB Pages cap)"
+          fi
+          echo "[strip] stripped $(bash scripts/lib/tally-stripped-sections.sh "$LOC") file(s) across the $LOC section shards"
+
+      - name: Offload shard refs to CDN
+        id: offload-locale-cdn
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        # offload-generated-images-cdn.mjs rewrites HTML asset/data refs to the CDN
+        # and injects window.__CDN_DATA_BASE__. It reads CDN_BASE from the env and
+        # NO-OPs when unset. In the monolith a single offload runs after the CDN
+        # push (which exports CDN_BASE) and rewrites every locale; here en/de/fr run
+        # on separate runners that never push the CDN, so CDN_BASE must be supplied
+        # explicitly (it's the fixed CDN-repo Pages origin, == ASSET_CDN). Without
+        # it the shard HTML would keep same-origin /data refs → 404 live (the shard
+        # repos don't host /data; it's CDN-offloaded). The actual CDN content is
+        # pushed by the IT shard's deploy-it-pages-prep, which runs in parallel and
+        # completes before validate-dist/validate-live.
+        env:
+          CDN_BASE: 'https://cdn.frontaliereticino.ch'
+        run: node scripts/offload-generated-images-cdn.mjs
+
+      # Same-run shard-dist artifact for post-deploy-validate-dist rehydrate.
+      # validate-dist previously rehydrated each en/de/fr subtree by
+      # `git clone --depth 1` of the shard repo (~14min wall, serial). The pruned
+      # dist here — dist/<locale> + dist/<locale>.html — is byte-for-byte what
+      # push-locale-shard.sh force-pushes next, so uploading it lets validate-dist
+      # fetch it via `gh run download` (same-run, no API lag) instead of cloning.
+      # Uploaded AFTER "Offload shard refs to CDN" so the HTML carries the same
+      # CDN-rewritten /data refs the pushed shard serves (the clone-rehydrate it
+      # replaces consumed post-offload content) — keeps the rehydrated dist
+      # byte-identical to the git-clone path. validate-dist still falls back to the
+      # git clone when this artifact is missing (e.g. a failed shard push/upload),
+      # so a locale is NEVER silently un-validated. IT/main shard untouched
+      # (`matrix.locale != 'it'`) → matrix-equivalence sha256 intact.
+      #
+      # PACK INTO ONE TAR FIRST. The previous version uploaded the raw
+      # `dist/<loc>` tree (~410k loose files) directly. actions/upload-artifact@v7
+      # enumerates every file before upload and STACK-OVERFLOWED on that count —
+      # "##[error]Maximum call stack size exceeded" — so the upload silently
+      # failed (continue-on-error → step shows green, no artifact produced). The
+      # fast path was therefore DEAD on every deploy: validate-dist's rehydrate
+      # always fell through to the ~675s git-clone fallback. Packing the subtree
+      # into a single artifact.tar (exactly how the github-pages artifact is
+      # shipped) makes upload enumerate ONE file → no stack overflow, and the
+      # validate-dist side untars it straight into dist/ (no extra cp copy).
+      - name: Pack locale shard dist (tar) for post-deploy validation
+        if: matrix.locale != 'it'
+        id: pack-locale-shard
+        # continue-on-error for the same reason as the upload+push steps: a pack
+        # failure must degrade to validate-dist's git-clone fallback, never flip
+        # build-locale.result→failure (which would block the Pages publish).
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
+          # per il perche' del trap EXIT invece di un echo finale.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          members=( "${{ matrix.locale }}" )
+          # dist/<loc>.html (= the /{loc} homepage) is normally present; guard so
+          # a future strip that drops it can't make tar exit non-zero. NB: use a
+          # full `if` — `[ -f ] && members+=()` would itself exit non-zero (and
+          # abort the step under set -e) when the homepage is absent.
+          if [ -f "dist/${{ matrix.locale }}.html" ]; then
+            members+=( "${{ matrix.locale }}.html" )
+          fi
+          if ! packed_n=$(tar -C dist -cvf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}" | awk '!/\/$/ { n++ } END { print n + 0 }'); then
+            echo "::warning::locale-dist-${{ matrix.locale }}.tar creation failed — discarding tar, validate-dist will fall back to git-clone"
+            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
+            exit 0
+          fi
+          ls -lh "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
+          # Byte-identity guard (#2761 item 1): this tar and push-locale-shard.sh's
+          # `cp -al "$dist_dir/$loc" "$stage/$loc"` both read the SAME dist/<loc>
+          # (+ <loc>.html) — this step runs BEFORE "Push locale shard" below and
+          # nothing mutates dist/<loc> in between, so the two paths are guaranteed
+          # to agree; validate-dist's git-clone fallback also only ever restores
+          # this identical <loc>/ + <loc>.html pair. This count check makes that
+          # guarantee self-verifying: if it ever drifts, discard the tar so
+          # validate-dist safely falls back to git-clone instead of silently
+          # validating a partial/mismatched tree.
+          prefixed_members=()
+          for m in "${members[@]}"; do prefixed_members+=( "dist/$m" ); done
+          src_n=$(find "${prefixed_members[@]}" -type f 2>/dev/null | wc -l)
+          if [ "$packed_n" -ne "$src_n" ]; then
+            echo "::warning::locale-dist-${{ matrix.locale }}.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
+          fi
+      - name: Upload locale shard dist for post-deploy validation
+        if: matrix.locale != 'it'
+        id: upload-locale-shard
+        # MUST stay continue-on-error: this is a non-essential speedup artifact.
+        # deploy + validate-dist gate on `needs.build-locale.result == 'success'`
+        # (in matrix mode `build` is skipped), and build-locale has
+        # fail-fast: false, so a single leg failing here would make
+        # build-locale.result == failure → deploy blocked = no Pages publish.
+        # A transient artifact-service error or an empty dist/<loc> must instead
+        # degrade gracefully: validate-dist's git-clone fallback then rehydrates
+        # the locale (the documented resilience path). Mirrors the adjacent
+        # `Push locale shard` step, which is continue-on-error for the same reason.
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
+          # Single tar (see "Pack locale shard dist" above) — NOT the ~410k-file
+          # tree, which overflows the action's file enumerator.
+          path: ${{ runner.temp }}/locale-dist-${{ matrix.locale }}.tar
+          # compression-level 1: the tar is mostly HTML (very compressible) and
+          # this step gates the Pages publish, so favour a fast upload over a few
+          # extra MB. validate-dist downloads it over GitHub's internal network.
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Enforce non-IT tail budget before locale publish
+        id: tail-budget
+        if: always()
+        env:
+          NONIT_TAIL_BUDGET_S: '19800'
+        run: |
+          set -euo pipefail
+          started="${CDN_JOB_START_EPOCH:-$(date +%s)}"
+          now="$(date +%s)"
+          case "$started" in ''|*[!0-9]*) started="$now" ;; esac
+          elapsed=$((now - started))
+          echo "tail_elapsed_seconds=$elapsed" >> "$GITHUB_OUTPUT"
+          echo "non-IT tail elapsed ${elapsed}s / budget ${NONIT_TAIL_BUDGET_S}s"
+          echo "| non-IT tail elapsed | ${elapsed}s / ${NONIT_TAIL_BUDGET_S}s |" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$elapsed" -gt "$NONIT_TAIL_BUDGET_S" ]; then
+            echo "::error title=Non-IT shard tail exceeded its budget::elapsed ${elapsed}s > ${NONIT_TAIL_BUDGET_S}s; locale remains stale"
+            exit 1
+          fi
+      - name: Push locale shard
+        id: push-shard
+        # Only publish once the ordering guard confirmed the IT CDN push landed
+        # THIS build (steps.cdn-gate.outcome == 'success'). On a gate timeout the
+        # shard is skipped (NOT pushed ahead of the CDN); the stale-shard
+        # surfacing step below fires on skip|failure so the unpublished locale is
+        # never shipped silently. (cdn-gate is itself a no-op exit-0 when
+        # DEPLOY_BUILD_ID is unset, so non-matrix/local paths are unaffected.)
+        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'success' && steps.tail-budget.outcome == 'success'
+        # Stays continue-on-error (transient shard-repo/network errors must NOT
+        # block the whole Pages publish — build-locale has fail-fast:false, a
+        # hard failure here would flip build-locale.result→failure→no publish).
+        # The PREVIOUS gap (#2658): a failed push then shipped a STALE live
+        # locale SILENTLY (deploy green, no signal). The surfacing step below
+        # closes that — keeps the resilience, removes the silence.
+        continue-on-error: true
+        env:
+          SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
+          SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
+          SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
+          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
+        run: |
+          # Wall-time della fase (#7301) — vedi "Push section shards (IT ...)"
+          # per il perche' del trap EXIT. Il trap non altera l'exit code dello
+          # script, che resta quello dello step.
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+
+      - name: Upload advisory shard push verification report
+        if: always() && vars.SHARD_PUSH_VERIFY == '1'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-push-verify-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/shard-push-verify
+          if-no-files-found: ignore
+          retention-days: 1
+
+      # ── Purge the ORIGIN key, because that is where the bytes just changed ─
+      #
+      # This step is the one that was MISSING (#5483). The job above force-pushes
+      # the locale shard and, until now, purged nothing at all — verified on main:
+      #
+      #   git show origin/main:.github/workflows/deploy.yml | grep -c cf-purge-cache  →  0
+      #
+      # so the locale home kept serving the PREVIOUS build for up to the Worker's
+      # ORIGIN_CACHE_TTL (7200s). Measured on /de/: 9 internal links against the
+      # 45 the freshly-pushed origin carried.
+      #
+      # And purging the apex alone would not have helped. locale-router.js's
+      # serveShard() rewrites the upstream Host and fetches with
+      # `cacheEverything`, so the entry that serves the user is keyed on
+      # `origin-<loc>.frontaliereticino.ch/<path>`; an apex-only purge answers
+      # 200 and changes nothing. The proof is arithmetic rather than "it stayed
+      # HIT" (a purge followed by an immediate refill looks identical to a blind
+      # one): cf-locale-failover-setup.mjs pins the apex rule to 300s and
+      # /cerca-lavoro-ticino/ was measured at age 6333 — 21× that TTL, under the
+      # Worker's 7200s. rerender-article-hubs.yml already does this, for the
+      # article hubs only; this is the same shape for the locale shards.
+      #
+      # BOUNDED on purpose, same reasoning as that workflow: the free-plan cap is
+      # 30 URLs and a shard is hundreds of thousands of pages. Deep pages are
+      # MISS right after a push and heal themselves; what earns a slot is the set
+      # hot enough to hold an entry AND carrying the internal-link graph. The
+      # selection lives in scripts/ci/locale-shard-purge-urls.mjs, so a test can
+      # assert it against the Worker's own route table instead of trusting this
+      # YAML: 18 URLs (9 paths × apex+origin) against the 30 cap, 40% headroom.
+      #
+      # Gated on the ok-marker, not on the step outcome: push-locale-shard.sh
+      # exits 0 when it SKIPS (no deploy key, no dist subtree), and purging after
+      # a skip would spend the call on bytes that never moved.
+      - name: Purge the edge for the pushed locale shard (apex AND origin)
+        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
+        continue-on-error: true
+        env:
+          LOCALE: ${{ matrix.locale }}
+        run: |
+          set -uo pipefail
+          if [ ! -f "$RUNNER_TEMP/shard-ok-$LOCALE" ]; then
+            echo "no shard-ok marker for $LOCALE — the push skipped, nothing to purge"
+            exit 0
+          fi
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::warning::CF_API_TOKEN missing after the Remote Config load — the $LOCALE shard is updated, but the edge keeps serving its cached copy until ORIGIN_CACHE_TTL (7200s) expires"
+            exit 0
+          fi
+          PURGE_URLS="$(node scripts/ci/locale-shard-purge-urls.mjs "$LOCALE" dist)"
+          if [ -z "$PURGE_URLS" ]; then
+            echo "::warning::no purge URLs resolved for $LOCALE (landings absent from dist/$LOCALE, or the list was over the 30-URL cap — see the generator's stderr above) — the shard is live but the edge keeps its cached copy until the TTL expires"
+            exit 0
+          fi
+          node scripts/cf-purge-cache.mjs "--files=$PURGE_URLS" || echo "::warning::the $LOCALE edge purge failed — those URLs keep serving the previous build until the TTL expires"
+
+      # ── The two ways this locale can end up unpublished, told APART ───────
+      # Both leave the live locale STALE behind a green deploy, and until now
+      # both were reported by ONE step with ONE issue title whose body read
+      # "Probabili cause: errore transiente di rete, conflitto di push, deploy
+      # key shard scaduta". For a gate timeout that diagnosis is simply wrong,
+      # and it has already cost real triage: on 2026-08-06 run 31062047677 the
+      # IT leg's BUILD failed, so the CDN marker never turned and all three
+      # non-IT gates burned their full 2700s — and issues #5224 (fr), #5225
+      # (en) and #5227 (de) were filed blaming the shard deploy keys. The keys
+      # were fine. Nothing in the issue pointed at the IT leg.
+      #
+      # So: two steps, two titles, two bodies, mutually exclusive `if:`s
+      # (cdn-gate failure ⟹ push-shard SKIPPED, never 'failure').
+      - name: Surface an unpublished locale shard (#2569 CDN ordering gate timed out)
+        # The gate ran out of budget waiting for the IT leg's CDN push, so the
+        # shard was deliberately not published ahead of the CDN. Loud, but NOT
+        # fatal: aborting here would take down the other 26 shards for one
+        # locale's ordering problem, which is exactly the tolerance the
+        # continue-on-error posture exists to preserve.
+        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Via env, never interpolated into the `run:` text: CDN_LAST_SEEN is
+          # the body of a file fetched over the network.
+          LOCALE: ${{ matrix.locale }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          BRANCH: ${{ github.ref_name }}
+          WORKFLOW: ${{ github.workflow }}
+          CDN_WAITED_S: ${{ steps.cdn-gate.outputs.cdn_waited_s }}
+          CDN_TIMEOUT_S: ${{ steps.cdn-gate.outputs.cdn_timeout_s }}
+          CDN_EXPECTED: ${{ steps.cdn-gate.outputs.cdn_expected }}
+          CDN_LAST_SEEN: ${{ steps.cdn-gate.outputs.cdn_last_seen }}
+          # #5331 — which of the gate's TWO failure shapes fired. `timeout` is
+          # the historical one (budget spent, IT leg's fate unknown);
+          # `it_leg_failed` is the new early abort and carries a fact, not an
+          # inference: the jobs API reported the IT leg completed+failed, so the
+          # marker was never going to be written. Everything below leads with
+          # that fact when it exists, because a reader who sees only "gate
+          # failed" reliably starts at the shard's deploy key — that is exactly
+          # how #5224/#5225/#5227 were misfiled.
+          CDN_WAIT_RESULT: ${{ steps.cdn-gate.outputs.cdn_wait_result }}
+          CDN_IT_CONCLUSION: ${{ steps.cdn-gate.outputs.cdn_it_conclusion }}
+          CDN_READY_RESULT: ${{ steps.cdn-gate.outputs.cdn_ready_result }}
+          CDN_READY_WAITED_S: ${{ steps.cdn-gate.outputs.cdn_ready_waited_s }}
+          CDN_READY_TIMEOUT_S: ${{ steps.cdn-gate.outputs.cdn_ready_timeout_s }}
+          CDN_READY_API_FAILURES: ${{ steps.cdn-gate.outputs.cdn_ready_api_failures }}
+        run: |
+          if [ -n "${CDN_IT_CONCLUSION:-}" ]; then
+            CAUSE_LINE="the IT leg (\`build-locale (it)\`) of this run ended **${CDN_IT_CONCLUSION}**, so CDN build id \`${CDN_EXPECTED}\` was never published and never could be. The gate stopped after \`${CDN_WAITED_S}s\` instead of spending the whole \`${CDN_TIMEOUT_S}s\` budget."
+            ANNOT="The ${LOCALE} shard was NOT pushed: the IT leg of this run ended ${CDN_IT_CONCLUSION}, so CDN build id ${CDN_EXPECTED} was never published (gate aborted after ${CDN_WAITED_S}s rather than waiting out the ${CDN_TIMEOUT_S}s budget). Fix the IT leg — this is NOT a ${LOCALE} shard-repo or deploy-key problem."
+          elif [ -n "${CDN_READY_RESULT:-}" ] && [ "${CDN_READY_RESULT}" != 'ready' ]; then
+            CAUSE_LINE="the #7049 readiness phase ended **${CDN_READY_RESULT}** after \`${CDN_READY_WAITED_S}s\` of its separate \`${CDN_READY_TIMEOUT_S}s\` budget (jobs API failures: \`${CDN_READY_API_FAILURES:-0}\`). The IT early-CDN step was not authoritatively ready, so the \`${CDN_TIMEOUT_S}s\` marker budget was never started."
+            ANNOT="The ${LOCALE} shard was NOT pushed: the #7049 readiness phase ended ${CDN_READY_RESULT} after ${CDN_READY_WAITED_S}s/${CDN_READY_TIMEOUT_S}s (jobs API failures ${CDN_READY_API_FAILURES:-0}). The IT early-CDN step was not authoritatively ready; marker polling never started. Fix the IT leg or jobs-API observability — this is NOT a ${LOCALE} shard-repo or deploy-key problem."
+          else
+            CAUSE_LINE="the gate spent its full \`${CDN_TIMEOUT_S}s\` budget waiting for the IT leg to publish CDN build id \`${CDN_EXPECTED}\` (last seen \`${CDN_LAST_SEEN:-<nessuno>}\`), and the IT leg's own conclusion could not be read."
+            ANNOT="The ${LOCALE} shard was NOT pushed: the #2569 CDN ordering gate timed out after ${CDN_WAITED_S}s of a ${CDN_TIMEOUT_S}s budget waiting for the IT leg to publish CDN build id ${CDN_EXPECTED} (last seen '${CDN_LAST_SEEN}'). Live ${LOCALE} pages serve STALE content until the next deploy. Look at the IT leg of this run, not at the ${LOCALE} shard repo."
+          fi
+          echo "::error title=Locale shard NOT published (#2569 gate: ${CDN_WAIT_RESULT:-failure})::${ANNOT}"
+          {
+            echo "🛑 **${LOCALE} shard NOT published — #2569 CDN ordering gate (\`${CDN_WAIT_RESULT:-failure}\`)**"
+            echo ""
+            echo "- cause: ${CAUSE_LINE}"
+            echo "- waited: \`${CDN_WAITED_S}s\` of \`${CDN_TIMEOUT_S}s\`"
+            echo "- IT readiness: \`${CDN_READY_RESULT:-legacy}\` after \`${CDN_READY_WAITED_S:-0}s\` of \`${CDN_READY_TIMEOUT_S:-0}s\` (API failures: \`${CDN_READY_API_FAILURES:-0}\`)"
+            echo "- expected CDN build id: \`${CDN_EXPECTED}\`"
+            echo "- last seen on the CDN: \`${CDN_LAST_SEEN:-<none>}\`"
+            echo "- the live \`${LOCALE}\` pages stay STALE until the next successful deploy"
+          } >> "$GITHUB_STEP_SUMMARY"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Deploy: guard di ordinamento CDN #2569 scaduto (${{ matrix.locale }}) — shard non pubblicato" \
+            --description "## Guard di ordinamento CDN (#2569) scaduto — shard \`${LOCALE}\` NON pubblicato
+
+          Lo shard \`${LOCALE}\` **non è stato pushato**. Non è un errore dello shard repo: il guard di ordinamento aspettava che il leg **IT** pubblicasse il payload CDN di questa build, quindi lo shard è stato volutamente tenuto indietro invece di andare live davanti alla CDN.
+
+          **Causa:** ${CAUSE_LINE}
+
+          | | |
+          |---|---|
+          | esito del guard | \`${CDN_WAIT_RESULT:-failure}\` |
+          | readiness IT | \`${CDN_READY_RESULT:-legacy}\` dopo \`${CDN_READY_WAITED_S:-0}s\` / \`${CDN_READY_TIMEOUT_S:-0}s\` (API failures: \`${CDN_READY_API_FAILURES:-0}\`) |
+          | conclusione del leg IT | \`${CDN_IT_CONCLUSION:-non letta}\` |
+          | atteso | \`${CDN_WAITED_S}s\` su un budget di \`${CDN_TIMEOUT_S}s\` |
+          | build id CDN atteso | \`${CDN_EXPECTED}\` |
+          | ultimo id visto sulla CDN | \`${CDN_LAST_SEEN:-<nessuno>}\` |
+          | locale | \`${LOCALE}\` |
+          | branch | \`${BRANCH}\` |
+
+          **Run:** ${RUN_URL}
+
+          **Dove guardare — il leg IT di questo run, non lo shard \`${LOCALE}\`:**
+          1. il leg \`build-locale (it)\` è fallito o è stato lento? Se il suo Build fallisce, il marker non viene mai scritto e tutti e tre i leg non-IT scadono (successo esatto: run 31062047677).
+          2. lo step \`Push generated assets to CDN (early …)\` del leg IT ha pubblicato? Se ha loggato \`CDN_BASE unset\` la push è fallita.
+          3. \`curl -s https://cdn.frontaliereticino.ch/cdn-build-id.txt\` corrisponde a \`${CDN_EXPECTED}\`?
+
+          Il deploy resta verde per design: un solo shard indietro non deve abortire gli altri 26." \
+            --priority 1 \
+            --label Bug \
+            --workflow "${WORKFLOW}"
+          # NESSUN --reopen-within-hours: si eredita il default del creator
+          # (DEFAULT_REOPEN_WITHIN_HOURS, 720h). Qui c'era `6`, e quel 6
+          # contraddiceva la sua stessa intenzione dichiarata allo step
+          # "Resolve …" qui sotto — «close↔reopen on ONE issue per cause».
+          # Con 6h la riapertura funziona solo se il rosso torna entro 6h dal
+          # verde che ha chiuso; a cadenza giornaliera non torna mai. Misura
+          # 2026-08-14: le gemelle #5771/#5772/#5773 sono state chiuse
+          # 2026-08-13T08:51Z, il guard è riscaduto 27,7h dopo, e i tre leg
+          # hanno coniato #5868/#5869/#5872 invece di riaprirle. Il contrasto
+          # che lo prova: #5864, chiusa 12:32:46Z e riaperta 13:35:37Z (1,05h,
+          # dentro i 6h). Il 6h resta giusto SOLO per i validatori post-deploy,
+          # che collassano un flap rosso→verde→rosso dentro UN ciclo di deploy.
+
+      - name: Surface a stale-locale shard push failure (#2658)
+        # The gate passed and the push itself failed — THIS is the shard-repo /
+        # deploy-key / transient-network case. A push failure leaves the live
+        # ${{ matrix.locale }} shard serving STALE content while the deploy
+        # still goes green. Don't fail the deploy (the continue-on-error
+        # resilience is deliberate) — but make it LOUD: annotation + a deduped
+        # tracking issue so the stale locale is never shipped silently.
+        # Self-resolves on the next green push (reopen-within).
+        if: matrix.locale != 'it' && steps.push-shard.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Bound here, not interpolated into the `run:` text, so the issue
+          # TITLE below is a literal string identical to the one the resolve
+          # step closes. Title drift between the two is the failure mode that
+          # leaves a permanently-open issue — tests/deploy-cdn-ordering-gate
+          # compares them character for character.
+          LOCALE: ${{ matrix.locale }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          BRANCH: ${{ github.ref_name }}
+          WORKFLOW: ${{ github.workflow }}
+        run: |
+          echo "::error title=Stale locale shard::Push of the ${LOCALE} shard FAILED (the #2569 CDN ordering gate passed — this is a shard-repo/deploy-key/network failure) — the live ${LOCALE} pages serve STALE content until the next successful deploy. Deploy stays green by design (transient-tolerant)."
+          {
+            echo "🛑 **${LOCALE} shard push FAILED** — the #2569 ordering gate passed, so this is a shard-repo / deploy-key / network failure. Live \`${LOCALE}\` pages stay STALE."
+          } >> "$GITHUB_STEP_SUMMARY"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
+            --description "## Push locale shard fallito — locale live STALE
+          Il push dello shard \`${LOCALE}\` è fallito: le pagine live di quel locale servono contenuto **stale** finché un deploy successivo non ripush con successo. Il deploy resta verde per design (resilienza a errori transienti dello shard-repo), ma la mancata propagazione è ora segnalata.
+          **Run:** ${RUN_URL}
+          **Locale:** ${LOCALE}
+          **Branch:** ${BRANCH}
+          Il guard di ordinamento CDN (#2569) è PASSATO in questo run — la causa non è la CDN. Probabili cause: errore transiente di rete/artifact-service, conflitto di push, deploy key shard scaduta." \
+            --priority 1 \
+            --label Bug \
+            --workflow "${WORKFLOW}"
+          # NESSUN --reopen-within-hours: default 720h del creator. Vedi la nota
+          # allo step gemello sopra — stessa coppia surface↔resolve, stessa
+          # cadenza, stesso motivo per cui `6` non teneva la issue canonica.
+
+      - name: Resolve stale-locale shard issues on successful push (#2658)
+        # Mirror of BOTH surfacing steps: a green push closes whichever of the
+        # two canonical issues is open (close↔reopen on ONE issue per cause, no
+        # per-run storm). Both titles must be resolved here — a shard that was
+        # held back by a gate timeout last run and pushes fine this run has an
+        # open "#2569 scaduto" issue, and only this step can close it.
+        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOCALE: ${{ matrix.locale }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          WORKFLOW: ${{ github.workflow }}
+        run: |
+          for title in \
+            "Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)" \
+            "Deploy: guard di ordinamento CDN #2569 scaduto (${{ matrix.locale }}) — shard non pubblicato"
+          do
+            node scripts/lib/github-issue-creator.mjs \
+              --resolve \
+              --title "$title" \
+              --workflow "${WORKFLOW}" \
+              --run-url "${RUN_URL}"
+          done
+
+      - name: Record non-IT tail timing
+        if: always()
+        env:
+          TAIL_PUSH_SECONDS: ${{ steps.push-section-shards-nonit.outputs.wall_seconds }}
+          TAIL_PACK_SECONDS: ${{ steps.pack-section-shards-nonit.outputs.wall_seconds }}
+          TAIL_LOCALE_PACK_SECONDS: ${{ steps.pack-locale-shard.outputs.wall_seconds }}
+          TAIL_LOCALE_PUSH_SECONDS: ${{ steps.push-shard.outputs.wall_seconds }}
+          TAIL_BUDGET_SECONDS: ${{ steps.tail-budget.outputs.tail_elapsed_seconds }}
+        run: |
+          set -euo pipefail
+          echo "| non-IT tail phase | seconds |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| section push | ${TAIL_PUSH_SECONDS:-unknown} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| section pack | ${TAIL_PACK_SECONDS:-unknown} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| locale pack | ${TAIL_LOCALE_PACK_SECONDS:-unknown} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| locale push | ${TAIL_LOCALE_PUSH_SECONDS:-unknown} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| budget check | ${TAIL_BUDGET_SECONDS:-unknown} |" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Write non-IT locale publish provenance
+        if: always()
+        env:
+          PROVENANCE_SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          PROVENANCE_SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          PROVENANCE_ARTIFACT_RUN_ID: ${{ github.run_id }}
+          PROVENANCE_BUILD_OUTCOME: success
+          PROVENANCE_VALIDATE_OUTCOME: success
+          PROVENANCE_SOURCE_ARTIFACT_OUTCOME: ${{ steps.extract-locale-source.outcome }}
+          PROVENANCE_IT_PREP_OUTCOME: deferred
+          PROVENANCE_PAGES_ARTIFACT_OUTCOME: deferred
+          PROVENANCE_OFFLOAD_OUTCOME: ${{ steps.offload-locale-cdn.outcome }}
+          PROVENANCE_SECTION_PUSH_OUTCOME: ${{ steps.push-section-shards-nonit.outcome }}
+          PROVENANCE_CDN_GATE_OUTCOME: ${{ steps.cdn-gate.outcome }}
+          PROVENANCE_LOCALE_PUSH_OUTCOME: ${{ steps.push-shard.outcome }}
+          PROVENANCE_LOCALE_PACK_OUTCOME: ${{ steps.pack-locale-shard.outcome }}
+          PROVENANCE_LOCALE_ARTIFACT_OUTCOME: ${{ steps.upload-locale-shard.outcome }}
+          PROVENANCE_TAIL_BUDGET_OUTCOME: ${{ steps.tail-budget.outcome }}
+        run: |
+          node scripts/ci/locale-publish-provenance.mjs \
+            --output "$RUNNER_TEMP/nonit-publish-provenance/${BUILD_LOCALE}.json" \
+            --dist-dir dist
+
+      - name: Upload non-IT locale publish provenance
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: nonit-publish-provenance-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/nonit-publish-provenance/${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+  # Resolve the second half of the handoff. A source-ready receipt is not a
+  # live publish; only a complete post-build receipt from this workflow run can
+  # move a non-IT locale into the healthy set consumed by validation/live.
+  resolve-nonit-publish:
+    name: Resolve non-IT shard tail
+    needs: [resolve-publish-plan, publish-nonit-shards]
+    if: >-
+      ${{ always() &&
+          needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      allowed: ${{ steps.plan.outputs.allowed }}
+      healthy_locales: ${{ steps.plan.outputs.healthy_locales }}
+      stale_locales: ${{ steps.plan.outputs.stale_locales }}
+      stale_reasons: ${{ steps.plan.outputs.stale_reasons }}
+      ready_locales: ${{ steps.plan.outputs.ready_locales }}
+      reason: ${{ steps.plan.outputs.reason }}
+    steps:
+      - name: Checkout resolver at source SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          sparse-checkout: |
+            scripts/ci/locale-publish-provenance.mjs
+            scripts/ci/resolve-nonit-publish-plan.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Download post-build provenance receipts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: nonit-publish-provenance-*
+          path: ${{ runner.temp }}/nonit-publish-provenance
+          merge-multiple: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Resolve post-build receipts
+        id: plan
+        if: always()
+        env:
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          ARTIFACT_RUN_ID: ${{ github.run_id }}
+          SOURCE_HEALTHY_LOCALES: ${{ needs.resolve-publish-plan.outputs.healthy_locales }}
+          SOURCE_STALE_LOCALES: ${{ needs.resolve-publish-plan.outputs.stale_locales }}
+          TAIL_LOCALES: ${{ needs.resolve-publish-plan.outputs.tail_locales }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/resolve-nonit-publish-plan.mjs \
+            --manifests-dir "$RUNNER_TEMP/nonit-publish-provenance" \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --expected-build-id "$EXPECTED_BUILD_ID" \
+            --artifact-run-id "$ARTIFACT_RUN_ID" \
+            --source-healthy-locales "$SOURCE_HEALTHY_LOCALES" \
+            --source-stale-locales "$SOURCE_STALE_LOCALES" \
+            --tail-locales "$TAIL_LOCALES" \
+            --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
   # deploy: publish the build run's dist/ to GitHub Pages.
   #
   # ⚠️ KNOWN FUNNEL-CRITICAL GAP — issue #987: at the current site scale
@@ -514,8 +1677,8 @@ jobs:
   # PARALLEL with deploy — not gated on the live publish.
   # ───────────────────────────────────────────────────────────────────────
   validate-dist:
-    needs: resolve-publish-plan
-    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' }}
+    needs: [resolve-publish-plan, resolve-nonit-publish]
+    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-nonit-publish.result == 'success' }}
     # This is intentionally a different lock from pages-deploy. The complete
     # logical-dist rehydrate can use the full five-hour validator budget; it
     # must not serialize the Pages upload that already completed for its run.
@@ -525,6 +1688,7 @@ jobs:
     uses: ./.github/workflows/post-deploy-validate-dist.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
+      shard_artifact_run_id: ${{ github.run_id }}
       deploy_event_name: ${{ github.event.workflow_run.event }}
       deploy_ref: ${{ github.event.workflow_run.head_sha }}
     secrets: inherit
@@ -538,15 +1702,15 @@ jobs:
   # Pages publish to have happened → gated on deploy.
   # ───────────────────────────────────────────────────────────────────────
   validate-live:
-    needs: [resolve-publish-plan, deploy]
-    if: ${{ !cancelled() && needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.deploy.result == 'success' }}
+    needs: [resolve-publish-plan, resolve-nonit-publish, deploy]
+    if: ${{ !cancelled() && needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-nonit-publish.result == 'success' && needs.deploy.result == 'success' }}
     uses: ./.github/workflows/post-deploy-validate-live.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
       deploy_event_name: ${{ github.event.workflow_run.event }}
       deploy_ref: ${{ github.event.workflow_run.head_sha }}
-      healthy_locales: ${{ needs.resolve-publish-plan.outputs.healthy_locales }}
-      stale_locales: ${{ needs.resolve-publish-plan.outputs.stale_locales }}
+      healthy_locales: ${{ needs.resolve-nonit-publish.outputs.healthy_locales }}
+      stale_locales: ${{ needs.resolve-nonit-publish.outputs.stale_locales }}
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)
@@ -592,8 +1756,8 @@ jobs:
   # serving, submitting its URLs is wrong.
   # ───────────────────────────────────────────────────────────────────────
   publish:
-    needs: [resolve-publish-plan, deploy, validate-dist, validate-live]
-    if: ${{ !cancelled() && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
+    needs: [resolve-publish-plan, resolve-nonit-publish, deploy, validate-dist, validate-live]
+    if: ${{ !cancelled() && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-nonit-publish.result == 'success' && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
     # Keep irreversible post-deploy side-effects serialized, but do not let
     # their validator wait hold the Pages upload lock. Since tails can now
     # complete out of order, deploy-registry.mjs also refuses to move
@@ -641,7 +1805,7 @@ jobs:
   # watchdog also runs on the build's completion (when the CDN half lands) and
   # on its schedule.
   runtime-watchdog:
-    needs: [deploy, validate-dist, validate-live, publish]
+    needs: [deploy, resolve-nonit-publish, validate-dist, validate-live, publish]
     if: >-
       ${{ always() &&
           needs.deploy.result == 'success' }}
@@ -665,10 +1829,12 @@ jobs:
   # workflow. This post-job observer owns the caller-level canonical issue and
   # fetches the completed nested job log for diagnosis.
   report-failure:
-    needs: [deploy, validate-dist, validate-live, publish, runtime-watchdog]
+    needs: [deploy, publish-nonit-shards, resolve-nonit-publish, validate-dist, validate-live, publish, runtime-watchdog]
     if: >-
       ${{ always() &&
           (needs.deploy.result == 'failure' ||
+           needs.publish-nonit-shards.result == 'failure' ||
+           needs.resolve-nonit-publish.result == 'failure' ||
            needs.validate-dist.result == 'failure' ||
            needs.validate-live.result == 'failure' ||
            needs.publish.result == 'failure' ||
@@ -716,6 +1882,34 @@ jobs:
           context: |
             - Il job `deploy` del workflow chiamante è fallito durante il publish Pages.
             - Il run build osservato è disponibile nel payload `workflow_run`.
+
+      - name: Report non-IT shard tail failure
+        if: always() && needs.publish-nonit-shards.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: publish-nonit-shards
+          workflow-file: .github/workflows/deploy-publish.yml
+          context: |
+            - Il tail non-IT è fallito dopo l’handoff dell’artifact sorgente; le provenance receipt impediscono di promuovere locali incompleti.
+
+      - name: Report non-IT shard receipt failure
+        if: always() && needs.resolve-nonit-publish.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: resolve-nonit-publish
+          workflow-file: .github/workflows/deploy-publish.yml
+          context: |
+            - La risoluzione delle provenance non-IT è fallita chiusa; validation/live non può usare un piano ambiguo.
 
       - name: Report dist-validation failure
         if: always() && needs.validate-dist.result == 'failure'

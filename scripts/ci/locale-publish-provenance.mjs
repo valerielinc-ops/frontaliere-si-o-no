@@ -22,6 +22,7 @@ const SHA_RE = /^[0-9a-f]{40}$/i;
 const STATUS_KEYS = Object.freeze([
   'build',
   'validate',
+  'sourceArtifact',
   'itPrep',
   'pagesArtifact',
   'offload',
@@ -30,6 +31,7 @@ const STATUS_KEYS = Object.freeze([
   'localePush',
   'localePack',
   'localeArtifact',
+  'tailBudget',
 ]);
 
 function text(value) {
@@ -69,9 +71,23 @@ function requiredChecks(locale, outcomes) {
       ['localePush', outcomes.localePush],
       ['localePack', outcomes.localePack],
       ['localeArtifact', outcomes.localeArtifact],
+      ['tailBudget', outcomes.tailBudget],
     );
   }
   return checks;
+}
+
+function sourceReadyChecks(locale, outcomes) {
+  if (locale === 'it') return [];
+  return [
+    ['build', outcomes.build],
+    ['validate', outcomes.validate],
+    ['sourceArtifact', outcomes.sourceArtifact],
+  ];
+}
+
+function checksPass(checks) {
+  return checks.every(([, value]) => value === SUCCESS);
 }
 
 /**
@@ -88,6 +104,7 @@ export function createLocalePublishProvenance({
   sourceRunId,
   sourceSha,
   deployBuildId,
+  artifactRunId,
   distDir = 'dist',
   runnerTemp = process.env.RUNNER_TEMP || '',
   outcomes = {},
@@ -96,39 +113,59 @@ export function createLocalePublishProvenance({
   const expectedBuildId = text(deployBuildId);
   const outputBuildId = readBuildId(distDir);
   const normalizedOutcomes = normalizeStatuses(outcomes);
-  const reasons = [];
+  const identityReasons = [];
 
-  if (!LOCALES.includes(normalizedLocale)) reasons.push(`unsupported locale ${JSON.stringify(normalizedLocale)}`);
-  if (!BUILD_ID_RE.test(expectedBuildId)) reasons.push('DEPLOY_BUILD_ID is missing or malformed');
-  if (!BUILD_ID_RE.test(outputBuildId)) reasons.push('dist/build-id.txt is missing or malformed');
+  if (!LOCALES.includes(normalizedLocale)) identityReasons.push(`unsupported locale ${JSON.stringify(normalizedLocale)}`);
+  if (!BUILD_ID_RE.test(expectedBuildId)) identityReasons.push('DEPLOY_BUILD_ID is missing or malformed');
+  if (!BUILD_ID_RE.test(outputBuildId)) identityReasons.push('dist/build-id.txt is missing or malformed');
   if (BUILD_ID_RE.test(expectedBuildId) && outputBuildId !== expectedBuildId) {
-    reasons.push(`dist/build-id.txt=${JSON.stringify(outputBuildId)} differs from DEPLOY_BUILD_ID=${JSON.stringify(expectedBuildId)}`);
+    identityReasons.push(`dist/build-id.txt=${JSON.stringify(outputBuildId)} differs from DEPLOY_BUILD_ID=${JSON.stringify(expectedBuildId)}`);
   }
-  if (!text(sourceRunId)) reasons.push('source run id is missing');
-  if (!SHA_RE.test(text(sourceSha))) reasons.push('source SHA is missing or malformed');
+  if (!text(sourceRunId)) identityReasons.push('source run id is missing');
+  if (!SHA_RE.test(text(sourceSha))) identityReasons.push('source SHA is missing or malformed');
 
-  for (const [name, value] of requiredChecks(normalizedLocale, normalizedOutcomes)) {
-    if (value !== SUCCESS) reasons.push(`${name} outcome is ${JSON.stringify(value)}`);
-  }
-  if (normalizedLocale !== 'it' && !fs.existsSync(path.join(runnerTemp, `shard-ok-${normalizedLocale}`))) {
-    reasons.push('locale shard success marker is missing');
+  const fullChecks = requiredChecks(normalizedLocale, normalizedOutcomes);
+  const sourceChecks = sourceReadyChecks(normalizedLocale, normalizedOutcomes);
+  const fullChecksPass = checksPass(fullChecks);
+  const sourceReady = normalizedLocale !== 'it'
+    && identityReasons.length === 0
+    && checksPass(sourceChecks);
+  const shardMarkerPresent = normalizedLocale === 'it'
+    || fs.existsSync(path.join(runnerTemp, `shard-ok-${normalizedLocale}`));
+  const published = identityReasons.length === 0 && fullChecksPass && shardMarkerPresent;
+  const sourceHandoff = sourceReady && !fullChecksPass;
+  const reasons = [...identityReasons];
+
+  if (!sourceHandoff) {
+    for (const [name, value] of fullChecks) {
+      if (value !== SUCCESS) reasons.push(`${name} outcome is ${JSON.stringify(value)}`);
+    }
+    if (normalizedLocale !== 'it' && fullChecksPass && !shardMarkerPresent) {
+      reasons.push('locale shard success marker is missing');
+    }
   }
 
-  const published = reasons.length === 0;
-  const cdnBuildId = normalizedLocale === 'it'
-    ? (normalizedOutcomes.itPrep === SUCCESS ? outputBuildId : '')
-    : (normalizedOutcomes.cdnGate === SUCCESS ? outputBuildId : '');
-  const cdnStatus = cdnBuildId && cdnBuildId === expectedBuildId ? 'coherent' : 'unknown';
+  const sourceRun = text(sourceRunId);
+  const artifactRun = text(artifactRunId) || sourceRun;
+  const cdnBuildId = published
+    ? (normalizedLocale === 'it' ? outputBuildId : outputBuildId)
+    : '';
+  const cdnStatus = published && cdnBuildId === expectedBuildId
+    ? 'coherent'
+    : sourceHandoff
+      ? 'deferred'
+      : 'unknown';
   const artifactName = normalizedLocale === 'it'
     ? 'github-pages'
-    : `locale-dist-${normalizedLocale}-${text(sourceRunId)}`;
+    : `${sourceHandoff ? 'locale-shard-source' : 'locale-dist'}-${normalizedLocale}-${artifactRun}`;
 
   return {
     schemaVersion: PROVENANCE_SCHEMA_VERSION,
     kind: PROVENANCE_KIND,
     locale: normalizedLocale,
-    sourceRunId: text(sourceRunId),
+    sourceRunId: sourceRun,
     sourceSha: text(sourceSha),
+    artifactRunId: artifactRun,
     deployBuildId: expectedBuildId,
     outputBuildId,
     // `buildId` is the stable field consumed by the admission plan. Keeping
@@ -137,12 +174,12 @@ export function createLocalePublishProvenance({
     cdnBuildId,
     cdnStatus,
     artifactName,
-    payloadStatus: published ? 'complete' : 'incomplete',
-    publishStatus: published ? 'published' : 'not-published',
+    payloadStatus: published ? 'complete' : sourceHandoff ? 'source-ready' : 'incomplete',
+    publishStatus: published ? 'published' : sourceHandoff ? 'ready-for-tail' : 'not-published',
     published,
     stale: !published,
-    fallback: published ? null : 'last-known-good',
-    crossLocaleSkew: published ? 'verified-none' : 'not-admitted',
+    fallback: published ? null : sourceHandoff ? 'post-build-shard-tail' : 'last-known-good',
+    crossLocaleSkew: published ? 'verified-none' : sourceHandoff ? 'deferred' : 'not-admitted',
     outcomes: normalizedOutcomes,
     reasons,
   };
@@ -161,7 +198,9 @@ export function validateLocalePublishProvenance(manifest, {
   sourceRunId,
   sourceSha,
   expectedBuildId,
+  expectedArtifactRunId,
   requirePublished = true,
+  requireSourceReady = false,
 } = {}) {
   const errors = [];
   if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
@@ -187,23 +226,51 @@ export function validateLocalePublishProvenance(manifest, {
     if (manifest.buildId !== expected) pushError(errors, `buildId ${JSON.stringify(manifest.buildId)} does not match the expected build id ${JSON.stringify(expected)}`);
     if (manifest.deployBuildId !== expected) pushError(errors, `deployBuildId ${JSON.stringify(manifest.deployBuildId)} does not match the expected build id ${JSON.stringify(expected)}`);
   }
-  if (manifest.cdnStatus !== 'coherent') pushError(errors, `cdnStatus is ${JSON.stringify(manifest.cdnStatus)}`);
-  if (manifest.cdnBuildId !== manifest.buildId) pushError(errors, 'cdnBuildId differs from buildId');
+  const artifactRun = text(manifest.artifactRunId) || text(manifest.sourceRunId);
+  if (expectedArtifactRunId != null) {
+    if (!text(manifest.artifactRunId)) pushError(errors, 'artifactRunId is missing');
+    else if (artifactRun !== text(expectedArtifactRunId)) {
+      pushError(errors, `artifactRunId ${JSON.stringify(artifactRun)} does not match ${JSON.stringify(text(expectedArtifactRunId))}`);
+    }
+  }
   const expectedArtifact = manifest.locale === 'it'
     ? 'github-pages'
-    : `locale-dist-${manifest.locale}-${text(manifest.sourceRunId)}`;
+    : `${manifest.payloadStatus === 'source-ready' ? 'locale-shard-source' : 'locale-dist'}-${manifest.locale}-${artifactRun}`;
   if (manifest.artifactName !== expectedArtifact) {
     pushError(errors, `artifactName ${JSON.stringify(manifest.artifactName)} does not match ${JSON.stringify(expectedArtifact)}`);
   }
-  if (manifest.payloadStatus !== 'complete') pushError(errors, `payloadStatus is ${JSON.stringify(manifest.payloadStatus)}`);
-  if (requirePublished && (manifest.published !== true || manifest.publishStatus !== 'published')) {
-    pushError(errors, 'manifest is not marked published');
-  }
-  if (requirePublished && manifest.stale !== false) pushError(errors, 'published manifest is marked stale');
-  if (requirePublished && manifest.crossLocaleSkew !== 'verified-none') {
-    pushError(errors, `crossLocaleSkew is ${JSON.stringify(manifest.crossLocaleSkew)}`);
+  if (requireSourceReady) {
+    if (manifest.locale === 'it') pushError(errors, 'IT cannot use a deferred non-IT source receipt');
+    if (manifest.payloadStatus !== 'source-ready') pushError(errors, `payloadStatus is ${JSON.stringify(manifest.payloadStatus)}`);
+    if (manifest.publishStatus !== 'ready-for-tail') pushError(errors, `publishStatus is ${JSON.stringify(manifest.publishStatus)}`);
+    if (manifest.published !== false) pushError(errors, 'source receipt is marked published');
+    if (manifest.stale !== true) pushError(errors, 'source receipt is not marked stale');
+    if (manifest.cdnStatus !== 'deferred') pushError(errors, `cdnStatus is ${JSON.stringify(manifest.cdnStatus)}`);
+    if (manifest.cdnBuildId !== '') pushError(errors, 'source receipt has a CDN build id before the tail');
+    for (const [name, value] of sourceReadyChecks(manifest.locale, manifest.outcomes)) {
+      if (status(value) !== SUCCESS) pushError(errors, `${name} outcome is ${JSON.stringify(status(value))}`);
+    }
+  } else {
+    if (manifest.cdnStatus !== 'coherent') pushError(errors, `cdnStatus is ${JSON.stringify(manifest.cdnStatus)}`);
+    if (manifest.cdnBuildId !== manifest.buildId) pushError(errors, 'cdnBuildId differs from buildId');
+    if (manifest.payloadStatus !== 'complete') pushError(errors, `payloadStatus is ${JSON.stringify(manifest.payloadStatus)}`);
+    if (requirePublished && (manifest.published !== true || manifest.publishStatus !== 'published')) {
+      pushError(errors, 'manifest is not marked published');
+    }
+    if (requirePublished && manifest.stale !== false) pushError(errors, 'published manifest is marked stale');
+    if (requirePublished && manifest.crossLocaleSkew !== 'verified-none') {
+      pushError(errors, `crossLocaleSkew is ${JSON.stringify(manifest.crossLocaleSkew)}`);
+    }
   }
   return { valid: errors.length === 0, errors };
+}
+
+export function validateLocaleSourceProvenance(manifest, options = {}) {
+  return validateLocalePublishProvenance(manifest, {
+    ...options,
+    requirePublished: false,
+    requireSourceReady: true,
+  });
 }
 
 function collectJsonFiles(root) {
@@ -265,6 +332,7 @@ function main() {
         sourceRunId: args['source-run-id'],
         sourceSha: args['source-sha'],
         expectedBuildId: args['expected-build-id'],
+        expectedArtifactRunId: args['artifact-run-id'],
         requirePublished: true,
       })
       : { valid: false, errors: ['expected provenance manifest is missing'] };
@@ -281,14 +349,16 @@ function main() {
   }
   const manifest = createLocalePublishProvenance({
     locale: process.env.BUILD_LOCALE,
-    sourceRunId: process.env.GITHUB_RUN_ID,
-    sourceSha: process.env.GITHUB_SHA,
+    sourceRunId: process.env.PROVENANCE_SOURCE_RUN_ID || process.env.GITHUB_RUN_ID,
+    sourceSha: process.env.PROVENANCE_SOURCE_SHA || process.env.GITHUB_SHA,
     deployBuildId: process.env.DEPLOY_BUILD_ID,
+    artifactRunId: process.env.PROVENANCE_ARTIFACT_RUN_ID || process.env.GITHUB_RUN_ID,
     distDir: args['dist-dir'] || 'dist',
     runnerTemp: process.env.RUNNER_TEMP || '',
     outcomes: {
       build: process.env.PROVENANCE_BUILD_OUTCOME,
       validate: process.env.PROVENANCE_VALIDATE_OUTCOME,
+      sourceArtifact: process.env.PROVENANCE_SOURCE_ARTIFACT_OUTCOME,
       itPrep: process.env.PROVENANCE_IT_PREP_OUTCOME,
       pagesArtifact: process.env.PROVENANCE_PAGES_ARTIFACT_OUTCOME,
       offload: process.env.PROVENANCE_OFFLOAD_OUTCOME,
