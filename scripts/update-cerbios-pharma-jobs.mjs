@@ -60,6 +60,7 @@ import { isAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot
 import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -242,18 +243,23 @@ function postProcess() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  const summaryCounts = { parsed: null, abortKind: null };
-  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME, summaryCounts);
+  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${COMPANY_NAME} — Dedicated Crawler`);
   console.log('═══════════════════════════════════════════════');
 
   const discoveredJobs = await fetchJobs();
-  summaryCounts.parsed = discoveredJobs.length;
   const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discoveredJobs);
   let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   if (discoveredJobs.length === 0) {
     if (authoritativeEmptySnapshot) {
+      const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+      const retiredDiff = computeCrawlDiff(snapshotJobSlugs(priorJobs), new Map());
+      const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+      writeJobsCrawlerSlice(COMPANY_KEY, [], {
+        skipShrinkGuard: true,
+        preserveExistingSlugs: true,
+      });
       const durationMs = getCrawlerElapsedMs();
       writeSummaryCrawlerSlice({
         key: COMPANY_KEY,
@@ -269,22 +275,21 @@ async function main() {
         abortKind: null,
         newCount: 0,
         updatedCount: 0,
-        removedCount: 0,
+        removedCount: retiredDiff.removedJobs.length,
         unchangedCount: 0,
         durationMs,
         avgDurationMs: durationMs,
         durationHistory: [durationMs],
         newJobs: [],
         updatedJobs: [],
-        removedJobs: [],
+        removedJobs: retiredDiff.removedJobs.slice(0, 30),
         unchangedJobs: [],
       });
       await assembleJobsDataset();
-      console.log('✅ Published authoritative Cerbios-Pharma empty snapshot.');
+      console.log(`✅ Published authoritative Cerbios-Pharma empty snapshot; archived ${archived} expired route(s).`);
       return;
     }
 
-    summaryCounts.abortKind = 'no-jobs-parsed';
     console.log('ℹ️  No job listings found — skipping crawl.');
     // The stored jobs are kept, without the text the crawler once wrote
     // into them (the merge would have removed it).
