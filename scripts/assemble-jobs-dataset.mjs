@@ -105,6 +105,26 @@ export function resolveSourceBackedIpersonalCanton(job = {}) {
   return isTargetCanton(region) ? region : '';
 }
 
+/**
+ * Preserve the assembled canton when the raw source identity is ambiguous.
+ * Conflicting source rows cannot nominate one crawler stamp safely, but the
+ * assembled row still carries the best per-record fallback for downstream
+ * locality inference.
+ *
+ * @param {{sourceLookup?: {status?: string, record?: {canton?: string}|null}, jobCanton?: string, sourceBackedCanton?: string}} input
+ * @returns {string}
+ */
+export function resolveCrawlerCantonForAssembly({
+  sourceLookup = {},
+  jobCanton = '',
+  sourceBackedCanton = '',
+} = {}) {
+  const sourceRecord = sourceLookup?.status === 'found' ? sourceLookup.record : null;
+  if (sourceBackedCanton) return sourceBackedCanton;
+  if (sourceLookup?.status === 'ambiguous') return jobCanton || '';
+  return sourceRecord ? sourceRecord.canton : (jobCanton || '');
+}
+
 function isHttpsJobUrl(value) {
   if (typeof value !== 'string' || !value.trim()) return false;
   try {
@@ -3206,20 +3226,18 @@ async function assembleJobs() {
     // stale pin (which the crawler may heal) from a drifting inference (which
     // it may not) — see the precedence note there.
     const sourceLookup = crawlerLocationRecords.getWithStatus(job);
-    const sourceRecord = sourceLookup.status === 'found' ? sourceLookup.record : null;
     // The raw index supplies the crawler's own stamp by stable identity. Keep
     // the assembled locality fields for inference: the Swiss gate may have
     // rescued/sanitized a raw marker into a real city ("Suisse" → "Bern"),
     // and throwing that derived evidence away would reintroduce stale cantons
     // across the corpus. Conflicting source rows cannot safely nominate a
     // crawler stamp, so the assembled field remains the only inference input.
-    const sourceAmbiguous = sourceLookup.status === 'ambiguous';
     const sourceBackedCanton = resolveSourceBackedIpersonalCanton(job);
-    const crawlerCanton = sourceBackedCanton || (sourceAmbiguous
-      ? ''
-      : sourceRecord
-        ? sourceRecord.canton
-        : (job.canton || ''));
+    const crawlerCanton = resolveCrawlerCantonForAssembly({
+      sourceLookup,
+      jobCanton: job.canton,
+      sourceBackedCanton,
+    });
     const city = String(job.addressLocality || job.location || '').trim();
     const location = job.location;
     const hasCity = city.length >= 2 && city !== 'CH';

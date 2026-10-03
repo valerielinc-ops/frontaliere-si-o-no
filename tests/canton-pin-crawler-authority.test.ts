@@ -29,6 +29,7 @@ import {
   resolveCantonAgainstPin,
   cantonFallbackLocality,
   inferCantonFromJobEvidence,
+  resolveCrawlerCantonForAssembly,
   realignCantonOnlyLocality,
   normalizeParsedJobsForSlice,
 } from '../scripts/assemble-jobs-dataset.mjs';
@@ -174,6 +175,35 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
       cityText: 'Reinach',
       locationText: 'Reinach',
       crawlerCanton: 'AG',
+    })).toBe('AG');
+  });
+
+  it('keeps the assembled canton when the stable source lookup is ambiguous', () => {
+    const index = createCrawlerLocationRecordIndex();
+    const first = {
+      id: 'ambiguous-reinach',
+      url: 'https://jobs.example/shared/role',
+      addressLocality: 'Reinach',
+      location: 'Reinach',
+      canton: 'AG',
+    };
+    index.add(first);
+    index.add({ ...first, canton: 'BL' });
+
+    const sourceLookup = index.getWithStatus(first);
+    expect(sourceLookup).toEqual({ record: null, status: 'ambiguous' });
+
+    const crawlerCanton = resolveCrawlerCantonForAssembly({
+      sourceLookup,
+      jobCanton: 'AG',
+    });
+    expect(crawlerCanton).toBe('AG');
+    // Generic inference selects BL first; the assembled AG remains the
+    // per-record evidence for this homonymous locality.
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Reinach',
+      locationText: 'Reinach',
+      crawlerCanton,
     })).toBe('AG');
   });
 
