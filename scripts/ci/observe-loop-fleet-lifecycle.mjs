@@ -17,6 +17,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter } from './lib/run-listing-window.mjs';
 import {
   buildLifecycleEvent,
   validateHistoricalLifecycleEvent,
@@ -93,6 +94,8 @@ function validPastTimestamp(value, now) {
 function repositoryName() {
   return process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 }
+
+const POST_MERGE_RUN_WINDOW_DAYS = 90;
 
 function ghJson(args) {
   const fullArgs = [...args, ...(repositoryName() ? ['--repo', repositoryName()] : [])];
@@ -563,8 +566,13 @@ export function collectGitHubEvidence() {
     ]));
   const workflows = ['loop-fleet-status.yml', 'loop-fleet-ledger-audit.yml'];
   const postMergeRuns = workflows.flatMap((workflow) => {
+    // Finestra `created` contro l'elenco fermo che l'API puo' restituire per
+    // `branch` (scripts/ci/lib/run-listing-window.mjs). 90 giorni contengono
+    // le 100 righe richieste (i due workflow girano almeno una volta al
+    // giorno); `postMergeEvidence` ordina gia' in locale su `updatedAt`.
     const value = ghJson([
-      'run', 'list', '--workflow', workflow, '--branch', 'main', '--limit', '100',
+      'run', 'list', '--workflow', workflow, '--branch', 'main',
+      '--created', createdSinceFilter(POST_MERGE_RUN_WINDOW_DAYS), '--limit', '100',
       '--json', 'databaseId,status,conclusion,headSha,createdAt,updatedAt,url,workflowName,name',
     ]);
     return Array.isArray(value) ? value : [];

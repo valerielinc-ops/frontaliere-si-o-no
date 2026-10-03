@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter } from './lib/run-listing-window.mjs';
 import { LOOP_WORKFLOWS } from './loop-fleet-status.mjs';
 import { buildIndependentFleetControlOutcome } from '../lib/independent-fleet-outcome.mjs';
 import { findLoopPolicy, validateLoopRegistry } from '../lib/loop-fleet-contract.mjs';
@@ -68,9 +69,16 @@ export function listCompletedRuns({
   repo,
   workflow,
   maxRecords = DEFAULT_MAX_RECORDS,
+  windowHours = DEFAULT_WINDOW_HOURS,
+  now = new Date(),
   execFileSyncImpl = execFileSync,
   sleep = sleepForRetry,
 }) {
+  // Finestra `created` contro l'elenco fermo che l'API puo' restituire per
+  // `branch` (scripts/ci/lib/run-listing-window.mjs). L'esito guarda le run
+  // delle ultime `windowHours`: un giorno in piu' copre una run creata prima
+  // della finestra e conclusa dentro (il limite di un job e' 6 ore).
+  const created = createdSinceFilter(windowHours / 24 + 1, now.getTime());
   for (let attempt = 0; attempt < GITHUB_READ_ATTEMPTS; attempt += 1) {
     try {
       const raw = execFileSyncImpl('gh', [
@@ -79,6 +87,7 @@ export function listCompletedRuns({
         '--workflow', workflow,
         '--branch', 'main',
         '--status', 'completed',
+        '--created', created,
         '--limit', String(maxRecords),
         '--json', 'databaseId,status,conclusion,createdAt,updatedAt,headSha,url',
       ], {
@@ -117,7 +126,7 @@ export function collectIndependentFleetOutcome({
     sourceErrors.push('GitHub repository is not configured');
   } else {
     for (const workflow of Object.values(LOOP_WORKFLOWS)) {
-      const result = listRunsImpl({ repo, workflow, maxRecords });
+      const result = listRunsImpl({ repo, workflow, maxRecords, windowHours, now });
       if (result.error) sourceErrors.push(result.error);
       runs.push(...(Array.isArray(result.runs) ? result.runs : []));
     }

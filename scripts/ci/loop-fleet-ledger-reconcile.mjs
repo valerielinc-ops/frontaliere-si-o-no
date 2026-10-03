@@ -18,6 +18,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { createdSinceFilter, newestFirst } from './lib/run-listing-window.mjs';
 import { canonicalJson as canonicalRecordContent } from '../lib/canonical-json-digest.mjs';
 
 export const SOURCE_LOOPS = Object.freeze([
@@ -249,14 +250,21 @@ export function hasActiveBridgeRun(runs) {
     .has(String(run?.status || '')));
 }
 
+// 90 giorni: e' la retention degli artifact di prova dei loop, oltre la quale
+// `downloadEvidence` non avrebbe comunque nulla da scaricare, e copre le 12
+// run di default anche dei loop settimanali. La finestra `created` evita
+// l'elenco fermo che l'API puo' restituire per `branch`
+// (scripts/ci/lib/run-listing-window.mjs).
+const SOURCE_RUN_WINDOW_DAYS = 90;
+
 function runList(definition, limit) {
   const raw = gh([
     'run', 'list', '--workflow', definition.workflowFile, '--branch', 'main',
-    '--status', 'completed', '--limit', String(limit),
+    '--status', 'completed', '--created', createdSinceFilter(SOURCE_RUN_WINDOW_DAYS), '--limit', String(limit),
     '--json', 'databaseId,status,conclusion,headBranch,headSha,event,createdAt,updatedAt',
   ], { allowFailure: true });
   const runs = parseJson(raw, []);
-  return Array.isArray(runs) ? runs : [];
+  return newestFirst(runs);
 }
 
 function downloadEvidence(definition, run, root) {
