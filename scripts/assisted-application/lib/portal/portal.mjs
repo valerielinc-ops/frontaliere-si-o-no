@@ -412,31 +412,67 @@ function isDialogControl(control) {
   return control?.dialog === true || Boolean(dialogKey(control));
 }
 
-function belongsToDialog(control, anchor) {
+function dialogToken(control) {
   const key = dialogKey(control);
-  const anchorKey = dialogKey(anchor);
-  if (!key || !anchorKey || key !== anchorKey) return false;
-  return (control.frame || 0) === (anchor.frame || 0);
+  return key ? `${control.frame || 0}:${key}` : '';
 }
 
-export function privacyConsentControls(snapshot = {}) {
+function visibleDialogTokens(snapshot = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.fields) ? snapshot.fields : []),
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+  ];
+  return new Set(controls.map(dialogToken).filter(Boolean));
+}
+
+function candidateScore(candidate) {
+  // A disabled accept button is the DPCS state before its required review
+  // checkbox is selected. Prefer it when this function receives a standalone
+  // snapshot without the before/after dialog context used by the caller.
+  if (candidate.accept?.disabled) return 3;
+  if (candidate.accept) return 2;
+  return candidate.review ? 1 : 0;
+}
+
+export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = null, preferredDialogToken = '' } = {}) {
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const allowed = allowedDialogTokens === null ? null : new Set(allowedDialogTokens);
+  const inScope = (control) => {
+    const token = dialogToken(control);
+    return token && (!allowed || allowed.has(token));
+  };
   // The page can retain another modal with an enabled "Accept" control next
-  // to the DPCS dialog. Use the review checkbox to identify the DPCS dialog,
-  // then keep both lookups in that same dialog and frame.
-  const dialogFields = fields.filter(isDialogControl);
-  const review = dialogFields.find((field) => field.kind === 'checkbox'
-    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)) || null;
-  const dialogButtons = review
-    ? buttons.filter((button) => isDialogControl(button) && belongsToDialog(button, review))
-    : [];
+  // to the DPCS dialog. Keep candidate lookups in one dialog and frame. The
+  // live flow passes the token of the dialog that appeared after the trigger;
+  // the disabled-button preference keeps direct snapshot inspection safe too.
+  const dialogFields = fields.filter((field) => isDialogControl(field) && inScope(field));
+  const dialogButtons = buttons.filter((button) => isDialogControl(button) && inScope(button));
+  const reviewFields = dialogFields.filter((field) => field.kind === 'checkbox'
+    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  const candidateTokens = new Set([
+    ...reviewFields.map(dialogToken),
+    ...dialogButtons.map(dialogToken),
+  ].filter(Boolean));
+  const candidates = [...candidateTokens].map((token) => {
+    const review = reviewFields.find((field) => dialogToken(field) === token) || null;
+    const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token);
+    return { token, review, accept: findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
+  });
+  const preferred = preferredDialogToken
+    ? candidates.find((candidate) => candidate.token === preferredDialogToken) || null
+    : null;
+  const candidate = preferred || candidates
+    .slice()
+    .sort((left, right) => candidateScore(right) - candidateScore(left))[0] || null;
+  const review = candidate?.review || null;
   return {
     trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
     review,
     // A disabled accept button is useful evidence while the required review
     // box is being checked; the caller still waits for it to become enabled.
-    accept: findButton(dialogButtons, PRIVACY_ACCEPT_RE, { includeDisabled: true }),
+    accept: candidate?.accept || null,
+    dialogToken: candidate?.token || '',
   };
 }
 
@@ -460,23 +496,41 @@ export async function acceptPrivacyStatement(page, snapshot) {
   // dialog; retry once if the portal redraws the form during the first click.
   await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
   await settle(page);
-  const deadline = Date.now() + 8_000;
-  for (let attempt = 0; attempt < 2 && Date.now() <= deadline; attempt += 1) {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const deadline = Date.now() + 8_000;
     const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
     const trigger = privacyConsentControls(currentSnapshot).trigger;
     if (!trigger) break;
+    const beforeDialogTokens = visibleDialogTokens(currentSnapshot);
+    let openedDialogToken = '';
+    const controlsForOpenedDialog = (current) => {
+      const currentDialogTokens = visibleDialogTokens(current);
+      const newlyOpened = [...currentDialogTokens].filter((token) => !beforeDialogTokens.has(token));
+      let controls = privacyConsentControls(current, {
+        allowedDialogTokens: openedDialogToken ? [openedDialogToken] : newlyOpened,
+        preferredDialogToken: openedDialogToken,
+      });
+      // A portal may replace the dialog node after its checkbox changes. If
+      // that gives it a new snapshot token, keep the replacement in scope but
+      // never fall back to an older unrelated modal.
+      if (!controls.dialogToken && openedDialogToken && newlyOpened.length) {
+        controls = privacyConsentControls(current, { allowedDialogTokens: newlyOpened });
+      }
+      if (controls.dialogToken) openedDialogToken = controls.dialogToken;
+      return controls;
+    };
     await clickButton(page, trigger).catch(() => {});
     await scrollPrivacyStatement(page);
     while (Date.now() <= deadline) {
       const current = await extractFields(page, NAVIGATION).catch(() => null);
       if (current) {
-        const controls = privacyConsentControls(current);
+        const controls = controlsForOpenedDialog(current);
         if (controls.review && !controls.review.checked) {
           await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} });
           await scrollPrivacyStatement(page);
         }
         const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
-        const accept = privacyConsentControls(refreshed || {}).accept;
+        const accept = controlsForOpenedDialog(refreshed || {}).accept;
         if (accept && !accept.disabled) {
           try {
             await clickButton(page, accept);
