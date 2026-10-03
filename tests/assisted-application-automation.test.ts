@@ -210,6 +210,39 @@ describe('closed ad refund', () => {
 });
 
 describe('owner queue', () => {
+  // The owner's edit is written only on the draft it was built from, as the candidate's own writes are.
+  it('refuses an owner edit when the candidate changed the draft meanwhile, and writes it otherwise', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const draftPath = `${ORDER_PATH}/ai_drafts/current`;
+    const draft = {
+      ...readyDraft(),
+      language: 'it',
+      factSources: {},
+      coverLetter: { salutation: 'Gentili signore e signori,', paragraphs: ['Mi candido per il posto di infermiere.'], closing: 'Cordiali saluti', subject: '' },
+      applicationEmail: { to: 'hr@example.com', subject: 'Candidatura infermiere', body: 'In allegato la mia candidatura.' },
+    };
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    await draftRef.set(draft);
+    const edit = { action: 'automationEditDraft', orderId: ORDER, emailSubject: 'Candidatura per il posto di infermiere' };
+
+    // A candidate edit lands between the owner's read and the owner's write.
+    const runTransaction = store.db.runTransaction.bind(store.db);
+    const once = vi.spyOn(store.db, 'runTransaction').mockImplementationOnce(async (callback: any) => {
+      await draftRef.set({ candidateEditedAt: T0 + 1, applicationEmail: { ...draft.applicationEmail, subject: 'Oggetto del candidato' } }, { merge: true });
+      return runTransaction(callback);
+    });
+    await expect(handleAutomationAdminAction(store.db, edit, 'owner@example.com', { runEffect, nowMs: T0 + 2 }))
+      .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+    expect(store.read(draftPath)).toMatchObject({ applicationEmail: { subject: 'Oggetto del candidato' } });
+    expect(store.read(draftPath)?.editedAt).toBeUndefined();
+    once.mockRestore();
+
+    // Reloaded on the current draft, the same edit goes through.
+    await expect(handleAutomationAdminAction(store.db, edit, 'owner@example.com', { runEffect, nowMs: T0 + 3 }))
+      .resolves.toMatchObject({ ok: true });
+    expect(store.read(draftPath)).toMatchObject({ applicationEmail: { subject: 'Candidatura per il posto di infermiere' }, editedAt: T0 + 3, editedBy: 'owner@example.com' });
+  });
+
   // 2026-10-01: three orders paid before the automation was on are started from the queue.
   it('gives an order the owner starts the same alias the trigger gives', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');

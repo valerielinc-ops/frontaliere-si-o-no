@@ -211,18 +211,38 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     coverLetterRenderer = rebuilt.renderer;
     await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }
-  await draftRef.set({
-    coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
-    applicationEmail,
-    channel,
-    factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
-    // An edit is a new text: a previous acknowledgement does not cover it.
-    factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
-    coverLetterPdfKey,
-    ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
-    editedAt: nowMs,
-    editedBy: adminEmail,
-  }, { merge: true });
+  // Written only on the draft it was built from, as the candidate's own writes are
+  // (assistedApplicationReview.js commitRebuild): a candidate edit, a line choice or
+  // a photo saved meanwhile changes one of these, and the owner reloads instead of
+  // overwriting it unseen.
+  const unchanged = (current) => current
+    && current.round === draft.round
+    && (current.coverLetterPdfKey || null) === (draft.coverLetterPdfKey || null)
+    && (current.candidateEditedAt || null) === (draft.candidateEditedAt || null)
+    && (current.editedAt || null) === (draft.editedAt || null);
+  const committed = await db.runTransaction(async (transaction) => {
+    const current = await transaction.get(draftRef);
+    if (!current.exists || !unchanged(current.data())) return false;
+    transaction.set(draftRef, {
+      coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
+      applicationEmail,
+      channel,
+      factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
+      // An edit is a new text: a previous acknowledgement does not cover it.
+      factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
+      coverLetterPdfKey,
+      ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
+      editedAt: nowMs,
+      editedBy: adminEmail,
+    }, { merge: true });
+    return true;
+  });
+  if (!committed) {
+    if (coverLetterPdfKey !== draft.coverLetterPdfKey) {
+      await bucket.file(coverLetterPdfKey).delete().catch((error) => console.warn('[assisted-application] owner letter not deleted:', coverLetterPdfKey.split('/').pop(), error?.code || error?.message));
+    }
+    throw new AutomationAdminError('changed_meanwhile', 409);
+  }
   await orderRef.collection('events').doc().set(buildAssistedApplicationEvent('automation_draft_edited', {
     actorEmail: adminEmail,
     factWarnings: factCheck.unsupported.length,
