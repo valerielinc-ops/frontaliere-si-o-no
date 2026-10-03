@@ -33,6 +33,7 @@ export const L2_USEFUL_ACTION_EVENT_CONTRACT = Object.freeze({
   sessionJoin: 'GA4 session-scoped landing page',
 });
 
+export const SUMMARY_CANDIDATE_LIMIT = 20;
 const MAX_LANDING_PATHS = 5_000;
 const MAX_GA4_ROWS = 100_000;
 
@@ -298,24 +299,79 @@ export function writeUnavailableL2({ inputPath = DEFAULT_SOURCE_PATH, outputPath
   return writeJson(outputPath, buildUnavailableL2DemandExport(source, { now, reason }));
 }
 
+/**
+ * Bounded CLI summary of a written snapshot. The workflow tees stdout into the
+ * job log and into GITHUB_STEP_SUMMARY (1 MiB cap): printing the full snapshot
+ * there (~90k lines) aborted the summary upload and buried the counts. The
+ * complete snapshot stays in `outputPath`, which the workflow uploads.
+ */
+export function buildL2ExportSummary(snapshot, { outputPath, limit = SUMMARY_CANDIDATE_LIMIT } = {}) {
+  const safe = object(snapshot) ? snapshot : {};
+  const meta = object(safe._meta) ? safe._meta : {};
+  const clusters = Array.isArray(safe.clusters) ? safe.clusters : [];
+  const hasOutcomes = object(safe.outcomes)
+    && integer(safe.outcomes.eligibleLandingSessions)
+    && integer(safe.outcomes.usefulActions);
+  const topCandidates = clusters
+    .filter((cluster) => object(cluster))
+    .map((cluster) => ({
+      locale: cluster.locale ?? null,
+      canonicalQuery: cluster.canonicalQuery ?? null,
+      canonicalSlug: cluster.canonicalSlug ?? null,
+      totalImpressions: Number.isFinite(cluster.totalImpressions) ? cluster.totalImpressions : 0,
+      totalClicks: Number.isFinite(cluster.totalClicks) ? cluster.totalClicks : 0,
+    }))
+    .sort((a, b) => b.totalImpressions - a.totalImpressions
+      || String(a.canonicalSlug).localeCompare(String(b.canonicalSlug)))
+    .slice(0, limit);
+  return {
+    loopId: LOOP_ID,
+    outputPath,
+    generatedAt: safe.generatedAt ?? null,
+    telemetryWindow: safe.telemetryWindow ?? meta.telemetryWindow ?? null,
+    outcomes: hasOutcomes ? safe.outcomes : null,
+    outcomeJoin: hasOutcomes && meta.independent === true ? 'joined' : 'unavailable',
+    independent: meta.independent === true,
+    ...(meta.unavailableReason ? { unavailableReason: meta.unavailableReason } : {}),
+    source: meta.source ?? null,
+    clusters: clusters.length,
+    topCandidates,
+  };
+}
+
 function valueAfter(argv, name, fallback) {
   const index = argv.indexOf(name);
   return index === -1 ? fallback : argv[index + 1] || fallback;
 }
 
-export async function main({ argv = process.argv.slice(2), logger = console } = {}) {
+export async function main({
+  argv = process.argv.slice(2),
+  logger = console,
+  now = new Date(),
+  client = null,
+  ga4Runner = runGa4Report,
+} = {}) {
   const inputPath = valueAfter(argv, '--input', DEFAULT_SOURCE_PATH);
   const outputPath = valueAfter(argv, '--out', process.env.RUNNER_TEMP
     ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l2', 'demand-outcomes.json')
     : DEFAULT_OUTCOME_PATH);
-  const now = new Date();
   let output;
   if (argv.includes('--unavailable')) {
     output = writeUnavailableL2({ inputPath, outputPath, now, reason: valueAfter(argv, '--reason', 'live outcome export explicitly unavailable') });
   } else {
-    output = await exportL2({ inputPath, outputPath, now, days: Number(valueAfter(argv, '--days', DEFAULT_WINDOW_DAYS)) });
+    output = await exportL2({
+      inputPath,
+      outputPath,
+      now,
+      days: Number(valueAfter(argv, '--days', DEFAULT_WINDOW_DAYS)),
+      client,
+      ga4Runner,
+    });
   }
-  if (argv.includes('--json')) logger.log(JSON.stringify({ loopId: LOOP_ID, output, outputPath }, null, 2));
+  if (argv.includes('--json')) {
+    const snapshot = object(output) ? output : readJson(outputPath, 'L2 outcome export');
+    logger.log(JSON.stringify(buildL2ExportSummary(snapshot, { outputPath }), null, 2));
+  }
   return output;
 }
 
