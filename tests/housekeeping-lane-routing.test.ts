@@ -4,7 +4,6 @@ import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { afterEach, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
-import { uncoveredAllowListCode } from '../scripts/ci/verify-checkout-profiles.mjs';
 
 const workflow = YAML.parse(
   readFileSync(new URL('../.github/workflows/housekeeping-jobs-logic.yml', import.meta.url), 'utf8'),
@@ -78,16 +77,13 @@ describe('housekeeping lane routing', () => {
 
     expect(checkout?.uses).toBe('actions/checkout@v7');
     expect(checkout?.with?.['persist-credentials']).toBe(false);
-  });
-
-  it('materializes every import required by the cleanup entrypoint', () => {
-    const checkout = workflow.jobs.housekeeping.steps.find(
-      (step) => step.name === 'Checkout source repository',
-    );
-    const rules = String(checkout?.with?.['sparse-checkout']).trim().split('\n');
-    expect(uncoveredAllowListCode(rules, ['scripts/cleanup-jobs.mjs'], {
-      cone: checkout?.with?.['sparse-checkout-cone-mode'] === true,
-    })).toEqual([]);
+    // La copertura degli import della lista sparse e' in
+    // tests/housekeeping-sparse-paths.test.ts.
+    for (const step of workflow.jobs.housekeeping.steps) {
+      if (step.uses?.startsWith('actions/checkout@')) {
+        expect(step.with?.['persist-credentials'], step.name).toBe(false);
+      }
+    }
   });
 
   it('reads the whole slice so a late matcher error cannot be hidden by an early match', () => {
