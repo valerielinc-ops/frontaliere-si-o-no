@@ -853,9 +853,14 @@ function splitHubOffenders(
   const sourceSkew = [];
   for (const offender of offenders) {
     const builderMismatch = offender.expectedUrl !== offender.builderUrl;
+    if (builderMismatch) {
+      // A wrong locale prefix is a real builder defect, regardless of which
+      // generation the owning shard currently exposes.
+      unserved.push(offender);
+      continue;
+    }
     if (
-      !builderMismatch
-      && !deployedSitemapPaths.has(offender.builderUrl)
+      !deployedSitemapPaths.has(offender.builderUrl)
       && isSourceSnapshotNewer(offender.company, sourceAssembledAtByCompany, deployedAt)
     ) {
       sourceSkew.push({
@@ -900,12 +905,19 @@ async function main() {
   let sitemapOffenders = [];
   let sitemapTotal = 0;
   const deployedSitemapPaths = new Set();
+  const failedSitemapChildren = [];
   try {
     const indexXml = await fetchText(`${HOST}/sitemap.xml`);
     const children = extractLocs(indexXml).filter((u) => /\.xml(\?|$)/i.test(u));
     for (const child of children) {
       let xml;
-      try { xml = await fetchText(child); } catch (e) { log(`[404]   WARN sitemap ${child}: ${e.message}`); continue; }
+      try {
+        xml = await fetchText(child);
+      } catch (e) {
+        log(`[404]   WARN sitemap ${child}: ${e.message}`);
+        failedSitemapChildren.push(child);
+        continue;
+      }
       for (const loc of extractLocs(xml)) {
         if (/\.xml(\?|$)/i.test(loc)) continue; // nested index, already followed
         const p = normPath(loc);
@@ -925,6 +937,10 @@ async function main() {
     // Silently reporting 0/0 (+ (B)=0 post-fix) would exit green on a broken run
     // — the same "silently green" trap the shard floor guards against.
     log(`[404]   FATAL: sitemap index fetch failed: ${e.message}`);
+    process.exit(2);
+  }
+  if (failedSitemapChildren.length > 0) {
+    log(`[404]   FATAL: sitemap inventory incomplete; child fetch failed for ${failedSitemapChildren.join(', ')}`);
     process.exit(2);
   }
   const sitemapSplit = splitByGeneration(sitemapOffenders, meta.generation);

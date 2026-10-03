@@ -220,6 +220,10 @@ describe('splitHubOffenders — current crawler data vs deployed pages', () => {
 
   it('never defers a wrong locale prefix as source skew', () => {
     const { splitHubOffenders } = loadHelpers();
+    const offGeneration = {
+      ...generation,
+      sectionShards: { ticino: { de: { sha: 'aaaaaaaa', at: '2026-10-02T08:30:00Z' } } },
+    };
     const result = splitHubOffenders(
       [{
         company: 'Città di Locarno',
@@ -230,10 +234,24 @@ describe('splitHubOffenders — current crawler data vs deployed pages', () => {
       new Set(),
       new Map([['Città di Locarno', '2026-10-02T09:10:46Z']]),
       '2026-10-02T08:00:00Z',
-      generation,
+      offGeneration,
     );
     expect(result.unserved).toHaveLength(1);
+    expect(result.publishSkew).toHaveLength(0);
     expect(result.sourceSkew).toHaveLength(0);
+  });
+});
+
+describe('sitemap inventory completeness', () => {
+  it('fails before newsletter hub classification when a child fetch fails', () => {
+    const childFailure = SCRIPT.indexOf('failedSitemapChildren.push(child)');
+    const guard = SCRIPT.indexOf('if (failedSitemapChildren.length > 0)');
+    const newsletterCheck = SCRIPT.indexOf('// ── (B) NEWSLETTER HUB-LINK CORRECTNESS');
+
+    expect(childFailure).toBeGreaterThan(-1);
+    expect(guard).toBeGreaterThan(childFailure);
+    expect(guard).toBeLessThan(newsletterCheck);
+    expect(SCRIPT.slice(guard, newsletterCheck)).toContain('process.exit(2)');
   });
 });
 
