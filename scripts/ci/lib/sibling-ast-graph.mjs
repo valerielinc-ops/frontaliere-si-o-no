@@ -43,6 +43,20 @@ export function isAstSourceFile(fileName) {
   return SOURCE_EXTENSIONS.some((extension) => String(fileName).endsWith(extension));
 }
 
+/** A complete function signature with an empty body, not an executable guard.
+ * Parse modifiers/destructuring instead of inferring them from identifier text.
+ * Default initializers may carry domain behavior and remain evidence.
+ */
+export function isBareFunctionHeader(text) {
+  const value = String(text ?? '').trim();
+  if (!/^(?:export\s+(?:default\s+)?)?(?:async\s+)?function\b/.test(value) || !value.endsWith('{')) return false;
+  const parsed = ts.createSourceFile('header.ts', `${value}}`, ts.ScriptTarget.Latest, false, ts.ScriptKind.TS);
+  if (parsed.parseDiagnostics.length || parsed.statements.length !== 1) return false;
+  const declaration = parsed.statements[0];
+  return ts.isFunctionDeclaration(declaration) && Boolean(declaration.body) &&
+    declaration.body.statements.length === 0 && declaration.parameters.every((parameter) => !parameter.initializer);
+}
+
 function scriptKind(fileName) {
   if (fileName.endsWith('.tsx')) return ts.ScriptKind.TSX;
   if (fileName.endsWith('.jsx')) return ts.ScriptKind.JSX;
@@ -134,6 +148,18 @@ export function isExternalBinding(binding) {
   return Boolean(binding?.module && String(binding.module).startsWith('external:'));
 }
 
+/** Identity of a directly referenced project export, independent of its local alias.
+ * Namespace/object members still need their member path: sharing an imported
+ * object alone must not equate two different methods on it.
+ */
+export function projectBindingKey(fact) {
+  const binding = fact?.binding;
+  if (!binding || isExternalBinding(binding) || binding.module.startsWith('local:') ||
+      binding.imported === '*' || !['identifier', 'call'].includes(fact.kind) ||
+      !/^[A-Za-z_$][\w$]*$/.test(fact.key)) return null;
+  return `${binding.module}#${binding.imported}`;
+}
+
 function parentRole(node) {
   const parent = node.parent;
   if (ts.isPropertyAccessExpression(parent) && parent.name === node) return 'member';
@@ -201,13 +227,13 @@ export function diffLineRanges(diffText, side = 'new') {
 /**
  * Return AST facts for a source file. `lineRanges` limits facts to changed
  * lines; leaving it undefined parses the whole file for candidate matching.
- * `candidateOnly` keeps only the requested `factKeys` and actionable
- * declarations, so a sibling AST does not retain unrelated facts.
+ * `candidateOnly` keeps requested `factKeys` or `bindingKeys` (aliased exports),
+ * so a sibling AST does not retain unrelated facts.
  */
 export function collectAstFacts(
   fileName,
   source,
-  { lineRanges, files = new Set(), candidateOnly = false, factKeys = null } = {},
+  { lineRanges, files = new Set(), candidateOnly = false, factKeys = null, bindingKeys = null } = {},
 ) {
   // YAML/shell sources use the checker's lexical path, never the JS binder.
   if (!isAstSourceFile(fileName)) return [];
@@ -231,7 +257,7 @@ export function collectAstFacts(
   const checker = program.getTypeChecker();
   const symbolOf = (node) => checker.getSymbolAtLocation(node);
   const imports = new Map();
-  const exportedNames = new Set();
+  const exportedSymbols = new Set();
   // A local variable initialized from a package import (for example
   // `const sourceFile = ts.createSourceFile(...)`) is still package-derived.
   // Keeping this tiny derived-binding map prevents every TypeScript compiler
@@ -247,7 +273,8 @@ export function collectAstFacts(
     const role = extra.role ?? kind;
     const binding = extra.binding ?? null;
     const bindingKey = binding ? `${binding.module}#${binding.imported}` : '';
-    if (candidateOnly && factKeys && !factKeys.has(`${kind}|${key}|${role}`)) return;
+    const bindingKeyMatch = bindingKeys?.has(projectBindingKey({ kind, key, binding }));
+    if (candidateOnly && factKeys && !factKeys.has(`${kind}|${key}|${role}`) && !bindingKeyMatch) return;
     const candidateDeclaration = kind === 'identifier' && role === 'declaration';
     if (candidateOnly && !candidateDeclaration && !isActionableAstFact({
       kind,
@@ -307,17 +334,18 @@ export function collectAstFacts(
         tokens: moduleTokens(specifier),
       });
     }
-    if (ts.isExportDeclaration(statement) && statement.exportClause &&
+    if (ts.isExportDeclaration(statement) && !statement.moduleSpecifier && statement.exportClause &&
         ts.isNamedExports(statement.exportClause)) {
       for (const element of statement.exportClause.elements) {
-        exportedNames.add(element.propertyName?.text ?? element.name.text);
+        const symbol = checker.getExportSpecifierLocalTargetSymbol(element);
+        if (symbol) exportedSymbols.add(symbol);
       }
     }
   }
 
   const registerLocalDeclarations = (node) => {
     if (ts.isIdentifier(node) && declarationName(node)) {
-      const exported = declarationIsExported(node) || exportedNames.has(node.text);
+      const exported = declarationIsExported(node) || exportedSymbols.has(symbolOf(node));
       localBindings.set(symbolOf(node), {
         module: exported ? fileName : `local:${fileName}`,
         imported: node.text,
@@ -429,7 +457,7 @@ export function collectAstFacts(
         role,
         binding: bindingForNode(node),
         tokens: [node.text],
-        exported: declarationIsExported(node) || exportedNames.has(node.text),
+        exported: declarationIsExported(node) || exportedSymbols.has(symbolOf(node)),
       });
     }
 
@@ -495,7 +523,10 @@ export function matchAstFacts(changedFacts, candidateFacts) {
   );
   for (const changedFact of changed) {
     for (const candidateFact of candidate) {
-      if (changedFact.kind !== candidateFact.kind || changedFact.key !== candidateFact.key) continue;
+      if (changedFact.kind !== candidateFact.kind) continue;
+      const changedBindingKey = projectBindingKey(changedFact);
+      const sameExport = changedBindingKey && changedBindingKey === projectBindingKey(candidateFact);
+      if (changedFact.key !== candidateFact.key && !sameExport) continue;
       // An identifier declaration is intentionally allowed to match a call or
       // reference: changing a shared helper declaration must still surface its
       // consumers. Other structural facts retain their exact role.

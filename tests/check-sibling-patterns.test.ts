@@ -138,6 +138,18 @@ describe('extractRemovedExpressions — verbatim removed-line detection (issue #
     expect(extractRemovedExpressions('-function readDescription(value) { return value.description; }').size).toBe(1);
   });
 
+  it.each(['export async function foo() {', 'export default function foo() {', 'export default async function foo() {', 'export default async function() {', 'function readDescription({ title, description }) {', 'async function* readDescriptions<T>(value: T) {'])(
+    'recognizes a declaration header with modifiers: %s', (header) => {
+      expect(isGenericRemovedExpression(header)).toBe(true);
+      expect(extractRemovedExpressions(`-${header}`).size).toBe(0);
+    },
+  );
+
+  it('keeps default-argument behavior and incomplete signatures', () => {
+    expect(isGenericRemovedExpression('function readDescription(value = loadDescription()) {')).toBe(false);
+    expect(isGenericRemovedExpression('function readDescription(value, {')).toBe(false);
+  });
+
   it('filters identity-return idioms without a variable-name allowlist', () => {
     expect(extractRemovedExpressions('-if (direct) return direct;\n-if (cachedValue) return cachedValue;')).toEqual(new Set());
     expect(extractRemovedExpressions('-if (direct) return fallbackValue;').size).toBe(1);
@@ -621,6 +633,10 @@ describe('runtime noise versus project evidence (CLI)', () => {
       git('config', 'user.email', 'test@example.com');
       git('config', 'user.name', 'test');
       write('scripts/shared.mjs', 'export function normalizeText(value) { return value; }');
+      write('scripts/provider.mjs', 'export function guardSession() { return false; }');
+      write('scripts/other.mjs', 'export function guardSession() { return false; }');
+      write('scripts/alias-consumer.mjs', "import { guardSession as runGuard } from './provider.mjs'; runGuard();");
+      write('scripts/alias-noise.mjs', "import { guardSession as runGuard } from './other.mjs'; runGuard();");
       write('scripts/api-noise.mjs', 'const raw = Buffer.isBuffer(input);');
       const guard = 'function decode(input) {\nif (Buffer.isBuffer(input)) {\nreturn input;\n}\n}';
       write('scripts/runtime-refactor.mjs', guard);
@@ -634,6 +650,7 @@ describe('runtime noise versus project evidence (CLI)', () => {
       git('update-ref', 'refs/remotes/origin/main', 'HEAD');
       write('scripts/changed.mjs', 'const result = { description: sanitize(copy.description) };');
       write('scripts/runtime-refactor.mjs', 'function decode(input) { return input; }');
+      write('scripts/provider.mjs', 'export function guardSession() { return true; }');
       write('scripts/new.mjs', [
         "import { normalizeText } from './shared.mjs';",
         'export function readZipEntry(input) { return Buffer.isBuffer(input); }',
@@ -645,8 +662,9 @@ describe('runtime noise versus project evidence (CLI)', () => {
           cwd: repo, encoding: 'utf8', env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
         }));
         expect(result.candidates.map((candidate: { file: string }) => candidate.file))
-          .toEqual(['scripts/real-sibling.mjs']);
-        expect(result.candidates[0].tokens.some((token: string) => token.startsWith('removed:'))).toBe(true);
+          .toEqual(['scripts/alias-consumer.mjs', 'scripts/real-sibling.mjs']);
+        expect(result.candidates[0].tokens).toContain('graph:scripts/provider.mjs#guardSession');
+        expect(result.candidates[1].tokens.some((token: string) => token.startsWith('removed:'))).toBe(true);
       }
     } finally {
       rmSync(repo, { recursive: true, force: true });
