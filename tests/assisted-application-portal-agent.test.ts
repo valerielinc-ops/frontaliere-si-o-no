@@ -11,6 +11,7 @@ import {
   completeWithAgent,
   guardAgentStep,
   refusal,
+  withoutSecrets,
 } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { isoDates, knownAnswer, knownValuesOf, planSystemPrompt } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { machineLabel } from '../scripts/assisted-application/lib/portal/portal.mjs';
@@ -135,6 +136,12 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(compactSnapshot('x'.repeat(50), 10)).toBe(`${'x'.repeat(10)}\n… (snapshot truncated)`);
     // Cut at a line end: never an element without its ref.
     expect(compactSnapshot('- button "A" [ref=e1]\n- button "B" [ref=e2]', 30)).toBe('- button "A" [ref=e1]\n… (snapshot truncated)');
+  });
+
+  it('strikes a password the runner typed out of the snapshot the model gets', () => {
+    const snapshot = '- textbox "Password" [ref=e7]: Xy12abcdefghAa7!\n- button "Submit final application" [ref=e9]';
+    expect(withoutSecrets(snapshot, ['Xy12abcdefghAa7!', ''])).toBe('- textbox "Password" [ref=e7]: [password]\n- button "Submit final application" [ref=e9]');
+    expect(withoutSecrets(snapshot)).toBe(snapshot);
   });
 
   it('tells generated names from questions', () => {

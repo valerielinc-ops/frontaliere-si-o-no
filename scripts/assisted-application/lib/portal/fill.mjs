@@ -13,6 +13,9 @@
 
 const TYPE_DELAY_MS = 25;
 const ACTION_TIMEOUT_MS = 6000;
+// A file sent as soon as it is chosen: how long it may travel, and how long nothing must be in flight.
+const UPLOAD_SETTLE_MS = 45_000;
+const UPLOAD_QUIET_MS = 700;
 
 /**
  * Custom-styled radios and checkboxes hide the native input (Workday): the
@@ -298,6 +301,37 @@ async function dateRegistered(locator, value) {
  * @param {{cv:string, cover_letter:string}} files local paths (a requested document, extra_N: its paths)
  * @returns {Promise<Array<{fieldId:string, ok:boolean, error?:string}>>}
  */
+/**
+ * Chooses the files and waits for what that started. umantis (2026-10-03)
+ * sends a file as soon as it is chosen, one at a time: the letter was still
+ * at 15% when the CV went in and the send button was reached. The requests the
+ * choice starts (never a plain GET: an image, a script) are followed until
+ * none has been in flight for UPLOAD_QUIET_MS — bounded, and a short pause on
+ * a form that sends its files with the submit.
+ */
+export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now } = {}) {
+  const inFlight = new Set();
+  const started = (request) => { if (request.method() !== 'GET') inFlight.add(request); };
+  const ended = (request) => { inFlight.delete(request); };
+  page.on('request', started);
+  page.on('requestfinished', ended);
+  page.on('requestfailed', ended);
+  try {
+    await locator.setInputFiles(paths, { timeout: ACTION_TIMEOUT_MS });
+    const deadline = now() + settleMs;
+    let quietSince = now();
+    while (now() < deadline) {
+      if (inFlight.size) quietSince = now();
+      else if (now() - quietSince >= quietMs) break;
+      await page.waitForTimeout(150);
+    }
+  } finally {
+    page.off('request', started);
+    page.off('requestfinished', ended);
+    page.off('requestfailed', ended);
+  }
+}
+
 /** The local paths of one document: the CV, the letter, or the files of a requested document (extra_N). */
 export function documentPaths(files, document) {
   const value = files?.[document];
@@ -317,7 +351,7 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         if (!paths.length) throw new Error('document_unavailable');
         // Every file of a requested document when the input takes several, else the first.
         const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
-        await locator.setInputFiles(multiple ? paths : paths[0], { timeout: ACTION_TIMEOUT_MS });
+        await chooseFiles(page, locator, multiple ? paths : paths[0]);
       } else if (action.action === 'check' || action.action === 'uncheck') {
         await setChoice(locator, action.action === 'check');
       } else if (field.kind === 'radio') {
@@ -366,7 +400,7 @@ export const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|
 // A confirmation speaks to the candidate («Sie haben sich / Du hast dich
 // erfolgreich beworben»): a page's prose about others never confirms (review of #10980).
 export const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
-export const CONFIRM_RE = /(thank you for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
+export const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
 // The portal itself says the application did NOT go (JOIN, giro di prova
 // 2026-10-01: «Non siamo riusciti a inviare la tua candidatura. Riprova.»).
 export const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;

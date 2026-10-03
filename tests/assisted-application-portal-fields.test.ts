@@ -170,6 +170,12 @@ describe('portal field extraction', () => {
     expect(limit('d')).toBe(20);
   });
 
+  it('says which <form> a control is sent with', () => {
+    const page = extract('<form><label for="p">Password</label><input id="p" type="password"><label for="cv">Resume</label><input id="cv" type="file"></form>'
+      + '<form><label for="q">Suche</label><input id="q"></form><label for="alone">Notiz</label><input id="alone">');
+    expect(page.fields.map((field: any) => [field.label, field.form])).toEqual([['Password', 0], ['Resume', 0], ['Suche', 1], ['Notiz', -1]]);
+  });
+
   // Coop's SuccessFactors form, mapped on 2026-10-03.
   it('reads SuccessFactors’ picklists as selects and its UI5 birth date as a date field', () => {
     const page = extract(`

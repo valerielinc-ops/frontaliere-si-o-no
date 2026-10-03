@@ -31,13 +31,67 @@ const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 const SF_JOB = '/sf/career?company=tenant1000103&career_ns=job_application&career_job_req_id=170044';
 // SuccessFactors' password policy (8–18 characters) follows its host name.
 const sfOrigin = (server) => `http://career2.successfactors.localhost:${server.address().port}`;
+// umantis as a hotel's career page links to it (2026-10-03): another host, the form's address names no company.
+const UMANTIS_FORM = '/Vacancies/717/Application/New/2';
+// The same form with its photo and documents in sections still closed (review of #11033).
+const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
+const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false };
+  // umantis, 2026-10-03: the application form itself asks for the account's password.
+  const umantis = { accounts: new Map(), applications: [], refused: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
+  // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
+  // uploads, «Submit final application». The page names the role, never the company.
+  const umantisPhoto = '<label for="ph">Photo</label><input id="ph" type="file" name="photo">';
+  const umantisDocuments = '<label for="cl">Cover letter</label><input id="cl" type="file" name="letter">'
+    + '<label for="cv">Resume *</label><input id="cv" type="file" name="cv">'
+    + '<label for="od">Other documents</label><input id="od" type="file" name="other">';
+  // closed: the photo and the documents come into the page only once «Expand all sections» is pressed,
+  // so the page first shows a password and a send button, and no file field.
+  const umantisForm = (error = '', { closed = false } = {}) => page('Concierge - Application | Application Tracking System', `<nav><a href="/umantis-login">Login</a><a role="button" tabindex="0" href="/umantis-recruiters">Login for recruiters</a></nav>
+    <h1>Concierge</h1><p>Click on Login if you have already set up your profile.</p>${error ? `<p role="alert">${error}</p>` : ''}
+    ${closed ? '<button type="button" id="expand">Expand all sections</button>' : ''}
+    ${form(closed ? UMANTIS_CLOSED_FORM : UMANTIS_FORM, `${closed ? '<div id="photo-section"></div>' : umantisPhoto}
+      <fieldset><legend>Title *</legend><label><input type="radio" name="title" value="ms"> Ms</label><label><input type="radio" name="title" value="mr"> Mr</label><label><input type="radio" name="title" value="other"> Other</label></fieldset>
+      <label for="fn">First name *</label><input id="fn" name="first">
+      <label for="ln">Last name *</label><input id="ln" name="last">
+      <label for="em">Email address/login *</label><input id="em" type="text" name="mail">
+      <label for="pw">Password *</label><input id="pw" type="password" name="pwd" autocomplete="new-password">
+      <p>The password must be at least 7 characters long. Password must contain special characters, numbers, upper and lower case letters</p>
+      <label for="tel">Cell phone *</label><input id="tel" name="phone">
+      ${closed ? '<div id="documents-section"></div>' : umantisDocuments}
+      <label for="hear">How did you hear about us? *</label><select id="hear" name="hear"><option value="">Please select</option><option value="home">Company homepage</option><option value="board">Online job board</option><option value="misc">Miscellaneous</option></select>
+      <label><input type="checkbox" name="employee"> I am a current employee of your company</label>
+      <fieldset><legend>Data release *</legend><label><input type="radio" name="release" value="keep"> I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.</label><label><input type="radio" name="release" value="delete"> I would like my data to be deleted once the present application process is complete.</label></fieldset>
+      <label><input type="checkbox" name="privacy"> I agree to the Privacy Policy Statement *</label>
+      <input type="hidden" id="letter_stored" name="letter_stored" value=""><input type="hidden" id="cv_stored" name="cv_stored" value="">
+      <button type="submit">Submit final application</button>`, true)}
+    <script>
+      // As on umantis: a file is sent as soon as it is chosen, one at a time. A second choice
+      // while the first still travels drops the first (the letter left at 15% on 2026-10-03).
+      let travelling = null;
+      // On the document: the file fields of a closed section come into the page later.
+      document.addEventListener('change', (event) => {
+        const stored = { cl: 'letter_stored', cv: 'cv_stored' }[event.target.id];
+        if (!stored) return;
+        if (travelling) travelling.abort();
+        const upload = new AbortController();
+        travelling = upload;
+        fetch('/umantis-upload', { method: 'POST', body: event.target.id, signal: upload.signal })
+          .then(() => { document.getElementById(stored).value = '1'; if (travelling === upload) travelling = null; })
+          .catch(() => {});
+      });
+      ${closed ? `document.getElementById('expand').addEventListener('click', (event) => {
+        document.getElementById('photo-section').innerHTML = ${JSON.stringify(umantisPhoto)};
+        document.getElementById('documents-section').innerHTML = ${JSON.stringify(umantisDocuments)};
+        event.target.remove();
+      });` : ''}
+    </script>`);
   const readBody = (req) => new Promise((resolve) => {
     const chunks = [];
     req.on('data', (chunk) => chunks.push(chunk));
@@ -351,10 +405,46 @@ function fakePortal() {
       state.widgetApplications.push({ hasCv: /filename="CV_/.test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
+    // A hotel's own career page: «Apply» opens umantis, on another host, in a new tab.
+    if (route === 'GET /hotel-job') {
+      return send(page('Concierge (m/w/d) | Grand Hotel Esempio', `<h1>Concierge (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
+        <button type="button">ACCEPT COOKIES</button><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a>`));
+    }
+    if (route === `GET ${UMANTIS_FORM}`) return send(umantisForm());
+    if (route === 'GET /hotel-job-closed') {
+      return send(page('Concierge (m/w/d) | Grand Hotel Esempio', `<h1>Concierge (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
+        <a target="_blank" href="${umantisOrigin(server)}${UMANTIS_CLOSED_FORM}">Apply</a>`));
+    }
+    if (route === `GET ${UMANTIS_CLOSED_FORM}`) return send(umantisForm('', { closed: true }));
+    if (route === 'POST /umantis-upload') {
+      await new Promise((done) => setTimeout(done, 1500));
+      res.writeHead(200, { 'content-type': 'application/json' });
+      return res.end('{"stored":true}');
+    }
+    if (route === `POST ${UMANTIS_FORM}`) {
+      const raw = await readBody(req);
+      const value = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
+      const sent = (name) => new RegExp(`name="${name}"; filename="[^"]+"`).test(raw);
+      const password = value('pwd');
+      const weak = password.length < 7 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/\d/.test(password) || !/[^A-Za-z0-9]/.test(password);
+      const missing = ['title', 'first', 'last', 'mail', 'phone', 'hear', 'release', 'privacy'].filter((name) => !value(name));
+      // A file chosen but not stored yet never arrives with the application.
+      const problems = [...missing, weak && 'password', (!sent('cv') || !value('cv_stored')) && 'resume', sent('letter') && !value('letter_stored') && 'cover letter'].filter(Boolean);
+      if (problems.length) {
+        umantis.refused.push(problems.join(','));
+        return send(umantisForm(`Please complete: ${problems.join(', ')}`));
+      }
+      umantis.accounts.set(value('mail'), password);
+      umantis.applications.push({
+        first: value('first'), title: value('title'), hear: value('hear'), release: value('release'), employee: Boolean(value('employee')),
+        cv: /name="cv"; filename="CV_/.test(raw), letter: sent('letter'), photo: sent('photo'), other: sent('other'),
+      });
+      return send(page('Application', '<h1>Thank you very much for your application</h1><p>We will get in touch with you.</p>'));
+    }
     res.writeHead(404);
     res.end();
   });
-  return { server, state, coop };
+  return { server, state, coop, umantis };
 }
 
 /**
@@ -378,20 +468,31 @@ function fakeAgent(prompt) {
   return turn('act', day ? [{ ref: day[1], action: 'click', value: '', document: 'none', question: 'Geburtsdatum *', answer: '1990-05-12', source }] : []);
 }
 
+// A password field must never reach the planner: the runner types it (account.mjs).
+let plannerSawPassword = false;
+
 /** Planner stand-in: answers by label, as the real planner does for these fields. */
 async function fakeCodex({ prompt }) {
   if (prompt.includes('{"agentPage"')) return fakeAgent(prompt);
   const form = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly'))).form;
+  if (form.fields.some((field) => /password|kennwort/i.test(field.label))) plannerSawPassword = true;
   const actions = form.fields.map((field) => {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
-    if (/datenschutz/i.test(field.label)) return act('check', '', { source: 'consent' });
+    if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
     if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
     if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
     if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
-    if (/vorname/i.test(field.label)) return act('fill', 'Luca');
+    if (/vorname|first name/i.test(field.label)) return act('fill', 'Luca');
     if (/land\/region/i.test(field.label)) return act('select', 'Italien', { source: 'profile' });
-    if (/nachname/i.test(field.label)) return act('fill', 'Bianchi');
+    if (/nachname|last name/i.test(field.label)) return act('fill', 'Bianchi');
+    // umantis' form: no photo and no other document to give, the letter in its own field.
+    if (/photo|other documents/i.test(field.label)) return act('skip', '', { source: 'rule' });
+    if (/cover letter/i.test(field.label)) return act('upload', '', { document: 'cover_letter', source: 'documents' });
+    if (/cell phone/i.test(field.label)) return act('fill', '+41 79 000 00 00');
+    if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
+    if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
+    if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
     return act('skip', '', { source: 'rule' });
   });
@@ -399,7 +500,7 @@ async function fakeCodex({ prompt }) {
 }
 
 async function main() {
-  const { server, state, coop } = fakePortal();
+  const { server, state, coop, umantis } = fakePortal();
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
   const saved = new Map();
@@ -660,6 +761,43 @@ async function main() {
     const slow = await acceptPrivacyStatement(slowPage, await extractFields(slowPage, { listboxOptions: false }));
     check('a lost first privacy click is retried with a fresh 8 s window', slow === 'accepted' && await slowPage.locator('#v').inputValue() === '1');
     await slowBrowser.close();
+    // Grand Hotel Kronenhof (2026-10-03): the posting's «Apply» opens umantis in a new tab; its form
+    // asks for the account's password itself and names the role, never the company.
+    const hotelSaved = new Map();
+    const hotelAccounts = {
+      async load(host) { return hotelSaved.get(host) || null; },
+      async save(host, { email, password }) { hotelSaved.set(host, { email, password, status: 'pending', createdAt: Date.now(), verifiedAt: null }); },
+      async mark(host, patch) { hotelSaved.set(host, { ...hotelSaved.get(host), ...patch }); },
+      async discard(host) { hotelSaved.delete(host); },
+      async waitForVerification() { return null; },
+    };
+    const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge (m/w/d)' };
+    const hotelHost = new URL(umantisOrigin(server)).hostname;
+    const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
+      && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
+      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'));
+    check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
+    let guardCalls = 0;
+    const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });
+    const sentToHotel = umantis.applications[0] || {};
+    const hotelPassword = hotelSaved.get(hotelHost)?.password || '';
+    check('umantis: the form is sent once behind the submission guard, with the CV and the letter stored one after the other in their own fields, and no photo', hotel.event.type === 'submit_succeeded'
+      && guardCalls === 1 && umantis.applications.length === 1 && umantis.refused.length === 0 && sentToHotel.cv && sentToHotel.letter && !sentToHotel.photo && !sentToHotel.other
+      && sentToHotel.first === 'Luca' && sentToHotel.title === 'mr' && sentToHotel.hear === 'board' && sentToHotel.release === 'delete' && !sentToHotel.employee);
+    check('umantis: the account is the order’s (alias, the stored password) and is marked created', hotelPassword.length >= 7
+      && umantis.accounts.get(ALIAS) === hotelPassword && hotelSaved.get(hotelHost)?.status === 'created');
+    check('the password is in no evidence, and no password field ever reached the planner', Boolean(hotelPassword)
+      && !JSON.stringify(hotel.evidence).includes(hotelPassword) && !plannerSawPassword);
+    const otherRole = await run({ applyUrl: `${base}/hotel-job`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
+    check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
+      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1);
+    // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
+    const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
+    check('umantis: a password page whose CV field sits in a closed section is opened first, then filled as the form (never taken for a login)', closedSections.event.type === 'dry_run_ready'
+      && !closedSections.event.stage && closedSections.evidence.finalButton?.label === 'Submit final application' && closedAuth.join(',') === 'inline'
+      && closedSections.evidence.postingMatch === 'match' && closedSections.evidence.steps.some((step) => (step.actions || []).some((action) => action.document === 'cv')));
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');

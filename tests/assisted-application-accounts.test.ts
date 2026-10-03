@@ -3,8 +3,10 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   CREATE_ACCOUNT_RE,
   authPageKind,
+  asksExistingPassword,
   codeField,
   hostKey,
+  inlineAccountForm,
   loginFields,
   newPortalPassword,
   portalAccountStore,
@@ -35,6 +37,31 @@ describe('portal account pages', () => {
     expect(loginFields(signIn)).toEqual({ email: signIn.fields[0], password: signIn.fields[1] });
     expect(codeField({ fields: [field('f1', 'text', 'Bestätigungscode')] })?.id).toBe('f1');
     expect(codeField({ fields: [field('f1', 'password', 'Code')] })).toBeNull();
+  });
+
+  it('tells an application form that asks for its own password from a login or a registration page', () => {
+    const file = (id: string, label: string, extra: Record<string, unknown> = {}) => field(id, 'file', label, { kind: 'file', ...extra });
+    // umantis, 2026-10-03: one password among the applicant's data and the uploads, all in one <form>.
+    const own = { fields: [field('f1', 'text', 'First name', { form: 0 }), field('f2', 'text', 'Email address/login', { form: 0 }), field('f3', 'password', 'Password', { form: 0 }), file('f4', 'Resume', { form: 0 })] };
+    expect(inlineAccountForm(own)).toBe(true);
+    // Still a login page by its one password: the file field is what tells them apart.
+    expect(authPageKind(own)).toBe('sign_in');
+    // A sign-in or a registration page never asks for a CV.
+    expect(inlineAccountForm({ fields: [field('f1', 'email', 'E-Mail', { form: 0 }), field('f2', 'password', 'Kennwort', { form: 0 })] })).toBe(false);
+    // A login box in a <form> of its own, next to a guest application form, stays a login.
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Kennwort', { form: 0 }), file('f2', 'Lebenslauf', { form: 1 })] })).toBe(false);
+    // The same form number in another frame is another form.
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Kennwort', { form: 0, frame: 0 }), file('f2', 'Lebenslauf', { form: 0, frame: 1 })] })).toBe(false);
+    // A page without any <form> (script-driven): the page is the form.
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Password'), file('f2', 'CV')] })).toBe(true);
+    expect(inlineAccountForm({ fields: [file('f2', 'CV')] })).toBe(false);
+    // Review of #11033: a password the account already has, inside the application's form, is a login.
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Login password', { form: 0, name: 'current-password' }), file('f2', 'Resume', { form: 0 })] })).toBe(false);
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Password', { form: 0, autocomplete: 'current-password' }), file('f2', 'Resume', { form: 0 })] })).toBe(false);
+    expect(inlineAccountForm({ fields: [field('f1', 'password', 'Passwort (Anmeldung)', { form: 0 }), file('f2', 'Lebenslauf', { form: 0 })] })).toBe(false);
+    // umantis' own: «Password», autocomplete "new-password", next to «Email address/login».
+    expect(asksExistingPassword(field('f3', 'password', 'Password', { autocomplete: 'new-password', name: 'form_data12' }))).toBe(false);
+    expect(asksExistingPassword(field('f3', 'password', 'Mot de passe actuel'))).toBe(true);
   });
 
   it('makes a password every usual policy accepts: 20 characters, 16 on SuccessFactors', () => {
@@ -119,6 +146,10 @@ describe('portal account store', () => {
     await accounts.mark(HOST, { verifiedAt: 2000 });
     expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({ verifiedAt: 2000, createdAt: 1000 });
     expect(await accounts.load('other.example')).toBeNull();
+    // A dry run's password is typed and never stored: masked in the log all the same.
+    accounts.mask('DryRunOnlyAa7!');
+    expect(mask).toHaveBeenCalledWith('DryRunOnlyAa7!');
+    expect(JSON.stringify(store.read(ACCOUNTS))).not.toContain('DryRunOnlyAa7!');
   });
 
   it('keeps a credential pending until the portal confirms the registration, and forgets a refused one', async () => {
