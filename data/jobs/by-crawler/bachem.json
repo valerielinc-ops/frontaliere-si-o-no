@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bachem",
-  "assembledAt": "2026-10-02T21:20:22.219Z",
+  "assembledAt": "2026-10-03T09:25:11.852Z",
   "jobs": [
     {
       "id": "bachem-6c8ebd0d7b5a",
@@ -34,7 +34,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-PI-Server-Data-Historian-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1402184733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:14.389Z",
+      "crawledAt": "2026-10-03T09:25:01.517Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -53,6 +53,13 @@
       "requirementsByLocale": {
         "de": []
       },
+      "previousSlugs": [
+        "pi-server-data-historian-engineer-sisslerfeld-site-development-a-100-bachem-stein-ag",
+        "pi-server-data-historian-engineer-a-100-bachem-stein-ag",
+        "pi-data-historian-integration-system-engineer-a-80-100-bachem-stein-ag",
+        "pi-data-historien-ingenieur-systeme-d-integration-a-80-100-bachem-ag-stein-ag",
+        "ingegnere-pi-server-data-historian-sviluppo-sito-sisslerfeld-a-100-bachem-ag-stein-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "pi-server-data-historian-engineer-sisslerfeld-site-development-a-100-bachem-stein-ag",
@@ -65,13 +72,7 @@
           "pi-server-data-historian-engineer-sisslerfeld-site-development-a-100-bachem-stein-ag"
         ]
       },
-      "previousSlugs": [
-        "pi-server-data-historian-engineer-sisslerfeld-site-development-a-100-bachem-stein-ag",
-        "pi-server-data-historian-engineer-a-100-bachem-stein-ag",
-        "pi-data-historian-integration-system-engineer-a-80-100-bachem-stein-ag",
-        "pi-data-historien-ingenieur-systeme-d-integration-a-80-100-bachem-ag-stein-ag",
-        "ingegnere-pi-server-data-historian-sviluppo-sito-sisslerfeld-a-100-bachem-ag-stein-ag"
-      ],
+      "firstSeenAt": "2026-06-09T12:22:47.371Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -84,8 +85,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-09T12:22:47.371Z"
+      }
     },
     {
       "id": "bachem-c2cbd5c7fd2d",
@@ -119,7 +119,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Lead-Facility-Management-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1399950233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:14.897Z",
+      "crawledAt": "2026-10-03T09:25:00.975Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Technical-Author-%28a%29-100-AG-4332/1441283133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:13.885Z",
+      "crawledAt": "2026-10-03T09:25:02.094Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -212,12 +212,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-author-a-100-bachem-stein-ag",
-        "technical-author-a-100-bachem-ag-stein-ag"
+        "technical-author-a-100-bachem-ag-stein-ag",
+        "autore-tecnico-a-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-author-a-100-bachem-stein-ag",
-          "technical-author-a-100-bachem-ag-stein-ag"
+          "technical-author-a-100-bachem-ag-stein-ag",
+          "autore-tecnico-a-100-bachem-ag-stein-ag"
         ],
         "fr": [
           "technical-author-a-100-bachem-stein-ag"
@@ -270,7 +272,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Downstream-Process-Expert-API-Production-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441748133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:13.321Z",
+      "crawledAt": "2026-10-03T09:25:03.762Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -287,15 +289,17 @@
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1441748133/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein"
-      ],
+      "firstSeenAt": "2026-09-28T21:24:07.305Z",
       "previousSlugsByLocale": {
         "it": [
-          "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein"
+          "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+          "esperto-di-processo-a-valle-api-production-sisslerfeld-site-development-a-al-100-bachem-ag-stein-ag"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:24:07.305Z",
+      "previousSlugs": [
+        "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+        "esperto-di-processo-a-valle-api-production-sisslerfeld-site-development-a-al-100-bachem-ag-stein-ag"
+      ],
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -342,7 +346,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-System-Expert-Materials-Management-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441729733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:12.780Z",
+      "crawledAt": "2026-10-03T09:25:03.208Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -360,11 +364,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
+        "sviluppo-del-sito-di-sisslerfeld-a-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+          "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
+          "sviluppo-del-sito-di-sisslerfeld-a-100-bachem-ag-stein-ag"
         ],
         "fr": [
           "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
@@ -416,7 +422,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-MES-Design-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1401817133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:12.296Z",
+      "crawledAt": "2026-10-03T09:25:02.676Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -462,7 +468,8 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-7260088e37f5",
@@ -496,7 +503,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-Technical-Author-%28a%29-100-Vala-1895/1442330333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:20:09.207Z",
+      "crawledAt": "2026-10-03T09:24:41.545Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -574,7 +581,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-Group-Leader-TechOps-Laboratories-%28a%29-100-Vala-1895/1442490233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:20:09.694Z",
+      "crawledAt": "2026-10-03T09:24:54.251Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -593,12 +600,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "group-leader-techops-laboratories-bachem-vionnaz",
-        "group-leader-techops-laboratories-a-100-bachem-vionnaz"
+        "group-leader-techops-laboratories-a-100-bachem-vionnaz",
+        "capo-gruppo-techops-laboratories-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-leader-techops-laboratories-bachem-vionnaz",
-          "group-leader-techops-laboratories-a-100-bachem-vionnaz"
+          "group-leader-techops-laboratories-a-100-bachem-vionnaz",
+          "capo-gruppo-techops-laboratories-bachem-ag-vionnaz"
         ],
         "de": [
           "group-leader-techops-laboratories-bachem-vionnaz"
@@ -650,7 +659,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-HSE-Specialist-%28a%29-100-Vala-1895/1442735433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:20:08.673Z",
+      "crawledAt": "2026-10-03T09:24:58.712Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -669,12 +678,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hse-specialist-bachem-vionnaz",
-        "hse-specialist-a-100-bachem-vionnaz"
+        "hse-specialist-a-100-bachem-vionnaz",
+        "hse-specialista-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hse-specialist-bachem-vionnaz",
-          "hse-specialist-a-100-bachem-vionnaz"
+          "hse-specialist-a-100-bachem-vionnaz",
+          "hse-specialista-bachem-ag-vionnaz"
         ],
         "de": [
           "hse-specialist-bachem-vionnaz"
@@ -693,7 +704,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-75b80982a582",
@@ -727,7 +739,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-QC-Lab-Technician-%28a%29-100-Vala-1895/1442498233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:20:11.265Z",
+      "crawledAt": "2026-10-03T09:24:44.831Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -746,12 +758,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "qc-lab-technician-bachem-vionnaz",
-        "qc-lab-technician-a-100-bachem-vionnaz"
+        "qc-lab-technician-a-100-bachem-vionnaz",
+        "tecnico-di-laboratorio-qc-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "qc-lab-technician-bachem-vionnaz",
-          "qc-lab-technician-a-100-bachem-vionnaz"
+          "qc-lab-technician-a-100-bachem-vionnaz",
+          "tecnico-di-laboratorio-qc-bachem-ag-vionnaz"
         ]
       },
       "firstSeenAt": "2026-09-30T21:25:07.802Z",
@@ -801,7 +815,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-QC-Analytical-Project-Manager-%28a%29-100-Vala-1895/1442268933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:20:11.798Z",
+      "crawledAt": "2026-10-03T09:24:44.294Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -820,12 +834,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "qc-analytical-project-manager-bachem-vionnaz",
-        "qc-analytical-project-manager-a-100-bachem-vionnaz"
+        "qc-analytical-project-manager-a-100-bachem-vionnaz",
+        "responsabile-di-progetto-analitico-qc-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "qc-analytical-project-manager-bachem-vionnaz",
-          "qc-analytical-project-manager-a-100-bachem-vionnaz"
+          "qc-analytical-project-manager-a-100-bachem-vionnaz",
+          "responsabile-di-progetto-analitico-qc-bachem-ag-vionnaz"
         ],
         "de": [
           "qc-analytical-project-manager-bachem-vionnaz"
@@ -851,9 +867,9 @@
       "slug": "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-ag-vionnaz",
       "slugByLocale": {
         "fr": "technologue-en-production-chimique-et-pharmaceutique-bachem-vionnaz",
-        "de": "technologe-in-der-chemischen-und-pharmazeutischen-produktion-bachem-ag-vionnaz",
+        "de": "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-ag-vionnaz",
         "en": "technologist-in-chemical-and-pharmaceutical-production-bachem-ag-vionnaz",
-        "it": "tecnologo-nella-produzione-chimica-e-farmaceutica-bachem-ag-vionnaz"
+        "it": "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-ag-vionnaz"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -861,9 +877,9 @@
       "title": "Technologue en production chimique et pharmaceutique (a) 100%",
       "titleByLocale": {
         "fr": "Technologue en production chimique et pharmaceutique (a) 100%",
-        "it": "Tecnologo nella produzione chimica e farmaceutica (a) 100%",
-        "en": "Technologist in chemical and pharmaceutical production (a) 100%",
-        "de": "Technologe in der chemischen und pharmazeutischen Produktion (a) 100%"
+        "it": "Technologue en production chimique et pharmaceutique (a) 100%",
+        "en": "Technologue en production chimique et pharmaceutique (a) 100%",
+        "de": "Technologue en production chimique et pharmaceutique (a) 100%"
       },
       "description": "Afin de renforcer notre équipe Production, nous recherchons un  Technologue en Production Chimique et Pharmaceutique (CFC) (a), 100%  pour notre site de Production de Vionnaz (Valais/Wallis, Suisse).\n\nVos missions principales\n\n• Connaître et suivre les procédures et directives HSE en vigueur pour garantir la sécurité des opérations et le respect de l’environnement.\n\n• Contribuer à la fabrication d’un produit pharmaceutique, depuis la commande des matières premières jusqu’au conditionnement du produit fini.\n\n• Réaliser les opérations de chargement des réacteurs au sein des installations industrielles.\n\n• Effectuer les activités annexes de production : échantillonnage, étiquetage, nettoyage des installations et bâtiments, maintien de l’ordre selon les principes du 5S.\n\n• Détecter et signaler toute déviation éventuelle.\n\n• Participer activement à l’amélioration continue des processus.\n\n• Travailler en équipes (3x8) du dimanche soir au vendredi soir\n\nVotre profil\n\n• Vous êtes titulaire d'un CFC de technologue en production chimique et pharmaceutique, ou d'une formation jugée équivalente avec expérience en industrie chimique ou pharmaceutique de minimum 5 ans.\n\n• Familiers avec les normes GMP, vous êtes rigoureux et professionnel dans l'application et le suivi des procédures de fabrication.\n\n• Vous adhérez aux directives HSE et les appliquez.\n\n• Ce poste implique des tâches nécessitant une bonne condition physique, notamment la manutention de charges, des déplacements fréquents également dans des escaliers, station debout prolongée.\n\n• Capable de travailler de manière autonome, vous faites preuve d’un esprit d’équipe sain et de motivation.\n\n• Vous utilisez les outils informatiques avec aisance\n\nNotre offre\n\nNous offrons un travail intéressant et stimulant dans une entreprise innovante et orientée vers la croissance, qui garantit la polyvalence et la diversité. Vous ferez partie d'un environnement collégial et aurez la possibilité de vous épanouir professionnellement dans le cadre d'un emploi à durée indéterminée. De bonnes conditions d'emploi vous attendent, y compris des prestations annexes et sociales attrayantes.\n\nNous nous réjouissons de recevoir votre dossier de candidature complet via notre portail de candidature.\n\nApprenez-en plus sur le groupe Bachem et laissez-vous inspirer par notre environnement de travail passionnant sur notre site de Vionnaz !",
       "descriptionByLocale": {
@@ -878,7 +894,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-Technologue-en-production-chimique-et-pharmaceutique-%28a%29-100-Vala-1895/1411424933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:20:08.186Z",
+      "crawledAt": "2026-10-03T09:24:53.685Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -891,7 +907,7 @@
       "sector": "Biotecnologia / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1411424933/?locale=fr_FR",
       "requirements": [],
       "requirementsByLocale": {
@@ -899,14 +915,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-vionnaz"
+          "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-vionnaz",
+          "tecnologo-nella-produzione-chimica-e-farmaceutica-bachem-ag-vionnaz"
         ],
         "fr": [
           "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-vionnaz"
+        ],
+        "de": [
+          "technologe-in-der-chemischen-und-pharmazeutischen-produktion-bachem-ag-vionnaz"
         ]
       },
       "previousSlugs": [
-        "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-vionnaz"
+        "technologue-en-production-chimique-et-pharmaceutique-a-100-bachem-vionnaz",
+        "tecnologo-nella-produzione-chimica-e-farmaceutica-bachem-ag-vionnaz",
+        "technologe-in-der-chemischen-und-pharmazeutischen-produktion-bachem-ag-vionnaz"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -955,7 +977,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-%28a%29-Engineering-100-BL-4416/1429691533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:07.665Z",
+      "crawledAt": "2026-10-03T09:24:57.620Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -973,11 +995,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-qa-a-engineering-100-bachem-bubendorf"
+        "manager-qa-a-engineering-100-bachem-bubendorf",
+        "manager-qa-a-ingegneria-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-qa-a-engineering-100-bachem-bubendorf"
+          "manager-qa-a-engineering-100-bachem-bubendorf",
+          "manager-qa-a-ingegneria-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-08-25T22:08:49.495Z",
@@ -1027,7 +1051,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Engineering-Manager-%28a%29%2C-100-BL-4416/1261351201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:07.172Z",
+      "crawledAt": "2026-10-03T09:24:46.205Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1084,7 +1108,8 @@
         "specialist-qa-engineering-100-w-m-d-bachem-bubendorf",
         "specialiste-en-ingenierie-qa-a-100-h-f-bachem-ag-bubendorf",
         "spezialisierte-qa-technik-zu-100-w-m-d-bachem-ag-bubendorf",
-        "spezialist-qa-engineering-100-w-m-d-bachem-ag-bubendorf"
+        "spezialist-qa-engineering-100-w-m-d-bachem-ag-bubendorf",
+        "responsabile-ingegneria-qa-lavori-mesi-lanci-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1099,7 +1124,8 @@
           "specialist-qa-engineering-100-w-m-d-bachem-bubendorf",
           "specialiste-en-ingenierie-qa-a-100-h-f-bachem-ag-bubendorf",
           "spezialisierte-qa-technik-zu-100-w-m-d-bachem-ag-bubendorf",
-          "spezialist-qa-engineering-100-w-m-d-bachem-ag-bubendorf"
+          "spezialist-qa-engineering-100-w-m-d-bachem-ag-bubendorf",
+          "responsabile-ingegneria-qa-lavori-mesi-lanci-100-bachem-ag-bubendorf"
         ],
         "de": [
           "manager-qa-engineering-100-w-m-d-bachem-bubendorf"
@@ -1155,7 +1181,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-%28a%29-HPLC-Late-Phase-100-BL-4416/1409920033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:06.652Z",
+      "crawledAt": "2026-10-03T09:24:43.764Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1173,11 +1199,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lab-technician-qc-a-hplc-late-phase-100-bachem-bubendorf"
+        "lab-technician-qc-a-hplc-late-phase-100-bachem-bubendorf",
+        "tecnico-di-laboratorio-qc-a-hplc-fase-avanzata-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-qc-a-hplc-late-phase-100-bachem-bubendorf"
+          "lab-technician-qc-a-hplc-late-phase-100-bachem-bubendorf",
+          "tecnico-di-laboratorio-qc-a-hplc-fase-avanzata-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-06-30T21:51:01.512Z",
@@ -1193,7 +1221,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-8d61ef7bc992",
@@ -1227,7 +1256,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Maintenance-Technician-Heizungs-%2C-Sanit%C3%A4r-und-Druckluftanlagen-%28wmd%29%2C-100-BL-4416/1289321401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:06.152Z",
+      "crawledAt": "2026-10-03T09:24:49.627Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1305,7 +1334,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Category-Manager-Capex-%28a%29-100%2C-f%C3%BCr-den-Bereich-Bauleistungen-BL-4416/1287275401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:05.630Z",
+      "crawledAt": "2026-10-03T09:24:54.779Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1327,14 +1356,16 @@
         "category-manager-capex-m-w-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf",
         "category-manager-capex-w-m-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf",
         "category-manager-capex-a-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
-        "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf"
+        "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf",
+        "category-manager-capacita-investimento-u-v-d-100-area-costruzioni-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
           "category-manager-capex-m-w-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf",
           "category-manager-capex-w-m-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf",
-          "category-manager-capex-a-100-fur-den-bereich-bauleistungen-bachem-bubendorf"
+          "category-manager-capex-a-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
+          "category-manager-capacita-investimento-u-v-d-100-area-costruzioni-bachem-ag-bubendorf"
         ],
         "en": [
           "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf"
@@ -1390,7 +1421,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-IPC-%28a%29-100-BL-4416/1442927533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:05.121Z",
+      "crawledAt": "2026-10-03T09:24:51.910Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1407,14 +1438,6 @@
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1442927533/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lab-technician-qc-ipc-a-100-bachem-bubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lab-technician-qc-ipc-a-100-bachem-bubendorf"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:25:11.979Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -1428,7 +1451,17 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-qc-ipc-a-100-bachem-bubendorf",
+          "laboratorio-tecnico-qc-ipc-a-100-bachem-ag-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf",
+        "laboratorio-tecnico-qc-ipc-a-100-bachem-ag-bubendorf"
+      ]
     },
     {
       "id": "bachem-d7905940e5bd",
@@ -1462,7 +1495,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-CAD-&-CAE-Engineer-%28a%29-%2880-100%29-f%C3%BCr-die-Abteilung-Engineering-Services-BL-4416/1396693433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:04.599Z",
+      "crawledAt": "2026-10-03T09:24:57.053Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1481,14 +1514,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf"
+          "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf",
+          "cae-system-specialist-f-m-d-80-100-bachem-bubendorf"
         ],
         "it": [
-          "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf"
+          "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf",
+          "cae-system-specialist-a-80-100-bachem-bubendorf"
         ]
       },
       "previousSlugs": [
-        "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf"
+        "cad-cae-engineer-a-80-100-fur-die-abteilung-engineering-services-bachem-bubendorf",
+        "cae-system-specialist-f-m-d-80-100-bachem-bubendorf",
+        "cae-system-specialist-a-80-100-bachem-bubendorf"
       ],
       "firstSeenAt": "2026-07-22T12:51:49.771Z",
       "salaryMin": 72500,
@@ -1537,7 +1574,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Project-Manager-Supply-Chain-Applications-Cold-Chain-Monitorning-&-Visibility-%28CCMV%29-%28a%29%2C-80-100-BL-4416/1440807633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:04.103Z",
+      "crawledAt": "2026-10-03T09:24:59.288Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1555,11 +1592,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-manager-supply-chain-applications-cold-chain-monitorning-visibility-ccmv-a-80-100"
+        "project-manager-supply-chain-applications-cold-chain-monitorning-visibility-ccmv-a-80-100",
+        "applicazioni-della-catena-di-approvvigionamento-di-project-manager-monitoraggio-della-catena-fredda-e-visibilita-ccmv-a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-supply-chain-applications-cold-chain-monitorning-visibility-ccmv-a-80-100"
+          "project-manager-supply-chain-applications-cold-chain-monitorning-visibility-ccmv-a-80-100",
+          "applicazioni-della-catena-di-approvvigionamento-di-project-manager-monitoraggio-della-catena-fredda-e-visibilita-ccmv-a"
         ]
       },
       "firstSeenAt": "2026-09-24T14:26:41.108Z",
@@ -1609,7 +1648,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Documentation-Manager-%28a%29-%2880-100%29-f%C3%BCr-Engineering-Services-BL-4416/1440824133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:10.215Z",
+      "crawledAt": "2026-10-03T09:24:53.081Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1683,7 +1722,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-HSE-Specialist-80-100-%28a%29-BL-4416/1387986133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:03.582Z",
+      "crawledAt": "2026-10-03T09:24:52.476Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1736,14 +1775,16 @@
         "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf",
         "hse-specialist-80-100-a-bachem-bubendorf",
         "hse-spezialist-80-100-m-w-d-bachem-ag-bubendorf",
-        "hse-cluster-specialist-a-100-bachem-bubendorf"
+        "hse-cluster-specialist-a-100-bachem-bubendorf",
+        "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hse-specialist-80-100-m-w-d-bachem-bubendorf",
           "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf",
           "hse-specialist-80-100-a-bachem-bubendorf",
-          "hse-cluster-specialist-a-100-bachem-bubendorf"
+          "hse-cluster-specialist-a-100-bachem-bubendorf",
+          "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf"
         ],
         "de": [
           "hse-spezialist-80-100-m-w-d-bachem-ag-bubendorf"
@@ -1765,7 +1806,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-dfb617ffa5cd",
@@ -1798,7 +1840,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Quality-&-Compliance-Manager-in-Manufacturing-%28a%29%2C-100-BL-4416/1422946333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:03.082Z",
+      "crawledAt": "2026-10-03T09:24:50.245Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1828,7 +1870,8 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-02a8f9a22fa0",
@@ -1861,7 +1904,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-Quality-Control-100-%28a%29-BL-4416/1423401933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:02.565Z",
+      "crawledAt": "2026-10-03T09:24:55.333Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1879,11 +1922,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lab-technician-quality-control-100-a-bachem-bubendorf"
+        "lab-technician-quality-control-100-a-bachem-bubendorf",
+        "controllo-di-qualita-tecnico-del-laboratorio-100-a-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-quality-control-100-a-bachem-bubendorf"
+          "lab-technician-quality-control-100-a-bachem-bubendorf",
+          "controllo-di-qualita-tecnico-del-laboratorio-100-a-bachem-ag-bubendorf"
         ],
         "fr": [
           "lab-technician-quality-control-100-a-bachem-bubendorf"
@@ -1902,7 +1947,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-e9642a479c95",
@@ -1936,7 +1982,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Associate-Scientist-QC-R&S-%28a%29-100-BL-4416/1432590833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:02.143Z",
+      "crawledAt": "2026-10-03T09:24:45.358Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1954,11 +2000,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-scientist-qc-r-s-a-100-bachem-bubendorf"
+        "associate-scientist-qc-r-s-a-100-bachem-bubendorf",
+        "scienziato-associato-qc-r-s-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-scientist-qc-r-s-a-100-bachem-bubendorf"
+          "associate-scientist-qc-r-s-a-100-bachem-bubendorf",
+          "scienziato-associato-qc-r-s-a-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-09-01T14:19:29.674Z",
@@ -2008,7 +2056,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Batchdocument-Reviewer-%28a%29%2C-100-BL-4416/1425152933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:01.592Z",
+      "crawledAt": "2026-10-03T09:24:59.849Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2026,11 +2074,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "batchdocument-reviewer-a-100-bachem-bubendorf"
+        "batchdocument-reviewer-a-100-bachem-bubendorf",
+        "recensione-di-batchdocument-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "batchdocument-reviewer-a-100-bachem-bubendorf"
+          "batchdocument-reviewer-a-100-bachem-bubendorf",
+          "recensione-di-batchdocument-a-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-08-11T10:20:59.607Z",
@@ -2080,7 +2130,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Mitarbeiterin-Dispensation-%28a%29-100-im-Schichtbetrieb-%28Fr%C3%BChSp%C3%A4tschicht%29-BL-4416/1412888433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:01.084Z",
+      "crawledAt": "2026-10-03T09:24:49.073Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2098,11 +2148,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+        "mitarbeiter-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+        "collaboratore-trice-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+          "mitarbeiter-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+          "collaboratore-trice-in-dispensation-a-100-im-schichtbetrieb-fruh-spatschicht-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:30.588Z",
@@ -2152,7 +2204,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-MES-Specialist-100-%28a%29-BL-4416/1398047733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:00.573Z",
+      "crawledAt": "2026-10-03T09:24:45.772Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2173,14 +2225,16 @@
         "mes-specialist-100-a-bachem-bubendorf",
         "specialista-avor-a-80-100-bachem-ag-bubendorf",
         "specialist-avor-a-80-100-bachem-bubendorf",
-        "specialiste-avor-a-80-100-bachem-ag-bubendorf"
+        "specialiste-avor-a-80-100-bachem-ag-bubendorf",
+        "mes-specialista-100-m-w-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mes-specialist-100-a-bachem-bubendorf",
           "specialista-avor-a-80-100-bachem-ag-bubendorf",
           "specialist-avor-a-80-100-bachem-bubendorf",
-          "specialiste-avor-a-80-100-bachem-ag-bubendorf"
+          "specialiste-avor-a-80-100-bachem-ag-bubendorf",
+          "mes-specialista-100-m-w-d-bachem-ag-bubendorf"
         ],
         "de": [
           "specialist-avor-a-80-100-bachem-bubendorf"
@@ -2236,7 +2290,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemist-%28a%29%2C-100-BL-4416/1440910633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:00.081Z",
+      "crawledAt": "2026-10-03T09:24:47.346Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2310,7 +2364,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Project-Director-Grossprojekte-%28a%29%2C-100-BL-4416/1388636633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:59.679Z",
+      "crawledAt": "2026-10-03T09:24:47.894Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2328,11 +2382,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-director-grossprojekte-a-100-bachem-bubendorf"
+        "project-director-grossprojekte-a-100-bachem-bubendorf",
+        "direttore-progetto-grossprojekte-w-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-director-grossprojekte-a-100-bachem-bubendorf"
+          "project-director-grossprojekte-a-100-bachem-bubendorf",
+          "direttore-progetto-grossprojekte-w-m-d-100-bachem-ag-bubendorf"
         ],
         "de": [
           "project-director-grossprojekte-a-100-bachem-bubendorf"
@@ -2384,7 +2440,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Cluster-Specialist-%28a%29%2C-100-BL-4416/1440644233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:59.173Z",
+      "crawledAt": "2026-10-03T09:24:42.088Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2402,11 +2458,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cluster-specialist-a-100-bachem-bubendorf"
+        "cluster-specialist-a-100-bachem-bubendorf",
+        "cluster-specialista-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cluster-specialist-a-100-bachem-bubendorf"
+          "cluster-specialist-a-100-bachem-bubendorf",
+          "cluster-specialista-a-100-bachem-ag-bubendorf"
         ],
         "fr": [
           "cluster-specialist-a-100-bachem-bubendorf"
@@ -2425,7 +2483,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-cbd1c10bb810",
@@ -2459,7 +2518,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Technical-Author-Peptide-Manufacturing-%28a%29%2C-100-%28Temp_-12-Monate%29-BL-4416/1438371233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:58.658Z",
+      "crawledAt": "2026-10-03T09:24:40.423Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2477,11 +2536,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-author-peptide-manufacturing-a-100-temp-12-monate-bachem-bubendorf"
+        "technical-author-peptide-manufacturing-a-100-temp-12-monate-bachem-bubendorf",
+        "autore-tecnico-peptide-manufacturing-a-100-temp-12-mesi-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-author-peptide-manufacturing-a-100-temp-12-monate-bachem-bubendorf"
+          "technical-author-peptide-manufacturing-a-100-temp-12-monate-bachem-bubendorf",
+          "autore-tecnico-peptide-manufacturing-a-100-temp-12-mesi-bachem-ag-bubendorf"
         ],
         "fr": [
           "technical-author-peptide-manufacturing-a-100-temp-12-monate-bachem-bubendorf"
@@ -2533,7 +2594,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Early-Phase-100-%28a%29-BL-4416/1434837833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:58.110Z",
+      "crawledAt": "2026-10-03T09:25:00.413Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2551,11 +2612,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lab-technician-qc-early-phase-100-a-bachem-bubendorf"
+        "lab-technician-qc-early-phase-100-a-bachem-bubendorf",
+        "lab-technician-qc-fase-precoce-100-a-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-qc-early-phase-100-a-bachem-bubendorf"
+          "lab-technician-qc-early-phase-100-a-bachem-bubendorf",
+          "lab-technician-qc-fase-precoce-100-a-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-09-08T13:47:38.070Z",
@@ -2571,7 +2634,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-5d017cac6e1b",
@@ -2605,7 +2669,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Process-Specialist-&-Training-Leader-Chromatography-%28a%29-%28Neubau-Geb%C3%A4ude-K%29%2C-100-BL-4416/1392755733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:57.628Z",
+      "crawledAt": "2026-10-03T09:24:48.469Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2626,14 +2690,16 @@
         "process-specialist-training-leader-chromatography-a-neubau-gebaude-k-100-bachem-bubendorf",
         "specialista-processi-e-leader-formazione-cromatografia-uomo-donna-diverso-bachem-ag-bubendorf",
         "prozessspezialist-ausbildungsleiter-chromatographie-w-m-d-neubau-gebaude-k-100-bachem-ag-bubendorf",
-        "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf"
+        "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf",
+        "specialista-di-processo-e-responsabile-della-formazione-cromatografia-uomo-donna-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "process-specialist-training-leader-chromatography-a-neubau-gebaude-k-100-bachem-bubendorf",
           "specialista-processi-e-leader-formazione-cromatografia-uomo-donna-diverso-bachem-ag-bubendorf",
           "prozessspezialist-ausbildungsleiter-chromatographie-w-m-d-neubau-gebaude-k-100-bachem-ag-bubendorf",
-          "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf"
+          "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf",
+          "specialista-di-processo-e-responsabile-della-formazione-cromatografia-uomo-donna-bachem-ag-bubendorf"
         ],
         "de": [
           "process-specialist-training-leader-chromatography-a-neubau-gebaude-k-100-bachem-bubendorf"
@@ -2686,7 +2752,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Chemie-und-Pharmatechnologe-login-%28a%29-BL-4416/1419530733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:57.120Z",
+      "crawledAt": "2026-10-03T09:24:46.802Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2763,7 +2829,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Late-Phase-100-%28a%29-BL-4416/1386375033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:56.627Z",
+      "crawledAt": "2026-10-03T09:24:40.991Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2832,7 +2898,8 @@
         "associate-scientist-qc-a-100-bachem-bubendorf",
         "tecnico-di-laboratorio-qc-fase-iniziale-100-bachem-ag-bubendorf",
         "lab-technician-qc-early-phase-100-m-w-d-bachem-bubendorf",
-        "technicien-de-laboratoire-qc-phase-initiale-100-bachem-ag-bubendorf"
+        "technicien-de-laboratoire-qc-phase-initiale-100-bachem-ag-bubendorf",
+        "tecnico-di-laboratorio-qc-fase-tardiva-100-w-m-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2854,7 +2921,8 @@
           "associate-scientist-qc-a-100-bachem-bubendorf",
           "tecnico-di-laboratorio-qc-fase-iniziale-100-bachem-ag-bubendorf",
           "lab-technician-qc-late-phase-100-a-bachem-bubendorf",
-          "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf"
+          "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf",
+          "tecnico-di-laboratorio-qc-fase-tardiva-100-w-m-d-bachem-ag-bubendorf"
         ],
         "en": [
           "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
@@ -2888,7 +2956,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-244e05a23890",
@@ -2922,7 +2991,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Mechaniker-%28a%29%2C-100-mit-Option-auf-Schichtbetrieb-%28Fr%C3%BChSp%C3%A4tschicht%29-BL-4416/1427345433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:56.118Z",
+      "crawledAt": "2026-10-03T09:24:55.917Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2940,11 +3009,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-a-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+        "mechaniker-a-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+        "meccanico-a-100-con-opzione-sul-funzionamento-a-turni-cambio-anteriore-lato-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-a-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+          "mechaniker-a-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+          "meccanico-a-100-con-opzione-sul-funzionamento-a-turni-cambio-anteriore-lato-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-08-18T09:56:05.461Z",
@@ -2993,7 +3064,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-R&D-Scale-up-und-Kleinmengenproduktion-%28a%29%2C-100-BL-4416/1425043133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:55.627Z",
+      "crawledAt": "2026-10-03T09:24:42.649Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3068,7 +3139,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-zur-Logistikerin-EFZ%2C-Fachrichtung-Lager-%28a%29-BL-4416/1419046233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:55.127Z",
+      "crawledAt": "2026-10-03T09:24:56.497Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3086,11 +3157,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-zur-logistiker-in-efz-fachrichtung-lager-a-bachem-bubendorf"
+        "lehrstelle-zur-logistiker-in-efz-fachrichtung-lager-a-bachem-bubendorf",
+        "apprendistato-zur-logistiker-in-cfc-specializzazione-magazzino-a-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-zur-logistiker-in-efz-fachrichtung-lager-a-bachem-bubendorf"
+          "lehrstelle-zur-logistiker-in-efz-fachrichtung-lager-a-bachem-bubendorf",
+          "apprendistato-zur-logistiker-in-cfc-specializzazione-magazzino-a-bachem-ag-bubendorf"
         ],
         "en": [
           "lehrstelle-zur-logistiker-in-efz-fachrichtung-lager-a-bachem-bubendorf"
@@ -3146,7 +3219,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Laborantin-Fachrichtung-Chemie-%28a%29-BL-4416/1419532933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:54.626Z",
+      "crawledAt": "2026-10-03T09:24:51.343Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3164,11 +3237,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertag-laborant-in-fachrichtung-chemie-a-bachem-bubendorf"
+        "schnuppertag-laborant-in-fachrichtung-chemie-a-bachem-bubendorf",
+        "schnuppertag-laborant-in-specializzazione-chemie-a-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnuppertag-laborant-in-fachrichtung-chemie-a-bachem-bubendorf"
+          "schnuppertag-laborant-in-fachrichtung-chemie-a-bachem-bubendorf",
+          "schnuppertag-laborant-in-specializzazione-chemie-a-bachem-ag-bubendorf"
         ],
         "en": [
           "schnuppertag-laborant-in-fachrichtung-chemie-a-bachem-bubendorf"
@@ -3224,7 +3299,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Chemie-und-Pharmatechnologe-in-mit-dem-Schwerpunkt-Chemietechnologie-%28a%29-BL-4416/1419045933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:54.144Z",
+      "crawledAt": "2026-10-03T09:24:43.222Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3242,11 +3317,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-chemie-und-pharmatechnologe-in-mit-dem-schwerpunkt-chemietechnologie-a"
+        "lehrstelle-als-chemie-und-pharmatechnologe-in-mit-dem-schwerpunkt-chemietechnologie-a",
+        "apprendistato-come-chemie-e-pharmatechnologe-in-con-dem-schwerpunkt-chemietechnologie-a-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-chemie-und-pharmatechnologe-in-mit-dem-schwerpunkt-chemietechnologie-a"
+          "lehrstelle-als-chemie-und-pharmatechnologe-in-mit-dem-schwerpunkt-chemietechnologie-a",
+          "apprendistato-come-chemie-e-pharmatechnologe-in-con-dem-schwerpunkt-chemietechnologie-a-bachem-ag-bubendorf"
         ],
         "en": [
           "lehrstelle-als-chemie-und-pharmatechnologe-in-mit-dem-schwerpunkt-chemietechnologie-a"
@@ -3302,7 +3379,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-KauffrauKaufmann-%28Branche-Dienstleistung-&-Administration%29%2C-%28a%29-BL-4416/1419046733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:10.729Z",
+      "crawledAt": "2026-10-03T09:24:58.170Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3320,11 +3397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-bubendorf"
+        "lehrstelle-als-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-bubendorf",
+        "apprendistato-come-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-bubendorf"
+          "lehrstelle-als-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-bubendorf",
+          "apprendistato-come-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-ag-bubendorf"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-branche-dienstleistung-administration-a-bachem-bubendorf"
@@ -3380,7 +3459,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Laborantin-Laborant-EFZ-Fachrichtung-Chemie-mit-Schwerpunkt-Synthese-oder-Analytik-BL-4416/1419038933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:53.633Z",
+      "crawledAt": "2026-10-03T09:24:50.788Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3398,11 +3477,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-laborantin-laborant-efz-fachrichtung-chemie-mit-schwerpunkt-synthese-oder"
+        "lehrstelle-als-laborantin-laborant-efz-fachrichtung-chemie-mit-schwerpunkt-synthese-oder",
+        "apprendistato-come-laborantin-laborant-cfc-specializzazione-chemie-con-schwerpunkt-synthese-o-analytik-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-laborantin-laborant-efz-fachrichtung-chemie-mit-schwerpunkt-synthese-oder"
+          "lehrstelle-als-laborantin-laborant-efz-fachrichtung-chemie-mit-schwerpunkt-synthese-oder",
+          "apprendistato-come-laborantin-laborant-cfc-specializzazione-chemie-con-schwerpunkt-synthese-o-analytik-bachem-ag-bubendorf"
         ],
         "en": [
           "lehrstelle-als-laborantin-laborant-efz-fachrichtung-chemie-mit-schwerpunkt-synthese-oder"
@@ -3458,7 +3539,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemikantin-als-Production-Technician-Oligonucleotide-Prod_-II-%28a%29%2C-100-BL-4416/1159225101/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:53.128Z",
+      "crawledAt": "2026-10-03T09:24:39.817Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3512,13 +3593,15 @@
         "chemikant-in-als-production-technician-oligonucleotide-prod-ii-a-100-bachem-bubendorf",
         "chemikant-in-als-produktionstechniker-oligonukleotid-produktion-ii-w-m-d-100-bachem-ag-bubendorf",
         "technicien-de-production-en-tant-que-production-technician-oligonucleotide-prod-ii-w-m-d-100-bachem-ag-bubendorf",
-        "chemikant-in-als-production-technicien-oligonucleotide-prod-ii-w-m-d-100-bachem-ag-bubendorf"
+        "chemikant-in-als-production-technicien-oligonucleotide-prod-ii-w-m-d-100-bachem-ag-bubendorf",
+        "tecnico-di-produzione-chimico-farmaceutico-oligonucleotidi-ii-m-f-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chemikant-in-als-production-technician-oligonucleotide-prod-ii-w-m-d-100-bachem-bubendorf",
           "tecnico-a-di-produzione-come-production-technician-oligonucleotide-prod-ii-w-m-d-100-bachem-ag-bubendorf",
-          "chemikant-in-als-production-technician-oligonucleotide-prod-ii-a-100-bachem-bubendorf"
+          "chemikant-in-als-production-technician-oligonucleotide-prod-ii-a-100-bachem-bubendorf",
+          "tecnico-di-produzione-chimico-farmaceutico-oligonucleotidi-ii-m-f-d-100-bachem-ag-bubendorf"
         ],
         "de": [
           "chemikant-in-als-produktionstechniker-oligonukleotid-produktion-ii-w-m-d-100-bachem-ag-bubendorf"
@@ -3574,7 +3657,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Production-Technician-Oligo-Prod_-I-%28a%29%2C-100-BL-4416/1189349201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:52.596Z",
+      "crawledAt": "2026-10-03T09:24:39.243Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3626,13 +3709,15 @@
         "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf",
         "tecnico-di-produzione-oligo-prod-i-uomo-donna-bachem-ag-bubendorf",
         "production-technician-oligo-prod-i-a-100-bachem-bubendorf",
-        "produktionstechniker-oligo-prod-ich-w-m-d-zu-100-bachem-ag-bubendorf"
+        "produktionstechniker-oligo-prod-ich-w-m-d-zu-100-bachem-ag-bubendorf",
+        "operatore-produttivo-oligonucleotidi-m-f-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf",
           "tecnico-di-produzione-oligo-prod-i-uomo-donna-bachem-ag-bubendorf",
-          "production-technician-oligo-prod-i-a-100-bachem-bubendorf"
+          "production-technician-oligo-prod-i-a-100-bachem-bubendorf",
+          "operatore-produttivo-oligonucleotidi-m-f-d-100-bachem-ag-bubendorf"
         ],
         "de": [
           "produktionstechniker-oligo-prod-ich-w-m-d-zu-100-bachem-ag-bubendorf"
@@ -3654,7 +3739,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-c1f84e5dd203",
@@ -3688,7 +3774,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Construction-Management-Lead-%28a%29%2C-100-BL-4416/1398896633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:52.103Z",
+      "crawledAt": "2026-10-03T09:24:38.697Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3707,12 +3793,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "construction-management-lead-f-m-d-100-bachem-bubendorf",
-        "construction-management-lead-a-100-bachem-bubendorf"
+        "construction-management-lead-a-100-bachem-bubendorf",
+        "gestione-delle-costruzioni-lead-f-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "construction-management-lead-f-m-d-100-bachem-bubendorf",
-          "construction-management-lead-a-100-bachem-bubendorf"
+          "construction-management-lead-a-100-bachem-bubendorf",
+          "gestione-delle-costruzioni-lead-f-m-d-100-bachem-ag-bubendorf"
         ],
         "fr": [
           "construction-management-lead-f-m-d-100-bachem-bubendorf"
@@ -3765,7 +3853,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Commissioning-&-Qualification-%28C&Q%29-Lead-%28a%29%2C-100-BL-4416/1398900433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:51.631Z",
+      "crawledAt": "2026-10-03T09:24:38.147Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3828,7 +3916,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Project-Manager-Automation-%28a%29%2C-100-AG-4332/1398906233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:51.080Z",
+      "crawledAt": "2026-10-03T09:24:34.317Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3858,7 +3946,16 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "senior-process-automation-engineer-dsp-f-m-d-100-bachem-stein-ag"
+        ]
+      },
+      "previousSlugs": [
+        "senior-process-automation-engineer-dsp-f-m-d-100-bachem-stein-ag"
+      ]
     },
     {
       "id": "bachem-62b53ee6a91e",
@@ -3891,7 +3988,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Master-Data-Management-&-Governance-Specialist-%28a%29%2C-80-100-AG-4332/1443088533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:50.660Z",
+      "crawledAt": "2026-10-03T09:24:37.063Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3908,7 +4005,6 @@
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1443088533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-01T09:24:04.619Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -3921,7 +4017,9 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:24:04.619Z",
+      "needsRetranslation": true
     },
     {
       "id": "bachem-782fd5555a18",
@@ -3955,7 +4053,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Commissioning-&-Qualification-Engineer-Sisslerfeld-%28a%29%2C-100-AG-4332/1378356333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:50.140Z",
+      "crawledAt": "2026-10-03T09:24:35.515Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3973,11 +4071,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-commissioning-qualification-engineer-sisslerfeld-a-100-bachem-stein-ag"
+        "senior-commissioning-qualification-engineer-sisslerfeld-a-100-bachem-stein-ag",
+        "ingegnere-senior-di-avviamento-e-qualificazione-sisslerfeld-f-m-d-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-commissioning-qualification-engineer-sisslerfeld-a-100-bachem-stein-ag"
+          "senior-commissioning-qualification-engineer-sisslerfeld-a-100-bachem-stein-ag",
+          "ingegnere-senior-di-avviamento-e-qualificazione-sisslerfeld-f-m-d-100-bachem-ag-stein-ag"
         ],
         "en": [
           "senior-commissioning-qualification-engineer-sisslerfeld-a-100-bachem-stein-ag"
@@ -4030,7 +4130,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Data-Engineer-%28a%29%2C-80-100-AG-4332/1437412233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:49.598Z",
+      "crawledAt": "2026-10-03T09:24:37.599Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4048,11 +4148,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "data-engineer-a-80-100-bachem-stein-ag"
+        "data-engineer-a-80-100-bachem-stein-ag",
+        "data-ingegnere-a-80-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-a-80-100-bachem-stein-ag"
+          "data-engineer-a-80-100-bachem-stein-ag",
+          "data-ingegnere-a-80-100-bachem-ag-stein-ag"
         ],
         "de": [
           "data-engineer-a-80-100-bachem-stein-ag"
@@ -4108,7 +4210,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-SAP-Solution-&-Implementation-Lead-%28a%29%2C-80-100-AG-4332/1404096933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:49.147Z",
+      "crawledAt": "2026-10-03T09:24:35.938Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4126,11 +4228,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-solution-implementation-lead-a-80-100-bachem-stein-ag"
+        "sap-solution-implementation-lead-a-80-100-bachem-stein-ag",
+        "responsabile-soluzione-e-implementazione-sap-a-80-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-solution-implementation-lead-a-80-100-bachem-stein-ag"
+          "sap-solution-implementation-lead-a-80-100-bachem-stein-ag",
+          "responsabile-soluzione-e-implementazione-sap-a-80-100-bachem-ag-stein-ag"
         ]
       },
       "firstSeenAt": "2026-06-13T10:28:07.820Z",
@@ -4180,7 +4284,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-ITOT-Network-&-Infrastructure-Engineer-%28a%29%2C-80-100-AG-4332/1404097333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:48.650Z",
+      "crawledAt": "2026-10-03T09:24:36.540Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4233,8 +4337,8 @@
       },
       "description": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nTo drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated MES System Engineer (a), 80 - 100%.\n\nYour Tasks:\n\n• Lead the full lifecycle management of the Körber PAS-X Manufacturing Execution System (MES), including solution design, configuration, deployment, validation, maintenance, and continuous improvement\n\n• Support the design and implementation of next-generation MES architectures aligned with smart manufacturing, digital plant strategies, and Pharma 4.0 initiatives\n\n• Drive MES activities across the new facility startup lifecycle, from project design and commissioning through qualification, go-live, and commercial manufacturing operations\n\n• Collaborate with manufacturing, automation, IT/OT, quality, engineering, and global digital teams to define and implement scalable PAS-X solutions\n\n• Translate business and manufacturing process requirements into robust MES functional and technical designs\n\n• Ensure high system availability, reliability, and performance for GMP-regulated manufacturing environments, including on-call and operational support where required\n\n• Manage change control, deviation investigations, incident management, and problem resolution in close collaboration with IT, operations, and system vendors\n\n• Support integration of PAS-X with enterprise and shopfloor systems including ERP, LIMS, Historians, Automation and integration platforms\n\n• Contribute to MES platform standardization, template strategies, and deployment methodologies across global manufacturing sites\n\n• Maintain GMP-compliant documentation throughout the system lifecycle, including specifications, risk assessments, validation deliverables, and operational procedures\n\n• Act as MES Subject Matter Expert (SME) during audits, inspections, qualification activities, and regulatory interactions\n\n• Support commissioning, qualification, and computerized system validation (CSV/CSA) activities in accordance with GAMP5 and data integrity requirements\n\nYour Profile:\n\n• Bachelor’s or Master’s degree in Automation Engineering, Information Technology, Computer Science, Pharmaceutical Engineering, or a related technical discipline\n\n• 4 – 6 years of strong hands-on experience with Körber PAS-X MES in regulated pharmaceutical or biotech manufacturing environments\n\n• Proven experience supporting MES implementation projects for new manufacturing facilities, site expansions, or large-scale digital transformation programs\n\n• Solid understanding of next-generation MES/IT-OT architectures, system integrations, and smart factory concepts\n\n• Experience with PAS-X modules such as electronic batch records (EBR), materials management, weigh & dispense, workflow design, and master batch record modeling is highly desirable\n\n• Administer a 24/7 operational MES System, ensuring high availability, reliability, performance, and disaster recovery readiness.\n\n• Knowledge of system integration technologies, infrastructure, networking, virtualization, and cybersecurity within GMP manufacturing environments\n\n• Experience with computerized system validation (CSV/CSA), data integrity, and regulatory compliance requirements including GAMP5, Annex 11, and 21 CFR Part 11\n\n• Strong understanding of pharmaceutical manufacturing processes, commissioning and qualification activities, and operational readiness for facility startup\n\n• Excellent stakeholder management, communication, and cross-functional collaboration skills\n\n• Strong analytical and problem-solving capabilities with the ability to operate effectively in fast-paced project and operational environments\n\n• Fluent in English; German language skills are highly desirable\n\nOur offer\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platform with discounts from external partners\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our new location in Stein!",
       "descriptionByLocale": {
-        "it": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nTo drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated MES System Engineer (a), 80 - 100%.\n\nYour Tasks:\n\n• Lead the full lifecycle management of the Körber PAS-X Manufacturing Execution System (MES), including solution design, configuration, deployment, validation, maintenance, and continuous improvement\n\n• Support the design and implementation of next-generation MES architectures aligned with smart manufacturing, digital plant strategies, and Pharma 4.0 initiatives\n\n• Drive MES activities across the new facility startup lifecycle, from project design and commissioning through qualification, go-live, and commercial manufacturing operations\n\n• Collaborate with manufacturing, automation, IT/OT, quality, engineering, and global digital teams to define and implement scalable PAS-X solutions\n\n• Translate business and manufacturing process requirements into robust MES functional and technical designs\n\n• Ensure high system availability, reliability, and performance for GMP-regulated manufacturing environments, including on-call and operational support where required\n\n• Manage change control, deviation investigations, incident management, and problem resolution in close collaboration with IT, operations, and system vendors\n\n• Support integration of PAS-X with enterprise and shopfloor systems including ERP, LIMS, Historians, Automation and integration platforms\n\n• Contribute to MES platform standardization, template strategies, and deployment methodologies across global manufacturing sites\n\n• Maintain GMP-compliant documentation throughout the system lifecycle, including specifications, risk assessments, validation deliverables, and operational procedures\n\n• Act as MES Subject Matter Expert (SME) during audits, inspections, qualification activities, and regulatory interactions\n\n• Support commissioning, qualification, and computerized system validation (CSV/CSA) activities in accordance with GAMP5 and data integrity requirements\n\nYour Profile:\n\n• Bachelor’s or Master’s degree in Automation Engineering, Information Technology, Computer Science, Pharmaceutical Engineering, or a related technical discipline\n\n• 4 – 6 years of strong hands-on experience with Körber PAS-X MES in regulated pharmaceutical or biotech manufacturing environments\n\n• Proven experience supporting MES implementation projects for new manufacturing facilities, site expansions, or large-scale digital transformation programs\n\n• Solid understanding of next-generation MES/IT-OT architectures, system integrations, and smart factory concepts\n\n• Experience with PAS-X modules such as electronic batch records (EBR), materials management, weigh & dispense, workflow design, and master batch record modeling is highly desirable\n\n• Administer a 24/7 operational MES System, ensuring high availability, reliability, performance, and disaster recovery readiness.\n\n• Knowledge of system integration technologies, infrastructure, networking, virtualization, and cybersecurity within GMP manufacturing environments\n\n• Experience with computerized system validation (CSV/CSA), data integrity, and regulatory compliance requirements including GAMP5, Annex 11, and 21 CFR Part 11\n\n• Strong understanding of pharmaceutical manufacturing processes, commissioning and qualification activities, and operational readiness for facility startup\n\n• Excellent stakeholder management, communication, and cross-functional collaboration skills\n\n• Strong analytical and problem-solving capabilities with the ability to operate effectively in fast-paced project and operational environments\n\n• Fluent in English; German language skills are highly desirable\n\nOur offer\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platform with discounts from external partners\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our new location in Stein!",
         "en": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nTo drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated MES System Engineer (a), 80 - 100%.\n\nYour Tasks:\n\n• Lead the full lifecycle management of the Körber PAS-X Manufacturing Execution System (MES), including solution design, configuration, deployment, validation, maintenance, and continuous improvement\n\n• Support the design and implementation of next-generation MES architectures aligned with smart manufacturing, digital plant strategies, and Pharma 4.0 initiatives\n\n• Drive MES activities across the new facility startup lifecycle, from project design and commissioning through qualification, go-live, and commercial manufacturing operations\n\n• Collaborate with manufacturing, automation, IT/OT, quality, engineering, and global digital teams to define and implement scalable PAS-X solutions\n\n• Translate business and manufacturing process requirements into robust MES functional and technical designs\n\n• Ensure high system availability, reliability, and performance for GMP-regulated manufacturing environments, including on-call and operational support where required\n\n• Manage change control, deviation investigations, incident management, and problem resolution in close collaboration with IT, operations, and system vendors\n\n• Support integration of PAS-X with enterprise and shopfloor systems including ERP, LIMS, Historians, Automation and integration platforms\n\n• Contribute to MES platform standardization, template strategies, and deployment methodologies across global manufacturing sites\n\n• Maintain GMP-compliant documentation throughout the system lifecycle, including specifications, risk assessments, validation deliverables, and operational procedures\n\n• Act as MES Subject Matter Expert (SME) during audits, inspections, qualification activities, and regulatory interactions\n\n• Support commissioning, qualification, and computerized system validation (CSV/CSA) activities in accordance with GAMP5 and data integrity requirements\n\nYour Profile:\n\n• Bachelor’s or Master’s degree in Automation Engineering, Information Technology, Computer Science, Pharmaceutical Engineering, or a related technical discipline\n\n• 4 – 6 years of strong hands-on experience with Körber PAS-X MES in regulated pharmaceutical or biotech manufacturing environments\n\n• Proven experience supporting MES implementation projects for new manufacturing facilities, site expansions, or large-scale digital transformation programs\n\n• Solid understanding of next-generation MES/IT-OT architectures, system integrations, and smart factory concepts\n\n• Experience with PAS-X modules such as electronic batch records (EBR), materials management, weigh & dispense, workflow design, and master batch record modeling is highly desirable\n\n• Administer a 24/7 operational MES System, ensuring high availability, reliability, performance, and disaster recovery readiness.\n\n• Knowledge of system integration technologies, infrastructure, networking, virtualization, and cybersecurity within GMP manufacturing environments\n\n• Experience with computerized system validation (CSV/CSA), data integrity, and regulatory compliance requirements including GAMP5, Annex 11, and 21 CFR Part 11\n\n• Strong understanding of pharmaceutical manufacturing processes, commissioning and qualification activities, and operational readiness for facility startup\n\n• Excellent stakeholder management, communication, and cross-functional collaboration skills\n\n• Strong analytical and problem-solving capabilities with the ability to operate effectively in fast-paced project and operational environments\n\n• Fluent in English; German language skills are highly desirable\n\nOur offer\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platform with discounts from external partners\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our new location in Stein!",
+        "it": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nTo drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated MES System Engineer (a), 80 - 100%.\n\nYour Tasks:\n\n• Lead the full lifecycle management of the Körber PAS-X Manufacturing Execution System (MES), including solution design, configuration, deployment, validation, maintenance, and continuous improvement\n\n• Support the design and implementation of next-generation MES architectures aligned with smart manufacturing, digital plant strategies, and Pharma 4.0 initiatives\n\n• Drive MES activities across the new facility startup lifecycle, from project design and commissioning through qualification, go-live, and commercial manufacturing operations\n\n• Collaborate with manufacturing, automation, IT/OT, quality, engineering, and global digital teams to define and implement scalable PAS-X solutions\n\n• Translate business and manufacturing process requirements into robust MES functional and technical designs\n\n• Ensure high system availability, reliability, and performance for GMP-regulated manufacturing environments, including on-call and operational support where required\n\n• Manage change control, deviation investigations, incident management, and problem resolution in close collaboration with IT, operations, and system vendors\n\n• Support integration of PAS-X with enterprise and shopfloor systems including ERP, LIMS, Historians, Automation and integration platforms\n\n• Contribute to MES platform standardization, template strategies, and deployment methodologies across global manufacturing sites\n\n• Maintain GMP-compliant documentation throughout the system lifecycle, including specifications, risk assessments, validation deliverables, and operational procedures\n\n• Act as MES Subject Matter Expert (SME) during audits, inspections, qualification activities, and regulatory interactions\n\n• Support commissioning, qualification, and computerized system validation (CSV/CSA) activities in accordance with GAMP5 and data integrity requirements\n\nYour Profile:\n\n• Bachelor’s or Master’s degree in Automation Engineering, Information Technology, Computer Science, Pharmaceutical Engineering, or a related technical discipline\n\n• 4 – 6 years of strong hands-on experience with Körber PAS-X MES in regulated pharmaceutical or biotech manufacturing environments\n\n• Proven experience supporting MES implementation projects for new manufacturing facilities, site expansions, or large-scale digital transformation programs\n\n• Solid understanding of next-generation MES/IT-OT architectures, system integrations, and smart factory concepts\n\n• Experience with PAS-X modules such as electronic batch records (EBR), materials management, weigh & dispense, workflow design, and master batch record modeling is highly desirable\n\n• Administer a 24/7 operational MES System, ensuring high availability, reliability, performance, and disaster recovery readiness.\n\n• Knowledge of system integration technologies, infrastructure, networking, virtualization, and cybersecurity within GMP manufacturing environments\n\n• Experience with computerized system validation (CSV/CSA), data integrity, and regulatory compliance requirements including GAMP5, Annex 11, and 21 CFR Part 11\n\n• Strong understanding of pharmaceutical manufacturing processes, commissioning and qualification activities, and operational readiness for facility startup\n\n• Excellent stakeholder management, communication, and cross-functional collaboration skills\n\n• Strong analytical and problem-solving capabilities with the ability to operate effectively in fast-paced project and operational environments\n\n• Fluent in English; German language skills are highly desirable\n\nOur offer\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platform with discounts from external partners\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our new location in Stein!",
         "de": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nTo drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated MES System Engineer (a), 80 - 100%.\n\nYour Tasks:\n\n• Lead the full lifecycle management of the Körber PAS-X Manufacturing Execution System (MES), including solution design, configuration, deployment, validation, maintenance, and continuous improvement\n\n• Support the design and implementation of next-generation MES architectures aligned with smart manufacturing, digital plant strategies, and Pharma 4.0 initiatives\n\n• Drive MES activities across the new facility startup lifecycle, from project design and commissioning through qualification, go-live, and commercial manufacturing operations\n\n• Collaborate with manufacturing, automation, IT/OT, quality, engineering, and global digital teams to define and implement scalable PAS-X solutions\n\n• Translate business and manufacturing process requirements into robust MES functional and technical designs\n\n• Ensure high system availability, reliability, and performance for GMP-regulated manufacturing environments, including on-call and operational support where required\n\n• Manage change control, deviation investigations, incident management, and problem resolution in close collaboration with IT, operations, and system vendors\n\n• Support integration of PAS-X with enterprise and shopfloor systems including ERP, LIMS, Historians, Automation and integration platforms\n\n• Contribute to MES platform standardization, template strategies, and deployment methodologies across global manufacturing sites\n\n• Maintain GMP-compliant documentation throughout the system lifecycle, including specifications, risk assessments, validation deliverables, and operational procedures\n\n• Act as MES Subject Matter Expert (SME) during audits, inspections, qualification activities, and regulatory interactions\n\n• Support commissioning, qualification, and computerized system validation (CSV/CSA) activities in accordance with GAMP5 and data integrity requirements\n\nYour Profile:\n\n• Bachelor’s or Master’s degree in Automation Engineering, Information Technology, Computer Science, Pharmaceutical Engineering, or a related technical discipline\n\n• 4 – 6 years of strong hands-on experience with Körber PAS-X MES in regulated pharmaceutical or biotech manufacturing environments\n\n• Proven experience supporting MES implementation projects for new manufacturing facilities, site expansions, or large-scale digital transformation programs\n\n• Solid understanding of next-generation MES/IT-OT architectures, system integrations, and smart factory concepts\n\n• Experience with PAS-X modules such as electronic batch records (EBR), materials management, weigh & dispense, workflow design, and master batch record modeling is highly desirable\n\n• Administer a 24/7 operational MES System, ensuring high availability, reliability, performance, and disaster recovery readiness.\n\n• Knowledge of system integration technologies, infrastructure, networking, virtualization, and cybersecurity within GMP manufacturing environments\n\n• Experience with computerized system validation (CSV/CSA), data integrity, and regulatory compliance requirements including GAMP5, Annex 11, and 21 CFR Part 11\n\n• Strong understanding of pharmaceutical manufacturing processes, commissioning and qualification activities, and operational readiness for facility startup\n\n• Excellent stakeholder management, communication, and cross-functional collaboration skills\n\n• Strong analytical and problem-solving capabilities with the ability to operate effectively in fast-paced project and operational environments\n\n• Fluent in English; German language skills are highly desirable\n\nOur offer\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platform with discounts from external partners\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our new location in Stein!",
         "fr": "The Bachem Group is investing in a new planned site in Sisslerfeld in Northwestern Switzerland. This step is part of the long-term strategy to expand production capacity by the end of the decade. The new production site will play a central role in achieving these goals. The design phase of the project offers you unique opportunities to shape the future organization.\n\nTo drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen our team in Global IT, we are looking for a dedicated MES System Engineer (a), 80 - 100%.\n\nYour Tasks:\n\n• Lead the full lifecycle management of the Körber PAS-X Manufacturing Execution System (MES), including solution design, configuration, deployment, validation, maintenance, and continuous improvement\n\n• Support the design and implementation of next-generation MES architectures aligned with smart manufacturing, digital plant strategies, and Pharma 4.0 initiatives\n\n• Drive MES activities across the new facility startup lifecycle, from project design and commissioning through qualification, go-live, and commercial manufacturing operations\n\n• Collaborate with manufacturing, automation, IT/OT, quality, engineering, and global digital teams to define and implement scalable PAS-X solutions\n\n• Translate business and manufacturing process requirements into robust MES functional and technical designs\n\n• Ensure high system availability, reliability, and performance for GMP-regulated manufacturing environments, including on-call and operational support where required\n\n• Manage change control, deviation investigations, incident management, and problem resolution in close collaboration with IT, operations, and system vendors\n\n• Support integration of PAS-X with enterprise and shopfloor systems including ERP, LIMS, Historians, Automation and integration platforms\n\n• Contribute to MES platform standardization, template strategies, and deployment methodologies across global manufacturing sites\n\n• Maintain GMP-compliant documentation throughout the system lifecycle, including specifications, risk assessments, validation deliverables, and operational procedures\n\n• Act as MES Subject Matter Expert (SME) during audits, inspections, qualification activities, and regulatory interactions\n\n• Support commissioning, qualification, and computerized system validation (CSV/CSA) activities in accordance with GAMP5 and data integrity requirements\n\nYour Profile:\n\n• Bachelor’s or Master’s degree in Automation Engineering, Information Technology, Computer Science, Pharmaceutical Engineering, or a related technical discipline\n\n• 4 – 6 years of strong hands-on experience with Körber PAS-X MES in regulated pharmaceutical or biotech manufacturing environments\n\n• Proven experience supporting MES implementation projects for new manufacturing facilities, site expansions, or large-scale digital transformation programs\n\n• Solid understanding of next-generation MES/IT-OT architectures, system integrations, and smart factory concepts\n\n• Experience with PAS-X modules such as electronic batch records (EBR), materials management, weigh & dispense, workflow design, and master batch record modeling is highly desirable\n\n• Administer a 24/7 operational MES System, ensuring high availability, reliability, performance, and disaster recovery readiness.\n\n• Knowledge of system integration technologies, infrastructure, networking, virtualization, and cybersecurity within GMP manufacturing environments\n\n• Experience with computerized system validation (CSV/CSA), data integrity, and regulatory compliance requirements including GAMP5, Annex 11, and 21 CFR Part 11\n\n• Strong understanding of pharmaceutical manufacturing processes, commissioning and qualification activities, and operational readiness for facility startup\n\n• Excellent stakeholder management, communication, and cross-functional collaboration skills\n\n• Strong analytical and problem-solving capabilities with the ability to operate effectively in fast-paced project and operational environments\n\n• Fluent in English; German language skills are highly desirable\n\nOur offer\n\n• A dynamic and rapidly growing work environment with internal development opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Employee development through numerous internal and external training opportunities\n\n• 60% coverage of pension fund contributions by Bachem as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platform with discounts from external partners\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our new location in Stein!"
       },
@@ -4244,7 +4348,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-MES-System-Engineer-%28a%29%2C-80-100-AG-4332/1402497333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:48.135Z",
+      "crawledAt": "2026-10-03T09:24:34.965Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4257,7 +4361,7 @@
       "sector": "Biotecnologia / Farmaceutica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1402497333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {
@@ -4310,7 +4414,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-Peptidwirkstoffe-R&D-Flow-Chemie-%28a%29%2C-100-BL-4416/1437578833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:47.130Z",
+      "crawledAt": "2026-10-03T09:24:30.753Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4333,7 +4437,8 @@
         "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
         "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf",
         "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf",
-        "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
+        "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
+        "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4341,7 +4446,8 @@
           "chemiker-optimierungs-e-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-ag-bubendorf",
           "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
           "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf",
-          "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf"
+          "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf",
+          "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
         ],
         "en": [
           "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
@@ -4401,7 +4507,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-External-Supply-QA-%28a%29-100-%28temporary%2C-12-month%29-BL-4416/1438103933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:46.647Z",
+      "crawledAt": "2026-10-03T09:24:28.980Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4419,11 +4525,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-external-supply-qa-a-100-temporary-12-month-bachem-bubendorf"
+        "manager-external-supply-qa-a-100-temporary-12-month-bachem-bubendorf",
+        "manager-fornitura-esterna-qa-a-100-temporanea-12-mesi-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-external-supply-qa-a-100-temporary-12-month-bachem-bubendorf"
+          "manager-external-supply-qa-a-100-temporary-12-month-bachem-bubendorf",
+          "manager-fornitura-esterna-qa-a-100-temporanea-12-mesi-bachem-ag-bubendorf"
         ],
         "de": [
           "manager-external-supply-qa-a-100-temporary-12-month-bachem-bubendorf"
@@ -4445,7 +4553,8 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bachem-dcde6cb5863f",
@@ -4479,7 +4588,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Manager-Global-QMS-Transformation-%28a%29-100-BL-4416/1410380233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:46.149Z",
+      "crawledAt": "2026-10-03T09:24:28.433Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4497,11 +4606,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-global-qms-transformation-a-100-bachem-bubendorf"
+        "senior-manager-global-qms-transformation-a-100-bachem-bubendorf",
+        "senior-manager-trasformazione-globale-qms-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-global-qms-transformation-a-100-bachem-bubendorf"
+          "senior-manager-global-qms-transformation-a-100-bachem-bubendorf",
+          "senior-manager-trasformazione-globale-qms-a-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-07-01T21:49:04.588Z",
@@ -4524,7 +4635,7 @@
       "slug": "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "it": "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf",
-        "en": "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe",
+        "en": "it-service-delivery-manager-a-80-100-bachem-bubendorf",
         "de": "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe",
         "fr": "gestionnaire-de-la-prestation-des-services-de-ti-a-80-100-bachem-ag-bubendorf"
       },
@@ -4551,7 +4662,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-IT-Service-Delivery-Manager-%28a%29%2C-80-100-BL-4416/1409903633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:45.723Z",
+      "crawledAt": "2026-10-03T09:24:32.187Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4568,21 +4679,25 @@
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1409903633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "it-service-delivery-manager-a-80-100-bachem-bubendorf"
-      ],
+      "firstSeenAt": "2026-06-30T21:50:15.993Z",
       "previousSlugsByLocale": {
         "en": [
+          "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe",
           "it-service-delivery-manager-a-80-100-bachem-bubendorf"
         ],
         "it": [
-          "it-service-delivery-manager-a-80-100-bachem-bubendorf"
+          "it-service-delivery-manager-a-80-100-bachem-bubendorf",
+          "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf"
         ],
         "de": [
           "it-service-delivery-manager-a-80-100-bachem-bubendorf"
         ]
       },
-      "firstSeenAt": "2026-06-30T21:50:15.993Z",
+      "previousSlugs": [
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf-cpknhe",
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf",
+        "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf"
+      ],
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -4601,8 +4716,8 @@
       "id": "bachem-8fdf48587028",
       "slug": "manager-qa-projects-a-100-bachem-bubendorf",
       "slugByLocale": {
-        "it": "manager-qa-projects-a-100-bachem-bubendorf",
         "en": "manager-qa-projects-a-100-bachem-bubendorf",
+        "it": "manager-qa-projects-a-100-bachem-bubendorf",
         "de": "manager-qa-projects-a-100-bachem-bubendorf",
         "fr": "manager-qa-projects-a-100-bachem-bubendorf"
       },
@@ -4611,15 +4726,15 @@
       "companyDomain": "bachem.com",
       "title": "Manager QA Projects (a), 100%",
       "titleByLocale": {
-        "it": "Manager QA Projects (a), 100%",
         "en": "Manager QA Projects (a), 100%",
+        "it": "Manager QA Projects (a), 100%",
         "de": "Manager QA Projects (a), 100%",
         "fr": "Manager QA Projects (a), 100%"
       },
       "description": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen Quality Assurance team, we are looking for a dedicated and experienced Manager QA Projects (a), 100%.\n\nYour tasks:\n\n• Represent QA in product-related projects at the Bubendorf site.\n\n• Assess and make decisions on QA-relevant topics within individual projects.\n\n• Coordinate project-specific tasks within QA departments and act as a key contact for other departments (e.g., Production, Quality Control, Project Management) regarding cGMP compliance and troubleshooting.\n\n• Define control strategies and overall lifecycle strategies from GMP development through process validation to support commercial manufacturing.\n\n• Review and approve GMP documents, changes, deviation reports, and CAPAs.\n\n• Serve as the contact point for internal and external stakeholders on QA-related matters and represent QA in meetings between Bachem and clients.\n\nYour profile:\n\n• Master’s or Ph.D. in chemistry, biology, pharmacy, or a comparable technical field.\n\n• Minimum of 2 years of professional experience in project management and quality assurance within the chemical/pharmaceutical industry.\n\n• Strong understanding of QA topics, solid cGMP knowledge (EU-GMP, FDA), and experience in supporting process validations including risk management.\n\n• Structured and solution-oriented professional with a high level of comprehension and strong communication skills, capable of clearly conveying complex topics internally and externally.\n\n• A quick learner with a resilient, service-minded, and flexible personality who thrives in team environments and makes confident decisions.\n\n• Excellent verbal and written communication skills in both German and English.\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
       "descriptionByLocale": {
-        "it": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen Quality Assurance team, we are looking for a dedicated and experienced Manager QA Projects (a), 100%.\n\nYour tasks:\n\n• Represent QA in product-related projects at the Bubendorf site.\n\n• Assess and make decisions on QA-relevant topics within individual projects.\n\n• Coordinate project-specific tasks within QA departments and act as a key contact for other departments (e.g., Production, Quality Control, Project Management) regarding cGMP compliance and troubleshooting.\n\n• Define control strategies and overall lifecycle strategies from GMP development through process validation to support commercial manufacturing.\n\n• Review and approve GMP documents, changes, deviation reports, and CAPAs.\n\n• Serve as the contact point for internal and external stakeholders on QA-related matters and represent QA in meetings between Bachem and clients.\n\nYour profile:\n\n• Master’s or Ph.D. in chemistry, biology, pharmacy, or a comparable technical field.\n\n• Minimum of 2 years of professional experience in project management and quality assurance within the chemical/pharmaceutical industry.\n\n• Strong understanding of QA topics, solid cGMP knowledge (EU-GMP, FDA), and experience in supporting process validations including risk management.\n\n• Structured and solution-oriented professional with a high level of comprehension and strong communication skills, capable of clearly conveying complex topics internally and externally.\n\n• A quick learner with a resilient, service-minded, and flexible personality who thrives in team environments and makes confident decisions.\n\n• Excellent verbal and written communication skills in both German and English.\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
         "en": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen Quality Assurance team, we are looking for a dedicated and experienced Manager QA Projects (a), 100%.\n\nYour tasks:\n\n• Represent QA in product-related projects at the Bubendorf site.\n\n• Assess and make decisions on QA-relevant topics within individual projects.\n\n• Coordinate project-specific tasks within QA departments and act as a key contact for other departments (e.g., Production, Quality Control, Project Management) regarding cGMP compliance and troubleshooting.\n\n• Define control strategies and overall lifecycle strategies from GMP development through process validation to support commercial manufacturing.\n\n• Review and approve GMP documents, changes, deviation reports, and CAPAs.\n\n• Serve as the contact point for internal and external stakeholders on QA-related matters and represent QA in meetings between Bachem and clients.\n\nYour profile:\n\n• Master’s or Ph.D. in chemistry, biology, pharmacy, or a comparable technical field.\n\n• Minimum of 2 years of professional experience in project management and quality assurance within the chemical/pharmaceutical industry.\n\n• Strong understanding of QA topics, solid cGMP knowledge (EU-GMP, FDA), and experience in supporting process validations including risk management.\n\n• Structured and solution-oriented professional with a high level of comprehension and strong communication skills, capable of clearly conveying complex topics internally and externally.\n\n• A quick learner with a resilient, service-minded, and flexible personality who thrives in team environments and makes confident decisions.\n\n• Excellent verbal and written communication skills in both German and English.\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
+        "it": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen Quality Assurance team, we are looking for a dedicated and experienced Manager QA Projects (a), 100%.\n\nYour tasks:\n\n• Represent QA in product-related projects at the Bubendorf site.\n\n• Assess and make decisions on QA-relevant topics within individual projects.\n\n• Coordinate project-specific tasks within QA departments and act as a key contact for other departments (e.g., Production, Quality Control, Project Management) regarding cGMP compliance and troubleshooting.\n\n• Define control strategies and overall lifecycle strategies from GMP development through process validation to support commercial manufacturing.\n\n• Review and approve GMP documents, changes, deviation reports, and CAPAs.\n\n• Serve as the contact point for internal and external stakeholders on QA-related matters and represent QA in meetings between Bachem and clients.\n\nYour profile:\n\n• Master’s or Ph.D. in chemistry, biology, pharmacy, or a comparable technical field.\n\n• Minimum of 2 years of professional experience in project management and quality assurance within the chemical/pharmaceutical industry.\n\n• Strong understanding of QA topics, solid cGMP knowledge (EU-GMP, FDA), and experience in supporting process validations including risk management.\n\n• Structured and solution-oriented professional with a high level of comprehension and strong communication skills, capable of clearly conveying complex topics internally and externally.\n\n• A quick learner with a resilient, service-minded, and flexible personality who thrives in team environments and makes confident decisions.\n\n• Excellent verbal and written communication skills in both German and English.\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
         "de": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen Quality Assurance team, we are looking for a dedicated and experienced Manager QA Projects (a), 100%.\n\nYour tasks:\n\n• Represent QA in product-related projects at the Bubendorf site.\n\n• Assess and make decisions on QA-relevant topics within individual projects.\n\n• Coordinate project-specific tasks within QA departments and act as a key contact for other departments (e.g., Production, Quality Control, Project Management) regarding cGMP compliance and troubleshooting.\n\n• Define control strategies and overall lifecycle strategies from GMP development through process validation to support commercial manufacturing.\n\n• Review and approve GMP documents, changes, deviation reports, and CAPAs.\n\n• Serve as the contact point for internal and external stakeholders on QA-related matters and represent QA in meetings between Bachem and clients.\n\nYour profile:\n\n• Master’s or Ph.D. in chemistry, biology, pharmacy, or a comparable technical field.\n\n• Minimum of 2 years of professional experience in project management and quality assurance within the chemical/pharmaceutical industry.\n\n• Strong understanding of QA topics, solid cGMP knowledge (EU-GMP, FDA), and experience in supporting process validations including risk management.\n\n• Structured and solution-oriented professional with a high level of comprehension and strong communication skills, capable of clearly conveying complex topics internally and externally.\n\n• A quick learner with a resilient, service-minded, and flexible personality who thrives in team environments and makes confident decisions.\n\n• Excellent verbal and written communication skills in both German and English.\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!",
         "fr": "To drive our continuous organic growth, we are constantly looking for highly qualified professionals. To strengthen Quality Assurance team, we are looking for a dedicated and experienced Manager QA Projects (a), 100%.\n\nYour tasks:\n\n• Represent QA in product-related projects at the Bubendorf site.\n\n• Assess and make decisions on QA-relevant topics within individual projects.\n\n• Coordinate project-specific tasks within QA departments and act as a key contact for other departments (e.g., Production, Quality Control, Project Management) regarding cGMP compliance and troubleshooting.\n\n• Define control strategies and overall lifecycle strategies from GMP development through process validation to support commercial manufacturing.\n\n• Review and approve GMP documents, changes, deviation reports, and CAPAs.\n\n• Serve as the contact point for internal and external stakeholders on QA-related matters and represent QA in meetings between Bachem and clients.\n\nYour profile:\n\n• Master’s or Ph.D. in chemistry, biology, pharmacy, or a comparable technical field.\n\n• Minimum of 2 years of professional experience in project management and quality assurance within the chemical/pharmaceutical industry.\n\n• Strong understanding of QA topics, solid cGMP knowledge (EU-GMP, FDA), and experience in supporting process validations including risk management.\n\n• Structured and solution-oriented professional with a high level of comprehension and strong communication skills, capable of clearly conveying complex topics internally and externally.\n\n• A quick learner with a resilient, service-minded, and flexible personality who thrives in team environments and makes confident decisions.\n\n• Excellent verbal and written communication skills in both German and English.\n\nOur offer:\n\n• A dynamic and rapidly growing work environment with internal development and training opportunities\n\n• Flexible working hours with home office days and an option for obtaining additional vacation days through workload reduction\n\n• Company‑run daycare center on the Bachem Campus in Bubendorf\n\n• 60% coverage of pension fund contributions by Bachem AG as well as option for extra-mandatory pension provision with our Pension Plan Plus\n\n• Access to benefits platforms with discounts from external partners\n\n• Fresh, healthy and varied food in our staff restaurant\n\n• A wide range of free sports activities on the Bachem Campus\n\nWould you like to drive innovation together with us?\n\nWe look forward to receiving your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our exciting work environment at our location in Bubendorf!"
       },
@@ -4629,7 +4744,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-Projects-%28a%29%2C-100-BL-4416/1443374433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:45.334Z",
+      "crawledAt": "2026-10-03T09:24:30.185Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4648,7 +4763,7 @@
       "requirementsByLocale": {
         "en": []
       },
-      "firstSeenAt": "2026-10-02T21:19:45.334Z",
+      "firstSeenAt": "2026-10-03T09:24:30.185Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -4707,7 +4822,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Head-of-MES-&-PI-Competence-Center-%28a%29%2C-80-100-BL-4416/1441371333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:44.822Z",
+      "crawledAt": "2026-10-03T09:24:31.749Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4771,7 +4886,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Internship-Productivity-AI-%28a%29%2C-80-temporary-12-months-BL-4416/1439579533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:44.288Z",
+      "crawledAt": "2026-10-03T09:24:31.301Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4789,11 +4904,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-productivity-ai-a-80-temporary-12-months-bachem-bubendorf"
+        "internship-productivity-ai-a-80-temporary-12-months-bachem-bubendorf",
+        "produttivita-di-stage-ai-a-80-temporaneo-12-mesi-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-productivity-ai-a-80-temporary-12-months-bachem-bubendorf"
+          "internship-productivity-ai-a-80-temporary-12-months-bachem-bubendorf",
+          "produttivita-di-stage-ai-a-80-temporaneo-12-mesi-bachem-ag-bubendorf"
         ],
         "de": [
           "internship-productivity-ai-a-80-temporary-12-months-bachem-bubendorf"
@@ -4849,7 +4966,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Project-Procurement-Lead-%28a%29-100-Sisslerfeld-BL-4416/1431440133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:43.797Z",
+      "crawledAt": "2026-10-03T09:24:33.305Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4867,11 +4984,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-procurement-lead-a-100-sisslerfeld-bachem-bubendorf"
+        "senior-project-procurement-lead-a-100-sisslerfeld-bachem-bubendorf",
+        "responsabile-senior-procurement-del-progetto-a-al-100-sisslerfeld-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-procurement-lead-a-100-sisslerfeld-bachem-bubendorf"
+          "senior-project-procurement-lead-a-100-sisslerfeld-bachem-bubendorf",
+          "responsabile-senior-procurement-del-progetto-a-al-100-sisslerfeld-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:20.896Z",
@@ -4921,7 +5040,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-IT-Service-Delivery-Manager-%28a%29%2C-80-100-BL-4416/1409903533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:43.304Z",
+      "crawledAt": "2026-10-03T09:24:27.852Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4938,7 +5057,6 @@
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1409903533/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-30T21:50:15.408Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -4951,7 +5069,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-30T21:50:15.408Z"
     },
     {
       "id": "bachem-74aca1f1c5a8",
@@ -4985,7 +5104,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Data-Platform-Owner-Databricks-%28a%29%2C-80-100-BL-4416/1442345233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:47.633Z",
+      "crawledAt": "2026-10-03T09:24:32.744Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5002,18 +5121,20 @@
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1442345233/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "data-platform-owner-databricks-a-80-100-bachem-bubendorf"
-      ],
+      "firstSeenAt": "2026-09-29T21:22:55.495Z",
       "previousSlugsByLocale": {
         "it": [
-          "data-platform-owner-databricks-a-80-100-bachem-bubendorf"
+          "data-platform-owner-databricks-a-80-100-bachem-bubendorf",
+          "proprietario-della-piattaforma-dati-databricks-a-80-100-bachem-ag-bubendorf"
         ],
         "de": [
           "data-platform-owner-databricks-a-80-100-bachem-bubendorf"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:22:55.495Z",
+      "previousSlugs": [
+        "data-platform-owner-databricks-a-80-100-bachem-bubendorf",
+        "proprietario-della-piattaforma-dati-databricks-a-80-100-bachem-ag-bubendorf"
+      ],
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -5060,7 +5181,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-CAPEX-Controller-%28a%29%2C-100-BL-4416/1441606833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:42.785Z",
+      "crawledAt": "2026-10-03T09:24:33.877Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5124,7 +5245,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-IT-Enterprise-Architect%2C-Manufacturing-&-Operations-%28a%29%2C-80-100-BL-4416/1417171433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:42.168Z",
+      "crawledAt": "2026-10-03T09:24:29.542Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5313,7 +5434,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "bachem-7eba2a6d4d03",
