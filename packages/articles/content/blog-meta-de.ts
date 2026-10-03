@@ -12373,6 +12373,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guasto-treno-s50-busto-arsizio-2026.title': 'S50 Ausfall in Büste Arsizio: Fahrgäste gesperrt 3 Stunden',
     'blog.article.guasto-treno-s50-busto-arsizio-2026.excerpt': 'Am 29. September hielt ein Zug der S50 Malpensa-Bellinzona über drei Stunden lang 200 Meter vom Bahnhof entfernt an. Grünes Europa bittet Rfi und Trenord um Erklärungen.',
     'blog.article.guasto-treno-s50-busto-arsizio-2026.imageAlt': 'S50 Zug hält auf den Gleisen in der Nähe des Bahnhofs Busto Arsizio',
+    'blog.article.caos-a2-mezzovico-migliorie.title': 'Verkehrschaos vom 8 agosto: Arbeitsgruppe prüft Verbesserungen',
+    'blog.article.caos-a2-mezzovico-migliorie.excerpt': 'Nach mehr als vier Stunden Chaos im Luganese setzt die Kantonspolizei eine Arbeitsgruppe zur Sperrung der A2 in Mezzovico-Vira und zu den Verkehrsbehinderungen ein.',
+    'blog.article.caos-a2-mezzovico-migliorie.imageAlt': 'Verkehrsstau im Luganese nach der Sperrung der A2 bei Mezzovico-Vira',
 };
 
 export default blogMetaDe;

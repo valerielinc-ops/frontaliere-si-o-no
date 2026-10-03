@@ -12375,6 +12375,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guasto-treno-s50-busto-arsizio-2026.title': 'S50 guasto a Busto Arsizio: passeggeri bloccati 3 ore',
     'blog.article.guasto-treno-s50-busto-arsizio-2026.excerpt': 'Il 29 settembre un treno S50 Malpensa-Bellinzona è rimasto fermo per oltre tre ore a 200 metri dalla stazione. Europa Verde chiede spiegazioni a Rfi e Trenord.',
     'blog.article.guasto-treno-s50-busto-arsizio-2026.imageAlt': 'Treno S50 fermo sui binari vicino alla stazione di Busto Arsizio',
+    'blog.article.caos-a2-mezzovico-migliorie.title': 'Caos viario dell\'8 agosto: gruppo di lavoro valuta migliorie',
+    'blog.article.caos-a2-mezzovico-migliorie.excerpt': 'Dopo oltre quattro ore di caos nel Luganese, la Polizia cantonale istituisce un gruppo di lavoro sulla chiusura della A2 a Mezzovico-Vira e sui disagi viari.',
+    'blog.article.caos-a2-mezzovico-migliorie.imageAlt': 'Traffico congestionato nel Luganese dopo la chiusura della A2 a Mezzovico-Vira',
 };
 
 export default blogMetaIt;

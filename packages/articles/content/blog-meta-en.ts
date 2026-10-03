@@ -12374,6 +12374,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guasto-treno-s50-busto-arsizio-2026.title': 'S50 breakdown in Busto Arsizio: passengers stranded for 3 hours',
     'blog.article.guasto-treno-s50-busto-arsizio-2026.excerpt': 'On 29 September, an S50 Malpensa-Bellinzona train remained stopped for more than three hours 200 meters from the station. Europa Verde asks Rfi and Trenord for explanations.',
     'blog.article.guasto-treno-s50-busto-arsizio-2026.imageAlt': 'S50 train stopped on tracks near Busto Arsizio station',
+    'blog.article.caos-a2-mezzovico-migliorie.title': 'Traffic chaos on August 8: working group evaluates improvements',
+    'blog.article.caos-a2-mezzovico-migliorie.excerpt': 'After more than four hours of chaos in the Luganese, the Cantonal Police sets up a working group on the closure of the A2 in Mezzovico-Vira and the traffic disruption.',
+    'blog.article.caos-a2-mezzovico-migliorie.imageAlt': 'Traffic congestion in the Luganese after the A2 closure at Mezzovico-Vira',
 };
 
 export default blogMetaEn;
