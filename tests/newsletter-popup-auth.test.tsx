@@ -2,6 +2,7 @@ import React from 'react';
 import { act, cleanup, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import NewsletterPopup from '@/components/community/NewsletterPopup';
+import LeadMagnetCTA from '@/components/shared/LeadMagnetCTA';
 
 const mocks = vi.hoisted(() => ({
   user: null as null | { email: string | null; providerData?: Array<{ email: string }> },
@@ -14,6 +15,8 @@ vi.mock('@/services/authService', () => ({
   renderGoogleButtonWithReadiness: async () => false,
   isLinkedInSignInAvailable: async () => false, signInWithLinkedIn: vi.fn(),
 }));
+vi.mock('@/components/shared/SocialSignInButtons', () => ({ default: () => null }));
+vi.mock('@/hooks/useCaptureImpression', () => ({ useCaptureImpression: () => null }));
 vi.mock('@/services/resilientImport', () => ({ resilientImport: mocks.imports }));
 vi.mock('@/services/i18n', () => ({ useTranslation: () => ({ locale: 'it', t: (key: string) => key }) }));
 vi.mock('@/services/NavigationContext', () => ({ useNavigationOptional: () => null }));
@@ -100,5 +103,25 @@ describe('newsletter uses shared auth restoration', () => {
     await settle();
     expect(screen.queryByRole('textbox')).toBeNull();
     expect(mocks.release).toHaveBeenCalledWith('newsletter-popup');
+  });
+});
+
+
+describe('lead magnet uses shared auth restoration', () => {
+  it('defers Firebase while hidden and prefills the shared restored provider email', async () => {
+    const { rerender } = render(<LeadMagnetCTA variant="generic" delay={30_000} />);
+    await settle();
+    expect(screen.queryByRole('textbox')).toBeNull();
+    expect(mocks.imports).not.toHaveBeenCalled();
+    mocks.user = { email: null, providerData: [{ email: 'provider@example.com' }] };
+    rerender(<LeadMagnetCTA variant="generic" delay={30_000} />);
+    await settle();
+    await act(async () => { vi.advanceTimersByTime(30_000); });
+    expect(screen.queryByRole('textbox')).toBeNull();
+    mocks.user = null;
+    rerender(<LeadMagnetCTA variant="generic" delay={30_000} />);
+    await settle();
+    expect(screen.getByRole('textbox')).toHaveValue('provider@example.com');
+    expect(mocks.imports).not.toHaveBeenCalled();
   });
 });
