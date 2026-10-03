@@ -335,7 +335,10 @@ export async function reportLoopIssue(params = {}, deps = {}) {
     // non vedeva (indice di ricerca in ritardo, gemella chiusa da poco): il suo
     // corpo porta ancora lo stato vecchio, `okStreak` compreso.
     if (result?.persisted === true && result.number && !result.ledger) {
-      result = { ...result, persisted: reconcileCreatedIssue(ctx, result.number, state) };
+      result = {
+        ...result,
+        persisted: reconcileCreatedIssue(ctx, result.number, state, { reopened: result.reopened === true }),
+      };
     }
   }
 
@@ -359,14 +362,18 @@ export async function reportLoopIssue(params = {}, deps = {}) {
   return result;
 }
 
-function reconcileCreatedIssue(ctx, number, state) {
+function reconcileCreatedIssue(ctx, number, state, { reopened = false } = {}) {
   let issue;
   try {
     issue = JSON.parse(ctx.gh(['issue', 'view', String(number), '--json', 'body,labels', ...ctx.repoFlag]));
   } catch (error) {
-    // Lettura, non scrittura: la issue esiste e la run successiva la riallinea.
+    // Lettura, non scrittura. Su una issue appena creata il blocco è quello
+    // scritto dal creator: nulla da riallineare. Su una issue RIAPERTA il corpo
+    // può portare ancora un `okStreak` vecchio, e un solo ok schedulato la
+    // richiuderebbe: lo stato non è verificato, quindi non è persistito. La run
+    // non ok successiva trova la issue aperta e riscrive il blocco.
     ctx.logger.error(`[loop-fleet-issue] stato di #${number} non verificabile: ${error.message}`);
-    return true;
+    return !reopened;
   }
   const current = parseLoopState(issue?.body);
   const stale = labelNames(issue).includes(MAYBE_RESOLVED_LABEL);

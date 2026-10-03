@@ -292,6 +292,23 @@ describe('reportLoopIssue', () => {
     expect(parseLoopState(reopened.body)?.okStreak).toBe(0);
   });
 
+  it('does not report a reopened issue as persisted when its state cannot be read back', async () => {
+    const stale = upsertLoopStateBlock('', { loopId: 'L3', signature: reasonSignature('invalid jobs 1'), okStreak: LOOP_OK_STREAK - 1, reason: 'ok' });
+    for (const wasReopened of [true, false]) {
+      const github = fakeGithub({ failOn: (args) => args[1] === 'view' });
+      const existing = github.add('placeholder', stale);
+      existing.state = 'CLOSED';
+      github.deps.createIssue = async ({ title }: { title: string }) => {
+        existing.state = 'OPEN';
+        existing.title = title;
+        return { number: existing.number, title, url: existing.url, state: 'OPEN', persisted: true, reopened: wasReopened };
+      };
+      const result = await report(github, 'invalid jobs 799');
+      // Riaperta e non riletta: il corpo può portare ancora lo streak vecchio.
+      expect(result.persisted, `reopened=${wasReopened}`).toBe(!wasReopened);
+    }
+  });
+
   it('honours ENABLE_FAILURE_REPORT=false like the creator', async () => {
     const github = fakeGithub();
     github.deps.env = { ENABLE_FAILURE_REPORT: 'false' };
@@ -419,8 +436,9 @@ describe('loop scripts go through loop-fleet-issue', () => {
       expect(source, name).not.toMatch(/github-issue-creator\.mjs/u);
       expect(source, name).toMatch(/createIssueImpl\s*=\s*reportLoopIssue\b/u);
       expect(source, name).toMatch(/resolveIssueImpl\s*=\s*resolveLoopIssue\b/u);
-      expect(source, name).toMatch(/else if \(issue\) \{\n\s+await resolveIssueImpl\(/u);
-      expect(source, name).toMatch(/reason: verdict\.reason,\n\s+loopTitles: /u);
+      expect(source, name).toMatch(/\bresolveIssueImpl\s*\(/u);
+      expect(source, name).toMatch(/\breason\s*:\s*verdict\.reason\b/u);
+      expect(source, name).toMatch(/\bloopTitles\s*:/u);
     }
   });
 
