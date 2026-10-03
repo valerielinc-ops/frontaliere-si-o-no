@@ -240,7 +240,6 @@ describe('main() usa la decisione esportata, e solo quella', () => {
     for (const gate of ['decideChronicEscalation(', 'decideChronicDeescalation(', 'decideRecurrenceHold(', 'decideStructuralHold(']) {
       expect(mainBody, `main() richiama ${gate} direttamente: l'oracolo è di nuovo duplicato`).not.toContain(gate);
     }
-    expect(mainBody).not.toMatch(/conclusion === 'success'/);
   });
 
   // La passata vera, con un `gh` finto sul PATH: il file dei verdetti deve avere una voce

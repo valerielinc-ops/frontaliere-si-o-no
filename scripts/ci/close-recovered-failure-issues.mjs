@@ -1750,7 +1750,13 @@ export function decideFailureIssueClose({ issue, run, history, comments, labels,
   };
 }
 
-/** La riga che `--verdicts-out` scrive per una issue esaminata. */
+/**
+ * La riga che `--verdicts-out` scrive per una issue esaminata.
+ *
+ * Contratto per chi legge il file: il campo da confrontare è `action`. `reason` è un
+ * codice stabile solo per `keep` (`run-not-resolvable`, `green-predates-issue`,
+ * `still-red`); per gli hold e per `close` è testo per umani, con numeri che cambiano.
+ */
 export function verdictRecord(issue, verdict, repo = REPO) {
   return {
     number: issue.number,
