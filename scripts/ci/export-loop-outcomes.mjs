@@ -42,6 +42,7 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   nextActionIdProperty: 'action_id',
   sessionKeyProperty: 'decision_session_id',
   sessionDimension: 'customEvent:decision_session_id',
+  gaSessionDimension: 'gaSessionId',
   sessionMetric: 'sessions',
   source: 'GA4 Data API',
 });
@@ -403,21 +404,22 @@ function writeJsonFile(outputPath, value) {
 /**
  * Build one exact GA4 event-session report for the L5 contract. The caller
  * runs this once for completion and once for next action, then joins the
- * returned opaque decision-session keys before any metric is considered
- * measured.
+ * returned GA4-session/opaque decision-session pairs before any metric is
+ * considered measured.
  */
 export function buildL5DecisionMomentReportBody({
   eventName,
   startDate,
   endDate,
   sessionDimension = L5_DECISION_EVENT_CONTRACT.sessionDimension,
+  gaSessionDimension = L5_DECISION_EVENT_CONTRACT.gaSessionDimension,
 } = {}) {
-  if (!text(eventName) || !text(startDate) || !text(endDate) || !text(sessionDimension)) {
+  if (!text(eventName) || !text(startDate) || !text(endDate) || !text(sessionDimension) || !text(gaSessionDimension)) {
     throw new Error('L5 decision-moment report requires eventName, startDate and endDate');
   }
   return {
     dateRanges: [{ startDate, endDate }],
-    dimensions: [{ name: sessionDimension }],
+    dimensions: [{ name: sessionDimension }, { name: gaSessionDimension }],
     metrics: [{ name: 'sessions' }],
     dimensionFilter: {
       filter: {
@@ -989,7 +991,11 @@ export async function fetchGa4EventSessions({ client, eventName, startDate, endD
   return nonNegativeCount(value, `sessions for ${eventName}`);
 }
 
-function parseL5SessionKeys(report, { eventName, sessionDimension } = {}) {
+function parseL5SessionKeys(report, {
+  eventName,
+  sessionDimension,
+  gaSessionDimension,
+} = {}) {
   const rows = Array.isArray(report?.rows) ? report.rows : [];
   const rowCount = nonNegativeCount(report?.rowCount ?? rows.length, `row count for ${eventName}`);
   if (rowCount !== rows.length) {
@@ -1010,14 +1016,30 @@ function parseL5SessionKeys(report, { eventName, sessionDimension } = {}) {
   if (Array.isArray(report?.dimensionHeaders) && headerIndex === -1) {
     throw new Error(`GA4 L5 report for ${eventName} is missing ${sessionDimension}`);
   }
+  const gaSessionIndex = Array.isArray(report?.dimensionHeaders)
+    ? report.dimensionHeaders.findIndex((header) => header?.name === gaSessionDimension)
+    : 1;
+  if (Array.isArray(report?.dimensionHeaders) && gaSessionIndex === -1) {
+    throw new Error(`GA4 L5 report for ${eventName} is missing ${gaSessionDimension}`);
+  }
   const sessionIndex = headerIndex === -1 ? 0 : headerIndex;
   const sessions = new Set();
   for (const [index, row] of rows.entries()) {
-    const sessionKey = row?.dimensionValues?.[sessionIndex]?.value;
-    if (!text(sessionKey) || sessionKey === '(not set)') {
+    const decisionSessionId = row?.dimensionValues?.[sessionIndex]?.value;
+    const decisionSessionKey = typeof decisionSessionId === 'string' ? decisionSessionId.trim() : '';
+    if (!decisionSessionKey) {
       throw new Error(`GA4 L5 report for ${eventName} has an invalid session key at row ${index + 1}`);
     }
-    sessions.add(sessionKey.trim());
+    // Events emitted before the decision_session_id custom dimension existed
+    // appear in the settled rollout window as legacy `(not set)` rows. They
+    // are not evidence for L5, but must not poison the keyed rows that follow.
+    if (decisionSessionKey === '(not set)') continue;
+    const gaSessionId = row?.dimensionValues?.[gaSessionIndex]?.value;
+    const gaSessionKey = typeof gaSessionId === 'string' ? gaSessionId.trim() : '';
+    if (!gaSessionKey || gaSessionKey === '(not set)') {
+      throw new Error(`GA4 L5 report for ${eventName} has an invalid ${gaSessionDimension} at row ${index + 1}`);
+    }
+    sessions.add(JSON.stringify([gaSessionKey, decisionSessionKey]));
   }
   return sessions;
 }
@@ -1030,6 +1052,7 @@ export async function fetchGa4EventSessionKeys({
   endDate,
   propertyId,
   sessionDimension = L5_DECISION_EVENT_CONTRACT.sessionDimension,
+  gaSessionDimension = L5_DECISION_EVENT_CONTRACT.gaSessionDimension,
   bodyBuilder = buildL5DecisionMomentReportBody,
 } = {}) {
   const data = await client.request(
@@ -1037,10 +1060,10 @@ export async function fetchGa4EventSessionKeys({
     {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(bodyBuilder({ eventName, startDate, endDate, sessionDimension })),
+      body: JSON.stringify(bodyBuilder({ eventName, startDate, endDate, sessionDimension, gaSessionDimension })),
     },
   );
-  return parseL5SessionKeys(data, { eventName, sessionDimension });
+  return parseL5SessionKeys(data, { eventName, sessionDimension, gaSessionDimension });
 }
 
 export function buildL3OutcomeExport({
@@ -1136,7 +1159,7 @@ export async function exportL3({ outputPath, now = new Date(), days = DEFAULT_L3
 /**
  * Read the two L5 event-session key sets from the same settled GA4 window.
  * Separate exact-event reports preserve the event contract; the numerator is
- * measured only from the intersection of their keys.
+ * measured only from the intersection of their GA4-session/custom-key pairs.
  */
 export async function fetchL5DecisionMomentCounts({
   client,
@@ -1145,6 +1168,7 @@ export async function fetchL5DecisionMomentCounts({
   propertyId = null,
   eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
+  const gaSessionDimension = eventContract.gaSessionDimension || L5_DECISION_EVENT_CONTRACT.gaSessionDimension;
   const [completionSessions, nextActionSessions] = await Promise.all([
     fetchGa4EventSessionKeys({
       client,
@@ -1153,6 +1177,7 @@ export async function fetchL5DecisionMomentCounts({
       endDate,
       propertyId,
       sessionDimension: eventContract.sessionDimension,
+      gaSessionDimension,
     }),
     fetchGa4EventSessionKeys({
       client,
@@ -1161,6 +1186,7 @@ export async function fetchL5DecisionMomentCounts({
       endDate,
       propertyId,
       sessionDimension: eventContract.sessionDimension,
+      gaSessionDimension,
     }),
   ]);
   let nextUsefulActions = 0;
