@@ -12,10 +12,10 @@
  *   PATH RICHIESTO (ORIGINALE): /cerca-lavoro/apprendistato-...
  *   URL ORA IN BARRA:           https://frontaliereticino.ch/
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 
 const SOURCE = readFileSync(
@@ -175,5 +175,25 @@ describe('recommendations obey the current search result set', () => {
   it('preserves empty results and deduplicates canonical slugs', () => {
     expect(selectRecommendationJobs([], [{ slug: 'outside' }], true)).toEqual([]);
     expect(selectRecommendationJobs([filtered[0], filtered[0], filtered[1]], [], false)).toEqual(filtered.slice(0, 2));
+  });
+});
+
+
+describe('recommendation clicks include canonical fallback-pool records', () => {
+  it('opens a displayed result absent from the original jobs pool', () => {
+    const source = readFileSync(resolve(__dirname, '../../components/community/JobBoard.tsx'), 'utf8');
+    const callback = source.slice(source.indexOf("Analytics.trackSelectContent('trending_section_click'"));
+    expect(callback.slice(0, callback.indexOf('\n }}'))).toContain('recommendationJobs.find((j) => j.slug === slug)');
+    const extra = { slug: 'fallback-r', title: 'Fallback role', company: 'Company', location: 'Lugano', category: 'tech', href: '/cerca-lavoro-ticino/fallback-r/' };
+    const originalJobs: typeof extra[] = [];
+    const recommendationJobs = selectRecommendationJobs([extra], [], false);
+    const openDetail = vi.fn();
+    render(<TrendingSection trendingJobs={recommendationJobs} popularity={{}} heading="Explore" ariaLabel="Explore" emptyLabel="Empty" onJobClick={(slug) => {
+      const job = recommendationJobs.find((item) => item.slug === slug);
+      if (job) openDetail(job);
+    }} />);
+    expect(originalJobs).not.toContain(extra);
+    fireEvent.click(screen.getByRole('link', { name: 'Fallback role presso Company' }));
+    expect(openDetail).toHaveBeenCalledWith(extra);
   });
 });

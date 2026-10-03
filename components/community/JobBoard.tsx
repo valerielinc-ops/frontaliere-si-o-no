@@ -11214,7 +11214,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  emptyLabel={t(resultsResolving ? 'jobBoard.loadingResults' : 'jobBoard.noResults')}
  onJobClick={(slug) => {
  Analytics.trackSelectContent('trending_section_click', slug);
- const job = jobs.find((j) => j.slug === slug);
+ const job = recommendationJobs.find((j) => j.slug === slug);
  if (job) openDetail(job);
  }}
  />
