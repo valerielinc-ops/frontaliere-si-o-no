@@ -574,6 +574,36 @@ function ensureAdapterSeedUrls(seedUrls) {
   console.log(`📝 Adapter ${CSC_KEY} updated with ${seedUrls.length} explicit detail seed URLs.`);
 }
 
+/**
+ * Build the summary for a careers page that positively reports no openings.
+ * The process-exit guard is intentionally fail-closed, so this branch must
+ * write its own proof before returning; otherwise a valid empty source is
+ * recorded as an unobserved early exit by check-crawler-health.
+ */
+export function buildCscAuthoritativeEmptySummary(generatedAt, durationMs) {
+  return {
+    key: CSC_KEY,
+    label: CSC_COMPANY_NAME,
+    generatedAt,
+    total: 0,
+    discovered: 0,
+    parsed: 0,
+    written: 0,
+    authoritativeEmptySnapshot: true,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: [],
+  };
+}
+
 /* ── Base Crawler ──────────────────────────────────────────── */
 function runBaseCrawler() {
   return runDedicatedBaseCrawler({
@@ -653,6 +683,8 @@ async function main() {
     // an empty detail allowlist (never the listing URL) but do not run the base
     // crawler or touch the published/expired job slices.
     ensureAdapterSeedUrls([]);
+    const durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice(buildCscAuthoritativeEmptySummary(new Date().toISOString(), durationMs));
     console.log('ℹ️ CSC authoritative source is empty; published identities remain untouched.');
     printCrawlChangeSummary({ newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'CSC Costruzioni');
     return;
