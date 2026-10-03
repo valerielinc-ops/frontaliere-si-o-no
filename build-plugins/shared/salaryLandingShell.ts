@@ -1834,7 +1834,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       faqs: [
         { q: 'Welches Gehalt rechtfertigt eine B-Bewilligung?', a: 'Typischerweise ab CHF 80.000+: oberhalb dieser Schwelle decken die CH-Steuerersparnisse die Mehrkosten (LAMal, Miete Lugano).' },
         { q: 'Kann ich von G zu B wechseln und denselben Job behalten?', a: 'Ja, aber Wohnsitz muss in die Schweiz (>183 Tage/Jahr) und B-Bewilligung beim Schweizer Wohnort beantragen.' },
-        { q: 'LAMal oder SSN mit G-Bewilligung?', a: 'Berechtigte EU-Staatsangehörige mit Wohnsitz in Italien können beim zuständigen Arbeitskanton innerhalb von drei Monaten nach Arbeitsbeginn die Befreiung von der KVG beantragen. Eine SSN-Anmeldung allein genügt nicht. Die Wahl kann nicht frei geändert werden; bei bisheriger KVG-Versicherung kann die Geburt eines Kindes je nach Familiensituation eine erneute Ausübung innerhalb von drei Monaten ermöglichen: vorher mit dem Kanton und der italienischen ASL klären. Die KVG deckt die Schweiz besser ab, der SSN Italien. Siehe den Vergleich.' },
+        { q: 'LAMal oder SSN mit G-Bewilligung?', a: 'Berechtigte EU-Staatsangehörige mit Wohnsitz in Italien können beim zuständigen Arbeitskanton innerhalb von drei Monaten nach Arbeitsbeginn formell die Befreiung von der KVG beantragen. Eine SSN-Anmeldung allein genügt nicht. Die Wahl kann nicht frei geändert werden; bei bisheriger KVG-Versicherung kann die Geburt eines Kindes je nach Familiensituation eine erneute Ausübung innerhalb von drei Monaten ermöglichen: vorher mit dem Kanton und der italienischen ASL klären. Die KVG deckt die Schweiz besser ab, der SSN Italien. Siehe den Vergleich.' },
       ],
     },
     fr: {
