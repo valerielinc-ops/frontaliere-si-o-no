@@ -136,8 +136,14 @@ jobs:
             echo "No artifact produced (degraded run) — nothing to commit."
             exit 0
           fi
+          # Commit FIRST, integrate after: a `git pull --rebase --autostash`
+          # between the add and the `diff --cached` re-applies the staged
+          # table UNSTAGED whenever main moved since checkout, and the step
+          # then reports "unchanged" for a table that did change. The local
+          # commit survives the rebase git-push-with-retry.sh runs on a
+          # non-fast-forward rejection.
+          # tests/workflow-autostash-staged-state.test.ts guards the sequence.
           git add data/gsc-top-marquee-candidates.json
-          git pull --rebase --autostash origin main
           if git diff --cached --quiet; then
             echo "Demand table unchanged — nothing to commit."
             exit 0
