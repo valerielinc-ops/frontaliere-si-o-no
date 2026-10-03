@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-10-02T21:24:41.612Z",
+  "assembledAt": "2026-10-03T09:24:42.291Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:35.263Z",
+      "crawledAt": "2026-10-03T09:24:36.398Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -71,14 +71,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+          "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
+        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
+        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen",
+        "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:31.266Z",
       "salaryMin": 8700,
@@ -93,14 +97,15 @@
           "maxValue": 12100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-f155573c4581",
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -126,7 +131,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:33.688Z",
+      "crawledAt": "2026-10-03T09:24:34.898Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -167,17 +172,23 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen",
+          "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen",
+          "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen"
         ],
         "en": [
+          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
           "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
+        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
+        "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
         "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
@@ -226,7 +237,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:32.087Z",
+      "crawledAt": "2026-10-03T09:24:33.230Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -271,10 +282,12 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
+          "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "it": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
+          "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
@@ -282,7 +295,8 @@
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
+        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
       "salaryMin": 78500,
@@ -330,7 +344,7 @@
       "url": "https://link.ostendis.com/publication/leitende-arzt-aerztin-innere-medizin-schwerpunkt-geriatrie/vs7xfcnesedeepbf3eazkakjmfzj286ocmhfx8sm67absaxp6r2b4m2q4yyoprvc",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:30.463Z",
+      "crawledAt": "2026-10-03T09:24:31.743Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -350,12 +364,14 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
+        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
+        "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
+          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
+          "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
@@ -410,7 +426,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:28.650Z",
+      "crawledAt": "2026-10-03T09:24:29.552Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -445,7 +461,8 @@
         "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
         "dipl-experte-in-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen",
         "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen",
-        "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen"
+        "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen",
+        "dipl-esperto-in-pronto-soccorso-nds-hf-o-infermiere-hf-a-40-80-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -465,7 +482,8 @@
           "dipl-expert-e-en-soins-anesthesiques-nds-hf-70-100-kantonsspital-obwalden-sarnen",
           "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
           "dipl-experte-in-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen",
-          "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen"
+          "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen",
+          "dipl-esperto-in-pronto-soccorso-nds-hf-o-infermiere-hf-a-40-80-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "dipl-expert-emergency-care-nds-hf-or-care-professional-hf-a-40-80-kantonsspital-obwalden-sarnen",
@@ -492,7 +510,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-1202da82a680",
@@ -525,7 +544,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:27.275Z",
+      "crawledAt": "2026-10-03T09:24:28.011Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -544,12 +563,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
-        "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
+        "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen",
+        "apprendistato-di-specializzazione-pulizia-specialistica-a-efz-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
-          "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
+          "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen",
+          "apprendistato-di-specializzazione-pulizia-specialistica-a-efz-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
@@ -571,7 +592,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-7c363e194ca4",
@@ -604,7 +626,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:25.549Z",
+      "crawledAt": "2026-10-03T09:24:25.883Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -624,12 +646,14 @@
       "previousSlugs": [
         "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
         "lehrstelle-kochin-koch-efz-2027-kantonsspital-obwalden-sarnen",
-        "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
+        "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen",
+        "apprendistato-chef-cuoco-efz-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
-          "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
+          "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen",
+          "apprendistato-chef-cuoco-efz-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
@@ -654,7 +678,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-4e682c6f7d2e",
@@ -687,7 +712,7 @@
       "url": "https://link.ostendis.com/publication/vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf/uivc5rdvnw5u75bub47fcsvf1qy0d33dzjw5xpokd0t1uewhxn6eb1dhue0z83xw",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:23.810Z",
+      "crawledAt": "2026-10-03T09:24:23.923Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -705,11 +730,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen"
+        "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen",
+        "studio-a-tempo-pieno-dipl-specialista-specialist-operations-technology-hf-a-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen"
+          "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen",
+          "studio-a-tempo-pieno-dipl-specialista-specialist-operations-technology-hf-a-100-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen"
@@ -731,7 +758,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-f833632b0ee5",
@@ -764,7 +792,7 @@
       "url": "https://link.ostendis.com/publication/sozialarbeiter-in-fh-hfs/yelztwd6hssenpdynxyf2qpypop26353103e6c82a5lkjfmp0yssn4d3nfis2ado",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:22.352Z",
+      "crawledAt": "2026-10-03T09:24:22.397Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -783,11 +811,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
+        "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen",
+        "lavoratore-sociale-fh-hfs-a-40-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
+          "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen",
+          "lavoratore-sociale-fh-hfs-a-40-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
@@ -842,7 +872,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf/fhxo6l278epi2dgok5rmap3yy8b5u2id06xfy8r82s1rrx278iilohou3ssxfx8z",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:20.492Z",
+      "crawledAt": "2026-10-03T09:24:20.080Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -861,12 +891,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-a-60-100-ksow-sarnen",
-        "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen"
+        "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen",
+        "infermiera-hf-a-60-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-a-60-100-ksow-sarnen",
-          "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen"
+          "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen",
+          "infermiera-hf-a-60-100-kantonsspital-obwalden-sarnen"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen"
@@ -885,7 +917,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-088e15023380",
@@ -918,7 +951,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-reinigungs-und-hausdienst/2ithk1zyvhwh4gmr7h3yv42kwvgef0hjtx0br822l1mybnfuij1kf7qclpxwqes3",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:19.064Z",
+      "crawledAt": "2026-10-03T09:24:18.566Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -938,11 +971,13 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen",
-        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
+        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen",
+        "collaboratore-trice-reinigungs-e-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen"
+          "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen",
+          "collaboratore-trice-reinigungs-e-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
@@ -997,7 +1032,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-restaurant/e5ezu23qdm35hmmqetx0gv9tvvuffkr0pex87rcm5ixergj583jcm0iwmim4eu42",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:17.620Z",
+      "crawledAt": "2026-10-03T09:24:17.082Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1016,11 +1051,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "mitarbeiter-in-restaurant-a-60-ksow-sarnen"
+        "mitarbeiter-in-restaurant-a-60-ksow-sarnen",
+        "collaboratore-trice-restaurant-a-60-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-restaurant-a-60-ksow-sarnen"
+          "mitarbeiter-in-restaurant-a-60-ksow-sarnen",
+          "collaboratore-trice-restaurant-a-60-kantonsspital-obwalden-sarnen"
         ]
       },
       "firstSeenAt": "2026-09-29T21:23:10.055Z",
@@ -1042,9 +1079,9 @@
       "id": "ksow-9402256c92e8",
       "slug": "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen",
       "slugByLocale": {
+        "de": "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen",
         "it": "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen",
         "en": "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen",
-        "de": "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen",
         "fr": "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -1052,16 +1089,16 @@
       "companyDomain": "ksow.ch",
       "title": "Diätkoch/-köchin / Koch/Köchin EFZ (a) 80 - 100%",
       "titleByLocale": {
+        "de": "Diätkoch/-köchin / Koch/Köchin EFZ (a) 80 - 100%",
         "it": "Diätkoch/-köchin / Koch/Köchin CFC (a) 80 - 100%",
         "en": "Diätkoch/-köchin / Koch/Köchin EFZ (a) 80 - 100%",
-        "de": "Diätkoch/-köchin / Koch/Köchin EFZ (a) 80 - 100%",
         "fr": "Diätkoch/-köchin / Koch/Köchin EFZ (a) 80 - 100%"
       },
       "description": "Diätkoch/Diätköchin / Koch/Köchin EFZ (a) 80 - 100%\n Per sofort oder nach Vereinbarung\n\nBerufseinsteiger/in, erfahrener Profi oder auf der Suche nach einer neuen Herausforderung, bei uns zählt die Freude am Handwerk und das Miteinander.\n\nDas Spital Obwalden ist ein innovatives Grundversorgungsspital in der Zentralschweiz. In unserer Spitalküche legen wir viel Wert auf Qualität, Abwechslung und ein familiäres Umfeld, in dem sich Menschen jeden Alters wohlfühlen und gemeinsam Anpacken.\n\nIhre Aufgaben bei uns\n\n• Kulinarische Vielfalt: Sie sorgen für eine gesunde, abwechslungsreiche Verpflegung unserer Patientinnen und Patienten, Mitarbeitenden und externen Gäste.\n\n• Spezialkost im Griff: Sie bearbeiten Essensbestellungen für Diätkost souverän über unser Verpflegungssystem «LogiMen».\n\n• Präzision & Genuss: Die selbständige Zubereitung von Diätkostformen nach Vorgaben der Ernährungsberatung erledigen Sie mit Blick für Qualität und Geschmack.\n\n• Teamwork: Sie wirken aktiv bei der Qualitätssicherung mit und unterstützen beim Anrichten der Mahlzeiten am Speiseband.\n\nDas bringen Sie mit\n\n• Ausbildung: Abgeschlossene Lehre als Koch/Köchin EFZ. Eine Weiterbildung als Diätkoch/Diätköchin (EFZ/FA) ist ideal, aber kein Muss.\n\n• Erfahrung: Fundierte Kenntnisse aus der Gastronomie, Hotellerie oder Gemeinschaftsgastronomie.\n\n• Allround-Talent: Sie beherrschen die Arbeitsabläufe in allen Küchenbereichen, auch die Aufgaben in der Patisserie bereiten Ihnen Freude.\n\n• Persönlichkeit: Sie sind flexibel, anpackend und bringen viel Teamgeist sowie eine gesunde Portion Humor mit.\n\nUnser Angebot an Sie\n\n• Familiäres Umfeld: Ein überschaubares Spital mit kurzen Wegen, schnellen Entscheidungen und einer herzlich gelebten Du-Kultur.\n\n• Traumlage : Ein moderner Arbeitsplatz direkt in Sarnen am See (nur 5 Gehminuten vom Bahnhof entfernt).\n\n• Gute Einarbeitung: Unser motiviertes Küchenteam arbeitet Sie strukturiert und auf Augenhöhe ein.\n\n• Attraktive Benefits:\n🏋️ Gratis Fitness-Abo in unserer hauseigenen Physio-Fitness\n🚗 Vergünstigte Parkplätze & leckere Mitarbeiterrabatte bei der Verpflegung\n💼 Fortschrittliche Sozialleistungen, betriebliche Kinderzulagen & weltweite private Unfallversicherung\n🎟️ Vergünstigte REKA-Schecks und individuelle Weiterbildungsmöglichkeiten\n\nKlingt das nach Ihrer neuen Stelle?\n\nWir freuen uns darauf, Sie kennenzulernen – ganz egal, in welcher Lebensphase Sie sich befinden!\nSenden Sie Ihre Bewerbung einfach und unkompliziert über unser Online-Bewerbungsportal. Die Personalabteilung freut sich auf Ihre Unterlagen.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patrick Weishaupt, Küchenchef, 041 666 43 00\n\nSpital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
       "descriptionByLocale": {
+        "de": "Diätkoch/Diätköchin / Koch/Köchin EFZ (a) 80 - 100%\n Per sofort oder nach Vereinbarung\n\nBerufseinsteiger/in, erfahrener Profi oder auf der Suche nach einer neuen Herausforderung, bei uns zählt die Freude am Handwerk und das Miteinander.\n\nDas Spital Obwalden ist ein innovatives Grundversorgungsspital in der Zentralschweiz. In unserer Spitalküche legen wir viel Wert auf Qualität, Abwechslung und ein familiäres Umfeld, in dem sich Menschen jeden Alters wohlfühlen und gemeinsam Anpacken.\n\nIhre Aufgaben bei uns\n\n• Kulinarische Vielfalt: Sie sorgen für eine gesunde, abwechslungsreiche Verpflegung unserer Patientinnen und Patienten, Mitarbeitenden und externen Gäste.\n\n• Spezialkost im Griff: Sie bearbeiten Essensbestellungen für Diätkost souverän über unser Verpflegungssystem «LogiMen».\n\n• Präzision & Genuss: Die selbständige Zubereitung von Diätkostformen nach Vorgaben der Ernährungsberatung erledigen Sie mit Blick für Qualität und Geschmack.\n\n• Teamwork: Sie wirken aktiv bei der Qualitätssicherung mit und unterstützen beim Anrichten der Mahlzeiten am Speiseband.\n\nDas bringen Sie mit\n\n• Ausbildung: Abgeschlossene Lehre als Koch/Köchin EFZ. Eine Weiterbildung als Diätkoch/Diätköchin (EFZ/FA) ist ideal, aber kein Muss.\n\n• Erfahrung: Fundierte Kenntnisse aus der Gastronomie, Hotellerie oder Gemeinschaftsgastronomie.\n\n• Allround-Talent: Sie beherrschen die Arbeitsabläufe in allen Küchenbereichen, auch die Aufgaben in der Patisserie bereiten Ihnen Freude.\n\n• Persönlichkeit: Sie sind flexibel, anpackend und bringen viel Teamgeist sowie eine gesunde Portion Humor mit.\n\nUnser Angebot an Sie\n\n• Familiäres Umfeld: Ein überschaubares Spital mit kurzen Wegen, schnellen Entscheidungen und einer herzlich gelebten Du-Kultur.\n\n• Traumlage : Ein moderner Arbeitsplatz direkt in Sarnen am See (nur 5 Gehminuten vom Bahnhof entfernt).\n\n• Gute Einarbeitung: Unser motiviertes Küchenteam arbeitet Sie strukturiert und auf Augenhöhe ein.\n\n• Attraktive Benefits:\n🏋️ Gratis Fitness-Abo in unserer hauseigenen Physio-Fitness\n🚗 Vergünstigte Parkplätze & leckere Mitarbeiterrabatte bei der Verpflegung\n💼 Fortschrittliche Sozialleistungen, betriebliche Kinderzulagen & weltweite private Unfallversicherung\n🎟️ Vergünstigte REKA-Schecks und individuelle Weiterbildungsmöglichkeiten\n\nKlingt das nach Ihrer neuen Stelle?\n\nWir freuen uns darauf, Sie kennenzulernen – ganz egal, in welcher Lebensphase Sie sich befinden!\nSenden Sie Ihre Bewerbung einfach und unkompliziert über unser Online-Bewerbungsportal. Die Personalabteilung freut sich auf Ihre Unterlagen.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patrick Weishaupt, Küchenchef, 041 666 43 00\n\nSpital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
         "it": "Diätkoch/Diätköchin / Koch/Köchin EFZ (a) 80 - 100%\n Per sofort oder nach Vereinbarung\n\nBerufseinsteiger/in, erfahrener Profi oder auf der Suche nach einer neuen Herausforderung, bei uns zählt die Freude am Handwerk und das Miteinander.\n\nDas Spital Obwalden ist ein innovatives Grundversorgungsspital in der Zentralschweiz. In unserer Spitalküche legen wir viel Wert auf Qualität, Abwechslung und ein familiäres Umfeld, in dem sich Menschen jeden Alters wohlfühlen und gemeinsam Anpacken.\n\nIhre Aufgaben bei uns\n\n• Kulinarische Vielfalt: Sie sorgen für eine gesunde, abwechslungsreiche Verpflegung unserer Patientinnen und Patienten, Mitarbeitenden und externen Gäste.\n\n• Spezialkost im Griff: Sie bearbeiten Essensbestellungen für Diätkost souverän über unser Verpflegungssystem «LogiMen».\n\n• Präzision & Genuss: Die selbständige Zubereitung von Diätkostformen nach Vorgaben der Ernährungsberatung erledigen Sie mit Blick für Qualität und Geschmack.\n\n• Teamwork: Sie wirken aktiv bei der Qualitätssicherung mit und unterstützen beim Anrichten der Mahlzeiten am Speiseband.\n\nDas bringen Sie mit\n\n• Ausbildung: Abgeschlossene Lehre als Koch/Köchin EFZ. Eine Weiterbildung als Diätkoch/Diätköchin (EFZ/FA) ist ideal, aber kein Muss.\n\n• Erfahrung: Fundierte Kenntnisse aus der Gastronomie, Hotellerie oder Gemeinschaftsgastronomie.\n\n• Allround-Talent: Sie beherrschen die Arbeitsabläufe in allen Küchenbereichen, auch die Aufgaben in der Patisserie bereiten Ihnen Freude.\n\n• Persönlichkeit: Sie sind flexibel, anpackend und bringen viel Teamgeist sowie eine gesunde Portion Humor mit.\n\nUnser Angebot an Sie\n\n• Familiäres Umfeld: Ein überschaubares Spital mit kurzen Wegen, schnellen Entscheidungen und einer herzlich gelebten Du-Kultur.\n\n• Traumlage : Ein moderner Arbeitsplatz direkt in Sarnen am See (nur 5 Gehminuten vom Bahnhof entfernt).\n\n• Gute Einarbeitung: Unser motiviertes Küchenteam arbeitet Sie strukturiert und auf Augenhöhe ein.\n\n• Attraktive Benefits:\n🏋️ Gratis Fitness-Abo in unserer hauseigenen Physio-Fitness\n🚗 Vergünstigte Parkplätze & leckere Mitarbeiterrabatte bei der Verpflegung\n💼 Fortschrittliche Sozialleistungen, betriebliche Kinderzulagen & weltweite private Unfallversicherung\n🎟️ Vergünstigte REKA-Schecks und individuelle Weiterbildungsmöglichkeiten\n\nKlingt das nach Ihrer neuen Stelle?\n\nWir freuen uns darauf, Sie kennenzulernen – ganz egal, in welcher Lebensphase Sie sich befinden!\nSenden Sie Ihre Bewerbung einfach und unkompliziert über unser Online-Bewerbungsportal. Die Personalabteilung freut sich auf Ihre Unterlagen.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patrick Weishaupt, Küchenchef, 041 666 43 00\n\nSpital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
         "en": "Diätkoch/Diätköchin / Koch/Köchin EFZ (a) 80 - 100%\n Per sofort oder nach Vereinbarung\n\nBerufseinsteiger/in, erfahrener Profi oder auf der Suche nach einer neuen Herausforderung, bei uns zählt die Freude am Handwerk und das Miteinander.\n\nDas Spital Obwalden ist ein innovatives Grundversorgungsspital in der Zentralschweiz. In unserer Spitalküche legen wir viel Wert auf Qualität, Abwechslung und ein familiäres Umfeld, in dem sich Menschen jeden Alters wohlfühlen und gemeinsam Anpacken.\n\nIhre Aufgaben bei uns\n\n• Kulinarische Vielfalt: Sie sorgen für eine gesunde, abwechslungsreiche Verpflegung unserer Patientinnen und Patienten, Mitarbeitenden und externen Gäste.\n\n• Spezialkost im Griff: Sie bearbeiten Essensbestellungen für Diätkost souverän über unser Verpflegungssystem «LogiMen».\n\n• Präzision & Genuss: Die selbständige Zubereitung von Diätkostformen nach Vorgaben der Ernährungsberatung erledigen Sie mit Blick für Qualität und Geschmack.\n\n• Teamwork: Sie wirken aktiv bei der Qualitätssicherung mit und unterstützen beim Anrichten der Mahlzeiten am Speiseband.\n\nDas bringen Sie mit\n\n• Ausbildung: Abgeschlossene Lehre als Koch/Köchin EFZ. Eine Weiterbildung als Diätkoch/Diätköchin (EFZ/FA) ist ideal, aber kein Muss.\n\n• Erfahrung: Fundierte Kenntnisse aus der Gastronomie, Hotellerie oder Gemeinschaftsgastronomie.\n\n• Allround-Talent: Sie beherrschen die Arbeitsabläufe in allen Küchenbereichen, auch die Aufgaben in der Patisserie bereiten Ihnen Freude.\n\n• Persönlichkeit: Sie sind flexibel, anpackend und bringen viel Teamgeist sowie eine gesunde Portion Humor mit.\n\nUnser Angebot an Sie\n\n• Familiäres Umfeld: Ein überschaubares Spital mit kurzen Wegen, schnellen Entscheidungen und einer herzlich gelebten Du-Kultur.\n\n• Traumlage : Ein moderner Arbeitsplatz direkt in Sarnen am See (nur 5 Gehminuten vom Bahnhof entfernt).\n\n• Gute Einarbeitung: Unser motiviertes Küchenteam arbeitet Sie strukturiert und auf Augenhöhe ein.\n\n• Attraktive Benefits:\n🏋️ Gratis Fitness-Abo in unserer hauseigenen Physio-Fitness\n🚗 Vergünstigte Parkplätze & leckere Mitarbeiterrabatte bei der Verpflegung\n💼 Fortschrittliche Sozialleistungen, betriebliche Kinderzulagen & weltweite private Unfallversicherung\n🎟️ Vergünstigte REKA-Schecks und individuelle Weiterbildungsmöglichkeiten\n\nKlingt das nach Ihrer neuen Stelle?\n\nWir freuen uns darauf, Sie kennenzulernen – ganz egal, in welcher Lebensphase Sie sich befinden!\nSenden Sie Ihre Bewerbung einfach und unkompliziert über unser Online-Bewerbungsportal. Die Personalabteilung freut sich auf Ihre Unterlagen.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patrick Weishaupt, Küchenchef, 041 666 43 00\n\nSpital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
-        "de": "Diätkoch/Diätköchin / Koch/Köchin EFZ (a) 80 - 100%\n Per sofort oder nach Vereinbarung\n\nBerufseinsteiger/in, erfahrener Profi oder auf der Suche nach einer neuen Herausforderung, bei uns zählt die Freude am Handwerk und das Miteinander.\n\nDas Spital Obwalden ist ein innovatives Grundversorgungsspital in der Zentralschweiz. In unserer Spitalküche legen wir viel Wert auf Qualität, Abwechslung und ein familiäres Umfeld, in dem sich Menschen jeden Alters wohlfühlen und gemeinsam Anpacken.\n\nIhre Aufgaben bei uns\n\n• Kulinarische Vielfalt: Sie sorgen für eine gesunde, abwechslungsreiche Verpflegung unserer Patientinnen und Patienten, Mitarbeitenden und externen Gäste.\n\n• Spezialkost im Griff: Sie bearbeiten Essensbestellungen für Diätkost souverän über unser Verpflegungssystem «LogiMen».\n\n• Präzision & Genuss: Die selbständige Zubereitung von Diätkostformen nach Vorgaben der Ernährungsberatung erledigen Sie mit Blick für Qualität und Geschmack.\n\n• Teamwork: Sie wirken aktiv bei der Qualitätssicherung mit und unterstützen beim Anrichten der Mahlzeiten am Speiseband.\n\nDas bringen Sie mit\n\n• Ausbildung: Abgeschlossene Lehre als Koch/Köchin EFZ. Eine Weiterbildung als Diätkoch/Diätköchin (EFZ/FA) ist ideal, aber kein Muss.\n\n• Erfahrung: Fundierte Kenntnisse aus der Gastronomie, Hotellerie oder Gemeinschaftsgastronomie.\n\n• Allround-Talent: Sie beherrschen die Arbeitsabläufe in allen Küchenbereichen, auch die Aufgaben in der Patisserie bereiten Ihnen Freude.\n\n• Persönlichkeit: Sie sind flexibel, anpackend und bringen viel Teamgeist sowie eine gesunde Portion Humor mit.\n\nUnser Angebot an Sie\n\n• Familiäres Umfeld: Ein überschaubares Spital mit kurzen Wegen, schnellen Entscheidungen und einer herzlich gelebten Du-Kultur.\n\n• Traumlage : Ein moderner Arbeitsplatz direkt in Sarnen am See (nur 5 Gehminuten vom Bahnhof entfernt).\n\n• Gute Einarbeitung: Unser motiviertes Küchenteam arbeitet Sie strukturiert und auf Augenhöhe ein.\n\n• Attraktive Benefits:\n🏋️ Gratis Fitness-Abo in unserer hauseigenen Physio-Fitness\n🚗 Vergünstigte Parkplätze & leckere Mitarbeiterrabatte bei der Verpflegung\n💼 Fortschrittliche Sozialleistungen, betriebliche Kinderzulagen & weltweite private Unfallversicherung\n🎟️ Vergünstigte REKA-Schecks und individuelle Weiterbildungsmöglichkeiten\n\nKlingt das nach Ihrer neuen Stelle?\n\nWir freuen uns darauf, Sie kennenzulernen – ganz egal, in welcher Lebensphase Sie sich befinden!\nSenden Sie Ihre Bewerbung einfach und unkompliziert über unser Online-Bewerbungsportal. Die Personalabteilung freut sich auf Ihre Unterlagen.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patrick Weishaupt, Küchenchef, 041 666 43 00\n\nSpital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
         "fr": "Diätkoch/Diätköchin / Koch/Köchin EFZ (a) 80 - 100%\n Per sofort oder nach Vereinbarung\n\nBerufseinsteiger/in, erfahrener Profi oder auf der Suche nach einer neuen Herausforderung, bei uns zählt die Freude am Handwerk und das Miteinander.\n\nDas Spital Obwalden ist ein innovatives Grundversorgungsspital in der Zentralschweiz. In unserer Spitalküche legen wir viel Wert auf Qualität, Abwechslung und ein familiäres Umfeld, in dem sich Menschen jeden Alters wohlfühlen und gemeinsam Anpacken.\n\nIhre Aufgaben bei uns\n\n• Kulinarische Vielfalt: Sie sorgen für eine gesunde, abwechslungsreiche Verpflegung unserer Patientinnen und Patienten, Mitarbeitenden und externen Gäste.\n\n• Spezialkost im Griff: Sie bearbeiten Essensbestellungen für Diätkost souverän über unser Verpflegungssystem «LogiMen».\n\n• Präzision & Genuss: Die selbständige Zubereitung von Diätkostformen nach Vorgaben der Ernährungsberatung erledigen Sie mit Blick für Qualität und Geschmack.\n\n• Teamwork: Sie wirken aktiv bei der Qualitätssicherung mit und unterstützen beim Anrichten der Mahlzeiten am Speiseband.\n\nDas bringen Sie mit\n\n• Ausbildung: Abgeschlossene Lehre als Koch/Köchin EFZ. Eine Weiterbildung als Diätkoch/Diätköchin (EFZ/FA) ist ideal, aber kein Muss.\n\n• Erfahrung: Fundierte Kenntnisse aus der Gastronomie, Hotellerie oder Gemeinschaftsgastronomie.\n\n• Allround-Talent: Sie beherrschen die Arbeitsabläufe in allen Küchenbereichen, auch die Aufgaben in der Patisserie bereiten Ihnen Freude.\n\n• Persönlichkeit: Sie sind flexibel, anpackend und bringen viel Teamgeist sowie eine gesunde Portion Humor mit.\n\nUnser Angebot an Sie\n\n• Familiäres Umfeld: Ein überschaubares Spital mit kurzen Wegen, schnellen Entscheidungen und einer herzlich gelebten Du-Kultur.\n\n• Traumlage : Ein moderner Arbeitsplatz direkt in Sarnen am See (nur 5 Gehminuten vom Bahnhof entfernt).\n\n• Gute Einarbeitung: Unser motiviertes Küchenteam arbeitet Sie strukturiert und auf Augenhöhe ein.\n\n• Attraktive Benefits:\n🏋️ Gratis Fitness-Abo in unserer hauseigenen Physio-Fitness\n🚗 Vergünstigte Parkplätze & leckere Mitarbeiterrabatte bei der Verpflegung\n💼 Fortschrittliche Sozialleistungen, betriebliche Kinderzulagen & weltweite private Unfallversicherung\n🎟️ Vergünstigte REKA-Schecks und individuelle Weiterbildungsmöglichkeiten\n\nKlingt das nach Ihrer neuen Stelle?\n\nWir freuen uns darauf, Sie kennenzulernen – ganz egal, in welcher Lebensphase Sie sich befinden!\nSenden Sie Ihre Bewerbung einfach und unkompliziert über unser Online-Bewerbungsportal. Die Personalabteilung freut sich auf Ihre Unterlagen.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Patrick Weishaupt, Küchenchef, 041 666 43 00\n\nSpital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22"
       },
       "location": "Sarnen",
@@ -1069,7 +1106,7 @@
       "url": "https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/kpcey41rlkhrag7d4oc0tdteobgw8o0qxwzmhexksvbkxbxy8ct0cexmpmc4uduo",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:15.511Z",
+      "crawledAt": "2026-10-03T09:24:14.894Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1089,7 +1126,7 @@
         "de": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-02T21:24:15.511Z",
+      "firstSeenAt": "2026-10-03T09:24:14.894Z",
       "previousSlugsByLocale": {
         "it": [
           "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen",
@@ -1143,9 +1180,9 @@
       },
       "description": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, HNO, Urologie, Ophthalmologie, Frauenklinik sowie Anästhesie.\n\nFür unsere interdisziplinäre Notfallstation suchen wir per 01. Dezember 2026 oder nach Vereinbarung , eine/n\n\nMed. Praxisassistent/in (MPA) Notfallempfang (a) 30 - 60%\n\nDeine Aufgaben\n\n• Du bist erste Ansprechperson am Empfang unserer Notfallstation für Patienten und Angehörige.\n\n• Du berätst unserer Notfallpatienten, Angehörigen und Zuweiser in administrativen Fragen professionell und kompetent.\n\n• Du bedienst die Telefonzentrale des Notfallempfangs.\n\n• Diverse administrative und organisatorische Aufgaben wie Aufnahme der Patientendaten, versenden von Notfall-Arztberichten an die Hausärzte werden ebenfalls deine Aufgaben sein.\n\n• Du erfasst die Leistungen nach Tardoc.\n\n• Du bist verantwortlich für die Bearbeitung der E-Mails sowie das Inkasso der Depotzahlungen.\n\nDein Profil\n\n• Du bringst eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in, Fachangestellte/r Gesundheit oder Arztsekretär/in mit.\n\n• Du hast Erfahrung mit den gängigen IT-Programmen.\n\n• Belastbarkeit, strukturiertes Denken, Motivation und Verantwortungsbewusstsein sind weitere Eigenschaften von dir.\n\n• Hohe Sozialkompetenz und sehr gute Kommunikationsfähigkeit helfen dir im Notfallalltag.\n\n• Du hast eine ausgeprägte Kunden- und Dienstleistungsorientierung.\n\n• Du hast sehr gute Deutschkenntnisse in Word und Schrift. Fremdsprachkenntnisse in Englisch und Französisch sind zudem von Vorteil.\n\n• Du arbeitest gerne im 2-Schichtbetrieb von Montag bis Freitag.\n Unser Angebot\n\n• Dich erwartet eine abwechslungsreiche und spannende Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenen Arbeitsumfeld mit Du-Kultur.\n\n• Ebenfalls wirst du vielseitige und verantwortungsvolle Aufgaben mit Freiraum für Initiative und eigenverantwortlichem Handeln antreffen.\n\n• Wir bieten einen Arbeitsplatz in einer prozessorientierten und interdisziplinären Organisation.\n\n• Dein Arbeitsplatz liegt an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof.\n\n• Fortschrittliche Anstellungsbedingungen mit attraktiven Zusatzleistungen, u. a.:\no Vergünstigte Parkplätze und Verpflegung\no Weltweite private Unfallversicherung\no Kostenlose Benutzung des hauseigenen Fitnessraums\no Betriebliche Kinderzulagen und REKA-Vergünstigungen\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Hast du Fragen zu der Stelle? Deine Ansprechperson für Auskünfte: Herr Pascal Scheurmann, Leiter Pflege Notfall, Telefon 041 666 41 63\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
       "descriptionByLocale": {
+        "de": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, HNO, Urologie, Ophthalmologie, Frauenklinik sowie Anästhesie.\n\nFür unsere interdisziplinäre Notfallstation suchen wir per 01. Dezember 2026 oder nach Vereinbarung , eine/n\n\nMed. Praxisassistent/in (MPA) Notfallempfang (a) 30 - 60%\n\nDeine Aufgaben\n\n• Du bist erste Ansprechperson am Empfang unserer Notfallstation für Patienten und Angehörige.\n\n• Du berätst unserer Notfallpatienten, Angehörigen und Zuweiser in administrativen Fragen professionell und kompetent.\n\n• Du bedienst die Telefonzentrale des Notfallempfangs.\n\n• Diverse administrative und organisatorische Aufgaben wie Aufnahme der Patientendaten, versenden von Notfall-Arztberichten an die Hausärzte werden ebenfalls deine Aufgaben sein.\n\n• Du erfasst die Leistungen nach Tardoc.\n\n• Du bist verantwortlich für die Bearbeitung der E-Mails sowie das Inkasso der Depotzahlungen.\n\nDein Profil\n\n• Du bringst eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in, Fachangestellte/r Gesundheit oder Arztsekretär/in mit.\n\n• Du hast Erfahrung mit den gängigen IT-Programmen.\n\n• Belastbarkeit, strukturiertes Denken, Motivation und Verantwortungsbewusstsein sind weitere Eigenschaften von dir.\n\n• Hohe Sozialkompetenz und sehr gute Kommunikationsfähigkeit helfen dir im Notfallalltag.\n\n• Du hast eine ausgeprägte Kunden- und Dienstleistungsorientierung.\n\n• Du hast sehr gute Deutschkenntnisse in Word und Schrift. Fremdsprachkenntnisse in Englisch und Französisch sind zudem von Vorteil.\n\n• Du arbeitest gerne im 2-Schichtbetrieb von Montag bis Freitag.\n Unser Angebot\n\n• Dich erwartet eine abwechslungsreiche und spannende Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenen Arbeitsumfeld mit Du-Kultur.\n\n• Ebenfalls wirst du vielseitige und verantwortungsvolle Aufgaben mit Freiraum für Initiative und eigenverantwortlichem Handeln antreffen.\n\n• Wir bieten einen Arbeitsplatz in einer prozessorientierten und interdisziplinären Organisation.\n\n• Dein Arbeitsplatz liegt an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof.\n\n• Fortschrittliche Anstellungsbedingungen mit attraktiven Zusatzleistungen, u. a.:\no Vergünstigte Parkplätze und Verpflegung\no Weltweite private Unfallversicherung\no Kostenlose Benutzung des hauseigenen Fitnessraums\no Betriebliche Kinderzulagen und REKA-Vergünstigungen\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Hast du Fragen zu der Stelle? Deine Ansprechperson für Auskünfte: Herr Pascal Scheurmann, Leiter Pflege Notfall, Telefon 041 666 41 63\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
         "it": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, HNO, Urologie, Ophthalmologie, Frauenklinik sowie Anästhesie.\n\nFür unsere interdisziplinäre Notfallstation suchen wir per 01. Dezember 2026 oder nach Vereinbarung , eine/n\n\nMed. Praxisassistent/in (MPA) Notfallempfang (a) 30 - 60%\n\nDeine Aufgaben\n\n• Du bist erste Ansprechperson am Empfang unserer Notfallstation für Patienten und Angehörige.\n\n• Du berätst unserer Notfallpatienten, Angehörigen und Zuweiser in administrativen Fragen professionell und kompetent.\n\n• Du bedienst die Telefonzentrale des Notfallempfangs.\n\n• Diverse administrative und organisatorische Aufgaben wie Aufnahme der Patientendaten, versenden von Notfall-Arztberichten an die Hausärzte werden ebenfalls deine Aufgaben sein.\n\n• Du erfasst die Leistungen nach Tardoc.\n\n• Du bist verantwortlich für die Bearbeitung der E-Mails sowie das Inkasso der Depotzahlungen.\n\nDein Profil\n\n• Du bringst eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in, Fachangestellte/r Gesundheit oder Arztsekretär/in mit.\n\n• Du hast Erfahrung mit den gängigen IT-Programmen.\n\n• Belastbarkeit, strukturiertes Denken, Motivation und Verantwortungsbewusstsein sind weitere Eigenschaften von dir.\n\n• Hohe Sozialkompetenz und sehr gute Kommunikationsfähigkeit helfen dir im Notfallalltag.\n\n• Du hast eine ausgeprägte Kunden- und Dienstleistungsorientierung.\n\n• Du hast sehr gute Deutschkenntnisse in Word und Schrift. Fremdsprachkenntnisse in Englisch und Französisch sind zudem von Vorteil.\n\n• Du arbeitest gerne im 2-Schichtbetrieb von Montag bis Freitag.\n Unser Angebot\n\n• Dich erwartet eine abwechslungsreiche und spannende Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenen Arbeitsumfeld mit Du-Kultur.\n\n• Ebenfalls wirst du vielseitige und verantwortungsvolle Aufgaben mit Freiraum für Initiative und eigenverantwortlichem Handeln antreffen.\n\n• Wir bieten einen Arbeitsplatz in einer prozessorientierten und interdisziplinären Organisation.\n\n• Dein Arbeitsplatz liegt an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof.\n\n• Fortschrittliche Anstellungsbedingungen mit attraktiven Zusatzleistungen, u. a.:\no Vergünstigte Parkplätze und Verpflegung\no Weltweite private Unfallversicherung\no Kostenlose Benutzung des hauseigenen Fitnessraums\no Betriebliche Kinderzulagen und REKA-Vergünstigungen\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Hast du Fragen zu der Stelle? Deine Ansprechperson für Auskünfte: Herr Pascal Scheurmann, Leiter Pflege Notfall, Telefon 041 666 41 63\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
         "en": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, HNO, Urologie, Ophthalmologie, Frauenklinik sowie Anästhesie.\n\nFür unsere interdisziplinäre Notfallstation suchen wir per 01. Dezember 2026 oder nach Vereinbarung , eine/n\n\nMed. Praxisassistent/in (MPA) Notfallempfang (a) 30 - 60%\n\nDeine Aufgaben\n\n• Du bist erste Ansprechperson am Empfang unserer Notfallstation für Patienten und Angehörige.\n\n• Du berätst unserer Notfallpatienten, Angehörigen und Zuweiser in administrativen Fragen professionell und kompetent.\n\n• Du bedienst die Telefonzentrale des Notfallempfangs.\n\n• Diverse administrative und organisatorische Aufgaben wie Aufnahme der Patientendaten, versenden von Notfall-Arztberichten an die Hausärzte werden ebenfalls deine Aufgaben sein.\n\n• Du erfasst die Leistungen nach Tardoc.\n\n• Du bist verantwortlich für die Bearbeitung der E-Mails sowie das Inkasso der Depotzahlungen.\n\nDein Profil\n\n• Du bringst eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in, Fachangestellte/r Gesundheit oder Arztsekretär/in mit.\n\n• Du hast Erfahrung mit den gängigen IT-Programmen.\n\n• Belastbarkeit, strukturiertes Denken, Motivation und Verantwortungsbewusstsein sind weitere Eigenschaften von dir.\n\n• Hohe Sozialkompetenz und sehr gute Kommunikationsfähigkeit helfen dir im Notfallalltag.\n\n• Du hast eine ausgeprägte Kunden- und Dienstleistungsorientierung.\n\n• Du hast sehr gute Deutschkenntnisse in Word und Schrift. Fremdsprachkenntnisse in Englisch und Französisch sind zudem von Vorteil.\n\n• Du arbeitest gerne im 2-Schichtbetrieb von Montag bis Freitag.\n Unser Angebot\n\n• Dich erwartet eine abwechslungsreiche und spannende Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenen Arbeitsumfeld mit Du-Kultur.\n\n• Ebenfalls wirst du vielseitige und verantwortungsvolle Aufgaben mit Freiraum für Initiative und eigenverantwortlichem Handeln antreffen.\n\n• Wir bieten einen Arbeitsplatz in einer prozessorientierten und interdisziplinären Organisation.\n\n• Dein Arbeitsplatz liegt an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof.\n\n• Fortschrittliche Anstellungsbedingungen mit attraktiven Zusatzleistungen, u. a.:\no Vergünstigte Parkplätze und Verpflegung\no Weltweite private Unfallversicherung\no Kostenlose Benutzung des hauseigenen Fitnessraums\no Betriebliche Kinderzulagen und REKA-Vergünstigungen\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Hast du Fragen zu der Stelle? Deine Ansprechperson für Auskünfte: Herr Pascal Scheurmann, Leiter Pflege Notfall, Telefon 041 666 41 63\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
-        "de": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, HNO, Urologie, Ophthalmologie, Frauenklinik sowie Anästhesie.\n\nFür unsere interdisziplinäre Notfallstation suchen wir per 01. Dezember 2026 oder nach Vereinbarung , eine/n\n\nMed. Praxisassistent/in (MPA) Notfallempfang (a) 30 - 60%\n\nDeine Aufgaben\n\n• Du bist erste Ansprechperson am Empfang unserer Notfallstation für Patienten und Angehörige.\n\n• Du berätst unserer Notfallpatienten, Angehörigen und Zuweiser in administrativen Fragen professionell und kompetent.\n\n• Du bedienst die Telefonzentrale des Notfallempfangs.\n\n• Diverse administrative und organisatorische Aufgaben wie Aufnahme der Patientendaten, versenden von Notfall-Arztberichten an die Hausärzte werden ebenfalls deine Aufgaben sein.\n\n• Du erfasst die Leistungen nach Tardoc.\n\n• Du bist verantwortlich für die Bearbeitung der E-Mails sowie das Inkasso der Depotzahlungen.\n\nDein Profil\n\n• Du bringst eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in, Fachangestellte/r Gesundheit oder Arztsekretär/in mit.\n\n• Du hast Erfahrung mit den gängigen IT-Programmen.\n\n• Belastbarkeit, strukturiertes Denken, Motivation und Verantwortungsbewusstsein sind weitere Eigenschaften von dir.\n\n• Hohe Sozialkompetenz und sehr gute Kommunikationsfähigkeit helfen dir im Notfallalltag.\n\n• Du hast eine ausgeprägte Kunden- und Dienstleistungsorientierung.\n\n• Du hast sehr gute Deutschkenntnisse in Word und Schrift. Fremdsprachkenntnisse in Englisch und Französisch sind zudem von Vorteil.\n\n• Du arbeitest gerne im 2-Schichtbetrieb von Montag bis Freitag.\n Unser Angebot\n\n• Dich erwartet eine abwechslungsreiche und spannende Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenen Arbeitsumfeld mit Du-Kultur.\n\n• Ebenfalls wirst du vielseitige und verantwortungsvolle Aufgaben mit Freiraum für Initiative und eigenverantwortlichem Handeln antreffen.\n\n• Wir bieten einen Arbeitsplatz in einer prozessorientierten und interdisziplinären Organisation.\n\n• Dein Arbeitsplatz liegt an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof.\n\n• Fortschrittliche Anstellungsbedingungen mit attraktiven Zusatzleistungen, u. a.:\no Vergünstigte Parkplätze und Verpflegung\no Weltweite private Unfallversicherung\no Kostenlose Benutzung des hauseigenen Fitnessraums\no Betriebliche Kinderzulagen und REKA-Vergünstigungen\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Hast du Fragen zu der Stelle? Deine Ansprechperson für Auskünfte: Herr Pascal Scheurmann, Leiter Pflege Notfall, Telefon 041 666 41 63\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22",
         "fr": "Das Kantonsspital Obwalden ist ein innovatives, vielseitiges Grundversorgungsspital in der Zentralschweiz mit den Kliniken Allgemein-, Unfall- und Viszeralchirurgie, Orthopädie, Innere Medizin, HNO, Urologie, Ophthalmologie, Frauenklinik sowie Anästhesie.\n\nFür unsere interdisziplinäre Notfallstation suchen wir per 01. Dezember 2026 oder nach Vereinbarung , eine/n\n\nMed. Praxisassistent/in (MPA) Notfallempfang (a) 30 - 60%\n\nDeine Aufgaben\n\n• Du bist erste Ansprechperson am Empfang unserer Notfallstation für Patienten und Angehörige.\n\n• Du berätst unserer Notfallpatienten, Angehörigen und Zuweiser in administrativen Fragen professionell und kompetent.\n\n• Du bedienst die Telefonzentrale des Notfallempfangs.\n\n• Diverse administrative und organisatorische Aufgaben wie Aufnahme der Patientendaten, versenden von Notfall-Arztberichten an die Hausärzte werden ebenfalls deine Aufgaben sein.\n\n• Du erfasst die Leistungen nach Tardoc.\n\n• Du bist verantwortlich für die Bearbeitung der E-Mails sowie das Inkasso der Depotzahlungen.\n\nDein Profil\n\n• Du bringst eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in, Fachangestellte/r Gesundheit oder Arztsekretär/in mit.\n\n• Du hast Erfahrung mit den gängigen IT-Programmen.\n\n• Belastbarkeit, strukturiertes Denken, Motivation und Verantwortungsbewusstsein sind weitere Eigenschaften von dir.\n\n• Hohe Sozialkompetenz und sehr gute Kommunikationsfähigkeit helfen dir im Notfallalltag.\n\n• Du hast eine ausgeprägte Kunden- und Dienstleistungsorientierung.\n\n• Du hast sehr gute Deutschkenntnisse in Word und Schrift. Fremdsprachkenntnisse in Englisch und Französisch sind zudem von Vorteil.\n\n• Du arbeitest gerne im 2-Schichtbetrieb von Montag bis Freitag.\n Unser Angebot\n\n• Dich erwartet eine abwechslungsreiche und spannende Tätigkeit in einem interdisziplinären, motivierten, engagierten und aufgeschlossenen Arbeitsumfeld mit Du-Kultur.\n\n• Ebenfalls wirst du vielseitige und verantwortungsvolle Aufgaben mit Freiraum für Initiative und eigenverantwortlichem Handeln antreffen.\n\n• Wir bieten einen Arbeitsplatz in einer prozessorientierten und interdisziplinären Organisation.\n\n• Dein Arbeitsplatz liegt an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof.\n\n• Fortschrittliche Anstellungsbedingungen mit attraktiven Zusatzleistungen, u. a.:\no Vergünstigte Parkplätze und Verpflegung\no Weltweite private Unfallversicherung\no Kostenlose Benutzung des hauseigenen Fitnessraums\no Betriebliche Kinderzulagen und REKA-Vergünstigungen\n\nHaben wir dein Interesse an dieser Stelle geweckt? Die Personalabteilung freut sich auf deine Online-Bewerbung.\n Jetzt bewerben Hast du Fragen zu der Stelle? Deine Ansprechperson für Auskünfte: Herr Pascal Scheurmann, Leiter Pflege Notfall, Telefon 041 666 41 63\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 44 22"
       },
       "location": "Sarnen",
@@ -1153,7 +1190,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistent-in-notfallempfang/ebewhvzv5wpchgueacvt0623t4jzdrsxiuyigeuz5wix4vhvkjvdvgubfco1m1bf",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:24:13.245Z",
+      "crawledAt": "2026-10-03T09:24:12.172Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1181,7 +1218,7 @@
           "med-praxisassistent-in-notfallempfang-a-30-60-ksow-sarnen"
         ]
       },
-      "firstSeenAt": "2026-10-02T21:24:13.245Z",
+      "firstSeenAt": "2026-10-03T09:24:12.172Z",
       "salaryMin": 51900,
       "salaryMax": 72300,
       "salarySource": "estimated",
@@ -1272,7 +1309,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
