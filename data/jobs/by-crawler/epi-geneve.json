@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epi-geneve",
-  "assembledAt": "2026-10-02T21:12:24.203Z",
+  "assembledAt": "2026-10-03T09:09:53.201Z",
   "jobs": [
     {
       "id": "epi-geneve-43f367a7bcb3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:17.390Z",
+      "crawledAt": "2026-10-03T09:09:44.152Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -125,7 +125,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "epi-geneve-b16a93a529b5",
@@ -206,7 +207,8 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "epi-geneve-4e34dd1f9026",
@@ -239,7 +241,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:17.377Z",
+      "crawledAt": "2026-10-03T09:09:44.146Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -289,7 +291,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "epi-geneve-a43d61dfe098",
@@ -322,7 +325,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000147877299-un-e-assistant-e-socioprofessionnel-le-planification-de-process-d-industrie-legere-atelier-conditionnement-80-a-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:17.385Z",
+      "crawledAt": "2026-10-03T09:09:44.121Z",
       "addressLocality": "Meinier",
       "addressRegion": "GE",
       "streetAddress": "Chemin de la Pallanterie 10",
@@ -408,7 +411,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000151539236--un-e-socio-educateur-trice-jalouvre-70-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:17.374Z",
+      "crawledAt": "2026-10-03T09:09:44.143Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin",
@@ -456,7 +459,8 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "epi-geneve-961455f306ba",
@@ -537,7 +541,9 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "epi-geneve-c9e036b98bdd",
@@ -619,7 +625,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
