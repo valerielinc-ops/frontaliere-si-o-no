@@ -98,6 +98,8 @@ export interface AssistedApplicationAutomationView {
     candidateEditedAt?: number | null;
     cvTextMethod: string | null;
     coverLetterUrl: string | null;
+    /** Which renderer made the letter PDF: `legacy` is the standard-font fallback (null on a draft from before it was recorded). */
+    coverLetterRenderer?: 'typst' | 'legacy' | null;
     /** career-ops ATS check: structural grade and keyword coverage, of the candidate's CV and of the tailored one. */
     ats: { original: AtsReportView; tailored?: AtsReportView } | null;
     /** career-ops Block G. */
@@ -109,10 +111,15 @@ export interface AssistedApplicationAutomationView {
     } | null;
     tailoredCv: {
       status: 'ready' | 'fact_check_failed' | 'failed' | 'skipped'; dropped: string[]; unsupported: Array<{ token: string; context: string }>; url: string | null;
+      /** Which renderer made the tailored CV's PDF, as `coverLetterRenderer`. */
+      renderer?: 'typst' | 'legacy' | null;
       /** Phase 5: the candidate's own DOCX with the adapted lines (null when the switch was off or the CV is a PDF). */
       inplace?: { status: 'ready' | 'fallback' | 'failed'; reason: string | null; patched: number; kept: string[]; pageCheck: 'libreoffice' | null; url: string | null } | null;
     } | null;
+    /** The choice that holds: `inplace` only while that file is ready to be sent. */
     cvChoice: 'tailored' | 'original' | 'inplace';
+    /** What the candidate chose on the review page (null before a choice): `inplace` while `cvChoice` is not, when that file fell back. */
+    candidateCvChoice?: 'tailored' | 'original' | 'inplace' | null;
     /** What the portal received, question by question (career-ops application-answers). */
     portalAnswers: { status: string; at: number; answers: Array<{ question: string; answer: string; source: string }> } | null;
   } | null;
@@ -178,8 +185,31 @@ export interface AssistedApplicationAdminOrder {
   updatedAt: string | null;
 }
 
+/**
+ * Last self-check of the PDF renderer inside the Cloud Functions
+ * (functions/src/assistedApplicationRendererCheck.js): one invented letter and
+ * one invented CV rendered with Typst and read back. Not personal.
+ */
+export interface AssistedApplicationPdfRendererCheck {
+  status: 'ok' | 'failed';
+  /** What the Remote Config switch said at the check, apart from the status: on `legacy` no document uses Typst. */
+  switch: 'typst' | 'legacy';
+  /** First line of the synthetic render's error. */
+  error: string | null;
+  node: string | null;
+  /** The function and the revision that ran the check. */
+  service: string | null;
+  revision: string | null;
+  rssMb: number | null;
+  /** Epoch milliseconds. */
+  checkedAt: number | null;
+  failingSince: number | null;
+}
+
 export interface AssistedApplicationAdminData {
   orders: AssistedApplicationAdminOrder[];
+  /** Null before the first check, or when the stored result could not be read. */
+  pdfRenderer: AssistedApplicationPdfRendererCheck | null;
 }
 
 /** Minimal Firebase user shape — only getIdToken is needed. */
@@ -242,23 +272,26 @@ async function requestAdmin(
   return data as Record<string, unknown>;
 }
 
+/** Everything the admin section renders: the queue (newest orders first) and the renderer's last self-check. */
+export async function fetchAssistedApplicationAdminData(
+  user: AuthLike | null | undefined,
+  status?: AssistedApplicationAdminStatus,
+): Promise<AssistedApplicationAdminData> {
+  const url = new URL(ASSISTED_APPLICATION_ADMIN_ENDPOINT);
+  if (status) url.searchParams.set('status', status);
+  const data = await requestAdmin(user, { method: 'GET', url: url.toString() });
+  return {
+    orders: Array.isArray(data.orders) ? data.orders as AssistedApplicationAdminOrder[] : [],
+    pdfRenderer: data.pdfRenderer && typeof data.pdfRenderer === 'object' ? data.pdfRenderer as AssistedApplicationPdfRendererCheck : null,
+  };
+}
+
 /** Fetches all visible queue statuses, newest orders first. */
 export async function fetchAssistedApplicationOrders(
   user: AuthLike | null | undefined,
   status?: AssistedApplicationAdminStatus,
 ): Promise<AssistedApplicationAdminOrder[]> {
-  const url = new URL(ASSISTED_APPLICATION_ADMIN_ENDPOINT);
-  if (status) url.searchParams.set('status', status);
-  const data = await requestAdmin(user, { method: 'GET', url: url.toString() });
-  return Array.isArray(data.orders) ? data.orders as AssistedApplicationAdminOrder[] : [];
-}
-
-/** Named data-shaped wrapper for callers that render the full admin section. */
-export async function fetchAssistedApplicationAdminData(
-  user: AuthLike | null | undefined,
-  status?: AssistedApplicationAdminStatus,
-): Promise<AssistedApplicationAdminData> {
-  return { orders: await fetchAssistedApplicationOrders(user, status) };
+  return (await fetchAssistedApplicationAdminData(user, status)).orders;
 }
 
 /** Requests a server-validated submission-status transition and audit entry. */
