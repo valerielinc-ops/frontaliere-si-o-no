@@ -1,0 +1,20 @@
+{
+  "companyKey": "umano-ag",
+  "companyName": "Umano AG",
+  "companyHost": "umano-ag.onlyfy.jobs",
+  "platform": "onlyfy.jobs",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://umano-ag.onlyfy.jobs/de/job/kt36m9w5"
+  ],
+  "detailTemplate": "/de/job/kt36m9w5",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Initiativbewerbung"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-03T11:06:02.963Z"
+}
