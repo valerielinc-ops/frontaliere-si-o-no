@@ -78,6 +78,7 @@ import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
+import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
@@ -2881,7 +2882,10 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
     }
     return slim;
   };
-  const stripped = { ...summaryEntry };
+  // `codeCommit`: il commit del checkout che ha prodotto questa summary (anche
+  // quando la scrive la guardia di uscita, che passa da qui). Assente se non
+  // determinabile.
+  const stripped = stampCodeCommit(summaryEntry);
   for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
     if (Array.isArray(stripped[listKey])) {
       stripped[listKey] = stripped[listKey].map(stripJob);
