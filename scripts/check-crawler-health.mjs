@@ -387,8 +387,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // `ferring` left this list on 2026-10-02: it now proves its Swiss zero every
   // run from the live Workday board (`proveSwissAbsentFromLiveBoard` on the
   // tenant's `Location_Country` facet, scripts/update-ferring-jobs.mjs).
-  // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
-  'hugo-boss',
   // `imerys` left this list on 2026-10-02: the "corroborated zero" was a dead
   // source (the SmartRecruiters company no longer exists) while its Workday
   // board listed 3 Swiss reqs. It now proves its own zero every run

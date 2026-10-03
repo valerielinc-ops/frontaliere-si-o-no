@@ -26,6 +26,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
@@ -35,6 +36,7 @@ import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.m
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isAuthoritativeEmptySnapshot, markAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -177,6 +179,12 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     for (const key of newRecordKeys) seenRawRecordKeys.add(key);
     const pageRecordCount = uniquePageRecordKeys.length;
     const pageJobs = parseSearchPage(html);
+    if (rawPageCount > 0 && pageJobs.length !== rawPageCount) {
+      throw new Error(
+        `Hugo Boss page ${page + 1} parsed ${pageJobs.length} of ${rawPageCount} DDO records. `
+        + 'A non-empty source page lost records (likely title/field drift); refusing to treat the result as an empty snapshot.',
+      );
+    }
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
     for (const job of pageJobs) {
       const key = rawHugoRecordKey(job);
@@ -280,6 +288,14 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       sector: 'Moda / Lusso',
     };
   }).filter(Boolean);
+  const authoritativeEmptySnapshot = readAudit.complete && swissJobs.length === 0;
+  if (authoritativeEmptySnapshot) {
+    markAuthoritativeEmptySnapshot(
+      mapped,
+      `Completed national Phenom DDO read (${allJobs.length} parsed records; `
+      + `totalHits=${totalHits ?? 'not reported'}); no Swiss postings matched the crawler scope.`,
+    );
+  }
   Object.defineProperty(mapped, 'hugoBossSnapshot', {
     value: Object.freeze({
       ...readAudit,
@@ -287,6 +303,8 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       recordsSeen,
       discovered: allJobs.length,
       published: mapped.length,
+      targetMatches: swissJobs.length,
+      authoritativeEmptySnapshot,
     }),
     enumerable: false,
   });
@@ -333,16 +351,74 @@ function updateAdapterConfig(seedUrls) {
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 }
 
+async function publishAuthoritativeEmptySnapshot({ beforeSnapshot, discovered }) {
+  const snapshot = discovered.hugoBossSnapshot || {};
+  const diff = computeCrawlDiff(beforeSnapshot, new Map());
+  const durationMs = getCrawlerElapsedMs();
+
+  updateAdapterConfig([]);
+  const archived = archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY);
+  // Clear the per-crawler scratch slice before emitting the verified empty
+  // slice. This keeps a later base-crawler/localization pass from seeing the
+  // retired jobs through the runner's private input path.
+  await mergeJobs([]);
+  writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true });
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: snapshot.discovered ?? 0,
+    parsed: snapshot.published ?? 0,
+    written: 0,
+    lastFetchOutcome: 'ok',
+    authoritativeEmptySnapshot: true,
+    authoritativeSnapshotVerified: true,
+    coverage: snapshot.coverage || 'complete',
+    terminationReason: snapshot.terminationReason || null,
+    sourceRecordsSeen: snapshot.recordsSeen ?? null,
+    sourceTotalHits: snapshot.totalHits ?? null,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  printCrawlChangeSummary(diff, COMPANY_NAME);
+  writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
+  await assembleJobsDataset();
+  console.log(`ℹ️ Persisted authoritative Hugo Boss zero; archived ${archived} expired route(s).`);
+}
+
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME, summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Hugo Boss — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
 
   const discovered = await fetchJobs();
-  if (discovered.length === 0) { console.log('⚠️ No Hugo Boss jobs discovered. Keeping existing.'); return; }
+  const snapshot = discovered.hugoBossSnapshot || {};
+  summaryCounts.discovered = Number.isFinite(snapshot.discovered) ? snapshot.discovered : 0;
+  summaryCounts.parsed = Number.isFinite(snapshot.published) ? snapshot.published : 0;
+  if (discovered.length === 0) {
+    if (isAuthoritativeEmptySnapshot(discovered)) {
+      console.log('ℹ️ Hugo Boss national DDO completed with no Swiss postings; publishing an authoritative empty snapshot.');
+      await publishAuthoritativeEmptySnapshot({ beforeSnapshot, discovered });
+      return;
+    }
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ Hugo Boss produced no publishable jobs without a proven empty-source snapshot; keeping existing data.');
+    return;
+  }
 
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
@@ -360,7 +436,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], coverage: discovered.hugoBossSnapshot?.coverage || 'complete', terminationReason: discovered.hugoBossSnapshot?.terminationReason || null, sourceRecordsSeen: discovered.hugoBossSnapshot?.recordsSeen ?? null, sourceTotalHits: discovered.hugoBossSnapshot?.totalHits ?? null, authoritativeSnapshotVerified: discovered.hugoBossSnapshot?.complete === true, newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, discovered: snapshot.discovered ?? null, parsed: snapshot.published ?? null, written: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], coverage: snapshot.coverage || 'complete', terminationReason: snapshot.terminationReason || null, sourceRecordsSeen: snapshot.recordsSeen ?? null, sourceTotalHits: snapshot.totalHits ?? null, authoritativeSnapshotVerified: snapshot.complete === true, newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
   console.log('\n✅ Hugo Boss crawler complete.');
 }
