@@ -26,6 +26,8 @@ describe('Audit Parser Quality workflow observability', () => {
   });
 
   it('reports a timeout cancellation instead of silently skipping the failure reporter', () => {
-    expect(workflow).toMatch(/name: Report failure to GitHub Issues[\s\S]*?if: failure\(\) \|\| cancelled\(\)/);
+    // The cancelled() branch stays (a timeout is a cancellation); only a
+    // supersession by a newer run is filtered out (issue 5253).
+    expect(workflow).toMatch(/name: Report failure to GitHub Issues[\s\S]*?if: failure\(\) \|\| \(cancelled\(\) && steps\.superseded\.outputs\.superseded != 'true'\)/);
   });
 });
