@@ -8,6 +8,9 @@
  */
 
 import type { Plugin } from 'vite';
+import { localizeArticlePageIdentity } from '../services/seo/article-page-identity';
+import { editorialModifiedDate } from './shared/editorialDates';
+import { renderBorderDashboardLink } from './shared/borderDashboardLink';
 import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT, FAVICON_LINKS } from './constants';
 import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
@@ -3397,6 +3400,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Italian: inline path-based editorial below
  // Use the canonical Italian path (from outer loop) for editorial lookup since
  // SECTION_EDITORIAL_KEYS use Italian slugs, not locale-specific ones
+ if (sourcePathForContent.replace(/\/+$/, '') === '/guida-frontaliere/tempi-attesa-dogana') {
+ editorialBlocks.push(renderBorderDashboardLink(locale));
+ }
  const italianPath = sourcePathForContent; // e.g. '/tasse-e-pensione/credito-imposta'
  // Check SECTION_EDITORIAL for ALL locales (including Italian).
  // If the entry has an 'it' key, use it instead of the inline chain below.
@@ -5114,11 +5120,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const dateLabel = LAST_UPDATED_LABEL[locale] ?? LAST_UPDATED_LABEL.it;
  const dateFormatLocale = locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB';
- const formattedDate = new Date().toLocaleDateString(dateFormatLocale, { month: 'long', year: 'numeric' });
+ const modifiedDate = editorialModifiedDate(seoData.sd, JSON_LD_SCRIPT_SEPARATOR);
+ const formattedDate = modifiedDate ? new Date(modifiedDate.slice(0, 10) + 'T12:00:00Z').toLocaleDateString(dateFormatLocale, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
  // Tokens bind to OKLCH semantic vars in index.css so the editorial wrapper
  // adapts to light/dark theme. Prior hardcoded hex (#94a3b8, #64748b, #2563eb,
  // #334155 below) shipped invisible text in dark mode — CLAUDE.md rule 17.
- const dateLine = `<p class="s-gu2hlZ"><time itemprop="datePublished" datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
+ const dateLine = modifiedDate ? `<p class="s-gu2hlZ"><time itemprop="dateModified" datetime="${esc(modifiedDate)}">${dateLabel}: ${formattedDate}</time></p>` : "";
 
  // Byline kept tight — schema.org/author + link to /chi-siamo only.
  // Dropped the "Esperti in fiscalità e previdenza frontaliera" subtitle
@@ -5907,6 +5914,13 @@ ${hrefTags}
  try {
  const obj = normalizeStructuredData(JSON.parse(part));
  translateSchema(obj, lang);
+ localizeArticlePageIdentity(obj, {
+ sourceUrl: `${BASE_URL}${withTrailingSlash(url.path)}`,
+ canonicalUrl: `${BASE_URL}${withTrailingSlash(locPath)}`,
+ headline: locSeo.h1 || locSeo.ogT || locSeo.title,
+ description: locSeo.desc,
+ locale: lang,
+ });
  if (typeof obj.inLanguage === 'string') obj.inLanguage = lang;
  // Re-escape `<` (inlineScriptJson, NOT a bare JSON.stringify): the JSON.parse
  // above decodes the IT builder's `<` back to a literal `<`, so a raw
