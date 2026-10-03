@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rsbj",
-  "assembledAt": "2026-10-02T21:28:36.968Z",
+  "assembledAt": "2026-10-03T09:29:03.944Z",
   "jobs": [
     {
       "id": "rsbj-97f459a61e1e",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "en": "doctors-carrying-the-post-graduate-federal-title-of-internal-medicine-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte",
-        "de": "arzt-arztin-mit-federalem-postgraduierten-titel-in-innerer-medizin-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
+        "de": "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "fr": "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
       },
       "company": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
@@ -34,7 +34,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:28:30.978Z",
+      "crawledAt": "2026-10-03T09:28:57.381Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,16 +53,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix",
+        "arzt-arztin-mit-federalem-postgraduierten-titel-in-innerer-medizin-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
+        "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
+          "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix",
+          "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
         ],
         "en": [
           "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
         ],
         "de": [
+          "arzt-arztin-mit-federalem-postgraduierten-titel-in-innerer-medizin-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
           "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
         ]
       },
@@ -112,7 +116,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:28:29.924Z",
+      "crawledAt": "2026-10-03T09:28:55.970Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -130,11 +134,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix"
+        "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix",
+        "medico-di-famiglia-medico-generale-indipendente-o-dipendente-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix"
+          "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix",
+          "medico-di-famiglia-medico-generale-indipendente-o-dipendente-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
         ]
       },
       "firstSeenAt": "2026-06-22T14:59:53.389Z",
@@ -183,7 +189,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:28:28.875Z",
+      "crawledAt": "2026-10-03T09:28:54.768Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -201,11 +207,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix"
+        "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix",
+        "infermiera-esperto-nella-prevenzione-delle-infezioni-associate-cosi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix"
+          "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix",
+          "infermiera-esperto-nella-prevenzione-delle-infezioni-associate-cosi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte"
         ],
         "en": [
           "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix"
@@ -227,7 +235,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
