@@ -99,8 +99,8 @@ const MAX_FAILED_JOBS = 3;
  * Gate non bloccanti misurati anche da cathedral-seo-gates-check sul corpus
  * intero: la loro issue è `SEO gates regression: <gate> above baseline`, e
  * una seconda issue qui sullo stesso difetto (misurato su un campione) darebbe
- * due lavori all'autofixer e due chiusure in conflitto. I gate A restano qui:
- * la loro issue è l'allarme del sequestro di `publish`.
+ * due lavori all'autofixer e due chiusure in conflitto. Dal 2026-10-03 vale
+ * anche per i gate A: resta qui solo un gate che sequestra ancora `publish`.
  */
 export const CATHEDRAL_OWNED_GATES = Object.freeze(new Set(
   CATHEDRAL_GATES.map((g) => g.gateKey).filter((key) => !isPublishBlocking(key)),
