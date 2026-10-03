@@ -35,6 +35,7 @@
  *                                                            → run assembly
  */
 
+import { repairJobTitleSemanticsInPlace } from './lib/job-title-semantic-repair.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -471,7 +472,7 @@ export function sanitizeJobTitleField(rawValue) {
 
 /** Apply {@link sanitizeJobTitleField} to `title` and every `titleByLocale`. */
 function sanitizeJobTitlesInPlace(job) {
-  let fixed = 0;
+  let fixed = repairJobTitleSemanticsInPlace(job);
   if (typeof job.title === 'string') {
     const cleaned = sanitizeJobTitleField(job.title);
     if (cleaned !== job.title) { job.title = cleaned; fixed++; }
@@ -3512,11 +3513,12 @@ function assembleSummaries() {
 
 /**
  * Normalize a source slice and persist the repair before aggregation can cap it.
- * Returns the number of entries repaired, including zero for an already-clean
+ * Returns the number of date/title repairs, including zero for an already-clean
  * slice so callers can keep their existing aggregation flow unchanged.
  */
 export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
-  const repaired = normalizeExpiredAtEntries(entries, options);
+  const repaired = normalizeExpiredAtEntries(entries, options)
+    + entries.reduce((count, job) => count + repairJobTitleSemanticsInPlace(job), 0);
   // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
   // this helper runs before the aggregate cap and must not leave a truncated
   // source slice if the process is interrupted during persistence.
