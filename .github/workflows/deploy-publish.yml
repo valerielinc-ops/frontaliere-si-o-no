@@ -236,7 +236,7 @@ jobs:
           test -s "dist/${BUILD_LOCALE}.html"
           test -s "dist/${BUILD_LOCALE}/index.html"
 
-      - name: Wait for IT CDN push (cross-workflow ordering guard)
+      - name: Wait for IT CDN push (cross-shard ordering guard)
         id: cdn-gate
         if: always()
         continue-on-error: true
@@ -247,9 +247,12 @@ jobs:
           CDN_WAIT_TIMEOUT_S: 2700
           CDN_WAIT_MARGIN_WARN_S: 600
           CDN_IT_JOB_NAME: build-locale (it)
-          CDN_IT_READY_STEP_NAME: ''
+          CDN_IT_READY_STEP_NAME: Push generated assets to CDN (early — ahead of the shard pushes)
+          CDN_IT_READY_TIMEOUT_S: 10800
+          CDN_IT_READY_INTERVAL_S: 30
+          CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
           CDN_JOB_DEADLINE_S: 21600
-          CDN_JOB_FINISH_RESERVE_S: 600
+          CDN_JOB_FINISH_RESERVE_S: 180
         run: bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
       # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
       # Section shard push FIRST (before the offload below) so
