@@ -27,7 +27,9 @@ set -uo pipefail
 # Requires GH_TOKEN, DEPLOY_RUN_ID, LOCALE_SHARDS_LIVE (set via `env:` on
 # the calling workflow step — this script inherits them as normal process
 # env, same as rehydrate-section-shards.sh already relies on for its own
-# vars).
+# vars). `SHARD_ARTIFACT_RUN_ID` optionally points at the run that produced
+# the post-build locale artifacts; it defaults to DEPLOY_RUN_ID for the
+# original same-run path.
 #
 # SAME REPLACE SEMANTICS AS THE SECTION SIBLING (issue #5327). Verified, not
 # assumed: every `rm -rf "dist/$loc"` below is followed by a full copy, so this
@@ -55,6 +57,7 @@ set -uo pipefail
 
 rehydrate_locale() {
   set -euo pipefail
+  local artifact_run_id="${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}"
   for loc in en de fr; do
     # Skip rehydrate only when BOTH the locale dir AND its homepage
     # `dist/$loc.html` (= `/{loc}`) are present. Checking just the dir
@@ -75,7 +78,7 @@ rehydrate_locale() {
     dl_ok=1
     for attempt in 1 2; do
       rm -rf "$dl"; mkdir -p "$dl"
-      if timeout 180 gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+      if timeout 180 gh run download "$artifact_run_id" --name "locale-dist-$loc-$artifact_run_id" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
         dl_ok=0
         break
       fi

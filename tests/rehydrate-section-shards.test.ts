@@ -114,7 +114,7 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     // The old 180-second attempt budget is split, not grown — 30 s to resolve
     // plus 150 s to download — so the losers' 390-second wait still covers
     // both attempts and the backoff.
-    const resolveIdx = script.indexOf('gh api "repos/$repo/actions/runs/$DEPLOY_RUN_ID/artifacts?name=$name&per_page=100"');
+    const resolveIdx = script.indexOf('gh api "repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$name&per_page=100"');
     const downloadIdx = script.indexOf('"repos/$repo/actions/artifacts/$id/zip"');
     const cloneIdx = script.indexOf('git clone --depth 1 --single-branch --branch main');
     expect(resolveIdx).toBeGreaterThan(-1);

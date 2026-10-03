@@ -1,13 +1,100 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   TEMENOS_KEY,
   TEMENOS_COMPANY_NAME,
+  fetchAllTemenosJobs,
   isTemenosJob,
   isTrustedDomain,
 } from '../scripts/lib/temenos-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+
+const SWISS_ID = '187134fccb084a0ea9b4b95f23890dbe';
+
+function mockTemenosWorkday({ faceted, unfiltered }: { faceted: unknown; unfiltered: unknown }) {
+  const calls: Array<{ body: any }> = [];
+  vi.stubGlobal('fetch', vi.fn(async (input: unknown, init: any = {}) => {
+    const url = String(input);
+    if (!url.endsWith('/jobs') || init?.method !== 'POST') {
+      return new Response('', { status: 404 });
+    }
+    const body = JSON.parse(init.body);
+    calls.push({ body });
+    const filtered = Object.keys(body.appliedFacets || {}).length > 0;
+    return new Response(JSON.stringify(filtered ? faceted : unfiltered), { status: 200 });
+  }));
+  return calls;
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe('Temenos crawler parser', () => {
+  it('uses the tenant facet and proves a live board with no Swiss roles', async () => {
+    const calls = mockTemenosWorkday({
+      faceted: { total: 0, jobPostings: [], facets: [] },
+      unfiltered: {
+        total: 16,
+        jobPostings: [],
+        facets: [{
+          facetParameter: 'locationMainGroup',
+          values: [
+            { id: 'paris', descriptor: 'Paris', count: 4 },
+            { id: 'london', descriptor: 'London', count: 3 },
+            { id: 'sydney', descriptor: 'Sydney', count: 2 },
+            { id: 'singapore', descriptor: 'Singapore', count: 2 },
+          ],
+        }],
+      },
+    });
+
+    const jobs = await fetchAllTemenosJobs();
+
+    expect(calls[0].body.appliedFacets).toEqual({ locationMainGroup: [SWISS_ID] });
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs).toEqual([]);
+  });
+
+  it('does not prove empty when a Swiss location descriptor is present', async () => {
+    mockTemenosWorkday({
+      faceted: { total: 0, jobPostings: [], facets: [] },
+      unfiltered: {
+        total: 16,
+        jobPostings: [],
+        facets: [{
+          facetParameter: 'locationMainGroup',
+          values: [{
+            descriptor: 'Locations',
+            values: [{ id: 'geneva', descriptor: 'ExCo Geneva', count: 1 }],
+          }],
+        }],
+      },
+    });
+
+    const jobs = await fetchAllTemenosJobs();
+
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(jobs).toEqual([]);
+  });
+
+  it('wires the runner to accept only a proven empty snapshot', () => {
+    const runner = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-temenos-jobs.mjs'), 'utf8');
+    expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(TEMENOS_COMPANY_NAME)');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+
+    const parser = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'lib', 'temenos-job-parser.mjs'), 'utf8');
+    expect(parser).toContain("countryFacetParameter: 'locationMainGroup'");
+    expect(parser).toContain('proveSwissAbsentFromLiveBoard: true');
+
+    const monitor = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'check-crawler-health.mjs'), 'utf8');
+    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
+    expect(allowlist).toBeTruthy();
+    expect(allowlist![1]).not.toMatch(/^\s*'temenos',/m);
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(TEMENOS_KEY).toBe('temenos');

@@ -16,6 +16,7 @@ import {
   LOCALES,
   readLocalePublishProvenanceDirectory,
   validateLocalePublishProvenance,
+  validateLocaleSourceProvenance,
 } from './locale-publish-provenance.mjs';
 
 const TERMINAL_CONCLUSIONS = new Set(['success', 'failure', 'cancelled', 'skipped', 'timed_out', 'action_required', 'stale', 'neutral']);
@@ -91,6 +92,7 @@ function blockedPlan({ runConclusion, sourceRunId, sourceSha, reasons, staleReas
     sourceSha,
     buildId: '',
     healthyLocales: [],
+    tailLocales: [],
     staleLocales: LOCALES.slice(),
     staleReasons,
     reason: reasons.join('; ') || 'no locale publish plan was admissible',
@@ -147,6 +149,7 @@ export function resolveLocalePublishPlan({
   // is deliberately allowed to have no receipt because cancellation can stop
   // the final `always()` upload before GitHub persists an artifact.
   const healthyLocales = [];
+  const tailLocales = [];
   const manifestFailures = {};
   let buildId = '';
   for (const locale of LOCALES) {
@@ -167,14 +170,39 @@ export function resolveLocalePublishPlan({
       expectedBuildId: expected,
       requirePublished: true,
     });
-    if (!verdict.valid) {
-      const reason = verdict.errors.join('; ');
+    if (verdict.valid) {
+      if (!buildId) buildId = entry.manifest.buildId;
+      healthyLocales.push(locale);
+      continue;
+    }
+
+    // Non-IT source legs now hand off a validated, unmodified locale subtree
+    // to deploy-publish.yml. The heavy section push/pack/offload tail is
+    // admitted separately there; until its receipt arrives the locale stays
+    // stale and cannot be announced as live.
+    if (locale !== 'it') {
+      const sourceVerdict = validateLocaleSourceProvenance(entry.manifest, {
+        locale,
+        sourceRunId: runId,
+        sourceSha: sha,
+        expectedBuildId: expected,
+        expectedArtifactRunId: runId,
+      });
+      if (sourceVerdict.valid) {
+        if (!buildId) buildId = entry.manifest.buildId;
+        tailLocales.push(locale);
+        staleReasons[locale] = 'validated source artifact awaiting the post-build non-IT shard tail';
+        continue;
+      }
+      const reason = `${verdict.errors.join('; ')}; source handoff rejected: ${sourceVerdict.errors.join('; ')}`;
       manifestFailures[locale] = reason;
       staleReasons[locale] = `provenance rejected: ${reason}`;
       continue;
     }
-    if (!buildId) buildId = entry.manifest.buildId;
-    healthyLocales.push(locale);
+
+    const reason = verdict.errors.join('; ');
+    manifestFailures[locale] = reason;
+    staleReasons[locale] = `provenance rejected: ${reason}`;
   }
 
   if (healthyLocales.includes('it')) {
@@ -217,6 +245,7 @@ export function resolveLocalePublishPlan({
     sourceSha: sha,
     buildId,
     healthyLocales,
+    tailLocales,
     staleLocales,
     staleReasons,
     reason: staleLocales.length
@@ -245,6 +274,7 @@ function writeGithubOutputs(file, plan) {
     mode: plan.mode,
     build_id: plan.buildId,
     healthy_locales: JSON.stringify(plan.healthyLocales),
+    tail_locales: JSON.stringify(plan.tailLocales || []),
     stale_locales: JSON.stringify(plan.staleLocales),
     stale_reasons: JSON.stringify(plan.staleReasons),
     reason: plan.reason,
