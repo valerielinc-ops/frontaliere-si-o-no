@@ -12413,6 +12413,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giornata-sostenibilita-mezzana.title': 'Giornata transfrontaliera sulla sostenibilità a Mezzana',
     'blog.article.giornata-sostenibilita-mezzana.excerpt': 'Oltre settanta docenti della Regione Insubrica hanno partecipato a Mezzana a una giornata tra teoria, atelier pratici e progetti sulla sostenibilità.',
     'blog.article.giornata-sostenibilita-mezzana.imageAlt': 'Docenti durante una giornata formativa sulla sostenibilità a Mezzana',
+    'blog.article.scontro-ss707-largo-flaiano.title': 'Incidente sulla SS707 a Varese, bretella chiusa per ore',
+    'blog.article.scontro-ss707-largo-flaiano.excerpt': 'Scontro tra due auto sulla SS707 alle porte di Varese: chiusa per ore la bretella tra Largo Flaiano e lo svincolo dei Laghi. Due feriti in codice giallo.',
+    'blog.article.scontro-ss707-largo-flaiano.imageAlt': 'SS707 a Varese chiusa dopo lo scontro tra due auto',
 };
 
 export default blogMetaIt;

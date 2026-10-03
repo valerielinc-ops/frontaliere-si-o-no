@@ -37222,6 +37222,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scontro-ss707-largo-flaiano',
+ category: 'pratico',
+ date: '2026-10-03T15:12:55.590Z',
+ image: '/images/blog/scontro-ss707-largo-flaiano.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

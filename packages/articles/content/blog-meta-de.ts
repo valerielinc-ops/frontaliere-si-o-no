@@ -12411,6 +12411,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giornata-sostenibilita-mezzana.title': 'Grenzüberschreitender Nachhaltigkeitstag in Mezzana',
     'blog.article.giornata-sostenibilita-mezzana.excerpt': 'Über siebzig Dozenten der Insubrischen Region nahmen in Mezzana an einem Tag mit Theorie, praktischen Workshops und Nachhaltigkeitsprojekten teil.',
     'blog.article.giornata-sostenibilita-mezzana.imageAlt': 'Lehrkräfte bei einem grenzüberschreitenden Nachhaltigkeitstag in Mezzana',
+    'blog.article.scontro-ss707-largo-flaiano.title': 'Unfall auf der SS707 in Varese, Verbindungsrampe stundenlang gesperrt',
+    'blog.article.scontro-ss707-largo-flaiano.excerpt': 'Zusammenstoß zwischen zwei Autos auf der SS707 am Stadtrand von Varese: Die Verbindungsrampe zwischen Largo Flaiano und der Ausfahrt Laghi war stundenlang gesperrt. Zwei Verletzte mit gelbem Code.',
+    'blog.article.scontro-ss707-largo-flaiano.imageAlt': 'SS707 bei Varese nach einem Unfall mit zwei Autos gesperrt',
 };
 
 export default blogMetaDe;
