@@ -349,6 +349,8 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+  'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
+  'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
 ]);
 // Filler between two words: skipped when looking for the word next to a company word.
 const FILLER_WORDS = new Set([
@@ -361,23 +363,33 @@ const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.te
 const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
 
 /**
- * The form names an employer that is not the order's (reviews of #11033). A
- * word of the order's company proves nothing by itself («Hotel application»,
- * «Hotel Application Process» on Grand Hotel Esempio's own form), and neither
- * does a company named elsewhere on the page (the ATS's own «Powered by Palace
- * Resort AG»): what identifies an employer is the word NEXT TO a word of the
- * order's company, in the same phrase — «Other Hotel», «other hotel»,
- * «Other-Hotel», «jobs.other-hotel.example». When that neighbour (filler
- * skipped) is neither the company's own, nor the role's, nor the page's own
- * vocabulary, the phrase names another employer. Case and separators do not
- * matter. The order's own whole name never gets here: it is postingMatch's
- * direct match.
+ * The form names an employer that is not the order's (reviews of #11033).
+ * `formText` is the page's title on its first line, then its text. Two
+ * places say who the employer is, and nothing else on the page does (the ATS's
+ * own «Powered by Palace Resort AG» in a footer is nobody's employer):
+ *
+ *   1. the page's title. Next to the role it holds the employer or nothing:
+ *      «Concierge — Other Resort», «Concierge — Other Hotel». Any word there
+ *      that is neither the role's, nor the order's company's, nor the page's
+ *      own vocabulary («Hotel application», «Hotel Application Process»,
+ *      «Application Tracking System») declares someone else. A place or a
+ *      department in the title stops the run too: Valerie's retry goes on,
+ *      which costs less than an application to the wrong employer;
+ *   2. the word NEXT TO a word of the order's company, anywhere, in the same
+ *      phrase and with filler skipped: «Other Hotel», «other hotel»,
+ *      «Other-Hotel», «jobs.other-hotel.example».
+ *
+ * Case and separators do not matter. The order's own whole name never gets
+ * here: it is postingMatch's direct match.
  */
 export function namesAnotherEmployer(formText, job = {}) {
   const ours = new Set(nameWords(job.company));
   if (!ours.size) return false;
   const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
-  for (const phrase of String(formText || '').split(PHRASE_END_RE)) {
+  const text = String(formText || '');
+  const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
+  if (title.some((word) => !filler(word) && !neutral.has(word))) return true;
+  for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     for (const [index, word] of words.entries()) {
       if (!ours.has(word)) continue;
@@ -1034,7 +1046,7 @@ export async function submitViaPortal(ctx) {
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
     const formMatch = async () => {
-      const seen = `${await page.title().catch(() => '')} ${await pageText(page)} ${page.url()}`;
+      const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
       const result = formPostingMatch(seen, ctx.job, { postingMatched: postingNamed && page.url() !== postingUrl });
       // Said in the evidence: the company was read on the posting, the form names only the role.
       if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = 'posting_page';

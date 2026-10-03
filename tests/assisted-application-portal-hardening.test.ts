@@ -46,7 +46,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
   // umantis for a hotel, 2026-10-03: the form names the role («Concierge - Application»), never the employer.
   it('reads the company on the posting and the role on the form its apply button opened', () => {
     const job = { company: 'Grand Hotel Esempio', title: 'Concierge (m/w/d)' };
-    const form = 'Concierge - Application | Application Tracking System Concierge Click on Login if you have already set up your profile. https://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
+    // As the runner composes it: the page's title, then its text, then its address.
+    const form = 'Concierge - Application | Application Tracking System\nConcierge\nClick on Login if you have already set up your profile.\nhttps://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
     // The form alone: a stop, as before.
     expect(formPostingMatch(form, job)).toBe('mismatch');
     // Opened by the apply button of a posting that named the company: the role is enough.
@@ -56,6 +57,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch(form, { company: job.company }, { postingMatched: true })).toBe('mismatch');
     // A form that names the company needs no posting; an order that names nothing is never stopped.
     expect(formPostingMatch(`Grand Hotel Esempio · ${form}`, job)).toBe('match');
+    expect(formPostingMatch(`Concierge\nBewerbung bei Grand Hotel Esempio`, job, { postingMatched: true })).toBe('match');
     expect(formPostingMatch('anything', {}, { postingMatched: true })).toBe('unknown');
     // Review of #11033: a form that names another employer of the kind is a stop, whatever the posting said.
     expect(formPostingMatch('Concierge — Other Hotel', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('mismatch');
@@ -79,21 +81,27 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(viaPosting('Concierge — other hotel')).toBe('mismatch');
     expect(viaPosting('Concierge — Other-Hotel')).toBe('mismatch');
 
-    // The same rule around those cases: the neighbour, with filler skipped, in the same phrase.
-    expect(viaPosting('Concierge — Other Hotel', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('mismatch');
-    expect(viaPosting('Concierge - Application https://jobs.other-hotel.example/apply')).toBe('mismatch');
-    expect(viaPosting('Bewerbung als Concierge (m/w/d) im Grand Resort')).toBe('mismatch');
-    expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
-    expect(namesAnotherEmployer('CONCIERGE | HOTEL SPLENDIDE', job)).toBe(true);
-    // The page's own vocabulary, the role, the company's own words and another phrase name nobody.
+    // Fourth: an employer in the page's title with no word in common with the order's company.
+    expect(viaPosting('Concierge — Other Resort')).toBe('mismatch');
+    expect(viaPosting('Concierge — Palace Resort AG')).toBe('mismatch');
+
+    // 1. The title (the first line) holds the role, the company's own words and the page's vocabulary, or it is a stop.
+    expect(viaPosting('Concierge - Application | Application Tracking System\nConcierge\nPowered by Palace Resort AG')).toBe('match');
     expect(viaPosting('Hotel Concierge · Bewerbung im Hotel Bereich · Hotel Jobs')).toBe('match');
-    expect(namesAnotherEmployer('Concierge — Hotel application', job)).toBe(false);
+    expect(viaPosting('Concierge (m/w/d) 80-100% | Karriereportal')).toBe('match');
     expect(namesAnotherEmployer('Grand Hotel · Concierge', job)).toBe(false);
-    expect(namesAnotherEmployer('Concierge - Application | Application Tracking System', job)).toBe(false);
-    expect(namesAnotherEmployer('Hotel. Splendide careers', job)).toBe(false);
-    expect(namesAnotherEmployer('Concierge https://careers.recruiting-0000.example/apply', job)).toBe(false);
-    // A company with no word in common is beyond what the text can tell: the posting's own button brought here.
-    expect(viaPosting('Concierge — Palace Resort AG')).toBe('match');
+    expect(namesAnotherEmployer('Concierge — Hotel application', job)).toBe(false);
+    expect(namesAnotherEmployer('CONCIERGE | HOTEL SPLENDIDE', job)).toBe(true);
+    expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
+    // A place in the title is a stop too (Valerie's retry goes on): never a guess about what the word is.
+    expect(viaPosting('Concierge | Pontresina')).toBe('mismatch');
+    // 2. Below the title, only the word next to a word of the order's company counts.
+    expect(viaPosting('Concierge — Other Hotel', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('mismatch');
+    expect(viaPosting('Concierge\nWelcome to the Other Hotel careers page')).toBe('mismatch');
+    expect(viaPosting('Concierge - Application\nhttps://jobs.other-hotel.example/apply')).toBe('mismatch');
+    expect(viaPosting('Concierge\nBewerbung als Concierge (m/w/d) im Grand Resort')).toBe('mismatch');
+    expect(viaPosting('Concierge\nDeine Bewerbung im Hotel Bereich. Splendide Aussichten\nhttps://careers.recruiting-0000.example/apply')).toBe('match');
+    expect(viaPosting('Concierge\nFirst name\nLast name\nPalace Resort AG — all rights reserved')).toBe('match');
     expect(namesAnotherEmployer('anything', {})).toBe(false);
 
     // Without a posting that named the company there is no fallback at all.
