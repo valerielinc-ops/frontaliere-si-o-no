@@ -4,6 +4,7 @@ import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@
 import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv, Shield, Landmark, AlertTriangle, ChevronRight } from 'lucide-react';
 import { SimulationInputs, ExpenseItem } from '../../types';
 import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT, calculateDynamicExpenses } from '../../constants';
+import { FRONTIER_SSN_MAX_RATE, FRONTIER_SSN_MIN_RATE, normalizeFrontierSsnRate } from '@/services/frontierHealthContribution';
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -1004,11 +1005,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  <input 
  type="number" 
  inputMode="decimal"
- value={inputs.ssnHealthTaxPercentage} 
- onChange={(e) => handleChange('ssnHealthTaxPercentage', Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)))} 
+ value={normalizeFrontierSsnRate(inputs.ssnHealthTaxPercentage)}
+ onChange={(e) => handleChange('ssnHealthTaxPercentage', normalizeFrontierSsnRate(e.target.valueAsNumber))}
  step="0.1"
- min="0"
- max="100"
+ min={FRONTIER_SSN_MIN_RATE}
+ max={FRONTIER_SSN_MAX_RATE}
  aria-label={t('input.netIncomePercentage') || 'Percentuale reddito netto per contributo SSN'}
  className="w-14 text-right bg-surface-alt text-strong border border-edge rounded px-2 py-1 text-xs font-bold focus:outline-none focus-visible:ring-1 focus-visible:ring-warning" 
  />
