@@ -1,18 +1,18 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-10-03T09:20:40.524Z",
+  "generatedAt": "2026-10-03T21:17:21.429Z",
   "total": 14,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4853,
-  "avgDurationMs": 4853,
+  "durationMs": 4723,
+  "avgDurationMs": 4723,
   "durationHistory": [
-    4242,
-    94079,
-    4853
+    4723
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -496,8 +496,7 @@
       "salaryMax": 57000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_restaurant_wattwil__50__37d803f497.pdf",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -540,7 +539,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -549,5 +548,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
