@@ -61,6 +61,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchWithRetry, RETRYABLE_STATUS } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -316,6 +317,27 @@ function extractVacancyRows(html = '') {
   return rows;
 }
 
+/**
+ * Prove that the fRecruit listing was rendered and explicitly reports zero
+ * vacancies. A bare zero is intentionally not enough: a selector miss or an
+ * incomplete response must keep the previous slice live and visible to the
+ * health monitor.
+ */
+function extractAuthoritativeEmptyListingEvidence(html = '', rows = []) {
+  if (rows.length !== 0 || /vacancyNo=VN\d+/i.test(html)) return null;
+
+  const visibleText = normalizeSpace(stripHtml(html)).toLowerCase();
+  const hasCompleteEmptyState = [
+    /current vacancies/.test(visibleText),
+    /for the vacancies listed below/.test(visibleText),
+    /\bpage\s+1\s+of\s+0\b/.test(visibleText),
+    /\bnone\s+found\b/.test(visibleText),
+  ].every(Boolean);
+
+  if (!hasCompleteEmptyState) return null;
+  return 'Gavi fRecruit listing reports Current Vacancies, Page 1 of 0 and None found with no vacancy links';
+}
+
 async function fetchListingPages() {
   const cookieJar = { value: '' };
   const rowsByVacancy = new Map();
@@ -355,7 +377,12 @@ async function fetchListingPages() {
     page += 1;
   }
 
-  return { rows: [...rowsByVacancy.values()], cookieJar };
+  const rows = [...rowsByVacancy.values()];
+  return {
+    rows,
+    cookieJar,
+    authoritativeEmptyEvidence: extractAuthoritativeEmptyListingEvidence(html, rows),
+  };
 }
 
 /* ── Fetch: detail page (JSON-LD datePosted + label/value table) ─────── */
@@ -439,14 +466,19 @@ export async function fetchAllGaviJobs() {
 
   let rows = [];
   let cookieJar = { value: '' };
+  let authoritativeEmptyEvidence = null;
   try {
-    ({ rows, cookieJar } = await fetchListingPages());
+    ({ rows, cookieJar, authoritativeEmptyEvidence } = await fetchListingPages());
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
     throw err;
   }
 
   if (!rows || rows.length === 0) {
+    if (authoritativeEmptyEvidence) {
+      console.log(`  🧩 Source-proven zero: ${authoritativeEmptyEvidence}`);
+      return markAuthoritativeEmptySnapshot([], authoritativeEmptyEvidence);
+    }
     console.warn('⚠️ No job listings returned.');
     return [];
   }

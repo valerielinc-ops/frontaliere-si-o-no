@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
   fetchAllGaviJobs,
 } from '../scripts/lib/gavi-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const PORTAL_HOST = 'fs-2662.my.salesforce-sites.com';
@@ -25,6 +26,15 @@ function listingHtml(rows: Array<{ vacancyNo: string; title: string; location: s
     )
     .join('\n');
   return `<html><body><table class="list jobListPanel">${trs}</table></body></html>`;
+}
+
+function emptyListingHtml() {
+  return `<html><body>
+    <h1>Current Vacancies</h1>
+    <p>For the vacancies listed below, we invite you to apply on-line by clicking on the job title.</p>
+    <div>First Previous Page <span>1</span> of <span>0</span> Next Last</div>
+    <table class="list jobListPanel"><tbody><tr><td>None found</td></tr></tbody></table>
+  </body></html>`;
 }
 
 function detailHtml({
@@ -224,7 +234,21 @@ describe('Gavi crawler parser', () => {
       expect(job.slugByLocale[job.sourceLang]).toBe(job.slug);
     });
 
-    it('returns an empty array when the feed has no listings', async () => {
+    it('marks the portal-declared empty listing as an authoritative empty snapshot', async () => {
+      fetchSpy.mockImplementation(async (url: any) => {
+        const u = String(url);
+        if (u === LISTING_URL) {
+          return mockResponse(emptyListingHtml()) as any;
+        }
+        throw new Error(`Unexpected fetch: ${u}`);
+      });
+
+      const jobs = await fetchAllGaviJobs();
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    });
+
+    it('keeps an unrecognised empty response fail-closed', async () => {
       fetchSpy.mockImplementation(async (url: any) => {
         const u = String(url);
         if (u === LISTING_URL) {
@@ -235,6 +259,7 @@ describe('Gavi crawler parser', () => {
 
       const jobs = await fetchAllGaviJobs();
       expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
     });
 
     it('filters out non-Swiss postings (e.g. the Washington DC liaison office)', async () => {
