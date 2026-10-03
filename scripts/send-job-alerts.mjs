@@ -82,7 +82,7 @@ import {
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
 import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
-import { recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
+import { buildRankingJobsManifest, recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
@@ -1490,7 +1490,7 @@ export async function mailerooMetaOnSent(item, sendResult) {
 // differently-named/shaped subcollection) sees per-user send-time outcomes for
 // job alerts too. Used by both the first-send (sendBatch) and retry
 // (processRetryQueue) paths, same as mailerooMetaOnSent above.
-async function persistJobAlertDelivery(item, sendResult) {
+export async function persistJobAlertDelivery(item, sendResult) {
   const email = item.recipient?.email?.toLowerCase().trim();
   const alertId = item.meta?.alertId;
   if (!email || !alertId) return;
@@ -1504,7 +1504,10 @@ async function persistJobAlertDelivery(item, sendResult) {
       campaign_id: alertId,
       ranking_delivery_id: rankingDeliveryId,
       ranking_variant: item.meta?.rankingVariant || null,
-      ranking_jobs: item.meta?.rankingJobs || [],
+      // Lean manifest only (job_id, position, scores): the full job objects stay
+      // in memory on item.meta.rankingJobs for recordJobEmailImpressions and the
+      // retry queue. Storing them here cost ~200 KB per delivery document.
+      ranking_jobs: buildRankingJobsManifest(item.meta?.rankingJobs),
       message_id: sendResult?.messageId || null,
       provider: sendResult?.provider || null,
       // Per-user send-time (#3798): scheduledFor is the cascade's authoritative
