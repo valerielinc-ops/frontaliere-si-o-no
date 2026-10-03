@@ -44,6 +44,7 @@ const CTR_BY_POSITION = [
   0.012, 0.011, 0.010, 0.009, 0.008,
 ];
 const TAIL_CTR = 0.006; // position > 20
+const DEFAULT_UNDERPERFORM_RATIO = 0.6;
 
 /**
  * Expected organic CTR (fraction, e.g. 0.037) for a given average position.
@@ -969,7 +970,7 @@ export function discoverUnregisteredFamilies(pageRows, {
  * `underperformRatio` (default 0.6) flags pages whose actual CTR is below
  * that fraction of the position-expected CTR.
  */
-export function aggregateFamilyRows(rows, { underperformRatio = 0.6, minImpressions = 20 } = {}) {
+export function aggregateFamilyRows(rows, { underperformRatio = DEFAULT_UNDERPERFORM_RATIO, minImpressions = 20 } = {}) {
   const eligible = rows.filter((r) => Number(r.impressions || 0) >= minImpressions);
   const totalClicks = eligible.reduce((sum, r) => sum + Number(r.clicks || 0), 0);
   const totalImpressions = eligible.reduce((sum, r) => sum + Number(r.impressions || 0), 0);
@@ -1025,13 +1026,16 @@ const BELOW_CURVE_CRITERION = 'CTR < 0,6 × la CTR attesa per la propria posizio
  * piu' — una pagina a 0,55× della curva con molte impressioni scavalcherebbe
  * una a 0,05× che ne ha poche meno.
  *
- * Non riaggrega e non rifiltra: chi e' «sotto curva» e chi supera il minimo di
- * impressioni lo ha gia' deciso `aggregateFamilyRows`.
+ * Non riaggrega e non rifiltra il volume: chi supera il minimo di impressioni
+ * lo ha gia' deciso `aggregateFamilyRows`. Dopo la normalizzazione, però,
+ * riapplica il floor CTR per mantenere coerenti le righe GSC con `ctr: null`:
+ * l'aggregazione tratta quel valore come zero, mentre qui possiamo ricavare la
+ * CTR reale da click e impressioni.
  *
  * L'elenco puo' essere piu' corto di `belowCurveCount`: una riga GSC con `ctr`
  * nullo e' contata sotto curva dall'aggregazione (rapporto 0), ma qui la CTR
- * e' ricalcolata da click/impressioni e, se risulta sopra la curva, la riga
- * non ha click persi e viene scartata.
+ * e' ricalcolata da click/impressioni e, se risulta sopra il floor dichiarato,
+ * la riga viene scartata anche se avrebbe click persi positivi.
  */
 export function rankBelowCurvePagesByLostClicks(belowCurvePages) {
   return (belowCurvePages || [])
@@ -1043,7 +1047,11 @@ export function rankBelowCurvePagesByLostClicks(belowCurvePages) {
       const expectedCtr = Number(page.expectedCtr || 0);
       return { ...page, ctr, lostClicks: impressions * (expectedCtr - ctr) };
     })
-    .filter((page) => page.lostClicks > 0)
+    .filter((page) => (
+      page.lostClicks > 0
+      && page.expectedCtr > 0
+      && page.ctr / page.expectedCtr < DEFAULT_UNDERPERFORM_RATIO
+    ))
     .sort((a, b) => b.lostClicks - a.lostClicks || String(a.path).localeCompare(String(b.path)));
 }
 

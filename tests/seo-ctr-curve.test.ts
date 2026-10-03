@@ -856,6 +856,19 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(ranked[1].lostClicks).toBeCloseTo(1000 * expectedAt3 * 0.45, 6);
     });
 
+    it('riapplica il floor dopo aver normalizzato una CTR nulla da click e impressioni', () => {
+      const page = {
+        path: '/normalized-above-floor/',
+        clicks: 8,
+        impressions: 100,
+        ctr: null,
+        position: 1,
+        expectedCtr: 0.1,
+      };
+
+      expect(rankBelowCurvePagesByLostClicks([page])).toEqual([]);
+    });
+
     it('la sezione elenca le pagine sotto curva ed esclude quelle sopra curva e sotto il minimo', () => {
       const agg = aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS });
       const section = renderBelowCurvePagesSection(agg.belowCurvePages);
