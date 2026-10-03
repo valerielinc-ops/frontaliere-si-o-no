@@ -12384,6 +12384,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Principio d\'incendio a un furgoncino tra Paradiso e Melide',
     'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Principio d\'incendio poco prima delle 17 su un furgoncino aziendale in Via Cantonale, tra Paradiso e Melide. Il TCS segnala possibili lunghi ritardi.',
     'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Furgoncino fermo sulla strada cantonale tra Paradiso e Melide dopo un principio d\'incendio',
+    'blog.article.radar-strade-ticinesi-ottobre.title': 'Controlli velocità in Ticino dal 5 all\'11 ottobre',
+    'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'Dal 5 all\'11 ottobre sono previsti controlli sulle strade ticinesi. La Polizia cantonale cura la mappa dei radar e indica le località interessate.',
+    'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Controlli della velocità su una strada del Ticino in autunno',
 };
 
 export default blogMetaIt;

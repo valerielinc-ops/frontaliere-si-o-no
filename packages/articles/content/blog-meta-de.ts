@@ -12382,6 +12382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Brandanschlag auf einen Lieferwagen zwischen Paradiso und Melide',
     'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Kleinbrand kurz vor 17 Uhr in einem Firmenlieferwagen an der Via Cantonale zwischen Paradiso und Melide. Der TCS meldet mögliche lange Verzögerungen.',
     'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Firmenwagen auf der Kantonsstrasse zwischen Paradiso und Melide nach einem Brandherd',
+    'blog.article.radar-strade-ticinesi-ottobre.title': 'Geschwindigkeitskontrollen im Tessin vom 5. bis 11. Oktober',
+    'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'Vom 5. bis 11. Oktober sind auf den Tessiner Straßen Kontrollen vorgesehen. Die Kantonspolizei betreut die Radarkarte und gibt die betroffenen Orte an.',
+    'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Geschwindigkeitskontrollen auf einer Tessiner Strasse im Herbst',
 };
 
 export default blogMetaDe;

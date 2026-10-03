@@ -37141,6 +37141,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'radar-strade-ticinesi-ottobre',
+ category: 'pratico',
+ date: '2026-10-03T05:47:16.038Z',
+ image: '/images/blog/radar-strade-ticinesi-ottobre.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12385,6 +12385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Début d\'incendie dans une camionnette entre Paradiso et Melide',
     'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Départ de feu peu avant 17 heures sur une fourgonnette d\'entreprise à la Via Cantonale, entre Paradiso et Melide. Le TCS signale de possibles longs retards.',
     'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Fourgonnette arrêtée sur la route cantonale entre Paradiso et Melide après un début d\'incendie',
+    'blog.article.radar-strade-ticinesi-ottobre.title': 'Contrôles de vitesse au Tessin du 5 au 11 octobre',
+    'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'Du 5 au 11 octobre, des contrôles sont prévus sur les routes tessinoises. La Police cantonale gère la carte des radars et indique les localités concernées.',
+    'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Contrôles de vitesse sur une route tessinoise en automne',
 };
 
 export default blogMetaFr;

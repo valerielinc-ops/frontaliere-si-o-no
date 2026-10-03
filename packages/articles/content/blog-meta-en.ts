@@ -12383,6 +12383,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furgoncino-fiamme-paradiso-melide.title': 'Small fire involving a van between Paradiso and Melide',
     'blog.article.furgoncino-fiamme-paradiso-melide.excerpt': 'Small fire shortly before 17 involving a company van on Via Cantonale, between Paradiso and Melide. TCS reports possible long delays.',
     'blog.article.furgoncino-fiamme-paradiso-melide.imageAlt': 'Commercial van stopped on the cantonal road between Paradiso and Melide after a fire started',
+    'blog.article.radar-strade-ticinesi-ottobre.title': 'Speed checks in Ticino from October 5 to 11',
+    'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'From 5 to 11 October, checks are planned on Ticino\'s roads. The Cantonal Police manages the speed-camera map and indicates the locations concerned.',
+    'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Speed checks on a Ticino road in autumn',
 };
 
 export default blogMetaEn;
