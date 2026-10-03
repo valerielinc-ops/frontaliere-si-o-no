@@ -101,7 +101,9 @@
  *     nell'orizzonte (`core`, solo se serve lo storico) + per ogni workflow
  *     candidato 1 lettura dell'ultima run
  *     (il guard sul rientro; 2 solo se la prima non prova niente) e 1 lettura
- *     dei job, entrambe ≤ MAX_ISSUES.
+ *     dei job, entrambe ≤ MAX_ISSUES; in più 1 lettura dei job per ogni run rossa
+ *     della finestra di un workflow in `VERDICT_STEPS` (oggi il solo
+ *     `crawler-health-monitor`, ~1 run al giorno), memoizzata per passata.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
  *     chiamata per workflow schedulato, oggi 180. Una al giorno è il prezzo che
  *     rende il controllo possibile; orario costerebbe 4.320 chiamate/giorno sul
@@ -127,7 +129,11 @@ import {
   commentOnGithubIssue,
   occurrencePredatesClose,
 } from '../lib/github-issue-creator.mjs';
-import { TITLE_RE } from './close-recovered-failure-issues.mjs';
+import {
+  TITLE_RE,
+  VERDICT_STEPS,
+  isVerdictOnlyFailure,
+} from './close-recovered-failure-issues.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1060,17 +1066,31 @@ function registeredWorkflows() {
  * dal budget dichiarato in testa al file («per ogni workflow candidato 1
  * lettura dell'ultima run e 1 lettura dei job, entrambe ≤ MAX_ISSUES»).
  */
+/** Memo di `readRunJobs`, svuotato all'inizio di ogni `scanFailures()`. */
+const runJobsMemo = new Map();
+
 function readRunJobs(runId) {
+  // Memo per passata: la run di un workflow nel registro degli step-verdetto viene letta
+  // una volta per decidere se è di solo verdetto, e la stessa lettura serve poi al corpo
+  // della issue o alla firma. Il processo è monouso per passata: niente cache stantia.
+  const key = String(runId);
+  if (runJobsMemo.has(key)) return runJobsMemo.get(key);
   const raw = gh(
     ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${runId}/jobs?per_page=100`],
     { allowFailure: true },
   );
-  if (raw === null) return { jobs: null, readable: false };
-  try {
-    return { jobs: JSON.parse(raw), readable: true };
-  } catch {
-    return { jobs: null, readable: false };
+  let result;
+  if (raw === null) {
+    result = { jobs: null, readable: false };
+  } else {
+    try {
+      result = { jobs: JSON.parse(raw), readable: true };
+    } catch {
+      result = { jobs: null, readable: false };
+    }
   }
+  runJobsMemo.set(key, result);
+  return result;
 }
 
 /** Body + commenti di una issue, per cercarci i marker di firma. `null` = illeggibile. */
@@ -1134,6 +1154,7 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
 }
 
 export async function scanFailures() {
+  runJobsMemo.clear();
   const since = new Date(Date.now() - LOOKBACK_MINUTES * 60_000).toISOString();
   const horizon = new Date(Date.now() - RUN_QUERY_HORIZON_MINUTES * 60_000).toISOString();
 
@@ -1175,6 +1196,19 @@ export async function scanFailures() {
     }, { since })) continue;
     if (!workflowName) {
       console.warn(`::warning::[scan-unreported-failures] run ${run.id} senza workflow risolvibile (${run.path}) — saltata.`);
+      continue;
+    }
+    // LC-03: il rosso VOLUTO di un monitor (lo step-verdetto registrato in
+    // VERDICT_STEPS, dopo che il monitor ha già aperto le issue della sua famiglia)
+    // non è un fallimento non segnalato: né issue nuova né ricorrenza. Si decide run
+    // per run e PRIMA del raggruppamento, così una run mista più vecchia nella stessa
+    // finestra resta segnalabile. Job illeggibili → non è di solo verdetto (fail-closed).
+    const verdictEntry = VERDICT_STEPS[wf?.path || ''];
+    if (verdictEntry && isVerdictOnlyFailure(wf.path, readRunJobs(run.id).jobs)) {
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto `
+          + `«${verdictEntry.verdict}» → segnale già portato dalle issue «${verdictEntry.owner}…», nessuna segnalazione.`,
+      );
       continue;
     }
     reportable.push({ ...run, workflowName });
