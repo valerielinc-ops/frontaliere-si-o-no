@@ -12439,6 +12439,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.martina-bonalumi-podio-canottaggio.title': 'Martina Bonalumi: double international podium finish in the eight',
     'blog.article.martina-bonalumi-podio-canottaggio.excerpt': 'The coxswain of Dumenza wins bronze at the FISU World University Championships in Canada and silver at the Under-23 European Championships in Poland.',
     'blog.article.martina-bonalumi-podio-canottaggio.imageAlt': 'Rowing boat on an alpine lake',
+    'blog.article.como-fai-giornate-autunno.title': 'FAI d \'Autunno in Como: construction sites, industries and Val d \'Intelvi',
+    'blog.article.como-fai-giornate-autunno.excerpt': 'On 10 and 11 October, the FAI Autumn Days open the Lakes Navigation Shipyard in Tavernola and the Colombo and Visgomma Textile Industries at Fino Mornasco, with 50-minute visits and special ‘Machines in Motion’ shifts.',
+    'blog.article.como-fai-giornate-autunno.imageAlt': 'Autumn FAI visit in Como featuring historic shipyards and textile factories on the lake',
 };
 
 export default blogMetaEn;

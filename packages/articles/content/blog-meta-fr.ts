@@ -12441,6 +12441,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.martina-bonalumi-podio-canottaggio.title': 'Martina Bonalumi : double podium international en huit',
     'blog.article.martina-bonalumi-podio-canottaggio.excerpt': 'La barreuse de Dumenza décroche le bronze aux Mondiaux universitaires de la FISU au Canada et l\'argent aux Championnats d\'Europe des moins de 23 ans en Pologne.',
     'blog.article.martina-bonalumi-podio-canottaggio.imageAlt': 'Bateau de rame sur un lac alpin',
+    'blog.article.como-fai-giornate-autunno.title': 'FAITES l\'automne à Côme : chantiers, industries et Val d’Intelvi',
+    'blog.article.como-fai-giornate-autunno.excerpt': 'Les 10 et 11 octobre, les Journées FAI d’Automne ouvrent le Chantier Navigation Lacs à Tavernola et les Industries Textiles Colombo et Visgomma à Fino Mornasco, avec des visites de 50 minutes et des tours spéciaux « Machines en mouvement ».',
+    'blog.article.como-fai-giornate-autunno.imageAlt': 'Visite automnale du FAI à Como avec chantiers navals et usines textiles au bord du lac',
 };
 
 export default blogMetaFr;

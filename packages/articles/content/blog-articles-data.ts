@@ -37304,6 +37304,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-fai-giornate-autunno',
+ category: 'pratico',
+ date: '2026-10-03T22:29:15.221Z',
+ image: '/images/blog/como-fai-giornate-autunno.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
