@@ -347,7 +347,7 @@ async function main() {
     console.warn(`  ⚠️  Skipped ${skipped}/${listings.length} detail pages due to errors`);
   }
 
-  if (jobs.length === 0) {
+  if (jobs.length === 0 && discovery.lastFetchOutcome !== 'filtered_empty') {
     console.warn('⚠️  All detail fetches failed — preserving existing data.');
     printCrawlChangeSummary(
       { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
