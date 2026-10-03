@@ -347,6 +347,13 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // reconciler orario centrale, e il cron giornaliero garantisce che il
       // primo verde arrivi da solo entro 24h.
       'live-data-gates.yml': 'close-recovered-failure-issues',
+      // la sweep degli alert di secret scanning: prima la issue la apriva solo
+      // la scansione centrale, che nomina lo step rosso («Fail if any owner
+      // sweep failed») e non QUALE alert. L'adozione serve al `diag-file` con
+      // repository, numero e tipo. Il titolo resta `CI Failure: <name:>`, lo
+      // stesso che scrive la scansione centrale: un solo thread, chiuso dal
+      // reconciler al primo verde del cron giornaliero.
+      'secret-scanning-sweep.yml': 'close-recovered-failure-issues',
     };
     // A workflow can keep an existing custom reporter and add the canonical
     // post-job reporter as a second adoption. Compare file + closer pairs so

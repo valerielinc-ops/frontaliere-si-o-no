@@ -27,7 +27,10 @@ const RUNNER = path.join(ROOT, 'scripts/ci/run-related-tests.mjs');
 function runFromMissingCheckout(args = [], extraEnv = {}) {
   const checkout = fs.mkdtempSync(path.join(os.tmpdir(), 'run-related-tests-'));
   try {
-    fs.writeFileSync(path.join(checkout, 'changed-paths.txt'), 'README.md\n');
+    // Un path senza candidati per il grafo e fuori dal perimetro di ogni lint
+    // dell'albero dei sorgenti (`public/` è escluso anche dal gate dei segreti):
+    // è la diff che non seleziona niente, il caso che questi test esercitano.
+    fs.writeFileSync(path.join(checkout, 'changed-paths.txt'), 'public/robots.txt\n');
     const env = { ...process.env };
     delete env.GITHUB_ACTIONS;
     delete env.VITEST_RELATED_DRY_RUN;

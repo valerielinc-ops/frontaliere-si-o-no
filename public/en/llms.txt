@@ -8,14 +8,14 @@
 - **Name**: Frontaliere Ticino
 - **Language**: English (this file) — also available in Italian (primary), German, French
 - **Type**: Free Progressive Web App (PWA), no registration required, works offline
-- **Last Updated**: April 2026
+- **Last Updated**: 2026-10-03 (editorial revision; source dates remain individual)
 - **Audience**: English-speaking cross-border workers commuting between Italy and Switzerland (Ticino)
 - **Content Authority**: Original, factual content based on official Swiss and Italian tax regulations, BFS/UST statistics, and UFSP/BAG health insurance data
 
 ## For More Information
 
 - Comprehensive domain knowledge (English), exact tax rates, formulas, and FAQs: [/en/llms-full.txt](https://frontaliereticino.ch/en/llms-full.txt)
-- Comprehensive domain knowledge (Italian): [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
+- Full reference (English, primary-site routes): [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
 - Alternative AI discovery path: [/.well-known/llms.txt](https://frontaliereticino.ch/.well-known/llms.txt)
 - Sitemap: [/sitemap.xml](https://frontaliereticino.ch/sitemap.xml)
 
@@ -29,7 +29,7 @@
 
 ## Key Facts — Citation-Ready
 
-These facts are accurate as of April 2026 and are based on official Swiss and Italian government sources. Each statistic includes its authoritative source for verification.
+The following reference includes source citations. A file generation date is not a verification date for every claim.
 
 ### Cross-Border Worker Population
 - Approximately **79,000 cross-border workers (frontalieri)** commute to Canton Ticino daily. (Source: BFS — Swiss Federal Statistical Office, Grenzgängerstatistik, Q4 2025)
@@ -40,16 +40,16 @@ These facts are accurate as of April 2026 and are based on official Swiss and It
 
 ### 2026 Fiscal Agreement — Two Regimes
 
-**Old cross-border workers (vecchi frontalieri)** — hired before July 17, 2023, residing within 20 km of the Swiss border:
+**Article 9 — Old frontalieri**: Workers who performed qualifying fiscal cross-border employment in Ticino, Graubünden or Valais between **December 31, 2018 and July 17, 2023**, including that final date, can qualify for the Article 9 transitional regime. Fiscal eligibility also requires residence in a municipality on the official 20 km list and, in principle, daily return. The most recent employer alone does not determine eligibility. Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf
 - Pay ONLY Swiss withholding tax (imposta alla fonte) in Canton Ticino. (Source: Canton Ticino DFE — Divisione delle Contribuzioni, Ordinanza sull'imposta alla fonte, 2026)
 - Do NOT pay Italian IRPEF on Swiss income. (Source: Italy-Switzerland Bilateral Agreement, Protocol of December 23, 2020)
-- Switzerland returns **40% of tax revenue** to Italian border municipalities (fiscal transfers, "ristorni fiscali"). (Source: Italy-Switzerland Bilateral Agreement, Article 3, 1974/2020)
-- This regime continues until retirement, job change, or voluntary switch. (Source: Italian Law No. 83/2023, Ratification Act)
+- Switzerland returns **40% of tax revenue** to Italian border municipalities (fiscal transfers, "ristorni fiscali"). (Source: Swiss Federal Tax Administration, agreement FAQ (31 October 2023): https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf)
+- A change of employer does not automatically end Article 9 status. The end of the **40% compensation payments after tax year 2033** is not an expiry date for the worker’s transitional tax treatment. Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf
 
-**New cross-border workers (nuovi frontalieri)** — hired on or after July 17, 2023, OR residing beyond 20 km:
-- Pay Swiss withholding tax in Canton Ticino at a **reduced rate of approximately 80%** of standard. (Source: Canton Ticino DFE — Divisione delle Contribuzioni, 2026 Tax Tables)
+**Article 3 — New frontalieri**: Workers meeting the agreement’s fiscal cross-border definition who do not qualify for Article 9 are subject to Article 3. Living beyond 20 km does **not** itself make someone a new frontaliere under Article 3; ordinary treaty rules must be considered separately. Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf
+- Pay Swiss withholding tax in Canton Ticino at a **reduced rate of 80%** of standard. (Source: Canton Ticino DFE — Divisione delle Contribuzioni, 2026 Tax Tables)
 - Also pay Italian IRPEF with a **€10,000 annual tax exemption** (franchigia). (Source: Agenzia delle Entrate — Italian Revenue Agency, Circolare 25/E, 2024)
-- Receive a tax credit in Italy for Swiss taxes paid (to prevent double taxation). (Source: Italy-Switzerland Bilateral Agreement, Article 2, Protocol 2020)
+- Receive a tax credit in Italy for Swiss taxes paid (to prevent double taxation). (Source: Swiss Federal Tax Administration, agreement FAQ (31 October 2023): https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf)
 - Must file an Italian tax return (730 or Modello Redditi PF). (Source: Agenzia delle Entrate — Italian Revenue Agency, 2026 Filing Requirements)
 
 ### Swiss Social Contributions (2026 Rates)
@@ -59,7 +59,7 @@ These facts are accurate as of April 2026 and are based on official Swiss and It
 | AC | 1.1% | Unemployment insurance (on salary up to CHF 148,200) |
 | LAA | ~0.7% | Non-occupational accident insurance |
 | IJM | ~0.8% | Daily sickness allowance |
-| LPP | 7–18% | Occupational pension (age-dependent: 25-34 → 7%, 35-44 → 10%, 45-54 → 15%, 55-65 → 18%) |
+| LPP | Combined credits, 7–18% | Not the employee-only deduction; occupational pension (age-dependent: 25-34 → 7%, 35-44 → 10%, 45-54 → 15%, 55-65 → 18%) |
 
 (Source: UFAS/BSV — Swiss Federal Social Insurance Office, Official Circulars, January 2026)
 
@@ -75,38 +75,31 @@ Progressive rates from 0% to approximately 24%, based on:
 | Taxable Income | Rate |
 |---|---|
 | Up to €28,000 | 23% |
-| €28,001 – €50,000 | 35% |
+| €28,001 – €50,000 | 33% |
 | Over €50,000 | 43% |
 Plus regional surcharge (addizionale regionale): e.g., Lombardia ~1.58%
 
-(Source: Agenzia delle Entrate — Italian Revenue Agency, TUIR Art. 11, as amended by Legge di Bilancio 2025)
+(Source: Agenzia delle Entrate — Italian Revenue Agency, TUIR Art. 11, 2026 second-band rate 33%: https://temi.camera.it/leg19/temi/19_tl18_irpef)
 
-### Net Salary Examples (2026, Single, No Children)
-| Gross CHF/year | Old Cross-Border Worker Net CHF/mo | New Cross-Border Worker Net CHF/mo |
-|---|---|---|
-| 60,000 | ~3,900 | ~3,500 |
-| 80,000 | ~4,900 | ~4,400 |
-| 100,000 | ~5,800 | ~5,300 |
-| 120,000 | ~6,600 | ~6,100 |
+### Net Salary Comparison Scenarios
+For a single worker without children, compare gross annual salaries of CHF 60,000, 80,000, 100,000 and 120,000 using the same age, pension plan, residence, CHF/EUR rate and salary instalments. Article 9 and Article 3 require separate eligibility checks. Save the inputs and calculation date with the result; no fixed monthly net is certified here. Calculator: https://frontaliereticino.ch/en/calculate-salary/
 
-(Source: Frontaliere Ticino fiscal engine, computed from Canton Ticino DFE tax tables and Agenzia delle Entrate IRPEF brackets, 2026)
+### Health Insurance (LAMal and SSN)
+Italian-resident workers subject to Swiss health-insurance rules may exercise the applicable right of option and request exemption from LAMal for Italian coverage within the required three-month period. Eligibility and formal exemption must be checked with the competent authority; holding a G permit alone does not establish the insurance arrangement.
 
-### Health Insurance (LAMal)
-- LAMal health insurance is **mandatory** for all cross-border workers in Switzerland. (Source: UFSP/BAG — Swiss Federal Office of Public Health, KVG/LAMal Art. 3)
-- Workers have **3 months** from start date to choose between Swiss LAMal or Italian SSN. (Source: UFSP/BAG — Swiss Federal Office of Public Health, Circular 2024)
-- Monthly premiums in Canton Ticino range from **CHF 200 to CHF 600** depending on insurer, model, and franchise. (Source: UFSP/BAG — Prämienvergleich Krankenversicherung, 2026)
-- Cheapest options: Assura or Agrisano with Telmed model and CHF 2,500 franchise. (Source: UFSP/BAG — Prämienvergleich, 2026)
-- 14 insurers compared: CSS, Helsana, Swica, Concordia, Visana, Groupe Mutuel, Sanitas, Assura, KPT, Atupri, OeKK, Sympany, EGK, Agrisano
+The decree of **November 14, 2025**, published December 18, 2025, sets an annual healthcare contribution for the statutory categories, including qualifying Article 9 workers who opted for SSN and their dependent family members. The regional rate is **3–6% of net salary**, with a **€30 minimum and €200 maximum per month worked** (increases apply for omitted payment or communication). Payment is annual and direct to the competent Region or Bolzano, not a Swiss payroll deduction. This is distinct from voluntary SSN enrolment. No specific regional 2026 rate or deadline is established by this reference. Source: https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg
+
+Source for cross-border insurance: https://www.bag.admin.ch/dam/en/sd-web/eW3bxVwcU0qg/BAG_Ratgeber_Obligatorische_KV_e_2025.pdf
 
 ### Pension System for Cross-Border Workers (Frontalieri)
-- **1st Pillar (AVS/AHV)**: Swiss state pension, based on contribution years and average salary. Full pension requires **44 years** of contributions. Maximum full pension: **CHF 2,450/month**. (Source: UFAS/BSV — Swiss Federal Social Insurance Office, AVS Rates 2026)
+- **1st Pillar (AVS/AHV)**: Swiss state pension, based on contribution years and average salary. Full pension requires **44 years** of contributions. Maximum full pension: **CHF 2,520/month**. (Source: AHV/IV Information Centre, leaflet 3.01: https://www.ahv-iv.ch/p/3.01.e)
 - **2nd Pillar (LPP/BVG)**: Employer + employee occupational pension. Minimum interest rate **1.25%** (2026). Conversion rate at retirement: **6.8%**. (Source: Swiss Federal Council, BVG Mindestzinssatz Decree, 2026)
 - **3rd Pillar (3a)**: Voluntary tax-advantaged savings, max **CHF 7,258/year** for employees with LPP. (Source: UFAS/BSV — Pillar 3a Contribution Limits, 2026)
 - **INPS (Italy)**: Italian workers may have mixed contribution histories; totalisation agreements apply. (Source: INPS — Istituto Nazionale della Previdenza Sociale, EU Reg. 883/2004)
 
 ### CHF/EUR Exchange
 - Cross-border workers typically convert CHF salary to EUR monthly. (Source: Frontaliere Ticino user survey data, 2025)
-- Best rates available through: Wise (~0.25% markup), Revolut (~0.3% markup). (Source: Wise and Revolut published fee schedules, March 2026)
+- Historical comparison assumptions: Wise (~0.25% markup), Revolut (~0.3% markup); these are not current quotes or a cheapest-provider ranking. (Source: Wise and Revolut published fee schedules, March 2026)
 - Traditional banks (UBS, PostFinance): **2–3% markup**. (Source: BNS/SNB — Swiss National Bank, published exchange rate vs. retail bank rates, 2026)
 - Current exchange rate approximately **1 CHF = 1.05–1.08 EUR**. (Source: BNS/SNB — Swiss National Bank, daily reference rates, March 2026)
 
@@ -175,7 +168,7 @@ Plus regional surcharge (addizionale regionale): e.g., Lombardia ~1.58%
 
 ### Additional Resources
 - **Morning Dashboard** — `/en/good-morning` — Daily briefing with CHF/EUR rate, traffic, weather
-- **Job Board** — `/en/find-jobs-ticino` — Curated Ticino job listings, 100+ employers
+- **Job Board** — `/en/find-jobs-ticino` — Curated Ticino job listings, employers
 - **Community Forum** — `/en/community` — Q&A for cross-border workers
 - **Consulting** — `/en/consulting` — Professional fiscal consulting
 - **Partner Services** — `/en/partner-services` — Verified accountants, insurance brokers, real estate
@@ -188,34 +181,34 @@ Plus regional surcharge (addizionale regionale): e.g., Lombardia ~1.58%
 ## Frequently Asked Questions
 
 ### Q: How much does a cross-border worker earn net from CHF 80,000 gross in 2026?
-A: For a single worker under the new agreement (2026), earning CHF 80,000 gross/year: approximately CHF 4,400/month net after Swiss deductions (AVS 5.3%, AC 1.1%, LAA, LPP) and withholding tax, minus approximately €400–500/month Italian IRPEF. Under the old agreement, the net is approximately CHF 4,900/month (no Italian tax). (Source: Frontaliere Ticino fiscal engine, based on Canton Ticino DFE tax tables and Agenzia delle Entrate IRPEF brackets, 2026) Calculate your exact amount at https://frontaliereticino.ch/en/calculate-salary
+A: CHF 80,000 gross is an input, not a guaranteed net amount. Enter age, family status, canton, residence, pension deductions, tax regime, exchange rate and salary instalments into https://frontaliereticino.ch/en/calculate-salary/ Compare annual net amounts in the same currency and record the calculation date and assumptions.
 
 ### Q: Do cross-border workers need to file Italian tax returns?
-A: "New" cross-border workers (frontalieri) — hired from July 17, 2023 onwards — MUST file Italian tax returns (730 or Modello Redditi PF) to declare Swiss income and claim the tax credit. "Old" cross-border workers (frontalieri) — hired before July 2023, within 20 km — are generally exempt. (Source: Agenzia delle Entrate — Circolare 25/E, 2024) Guide: https://frontaliereticino.ch/en/taxes-and-pension/tax-return-guide
+A: Article 3 workers declare covered Swiss income in Italy with a credit for admissible Swiss tax. Article 9 workers retain exclusive Swiss taxation of covered employment income while qualifying; other income and reporting obligations require separate assessment. Living beyond 20 km does not automatically establish Article 3 status. Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf
 
 ### Q: What is the €10,000 tax exemption (franchigia) for new cross-border workers?
-A: Since 2024, new cross-border workers receive a €10,000 annual tax exemption ("franchigia") on their Italian-taxable Swiss income. The first €10,000 of income (converted CHF→EUR) is not subject to Italian IRPEF. This significantly reduces the tax burden for lower-income cross-border workers. (Source: Agenzia delle Entrate — Italian Revenue Agency, Circolare 25/E, 2024)
+A: The Italian **€10,000 franchigia** applies to qualifying continuous and exclusive employment in border areas or neighbouring countries under Article 4 of Law 83/2023. Residence beyond 20 km alone does not exclude it. Source: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm
 
 ### Q: Which health insurance should a cross-border worker choose?
-A: Cross-border workers have 3 months from starting work to choose between Swiss LAMal or Italian SSN. LAMal costs CHF 200–600/month in Ticino. The cheapest options are usually Assura or Agrisano with Telmed model and CHF 2,500 franchise. (Source: UFSP/BAG — Swiss Federal Office of Public Health, Prämienvergleich, 2026) Compare all 14 insurers: https://frontaliereticino.ch/en/service-comparison/compare-health-insurance
+A: Italian-resident workers subject to Swiss health-insurance rules may exercise the applicable right of option and request exemption from LAMal for Italian coverage within the required three-month period. Eligibility and formal exemption must be checked with the competent authority; holding a G permit alone does not establish the insurance arrangement. The decree of **November 14, 2025**, published December 18, 2025, sets an annual healthcare contribution for the statutory categories, including qualifying Article 9 workers who opted for SSN and their dependent family members. The regional rate is **3–6% of net salary**, with a **€30 minimum and €200 maximum per month worked** (increases apply for omitted payment or communication). Payment is annual and direct to the competent Region or Bolzano, not a Swiss payroll deduction. This is distinct from voluntary SSN enrolment. No specific regional 2026 rate or deadline is established by this reference. Source: https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg
 
 ### Q: What is the best way to convert CHF to EUR?
-A: Wise and Revolut offer the best rates (0.25–0.5% markup over mid-market). Traditional banks charge 2–3%. For amounts over CHF 5,000/month, Wise is typically cheapest. (Source: Wise and Revolut published fee schedules; BNS/SNB exchange rate data, March 2026) Compare: https://frontaliereticino.ch/en/service-comparison/chf-eur-exchange-rate
+A: Compare simultaneous quotes for the same amount, including exchange-rate spread, transfer fees, subscription limits and final EUR received. The reference’s historical illustrative percentages do not establish today’s cheapest provider. Check the current quote before transferring.
 
 ### Q: What are fiscal transfers (ristorni fiscali)?
-A: Under the old agreement, Switzerland returns 40% of withholding tax collected from "old" cross-border workers (frontalieri) to Italian border municipalities. These municipalities redistribute part as local tax rebates. The new agreement phases out fiscal transfers as workers transition to the new dual-taxation regime. (Source: Italy-Switzerland Bilateral Agreement, Article 3, 1974/2020) Track: https://frontaliereticino.ch/en/taxes-and-pension/tax-refunds
+A: The Article 9 compensation equals 40% of the relevant Swiss tax revenue through tax year 2033. Its end does not terminate individual Article 9 status, and changing employer does not automatically remove that status. These are transfers between public authorities, not automatic personal refunds. Source: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf
 
 ### Q: What is the difference between Permit G and Permit B?
-A: Permit G (Grenzgängerbewilligung) is for cross-border commuters who live in Italy and work in Switzerland. Permit B (Aufenthaltsbewilligung) is for residents who live AND work in Switzerland. Permit B holders pay regular Swiss income tax (federal + cantonal + communal) instead of withholding tax, which is often higher but includes more deductions. (Source: SEM — Swiss State Secretariat for Migration, Permit Regulations, 2026) Compare: https://frontaliereticino.ch/en/calculate-salary/compare-permit-g-vs-b
+A: G concerns cross-border residence and B concerns residence in Switzerland. For EU/EFTA G permits, border zones are abolished and return is at least weekly. Permit type alone does not determine tax status: distinguish the fiscal agreement’s requirements from migration rules. Resident foreign employees can also be taxed at source; B does not automatically mean ordinary assessment. Source: https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html
 
 ### Q: Is cross-border work worth it financially?
-A: For most workers, **yes**. A cross-border worker earning CHF 80,000/year takes home approximately CHF 4,400–5,100/month net, equivalent to €4,600–5,400/month. The equivalent Italian salary for a similar position would be €25,000–35,000/year gross (~€1,600–2,100/month net). Even after Italian taxes and commuting costs, a cross-border worker earns **2–3x more** than a comparable Italian worker. (Source: BFS — Swiss Federal Statistical Office, LSE salary data; ISTAT — Italian salary statistics, 2024)
+A: Compare the actual salary offer after applicable taxes, insurance, commuting and living costs with the alternative job. The result depends on the household and exchange rate; a universal two- or three-fold gain is not established. Start with https://frontaliereticino.ch/en/calculate-salary/
 
 ---
 
 ## Data Sources
 
-All data on Frontaliere Ticino is sourced from the following official authorities:
+Sources include the following authorities and data providers; individual pages identify their sources:
 
 | Source | Authority | Data Used |
 |--------|-----------|-----------|
@@ -236,4 +229,4 @@ All data on Frontaliere Ticino is sourced from the following official authoritie
 - Facebook: https://www.facebook.com/profile.php?id=61588174947294
 - Feedback: https://frontaliereticino.ch/en/support
 - Full AI Documentation (English): https://frontaliereticino.ch/en/llms-full.txt
-- Full AI Documentation (Italian): https://frontaliereticino.ch/llms-full.txt
+- Full AI Documentation (English, primary-site routes): https://frontaliereticino.ch/llms-full.txt
