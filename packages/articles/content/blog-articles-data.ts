@@ -37295,6 +37295,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'martina-bonalumi-podio-canottaggio',
+ category: 'novita',
+ date: '2026-10-03T21:59:32.186Z',
+ image: '/images/blog/martina-bonalumi-podio-canottaggio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

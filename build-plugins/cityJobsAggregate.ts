@@ -258,7 +258,7 @@ function buildSnapshotForCity(
   let fresh30 = 0;
   for (const job of matches) {
     const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
   const medianSalary = reportedSalarySummary(matches).medianChf;

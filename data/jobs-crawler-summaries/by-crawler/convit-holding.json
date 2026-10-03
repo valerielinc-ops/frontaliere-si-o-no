@@ -1,18 +1,16 @@
 {
   "key": "convit-holding",
   "label": "Convit Holding",
-  "generatedAt": "2026-10-03T09:34:46.170Z",
+  "generatedAt": "2026-10-03T21:30:10.398Z",
   "total": 36,
   "newCount": 6,
   "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 54239,
-  "avgDurationMs": 54239,
+  "durationMs": 42490,
+  "avgDurationMs": 42490,
   "durationHistory": [
-    41085,
-    38219,
-    54239
+    42490
   ],
   "newJobs": [
     {
@@ -1337,5 +1335,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
