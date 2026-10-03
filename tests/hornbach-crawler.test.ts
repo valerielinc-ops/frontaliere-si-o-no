@@ -11,6 +11,7 @@ import {
   parseHornbachLocation,
   buildHornbachDescription,
   resolveHornbachPostedDate,
+  fetchHornbachPublicationFields,
   resolveHornbachEmploymentType,
   parseHornbachOffer,
   isHornbachOfferRedirectUrl,
@@ -261,24 +262,22 @@ describe('Hornbach crawler parser', () => {
 
   // ── resolveHornbachPostedDate ──
   describe('resolveHornbachPostedDate', () => {
-    it('parses a valid create_date string', () => {
-      expect(resolveHornbachPostedDate({ create_date: '2026-06-15T08:00:00Z' })).toBe('2026-06-15');
+    it('never promotes Typesense creation fields or collection time to publication', () => {
+      for (const doc of [{}, { create_date: new Date(Date.now() - 86400000).toISOString() }, { create_date_timestamp: Date.now() - 86400000 }, { create_date: 'not-a-date' }]) {
+        expect(resolveHornbachPostedDate(doc)).toBe('');
+      }
     });
 
-    it('parses a millisecond create_date_timestamp when create_date is absent', () => {
-      const ms = Date.UTC(2026, 5, 20);
-      expect(resolveHornbachPostedDate({ create_date_timestamp: ms })).toBe('2026-06-20');
-    });
-
-    it('parses a second-based create_date_timestamp when create_date is absent', () => {
-      const seconds = Date.UTC(2026, 5, 20) / 1000;
-      expect(resolveHornbachPostedDate({ create_date_timestamp: seconds })).toBe('2026-06-20');
-    });
-
-    it('falls back to today when neither field parses', () => {
-      const today = new Date().toISOString().split('T')[0];
-      expect(resolveHornbachPostedDate({})).toBe(today);
-      expect(resolveHornbachPostedDate({ create_date: 'not-a-date', create_date_timestamp: -1 })).toBe(today);
+    it('uses the public offer JSON-LD instead of ambiguous Typesense dates', async () => {
+      const date = new Date(Date.now() - 10 * 86400000).toISOString();
+      const url = 'https://jobs.hornbach.ch/offer/fixture/uuid';
+      const fields = await fetchHornbachPublicationFields(url, {
+        fetchImpl: async () => new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', datePosted: date })}</script>`),
+      });
+      expect(fields).toEqual({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+      expect(resolveHornbachPostedDate({ create_date: '08.12.2099', ...fields })).toBe(date);
+      const missing = await fetchHornbachPublicationFields(url, { fetchImpl: async () => new Response('<h1>No date</h1>') });
+      expect(missing).toEqual({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     });
   });
 
@@ -347,7 +346,8 @@ describe('Hornbach crawler parser', () => {
       expect(parsed.streetAddress).toBe('Schellenrain 9');
       expect(parsed.cantonCode).toBe('LU');
       expect(parsed.employmentType).toBe('FULL_TIME');
-      expect(parsed.postedDate).toBe('2026-06-01');
+      expect(parsed.postingDateSource).toBe('unknown');
+      expect(parsed.postedDate).toBe('');
     });
 
     it('handles a real negative-control document (Luzern Littau, canton LU, NOT the Sursee HQ)', () => {
@@ -398,7 +398,8 @@ describe('Hornbach crawler parser', () => {
       expect(parsed.streetAddress).toBe('');
       expect(parsed.applyUrl).toBe('https://jobs.hornbach.ch/offer-redirect/?offerApiId=999999');
       expect(parsed.employmentType).toBe('FULL_TIME');
-      expect(parsed.postedDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(parsed.postedDate).toBe('');
+      expect(parsed.postingDateSource).toBe('unknown');
     });
 
     it('handles a completely empty document without throwing', () => {

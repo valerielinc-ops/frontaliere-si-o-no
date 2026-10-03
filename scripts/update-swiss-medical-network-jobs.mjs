@@ -11,6 +11,7 @@
  * The swissmedical.net careers page is React-rendered and region-filtered, so
  * we read the API directly and infer the canton per-job from the API location.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
@@ -207,7 +208,8 @@ export function buildJobFromApi(posting, detailDescription = '', applyUrl = '', 
     ...sourceSlotTitleAndSlug(posting.title, slug, sourceLang),
     slug,
     category: detectCategory(posting.title),
-    datePosted: new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(posting.datePosted),
+    crawledAt: new Date().toISOString(),
     source: 'swiss-medical-smartrecruiters-crawler',
     employmentType: posting.employmentType || 'FULL_TIME',
     experienceLevel: detectExperienceLevel(posting.title),
