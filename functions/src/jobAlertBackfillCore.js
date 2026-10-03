@@ -94,7 +94,7 @@
 
 import { isCrossChannelStop, isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
-import { hasSubscriptionBasis } from './lib/subscriberConsent.js';
+import { hasSubscriptionBasis, isSavedJobsDigestAnchorOnly } from './lib/subscriberConsent.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
@@ -146,11 +146,19 @@ export function signalTierChanged(beforeData, afterData) {
  * consent-proof check: legacy subscriber rows may have no proof fields at
  * all, while a bare profile sync must not manufacture an alert relationship.
  *
+ * Nor may the saved-jobs digest record: the row the digest sender creates for
+ * an account that has no central row (`isSavedJobsDigestAnchorOnly`) carries
+ * no subscription, and a `status` a webhook or the suppression decay writes
+ * on it later does not make it one. Without this check a recovered
+ * `active`/`pending` on that row, followed by a browsing sync, would make
+ * `backfillJobAlertOnPersonalizationSync` create a job alert nobody asked for.
+ *
  * @param {Record<string, unknown>|null|undefined} data
  * @returns {boolean}
  */
 export function hasNewsletterSubscriberRecord(data) {
   if (!data || typeof data !== 'object') return false;
+  if (isSavedJobsDigestAnchorOnly(data)) return false;
   return Boolean(
     (typeof data.status === 'string' && data.status.trim())
     || typeof data.isActive === 'boolean'

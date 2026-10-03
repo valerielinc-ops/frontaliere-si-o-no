@@ -12,6 +12,18 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const cascade = vi.hoisted(() => ({ calls: [] as Array<Array<Record<string, any>>> }));
+/** Firebase Auth as the Admin SDK reports it, per uid; a missing uid throws. */
+const authUsers = vi.hoisted(() => new Map<string, { email: string; emailVerified: boolean }>());
+
+vi.mock('firebase-admin/auth', () => ({
+  getAuth: () => ({
+    getUser: async (uid: string) => {
+      const user = authUsers.get(uid);
+      if (!user) throw Object.assign(new Error('no user'), { code: 'auth/user-not-found' });
+      return { uid, ...user };
+    },
+  }),
+}));
 
 vi.mock('../scripts/lib/email-cascade.mjs', () => ({
   sendEmailCascade: async (items: Array<Record<string, any>>, opts: Record<string, any> = {}) => {
@@ -26,9 +38,17 @@ import {
   __setFirestoreAdminForTest,
   __setJobsForTest,
   assertUnsubscribeSecret,
+  ensureSavedJobsDigestAnchor,
   main,
 } from '../scripts/send-saved-jobs-digest.mjs';
 import { handleSavedJobsDigestUnsubscribe } from '../functions/src/savedJobsDigestUnsubscribe.js';
+import { applyResendWebhookEvent } from '../functions/src/newsletterResendWebhookCore.js';
+import { hasNewsletterSubscriberRecord } from '../functions/src/jobAlertBackfillCore.js';
+import {
+  hasSubscriptionBasis,
+  isSavedJobsDigestAnchorOnly,
+  SAVED_JOBS_DIGEST_ANCHOR_FIELD,
+} from '../services/subscriberConsent.mjs';
 import {
   SAVED_JOBS_DIGEST_SAVE_ACTIVATION,
   savedJobsDigestChoice,
@@ -70,6 +90,8 @@ function memoryFirestore() {
     return {
       id: segments[segments.length - 1],
       path,
+      // The webhook cores open their transaction from the document reference.
+      firestore: db,
       parent: {
         id: segments[segments.length - 2],
         parent: segments.length > 2 ? docRef(segments.slice(0, -2).join('/')) : null,
@@ -79,12 +101,18 @@ function memoryFirestore() {
       collection: (name: string) => collectionRef(`${path}/${name}`),
     };
   };
+  let autoId = 0;
   const collectionRef = (path: string) => ({
     doc: (id: string) => docRef(`${path}/${id}`),
+    add: async (data: Record<string, any>) => {
+      autoId += 1;
+      docs.set(`${path}/auto-${autoId}`, data);
+      return docRef(`${path}/auto-${autoId}`);
+    },
     where: () => ({ get: async () => ({ docs: [] }) }),
   });
   let tail = Promise.resolve();
-  const db = {
+  const db: any = {
     collection: (name: string) => collectionRef(name),
     collectionGroup: (name: string) => ({
       get: async () => ({
@@ -253,5 +281,202 @@ describe('saved-jobs digest — activated by a save, stopped by its own link', (
     await expect(main()).rejects.toThrow(/NEWSLETTER_SECRET/);
     expect(cascade.calls).toHaveLength(0);
     expect(() => assertUnsubscribeSecret(true, {})).not.toThrow();
+  });
+});
+
+/**
+ * Owner decision of 2026-10-03, "includili al salvataggio": about 3% of the
+ * accounts created in early September have no `newsletter_subscribers` row, so
+ * the activation written at save time reached nobody. The sender now creates
+ * the digest's own record for them — and that record must give them the
+ * digest and nothing else, keep catching the provider's bounce/complaint, and
+ * never become a subscription.
+ */
+describe('saved-jobs digest — an account without a central row', () => {
+  const previousSecret = process.env.NEWSLETTER_SECRET;
+  const ROW = `newsletter_subscribers/${EMAIL}`;
+
+  beforeEach(() => {
+    cascade.calls.length = 0;
+    process.env.NEWSLETTER_SECRET = SECRET;
+    __setJobsForTest([listing]);
+    authUsers.clear();
+    authUsers.set(UID, { email: EMAIL, emailVerified: true });
+  });
+
+  afterEach(() => {
+    if (previousSecret === undefined) delete process.env.NEWSLETTER_SECRET;
+    else process.env.NEWSLETTER_SECRET = previousSecret;
+  });
+
+  /** ensureUserProfileDoc wrote the profile; the sign-in's registration write never landed. */
+  function profileOnlyFirestore() {
+    const store = memoryFirestore();
+    store.docs.set(`users/${UID}`, { email: EMAIL, locale: 'it' });
+    return store;
+  }
+
+  /** What the provider webhook delivers for an event on this digest. */
+  function providerEvent(db: unknown, type: string) {
+    return applyResendWebhookEvent({
+      type,
+      data: {
+        email_id: `msg-${type}`,
+        to: [EMAIL],
+        created_at: new Date().toISOString(),
+        tags: [{ name: 'type', value: 'saved-jobs-digest' }],
+      },
+    }, { db });
+  }
+
+  function nextWeek(docs: Map<string, Record<string, any>>) {
+    for (const path of [...docs.keys()]) {
+      if (path.includes('/campaign_deliveries/')) docs.delete(path);
+    }
+  }
+
+  it('the first save is enough: the digest goes out, and the only row created is the digest record', async () => {
+    const { db, docs } = profileOnlyFirestore();
+    saveListing(docs, 'job-1');
+
+    expect(await runDigest(db)).toContain('sent 1, skipped 0');
+    expect(cascade.calls).toHaveLength(1);
+    expect(cascade.calls[0][0].payload.to).toEqual([EMAIL]);
+
+    const row = docs.get(ROW);
+    expect(row).toEqual({
+      email: EMAIL,
+      auth_uid: UID,
+      [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: { created_at: expect.any(Date), activation_source: SAVED_JOBS_DIGEST_SAVE_ACTIVATION },
+    });
+    // Not a subscription: every newsletter-population gate refuses it, and no
+    // other channel's collection was touched.
+    expect(isSavedJobsDigestAnchorOnly(row)).toBe(true);
+    expect(hasSubscriptionBasis(row)).toBe(false);
+    expect(hasNewsletterSubscriberRecord(row)).toBe(false);
+    expect([...docs.keys()].filter((path) => path.startsWith('job_alert_subscribers/'))).toEqual([]);
+
+    // The one-click link works for this account too: it is keyed by uid.
+    const unsubUrl = new URL(String(cascade.calls[0][0].payload.headers['List-Unsubscribe']).replace(/^<|>$/g, ''));
+    const result = await handleSavedJobsDigestUnsubscribe({
+      uid: unsubUrl.searchParams.get('uid'),
+      email: unsubUrl.searchParams.get('email'),
+      token: unsubUrl.searchParams.get('token'),
+      secret: SECRET,
+      forensics: null,
+      db,
+    });
+    expect(result.status).toBe(200);
+    expect(savedJobsDigestChoice(docs.get(`users/${UID}`)?.savedJobsDigest)).toBe('off');
+    expect(docs.get(ROW)).toBe(row);
+
+    nextWeek(docs);
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+    expect(cascade.calls).toHaveLength(1);
+  });
+
+  it('a complaint about the digest lands on that record and stops the next one', async () => {
+    const { db, docs } = profileOnlyFirestore();
+    saveListing(docs, 'job-1');
+    expect(await runDigest(db)).toContain('sent 1, skipped 0');
+
+    // Without the record the webhook would answer UNKNOWN_RECIPIENT and the
+    // complaint would be lost — the reason the digest requires a row at all.
+    expect(await providerEvent(db, 'email.complained')).toMatchObject({ handled: true });
+    expect(docs.get(ROW)).toMatchObject({ status: 'complained' });
+    expect(hasSubscriptionBasis(docs.get(ROW))).toBe(false);
+
+    nextWeek(docs);
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+    expect(cascade.calls).toHaveLength(1);
+  });
+
+  it('a machine recovery does not turn the record into a subscription; the digest resumes', async () => {
+    const { db, docs } = profileOnlyFirestore();
+    saveListing(docs, 'job-1');
+    expect(await runDigest(db)).toContain('sent 1, skipped 0');
+
+    expect(await providerEvent(db, 'email.suppressed')).toMatchObject({ handled: true });
+    nextWeek(docs);
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+
+    // A late delivery disproves the provider suppression (subscriberReactivation.js):
+    // the row gets `status: 'active'`, `isActive: true`. That is the address
+    // coming back, not the person asking for the newsletter.
+    expect(await providerEvent(db, 'email.delivered')).toMatchObject({ handled: true });
+    const recovered = docs.get(ROW);
+    expect(recovered).toMatchObject({ status: 'active', isActive: true });
+    expect(hasSubscriptionBasis(recovered)).toBe(false);
+    expect(hasNewsletterSubscriberRecord(recovered)).toBe(false);
+
+    nextWeek(docs);
+    expect(await runDigest(db)).toContain('sent 1, skipped 0');
+    expect(cascade.calls).toHaveLength(2);
+  });
+
+  it('an explicit stop is final: no digest and no record', async () => {
+    const { db, docs } = profileOnlyFirestore();
+    docs.set(`users/${UID}`, { email: EMAIL, locale: 'it', savedJobsDigest: { optedIn: false, optedOut: true } });
+    saveListing(docs, 'job-1');
+
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+    expect(docs.has(ROW)).toBe(false);
+  });
+
+  it('a save from before the activation (never decided) creates nothing', async () => {
+    const { db, docs } = profileOnlyFirestore();
+    docs.set(`users/${UID}/savedJobs/job-1`, { title: 'Job job-1', company: 'ACME SA', savedAt: 1 });
+
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+    expect(docs.has(ROW)).toBe(false);
+  });
+
+  it('an address Auth does not mark verified is excluded, and gets no record', async () => {
+    authUsers.set(UID, { email: EMAIL, emailVerified: false });
+    const { db, docs } = profileOnlyFirestore();
+    saveListing(docs, 'job-1');
+
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+    expect(cascade.calls).toHaveLength(0);
+    expect(docs.has(ROW)).toBe(false);
+  });
+
+  it('a profile address that is not the Auth address is excluded', async () => {
+    // users/{uid} is owner-writable: its `email` is a claim, Auth is the record.
+    authUsers.set(UID, { email: 'someone-else@example.invalid', emailVerified: true });
+    const { db, docs } = profileOnlyFirestore();
+    saveListing(docs, 'job-1');
+
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+    expect([...docs.keys()].filter((path) => path.startsWith('newsletter_subscribers/'))).toEqual([]);
+  });
+
+  it('an Auth lookup failure skips the account instead of failing the run', async () => {
+    authUsers.clear();
+    const { db, docs } = profileOnlyFirestore();
+    saveListing(docs, 'job-1');
+
+    expect(await runDigest(db)).toContain('sent 0, skipped 1');
+    expect(docs.has(ROW)).toBe(false);
+  });
+
+  it('never overwrites a row that appeared meanwhile, and reads that row instead', async () => {
+    const { db, docs } = profileOnlyFirestore();
+    const stopped = { email: EMAIL, status: 'unsubscribed', isActive: false };
+    docs.set(ROW, stopped);
+    const row = await ensureSavedJobsDigestAnchor(db, { uid: UID, email: EMAIL, activationSource: 'saved_job' });
+    expect(row).toBe(stopped);
+    expect(docs.get(ROW)).toBe(stopped);
+  });
+
+  it('an account that has its central row is unchanged: no Auth lookup, no record', async () => {
+    authUsers.clear();
+    const { db, docs } = profileOnlyFirestore();
+    const central = { email: EMAIL, status: 'confirmed', registration_terms_accepted: true, auth_uid: UID };
+    docs.set(ROW, central);
+    saveListing(docs, 'job-1');
+
+    expect(await runDigest(db)).toContain('sent 1, skipped 0');
+    expect(docs.get(ROW)).toBe(central);
   });
 });

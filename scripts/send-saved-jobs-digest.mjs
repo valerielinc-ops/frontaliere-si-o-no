@@ -30,6 +30,22 @@
  * (UNKNOWN_RECIPIENT, functions/src/lib/subscriberReactivation.js), and a
  * complaint about this digest would then never stop it.
  *
+ * ACCOUNTS WITHOUT THAT RECORD (owner decision 2026-10-03, "includili al
+ * salvataggio"). About 3% of the accounts created in early September have no
+ * record at all (a sign-in whose registration write failed, see
+ * scripts/lib/authSignupSubscriberMetrics.mjs), so a save activated a digest
+ * nobody received. For an account whose digest is on, this sender now creates
+ * the record itself, right before the first send: the address Firebase Auth
+ * holds for the uid, only when Auth marks it verified and it matches the
+ * profile (scripts/lib/verifiedAccountEmail.mjs), and only the digest's own
+ * marker on it (`buildSavedJobsDigestAnchor`). That record is not a
+ * subscription: it carries no status, terms, consent or creation stamp, and
+ * `hasSubscriptionBasis`/`hasNewsletterSubscriberRecord` refuse it whatever a
+ * webhook writes on it later (functions/src/lib/subscriberConsent.js), so the
+ * newsletter, the daily brief, the lifecycle mails, the paid-ad blast and the
+ * job-alert backfill all keep skipping the address. The browser cannot create
+ * it (firestore.rules admits no create without a consent basis), hence here.
+ *
  * The channel-specific preference stays on the user document and must never
  * mutate `newsletter_subscribers` or `job_alert_subscribers/*`. An explicit
  * unsubscribe, legacy stop-all flag or hard address suppression reaches this
@@ -56,6 +72,8 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
+import { SAVED_JOBS_DIGEST_ANCHOR_FIELD } from '../services/subscriberConsent.mjs';
+import { savedJobsDigestChoice } from '../services/savedJobsDigestActivation.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 // Shared with send-job-alerts.mjs's coverage numbers (#5536 measurement,
@@ -83,6 +101,7 @@ import {
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
 import { localePathPrefix } from './lib/articleContent.mjs';
 import { rankSimilarApplicationJobs, snapshotData } from './lib/applicationIntentReminder.mjs';
+import { verifiedEmailForUid } from './lib/verifiedAccountEmail.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -114,6 +133,42 @@ export function isSavedJobsDigestEligible(userData, subscriberData, _legacyOptio
     return false;
   }
   return true;
+}
+
+/**
+ * The record this sender creates for an account with no central row: the
+ * address, the uid (account deletion finds email-keyed rows by it, see
+ * functions/src/authAccountCleanup.js) and the digest's own marker, nothing
+ * else. No status, terms, consent, `source_channel` or creation stamp: those
+ * are what make a row a subscription, and `isSavedJobsDigestAnchorOnly`
+ * (functions/src/lib/subscriberConsent.js) reads their absence.
+ */
+export function buildSavedJobsDigestAnchor({ uid, email, activationSource = null, now = new Date() }) {
+  return {
+    email,
+    auth_uid: uid,
+    [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: {
+      created_at: now,
+      activation_source: activationSource || null,
+    },
+  };
+}
+
+/**
+ * Create that record unless a row appeared meanwhile, and return the row the
+ * eligibility check must read: a concurrent sign-in may have registered the
+ * address, an unsubscribe may have landed. Never overwrites an existing row.
+ */
+export async function ensureSavedJobsDigestAnchor(db, { uid, email, activationSource = null }) {
+  const ref = db.collection('newsletter_subscribers').doc(email);
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
+    if (exists) return snapshot.data?.() || {};
+    const anchor = buildSavedJobsDigestAnchor({ uid, email, activationSource });
+    transaction.create(ref, anchor);
+    return anchor;
+  });
 }
 
 // Brand palette — same tokens/values as buildAlertEmail in send-job-alerts.mjs
@@ -1156,6 +1211,7 @@ async function main() {
 
   let sentCount = 0;
   let skippedCount = 0;
+  let anchorCount = 0;
 
   for (const [uid, sources] of byUid) {
     const savedSourceEntries = sources;
@@ -1256,7 +1312,29 @@ async function main() {
     // This channel requires its own saved-jobs activation. An application
     // intent can improve recommendations, but must never activate this digest.
     const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
-    const subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
+    let subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
+    if (!subscriberData && savedJobsDigestChoice(userData.savedJobsDigest) === 'on') {
+      // No central row: create the digest's own record (see the header), for
+      // the verified Auth address only. An explicit stop or a digest never
+      // turned on never gets here, so no record is created for them.
+      let verifiedEmail = '';
+      try {
+        verifiedEmail = await verifiedEmailForUid(uid, userData);
+      } catch {
+        verifiedEmail = '';
+      }
+      if (!verifiedEmail) {
+        skippedCount++;
+        continue;
+      }
+      const activationSource = userData.savedJobsDigest?.activationSource || null;
+      if (DRY_RUN) {
+        subscriberData = buildSavedJobsDigestAnchor({ uid, email: verifiedEmail, activationSource });
+      } else {
+        subscriberData = await ensureSavedJobsDigestAnchor(db, { uid, email: verifiedEmail, activationSource });
+      }
+      anchorCount++;
+    }
     if (!isSavedJobsDigestEligible(userData, subscriberData)) {
       skippedCount++;
       continue;
@@ -1342,6 +1420,9 @@ async function main() {
   }
 
   console.log(`\n📊 Done — sent ${sentCount}, skipped ${skippedCount}${DRY_RUN ? ' (dry-run)' : ''}`);
+  if (anchorCount > 0) {
+    console.log(`   ⚓ digest-only record ${DRY_RUN ? 'would be created' : 'created or found'} for ${anchorCount} account(s) without a central row`);
+  }
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

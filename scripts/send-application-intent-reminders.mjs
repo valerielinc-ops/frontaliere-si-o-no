@@ -17,6 +17,7 @@ import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.m
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 import { localePathPrefix } from './lib/articleContent.mjs';
+import { verifiedEmailForUid } from './lib/verifiedAccountEmail.mjs';
 import {
   APPLICATION_INTENTS_COLLECTION,
   APPLICATION_INTENT_APPLICATION_MODES,
@@ -90,10 +91,6 @@ export function __setJobsForTest(jobs) {
 function loadJobsById() {
   const jobs = _jobsForTest || JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
   return new Map(jobs.map((job) => [job.id, job]));
-}
-
-function normalizeEmail(value) {
-  return typeof value === 'string' ? value.trim().toLowerCase() : '';
 }
 
 function snapshotExists(snapshot) {
@@ -292,15 +289,6 @@ function completedInternalApplication(entry, completedKeys) {
     entry.id,
   ].filter(Boolean).map(String);
   return keys.some((key) => completedKeys.has(key));
-}
-
-async function verifiedEmailForUid(uid, userData) {
-  const candidate = normalizeEmail(userData?.email);
-  const { getAuth } = await import('firebase-admin/auth');
-  const authUser = await getAuth().getUser(uid);
-  const authEmail = normalizeEmail(authUser.email);
-  if (!authUser.emailVerified || !authEmail || (candidate && authEmail !== candidate)) return '';
-  return authEmail;
 }
 
 let _db = null;
