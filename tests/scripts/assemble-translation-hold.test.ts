@@ -22,6 +22,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ASSEMBLE_AUX_DATA_INPUTS, listAssembleCodeClosure } from '../../scripts/assemble-jobs-dataset.mjs';
+import { heldPopulationSlots } from '../../scripts/lib/job-locale-population.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -191,6 +192,8 @@ describe('soglia di ammissione agenzie — writer + assemblatore reali', () => {
     expect(readJson('data/jobs-meta.json').totalJobs).toBe(3);
     // The deploy gate (check-active-jobs-regression) counts published + held.
     expect(readJson('data/jobs-meta.json').translationHold).toMatchObject({ held: 1, byCrawler: { sta: 1 } });
+    // The job-locale ratchets' population guard adds the held slots back.
+    expect(heldPopulationSlots(readJson('data/jobs-meta.json'), published.data.length)).toEqual({ titles: 3, descriptions: 4 });
 
     const projection = assemble({ JOBS_INCLUDE_TRANSLATION_HELD: '1' });
     expect(ids(projection.data)).toEqual(['coop-hold-9', 'sta-hold-1', 'sta-hold-2', 'sta-hold-3']);
@@ -199,6 +202,8 @@ describe('soglia di ammissione agenzie — writer + assemblatore reali', () => {
     expect(projection.data.find((job) => job.id === 'sta-hold-2')?.translationHoldSince).toBeTruthy();
     // The projection is for translate-pending only: the site count is unchanged.
     expect(readJson('data/jobs-meta.json').totalJobs).toBe(3);
+    // Held jobs are already inside this data/jobs.json: nothing to add twice.
+    expect(heldPopulationSlots(readJson('data/jobs-meta.json'), projection.data.length)).toBeNull();
   });
 
   it('publishes the held job as soon as its titles are translated', () => {

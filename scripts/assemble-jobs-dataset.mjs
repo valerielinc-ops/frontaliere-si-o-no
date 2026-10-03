@@ -90,6 +90,7 @@ import {
   partitionHeldFromPublication,
   summarizeTranslationHold,
 } from './lib/translation-publication-hold.mjs';
+import { countPopulationSlots } from './lib/job-locale-population.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -4036,6 +4037,9 @@ function generateMeta(jobCount, holdSummary = null) {
       held: holdSummary?.held || 0,
       byCrawler: { ...(holdSummary?.byCrawler || {}) },
       oldestHeldSince: holdSummary?.oldestHeldSince || null,
+      // Same slot filters as the job-locale ratchets: their population guard
+      // adds these back (tests/job-locale-consistency.test.ts).
+      populationSlots: { ...(holdSummary?.populationSlots || { titles: 0, descriptions: 0 }) },
     },
     sources: {
       ...(existing.sources || {}),
@@ -4187,7 +4191,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     const hold = partitionHeldFromPublication(assembledAll);
     publishedJobs = hold.published;
     if (!includeHeld) assembled = hold.published;
-    holdSummary = summarizeTranslationHold(hold.held);
+    holdSummary = { ...summarizeTranslationHold(hold.held), populationSlots: countPopulationSlots(hold.held) };
     console.log(`  ${formatTranslationHoldSummary(holdSummary)}${includeHeld ? ' — inclusi in data/jobs.json per translate-pending' : ''}`);
   }
   if (assembled !== null) {
