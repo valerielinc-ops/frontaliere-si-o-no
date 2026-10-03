@@ -1,15 +1,21 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-10-03T09:12:03.880Z",
+  "generatedAt": "2026-10-03T21:18:04.343Z",
   "total": 1,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "newJobs": [
+  "durationMs": 3619,
+  "avgDurationMs": 3619,
+  "durationHistory": [
+    3619
+  ],
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "citta-di-locarno-impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno",
       "slug": "impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno",
@@ -35,25 +41,19 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=c3d0f2a5-4111-4488-abfc-facb9f5041f8,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T09:11:56.937Z",
-      "needsRetranslation": true,
-      "_qualityScore": 73,
+      "crawledAt": "2026-10-03T21:17:56.816Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-10-03T09:11:56.937Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "durationMs": 3939,
-  "avgDurationMs": 3939,
-  "durationHistory": [
-    4803,
-    3725,
-    3939
-  ]
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
