@@ -10,7 +10,7 @@ import {
   textWidth,
   wrapText,
 } from '../functions/src/assistedApplicationAiDocuments.js';
-import { checkDraftFacts } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { checkDraftFacts, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { buildFactIndex, checkGeneratedFacts } from '../functions/src/assistedApplicationAiFactCheck.js';
 import {
   classifyApplicationChannel,
@@ -353,6 +353,31 @@ describe('job posting fetch', () => {
 
   it('turns HTML into readable text', () => {
     expect(htmlToText('<ul><li>Uno</li><li>Due &amp; tre</li></ul><style>p{}</style>')).toBe('- Uno\n- Due & tre');
+  });
+});
+
+// umantis, 2026-10-03: «Title: Ms / Mr / Other» is required on the form and came back as a second round at submit time.
+describe('form of address', () => {
+  it('asks it on the first review of a portal application, optional and in the candidate’s language', () => {
+    const portal = { type: 'employer_site', applyUrl: 'https://careers.example/vacancies/1' };
+    expect(salutationQuestion({ channel: portal, locale: 'it' })).toMatchObject({ id: 'salutation', type: 'choice', options: ['Signor', 'Signora', 'Altro'], required: false, source: 'rule' });
+    expect(salutationQuestion({ channel: portal, locale: 'de' })?.options).toEqual(['Herr', 'Frau', 'Andere']);
+    expect(salutationQuestion({ channel: portal, locale: 'fr' })?.options).toEqual(['Monsieur', 'Madame', 'Autre']);
+    expect(salutationQuestion({ channel: portal, locale: 'en' })?.options).toEqual(['Mr', 'Ms', 'Other']);
+    expect(salutationQuestion({ channel: portal, locale: 'xx' })?.options).toEqual(['Signor', 'Signora', 'Altro']);
+  });
+
+  it('never asks it for an e-mail application, twice, or once the candidate has answered', () => {
+    const portal = { type: 'lever' };
+    expect(salutationQuestion({ channel: { type: 'email' }, locale: 'it' })).toBeNull();
+    expect(salutationQuestion({ channel: { type: 'unknown' }, locale: 'it' })).toBeNull();
+    expect(salutationQuestion({ channel: null, locale: 'it' })).toBeNull();
+    expect(salutationQuestion({ channel: portal, answers: { salutation: 'Signora' }, locale: 'it' })).toBeNull();
+    // The portal's own question, read ahead, already asks it.
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'portal_anrede', question: 'Anrede' }], locale: 'de' })).toBeNull();
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'portal_title', question: 'Title' }], locale: 'en' })).toBeNull();
+    // A question about something else does not stand in for it.
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'job_title', question: 'Qual è la tua disponibilità?' }], locale: 'it' })).not.toBeNull();
   });
 });
 

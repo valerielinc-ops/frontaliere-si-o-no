@@ -209,6 +209,33 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
   return result.slice(0, 8);
 }
 
+const SALUTATION_QUESTION = {
+  it: { question: 'Come vuoi essere indicato nei moduli di candidatura?', why: 'Molti portali lo chiedono come campo obbligatorio (Signor / Signora).', options: ['Signor', 'Signora', 'Altro'] },
+  de: { question: 'Welche Anrede sollen wir in Bewerbungsformularen angeben?', why: 'Viele Portale verlangen sie als Pflichtfeld (Herr / Frau).', options: ['Herr', 'Frau', 'Andere'] },
+  fr: { question: 'Quelle civilité indiquer dans les formulaires de candidature ?', why: 'Beaucoup de portails la demandent comme champ obligatoire (Monsieur / Madame).', options: ['Monsieur', 'Madame', 'Autre'] },
+  en: { question: 'Which form of address should we give in application forms?', why: 'Many portals ask for it as a required field (Mr / Ms).', options: ['Mr', 'Ms', 'Other'] },
+};
+// A question that already asks the form of address (the portal's own, read ahead).
+const SALUTATION_RE = /(\banrede\b|appellativo|\btitolo\b|\btitle\b|\bsalutation\b|civilit[ée]|form of address)/i;
+
+/**
+ * The form of address, asked on the first review when the application leaves
+ * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
+ * Other», as most Swiss portals require «Anrede»; nothing in a CV says it and
+ * it is never guessed from the first name, so it used to come back as a second
+ * round at submit time. Optional: a candidate who does not answer is not held,
+ * and the portal's own question then comes at submit time as before. Never for
+ * an e-mail application, nor when a question already asks it.
+ * @returns {object|null} the question for the review page
+ */
+export function salutationQuestion({ channel, questions = [], answers = {}, locale = 'it' }) {
+  if (!channel?.type || channel.type === 'email' || channel.type === 'unknown') return null;
+  if (String(answers?.salutation ?? '').trim()) return null;
+  if (questions.some((question) => question.id === 'salutation' || SALUTATION_RE.test(String(question.question || '')))) return null;
+  const copy = SALUTATION_QUESTION[locale] || SALUTATION_QUESTION.it;
+  return { id: 'salutation', question: copy.question, why: copy.why, type: 'choice', options: copy.options, required: false, validation: sanitizeValidation({}, { type: 'choice' }), source: 'rule' };
+}
+
 export function sanitizeMatch(raw, requirementCount, profileText) {
   const haystack = normalizedHaystack(profileText);
   const matches = list(raw?.matches, 12)
