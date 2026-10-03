@@ -15,6 +15,7 @@ import { describe, it, expect } from 'vitest';
 import {
   renderAboveFloorPage,
   renderBridgePage,
+  renderHubPage,
 } from '@/build-plugins/germanBorderMunicipalityPagesPlugin';
 import {
   GERMAN_ABOVE_FLOOR,
@@ -63,6 +64,23 @@ describe('German border municipality above-floor page render (#4882)', () => {
     });
     expect(html).not.toMatch(/gre-2|gre2/i);
     expect(html).not.toMatch(/art(?:icolo)?\.?\s*24\s*(?:cpv|par|comma|lett)/i);
+  });
+
+  it('keeps page-specific corridor facts on leaves and shared regime guidance on the hub', () => {
+    const { html } = renderAboveFloorPage({
+      municipality: konstanz,
+      locale: 'it',
+      dateStamp: '2026-07-29',
+      distDir: DIST,
+    });
+    const hub = renderHubPage({ locale: 'it', dateStamp: '2026-07-29', distDir: DIST });
+
+    expect(html).toMatch(/data-nearest-comparison(?:="1"|=1)/);
+    expect(html).toContain('Per popolazione');
+    expect(html).toContain('Landkreis');
+    expect(html).not.toContain('FAQPage');
+    expect(hub.html).toContain('Le regole comuni del corridoio');
+    expect(hub.html).toContain('certificato di residenza');
   });
 });
 

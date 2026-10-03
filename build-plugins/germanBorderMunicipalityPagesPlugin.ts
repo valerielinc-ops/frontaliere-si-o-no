@@ -105,12 +105,6 @@ interface Copy {
   tilePlz: string;
   tileTax: string;
   distanceUnit: string;
-  explainTaxTitle: string;
-  explainTax: (n: string) => string;
-  explainNonReturnTitle: string;
-  explainNonReturn: string;
-  explainHealthTitle: string;
-  explainHealth: string;
   crossTitle: string;
   calcLink: string;
   /** Column headers and prose labels of the nearest-comune comparison block. */
@@ -119,18 +113,17 @@ interface Copy {
   colCrossing: string;
   spreadComparison: string;
   comparisonSource: string;
-  faqTitle: string;
-  faqQ1: (n: string) => string;
-  faqA1: (n: string) => string;
-  faqQ2: string;
-  faqA2: string;
-  faqQ3: string;
-  faqA3: string;
-  faqQ4: string;
-  faqA4: string;
+  profilePopulation: (rank: number, total: number, value: string, ahead: string, behind: string, tied: string) => string;
+  profileDistance: (rank: number, total: number, value: string, ahead: string, behind: string, tied: string) => string;
+  profileLandkreis: (landkreis: string, peers: string) => string;
+  profileCrossing: (crossing: string, peers: string) => string;
+  profileNearbyCrossings: (crossings: string) => string;
+  noPeer: string;
   disclaimer: string;
   hubTitle: string;
   hubLede: string;
+  hubContextTitle: string;
+  hubContext: string;
   groupLandkreis: (landkreis: string) => string;
   bridgeLede: (n: string) => string;
 }
@@ -153,15 +146,6 @@ const COPY: Record<GermanLocale, Copy> = {
     tilePlz: 'CAP',
     tileTax: 'Imposta alla fonte',
     distanceUnit: 'km',
-    explainTaxTitle: 'Come funziona la tassazione',
-    explainTax: (n) =>
-      `Chi vive a ${n} e lavora come frontaliere in Svizzera è tassato secondo l'art. 15a dell'accordo Germania-Svizzera: il datore di lavoro svizzero trattiene alla fonte il ${TAX_RATE_STR} del reddito lordo, a condizione che il lavoratore presenti un certificato di residenza (Ansässigkeitsbescheinigung). La Germania evita la doppia imposizione riconoscendo un credito d'imposta (metodo dell'accreditamento) per quanto trattenuto in Svizzera. Il regime si applica su tutto il territorio, senza restrizioni di fascia geografica di confine.`,
-    explainNonReturnTitle: `Giorni di non rientro: la soglia dei ${NON_RETURN_DAYS} giorni`,
-    explainNonReturn:
-      `Lo status di frontaliere si perde per l'INTERO anno fiscale se si superano ${NON_RETURN_DAYS} giorni lavorativi di non rientro al domicilio. Per chi lavora part-time la soglia è proporzionale: 5 giorni al mese lavorato più 1 giorno alla settimana lavorata. I giorni di telelavoro (homeoffice) NON contano come giorni di non rientro.`,
-    explainHealthTitle: 'Assicurazione malattia: il diritto di opzione',
-    explainHealth:
-      `Il frontaliere può scegliere di uscire dall'assicurazione malattia obbligatoria svizzera per restare nel sistema tedesco (diritto di opzione, base legale art. 2 cpv. 6 OAMal). La scelta va esercitata esplicitamente entro ${HEALTH_OPTION_MONTHS} mesi dall'inizio dell'attività: l'esercizio tacito non è valido, e la scelta è generalmente irrevocabile una volta fatta.`,
     crossTitle: 'Approfondimenti utili',
     calcLink: 'Calcola il tuo stipendio netto',
     colBorderDistance: 'Distanza dal confine',
@@ -169,22 +153,25 @@ const COPY: Record<GermanLocale, Copy> = {
     colCrossing: 'Valico più vicino',
     spreadComparison: 'la distanza dal confine',
     comparisonSource: 'Distanza su strada dal valico più vicino e popolazione dal dataset comunale tedesco (Destatis, chiave AGS).',
-    faqTitle: 'Domande frequenti',
-    faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
-    faqA1: (n) => `${n} segue il regime frontalieri art. 15a DBA Germania-Svizzera: imposta alla fonte svizzera del ${TAX_RATE_STR} sul reddito lordo, uniforme indipendentemente dal cantone svizzero di impiego.`,
-    faqQ2: `Cosa succede se non rientro a casa ogni giorno?`,
-    faqA2:
-      `Superare ${NON_RETURN_DAYS} giorni lavorativi di non rientro all'anno fa perdere lo status di frontaliere per l'intero anno. I giorni di telelavoro non contano ai fini di questa soglia.`,
-    faqQ3: 'Posso restare assicurato con la cassa malattia tedesca?',
-    faqA3: `Sì, tramite il diritto di opzione (art. 2 cpv. 6 OAMal): va esercitato esplicitamente entro ${HEALTH_OPTION_MONTHS} mesi dall'inizio del lavoro in Svizzera ed è generalmente irrevocabile.`,
-    faqQ4: 'Servono moduli particolari per ottenere lo status di frontaliere?',
-    faqA4:
-      "La procedura amministrativa (moduli, certificazioni) può variare ed essere soggetta a cambiamenti: verifica sempre i requisiti aggiornati con il tuo cantone svizzero di impiego prima di iniziare l'attività.",
+    profilePopulation: (rank, total, value, ahead, behind, tied) =>
+      `Per popolazione, questo comune è al posto ${rank} su ${total} con ${value} abitanti; subito sopra: ${ahead}; subito sotto: ${behind}${tied ? `; a pari merito: ${tied}` : ''}.`,
+    profileDistance: (rank, total, value, ahead, behind, tied) =>
+      `Per distanza stradale, questo comune è al posto ${rank} su ${total} con ${value}; subito sopra: ${ahead}; subito sotto: ${behind}${tied ? `; a pari merito: ${tied}` : ''}.`,
+    profileLandkreis: (landkreis, peers) =>
+      `Nel Landkreis ${landkreis}, i comuni confrontabili oltre a questa pagina sono ${peers}.`,
+    profileCrossing: (crossing, peers) =>
+      `La direttrice ${crossing} serve anche ${peers}.`,
+    profileNearbyCrossings: (crossings) =>
+      `I sei comuni più vicini a questa pagina collegano questi valichi: ${crossings}.`,
+    noPeer: 'nessun comune',
     disclaimer:
       'Stime a scopo orientativo. La tassazione effettiva dipende da situazione familiare, deduzioni e certificazioni. Verifica sempre con un consulente fiscale o con il cantone di impiego.',
     hubTitle: 'Vivere in Germania e lavorare in Svizzera, comune per comune',
     hubLede:
       `Imposta alla fonte (${TAX_RATE_STR} uniforme, art. 15a), soglia dei ${NON_RETURN_DAYS} giorni di non rientro e diritto di opzione sull'assicurazione malattia per i comuni tedeschi del corridoio Baden-Württemberg (Lörrach, Waldshut, Costanza, Schwarzwald-Baar-Kreis).`,
+    hubContextTitle: 'Le regole comuni del corridoio',
+    hubContext:
+      `In tutti i comuni del corridoio, il datore di lavoro svizzero trattiene alla fonte il ${TAX_RATE_STR} del reddito lordo secondo l'art. 15a DBA Germania-Svizzera, con certificato di residenza; la Germania evita la doppia imposizione riconoscendo un credito per l'imposta svizzera. Si perdono i requisiti di frontaliere per l'intero anno fiscale oltre ${NON_RETURN_DAYS} giorni lavorativi di non rientro; il telelavoro non conta. Il diritto di opzione consente di restare nell'assicurazione malattia tedesca, ma va esercitato entro ${HEALTH_OPTION_MONTHS} mesi dall'inizio dell'attività ed è generalmente irrevocabile.`,
     groupLandkreis: (l) => `Landkreis ${l}`,
     bridgeLede: (n) =>
       `${n} è nel corridoio di confine ma è oltre la soglia di distanza/popolazione: la guida dedicata non è ancora pubblicata. Usa il calcolatore o esplora i comuni principali del corridoio.`,
@@ -206,15 +193,6 @@ const COPY: Record<GermanLocale, Copy> = {
     tilePlz: 'Postal code',
     tileTax: 'Withholding tax',
     distanceUnit: 'km',
-    explainTaxTitle: 'How the taxation works',
-    explainTax: (n) =>
-      `Residents of ${n} working as cross-border commuters in Switzerland are taxed under §15a of the Germany-Switzerland treaty: the Swiss employer withholds ${TAX_RATE_STR} of gross pay at source, provided the worker files a residence certificate (Ansässigkeitsbescheinigung). Germany avoids double taxation via a tax credit (credit method) for the amount withheld in Switzerland. The regime applies across the whole territory, with no border-strip geographic restriction.`,
-    explainNonReturnTitle: `Non-return days: the ${NON_RETURN_DAYS}-day threshold`,
-    explainNonReturn:
-      `Cross-border status is lost for the ENTIRE fiscal year if you exceed ${NON_RETURN_DAYS} non-return working days. For part-time work the threshold is proportional: 5 days per month worked plus 1 day per week worked. Homeoffice days do NOT count as non-return days.`,
-    explainHealthTitle: 'Health insurance: the opt-out right',
-    explainHealth:
-      `A cross-border worker can opt out of compulsory Swiss health insurance to stay in the German system (Optionsrecht, legal basis Art. 2 para. 6 OAMal). The choice must be made explicitly within ${HEALTH_OPTION_MONTHS} months of starting work: tacit exercise is not valid, and the choice is generally irrevocable once made.`,
     crossTitle: 'Useful reading',
     calcLink: 'Calculate your net salary',
     colBorderDistance: 'Distance to border',
@@ -222,22 +200,25 @@ const COPY: Record<GermanLocale, Copy> = {
     colCrossing: 'Nearest crossing',
     spreadComparison: 'the distance to the border',
     comparisonSource: 'Road distance to the nearest crossing and population from the German municipal dataset (Destatis, AGS key).',
-    faqTitle: 'FAQ',
-    faqQ1: (n) => `Which tax regime applies in ${n}?`,
-    faqA1: (n) => `${n} follows the §15a DBA Germany-Switzerland regime: Swiss withholding tax of ${TAX_RATE_STR} on gross pay, uniform regardless of the Swiss canton of employment.`,
-    faqQ2: 'What happens if I do not return home every day?',
-    faqA2:
-      `Exceeding ${NON_RETURN_DAYS} non-return working days per year loses cross-border status for the whole year. Homeoffice days do not count towards this threshold.`,
-    faqQ3: 'Can I stay insured with German health insurance?',
-    faqA3: `Yes, via the opt-out right (Art. 2 para. 6 OAMal): it must be exercised explicitly within ${HEALTH_OPTION_MONTHS} months of starting work in Switzerland and is generally irrevocable.`,
-    faqQ4: 'Do I need special forms to get cross-border worker status?',
-    faqA4:
-      'The administrative procedure (forms, certificates) can vary and change: always check the current requirements with your Swiss canton of employment before starting work.',
+    profilePopulation: (rank, total, value, ahead, behind, tied) =>
+      `By population, this town ranks ${rank} of ${total} with ${value} residents; immediately above: ${ahead}; immediately below: ${behind}${tied ? `; tied with: ${tied}` : ''}.`,
+    profileDistance: (rank, total, value, ahead, behind, tied) =>
+      `By road distance, this town ranks ${rank} of ${total} at ${value}; immediately above: ${ahead}; immediately below: ${behind}${tied ? `; tied with: ${tied}` : ''}.`,
+    profileLandkreis: (landkreis, peers) =>
+      `Within Landkreis ${landkreis}, the comparable towns besides this page are ${peers}.`,
+    profileCrossing: (crossing, peers) =>
+      `The ${crossing} route also serves ${peers}.`,
+    profileNearbyCrossings: (crossings) =>
+      `The six nearest towns to this page connect to these crossings: ${crossings}.`,
+    noPeer: 'no town',
     disclaimer:
       'Estimates for guidance only. Actual taxation depends on family situation, deductions and certificates. Always check with a tax adviser or your canton of employment.',
     hubTitle: 'Living in Germany, working in Switzerland, town by town',
     hubLede:
       `Withholding tax (uniform ${TAX_RATE_STR}, §15a), the ${NON_RETURN_DAYS}-day non-return threshold and the health-insurance opt-out right for the German towns in the Baden-Württemberg corridor (Lörrach, Waldshut, Konstanz, Schwarzwald-Baar-Kreis).`,
+    hubContextTitle: 'The shared rules across the corridor',
+    hubContext:
+      `Across the corridor, the Swiss employer withholds ${TAX_RATE_STR} of gross pay at source under §15a of the Germany-Switzerland treaty when a residence certificate is filed; Germany avoids double taxation through a credit for the Swiss tax. Cross-border status is lost for the whole tax year after more than ${NON_RETURN_DAYS} non-return working days; homeoffice days do not count. The opt-out right can keep a worker in the German health-insurance system, but it must be exercised within ${HEALTH_OPTION_MONTHS} months of starting work and is generally irrevocable.`,
     groupLandkreis: (l) => `Landkreis ${l}`,
     bridgeLede: (n) =>
       `${n} is in the border corridor but beyond the distance/population floor, so its dedicated guide is not published yet. Use the calculator or explore the main towns in the corridor.`,
@@ -259,15 +240,6 @@ const COPY: Record<GermanLocale, Copy> = {
     tilePlz: 'PLZ',
     tileTax: 'Quellensteuer',
     distanceUnit: 'km',
-    explainTaxTitle: 'So funktioniert die Besteuerung',
-    explainTax: (n) =>
-      `Wer in ${n} wohnt und als Grenzgänger in der Schweiz arbeitet, wird nach Art. 15a des Abkommens Deutschland-Schweiz besteuert: Der Schweizer Arbeitgeber behält ${TAX_RATE_STR} des Bruttolohns an der Quelle ein, sofern eine Ansässigkeitsbescheinigung vorliegt. Deutschland vermeidet die Doppelbesteuerung durch Anrechnung (Anrechnungsmethode) der in der Schweiz einbehaltenen Steuer. Das Regime gilt im gesamten Gebiet, ohne geografische Grenzzonen-Beschränkung.`,
-    explainNonReturnTitle: `Nichtrückkehrtage: die ${NON_RETURN_DAYS}-Tage-Schwelle`,
-    explainNonReturn:
-      `Der Grenzgängerstatus geht für das GESAMTE Steuerjahr verloren, wenn mehr als ${NON_RETURN_DAYS} Nichtrückkehr-Arbeitstage anfallen. Bei Teilzeitarbeit gilt die Schwelle anteilig: 5 Tage pro gearbeitetem Monat plus 1 Tag pro gearbeitete Woche. Homeoffice-Tage zählen NICHT als Nichtrückkehrtage.`,
-    explainHealthTitle: 'Krankenversicherung: das Optionsrecht',
-    explainHealth:
-      `Ein Grenzgänger kann sich von der obligatorischen Schweizer Krankenversicherung befreien lassen, um im deutschen System zu bleiben (Optionsrecht, Rechtsgrundlage Art. 2 Abs. 6 KVV). Die Wahl muss innerhalb von ${HEALTH_OPTION_MONTHS} Monaten nach Arbeitsbeginn ausdrücklich getroffen werden: Eine stillschweigende Ausübung ist ungültig, und die Wahl ist in der Regel unwiderruflich.`,
     crossTitle: 'Nützliche Lektüre',
     calcLink: 'Nettolohn berechnen',
     colBorderDistance: 'Entfernung zur Grenze',
@@ -275,22 +247,25 @@ const COPY: Record<GermanLocale, Copy> = {
     colCrossing: 'Nächster Übergang',
     spreadComparison: 'die Entfernung zur Grenze',
     comparisonSource: 'Straßenentfernung zum nächsten Übergang und Einwohnerzahl aus dem deutschen Gemeindedatensatz (Destatis, AGS-Schlüssel).',
-    faqTitle: 'Häufige Fragen',
-    faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
-    faqA1: (n) => `${n} folgt dem Grenzgänger-Regime nach Art. 15a DBA Deutschland-Schweiz: Schweizer Quellensteuer von ${TAX_RATE_STR} auf das Bruttoeinkommen, unabhängig vom Schweizer Beschäftigungskanton.`,
-    faqQ2: 'Was passiert, wenn ich nicht jeden Tag nach Hause zurückkehre?',
-    faqA2:
-      `Mehr als ${NON_RETURN_DAYS} Nichtrückkehr-Arbeitstage pro Jahr führen zum Verlust des Grenzgängerstatus für das ganze Jahr. Homeoffice-Tage zählen nicht zu dieser Schwelle.`,
-    faqQ3: 'Kann ich in der deutschen Krankenversicherung bleiben?',
-    faqA3: `Ja, über das Optionsrecht (Art. 2 Abs. 6 KVV): Es muss innerhalb von ${HEALTH_OPTION_MONTHS} Monaten nach Arbeitsbeginn in der Schweiz ausdrücklich ausgeübt werden und ist in der Regel unwiderruflich.`,
-    faqQ4: 'Brauche ich besondere Formulare für den Grenzgängerstatus?',
-    faqA4:
-      'Das Verwaltungsverfahren (Formulare, Bescheinigungen) kann variieren und sich ändern: Prüfen Sie die aktuellen Anforderungen immer mit Ihrem Schweizer Beschäftigungskanton, bevor Sie die Arbeit aufnehmen.',
+    profilePopulation: (rank, total, value, ahead, behind, tied) =>
+      `Nach Einwohnerzahl liegt diese Gemeinde auf Rang ${rank} von ${total} (${value} Einwohner); direkt davor: ${ahead}; direkt dahinter: ${behind}${tied ? `; gleichauf mit: ${tied}` : ''}.`,
+    profileDistance: (rank, total, value, ahead, behind, tied) =>
+      `Nach Straßenentfernung liegt diese Gemeinde auf Rang ${rank} von ${total} (${value}); direkt davor: ${ahead}; direkt dahinter: ${behind}${tied ? `; gleichauf mit: ${tied}` : ''}.`,
+    profileLandkreis: (landkreis, peers) =>
+      `Im Landkreis ${landkreis} sind neben dieser Seite vergleichbare Gemeinden: ${peers}.`,
+    profileCrossing: (crossing, peers) =>
+      `Die Strecke ${crossing} verbindet auch ${peers}.`,
+    profileNearbyCrossings: (crossings) =>
+      `Die sechs nächstgelegenen Gemeinden zu dieser Seite führen zu diesen Übergängen: ${crossings}.`,
+    noPeer: 'keine Gemeinde',
     disclaimer:
       'Schätzungen nur zur Orientierung. Die tatsächliche Besteuerung hängt von Familiensituation, Abzügen und Bescheinigungen ab. Immer mit einer Steuerberatung oder dem Beschäftigungskanton prüfen.',
     hubTitle: 'In Deutschland leben, in der Schweiz arbeiten, Ort für Ort',
     hubLede:
       `Quellensteuer (einheitlich ${TAX_RATE_STR}, § 15a), die ${NON_RETURN_DAYS}-Tage-Nichtrückkehrschwelle und das Optionsrecht bei der Krankenversicherung für die deutschen Orte im Korridor Baden-Württemberg (Lörrach, Waldshut, Konstanz, Schwarzwald-Baar-Kreis).`,
+    hubContextTitle: 'Die gemeinsamen Regeln im Korridor',
+    hubContext:
+      `Im gesamten Korridor behält der Schweizer Arbeitgeber nach Art. 15a des Abkommens Deutschland-Schweiz ${TAX_RATE_STR} des Bruttolohns an der Quelle ein, wenn eine Ansässigkeitsbescheinigung vorliegt; Deutschland vermeidet die Doppelbesteuerung durch Anrechnung der Schweizer Steuer. Der Grenzgängerstatus geht für das ganze Steuerjahr verloren, wenn mehr als ${NON_RETURN_DAYS} Nichtrückkehr-Arbeitstage anfallen; Homeoffice-Tage zählen nicht. Das Optionsrecht kann den Verbleib in der deutschen Krankenversicherung ermöglichen, muss aber innerhalb von ${HEALTH_OPTION_MONTHS} Monaten nach Arbeitsbeginn ausgeübt werden und ist in der Regel unwiderruflich.`,
     groupLandkreis: (l) => `Landkreis ${l}`,
     bridgeLede: (n) =>
       `${n} liegt im Grenzkorridor, aber jenseits der Distanz-/Bevölkerungsschwelle, daher ist der eigene Ratgeber noch nicht veröffentlicht. Nutzen Sie den Rechner oder erkunden Sie die grösseren Orte im Korridor.`,
@@ -312,15 +287,6 @@ const COPY: Record<GermanLocale, Copy> = {
     tilePlz: 'Code postal',
     tileTax: 'Impôt à la source',
     distanceUnit: 'km',
-    explainTaxTitle: 'Comment fonctionne la fiscalité',
-    explainTax: (n) =>
-      `Les habitants de ${n} qui travaillent comme frontaliers en Suisse sont imposés selon l'art. 15a de la convention Allemagne-Suisse : l'employeur suisse retient ${TAX_RATE_STR} du salaire brut à la source, à condition que le travailleur présente une attestation de résidence (Ansässigkeitsbescheinigung). L'Allemagne évite la double imposition par un crédit d'impôt (méthode de l'imputation) pour le montant retenu en Suisse. Le régime s'applique sur tout le territoire, sans restriction de zone frontalière.`,
-    explainNonReturnTitle: `Jours de non-retour : le seuil de ${NON_RETURN_DAYS} jours`,
-    explainNonReturn:
-      `Le statut de frontalier est perdu pour TOUTE l'année fiscale si l'on dépasse ${NON_RETURN_DAYS} jours ouvrés de non-retour. Pour le temps partiel, le seuil est proportionnel : 5 jours par mois travaillé plus 1 jour par semaine travaillée. Les jours de télétravail (homeoffice) ne comptent PAS comme jours de non-retour.`,
-    explainHealthTitle: "Assurance maladie : le droit d'option",
-    explainHealth:
-      `Un frontalier peut choisir de sortir de l'assurance maladie obligatoire suisse pour rester dans le système allemand (droit d'option, base légale art. 2 al. 6 OAMal). Le choix doit être exercé explicitement dans les ${HEALTH_OPTION_MONTHS} mois suivant le début de l'activité : l'exercice tacite n'est pas valable, et le choix est généralement irrévocable une fois fait.`,
     crossTitle: 'À lire aussi',
     calcLink: 'Calculez votre salaire net',
     colBorderDistance: 'Distance de la frontière',
@@ -328,22 +294,25 @@ const COPY: Record<GermanLocale, Copy> = {
     colCrossing: 'Passage le plus proche',
     spreadComparison: 'la distance de la frontière',
     comparisonSource: 'Distance routière du passage le plus proche et population issues du jeu de données communal allemand (Destatis, clé AGS).',
-    faqTitle: 'Questions fréquentes',
-    faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
-    faqA1: (n) => `${n} suit le régime art. 15a CDI Allemagne-Suisse : impôt à la source suisse de ${TAX_RATE_STR} sur le revenu brut, uniforme quel que soit le canton suisse d'emploi.`,
-    faqQ2: 'Que se passe-t-il si je ne rentre pas chez moi chaque jour ?',
-    faqA2:
-      `Dépasser ${NON_RETURN_DAYS} jours ouvrés de non-retour par an fait perdre le statut de frontalier pour toute l'année. Les jours de télétravail ne comptent pas dans ce seuil.`,
-    faqQ3: "Puis-je rester assuré à l'assurance maladie allemande ?",
-    faqA3: `Oui, via le droit d'option (art. 2 al. 6 OAMal) : il doit être exercé explicitement dans les ${HEALTH_OPTION_MONTHS} mois suivant le début du travail en Suisse et est généralement irrévocable.`,
-    faqQ4: 'Faut-il des formulaires particuliers pour obtenir le statut de frontalier ?',
-    faqA4:
-      "La procédure administrative (formulaires, attestations) peut varier et changer : vérifiez toujours les exigences actuelles auprès de votre canton suisse d'emploi avant de commencer le travail.",
+    profilePopulation: (rank, total, value, ahead, behind, tied) =>
+      `Par population, cette commune est ${rank}e sur ${total} avec ${value} habitants ; juste devant : ${ahead} ; juste derrière : ${behind}${tied ? ` ; à égalité avec : ${tied}` : ''}.`,
+    profileDistance: (rank, total, value, ahead, behind, tied) =>
+      `Par distance routière, cette commune est ${rank}e sur ${total} avec ${value} ; juste devant : ${ahead} ; juste derrière : ${behind}${tied ? ` ; à égalité avec : ${tied}` : ''}.`,
+    profileLandkreis: (landkreis, peers) =>
+      `Dans le Landkreis ${landkreis}, les communes comparables en plus de cette page sont ${peers}.`,
+    profileCrossing: (crossing, peers) =>
+      `L'axe ${crossing} dessert aussi ${peers}.`,
+    profileNearbyCrossings: (crossings) =>
+      `Les six communes les plus proches de cette page relient ces passages : ${crossings}.`,
+    noPeer: 'aucune commune',
     disclaimer:
       "Estimations à titre indicatif. L'imposition réelle dépend de la situation familiale, des déductions et des attestations. Vérifiez toujours avec un conseiller fiscal ou le canton d'emploi.",
     hubTitle: 'Vivre en Allemagne, travailler en Suisse, commune par commune',
     hubLede:
       `Impôt à la source (uniforme ${TAX_RATE_STR}, art. 15a), le seuil de ${NON_RETURN_DAYS} jours de non-retour et le droit d'option sur l'assurance maladie pour les communes allemandes du corridor Bade-Wurtemberg (Lörrach, Waldshut, Constance, Schwarzwald-Baar-Kreis).`,
+    hubContextTitle: 'Les règles communes du corridor',
+    hubContext:
+      `Dans tout le corridor, l'employeur suisse retient ${TAX_RATE_STR} du salaire brut à la source selon l'art. 15a de la convention Allemagne-Suisse avec une attestation de résidence ; l'Allemagne évite la double imposition par un crédit pour l'impôt suisse. Le statut de frontalier est perdu pour toute l'année fiscale au-delà de ${NON_RETURN_DAYS} jours ouvrés de non-retour ; les jours de télétravail ne comptent pas. Le droit d'option permet de rester dans l'assurance maladie allemande, mais doit être exercé dans les ${HEALTH_OPTION_MONTHS} mois suivant le début du travail et est généralement irrévocable.`,
     groupLandkreis: (l) => `Landkreis ${l}`,
     bridgeLede: (n) =>
       `${n} est dans le corridor frontalier mais au-delà du seuil de distance/population : son guide dédié n'est pas encore publié. Utilisez le calculateur ou explorez les principales communes du corridor.`,
@@ -373,6 +342,125 @@ function breadcrumbLd(locale: GermanLocale, name: string, canonicalUrl: string):
       { '@type': 'ListItem', position: 3, name, item: canonicalUrl },
     ],
   });
+}
+
+const GERMAN_POPULATION_RANK = [...GERMAN_ABOVE_FLOOR].sort(
+  (a, b) => b.population - a.population || a.slug.localeCompare(b.slug),
+);
+const GERMAN_DISTANCE_RANK = [...GERMAN_ABOVE_FLOOR].sort(
+  (a, b) => a.distanceKm - b.distanceKm || a.slug.localeCompare(b.slug),
+);
+
+function groupGermanMunicipalities<T extends 'landkreis' | 'nearestCrossing'>(
+  field: T,
+): Map<GermanBorderMunicipality[T], GermanBorderMunicipality[]> {
+  const groups = new Map<GermanBorderMunicipality[T], GermanBorderMunicipality[]>();
+  for (const municipality of GERMAN_ABOVE_FLOOR) {
+    const key = municipality[field];
+    const group = groups.get(key);
+    if (group) group.push(municipality);
+    else groups.set(key, [municipality]);
+  }
+  return groups;
+}
+
+const GERMAN_BY_LANDKREIS = groupGermanMunicipalities('landkreis');
+const GERMAN_BY_CROSSING = groupGermanMunicipalities('nearestCrossing');
+
+function joinGermanNames(names: readonly string[], locale: GermanLocale, fallback: string): string {
+  if (names.length === 0) return fallback;
+  if (names.length === 1) return names[0];
+  const conjunction = locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ';
+  return `${names.slice(0, -1).join(', ')}${conjunction}${names[names.length - 1]}`;
+}
+
+interface GermanRankDetails {
+  rank: number;
+  total: number;
+  value: string;
+  ahead: string[];
+  behind: string[];
+  tied: string[];
+}
+
+function germanRankDetails(
+  rows: readonly GermanBorderMunicipality[],
+  current: GermanBorderMunicipality,
+  valueOf: (municipality: GermanBorderMunicipality) => number,
+  higherIsBetter: boolean,
+  formatValue: (value: number) => string,
+): GermanRankDetails {
+  const currentValue = valueOf(current);
+  const isAhead = (value: number): boolean => (higherIsBetter ? value > currentValue : value < currentValue);
+  const isBehind = (value: number): boolean => (higherIsBetter ? value < currentValue : value > currentValue);
+  return {
+    rank: rows.filter((municipality) => isAhead(valueOf(municipality))).length + 1,
+    total: rows.length,
+    value: formatValue(currentValue),
+    ahead: rows
+      .filter((municipality) => isAhead(valueOf(municipality)))
+      .slice(-2)
+      .map((municipality) => municipality.name),
+    behind: rows
+      .filter((municipality) => isBehind(valueOf(municipality)))
+      .slice(0, 2)
+      .map((municipality) => municipality.name),
+    tied: rows
+      .filter((municipality) => municipality.slug !== current.slug && valueOf(municipality) === currentValue)
+      .map((municipality) => municipality.name),
+  };
+}
+
+function buildGermanProfileProse(
+  locale: GermanLocale,
+  current: GermanBorderMunicipality,
+  neighbours: Array<{ place: GermanBorderMunicipality }>,
+): string[] {
+  const c = COPY[locale];
+  const formatNames = (names: readonly string[]) => joinGermanNames(names, locale, c.noPeer);
+  const population = germanRankDetails(
+    GERMAN_POPULATION_RANK,
+    current,
+    (municipality) => municipality.population,
+    true,
+    (value) => intFmt(value, locale),
+  );
+  const distance = germanRankDetails(
+    GERMAN_DISTANCE_RANK,
+    current,
+    (municipality) => municipality.distanceKm,
+    false,
+    (value) => `${intFmt(value, locale)} km`,
+  );
+  const landkreisPeers = (GERMAN_BY_LANDKREIS.get(current.landkreis) ?? [])
+    .filter((municipality) => municipality.slug !== current.slug)
+    .map((municipality) => municipality.name);
+  const crossingPeers = (GERMAN_BY_CROSSING.get(current.nearestCrossing) ?? [])
+    .filter((municipality) => municipality.slug !== current.slug)
+    .map((municipality) => municipality.name);
+  const nearbyCrossings = [...new Set(neighbours.map(({ place }) => place.nearestCrossing))];
+
+  return [
+    c.profilePopulation(
+      population.rank,
+      population.total,
+      population.value,
+      formatNames(population.ahead),
+      formatNames(population.behind),
+      formatNames(population.tied),
+    ),
+    c.profileDistance(
+      distance.rank,
+      distance.total,
+      distance.value,
+      formatNames(distance.ahead),
+      formatNames(distance.behind),
+      formatNames(distance.tied),
+    ),
+    c.profileLandkreis(current.landkreis, formatNames(landkreisPeers)),
+    c.profileCrossing(current.nearestCrossing, formatNames(crossingPeers)),
+    c.profileNearbyCrossings(formatNames(nearbyCrossings)),
+  ];
 }
 
 // ── Page renderers ──────────────────────────────────────────────
@@ -418,6 +506,7 @@ function renderRelated(locale: GermanLocale, current: GermanBorderMunicipality):
       },
     ],
     sourceNote: c.comparisonSource,
+    extraProse: ({ current, neighbours }) => buildGermanProfileProse(locale, current, neighbours),
   });
 }
 
@@ -467,22 +556,6 @@ export function renderAboveFloorPage(params: {
     </dl>
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(c.explainTaxTitle)}</h2>
-      <p class="mt-3 text-sm leading-6 text-body">${esc(c.explainTax(n))}</p>
-      <p class="mt-3 text-xs leading-5 text-muted">${esc(formatSourceAttribution(locale, GERMAN_REGIME_TAX.source))}</p>
-    </section>
-
-    <section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(c.explainNonReturnTitle)}</h2>
-      <p class="mt-3 text-sm leading-6 text-body">${esc(c.explainNonReturn)}</p>
-    </section>
-
-    <section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(c.explainHealthTitle)}</h2>
-      <p class="mt-3 text-sm leading-6 text-body">${esc(c.explainHealth)}</p>
-    </section>
-
-    <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(c.crossTitle)}</h2>
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
         <a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${CALC_HREF[locale]}">${esc(c.calcLink)} <span class="font-normal text-muted">(${esc(CALCULATOR_REGIME_SCOPE_TAG[locale])})</span></a>
@@ -493,32 +566,11 @@ export function renderAboveFloorPage(params: {
 
     ${renderRelated(locale, municipality)}
 
-    <section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(c.faqTitle)}</h2>
-      <div class="mt-4 divide-y divide-edge">
-        <details class="py-3" open><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ1(n))}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA1(n))}</p></details>
-        <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ2)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA2)}</p></details>
-        <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ3)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA3)}</p></details>
-        <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(c.faqQ4)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(c.faqA4)}</p></details>
-      </div>
-    </section>
-
     <p class="mt-6 text-xs leading-5 text-muted">${esc(c.disclaimer)}</p>
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
   const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
-
-  const faqLd = inlineScriptJson({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      { '@type': 'Question', name: c.faqQ1(n), acceptedAnswer: { '@type': 'Answer', text: c.faqA1(n) } },
-      { '@type': 'Question', name: c.faqQ2, acceptedAnswer: { '@type': 'Answer', text: c.faqA2 } },
-      { '@type': 'Question', name: c.faqQ3, acceptedAnswer: { '@type': 'Answer', text: c.faqA3 } },
-      { '@type': 'Question', name: c.faqQ4, acceptedAnswer: { '@type': 'Answer', text: c.faqA4 } },
-    ],
-  });
 
   // Budget-aware, keyword-preserving cascade (composePlaceTitle) — three
   // rungs, longest-first (issue #4886): `title` (full sentence) →
@@ -536,7 +588,7 @@ export function renderAboveFloorPage(params: {
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: hreflangFor(municipality.slug),
-    jsonLdScripts: [breadcrumbLd(locale, n, canonicalUrl), faqLd],
+    jsonLdScripts: [breadcrumbLd(locale, n, canonicalUrl)],
     bodyHtml: bodyWithAd,
     distDir,
     skipMainWrap: true,
@@ -643,6 +695,11 @@ export function renderHubPage(params: { locale: GermanLocale; dateStamp: string;
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(c.hubLede)}</p>
       <p class="mt-3 text-sm text-muted">${esc(c.updated)}: <time datetime="${dateStamp}">${dateStamp}</time></p>
     </header>
+    <section class="mt-6 rounded-md border border-edge bg-surface p-5">
+      <h2 class="text-xl font-bold text-heading">${esc(c.hubContextTitle)}</h2>
+      <p class="mt-3 text-sm leading-6 text-body">${esc(c.hubContext)}</p>
+      <p class="mt-3 text-xs leading-5 text-muted">${esc(formatSourceAttribution(locale, GERMAN_REGIME_TAX.source))}</p>
+    </section>
     ${groups}
     <p class="mt-6 text-xs leading-5 text-muted">${esc(c.disclaimer)}</p>
   </div>`;
