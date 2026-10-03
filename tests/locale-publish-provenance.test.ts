@@ -6,8 +6,10 @@ import YAML from 'yaml';
 import {
   createLocalePublishProvenance,
   validateLocalePublishProvenance,
+  validateLocaleSourceProvenance,
 } from '../scripts/ci/locale-publish-provenance.mjs';
 import { resolveLocalePublishPlan } from '../scripts/ci/resolve-locale-publish-plan.mjs';
+import { resolveNonItPublishPlan } from '../scripts/ci/resolve-nonit-publish-plan.mjs';
 import {
   localeHomeUrl,
   validateLocaleHomes,
@@ -52,6 +54,7 @@ function receipt(locale: 'it' | 'en' | 'de' | 'fr', buildId = BUILD_ID) {
       localePush: 'success',
       localePack: 'success',
       localeArtifact: 'success',
+      tailBudget: 'success',
     };
   const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'locale-publish-runner-'));
   tempDirs.push(runnerTemp);
@@ -105,6 +108,28 @@ describe('locale publish provenance', () => {
     expect(manifest.reasons).toContain('build outcome is "failure"');
   });
 
+  it('marks a validated non-IT source artifact ready for the deferred tail', () => {
+    const manifest = createLocalePublishProvenance({
+      locale: 'en',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      deployBuildId: BUILD_ID,
+      artifactRunId: SOURCE_RUN_ID,
+      distDir: tempDist(),
+      outcomes: { build: 'success', validate: 'success', sourceArtifact: 'success' },
+    });
+    expect(manifest.payloadStatus).toBe('source-ready');
+    expect(manifest.publishStatus).toBe('ready-for-tail');
+    expect(manifest.artifactName).toBe(`locale-shard-source-en-${SOURCE_RUN_ID}`);
+    expect(validateLocaleSourceProvenance(manifest, {
+      locale: 'en',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      expectedArtifactRunId: SOURCE_RUN_ID,
+    }).valid).toBe(true);
+  });
+
   it('does not call a skipped shard push a successful publish', () => {
     const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'locale-publish-runner-'));
     tempDirs.push(runnerTemp);
@@ -124,6 +149,7 @@ describe('locale publish provenance', () => {
         localePush: 'success',
         localePack: 'success',
         localeArtifact: 'success',
+        tailBudget: 'success',
       },
     });
     expect(manifest.published).toBe(false);
@@ -171,6 +197,32 @@ describe('locale publish admission plan', () => {
     expect(plan.reason).toContain('stale fallback for en');
   });
 
+  it('hands source-ready non-IT locales to the post-build tail', () => {
+    const source = createLocalePublishProvenance({
+      locale: 'en',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      deployBuildId: BUILD_ID,
+      artifactRunId: SOURCE_RUN_ID,
+      distDir: tempDist(),
+      outcomes: { build: 'success', validate: 'success', sourceArtifact: 'success' },
+    });
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'success',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs({ de: 'failure', fr: 'failure' }),
+      provenance: [
+        { file: 'it.json', manifest: receipt('it') },
+        { file: 'en.json', manifest: source },
+      ],
+    });
+    expect(plan.allowed).toBe(true);
+    expect(plan.healthyLocales).toEqual(['it']);
+    expect(plan.tailLocales).toEqual(['en']);
+    expect(plan.staleLocales).toEqual(['en', 'de', 'fr']);
+  });
+
   it('does not publish around a failed IT leg even when other locales are proven', () => {
     const plan = resolveLocalePublishPlan({
       runConclusion: 'failure',
@@ -212,6 +264,31 @@ describe('locale publish admission plan', () => {
     expect(plan.allowed).toBe(false);
     expect(plan.reason).toContain('prep conclusion is "failure"');
   });
+
+  it('promotes only a complete post-build receipt into the healthy set', () => {
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: ['it'],
+      sourceStaleLocales: ['en', 'de', 'fr'],
+      tailLocales: ['en'],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [{
+        file: 'en.json',
+        manifest: {
+          ...receipt('en'),
+          sourceRunId: SOURCE_RUN_ID,
+          artifactRunId: '36850086639',
+          artifactName: 'locale-dist-en-36850086639',
+        },
+      }],
+    });
+    expect(plan.allowed).toBe(true);
+    expect(plan.healthyLocales).toEqual(['it', 'en']);
+    expect(plan.staleLocales).toEqual(['de', 'fr']);
+    expect(plan.readyLocales).toEqual(['en']);
+  });
 });
 
 describe('locale publish workflow wiring', () => {
@@ -219,6 +296,7 @@ describe('locale publish workflow wiring', () => {
   const deploy = YAML.parse(fs.readFileSync(path.join(root, '.github/workflows/deploy.yml'), 'utf8')) as any;
   const publish = YAML.parse(fs.readFileSync(path.join(root, '.github/workflows/deploy-publish.yml'), 'utf8')) as any;
   const localeSteps = deploy.jobs['build-locale'].steps as Array<Record<string, any>>;
+  const provenanceSource = fs.readFileSync(path.join(root, 'scripts/ci/locale-publish-provenance.mjs'), 'utf8');
 
   it('emits and uploads one receipt per matrix leg after all publish-critical steps', () => {
     const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
@@ -231,6 +309,45 @@ describe('locale publish workflow wiring', () => {
     expect(localeSteps.indexOf(write!)).toBeLessThan(localeSteps.indexOf(cache!));
   });
 
+  it.each(['success', 'failure', 'skipped', 'cancelled'])('admits source artifacts only after a successful pack and upload (pack=%s)', (packOutcome) => {
+    const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
+    // Evaluate the actual workflow expression: && / || / == and these
+    // nonempty outcome strings have the same semantics in Actions and JS.
+    const expression = String(write?.env.PROVENANCE_SOURCE_ARTIFACT_OUTCOME)
+      .replace(/^\$\{\{\s*|\s*\}\}$/g, '')
+      .replace(/steps\.([\w-]+)\.outcome/g, 'steps["$1"].outcome');
+    const evaluate = new Function('matrix', 'steps', `return (${expression});`);
+    for (const locale of ['en', 'de', 'fr']) {
+      for (const uploadOutcome of ['success', 'failure', 'skipped', 'cancelled']) {
+        const steps = {
+          'pack-locale-source': { outcome: packOutcome },
+          'upload-locale-source': { outcome: uploadOutcome },
+        };
+        const admitted = packOutcome === 'success' && uploadOutcome === 'success';
+        const sourceArtifact = evaluate({ locale }, steps);
+        expect(sourceArtifact).toBe(admitted ? 'success' : 'failure');
+        expect(evaluate({ locale: 'it' }, steps)).toBe('deferred');
+        const source = createLocalePublishProvenance({
+          locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID, distDir: tempDist(),
+          outcomes: { build: 'success', validate: 'success', sourceArtifact },
+        });
+        expect(validateLocaleSourceProvenance(source, {
+          locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          expectedBuildId: BUILD_ID, expectedArtifactRunId: SOURCE_RUN_ID,
+        }).valid).toBe(admitted);
+        const plan = resolveLocalePublishPlan({
+          runConclusion: 'success', sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+          jobs: jobs(), provenance: [
+            { file: 'it.json', manifest: receipt('it') },
+            { file: `${locale}.json`, manifest: source },
+          ],
+        });
+        expect(plan.tailLocales.includes(locale)).toBe(admitted);
+      }
+    }
+  });
+
   it('routes publish through the plan and keeps missing IT provenance fail-closed', () => {
     const resolver = publish.jobs['resolve-publish-plan'];
     const deployJob = publish.jobs.deploy;
@@ -241,12 +358,23 @@ describe('locale publish workflow wiring', () => {
     expect(String(deployJob.if)).toContain('outputs.allowed');
     expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
-    expect(validateDist.needs).toBe('resolve-publish-plan');
-    expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'deploy']);
-    expect(publish.jobs['validate-live'].with.healthy_locales).toContain('healthy_locales');
+    expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
+    expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
+    expect(publish.jobs['resolve-nonit-publish'].needs).toEqual(['resolve-publish-plan', 'publish-nonit-shards']);
+    const tailJob = publish.jobs['publish-nonit-shards'];
+    expect(String(tailJob.strategy.matrix.locale)).toContain(
+      'fromJSON(needs.resolve-publish-plan.outputs.tail_locales)',
+    );
+    expect(String(tailJob.if)).not.toContain('matrix.locale');
+    expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'deploy']);
+    expect(publish.jobs['validate-live'].with.healthy_locales).toContain('resolve-nonit-publish');
     const recheck = (deployJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Enforce IT provenance identity');
     expect(String(recheck?.run)).toContain('--validate-dir');
+  });
+
+  it('records the deferred tail budget outcome in the final receipt', () => {
+    expect(provenanceSource).toContain('tailBudget: process.env.PROVENANCE_TAIL_BUDGET_OUTCOME');
   });
 });
 

@@ -78,6 +78,24 @@ function escapeRegExp(text) {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// The same sign, as a posting and a generated text write it: «d'opérateur·trice» is «d’opérateur∙trice».
+const SIGN_VARIANTS = ["'’‘ʼ`´", '·∙•‧⋅', '-‐‑‒–—'];
+
+/**
+ * A name (the job title, the company, the place) wherever a text quotes it
+ * whole, whatever its typography and spacing. An apprenticeship «…
+ * d'opérateur·trice en informatique CFC» (2026-10-03) was quoted with a
+ * typographic apostrophe: the title went unrecognised and its own «CFC» was
+ * taken for a skill the CV does not show.
+ */
+function nameRegExp(name) {
+  const source = [...name].map((char) => {
+    const variants = SIGN_VARIANTS.find((signs) => signs.includes(char));
+    return variants ? `[${variants}]` : escapeRegExp(char);
+  }).join('').replace(/\s+/g, '\\s+');
+  return new RegExp(source, 'giu');
+}
+
 /** Lowercase without accents: the form a text is searched for tools in. */
 export function foldText(text) {
   return String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -387,7 +405,7 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     const isMasked = (position) => within(masked, position) || within(references, position);
     const checksClaims = typeof index.claimText === 'string' && claimField;
     // The company, the job title and the place quoted whole are names, not claims.
-    const nameSpans = (index.names || []).flatMap((name) => [...text.matchAll(new RegExp(escapeRegExp(name).replace(/\s+/g, '\\s+'), 'giu'))]
+    const nameSpans = (index.names || []).flatMap((name) => [...text.matchAll(nameRegExp(name))]
       .map((match) => [match.index, match[0].length]));
     const claims = checksClaims ? claimTokens(text).filter((claim) => !within(nameSpans, claim.index)) : [];
     // The digits of a tool's name ("ISO 13485", "Office 365") are judged with the tool, not as a figure.

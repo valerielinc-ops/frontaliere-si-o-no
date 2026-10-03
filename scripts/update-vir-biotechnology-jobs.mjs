@@ -27,7 +27,15 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType, buildVirDescriptionFields, dropVirFabricatedText } from './lib/vir-biotechnology-job-parser.mjs';
+import {
+  classifyGreenhouseFetchError,
+  classifyGreenhouseResponse,
+  slugify,
+  GREENHOUSE_API,
+  inferEmploymentType,
+  buildVirDescriptionFields,
+  dropVirFabricatedText,
+} from './lib/vir-biotechnology-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -85,7 +93,7 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-async function fetchGreenhouseJobs() {
+async function fetchGreenhouseJobs(counts) {
   console.log(`🔍 Fetching Vir Biotechnology jobs from Greenhouse API`);
   console.log(`   API: ${GREENHOUSE_API}`);
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
@@ -99,12 +107,33 @@ async function fetchGreenhouseJobs() {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for Greenhouse API`); return []; }
+    if (!res.ok) {
+      const error = new Error(`Greenhouse API returned HTTP ${res.status}`);
+      error.status = res.status;
+      throw error;
+    }
     const data = await res.json();
-    const swissJobs = parseGreenhouseJobs(data);
-    console.log(`  📋 Swiss jobs found: ${swissJobs.length} (of ${data?.jobs?.length || 0} total)`);
-    return swissJobs;
+    const classified = classifyGreenhouseResponse(data);
+    Object.assign(counts, {
+      discovered: classified.discovered,
+      parsed: classified.parsed,
+      lastFetchOutcome: classified.lastFetchOutcome,
+      abortKind: classified.abortKind,
+      authoritativeEmptySnapshot: classified.authoritativeEmptySnapshot,
+      authoritativeSnapshotVerified: classified.authoritativeSnapshotVerified,
+    });
+    console.log(`  📋 Swiss jobs found: ${classified.parsed} (of ${classified.discovered} source jobs)`);
+    return classified.jobs;
   } catch (err) {
+    const classified = classifyGreenhouseFetchError(err);
+    Object.assign(counts, {
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: classified.lastFetchOutcome,
+      abortKind: classified.abortKind,
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    });
     console.warn(`⚠️ Greenhouse API fetch failed: ${err.message}`);
     return [];
   } finally {
@@ -221,18 +250,56 @@ function postProcess() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Vir Biotechnology');
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+    authoritativeSnapshotVerified: false,
+  };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Vir Biotechnology', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Vir Biotechnology (Humabs BioMed) — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
 
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isVirJob))
 
-  const swissJobs = await fetchGreenhouseJobs();
+  const swissJobs = await fetchGreenhouseJobs(summaryCounts);
   const discoveredJobs = swissJobs.map(buildJobFromGreenhouse);
 
   if (discoveredJobs.length === 0) {
-    console.log('\n⚠️ No Swiss Vir Biotechnology jobs found. Keeping existing.');
+    if (summaryCounts.abortKind === null && summaryCounts.lastFetchOutcome) {
+      const durationMs = getCrawlerElapsedMs();
+      console.log('\n⚠️ No Swiss Vir Biotechnology jobs found. Keeping existing.');
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: 'Vir Biotechnology',
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: summaryCounts.discovered ?? 0,
+        parsed: summaryCounts.parsed ?? 0,
+        written: 0,
+        lastFetchOutcome: summaryCounts.lastFetchOutcome,
+        abortKind: null,
+        authoritativeEmptySnapshot: summaryCounts.authoritativeEmptySnapshot,
+        authoritativeSnapshotVerified: summaryCounts.authoritativeSnapshotVerified,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: 0,
+        unchangedCount: 0,
+        durationMs,
+        avgDurationMs: durationMs,
+        durationHistory: [durationMs],
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: [],
+        unchangedJobs: [],
+      });
+      return;
+    }
+    summaryCounts.abortKind ||= 'no-jobs-parsed';
+    console.log('\n⚠️ Vir Biotechnology produced no publishable Swiss jobs; keeping existing slice for diagnosis.');
     const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isVirJob)) : new Map();
     const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
     printCrawlChangeSummary(crawlDiff, 'Vir Biotechnology');

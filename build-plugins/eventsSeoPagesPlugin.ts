@@ -235,6 +235,12 @@ const EVENT_AD_LABEL: Record<Locale, string> = {
 
 // Inbound crosslinks the issue asks for: tie event pages into the existing
 // border-municipality, salary, blog and job surfaces.
+export function eventCrosslinkPaths(section: 'blog' | 'calcolatore' | 'jobBoard'): Record<Locale, string> {
+  return Object.fromEntries((['it', 'en', 'de', 'fr'] as const).map(locale => [
+    locale, `${locale === 'it' ? '' : `/${locale}`}/${SLUG_TABLES[locale][section]}/`,
+  ])) as Record<Locale, string>;
+}
+
 const CROSSLINKS: Array<{ href: Record<Locale, string>; label: Record<Locale, string> }> = [
   {
     href: {
@@ -251,23 +257,15 @@ const CROSSLINKS: Array<{ href: Record<Locale, string>; label: Record<Locale, st
     },
   },
   {
-    href: { it: '/articoli-frontaliere/', en: '/en/articoli-frontaliere/', de: '/de/articoli-frontaliere/', fr: '/fr/articoli-frontaliere/' },
+    href: eventCrosslinkPaths('blog'),
     label: { it: 'Articoli frontalieri', en: 'Cross-border articles', de: 'Grenzgänger-Artikel', fr: 'Articles frontaliers' },
   },
   {
-    // Per-locale job-board slug — derived from shared SLUG_TABLES[locale].jobBoard
-    // (#4315). Naively locale-prefixing the IT slug (e.g. /en/cerca-lavoro-ticino/)
-    // 404s — router.ts only matches the CURRENT locale's own jobBoard slug (see
-    // parseRoute() ~line 3191).
-    href: (['it', 'en', 'de', 'fr'] as const).reduce((acc, locale) => {
-      const prefix = locale === 'it' ? '' : `/${locale}`;
-      acc[locale] = `${prefix}/${SLUG_TABLES[locale].jobBoard}/`;
-      return acc;
-    }, {} as Record<Locale, string>),
+    href: eventCrosslinkPaths('jobBoard'),
     label: { it: 'Lavoro in Ticino', en: 'Jobs in Ticino', de: 'Stellen im Tessin', fr: 'Emplois au Tessin' },
   },
   {
-    href: { it: '/calcola-stipendio/', en: '/en/calcola-stipendio/', de: '/de/calcola-stipendio/', fr: '/fr/calcola-stipendio/' },
+    href: eventCrosslinkPaths('calcolatore'),
     label: { it: 'Calcola stipendio netto', en: 'Net salary calculator', de: 'Nettolohn berechnen', fr: 'Salaire net' },
   },
 ];

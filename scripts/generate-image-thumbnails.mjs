@@ -5,10 +5,27 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const SOURCE_DIRS = [
+const DEFAULT_SOURCE_DIRS = [
   path.join(ROOT, 'public', 'images', 'blog'),
   path.join(ROOT, 'public', 'images', 'places'),
 ];
+
+// `--source-dir <dir>` (repeatable) replaces the default directories. It exists
+// so the test can point the real script at a temporary directory instead of the
+// tracked public/images tree.
+function resolveSourceDirs(argv) {
+  const dirs = [];
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] !== '--source-dir') {
+      throw new Error(`unknown argument: ${argv[i]}`);
+    }
+    const value = argv[i + 1];
+    if (!value) throw new Error('--source-dir requires a value');
+    dirs.push(path.resolve(value));
+    i += 1;
+  }
+  return dirs.length > 0 ? dirs : DEFAULT_SOURCE_DIRS;
+}
 const WIDTH = 480;
 // An extreme-portrait source had no bound on the resulting height: width-only
 // resize re-encoded a tall image to an oversized file for a "thumbnail".
@@ -115,7 +132,7 @@ async function pruneLegacyFormats(thumbDir) {
 
 async function processSourceDir(sourceDir) {
   const files = await walk(sourceDir).catch(() => []);
-  if (files.length === 0) return { scanned: 0, generated: 0, skipped: 0, pruned: 0 };
+  if (files.length === 0) return { scanned: 0, generated: 0, skipped: 0, pruned: 0, failures: [] };
 
   const thumbDir = path.join(sourceDir, 'thumbnails');
   await mkdir(thumbDir, { recursive: true });
@@ -125,6 +142,12 @@ async function processSourceDir(sourceDir) {
 
   let generated = 0;
   let skipped = 0;
+  // One unreadable image used to reject the whole run on its first error, with
+  // a message that did not name the file (deploy run 37035643275: «Input file
+  // contains unsupported image format», no path). Every file is now attempted;
+  // the broken ones are collected and reported together, and main() still
+  // exits 1 so a broken image is never published.
+  const failures = [];
 
   for (const inputPath of files) {
     const ext = path.extname(inputPath);
@@ -148,26 +171,42 @@ async function processSourceDir(sourceDir) {
       continue;
     }
 
-    // Manifest present (local dev): hash the source to catch in-place edits.
-    const sha = await sha1File(inputPath);
-    if (cached === sha && exists) {
+    let encoding = false;
+    try {
+      // Manifest present (local dev): hash the source to catch in-place edits.
+      const sha = await sha1File(inputPath);
+      if (cached === sha && exists) {
+        nextManifest[relKey] = sha;
+        skipped += 1;
+        continue;
+      }
+
+      encoding = true;
+      await sharp(inputPath)
+        .rotate()
+        .resize({ width: WIDTH, height: MAX_HEIGHT, fit: 'inside', withoutEnlargement: true })
+        .webp({ quality: WEBP_QUALITY })
+        .toFile(outWebp);
+
       nextManifest[relKey] = sha;
-      skipped += 1;
-      continue;
+      generated += 1;
+    } catch (err) {
+      failures.push({ file: inputPath, message: String(err?.message || err).replace(/\s+/g, ' ') });
+      // A thumbnail left behind by a failed encode (partial write, or the
+      // output of an older version of the source) would be trusted by the
+      // committed-thumbnail fast path on the next run. Drop it so the file
+      // keeps failing until the source itself is fixed.
+      if (encoding) await unlink(outWebp).catch(() => {});
     }
-
-    await sharp(inputPath)
-      .rotate()
-      .resize({ width: WIDTH, height: MAX_HEIGHT, fit: 'inside', withoutEnlargement: true })
-      .webp({ quality: WEBP_QUALITY })
-      .toFile(outWebp);
-
-    nextManifest[relKey] = sha;
-    generated += 1;
   }
 
   await saveManifest(thumbDir, nextManifest);
-  return { scanned: files.length, generated, skipped, pruned };
+  return { scanned: files.length, generated, skipped, pruned, failures };
+}
+
+function displayPath(filePath) {
+  const rel = path.relative(ROOT, filePath);
+  return rel.startsWith('..') || path.isAbsolute(rel) ? filePath : rel.split(path.sep).join('/');
 }
 
 async function main() {
@@ -175,13 +214,15 @@ async function main() {
   let generated = 0;
   let skipped = 0;
   let pruned = 0;
+  const failures = [];
 
-  for (const dir of SOURCE_DIRS) {
+  for (const dir of resolveSourceDirs(process.argv.slice(2))) {
     const result = await processSourceDir(dir);
     scanned += result.scanned;
     generated += result.generated;
     skipped += result.skipped;
     pruned += result.pruned;
+    failures.push(...result.failures);
   }
 
   console.error(`🖼️  Thumbnail generation complete`);
@@ -189,6 +230,21 @@ async function main() {
   console.error(`   Generated/updated: ${generated}`);
   console.error(`   Up-to-date skipped: ${skipped}`);
   console.error(`   Legacy .jpg/.avif pruned: ${pruned}`);
+
+  if (failures.length > 0) {
+    console.error(`❌ Unreadable source images: ${failures.length}`);
+    for (const { file, message } of failures) {
+      const shown = displayPath(file);
+      console.error(`   ${shown}: ${message}`);
+      if (process.env.GITHUB_ACTIONS === 'true') {
+        // Annotation on the run summary, so the broken file is visible without
+        // opening the step log.
+        console.error(`::error file=${shown},title=Miniature: immagine sorgente illeggibile::${message}`);
+      }
+    }
+    console.error('   Fix or replace the files above; no thumbnail is kept for them (a previous one, if any, was removed).');
+    process.exitCode = 1;
+  }
 }
 
 main().catch((err) => {
