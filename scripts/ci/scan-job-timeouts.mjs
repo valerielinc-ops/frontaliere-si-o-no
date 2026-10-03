@@ -129,14 +129,6 @@ import {
 // al body INTERO — stessa regola e stessa funzione di `report-workflow-failure.mjs`.
 import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import {
-  detectHostKill as detectHostKillSignature,
-  findTimeoutAnnotation as findTimeoutAnnotationInAnnotations,
-} from './lib/deploy-job-failure-signature.mjs';
-
-// Preserve the observer's public test seam while sharing the implementation
-// with the targeted deploy recovery path.
-export { detectHostKillSignature as detectHostKill };
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -184,13 +176,13 @@ export function assertRunAgeHorizon({
 // search e' sotto il limite, poi si paginano tutte le sue pagine.
 const RUN_SEARCH_RESULT_CAP = 1000;
 const RUN_SEARCH_MAX_SPLIT_DEPTH = 20;
+const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum number of minutes)/i;
 // A job that has only just failed can be read back mid-finalisation, with a step
 // still momentarily `in_progress` — indistinguishable from a host-kill. Ignore
 // anything that finished less than this ago; the next scan's window reaches back
 // to this scan's start plus a 15-minute overlap, so it still sees it. Cheap insurance against a false
 // host-kill issue on an ordinary red build.
-// The shared signature module owns this value so recovery and observation do
-// not drift into two different definitions of a host loss.
+const HOST_KILL_SETTLE_MS = intFromEnv('HOST_KILL_SETTLE_MS', 120_000);
 
 // Quanti step mostrare nell'attribuzione del tempo. Il body di una issue che
 // nessuno legge è inutile quanto uno vuoto: un job lungo ha decine di step e
@@ -545,7 +537,34 @@ function findTimeoutAnnotation(job) {
   if (job.conclusion !== 'cancelled' || !job.check_run_url) return null;
   const annotations = readPaginatedAnnotations(job);
   if (!Array.isArray(annotations)) return null;
-  return findTimeoutAnnotationInAnnotations(annotations);
+  return annotations.find((a) => TIMEOUT_ANNOTATION_RE.test(
+    [a?.message, a?.title, a?.raw_details]
+      .filter((value) => typeof value === 'string')
+      .join('\n'),
+  )) || null;
+}
+
+/**
+ * Host-kill signature: the job is `failure` but at least one step never got a
+ * conclusion and is still `in_progress` — i.e. the runner host went away while that
+ * step was executing, so nothing downstream of it (including the workflow's own
+ * `if: failure()` reporter) ever ran.
+ *
+ * Returns null for an ordinary failure, where every step is concluded.
+ */
+export function detectHostKill(job, nowMs = Date.now()) {
+  if (job?.conclusion !== 'failure' || job?.status !== 'completed') return null;
+  const steps = Array.isArray(job.steps) ? job.steps : [];
+  const stuck = steps.filter((s) => s?.status === 'in_progress');
+  if (stuck.length === 0) return null;
+
+  const completedAt = Date.parse(job.completed_at || '');
+  if (Number.isFinite(completedAt) && nowMs - completedAt < HOST_KILL_SETTLE_MS) return null;
+
+  // Steps that never started at all: the blast radius of the kill, and the reason
+  // the workflow reported nothing about itself.
+  const neverRan = steps.filter((s) => s?.status === 'queued' || s?.status === 'pending');
+  return { stuck, neverRan };
 }
 
 function issueRepoFlag() {
@@ -780,7 +799,7 @@ export async function main() {
   // (B) host-kill — `failure` with a step frozen `in_progress`.
   for (const run of failedRuns) {
     const kills = listJobs(run.id)
-      .map((job) => ({ job, kill: detectHostKillSignature(job, nowMs) }))
+      .map((job) => ({ job, kill: detectHostKill(job, nowMs) }))
       .filter(({ kill }) => kill)
       .sort((a, b) => String(a.job?.name || '').localeCompare(String(b.job?.name || '')));
     if (kills.length === 0) continue;
