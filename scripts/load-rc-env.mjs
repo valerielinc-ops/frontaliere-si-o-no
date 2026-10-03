@@ -122,7 +122,7 @@ export const RC_TO_ENV = {
   ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
   // "legacy" switches the assisted application's PDFs back to the standard-font writer (default: typst).
   ASSISTED_APPLICATION_PDF_RENDERER: ['ASSISTED_APPLICATION_PDF_RENDERER'],
-  // "single" sends one PDF dossier by e-mail to a qualified candidate's employer (default: separate files).
+  // "single" e-mails one PDF dossier to a qualified candidate's employer (default: separate files).
   ASSISTED_APPLICATION_DOSSIER_MODE: ['ASSISTED_APPLICATION_DOSSIER_MODE'],
   // "on" writes the adapted lines into the candidate's own DOCX as a third CV choice (default: off).
   ASSISTED_APPLICATION_DOCX_INPLACE: ['ASSISTED_APPLICATION_DOCX_INPLACE'],
@@ -468,6 +468,36 @@ export function isTrivialSecret(value) {
 }
 
 /**
+ * RC keys whose value is, by contract, a plain word and never a secret: the
+ * switches of the assisted application (the words each one accepts are in
+ * scripts/assisted-application/rc-switches.mjs, the tool that sets them).
+ *
+ * Their value is never masked, whatever its length: "legacy" and "single" are
+ * six characters long, so the length rule of isTrivialSecret would register
+ * them, and from then on every "legacy" or "single" in the job's logs reads
+ * `***` and GitHub withholds any job output that contains the word.
+ *
+ * Only for a key whose every possible value may be read in a log: a key that
+ * can ever hold a credential stays out of this set.
+ */
+export const PLAIN_WORD_RC_KEYS = new Set([
+  'ASSISTED_APPLICATION_PDF_RENDERER',
+  'ASSISTED_APPLICATION_DOSSIER_MODE',
+  'ASSISTED_APPLICATION_DOCX_INPLACE',
+]);
+
+/**
+ * Whether an RC value is registered as a log mask in CI: never for a key of
+ * PLAIN_WORD_RC_KEYS, by length (isTrivialSecret) for every other key.
+ *
+ * @param {string|null} value
+ * @param {string} rcKey
+ */
+export function shouldMaskRcValue(value, rcKey) {
+  return !PLAIN_WORD_RC_KEYS.has(rcKey) && !isTrivialSecret(value);
+}
+
+/**
  * Whether an HTTP status from the Remote Config REST fetch is worth retrying.
  *
  * 429 and 5xx are transient — the exact failure mode behind issues #45, #54
@@ -654,8 +684,11 @@ async function main() {
       // For local: output as export statement
       if (isCI) {
         // Mask the value so GitHub Actions redacts it from all logs, but skip
-        // trivial values that would poison unrelated output (see isTrivialSecret).
-        if (!isTrivialSecret(value)) {
+        // trivial values that would poison unrelated output (see isTrivialSecret)
+        // and the plain-word switches: their value is an ordinary word such as
+        // "legacy", which a mask would redact from every later log line and job
+        // output (see PLAIN_WORD_RC_KEYS).
+        if (shouldMaskRcValue(value, rcKey)) {
           process.stdout.write(`::add-mask::${value}\n`);
         }
         // Use delimiter syntax for multi-line safety
