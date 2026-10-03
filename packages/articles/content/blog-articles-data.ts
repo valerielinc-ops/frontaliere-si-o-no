@@ -37277,6 +37277,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'controlli-zona-tutela-como',
+ category: 'novita',
+ date: '2026-10-03T18:39:28.611Z',
+ image: '/images/blog/controlli-zona-tutela-como.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

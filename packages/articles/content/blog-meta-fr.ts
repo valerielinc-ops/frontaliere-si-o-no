@@ -12432,6 +12432,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.diego-kostner-milano-hockey.title': 'Diego kostner quitte l\'ambrì piotta',
     'blog.article.diego-kostner-milano-hockey.excerpt': 'L\'attaquant de 34 ans originaire de Bressanone quitte l\'Ambrì Piotta et poursuivra sa carrière avec le Milano Hockey Club nouvellement créé.',
     'blog.article.diego-kostner-milano-hockey.imageAlt': 'Patinoire de hockey au Tessin aux couleurs bleu et blanc d\'Ambrì Piotta',
+    'blog.article.controlli-zona-tutela-como.title': 'Côme, Police locale : 16 éloignements et 4 plaintes',
+    'blog.article.controlli-zona-tutela-como.excerpt': 'Como, contrôles de la Police Locale entre le 15 septembre et le 2 octobre 2026: 16 arrêtés d\'éloignement et 4 plaintes dans les zones de protection renforcée.',
+    'blog.article.controlli-zona-tutela-como.imageAlt': 'Parc urbain au Tessin avec allées arborées et bâtiments historiques',
 };
 
 export default blogMetaFr;

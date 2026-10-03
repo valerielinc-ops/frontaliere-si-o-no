@@ -12431,6 +12431,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.diego-kostner-milano-hockey.title': 'Diego kostner lascia l\'ambrì piotta',
     'blog.article.diego-kostner-milano-hockey.excerpt': 'L\'attaccante 34enne di Bressanone lascia l\'Ambrì Piotta e proseguirà la carriera con il neonato Milano Hockey Club.',
     'blog.article.diego-kostner-milano-hockey.imageAlt': 'Pista di hockey in Ticino nei colori biancoblù dell\'Ambrì Piotta',
+    'blog.article.controlli-zona-tutela-como.title': 'Como, Polizia locale: 16 allontanamenti e 4 denunce',
+    'blog.article.controlli-zona-tutela-como.excerpt': 'Como, controlli della Polizia Locale tra il 15 settembre e il 2 ottobre 2026: 16 ordini di allontanamento e 4 denunce nelle aree a tutela rafforzata.',
+    'blog.article.controlli-zona-tutela-como.imageAlt': 'Parco urbano in Ticino con viali alberati e edifici storici',
 };
 
 export default blogMetaIt;
