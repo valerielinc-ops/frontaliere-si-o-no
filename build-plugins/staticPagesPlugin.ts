@@ -67,9 +67,10 @@ import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 // related-guides rail; once #5468 gave the locale root that rail, the dead
 // pill was the reason the DE FAQ hub — alone among the four locales — stayed
 // buried and its 103 entries sat at BFS depth 5 (issue #5428).
-import { buildFaqHubPath } from '../data/faq-hub/routes';
+import { buildFaqHubPath, FAQ_HUB_SLUG, FAQ_HUB_ROUTES } from '../data/faq-hub/routes';
 import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../services/pharmacies/types';
 import { COMMUNICATIONS_PAGE_PATH } from '../services/communicationChannels';
+import { SITE_MAP_PAGE_DIR } from './shared/siteMapPageDir';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 // Same story, same rail, the other eleven pills: the guide/fisco hrefs below
 // were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
@@ -190,12 +191,7 @@ const FAQ_CATEGORY_LABELS: Record<string, Record<string, string>> = {
  family: { it: 'Famiglia', en: 'Family', de: 'Familie', fr: 'Famille' },
 };
 
-const FAQ_DEDICATED_PAGE_SLUGS = new Set([
- 'domande-frequenti-frontalieri',
- 'cross-border-faq',
- 'grenzgaenger-faq',
- 'faq-frontaliers',
-]);
+const FAQ_DEDICATED_PAGE_SLUGS = new Set(Object.values(FAQ_HUB_SLUG));
 
 // ── Hub-chrome parity for SEMRUSH + editorial staticOverlay landings ──
 //
@@ -1216,9 +1212,9 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: '/contattaci/', label: 'Contattaci' },
  { href: COMMUNICATIONS_PAGE_PATH.it, label: 'Comunicazioni' },
  { href: '/privacy/', label: 'Privacy' },
- { href: '/about/', label: 'About' },
- { href: '/contact/', label: 'Contact' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
+ { href: '/en/about-us/', label: 'About' },
+ { href: '/en/contact-us/', label: 'Contact' },
+ { href: '/en/privacy/', label: 'Privacy Policy' },
  ]),
  en: Object.freeze([
  { href: '/en/', label: 'Tax Simulator' },
@@ -1228,15 +1224,15 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
  { href: '/en/taxes-and-pension/', label: 'Taxes & Pensions' },
  { href: '/en/cross-border-guide/', label: 'Cross-Border Guide' },
- { href: '/en/cross-border-faq/', label: 'FAQ' },
+ { href: buildFaqHubPath('en'), label: 'FAQ' },
  { href: '/en/cross-border-glossary/', label: 'Glossary' },
  { href: '/en/cross-border-articles/', label: 'Articles' },
  { href: '/en/swiss-articles/', label: 'Swiss Articles' },
  { href: '/en/site-map/', label: 'Site Map' },
- { href: '/about/', label: 'About Us' },
- { href: '/contact/', label: 'Contact Us' },
+ { href: '/en/about-us/', label: 'About Us' },
+ { href: '/en/contact-us/', label: 'Contact Us' },
  { href: COMMUNICATIONS_PAGE_PATH.en, label: 'Communications' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
+ { href: '/en/privacy/', label: 'Privacy Policy' },
  ]),
  de: Object.freeze([
  { href: '/de/', label: 'Steuersimulator' },
@@ -1246,15 +1242,15 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
  { href: '/de/grenzgaenger-besteuerung-leitfaden-2026/', label: 'Steuern & Vorsorge' },
  { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Leitfaden' },
- { href: '/de/grenzgaenger-faq/', label: 'FAQ' },
+ { href: buildFaqHubPath('de'), label: 'FAQ' },
  { href: '/de/grenzgaenger-glossar/', label: 'Glossar' },
  { href: '/de/grenzgaenger-artikel/', label: 'Artikel' },
  { href: '/de/schweiz-artikel/', label: 'Schweiz-Artikel' },
  { href: '/de/seitenplan/', label: 'Seitenplan' },
- { href: '/about/', label: 'About' },
- { href: '/contact/', label: 'Contact' },
+ { href: '/en/about-us/', label: 'About' },
+ { href: '/en/contact-us/', label: 'Contact' },
  { href: COMMUNICATIONS_PAGE_PATH.de, label: 'Mitteilungen' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
+ { href: '/en/privacy/', label: 'Privacy Policy' },
  ]),
  fr: Object.freeze([
  { href: '/fr/', label: 'Simulateur Fiscal' },
@@ -1264,15 +1260,15 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
  { href: '/fr/impots-et-retraite/', label: 'Impôts & Retraite' },
  { href: '/fr/guide-frontalier/', label: 'Guide Frontalier' },
- { href: '/fr/faq-frontaliers/', label: 'FAQ' },
+ { href: buildFaqHubPath('fr'), label: 'FAQ' },
  { href: '/fr/glossaire-frontalier/', label: 'Glossaire' },
  { href: '/fr/articles-frontalier/', label: 'Articles' },
  { href: '/fr/articles-suisse/', label: 'Articles Suisse' },
  { href: '/fr/plan-du-site/', label: 'Plan du Site' },
- { href: '/about/', label: 'About' },
- { href: '/contact/', label: 'Contact' },
+ { href: '/en/about-us/', label: 'About' },
+ { href: '/en/contact-us/', label: 'Contact' },
  { href: COMMUNICATIONS_PAGE_PATH.fr, label: 'Communications' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
+ { href: '/en/privacy/', label: 'Privacy Policy' },
  ]),
 };
 Object.freeze(NAV_LABELS);
@@ -1340,7 +1336,15 @@ export function injectLocaleMainNav(html: string, locale: HpSeoLocale): string {
  * so removing the injection from the ratchet is what makes the test go red.
  */
 export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'): string {
+ const noJsCopy = {
+   en: ['Interactive calculators require JavaScript. You can still read the guides and browse the links below.', 'Browse the site'],
+   de: ['Die interaktiven Rechner benötigen JavaScript. Sie können weiterhin die Ratgeber lesen und die folgenden Links nutzen.', 'Website erkunden'],
+   fr: ['Les calculateurs interactifs nécessitent JavaScript. Vous pouvez toujours lire les guides et parcourir les liens ci-dessous.', 'Parcourir le site'],
+ }[locale];
  let out = replaceHomepageSeoHead(html, locale);
+ // Replace only the content fallback; stylesheet noscript blocks must survive.
+ out = out.replace(/<noscript\b[^>]*\bid="homepage-nojs"[^>]*>[\s\S]*?<\/noscript>/i,
+   `<noscript id="homepage-nojs"><p>${noJsCopy[0]} <a href="/${SITE_MAP_PAGE_DIR[locale]}/">${noJsCopy[1]}</a></p></noscript>`);
  out = out.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
  out = out.replace(/<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
  out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
@@ -2838,7 +2842,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'taxes-and-pension': 'Taxes & Pensions', 'frontier-guide': 'Cross-Border Guide',
  'living-in-ticino': 'Living in Ticino', 'statistics': 'Statistics',
  'frontier-articles': 'Articles', 'glossary': 'Glossary',
- 'cross-border-faq': 'FAQ', 'find-jobs-ticino': 'Jobs in Ticino', // cathedral-allow: EN breadcrumb dictionary, TI is the original section
+ 'frequently-asked-questions': 'FAQ', 'find-jobs-ticino': 'Jobs in Ticino', // cathedral-allow: EN breadcrumb dictionary, TI is the original section
  'site-map': 'Site Map', 'privacy-policy': 'Privacy Policy',
  'weekly-digest': 'Weekly Digest', 'net-salary-simulator': 'Net Salary Simulator',
  'what-if-simulator': 'What-If Simulator', 'currency-exchange': 'Currency Exchange',
@@ -2863,7 +2867,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'steuern-und-rente': 'Steuern & Vorsorge', 'grenzgaenger-leitfaden': 'Grenzgänger-Leitfaden',
  'leben-im-tessin': 'Leben im Tessin', 'statistiken': 'Statistiken',
  'grenzgaenger-artikel': 'Artikel', 'glossar': 'Glossar',
- 'grenzgaenger-faq': 'FAQ', 'jobs-im-tessin': 'Jobs im Tessin', // cathedral-allow: DE breadcrumb dictionary, TI is the original section
+ 'haeufige-fragen': 'FAQ', 'jobs-im-tessin': 'Jobs im Tessin', // cathedral-allow: DE breadcrumb dictionary, TI is the original section
  'seitenplan': 'Seitenplan', 'datenschutz': 'Datenschutz',
  'woechentlicher-digest': 'Wöchentlicher Digest', 'nettolohn-simulator': 'Nettolohn-Simulator',
  'was-waere-wenn': 'Was-Wäre-Wenn', 'waehrungsrechner': 'Währungsrechner',
@@ -2888,7 +2892,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'impots-et-retraite': 'Impôts & Retraite', 'guide-frontalier': 'Guide Frontalier',
  'vivre-au-tessin': 'Vivre au Tessin', 'statistiques': 'Statistiques',
  'articles-frontalier': 'Articles', 'glossaire': 'Glossaire',
- 'faq-frontaliers': 'FAQ', 'trouver-emploi-tessin': 'Emploi au Tessin', // cathedral-allow: FR breadcrumb dictionary, TI is the original section
+ 'questions-frequentes': 'FAQ', 'trouver-emploi-tessin': 'Emploi au Tessin', // cathedral-allow: FR breadcrumb dictionary, TI is the original section
  'plan-du-site': 'Plan du Site', 'politique-de-confidentialite': 'Politique de Confidentialité',
  'digest-hebdomadaire': 'Digest Hebdomadaire', 'simulateur-salaire-net': 'Simulateur Salaire Net',
  'simulateur-hypothetique': 'Simulateur Hypothétique', 'change-devises': 'Change de Devises',
@@ -3165,6 +3169,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // We use the deterministic path set instead of fs.existsSync because
  // closeBundle hooks run in parallel — ogPagesPlugin may not have flushed yet.
  const normalizedPath = url.path.replace(/\/+$/, '') || '/';
+ // FAQ hubs and their locale alternates have one HTML owner: faqHubPlugin.
+ // Do not replace its full corpus with the generic legacy FAQ template.
+ if (FAQ_HUB_ROUTES.includes(`${normalizedPath}/`)) continue;
  const filePath = np.join(distDir, url.path, 'index.html');
  const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
 
@@ -3207,12 +3214,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   sourcePathForContent = urlPath,
  ) => {
  const canonicalPath = withTrailingSlash(urlPath);
- // English-slug E-E-A-T aliases (`/about/`, `/contact/`, `/privacy-policy/`)
- // self-canonicalize. Earlier this routed them to `/en/about-us/` etc. to
- // consolidate cluster signal, but Semrush flagged the resulting
- // sitemap mismatch (loc ≠ canonical). hreflang="en" alternates in the
- // sitemap still tie them to the `/en/...` cluster, which is the
- // proper schema-level link Google uses.
+ // Only canonical pages are listed in the sitemap. Retired utility aliases
+ // are emitted separately by legacyRedirectsPlugin as canonical bridges.
  const fullUrl = `${BASE_URL}${canonicalPath}`;
  const pp = canonicalPath.slice(1).replace(/&/g, '~and~');
  // Filter out any hreflang entry with an empty lang or empty href —
@@ -4651,7 +4654,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
  editorialBlocks.push(
- `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (Nuovo Accordo 2026 ratificato, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Ogni articolo cita le fonti primarie, include riferimenti normativi aggiornati e collega direttamente ai simulatori della piattaforma così da passare dalla notizia alla stima numerica in pochi click. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
+ `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (Nuovo Accordo 2026 ratificato, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Gli articoli collegano le fonti utilizzate, che possono essere documenti ufficiali o notizie giornalistiche attribuite, e gli strumenti pertinenti della piattaforma. I riferimenti normativi vanno verificati sul documento ufficiale prima di prendere decisioni personali. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
  // Visible CTA → full A-Z archive. Critical for crawler reachability:
  // closes the BFS path from this index to /articoli-frontaliere/tutti/
@@ -4865,11 +4868,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
- `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. Ogni articolo segue una pipeline editoriale a cinque fasi — raccolta delle fonti primarie, bozza assistita da intelligenza artificiale, revisione redazionale, fact-checking e pubblicazione tracciata. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
+ `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. La produzione comprende raccolta delle fonti, generazione assistita, controlli automatici e pubblicazione tracciata. Le verifiche redazionali e le correzioni possono avvenire anche dopo la pubblicazione. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
  `<h2 class="s-o3IET6">Strumenti di intelligenza artificiale e revisione umana</h2>`,
- `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. L'IA è un assistente, non un autore autonomo: ogni articolo è revisionato dalla redazione prima della pubblicazione.`,
+ `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. La pipeline può pubblicare contenuti generati automaticamente dopo i controlli tecnici. Non dichiariamo una revisione umana preventiva per ogni articolo: i controlli automatici non equivalgono a una verifica umana o a un parere professionale.`,
  `<h2 class="s-o3IET6">Fonti primarie utilizzate</h2>`,
- `Per ogni argomento usiamo esclusivamente fonti primarie e verificabili: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le fonti utilizzate per ciascun articolo sono linkate direttamente nel testo.`,
+ `Privilegiamo le fonti primarie per norme, importi e scadenze: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le notizie possono basarsi anche su fonti giornalistiche, attribuite e collegate nel testo. Una notizia riportata non equivale a una verifica indipendente della fonte primaria.`,
  `<h2 class="s-o3IET6">Standard giornalistici</h2>`,
  `Aderiamo agli standard di riferimento del giornalismo economico-finanziario: separazione netta tra fatti e opinioni, attribuzione esplicita di ogni dato numerico, citazioni verbatim, verificabilità di ogni affermazione importante, imparzialità rispetto a banche, casse malati e datori di lavoro, trasparenza sugli autori.`,
  `<h2 class="s-o3IET6">Politica di aggiornamento e correzioni</h2>`,
@@ -4901,7 +4904,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
  `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
  `<h2 class="s-o3IET6">Titolare del trattamento e diritti dell'utente</h2>`,
- `<p>Il titolare del trattamento (data controller ai sensi del GDPR e della LPD svizzera) è <strong>${DATA_CONTROLLER_NAME}</strong>. Per esercitare i diritti di accesso, rettifica, cancellazione e portabilità dei dati, o per qualsiasi richiesta relativa al trattamento, è possibile scrivere a <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. Per maggiori dettagli consultare l'<a href="/privacy-policy/">informativa privacy completa</a>.</p>`,
+ `<p>Il titolare del trattamento (data controller ai sensi del GDPR e della LPD svizzera) è <strong>${DATA_CONTROLLER_NAME}</strong>. Per esercitare i diritti di accesso, rettifica, cancellazione e portabilità dei dati, o per qualsiasi richiesta relativa al trattamento, è possibile scrivere a <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. Per maggiori dettagli consultare l'<a href="/en/privacy/">informativa privacy completa</a>.</p>`,
  `<h2 class="s-o3IET6">Base giuridica, conservazione e subresponsabili</h2>`,
  `<p>Il trattamento si fonda sul consenso dell'utente (art. 6 GDPR, art. 6 nLPD) per l'iscrizione a newsletter e allerte lavoro e per i cookie non essenziali, sull'esecuzione del servizio richiesto per la gestione delle allerte stesse, e sul legittimo interesse per la sicurezza della piattaforma e le statistiche aggregate. I dati di iscrizione a newsletter e allerte lavoro sono conservati fino alla revoca del consenso o alla cancellazione dell'iscrizione; le candidature inviate tramite la bacheca lavoro sono conservate 90 giorni e poi cancellate automaticamente; i dati inseriti nei calcolatori non lasciano mai il browser dell'utente. Il trattamento coinvolge alcuni subresponsabili esterni — tra cui Google (Analytics, Firebase, AdSense), Partnerize (attribuzione dei link ai partner affiliati), i fornitori di invio e-mail e i servizi elencati nell'informativa completa — ciascuno vincolato dalla propria informativa privacy.</p>`,
  );
@@ -4918,7 +4921,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Platform Features</h2>`,
  `Key features include a comprehensive fiscal simulator comparing Permit B (Swiss resident) and Permit G (cross-border commuter) scenarios, a pension planner covering AVS/AHV first pillar and LPP/BVG second pillar projections, a health insurance comparator with real LAMal premiums from 14 Swiss insurers across 7 cantons, a currency exchange tracker with live CHF-EUR rates, and a border crossing traffic monitor providing real-time wait estimates for all Ticino-Italy crossings.`,
  `<h2 class="s-o3IET6">Contact and Community</h2>`,
- `<p>We welcome feedback, corrections, and feature suggestions from our users. The platform evolves continuously based on community input — every tool, article, and comparison was built to solve real problems faced by real frontalieri. Visit our <a href="/contact/">contact page</a> for questions, or explore our <a href="/privacy-policy/">privacy policy</a> for data handling details.</p>`,
+ `<p>We welcome feedback, corrections, and feature suggestions from our users. The platform evolves continuously based on community input — every tool, article, and comparison was built to solve real problems faced by real frontalieri. Visit our <a href="/en/contact-us/">contact page</a> for questions, or explore our <a href="/en/privacy/">privacy policy</a> for data handling details.</p>`,
  `<p class="s-tTvoK-">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.bfs.admin.ch" rel="noopener">FSO/BFS</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
  );
  } else if (canonicalPath === '/contact' || canonicalPath === '/contact/') {
@@ -4933,7 +4936,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Common Questions We Can Help With</h2>`,
  `Our team regularly assists with questions about: understanding your Swiss payslip deductions (AVS, AC, LAA, IJM, LPP), choosing between LAMal and Italian SSN health insurance, calculating the impact of the 2026 bilateral tax agreement on your take-home pay, interpreting your Italian income tax return for Swiss-sourced income, comparing the financial implications of Permit B versus Permit G, and navigating the pension system across both countries.`,
  `<h2 class="s-o3IET6">Professional Consulting Services</h2>`,
- `<p>For personalized advice beyond the scope of our free tools, we partner with licensed Swiss and Italian tax consultants who specialize in cross-border employment. These professionals can assist with specific tax return preparation, optimization strategies, and complex scenarios involving multiple jurisdictions or family situations. Learn more on our <a href="/about/">about page</a> or review our <a href="/privacy-policy/">privacy policy</a>.</p>`,
+ `<p>For personalized advice beyond the scope of our free tools, we partner with licensed Swiss and Italian tax consultants who specialize in cross-border employment. These professionals can assist with specific tax return preparation, optimization strategies, and complex scenarios involving multiple jurisdictions or family situations. Learn more on our <a href="/en/about-us/">about page</a> or review our <a href="/en/privacy/">privacy policy</a>.</p>`,
  `<p class="s-tTvoK-">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
  );
  } else if (canonicalPath === '/privacy-policy' || canonicalPath === '/privacy-policy/') {
@@ -4946,7 +4949,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Cookies and Tracking Technologies</h2>`,
  `The platform uses first-party cookies for essential functionality (language preference, consent state) and Google Analytics 4 for anonymised traffic analysis. No advertising or remarketing cookies are used. Users can opt out of analytics tracking via the cookie consent banner displayed on first visit. Consent preferences are stored locally and can be updated at any time from the footer settings link.`,
  `<h2 class="s-o3IET6">Your Rights Under GDPR and FADP</h2>`,
- `<p>The data controller for Frontaliere Ticino is <strong>${DATA_CONTROLLER_NAME}</strong>. Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/about/">about page</a> or <a href="/contact/">contact page</a>.</p>`,
+ `<p>The data controller for Frontaliere Ticino is <strong>${DATA_CONTROLLER_NAME}</strong>. Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/en/about-us/">about page</a> or <a href="/en/contact-us/">contact page</a>.</p>`,
  `<h2 class="s-o3IET6">Legal Basis for Processing</h2>`,
  `We only process personal data when a valid legal basis applies under GDPR Art. 6 and Swiss FADP Art. 6: <strong>consent</strong> for newsletter/job-alert sign-up and for non-essential (analytics and advertising) cookies, which can be withdrawn at any time without affecting the lawfulness of processing carried out before withdrawal; <strong>performance of the requested service</strong> for managing the alerts and account features you sign up for; and <strong>legitimate interest</strong> for platform security, abuse prevention, and aggregate usage statistics, always balanced against your rights.`,
  `<h2 class="s-o3IET6">Data Retention</h2>`,
@@ -5544,9 +5547,9 @@ ${hrefTags}
  <a href="/chi-siamo/">Chi Siamo</a>
  <a href="/contattaci/">Contattaci</a>
  <a href="/privacy/">Privacy</a>
- <a href="/about/">About</a>
- <a href="/contact/">Contact</a>
- <a href="/privacy-policy/">Privacy Policy</a>
+ <a href="/en/about-us/">About</a>
+ <a href="/en/contact-us/">Contact</a>
+ <a href="/en/privacy/">Privacy Policy</a>
  <a href="/articoli-frontaliere/">Articoli</a>
  <a href="/articoli-svizzera/">Articoli Svizzera</a>
  <a href="/glossario-frontaliere/">Glossario</a>
@@ -5728,10 +5731,8 @@ ${hrefTags}
 
  // Write Italian page only if it doesn't already exist from the main build
  // (important: still generate locale variants below even when Italian exists).
- // Legacy English-content alias pages (`/about/`, `/contact/`, `/privacy-policy/`)
- // are intentionally routed as locale="en" by detectLocale so the emitted
- // `<html lang>` and structured data match the English body content, and
- // the canonical points to the proper `/en/…` cluster member.
+ // English utility aliases are excluded from this sitemap-driven emitter;
+ // legacyRedirectsPlugin owns their bridges to the English canonical pages.
  if (!italianPageExists) {
  // Locale roots (/en/, /de/, /fr/) are owned by the post-loop "Locale-root
  // SPA shells" block (further down this hook) which mirrors the full IT root with
@@ -5867,7 +5868,7 @@ ${hrefTags}
  const locFile = np.join(distDir, locPath, 'index.html');
  const locNormalized = locPath.replace(/\/+$/, '') || '/';
  // Deterministic skip: if ogPagesPlugin owns this path, don't race on fs.existsSync
- if (ogPagesPaths.has(locNormalized)) continue;
+ if (ogPagesPaths.has(locNormalized) || FAQ_HUB_ROUTES.includes(`${locNormalized}/`)) continue;
  // Rendered by this plugin → it needs a <url><loc> of its own (#5110).
  // Recorded BEFORE `_qw`, not after: the WriteCollector drops writes whose
  // locale is outside BUILD_LOCALE on a per-locale shard build, so anything
