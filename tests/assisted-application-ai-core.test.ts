@@ -365,19 +365,29 @@ describe('form of address', () => {
     expect(salutationQuestion({ channel: portal, locale: 'fr' })?.options).toEqual(['Monsieur', 'Madame', 'Autre']);
     expect(salutationQuestion({ channel: portal, locale: 'en' })?.options).toEqual(['Mr', 'Ms', 'Other']);
     expect(salutationQuestion({ channel: portal, locale: 'xx' })?.options).toEqual(['Signor', 'Signora', 'Altro']);
+    // A regional locale reads its language.
+    expect(salutationQuestion({ channel: portal, locale: 'de-CH' })?.options).toEqual(['Herr', 'Frau', 'Andere']);
+    expect(salutationQuestion({ channel: portal, locale: 'FR-ch' })?.options).toEqual(['Monsieur', 'Madame', 'Autre']);
   });
 
   it('never asks it for an e-mail application, twice, or once the candidate has answered', () => {
     const portal = { type: 'lever' };
     expect(salutationQuestion({ channel: { type: 'email' }, locale: 'it' })).toBeNull();
     expect(salutationQuestion({ channel: { type: 'unknown' }, locale: 'it' })).toBeNull();
+    expect(salutationQuestion({ channel: { type: ' Email ' }, locale: 'it' })).toBeNull();
     expect(salutationQuestion({ channel: null, locale: 'it' })).toBeNull();
     expect(salutationQuestion({ channel: portal, answers: { salutation: 'Signora' }, locale: 'it' })).toBeNull();
     // The portal's own question, read ahead, already asks it.
     expect(salutationQuestion({ channel: portal, questions: [{ id: 'portal_anrede', question: 'Anrede' }], locale: 'de' })).toBeNull();
-    expect(salutationQuestion({ channel: portal, questions: [{ id: 'portal_title', question: 'Title' }], locale: 'en' })).toBeNull();
-    // A question about something else does not stand in for it.
-    expect(salutationQuestion({ channel: portal, questions: [{ id: 'job_title', question: 'Qual è la tua disponibilità?' }], locale: 'it' })).not.toBeNull();
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'portal_x', question: '', label: 'Civilité' }], locale: 'fr' })).toBeNull();
+    // …or by its options, whatever its words (umantis: «Quale titolo desideri indicare?» Ms / Mr / Other).
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'portal_title', question: 'Quale titolo desideri indicare?', options: ['Ms', 'Mr', 'Other'] }], locale: 'it' })).toBeNull();
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'portal_a', question: 'Bitte wählen', options: ['Herr', 'Frau', 'Divers'] }], locale: 'de' })).toBeNull();
+    // Review of #11028: the bare word "title" asks something else, and the form may still require «Title: Ms/Mr/Other».
+    expect(salutationQuestion({ channel: { type: 'umantis' }, questions: [{ question: 'What is your job title?' }], locale: 'en' })).toMatchObject({ id: 'salutation' });
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'titolo', question: 'Qual è il tuo titolo di studio?', options: ['Diploma', 'Laurea'] }], locale: 'it' })).toMatchObject({ id: 'salutation' });
+    // One option that looks like a form of address is no form of address.
+    expect(salutationQuestion({ channel: portal, questions: [{ id: 'x', question: 'Reparto', options: ['M', 'Chirurgia'] }], locale: 'it' })).toMatchObject({ id: 'salutation' });
   });
 });
 
