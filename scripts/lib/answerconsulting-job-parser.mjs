@@ -273,7 +273,7 @@ export async function fetchAllAnswerConsultingJobs() {
   const listings = parseAnswerConsultingWidgetPayload(widgetPayload);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned (0 current openings on Workable).');
-    return [];
+    return listings;
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);

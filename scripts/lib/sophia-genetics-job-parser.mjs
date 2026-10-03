@@ -265,7 +265,7 @@ export async function fetchAllSophiaGeneticsJobs() {
   const listings = parseSophiaGeneticsWidgetPayload(widgetPayload);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return listings;
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
