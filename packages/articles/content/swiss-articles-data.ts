@@ -22804,6 +22804,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tariffe-usa-agenda-seco',
+    category: 'novita',
+    date: '2026-10-03T00:46:53.633Z',
+    image: '/images/blog/tariffe-usa-agenda-seco.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

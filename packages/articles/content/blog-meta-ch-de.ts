@@ -7592,6 +7592,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swissair-grounding-memoria-ferita.title': 'Swissair, 25 Jahre später: die nie verheilte Wunde',
     'blog.article.swissair-grounding-memoria-ferita.excerpt': 'Das Grounding von Swissair am 2. Oktober 2001 hat die Schweizer Luftfahrt für immer verändert. Die Schilderung von Sandrine Nikolic-Fuss zwischen Erinnerungen und Lehren für die heutige Arbeit.',
     'blog.article.swissair-grounding-memoria-ferita.imageAlt': 'Am Boden befindliches Flugzeug in der Schweiz zum Swissair-Grounding',
+    'blog.article.tariffe-usa-agenda-seco.title': 'SECO: Neue US-Zölle und Bundesbeschluss 2026',
+    'blog.article.tariffe-usa-agenda-seco.excerpt': 'Die US-Zölle variieren bis zu 12,5% auf Importe aus der Schweiz; am 29. November 2026 die Abstimmung über das Kriegsmaterialgesetz.',
+    'blog.article.tariffe-usa-agenda-seco.imageAlt': 'SECO-Dokumente zu neuen US-Zöllen für Importe aus der Schweiz.',
 };
 
 export default blogMetaChDe;

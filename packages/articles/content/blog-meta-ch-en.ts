@@ -7592,6 +7592,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swissair-grounding-memoria-ferita.title': 'Swissair, 25 years later: the wound that never healed',
     'blog.article.swissair-grounding-memoria-ferita.excerpt': 'Swissair’s grounding on 2 ottobre 2001 changed Swiss aviation forever. Sandrine Nikolic-Fuss’s testimony, between memories and lessons for today’s work.',
     'blog.article.swissair-grounding-memoria-ferita.imageAlt': 'Airliner grounded in Switzerland commemorating the Swissair event',
+    'blog.article.tariffe-usa-agenda-seco.title': 'SECO: New US Tariffs and 2026 Federal Vote',
+    'blog.article.tariffe-usa-agenda-seco.excerpt': 'Variable U.S. tariffs of up to 12.5% on imports from Switzerland; vote on the War Materiel Act on November 29, 2026.',
+    'blog.article.tariffe-usa-agenda-seco.imageAlt': 'SECO documents about new US tariffs on imports from Switzerland.',
 };
 
 export default blogMetaChEn;

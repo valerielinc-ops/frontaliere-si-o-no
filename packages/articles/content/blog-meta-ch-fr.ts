@@ -7592,6 +7592,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.swissair-grounding-memoria-ferita.title': 'Swissair, 25 ans plus tard : la blessure jamais cicatrisée',
     'blog.article.swissair-grounding-memoria-ferita.excerpt': 'La mise au sol de Swissair le 2 octobre 2001 a changé à jamais l’aviation suisse. Le témoignage de Sandrine Nikolic-Fuss, entre souvenirs et enseignements pour le travail d’aujourd’hui.',
     'blog.article.swissair-grounding-memoria-ferita.imageAlt': 'Avion cloué au sol en Suisse en souvenir du grounding de Swissair',
+    'blog.article.tariffe-usa-agenda-seco.title': 'SECO : nouveaux droits de douane américains et votation fédérale 2026',
+    'blog.article.tariffe-usa-agenda-seco.excerpt': 'Droits de douane américains variables pouvant atteindre 12,5% sur les importations en provenance de Suisse ; le 29 novembre 2026, vote sur la loi sur le matériel de guerre.',
+    'blog.article.tariffe-usa-agenda-seco.imageAlt': 'Documents du SECO sur les nouveaux droits américains visant les importations suisses.',
 };
 
 export default blogMetaChFr;
