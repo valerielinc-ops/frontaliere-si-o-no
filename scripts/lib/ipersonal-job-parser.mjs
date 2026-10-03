@@ -15,7 +15,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { jobUrlHost } from './job-url-host.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import { loadSpec } from './prospector/spec-crawler.mjs';
 import {
   getVerifiedIpersonalGeography,
@@ -160,10 +163,17 @@ export async function fetchAllIpersonalJobs({ existingJobs = [] } = {}) {
     // structured canton). Re-checking with the bare string alone drops rows
     // upstream already verified, silently reproducing the "snapshot incomplete"
     // fail-closed this quality gate exists to distinguish from.
-    const geography = getVerifiedIpersonalGeography(listing)
+    const resolvedGeography = getVerifiedIpersonalGeography(listing)
       || resolveSourceBackedSwissGeography(listing);
+    const geography = sourceBackedSwissGeographyFields(listing, resolvedGeography);
     if (!geography) continue;
-    const { location, canton } = geography;
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      addressCountry,
+    } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -193,10 +203,10 @@ export async function fetchAllIpersonalJobs({ existingJobs = [] } = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressLocality: normalizeSpace(addressLocality),
+      addressRegion: normalizeSpace(addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || "CH"),
+      country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
