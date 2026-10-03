@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import YAML from 'yaml';
 import {
   createLocalePublishProvenance,
   validateLocalePublishProvenance,
@@ -48,12 +49,16 @@ function receipt(locale: 'it' | 'en' | 'de' | 'fr', buildId = BUILD_ID) {
       localePack: 'success',
       localeArtifact: 'success',
     };
+  const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'locale-publish-runner-'));
+  tempDirs.push(runnerTemp);
+  if (locale !== 'it') fs.writeFileSync(path.join(runnerTemp, `shard-ok-${locale}`), '');
   return createLocalePublishProvenance({
     locale,
     sourceRunId: SOURCE_RUN_ID,
     sourceSha: SOURCE_SHA,
     deployBuildId: buildId,
     distDir: tempDist(buildId),
+    runnerTemp,
     outcomes,
   });
 }
@@ -177,5 +182,39 @@ describe('locale publish admission plan', () => {
     });
     expect(plan.allowed).toBe(false);
     expect(plan.reason).toContain('prep conclusion is "failure"');
+  });
+});
+
+describe('locale publish workflow wiring', () => {
+  const root = path.resolve(import.meta.dirname, '..');
+  const deploy = YAML.parse(fs.readFileSync(path.join(root, '.github/workflows/deploy.yml'), 'utf8')) as any;
+  const publish = YAML.parse(fs.readFileSync(path.join(root, '.github/workflows/deploy-publish.yml'), 'utf8')) as any;
+  const localeSteps = deploy.jobs['build-locale'].steps as Array<Record<string, any>>;
+
+  it('emits and uploads one receipt per matrix leg after all publish-critical steps', () => {
+    const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
+    const upload = localeSteps.find((step) => step.name === 'Upload locale publish provenance');
+    const cache = localeSteps.find((step) => step.name === 'Save incremental manifest cache');
+    expect(write?.if).toBe('always()');
+    expect(String(write?.run)).toContain('locale-publish-provenance.mjs');
+    expect(upload?.uses).toBe('actions/upload-artifact@v7');
+    expect(upload?.with?.name).toContain('locale-publish-provenance-');
+    expect(localeSteps.indexOf(write!)).toBeLessThan(localeSteps.indexOf(cache!));
+  });
+
+  it('routes publish through the plan and keeps missing IT provenance fail-closed', () => {
+    const resolver = publish.jobs['resolve-publish-plan'];
+    const deployJob = publish.jobs.deploy;
+    const validateDist = publish.jobs['validate-dist'];
+    expect(resolver).toBeDefined();
+    expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
+    expect(deployJob.needs).toBe('resolve-publish-plan');
+    expect(String(deployJob.if)).toContain('outputs.allowed');
+    expect(String(deployJob.if)).toContain("contains(fromJSON(needs.resolve-publish-plan.outputs.healthy_locales), 'it')");
+    expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
+    expect(validateDist.needs).toBe('resolve-publish-plan');
+    const recheck = (deployJob.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Enforce IT provenance identity');
+    expect(String(recheck?.run)).toContain('--validate-dir');
   });
 });

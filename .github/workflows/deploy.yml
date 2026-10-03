@@ -3324,16 +3324,6 @@ jobs:
           path: .cache/incremental-html
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
 
-      # Save the current shadow snapshot only after the report and history row:
-      # the run-specific key is unique, while restore-keys above picks the
-      # newest prior snapshot on the next run for this locale.
-      - name: Save incremental manifest cache
-        if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v6
-        with:
-          path: .cache/incremental-manifest
-          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
-
       # Small, immutable receipt consumed by deploy-publish.yml. It is written
       # after every leg (including failed legs) and uploaded independently of
       # the large payload artifacts. A missing/invalid receipt is fail-closed
@@ -3366,6 +3356,18 @@ jobs:
           path: ${{ runner.temp }}/locale-publish-provenance/${{ matrix.locale }}.json
           retention-days: 8
           if-no-files-found: error
+
+      # Save the current shadow snapshot only after the report and history row:
+      # the run-specific key is unique, while restore-keys above picks the
+      # newest prior snapshot on the next run for this locale. Keep this as the
+      # final step in the job: provenance has already captured every
+      # publish-critical outcome, while this cache is only a later-run hint.
+      - name: Save incremental manifest cache
+        if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-manifest
+          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant

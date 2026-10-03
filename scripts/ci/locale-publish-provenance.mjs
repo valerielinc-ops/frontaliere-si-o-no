@@ -89,6 +89,7 @@ export function createLocalePublishProvenance({
   sourceSha,
   deployBuildId,
   distDir = 'dist',
+  runnerTemp = process.env.RUNNER_TEMP || '',
   outcomes = {},
 }) {
   const normalizedLocale = text(locale).toLowerCase();
@@ -108,6 +109,9 @@ export function createLocalePublishProvenance({
 
   for (const [name, value] of requiredChecks(normalizedLocale, normalizedOutcomes)) {
     if (value !== SUCCESS) reasons.push(`${name} outcome is ${JSON.stringify(value)}`);
+  }
+  if (normalizedLocale !== 'it' && !fs.existsSync(path.join(runnerTemp, `shard-ok-${normalizedLocale}`))) {
+    reasons.push('locale shard success marker is missing');
   }
 
   const published = reasons.length === 0;
@@ -275,6 +279,7 @@ function main() {
     sourceSha: process.env.GITHUB_SHA,
     deployBuildId: process.env.DEPLOY_BUILD_ID,
     distDir: args['dist-dir'] || 'dist',
+    runnerTemp: process.env.RUNNER_TEMP || '',
     outcomes: {
       build: process.env.PROVENANCE_BUILD_OUTCOME,
       validate: process.env.PROVENANCE_VALIDATE_OUTCOME,

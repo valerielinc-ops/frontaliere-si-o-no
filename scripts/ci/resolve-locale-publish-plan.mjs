@@ -86,7 +86,7 @@ function blockedPlan({ runConclusion, sourceRunId, sourceSha, reasons, staleReas
   return {
     allowed: false,
     mode: 'blocked',
-    sourceConclusion,
+    sourceConclusion: runConclusion,
     sourceRunId,
     sourceSha,
     buildId: '',
