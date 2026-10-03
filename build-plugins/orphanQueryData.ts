@@ -1,3 +1,4 @@
+import { normalizeJobSearchTokens as normalizeTokens, occupationalRoleTokens, tokenMatchesStem } from '../services/jobSearchRelevance';
 /**
  * Orphan-query cluster landing — pure data/path helpers.
  *
@@ -74,6 +75,7 @@ export interface OrphanCountableJob {
   sourceLang?: OrphanLandingLocale;
   description?: string;
   descriptionByLocale?: Partial<Record<OrphanLandingLocale, string>>;
+  salarySource?: string;
   salaryMin?: number;
   salaryMax?: number;
   currency?: string;
@@ -110,16 +112,6 @@ export function parseOrphanLandingPath(urlPath: string): { locale: OrphanLanding
  * diacritic-free. Token set is intersected with the role + region tokens
  * produced by the clustering script.
  */
-function normalizeTokens(s: string | undefined | null): string[] {
-  if (!s) return [];
-  return String(s)
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s-]/g, ' ')
-    .split(/[\s-]+/)
-    .filter((t) => t.length >= 3);
-}
 
 function wordCount(s: string | undefined | null): number {
   if (!s) return 0;
@@ -164,25 +156,6 @@ const BROAD_REGION_TOKENS = new Set<string>([
  * to such a cluster surfaces unrelated jobs (often in the wrong city) and hides
  * the actual openings located in the searched city.
  */
-const GENERIC_ROLE_STEMS = new Set<string>([
-  'lavor', 'lavorar', 'lav', 'job', 'jobs', 'offert', 'offerta', 'offr', 'offre',
-  'emplo', 'employ', 'travail', 'travaill', 'cerc', 'cerco', 'cercas', 'ricerc',
-  'ricerch', 'trovar', 'trov', 'post', 'posizion', 'apert', 'assumon', 'assunzion',
-  'aziend', 'annunc', 'concors', 'vacant', 'recrutement', 'recrut', 'search', 'find',
-  'near', 'nah', 'vicin', 'stellen', 'stellenangebot', 'stelleninserat', 'arbeit',
-  // recency / filler qualifiers from queries like "…da ieri", "3 derniers jours"
-  'noi', 'ier', 'hier', 'ultim', 'giorn', 'settiman', 'tutt', 'letzten', 'tagen',
-  'dernier', 'jour', 'press', 'ent',
-]);
-
-/** Prefix-tolerant token match (min stem length 3), used for role matching. */
-function tokenMatchesStem(tokens: Iterable<string>, stem: string): boolean {
-  if (stem.length < 3) return false;
-  for (const tok of tokens) {
-    if (tok.startsWith(stem) || stem.startsWith(tok.slice(0, Math.max(3, stem.length - 1)))) return true;
-  }
-  return false;
-}
 
 /**
  * Locality (city) gate — unidirectional prefix match: the job's location token
@@ -210,7 +183,7 @@ function localityMatchesCity(locTokens: Iterable<string>, cityTok: string): bool
  *   - The job must be active in the target locale.
  *   - Pure geographic search (named city + only generic role words) → match by
  *     locality alone, skipping the meaningless title-token role filter.
- *   - Otherwise at least 1 role token must appear in the job's
+ *   - Otherwise every non-generic role token must appear in the job's
  *     title/company (stemming-tolerant prefix match, min len 3).
  *   - A named city (specific, non-broad region token) MUST appear in the job's
  *     location/addressLocality. A broad svizzera/ticino token present alongside
@@ -282,8 +255,9 @@ function clusterMatchFacts(cluster: OrphanQueryCluster): ClusterMatchFacts {
   // tokens (svizzera/ticino/ch) only mean site-wide coverage.
   const specificRegions = cluster.regionTokens.filter((r) => !BROAD_REGION_TOKENS.has(r));
   const allRolesGeneric =
-    cluster.roleTokens.length === 0 || cluster.roleTokens.every((r) => GENERIC_ROLE_STEMS.has(r));
-  const facts: ClusterMatchFacts = { roleTokens: cluster.roleTokens, specificRegions, allRolesGeneric };
+    cluster.roleTokens.length === 0 || occupationalRoleTokens(cluster.roleTokens).length === 0;
+  const roleTokens = occupationalRoleTokens(cluster.roleTokens);
+  const facts: ClusterMatchFacts = { roleTokens, specificRegions, allRolesGeneric };
   clusterFactsCache.set(cluster, facts);
   return facts;
 }
@@ -304,8 +278,9 @@ function matchesClusterFacts(
     return facts.specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok));
   }
 
-  // Role: need at least 1 overlap (prefix-tolerant for stems).
-  if (!facts.roleTokens.some((stem) => tokenMatchesStem(titleTokens, stem))) return false;
+  // A compound profession must match every occupational term. Matching only
+  // "specialist" would surface medical roles for customs-specialist searches.
+  if (facts.roleTokens.length === 0 || !facts.roleTokens.every((stem) => tokenMatchesStem(titleTokens, stem))) return false;
 
   // Region: a named city must appear in the job location; broad-only tokens
   // (or no region tokens) leave coverage unconstrained / site-wide.

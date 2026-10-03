@@ -6,8 +6,13 @@ name: Crawler generation delivery gate
 # group whose data never reached `main` still concludes `success`. The
 # finalizer already records one token-bound verdict per group in
 # `data/crawler-generation-ledger.jsonl`; this gate reads the newest settled
-# generation and goes RED unless every group is `published`, naming the
-# groups that are `green_undelivered` separately from real crawler failures.
+# generation and goes RED on any delivery fault (`green_undelivered`,
+# `crawler_failed`, `token_missing`, `not_persisted`, unexpected group),
+# naming the groups. A group whose only reason is `wait_failed`
+# (`published_partial`: a minority of members failed their own crawl and
+# every member that crawled delivered) is not a delivery fault: the run stays
+# green with a warning, and `published=N/M` is always printed, so green means
+# "no delivery fault", not "complete generation".
 # Being red is the signal: `unreported-failure-issues.yml` turns it into an
 # issue, which a green group run never did.
 #
