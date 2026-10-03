@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
  * Shared carrier for a source-proven zero ("I looked at the source and it says
- * it has no open positions"), consumed by `runStandardCrawlerPipeline` through
- * its `validateAuthoritativeSnapshot` hook.
+ * it has no open positions"), consumed by `runStandardCrawlerPipeline`: by
+ * default through the stamp itself (`evaluateAuthoritativeSnapshot`), or through
+ * a runner's own `validateAuthoritativeSnapshot` hook when it wires one.
  *
  * WHY THIS EXISTS (issues #7458 / #6660 / #7321). "crawler unhealthy" covers
  * three different states, not two: a proven-empty source, a full source the run
@@ -26,9 +27,19 @@
  *   - a fetch that failed, was skipped, or produced an unrecognised page must
  *     NOT be marked: return a bare `[]` and let the pipeline keep the previous
  *     slice (and let the health monitor keep complaining);
- *   - wire the runner with `allowAuthoritativeEmptySnapshot: true` and
- *     `authoritativeSnapshotScope: 'empty-only'`, so a non-empty batch keeps the
- *     ordinary miss-grace path.
+ *   - return the STAMPED array itself, directly or as `{ jobs }`: the stamp is
+ *     a non-enumerable property of that array instance, so `[...jobs]`,
+ *     `.filter()` or `.map()` after stamping hand the pipeline a bare `[]`;
+ *   - no runner wiring is required for a standard-pipeline crawler: the
+ *     template honours the stamp by default, with `empty-only` authority (a
+ *     non-empty batch keeps the ordinary miss-grace path). A runner opts OUT
+ *     with `allowAuthoritativeEmptySnapshot: false`. A runner that passes its
+ *     own `validateAuthoritativeSnapshot` keeps the explicit contract instead
+ *     (`allowAuthoritativeEmptySnapshot: true` + its scope), unchanged.
+ *
+ * What the stamp buys, and therefore what a wrong stamp costs: the published
+ * zero skips the anti-shrink guard and retires every stored job of the crawler
+ * in the same run.
  */
 
 const PROVEN_EMPTY_STATE = 'authoritative-source-zero';
