@@ -462,8 +462,8 @@ function buildPublicSectorSnapshot(
     competitionFetchedAt: concorsi?.fetchedAt ?? null,
     dataCollectedAt,
     fresh30Count: fresh30Count(matches, now),
-    medianSalaryChf: reportedSalarySummary(matches).medianChf,
-    reportedSalary: reportedSalarySummary(matches),
+    // Public-sector tiles display vacancy counts, not a salary statistic.
+    medianSalaryChf: null,
     featured: pickFeatured(matches, now, 3),
     topEmployers: topEmployersFromJobs(matches, 6),
     topCities: topCitiesFromJobs(matches, 5),

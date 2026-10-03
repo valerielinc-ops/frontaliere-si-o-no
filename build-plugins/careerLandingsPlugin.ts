@@ -827,3 +827,6 @@ export function renderCareerFeaturedJobsForTest(
   });
   return renderFeaturedJobs(id, locale, snapshot, templateB);
 }
+
+/** Public renderer seam used to verify visible statistics and provenance. */
+export { renderPage as renderCareerPageForTest };

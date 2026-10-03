@@ -1,3 +1,4 @@
+import { renderCareerPageForTest } from '../build-plugins/careerLandingsPlugin';
 import { afterEach, describe, expect, it } from 'vitest';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -136,6 +137,23 @@ describe('collection salary population and provenance', () => {
     expect(aggregateNursingJobs(root).nurses.reportedSalary).toEqual(sample);
     expect(aggregateCityJobs(root, 'lugano').reportedSalary).toEqual(sample);
     expect(aggregateCareerLandings(root)['contratti-lavoro-frontalieri'].reportedSalary).toEqual(sample);
+  });
+  it('public-sector pages show vacancy counts and never expose an unused salary aggregate', () => {
+    const root = seed(records(5, { company: 'Cantone Ticino', companyKey: 'cantone-ticino' }));
+    const snapshot = aggregateCareerLandings(root)['concorsi-pubblici-lugano'];
+    expect(snapshot.liveCount).toBe(5);
+    expect(snapshot.medianSalaryChf).toBeNull();
+    expect(snapshot.reportedSalary).toBeUndefined();
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      // A stale externally supplied summary must not silently turn a count tile into a salary claim.
+      const page = renderCareerPageForTest({ locale, id: 'concorsi-pubblici-lugano',
+        dateStamp: new Date().toISOString().slice(0, 10),
+        snapshot: { ...snapshot, medianSalaryChf: 123456, reportedSalary: { sampleCount: 5, medianChf: 123456 } },
+        agencyCount: 0, concorsiCount: 0 });
+      expect(page.html).not.toMatch(/123[’',.\s]?456/);
+      expect(page.html).toContain(({ it: 'Offerte settore pubblico', en: 'Public-sector openings',
+        de: 'Stellen öffentl. Sektor', fr: 'Offres secteur public' })[locale]);
+    }
   });
   it('healthcare does not borrow salaries from nonhealthcare roles at the same employer', () => {
     const facility = HEALTH_FACILITIES.find((f) => f.companyKeys.length > 0)!;
