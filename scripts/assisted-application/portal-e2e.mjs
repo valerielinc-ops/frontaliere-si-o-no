@@ -40,7 +40,7 @@ const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:$
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
@@ -98,6 +98,17 @@ function fakePortal() {
     req.on('end', () => resolve(Buffer.concat(chunks).toString('latin1')));
   });
   const sessionOf = (req) => /sid=([a-z0-9]+)/.exec(req.headers.cookie || '')?.[1];
+  // SuccessFactors' own cookie manager (Rolex, 2026-10-03): a region over the
+  // whole sign-in page until one of its buttons, which name the cookies, is pressed.
+  const sfCookieManager = (req) => (/sfCookies=/.test(req.headers.cookie || '') ? '' : `
+    <div role="region" class="cookiePolicy cookiemanager" aria-labelledby="cookieManagerModalLabel" id="sfCookies" style="position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.3)">
+      <p id="cookieManagerModalLabel">Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
+      <button type="button" id="cookie-bannershow">Cookie-Einstellungen ändern</button><button type="button" id="cookie-reject">Alle Cookies ablehnen</button><button type="button" id="cookie-accept">Alle Cookies akzeptieren</button></div>
+    <script>
+      for (const [id, choice] of [['cookie-reject', 'rejected'], ['cookie-accept', 'accepted']]) {
+        document.getElementById(id).addEventListener('click', () => { document.cookie = 'sfCookies=' + choice + '; Path=/'; document.getElementById('sfCookies').remove(); });
+      }
+    </script>`);
   // Coop's SuccessFactors application page as mapped on 2026-10-03: its sections
   // closed behind «Alle Abschnitte einblenden», the CV only through «Lebenslauf
   // hochladen», a dialog whose file input exists once it is open and uploads at
@@ -210,7 +221,7 @@ function fakePortal() {
       if (coop.sessions.has(sessionOf(req))) {
         return send(sfApplyPage());
       }
-      return send(page('Karrierechancen: Anmelden', `<p>Haben Sie schon ein Konto? Mit bestehendem Profil anmelden und bewerben</p>${form('/sf/login', '<label for="u">E-Mail-Adresse:*</label><input id="u" type="text" name="username" required><label for="p">Kennwort:*</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<p><a href="/sf/register">Noch kein Profil? Hier registrieren</a> und direkt bewerben</p>`));
+      return send(page('Karrierechancen: Anmelden', `<p>Haben Sie schon ein Konto? Mit bestehendem Profil anmelden und bewerben</p>${form('/sf/login', '<label for="u">E-Mail-Adresse:*</label><input id="u" type="text" name="username" required><label for="p">Kennwort:*</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<p><a href="/sf/register">Noch kein Profil? Hier registrieren</a> und direkt bewerben</p>${sfCookieManager(req)}`));
     }
     if (route === 'POST /sf/login') {
       const body = new URLSearchParams(await readBody(req));
@@ -222,6 +233,7 @@ function fakePortal() {
     // «Konto anlegen»: the privacy statement opens only for a chosen country,
     // and its required review checkbox enables the dialog's accept button.
     if (route === 'GET /sf/register') {
+      coop.cookieManager = /sfCookies=(rejected|accepted)/.exec(req.headers.cookie || '')?.[1] || coop.cookieManager;
       return send(page('Karrierechancen: Konto anlegen', `${form('/sf/register', `<label for="e1">E-Mail-Adresse: *</label><input id="e1" type="text" name="email" required>
         <label for="e2">E-Mail-Adresse erneut eingeben: *</label><input id="e2" type="text" name="email2" required>
         <label for="p1">Wähle ein Kennwort: *</label><input id="p1" type="password" name="p1" required>
@@ -732,6 +744,7 @@ async function main() {
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
+    check('Coop: SuccessFactors’ own cookie manager («Alle Cookies ablehnen») is refused, the sign-in page behind it is reached', coop.cookieManager === 'rejected');
     const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
     const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
     check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
