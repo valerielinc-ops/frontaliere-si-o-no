@@ -12446,6 +12446,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Festa della Zucca a Gavirate: weekend di ottobre tra sagre e sport',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'Domenica 4 ottobre la Festa della Zucca anima il lungolago di Gavirate, mentre la Grand Fondo Tre Valli Varesine chiude molte strade; l’Oktoberfest a Schiranna dura fino al 18 ottobre.',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Lungolago di Gavirate illuminato dalla Festa della Zucca, stand gastronomici e famiglie in atmosfera autunnale.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate: 22enne accusato di rapina e violenza',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'Un 22enne è stato denunciato in stato di libertà per rapina aggravata e violenza sessuale dopo un\'aggressione vicino alla stazione di Gallarate; la vittima, una 36enne, è stata dimessa con prognosi di sette giorni.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Intervento dei Carabinieri presso la stazione di Gallarate dopo un\'aggressione',
 };
 
 export default blogMetaIt;

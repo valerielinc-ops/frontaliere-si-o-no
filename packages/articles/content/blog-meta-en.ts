@@ -12445,6 +12445,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Pumpkin Festival in Gavirate: an October weekend of festivals and sports',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'On Sunday, October 4, the Pumpkin Festival enlivens the lakeside of Gavirate, while the Grand Fondo Tre Valli Varesine closes many roads; Oktoberfest in Schiranna runs until October 18.',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Gavirate lakefront at the Pumpkin Festival with food stalls and families enjoying the autumn setting.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate: 22-year-old accused of robbery and violence',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'A 22-year-old man was reported while at liberty for aggravated robbery and sexual assault following an attack near the station in Gallarate; the victim, a 36-year-old woman, was discharged with a prognosis of seven days.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Carabinieri intervention at Gallarate train station after an assault',
 };
 
 export default blogMetaEn;

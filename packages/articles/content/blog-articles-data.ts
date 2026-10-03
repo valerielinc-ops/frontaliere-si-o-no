@@ -37322,6 +37322,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gallarate-rapina-violenza-sessuale-22enne',
+ category: 'novita',
+ date: '2026-10-03T23:22:57.475Z',
+ image: '/images/blog/gallarate-rapina-violenza-sessuale-22enne.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12447,6 +12447,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Fête de la Citrouille à Gavirate : sport et festivités',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'Le dimanche 4 octobre, la Fête de la Citrouille dynamise le front de lac Gavirate, tandis que le Grand Fondo Tre Valli Varesine ferme de nombreuses routes ; l\'Oktoberfest à Schiranna dure jusqu\'au 18 octobre.',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Front de lac de Gavirate lors de la Fête de la Citrouille, stands gourmands et familles dans une ambiance automnale.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate : un homme de 22 ans accusé de vol et de violence',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'Un jeune homme de 22 ans a été mis en cause, sans être placé en détention, pour vol aggravé et agression sexuelle après une agression près de la gare de Gallarate ; la victime, une femme de 36 ans, est sortie avec un pronostic de sept jours.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Intervention des carabiniers à la gare de Gallarate après une agression',
 };
 
 export default blogMetaFr;

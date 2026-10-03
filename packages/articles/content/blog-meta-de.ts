@@ -12444,6 +12444,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.festa-zucca-gavirate-weekend-ottobre.title': 'Kürbisfest in Gavirate: Oktoberwochenende zwischen Volksfesten und Sport',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.excerpt': 'Am Sonntag, dem 4. Oktober, belebt das Kürbisfest die Seepromenade von Gavirate, während die Grand Fondo Tre Valli Varesine viele Straßen sperrt; das Oktoberfest in Schiranna dauert bis zum 18. Oktober.',
     'blog.article.festa-zucca-gavirate-weekend-ottobre.imageAlt': 'Seeufer von Gavirate beim Kürbisfest mit gastronomischen Ständen und Familien im herbstlichen Ambiente.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate: 22-Jähriger wegen Raubes und Gewalt beschuldigt',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'Ein 22-Jähriger wurde nach einem Übergriff in der Nähe des Bahnhofs von Gallarate wegen schweren Raubes und sexueller Gewalt auf freiem Fuß angezeigt; das Opfer, eine 36-Jährige, wurde mit einer Prognose von sieben Tagen entlassen.',
+    'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Einsatz der Carabinieri am Bahnhof von Gallarate nach einem Überfall',
 };
 
 export default blogMetaDe;
