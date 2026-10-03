@@ -220,6 +220,130 @@ export function buildGenderFormRepairReport({
   };
 }
 
+/**
+ * ── The cross-run window (#7991 item 3, «misura del dopo») ────────────────
+ * The per-run report above is `measured` only when all 120 sampled jobs leave
+ * the queue between the `before` and the `after` pass of ONE run. With ~11k
+ * queued candidates and ~10 sample members served per run that never happens
+ * (98 `after` rows, 0 `measured`, 2026-10-03), and the sidecar that would let
+ * a later run continue the same cohort dies with the runner. So the per-run
+ * guard was honest but the measurement it guards could not exist.
+ *
+ * The window collects the SAME 120-job sample across runs: the last
+ * GENDER_FORM_SAMPLE_SIZE DISTINCT sample members that left the queue, each
+ * with its own residual outcome. It is not a cumulative series total — that
+ * sums different samples without deduplication and dilutes the recent rate
+ * into the whole history. A job already in the window replaces its own entry
+ * (moved to the tail with the new outcome), and the oldest entries fall out,
+ * so `residualRate` follows the last 120 jobs. `measured` is true only when
+ * the window is full; the per-run `measured`/`status` above are unchanged.
+ *
+ * State: `members`, one `"<16 hex of sha256(id)>:<0|1>"` string per job,
+ * oldest first. It lives on exactly ONE history row — the newest `after` row
+ * — and is stripped from every older row when a new one is written, so the
+ * tracked file does not grow. `before` rows never carry or touch it: their
+ * write stays a pure append, which keeps the slice commit's history diff
+ * mergeable against a concurrent run.
+ */
+const WINDOW_MEMBER_RE = /^([0-9a-f]{16}):([01])$/;
+
+function windowMemberHash(id) {
+  return sha256(id).slice(0, 16);
+}
+
+/** @returns {{ members: string[], runs: number }} the newest window state in `history`. */
+export function readGenderFormWindowState(history) {
+  const rows = Array.isArray(history) ? history : [];
+  for (let index = rows.length - 1; index >= 0; index--) {
+    const window = rows[index]?.genderFormRepair?.window;
+    if (!window || typeof window !== 'object' || !Array.isArray(window.members)) continue;
+    const members = window.members.filter((member) =>
+      typeof member === 'string' && WINDOW_MEMBER_RE.test(member));
+    const runs = Number.isInteger(window.runs) && window.runs >= 0 ? window.runs : 0;
+    return { members, runs };
+  }
+  return { members: [], runs: 0 };
+}
+
+/**
+ * Fold this run's sample outcomes into the previous window. Pure.
+ *
+ * @param {{ members?: string[], runs?: number }} previous
+ * @param {Array<{ id: string, residual: boolean }>} outcomes
+ * @param {{ size?: number, queueCandidates?: number|null }} [options]
+ */
+export function updateGenderFormWindow(
+  previous,
+  outcomes,
+  { size = GENDER_FORM_SAMPLE_SIZE, queueCandidates = null } = {},
+) {
+  const limit = Number.isInteger(size) && size > 0 ? size : GENDER_FORM_SAMPLE_SIZE;
+  // Map iteration order is insertion order: delete + set moves a re-processed
+  // job to the tail, which is what makes the oldest entries the ones to drop.
+  const byHash = new Map();
+  for (const member of Array.isArray(previous?.members) ? previous.members : []) {
+    const match = typeof member === 'string' ? WINDOW_MEMBER_RE.exec(member) : null;
+    if (!match) continue;
+    byHash.delete(match[1]);
+    byHash.set(match[1], match[2]);
+  }
+  let contributed = false;
+  for (const outcome of Array.isArray(outcomes) ? outcomes : []) {
+    const id = typeof outcome?.id === 'string' ? outcome.id.trim() : '';
+    if (!id) continue;
+    const hash = windowMemberHash(id);
+    byHash.delete(hash);
+    byHash.set(hash, outcome.residual ? '1' : '0');
+    contributed = true;
+  }
+  const members = [...byHash].map(([hash, residual]) => `${hash}:${residual}`).slice(-limit);
+  const processed = members.length;
+  const residual = members.filter((member) => member.endsWith(':1')).length;
+  const previousRuns = Number.isInteger(previous?.runs) && previous.runs >= 0 ? previous.runs : 0;
+  return {
+    size: limit,
+    processed,
+    residual,
+    residualRate: processed > 0 ? residual / processed : null,
+    runs: previousRuns + (contributed ? 1 : 0),
+    measured: processed >= limit,
+    queueCandidates: Number.isInteger(queueCandidates) && queueCandidates >= 0 ? queueCandidates : null,
+    members,
+  };
+}
+
+/**
+ * Append `entry` to `history` (in place) and keep the last 200 rows. An
+ * `after` row also gets `genderFormRepair.window`, built from the newest
+ * window in the history plus `genderFormOutcomes`; `members` is then removed
+ * from every older row so exactly one row carries it.
+ *
+ * @returns {object[]} history
+ */
+export function appendHistoryEntry(history, entry, { genderFormOutcomes = [] } = {}) {
+  const rows = Array.isArray(history) ? history : [];
+  if (entry?.label === 'after' && entry.genderFormRepair) {
+    const previous = readGenderFormWindowState(rows);
+    entry.genderFormRepair.window = updateGenderFormWindow(previous, genderFormOutcomes, {
+      queueCandidates: entry.genderFormRepair.queuedCandidates,
+    });
+    for (const row of rows) {
+      const window = row?.genderFormRepair?.window;
+      if (window && typeof window === 'object' && 'members' in window) delete window.members;
+    }
+  }
+  rows.push(entry);
+  // Keep last 200 entries
+  if (rows.length > 200) rows.splice(0, rows.length - 200);
+  return rows;
+}
+
+/** The committed history at `statsFile`, or `[]` when absent or malformed. */
+export function readHistory(statsFile) {
+  const raw = readJson(statsFile);
+  return Array.isArray(raw) ? raw : [];
+}
+
 function readJson(p) {
   try { return JSON.parse(fs.readFileSync(p, 'utf-8')); } catch { return null; }
 }
@@ -385,6 +509,11 @@ export function emptyCounters() {
     genderFormCohortCandidates: [],
     genderFormSampleProcessed: 0,
     genderFormSampleResidual: 0,
+    // Per-id outcome of every sample member counted in `genderFormSampleProcessed`
+    // (`after` pass only): at most GENDER_FORM_SAMPLE_SIZE entries per run. It
+    // feeds the cross-run window (`applyGenderFormWindow`), which needs to know
+    // WHICH jobs were processed so the same job is never counted twice.
+    genderFormSampleOutcomes: [],
   };
 }
 
@@ -467,7 +596,9 @@ export function summarizeJobs(
         sourceLang === 'de';
       if (sampleRecord && sameSourceTitle && sameGermanSource && !incomplete && !flagged) {
         c.genderFormSampleProcessed++;
-        if (genderFormTargetResidual(job)) c.genderFormSampleResidual++;
+        const residual = genderFormTargetResidual(job);
+        if (residual) c.genderFormSampleResidual++;
+        c.genderFormSampleOutcomes.push({ id, residual });
       }
     }
 
@@ -546,6 +677,10 @@ export function mergeCounters(dst, src) {
   if (src.incompleteIds?.length) dst.incompleteIds.push(...src.incompleteIds);
   if (src.genderFormCohortCandidates?.length) {
     dst.genderFormCohortCandidates.push(...src.genderFormCohortCandidates);
+  }
+  if (src.genderFormSampleOutcomes?.length) {
+    if (!Array.isArray(dst.genderFormSampleOutcomes)) dst.genderFormSampleOutcomes = [];
+    dst.genderFormSampleOutcomes.push(...src.genderFormSampleOutcomes);
   }
   // An EMPTY array still promotes `dst` out of `null`: a slice that was diffed
   // and completed nothing is a measurement, and merging it must not read as
@@ -718,6 +853,16 @@ export function formatReport(entry) {
       : `${gf.processed}/${gf.sampled} processed · ${gf.status} · seed ${gf.seed}`;
     row('Gender-form after:', `${gf.residual}/${gf.processed} (${rate})`, note);
   }
+  // Its own line, never folded into the one above: the window is measured
+  // across runs, the row above is this run's cohort. The queue size is printed
+  // next to the rate because #7991 judges the two together.
+  const gw = gf?.window;
+  if (gw) {
+    row('Gender-form window:',
+        `${gw.residual}/${gw.processed} (${formatGenderFormRate(gw.residual, gw.processed)})`,
+        `coda ${gw.queueCandidates ?? 'n/a'} · ${gw.runs} run · `
+          + `${gw.measured ? 'measured' : `accumulating ${gw.processed}/${gw.size}`}`);
+  }
 
   // COMPLETE is reserved for the exact case: nothing missing and nothing
   // flagged. Anything else says so in words, not just in a percentage.
@@ -856,12 +1001,12 @@ function main() {
     genderFormRepair,
   });
 
+  // The history is read BEFORE printing: the `after` row's cross-run window
+  // is computed from it, and the report prints that window.
+  const history = appendHistoryEntry(readHistory(STATS_FILE), entry, {
+    genderFormOutcomes: counters.genderFormSampleOutcomes,
+  });
   for (const line of formatReport(entry)) console.log(line);
-
-  const history = readJson(STATS_FILE) || [];
-  history.push(entry);
-  // Keep last 200 entries
-  if (history.length > 200) history.splice(0, history.length - 200);
   fs.writeFileSync(STATS_FILE, JSON.stringify(history, null, 2) + '\n', 'utf-8');
   console.log(`   Saved to ${STATS_FILE} (${history.length} entries total)\n`);
 
