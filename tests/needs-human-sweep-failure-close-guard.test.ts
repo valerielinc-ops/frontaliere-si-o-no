@@ -159,6 +159,19 @@ describe('needs-human sweep: l\'invariante dell\'incidente 9321 vive nel closer'
     expect(verdict.action).toBe('keep');
   });
 
+  it('le run skipped non decidono: [skipped, success dopo l\'apertura] decide la success (causa della 9285)', () => {
+    // Discrimina: senza lo scarto delle skipped decide la run 3 (skipped) e il
+    // verdetto è still-red; con lo scarto decide la run 5, verde dopo l'apertura.
+    const verdict = decideFailureIssueClose({
+      issue,
+      history: [run(3, 'skipped', 5 * 60 * 1000), run(5, 'success', HOUR)],
+      comments: [],
+      now: NOW,
+    });
+    expect(verdict.runId).toBe(5);
+    expect(verdict.reason).not.toBe('still-red');
+  });
+
   it('le run skipped non decidono: [skipped, skipped, failure] resta rossa', () => {
     const verdict = decideFailureIssueClose({
       issue,
