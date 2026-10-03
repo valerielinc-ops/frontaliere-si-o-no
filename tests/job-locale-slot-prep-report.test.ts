@@ -92,6 +92,14 @@ describe('collectBlockedJobs — the dist gate predicate, per record', () => {
     expect(blocked[0].issues).toEqual(collectBlockingIssues([missingIt]));
     expect(blocked[0].issues.map((i) => i.locale)).toEqual(['it']);
   });
+
+  it('skips non-object entries instead of losing the whole report', () => {
+    const blocking = titlelessJob('gap-2', 'gap-2');
+
+    const blocked = collectBlockedJobs([null, blocking, 'junk'] as unknown as object[]);
+
+    expect(blocked.map((b) => b.job.id)).toEqual(['gap-2']);
+  });
 });
 
 describe('attributeCrawlerKeys / groupBlockedByCrawler', () => {

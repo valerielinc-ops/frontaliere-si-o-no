@@ -37,6 +37,9 @@ export const SLUG_SAMPLE_LIMIT = 5;
 export function collectBlockedJobs(jobs) {
   const blocked = [];
   for (const job of jobs) {
+    // A non-object entry would make the predicate throw and lose the whole
+    // report; skip it here (the dist predicate itself stays unchanged).
+    if (!job || typeof job !== 'object') continue;
     const issues = collectBlockingIssues([job]);
     if (issues.length > 0) blocked.push({ job, issues });
   }
