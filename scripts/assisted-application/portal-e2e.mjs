@@ -38,7 +38,7 @@ const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:$
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], cvUploads: 0, validationRefusals: 0, flaky: false };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
@@ -160,7 +160,8 @@ function fakePortal() {
       coop.sessions.add(sid);
       return redirect(SF_JOB, { 'set-cookie': `sid=${sid}; Path=/` });
     }
-    // «Konto anlegen»: the privacy statement opens only for a chosen country, in a dialog.
+    // «Konto anlegen»: the privacy statement opens only for a chosen country,
+    // and its required review checkbox enables the dialog's accept button.
     if (route === 'GET /sf/register') {
       return send(page('Karrierechancen: Konto anlegen', `${form('/sf/register', `<label for="e1">E-Mail-Adresse: *</label><input id="e1" type="text" name="email" required>
         <label for="e2">E-Mail-Adresse erneut eingeben: *</label><input id="e2" type="text" name="email2" required>
@@ -171,19 +172,24 @@ function fakePortal() {
         <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
         <input type="hidden" id="dpcs" name="dpcs" value="">
         <label for="dataPrivacyId">Datenschutzerklärung:*</label><a id="dataPrivacyId" role="button" tabindex="0" aria-haspopup="dialog">Datenschutzerklärung lesen und akzeptieren.</a>
+        <div role="dialog" id="unrelatedDialog"><label><input type="checkbox" id="outsideReview"> I have reviewed this privacy notice.</label><button type="button" id="outsideAccept">Accept</button></div>
         <button type="submit">Konto anlegen</button>`)}
-        <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><button type="button" id="ok">Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
+        <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><label><input type="checkbox" id="dpcsReview" name="dpcsReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label><button type="button" id="ok" disabled>Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
         <script>
           const dialog = document.getElementById('dpcsDialog');
-          // As on Coop's SuccessFactors (run 37056165460): the password repeat checks
-          // itself on blur, and a click on the statement's link meanwhile is lost.
+          const review = document.getElementById('dpcsReview');
+          const accept = document.getElementById('ok');
+          document.getElementById('outsideAccept').addEventListener('click', () => { document.cookie = 'outsideAccept=1; Path=/'; });
+          review.addEventListener('change', () => { accept.disabled = !review.checked; });
+          // As on Coop's SuccessFactors, the password repeat checks itself on
+          // blur and the statement click is lost while that request is active.
           let checking = false;
           document.getElementById('p2').addEventListener('blur', () => {
             checking = true;
             fetch('/sf/pwd-policy', { method: 'POST' }).finally(() => { checking = false; });
           });
           document.getElementById('dataPrivacyId').addEventListener('click', () => { if (!checking && document.getElementById('c').value) dialog.hidden = false; });
-          document.getElementById('ok').addEventListener('click', () => { document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
+          accept.addEventListener('click', () => { if (!review.checked) return; document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
           document.getElementById('no').addEventListener('click', () => { dialog.hidden = true; });
         </script>`));
     }
@@ -193,6 +199,7 @@ function fakePortal() {
       return res.end('{"ok":true}');
     }
     if (route === 'POST /sf/register') {
+      if (/outsideAccept=1/.test(req.headers.cookie || '')) coop.outsideAccept += 1;
       const body = new URLSearchParams(await readBody(req));
       const password = String(body.get('p1') || '');
       const problems = [
@@ -658,7 +665,7 @@ async function main() {
     const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
     check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
       coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
-      && coop.refused.length === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
+      && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
       && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
     check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
       coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
@@ -673,19 +680,19 @@ async function main() {
       && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
-    // Review of #11015: a statement whose dialog takes 6 s to open is still accepted (8 s per click).
+    // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
     await slowPage.setContent(`<a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
       <div role="dialog" id="d" hidden><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
       <script>
-        // 6 s after the LAST click: a second click restarts it, so only one 8 s wait sees the dialog.
-        let opening;
-        document.getElementById('t').addEventListener('click', () => { clearTimeout(opening); opening = setTimeout(() => { document.getElementById('d').hidden = false; }, 6000); });
+        // The first click is lost. Only the second click starts the 6 s open.
+        let clicks = 0;
+        document.getElementById('t').addEventListener('click', () => { clicks += 1; if (clicks === 2) setTimeout(() => { document.getElementById('d').hidden = false; }, 6000); });
         document.getElementById('ok').addEventListener('click', () => { document.getElementById('v').value = '1'; document.getElementById('d').hidden = true; });
       </script>`);
     const slow = await acceptPrivacyStatement(slowPage, await extractFields(slowPage, { listboxOptions: false }));
-    check('a privacy dialog that opens after 6 s is still accepted', slow === 'accepted' && await slowPage.locator('#v').inputValue() === '1');
+    check('a lost first privacy click is retried with a fresh 8 s window', slow === 'accepted' && await slowPage.locator('#v').inputValue() === '1');
     await slowBrowser.close();
     // Grand Hotel Kronenhof (2026-10-03): the posting's «Apply» opens umantis in a new tab; its form
     // asks for the account's password itself and names the role, never the company.

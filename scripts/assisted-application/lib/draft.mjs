@@ -19,6 +19,7 @@ import {
   letterEnclosures,
   letterPdfBlocks,
   letterText,
+  salutationQuestion,
   sanitizeDocuments,
   swissTypography,
   sanitizeMatch,
@@ -281,6 +282,10 @@ export async function buildDraft(ctx) {
     questions.push(...portal.filter((question) => !known.has(question.id)));
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
+  // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
+  // now, optional, so it does not cost the candidate a second round at submit time.
+  const salutation = salutationQuestion({ channel, questions, answers, locale });
+  if (salutation) questions.push(salutation);
 
   // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".
   const rendererMode = await pdfRendererMode();

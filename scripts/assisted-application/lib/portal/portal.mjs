@@ -422,36 +422,160 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   return { snapshot: after, reopen: true };
 }
 
-// SuccessFactors' required privacy statement (Coop, 2026-10-02) is no box: a
-// link opens a dialog, only once the country is chosen, whose «Akzeptieren»
-// fills a hidden field. The application's own required consent (plan.mjs),
-// never a newsletter or a job alert.
+// SuccessFactors' required privacy statement (Coop, 2026-10-02) starts as a
+// link, only once the country is chosen. Its dialog can require a separate
+// “I have reviewed…” checkbox before «Akzeptieren» becomes enabled. This is
+// the application's own required consent (plan.mjs), never a newsletter or a
+// job alert.
 export const PRIVACY_STATEMENT_RE = /(lesen und akzeptieren|leggere e accettare|lire et accepter|read and accept)/i;
-const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|accetta|accetto|accettare|accepter|j'accepte)$/i;
+export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
+export const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|agree|zustimmen|accetta|accetto|accettare|accepter|j['’]accepte)(?:\s+(?:und|and|et|e)\s+.*)?\W*$/i;
+
+function dialogKey(control) {
+  if (control?.dialogId) return String(control.dialogId);
+  // Accept snapshots made before dialogId was added can still be inspected,
+  // but a boolean cannot identify one dialog among several.
+  return typeof control?.dialog === 'string' ? control.dialog : '';
+}
+
+function isDialogControl(control) {
+  return control?.dialog === true || Boolean(dialogKey(control));
+}
+
+function dialogToken(control) {
+  const key = dialogKey(control);
+  return key ? `${control.frame || 0}:${key}` : '';
+}
+
+function visibleDialogTokens(snapshot = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.fields) ? snapshot.fields : []),
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+  ];
+  return new Set(controls.map(dialogToken).filter(Boolean));
+}
+
+function candidateScore(candidate) {
+  // A disabled accept button is the DPCS state before its required review
+  // checkbox is selected. Prefer it when this function receives a standalone
+  // snapshot without the before/after dialog context used by the caller.
+  if (candidate.accept?.disabled) return 3;
+  if (candidate.accept) return 2;
+  return candidate.review ? 1 : 0;
+}
+
+export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = null, preferredDialogToken = '' } = {}) {
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const allowed = allowedDialogTokens === null ? null : new Set(allowedDialogTokens);
+  const inScope = (control) => {
+    const token = dialogToken(control);
+    return token && (!allowed || allowed.has(token));
+  };
+  // The page can retain another modal with an enabled "Accept" control next
+  // to the DPCS dialog. Keep candidate lookups in one dialog and frame. The
+  // live flow passes the token of the dialog that appeared after the trigger;
+  // the disabled-button preference keeps direct snapshot inspection safe too.
+  const dialogFields = fields.filter((field) => isDialogControl(field) && inScope(field));
+  const dialogButtons = buttons.filter((button) => isDialogControl(button) && inScope(button));
+  const reviewFields = dialogFields.filter((field) => field.kind === 'checkbox'
+    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  const candidateTokens = new Set([
+    ...reviewFields.map(dialogToken),
+    ...dialogButtons.map(dialogToken),
+  ].filter(Boolean));
+  const candidates = [...candidateTokens].map((token) => {
+    const review = reviewFields.find((field) => dialogToken(field) === token) || null;
+    const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token);
+    return { token, review, accept: findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
+  });
+  const preferred = preferredDialogToken
+    ? candidates.find((candidate) => candidate.token === preferredDialogToken) || null
+    : null;
+  const candidate = preferred || candidates
+    .map((item, index) => ({ item, index }))
+    .sort((left, right) => candidateScore(right.item) - candidateScore(left.item) || right.index - left.index)[0]?.item || null;
+  const review = candidate?.review || null;
+  return {
+    trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
+    review,
+    // A disabled accept button is useful evidence while the required review
+    // box is being checked; the caller still waits for it to become enabled.
+    accept: candidate?.accept || null,
+    dialogToken: candidate?.token || '',
+  };
+}
+
+async function scrollPrivacyStatement(page) {
+  await Promise.all(page.frames().map((frame) => frame.evaluate(() => {
+    const dialogs = [...document.querySelectorAll('[role="dialog"], [aria-modal="true"]')];
+    for (const dialog of dialogs) {
+      for (const element of [dialog, ...dialog.querySelectorAll('*')]) {
+        if (element.scrollHeight > element.clientHeight + 4) element.scrollTop = element.scrollHeight;
+      }
+    }
+  }).catch(() => {})));
+}
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
 export async function acceptPrivacyStatement(page, snapshot) {
-  if (!findButton(snapshot.buttons, PRIVACY_STATEMENT_RE)) return 'none';
+  if (!privacyConsentControls(snapshot).trigger) return 'none';
   // The last field filled (the password repeat) checks itself on blur:
-  // SuccessFactors asks its password policy and redraws the form, and a click
-  // on the statement's link meanwhile is lost (Coop, run 37056165460: the
-  // dialog never opened, the account was refused). The blur first, its
-  // request settled, then the click; once more when no dialog came.
+  // SuccessFactors asks its password policy and a click on the statement's
+  // link meanwhile is lost. Blur first, wait for that request, then open the
+  // dialog; retry once if the portal redraws the form during the first click.
   await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
   await settle(page);
-  const accept = page.getByRole('dialog').getByRole('button', { name: PRIVACY_ACCEPT_RE }).first();
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    const trigger = findButton((await extractFields(page, NAVIGATION)).buttons, PRIVACY_STATEMENT_RE);
+    const deadline = Date.now() + 8_000;
+    const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+    const trigger = privacyConsentControls(currentSnapshot).trigger;
     if (!trigger) break;
+    const beforeDialogTokens = visibleDialogTokens(currentSnapshot);
+    let openedDialogToken = '';
+    const controlsForOpenedDialog = (current) => {
+      const currentDialogTokens = visibleDialogTokens(current);
+      const newlyOpened = [...currentDialogTokens].filter((token) => !beforeDialogTokens.has(token));
+      let controls = privacyConsentControls(current, {
+        allowedDialogTokens: openedDialogToken ? [openedDialogToken] : newlyOpened,
+        preferredDialogToken: openedDialogToken,
+      });
+      // A portal may replace the dialog node after its checkbox changes. If
+      // that gives it a new snapshot token, keep the replacement in scope but
+      // never fall back to an older unrelated modal.
+      if (!controls.dialogToken && openedDialogToken && newlyOpened.length) {
+        controls = privacyConsentControls(current, { allowedDialogTokens: newlyOpened });
+      }
+      if (controls.dialogToken) openedDialogToken = controls.dialogToken;
+      return controls;
+    };
     await clickButton(page, trigger).catch(() => {});
-    try {
-      await accept.waitFor({ state: 'visible', timeout: 8_000 });
-      await accept.click({ timeout: 5_000 });
-      await page.waitForTimeout(800);
-      return 'accepted';
-    } catch {
-      await settle(page);
+    await scrollPrivacyStatement(page);
+    while (Date.now() <= deadline) {
+      const current = await extractFields(page, NAVIGATION).catch(() => null);
+      if (current) {
+        const controls = controlsForOpenedDialog(current);
+        if (controls.review && !controls.review.checked) {
+          await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} });
+          await scrollPrivacyStatement(page);
+        }
+        const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
+        const accept = controlsForOpenedDialog(refreshed || {}).accept;
+        if (accept && !accept.disabled) {
+          try {
+            await clickButton(page, accept);
+            await page.waitForTimeout(800);
+            return 'accepted';
+          } catch {
+            // A portal can replace the dialog button after the review checkbox;
+            // rescan and retry within the bounded window.
+          }
+        }
+      }
+      if (Date.now() >= deadline) break;
+      await page.waitForTimeout(200);
     }
+    await settle(page);
   }
   return 'unavailable';
 }
