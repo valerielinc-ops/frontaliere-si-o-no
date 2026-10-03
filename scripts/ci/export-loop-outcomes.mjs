@@ -416,8 +416,8 @@ export function buildL5DecisionMomentExport({
   telemetryWindow,
   eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
-  const eligible = nonNegativeInteger(eligibleDecisionSessions, 'eligibleDecisionSessions');
-  const next = nonNegativeInteger(nextUsefulActions, 'nextUsefulActions');
+  const eligible = nonNegativeCount(eligibleDecisionSessions, 'eligibleDecisionSessions');
+  const next = nonNegativeCount(nextUsefulActions, 'nextUsefulActions');
   if (next > eligible) throw new Error('GA4 returned nextUsefulActions greater than eligibleDecisionSessions');
   const generated = isoDate(generatedAt, 'L5 generatedAt');
   return {
@@ -956,13 +956,13 @@ function nonNegativeCount(value, label) {
 }
 
 /** Read one exact GA4 event-session count without mutating the source. */
-export async function fetchGa4EventSessions({ client, eventName, startDate, endDate, propertyId } = {}) {
+export async function fetchGa4EventSessions({ client, eventName, startDate, endDate, propertyId, bodyBuilder = ga4EventSessionsBody } = {}) {
   const data = await client.request(
     `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
     {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(ga4EventSessionsBody({ eventName, startDate, endDate })),
+      body: JSON.stringify(bodyBuilder({ eventName, startDate, endDate })),
     },
   );
   const value = data?.rows?.[0]?.metricValues?.[0]?.value ?? 0;
@@ -1078,6 +1078,7 @@ export async function fetchL5DecisionMomentCounts({
       startDate,
       endDate,
       propertyId,
+      bodyBuilder: buildL5DecisionMomentReportBody,
     }),
     fetchGa4EventSessions({
       client,
@@ -1085,6 +1086,7 @@ export async function fetchL5DecisionMomentCounts({
       startDate,
       endDate,
       propertyId,
+      bodyBuilder: buildL5DecisionMomentReportBody,
     }),
   ]);
   return {
