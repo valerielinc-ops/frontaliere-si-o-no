@@ -42,8 +42,8 @@ describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
     expect(isSwissGalenicaItem(item)).toBe(true);
   });
 
-  it('uses a populated contact.state as the authoritative canton', () => {
-    expect(resolveGalenicaCanton({ state: 'TI', city: 'Zürich' })).toBe('TI');
+  it('uses an unambiguous city when the populated contact state conflicts', () => {
+    expect(resolveGalenicaCanton({ state: 'TI', city: 'Zürich' })).toBe('ZH');
   });
 
   it('keeps an item with a blank state and a Swiss city alias (no regression)', () => {
@@ -69,6 +69,56 @@ describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
 
   it('rejects an explicit foreign country even when the city aliases Switzerland', () => {
     expect(isSwissGalenicaItem({ contact: { country: 'IT', state: '', city: 'Lugano' } })).toBe(false);
+  });
+});
+
+describe('Galenica source city/state consistency (issue #11049)', () => {
+  const SION_SOURCE_STATE_MISMATCH = {
+    id: '3138488.4071080',
+    lang: 'it',
+    contact: { firm: 'Galenica AG', street: 'Untermattweg 8', zip: '3001', city: 'Bern', state: 'VD' },
+    textblocks: {
+      jobtitle: 'Farmacista',
+      worklocationaddress: '<b>Farmacia Galenica Sion</b><br/>Rue de Lausanne 12<br/>1950 Sion',
+      worklocationbranch: 'Farmacia Galenica Sion',
+      georegion: 'CH-VD',
+      canton: 'VD',
+    },
+  };
+
+  const MOUTIER_SOURCE_STATE_MISMATCH = {
+    id: '12692287',
+    lang: 'it',
+    contact: {
+      firm: 'Amavita',
+      street: 'Centre Coop, Rue Industrielle 16',
+      zip: '2740',
+      city: 'Moutier',
+      state: 'BE',
+    },
+    textblocks: { jobtitle: 'Assistente di farmacia AFC' },
+  };
+
+  it('resolves the Solique Sion address from the city, not the stale source state', () => {
+    const location = galenicaWorkLocation(SION_SOURCE_STATE_MISMATCH);
+    expect(location).toMatchObject({ city: 'Sion', state: 'VD' });
+    expect(resolveGalenicaCanton(location)).toBe('VS');
+    expect(buildGalenicaJob([SION_SOURCE_STATE_MISMATCH]).job).toMatchObject({
+      location: 'Sion',
+      canton: 'VS',
+      addressRegion: 'VS',
+    });
+  });
+
+  it('resolves the Moutier apprenticeship from the city, not the contact state', () => {
+    const location = galenicaWorkLocation(MOUTIER_SOURCE_STATE_MISMATCH);
+    expect(location).toMatchObject({ city: 'Moutier', state: 'BE' });
+    expect(resolveGalenicaCanton(location)).toBe('JU');
+    expect(buildGalenicaJob([MOUTIER_SOURCE_STATE_MISMATCH]).job).toMatchObject({
+      location: 'Moutier',
+      canton: 'JU',
+      addressRegion: 'JU',
+    });
   });
 });
 
