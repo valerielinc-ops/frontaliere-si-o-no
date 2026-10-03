@@ -157,6 +157,10 @@
       invalid: picker.getAttribute('aria-invalid') === 'true',
     });
   }
+  // Which <form> a control is sent with (-1: none). A password in the form
+  // that also asks for the CV is the application's own (account.mjs).
+  const forms = [...document.forms];
+  const formOf = (element) => (element.form ? forms.indexOf(element.form) : -1);
   const radios = new Map();
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
@@ -190,6 +194,7 @@
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
       inputType: type,
+      form: formOf(element),
       name: clean(element.getAttribute('name') || ''),
       label: labelFor(element),
       required: required || REQUIRED_LABEL.test(labelFor(element)),

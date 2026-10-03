@@ -16,7 +16,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { NEXT_RE, SUBMIT_RE, documentPaths } from './fill.mjs';
+import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths } from './fill.mjs';
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
@@ -118,6 +118,15 @@ export function compactSnapshot(text, limit = SNAPSHOT_CHARS) {
   // Cut at a line end: a half line could name an element without its ref.
   const cut = compact.lastIndexOf('\n', limit);
   return `${compact.slice(0, cut > 0 ? cut : limit)}\n… (snapshot truncated)`;
+}
+
+/**
+ * A password the runner typed on this page (an application form that creates
+ * its own account) never leaves with the snapshot, whatever the browser shows
+ * as the field's value.
+ */
+export function withoutSecrets(text, secrets = []) {
+  return secrets.filter(Boolean).reduce((out, secret) => out.split(secret).join('[password]'), String(text));
 }
 
 export function agentUserText({ url, title, snapshot, candidate, hint, errors = [], history = [] }) {
@@ -260,7 +269,7 @@ async function chooseOption(page, locator, info, value) {
 async function upload(page, locator, info, paths) {
   if (info.tag === 'input' && info.inputType === 'file') {
     const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
-    await locator.setInputFiles(multiple ? paths : paths[0], { timeout: ACTION_TIMEOUT_MS });
+    await chooseFiles(page, locator, multiple ? paths : paths[0]);
     return;
   }
   // An upload button opens the browser's file chooser. The wait never
@@ -346,7 +355,7 @@ export function advanceName(name) {
  * Completes the current page with Codex on the accessibility snapshot.
  * @returns {Promise<{status:'done'|'needs_candidate'|'stuck'|'unavailable', questions?:Array, advanceRef?:string, moved?:boolean, reason?:string, calls:number, evidence:object}>}
  */
-export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, maxRounds = AGENT_ROUNDS, log = () => {} }) {
+export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, log = () => {} }) {
   const evidence = { hint, rounds: [] };
   const history = [];
   const startUrl = page.url();
@@ -358,8 +367,9 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
   for (let round = 1; round <= maxRounds; round += 1) {
     let raw;
     try {
-      const snapshot = await aiSnapshot(page);
-      if (!snapshot) return end({ status: 'unavailable', calls: round - 1 });
+      const seen = await aiSnapshot(page);
+      if (!seen) return end({ status: 'unavailable', calls: round - 1 });
+      const snapshot = withoutSecrets(seen, secrets);
       raw = await codex({
         prompt: codexPrompt(agentSystemPrompt(candidateLocale), agentUserText({ url: page.url(), title: await page.title().catch(() => ''), snapshot, candidate, hint, errors, history })),
         schema: AGENT_SCHEMA,

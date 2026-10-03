@@ -10,6 +10,8 @@
  *                                   the click; the planner fills the rest
  *   "check your e-mail"           → the inbox's verification link or code
  *   sign-in page, account known   → alias + password
+ *   application form with its own → the same random password, typed with the
+ *   password field                  rest of the form (portal.mjs)
  *
  * The password never reaches a log, an event or the evidence: the agent masks
  * it and Firestore holds only its AES-GCM envelope under the run key.
@@ -69,6 +71,21 @@ export function authPageKind(snapshot) {
   return 'none';
 }
 
+/**
+ * The application form asks for the account's password itself (umantis for
+ * Grand Hotel Kronenhof, 2026-10-03: «Email address/login», one «Password»,
+ * then phone, résumé and «Submit final application»): no login page comes
+ * first, the form's own send button creates the account. A sign-in or a
+ * registration page never asks for a CV: the file field sent with the
+ * password (the same <form>, or a page without any) tells them apart. A login
+ * box next to a guest form sits in a <form> of its own and stays a login.
+ */
+export function inlineAccountForm(snapshot) {
+  const sentWith = (field) => `${field.frame ?? 0}:${field.form ?? -1}`;
+  const passwordForms = new Set(snapshot.fields.filter((field) => field.inputType === 'password').map(sentWith));
+  return passwordForms.size > 0 && snapshot.fields.some((field) => field.kind === 'file' && passwordForms.has(sentWith(field)));
+}
+
 // SuccessFactors refuses more than 18 characters (Coop, 2026-10-02); every
 // other portal keeps the 20 it has always had.
 const SHORT_PASSWORD_PORTAL_RE = /(successfactors|sapsf|jobs\.sap\.com)/i;
@@ -110,6 +127,8 @@ export function accountsRefFor(db, orderId) {
 export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = () => Date.now(), sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)) }) {
   const ref = accountsRefFor(db, orderId);
   return {
+    /** A password typed but never stored (a dry run's) is masked in the log all the same. */
+    mask,
     async load(host) {
       const entry = (await ref.get()).data()?.[hostKey(host)];
       if (!entry?.passwordEnc) return null;
