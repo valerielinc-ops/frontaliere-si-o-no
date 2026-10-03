@@ -271,8 +271,16 @@ blocco va cancellato così ricade nel gruppo più severo.
 |---|---|---|---|---|---|---|---|
 | 5 pagine sane — peggior mediana | 0,75 | 691 | 1259 | 320 | 0,121 | 3676 | 5297 |
 | 5 pagine sane — **soglia** | 0,65 | 900 | 1600 | 450 | 0,15 | 4300 | 6200 |
-| `/cerca-lavoro-ticino/` — mediana | 0,23 | 1428 | 3108 | 814 | 0,586 | 2748 | 4830 |
-| `/cerca-lavoro-ticino/` — **soglia** | 0,20 | 1700 | 3600 | 1000 | 0,70 | 3200 | 5600 |
+| `/cerca-lavoro-ticino/` — mediana | 0,23 | 1428 | 3108 | 814 | 0,0243 (2026-10-03) | 2748 | 4830 |
+| `/cerca-lavoro-ticino/` — **soglia** | 0,20 | 1700 | 3600 | 1000 | 0,10 | 3200 | 5600 |
+
+Il CLS di `/cerca-lavoro-ticino/` è stato ratchettato il 2026-10-03 sul report
+rappresentativo (mediano dei 3) peggiore dei run schedulati `37114430116`,
+`36995734554`, `36852178775`: W = 0,0243 desktop → T = 0,10; W = 0,0715 mobile
+(`lighthouserc.json`, era 1,0) → T = 0,15. Regola: 2W arrotondato per eccesso a
+0,05, minimo 0,10, mai verso l'alto — `tests/lighthouse-cls-budget.test.ts` fa
+rosso se una soglia CLS supera l'ultimo ratchet o se il blocco del debito
+tollera più di 0,25.
 
 Il margine è ~15% sulle metriche stabili e ~40% su TBT: a valori assoluti così
 piccoli (0-320 ms) poche decine di ms di rumore del runner sono uno scarto

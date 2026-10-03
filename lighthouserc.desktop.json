@@ -36,14 +36,14 @@
         }
       },
       {
-        "//": "KNOWN-BAD, tracked separately: /cerca-lavoro-ticino/ measured perf 0.23 on desktop (FCP 1428 ms, LCP 3108 ms, TBT 814 ms, CLS 0.586). Its own baseline is carved out here ONLY so the other five pages can be gated meaningfully instead of every threshold being flattened to this page's level — the same structure lighthouserc.json uses for the same page on mobile. This block is a debt marker, not an exemption: when the page is fixed, DELETE this entry so it falls back to the stricter group above. Note the field data disagrees with the lab verdict on this page — CrUX gives it the best LCP on the site (1700 ms p75, 89% good) while its INP p75 is 697 ms; the lab number is a rendering-cost signal, not a user-experience one.",
+        "//": "KNOWN-BAD, tracked separately: /cerca-lavoro-ticino/ measured perf 0.23 on desktop (FCP 1428 ms, LCP 3108 ms, TBT 814 ms, CLS 0.0243). Its own baseline is carved out here ONLY so the other five pages can be gated meaningfully instead of every threshold being flattened to this page's level — the same structure lighthouserc.json uses for the same page on mobile. This block is a debt marker, not an exemption: when the page is fixed, DELETE this entry so it falls back to the stricter group above. Note the field data disagrees with the lab verdict on this page — CrUX gives it the best LCP on the site (1700 ms p75, 89% good) while its INP p75 is 697 ms; the lab number is a rendering-cost signal, not a user-experience one. CLS ratchet 2026-10-03: worst representative of runs 37114430116/36995734554/36852178775 = 0.0243, threshold 2W rounded up to 0.05 = 0.10 floor (was 0.7, the 2026-08-07 value 0.586; never up — tests/lighthouse-cls-budget.test.ts).",
         "matchingUrlPattern": "^https://frontaliereticino\\.ch/cerca-lavoro-ticino/",
         "assertions": {
           "categories:performance": ["error", { "minScore": 0.2 }],
           "first-contentful-paint": ["error", { "maxNumericValue": 1700 }],
           "largest-contentful-paint": ["error", { "maxNumericValue": 3600 }],
           "total-blocking-time": ["error", { "maxNumericValue": 1000 }],
-          "cumulative-layout-shift": ["error", { "maxNumericValue": 0.7 }],
+          "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
           "speed-index": ["warn", { "maxNumericValue": 3200 }],
           "interactive": ["warn", { "maxNumericValue": 5600 }]
         }

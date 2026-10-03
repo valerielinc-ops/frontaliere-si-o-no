@@ -50,14 +50,14 @@
         }
       },
       {
-        "//": "KNOWN-BAD, tracked separately: /cerca-lavoro-ticino/ measured perf 0.03 on mobile — by far the worst template on the site (TBT 3310 ms, CLS 0.87, FCP 7006 ms). Its own baseline is carved out here ONLY so the other five pages can be gated meaningfully instead of every threshold being flattened to this page's level. This block is a debt marker, not an exemption: when the page is fixed, DELETE this entry so it falls back to the stricter group above.",
+        "//": "KNOWN-BAD, tracked separately: /cerca-lavoro-ticino/ measured perf 0.03 on mobile — by far the worst template on the site (TBT 3310 ms, CLS 0.0715, FCP 7006 ms). Its own baseline is carved out here ONLY so the other five pages can be gated meaningfully instead of every threshold being flattened to this page's level. This block is a debt marker, not an exemption: when the page is fixed, DELETE this entry so it falls back to the stricter group above. CLS ratchet 2026-10-03: worst representative of runs 37114430116/36995734554/36852178775 = 0.0715, threshold 2W rounded up to 0.05 = 0.15 (was 1.0, the 2026-08-07 value 0.87; never up — tests/lighthouse-cls-budget.test.ts).",
         "matchingUrlPattern": "^https://frontaliereticino\\.ch/cerca-lavoro-ticino/",
         "assertions": {
           "categories:performance": ["error", { "minScore": 0.02 }],
           "first-contentful-paint": ["error", { "maxNumericValue": 8100 }],
           "largest-contentful-paint": ["error", { "maxNumericValue": 8600 }],
           "total-blocking-time": ["error", { "maxNumericValue": 3900 }],
-          "cumulative-layout-shift": ["error", { "maxNumericValue": 1.0 }],
+          "cumulative-layout-shift": ["error", { "maxNumericValue": 0.15 }],
           "speed-index": ["warn", { "maxNumericValue": 12000 }],
           "interactive": ["warn", { "maxNumericValue": 31500 }]
         }
