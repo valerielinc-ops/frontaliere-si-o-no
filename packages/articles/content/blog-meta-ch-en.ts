@@ -7583,6 +7583,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritti-inquilini-zurigo-2026.title': 'Renting in Switzerland 2026: rights and rules in Zurich',
     'blog.article.diritti-inquilini-zurigo-2026.excerpt': 'Maximum deposit of three months\' rent, a blocked account in the tenant\'s name, and 30 days to contest the termination: federal rules also apply in the canton of Zurich.',
     'blog.article.diritti-inquilini-zurigo-2026.imageAlt': 'Residential building in a Swiss urban neighborhood.',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.title': 'Swiss Rents 2026: real estate market in the canton of Zurich',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.excerpt': 'Rents in Switzerland in 2026: maximum security deposit of three months, landlord\'s termination notice and challenge within 30 days, with a focus on the canton of Zurich.',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.imageAlt': 'Swiss residential building and urban view linked to the rental market',
 };
 
 export default blogMetaChEn;

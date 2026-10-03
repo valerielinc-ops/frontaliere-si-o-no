@@ -7583,6 +7583,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritti-inquilini-zurigo-2026.title': 'Affitti in Svizzera 2026: diritti e regole a Zurigo',
     'blog.article.diritti-inquilini-zurigo-2026.excerpt': 'Deposito massimo di tre mensilità, conto vincolato all\'inquilino e 30 giorni per contestare la disdetta: le regole federali valgono anche nel canton Zurigo.',
     'blog.article.diritti-inquilini-zurigo-2026.imageAlt': 'Edificio residenziale svizzero in un quartiere urbano.',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.title': 'Affitti Svizzera 2026: mercato immobiliare nel canton Zurigo',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.excerpt': 'Affitti in Svizzera nel 2026: cauzione massima di tre mesi, disdetta del locatore e contestazione entro 30 giorni, con focus sul canton Zurigo.',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.imageAlt': 'Edificio residenziale svizzero e panorama urbano legati al mercato degli affitti',
 };
 
 export default blogMetaChIt;

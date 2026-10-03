@@ -7583,6 +7583,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritti-inquilini-zurigo-2026.title': 'Locations en Suisse 2026 : droits et règles à Zurich',
     'blog.article.diritti-inquilini-zurigo-2026.excerpt': 'Dépôt de garantie maximal de trois mois de loyer, compte bloqué au nom du locataire et 30 jours pour contester la résiliation : les règles fédérales s\'appliquent également dans le canton de Zurich.',
     'blog.article.diritti-inquilini-zurigo-2026.imageAlt': 'Immeuble résidentiel dans un quartier urbain suisse.',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.title': 'Locations en Suisse 2026 : marché immobilier dans le canton de Zurich',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.excerpt': 'Locations en Suisse en 2026 : garantie de loyer de trois mois maximum, résiliation par le bailleur et contestation dans les 30 jours, avec un focus sur le canton de Zurich.',
+    'blog.article.affitti-zurigo-cauzione-disdetta-2026.imageAlt': 'Immeuble résidentiel suisse et vue urbaine liés au marché locatif',
 };
 
 export default blogMetaChFr;
