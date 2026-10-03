@@ -14,6 +14,7 @@
 
 import { isAnalyticsGranted } from '@/services/consentService';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
+import { buildCwvAttributionEvent } from '@/services/webVitalsAttribution';
 
 // Session-level sampling: all CWV metrics for a session are included or excluded
 // together so p75 calculations remain consistent across metrics.
@@ -98,6 +99,12 @@ function sendToGA4(metric: WebVitalMetric) {
  const device = getDeviceType();
  const conn = getConnectionInfo();
  const attribution = getMetricAttribution(metric);
+ // The `largest_shift_*` / `inp_*` parameters above are not registered GA4
+ // dimensions (the property is at 50 of 50), so the Data API cannot read them.
+ // A poor CLS/INP is re-emitted as `ui_interaction` on already-registered
+ // dimensions. Built before the `analytics` import resolves, so it describes
+ // the DOM at report time.
+ const cwvAttribution = buildCwvAttributionEvent(metric);
 
  import('@/services/analytics').then(({ Analytics }) => {
  // Typed, non-optional call. This was `(Analytics as any).log?.(…)`, and
@@ -124,6 +131,7 @@ function sendToGA4(metric: WebVitalMetric) {
  screen_height: window.innerHeight || 0,
  ...attribution,
  });
+ if (cwvAttribution) Analytics.log('ui_interaction', cwvAttribution);
  }).catch(() => {});
 
  if (import.meta.env.DEV) {
