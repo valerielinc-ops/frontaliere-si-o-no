@@ -144,6 +144,33 @@ async function fillCombobox(page, field, locator, value) {
   await option.click({ timeout: ACTION_TIMEOUT_MS });
 }
 
+/** SuccessFactors' picklist: open it, wait for its options to load, click the one named. */
+async function chooseInOwnedList(page, field, locator, value) {
+  const frame = page.frames()[field.frame || 0] || page.mainFrame();
+  await locator.click({ timeout: ACTION_TIMEOUT_MS });
+  const option = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`).getByRole('option', { name: value, exact: true }).first();
+  try {
+    await option.waitFor({ state: 'visible', timeout: 10_000 });
+  } catch {
+    await locator.press('Escape').catch(() => {});
+    throw new Error('option_not_found');
+  }
+  await option.click({ timeout: ACTION_TIMEOUT_MS });
+}
+
+/** SAP UI5's date picker: its own input, in its shadow root, in the pattern it states. */
+async function fillUi5Date(locator, field, value) {
+  const date = parsePortalDate(value);
+  if (!date) throw new Error('date_unreadable');
+  const pattern = /dd/.test(field.datePattern || '') && /MM/.test(field.datePattern) && /yyyy/.test(field.datePattern) ? field.datePattern : 'dd.MM.yyyy';
+  const text = pattern.replace('yyyy', String(date.year)).replace('MM', String(date.month).padStart(2, '0')).replace('dd', String(date.day).padStart(2, '0'));
+  const input = locator.locator('input').first();
+  await input.fill(text, { timeout: ACTION_TIMEOUT_MS });
+  await input.press('Enter').catch(() => {});
+  await input.press('Tab').catch(() => {});
+  if (await locator.evaluate((element) => String(element.value || ''), null, { timeout: 2000 }).catch(() => '') !== text) throw new Error('date_not_registered');
+}
+
 /** "YYYY-MM-DD", "DD.MM.YYYY" and "DD/MM/YYYY" → a date picker target. */
 function parsePortalDate(value) {
   const text = String(value || '').trim();
@@ -305,6 +332,8 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
           await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
+        } else if (field.selectLike) {
+          await chooseInOwnedList(page, field, locator, action.value);
         } else {
           await fillCombobox(page, field, locator, action.value);
         }
@@ -313,6 +342,8 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
       } else if (field.kind === 'date') {
         await fillDatePicker(page, field, locator, action.value);
         if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');
+      } else if (field.widget === 'ui5-date') {
+        await fillUi5Date(locator, field, action.value);
       } else {
         // A long text is shortened at a sentence end, never cut in the middle of one.
         await fillText(locator, fitToLength(action.value, field.maxLength));
@@ -339,7 +370,8 @@ export const CONFIRM_RE = /(thank you for (your )?appl|thanks for applying|appli
 // The portal itself says the application did NOT go (JOIN, giro di prova
 // 2026-10-01: «Non siamo riusciti a inviare la tua candidatura. Riprova.»).
 export const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-export const VALIDATION_RE = /(this field is required|required field|pflichtfeld|bitte (füllen|geben) sie|campo (obbligatorio|richiesto)|champ (obligatoire|requis)|please (fill|complete|enter))/i;
+// SuccessFactors (Coop, 2026-10-03): «Bitte korrigieren Sie die folgenden Fehler.», «Anrede ist erforderlich».
+export const VALIDATION_RE = /(this field is required|required field|is required|pflichtfeld|bitte (füllen|geben|korrigieren) sie|ist erforderlich|campo (obbligatorio|richiesto)|è obbligatori[oa]|correggi gli errori|champ (obligatoire|requis)|est (obligatoire|requis)|corrigez les erreurs|please (fill|complete|enter|correct))/i;
 
 /** First enabled button matching the pattern (a disabled one is returned only when asked). */
 export function findButton(buttons, pattern, { includeDisabled = false } = {}) {
