@@ -101,7 +101,7 @@ import {
 } from '@/services/personalizationScoring';
 import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
-import TrendingSection from '@/components/community/TrendingSection';
+import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
@@ -2668,9 +2668,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredUserProfile = useDeferredValue(userProfile);
  // Job-popularity map, fetched instead of bundled (#5001 — see
  // services/jobPopularityService.ts for the measurement that motivated it).
- // Starts as the frozen empty map: getTrendingByLocation() returns [] for it
- // and TrendingSection only renders at 3+ matches, so the pre-load state is
- // simply "no trending strip yet" — the same thing an offline user already saw.
+ // Starts as the frozen empty map: getTrendingByLocation() returns [] for it.
+ // The recommendation slot shows already loaded jobs until popularity arrives,
+ // preserving its geometry even when this optional request fails.
  const [popularity, setPopularity] = useState<Record<string, number>>(EMPTY_JOB_POPULARITY);
  // Deferred for the same reason as the three values above (#4302): it is an
  // enhancement-only input that lands via a post-mount effect, and its arrival
@@ -5708,6 +5708,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    ? baseTitle
    : `${baseTitle} — ${t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}`;
  }, [activeSearchHeadingQuery, selectedJob, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, resultsResolving, filteredJobs.length, t]);
+
+ const recommendationJobs = useMemo(
+ () => selectRecommendationJobs(filteredJobs, trendingJobs, enablePersonalization),
+ [filteredJobs, trendingJobs, enablePersonalization],
+ );
 
  const totalPages = Math.max(1, Math.ceil(filteredJobs.length / pageSize));
  const currentPage = Math.min(page, totalPages);
@@ -11226,8 +11231,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {boardFilterAlertCtaJsx}
 
- {/* ── Personalization: NewJobsCounter + Personalizzato pill + TrendingSection ── */}
- {enablePersonalization && (
+ {/* A neutral, useful recommendation slot exists before Remote Config resolves.
+     The flag only opts into popularity ranking; false keeps ordinary job cards. */}
+ <TrendingSection
+ trendingJobs={recommendationJobs.map((j) => ({
+ ...j,
+ logoUrl: companyLogoUrl(j),
+ href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
+ }))}
+ popularity={enablePersonalization ? deferredPopularity : EMPTY_JOB_POPULARITY}
+ heading={t('jobBoard.recommendations.heading')}
+ ariaLabel={t('jobBoard.recommendations.heading')}
+ emptyLabel={t(resultsResolving ? 'jobBoard.loadingResults' : 'jobBoard.noResults')}
+ onJobClick={(slug) => {
+ Analytics.trackSelectContent('trending_section_click', slug);
+ const job = recommendationJobs.find((j) => j.slug === slug);
+ if (job) openDetail(job);
+ }}
+ />
+
+ {/* ── Personalization notices (no empty wrapper when the flag resolves) ── */}
+ {enablePersonalization && ((!newJobsDismissed && newJobsInfo.total > 0) || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
  <div className="space-y-3">
  {!newJobsDismissed && newJobsInfo.total > 0 && (
  <NewJobsCounter
@@ -11282,23 +11306,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </Suspense>
  )}
- {trendingJobs.length >= 3 && (
- <TrendingSection
- trendingJobs={trendingJobs.map((j) => ({
- ...j,
- logoUrl: companyLogoUrl(j),
- href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
- }))}
- popularity={deferredPopularity}
- heading={t('jobBoard.trending.heading')}
- ariaLabel={t('jobBoard.trending.aria')}
- onJobClick={(slug) => {
- Analytics.trackSelectContent('trending_section_click', slug);
- const job = jobs.find((j) => j.slug === slug);
- if (job) openDetail(job);
- }}
- />
- )}
+
  </div>
  )}
 
