@@ -39,6 +39,16 @@ on:
         required: false
         type: string
         default: ''
+      healthy_locales:
+        description: 'JSON array of locales admitted as healthy by the source-run provenance plan.'
+        required: false
+        type: string
+        default: '["it","en","de","fr"]'
+      stale_locales:
+        description: 'JSON array of locales intentionally served from their last-known-good shard.'
+        required: false
+        type: string
+        default: '[]'
     outputs:
       # Lets the caller (deploy.yml) distinguish a PROPAGATION-TIMEOUT failure
       # (our build-id never went live within the window — the live site is an
@@ -202,6 +212,17 @@ jobs:
         run: |
           echo "::error::[validate-live] propagation_timeout — deploy not live within window. Skipping smoke/gates; caller will NOT rollback (live is a valid earlier build)."
           exit 1
+
+      # The source-run plan may intentionally leave one locale on its previous
+      # shard. Check both classes explicitly: a partial publish is only safe
+      # when the healthy locales and the declared stale fallback still answer
+      # their canonical homes with HTTP 200.
+      - name: Verify healthy and stale locale homes
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+          HEALTHY_LOCALES: ${{ inputs.healthy_locales }}
+          STALE_LOCALES: ${{ inputs.stale_locales }}
+        run: node scripts/ci/validate-locale-publish-live.mjs
 
       # NO ZONE-WIDE PURGE HERE — REMOVED 2026-08-05 (#5162). Do not re-add.
       #
