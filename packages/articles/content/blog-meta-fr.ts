@@ -12438,6 +12438,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-pusher-consegne-domicilio.title': 'Côme, un trafiquant arrêté pour des livraisons à domicile',
     'blog.article.como-pusher-consegne-domicilio.excerpt': 'La Police d\'État de Como a arrêté un homme de 48 ans : 51.45 grammes de cocaïne répartis en 86 doses, 120 euros et 141.18 grammes supplémentaires de cocaïne ont été saisis.',
     'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Côme, opération de la police d\'État contre le trafic de drogue en ville. (Como)',
+    'blog.article.martina-bonalumi-podio-canottaggio.title': 'Martina Bonalumi : double podium international en huit',
+    'blog.article.martina-bonalumi-podio-canottaggio.excerpt': 'La barreuse de Dumenza décroche le bronze aux Mondiaux universitaires de la FISU au Canada et l\'argent aux Championnats d\'Europe des moins de 23 ans en Pologne.',
+    'blog.article.martina-bonalumi-podio-canottaggio.imageAlt': 'Bateau de rame sur un lac alpin',
 };
 
 export default blogMetaFr;
