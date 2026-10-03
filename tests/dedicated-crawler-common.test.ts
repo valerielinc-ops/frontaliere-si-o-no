@@ -192,7 +192,14 @@ describe('dedicated-crawler-common locale hardening', () => {
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'))[0];
 
     expect(after.sourceLang).toBe('rm');
-    expect(after.titleByLocale).toEqual({ rm: 'Fufragnadi' });
+    expect(after.titleByLocale).toEqual({
+      rm: 'Fufragnadi',
+      it: 'Posizione',
+      en: 'Job opening',
+      de: 'Stellenangebot',
+      fr: "Offre d'emploi",
+    });
+    expect(['it', 'en', 'de', 'fr'].every((locale) => after.titleByLocale[locale].length >= 3)).toBe(true);
     expect(after.descriptionByLocale).toEqual({ rm: romansh.trim() });
     expect(after.needsRetranslation).toBe(true);
   });

@@ -34,7 +34,7 @@ import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 import {
-  heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
+  heuristicTranslateJobTitle, safeUnsupportedSourceTitle, isUnsupportedSourceLang, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
   // FRO-231: slug utilities extracted from this file
   normalizeSpace as _normalizeSpace,
   slugify as _slugify,
@@ -2286,7 +2286,7 @@ export function ensureLocaleFields(job) {
   }
 
   for (const locale of LOCALES) {
-    const currentTitle = normalizeSpace(titleByLocale[locale] || '');
+    let currentTitle = normalizeSpace(titleByLocale[locale] || '');
     // A non-source slot with a pre-existing 1–2 character title is not a
     // translated title and must not fall through the stable-content branch.
     // Clear it before the source-copy/empty-slot split so the next
@@ -2294,7 +2294,7 @@ export function ensureLocaleFields(job) {
     if (locale !== titleSourceLang && currentTitle && !hasUsableTitle(currentTitle)) {
       titleByLocale[locale] = '';
       out.needsRetranslation = true;
-      continue;
+      currentTitle = '';
     }
     if (locale === titleSourceLang) {
       if (!currentTitle || currentTitle !== sourceTitle) {
@@ -2339,8 +2339,9 @@ export function ensureLocaleFields(job) {
       }
     } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
       // Locale slot was already empty — try a deterministic fill. This also
-      // covers known unsupported-source titles; unknown ones stay empty for
-      // the LLM queue rather than receiving a source-language copy.
+      // covers known unsupported-source titles; unknown ones receive a
+      // locale-safe generic label for the deploy gate and remain queued rather
+      // than receiving a source-language copy.
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
         hasUsableTitle(translated) &&
@@ -2349,6 +2350,14 @@ export function ensureLocaleFields(job) {
       ) {
         titleByLocale[locale] = translated;
       }
+    }
+    if (
+      locale !== titleSourceLang &&
+      !hasUsableTitle(titleByLocale[locale]) &&
+      isUnsupportedSourceLang(titleSourceLang)
+    ) {
+      titleByLocale[locale] = safeUnsupportedSourceTitle(locale);
+      out.needsRetranslation = true;
     }
     // Fill empty description slots for source/detected language only.
     // Non-source locales are left empty if no proper translation is available —

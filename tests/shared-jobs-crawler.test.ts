@@ -25,8 +25,31 @@ describe('shared locale normalization', () => {
       slugByLocale: { rm: 'fufragnadi' },
     });
 
-    expect(out.titleByLocale).toEqual({ rm: 'Fufragnadi' });
+    expect(out.titleByLocale).toEqual({
+      rm: 'Fufragnadi',
+      it: 'Posizione',
+      en: 'Job opening',
+      de: 'Stellenangebot',
+      fr: "Offre d'emploi",
+    });
     expect(out.descriptionByLocale).toEqual({ rm: romansh });
+    expect(out.needsRetranslation).toBe(true);
+  });
+
+  it('repairs a short unsupported-source slot before the completeness floor', () => {
+    const out = ensureLocaleFields({
+      title: 'Fufragnadi',
+      description: 'Ils candidats vegnan a lavurar cun nossa equipa e porschan in servetsch precis.',
+      sourceLang: 'rm',
+      sourceLangOriginal: 'rm',
+      titleByLocale: { rm: 'Fufragnadi', it: 'x' },
+      descriptionByLocale: {},
+      slugByLocale: {},
+    });
+
+    expect(out.titleByLocale.it).toBe('Posizione');
+    expect(['it', 'en', 'de', 'fr'].every((locale) => out.titleByLocale[locale].length >= 3)).toBe(true);
+    expect(out.needsRetranslation).toBe(true);
   });
 
   it('uses the reviewed Romansh role-title fallback for known SRG/RTR titles', () => {

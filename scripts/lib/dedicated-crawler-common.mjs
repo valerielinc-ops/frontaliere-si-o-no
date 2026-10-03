@@ -69,9 +69,26 @@ import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
-function isUnsupportedSourceLang(sourceLang) {
+export function isUnsupportedSourceLang(sourceLang) {
   const normalized = String(sourceLang || '').trim().toLowerCase();
   return Boolean(normalized) && !DEFAULT_LOCALES.includes(normalized);
+}
+
+// A source language outside the four published locales cannot be copied into
+// an indexed slot when translation is unavailable. Keep the deploy gate green
+// with an honest, locale-specific generic label and leave the record flagged
+// for the translation queue. These labels are deliberately not the source
+// title, so an unmapped Romansh title never becomes a published source-copy.
+const UNSUPPORTED_SOURCE_TITLE_FALLBACKS = Object.freeze({
+  it: 'Posizione',
+  en: 'Job opening',
+  de: 'Stellenangebot',
+  fr: "Offre d'emploi",
+});
+
+export function safeUnsupportedSourceTitle(locale) {
+  const normalized = String(locale || '').trim().toLowerCase();
+  return UNSUPPORTED_SOURCE_TITLE_FALLBACKS[normalized] || 'Job opening';
 }
 
 function sourceLanguageLabel(sourceLang) {
@@ -1628,9 +1645,10 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
       // Fallback: if title is still empty or too short (< 3 chars) after all
       // hardening, use a known deterministic translation for unsupported source
-      // languages. Unknown titles stay empty for the LLM queue; unlike the
-      // published-source path below, never copy an unsupported source verbatim.
-      if (String(job.titleByLocale[locale] || '').trim().length < 3 && baseTitle) {
+      // languages. Unknown titles receive a locale-safe generic label for the
+      // deploy gate and stay flagged for the LLM queue; never copy an
+      // unsupported source verbatim.
+      if (String(job.titleByLocale[locale] || '').trim().length < 3) {
         const placeholder = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
         const deterministicFallback = isUnsupportedSourceLang(titleSourceLang)
           ? heuristicTranslateJobTitle(placeholder, locale)
@@ -1641,6 +1659,13 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           job.titleByLocale[locale] = deterministicFallback;
           job.needsRetranslation = true;
           jobChanged = true;
+        } else if (isUnsupportedSourceLang(titleSourceLang)) {
+          const safeTitle = safeUnsupportedSourceTitle(locale);
+          if (String(job.titleByLocale[locale] || '').trim() !== safeTitle) {
+            job.titleByLocale[locale] = safeTitle;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          }
         } else if (placeholder && DEFAULT_LOCALES.includes(titleSourceLang)) {
           job.titleByLocale[locale] = placeholder;
           job.needsRetranslation = true;
@@ -3015,6 +3040,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     if (!out.needsRetranslation) return false;
     const value = nsFn(text || '');
     if (!value) return false;
+    // Generic labels are deploy-safe placeholders emitted for unmapped
+    // unsupported-source titles. Treat the exact placeholder as queued work,
+    // otherwise a valid-looking label would permanently bypass title repair.
+    if (isUnsupportedSourceLang(titleSourceLang) &&
+        value.toLowerCase() === safeUnsupportedSourceTitle(locale).toLowerCase()) {
+      return true;
+    }
     return titleVerdictFor(locale, value).untranslated;
   };
 
