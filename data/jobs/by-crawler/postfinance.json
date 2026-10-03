@@ -155,9 +155,9 @@
         "fr": "Du möchtest moderne DevOps-Praktiken aktiv mitgestalten, unsere Teams bei stabilen und effizienten Delivery-Prozessen unterstützen, dein Cloud-Native-Mindset einbringen und dich fachlich weiterentwickeln? Dann bist du bei uns genau richtig!\n\nWir suchen einen engagierten DevOps Engineer, der unsere Teams mit fundierter Erfahrung in Automatisierung, CI/CD und Plattformtechnologien unterstützt. Gemeinsam stellen wir sicher, dass Banktransaktionsdaten unserer Kundinnen und Kunden mit modernen Technologien in Echtzeit verarbeitet und bereitgestellt werden. Dabei gestaltest du unsere DevOps-Landschaft aktiv mit und trägst zu stabilen, sicheren und effizienten Lösungen bei.\n\nDas kannst du bewirken\n\n- Du entwickelst und betreibst unsere CI/CD-Pipelines weiter und sorgst dafür, dass Deployments stabil, effizient und nachvollziehbar ablaufen\n\n- Du unterstützt unsere beiden Teams bei Automatisierung, Plattformthemen und Betriebsprozessen, damit sich die Entwickler stärker auf den Entwicklungsprozess konzentrieren können\n\n- Du übernimmst Verantwortung für Monitoring, Stabilität und Verfügbarkeit unserer Microservices und erkennst Optimierungspotenziale frühzeitig\n\n- Du bringst deine Erfahrung in DevOps-Praktiken aktiv in den Teams und in unserer DevOps Guilde ein und förderst kontinuierliche Verbesserung, Sicherheit und Qualität in unseren Delivery-Prozessen\n\n- Mit deinem Wissen stärkst du die Zusammenarbeit zwischen Entwicklung und Betrieb und hilfst uns, nachhaltige und effiziente Lösungen bereitzustellen\n\nDas bringst du mit\n\n- Höherer Abschluss in Informatik (FH oder Uni) oder entsprechende Berufserfahrung\n\n- Mehrjährige Erfahrung im DevOps-Umfeld sowie im Aufbau und Betrieb moderner CI/CD-Pipelines mit GitLab und Git.\n\n- Sehr gute Kenntnisse in Docker, Kubernetes und Microservice Architektur.\n\n- Fundiertes Verständnis von GitOps-Prinzipien und deren Anwendung mit ArgoCD.\n\n- Erfahrung im Bereich Infrastructure as Code (Kustomize, Helm, Terraform) und deklarative Deployment-Strategien.\n\n- Erfahrung mit Monitoring, Logging und Observability-Lösungen, wie Splunk und Grafana\n\n- Kenntnisse im Bereich DevSecOps sowie Erfahrung mit SonarQube und automatisierten Sicherheits- und Qualitätsprüfungen sind von Vorteil.\n\n- Erfahrung in der Entwicklung von Java-Anwendungen ist von Vorteil\n\n- Analytische und lösungsorientierte Arbeitsweise sowie Begeisterung für moderne Technologien und kontinuierliche Weiterentwicklung."
       },
       "titleByLocale": {
-        "it": "DevOps Ingegnere (w/m/d)",
-        "en": "DevOps Engineer (w/m/d)",
         "de": "DevOps Ingenieur (w/m/d)",
+        "en": "DevOps Engineer (m/f/d)",
+        "it": "DevOps Ingegnere (w/m/d)",
         "fr": "DevOps Ingénieur (w/m/d)"
       },
       "slug": "devops-ingegnere-w-m-d-postfinance-zofingen",
@@ -185,23 +185,8 @@
         "canton": "AG",
         "location": "Zofingen"
       },
-      "id": "postfinance-2809f6c4dbc0",
-      "previousSlugs": [
-        "devops-engineer-w-m-d-postfinance",
-        "devops-ingegnere-w-m-d-postfinance-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "devops-engineer-w-m-d-postfinance",
-          "devops-ingegnere-w-m-d-postfinance-zofingen"
-        ],
-        "fr": [
-          "devops-engineer-w-m-d-postfinance"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:36:14.852Z",
       "crawledAt": "",
+      "id": "postfinance-2809f6c4dbc0",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "currency": "CHF",
@@ -217,7 +202,22 @@
         }
       },
       "addressLocality": "Zofingen",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "firstSeenAt": "2026-10-03T09:36:14.852Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-w-m-d-postfinance",
+          "devops-ingegnere-w-m-d-postfinance-zofingen"
+        ],
+        "fr": [
+          "devops-engineer-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-w-m-d-postfinance",
+        "devops-ingegnere-w-m-d-postfinance-zofingen"
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
