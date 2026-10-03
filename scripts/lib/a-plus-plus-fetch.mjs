@@ -1,0 +1,65 @@
+import { fetchHtml, fetchHtmlWithCookies } from './crawler-template.mjs';
+import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
+
+const DEFAULT_TIMEOUT_MS = 20_000;
+const LISTING_CARD_MARKER = 'vacancy__render';
+
+/**
+ * Build a page fetcher for the A++ InRecruiting tenant.
+ *
+ * InRecruiting can set a session cookie while serving the career page and
+ * require that same session (plus a same-site referrer) on vacancy details.
+ * Native fetch does not retain cookies across separate requests, so fetching
+ * the listing and then each detail independently can turn a live tenant into
+ * an all-details-failed zero-result run. Keep one jar for the whole crawler
+ * process; if the session path itself is unavailable, fall back to the shared
+ * fetchHtml rescue path (including the clean-egress Jina fallback for 403s and
+ * connection-level failures).
+ *
+ * @param {{ listingUrl: string, userAgent: string }} options
+ * @returns {(url: string, timeoutMs?: number) => Promise<string>}
+ */
+export function createAplusPageFetcher({ listingUrl, userAgent }) {
+  const cookieJar = new Map();
+
+  return async function fetchAplusPage(
+    url,
+    timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || DEFAULT_TIMEOUT_MS,
+  ) {
+    const headers = {
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'en-US,en;q=0.9',
+      'User-Agent': userAgent,
+      ...(url !== listingUrl ? {
+        Referer: listingUrl,
+        'Sec-Fetch-Site': 'same-origin',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Dest': 'document',
+      } : {}),
+    };
+
+    try {
+      const html = await fetchHtmlWithCookies(url, { timeoutMs, cookieJar, headers });
+      // The cookie-aware transport deliberately returns successful responses
+      // as-is, so detail pages also need the shared 200-but-challenge rescue.
+      // A WAF challenge on a detail URL otherwise reaches the parser as a
+      // title-less page and drops the live vacancy.
+      if (url !== listingUrl) {
+        return rescueHtmlIfChallenged(html, url, { timeoutMs });
+      }
+      // Keep fetchHtml's existing 200-but-challenge rescue for the listing:
+      // a WAF challenge can be an HTTP-success response, so it does not enter
+      // the catch branch even though the parser would see zero cards.
+      if (url === listingUrl && !html.includes(LISTING_CARD_MARKER)) {
+        console.warn(`⚠️ A++ listing session returned no vacancy card marker for ${url}; retrying through shared HTML rescue`);
+        return fetchHtml(url, { timeoutMs, headers });
+      }
+      return html;
+    } catch (sessionError) {
+      console.warn(
+        `⚠️ A++ session fetch failed for ${url}: ${sessionError?.message || sessionError}; retrying through shared HTML rescue`,
+      );
+      return fetchHtml(url, { timeoutMs, headers });
+    }
+  };
+}

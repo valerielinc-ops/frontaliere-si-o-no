@@ -52,7 +52,8 @@ import {
 } from './lib/a-plus-plus-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { createAplusPageFetcher } from './lib/a-plus-plus-fetch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -75,6 +76,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const BROWSER_UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36';
+const fetchText = createAplusPageFetcher({ listingUrl: LISTING_URL, userAgent: BROWSER_UA });
 
 /* ── Utilities ─────────────────────────────────────────────── */
 
@@ -98,17 +100,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  return fetchHtml(url, {
-    timeoutMs,
-    headers: {
-      Accept: 'text/html,application/xhtml+xml',
-      'Accept-Language': 'en-US,en;q=0.9',
-      'User-Agent': BROWSER_UA,
-    },
-  });
 }
 
 /* ── Matchers ──────────────────────────────────────────────── */
