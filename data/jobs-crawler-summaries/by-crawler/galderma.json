@@ -1,7 +1,7 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-10-02T21:37:37.375Z",
+  "generatedAt": "2026-10-03T09:33:16.752Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,11 +14,12 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 220885,
-  "avgDurationMs": 220885,
+  "durationMs": 210088,
+  "avgDurationMs": 210088,
   "durationHistory": [
     215201,
-    220885
+    220885,
+    210088
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +36,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-Commercial-FP-A-Manager_JR020691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:35:36.725Z",
+      "crawledAt": "2026-10-03T09:31:28.639Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -72,7 +73,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-HR-EMEA---Canada_JR020136-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:36:07.395Z",
+      "crawledAt": "2026-10-03T09:31:56.689Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -109,7 +110,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/Medical-Scientific-Liaison-Romandie---Ticino_JR020215-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:36:33.172Z",
+      "crawledAt": "2026-10-03T09:32:19.047Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",

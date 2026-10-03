@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-10-02T21:33:50.516Z",
+  "assembledAt": "2026-10-03T09:30:40.370Z",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -34,7 +34,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/spontanbewerbung/28759c65-784e-434f-b56c-def3ab1dc96f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.821Z",
+      "crawledAt": "2026-10-03T09:29:49.074Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,14 +61,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "spontanbewerbung-spital-buelach-bulach"
+          "spontanbewerbung-spital-buelach-bulach",
+          "spontanbewerbung-spital-bulach-bulach"
         ],
         "it": [
-          "spontanbewerbung-spital-buelach-bulach"
+          "spontanbewerbung-spital-buelach-bulach",
+          "candidatura-spontanea-spital-bulach-bulach"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-spital-buelach-bulach"
+        "spontanbewerbung-spital-buelach-bulach",
+        "spontanbewerbung-spital-bulach-bulach",
+        "candidatura-spontanea-spital-bulach-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.662Z",
       "salaryMin": 91500,
@@ -117,7 +121,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/assistenzaerztin-assistenzarzt-chirurgie/7d1d25c0-7d69-4cbd-9a32-fd60313f40bb",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.816Z",
+      "crawledAt": "2026-10-03T09:29:49.071Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -160,11 +164,13 @@
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-chirurgie-spital-buelach-bulach"
+        "assistenzarztin-assistenzarzt-chirurgie-spital-buelach-bulach",
+        "medico-chirurgo-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-chirurgie-spital-buelach-bulach"
+          "assistenzarztin-assistenzarzt-chirurgie-spital-buelach-bulach",
+          "medico-chirurgo-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.659Z",
@@ -214,7 +220,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/assistenzaerztin-assistenzarzt-notfall/fa4d2757-9a07-4ae6-8059-2e115acae2ca",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.813Z",
+      "crawledAt": "2026-10-03T09:29:49.070Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -264,11 +270,13 @@
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-notfall-spital-buelach-bulach"
+        "assistenzarztin-assistenzarzt-notfall-spital-buelach-bulach",
+        "medico-assistente-pronto-soccorso-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-notfall-spital-buelach-bulach"
+          "assistenzarztin-assistenzarzt-notfall-spital-buelach-bulach",
+          "medico-assistente-pronto-soccorso-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.660Z",
@@ -318,7 +326,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/adc1b8d4-c700-445b-a13a-c4a55ee70224",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.810Z",
+      "crawledAt": "2026-10-03T09:29:49.068Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -361,11 +369,13 @@
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-chirurgie-spital-buelach-bulach"
+        "unterassistentin-unterassistent-chirurgie-spital-buelach-bulach",
+        "sottocapo-infermiera-sottocapo-infermiere-di-chirurgia-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-chirurgie-spital-buelach-bulach"
+          "unterassistentin-unterassistent-chirurgie-spital-buelach-bulach",
+          "sottocapo-infermiera-sottocapo-infermiere-di-chirurgia-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.657Z",
@@ -415,7 +425,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-anaesthesiologie/07b87b30-8511-431c-8b2f-497349c55c09",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.807Z",
+      "crawledAt": "2026-10-03T09:29:49.066Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -462,11 +472,13 @@
         "sott-a-di-radiologia-spital-bulach-bulach",
         "junior-assistant-radiology-spital-bulach-bulach",
         "assistentin-assistent-radiologie-spital-bulach-bulach",
-        "unterassistentin-unterassistent-radiologie-spital-buelach-bulach"
+        "unterassistentin-unterassistent-radiologie-spital-buelach-bulach",
+        "sott-a-di-anestesia-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-anasthesiologie-spital-buelach-bulach"
+          "unterassistentin-unterassistent-anasthesiologie-spital-buelach-bulach",
+          "sott-a-di-anestesia-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.654Z",
@@ -516,7 +528,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-pflegefachperson-hf-somatik-und-kjff/739a0e95-73c9-4610-afdf-1f8844778247",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.803Z",
+      "crawledAt": "2026-10-03T09:29:49.064Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -566,11 +578,13 @@
         ]
       },
       "previousSlugs": [
-        "studierende-pflegefachperson-hf-somatik-und-kjff-spital-buelach-bulach"
+        "studierende-pflegefachperson-hf-somatik-und-kjff-spital-buelach-bulach",
+        "studente-di-assistenza-infermieristica-hf-somatico-e-kjff-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-pflegefachperson-hf-somatik-und-kjff-spital-buelach-bulach"
+          "studierende-pflegefachperson-hf-somatik-und-kjff-spital-buelach-bulach",
+          "studente-di-assistenza-infermieristica-hf-somatico-e-kjff-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.653Z",
@@ -620,7 +634,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/unterassistentin-unterassistent-innere-medizin/37683a89-70fe-48e2-a1cc-5f509847bf3c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.800Z",
+      "crawledAt": "2026-10-03T09:29:49.062Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -670,11 +684,13 @@
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-innere-medizin-spital-buelach-bulach"
+        "unterassistentin-unterassistent-innere-medizin-spital-buelach-bulach",
+        "sott-a-di-medicina-interna-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-innere-medizin-spital-buelach-bulach"
+          "unterassistentin-unterassistent-innere-medizin-spital-buelach-bulach",
+          "sott-a-di-medicina-interna-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.651Z",
@@ -723,7 +739,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/hebamme-pflegefachfrau-nachtdienst-geburtshaus/001ee020-7714-48f9-8461-e7fc22c54fcd",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.797Z",
+      "crawledAt": "2026-10-03T09:29:49.061Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -752,12 +768,14 @@
       },
       "previousSlugs": [
         "hebamme-nachtdienst-geburtshaus-spital-buelach-bulach",
-        "hebamme-pflegefachfrau-nachtdienst-geburtshaus-spital-buelach-bulach"
+        "hebamme-pflegefachfrau-nachtdienst-geburtshaus-spital-buelach-bulach",
+        "ostetrica-turno-notturno-casa-di-parto-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hebamme-nachtdienst-geburtshaus-spital-buelach-bulach",
-          "hebamme-pflegefachfrau-nachtdienst-geburtshaus-spital-buelach-bulach"
+          "hebamme-pflegefachfrau-nachtdienst-geburtshaus-spital-buelach-bulach",
+          "ostetrica-turno-notturno-casa-di-parto-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.650Z",
@@ -773,16 +791,17 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-buelach-03116e6fd244",
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "two-themed-birthplace-spital-bulach-bulach",
+        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "fr": "maison-de-naissance-spital-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -807,7 +826,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus/a9d2ca93-8e8f-4dbb-b70a-ca642844c728",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.794Z",
+      "crawledAt": "2026-10-03T09:29:49.059Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -846,22 +865,26 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach"
+          "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
+          "zweithebamme-geburtshaus-spital-buelach-bulach"
         ],
         "it": [
           "zweithebamme-geburtshaus-spital-buelach-bulach",
           "casa-di-nascita-spital-bulach-bulach",
-          "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach"
+          "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
+          "parto-in-seconda-posizione-spital-bulach-bulach"
         ],
         "en": [
           "zweithebamme-geburtshaus-spital-buelach-bulach",
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
+          "two-themed-birthplace-spital-bulach-bulach",
           "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
+          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach",
           "maison-de-naissance-spital-bulach"
         ]
       },
@@ -873,6 +896,9 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
+        "two-themed-birthplace-spital-bulach-bulach",
+        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach",
+        "parto-in-seconda-posizione-spital-bulach-bulach",
         "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
         "maison-de-naissance-spital-bulach"
       ],
@@ -923,7 +949,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/freiwilligen-team/89ac093c-ef7c-4233-a394-4e9b99507f90",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.790Z",
+      "crawledAt": "2026-10-03T09:29:49.057Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -950,11 +976,13 @@
         ]
       },
       "previousSlugs": [
-        "freiwilligen-team-spital-buelach-bulach"
+        "freiwilligen-team-spital-buelach-bulach",
+        "volontario-team-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "freiwilligen-team-spital-buelach-bulach"
+          "freiwilligen-team-spital-buelach-bulach",
+          "volontario-team-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.646Z",
@@ -1004,7 +1032,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-radiologiefachperson-hf/3fb5c264-b8a8-477e-ac12-f5817afa775e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.787Z",
+      "crawledAt": "2026-10-03T09:29:49.056Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1056,12 +1084,14 @@
         "studierende-radiologiefachperson-hf-spital-buelach-bulach",
         "studenti-specialista-radiologia-hf-spital-bulach-bulach",
         "students-radiology-specialist-hf-spital-bulach-bulach",
-        "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach"
+        "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach",
+        "studente-di-radiologia-hf-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-radiologiefachperson-hf-spital-buelach-bulach",
-          "studenti-specialista-radiologia-hf-spital-bulach-bulach"
+          "studenti-specialista-radiologia-hf-spital-bulach-bulach",
+          "studente-di-radiologia-hf-spital-bulach-bulach"
         ],
         "en": [
           "students-radiology-specialist-hf-spital-bulach-bulach"
@@ -1117,7 +1147,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-notfall/67bcbd7f-4e95-4d02-92c6-a32b14f57f8a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.784Z",
+      "crawledAt": "2026-10-03T09:29:49.054Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1162,12 +1192,14 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-notfall-spital-buelach-bulach-2",
-        "oberarztin-oberarzt-notfall-spital-buelach-bulach"
+        "oberarztin-oberarzt-notfall-spital-buelach-bulach",
+        "medico-specialista-di-pronto-soccorso-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-notfall-spital-buelach-bulach-2",
-          "oberarztin-oberarzt-notfall-spital-buelach-bulach"
+          "oberarztin-oberarzt-notfall-spital-buelach-bulach",
+          "medico-specialista-di-pronto-soccorso-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.623Z",
@@ -1217,7 +1249,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/nachdiplomstudium-hf-notfallpflege/bb4cf86f-eebc-4072-8c45-81bb22f72c4c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.780Z",
+      "crawledAt": "2026-10-03T09:29:49.052Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1322,7 +1354,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-koechin-koch-efz/2c1784fa-94d0-44b2-ab53-ba4b25169daa",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.777Z",
+      "crawledAt": "2026-10-03T09:29:49.050Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1346,7 +1378,8 @@
         "kochin-koch-spital-bulach",
         "kochin-koch-spital-buelach-bulach",
         "cuire-spital-bulach-bulach",
-        "cook-spital-bulach-bulach"
+        "cook-spital-bulach-bulach",
+        "apprendistato-kochin-koch-cfc-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1355,7 +1388,8 @@
           "kochin-koch-spital-bulach",
           "kochin-koch-spital-buelach-bulach",
           "cuire-spital-bulach-bulach",
-          "cook-spital-bulach-bulach"
+          "cook-spital-bulach-bulach",
+          "apprendistato-kochin-koch-cfc-spital-bulach"
         ],
         "en": [
           "lehrstelle-kochin-koch-efz-spital-buelach-bulach",
@@ -1416,7 +1450,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/nachdiplomstudium-hf-intensivpflege/da512ca3-628b-4083-8731-336ff0319283",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.774Z",
+      "crawledAt": "2026-10-03T09:29:49.048Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1435,11 +1469,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
+        "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
+        "studi-post-laurea-in-terapia-intensiva-hf-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
+          "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
+          "studi-post-laurea-in-terapia-intensiva-hf-spital-bulach-bulach"
         ],
         "en": [
           "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
@@ -1495,7 +1531,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-endoskopie-dipl-mpa/29514da1-46ee-4cc7-a854-1dab79c300b1",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.771Z",
+      "crawledAt": "2026-10-03T09:29:49.046Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1516,12 +1552,14 @@
       "previousSlugs": [
         "fachperson-endoskopie-dipl-mpa-spital-buelach-bulach",
         "specialista-endoscopia-dipl-mpa-spital-bulach-bulach",
-        "fachperson-endoskopie-dipl-mpa-spital-bulach-bulach"
+        "fachperson-endoskopie-dipl-mpa-spital-bulach-bulach",
+        "endoscopia-professionale-dipl-mpa-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-endoskopie-dipl-mpa-spital-buelach-bulach",
-          "specialista-endoscopia-dipl-mpa-spital-bulach-bulach"
+          "specialista-endoscopia-dipl-mpa-spital-bulach-bulach",
+          "endoscopia-professionale-dipl-mpa-spital-bulach-bulach"
         ],
         "en": [
           "fachperson-endoskopie-dipl-mpa-spital-buelach-bulach"
@@ -1577,7 +1615,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/cb22da75-b8c3-4e45-9db4-7325aa60dc83",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.767Z",
+      "crawledAt": "2026-10-03T09:29:49.044Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1596,11 +1634,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-spital-buelach-bulach"
+        "lehrstelle-kauffrau-kaufmann-efz-spital-buelach-bulach",
+        "apprendistato-kauffrau-kaufmann-cfc-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-spital-buelach-bulach"
+          "lehrstelle-kauffrau-kaufmann-efz-spital-buelach-bulach",
+          "apprendistato-kauffrau-kaufmann-cfc-spital-bulach"
         ],
         "en": [
           "lehrstelle-kauffrau-kaufmann-efz-spital-buelach-bulach"
@@ -1656,7 +1696,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-fachperson-betriebsunterhalt-efz/972d2175-f0ed-4edd-8bb1-6c618bb897aa",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.764Z",
+      "crawledAt": "2026-10-03T09:29:49.042Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1679,7 +1719,8 @@
         "apprendistato-fachperson-gesundheit-cfc-spital-bulach",
         "apprenticeship-health-efz-spital-bulach-bulach",
         "lehrstelle-fachperson-gesundheit-efz-spital-buelach-bulach",
-        "apprentissage-sante-efz-spital-bulach-bulach"
+        "apprentissage-sante-efz-spital-bulach-bulach",
+        "apprendistato-fachperson-betriebsunterhalt-cfc-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1687,7 +1728,8 @@
           "apprendistato-fachperson-gesundheit-cfc-spital-bulach",
           "apprenticeship-health-efz-spital-bulach-bulach",
           "lehrstelle-fachperson-gesundheit-efz-spital-buelach-bulach",
-          "apprentissage-sante-efz-spital-bulach-bulach"
+          "apprentissage-sante-efz-spital-bulach-bulach",
+          "apprendistato-fachperson-betriebsunterhalt-cfc-spital-bulach"
         ],
         "en": [
           "lehrstelle-fachperson-betriebsunterhalt-efz-spital-buelach-bulach",
@@ -1720,10 +1762,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
+        "it": "elettricisti-commerciali-spital-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "fr": "electriciens-d-affaires-spital-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1747,7 +1789,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/elektriker-in-betriebselektriker-in/616e803c-7c54-4b94-9333-917c2803709a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.761Z",
+      "crawledAt": "2026-10-03T09:29:49.041Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1767,17 +1809,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
+        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
+        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach",
+        "elettricisti-commerciali-spital-bulach",
         "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
+          "elettricista-in-business-elettricista-in-spital-bulach-bulach",
+          "elettricisti-commerciali-spital-bulach"
         ],
         "en": [
           "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
           "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
+          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach",
           "electriciens-d-affaires-spital-bulach"
         ]
       },
@@ -1794,7 +1842,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-buelach-188cf890d5ac",
@@ -1828,7 +1877,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/abteilungsleitung-kardiologie-la/e6fc7f96-2b9c-4c50-a6bb-16f5a30055ee",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.758Z",
+      "crawledAt": "2026-10-03T09:29:49.039Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1847,11 +1896,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "abteilungsleitung-kardiologie-la-spital-buelach-bulach"
+        "abteilungsleitung-kardiologie-la-spital-buelach-bulach",
+        "capo-dipartimento-cardiologia-la-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-kardiologie-la-spital-buelach-bulach"
+          "abteilungsleitung-kardiologie-la-spital-buelach-bulach",
+          "capo-dipartimento-cardiologia-la-spital-bulach-bulach"
         ],
         "en": [
           "abteilungsleitung-kardiologie-la-spital-buelach-bulach"
@@ -1907,7 +1958,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-handchirurgie/a970f61e-668e-45e6-9a35-7907339416d1",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.755Z",
+      "crawledAt": "2026-10-03T09:29:49.037Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1927,11 +1978,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-handchirurgie-spital-buelach-bulach",
-        "medecin-superieur-chirurgie-manuelle-spital-bulach-bulach"
+        "medecin-superieur-chirurgie-manuelle-spital-bulach-bulach",
+        "chirurgia-della-mano-medico-superiore-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-handchirurgie-spital-buelach-bulach"
+          "oberarztin-oberarzt-handchirurgie-spital-buelach-bulach",
+          "chirurgia-della-mano-medico-superiore-spital-bulach-bulach"
         ],
         "en": [
           "oberarztin-oberarzt-handchirurgie-spital-buelach-bulach"
@@ -1988,7 +2041,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-medizin/7943acdb-7949-482b-96b9-a4939617579a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.752Z",
+      "crawledAt": "2026-10-03T09:29:49.035Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2007,11 +2060,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+        "dipl-pflegefachperson-medizin-spital-buelach-bulach",
+        "dipl-professionista-dell-assistenza-medica-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-medizin-spital-buelach-bulach"
+          "dipl-pflegefachperson-medizin-spital-buelach-bulach",
+          "dipl-professionista-dell-assistenza-medica-spital-bulach-bulach"
         ],
         "en": [
           "dipl-pflegefachperson-medizin-spital-buelach-bulach"
@@ -2122,7 +2177,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-buelach-fcd05fb8d820",
@@ -2237,7 +2293,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-buelach-ac9151274d8a",
@@ -2333,7 +2390,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spital-buelach-e7190c3ca725",
@@ -2367,7 +2425,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mitarbeiter-in-etagenservice/20204b49-5f24-4d87-ac54-7347026f0868",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.739Z",
+      "crawledAt": "2026-10-03T09:29:49.034Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2390,7 +2448,8 @@
         "collaboratore-trice-kapazitatsmanagement-spital-bulach",
         "associate-kapazitatsmanagement-spital-bulach-bulach",
         "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-        "collaborateur-trice-kapazitatsmanagement-spital-bulach-bulach"
+        "collaborateur-trice-kapazitatsmanagement-spital-bulach-bulach",
+        "collaboratore-trice-etagenservice-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2398,7 +2457,8 @@
           "collaboratore-trice-kapazitatsmanagement-spital-bulach",
           "associate-kapazitatsmanagement-spital-bulach-bulach",
           "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-          "collaborateur-trice-kapazitatsmanagement-spital-bulach-bulach"
+          "collaborateur-trice-kapazitatsmanagement-spital-bulach-bulach",
+          "collaboratore-trice-etagenservice-spital-bulach"
         ],
         "en": [
           "mitarbeiter-in-etagenservice-spital-buelach-bulach",
@@ -2459,7 +2519,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/studierende-r-biomedizinische-r-analytiker-in-hf/f0bb576f-3003-49d9-b5bd-cd0bc9258ba5",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.736Z",
+      "crawledAt": "2026-10-03T09:29:49.032Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2478,11 +2538,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studierende-r-biomedizinische-r-analytiker-in-hf-spital-buelach-bulach"
+        "studierende-r-biomedizinische-r-analytiker-in-hf-spital-buelach-bulach",
+        "studenti-r-biomedical-r-analista-in-hf-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-biomedizinische-r-analytiker-in-hf-spital-buelach-bulach"
+          "studierende-r-biomedizinische-r-analytiker-in-hf-spital-buelach-bulach",
+          "studenti-r-biomedical-r-analista-in-hf-spital-bulach-bulach"
         ],
         "en": [
           "studierende-r-biomedizinische-r-analytiker-in-hf-spital-buelach-bulach"
@@ -2538,7 +2600,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/leistungsspezialist-in/3c163fad-0732-4d52-ad57-b49227cb67ff",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.732Z",
+      "crawledAt": "2026-10-03T09:29:49.030Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2570,7 +2632,8 @@
         "receptionniste-in-spital-bulach-bulach",
         "fisioterapista-spital-bulach-bulach",
         "physiotherapist-spital-bulach-bulach",
-        "physiotherapeute-physiotherapeute-spital-bulach-bulach"
+        "physiotherapeute-physiotherapeute-spital-bulach-bulach",
+        "specialista-del-servizio-in-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2587,7 +2650,8 @@
           "receptionniste-in-spital-bulach-bulach",
           "fisioterapista-spital-bulach-bulach",
           "physiotherapist-spital-bulach-bulach",
-          "physiotherapeute-physiotherapeute-spital-bulach-bulach"
+          "physiotherapeute-physiotherapeute-spital-bulach-bulach",
+          "specialista-del-servizio-in-spital-bulach-bulach"
         ],
         "en": [
           "leistungsspezialist-in-spital-bulach-bulach"
@@ -2646,7 +2710,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-altersmedizin/7b10156c-457e-434f-936a-616473865cc2",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.729Z",
+      "crawledAt": "2026-10-03T09:29:49.028Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2673,7 +2737,8 @@
         "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
         "dipl-chirurgie-infirmiere-spital-bulach-bulach-325207",
         "infermiere-professionale-chirurgia-spital-bulach-bulach",
-        "infirmier-diplome-chirurgie-spital-bulach-bulach"
+        "infirmier-diplome-chirurgie-spital-bulach-bulach",
+        "dipl-infermieristica-per-anziani-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2685,7 +2750,8 @@
           "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
           "dipl-chirurgie-infirmiere-spital-bulach-bulach-325207",
           "infermiere-professionale-chirurgia-spital-bulach-bulach",
-          "infirmier-diplome-chirurgie-spital-bulach-bulach"
+          "infirmier-diplome-chirurgie-spital-bulach-bulach",
+          "dipl-infermieristica-per-anziani-spital-bulach-bulach"
         ],
         "en": [
           "dipl-pflegefachperson-altersmedizin-spital-buelach-bulach",
@@ -2746,7 +2812,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/chief-financial-officer-cfo/f9ac3e4a-ef12-4b50-971e-9bc638456471",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.725Z",
+      "crawledAt": "2026-10-03T09:29:49.027Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2766,12 +2832,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "direttore-finanziario-cfo-lindenhofgruppe-lindenhofgruppe",
-        "chief-financial-officer-cfo-spital-buelach-bulach"
+        "chief-financial-officer-cfo-spital-buelach-bulach",
+        "direttore-finanziario-cfo-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "direttore-finanziario-cfo-lindenhofgruppe-lindenhofgruppe",
-          "chief-financial-officer-cfo-spital-buelach-bulach"
+          "chief-financial-officer-cfo-spital-buelach-bulach",
+          "direttore-finanziario-cfo-spital-bulach-bulach"
         ],
         "fr": [
           "chief-financial-officer-cfo-spital-buelach-bulach"
@@ -2823,7 +2891,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/it-systems-engineer-sql-middleware/9ca98589-fcd3-4208-8385-17f8691ff15e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.722Z",
+      "crawledAt": "2026-10-03T09:29:49.025Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2842,11 +2910,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-systems-engineer-sql-amp-middleware-spital-buelach-bulach"
+        "it-systems-engineer-sql-amp-middleware-spital-buelach-bulach",
+        "it-systems-ingegnere-sql-middleware-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-systems-engineer-sql-amp-middleware-spital-buelach-bulach"
+          "it-systems-engineer-sql-amp-middleware-spital-buelach-bulach",
+          "it-systems-ingegnere-sql-middleware-spital-bulach-bulach"
         ],
         "fr": [
           "it-systems-engineer-sql-amp-middleware-spital-buelach-bulach"
@@ -2865,7 +2935,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-buelach-3da42499decc",
@@ -2899,7 +2970,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mpa-chirurgie/b28ac5dd-3006-407b-b8ca-d6902442c549",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.719Z",
+      "crawledAt": "2026-10-03T09:29:49.023Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2918,11 +2989,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-chirurgie-spital-buelach-bulach"
+        "mpa-chirurgie-spital-buelach-bulach",
+        "chirurgia-mpa-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-chirurgie-spital-buelach-bulach"
+          "mpa-chirurgie-spital-buelach-bulach",
+          "chirurgia-mpa-spital-bulach-bulach"
         ],
         "en": [
           "mpa-chirurgie-spital-buelach-bulach"
@@ -2978,7 +3051,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberarzt-oberaerztin-radiologie-oa-mev/3d335f2d-57fd-47e8-95ed-a918ce6cb660",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.715Z",
+      "crawledAt": "2026-10-03T09:29:49.021Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2998,12 +3071,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarzt-oberarztin-radiologie-m-e-v-spital-buelach-bulach",
-        "oberarzt-oberarztin-radiologie-oa-mev-spital-buelach-bulach"
+        "oberarzt-oberarztin-radiologie-oa-mev-spital-buelach-bulach",
+        "medico-senior-superior-radiology-oa-mev-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oberarztin-radiologie-m-e-v-spital-buelach-bulach",
-          "oberarzt-oberarztin-radiologie-oa-mev-spital-buelach-bulach"
+          "oberarzt-oberarztin-radiologie-oa-mev-spital-buelach-bulach",
+          "medico-senior-superior-radiology-oa-mev-spital-bulach-bulach"
         ],
         "en": [
           "oberarzt-oberarztin-radiologie-m-e-v-spital-buelach-bulach"
@@ -3059,7 +3134,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/sekretaerin-sekretaer-ergotherapie/81d8f2fa-c233-4642-aceb-8b5437d53bcb",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.712Z",
+      "crawledAt": "2026-10-03T09:29:49.019Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3078,11 +3153,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sekretarin-sekretar-ergotherapie-spital-buelach-bulach"
+        "sekretarin-sekretar-ergotherapie-spital-buelach-bulach",
+        "segretario-segretario-terapia-professionale-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretarin-sekretar-ergotherapie-spital-buelach-bulach"
+          "sekretarin-sekretar-ergotherapie-spital-buelach-bulach",
+          "segretario-segretario-terapia-professionale-spital-bulach-bulach"
         ],
         "en": [
           "sekretarin-sekretar-ergotherapie-spital-buelach-bulach"
@@ -3138,7 +3215,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/leitung-ambulatorium-wunden-und-stoma/82b3b23d-dc41-4e08-a0c3-5e84dcff5d3e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.709Z",
+      "crawledAt": "2026-10-03T09:29:49.017Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3158,12 +3235,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitung-ambulatorium-wunden-und-stoma-spital-buelach-bulach",
-        "leitung-ambulatorium-wunden-e-stoma-spital-bulach"
+        "leitung-ambulatorium-wunden-e-stoma-spital-bulach",
+        "ferite-e-stoma-dell-ambulatorio-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-ambulatorium-wunden-und-stoma-spital-buelach-bulach",
-          "leitung-ambulatorium-wunden-e-stoma-spital-bulach"
+          "leitung-ambulatorium-wunden-e-stoma-spital-bulach",
+          "ferite-e-stoma-dell-ambulatorio-spital-bulach-bulach"
         ],
         "en": [
           "leitung-ambulatorium-wunden-und-stoma-spital-buelach-bulach"
@@ -3218,7 +3297,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/stv-leiter-in-finanzbuchhaltung/ca0f042a-9dcd-4df2-83ae-c1e5a5abde1c",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.706Z",
+      "crawledAt": "2026-10-03T09:29:49.016Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3241,7 +3320,8 @@
         "stv-responsabile-finanzbuchhaltung-spital-bulach-k057g5",
         "stv-leiter-in-financial-accounting-spital-bulach-bulach",
         "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach",
-        "stv-responsabile-finanzbuchhaltung-spital-bulach"
+        "stv-responsabile-finanzbuchhaltung-spital-bulach",
+        "capo-della-contabilita-finanziaria-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3249,7 +3329,8 @@
           "stv-responsabile-finanzbuchhaltung-spital-bulach-k057g5",
           "stv-leiter-in-financial-accounting-spital-bulach-bulach",
           "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach",
-          "stv-responsabile-finanzbuchhaltung-spital-bulach"
+          "stv-responsabile-finanzbuchhaltung-spital-bulach",
+          "capo-della-contabilita-finanziaria-spital-bulach-bulach"
         ],
         "en": [
           "stv-leiter-in-financial-accounting-spital-bulach-bulach",
@@ -3273,7 +3354,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-buelach-ff8f872d5e69",
@@ -3307,7 +3389,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mpa-pflegefachperson-urologie/6e0ea5db-0021-4866-b383-78934bb73bee",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.703Z",
+      "crawledAt": "2026-10-03T09:29:49.014Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3326,11 +3408,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-pflegefachperson-urologie-spital-buelach-bulach"
+        "mpa-pflegefachperson-urologie-spital-buelach-bulach",
+        "urologia-praticante-mpa-nurse-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-pflegefachperson-urologie-spital-buelach-bulach"
+          "mpa-pflegefachperson-urologie-spital-buelach-bulach",
+          "urologia-praticante-mpa-nurse-spital-bulach-bulach"
         ],
         "en": [
           "mpa-pflegefachperson-urologie-spital-buelach-bulach"
@@ -3386,7 +3470,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/arztsekretaer-in-mpa-kardiologie/d2e86f1a-9051-4ed5-b73d-4e9af3475bcf",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.699Z",
+      "crawledAt": "2026-10-03T09:29:49.012Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3405,11 +3489,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
+        "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach",
+        "sottosegretario-medico-mpa-cardiologia-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
+          "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach",
+          "sottosegretario-medico-mpa-cardiologia-spital-bulach-bulach"
         ],
         "en": [
           "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
@@ -3465,7 +3551,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-privatstation/90791bdb-5fc9-4704-9751-1ac43a2a6c7f",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.696Z",
+      "crawledAt": "2026-10-03T09:29:49.010Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3488,12 +3574,14 @@
         "professional-health-acute-geriatrics-spital-bulach-bulach",
         "fachperson-gesundheit-akutgeriatrie-spital-buelach-bulach",
         "sante-professionnelle-geriatrie-aigue-spital-bulach-bulach",
-        "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+        "fachperson-gesundheit-privatstation-spital-buelach-bulach",
+        "stazione-privata-specializzata-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "salute-professionale-geriatria-acuta-spital-bulach-bulach",
-          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+          "fachperson-gesundheit-privatstation-spital-buelach-bulach",
+          "stazione-privata-specializzata-spital-bulach-bulach"
         ],
         "en": [
           "professional-health-acute-geriatrics-spital-bulach-bulach",
@@ -3554,7 +3642,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/berufsbildner-in-notfall-dipl-expert-in-notfall-nds/72d40a7a-21d2-43ef-8b3a-c0dbbe7807d5",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.692Z",
+      "crawledAt": "2026-10-03T09:29:49.007Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3573,11 +3661,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach"
+        "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach",
+        "professional-trainer-emergency-dipl-expert-emergency-nds-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach"
+          "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach",
+          "professional-trainer-emergency-dipl-expert-emergency-nds-spital-bulach-bulach"
         ],
         "fr": [
           "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach"
@@ -3630,7 +3720,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/leitung-einkauf-logistik/b2ccefd4-c11e-4856-95d8-472ac3934b77",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.688Z",
+      "crawledAt": "2026-10-03T09:29:49.005Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3649,11 +3739,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-einkauf-amp-logistik-spital-buelach-bulach"
+        "leitung-einkauf-amp-logistik-spital-buelach-bulach",
+        "responsabile-acquisti-e-logistica-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-einkauf-amp-logistik-spital-buelach-bulach"
+          "leitung-einkauf-amp-logistik-spital-buelach-bulach",
+          "responsabile-acquisti-e-logistica-spital-bulach-bulach"
         ],
         "en": [
           "leitung-einkauf-amp-logistik-spital-buelach-bulach"
@@ -3709,7 +3801,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/medizinproduktetechnolog-in-techn-sterilisationsassistent-in/98ddd1e7-acc1-461e-b6e2-395843b3124a",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.685Z",
+      "crawledAt": "2026-10-03T09:29:49.003Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3728,11 +3820,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
+        "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach",
+        "tecnologia-tecnologia-dei-dispositivi-medici-assistente-di-sterilizzazione-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
+          "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach",
+          "tecnologia-tecnologia-dei-dispositivi-medici-assistente-di-sterilizzazione-spital-bulach-bulach"
         ],
         "en": [
           "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
@@ -3788,7 +3882,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/oberaerztin-oberarzt-gastroenterologie/54b12923-7a02-47cc-83a5-af231a9a6c52",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.679Z",
+      "crawledAt": "2026-10-03T09:29:49.001Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3807,11 +3901,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach"
+        "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach",
+        "medico-senior-gastroenterologia-medico-senior-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach"
+          "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach",
+          "medico-senior-gastroenterologia-medico-senior-spital-bulach-bulach"
         ],
         "en": [
           "oberarztin-oberarzt-gastroenterologie-spital-buelach-bulach"
@@ -3867,7 +3963,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-chirurgie/6229e392-9b03-48f1-b42e-7558f382a4db",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.676Z",
+      "crawledAt": "2026-10-03T09:29:48.999Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3886,11 +3982,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
+        "dipl-chirurgia-dell-infermiera-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
+          "dipl-chirurgia-dell-infermiera-spital-bulach-bulach"
         ],
         "en": [
           "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
@@ -3946,7 +4044,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-akutgeriatrie/efe2a591-74bc-49bd-8553-55fe754491b9",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.672Z",
+      "crawledAt": "2026-10-03T09:29:48.998Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3965,11 +4063,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
+        "cura-di-stage-geriatria-acuta-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
+          "cura-di-stage-geriatria-acuta-spital-bulach-bulach"
         ],
         "en": [
           "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
@@ -4025,7 +4125,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/pflegeentwicklung-altersmedizin/ba4532c9-c718-45d3-94a5-f9c4f48675bf",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.669Z",
+      "crawledAt": "2026-10-03T09:29:48.996Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4046,13 +4146,15 @@
       "previousSlugs": [
         "care-development-of-old-age-medicine-spital-bulach-bulach",
         "developpement-des-soins-de-la-medecine-de-la-vieillesse-spital-bulach-bulach",
-        "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
+        "pflegeentwicklung-altersmedizin-spital-buelach-bulach",
+        "sviluppo-della-cura-della-medicina-di-vecchiaia-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "care-development-of-old-age-medicine-spital-bulach-bulach",
           "developpement-des-soins-de-la-medecine-de-la-vieillesse-spital-bulach-bulach",
-          "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
+          "pflegeentwicklung-altersmedizin-spital-buelach-bulach",
+          "sviluppo-della-cura-della-medicina-di-vecchiaia-spital-bulach-bulach"
         ],
         "en": [
           "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
@@ -4108,7 +4210,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/berufsbildner-in-pflege-medizin/a5757c20-6deb-48fe-a4fc-62d154fe2730",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.665Z",
+      "crawledAt": "2026-10-03T09:29:48.994Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4127,11 +4229,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
+        "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
+        "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
+          "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
+          "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach"
         ],
         "en": [
           "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
@@ -4187,7 +4291,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-fachperson-operationstechnik/17f29cfe-929b-4367-a61e-60599fd334a7",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.662Z",
+      "crawledAt": "2026-10-03T09:29:48.992Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4206,11 +4310,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-fachperson-operationstechnik-spital-buelach-bulach"
+        "dipl-fachperson-operationstechnik-spital-buelach-bulach",
+        "dipl-tecnologia-chirurgica-specialistica-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-operationstechnik-spital-buelach-bulach"
+          "dipl-fachperson-operationstechnik-spital-buelach-bulach",
+          "dipl-tecnologia-chirurgica-specialistica-spital-bulach-bulach"
         ],
         "en": [
           "dipl-fachperson-operationstechnik-spital-buelach-bulach"
@@ -4266,7 +4372,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-privatstation/cc54a69f-0450-4d7b-9303-dffbc2b0f926",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.658Z",
+      "crawledAt": "2026-10-03T09:29:48.989Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4285,11 +4391,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-privatstation-spital-buelach-bulach"
+        "dipl-pflegefachperson-privatstation-spital-buelach-bulach",
+        "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-privatstation-spital-buelach-bulach"
+          "dipl-pflegefachperson-privatstation-spital-buelach-bulach",
+          "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach"
         ],
         "en": [
           "dipl-pflegefachperson-privatstation-spital-buelach-bulach"
@@ -4345,7 +4453,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-expertin-experte-intensivpflege/a55fd282-8c9e-4587-9287-95028c5d16fa",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.655Z",
+      "crawledAt": "2026-10-03T09:29:48.987Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4364,11 +4472,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+        "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
+        "dipl-esperto-in-terapia-intensiva-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
+          "dipl-esperto-in-terapia-intensiva-spital-bulach-bulach"
         ],
         "en": [
           "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
@@ -4424,7 +4534,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/op-lagerungsassistenz/7621d56c-159d-465e-94ad-569e7f97962e",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.650Z",
+      "crawledAt": "2026-10-03T09:29:48.985Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4444,12 +4554,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "op-lagerungsassistenz-spital-buelach-bulach",
-        "op-lagerungsassistenz-spital-bulach-bulach"
+        "op-lagerungsassistenz-spital-bulach-bulach",
+        "assistenza-di-stoccaggio-operativa-spital-bulach-bulach-8d6cbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "op-lagerungsassistenz-spital-buelach-bulach",
-          "op-lagerungsassistenz-spital-bulach-bulach"
+          "op-lagerungsassistenz-spital-bulach-bulach",
+          "assistenza-di-stoccaggio-operativa-spital-bulach-bulach-8d6cbe"
         ],
         "en": [
           "op-lagerungsassistenz-spital-bulach-bulach"
@@ -4504,7 +4616,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/mitarbeiter-in-kapazitaetsmanagement/3b8b9286-e8eb-4522-9e43-d71ae050cf8b",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.646Z",
+      "crawledAt": "2026-10-03T09:29:48.980Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4524,12 +4636,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-        "collaboratore-trice-kapazitatsmanagement-spital-bulach"
+        "collaboratore-trice-kapazitatsmanagement-spital-bulach",
+        "gestione-delle-capacita-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-          "collaboratore-trice-kapazitatsmanagement-spital-bulach"
+          "collaboratore-trice-kapazitatsmanagement-spital-bulach",
+          "gestione-delle-capacita-spital-bulach-bulach"
         ],
         "en": [
           "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
@@ -4551,7 +4665,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-buelach-2a94bf408cfa",
@@ -4585,7 +4700,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/berufsbildner-in-fage/e5c4aeee-eb8e-4dbb-898f-648c19b38f32",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.642Z",
+      "crawledAt": "2026-10-03T09:29:48.978Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4604,11 +4719,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-fage-spital-buelach-bulach"
+        "berufsbildner-in-fage-spital-buelach-bulach",
+        "formatore-professionale-fage-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-fage-spital-buelach-bulach"
+          "berufsbildner-in-fage-spital-buelach-bulach",
+          "formatore-professionale-fage-spital-bulach-bulach"
         ],
         "en": [
           "berufsbildner-in-fage-spital-buelach-bulach"
@@ -4664,7 +4781,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-medizin/320d5c81-68f6-46f1-8dc4-a938c3d5f048",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.635Z",
+      "crawledAt": "2026-10-03T09:29:48.976Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4691,7 +4808,8 @@
         "healthcare-professional-medical-spital-bulach-bulach",
         "departement-de-medecine-sanitaire-spital-bulach-bulach",
         "specialiste-en-sante-medical-spital-bulach-bulach",
-        "fachperson-gesundheit-medizin-spital-buelach-bulach"
+        "fachperson-gesundheit-medizin-spital-buelach-bulach",
+        "specialista-in-medicina-sanitaria-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4703,7 +4821,8 @@
           "healthcare-professional-medical-spital-bulach-bulach",
           "departement-de-medecine-sanitaire-spital-bulach-bulach",
           "specialiste-en-sante-medical-spital-bulach-bulach",
-          "fachperson-gesundheit-medizin-spital-buelach-bulach"
+          "fachperson-gesundheit-medizin-spital-buelach-bulach",
+          "specialista-in-medicina-sanitaria-spital-bulach-bulach"
         ],
         "en": [
           "fachperson-gesundheit-medizin-spital-buelach-bulach"
@@ -4753,13 +4872,12 @@
         "de": "20 %\nsofort\nunbefristet\nDas Spital Bülach wächst - wachsen Sie mit.\n\n## Mitwirken\n• Pflegerische, hauswirtschaftliche, organisatorische und administrative Tätigkeiten im Geburtshaus oder Wochenbett\n• Bei Abwesenheit von Wöchnerinnen im Geburtshaus: Ganzheitliche Pflege und Betreuung von Wöchnerinnen mit ihren Neugeborenen, gynäkologischen Patientinnen und HNO-Kindern im Tandem mit einer diplomierten Pflegefachperson\n\n## Mitbringen\n• Abgeschlossene Ausbildung als Fachperson Gesundheit\n• Eigenverantwortung, aktives Mitdenken und selbstständiges Arbeiten\n• Hohe Kommunikationsfähigkeit und ausgeprägte Patientenorientierung\n• Flair für administrative Tätigkeiten\n• Offen für flexible Arbeitszeiten\n• Freude am Gastgeber:in sein\n\n## Pluspunkte\nMobilität\n17 Min. von Zürich HB und 5 Min. vom Bahnhof Bülach. SBB oder Ochsner Sport Gutschein bis zu 200 Franken jährlich\nVerpflegung\nVielfältiges Verpflegungsangebot\n(30% Rabatt) mit wöchentlichem \"Pommes-Tag\"\nVergünstigungen\nUnterstützungsbeitrag für Eltern\nTelefonierabatte\nRabatt auf Medikamente\nFlottenrabatte\nund weitere Extras\nUmkleidepauschale\nBis zu 75 Franken\npro Monat\nSozialleistungen\nGrosszügige Prämienanteile und Beitragsaufteilung bei den Sozialversicherungen\nGesundheitsförderung\nBetriebliches Gesundheitsmanagement\nInternes Kursangebot\nVergünstigung auf Sportaktivitäten Sportgruppen\nArbeitszeitmodell Pflege\nFortschrittliche Arbeitszeitmodelle\nFix, Flex, Superflex\nEntsprechende Entlöhnung\nArbeitszeitmodell\nTalentprogramm Pflege und Therapien\nNachwuchsförderung für Bildung, Fach- und Führungsfunktionen\nWertschätzung\nAnerkennung für besondere Leistungen oder Ereignisse\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nÜber uns\n\n## Regionalspital\nGrösster Gesundheitsversorger sowie zweitgrösster Arbeitgeber und Ausbildungsbetrieb im Zürcher Unterland.\n\n## Mitarbeitende\nÜber 1'400 Mitarbeitende aus 47 Nationen mit über 140 Auszubildenden,\nin über 20 Berufen.\n\n## Medizinische Versorgung\nÜber 67'000 ambulante und rund 11'500 stationäre Patientinnen und Patienten pro Jahr.\n\n## Neugeborene\nFünftgrösste Geburtsklinik im Kanton Zürich mit über 1'300 Babys pro Jahr.\n\n## Rettungsdienst und Notfall\nRund 60 Rettungssanitäter:innen leisten über 8'400 Rettungsdiensteinsätze und in unserem Notfall werden rund 30'000 Personen jährlich behandelt.\n\n## Verpflegung\n10'500 frisch zubereitete Mahlzeiten im eigenen Restaurant, Bezug von Lebensmitteln aus der Region.\n\n## Nachhaltigkeit\nHeizung mit Holzschnitzeln aus den Aktionärsgemeinden, Gewinnung von Solarenergie, Vermeidung von Foodwaste, reCircle-System, Mitglied Fair Trade Town.\n\n## Umgebung\nEingebettet zwischen Wald und Stadtzentrum in Bahnhofsnähe mit direkter Zugverbindung nach Zürich HB.\n\n## Zusammenarbeit\nFamiliäres Arbeitsklima und Förderung der Teamkultur.\nKarriere und Ausbildung\nArbeiten und Weiterbilden\nKooperationen und\nPartnerschaften\n\n## Fachperson Gesundheit Medizin 40 - 100 %\nZum Stelleninserat\nBerufsbildner:in FaGe 70 - 100 %\nOP-Lagerungsassistenz 60 - 100 %: Stellenportal",
         "fr": "20 %\nimmédiatement\nPerpétuelle\nL'hôpital Bülach est en croissance - grandir avec lui.\n\n## Participation\n• Soins infirmiers, ménagères, activités organisationnelles et administratives dans le centre de naissance ou après la naissance\n• En l'absence de femmes ayant accouché récemment: soins holistiques et soins aux femmes ayant accouché récemment avec leur nouveau-né, aux patients gynécologiques et aux enfants ENT en association avec une infirmière qualifiée\n\n## Amène-toi.\n• Formation sanitaire terminée\n• Responsabilité personnelle, pensée active et travail indépendant\n• Hautes compétences en communication et forte orientation du patient\n• Flair pour les activités administratives\n• Ouvert à des horaires flexibles\n• Délice dans l'hôte: être dans\n\n## Plus les points\nMobilité\n17 minutes de Zurich HB et 5 minutes de la gare de Bülach. Chèque sport CFF ou Ochsner jusqu'à 200 francs par an\nProduits alimentaires\nDivers services de restauration\n30% de réduction) avec hebdomadaire \"Journée française\"\nAvantages\nSoutien aux parents\nCabine téléphonique\nRéduction sur les médicaments\nRemises sur la flotte\net autres suppléments\nChangements de vêtements\nJusqu'à 75 francs\nPar mois\nPrestations sociales\nPrimes brutes et cotisations sociales\nPromotion de la santé\nGestion de la santé au travail\nOffre de cours internes\nRéduction sur les activités sportives Groupes sportifs\nModèle de temps de travail\nModèles avancés de temps de travail\nFix, Flex, Superflex\nRémunération correspondante\nModèle de temps de travail\nProgramme de talents Soins infirmiers et thérapies\nDéveloppement des jeunes talents dans les domaines de l'éducation, de la spécialisation et de la gestion\nRemerciements\nReconnaissance des services ou événements spéciaux\nPour ce poste, les dossiers des recruteurs ne peuvent être examinés. Merci de votre compréhension.\nSur nous\n\n## Région\nPlus grand fournisseur de soins de santé ainsi que deuxième plus grand employeur et entreprise de formation dans l'Unterland de Zurich.\n\n## Personnel\nPlus de 1 400 employés de 47 pays avec plus de 140 apprentis,\ndans plus de 20 professions.\n\n## Services médicaux\nPlus de 67 000 malades externes et environ 11 500 malades hospitalisés par an.\n\n## Nouveau-né\nCinquième plus grande maternité du canton de Zurich avec plus de 1 300 bébés par an.\n\n## Service de secours et d'urgence\nEnviron 60 ambulanciers : plus de 8 400 services d'urgence et en cas d'urgence, environ 30 000 personnes sont traitées chaque année.\n\n## Produits alimentaires\n10'500 repas fraîchement préparés dans leur propre restaurant, achat de nourriture de la région.\n\n## Durabilité\nChauffage avec des copeaux de bois des communautés actionnaires, extraction de l'énergie solaire, éviter les déchets alimentaires, recircle système, membre Fair Trade Town.\n\n## Environnement\nNiché entre la forêt et le centre-ville près de la gare avec une liaison directe avec Zurich HB.\n\n## Coopération\nEnvironnement de travail familial et promotion de la culture d'équipe.\nCarrière et éducation\nTravail et formation\ncoopération et\nPartenariats\n\n## Professionnels de la santé 40 - 100%\nSur le marché du travail\nFormateurs professionnels: en FaGe 70 - 100%\nAide à l'entreposage opérationnel 60 - 100%: Portail d'emploi"
       },
-      "needsRetranslation": false,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/fachperson-gesundheit-geburtshaus/f569aa75-f621-41d8-b7db-91fe5803f0d7",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.630Z",
+      "crawledAt": "2026-10-03T09:29:48.974Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4777,20 +4895,6 @@
       "applyUrl": "https://jobs.spitalbuelach.ch/fage-geburtshaus-de-f1507.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-gesundheit-geburtshaus-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-geburtshaus-spital-buelach-bulach"
-        ],
-        "en": [
-          "fachperson-gesundheit-geburtshaus-spital-buelach-bulach"
-        ],
-        "fr": [
-          "fachperson-gesundheit-geburtshaus-spital-buelach-bulach"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:36:13.495Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4804,7 +4908,24 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-geburtshaus-spital-buelach-bulach",
+          "centro-di-nascita-della-salute-professionale-spital-bulach-bulach"
+        ],
+        "en": [
+          "fachperson-gesundheit-geburtshaus-spital-buelach-bulach"
+        ],
+        "fr": [
+          "fachperson-gesundheit-geburtshaus-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-geburtshaus-spital-buelach-bulach",
+        "centro-di-nascita-della-salute-professionale-spital-bulach-bulach"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "spital-buelach-01c3cb704fd7",
@@ -4838,7 +4959,7 @@
       "url": "https://job.spitalbuelach.ch/offene-stellen/personalentwickler-in-ausbildung-tertiaerstufe/1ebea20b-50a1-4930-a015-d46093d5e97b",
       "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:32:53.622Z",
+      "crawledAt": "2026-10-03T09:29:48.970Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4871,7 +4992,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:32:53.622Z"
+      "firstSeenAt": "2026-10-03T09:29:48.970Z"
     }
   ]
 }

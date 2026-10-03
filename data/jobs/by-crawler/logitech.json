@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-10-02T21:33:28.435Z",
+  "assembledAt": "2026-10-03T09:29:39.507Z",
   "jobs": [
     {
       "id": "logitech-171aac38ec54",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:22.628Z",
+      "crawledAt": "2026-10-03T09:29:35.038Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -114,7 +114,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:21.620Z",
+      "crawledAt": "2026-10-03T09:29:34.098Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,7 +159,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "logitech-9e9c2ed0e9da",
@@ -192,7 +193,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Sourcing-Specialist_148044",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:20.691Z",
+      "crawledAt": "2026-10-03T09:29:33.169Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -270,7 +271,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/DTX-Data-Analytics---Insights-Manager_147018",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:19.739Z",
+      "crawledAt": "2026-10-03T09:29:32.147Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -315,7 +316,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "logitech-b591bfe0cc9b",
@@ -348,7 +350,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/PWS-Global-Marketing-Manager_147736",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:18.774Z",
+      "crawledAt": "2026-10-03T09:29:31.220Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -423,7 +425,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Technical-Project-Manager_148405",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:17.835Z",
+      "crawledAt": "2026-10-03T09:29:30.287Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -502,7 +504,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Intern--Finance_148448",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:16.858Z",
+      "crawledAt": "2026-10-03T09:29:29.319Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -580,7 +582,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Manager--Sr-Analyst--Tax_148457",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:15.889Z",
+      "crawledAt": "2026-10-03T09:29:28.385Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -595,10 +597,7 @@
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Manager--Sr-Analyst--Tax_148457",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-sr-analyst-tax-logitech-ch",
-        "manager-sr-analista-tax-logitech-lausanne"
-      ],
+      "firstSeenAt": "2026-09-30T21:38:00.281Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-sr-analyst-tax-logitech-ch",
@@ -611,7 +610,10 @@
           "manager-sr-analyst-tax-logitech-ch"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:38:00.281Z",
+      "previousSlugs": [
+        "manager-sr-analyst-tax-logitech-ch",
+        "manager-sr-analista-tax-logitech-lausanne"
+      ],
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -625,7 +627,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "logitech-a39cf27f9345",
@@ -658,7 +661,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/People---Culture-Project-Management-Intern--6-month-contract-_148443",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:33:14.916Z",
+      "crawledAt": "2026-10-03T09:29:27.457Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
