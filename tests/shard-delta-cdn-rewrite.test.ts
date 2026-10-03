@@ -282,7 +282,10 @@ describe('push-section-shard con SHARD_DELTA_CDN_REWRITE', () => {
 
 describe('deploy.yml cabla SHARD_DELTA_CDN_REWRITE', () => {
   it('passa la variabile ai due step di push sezione e mette la barriera nei due pack', () => {
-    const yml = readFileSync(join(ROOT, '.github/workflows/deploy.yml'), 'utf8');
+    const yml = `${readFileSync(join(ROOT, '.github/workflows/deploy.yml'), 'utf8')}\n${readFileSync(
+      join(ROOT, '.github/workflows/deploy-publish.yml'),
+      'utf8',
+    )}`;
     const wire = "SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}";
     expect(yml.split(wire).length - 1).toBe(2);
     expect(yml.split('shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true').length - 1).toBe(2);

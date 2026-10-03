@@ -74,6 +74,7 @@ jobs:
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/independent-fleet-outcome.mjs
             /scripts/ci/loop-fleet-status.mjs
+            /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/github-issue-creator.mjs
             /.github/workflows/loop-l10-fleet-control.yml
           sparse-checkout-cone-mode: false

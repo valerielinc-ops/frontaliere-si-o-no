@@ -84,7 +84,8 @@ describe('run-related-tests — un diff di soli contratti di radice seleziona ch
   it('un markdown fuori elenco non diventa una selezione', () => {
     // `README.md` è il nome di fixture più comune nei test che costruiscono un
     // repo temporaneo: indicizzarlo selezionerebbe test estranei.
-    expect(selectionOutputFor(['README.md']))
-      .toContain('No existing source/test files in the diff → related-only run has no tests.');
+    // L'unico test che entra è il gate dei segreti hardcoded, che scandisce
+    // anche il Markdown: nessun test scelto per il NOME del file.
+    expect(selectionFor(['README.md'])).toEqual(['tests/no-hardcoded-secrets.test.ts']);
   }, 300_000);
 });

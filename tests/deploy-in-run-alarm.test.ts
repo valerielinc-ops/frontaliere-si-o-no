@@ -41,6 +41,7 @@ import { parseWorkflow, coverageOf, isFailureGated } from '../scripts/ci/failure
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DEPLOY_RAW = fs.readFileSync(path.join(ROOT, '.github/workflows/deploy.yml'), 'utf8');
 const DEPLOY = parse(DEPLOY_RAW) as any;
+const DEPLOY_PUBLISH_RAW = fs.readFileSync(path.join(ROOT, '.github/workflows/deploy-publish.yml'), 'utf8');
 const ALARM_RAW = fs.readFileSync(path.join(ROOT, '.github/workflows/deploy-failure-alarm.yml'), 'utf8');
 const ALARM = parse(ALARM_RAW) as any;
 const FIXTURES = path.join(ROOT, 'tests/fixtures/deploy-in-run-alarm');
@@ -518,7 +519,7 @@ describe('resolve-build-alarm — «CI Failure (build)» si chiude solo a run tu
     expect(closers).toHaveLength(1);
     expect(closers[0].with!.mode).toBe('resolve');
     // I titoli per-locale restano nella gamba: lì ogni gamba chiude il proprio.
-    const legRuns = legSteps.map((st: any) => String(st.run ?? '')).join('\n');
+    const legRuns = `${legSteps.map((st: any) => String(st.run ?? '')).join('\n')}\n${DEPLOY_PUBLISH_RAW}`;
     expect(legRuns).toContain('Deploy: ${{ matrix.locale }} locale shard push failed (stale live locale)');
   });
 

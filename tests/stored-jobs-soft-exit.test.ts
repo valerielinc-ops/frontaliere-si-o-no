@@ -10,6 +10,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import ts from 'typescript';
 import { describe, it, expect, vi } from 'vitest';
 import { rewritePreparedStoredJobs } from '../scripts/lib/stored-jobs-soft-exit.mjs';
 import { dropFabricatedDescriptions } from '../scripts/lib/drop-fabricated-description.mjs';
@@ -19,6 +20,46 @@ const FIXTURE = JSON.parse(fs.readFileSync(
   path.join(__dirname, 'fixtures/crawler-fabricated-descriptions/pdf-backed-runner-crawlers.json'),
   'utf8',
 ));
+
+function countCleanedExitBlocks(source: string): number {
+  const file = ts.createSourceFile('runner.mjs', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+  let exits = 0;
+  const visit = (node: ts.Node) => {
+    if (ts.isBlock(node)) {
+      let cleaned = false;
+      for (const statement of node.statements) {
+        if (ts.isReturnStatement(statement)) {
+          if (cleaned) exits += 1;
+          break;
+        }
+        if (ts.isExpressionStatement(statement) && ts.isAwaitExpression(statement.expression)) {
+          const call = statement.expression.expression;
+          if (ts.isCallExpression(call) && ts.isIdentifier(call.expression)
+            && call.expression.text === 'cleanStoredJobsOnSoftExit' && call.arguments.length === 0) {
+            cleaned = true;
+          }
+        }
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(file);
+  return exits;
+}
+
+describe('stored-job cleanup exit observer', () => {
+  it('allows summary reporting between awaited cleanup and return', () => {
+    expect(countCleanedExitBlocks('async function main() { if (empty) { await cleanStoredJobsOnSoftExit(); reportSummary(); return; } }')).toBe(1);
+  });
+
+  it.each([
+    'async function main() { if (empty) { cleanStoredJobsOnSoftExit(); return; } }',
+    'async function main() { if (empty) { if (other) { await cleanStoredJobsOnSoftExit(); } return; } }',
+    'async function main() { if (empty) { return; await cleanStoredJobsOnSoftExit(); } }',
+  ])('rejects an exit without unconditional awaited cleanup: %s', (source) => {
+    expect(countCleanedExitBlocks(source)).toBe(0);
+  });
+});
 
 function storedFartJob(index = 0) {
   const row = FIXTURE.fart;
@@ -239,9 +280,9 @@ describe('lot H/K runners clean their stored jobs at every zero-job exit', () =>
       expect(fn).toContain(`prepare: (jobs) => { for (const job of jobs) ${mergeDrop}(job); },`);
       expect(fn).toMatch(/storedJobs: readExistingCrawlerJobs\([A-Z_]+, DATA_JOBS\)\.filter\([A-Za-z]+\),/);
       expect(fn).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSlice(?:Verified)?\([A-Z_]+, jobs, options\),/);
-      // Each call sits right before the `return` of a zero-job exit.
-      const calls = source.match(/await cleanStoredJobsOnSoftExit\(\);\s*return;/g) || [];
-      expect(calls).toHaveLength(exits);
+      // Cleanup must be awaited in the same block before its return. A
+      // diagnostic summary can read the cleaned slice between those steps.
+      expect(countCleanedExitBlocks(source)).toBe(exits);
       expect(source.split('await cleanStoredJobsOnSoftExit();').length - 1).toBe(exits);
     });
   }

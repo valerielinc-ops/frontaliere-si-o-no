@@ -220,6 +220,24 @@ describe('borderWaitPagesPlugin — page generation', () => {
   const today = new Date('2026-04-21T06:00:00.000Z');
   const pages = generateBorderWaitPages({ current: MINIMAL_CURRENT, history: [], today });
 
+  it('describes Swiss checkpoints without foreign locality or unsupported tourism/coverage claims', () => {
+    let places = 0;
+    for (const html of Object.values(pages)) {
+      const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+      for (const schema of schemas) {
+        if (schema['@type'] !== 'Place') continue;
+        places++;
+        expect(schema.address.addressCountry).toBe('CH');
+        expect(schema.address.addressLocality).toBeUndefined();
+        expect(schema.amenityFeature.some((item: { name: string }) => item.name.includes('BAZG'))).toBe(false);
+      }
+      expect(html).not.toContain('"TouristAttraction"');
+      const text = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]*>/g, ' ');
+      expect(text).not.toMatch(/Firestore|hydration|Hydration|\bREST\b|traffic-scheduler\.yml/);
+    }
+    expect(places).toBeGreaterThan(0);
+  });
+
   it('generates a page for every canonical route', () => {
     for (const route of BORDER_WAIT_ROUTES) {
       expect(pages[route]).toBeDefined();

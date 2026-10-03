@@ -49,6 +49,7 @@ const criticalTranslations: Record<string, string> = {
  // Navbar tagline under the brand
  'nav.subtitle': 'Analisi Fiscale 2026',
  // Calculator sub-tabs (rendered immediately on `/` since calculator is the default tab)
+ 'strumenti.payslip': 'Busta Paga',
  'simulator.calculator': 'Calcolatore',
  'simulator.whatif': '✨ Cosa cambia se...',
  // Homepage H1 — above-the-fold SEO heading

@@ -12,7 +12,6 @@ on:
       - 'scripts/ci/export-l7-experiment-outcomes.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
@@ -29,7 +28,6 @@ on:
       - 'scripts/ci/export-l7-experiment-outcomes.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l7-experiment-allocator.mjs'
@@ -70,7 +68,6 @@ jobs:
             /scripts/ci/export-l7-experiment-outcomes.mjs
             /scripts/ci/export-loop-outcomes.mjs
             /scripts/lib/ga4-service-account.mjs
-            /scripts/lib/ga4-l5-decision-dimension.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/lib/posthog-client.mjs
             /scripts/ci/loop-l7-experiment-allocator.mjs

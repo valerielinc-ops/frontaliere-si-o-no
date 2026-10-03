@@ -26,6 +26,7 @@ import { orphanQueryLandingPlugin } from './build-plugins/orphanQueryLandingPlug
 import { relatedSearchClustersPlugin } from './build-plugins/relatedSearchClustersPlugin';
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
+import { newsletterPreferencesPagesPlugin } from './build-plugins/newsletterPreferencesPagesPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
@@ -364,6 +365,7 @@ export default defineConfig(({ mode }) => {
  // typical agent sessions via .claude/settings.json env block.
  relatedSearchClustersPlugin(__dirname),
  salaryHubPlugin(__dirname),
+ newsletterPreferencesPagesPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
  // Canton-orphan redirects: emits HTTP-200 canonical-bridge HTML at every
  // /cerca-lavoro-{canton}/{foreign-editorial-slug}/ combination (TI long-

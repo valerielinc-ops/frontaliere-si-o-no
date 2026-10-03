@@ -110,6 +110,11 @@ public/data/jobs-by-canton/
 !.claude/settings.json
 .serena
 .playwright-mcp
+# Screenshots a browser session saves in the repository root: never source
+# (two console captures entered with an unrelated PR on 2026-05-27).
+/*.png
+/*.jpg
+/*.jpeg
 gsc
 download
 data/jobs/by-crawler/*.cleanup-tmp.json

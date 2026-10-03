@@ -32,6 +32,7 @@ import { buildIssueBody as buildCampaignGoalBody } from '../scripts/campaign-goa
 import { buildIndexationIssueBody, buildStructuredDataIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
 import { buildIssueBody as buildSourceLivenessBody } from '../scripts/check-source-liveness.mjs';
 import { buildIssueBody as buildAuthSignupBody } from '../scripts/check-auth-signup-subscribers.mjs';
+import { buildIssueBody as buildEmployerInsightsFreshnessBody, evaluateFreshness as evaluateEmployerInsightsFreshness } from '../scripts/ci/check-employer-insights-freshness.mjs';
 import { aggregate as authSignupAggregate, evaluate as authSignupEvaluate } from '../scripts/lib/authSignupSubscriberMetrics.mjs';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
@@ -109,6 +110,10 @@ const OPENERS: Array<[string, () => string]> = [
     daysRemaining: 15, cycleStart: new Date(),
     cycleEnd: new Date(Date.now() + 86_400_000),
   })],
+  ['employer-insights-freshness', () => buildEmployerInsightsFreshnessBody(
+    evaluateEmployerInsightsFreshness({ latestUpdatedAt: '2026-09-21T10:55:00.000Z', now: new Date('2026-10-03T10:30:00.000Z') }),
+    { runUrl: 'https://github.com/owner/repo/actions/runs/1' },
+  )],
 ];
 
 /**

@@ -1,5 +1,5 @@
 import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
-import { GPT_ENABLED, getGptTag, initGptFramework } from '@/components/shared/GptAdSlot';
+import { GPT_ENABLED, GPT_REWARDED_ENABLED, getGptTag, initGptFramework } from '@/components/shared/GptAdSlot';
 import { isLikelyBot } from '@/services/botPatterns';
 import { Analytics } from '@/services/analytics';
 import { getAdsConsent, isAdsConsentGranted } from '@/services/adsConsent';
@@ -167,6 +167,10 @@ export function getRewardedWebAdIneligibility(enabled = true): RewardedWebAdInel
   if (typeof window === 'undefined') return { reason: 'not_production', detail: 'not_browser' };
   if (!isAdSenseProductionHost(window.location.hostname)) return { reason: 'not_production', detail: 'unsupported_host' };
   if (isLikelyBot()) return { reason: 'not_eligible', detail: 'bot' };
+  // After the host and bot rules, so those runs keep their own reason (and the
+  // direct hand-off); before the consent rule, which is not what stops a real
+  // visitor while the video is off.
+  if (!GPT_REWARDED_ENABLED) return { reason: 'gpt_unavailable', detail: 'rewarded_disabled' };
   if (!isAdsConsentGranted()) {
     return { reason: 'consent_denied', detail: getAdsConsent() === 'denied' ? 'denied' : 'missing' };
   }

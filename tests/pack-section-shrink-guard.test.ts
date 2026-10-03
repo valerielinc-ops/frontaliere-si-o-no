@@ -12,7 +12,10 @@ import { resolve } from 'node:path';
 // packing, so a shrink between the push and pack steps is still caught.
 
 const ROOT = resolve(import.meta.dirname, '..');
-const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+const DEPLOY_YML = `${readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8')}\n${readFileSync(
+  resolve(ROOT, '.github/workflows/deploy-publish.yml'),
+  'utf-8',
+)}`;
 const PUSH_SECTION_SHARD_SH = readFileSync(resolve(ROOT, 'scripts/lib/push-section-shard.sh'), 'utf-8');
 
 function extractPackSectionFns(yml: string): string[] {

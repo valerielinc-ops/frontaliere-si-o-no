@@ -34,6 +34,8 @@ import {
   listNonLiveDataTestsForCi,
   listLiveDataMonitorTests,
   LIVE_DATA_PARTIAL_TESTS,
+  findInventoryEntriesWithoutLiveRead,
+  codeOnlyShape,
 } from '../scripts/ci/live-data-test-guard.mjs';
 
 describe('nessun test NUOVO puo` leggere dati vivi', () => {
@@ -144,6 +146,118 @@ describe('il rilevatore', () => {
     for (const { file } of LIVE_DATA_SCAN_EXEMPTIONS) {
       expect(listLiveDataTestsForCi(), `${file} deve restare nel gate PR`).not.toContain(file);
     }
+  });
+});
+
+describe('un test che NON legge dati vivi non puo` stare nell`inventario', () => {
+  // Il verso opposto del guard, misurato il 2026-10-03 (issue #9453): un test
+  // di CODICE nell'inventario esce dal gate delle PR, la regressione passa il
+  // merge e riappare solo nel monitor giornaliero. `live-data-gates.yml` era
+  // rosso da giorni su un parser di chiavi i18n rotto e su un'asserzione
+  // superata sul testo di un workflow: difetti di codice, non di dato.
+  it('nessuna voce dell`inventario ha la forma di un test di solo codice', () => {
+    const offenders = findInventoryEntriesWithoutLiveRead();
+    const detail = offenders.map((o) => `${o.file} → ${o.shape}`).join('\n  ');
+    expect(
+      offenders,
+      offenders.length
+        ? `\nQueste voci di KNOWN_LIVE_DATA_TESTS non mostrano alcuna lettura di dato vivo:\n  ${detail}\n\n`
+          + 'Un test di codice nell`inventario NON gira sulle PR: la regressione che\n'
+          + 'dovrebbe fermare passa il merge e finisce nel monitor giornaliero.\n\n'
+          + 'Rimedio: togli la voce da KNOWN_LIVE_DATA_TESTS e spostala in\n'
+          + 'LIVE_DATA_SCAN_EXEMPTIONS con il motivo (il file torna nel gate delle PR).\n'
+          + 'Se invece il dato vivo arriva da un import o da un processo figlio, che\n'
+          + 'il testo non mostra, marca la voce `runtime: true` o `transitive: true`\n'
+          + 'e scrivi accanto cosa ha misurato la traccia a runtime.'
+        : '',
+    ).toEqual([]);
+  });
+
+  it('riconosce i chunk di interfaccia: sotto services/locales/ ma non vivi', () => {
+    const uiChunk = "const src = fs.readFileSync(path.resolve(ROOT, `services/locales/${locale}-core.ts`), 'utf8');";
+    expect(codeOnlyShape(uiChunk)).toBe('ui-locale-chunks');
+    // Il registro degli articoli e' un symlink verso il corpus: quello e' vivo.
+    const corpus = "const file = path.join(ROOT, 'services', 'locales', 'blog-meta-it.ts');";
+    expect(codeOnlyShape(corpus)).toBeNull();
+    const body = "const dir = path.resolve(__dirname, '..', 'services', 'locales', 'blog-body', 'it');";
+    expect(codeOnlyShape(body)).toBeNull();
+  });
+
+  it('riconosce il sorgente del package: packages/articles/engine non e` il corpus', () => {
+    const engine = "const src = fs.readFileSync(np.join(ROOT, 'packages', 'articles', 'engine', 'ogPagesPlugin.ts'), 'utf8');";
+    expect(codeOnlyShape(engine)).toBe('package-engine-source');
+    // La radice del package passata a una funzione che ci appende `content/`
+    // resta viva (news-ticker-data): il testo non prova che si fermi al codice.
+    const packageRoot = "const PACKAGE_ROOT = np.resolve(ROOT, 'packages', 'articles');";
+    expect(codeOnlyShape(packageRoot)).toBeNull();
+    const mixed = [
+      "const a = np.join(ROOT, 'packages', 'articles', 'engine', 'x.ts');",
+      "const b = np.join(ROOT, 'packages', 'articles', 'content');",
+    ].join('\n');
+    expect(codeOnlyShape(mixed)).toBeNull();
+  });
+
+  it('riconosce la fixture temporanea: il percorso vivo nasce sotto mkdtemp', () => {
+    const fixture = [
+      "const ROOT = path.resolve(__dirname, '..');",
+      "const SCRIPT = path.join(ROOT, 'scripts', 'pull-articles-corpus.mjs');",
+      "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'site-checkout-'));",
+      "fs.mkdirSync(path.join(dir, 'packages', 'articles', 'content'), { recursive: true });",
+    ].join('\n');
+    expect(codeOnlyShape(fixture)).toBe('temp-fixture');
+    // Stessa cartella temporanea, ma il dato vivo si legge dal checkout.
+    const anchored = [
+      "const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'x-'));",
+      "const candidates = path.join(ROOT, 'data/prospector/candidates.json');",
+    ].join('\n');
+    expect(codeOnlyShape(anchored)).toBeNull();
+    // Una costante assegnata dalla root del checkout e' un'ancora anch'essa.
+    const alias = [
+      "const rootDir = np.resolve(__dirname, '..');",
+      "const out = fs.mkdtempSync(np.join(os.tmpdir(), 'hubs-'));",
+      "const present = fs.existsSync(np.join(rootDir, 'services/locales/blog-meta-it.ts'));",
+    ].join('\n');
+    expect(codeOnlyShape(alias)).toBeNull();
+    // Senza cartella temporanea un letterale relativo e' una lettura dal repo.
+    expect(codeOnlyShape("const SLICE = readJson('data/jobs/by-crawler/de.json');")).toBeNull();
+  });
+
+  it('si ferma su una voce di solo codice anche in un repo sintetico', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-code-only-'));
+    try {
+      fs.mkdirSync(path.join(root, 'tests'), { recursive: true });
+      fs.writeFileSync(
+        path.join(root, 'tests', 'copy-keys.test.ts'),
+        "const src = fs.readFileSync(path.resolve(ROOT, `services/locales/${locale}-core.ts`), 'utf8');\n",
+      );
+      fs.writeFileSync(
+        path.join(root, 'tests', 'traced.test.ts'),
+        "const src = fs.readFileSync(path.resolve(ROOT, `services/locales/${locale}-core.ts`), 'utf8');\n",
+      );
+      expect(findInventoryEntriesWithoutLiveRead(root, [
+        { file: 'tests/copy-keys.test.ts' },
+        // La traccia a runtime vale piu' del testo: la voce marcata resta.
+        { file: 'tests/traced.test.ts', runtime: true },
+      ])).toEqual([{ file: 'tests/copy-keys.test.ts', shape: 'ui-locale-chunks' }]);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('i file riclassificati il 2026-10-03 girano nel gate delle PR, non nel monitor', () => {
+    const moved = LIVE_DATA_SCAN_EXEMPTIONS.filter((e) => e.since === '2026-10-03');
+    expect(moved.length, 'la riclassificazione non puo` sparire silenziosamente').toBeGreaterThan(0);
+    const excludedFromPrGate = new Set(listLiveDataTestsForCi());
+    const monitor = new Set(listLiveDataMonitorTests());
+    for (const { file, evidence } of moved) {
+      expect(excludedFromPrGate.has(file), `${file} deve girare sulle PR`).toBe(false);
+      expect(monitor.has(file), `${file} non e\` un test su dati vivi`).toBe(false);
+      expect(evidence, `${file}: la riclassificazione dichiara la prova`).toBe('trace');
+    }
+    // Il file MISTO: resta nella suite del gate e i suoi casi sul corpus girano
+    // nel monitor.
+    expect(excludedFromPrGate.has('tests/i18n-completeness.test.ts')).toBe(false);
+    expect(monitor.has('tests/i18n-completeness.test.ts')).toBe(true);
   });
 });
 

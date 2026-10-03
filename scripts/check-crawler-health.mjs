@@ -443,21 +443,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // automatically when Yapeal republishes a posting. Same
   // legitimately-empty small-employer case as linnea/josef-mueller (#4751).
   'yapeal',
-  // Temenos (Geneva-HQ banking software, Workday tenant temenos.wd103,
-  // site Temenoscareers): verified live 2026-08-05 — the tenant's location
-  // facet is `locationMainGroup`, so the canonical `locationCountry` facet
-  // that createWorkdaySwissParser sends is rejected with HTTP 400; the
-  // factory's documented fallback (refetch unfiltered + strict CH gate) then
-  // fetches the WHOLE board and gets `total: 16` postings, every one of them
-  // explicitly foreign (Paris, Sydney, Singapore, United States Remote,
-  // London, Bertrange LU, Bucharest, Chennai, Makati City). Zero Swiss roles
-  // — the Geneva HQ simply has no open req right now. The public careers
-  // site (careers.temenos.com → temenos.com/about-us/careers/) links to the
-  // same `Temenoscareers` Workday site, so there is no second board we are
-  // missing. Listing fetch + strict CH gate are healthy and re-arm the moment
-  // a Geneva/Swiss req is published. Same legitimately-empty
-  // regional-filter case as bracco/fnz (#4844).
-  'temenos',
   // Veeam Software (Baar ZG Swiss entity, Greenhouse board `veeamsoftware`):
   // verified live 2026-08-05 — https://boards-api.greenhouse.io/v1/boards/
   // veeamsoftware/jobs returns HTTP 200 with 235 postings worldwide (board
@@ -798,6 +783,16 @@ function summaryHasAuthoritativeEmpty(slug, summary) {
   );
 }
 
+/**
+ * Commit del sito che ha prodotto la summary (`codeCommit`, scritto da
+ * `writeSummaryCrawlerSlice`). `null` per le summary che precedono il campo o
+ * che non lo dichiarano in forma di sha completo: mai un valore dedotto.
+ */
+function observedCodeCommit(summary) {
+  const value = summary && typeof summary === 'object' ? summary.codeCommit : null;
+  return typeof value === 'string' && /^[0-9a-f]{40}$/.test(value) ? value : null;
+}
+
 async function inspectCrawler(slug) {
   const sliceFilePath = path.join(BY_CRAWLER_DIR, `${slug}.json`);
   const data = await readJsonSafe(sliceFilePath);
@@ -937,6 +932,7 @@ async function inspectCrawler(slug) {
     abortKind,
     earlyExit,
     exitCode,
+    codeCommit: observedCodeCommit(summary),
   };
 }
 
@@ -1055,6 +1051,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     abortKind,
     earlyExit,
     exitCode,
+    codeCommit: observedCodeCommit(summary),
   };
 }
 
@@ -1575,6 +1572,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _authoritativeEmptySnapshot: authoritativeEmpty,
       _lastObservedFetchOutcome: fetchOutcome,
       _lastObservedAbortKind: abortKind,
+      // Non entra in OBSERVATION_DIAGNOSTIC_FIELDS di proposito: il commit
+      // descrive l'osservazione vincente, e ereditarlo da quella scartata
+      // attribuirebbe a una run il codice di un'altra.
+      _lastObservedCodeCommit: observedCodeCommit(observation),
       _abortedRun: abortedRun,
     },
     reason,
@@ -1666,6 +1667,7 @@ async function main() {
         lastSeenAt: state.lastSuccessfulRunAt,
         status: issueStatus,
         consecutiveEmptyRuns: state.consecutiveEmptyRuns,
+        codeCommit: state._lastObservedCodeCommit ?? null,
       };
       // La scheda viaggia nel file, non nel workflow: la condizione di chiusura
       // di questa issue vive nel codice del closer (lo step "Close recovered
@@ -1750,10 +1752,11 @@ export {
  * `advisory: false` per quello slug. Qui quella stessa condizione diventa
  * leggibile da chi raccoglie la issue, con il comando che la verifica.
  *
- * @param {{slug:string, status:string, reason:string, consecutiveEmptyRuns?:number}} issue
+ * @param {{slug:string, status:string, reason:string, consecutiveEmptyRuns?:number, codeCommit?:string|null}} issue
  */
 export function buildHealthScheda(issue) {
   const { slug, status } = issue;
+  const codeCommit = observedCodeCommit(issue);
   return buildScheda({
     causa: [
       `(ipotesi, da confermare.) Il crawler \`${slug}\` non pubblica piu' annunci freschi:`,
@@ -1773,6 +1776,9 @@ export function buildHealthScheda(issue) {
       'dal disco per due motivi: lo stato che il closer guarda e\' quello che il monitor',
       'committa su `main`, non uno ricalcolato in locale, e cosi\' verificare il criterio non',
       'lascia file dati modificati nel working tree di chi verifica.',
+      codeCommit
+        ? `Codice osservato: l'ultima summary e' stata prodotta dal commit \`${codeCommit}\` del sito. Una fix mergiata DOPO quel commit non ha ancora girato: \`git merge-base --is-ancestor <merge commit della fix> ${codeCommit}\` lo verifica prima di riaprire il parser.`
+        : "Codice osservato: l'ultima summary non dichiara `codeCommit`, quindi da qui non si puo' stabilire se una fix recente ha gia' girato.",
     ],
     osservatore: [
       '`.github/workflows/crawler-health-monitor.yml` — lo step "Close recovered',

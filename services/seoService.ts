@@ -1,3 +1,4 @@
+import { localizeArticlePageIdentity } from './seo/article-page-identity';
 /**
  * SEO Service - Dynamic Meta Tags Management
  * Manages SEO metadata for different sections of the app
@@ -1923,7 +1924,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  return false;
  }
  })();
- const robotsDirective = hasFilterQuery
+ const robotsDirective = hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
@@ -2068,11 +2069,12 @@ export async function updateMetaTags(section: string): Promise<void> {
  // produces Semrush/Google structured-data errors.
  const rawType = clone['@type'];
  const type = Array.isArray(rawType) ? rawType[0] : rawType;
+ const isEditorialEntity = (Array.isArray(rawType) ? rawType : [rawType]).some(value => ['Article', 'NewsArticle', 'BlogPosting'].includes(value));
  if (typeof type === 'string' && TYPES_ACCEPT_IN_LANGUAGE.has(type)) {
  clone.inLanguage = locale;
  }
- if (typeof clone.url === 'string' && clone.url.startsWith(BASE_URL)) clone.url = `${BASE_URL}${canonicalLocalePath}`;
- if (typeof clone.mainEntityOfPage === 'string' && clone.mainEntityOfPage.startsWith(BASE_URL)) {
+ if ((!isEditorialEntity || isBlogArticle) && typeof clone.url === 'string' && clone.url.startsWith(BASE_URL)) clone.url = `${BASE_URL}${canonicalLocalePath}`;
+ if ((!isEditorialEntity || isBlogArticle) && typeof clone.mainEntityOfPage === 'string' && clone.mainEntityOfPage.startsWith(BASE_URL)) {
  clone.mainEntityOfPage = `${BASE_URL}${canonicalLocalePath}`;
  }
  if (isBlogArticle) {
@@ -2080,7 +2082,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (hasLocalizedExcerpt && typeof clone.description === 'string') clone.description = metaDescription;
  if (hasLocalizedImageAlt && clone.image && typeof clone.image === 'object') clone.image.caption = localizedImageAlt;
  }
- if (!isBlogArticle) {
+ if (!isBlogArticle && !isEditorialEntity) {
  if (typeof clone.name === 'string') clone.name = metaOgTitle.replace(' | Frontaliere Ticino', '');
  if (typeof clone.headline === 'string') clone.headline = metaOgTitle;
  if (typeof clone.description === 'string') clone.description = metaDescription;
@@ -2092,6 +2094,13 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (locale !== 'it') {
  translateSchema(clone, locale as 'en' | 'de' | 'fr');
  }
+ if (!isBlogArticle) localizeArticlePageIdentity(clone, {
+ sourceUrl: `${BASE_URL}${metadata.canonicalPath}`,
+ canonicalUrl: `${BASE_URL}${canonicalLocalePath}`,
+ headline: metaOgTitle,
+ description: metaDescription,
+ locale,
+ });
  }
  return clone;
  });

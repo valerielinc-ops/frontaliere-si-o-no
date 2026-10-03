@@ -79,7 +79,7 @@ Recommended spine:
 - Never disable AdSense Auto Ads; CLS fixes via reserved space only.
 - Job structured data must include in **every** locale: `baseSalary, postalCode, streetAddress, title, description, datePosted, hiringOrganization.name, jobLocation, employmentType` — missing source ⇒ safe default, never drop the check.
 - Never thin content <50 words indexed.
-- Silent consent — no cookie/consent banner (analytics/ads). Privacy: canonical git identity, never hard-code PII.
+- Silent consent — no cookie/consent banner (analytics/ads). Privacy: never hard-code PII.
 - Static SSG via `buildSeoPageHtml`; SPA/static handoff is router-driven (`staticOverlay`), never DOM heuristic.
 - **SEO automation moratorium**: no new build-plugin SEO landing while GSC 7-day avg position > 7.5 — *exceptions: bug fix, net-reducing consolidation, redirect/bridge emitter*. The portal **reuses the existing job-page emitter**; it does **not** add a new SEO landing type, so it is moratorium-compatible (job pages are organic content, not a new landing surface). **`da verificare:` confirm current `data/gsc-position-rolling.json` 7-day avg with owner before any net-new page family.**
 

@@ -1561,6 +1561,7 @@ const deCore: Record<string, string> = {
  'freshness.source.ufsp': 'BAG — Bundesamt für Gesundheit',
  'common.day': 'Tag',
  'jobs.compare': 'Vergleichen',
+ 'strumenti.payslip': 'Lohnabrechnung',
  'comparators.ral': 'Nettogehalt',
  'ral.title': 'Nettogehalt-Rechner: Italien vs Schweiz',
  'ral.subtitle': 'Vergleiche das Nettogehalt bei gleichem Brutto zwischen Italien und der Schweiz',

@@ -86,13 +86,20 @@ jobs:
           # data-only push), and the timing upload correctly emits no artifact
           # with `if-no-files-found: ignore`. Walk back over recent green main
           # runs instead of assuming the newest green run has timing data.
+          # A `--branch` run listing without `--created` can come back frozen
+          # weeks in the past (scripts/ci/lib/run-listing-window.mjs), and the
+          # walk-back below would then only see runs whose timing artifacts
+          # (retention 7 days in tests.yml) are long gone. Eight days = that
+          # retention plus one; candidates are ordered newest-first locally.
+          CREATED_SINCE="$(jq -rn 'now - (8 * 86400) | strftime("%Y-%m-%d")')"
           if ! CANDIDATES="$(gh run list --workflow=tests.yml --branch main --status success \
-            --limit 20 --json databaseId,createdAt --jq '.[] | [.databaseId, .createdAt] | @tsv')"; then
+            --created ">=$CREATED_SINCE" \
+            --limit 20 --json databaseId,createdAt --jq 'sort_by(.createdAt) | reverse | .[] | [.databaseId, .createdAt] | @tsv')"; then
             echo "::error::Unable to list successful main tests runs — cannot refresh weights."
             exit 1
           fi
           if [ -z "${CANDIDATES:-}" ]; then
-            echo "::error::No successful main tests run found — cannot refresh weights."
+            echo "::error::No successful main tests run created since $CREATED_SINCE — cannot refresh weights."
             exit 1
           fi
 
