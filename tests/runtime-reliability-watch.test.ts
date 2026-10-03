@@ -351,7 +351,7 @@ describe('runtime reliability watchdog', () => {
       publishWorkflow.indexOf('  runtime-watchdog:'),
       publishWorkflow.indexOf('  report-failure:'),
     );
-    expect(job).toContain('needs: [deploy, validate-dist, validate-live, publish]');
+    expect(job).toContain('needs: [deploy, resolve-nonit-publish, validate-dist, validate-live, publish]');
     expect(job).toMatch(/if:\s*>-\s*\n\s*\$\{\{ always\(\)/);
     expect(job).toContain("needs.deploy.result == 'success'");
     // The old gate skipped the watchdog exactly when the live site was broken.

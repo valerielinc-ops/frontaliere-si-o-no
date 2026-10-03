@@ -47,8 +47,18 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     const steps = reporterSteps(job);
     const byJob = new Map(steps.map((step: any) => [step.with['log-from-job'], step]));
 
-    expect(job.needs).toEqual(['deploy', 'validate-dist', 'validate-live', 'publish', 'runtime-watchdog']);
+    expect(job.needs).toEqual([
+      'deploy',
+      'publish-nonit-shards',
+      'resolve-nonit-publish',
+      'validate-dist',
+      'validate-live',
+      'publish',
+      'runtime-watchdog',
+    ]);
     expect(byJob.get('deploy')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
+    expect(byJob.get('publish-nonit-shards')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
+    expect(byJob.get('resolve-nonit-publish')?.with['workflow-file']).toBe('.github/workflows/deploy-publish.yml');
     expect(byJob.get('validate-dist / validate-dist-postbuild')?.with['workflow-file'])
       .toBe('.github/workflows/post-deploy-validate-dist.yml');
     expect(byJob.get('validate-live / validate-live')?.with['workflow-file'])

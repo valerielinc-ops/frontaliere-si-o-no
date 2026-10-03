@@ -23,6 +23,11 @@ on:
         required: false
         type: string
         default: ''
+      shard_artifact_run_id:
+        description: 'Run ID containing the completed post-build shard artifacts. Empty = use deploy_run_id for the legacy same-run path.'
+        required: false
+        type: string
+        default: ''
     outputs:
       integrity_ok:
         description: >-
@@ -332,6 +337,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
           LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
