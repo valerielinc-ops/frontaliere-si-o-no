@@ -71,7 +71,7 @@ const sourceTreeLintTests = new Map([
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
   // degli import degli entrypoint, quindi nessun import lo collega al modulo
   // che ne aggiunge uno fuori lista. Deve girare proprio su quel diff.
-  ['tests/housekeeping-sparse-paths.test.ts', /^(?:scripts|packages\/articles\/engine|build-plugins)\/|^\.github\/workflows\/housekeeping-jobs-logic\.yml$/],
+  ['tests/housekeeping-sparse-paths.test.ts', /^(?:scripts|packages\/articles\/engine)\/|^\.github\/workflows\/housekeeping-jobs-logic\.yml$/],
 ]);
 // Most workflow readers intentionally depend on every asset in the directory:
 // permissions, timeout and scope guards are repository-wide contracts. A few

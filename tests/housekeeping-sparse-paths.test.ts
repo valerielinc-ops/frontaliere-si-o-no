@@ -24,6 +24,7 @@ import { uncoveredAllowListCode } from '../scripts/ci/verify-checkout-profiles.m
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOW = '.github/workflows/housekeeping-jobs-logic.yml';
 const LIST = 'scripts/ci/housekeeping-sparse-paths.txt';
+const VERIFY_STEP = 'Verify sparse path list matches the checked-out commit';
 const FAILURE_TITLE = 'Housekeeping: import fuori dalla lista sparse (ERR_MODULE_NOT_FOUND in arrivo)';
 
 type Step = { name?: string; id?: string; uses?: string; run?: string; with?: Record<string, unknown> };
@@ -70,7 +71,39 @@ function housekeepingEntries(): string[] {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> };
   const job = analyzeWorkflow(join(ROOT, WORKFLOW), pkg.scripts).jobs
     .find((candidate: { jobId: string }) => candidate.jobId === 'housekeeping');
-  return [...(job?.entries ?? []), ...(job?.inlineEntries ?? [])];
+  return [...(job?.entries ?? []), ...(job?.inlineEntries ?? []), ...COMMIT_SCRIPT_ENTRIES];
+}
+
+/**
+ * Script node che `scripts/lib/git-commit-data.sh` lancia nel ramo
+ * `--slice-only`: l'analizzatore si ferma allo shell e non li vede, ma un loro
+ * import fuori lista darebbe lo stesso ERR_MODULE_NOT_FOUND.
+ */
+const COMMIT_SCRIPT_ENTRIES = [
+  'scripts/lib/crawler-generation-receipt.mjs',
+  'scripts/ci/canonicalize-expired-archive-slice.mjs',
+];
+
+/** Esegue lo step vero di verifica in un repo con la lista committata. */
+function runVerifyStep(expectedBlob: (committedBlob: string) => string) {
+  const root = mkdtempSync(join(tmpdir(), 'housekeeping-sparse-verify-'));
+  tempRoots.push(root);
+  mkdirSync(join(root, dirname(LIST)), { recursive: true });
+  writeFileSync(join(root, LIST), 'scripts\n');
+  const git = (...args: string[]) => spawnSync('git', args, { cwd: root, encoding: 'utf8' });
+  git('init', '-q');
+  git('add', LIST);
+  const commit = git(
+    '-c', 'user.name=test', '-c', 'user.email=test@example.invalid', '-c', 'commit.gpgsign=false',
+    'commit', '-q', '--no-verify', '-m', 'lista',
+  );
+  const committedBlob = git('rev-parse', `HEAD:${LIST}`).stdout.trim();
+  const result = spawnSync('/bin/bash', ['-c', steps[stepIndex(VERIFY_STEP)]?.run ?? 'exit 99'], {
+    cwd: root,
+    encoding: 'utf8',
+    env: { ...process.env, EXPECTED_LIST_BLOB: expectedBlob(committedBlob) },
+  });
+  return { status: result.status, stdout: result.stdout, committedBlob, commitStatus: commit.status };
 }
 
 describe('housekeeping sparse path list', () => {
@@ -87,6 +120,13 @@ describe('housekeeping sparse path list', () => {
     // senza aver guardato nulla.
     expect(entries).toContain('scripts/cleanup-jobs.mjs');
     expect(entries).toContain('scripts/load-rc-env.mjs');
+    // Se git-commit-data.sh sparisse dal workflow, la lista a mano sopra
+    // non avrebbe piu' ragione di esistere.
+    expect(entries).toContain('scripts/lib/git-commit-data.sh');
+    const commitScript = readFileSync(join(ROOT, 'scripts/lib/git-commit-data.sh'), 'utf8');
+    for (const entry of COMMIT_SCRIPT_ENTRIES) {
+      expect(commitScript).toContain(entry.split('/').pop());
+    }
 
     const uncovered = uncoveredAllowListCode(realList.paths, entries, { cone: true });
     expect(
@@ -149,18 +189,36 @@ describe('housekeeping sparse path list', () => {
       'Checkout sparse path list',
       'Read sparse path list',
       'Checkout source repository',
-      'Verify sparse path list matches the checked-out commit',
+      VERIFY_STEP,
       'Setup Node.js',
     ].map(stepIndex);
     expect(order.every((index) => index >= 0)).toBe(true);
     expect(order).toEqual([...order].sort((a, b) => a - b));
-
-    const verify = steps[order[3]];
-    expect(verify.run).toContain(`git rev-parse HEAD:${LIST}`);
-    expect(verify.run).toContain('exit 1');
-    expect((verify as { env?: Record<string, string> }).env?.EXPECTED_LIST_BLOB)
+    expect((steps[order[3]] as { env?: Record<string, string> }).env?.EXPECTED_LIST_BLOB)
       .toBe('${{ steps.sparse_paths.outputs.list_blob }}');
-    // Stesso algoritmo (blob id) ai due capi del confronto.
-    expect(readListStep?.run).toContain('list_blob=$(git hash-object "$list")');
+
+    // Lo step gira davvero: stesso blob passa, blob diverso ferma il job.
+    const same = runVerifyStep((blob) => blob);
+    expect(same.commitStatus).toBe(0);
+    expect(same.status, same.stdout).toBe(0);
+    // Il blob id che lo step di lettura calcola e' quello che git ha committato.
+    expect(runReadListStep('scripts\n').listBlob).toBe(same.committedBlob);
+
+    const moved = runVerifyStep(() => '0'.repeat(40));
+    expect(moved.status).toBe(1);
+    expect(moved.stdout).toContain(`::error::${LIST} changed on main between the two checkouts`);
+  });
+
+  it('fails closed when the checkout materializes no slice directory', () => {
+    const root = mkdtempSync(join(tmpdir(), 'housekeeping-sparse-noslices-'));
+    tempRoots.push(root);
+    const validate = steps[stepIndex('Validate and clean job slices')];
+    const result = spawnSync('/bin/bash', ['-c', validate?.run ?? 'exit 99'], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, HOUSEKEEPING_LANE: 'rest' },
+    });
+    expect(result.status).toBe(1);
+    expect(result.stdout).toContain('::error::data/jobs/by-crawler is missing after the sparse checkout');
   });
 });

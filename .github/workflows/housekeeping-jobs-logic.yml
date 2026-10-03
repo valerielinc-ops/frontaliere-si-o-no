@@ -155,6 +155,13 @@ jobs:
             exit 127
           fi
 
+          # A typo in scripts/ci/housekeeping-sparse-paths.txt would materialize
+          # no slice at all and the lane would end green on "processed 0".
+          if [ ! -d data/jobs/by-crawler ]; then
+            echo "::error::data/jobs/by-crawler is missing after the sparse checkout: check scripts/ci/housekeeping-sparse-paths.txt."
+            exit 1
+          fi
+
           # Classify every slice before starting a mutating worker. A matcher
           # failure must never leave a partially cleaned lane that looks ready
           # to commit.
