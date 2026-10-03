@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ExternalLink, Loader2, RefreshCw, ShieldCheck } from 'lucide-react';
 import GptRewardedAd, { type GptRewardedAdCallbackInfo } from '@/components/shared/GptRewardedAd';
+import AssistedApplicationOffer from '@/components/community/AssistedApplicationOffer';
 import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
 import {
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
@@ -16,6 +17,7 @@ import {
 import {
   offerwallGateStatus,
   releaseHeldOfferwall,
+  revealStagedOfferwall,
   type OfferwallAppearTimeoutDecision,
   type OfferwallGateStatus,
   type OfferwallReleaseResult,
@@ -29,7 +31,7 @@ import {
   type OfferwallClickPlan,
   type OfferwallConsentState,
 } from '@/services/offerwallRecovery';
-import { onAdsConsentChange, reopenAdsConsentMessage } from '@/services/adsConsent';
+import { isAdsConsentMessageOnScreen, onAdsConsentChange, reopenAdsConsentMessage } from '@/services/adsConsent';
 import {
   trackAssistedApplicationEvent,
 } from '@/services/assistedApplicationExperiment';
@@ -52,6 +54,21 @@ const RESUME_TRIGGER = 'offerwall_resume';
 const POPUP_SLOT_ID = 'rewarded-application-offer';
 const OFFERWALL_PROVIDER = 'adsense_offerwall';
 const OFFERWALL_FORMAT = 'offerwall';
+/** `trigger` of the paid choice shown before the Offerwall. */
+const CHOICE_TRIGGER = 'offerwall_first';
+
+/**
+ * How long Google's reopened consent message has to come on screen. It opens
+ * in about 0.2 s live; when it does not (no consent framework for the
+ * visitor's region, Funding Choices blocked) the click goes on without it.
+ */
+export const CONSENT_MESSAGE_APPEAR_MS = 3000;
+/**
+ * After the consent message closes, how long its answer may take to reach the
+ * ad-consent gate (the CMP bridge writes it on `useractioncomplete`) before
+ * the message counts as closed without one.
+ */
+export const CONSENT_DECISION_GRACE_MS = 2000;
 
 /**
  * How long the neutral loading screen waits for the GPT rewarded slot before
@@ -91,8 +108,13 @@ export function shortenRewardedOfferJobTitle(title: string | null | undefined): 
  * `reloading`: only a fresh page load can hold the Offerwall; the page reloads
  * and JobBoard resumes this click.
  * `consent`: the visitor has not answered the consent message, and no ad can
- * be served without an answer; they may answer it now or go on without the
- * video.
+ * be served without an answer: Google's message opens at once (owner decision
+ * 2026-10-03, no card of ours before it). Any answer goes on to the
+ * Offerwall; a message that does not appear, or closes unanswered, goes on
+ * without the video.
+ * `choice`: the paid application is offered first (`paidChoice`), with the
+ * Offerwall released hidden behind it (a staged release); the free path
+ * reveals it and goes on as `offerwall`.
  * `offerwall`: the held AdSense Offerwall has been released and may render.
  * When it is late (OFFERWALL_SLOW_MS) a GPT rewarded slot is prepared,
  * hidden, as its fallback; at the appear timeout the offer moves to `gpt`
@@ -120,6 +142,7 @@ type OfferPhase =
   | 'checking'
   | 'reloading'
   | 'consent'
+  | 'choice'
   | 'offerwall'
   | 'offerwall_visible'
   | 'offerwall_verifying'
@@ -136,7 +159,7 @@ type OfferPhase =
  * in flight. In `handoff` the access is already granted, so a later
  * "Candidati" click goes straight to the employer.
  */
-const DISMISSIBLE_PHASES: ReadonlySet<OfferPhase> = new Set(['consent', 'gpt', 'gpt_ready', 'gpt_retry', 'handoff']);
+const DISMISSIBLE_PHASES: ReadonlySet<OfferPhase> = new Set(['consent', 'choice', 'gpt', 'gpt_ready', 'gpt_retry', 'handoff']);
 
 /** Why no Offerwall was waiting for this click (tracked before the GPT path). */
 const NOT_HELD_REASON: Record<Exclude<OfferwallGateStatus, 'held'>, string> = {
@@ -174,6 +197,21 @@ const now = () => (typeof performance !== 'undefined' ? performance.now() : Date
  */
 const replacementSafe = (value: string) => value.replace(/\$/g, '$$$$');
 
+/** Second argument of `onUnavailable`, passed only when it is true. */
+export interface RewardedOfferUnavailableInfo {
+  /**
+   * The visitor already saw the paid choice and took the free path: no
+   * second paid offer, the click goes to the employer.
+   */
+  paidOfferShown: boolean;
+}
+
+export interface RewardedOfferPaidChoice {
+  onChoosePaid: () => void | Promise<void>;
+  paidLoading?: boolean;
+  error?: string | null;
+}
+
 export interface RewardedApplicationOfferProps {
   jobId: string;
   companyId: string;
@@ -191,8 +229,16 @@ export interface RewardedApplicationOfferProps {
    * offer mounted meanwhile: `false` brings the "open" card (no-reward
    * copy), whose click calls `onContinue`.
    */
-  onUnavailable: (reason: string) => void | Promise<boolean>;
+  onUnavailable: (reason: string, info?: RewardedOfferUnavailableInfo) => void | Promise<boolean>;
   onDismiss?: () => void;
+  /**
+   * The paid application comes first (owner decision 2026-10-03): when the
+   * Offerwall is held for the click, the offer shows this choice and releases
+   * the Offerwall hidden behind it, so the free path reveals it with no wait.
+   * Read when the offer opens. Without it the Offerwall is released on screen
+   * at once, as before.
+   */
+  paidChoice?: RewardedOfferPaidChoice;
   /** This offer reopens a click after the recovery reload: never reload again. */
   resumed?: boolean;
   /**
@@ -245,6 +291,7 @@ export default function RewardedApplicationOffer({
   resumed = false,
   onReload,
   startInHandoff = false,
+  paidChoice,
 }: RewardedApplicationOfferProps) {
   const { t } = useTranslation();
   const [retryToken, setRetryToken] = useState(0);
@@ -255,6 +302,14 @@ export default function RewardedApplicationOffer({
     const consent = offerwallConsentState();
     return { plan: planOfferwallClick(status, consent, { canReload }), status, consent };
   };
+  // The paid choice is decided when the click opens the offer; the latest
+  // props (loading, error) are what it shows.
+  const [choiceFirst] = useState(() => Boolean(paidChoice));
+  const lastPaidChoiceRef = useRef<RewardedOfferPaidChoice | undefined>(paidChoice);
+  if (paidChoice) lastPaidChoiceRef.current = paidChoice;
+  const phaseFor = (decision: GateDecision): OfferPhase => (
+    decision.plan === 'offerwall' && choiceFirst ? 'choice' : PHASE_FOR_PLAN[decision.plan]
+  );
   // The AdSense Offerwall is the site's only rewarded demand: when Funding
   // Choices holds one for this page view, the click releases it first. A gate
   // that Funding Choices has not reached yet is waited for; anything else is
@@ -267,7 +322,7 @@ export default function RewardedApplicationOffer({
   });
   const [phase, setPhase] = useState<OfferPhase>(() => {
     if (startInHandoff) return 'handoff';
-    return initialDecision ? PHASE_FOR_PLAN[initialDecision.plan] : 'checking';
+    return initialDecision ? phaseFor(initialDecision) : 'checking';
   });
   const decisionRef = useRef<GateDecision | null>(initialDecision);
   const notShownTrackedRef = useRef(false);
@@ -289,6 +344,12 @@ export default function RewardedApplicationOffer({
   const fallbackShownRef = useRef(false);
   const gptVideoStartedRef = useRef(false);
   const appearTimeoutTrackedRef = useRef(false);
+  // Staged release behind the paid choice: the hidden Offerwall is complete,
+  // or the release did not happen (gate no longer held).
+  const stagedReadyRef = useRef(false);
+  const stageFailedRef = useRef(false);
+  // The paid choice was on screen: a later failure goes to the employer.
+  const paidOfferShownRef = useRef(false);
   const offerwallWatchRef = useRef<AbortController | null>(null);
   const offerwallAdsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const offerwallAdsSentRef = useRef(false);
@@ -420,8 +481,9 @@ export default function RewardedApplicationOffer({
   // Take focus off the "Candidati" button behind the overlay: onto the status
   // line while loading, onto the card when it asks for a choice.
   useEffect(() => {
-    if (phase === 'offerwall_visible') return;
-    const target = phase === 'gpt_ready' || phase === 'gpt_retry' || phase === 'consent' || phase === 'handoff'
+    // The paid choice focuses its own close button.
+    if (phase === 'offerwall_visible' || phase === 'choice') return;
+    const target = phase === 'gpt_ready' || phase === 'gpt_retry' || phase === 'handoff'
       ? cardRef.current
       : loadingRef.current;
     target?.focus({ preventScroll: true });
@@ -495,7 +557,9 @@ export default function RewardedApplicationOffer({
   const reportUnavailable = (reason: string) => {
     if (unavailableReportedRef.current) return;
     unavailableReportedRef.current = true;
-    const opened = onUnavailable(reason);
+    const opened = paidOfferShownRef.current
+      ? onUnavailable(reason, { paidOfferShown: true })
+      : onUnavailable(reason);
     if (!(opened instanceof Promise)) return;
     handoffDoneRef.current = true;
     handoffPhaseRef.current = 'direct_done';
@@ -615,7 +679,7 @@ export default function RewardedApplicationOffer({
     ).then((status) => {
       if (!mountedRef.current || watch?.signal.aborted) return;
       const decision = decideFor(status);
-      setPhase(PHASE_FOR_PLAN[decision.plan]);
+      setPhase(phaseFor(decision));
       applyDecision(decision);
     });
     return () => watch?.abort();
@@ -623,12 +687,51 @@ export default function RewardedApplicationOffer({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // The visitor answered the reopened consent message, either way: the call
-  // held since the load renders the Offerwall (2.2 s live after a grant,
-  // Limited Ads after a refusal); without a held call it takes the reload.
+  // The consent choice stays optional: without an answer the application
+  // opens without the video. `reason`: the message never came on screen, or
+  // closed without an answer.
+  const declineConsent = (reason: 'message_not_shown' | 'message_closed') => {
+    if (!mountedRef.current || phaseRef.current !== 'consent' || unavailableReportedRef.current) return;
+    trackAssistedApplicationEvent('rewarded_offerwall_consent_declined', { ...offerwallContext(), reason });
+    reportUnavailable('ad_consent_missing');
+  };
+
+  // Google's consent message opens at once, with no card of ours before it
+  // (owner decision 2026-10-03): 65% of the visitors who got the card went
+  // on without the video. Any answer, a refusal included, lets Google serve
+  // the Offerwall (Limited Ads after a refusal): the call held since the load
+  // renders it (2.2 s live after a grant); without a held call the click
+  // takes the reload.
   useEffect(() => {
     if (phase !== 'consent') return undefined;
-    return onAdsConsentChange((value) => {
+    trackAssistedApplicationEvent('rewarded_offerwall_consent_reopened', offerwallContext());
+    reopenAdsConsentMessage();
+    const openedAt = Date.now();
+    let seen = false;
+    let closedAt: number | null = null;
+    const timer = window.setInterval(() => {
+      if (!mountedRef.current || phaseRef.current !== 'consent') return;
+      if (isAdsConsentMessageOnScreen()) {
+        seen = true;
+        closedAt = null;
+        return;
+      }
+      const nowMs = Date.now();
+      if (!seen) {
+        if (nowMs - openedAt < CONSENT_MESSAGE_APPEAR_MS) return;
+        window.clearInterval(timer);
+        declineConsent('message_not_shown');
+        return;
+      }
+      if (closedAt === null) {
+        closedAt = nowMs;
+        return;
+      }
+      if (nowMs - closedAt < CONSENT_DECISION_GRACE_MS) return;
+      window.clearInterval(timer);
+      declineConsent('message_closed');
+    }, 200);
+    const unsubscribe = onAdsConsentChange((value) => {
       if (value === null || !mountedRef.current || phaseRef.current !== 'consent') return;
       const decision = decideFor(offerwallGateStatus());
       trackAssistedApplicationEvent('rewarded_offerwall_consent_decided', {
@@ -636,33 +739,37 @@ export default function RewardedApplicationOffer({
         gate_status: decision.status,
         consent_state: decision.consent,
       });
-      setPhase(PHASE_FOR_PLAN[decision.plan]);
+      setPhase(phaseFor(decision));
       applyDecision(decision);
     });
-    // Subscribed while the consent card is up.
+    return () => {
+      window.clearInterval(timer);
+      unsubscribe();
+    };
+    // Opened once per consent phase.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
-  const reviewConsent = () => {
-    trackAssistedApplicationEvent('rewarded_offerwall_consent_reopened', offerwallContext());
-    reopenAdsConsentMessage();
-  };
-
-  // The consent choice stays optional: the application opens without the video.
-  const continueWithoutVideo = () => {
-    if (!mountedRef.current || phaseRef.current !== 'consent') return;
-    trackAssistedApplicationEvent('rewarded_offerwall_consent_declined', offerwallContext());
-    reportUnavailable('ad_consent_missing');
-  };
-
   useEffect(() => {
-    if (phase !== 'offerwall' || offerwallStartedRef.current) return;
+    if ((phase !== 'offerwall' && phase !== 'choice') || offerwallStartedRef.current) return;
     offerwallStartedRef.current = true;
     trackAssistedApplicationEvent('rewarded_offerwall_released', offerwallContext());
     const watch = typeof AbortController !== 'undefined' ? new AbortController() : null;
     offerwallWatchRef.current = watch;
     void releaseHeldOfferwall({
       ...(watch ? { signal: watch.signal } : {}),
+      // Behind the paid choice the Offerwall renders hidden; the free path
+      // reveals it (chooseFree). Nothing times out before that.
+      staged: phase === 'choice',
+      onStaged: ({ elapsedMs, root }) => {
+        if (!mountedRef.current) return;
+        stagedReadyRef.current = true;
+        trackAssistedApplicationEvent('rewarded_offerwall_staged', {
+          ...offerwallContext(),
+          shown_ms: elapsedMs,
+          fc_root: root,
+        });
+      },
       // The Offerwall is late: prepare the GPT fallback, hidden, so it can be
       // offered at the appear timeout without a further wait.
       onSlow: ({ elapsedMs }) => {
@@ -748,6 +855,16 @@ export default function RewardedApplicationOffer({
       // The watch was ended by this offer (its GPT fallback video started,
       // or the fallback handed off): nothing more on the Offerwall side.
       if (result.outcome === 'not_shown' && result.reason === 'aborted') return;
+      // The staged release did not happen (the gate was no longer held): the
+      // paid choice stays up, and the free path goes on without the Offerwall.
+      if (phaseRef.current === 'choice' && result.outcome === 'not_shown') {
+        stageFailedRef.current = true;
+        trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
+          ...offerwallContext(),
+          reason: result.reason,
+        });
+        return;
+      }
       if (result.outcome === 'closed_without_reward') {
         // Closed with no entitlement from Google: nothing to unlock, and no
         // second ad after this one. The parent offers the paid application
@@ -781,6 +898,28 @@ export default function RewardedApplicationOffer({
     // Runs once per offer; the context is read at release time.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
+
+  useEffect(() => {
+    if (phase === 'choice') paidOfferShownRef.current = true;
+  }, [phase]);
+
+  // The free path of the paid choice: the staged Offerwall comes on screen
+  // (at once when it is complete, otherwise as soon as Google renders it).
+  const chooseFree = () => {
+    if (!mountedRef.current || phaseRef.current !== 'choice') return;
+    trackAssistedApplicationEvent('assisted_application_choose_external', {
+      ...offerwallContext(),
+      reason: stageFailedRef.current
+        ? 'offerwall_unavailable'
+        : stagedReadyRef.current ? 'offerwall_ready' : 'offerwall_pending',
+    });
+    if (stageFailedRef.current) {
+      setPhase('gpt');
+      return;
+    }
+    setPhase('offerwall');
+    revealStagedOfferwall();
+  };
 
   const handleUnavailable = (reason = 'unavailable', info?: GptRewardedAdCallbackInfo) => {
     // A fallback that already stepped aside reports nothing more.
@@ -893,13 +1032,13 @@ export default function RewardedApplicationOffer({
     { hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS },
   );
   const closeLabel = t('jobBoard.rewardedOffer.close');
-  const consentTitle = titled('jobBoard.rewardedOffer.consentTitleJob', 'jobBoard.rewardedOffer.consentTitle');
   const handoffTitle = handoffKind === 'direct'
     ? titled('jobBoard.rewardedOffer.handoffDirectTitleJob', 'jobBoard.rewardedOffer.handoffDirectTitle')
     : titled('jobBoard.rewardedOffer.handoffTitleJob', 'jobBoard.rewardedOffer.handoffTitle');
   const handoffText = t(handoffKind === 'direct' ? 'jobBoard.rewardedOffer.handoffDirectText' : 'jobBoard.rewardedOffer.handoffText');
   const loadingText = phase === 'offerwall_done' || phase === 'gpt_done' || phase === 'direct_done' ? redirectLabel : loadingLabel;
-  const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry' && phase !== 'consent' && phase !== 'handoff';
+  // Under Google's consent message too: its own dialog covers the page.
+  const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry' && phase !== 'handoff';
 
   const cardClass = 'w-full max-w-sm space-y-4 rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
   const primaryButtonClass = 'inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
@@ -1004,46 +1143,6 @@ export default function RewardedApplicationOffer({
         </div>
       )}
 
-      {phase === 'consent' && (
-        <div
-          ref={cardRef}
-          tabIndex={-1}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="rewarded-application-consent-title"
-          aria-describedby="rewarded-application-consent-text"
-          className={cardClass}
-          data-testid="rewarded-application-consent"
-        >
-          <div>
-            <p className="text-xs font-semibold text-accent">{companyName}</p>
-            <h2 id="rewarded-application-consent-title" className="mt-1 text-base font-semibold font-display text-heading">
-              {consentTitle}
-            </h2>
-            <p id="rewarded-application-consent-text" className="mt-1 text-sm leading-relaxed text-body">
-              {t('jobBoard.rewardedOffer.consentText')}
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={reviewConsent}
-            className={primaryButtonClass}
-            data-testid="rewarded-application-consent-review"
-          >
-            <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-            {t('jobBoard.rewardedOffer.consentReview')}
-          </button>
-          <button
-            type="button"
-            onClick={continueWithoutVideo}
-            className={secondaryButtonClass}
-            data-testid="rewarded-application-consent-continue"
-          >
-            {t('jobBoard.rewardedOffer.consentContinue')}
-          </button>
-        </div>
-      )}
-
       {phase === 'handoff' && (
         <div
           ref={cardRef}
@@ -1089,6 +1188,29 @@ export default function RewardedApplicationOffer({
   // The Google Offerwall is its own full-page dialog: while it is on screen
   // this overlay must not sit on top of it or take its clicks.
   if (phase === 'offerwall_visible') return null;
+
+  // The paid choice is the whole screen; this offer keeps the body scroll
+  // lock and Escape (DISMISSIBLE_PHASES) while it is up.
+  const choice = lastPaidChoiceRef.current;
+  if (phase === 'choice' && choice) {
+    return (
+      <AssistedApplicationOffer
+        embedded
+        jobId={jobId}
+        companyId={companyId}
+        companyName={companyName}
+        jobTitle={jobTitle}
+        variant="rewarded_ad"
+        trigger={CHOICE_TRIGGER}
+        externalLabel={t('jobBoard.assisted.externalCtaVideo')}
+        onChooseExternal={chooseFree}
+        onChoosePaid={choice.onChoosePaid}
+        onClose={() => onDismiss?.()}
+        paidLoading={choice.paidLoading}
+        error={choice.error}
+      />
+    );
+  }
 
   return typeof document === 'undefined' ? overlay : createPortal(overlay, document.body);
 }

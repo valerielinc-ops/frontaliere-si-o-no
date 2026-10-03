@@ -1,9 +1,17 @@
 name: AdSense format A/B report (weekly)
 
-# Historical companion to the canton in-feed-ad A/B test. The TI treatment was
+# Weekly companion to the canton in-feed-ad A/B test. The TI treatment was
 # rolled back on 2026-09-22 after the `/cerca-lavoro-ticino/` CLS regression;
 # no new comparison is queried until a new active surface is declared in
 # services/adExperiment.ts. Auto Ads remain enabled.
+#
+# The cron stays on purpose. The light `plan` job asks
+# scripts/lib/adsense-format-ab-plan.mjs which experiments are active; with
+# none, the `report` job is skipped as a whole: no install, no credentials, no
+# report and no comment on the tracking issue (it used to receive the same
+# "paused" sentence every Monday). Declaring a surface again restarts the
+# measurement on the next Monday by itself.
+# Guarded by tests/scripts/adsense-format-ab-report.test.ts.
 #
 # Same structure as revenue-monitor.yml (secrets loading, history commit,
 # failure reporting) — see that workflow for the exact reference pattern.
@@ -23,9 +31,17 @@ permissions:
   issues: write
 
 jobs:
-  report:
+  plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
+    # The gate only reads the repository; `issues: write` is for its failure
+    # report. The `report` job keeps the workflow-level permissions.
+    permissions:
+      contents: read
+      issues: write
+    outputs:
+      active: ${{ steps.plan.outputs.active }}
+      experiments: ${{ steps.plan.outputs.experiments }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -35,8 +51,11 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
             !/docs/
             !/public/data/
             !/data/related-search-candidates.json
@@ -51,6 +70,41 @@ jobs:
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # No `npm ci`: the plan module has no npm dependency by contract.
+      - name: Resolve active experiments
+        id: plan
+        run: node scripts/lib/adsense-format-ab-plan.mjs
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+  report:
+    needs: plan
+    if: needs.plan.outputs.active == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -74,9 +128,15 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      - name: Record retired AdSense format A/B experiment
+      - name: Run AdSense format A/B report (save)
+        env:
+          ACTIVE_EXPERIMENT_IDS: ${{ needs.plan.outputs.experiments }}
         run: |
-          echo "AdSense in-feed A/B report paused: the TI treatment was rolled back on 2026-09-22; all job-board surfaces use the manual in-feed reserve and Auto Ads remain enabled." > /tmp/adsense-format-ab-report.md
+          : > /tmp/adsense-format-ab-report.md
+          for id in $ACTIVE_EXPERIMENT_IDS; do
+            node scripts/adsense-format-ab-report.mjs --experiment "$id" --save --markdown >> /tmp/adsense-format-ab-report.md
+            echo >> /tmp/adsense-format-ab-report.md
+          done
 
       - name: Print summary to job log
         run: |
@@ -126,6 +186,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          if [ ! -s /tmp/adsense-format-ab-report.md ]; then
+            echo "No report was produced this run: the tracking issue is left untouched."
+            exit 0
+          fi
           # Stable title → github-issue-creator.mjs dedups on it: week 1 opens
           # the issue, every following week posts a 🔁 comment with the fresh
           # report on the SAME issue instead of minting a new one — this is

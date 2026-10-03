@@ -1,23 +1,27 @@
 {
   "key": "dic-sa",
   "label": "DIC SA",
-  "generatedAt": "2026-10-03T09:20:33.604Z",
+  "generatedAt": "2026-10-03T21:20:04.255Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 2750,
+  "avgDurationMs": 2750,
+  "durationHistory": [
+    2750
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

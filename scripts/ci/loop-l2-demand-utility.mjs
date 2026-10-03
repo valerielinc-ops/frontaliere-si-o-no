@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { LOOP_STATE_AWAITING_SAMPLE, reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
 import { resolveNursingOrphanQueryTarget } from '../lib/nursing-landing-path.mjs';
 import {
@@ -18,6 +18,7 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L2';
+const ISSUE_WORKFLOW = 'Loop L2 Demand to Utility';
 export const DEFAULT_SOURCE_PATH = path.join('data', 'gsc-orphan-queries-clusters.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 168;
@@ -26,6 +27,14 @@ export const MAX_CANDIDATES = 25;
 export const OUTCOME_JOIN_ISSUE_TITLE = 'L2 Demand to Utility: outcome join is not measurable';
 export const OUTCOME_SAMPLE_ISSUE_TITLE = 'L2 Demand to Utility: outcome sample is below minimum';
 export const STALE_SOURCE_ISSUE_TITLE = 'L2 Demand to Utility: GSC snapshot is stale';
+export const SNAPSHOT_VALIDATION_ISSUE_TITLE = 'L2 Demand to Utility: demand snapshot is not valid';
+// Ogni titolo che `issueTitleForVerdict` può emettere: una sola issue aperta per loop.
+export const LOOP_ISSUE_TITLES = [
+  OUTCOME_JOIN_ISSUE_TITLE,
+  OUTCOME_SAMPLE_ISSUE_TITLE,
+  STALE_SOURCE_ISSUE_TITLE,
+  SNAPSHOT_VALIDATION_ISSUE_TITLE,
+];
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -47,6 +56,19 @@ function text(value) {
 
 function record(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+/** Unico testo del controllo di campione: lo produce la validazione e lo riconosce `l2AwaitingSample`. */
+function belowMinimumSampleIssue(eligibleLandingSessions, minimumSample) {
+  return `eligibleLandingSessions is below minimum sample (${eligibleLandingSessions} < ${minimumSample})`;
+}
+
+/** Giorni di calendario (estremi inclusi) della finestra GA4 dichiarata dall'export; `null` se assente. */
+function telemetryWindowDays(window) {
+  const start = Date.parse(`${window?.startDate ?? ''}T00:00:00Z`);
+  const end = Date.parse(`${window?.endDate ?? ''}T00:00:00Z`);
+  if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return null;
+  return Math.round((end - start) / 86_400_000) + 1;
 }
 
 function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], snapshot = null, candidates = [] }) {
@@ -186,7 +208,7 @@ export function validateDemandSnapshot(payload, {
     issues.push('outcomes.usefulActions exceeds outcomes.eligibleLandingSessions');
   }
   if (outcomeConsistent && eligibleLandingSessions < minimumSample) {
-    issues.push(`eligibleLandingSessions is below minimum sample (${eligibleLandingSessions} < ${minimumSample})`);
+    issues.push(belowMinimumSampleIssue(eligibleLandingSessions, minimumSample));
   }
 
   let ageHours = null;
@@ -211,6 +233,7 @@ export function validateDemandSnapshot(payload, {
           ? 'joined'
           : 'missing',
     minimumSample,
+    telemetryWindowDays: telemetryWindowDays(payload.telemetryWindow ?? payload._meta?.telemetryWindow),
     outcomes: declaredOutcomeCounts({
       eligibleLandingSessions,
       usefulActions,
@@ -254,11 +277,24 @@ export function l2FindingKind(verdict) {
   return 'snapshot-validation';
 }
 
+/**
+ * Il campione insufficiente è uno STATO solo quando è l'UNICO controllo
+ * fallito: join valido, sorgente fresca, cluster tutti validi. Qualunque altro
+ * difetto insieme al campione resta un guasto lavorabile dal fixer.
+ */
+export function l2AwaitingSample(verdict) {
+  if (l2FindingKind(verdict) !== 'underpowered-sample' || verdict.quality !== 'partial') return false;
+  const { minimumSample, outcomes } = verdict.snapshot;
+  return Array.isArray(verdict.issues)
+    && verdict.issues.length === 1
+    && verdict.issues[0] === belowMinimumSampleIssue(outcomes.eligibleLandingSessions, minimumSample);
+}
+
 export function issueTitleForVerdict(verdict) {
   switch (l2FindingKind(verdict)) {
     case 'underpowered-sample': return OUTCOME_SAMPLE_ISSUE_TITLE;
     case 'stale-source': return STALE_SOURCE_ISSUE_TITLE;
-    case 'snapshot-validation': return 'L2 Demand to Utility: demand snapshot is not valid';
+    case 'snapshot-validation': return SNAPSHOT_VALIDATION_ISSUE_TITLE;
     default: return OUTCOME_JOIN_ISSUE_TITLE;
   }
 }
@@ -351,7 +387,8 @@ export async function runL2({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -526,9 +563,22 @@ export async function runL2({
       description: issueBody(verdict, decision),
       priority: 3,
       labels: ['monitoring', 'seo', 'loop-l2'],
-      workflow: 'Loop L2 Demand to Utility',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: LOOP_ISSUE_TITLES,
+      ...(l2AwaitingSample(verdict) ? {
+        state: LOOP_STATE_AWAITING_SAMPLE,
+        sample: {
+          current: verdict.snapshot.outcomes.eligibleLandingSessions,
+          minimum: verdict.snapshot.minimumSample,
+          windowDays: verdict.snapshot.telemetryWindowDays,
+        },
+      } : {}),
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: LOOP_ISSUE_TITLES, workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, {
     verdict,

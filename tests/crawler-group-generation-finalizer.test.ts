@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
-import { createCrawlerGenerationLedgerEntry, finalizeCrawlerGroup, readCrawlerGenerationLedger, validateCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
+import { createCrawlerGenerationLedgerEntry, finalizeCrawlerGroup, memberCrawlStateDir, readCrawlerGenerationLedger, readMemberCrawlOutcomes, validateCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { digestDocument, validateGroupTerminalManifest } from '../scripts/lib/crawler-generation-contract.mjs';
 import { MAX_RECEIPT_BYTES, createCrawlerGenerationReceipt } from '../scripts/lib/crawler-generation-receipt.mjs';
 
@@ -294,5 +294,101 @@ describe('crawler group generation finalizer', () => {
     expect(manifest.valid).toBe(false);
     expect(manifest.reasons).toContain('wait_failed');
     expect(validateGroupTerminalManifest(manifest)).toEqual({ valid: true, errors: [] });
+  });
+});
+
+describe('member crawl outcomes', () => {
+  function stateDir(files: Record<string, string>) {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-state-'));
+    for (const [name, content] of Object.entries(files)) fs.writeFileSync(path.join(dir, name), content);
+    return dir;
+  }
+
+  it('maps the crawl exit file to an outcome and treats everything else as unknown', () => {
+    const dir = stateDir({
+      'ok.crawl-exit': '0\n',
+      'failed.crawl-exit': '1\n',
+      'timeout.crawl-exit': '124',
+      'shutdown.crawl-exit': '143\n',
+      'empty.crawl-exit': '',
+      'text.crawl-exit': 'abc\n',
+      'negative.crawl-exit': '-1\n',
+      'out-of-range.crawl-exit': '256\n',
+      'two-lines.crawl-exit': '0\n1\n',
+      'padded.crawl-exit': ' 1\n',
+    });
+    fs.mkdirSync(path.join(dir, 'directory.crawl-exit'));
+    fs.symlinkSync(path.join(dir, 'failed.crawl-exit'), path.join(dir, 'link.crawl-exit'));
+    expect(readMemberCrawlOutcomes(dir, [
+      'ok', 'failed', 'timeout', 'shutdown', 'empty', 'text', 'negative', 'out-of-range', 'two-lines', 'padded',
+      'directory', 'link', 'absent',
+    ])).toEqual({
+      ok: 'crawl_ok', failed: 'crawl_failed', timeout: 'crawl_failed', shutdown: 'systemic',
+      empty: 'unknown', text: 'unknown', negative: 'unknown', 'out-of-range': 'unknown', 'two-lines': 'unknown',
+      padded: 'unknown', directory: 'unknown', link: 'unknown', absent: 'unknown',
+    });
+  });
+
+  it('never reads the whole-member status file as a crawl outcome', () => {
+    const dir = stateDir({ 'acme.status': '1\n' });
+    expect(readMemberCrawlOutcomes(dir, ['acme'])).toEqual({ acme: 'unknown' });
+  });
+
+  it('ignores identities that are not roster crawler ids and a missing directory', () => {
+    const dir = stateDir({ 'ok.crawl-exit': '1\n' });
+    expect(readMemberCrawlOutcomes(dir, ['../ok', 'sub/ok', '', null as never])).toEqual({});
+    expect(readMemberCrawlOutcomes(path.join(dir, 'missing'), ['ok'])).toEqual({ ok: 'unknown' });
+    expect(readMemberCrawlOutcomes(dir, undefined as never)).toEqual({});
+  });
+
+  it('reads from the directory the generated group workflow writes member state to', () => {
+    const workflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/crawler-group-23-logic.yml'), 'utf8');
+    expect(workflow).toContain('CRAWLER_GENERATION_GROUP: "23"');
+    expect(workflow).toMatch(/status_file="\$RUNNER_TEMP\/crawler-generation\/group-23\/[a-z0-9._-]+\.status"/);
+    expect(memberCrawlStateDir('/runner/temp', '23')).toBe('/runner/temp/crawler-generation/group-23');
+  });
+
+  it('threads the outcomes into the manifest and persists a wait_failed-only ledger record', () => {
+    const fixture = fixtureRepository();
+    writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));
+    const expectedCrawlers = [
+      { crawlerId: 'acme', primarySlice: fixture.slice },
+      { crawlerId: 'beta', primarySlice: 'data/jobs/by-crawler/beta.json' },
+      { crawlerId: 'gamma', primarySlice: 'data/jobs/by-crawler/gamma.json' },
+    ];
+    const input = { ...baseInput(fixture), waitOutcome: 'failure', expectedCrawlers };
+    const gammaReceipt = () => {
+      const file = path.join(fixture.work, 'data/jobs/by-crawler/gamma.json');
+      fs.writeFileSync(file, '{"jobs":[]}\n');
+      git(fixture.work, ['add', 'data/jobs/by-crawler/gamma.json']);
+      git(fixture.work, ['commit', '-m', 'gamma']);
+      git(fixture.work, ['push', 'origin', 'main']);
+      const receipt = createCrawlerGenerationReceipt({
+        cwd: fixture.work, generationToken: '9001-2', crawlerId: 'gamma', outcome: 'pushed',
+        commit: git(fixture.work, ['rev-parse', 'HEAD']), remoteBaseCommit: fixture.initial,
+        paths: ['data/jobs/by-crawler/gamma.json'],
+      });
+      writeReceipt(fixture, receipt);
+    };
+    gammaReceipt();
+
+    const today = finalizeCrawlerGroup(input);
+    expect(today.reasons).toEqual(['receipt_missing', 'wait_failed']);
+
+    const dir = stateDir({ 'acme.crawl-exit': '0\n', 'beta.crawl-exit': '1\n', 'gamma.crawl-exit': '0\n' });
+    const manifest = finalizeCrawlerGroup({
+      ...input, memberCrawlOutcomes: readMemberCrawlOutcomes(dir, expectedCrawlers.map((entry) => entry.crawlerId)),
+    });
+    expect(manifest.reasons).toEqual(['wait_failed']);
+    expect(validateGroupTerminalManifest(manifest)).toEqual({ valid: true, errors: [] });
+    const ledger = readCrawlerGenerationLedger(fixture.work);
+    expect(ledger.at(-1)).toMatchObject({ valid: false, reasons: ['wait_failed'] });
+    expect(validateCrawlerGenerationLedgerEntry(ledger.at(-1))).toEqual({ valid: true, errors: [] });
+
+    // A succeeded crawl without receipt stays a delivery loss.
+    const lost = stateDir({ 'acme.crawl-exit': '0\n', 'beta.crawl-exit': '0\n', 'gamma.crawl-exit': '0\n' });
+    expect(finalizeCrawlerGroup({
+      ...input, memberCrawlOutcomes: readMemberCrawlOutcomes(lost, expectedCrawlers.map((entry) => entry.crawlerId)),
+    }).reasons).toEqual(['receipt_missing', 'wait_failed']);
   });
 });

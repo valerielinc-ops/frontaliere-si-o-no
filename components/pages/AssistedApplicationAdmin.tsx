@@ -16,15 +16,18 @@ import {
 import { useAuth } from '@/services/authService';
 import {
   ASSISTED_APPLICATION_ADMIN_STATUSES,
-  fetchAssistedApplicationOrders,
+  fetchAssistedApplicationAdminData,
   refundAssistedApplication,
   updateAssistedApplicationStatus,
   type AssistedApplicationAdminOrder,
   type AssistedApplicationAdminStatus,
   type AssistedApplicationCandidateEmail,
+  type AssistedApplicationPdfRendererCheck,
 } from '@/services/assistedApplicationAdminService';
 import { trackAssistedApplicationEvent } from '@/services/assistedApplicationExperiment';
+import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { NEXT_STEP_GROUP_LABELS, nextStepFor, type NextStep, type NextStepGroup } from '@/services/assistedApplicationNextStep';
+import { pdfRendererLine, type PdfRendererTone } from '@/services/assistedApplicationPdfRendererStatus';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
 type QueueFilter = AssistedApplicationAdminStatus | 'all';
@@ -83,6 +86,14 @@ const NEXT_STEP_STYLES: Record<NextStepGroup, string> = {
   done: 'bg-success-subtle text-success border-success-border',
 };
 
+// The renderer's self-check (services/assistedApplicationPdfRendererStatus.ts).
+const PDF_RENDERER_STYLES: Record<PdfRendererTone, string> = {
+  ok: 'bg-success-subtle text-success border-success-border',
+  failed: 'bg-danger-subtle text-danger border-danger-border',
+  legacy: 'bg-warning-subtle text-warning border-warning-border',
+  unknown: 'bg-surface-alt text-subtle border-edge',
+};
+
 function NextStepIcon({ group }: { group: NextStepGroup }) {
   if (group === 'done') return <CheckCircle2 size={13} aria-hidden="true" />;
   if (group === 'fix') return <AlertTriangle size={13} aria-hidden="true" />;
@@ -100,7 +111,8 @@ function NextStepBadge({ step }: { step: NextStep }) {
   );
 }
 
-function formatDate(value: string | null): string {
+// An ISO string, or epoch milliseconds (the renderer's self-check).
+function formatDate(value: string | number | null): string {
   if (!value) return '—';
   const date = new Date(value);
   return Number.isNaN(date.getTime())
@@ -234,6 +246,8 @@ function DataRow({ label, children }: { label: string; children: ReactNode }) {
 export default function AssistedApplicationAdmin() {
   const { user } = useAuth();
   const [orders, setOrders] = useState<AssistedApplicationAdminOrder[]>([]);
+  // undefined until the queue has loaded once: nothing is said about the renderer before.
+  const [pdfRenderer, setPdfRenderer] = useState<AssistedApplicationPdfRendererCheck | null | undefined>(undefined);
   const [filter, setFilter] = useState<QueueFilter>('all');
   const [stepFilter, setStepFilter] = useState<NextStepGroup | 'all'>('all');
   const [notesByOrder, setNotesByOrder] = useState<Record<string, string>>({});
@@ -247,7 +261,9 @@ export default function AssistedApplicationAdmin() {
     else setLoading(true);
     setMessage(null);
     try {
-      setOrders(await fetchAssistedApplicationOrders(user));
+      const data = await fetchAssistedApplicationAdminData(user);
+      setOrders(data.orders);
+      setPdfRenderer(data.pdfRenderer);
     } catch (error) {
       setMessage({ ok: false, text: error instanceof Error ? error.message : 'Impossibile caricare la coda candidature.' });
     } finally {
@@ -292,6 +308,8 @@ export default function AssistedApplicationAdmin() {
     .map((order, index) => ({ order, index }))
     .sort((a, b) => NEXT_STEP_ORDER.indexOf(groupOf(a.order)) - NEXT_STEP_ORDER.indexOf(groupOf(b.order)) || a.index - b.index)
     .map(({ order }) => order);
+
+  const rendererLine = pdfRenderer === undefined ? null : pdfRendererLine(pdfRenderer, Date.now(), formatDate);
 
   const transition = async (
     order: AssistedApplicationAdminOrder,
@@ -341,8 +359,9 @@ export default function AssistedApplicationAdmin() {
     }
   };
 
+  // Every candidate's data, the automation panel included: never in a session replay.
   return (
-    <section className="space-y-5" aria-labelledby="assisted-application-admin-title">
+    <section className={`${REPLAY_PRIVATE_CLASS} space-y-5`} {...REPLAY_PRIVATE_ATTRS} aria-labelledby="assisted-application-admin-title">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 id="assisted-application-admin-title" className="flex items-center gap-2 text-lg font-bold font-display text-strong">
@@ -361,6 +380,12 @@ export default function AssistedApplicationAdmin() {
           Aggiorna
         </button>
       </div>
+
+      {rendererLine && (
+        <p className={`rounded-xl border px-3 py-2 text-xs ${PDF_RENDERER_STYLES[rendererLine.tone]}`} title={pdfRenderer?.error || undefined}>
+          {rendererLine.text}
+        </p>
+      )}
 
       {message && (
         <div role="status" className={`rounded-xl border px-4 py-3 text-sm ${message.ok ? 'border-success-border bg-success-subtle text-success' : 'border-danger-border bg-danger-subtle text-danger'}`}>

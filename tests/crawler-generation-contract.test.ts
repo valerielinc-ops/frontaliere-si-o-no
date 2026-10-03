@@ -154,6 +154,93 @@ describe('crawler generation contracts', () => {
     expect(validateGroupTerminalManifest(manifest).valid).toBe(true);
   });
 
+  describe('member grain: a failed crawl is not a lost receipt', () => {
+    const members = Array.from({ length: 10 }, (_, index) => `member-${String(index).padStart(2, '0')}`);
+    const memberSlice = (id: string) => `data/jobs/by-crawler/${id}.json`;
+    const memberReceipt = (id: string) => {
+      const payload = {
+        schemaVersion: 1, crawlerId: id, outcome: 'pushed', commit: 'a'.repeat(40), remoteBaseCommit: 'b'.repeat(40),
+        files: [{ path: memberSlice(id), state: 'present', blobOid, sha256: hash }],
+      };
+      return { ...payload, digest: digestDocument(payload) };
+    };
+    // `receiptless` members left no receipt; everyone else delivered.
+    function groupManifest(receiptless: string[], memberCrawlOutcomes?: Record<string, string>, waitOutcome = 'failure') {
+      const delivered = members.filter((id) => !receiptless.includes(id));
+      return createGroupTerminalManifest({
+        group: '01', generationToken: '9001-2', callerRepository, callerRunId: '1001', callerRunAttempt: 1,
+        waitOutcome, checkedAt, remoteRepository, remoteRef: 'refs/heads/main', remoteCommit: 'a'.repeat(40),
+        expectedCrawlerIds: members,
+        expectedPrimarySlices: Object.fromEntries(members.map((id) => [id, memberSlice(id)])),
+        receipts: delivered.map(memberReceipt),
+        remoteSliceOids: Object.fromEntries(delivered.map((id) => [memberSlice(id), blobOid])),
+        ...(memberCrawlOutcomes === undefined ? {} : { memberCrawlOutcomes }),
+      });
+    }
+    const outcomes = (overrides: Record<string, string>) => ({
+      ...Object.fromEntries(members.map((id) => [id, 'crawl_ok'])), ...overrides,
+    });
+    const TODAY = ['receipt_missing', 'wait_failed'];
+
+    it('withholds receipt_missing for a failed crawl in a minority while siblings delivered', () => {
+      const manifest = groupManifest(['member-03'], outcomes({ 'member-03': 'crawl_failed' }));
+      expect(manifest.reasons).toEqual(['wait_failed']);
+      expect(manifest.valid).toBe(false);
+      expect(manifest.verifiedCrawlers).toBe(members.length - 1);
+      expect(validateGroupTerminalManifest(manifest)).toEqual({ valid: true, errors: [] });
+    });
+
+    it.each([
+      ['a crawl that succeeded and left no receipt', 'crawl_ok'],
+      ['an unknown crawl outcome', 'unknown'],
+      ['a runner shutdown', 'systemic'],
+      ['an unrecognized outcome value', 'crawl_failed_maybe'],
+    ])('keeps receipt_missing for %s', (_label, outcome) => {
+      expect(groupManifest(['member-03'], outcomes({ 'member-03': outcome })).reasons).toEqual(TODAY);
+    });
+
+    it('keeps receipt_missing when the member has no recorded outcome at all', () => {
+      const partial = outcomes({});
+      delete (partial as Record<string, string>)['member-03'];
+      expect(groupManifest(['member-03'], partial).reasons).toEqual(TODAY);
+    });
+
+    it('keeps receipt_missing when every member failed (no sibling delivered)', () => {
+      const all = Object.fromEntries(members.map((id) => [id, 'crawl_failed']));
+      expect(groupManifest(members, all).reasons).toEqual(TODAY);
+    });
+
+    it('keeps receipt_missing when failed crawls are not a strict minority', () => {
+      const half = members.slice(0, members.length / 2);
+      const justUnder = half.slice(1);
+      expect(groupManifest(half, outcomes(Object.fromEntries(half.map((id) => [id, 'crawl_failed'])))).reasons).toEqual(TODAY);
+      expect(groupManifest(justUnder, outcomes(Object.fromEntries(justUnder.map((id) => [id, 'crawl_failed'])))).reasons)
+        .toEqual(['wait_failed']);
+    });
+
+    it('keeps receipt_missing when a failed crawl sits next to a successful crawl without receipt', () => {
+      const manifest = groupManifest(['member-03', 'member-07'], outcomes({ 'member-03': 'crawl_failed' }));
+      expect(manifest.reasons).toEqual(TODAY);
+    });
+
+    it('never mints a valid manifest: a successful wait keeps receipt_missing', () => {
+      const manifest = groupManifest(['member-03'], outcomes({ 'member-03': 'crawl_failed' }), 'success');
+      expect(manifest.reasons).toEqual(['receipt_missing']);
+      expect(manifest.valid).toBe(false);
+    });
+
+    it('is byte-identical to the pre-member-grain manifest when no outcomes are passed', () => {
+      const without = groupManifest(['member-03']);
+      expect(without.reasons).toEqual(TODAY);
+      for (const inert of [null, [], 'crawl_failed', {}]) {
+        expect(JSON.stringify(groupManifest(['member-03'], inert as never))).toBe(JSON.stringify(without));
+      }
+      // Outcomes are evidence for a missing receipt only: they never change a complete group.
+      expect(JSON.stringify(groupManifest([], outcomes({ 'member-03': 'crawl_failed' }), 'success')))
+        .toBe(JSON.stringify(groupManifest([], undefined, 'success')));
+    });
+  });
+
   it('rejects forged schema, digest, reasons and duplicate crawler ownership', () => {
     const manifest = validManifest();
     expect(validateGroupTerminalManifest({ ...manifest, unexpected: true }).valid).toBe(false);

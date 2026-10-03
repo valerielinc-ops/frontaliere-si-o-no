@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-03T09:10:12.505Z",
+  "generatedAt": "2026-10-03T21:11:25.500Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -10,18 +10,17 @@
   "sourceBodyFailures": [],
   "written": 4,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5064,
-  "avgDurationMs": 5064,
+  "durationMs": 4370,
+  "avgDurationMs": 4370,
   "durationHistory": [
-    4433,
-    4838,
-    5064
+    4370
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-222ca79a9586",
       "slug": "marketing-operations-activation-specialist-m-w-d-straumann-ch",
@@ -34,7 +33,7 @@
       "url": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:03.139Z",
+      "crawledAt": "2026-10-03T21:11:15.402Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -50,16 +49,15 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "needsRetranslation": true,
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-10-03T09:10:03.139Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "straumann-4134dd862955",
       "slug": "ip-administrative-assistant-temporary-part-time-50-straumann-ch",
@@ -72,7 +70,7 @@
       "url": "https://careers.straumann.com/global/en/job/22089/ip-administrative-assistant-temporary-part-time-50",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:10:02.852Z",
+      "crawledAt": "2026-10-03T21:11:15.126Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -109,7 +107,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:02.579Z",
+      "crawledAt": "2026-10-03T21:11:14.882Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -146,7 +144,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:10:02.289Z",
+      "crawledAt": "2026-10-03T21:11:14.619Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -172,5 +170,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

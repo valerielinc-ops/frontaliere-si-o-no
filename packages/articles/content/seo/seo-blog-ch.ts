@@ -99353,6 +99353,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-terzo-3a-berna': {
+    title: 'Terzo pilastro 3a svizzera: vantaggi 2026 canton Berna',
+    description: 'Terzo pilastro 3a 2026 nel canton Berna: vantaggi fiscali, massimale indicizzato, tre livelli d\'imposta e confronto tra provider bancari e assicurativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, vantaggi, canton',
+    ogTitle: 'Terzo pilastro 3a svizzera: vantaggi 2026 canton Berna',
+    ogDescription: 'Nel canton Berna il 3a si valuta su tre livelli fiscali: imposta federale diretta, legge cantonale e moltiplicatore comunale. Il massimale è indicizzato ogni anno; la guida 2026 confronta provider bancari e assicurativi.',
+    canonicalPath: '/articoli-svizzera/guida-terzo-3a-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a svizzera: vantaggi 2026 canton Berna",
+      "description": "Terzo pilastro 3a 2026 nel canton Berna: vantaggi fiscali, massimale indicizzato, tre livelli d'imposta e confronto tra provider bancari e assicurativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-terzo-3a-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona in Svizzera consulta documenti sul terzo pilastro 3a e sulle imposte"
+      },
+      "datePublished": "2026-10-03T13:22:34+00:00",
+      "dateModified": "2026-10-03T13:22:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-terzo-3a-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lista-governo-ticino-2027': {
+    title: 'Avanti con Ticino&Lavoro: lista Governo 2027 | Frontaliere Ticino',
+    description: 'Avanti con Ticino&Lavoro presenta a Lamone cinque candidati al Consiglio di Stato del Ticino per le elezioni dell\'11 aprile 2027: trasparenza e partecipazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avanti, lavoro, lista, governo',
+    ogTitle: 'Avanti con Ticino&Lavoro: lista Governo 2027',
+    ogDescription: 'Avanti con Ticino&Lavoro presenta a Lamone cinque candidati al Consiglio di Stato: Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli e Giovanni Albertini. L\'appello richiama partecipazione e trasparenza.',
+    canonicalPath: '/articoli-svizzera/lista-governo-ticino-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avanti con Ticino&Lavoro: lista Governo 2027",
+      "description": "Avanti con Ticino&Lavoro presenta a Lamone cinque candidati al Consiglio di Stato del Ticino per le elezioni dell'11 aprile 2027: trasparenza e partecipazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lista-governo-ticino-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Presentazione politica a Lamone per la lista al Governo ticinese"
+      },
+      "datePublished": "2026-10-03T14:01:50+00:00",
+      "dateModified": "2026-10-03T14:01:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lista-governo-ticino-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guida-3a-fisco-vaud': {
+    title: 'Terzo pilastro 3a: vantaggi 2026 nel canton Vaud',
+    description: 'Guida 2026 al terzo pilastro 3a nel canton Vaud: vantaggi fiscali, tre livelli d\'imposta, massimale indicizzato e confronto nazionale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, vantaggi, canton',
+    ogTitle: 'Terzo pilastro 3a 2026: guida al canton Vaud',
+    ogDescription: 'Nel canton Vaud il terzo pilastro 3a va letto tra imposta federale diretta, livello cantonale e livello comunale. La guida 2026 distingue AFC/ESTV, amministrazioni cantonali e UFAS/BSV, e spiega perché il massimale è indicizzato ogni anno.',
+    canonicalPath: '/articoli-svizzera/guida-3a-fisco-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro 3a: vantaggi 2026 nel canton Vaud",
+      "description": "Guida 2026 al terzo pilastro 3a nel canton Vaud: vantaggi fiscali, tre livelli d'imposta, massimale indicizzato e confronto nazionale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-3a-fisco-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti fiscali e calcolatore per il terzo pilastro 3a nel canton Vaud"
+      },
+      "datePublished": "2026-10-03T14:44:40+00:00",
+      "dateModified": "2026-10-03T14:44:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-3a-fisco-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ginevra-manifestazione-palestina-sanzioni-2025': {
+    title: 'Ginevra: 1.500 in piazza pro Palestina, chieste sanzioni a Israele',
+    description: 'Manifestazione a Ginevra: 1.500 persone chiedono sanzioni a Israele e arresto Netanyahu. Berna non fermerà leader per motivi negoziali. Tutti i dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, piazza, palestina, chieste',
+    ogTitle: 'Ginevra: 1.500 in piazza pro Palestina, chieste sanzioni a Israele',
+    ogDescription: 'A Ginevra circa 1.500 persone hanno manifestato per la Palestina chiedendo alla Svizzera il blocco totale delle relazioni con Israele e l\'arresto di Netanyahu e Gallant. Il governo federale rifiuta il fermo per motivi negoziali. La protesta cita CPI',
+    canonicalPath: '/articoli-svizzera/ginevra-manifestazione-palestina-sanzioni-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra: 1.500 in piazza pro Palestina, chieste sanzioni a Israele",
+      "description": "Manifestazione a Ginevra: 1.500 persone chiedono sanzioni a Israele e arresto Netanyahu. Berna non fermerà leader per motivi negoziali. Tutti i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ginevra-manifestazione-palestina-sanzioni-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione pro Palestina a Ginevra con bandiere palestinesi e svizzere"
+      },
+      "datePublished": "2026-10-03T16:24:51+00:00",
+      "dateModified": "2026-10-03T16:24:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ginevra-manifestazione-palestina-sanzioni-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

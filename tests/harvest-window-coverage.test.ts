@@ -98,6 +98,11 @@ describe('applyCap / coverageWarnings', () => {
     expect(w).toEqual(['::warning::fix-issues: commenti illeggibili per 2 elementi, vista PARZIALE: #9912, #9913']);
   });
 
+  it('una PR con review troncate e non rilette rende PARZIALE la vista delle PR', () => {
+    const w = coverageWarnings('merged PRs', { truncatedDays: [], failedDays: [] }, 0, [10001], 'review');
+    expect(w).toEqual(['::warning::merged PRs: review illeggibili per 1 elementi, vista PARZIALE: #10001']);
+  });
+
   it('finestra completa = nessun warning', () => {
     expect(coverageWarnings('issues', { truncatedDays: [], failedDays: [] }, 0)).toEqual([]);
   });

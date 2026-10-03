@@ -102,10 +102,18 @@ jobs:
             # .github/actions/fetch-pages-artifact/action.yml.
             MAX_PAGES=3
             PER_PAGE=50
+            # A `branch=` run listing without a `created` window intermittently
+            # answers with a listing frozen weeks or months back (see the
+            # same block in .github/actions/fetch-pages-artifact/action.yml).
+            # Window = `github-pages` retention (deploy.yml) plus one day:
+            # nothing older can still be downloaded.
+            RETENTION_DAYS=8
+            WINDOW_DAYS=$((RETENTION_DAYS + 1))
+            CREATED_SINCE="$(jq -rn --argjson days "$WINDOW_DAYS" 'now - ($days * 86400) | strftime("%Y-%m-%d")')"
             WORK="$(mktemp -d)"
             page=1
             while [ "$page" -le "$MAX_PAGES" ]; do
-              if ! gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?branch=main&status=success&per_page=$PER_PAGE&page=$page" \
+              if ! gh api "repos/$GH_REPO/actions/workflows/deploy.yml/runs?branch=main&status=success&created=%3E%3D$CREATED_SINCE&per_page=$PER_PAGE&page=$page" \
                    > "$WORK/page-$page.json"; then
                 echo "::error::gh api failed while listing deploy.yml runs (page $page). This is an API/token failure, NOT 'no deploy has an artifact'."
                 exit 1
@@ -136,8 +144,16 @@ jobs:
                     | sort_by(.created_at) | reverse
                     | .[] | [(.id|tostring), .created_at] | @tsv' \
               "$WORK"/page-*.json > "$WORK/cands.tsv"
-            echo "Candidates (id / created_at), client-sorted by created_at desc:"
+            echo "Candidates (id / created_at), created since $CREATED_SINCE, client-sorted by created_at desc:"
             sed 's/^/  /' "$WORK/cands.tsv"
+            # Freshness check: a newest candidate older than the requested
+            # window means the API ignored it and served an outdated listing.
+            # ISO 8601 UTC timestamps order lexicographically.
+            NEWEST_AT="$(head -n 1 "$WORK/cands.tsv" | cut -f2)"
+            if [ -n "$NEWEST_AT" ] && [[ "$NEWEST_AT" < "$CREATED_SINCE" ]]; then
+              echo "::error::Elenco API non aggiornato (stale run listing): the newest candidate was created $NEWEST_AT, before the requested window (created>=$CREATED_SINCE). This is NOT 'no run has an artifact'. Re-run the job, or pass run_a and run_b explicitly."
+              exit 1
+            fi
             picked=()
             # #7505: candidate list on fd 9, not on stdin — the `gh api` in
             # the body would otherwise inherit the file as its stdin and any
@@ -186,7 +202,7 @@ jobs:
               [ "${#picked[@]}" -ge 2 ] && break
             done 9< "$WORK/cands.tsv"
             if [ "${#picked[@]}" -lt 2 ]; then
-              echo "::error::Could not find two deploy.yml runs on main with a non-expired github-pages artifact within the walk-back cap ($MAX_PAGES pages x $PER_PAGE runs). Pass run_a and run_b explicitly."
+              echo "::error::Could not find two deploy.yml runs on main created since $CREATED_SINCE with a non-expired github-pages artifact (retention $RETENTION_DAYS days; walk-back cap $MAX_PAGES pages x $PER_PAGE runs). Pass run_a and run_b explicitly."
               exit 1
             fi
             B="${picked[0]}"   # newest

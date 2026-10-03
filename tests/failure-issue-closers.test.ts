@@ -347,6 +347,13 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // reconciler orario centrale, e il cron giornaliero garantisce che il
       // primo verde arrivi da solo entro 24h.
       'live-data-gates.yml': 'close-recovered-failure-issues',
+      // la sweep degli alert di secret scanning: prima la issue la apriva solo
+      // la scansione centrale, che nomina lo step rosso («Fail if any owner
+      // sweep failed») e non QUALE alert. L'adozione serve al `diag-file` con
+      // repository, numero e tipo. Il titolo resta `CI Failure: <name:>`, lo
+      // stesso che scrive la scansione centrale: un solo thread, chiuso dal
+      // reconciler al primo verde del cron giornaliero.
+      'secret-scanning-sweep.yml': 'close-recovered-failure-issues',
     };
     // A workflow can keep an existing custom reporter and add the canonical
     // post-job reporter as a second adoption. Compare file + closer pairs so
@@ -354,7 +361,9 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
     const expectedRows = Object.entries(EXPECTED)
       .map(([file, closedBy]) => `${file}\t${closedBy}`);
     expectedRows.push(
-      ...Array.from({ length: 5 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
+      // deploy-publish.yml has five pre-existing caller reporters plus the
+      // non-IT tail and receipt reporters added with the deferred-tail split.
+      ...Array.from({ length: 7 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
       'issue-fix.yml\tclose-recovered-failure-issues',
       'issue-fix.yml\tclose-recovered-failure-issues',
       // settima adozione: la misura full-corpus del build jobs SEO (#9618),

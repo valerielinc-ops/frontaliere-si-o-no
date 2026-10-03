@@ -12,9 +12,8 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l4-alert-return.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
@@ -33,6 +32,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
   pull_request:
     paths:
@@ -42,9 +42,8 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l4-alert-return.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
@@ -63,6 +62,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l4-alert-return.yml'
   workflow_dispatch:
     inputs:
@@ -96,14 +96,14 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l4-alert-return.mjs
             /scripts/ci/export-loop-outcomes.mjs
-            /scripts/lib/ga4-l5-decision-dimension.mjs
             /scripts/lib/ga4-service-account.mjs
-            /scripts/lib/ga4-l5-decision-dimension.mjs
+            /scripts/lib/app-error-recency.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /scripts/lib/posthog-client.mjs
             /functions/src/jobAlertBackfillCore.js
             /functions/src/lib/subscriberConsent.js

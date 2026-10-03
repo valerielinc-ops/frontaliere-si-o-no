@@ -1,20 +1,19 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-10-03T09:17:21.970Z",
-  "total": 19,
-  "newCount": 3,
-  "updatedCount": 17,
+  "generatedAt": "2026-10-03T21:18:49.853Z",
+  "total": 18,
+  "newCount": 0,
+  "updatedCount": 18,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 285674,
-  "avgDurationMs": 285674,
+  "unchangedCount": 0,
+  "durationMs": 285751,
+  "avgDurationMs": 285751,
   "durationHistory": [
-    291266,
-    284012,
-    285674
+    285751
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-krv0wc",
       "slug": "senior-contract-claims-manager-abb-svizzera-sede-ticino-baden-aargau",
@@ -37,91 +36,23 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-10-03T09:17:11.817Z",
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
-      "_qualityScore": 55,
+      "salarySource": "estimated",
+      "addressLocality": "Baden, Aargau",
+      "addressRegion": "AG",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 4,
-        "completeness": 14
+        "completeness": 19
       }
     },
-    {
-      "id": "company-e9hp9p",
-      "slug": "applikationsentwickler-digitalisierung-produktion-80-100-abb-svizzera-sede-ticino-schaffhausen",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Applikationsentwickler Digitalisierung Produktion (80 - 100%)",
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-01",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00048252EXTERNALENGLOBAL/Applikationsentwickler-Digitalisierung-Produktion",
-      "applyUrl": "https://careers.abb/global/en/job/ABB1GLOBALJR00048252EXTERNALENGLOBAL/Applikationsentwickler-Digitalisierung-Produktion",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Schaffhausen, Schaffhausen, Switzerland",
-        "canton": "SH"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
-      "firstSeenAt": "2026-10-03T09:17:11.817Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "en",
-      "_qualityScore": 53,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 2,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-ugqodv",
-      "slug": "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Service Team Leader (f/m/d) 80-100%",
-      "location": "Baden, Aargau",
-      "canton": "AG",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-13",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00041779EXTERNALENGLOBAL/Service-Team-Leader--f-m-d--80-100",
-      "applyUrl": "https://careers.abb/global/en/job/ABB1GLOBALJR00041779EXTERNALENGLOBAL/Service-Team-Leader--f-m-d--80-100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Baden, Aargau, Switzerland",
-        "canton": "AG"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
-      "firstSeenAt": "2026-10-03T09:17:11.817Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "en",
-      "_qualityScore": 55,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "id": "company-bebpwv",
       "slug": "senior-project-lead-ingegnere-power-systems-80-100-abb-svizzera-sede-ticino-baden-aargau-bebpwv",
@@ -144,7 +75,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-10-01T09:18:02.942Z",
       "needsRetranslation": true,
       "country": "CH",
@@ -184,8 +115,8 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-02T09:19:42.526Z",
-      "firstSeenAt": "2026-10-01T21:20:14.394Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
+      "firstSeenAt": "2026-10-03T09:17:11.817Z",
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
@@ -193,11 +124,11 @@
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 73,
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 17,
+        "translation": 4,
         "completeness": 19
       }
     },
@@ -223,7 +154,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-30T21:16:05.084Z",
       "needsRetranslation": true,
       "country": "CH",
@@ -232,14 +163,14 @@
       "addressLocality": "Baden, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00048083externalenglobal/field-service-technician--region-central-switzerland--f-m-d--80-100",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 19,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00048083externalenglobal/field-service-technician--region-central-switzerland--f-m-d--80-100"
+      }
     },
     {
       "id": "company-48lu2g",
@@ -263,7 +194,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-07-24T11:28:01.819Z",
       "country": "CH",
       "sourceLang": "en",
@@ -271,14 +202,14 @@
       "addressLocality": "Baden, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00039505externalenglobal/senior-lead-engineer",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00039505externalenglobal/senior-lead-engineer"
+      }
     },
     {
       "id": "company-3exmbv",
@@ -302,7 +233,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-28T21:18:40.432Z",
       "country": "CH",
       "sourceLang": "en",
@@ -311,14 +242,14 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00047080externalenglobal/head-of-sales---process-industries-switzerland--80-100",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00047080externalenglobal/head-of-sales---process-industries-switzerland--80-100"
+      }
     },
     {
       "id": "company-1czx8o",
@@ -342,7 +273,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-26T13:58:28.170Z",
       "country": "CH",
       "sourceLang": "en",
@@ -351,14 +282,14 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00046611externalenglobal/sales-specialist-panel-builder--80---100",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00046611externalenglobal/sales-specialist-panel-builder--80---100"
+      }
     },
     {
       "id": "company-o9md29",
@@ -382,7 +313,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-17T03:54:55.405Z",
       "country": "CH",
       "sourceLang": "en",
@@ -390,14 +321,14 @@
       "addressLocality": "Baden, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00042362externalenglobal/internship---ai---data-analytics-in-sales-f-m-d--80-100",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00042362externalenglobal/internship---ai---data-analytics-in-sales-f-m-d--80-100"
+      }
     },
     {
       "id": "company-a0lhdn",
@@ -421,7 +352,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-07-14T11:08:48.231Z",
       "country": "CH",
       "sourceLang": "en",
@@ -430,14 +361,14 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00038436externalenglobal/technical-service-specialist---gearless-mill-drive--80-100",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00038436externalenglobal/technical-service-specialist---gearless-mill-drive--80-100"
+      }
     },
     {
       "id": "company-t2d7mj",
@@ -461,7 +392,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-17T03:54:55.405Z",
       "needsRetranslation": true,
       "country": "CH",
@@ -470,14 +401,14 @@
       "addressLocality": "Baden, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00047026externalenglobal/bid---proposal-engineer---mittelspannungsprodukte-and--lsungen--m-w-d---80-100",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 23,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00047026externalenglobal/bid---proposal-engineer---mittelspannungsprodukte-and--lsungen--m-w-d---80-100"
+      }
     },
     {
       "id": "company-qi6mjr",
@@ -501,7 +432,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-17T03:54:55.405Z",
       "country": "CH",
       "sourceLang": "en",
@@ -510,14 +441,14 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00039371externalenglobal/sales-manager---global-strategic-projects_jr00039371-1",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00039371externalenglobal/sales-manager---global-strategic-projects_jr00039371-1"
+      }
     },
     {
       "id": "company-1icynn",
@@ -541,7 +472,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-18T23:15:02.968Z",
       "country": "CH",
       "sourceLang": "en",
@@ -550,14 +481,14 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00047021externalenglobal/mechanical-supervisor--80-100",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 23,
         "completeness": 19
-      },
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00047021externalenglobal/mechanical-supervisor--80-100"
+      }
     },
     {
       "id": "company-t7npmb",
@@ -581,7 +512,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-18T23:15:02.968Z",
       "country": "CH",
       "sourceLang": "en",
@@ -620,7 +551,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-18T23:15:02.968Z",
       "country": "CH",
       "sourceLang": "en",
@@ -635,6 +566,45 @@
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-ugqodv",
+      "slug": "service-capo-squadra-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Service Team Leader (f/m/d) 80-100%",
+      "location": "Baden, Aargau",
+      "canton": "AG",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-13",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00041779EXTERNALENGLOBAL/Service-Team-Leader--f-m-d--80-100",
+      "applyUrl": "https://careers.abb/global/en/job/ABB1GLOBALJR00041779EXTERNALENGLOBAL/Service-Team-Leader--f-m-d--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Baden, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
+      "firstSeenAt": "2026-08-27T19:57:59.529Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "salarySource": "estimated",
+      "addressLocality": "Baden, Aargau",
+      "addressRegion": "AG",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 11,
         "completeness": 19
       }
     },
@@ -659,7 +629,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-10T23:12:35.970Z",
       "country": "CH",
       "sourceLang": "en",
@@ -698,7 +668,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-10T23:12:35.970Z",
       "country": "CH",
       "sourceLang": "en",
@@ -738,7 +708,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-03T09:17:11.817Z",
+      "crawledAt": "2026-10-03T21:18:40.221Z",
       "firstSeenAt": "2026-09-09T23:10:23.418Z",
       "country": "CH",
       "sourceLang": "en",
@@ -758,48 +728,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-p3o4ck",
-      "slug": "r-d-center-lead-sviluppo-dei-materiali-80-100-abb-svizzera-sede-ticino-uster-zurich",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "R&D Center Lead - Materials Development (80-100%)",
-      "location": "Uster, Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00046956EXTERNALENGLOBAL/R-D-Center-Lead---Materials-Development--80-100",
-      "applyUrl": "https://careers.abb/global/en/job/ABB1GLOBALJR00046956EXTERNALENGLOBAL/R-D-Center-Lead---Materials-Development--80-100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Uster, Zurich, Switzerland",
-        "canton": "ZH"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-01T09:18:02.942Z",
-      "firstSeenAt": "2026-09-26T13:58:28.170Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salarySource": "estimated",
-      "addressLocality": "Uster, Zurich",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "sourceIdentity": "url:https://careers.abb/global/en/job/abb1globaljr00046956externalenglobal/r-d-center-lead---materials-development--80-100",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

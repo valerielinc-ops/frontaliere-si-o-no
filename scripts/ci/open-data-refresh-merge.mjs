@@ -128,6 +128,37 @@ function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
   return refreshRaw;
 }
 
+const IMAGE_PATH_RE = /\.(?:webp|png|jpe?g|avif)$/iu;
+
+/**
+ * Dependency-free container check for an image blob about to be committed.
+ * Returns a reason string, or `null` when the bytes look like an image (or the
+ * path is not one). The refresh merge runs from a temporary copy of these
+ * scripts with no node_modules, so `sharp` is not available here.
+ *
+ * It exists for the incident behind deploy run 37035643275: a hero image went
+ * through a UTF-8 text round trip on its way to the stable branch, the commit
+ * was green, and the first thing to notice was the thumbnail generator three
+ * hours into a deploy. The format is sniffed from the bytes rather than trusted
+ * from the extension — the tree already holds a JPEG named `.png`, and sharp
+ * decodes by content too.
+ */
+export function imageContainerDefect(file, bytes) {
+  if (!IMAGE_PATH_RE.test(file) || !Buffer.isBuffer(bytes)) return null;
+  if (bytes.length < 12) return `only ${bytes.length} bytes`;
+  if (bytes.subarray(0, 4).toString('latin1') === 'RIFF') {
+    if (bytes.subarray(8, 12).toString('latin1') !== 'WEBP') return 'RIFF container is not WEBP';
+    const declared = bytes.readUInt32LE(4) + 8;
+    return declared === bytes.length
+      ? null
+      : `RIFF header declares ${declared} bytes, file has ${bytes.length}`;
+  }
+  if (bytes.subarray(0, 8).toString('hex') === '89504e470d0a1a0a') return null; // PNG
+  if (bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) return null; // JPEG
+  if (bytes.subarray(4, 8).toString('latin1') === 'ftyp') return null; // AVIF/HEIF
+  return 'no WebP, PNG, JPEG or AVIF signature';
+}
+
 /**
  * Merge one path from a stable branch and a current refresh commit.
  * `null` represents a missing blob in a git ref.

@@ -284,7 +284,39 @@ function sliceFromReceipt(file, crawlerId, receiptCommit, remoteSliceOids) {
   };
 }
 
-/** Build a group terminal manifest from exact private-index commit receipts. */
+/**
+ * Exit of one member's CRAWL alone, as the group finalizer reads it from the
+ * runner. `crawl_failed` is the only value that can ever remove a reason; every
+ * other value (and an absent map) keeps today's verdict.
+ */
+export const MEMBER_CRAWL_OUTCOMES = Object.freeze(['crawl_ok', 'crawl_failed', 'systemic', 'unknown']);
+
+function memberCrawlOutcomeReader(memberCrawlOutcomes) {
+  const outcomes = memberCrawlOutcomes && typeof memberCrawlOutcomes === 'object' && !Array.isArray(memberCrawlOutcomes)
+    ? memberCrawlOutcomes
+    : null;
+  return (crawlerId) => (
+    outcomes !== null && Object.prototype.hasOwnProperty.call(outcomes, crawlerId)
+      && MEMBER_CRAWL_OUTCOMES.includes(outcomes[crawlerId])
+      ? outcomes[crawlerId]
+      : 'unknown'
+  );
+}
+
+/**
+ * Build a group terminal manifest from exact private-index commit receipts.
+ *
+ * Member grain (optional `memberCrawlOutcomes`, crawlerId -> outcome): a
+ * member whose crawl failed has no receipt, exactly like a member whose crawl
+ * succeeded and whose receipt was lost. Without positive proof both produce
+ * `receipt_missing`. The reason is withheld for a receipt-less member only
+ * when ALL of these hold, so the delivery gate can tell the two apart:
+ * its own crawl exit says `crawl_failed`; the group already failed its wait
+ * (`wait_failed` stays, the manifest stays invalid); at least one sibling
+ * delivered an accepted receipt; failed crawls are a strict minority of the
+ * roster. No field and no reason code is added: the schema is exact-key and
+ * older readers reject unknown reasons.
+ */
 export function createGroupTerminalManifest(input) {
   const reasons = Array.isArray(input.additionalReasons)
     ? input.additionalReasons.filter((reason) => GROUP_REASON_SET.has(reason))
@@ -322,10 +354,11 @@ export function createGroupTerminalManifest(input) {
     }));
 
   const acceptedReceipts = [];
+  const receiptlessCrawlerIds = [];
   for (const crawlerId of expected) {
     const receipt = receiptByCrawler.get(crawlerId);
     if (!receipt) {
-      reasons.push('receipt_missing');
+      receiptlessCrawlerIds.push(crawlerId);
     } else if (!validateCrawlerGenerationReceipt(receipt).valid) {
       reasons.push('receipt_invalid');
     } else if (!ACCEPTED_RECEIPT_OUTCOMES.has(receipt.outcome)) {
@@ -340,6 +373,16 @@ export function createGroupTerminalManifest(input) {
     }
   }
   if (receipts.some((receipt) => !expected.includes(receipt?.crawlerId))) reasons.push('receipt_invalid');
+  const memberCrawlOutcome = memberCrawlOutcomeReader(input.memberCrawlOutcomes);
+  const failedCrawls = expected.filter((crawlerId) => memberCrawlOutcome(crawlerId) === 'crawl_failed').length;
+  // `waitOutcome !== 'success'` is load-bearing: withholding the reason on a
+  // successful wait would leave no reason at all and mint a valid manifest.
+  const failedCrawlsExplainMissingReceipts = input.waitOutcome !== 'success'
+    && acceptedReceipts.length >= 1
+    && failedCrawls * 2 < expected.length;
+  if (receiptlessCrawlerIds.some((crawlerId) => (
+    !failedCrawlsExplainMissingReceipts || memberCrawlOutcome(crawlerId) !== 'crawl_failed'
+  ))) reasons.push('receipt_missing');
 
   const remoteSliceOids = input.remoteSliceOids && typeof input.remoteSliceOids === 'object'
     ? input.remoteSliceOids

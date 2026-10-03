@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllTemenosJobs,
   isTemenosJob,
@@ -26,6 +27,11 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllTemenosJobs,
   isCompanyJob: isTemenosJob,
   isTrustedDomain,
+  // A bare [] is still fail-closed. The Workday parser stamps a zero only
+  // after the live board proves that Switzerland is absent from its facet.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(TEMENOS_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   defaultSourceLang: 'en',
 }).catch((err) => {
   console.error(`❌ Temenos crawler failed: ${err?.message || err}`);

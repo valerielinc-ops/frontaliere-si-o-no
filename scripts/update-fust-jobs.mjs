@@ -465,18 +465,34 @@ export async function fetchFustJobUrls(options = {}) {
 
     let jobs;
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    // AbortSignal is advisory: a custom fetch implementation can ignore it and
+    // leave the await pending until Node exits naturally. Reject the operation
+    // as well, so an unfinished discovery cannot be recorded as a clean exit.
+    let rejectTimeout;
+    const timeoutError = new Error(`Fust API request timed out at offset ${offset} after ${timeoutMs}ms.`);
+    timeoutError.name = 'TimeoutError';
+    const timeoutPromise = new Promise((_, reject) => {
+      rejectTimeout = reject;
+    });
+    const timer = setTimeout(() => {
+      controller.abort();
+      rejectTimeout(timeoutError);
+    }, timeoutMs);
 
     try {
-      const res = await fetchImpl(apiUrl, {
-        signal: controller.signal,
-        headers: { Accept: 'application/json', 'User-Agent': UA },
-      });
-      if (!res.ok) {
-        throw new Error(`Fust discovery failed at offset ${offset}: API returned HTTP ${res.status}.`);
-      }
-
-      const data = await res.json();
+      const data = await Promise.race([
+        (async () => {
+          const res = await fetchImpl(apiUrl, {
+            signal: controller.signal,
+            headers: { Accept: 'application/json', 'User-Agent': UA },
+          });
+          if (!res.ok) {
+            throw new Error(`Fust discovery failed at offset ${offset}: API returned HTTP ${res.status}.`);
+          }
+          return res.json();
+        })(),
+        timeoutPromise,
+      ]);
       jobs = assertJsonListShape(data, { key: 'jobs', source: 'fust', lang: `offset:${offset}` });
       if (!Number.isSafeInteger(data?.total) || data.total < 0) {
         throw new Error(`Fust discovery invariant failed: API response at offset ${offset} did not expose a non-negative safe integer total.`);
@@ -490,6 +506,7 @@ export async function fetchFustJobUrls(options = {}) {
       }
     } catch (err) {
       if (/Fust discovery invariant failed/.test(String(err?.message || err))) throw err;
+      if (err?.name === 'TimeoutError') throw err;
       throw new Error(`Fust discovery failed at offset ${offset}: ${err?.message || err}`, { cause: err });
     } finally {
       clearTimeout(timer);

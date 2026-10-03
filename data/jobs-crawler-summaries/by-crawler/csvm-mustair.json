@@ -1,7 +1,7 @@
 {
   "key": "csvm-mustair",
   "label": "Center da Sanda Val Müstair (CSVM)",
-  "generatedAt": "2026-10-03T09:25:44.408Z",
+  "generatedAt": "2026-10-03T21:25:39.689Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -14,12 +14,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4635,
-  "avgDurationMs": 4635,
+  "durationMs": 5991,
+  "avgDurationMs": 5991,
   "durationHistory": [
-    5079,
-    5349,
-    4635
+    5991
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:37.790Z",
+      "crawledAt": "2026-10-03T21:25:32.635Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -73,7 +71,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.123Z",
+      "crawledAt": "2026-10-03T21:25:33.127Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -110,7 +108,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.290Z",
+      "crawledAt": "2026-10-03T21:25:33.462Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -147,7 +145,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.461Z",
+      "crawledAt": "2026-10-03T21:25:33.636Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -184,7 +182,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.666Z",
+      "crawledAt": "2026-10-03T21:25:33.817Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -221,7 +219,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.830Z",
+      "crawledAt": "2026-10-03T21:25:34.013Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -247,5 +245,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

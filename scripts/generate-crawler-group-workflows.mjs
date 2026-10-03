@@ -2116,6 +2116,41 @@ const TRANSLATION_WRITE_BOUNDARY_HEADER = [
   '# writes therefore survive without a Firestore lease in this workflow.',
 ];
 
+// Il guard decide sulle RIGHE lette, non su `total_count`: per un elenco di run
+// filtrato per `status` GitHub restituisce un `total_count` che non coincide con
+// le righe (osservato maggiore di zero con zero righe). Confrontarli spegneva la
+// traduzione con la coda vuota. Tre regole, tutte nello script generato:
+//  - una pagina con meno di `per_page` righe chiude l'elenco;
+//  - il conteggio decide solo al TETTO di pagine, dove l'alternativa e' un guard
+//    cieco: ultima pagina ammessa piena e `total_count` che dichiara altre righe
+//    = troncatura vera (fail-closed); piena ma righe >= `total_count` = elenco
+//    completo. Sotto il tetto una pagina piena e' sempre seguita da un'altra
+//    lettura, anche se le righe hanno gia' raggiunto il conteggio;
+//  - se a elenco concluso `total_count` supera le righe, lo stato viene riletto
+//    una seconda volta e si decide sull'unione per `id`: una riga in ritardo
+//    entra fra i candidati, un conteggio che non descrive le righe non blocca;
+//  - se anche la rilettura dichiara piu' righe di quelle restituite, l'unione
+//    non basta a decidere: il guard DIMOSTRA che la coda e' vuota leggendo
+//    l'elenco delle run del workflow SENZA filtro di stato (stesso `guard_api`,
+//    stesso tetto di pagine). Quell'elenco non ha il conteggio fantasma: il suo
+//    `total_count` e' il totale delle run e la paginazione lo rispetta. La prova
+//    chiude solo con una pagina corta (elenco finito: ogni run vista col suo
+//    stato). Una pagina piena non dimostra che la pagina successiva sia priva
+//    di una run piu' vecchia ancora in coda, anche quando quella pagina contiene
+//    solo run concluse oltre alla corrente: si continua a leggere fino alla
+//    pagina corta e al tetto senza tale pagina si fa fail-closed. Un
+//    fail-closed sul solo confronto conteggio/righe resta escluso: sotto il
+//    conteggio fantasma (run del corpus 37122259464 e 37101329262) spegneva la
+//    traduzione in 13 run su 14.
+// `active_runs` porta poi una riga per run (l'ultima lettura): gli stati sono
+// letti in sequenza e una run che cambia stato a meta' scansione non deve
+// contare sia come in attesa sia come pesante attivo.
+const TRANSLATE_QUEUE_GUARD_PAGE_SIZE = 100;
+const TRANSLATE_QUEUE_GUARD_MAX_PAGES = 3;
+const TRANSLATE_QUEUE_GUARD_BLIND_STEP_NAME = 'Fail the run when the queue guard was blind';
+const TRANSLATE_QUEUE_GUARD_BLIND_TITLE =
+  'translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita';
+
 function translatePendingQueueGuardJob() {
   return {
     'runs-on': 'ubuntu-latest',
@@ -2123,6 +2158,7 @@ function translatePendingQueueGuardJob() {
     permissions: { actions: 'read' },
     outputs: {
       run: '${{ steps.translate_queue_guard.outputs.run }}',
+      guard_error: '${{ steps.translate_queue_guard.outputs.guard_error }}',
     },
     steps: [{
       name: 'Skip duplicate queued translation run',
@@ -2138,15 +2174,18 @@ function translatePendingQueueGuardJob() {
         'set -euo pipefail',
         'fail_closed() {',
         '  local reason="${1:-unknown}"',
-        '  echo "::warning::translate-pending queue guard could not inspect GitHub Actions (${reason}); skipping the heavy run to keep the queue bounded."',
+        '  local detail="${2:-}"',
+        '  echo "::warning::translate-pending queue guard could not inspect GitHub Actions (${reason}${detail:+; ${detail}}); skipping the heavy run to keep the queue bounded."',
         '  echo "run=false" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=-1" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=${reason}" >> "$GITHUB_OUTPUT"',
         '  exit 0',
         '}',
         'if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$TRANSLATION_MANUAL_OVERRIDE" = "true" ]; then',
         '  echo "::warning::translate-pending manual workflow_dispatch input detected; bypassing the duplicate guard by request."',
         '  echo "run=true" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=0" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
         '  exit 0',
         'fi',
         'guard_started_at=$SECONDS',
@@ -2171,17 +2210,115 @@ function translatePendingQueueGuardJob() {
         '    sleep "$api_retry_delay_seconds"',
         '  done',
         '}',
+        `status_page_size=${TRANSLATE_QUEUE_GUARD_PAGE_SIZE}`,
+        `status_page_limit=${TRANSLATE_QUEUE_GUARD_MAX_PAGES}`,
+        'confirm_read_delay_seconds=1',
+        'dedupe_rows_by_id=\'group_by(.id) | map(.[-1]) | .[]\'',
+        '# Reads every page of one status into status_rows / status_rows_read /',
+        '# status_total_count. Called directly (never in a subshell) so fail_closed',
+        '# ends the step. A short page ends the list. total_count is consulted only',
+        '# at the page ceiling: a full last page is a truncated list only when GitHub',
+        '# declares more rows than were read.',
+        'read_status_rows() {',
+        '  local run_status="$1"',
+        '  local status_page=1',
+        '  local runs_path status_json status_returned_count status_runs',
+        '  status_rows=""',
+        '  status_rows_read=0',
+        '  status_total_count=0',
+        '  while :; do',
+        '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${status_page}&status=${run_status}"',
+        '    if ! status_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_${run_status}"; fi',
+        '    if ! printf "%s" "$status_json" | jq -e \'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_${run_status}_payload"; fi',
+        '    status_total_count="$(printf "%s" "$status_json" | jq -r \'.total_count\')"',
+        '    status_returned_count="$(printf "%s" "$status_json" | jq -r \'.workflow_runs | length\')"',
+        '    if ! status_runs="$(printf "%s" "$status_json" | jq -c \'.workflow_runs[]\')"; then fail_closed "workflow_runs_${run_status}_rows"; fi',
+        '    if [ -n "$status_runs" ]; then status_rows="${status_rows}${status_rows:+$\'\\n\'}${status_runs}"; fi',
+        '    status_rows_read=$((status_rows_read + status_returned_count))',
+        '    if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi',
+        '    if [ "$status_page" -ge "$status_page_limit" ]; then',
+        '      if [ "$status_rows_read" -ge "$status_total_count" ]; then break; fi',
+        '      fail_closed "workflow_runs_${run_status}_truncated" "total_count=${status_total_count}, rows=${status_rows_read}, pages=${status_page}"',
+        '    fi',
+        '    status_page=$((status_page + 1))',
+        '  done',
+        '}',
+        '# Proves the queue on the run list of this workflow WITHOUT a status filter',
+        '# (why, and the closing criterion: see the comment above its call).',
+        '# Called directly (never in a subshell) so fail_closed ends the step; reads',
+        '# go through guard_api, so they share the one time budget.',
+        'prove_queue_beyond_union() {',
+        '  local proof_page=1',
+        '  local runs_path proof_json proof_returned_count proof_page_unfinished proof_criterion known_ids proof_unfinished_count proof_new_ids',
+        '  local proof_unfinished=""',
+        '  while :; do',
+        '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${proof_page}"',
+        '    if ! proof_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_unfiltered" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    if ! printf "%s" "$proof_json" | jq -e \'type == "object" and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_unfiltered_payload" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    proof_returned_count="$(printf "%s" "$proof_json" | jq -r \'.workflow_runs | length\')"',
+        '    if ! proof_page_unfinished="$(printf "%s" "$proof_json" | jq -c \'.workflow_runs[] | select(.status != "completed")\')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    if [ -n "$proof_page_unfinished" ]; then proof_unfinished="${proof_unfinished}${proof_unfinished:+$\'\\n\'}${proof_page_unfinished}"; fi',
+        '    if [ "$proof_returned_count" -lt "$status_page_size" ]; then',
+        '      proof_criterion="a (page ${proof_page} has ${proof_returned_count} row(s) and ends the list)"',
+        '      break',
+        '    fi',
+        '    if [ "$proof_page" -ge "$status_page_limit" ]; then fail_closed "workflow_runs_queue_unproven" "${queue_proof_reasons}; unfiltered pages=${proof_page}, no short final page"; fi',
+        '    proof_page=$((proof_page + 1))',
+        '  done',
+        '  if ! known_ids="$(printf "%s\\n" "$active_runs" | jq -cs \'[.[] | .id | tostring] | unique\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
+        '  if ! proof_unfinished_count="$(printf "%s\\n" "$proof_unfinished" | jq -rs --arg current "$GITHUB_RUN_ID" \'[.[] | .id | tostring | select(. != $current)] | unique | length\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
+        '  if ! proof_new_ids="$(printf "%s\\n" "$proof_unfinished" | jq -rs --arg current "$GITHUB_RUN_ID" --argjson known "$known_ids" \'[.[] | .id | tostring | select(. != $current)] | unique | map(select(. as $id | $known | any(.[]; . == $id) | not)) | .[:10] | join(",")\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
+        '  if [ -n "$proof_unfinished" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${proof_unfinished}"; fi',
+        '  echo "::notice::translate-pending queue guard: count still above rows after the confirm read (${queue_proof_reasons}); the unfiltered run list proves the queue by criterion ${proof_criterion}; ${proof_unfinished_count} unfinished run(s) besides the current one, new vs the per-status reads: ${proof_new_ids:-none}."',
+        '}',
+        'queue_proof_reasons=""',
         'active_runs=""',
         'for run_status in queued pending waiting requested in_progress; do',
-        '  runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100&status=${run_status}"',
-        '  if ! status_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_${run_status}"; fi',
-        '  if ! printf "%s" "$status_json" | jq -e \'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_${run_status}_payload"; fi',
-        '  status_total_count="$(printf "%s" "$status_json" | jq -r \'.total_count\')"',
-        '  status_returned_count="$(printf "%s" "$status_json" | jq -r \'.workflow_runs | length\')"',
-        '  if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed "workflow_runs_${run_status}_truncated"; fi',
-        '  if ! status_runs="$(printf "%s" "$status_json" | jq -c \'.workflow_runs[]\')"; then fail_closed "workflow_runs_${run_status}_rows"; fi',
-        '  if [ -n "$status_runs" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${status_runs}"; fi',
+        '  read_status_rows "$run_status"',
+        '  # total_count above the rows after a short page is NOT a truncation and must',
+        '  # not fail closed: GitHub reports it with an empty queue (corpus runs',
+        '  # 37122259464 and 37101329262, 2026-10-03: total_count > 0 with zero rows),',
+        '  # and that comparison kept translation off for 13 runs out of 14. A short',
+        '  # page ends the list. What a single read cannot rule out is a row listed',
+        '  # late, so the status is read a second time and the decision is taken on the',
+        '  # union of both reads. The invariant against two heavy jobs in parallel is',
+        '  # the jobs-data-pipeline mutex on the translate job, not this guard, which',
+        '  # only keeps the queue short.',
+        '  if [ "$status_rows_read" -lt "$status_total_count" ]; then',
+        '    first_rows="$status_rows"',
+        '    first_rows_read="$status_rows_read"',
+        '    first_total_count="$status_total_count"',
+        '    sleep "$confirm_read_delay_seconds"',
+        '    read_status_rows "$run_status"',
+        '    if ! status_rows="$(printf "%s\\n%s\\n" "$first_rows" "$status_rows" | jq -cs "$dedupe_rows_by_id")"; then fail_closed "workflow_runs_${run_status}_union"; fi',
+        '    union_rows="$(printf "%s\\n" "$status_rows" | awk \'NF {count++} END {print count + 0}\')"',
+        '    echo "::notice::translate-pending queue guard: ${run_status} total_count=${first_total_count} but rows=${first_rows_read}; confirm read total_count=${status_total_count}, rows=${status_rows_read}; deciding on the union of both reads (${union_rows} row(s))."',
+        '    if [ "$status_rows_read" -lt "$status_total_count" ]; then queue_proof_reasons="${queue_proof_reasons}${queue_proof_reasons:+, }${run_status} total_count=${status_total_count} rows=${status_rows_read}"; fi',
+        '  fi',
+        '  if [ -n "$status_rows" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${status_rows}"; fi',
         'done',
+        '# A count still above the rows after the confirm read has two readings.',
+        '# (1) Phantom count, measured: a status-filtered list declares runs it never',
+        '#     returns (corpus runs 37122259464 and 37101329262, 2026-10-03:',
+        '#     total_count > 0 with zero rows, for days). Failing closed on the count',
+        '#     there is the incident: translation stayed off for 13 runs out of 14.',
+        '# (2) Rows really missing, never observed: an older waiting run left out of',
+        '#     the list, which deciding on the union would let the current run jump.',
+        '# The union alone cannot tell them apart, so the queue is PROVEN on a source',
+        '# without the phantom count: the run list of this workflow with no status',
+        '# filter (its total_count is the total of the runs and pagination honours',
+        '# it). Its unfinished rows join active_runs (the dedupe below keeps one row',
+        '# per id). The proof closes only on a short page: the list is over and every',
+        '# run of the workflow was seen with its current status. A full page cannot',
+        '# rule out an older waiting run on the next page, even if all rows there',
+        '# except the current one are completed. At the page ceiling without a short',
+        '# page, the queue is longer than the guard can see: fail closed. Called once',
+        '# per guard run, however many statuses disagree, and only then.',
+        'if [ -n "$queue_proof_reasons" ]; then prove_queue_beyond_union; fi',
+        '# One row per run, latest read wins: statuses are read in sequence, so a run',
+        '# that moved from queued to in_progress mid-scan was listed twice and would',
+        '# count both as waiting and as an active heavy run.',
+        'if ! active_runs="$(printf "%s\\n" "$active_runs" | jq -cs "$dedupe_rows_by_id")"; then fail_closed "active_runs_dedupe"; fi',
         'current_run_path="repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"',
         'if ! current_run_json="$(guard_api "$current_run_path")"; then fail_closed "current_run"; fi',
         'if ! printf "%s" "$current_run_json" | jq -e --arg current "$GITHUB_RUN_ID" \'type == "object" and ((.id | tostring) == $current) and ((.created_at | type) == "string")\' >/dev/null; then fail_closed "current_run_payload"; fi',
@@ -2227,11 +2364,30 @@ function translatePendingQueueGuardJob() {
         '  echo "✅ translate-pending queue guard admits the oldest waiting run; ${active_heavy_runs} heavy run(s) currently active and ${other_waiting} waiting behind it."',
         '  echo "run=true" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
         'else',
         '  echo "::warning::translate-pending queue guard found older run ${oldest_run_id}; skipping this duplicate. The oldest run will process the backlog."',
         '  echo "run=false" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
         'fi',
+      ].join('\n'),
+    }, {
+      // Un guard cieco salta il job pesante (fail-closed sulla coda) ma non
+      // deve piu' chiudere la run in verde: senza questo step 13 run su 14
+      // risultavano `success` senza tradurre nulla. Il job fallisce, `translate`
+      // resta saltato perche' la sua dipendenza non e' riuscita, e la run rossa
+      // viene raccolta dallo scanner delle run fallite. Un duplicato legittimo
+      // (run piu' vecchia in coda) lascia `guard_error` vuoto e resta verde.
+      name: TRANSLATE_QUEUE_GUARD_BLIND_STEP_NAME,
+      if: "steps.translate_queue_guard.outputs.guard_error != ''",
+      env: {
+        GUARD_ERROR: '${{ steps.translate_queue_guard.outputs.guard_error }}',
+      },
+      run: [
+        'set -euo pipefail',
+        `echo "::error::${TRANSLATE_QUEUE_GUARD_BLIND_TITLE}. Il guard della coda non ha potuto decidere (guard_error=\${GUARD_ERROR}): il job translate resta saltato e questa run non ha tradotto nulla."`,
+        'exit 1',
       ].join('\n'),
     }],
   };

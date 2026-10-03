@@ -120,6 +120,14 @@ const MAX_REF_LOOKUPS = intFromEnv('PREPASS_MAX_REF_LOOKUPS', 40);
 const HOME_SCOPE = 'site';
 
 /**
+ * Intestazione della nota di rientro. NON contiene `🔁`: il pre-pass agisce
+ * anche su `CI Failure:`/`Workflow Failure:`, e `close-recovered-failure-issues.mjs`
+ * conta le ricorrenze con `body.includes('🔁')` — una nota che lo citasse
+ * sarebbe una ricorrenza finta verso la soglia cronica.
+ */
+export const PREPASS_NOTE_HEAD = '↩️ **Pre-pass deterministico dello sweep (zero-Claude)**';
+
+/**
  * Le famiglie di issue APERTE DA UN MONITOR, riconosciute sul titolo.
  *
  * Ognuna è un titolo che scrive un nostro script, non una persona: il prefisso è
@@ -1010,7 +1018,7 @@ function main() {
       ? `${VISION_AUTONOMY_MARKER}\n\nVISION.md **D1/D3/D5**: rientro deterministico e reversibile; F1/F7 e control-plane restano veto nel risk gate runtime, e la label non è un bypass.`
       : '';
     const note = [
-      `🔁 **Pre-pass deterministico dello sweep (zero-Claude)**: ${d.reason}. Questa issue torna nel ciclo autonomo invece di occupare un'azione del cap del run Claude settimanale.`,
+      `${PREPASS_NOTE_HEAD}: ${d.reason}. Questa issue torna nel ciclo autonomo invece di occupare un'azione del cap del run Claude settimanale.`,
       registryVerdict,
       autonomyNote,
       already ? '' : d.note,

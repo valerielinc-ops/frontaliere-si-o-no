@@ -104,6 +104,39 @@ function exactEventFilter(eventName) {
   };
 }
 
+/** RE2 per `hostName` (GA4 `FULL_REGEXP`): l'apex e i suoi sottodomini. */
+export const PRODUCTION_HOST_REGEXP = '^(.+\\.)?frontaliereticino\\.ch$';
+
+/**
+ * `dimensionFilter` GA4: l'evento richiesto, solo dall'host di produzione, e
+ * (se dati) solo per i messaggi elencati.
+ *
+ * Sta in questo helper, e non in app-error-recency.mjs che lo riesporta,
+ * perche' lo usa `fetchGa4ErrorEntries` qui sotto: questo file e' elencato uno
+ * per uno negli sparse-checkout dei workflow dei loop, e un import da qui verso
+ * un modulo di funzionalita' li rompe tutti con ERR_MODULE_NOT_FOUND. La
+ * dipendenza va dal modulo di funzionalita' all'helper, mai al contrario
+ * (osservatore: tests/ga4-service-account-sparse-closure.test.ts).
+ *
+ * @param {string} eventName
+ * @param {{ messages?: string[] }} [opts]
+ */
+export function productionAppErrorFilter(eventName, { messages } = {}) {
+  const expressions = [
+    exactEventFilter(eventName),
+    { filter: { fieldName: 'hostName', stringFilter: { value: PRODUCTION_HOST_REGEXP, matchType: 'FULL_REGEXP' } } },
+  ];
+  if (Array.isArray(messages) && messages.length) {
+    expressions.push({
+      filter: {
+        fieldName: 'customEvent:error_message',
+        inListFilter: { values: messages, caseSensitive: true },
+      },
+    });
+  }
+  return { andGroup: { expressions } };
+}
+
 /**
  * Error events mirror Analytics.trackAppError(): app_error is preferred and
  * exception is the standard-event fallback. Empty `app_error` is not treated
@@ -133,7 +166,9 @@ export async function fetchGa4ErrorEntries({
       const data = await runGa4Report({
         token,
         fetchImpl,
-        body: { ...base, dimensionFilter: exactEventFilter(eventName) },
+        // Production host only — same rule as `errorHealth.appErrors` in
+        // analytics-report.mjs: the property also receives dev-server events.
+        body: { ...base, dimensionFilter: productionAppErrorFilter(eventName) },
       });
       const rows = (data.rows || []).map((row) => ({
         type: row.dimensionValues?.[0]?.value || eventName,

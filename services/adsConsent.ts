@@ -172,6 +172,19 @@ export function reopenAdsConsentMessage(): void {
 }
 
 /**
+ * Whether Funding Choices' consent message is on screen (its body-level
+ * `fc-consent-root`, displayed): what a reopened message is checked against,
+ * since `showRevocationMessage()` reports nothing back.
+ */
+export function isAdsConsentMessageOnScreen(doc: Document = document): boolean {
+  return Array.from(doc.querySelectorAll<HTMLElement>('.fc-consent-root')).some((el) => {
+    if (!el.isConnected) return false;
+    const style = doc.defaultView?.getComputedStyle(el);
+    return style?.display !== 'none' && style?.visibility !== 'hidden';
+  });
+}
+
+/**
  * Subscribe to decisions. Covers the same tab (CustomEvent) and other tabs
  * (`storage`), so accepting in one tab lets an already-open tab load its ads
  * without a reload. Returns an unsubscribe function.

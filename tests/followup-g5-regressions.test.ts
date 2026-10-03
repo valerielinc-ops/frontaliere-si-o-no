@@ -151,15 +151,15 @@ describe('G5 — follow-up detector regressions', () => {
 });
 
 describe('G5 — kill switch di auto-chiusura nei workflow', () => {
-  it('passa FOLLOWUP_NO_AUTOCLOSE ai due percorsi che possono chiudere issue', () => {
+  it('passa FOLLOWUP_NO_AUTOCLOSE al drainer; l harvester tiene il kill switch nello script', () => {
     const drainer = readFileSync('.github/workflows/followup-drainer.yml', 'utf8');
-    const harvest = readFileSync('.github/workflows/lessons-harvester.yml', 'utf8');
     const harvestScript = readFileSync('scripts/ci/harvest-agent-lessons.mjs', 'utf8');
 
     const drainStep = drainer.slice(drainer.indexOf('- name: Drain follow-up queue'));
-    const harvestStep = harvest.slice(harvest.indexOf('- name: Aggregate recurring patterns'));
     expect(drainStep).toContain("FOLLOWUP_NO_AUTOCLOSE: '1'");
-    expect(harvestStep).toContain("FOLLOWUP_NO_AUTOCLOSE: '1'");
+    // Lo step dell'harvester non lo imposta piu': il self-heal chiude solo senza
+    // pin, con la finestra intera e sotto soglia dopo il cutoff (vedi
+    // tests/harvest-escalation-driver.test.ts). L'interruttore resta per un'emergenza.
     expect(harvestScript).toMatch(/const NO_AUTOCLOSE = process\.env\.FOLLOWUP_NO_AUTOCLOSE === '1'/);
     expect(harvestScript).toContain('SELF-HEAL close skipped');
   });

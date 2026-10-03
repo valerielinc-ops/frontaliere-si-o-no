@@ -44,6 +44,7 @@ const CTR_BY_POSITION = [
   0.012, 0.011, 0.010, 0.009, 0.008,
 ];
 const TAIL_CTR = 0.006; // position > 20
+const DEFAULT_UNDERPERFORM_RATIO = 0.6;
 
 /**
  * Expected organic CTR (fraction, e.g. 0.037) for a given average position.
@@ -969,7 +970,7 @@ export function discoverUnregisteredFamilies(pageRows, {
  * `underperformRatio` (default 0.6) flags pages whose actual CTR is below
  * that fraction of the position-expected CTR.
  */
-export function aggregateFamilyRows(rows, { underperformRatio = 0.6, minImpressions = 20 } = {}) {
+export function aggregateFamilyRows(rows, { underperformRatio = DEFAULT_UNDERPERFORM_RATIO, minImpressions = 20 } = {}) {
   const eligible = rows.filter((r) => Number(r.impressions || 0) >= minImpressions);
   const totalClicks = eligible.reduce((sum, r) => sum + Number(r.clicks || 0), 0);
   const totalImpressions = eligible.reduce((sum, r) => sum + Number(r.impressions || 0), 0);
@@ -997,4 +998,187 @@ export function aggregateFamilyRows(rows, { underperformRatio = 0.6, minImpressi
     belowCurveCount: belowCurve.length,
     belowCurvePages: belowCurve,
   };
+}
+
+/**
+ * Distanza minima fra due controlli CONTEGGIATI del monitor CTR.
+ *
+ * `consecutiveBelowRuns` viene pubblicato come «controlli settimanali
+ * consecutivi»: la soglia di escalation e il testo della issue lo leggono in
+ * settimane. Il cron e' settimanale, ma un dispatch manuale o un re-run nella
+ * stessa settimana rilegge quasi la stessa finestra di 14 giorni: e' una
+ * seconda lettura, non una seconda settimana. Sei giorni lasciano margine alle
+ * ore di ritardo con cui parte una run schedulata.
+ */
+export const CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS = 6;
+
+/**
+ * Decide cosa fa un controllo al contatore di una famiglia.
+ *
+ * Un controllo e' CONTEGGIATO quando non ne esiste uno conteggiato prima,
+ * oppure l'ultimo ha almeno `minIntervalDays` giorni: allora incrementa il
+ * contatore (sotto target) o lo azzera (a target). Un controllo fuori cadenza
+ * non lo muove in nessuna delle due direzioni: contarlo porta una famiglia in
+ * escalation con una settimana di anticipo, azzerare su di lui cancella una
+ * serie che il controllo settimanale avrebbe potuto continuare. Misurato il
+ * 2026-10-03: un dispatch manuale a sei giorni dal cron ha portato due
+ * famiglie da 4 a 5, una da 1 a 2 (issue aperta) e una da 3 a 0.
+ *
+ * Lo stato scritto prima di `lastCountedIso` non lo contiene: allora ogni
+ * controllo era conteggiato, quindi l'ancora e' `lastCheckedIso`.
+ *
+ * @param {{consecutiveBelowRuns?: number, lastCountedIso?: string|null, lastCheckedIso?: string|null}|null|undefined} prior
+ * @param {{belowTarget: boolean, nowIso: string, minIntervalDays?: number}} check
+ * @returns {{counted: boolean, consecutiveBelowRuns: number, lastCountedIso: string|null}}
+ */
+export function nextCtrMonitorCounter(prior, { belowTarget, nowIso, minIntervalDays = CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS } = {}) {
+  const nowMs = Date.parse(nowIso);
+  if (!Number.isFinite(nowMs)) throw new TypeError(`nextCtrMonitorCounter: nowIso non valido: ${nowIso}`);
+  const priorRuns = Number.isInteger(prior?.consecutiveBelowRuns) && prior.consecutiveBelowRuns > 0
+    ? prior.consecutiveBelowRuns
+    : 0;
+  const anchorIso = ctrMonitorCountedAnchor(prior);
+  const anchorMs = anchorIso === null ? NaN : Date.parse(anchorIso);
+  // Un'ancora illeggibile o nel futuro non puo' congelare il contatore.
+  const counted = !Number.isFinite(anchorMs)
+    || anchorMs > nowMs
+    || nowMs - anchorMs >= minIntervalDays * 86_400_000;
+  if (!counted) return { counted: false, consecutiveBelowRuns: priorRuns, lastCountedIso: anchorIso };
+  return { counted: true, consecutiveBelowRuns: belowTarget ? priorRuns + 1 : 0, lastCountedIso: nowIso };
+}
+
+/**
+ * L'ancora della cadenza di una famiglia: l'ultimo controllo conteggiato o,
+ * per lo stato precedente a quel campo, l'ultimo controllo eseguito. La usa
+ * anche il ramo di errore del monitor, che aggiorna `lastCheckedIso` senza
+ * aver conteggiato nulla e non deve spostare la cadenza.
+ *
+ * Campo PRESENTE e campo ASSENTE non sono la stessa cosa. `lastCountedIso:
+ * null` e' un fatto scritto: «nessun controllo conteggiato finora» (lo scrive
+ * il ramo di errore per una famiglia mai conteggiata). Solo quando il campo
+ * manca del tutto lo stato e' quello vecchio, e li' vale `lastCheckedIso`.
+ * Con un `??` fra i due, un errore GSC al primo controllo avrebbe fatto
+ * passare per «fuori cadenza» il controllo valido successivo per sei giorni.
+ */
+export function ctrMonitorCountedAnchor(prior) {
+  if (prior && Object.hasOwn(prior, 'lastCountedIso')) return prior.lastCountedIso ?? null;
+  return prior?.lastCheckedIso ?? null;
+}
+
+/**
+ * Quante pagine sotto curva finiscono nella issue di famiglia. Il resto resta
+ * contato nella riga di riepilogo: una issue con 400 righe non la legge nessuno.
+ */
+export const BELOW_CURVE_ISSUE_PAGE_LIMIT = 15;
+
+/**
+ * Quante pagine sotto curva restano nello state file accanto ai numeri di
+ * famiglia: bastano a dire da dove partire senza riaprire la Search Console.
+ */
+export const BELOW_CURVE_STATE_PAGE_LIMIT = 5;
+
+// Il criterio dichiarato nella issue: «sotto curva» non vuol dire «sotto la
+// CTR attesa», ma sotto la frazione `underperformRatio` di `aggregateFamilyRows`
+// (0,6 di default, quella usata dal monitor), fra le pagine che superano il
+// minimo di impressioni. Senza dirlo, «nessuna pagina sotto curva» si legge
+// come «niente da correggere per pagina».
+const BELOW_CURVE_CRITERION = 'CTR < 0,6 × la CTR attesa per la propria posizione, fra le pagine sopra il minimo di impressioni';
+
+/**
+ * Ordina le `belowCurvePages` di `aggregateFamilyRows` per click persi stimati
+ * (`impressioni × (CTR attesa − CTR)`), dal piu' costoso. L'ordine nativo e'
+ * per impressioni: mette in cima la pagina piu' vista, non quella che perde di
+ * piu' — una pagina a 0,55× della curva con molte impressioni scavalcherebbe
+ * una a 0,05× che ne ha poche meno.
+ *
+ * Non riaggrega e non rifiltra il volume: chi supera il minimo di impressioni
+ * lo ha gia' deciso `aggregateFamilyRows`. Dopo la normalizzazione, però,
+ * riapplica il floor CTR per mantenere coerenti le righe GSC con `ctr: null`:
+ * l'aggregazione tratta quel valore come zero, mentre qui possiamo ricavare la
+ * CTR reale da click e impressioni.
+ *
+ * L'elenco puo' essere piu' corto di `belowCurveCount`: una riga GSC con `ctr`
+ * nullo e' contata sotto curva dall'aggregazione (rapporto 0), ma qui la CTR
+ * e' ricalcolata da click/impressioni e, se risulta sopra il floor dichiarato,
+ * la riga viene scartata anche se avrebbe click persi positivi.
+ */
+export function rankBelowCurvePagesByLostClicks(belowCurvePages) {
+  return (belowCurvePages || [])
+    .map((page) => {
+      const impressions = Number(page.impressions || 0);
+      const ctr = Number.isFinite(Number(page.ctr)) && page.ctr !== null
+        ? Number(page.ctr)
+        : (impressions > 0 ? Number(page.clicks || 0) / impressions : 0);
+      const expectedCtr = Number(page.expectedCtr || 0);
+      return { ...page, ctr, lostClicks: impressions * (expectedCtr - ctr) };
+    })
+    .filter((page) => (
+      page.lostClicks > 0
+      && page.expectedCtr > 0
+      && page.ctr / page.expectedCtr < DEFAULT_UNDERPERFORM_RATIO
+    ))
+    .sort((a, b) => b.lostClicks - a.lostClicks || String(a.path).localeCompare(String(b.path)));
+}
+
+/**
+ * Sezione markdown della issue di famiglia: le pagine sotto curva, ordinate
+ * per click persi. E' l'evidenza per pagina senza la quale il numero di
+ * famiglia («2,10% contro 3,00%») non dice a nessuno cosa correggere.
+ *
+ * Con zero pagine sotto curva lo dice esplicitamente: e' un'informazione (il
+ * divario e' spalmato sulla famiglia), non una tabella dimenticata.
+ */
+export function renderBelowCurvePagesSection(belowCurvePages, { limit = BELOW_CURVE_ISSUE_PAGE_LIMIT } = {}) {
+  const ranked = rankBelowCurvePagesByLostClicks(belowCurvePages);
+  const heading = '### Pagine sotto curva (per click persi stimati)';
+  if (ranked.length === 0) {
+    return [
+      heading,
+      '',
+      `Nessuna pagina sotto la soglia: ${BELOW_CURVE_CRITERION}.`,
+      'Il divario dal target e\' distribuito sulla famiglia, non concentrato su pagine singole;',
+      'pagine fra la soglia e la curva piena possono comunque perdere click e qui non compaiono.',
+    ].join('\n');
+  }
+  const pctCell = (n) => `${(n * 100).toFixed(2)}%`;
+  const shown = ranked.slice(0, limit);
+  const totalLost = ranked.reduce((sum, page) => sum + page.lostClicks, 0);
+  const rows = shown.map((page) => [
+    `\`${String(page.path).replace(/\|/g, '%7C').replace(/`/g, '%60')}\``,
+    Number(page.impressions || 0),
+    Number.isFinite(Number(page.position)) && page.position !== null ? Number(page.position).toFixed(1) : 'n/a',
+    pctCell(page.ctr),
+    pctCell(Number(page.expectedCtr || 0)),
+    page.lostClicks.toFixed(1),
+  ].join(' | '));
+  return [
+    heading,
+    '',
+    `${shown.length} di ${ranked.length} pagine sotto curva; click persi stimati sull'intero elenco: ${totalLost.toFixed(1)}.`,
+    `Sotto curva = ${BELOW_CURVE_CRITERION}.`,
+    '',
+    '| Path | Impressioni | Posizione | CTR | CTR attesa | Click persi stimati |',
+    '|---|---:|---:|---:|---:|---:|',
+    ...rows.map((row) => `| ${row} |`),
+  ].join('\n');
+}
+
+/**
+ * Proiezione delle pagine sotto curva per lo state file del monitor: le prime
+ * `limit` per click persi, con i soli sei campi che servono a ritrovarle. I
+ * numeri sono arrotondati (CTR a quattro decimali, click persi a uno) perche'
+ * il file e' committato a ogni run e i float pieni sono solo rumore nel diff.
+ */
+export function belowCurvePagesForState(belowCurvePages, limit = BELOW_CURVE_STATE_PAGE_LIMIT) {
+  const round = (n, digits) => Number(Number(n).toFixed(digits));
+  return rankBelowCurvePagesByLostClicks(belowCurvePages)
+    .slice(0, limit)
+    .map((page) => ({
+      path: page.path,
+      impressions: Number(page.impressions || 0),
+      position: Number.isFinite(Number(page.position)) && page.position !== null ? Number(page.position) : null,
+      ctr: round(page.ctr, 4),
+      expectedCtr: round(page.expectedCtr || 0, 4),
+      lostClicks: round(page.lostClicks, 1),
+    }));
 }

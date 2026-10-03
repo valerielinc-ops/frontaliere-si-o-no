@@ -17,7 +17,11 @@ name: Automation backlog sweep (Codex Luna Max, daily)
 # Esiti per issue: (A) decisione davvero mancante → resta `needs-human` con una
 # domanda decidibile; (B) capability oggi disponibile / difetto tecnico →
 # `automation-deferred` viene riscritto e rientra in coda (fix o decompose);
-# (C) claim non più vera → chiusa con la misura. Il drainer e lo stadio di
+# (C) claim non più vera → commento con la misura e marker
+# `SWEEP_CLOSE_REQUEST`: lo sweep non chiude (il bridge Codex non ammette
+# `issue close`, e nessuna chiusura passa dalla sola parola dell'agente). Le
+# issue `(Workflow|Crawler|CI) Failure:` non le giudica il prompt: le giudica
+# il closer nel job `failure_verdicts`. Il drainer e lo stadio di
 # decomposizione fanno il resto (ISSUES.md → «Drenare il backlog»).
 
 on:
@@ -40,7 +44,8 @@ permissions:
   contents: read
   issues: write
   id-token: write
-  # La guardia sulle issue `... Failure:` legge l'ultima run completata.
+  # Le misure dello sweep (classe C) e il closer di `failure_verdicts` leggono
+  # le run di Actions.
   actions: read
 
 jobs:
@@ -117,13 +122,112 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: node scripts/ci/needs-human-prepass.mjs
 
+  # Zero Claude: il verdetto sulle issue `(Workflow|Crawler|CI) Failure:` lo dà
+  # il closer, in codice, non il prompt in prosa. Il prompt ricalcolava
+  # l'oracolo con `gh run list` senza scartare le run `skipped` (closer:
+  # `dropSkippedRuns`) e leggeva i crawler solo su `main`, mentre le ondate
+  # girano sui branch shadow e nel corpus: la issue 9285 tornava «D» a ogni
+  # giro, la 10319 era «D, nessuna run verde» con 17 run verdi alle spalle.
+  #
+  # Job SEPARATO dallo sweep perché il closer legge le run dei crawler dal
+  # corpus con `GITHUB_PAT_NANAKO` (Remote Config): quel token resta qui e non
+  # entra nel job dell'agente, che riceve solo il file dei verdetti.
+  # Stesso ambiente del closer orario (close-recovered-failure-issues.yml):
+  # senza il token del corpus il verdetto dei crawler sarebbe «not found, keep
+  # open», cioè un oracolo sbagliato, quindi qui è un errore.
+  failure_verdicts:
+    if: github.event_name != 'schedule' || github.event.schedule == '37 5 * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: read
+      actions: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials for cross-repo reads
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON assente — impossibile caricare il token di lettura del corpus."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load cross-repo token from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Closer verdicts (dry-run, zero-Claude)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          # Le run dei crawler sono ospitate nel corpus dopo la migrazione
+          # cross-repo, come nel closer orario.
+          CRAWLER_RUN_REPO: nanakokyobashi-rgb/frontaliere-articles
+        run: |
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "::error::GITHUB_PAT_NANAKO non caricato — il GITHUB_TOKEN del sito non puo' leggere le run del corpus."
+            exit 1
+          fi
+          node scripts/ci/close-recovered-failure-issues.mjs --dry-run --verdicts-out "$RUNNER_TEMP/failure-verdicts/failure-verdicts.json"
+
+      - name: Upload closer verdicts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: failure-verdicts
+          path: ${{ runner.temp }}/failure-verdicts/failure-verdicts.json
+          if-no-files-found: error
+          retention-days: 7
+
   sweep:
     # Il run agentico gira sul cron delle 05:37Z e su dispatch, mai su quello
     # del pre-pass. Era settimanale; giornaliero dal 2026-09-24 (DECISIONS
     # «Nessun veto»): con zero domande al proprietario lo sweep è l'unica porta
     # dei defer tecnici, e un giro a settimana a cap 15 lasciava ~90 issue ferme
     # per mesi.
-    if: github.event_name != 'schedule' || github.event.schedule == '37 5 * * *'
+    #
+    # `needs: failure_verdicts` con `!cancelled()`: un `needs` senza funzione di
+    # stato sottintende `success()`, e un closer rosso fermerebbe tutto lo
+    # sweep. Così lo sweep parte comunque e, senza file dei verdetti, lascia
+    # intatte le sole issue di failure. `!cancelled()` e non `always()`: una run
+    # annullata non deve far partire un giro Codex da 110 minuti.
+    needs: failure_verdicts
+    if: ${{ !cancelled() && (github.event_name != 'schedule' || github.event.schedule == '37 5 * * *') }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -157,6 +261,32 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
         timeout-minutes: 24
+
+      # Il file va DENTRO il workspace: il sandbox Codex nega la lettura fuori
+      # dalle workspace roots (`runner.temp` compreso). Se l'artifact manca il
+      # passo resta verde e il prompt lascia intatte le issue di failure.
+      - name: Download closer verdicts (zero-Claude)
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: failure-verdicts
+          path: .sweep-input
+
+      - name: Report closer verdicts
+        run: |
+          f=.sweep-input/failure-verdicts.json
+          # Un file che non è un array JSON vale quanto un file assente: lo si
+          # toglie, così l'agente non legge un verdetto a metà.
+          if [ -s "$f" ] && ! jq -e 'type == "array"' "$f" > /dev/null 2>&1; then
+            echo "::warning::File dei verdetti illeggibile: rimosso."
+            rm -f "$f"
+          fi
+          if [ -s "$f" ]; then
+            echo "verdetti del closer: $(jq length "$f") issue di failure"
+            jq -r 'group_by(.action) | map("  \(.[0].action)=\(length)") | .[]' "$f"
+          else
+            echo "::warning::Nessun file dei verdetti del closer: in questo giro lo sweep non tocca le issue (Workflow|Crawler|CI) Failure."
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -230,15 +360,19 @@ jobs:
             1. Leggi body + commenti (`gh issue view N --repo $REPO --json body,comments,labels,createdAt`). Cerca PRIMA una decisione già registrata in DECISIONS.md: se c'è, applicala.
             2. Classifica in UNA delle tre:
                - **B — lavoro eseguibile**: la decisione esiste nei documenti oppure la prendi tu (default più conservativo rispetto alla direttiva «non perdere pagine SEO, revenue o utenti», scritto nel commento con il driver citato). Misura la causa, completa la scheda se manca, quindi rimuovi `needs-human`/`automation-deferred`/`fu-parked` e usa `agent:fix-queued` per una issue atomica o `agent:decompose-queued` per una grande/contenitore; aggiungi `agent:vision-approved`.
-               - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Commento con la misura osservata e il comando che la riproduce, poi `gh issue close N`. Se NON riesci a misurare, non chiudere: trattala come D.
+               - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Tu NON chiudi la issue: la chiusura spetta all'orchestratore, che la verifica. Commento con la misura osservata, il comando che la riproduce e, su riga propria, `<!-- SWEEP_CLOSE_REQUEST: issue=<N> -->`; le label non cambiano. Se il marker c'è già e nessun commento successivo lo contraddice, la issue non consuma un'azione: contala soltanto. Se NON riesci a misurare, trattala come D.
                - **D — defer tecnico ancora reale**: il fixer ha fallito per input/turn-budget/causa non convergente. Riscrivi il body/commento con ciò che manca (causa misurata, file, criterio di accettazione), togli `needs-human` e fai rientrare con `agent:fix-queued` o `agent:decompose-queued` solo dopo avere cambiato l'input; se l'input non si può ancora cambiare lascia `automation-deferred`. Mai `needs-human`.
-            3. VINCOLI: mai chiudere ciò che non hai misurato; mai rimuovere `agent:no-age-out`/`keep-open`; un'issue con PR aperta collegata non si tocca.
+            3. VINCOLI: in questo run nessuna issue si chiude; mai rimuovere `agent:no-age-out`/`keep-open`; un'issue con PR aperta collegata non si tocca.
 
-            **Guardia obbligatoria per la chiusura delle issue di failure.** Prima di qualsiasi `gh issue close` su un titolo che corrisponde a `^(Workflow|Crawler|CI) Failure: `, applica lo stesso oracolo di `scripts/ci/close-recovered-failure-issues.mjs`: per `Workflow Failure:` e `CI Failure:` esegui `gh run list --repo $REPO -w "$workflow_name" -b main -L 100 --json databaseId,conclusion,status,createdAt`, tieni le sole run con `status == completed`, ordinale per `createdAt` decrescente e usa l'ultima; deve avere `conclusion == success` e una data successiva a `createdAt` dell'issue. Per `Crawler Failure: Run <slug>` usa la stessa risoluzione gruppo→step del reconciler (`crawler-group-*.yml` corrente, step esatto `Run <slug>`) e verifica la conclusione dello step nella run completata più recente su `main`: anche qui deve essere `success` e la run deve avere `createdAt` successivo a `createdAt` dell'issue, perché una run verde più vecchia dell'issue non prova il recupero. Se l'ultima run/step è rossa, `cancelled`, assente o non leggibile, NON chiudere: lascia l'issue aperta e commenta la misura. Un `maybe-resolved`, un verdetto o una decisione di sweep non sostituiscono questa prova.
+            **Issue di failure: il verdetto è del closer, non tuo.** Per un titolo che corrisponde a `^(Workflow|Crawler|CI) Failure: ` non ricalcolare l'oracolo con `gh run list`: il job `failure_verdicts` ha già eseguito `scripts/ci/close-recovered-failure-issues.mjs --dry-run` (le run `skipped` scartate, i crawler letti nel corpus e sui branch shadow) e ha scritto `.sweep-input/failure-verdicts.json`, un array di `{ number, title, action, reason, runId, runRepo }`. Cerca la issue per `number` (`jq '.[] | select(.number == N)' .sweep-input/failure-verdicts.json`) e confronta solo `action`:
+               - `close` → nessuna azione: la chiude il closer al suo prossimo giro orario.
+               - `chronic-escalate`, `chronic-hold`, `structural-hold`, `recurrence-hold` → classe D, citando nel commento `action` e `reason` del verdetto; nessun rientro al fixer senza un input nuovo.
+               - `keep` → classe B o D come le altre issue; mai C.
+               - File assente o illeggibile, oppure issue non elencata → la issue NON si tocca in questo giro (niente commento, niente label) e il digest lo dice. Una misura tua, un `maybe-resolved` o una decisione di sweep non sostituiscono il verdetto.
 
-            **Guardia per le issue dei gate SEO.** `Validation Failure (dist): <gate>` e `SEO gates regression: <gate> above baseline` NON si chiudono qui, nemmeno come claim scaduta: le chiude solo il workflow che le ha aperte (validate-dist o cathedral-seo-gates-check), quando il SUO gate torna verde. Se il difetto sembra risolto, commenta la misura e il comando che la riproduce e togli `needs-human`: la prossima run del gate chiude la issue se è davvero rientrato, la riapre se no. Mai `gh issue close` su questi titoli.
+            **Guardia per le issue dei gate SEO.** `Validation Failure (dist): <gate>` e `SEO gates regression: <gate> above baseline` NON si chiudono qui, nemmeno come claim scaduta: le chiude solo il workflow che le ha aperte (validate-dist o cathedral-seo-gates-check), quando il SUO gate torna verde. Se il difetto sembra risolto, commenta la misura e il comando che la riproduce e togli `needs-human`: la prossima run del gate chiude la issue se è davvero rientrato, la riapre se no. Niente marker `SWEEP_CLOSE_REQUEST` su questi titoli.
 
-            **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `automation,agent:no-age-out`). Sostituisci/aggiorna il body con le decisioni prese in autonomia in questo run (issue, scelta, driver citato) e i conteggi residui separati di `needs-human`, `automation-deferred` e `fu-parked`. Nessuna domanda al proprietario.
+            **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `automation,agent:no-age-out`). Sostituisci/aggiorna il body con le decisioni prese in autonomia in questo run (issue, scelta, driver citato), i conteggi residui separati di `needs-human`, `automation-deferred` e `fu-parked`, la sezione «C misurate, chiusura all'orchestratore» con numero, misura e data del marker `SWEEP_CLOSE_REQUEST` di ciascuna issue C vista in questo run (nuova o già segnalata), e la sezione «Failure senza verdetto del closer» con le issue di failure lasciate intatte. Nessuna domanda al proprietario.
 
             **Telemetria:** chiudi postando sul digest un commento con l'ultimo marker su riga propria: `<!-- SWEEP_OUTCOME: a=<n> b=<n> c=<n> d=<n> -->`.
 

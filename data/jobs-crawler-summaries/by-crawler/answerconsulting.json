@@ -1,23 +1,27 @@
 {
   "key": "answerconsulting",
   "label": "AnswerConsulting SA",
-  "generatedAt": "2026-10-03T09:22:16.851Z",
+  "generatedAt": "2026-10-03T21:19:09.482Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 354,
+  "avgDurationMs": 354,
+  "durationHistory": [
+    354
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

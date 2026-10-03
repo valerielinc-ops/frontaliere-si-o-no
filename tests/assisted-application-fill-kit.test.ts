@@ -7,9 +7,10 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 }));
 
 const { buildFillKit } = await import('../functions/src/assistedApplicationFillKit.js');
-const { handleAutomationAdminAction, recordOwnerSubmission } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+const { handleAutomationAdminAction, loadAutomationForAdmin, recordOwnerSubmission } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { transition } = await import('../functions/src/assistedApplicationFlow.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
+const { chooseCv } = await import('../scripts/assisted-application/lib/submit.mjs');
 
 const T0 = Date.UTC(2026, 9, 1, 12, 0, 0);
 const ORDER = 'order_FILL01';
@@ -119,6 +120,48 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await seed({ ...takenOver, cvChoice: 'original' });
     const original = (await call('automationFillKit') as any).kit;
     expect(original.documents.cv).toEqual({ url: 'https://signed/original-cv', fileName: 'CV_Maria_Luisa_Rossi.docx' });
+  });
+
+  // Phase 5: the candidate's own Word file with the adapted lines, page-checked by the runner.
+  const inplace = { status: 'ready', docxKey: KEY('ai-cv-inplace-r1-1.docx'), verifiedKey: KEY('ai-cv-inplace-r1-1.docx'), baseKey: KEY('1-cv.docx'), baseType: 'docx', patched: ['r0-l0'], skipped: [], pageCheck: 'libreoffice', pages: 1 };
+  const pdfCv = { url: 'https://signed/ai-cv-r1-1.pdf', fileName: 'CV_Maria_Luisa_Rossi.pdf' };
+
+  it('hands the CV the robot would send, as chooseCv decides: the candidate’s own Word file when they chose it and it is ready', async () => {
+    const cases = [
+      { choice: {}, inplace, cv: pdfCv, sent: 'tailored' },
+      { choice: { cvChoice: 'original' }, inplace, cv: { url: 'https://signed/original-cv', fileName: 'CV_Maria_Luisa_Rossi.docx' }, sent: 'original' },
+      { choice: { cvChoice: 'inplace' }, inplace, cv: { url: 'https://signed/ai-cv-inplace-r1-1.docx', fileName: 'CV_Maria_Luisa_Rossi.docx' }, sent: 'inplace' },
+      // Line choices the Cloud Functions could not page-check: the file is no longer offered, the tailored CV leaves.
+      { choice: { cvChoice: 'inplace' }, inplace: { ...inplace, status: 'fallback', reason: 'needs_page_check' }, cv: pdfCv, sent: 'tailored' },
+    ];
+    for (const test of cases) {
+      const flow = { ...takenOver, ...test.choice };
+      const tailoredCv = { ...draft.tailoredCv, inplace: test.inplace };
+      await seed(flow, { tailoredCv });
+      const { kit } = await call('automationFillKit') as any;
+      expect(kit.documents.cv, JSON.stringify(test.choice) + test.inplace.status).toEqual(test.cv);
+      // The runner's own choice at submission, on the same draft: the same file, the same format.
+      const downloaded: string[] = [];
+      const bucket = { file: (key: string) => ({ download: async () => { downloaded.push(key); return [Buffer.from('cv')]; } }) };
+      const sent = await chooseCv({ draft: { ...draft, tailoredCv }, flow, bucket, cvBuffer: Buffer.from('original'), cvType: 'docx' });
+      expect(sent.cvSent).toBe(test.sent);
+      expect(kit.documents.cv.fileName.endsWith(`.${sent.cvType}`)).toBe(true);
+      if (sent.cvSent !== 'original') expect(kit.documents.cv.url).toBe(`https://signed/${downloaded[0].split('/').pop()}`);
+    }
+  });
+
+  it('shows the owner the CV choice that holds and the renderer of each PDF', async () => {
+    await seed({ ...takenOver, cvChoice: 'inplace' }, { tailoredCv: { ...draft.tailoredCv, renderer: 'typst', inplace }, coverLetterRenderer: 'legacy' });
+    const ready = (await loadAutomationForAdmin(store.db, ORDER, { signUrl }))?.draft as any;
+    expect(ready).toMatchObject({ cvChoice: 'inplace', candidateCvChoice: 'inplace', coverLetterRenderer: 'legacy', tailoredCv: { renderer: 'typst' } });
+    // The file fell back after line choices: what leaves is the tailored CV, and the panel must not say otherwise,
+    // nor hide that the candidate had chosen their own file.
+    await seed({ ...takenOver, cvChoice: 'inplace' }, { tailoredCv: { ...draft.tailoredCv, inplace: { ...inplace, status: 'fallback', reason: 'needs_page_check' } } });
+    const fellBack = (await loadAutomationForAdmin(store.db, ORDER, { signUrl }))?.draft as any;
+    expect(fellBack).toMatchObject({ cvChoice: 'tailored', candidateCvChoice: 'inplace', coverLetterRenderer: null, tailoredCv: { renderer: null } });
+    // No choice made on the review page.
+    await seed(takenOver, { tailoredCv: { ...draft.tailoredCv, inplace } });
+    expect((await loadAutomationForAdmin(store.db, ORDER, { signUrl }))?.draft).toMatchObject({ cvChoice: 'tailored', candidateCvChoice: null });
   });
 
   // Rolex 2026-10-02: school reports and aptitude test results go with the application too.

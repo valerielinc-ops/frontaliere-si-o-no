@@ -531,6 +531,19 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  it('covers the observed TI legal and civil-drafting titles without broadening technical drafting (#9938)', () => {
+    expect(jobMatchesSector(
+      { title: 'Junior Legal – Banca del Sempione (Lugano)', category: 'legal' },
+      'avvocati',
+    )).toBe(true);
+    expect(jobMatchesSector({ title: 'Legal Senior Specialist' }, 'avvocati')).toBe(true);
+    expect(jobMatchesSector(
+      { title: 'Disegnatore di ingegneria civile (M/F/X) - Ticino', category: 'drafting' },
+      'architetti',
+    )).toBe(true);
+    expect(jobMatchesSector({ title: 'Disegnatore tecnico – settore elettrico' }, 'architetti')).toBe(false);
+  });
+
   // Il veto NON puo' essere sull'intera stringa: `jobMatchesSectorCanonical`
   // concatena title + category + tags con `' \n '`, e una parola del lessico
   // tecnico in un altro campo scarterebbe un architetto edile vero.
@@ -765,6 +778,24 @@ describe('jobSectorLanding — counts and filtering', () => {
     expect(counts.it.infermieri).toBe(1);
     expect(counts.it['case-anziani']).toBe(1);
     expect(counts.it.educatori).toBe(1);
+  });
+
+  it('keeps the observed TI zero-sector aliases visible to the coverage metric (#9938)', () => {
+    const jobs = [
+      {
+        title: 'Junior Legal – Banca del Sempione (Lugano)',
+        category: 'legal',
+        description: baseDesc,
+      },
+      {
+        title: 'Disegnatore di ingegneria civile (M/F/X) - Ticino',
+        category: 'drafting',
+        description: baseDesc,
+      },
+    ];
+    const counts = countSectorJobsByLocale(jobs);
+    expect(counts.it.avvocati).toBe(1);
+    expect(counts.it.architetti).toBe(1);
   });
 
   it('per-locale needsRetranslation excludes from that locale only', () => {

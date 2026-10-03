@@ -296,6 +296,70 @@ jobs:
           fi
           echo "✅ crawler generation wave launched and accepted by the dispatcher."
 
+      # Il fallback di contratto lancia l'ondata su un commit del sito
+      # compatibile col corpus. Quello atteso è il genitore del commit che ha
+      # cambiato il contratto: se il preflight non riesce a verificarlo ripiega
+      # sul commit che il contratto lo ha INTRODOTTO, e le fix mergiate nel
+      # frattempo non girano (run corpus 37112857893: 21 ore di codice perse).
+      # È una issue di CONDIZIONE, aperta di proposito da un run verde: titolo
+      # stabile, e lo stesso step la chiude appena un preflight pronto non è
+      # più arretrato. Un preflight bloccato non prova niente e non la tocca.
+      # Si APRE solo se l'ondata è partita davvero: con dry-run o con lo step
+      # dell'ondata fallito nessun crawler ha girato sul commit arretrato.
+      # Label `keep-open`: la causa sta fuori dal repo (lockstep del corpus o
+      # lettura API fallita) e non ha una fix di codice. Senza, il triage la
+      # classifica `crawler` e le dà subito `agent:fix`, bruciando l'unico
+      # slot diretto del fixer; `--resolve` la chiude comunque.
+      - name: Report crawler wave pinned to stale site code
+        if: always() && steps.generation_preflight.outputs.ready == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_TITLE: 'Ondata crawler su codice arretrato: fallback di contratto oltre il genitore atteso'
+          FALLBACK_STALE: ${{ steps.generation_preflight.outputs.site_code_fallback_stale }}
+          FALLBACK_REASON: ${{ steps.generation_preflight.outputs.site_code_fallback_reason }}
+          SUPERSEDED_BY: ${{ steps.generation_preflight.outputs.site_code_fallback_superseded_by }}
+          COMMITS_BEHIND_MAIN: ${{ steps.generation_preflight.outputs.site_code_commits_behind_main }}
+          SITE_CODE_COMMIT: ${{ steps.generation_preflight.outputs.site_code_commit }}
+          SITE_MAIN_COMMIT: ${{ github.sha }}
+          CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GENERATION_WAVE_OUTCOME: ${{ steps.generation_wave.outcome || 'skipped' }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          if [ "$FALLBACK_STALE" != "true" ]; then
+            node scripts/lib/github-issue-creator.mjs --resolve \
+              --title "$ISSUE_TITLE" \
+              --workflow "$GITHUB_WORKFLOW" \
+              --run-url "$RUN_URL"
+            exit 0
+          fi
+          if [ "$DRY_RUN" = "true" ] || [ "$GENERATION_WAVE_OUTCOME" != "success" ]; then
+            echo "::notice::fallback arretrato ma nessuna ondata lanciata (dry-run=$DRY_RUN, wave=$GENERATION_WAVE_OUTCOME): issue non aperta."
+            exit 0
+          fi
+          node scripts/lib/github-issue-creator.mjs \
+            --title "$ISSUE_TITLE" \
+            --description "## Ondata lanciata sul commit che ha introdotto il contratto
+          Il preflight non ha potuto usare il genitore del cambio di contratto successivo.
+
+          - Commit del sito eseguito dall'ondata: $SITE_CODE_COMMIT
+          - Commit di main del sito: $SITE_MAIN_COMMIT
+          - Commit di main non eseguiti: ${COMMITS_BEHIND_MAIN:-non misurato}
+          - Cambio di contratto successivo: ${SUPERSEDED_BY:-sconosciuto}
+          - Motivo del ripiego: ${FALLBACK_REASON:-sconosciuto}
+          - Commit del corpus: $CORPUS_CODE_COMMIT
+          - Run: $RUN_URL
+
+          Le fix dei crawler mergiate dopo il commit eseguito non hanno ancora girato:
+          non chiudere le issue crawler sulla base di questa ondata. Si risolve da sola
+          quando la PR di lockstep del corpus viene mergiata o quando il preflight
+          torna a verificare il genitore." \
+            --priority 2 \
+            --label Bug \
+            --label keep-open \
+            --workflow "$GITHUB_WORKFLOW"
+
       - name: Upload crawler generation dispatch checkpoint
         if: always()
         continue-on-error: true

@@ -25,6 +25,10 @@ const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => unde
 const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({ id: 'evt-1' }));
 const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean; data: () => any }>>();
 
+// Locale loading is not part of this writer test; avoid background chunk
+// imports still running when the isolated Vitest worker tears down.
+vi.mock('@/services/i18n', () => ({ getLocale: () => 'it' }));
+
 vi.mock('firebase/firestore', () => ({
   collection: vi.fn(() => ({})),
   doc: vi.fn(() => ({})),

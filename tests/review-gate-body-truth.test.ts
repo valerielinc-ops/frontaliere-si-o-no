@@ -51,7 +51,7 @@ describe('the deterministic body contract is the single source of truth', () => 
     expect(classifyReview(BODY_RED, { ...files, prBody: null, bodyContractPassed: true }).blocking).toBe(true);
   });
 
-  it('approves a review whose only 🔴 is on a body the contract accepted', async () => {
+  it('requires LGTM even when the contract accepts its only 🔴', async () => {
     const classifyAndMintReviewFn = async (body: string, options: { bodyContractPassed?: boolean }) =>
       classifyReview(body, { ...files, bodyContractPassed: options.bodyContractPassed });
     // runReviewGate forwards the flag; the body is supplied by the classifier stub.
@@ -59,7 +59,8 @@ describe('the deterministic body contract is the single source of truth', () => 
       repo: 'owner/repo', pr: 1, headSha: HEAD, reviews: [[review(BODY_RED)]], mutate: false,
       classifyAndMintReviewFn, bodyContractPassed: true,
     });
-    expect(green.approved).toBe(true);
+    expect(green.approved).toBe(false);
+    expect(green.reason).toMatch(/manca ## LGTM/i);
     const red = await runReviewGate({
       repo: 'owner/repo', pr: 1, headSha: HEAD, reviews: [[review(BODY_RED)]], mutate: false,
       classifyAndMintReviewFn, bodyContractPassed: false,

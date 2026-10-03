@@ -145,8 +145,7 @@ export const DECLARATION_HOWTO =
   'FORMA ACCETTATA: dentro `## Non implementato (ancora)`, UNA RIGA PER FILE,\n' +
   'ciascuna col suo path E la sua formula di falso positivo sulla STESSA riga.\n' +
   'Esempio di una riga:\n' +
-  '  - scripts/foo.mjs — falso positivo, per scelta: condivide il token X ma lo usa\n' +
-  '    come nome di variabile locale, non come helper condiviso.\n' +
+  '  - scripts/foo.mjs — falso positivo, per scelta: <costrutto riportato e differenza semantica verificata>.\n' +
   'Un paragrafo unico che giustifica più file NON viene riconosciuto: il filtro\n' +
   'cerca path e formula sulla STESSA riga.\n' +
   'Una riga che nomina un ALTRO path con lo stesso basename non copre il candidato.\n' +
@@ -405,9 +404,8 @@ async function main() {
     );
   }
 
-  // Print the genuine candidate list for the fixer to inspect. `strength`
-  // (difetto 4) dice quanto e' forte l'aggancio: `debole` = un solo
-  // identificatore nudo condiviso, storicamente quasi sempre rumore.
+  // Print the actual constructs: strength ranks evidence, but does not
+  // identify its kind or prove that two files share a bug.
   process.stdout.write(
     `\n⚠ ${genuineCandidates.length} file gemello/i NON toccato/i condivide/ono costrutti modificati da questo branch:\n\n`,
   );
@@ -420,10 +418,9 @@ async function main() {
   const weak = genuineCandidates.filter((c) => c.strength === 'debole').length;
   if (weak) {
     process.stdout.write(
-      `\n[debole] = agganciato a UN SOLO identificatore nudo (${weak}/${genuineCandidates.length} qui).\n` +
-        'Un nome di variabile o di campo reimplementato in file scorrelati finisce qui;\n' +
-        'un helper condiviso o una forma strutturale del registro finisce in [forte].\n' +
-        'Guardali comunque tutti, ma parti dai [forte]: è lì che stanno i gemelli veri.\n',
+      `\n[debole] = evidenza limitata, senza un binding condiviso risolto o una classe del registro (${weak}/${genuineCandidates.length} qui).\n` +
+        'Leggi i costrutti riportati: può essere una chiamata AST, un literal o una espressione rimossa.\n' +
+        'Il livello non identifica il costrutto e non prova un bug; verifica il contesto.\n',
     );
   }
 

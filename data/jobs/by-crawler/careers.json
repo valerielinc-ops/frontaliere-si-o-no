@@ -1,6 +1,6 @@
 {
   "crawlerKey": "careers",
-  "assembledAt": "2026-10-03T09:22:23.474Z",
+  "assembledAt": "2026-10-03T21:17:04.918Z",
   "jobs": [
     {
       "id": "careers-74c7232eb1c8",
@@ -33,7 +33,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:18.852Z",
+      "crawledAt": "2026-10-03T21:16:59.360Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:18.852Z",
+      "crawledAt": "2026-10-03T21:16:59.358Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -156,6 +156,7 @@
           "teamleiter-in-anlagenfuhrer-in-100-careers-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:39:36.514Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -169,8 +170,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "careers-6445b15a4260",
@@ -203,7 +203,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:18.850Z",
+      "crawledAt": "2026-10-03T21:16:59.356Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",

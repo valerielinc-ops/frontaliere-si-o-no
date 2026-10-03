@@ -1,22 +1,21 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-10-03T09:11:53.999Z",
+  "generatedAt": "2026-10-03T21:12:11.475Z",
   "total": 3,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 2,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4388,
-  "avgDurationMs": 4388,
+  "durationMs": 5286,
+  "avgDurationMs": 5286,
   "durationHistory": [
-    5456,
-    4857,
-    4388
+    5286
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "citta-di-bellinzona-responsabile-della-mediazione-culturale-presso-il-museo-villa-dei-cedri-di-bellinzona",
       "slug": "responsabile-della-mediazione-culturale-presso-il-museo-villa-dei-cedri-di-bellinzona",
@@ -42,13 +41,14 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T09:11:46.377Z",
-      "needsRetranslation": true,
-      "_qualityScore": 69,
+      "crawledAt": "2026-10-03T21:12:01.832Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-10-03T09:11:46.377Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -77,18 +77,17 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T09:11:46.572Z",
-      "needsRetranslation": true,
-      "_qualityScore": 73,
+      "crawledAt": "2026-10-03T21:12:02.031Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-10-03T09:11:46.572Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "citta-di-bellinzona-agente-di-polizia-presso-la-polizia-comunale-bellinzona",
       "slug": "agente-di-polizia-presso-la-polizia-comunale-bellinzona",
@@ -114,7 +113,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T09:11:45.977Z",
+      "crawledAt": "2026-10-03T21:12:01.423Z",
       "firstSeenAt": "2026-09-18T23:10:50.201Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -126,5 +125,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

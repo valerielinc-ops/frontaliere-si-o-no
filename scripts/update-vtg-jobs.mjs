@@ -249,18 +249,33 @@ export async function fetchVtgJobUrls(options = {}) {
 
       const apiUrl = `${API_BASE}/jobs?${params}`;
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      // AbortSignal is advisory: a custom fetch implementation can ignore it
+      // and leave the await pending until Node exits naturally. Reject the
+      // operation as well, so incomplete discovery is never a clean exit.
+      let rejectTimeout;
+      const timeoutError = new Error(`VTG API request timed out at offset ${offset} after ${timeoutMs}ms.`);
+      timeoutError.name = 'TimeoutError';
+      const timeoutPromise = new Promise((_, reject) => {
+        rejectTimeout = reject;
+      });
+      const timer = setTimeout(() => {
+        controller.abort();
+        rejectTimeout(timeoutError);
+      }, timeoutMs);
       try {
-        const res = await fetchImpl(apiUrl, {
-          signal: controller.signal,
-          headers: { Accept: 'application/json', 'User-Agent': UA },
-        });
-
-        if (!res.ok) {
-          throw new Error(`VTG discovery failed: API returned ${res.status} for scope ${scopeKey} at offset ${offset}.`);
-        }
-
-        const data = await res.json();
+        const data = await Promise.race([
+          (async () => {
+            const res = await fetchImpl(apiUrl, {
+              signal: controller.signal,
+              headers: { Accept: 'application/json', 'User-Agent': UA },
+            });
+            if (!res.ok) {
+              throw new Error(`VTG discovery failed: API returned ${res.status} for scope ${scopeKey} at offset ${offset}.`);
+            }
+            return res.json();
+          })(),
+          timeoutPromise,
+        ]);
         const jobs = assertJsonListShape(data, {
           key: 'jobs',
           source: 'vtg',
@@ -320,6 +335,7 @@ export async function fetchVtgJobUrls(options = {}) {
         offset += jobs.length;
       } catch (err) {
         if (String(err?.message || '').startsWith('VTG discovery')) throw err;
+        if (err?.name === 'TimeoutError') throw err;
         throw new Error(`VTG discovery failed for ${scopeKey} at offset ${offset}: ${err.message}`, { cause: err });
       } finally {
         clearTimeout(timer);

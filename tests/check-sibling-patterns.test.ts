@@ -132,6 +132,38 @@ describe('extractRemovedExpressions — verbatim removed-line detection (issue #
     expect([...exprs].some((e) => e.includes('fetchWorkdayJobDescriptionText'))).toBe(true);
   });
 
+  it('filters bare declaration headers but keeps complete function behavior', () => {
+    expect(extractRemovedExpressions('-function readDescription(value) {').size).toBe(0);
+    expect(extractRemovedExpressions('-async function readDescription(value) {').size).toBe(0);
+    expect(extractRemovedExpressions('-function readDescription(value) { return value.description; }').size).toBe(1);
+  });
+
+  it.each(['export async function foo() {', 'export default function foo() {', 'export default async function foo() {', 'export default async function() {', 'function readDescription({ title, description }) {', 'async function* readDescriptions<T>(value: T) {'])(
+    'recognizes a declaration header with modifiers: %s', (header) => {
+      expect(isGenericRemovedExpression(header)).toBe(true);
+      expect(extractRemovedExpressions(`-${header}`).size).toBe(0);
+    },
+  );
+
+  it('keeps default-argument behavior and incomplete signatures', () => {
+    expect(isGenericRemovedExpression('function readDescription(value = loadDescription()) {')).toBe(false);
+    expect(isGenericRemovedExpression('function readDescription(value, {')).toBe(false);
+  });
+
+  it('filters identity-return idioms without a variable-name allowlist', () => {
+    expect(extractRemovedExpressions('-if (direct) return direct;\n-if (cachedValue) return cachedValue;')).toEqual(new Set());
+    expect(extractRemovedExpressions('-if (direct) return fallbackValue;').size).toBe(1);
+  });
+
+  it('filters only resolved infrastructure block openers, retaining semantic guards', () => {
+    const externalCalls = new Set(['ts.isCallExpression(node)', 'Buffer.isBuffer(input)']);
+    expect(extractRemovedExpressions('-if (ts.isCallExpression(node)) {', { externalCalls }).size).toBe(0);
+    expect(extractRemovedExpressions('-if (Buffer.isBuffer(input)) {', { externalCalls }).size).toBe(0);
+    expect(extractRemovedExpressions('-if (ts.isCallExpression(node)) {').size).toBe(1);
+    expect(extractRemovedExpressions('-if (Buffer.isBuffer(input) && invalidDomain) {', { externalCalls }).size).toBe(1);
+    expect(extractRemovedExpressions('-if (Buffer.isBuffer(input)) return domainFallback;', { externalCalls }).size).toBe(1);
+  });
+
   it('strips trailing comma before storing', () => {
     const diff = '-  description: copy.description,';
     const exprs = extractRemovedExpressions(diff);
@@ -585,4 +617,57 @@ describe('snapshot --head: un symlink non è codice da cercare', () => {
     expect(files).toContain('scripts/crowded-0.mjs');
     expect(files).not.toContain('scripts/linked-target.mjs');
   });
+});
+
+
+describe('runtime noise versus project evidence (CLI)', () => {
+  it('rejects API/import/name coincidences and still finds a real unfixed expression', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'sibling-evidence-'));
+    const git = (...args: string[]) => execFileSync('git', args, { cwd: repo, stdio: 'ignore' });
+    const write = (name: string, body: string) => {
+      mkdirSync(dirname(join(repo, name)), { recursive: true });
+      writeFileSync(join(repo, name), body);
+    };
+    try {
+      git('init', '-q', '-b', 'main');
+      git('config', 'user.email', 'test@example.com');
+      git('config', 'user.name', 'test');
+      write('scripts/shared.mjs', 'export function normalizeText(value) { return value; }');
+      write('scripts/provider.mjs', 'export function guardSession() { return false; }');
+      write('scripts/other.mjs', 'export function guardSession() { return false; }');
+      write('scripts/alias-consumer.mjs', "import { guardSession as runGuard } from './provider.mjs'; runGuard();");
+      write('scripts/alias-noise.mjs', "import { guardSession as runGuard } from './other.mjs'; runGuard();");
+      write('scripts/api-noise.mjs', 'const raw = Buffer.isBuffer(input);');
+      const guard = 'function decode(input) {\nif (Buffer.isBuffer(input)) {\nreturn input;\n}\n}';
+      write('scripts/runtime-refactor.mjs', guard);
+      write('scripts/guard-noise.mjs', guard);
+      write('scripts/fallback-noise.mjs', 'function lookup(direct) {\nif (direct) return direct;\n}');
+      write('scripts/import-noise.mjs', "import { normalizeText } from './shared.mjs';");
+      write('scripts/name-noise.mjs', 'export function readZipEntry(input) { return input; }');
+      write('scripts/changed.mjs', 'const result = { description: copy.description };');
+      write('scripts/real-sibling.mjs', 'const result = { description: copy.description };');
+      git('add', '.'); git('commit', '-qm', 'base');
+      git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+      write('scripts/changed.mjs', 'const result = { description: sanitize(copy.description) };');
+      write('scripts/runtime-refactor.mjs', 'function decode(input) { return input; }');
+      write('scripts/provider.mjs', 'export function guardSession() { return true; }');
+      write('scripts/new.mjs', [
+        "import { normalizeText } from './shared.mjs';",
+        'export function readZipEntry(input) { return Buffer.isBuffer(input); }',
+      ].join('\n'));
+      git('add', '.'); git('commit', '-qm', 'feature');
+      const script = resolve(import.meta.dirname, '..', 'scripts/ci/check-sibling-patterns.mjs');
+      for (const args of [[], ['--head', 'HEAD']]) {
+        const result = JSON.parse(execFileSync('node', [script, '--json', ...args], {
+          cwd: repo, encoding: 'utf8', env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
+        }));
+        expect(result.candidates.map((candidate: { file: string }) => candidate.file))
+          .toEqual(['scripts/alias-consumer.mjs', 'scripts/real-sibling.mjs']);
+        expect(result.candidates[0].tokens).toContain('graph:scripts/provider.mjs#guardSession');
+        expect(result.candidates[1].tokens.some((token: string) => token.startsWith('removed:'))).toBe(true);
+      }
+    } finally {
+      rmSync(repo, { recursive: true, force: true });
+    }
+  }, 60_000);
 });

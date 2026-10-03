@@ -294,7 +294,7 @@
   }
   for (const entry of ariaGroups.values()) if (entry.options.length) fields.push(entry);
   // Workday-style dropdowns are buttons that open a listbox (OfferOS
-  // aria-driver): a field whose options are read later by opening it.
+  // dom-fill, isListboxButton): a field whose options are read later by opening it.
   for (const element of document.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
     if (element.disabled || !visible(element)) continue;
     const label = labelFor(element);

@@ -7661,6 +7661,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pilastro3a-zurigo-strategia.title': 'Terzo pilastro 3a: vantaggi 2026 nel canton Zurigo',
     'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Guida 2026 al terzo pilastro 3a nel canton Zurigo: tre livelli fiscali, moltiplicatore comunale e provider bancari o assicurativi.',
     'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Documenti fiscali svizzeri e piano 3a su una scrivania con skyline di Zurigo.',
+    'blog.article.guida-terzo-3a-berna.title': 'Terzo pilastro 3a svizzera: vantaggi 2026 canton Berna',
+    'blog.article.guida-terzo-3a-berna.excerpt': 'Guida 2026 al 3a nel canton Berna: massimale indicizzato, tre livelli fiscali e confronto tra provider bancari e assicurativi.',
+    'blog.article.guida-terzo-3a-berna.imageAlt': 'Persona in Svizzera consulta documenti sul terzo pilastro 3a e sulle imposte',
+    'blog.article.lista-governo-ticino-2027.title': 'Avanti con Ticino&Lavoro: lista Governo 2027',
+    'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli e Giovanni Albertini sono in lista per il Consiglio di Stato dell\'11 aprile 2027.',
+    'blog.article.lista-governo-ticino-2027.imageAlt': 'Presentazione politica a Lamone per la lista al Governo ticinese',
+    'blog.article.guida-3a-fisco-vaud.title': 'Terzo pilastro 3a: vantaggi 2026 nel canton Vaud',
+    'blog.article.guida-3a-fisco-vaud.excerpt': 'Guida 2026 al terzo pilastro 3a nel canton Vaud: vantaggi fiscali, tre livelli d\'imposta, massimale indicizzato e confronto nazionale.',
+    'blog.article.guida-3a-fisco-vaud.imageAlt': 'Documenti fiscali e calcolatore per il terzo pilastro 3a nel canton Vaud',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Ginevra: 1.500 in piazza pro Palestina, chieste sanzioni a Israele',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Circa 1.500 manifestanti a Ginevra chiedono blocco relazioni con Israele e arresto Netanyahu. Berna: no fermo per motivi negoziali.',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Manifestazione pro Palestina a Ginevra con bandiere palestinesi e svizzere',
 };
 
 export default blogMetaChIt;

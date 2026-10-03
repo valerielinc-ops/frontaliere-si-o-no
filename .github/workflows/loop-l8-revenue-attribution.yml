@@ -18,10 +18,12 @@ on:
       - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/load-rc-env.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
@@ -39,10 +41,12 @@ on:
       - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/load-rc-env.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
@@ -84,10 +88,12 @@ jobs:
             /functions/src/lib/exchangePartners.js
             /scripts/lib/google-service-account-token.mjs
             /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/app-error-recency.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /scripts/lib/posthog-client.mjs
             /scripts/load-rc-env.mjs
             /.github/workflows/loop-l8-revenue-attribution.yml

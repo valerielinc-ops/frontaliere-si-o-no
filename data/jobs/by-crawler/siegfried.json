@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-10-03T09:13:38.080Z",
+  "assembledAt": "2026-10-03T21:17:14.705Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:31.906Z",
+      "crawledAt": "2026-10-03T21:17:09.327Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,7 +112,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:31.265Z",
+      "crawledAt": "2026-10-03T21:17:08.700Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -169,6 +169,7 @@
           "technicien-de-laboratoire-ad-siegfried-evionnaz"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -183,8 +184,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "needsRetranslation": true
+      "addressRegion": "VS"
     },
     {
       "id": "siegfried-5ad954548659",
@@ -217,7 +217,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:30.629Z",
+      "crawledAt": "2026-10-03T21:17:07.989Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -295,7 +295,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:29.991Z",
+      "crawledAt": "2026-10-03T21:17:07.324Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -332,6 +332,7 @@
           "laborant-in-efz-chemie-siegfried-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -346,8 +347,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "needsRetranslation": true
+      "addressRegion": "AG"
     },
     {
       "id": "siegfried-40180fafe703",
@@ -380,7 +380,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:29.340Z",
+      "crawledAt": "2026-10-03T21:17:06.661Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,7 +462,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:28.702Z",
+      "crawledAt": "2026-10-03T21:17:06.012Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -495,6 +495,7 @@
           "intern-commercial-excellence-siegfried-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -509,8 +510,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "needsRetranslation": true
+      "addressRegion": "AG"
     },
     {
       "id": "siegfried-c06711d142ad",
@@ -543,7 +543,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:28.008Z",
+      "crawledAt": "2026-10-03T21:17:05.364Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,7 +621,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:27.371Z",
+      "crawledAt": "2026-10-03T21:17:04.716Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,6 +662,7 @@
           "mechaniker-in-a-siegfried-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:13:20.607Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -676,8 +677,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "needsRetranslation": true
+      "addressRegion": "AG"
     },
     {
       "id": "siegfried-8161ac66c732",
@@ -710,7 +710,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-technician-QC_R26_657",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:26.806Z",
+      "crawledAt": "2026-10-03T21:17:04.055Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -772,6 +772,7 @@
           "lab-technician-r-d-siegfried-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:49.045Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -786,8 +787,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "needsRetranslation": true
+      "addressRegion": "VS"
     },
     {
       "id": "siegfried-2d5530f58bd7",
@@ -820,7 +820,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:26.236Z",
+      "crawledAt": "2026-10-03T21:17:03.402Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -900,7 +900,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:25.657Z",
+      "crawledAt": "2026-10-03T21:17:02.745Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -980,7 +980,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Rohrschlosser-in_R26_675",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:25.102Z",
+      "crawledAt": "2026-10-03T21:17:02.068Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1064,7 +1064,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:24.510Z",
+      "crawledAt": "2026-10-03T21:17:01.399Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1142,7 +1142,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:23.923Z",
+      "crawledAt": "2026-10-03T21:17:00.722Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1222,7 +1222,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Analytical-Project-Leader_R26_737",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:23.357Z",
+      "crawledAt": "2026-10-03T21:17:00.055Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1302,7 +1302,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Expert-Lab-Technician-Drug-Product-R-D_R26_716",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:22.747Z",
+      "crawledAt": "2026-10-03T21:16:59.365Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1377,7 +1377,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:22.185Z",
+      "crawledAt": "2026-10-03T21:16:58.711Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1465,7 +1465,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R26_616",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:21.603Z",
+      "crawledAt": "2026-10-03T21:16:58.046Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1549,7 +1549,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_742",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:21.026Z",
+      "crawledAt": "2026-10-03T21:16:57.392Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1631,7 +1631,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:20.443Z",
+      "crawledAt": "2026-10-03T21:16:56.750Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1711,7 +1711,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Site-OPEX-Lead_R26_732",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:19.857Z",
+      "crawledAt": "2026-10-03T21:16:56.100Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1742,6 +1742,81 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:01.152Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "AG"
+    },
+    {
+      "id": "siegfried-b44d43ec6bdb",
+      "slug": "global-automation-lead-siegfried-ch",
+      "slugByLocale": {
+        "it": "global-automation-lead-siegfried-ch",
+        "en": "global-automation-lead-siegfried-ch",
+        "de": "global-automation-lead-siegfried-ch",
+        "fr": "global-automation-lead-siegfried-ch"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Global Automation Lead",
+      "titleByLocale": {
+        "it": "Global Automation Lead",
+        "en": "Global Automation Lead",
+        "de": "Global Automation Lead",
+        "fr": "Global Automation Lead"
+      },
+      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\n Your Profile:\n Key Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\n Professional Growth & Impact\n - The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n - You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n - Short-term incentive programs recognizing both performance and contribution\n - Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "it": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\nYour Profile:\nKey Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\nProfessional Growth & Impact\n- The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n- You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n- Short-term incentive programs recognizing both performance and contribution\n- Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\nYour Profile:\nKey Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\nProfessional Growth & Impact\n- The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n- You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n- Short-term incentive programs recognizing both performance and contribution\n- Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\nYour Profile:\nKey Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\nProfessional Growth & Impact\n- The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n- You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n- Short-term incentive programs recognizing both performance and contribution\n- Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\nYour Profile:\nKey Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\nProfessional Growth & Impact\n- The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n- You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n- Short-term incentive programs recognizing both performance and contribution\n- Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Automation-Lead_R26_693-1",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-03T21:16:55.466Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Automation-Lead_R26_693-1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "R26_693",
+      "hiringOrganization": "Siegfried AG",
+      "previousSlugs": [
+        "piombo-di-automazione-globale-siegfried-zofingen",
+        "global-automation-lead-siegfried-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "piombo-di-automazione-globale-siegfried-zofingen",
+          "global-automation-lead-siegfried-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:13:19.298Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1832,7 +1907,7 @@
           "external-siegfried-ch"
         ]
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "siegfried-172d503e545b",
@@ -1911,84 +1986,7 @@
         }
       },
       "addressRegion": "AG",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "siegfried-b44d43ec6bdb",
-      "slug": "global-automation-lead-siegfried-ch",
-      "slugByLocale": {
-        "en": "global-automation-lead-siegfried-ch",
-        "it": "global-automation-lead-siegfried-ch",
-        "de": "global-automation-lead-siegfried-ch",
-        "fr": "global-automation-lead-siegfried-ch"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Global Automation Lead",
-      "titleByLocale": {
-        "en": "Global Automation Lead",
-        "it": "Global Automation Lead",
-        "de": "Global Automation Lead",
-        "fr": "Global Automation Lead"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\n Your Profile:\n Key Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\n Professional Growth & Impact\n - The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n - You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n - Short-term incentive programs recognizing both performance and contribution\n - Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\n Your Profile:\n Key Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\n Professional Growth & Impact\n - The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n - You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n - Short-term incentive programs recognizing both performance and contribution\n - Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\n Your Profile:\n Key Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\n Professional Growth & Impact\n - The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n - You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n - Short-term incentive programs recognizing both performance and contribution\n - Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\n Your Profile:\n Key Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\n Professional Growth & Impact\n - The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n - You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n - Short-term incentive programs recognizing both performance and contribution\n - Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nThe Global Automation Lead is a highly strategic leadership role responsible for defining, executing, and governing the corporate automation blueprint across our global CDMO network. This role acts as the primary catalyst for the company’s automation strategy, transforming traditional manufacturing sites into highly integrated manufacturing facilities. A critical mandate of this position is managing the lifecycle and obsolescence planning of all plant-floor automation equipment. By holding a functional (dotted-line) reporting connection to all local Site Automation Heads, this leader will harmonize automation standards globally, streamline cross-site tech transfers for client products, and collaborate seamlessly with global IT/OT and physical engineering teams to bridge the gap between software and steel.\n Your Profile:\n Key Responsibilities\n\n• Automation Roadmap: Design and drive the global automation roadmap, integrating advanced technologies such as electronic batch records (EBR), plug-and-produce modular systems (Module Type Package - MTP), AI-driven process optimization, and industrial IoT (IIoT).\n\n• Cross-Site Tech Transfer Standardization: Create a standardized, recipe-driven automation architecture (ISA-88/ISA-95 standards) that allows swift, seamless transfer of client manufacturing processes from one site to another without rewriting code from scratch.\n\n• Risk Mapping & Upgrade Planning: Audit and map the lifecycle state of all global process control systems (DCS, PLC, SCADA). Develop a long-term capital replacement roadmap to proactively upgrade obsolete hardware and software before it threatens business continuity.\n\n• Capital Project Integration: Partner closely with the Head of Global Project Delivery and site project teams during the front-end design (FEL) phase of new expansions to ensure vendor selection and code architecture align perfectly with corporate global automation standards.\n\n• The IT/OT Bridge: Collaborate closely with the Global IT organization to ensure seamless vertical integration—connecting plant-floor automation\n\n• OT Cyber Security: Partner with OT teams to implement robust OT cyber security frameworks to protect manufacturing network and enhance our manufacturing network.\n\n• Leadership: lead from a global perspective the network of local Site Automation Heads. Set unified performance standards, capability matrix, and global training paths for automation engineers.\n\nKey requirements\n\n• Education: Bachelor’s or Master’s degree in Automation Engineering, Electrical Engineering, Computer Science, or Chemical Engineering with a heavy software/control focus.\n\n• Industry Experience: 12–15 years of automation leadership experience within a regulated biopharmaceutical, vaccine, or high-complexity CDMO environment.\n\n• Multi-Site automated systems experience: Proven track record of managing automated systems across an international network, including direct experience driving large-scale DCS/MES deployment or migration programs.\n\n• Deep Knowledge of Life Sciences Data: Thorough understanding of computerized system validation (CSV), GAMP 5 principles, 21 CFR Part 11, and Data Integrity regulations.\n\n• Strategic Collaborative Leadership: Highly developed ability to communicate complex software and digital architectures to non-technical operational and business stakeholders, transforming automation into a clear, value-generating business strategy.\n\nYour Benefits:\n Professional Growth & Impact\n - The role is part of a renewed organisation with room to take ownership and make a long term sustainable impact.\n - You'll be part of shaping the function, in a dynamic and international environement\n- You'll continue to grow personally and professionally at a fast pace.\n- You'll collaborate with an experienced, passionate teams that values excellence, quality and continuous learning.\n\nCompensation & Incentives\n - Short-term incentive programs recognizing both performance and contribution\n - Long-term incentive plan focused on sustained value creation\n\nFlexibility & Wellbeing\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Automation-Lead_R26_693-1",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:19.298Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-02",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Automation-Lead_R26_693-1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "jobReqId": "R26_693",
-      "hiringOrganization": "Siegfried AG",
-      "needsRetranslation": true,
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "AG",
-      "firstSeenAt": "2026-10-03T09:13:19.298Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "global-automation-lead-siegfried-ch",
-          "piombo-di-automazione-globale-siegfried-zofingen"
-        ]
-      },
-      "previousSlugs": [
-        "global-automation-lead-siegfried-ch",
-        "piombo-di-automazione-globale-siegfried-zofingen"
-      ]
+      "crawlerMissStreak": 2
     }
   ]
 }

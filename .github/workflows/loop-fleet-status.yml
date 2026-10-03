@@ -42,6 +42,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /data/loop-fleet/ledger/
             /scripts/ci/loop-fleet-status.mjs
+            /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /.github/workflows/loop-fleet-status.yml
           sparse-checkout-cone-mode: false

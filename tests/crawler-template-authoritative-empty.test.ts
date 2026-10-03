@@ -98,6 +98,7 @@ import {
   exitCrawlerOnError,
   runStandardCrawlerPipeline,
 } from '../scripts/lib/crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
   hasAuthoritativeListingPageEvidence,
   hasExplicitEmptyJobListing,
@@ -666,11 +667,28 @@ describe('standard crawler authoritative-empty policy', () => {
     });
   });
 
-  it('does not let the opt-in replace source-specific validation', () => {
+  it('does not let the opt-in replace a proof: an unstamped zero stays unverified', () => {
     expect(evaluateAuthoritativeSnapshot([], {
       allowAuthoritativeEmptySnapshot: true,
       companyLabel: 'Test',
     })).toEqual({
+      authoritativeSnapshotVerified: false,
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('honours a parser-stamped zero by default when the runner wires no validator', () => {
+    const stamped = markAuthoritativeEmptySnapshot([], 'listing states it has no open positions');
+    expect(evaluateAuthoritativeSnapshot(stamped, { companyLabel: 'Test' })).toEqual({
+      authoritativeSnapshotVerified: true,
+      authoritativeEmptySnapshot: true,
+    });
+    // The explicit opt-out, and a batch rebuilt after stamping, stay fail-closed.
+    expect(evaluateAuthoritativeSnapshot(stamped, {
+      allowAuthoritativeEmptySnapshot: false,
+      companyLabel: 'Test',
+    }).authoritativeEmptySnapshot).toBe(false);
+    expect(evaluateAuthoritativeSnapshot([...stamped], { companyLabel: 'Test' })).toEqual({
       authoritativeSnapshotVerified: false,
       authoritativeEmptySnapshot: false,
     });

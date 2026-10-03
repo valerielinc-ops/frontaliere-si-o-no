@@ -115,7 +115,7 @@ describe('assisted application JobBoard handoff', () => {
 
   it('hands off to the employer after the reward, and on a failure without the paid fallback', () => {
     expect(jobBoardSource).toMatch(
-      /const handleRewardedApplicationUnavailable = \(reason: string\): Promise<boolean> \| undefined => \{[\s\S]*?if \(!hasTransientUserActivation\(\)\) \{\s*setRewardedApplicationJob\(null\);\s*void redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true, \{\s*handoff: 'direct_external',\s*reason,\s*\}\);\s*return undefined;/,
+      /const handleRewardedApplicationUnavailable = \(\s*reason: string,\s*info\?: RewardedOfferUnavailableInfo,\s*\): Promise<boolean> \| undefined => \{[\s\S]*?if \(!hasTransientUserActivation\(\)\) \{\s*setRewardedApplicationJob\(null\);\s*void redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true, \{\s*handoff: 'direct_external',\s*reason,\s*\}\);\s*return undefined;/,
     );
     expect(jobBoardSource).toMatch(
       /'external_apply_redirected',\s*\{ \.\.\.assistedApplicationJobContext\(job, assistedApplicationVariant\), surface, \.\.\.extraParams \},/,
@@ -129,8 +129,8 @@ describe('assisted application JobBoard handoff', () => {
   it('keeps the offer until the direct hand-off new tab is confirmed, and retries it from the open card', () => {
     // PR #10366 review: a popup blocked with navigator.userActivation.isActive
     // must leave the offer on screen with its "open" card, not lose the employer.
-    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {');
-    const end = jobBoardSource.indexOf('const handleAssistedPaid = async () => {', start);
+    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (');
+    const end = jobBoardSource.indexOf('const handleAssistedPaid = () => {', start);
     const handler = jobBoardSource.slice(start, end);
     const direct = handler.slice(handler.indexOf('rewardedDirectHandoffReasonRef.current = reason;'));
     expect(start).toBeGreaterThan(-1);
@@ -208,10 +208,13 @@ describe('assisted application JobBoard handoff', () => {
   });
 
   it('opens the paid offer when the Offerwall chain failed to load or the ad was refused, with the flag on', () => {
-    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {');
-    const end = jobBoardSource.indexOf('const handleAssistedPaid = async () => {', start);
+    const start = jobBoardSource.indexOf('const handleRewardedApplicationUnavailable = (');
+    const end = jobBoardSource.indexOf('const handleAssistedPaid = () => {', start);
     const handler = jobBoardSource.slice(start, end);
-    const fallback = handler.indexOf('if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason)) {');
+    // No second paid offer after the paid choice shown before the Offerwall.
+    const fallback = handler.indexOf(
+      'if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason) && !info?.paidOfferShown) {',
+    );
     const redirect = handler.indexOf("redirectExternalApplication(job, 'rewarded_application_inline_unavailable'");
 
     expect(fallback).toBeGreaterThan(-1);
@@ -226,9 +229,29 @@ describe('assisted application JobBoard handoff', () => {
       "|| (assistedApplicationVariant === 'rewarded_ad' && assistedOfferSource === 'offerwall_fallback');",
     );
     expect(jobBoardSource).toContain('const assistedApplicationOfferJsx = assistedApplicationJob && assistedOfferAvailable ? (');
-    expect(jobBoardSource).toContain('if (!job || !assistedOfferAvailable || assistedCheckoutBusy) return;');
+    expect(jobBoardSource).toContain('if (!job || !assistedOfferAvailable) return;');
+    expect(jobBoardSource).toMatch(
+      /const startAssistedCheckout = async \(job: JobListing, extra: Record<string, unknown> = \{\}\) => \{\s*if \(assistedCheckoutBusy\) return;/,
+    );
     expect(jobBoardSource).toContain(
       "experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',",
+    );
+  });
+
+  it('offers the paid application before the Offerwall under the paid-fallback flag', () => {
+    // Owner decision 2026-10-03: the paid choice first, the Offerwall prepared
+    // hidden behind it; ASSISTED_APPLICATION_OFFERWALL_FALLBACK off restores
+    // the Offerwall-only click.
+    const start = jobBoardSource.indexOf('const rewardedApplicationOfferJsx = ');
+    const end = jobBoardSource.indexOf('const authGateModalJsx = ', start);
+    const offer = jobBoardSource.slice(start, end);
+    expect(start).toBeGreaterThan(-1);
+    expect(offer).toMatch(
+      /paidChoice=\{offerwallPaidFallbackEnabled \? \{\s*onChoosePaid: \(\) => startAssistedCheckout\(rewardedApplicationJob, \{ trigger: 'offerwall_first' \}\),\s*paidLoading: assistedCheckoutBusy,\s*error: assistedCheckoutError,\s*\} : undefined\}/,
+    );
+    // Closing the choice also clears a checkout it started.
+    expect(offer).toMatch(
+      /onDismiss=\{\(\) => \{\s*setRewardedApplicationJob\(null\);\s*setAssistedCheckoutBusy\(false\);\s*setAssistedCheckoutError\(null\);\s*\}\}/,
     );
   });
 

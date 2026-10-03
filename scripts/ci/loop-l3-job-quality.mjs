@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -17,6 +17,8 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L3';
+const ISSUE_TITLE = 'L3 Job Quality: apply handoff cannot be trusted';
+const ISSUE_WORKFLOW = 'Loop L3 Job Quality to Apply';
 export const DEFAULT_SUMMARY_DIR = path.join('data', 'jobs-crawler-summaries', 'by-crawler');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'job-apply-outcome-baseline.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -597,7 +599,8 @@ export async function runL3({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -707,13 +710,18 @@ export async function runL3({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L3 Job Quality: apply handoff cannot be trusted',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'jobs', 'loop-l3'],
-      workflow: 'Loop L3 Job Quality to Apply',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, quarantineWritten, outcome });
   if (resultFile) files.push(resultFile);

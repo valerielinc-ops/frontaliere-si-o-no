@@ -17,6 +17,8 @@ set -uo pipefail
 # 4x byte-identical copy-paste of a sequential loop (AGENTS.md #6).
 # Requires GH_TOKEN, DEPLOY_RUN_ID, and one <SECTION>_SHARD_LIVE env var per
 # entry in section-shard-slugs.json (set by the calling workflow step).
+# `SHARD_ARTIFACT_RUN_ID` optionally points at the post-build run that holds
+# non-IT section artifacts; IT continues to use DEPLOY_RUN_ID.
 #
 # REPLACE, NOT MERGE — and why that stays true (issue #5327, the class behind
 # #5290's incident). Every `rm -rf "dist/$sub"` below (tar/cache/clone paths)
@@ -72,7 +74,11 @@ ensure_batch_downloaded() {
   local dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
   local lock="$dl.lock"
   local done="$dl.done"
-  local name="shard-batch-$batch-dist-$loc-$DEPLOY_RUN_ID"
+  local artifact_run_id="$DEPLOY_RUN_ID"
+  case "$loc" in
+    en|de|fr) artifact_run_id="${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}" ;;
+  esac
+  local name="shard-batch-$batch-dist-$loc-$artifact_run_id"
   local repo="${GH_REPO:-${GITHUB_REPOSITORY:-}}"
   local id members
   if [ -f "$done" ]; then
@@ -86,7 +92,7 @@ ensure_batch_downloaded() {
       # would only fail later, on the zip, as a 410 (#7392).
       id=""
       if [ -n "$repo" ]; then
-        id="$(timeout 30 gh api "repos/$repo/actions/runs/$DEPLOY_RUN_ID/artifacts?name=$name&per_page=100" \
+        id="$(timeout 30 gh api "repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$name&per_page=100" \
                 --jq '[.artifacts[] | select(.expired == false)] | sort_by(.created_at) | reverse | .[0].id // empty' 2>/dev/null)"
       fi
       # The listing goes through a variable, not `unzip -Z1 | grep -q`: under

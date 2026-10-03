@@ -4,6 +4,7 @@ import { CheckCircle2, FileText, Loader2, LockKeyhole, Shield, UploadCloud } fro
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
+import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -322,8 +323,9 @@ export default function AssistedApplicationUpload({
 
   const jobTitle = order?.jobTitle || t('jobBoard.assisted.jobFallback');
 
+  // The order and the candidate's CV: never in a session replay.
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
+    <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-2xl px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}>
       <section className="rounded-2xl border border-edge bg-surface p-5 sm:p-7 space-y-6">
         <div className="flex items-start gap-3">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent">

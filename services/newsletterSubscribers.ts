@@ -1,14 +1,4 @@
-import {
- addDoc,
- collection,
- deleteField,
- doc,
- getDoc,
- increment,
- serverTimestamp,
- setDoc,
- type Firestore,
-} from 'firebase/firestore';
+import type { Firestore } from 'firebase/firestore';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 import {
@@ -1085,6 +1075,7 @@ export async function isNewsletterOptedOut(db: Firestore, email: string): Promis
  const normalized = normalizeNewsletterEmail(email);
  if (!normalized || !normalized.includes('@')) return false;
  try {
+ const { collection, doc, getDoc } = await import('firebase/firestore');
  const snap = await getDoc(doc(collection(db, 'newsletter_subscribers'), normalized));
  if (!snap.exists()) return false;
  const data = snap.data() || {};
@@ -1121,6 +1112,7 @@ export async function isNewsletterAccountDeleted(db: Firestore, email: string): 
  const normalized = normalizeNewsletterEmail(email);
  if (!normalized || !normalized.includes('@')) return false;
  try {
+ const { collection, doc, getDoc } = await import('firebase/firestore');
  const snap = await getDoc(doc(collection(db, 'newsletter_subscribers'), normalized));
  if (!snap.exists()) return false;
  const data = snap.data() || {};
@@ -1195,6 +1187,7 @@ export async function unsubscribeNewsletterSubscriber(
  return { ok: false, email, fields: {} };
  }
 
+ const { collection, doc, setDoc } = await import('firebase/firestore');
  const fields = buildNewsletterUnsubscribeFields(email, nowIso(), sourceChannel);
  await setDoc(doc(collection(db, 'newsletter_subscribers'), email), fields, { merge: true });
 
@@ -1228,6 +1221,7 @@ export async function recordNewsletterEvent(
 ): Promise<void> {
  const email = normalizeNewsletterEmail(input.email);
  if (!email || !email.includes('@')) return;
+ const { addDoc, collection, doc, serverTimestamp } = await import('firebase/firestore');
  await addDoc(collection(doc(collection(db, 'newsletter_subscribers'), email), 'events'), {
  email,
  user_id: sanitizeString(input.userId),
@@ -1291,6 +1285,7 @@ export async function upsertNewsletterDelivery(
  const email = normalizeNewsletterEmail(input.email);
  if (!email || !email.includes('@') || !input.campaignId) return;
 
+ const { collection, doc, increment, serverTimestamp, setDoc } = await import('firebase/firestore');
  const status = sanitizeString(input.status);
  const update: Record<string, any> = {
  email,
@@ -1374,6 +1369,7 @@ export async function captureNewsletterSubscriber(
  throw new Error('Invalid email');
  }
 
+ const { collection, deleteField, doc, getDoc, serverTimestamp, setDoc } = await import('firebase/firestore');
  const ref = doc(collection(db, 'newsletter_subscribers'), email);
  const existing = await getDoc(ref);
  const existingData = existing.exists() ? existing.data() : undefined;
@@ -2063,6 +2059,7 @@ export async function recordNewsletterClick(
 ): Promise<void> {
  const email = normalizeNewsletterEmail(input.email);
  if (!email || !email.includes('@')) return;
+ const { collection, doc, getDoc, increment, serverTimestamp, setDoc } = await import('firebase/firestore');
  const ref = doc(collection(db, 'newsletter_subscribers'), email);
  const existingSubscriber = await getDoc(ref);
  // A click is delivery telemetry, not consent. Never let a manually crafted
@@ -2110,6 +2107,7 @@ export async function applyNewsletterDeliveryEvent(
 ): Promise<void> {
  const email = normalizeNewsletterEmail(input.email);
  if (!email || !email.includes('@')) return;
+ const { collection, doc, getDoc, increment, serverTimestamp, setDoc } = await import('firebase/firestore');
  const status = ACTIVE_STATUS_EVENT_MAP[input.eventType];
  const update: Record<string, any> = {
  email,

@@ -32,15 +32,17 @@ import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 
 const DEPLOY_YML = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
+const DEPLOY_PUBLISH_YML = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
+const DEPLOY_ALL_YML = `${DEPLOY_YML}\n${DEPLOY_PUBLISH_YML}`;
 const PREP_SH = resolve('scripts/lib/deploy-it-pages-prep.sh');
 const GATE_SH = resolve('scripts/lib/wait-cdn-build-id.sh');
 const EARLY_CDN_STEP = 'Push generated assets to CDN (early — ahead of the shard pushes)';
 
 /** Slice one `- name: <title>` step out of the build-locale step list. */
 function step(title: string): string {
-  const idx = DEPLOY_YML.indexOf(`      - name: ${title}`);
-  expect(idx, `step "${title}" not found in deploy.yml`).toBeGreaterThan(-1);
-  const rest = DEPLOY_YML.slice(idx + 1);
+  const idx = DEPLOY_ALL_YML.indexOf(`      - name: ${title}`);
+  expect(idx, `step "${title}" not found in deploy workflows`).toBeGreaterThan(-1);
+  const rest = DEPLOY_ALL_YML.slice(idx + 1);
   const end = rest.indexOf('\n      - name: ');
   return rest.slice(0, end === -1 ? undefined : end);
 }

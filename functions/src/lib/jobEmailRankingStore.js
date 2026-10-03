@@ -57,6 +57,26 @@ function incrementField(data, path, amount) {
   if (amount > 0) data[path] = FieldValue.increment(amount);
 }
 
+// Job attributes carried by every manifest entry. A job_id stops resolving once
+// the listing expires (the expired archive has no id, category or canton), so
+// the manifest itself must say which kind of listing a click was about.
+export const MANIFEST_ATTRIBUTE_MAX_LENGTH = 80;
+
+/** Short, whitespace-normalized string, or null when the value is absent. */
+function manifestAttribute(value) {
+  if (typeof value !== 'string' && typeof value !== 'number') return null;
+  const text = String(value).replace(/\s+/g, ' ').trim();
+  if (!text) return null;
+  // Array.from cuts on code points, never inside a surrogate pair.
+  return Array.from(text).slice(0, MANIFEST_ATTRIBUTE_MAX_LENGTH).join('').trim();
+}
+
+/** Two-letter uppercase canton code (`TI`), or null for anything else. */
+function manifestCanton(value) {
+  const code = manifestAttribute(value)?.toUpperCase();
+  return code && /^[A-Z]{2}$/.test(code) ? code : null;
+}
+
 export function jobManifestEntry(job, index) {
   const ranking = job?.ranking || {};
   return {
@@ -66,6 +86,14 @@ export function jobManifestEntry(job, index) {
     relevance_score: Number.isFinite(Number(ranking.relevanceScore)) ? Number(ranking.relevanceScore) : null,
     ctr_shrink: Number.isFinite(Number(ranking.ctrShrink)) ? Number(ranking.ctrShrink) : null,
     random_boost: Number.isFinite(Number(ranking.randomBoost)) ? Number(ranking.randomBoost) : null,
+    category: manifestAttribute(job?.category),
+    canton: manifestCanton(job?.canton),
+    // companyKey is already the normalized key the crawlers emit
+    // (scripts/lib/company-key.mjs); Cloud Functions cannot import scripts/.
+    company_key: manifestAttribute(job?.companyKey),
+    // A newsletter card's `sector` falls back to the category for display and
+    // alert matching; `rawSector` keeps the listing's own sector key.
+    sector: manifestAttribute(job?.rawSector !== undefined ? job.rawSector : job?.sector),
   };
 }
 

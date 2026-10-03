@@ -433,14 +433,57 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
     expect(resolve?.run).toContain(title);
   });
 
-  it('replays BOTH pulls when a rebase conflict forces a regenerate', () => {
-    // The helper hard-resets to origin/main first, which discards the corpus
-    // half too. Regenerating only the API half rebuilds the sitemaps against
-    // whatever registry origin/main carries — #5298, reintroduced on the
-    // conflict path.
-    const commit = byName('Commit if changed');
-    expect(commit?.run).toContain(
-      '--regenerate-cmd "node scripts/pull-articles-corpus.mjs && node scripts/pull-articles-api.mjs',
-    );
+  it('never delivers one half of the sync without the other', () => {
+    // #5298: the sitemaps must be built against the registry that travels with
+    // them. The corpus pull and the API pull are two halves of one snapshot;
+    // whichever path publishes them must carry both.
+    //
+    // This used to pin the exact text of a `--regenerate-cmd` flag. #10721
+    // replaced the direct push (and its rebase-and-regenerate retry) with a PR
+    // on a stable branch, the flag disappeared, and the pin went red for a
+    // change that kept the invariant. So the invariant is asserted on the
+    // structure of the step, for either delivery path:
+    const run = byName('Commit if changed')?.run ?? '';
+    expect(run, 'the commit step must exist and run a script').not.toBe('');
+
+    //  - a retry that regenerates after a rebase conflict discards the corpus
+    //    half too (the helper hard-resets to origin/main), so it replays BOTH
+    //    pulls, corpus first;
+    const regenerate = [...run.matchAll(/--regenerate-cmd\s+"([^"]*)"/g)].map((m) => m[1]);
+    for (const cmd of regenerate) {
+      const corpus = cmd.indexOf('scripts/pull-articles-corpus.mjs');
+      const api = cmd.indexOf('scripts/pull-articles-api.mjs');
+      expect(corpus, `regenerate without the corpus pull: ${cmd}`).toBeGreaterThanOrEqual(0);
+      expect(api, `regenerate without the API pull: ${cmd}`).toBeGreaterThan(corpus);
+    }
+
+    //  - a PR delivery publishes the working tree of this run, where both
+    //    pulls already ran, so one publisher call carries both halves.
+    //    Shell comments are not calls: a comment naming the script must not
+    //    count as a second publisher.
+    const publisherCalls = run
+      .split('\n')
+      .filter((line) => !line.trim().startsWith('#') && line.includes('scripts/lib/open-data-refresh-pr.sh'));
+    expect(
+      regenerate.length + publisherCalls.length,
+      'the commit step has no delivery path at all',
+    ).toBeGreaterThan(0);
+    if (publisherCalls.length > 0) {
+      expect(publisherCalls, 'the two halves must not be split across publisher calls').toHaveLength(1);
+      const published = [...run.matchAll(/--path\s+(\S+)/g)].map((m) => m[1]);
+      expect(published).toContain('packages/articles/content');
+      expect(published).toContain('public/sitemap-blog.xml');
+      expect(published).toContain('public/sitemap-blog-ch.xml');
+    }
+
+    // Both pulls run in this job before the commit step, corpus first, and the
+    // API pull is gated on the corpus pull (asserted above).
+    const names = steps.jobs.sync.steps.map((s) => s.name ?? '');
+    const corpusStep = names.findIndex((n) => n.includes('Pull the article corpus'));
+    const apiStep = names.findIndex((n) => n.includes('Pull published sitemaps'));
+    const commitStep = names.findIndex((n) => n.includes('Commit if changed'));
+    expect(corpusStep).toBeGreaterThanOrEqual(0);
+    expect(apiStep).toBeGreaterThan(corpusStep);
+    expect(commitStep).toBeGreaterThan(apiStep);
   });
 });
