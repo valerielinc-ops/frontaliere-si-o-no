@@ -11,7 +11,7 @@ import {
   buildL3OutcomeExport,
   buildL4OutcomeLedger,
   buildL5DecisionMomentExport,
-  buildL5DecisionMomentQuery,
+  buildL5DecisionMomentReportBody,
   buildL7ExperimentLedger,
   buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
@@ -119,15 +119,16 @@ describe('read-only loop outcome exporters', () => {
       eligibleDecisionSessions: 120,
       nextUsefulActions: 45,
       generatedAt: NOW.toISOString(),
-      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+      telemetryWindow: { startDate: '2026-09-03', endDate: '2026-09-10', lagDays: 2, source: 'GA4 settled calendar dates' },
     });
     expect(output).toMatchObject({
       independent: true,
       eligibleDecisionSessions: 120,
       nextUsefulActions: 45,
       evidence: {
-        sourceRefs: ['decision-surfaces', 'posthog'],
-        sessionJoin: 'properties.$session_id',
+        sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
+        sessionMetric: 'sessions',
+        settledWindow: true,
         eventContract: {
           completionEvent: 'decision_moment_completed',
           nextActionEvent: 'decision_moment_next_action',
@@ -143,40 +144,38 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
-  it('exports L5 counts from a bounded PostHog session join without writing source data', async () => {
-    const calls: Array<{ query: string; config: Record<string, string> }> = [];
+  it('exports L5 counts from exact settled GA4 event-session counts without writing source data', async () => {
+    const calls: Array<{ url: string; init: RequestInit }> = [];
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
     const output = await exportL5({
       now: NOW,
       days: 8,
       outputPath: path.join(outputDir, 'outcomes.json'),
       client: {
-        remoteConfig: async () => ({
-          parameters: {
-            SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
-            SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: '123' } },
-            SERVER_POSTHOG_HOST: { defaultValue: { value: 'https://posthog.test' } },
-          },
-        }),
+        request: async (url: string, init: RequestInit) => {
+          calls.push({ url, init });
+          const body = JSON.parse(String(init.body));
+          const eventName = body.dimensionFilter.filter.stringFilter.value;
+          return { rows: [{ metricValues: [{ value: eventName === 'decision_moment_completed' ? '120' : '45' }] }] };
+        },
       } as any,
-      posthogRunner: async (query: string, config: Record<string, string>) => {
-        calls.push({ query, config });
-        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[120, 45]] };
-      },
     });
 
-    expect(calls).toHaveLength(1);
-    expect(calls[0].query).toContain("event = 'decision_moment_completed'");
-    expect(calls[0].query).toContain("event = 'decision_moment_next_action'");
-    expect(calls[0].query).toContain('GROUP BY properties.$session_id');
-    expect(calls[0].query).toContain('2026-09-04T00:00:00.000Z');
-    expect(calls[0].query).toContain('2026-09-12T00:00:00.000Z');
-    expect(calls[0].config).toMatchObject({ apiKey: 'test-key', projectId: '123', host: 'https://posthog.test' });
+    expect(calls).toHaveLength(2);
+    for (const call of calls) {
+      expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+      const body = JSON.parse(String(call.init.body));
+      expect(body).toMatchObject({
+        dateRanges: [{ startDate: '2026-09-03', endDate: '2026-09-10' }],
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT' } } },
+      });
+    }
     expect(output).toMatchObject({
       independent: true,
       eligibleDecisionSessions: 120,
       nextUsefulActions: 45,
-      telemetryWindow: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+      telemetryWindow: { startDate: '2026-09-03', endDate: '2026-09-10', lagDays: 2, source: 'GA4 settled calendar dates' },
     });
     expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toMatchObject({
       independent: true,
@@ -369,38 +368,44 @@ describe('read-only loop outcome exporters', () => {
   });
 
   it('exports the L5 completed-task to next-useful-action contract', async () => {
-    const query = buildL5DecisionMomentQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
+    const query = buildL5DecisionMomentReportBody({
+      eventName: 'decision_moment_completed',
+      startDate: '2026-09-05',
+      endDate: '2026-09-12',
     });
-    expect(query).toContain("event = 'decision_moment_completed'");
-    expect(query).toContain("event = 'decision_moment_next_action'");
-    expect(query).toContain('count() AS eligibleDecisionSessions');
-    expect(query).toContain('countIf(nextUsefulActions > 0) AS nextUsefulActions');
-    expect(query).toContain('GROUP BY properties.$session_id');
-    expect(query).toContain('HAVING completedTasks > 0');
+    expect(query).toMatchObject({
+      dateRanges: [{ startDate: '2026-09-05', endDate: '2026-09-12' }],
+      metrics: [{ name: 'sessions' }],
+      dimensionFilter: {
+        filter: {
+          fieldName: 'eventName',
+          stringFilter: { value: 'decision_moment_completed', matchType: 'EXACT' },
+        },
+      },
+    });
 
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
     const calls: string[] = [];
     const output = await (exportL5 as any)({
       now: NOW,
       outputPath: path.join(outputDir, 'outcomes.json'),
-      client: postHogClient() as any,
-      posthogRunner: async (query: string, config: any) => {
-        calls.push(query);
-        expect(config).toMatchObject({ apiKey: 'test-key', projectId: 'test-project' });
-        return { columns: ['eligibleDecisionSessions', 'nextUsefulActions'], results: [[123, 7]] };
+      client: {
+        request: async (_url: string, init: RequestInit) => {
+          const body = JSON.parse(String(init.body));
+          calls.push(body.dimensionFilter.filter.stringFilter.value);
+          return { rows: [{ metricValues: [{ value: body.dimensionFilter.filter.stringFilter.value === 'decision_moment_completed' ? '123' : '7' }] }] };
+        },
       },
     });
 
-    expect(calls).toHaveLength(1);
+    expect(calls).toEqual(['decision_moment_completed', 'decision_moment_next_action']);
     expect(output).toMatchObject({
       loopId: 'L5',
       independent: true,
       eligibleDecisionSessions: 123,
       nextUsefulActions: 7,
       evidence: {
-        sourceRefs: ['decision-surfaces', 'posthog'],
+        sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
       },
     });
     expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);

@@ -27,9 +27,11 @@ export const DEFAULT_L7_WINDOW_DAYS = 7;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
 
 /**
- * The L5 export joins categorical completion and next-action events on the
- * PostHog session id.  Keep this contract explicit so the validator and the
- * application instrumentation cannot silently drift apart.
+ * The L5 export reads exact event-session counts from GA4. Firebase
+ * Analytics receives the same decision-moment events as the application
+ * mirror, while this read-only exporter avoids making PostHog quota or
+ * retention the measurement gate. Keep the event contract explicit so the
+ * validator and the application instrumentation cannot silently drift apart.
  */
 export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionEvent: 'decision_moment_completed',
@@ -38,7 +40,8 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionTaskProperty: 'task_id',
   nextActionSurfaceProperty: 'decision_surface',
   nextActionIdProperty: 'action_id',
-  sessionJoin: 'properties.$session_id',
+  sessionMetric: 'sessions',
+  source: 'GA4 Data API',
 });
 
 const DAY_MS = 86_400_000;
@@ -395,31 +398,15 @@ function writeJsonFile(outputPath, value) {
 }
 
 /**
- * The L5 outcome contract is deliberately narrower than generic UI activity:
- * a completed calculator task is the denominator, and a same-session compare
- * or CTA event is the next useful action. The scope is written into the
- * evidence object so the resulting number cannot be mistaken for an
- * unqualified all-surface conversion rate.
+ * Build one exact GA4 event-session report for the L5 contract. The caller
+ * runs this once for completion and once for next action; the validator keeps
+ * the latter bounded by the former before any metric is considered measured.
  */
-export function buildL5DecisionMomentQuery({ start, end, eventContract = L5_DECISION_EVENT_CONTRACT } = {}) {
-  if (!text(start) || !text(end)) throw new Error('L5 decision-moment query requires start and end');
-  const completionEvent = eventContract.completionEvent;
-  const nextActionEvent = eventContract.nextActionEvent;
-  const sessionJoin = eventContract.sessionJoin;
-  return [
-    'SELECT count() AS eligibleDecisionSessions,',
-    '  countIf(nextUsefulActions > 0) AS nextUsefulActions',
-    'FROM (',
-    `  SELECT ${sessionJoin},`,
-    `    countIf(event = '${completionEvent}') AS completedTasks,`,
-    `    countIf(event = '${nextActionEvent}') AS nextUsefulActions`,
-    '  FROM events',
-    `  WHERE event IN ('${completionEvent}', '${nextActionEvent}')`,
-    '    AND timestamp >= \'' + start + '\' AND timestamp < \'' + end + '\'',
-    `  GROUP BY ${sessionJoin}`,
-    '  HAVING completedTasks > 0',
-    ')',
-  ].join('\n');
+export function buildL5DecisionMomentReportBody({ eventName, startDate, endDate } = {}) {
+  if (!text(eventName) || !text(startDate) || !text(endDate)) {
+    throw new Error('L5 decision-moment report requires eventName, startDate and endDate');
+  }
+  return ga4EventSessionsBody({ eventName, startDate, endDate });
 }
 
 export function buildL5DecisionMomentExport({
@@ -431,7 +418,7 @@ export function buildL5DecisionMomentExport({
 } = {}) {
   const eligible = nonNegativeInteger(eligibleDecisionSessions, 'eligibleDecisionSessions');
   const next = nonNegativeInteger(nextUsefulActions, 'nextUsefulActions');
-  if (next > eligible) throw new Error('PostHog returned nextUsefulActions greater than eligibleDecisionSessions');
+  if (next > eligible) throw new Error('GA4 returned nextUsefulActions greater than eligibleDecisionSessions');
   const generated = isoDate(generatedAt, 'L5 generatedAt');
   return {
     schemaVersion: 1,
@@ -446,14 +433,15 @@ export function buildL5DecisionMomentExport({
     },
     telemetryWindow,
     scope: {
-      denominator: 'distinct PostHog sessions with an explicit decision_moment_completed event',
+      denominator: 'distinct GA4 sessions with an explicit decision_moment_completed event',
       numerator: 'denominator sessions with an explicit decision_moment_next_action event',
       surface: 'declared decision surfaces',
     },
     evidence: {
-      source: 'PostHog HogQL, read-only live export',
-      sourceRefs: ['decision-surfaces', 'posthog'],
-      sessionJoin: eventContract.sessionJoin,
+      source: 'GA4 Data API exact event-session export',
+      sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
+      sessionMetric: eventContract.sessionMetric,
+      settledWindow: true,
       eventContract: { ...eventContract },
     },
     export: {
@@ -465,7 +453,7 @@ export function buildL5DecisionMomentExport({
     },
     _meta: {
       generatedAt: generated,
-      source: 'PostHog HogQL, read-only live export',
+      source: 'GA4 Data API exact event-session export',
       purpose: 'Fresh completed-task and next-useful-action evidence for Loop L5',
       telemetryWindow,
     },
@@ -476,19 +464,22 @@ export async function exportL5({
   outputPath,
   now = new Date(),
   days = DEFAULT_L5_WINDOW_DAYS,
+  propertyId = null,
   client = null,
-  posthogRunner = runHogQL,
 } = {}) {
-  const firestore = client || new GoogleDataClient();
-  const window = completeUtcWindow(now, Number(days));
-  const config = await resolvePostHogConfig(firestore);
-  const response = await posthogRunner(buildL5DecisionMomentQuery(window), config);
-  const aggregate = postHogAggregate(response, 'L5 decision-moment');
+  const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
+  const range = ga4DateRange(Number(days), 2, now);
+  const counts = await fetchL5DecisionMomentCounts({
+    client: analytics,
+    startDate: range.startDate,
+    endDate: range.endDate,
+    propertyId,
+  });
   const outcome = buildL5DecisionMomentExport({
-    eligibleDecisionSessions: aggregate.eligibleDecisionSessions,
-    nextUsefulActions: aggregate.nextUsefulActions,
+    eligibleDecisionSessions: counts.eligibleDecisionSessions,
+    nextUsefulActions: counts.nextUsefulActions,
     generatedAt: now,
-    telemetryWindow: window,
+    telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
   });
   writeJsonFile(outputPath, outcome);
   return outcome;
@@ -918,9 +909,9 @@ export function buildUnavailableL5DecisionMomentExport({
     eligibleDecisionSessions: null,
     nextUsefulActions: null,
     evidence: {
-      source: 'PostHog HogQL, read-only live export unavailable',
-      sourceRefs: ['decision-surfaces', 'posthog'],
-      sessionJoin: L5_DECISION_EVENT_CONTRACT.sessionJoin,
+      source: 'GA4 Data API read-only export unavailable',
+      sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
+      sessionMetric: L5_DECISION_EVENT_CONTRACT.sessionMetric,
       eventContract: { ...L5_DECISION_EVENT_CONTRACT },
     },
     export: {
@@ -932,7 +923,7 @@ export function buildUnavailableL5DecisionMomentExport({
     },
     _meta: {
       generatedAt,
-      source: 'PostHog HogQL, read-only live export unavailable',
+      source: 'GA4 Data API read-only export unavailable',
       purpose: 'Explicit fail-closed placeholder; never a measured outcome',
       reason,
     },
@@ -964,12 +955,8 @@ function nonNegativeCount(value, label) {
   return parsed;
 }
 
-/**
- * Read one exact GA4 event-session count. The event emitter validates the
- * destination before recording `job_apply_handoff`; this exporter preserves
- * that event as a handoff and never upgrades it to an application submission.
- */
-export async function fetchL3EventSessions({ client, eventName, startDate, endDate, propertyId } = {}) {
+/** Read one exact GA4 event-session count without mutating the source. */
+export async function fetchGa4EventSessions({ client, eventName, startDate, endDate, propertyId } = {}) {
   const data = await client.request(
     `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
     {
@@ -1058,8 +1045,8 @@ export async function exportL3({ outputPath, now = new Date(), days = DEFAULT_L3
   const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
   const range = ga4DateRange(days, 2, now);
   const [eligibleJobSessions, validHandoffs] = await Promise.all([
-    fetchL3EventSessions({ client: analytics, eventName: 'job_qualified_session', ...range, propertyId }),
-    fetchL3EventSessions({ client: analytics, eventName: 'job_apply_handoff', ...range, propertyId }),
+    fetchGa4EventSessions({ client: analytics, eventName: 'job_qualified_session', ...range, propertyId }),
+    fetchGa4EventSessions({ client: analytics, eventName: 'job_apply_handoff', ...range, propertyId }),
   ]);
   const outcome = buildL3OutcomeExport({
     eligibleJobSessions,
@@ -1073,20 +1060,36 @@ export async function exportL3({ outputPath, now = new Date(), days = DEFAULT_L3
 }
 
 /**
- * @param {{posthogRunner?: Function, config?: object, start?: string, end?: string, eventContract?: object}} options
+ * Read the two L5 event-session counts from the same settled GA4 window.
+ * Separate exact-event reports preserve the shared GA4 session metric while
+ * the outcome builder rejects an impossible numerator.
  */
 export async function fetchL5DecisionMomentCounts({
-  posthogRunner = runHogQL,
-  config,
-  start,
-  end,
+  client,
+  startDate,
+  endDate,
+  propertyId = null,
   eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
-  const query = buildL5DecisionMomentQuery({ start, end, eventContract });
-  const response = await posthogRunner(query, config);
+  const [eligibleDecisionSessions, nextUsefulActions] = await Promise.all([
+    fetchGa4EventSessions({
+      client,
+      eventName: eventContract.completionEvent,
+      startDate,
+      endDate,
+      propertyId,
+    }),
+    fetchGa4EventSessions({
+      client,
+      eventName: eventContract.nextActionEvent,
+      startDate,
+      endDate,
+      propertyId,
+    }),
+  ]);
   return {
-    eligibleDecisionSessions: nonNegativeInteger(postHogRow(response, 'eligibleDecisionSessions'), 'eligibleDecisionSessions'),
-    nextUsefulActions: nonNegativeInteger(postHogRow(response, 'nextUsefulActions'), 'nextUsefulActions'),
+    eligibleDecisionSessions,
+    nextUsefulActions,
   };
 }
 
@@ -1589,6 +1592,7 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       outputPath,
       now,
       days: Number(valueAfter(argv, '--days', DEFAULT_L5_WINDOW_DAYS)),
+      propertyId: valueAfter(argv, '--property', null),
     });
   }
   if (loop === 'L7') {
