@@ -351,6 +351,21 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(failureReporter.run).toContain('scripts/lib/github-issue-creator.mjs');
     expect(failureReporter.run).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
     expect(source).not.toContain('return_run_details');
+    // Issue di CONDIZIONE sul fallback arretrato: aperta e chiusa dallo stesso
+    // step, solo quando il preflight è pronto (un blocco non prova niente).
+    const staleCode = steps.find((step: any) => step.name === 'Report crawler wave pinned to stale site code');
+    expect(staleCode.if).toBe("always() && steps.generation_preflight.outputs.ready == 'true'");
+    expect(staleCode['continue-on-error']).toBe(true);
+    expect(staleCode.env.ISSUE_TITLE).toBe(
+      'Ondata crawler su codice arretrato: fallback di contratto oltre il genitore atteso',
+    );
+    expect(staleCode.env.FALLBACK_STALE).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_stale }}');
+    expect(staleCode.env.FALLBACK_REASON).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_reason }}');
+    expect(staleCode.env.SUPERSEDED_BY).toBe('${{ steps.generation_preflight.outputs.site_code_fallback_superseded_by }}');
+    expect(staleCode.env.COMMITS_BEHIND_MAIN).toBe('${{ steps.generation_preflight.outputs.site_code_commits_behind_main }}');
+    expect(staleCode.run).toContain('if [ "$FALLBACK_STALE" != "true" ]; then');
+    expect(staleCode.run).toContain('scripts/lib/github-issue-creator.mjs --resolve');
+    expect(staleCode.run.match(/--title "\$ISSUE_TITLE"/g)).toHaveLength(2);
     expect(preflight.env.GENERATION_PREFLIGHT_OUTPUT).toBe('${{ runner.temp }}/crawler-generation-dispatch/preflight.json');
     const translationDispatch = steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
     expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');
