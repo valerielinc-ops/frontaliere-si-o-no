@@ -465,7 +465,9 @@ const CACHE_KEY_INPUTS = [
 // until issue #4943: it no longer builds at all — it audits the live site over
 // HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
 // the host on every run since 2026-07-07.)
-const CACHE_VERSION = 'v12';
+// v13: aggregate sitemap URLs have no build-clock lastmod. Reject older
+// manifests before restoring any files; a current cache hit needs no rewriting.
+const CACHE_VERSION = 'v13';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
 // scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
@@ -662,26 +664,6 @@ export async function tryRestoreFromCache(
     return null;
   }
 
-  // Each shard carries a `<lastmod>` per URL; refresh today's date on every
-  // restored sitemap-search-clusters*.xml so the master sitemap signals
-  // freshness even when the body is unchanged. Walks the actual restored
-  // shard set (legacy single-file caches will surface as a single match;
-  // post-sharding caches have N matches — both handled uniformly).
-  const today = new Date().toISOString().slice(0, 10);
-  if (fs.existsSync(distDir)) {
-    const shardRe = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
-    for (const file of fs.readdirSync(distDir)) {
-      if (!shardRe.test(file)) continue;
-      const p = path.join(distDir, file);
-      try {
-        const xml = fs.readFileSync(p, 'utf-8')
-          .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-        fs.writeFileSync(p, xml, 'utf-8');
-      } catch {
-        // best-effort refresh
-      }
-    }
-  }
   return { ...manifest, emittedCount: restored };
 }
 
@@ -3208,12 +3190,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     url: canonicalUrl,
     description: copy.hubDescription,
     inLanguage: locale,
-    // Day-granularity (matches the visible `dateStamp` rendered on the page),
-    // NOT a full build timestamp: a sub-second `new Date().toISOString()` here
-    // made every search-cluster/listing page churn on every deploy. Stable
-    // within the UTC day → same-day deploys no longer rewrite these pages from
-    // dateModified alone. See build-plugins/shared/buildDayStamp.ts.
-    dateModified: `${dateStamp}T00:00:00.000Z`,
+    // Rebuilding the same collection does not establish a content update.
     mainEntity: {
       '@type': 'ItemList',
       // numberOfItems reports the full list size; itemListElement is a sample.
@@ -3966,7 +3943,7 @@ async function writeSitemap(
       const __tSerialize = profileStart();
       const slice = locs.slice(i * SITEMAP_SHARD_CAP, (i + 1) * SITEMAP_SHARD_CAP);
       const entries = slice.map((loc) =>
-        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+        `  <url>\n    <loc>${loc}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       ).join('\n');
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
       profileRecord('sw:serialize-xml', __tSerialize);

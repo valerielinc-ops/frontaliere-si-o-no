@@ -545,7 +545,6 @@ function updateGuidesSitemap(fs: typeof import('node:fs'), rootDir: string, gene
  const pdfUrl = `${BASE_URL}/guides/${g.filename}.pdf`;
  return ` <url>
  <loc>${landingUrl}</loc>
- <lastmod>${dateStamp}</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>

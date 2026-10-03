@@ -653,7 +653,7 @@ export function selfCertificationFormsPlugin(rootDir: string): Plugin {
       fs.writeFileSync(path.join(distDir, CH_HEALTH_PDF_PATH), chHealthPdf);
       fs.writeFileSync(path.join(distDir, CH_CRIMINAL_RECORD_PDF_PATH), chCriminalRecordPdf);
 
-      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${CANONICAL_URL}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>\n`;
+      const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${CANONICAL_URL}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>\n`;
       try {
         fs.writeFileSync(path.join(distDir, 'sitemap-moduli.xml'), sitemapXml, 'utf-8');
       } catch (err) {

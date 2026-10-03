@@ -241,6 +241,8 @@ function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -507,8 +509,6 @@ function renderPage(opts: {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -587,10 +587,7 @@ function renderPage(opts: {
     </nav>
     ${renderLandingHero(id, locale, {
       openings: snapshot.liveCount,
-      // Same curated source as the salary stat tile (statSalaryValue), so the
-      // hero lede and the tile agree by construction — the live aggregate
-      // median is polluted by default-estimated salaries.
-      medianSalary: facts.medianSalaryChf,
+      // The editorial estimate is labelled in the tile and prose below.
     }, copy.h1, copy.denseLede)}
     <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
@@ -649,7 +646,7 @@ function buildSitemapXml(
             `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`,
         )
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
