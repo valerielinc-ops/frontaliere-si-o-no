@@ -98,15 +98,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come funziona la tassazione dei frontalieri nel 2026?": {
  en: {
  q: "How does the taxation of cross-border workers work in 2026?",
- a: "From 2024, new cross-border workers (hired after 17 July 2023) pay withholding tax in Switzerland up to 80% of the total due. The remaining income must also be declared in Italy, with a €10,000 exemption. Old cross-border workers continue under the previous regime."
+ a: "Since 2024, new tax cross-border workers qualifying under the agreement pay 80% of ordinary Swiss withholding tax and Italian tax with credit for Swiss tax. They meet the tax definition but do not qualify under Article 9 through eligible employment between 31 December 2018 and 17 July 2023. The Italian €10,000 allowance separately requires the conditions of Italian law. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Wie funktioniert die Besteuerung der Grenzgänger im Jahr 2026?",
- a: "Ab 2024 zahlen neue Grenzgänger (eingestellt nach dem 17. Juli 2023) Quellensteuer in der Schweiz bis zu 80 % der Gesamtschuld. Das restliche Einkommen muss auch in Italien deklariert werden, mit einem Freibetrag von 10.000 €. Altgrenzgänger unterliegen weiterhin dem bisherigen Regime."
+ a: "Seit 2024 zahlen neue steuerliche Grenzgänger im Sinne des Abkommens 80% der ordentlichen Schweizer Quellensteuer und italienische Steuer mit Anrechnung der Schweizer Steuer. Sie erfüllen die steuerliche Definition, profitieren jedoch nicht aufgrund qualifizierender Beschäftigung zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 von Artikel 9. Der italienische Freibetrag von 10.000 € setzt gesondert die italienischen gesetzlichen Bedingungen voraus. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Comment fonctionne l'imposition des frontaliers en 2026 ?",
- a: "À partir de 2024, les nouveaux frontaliers (embauchés après le 17 juillet 2023) paient l'impôt à la source en Suisse jusqu'à 80 % du total dû. Le revenu restant doit aussi être déclaré en Italie, avec une franchise de 10 000 €. Les anciens frontaliers poursuivent sous l'ancien régime."
+ a: "Depuis 2024, les nouveaux frontaliers fiscaux admis par l’accord paient 80% de l’impôt suisse à la source ordinaire et l’impôt italien avec crédit pour l’impôt suisse. Ils répondent à la définition fiscale sans bénéficier de l’article 9 grâce à une activité admissible entre le 31 décembre 2018 et le 17 juillet 2023. La franchise italienne de 10.000 € exige séparément les conditions de la loi italienne. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -738,15 +738,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Un frontaliere con permesso G paga le tasse in Italia e in Svizzera?": {
  en: {
  q: "Does a G-permit cross-border worker pay taxes in both Italy and Switzerland?",
- a: "New cross-border workers (hired from 17/07/2023) pay withholding tax in Switzerland (80%) AND IRPEF in Italy (with €10,000 exemption and tax credit for Swiss taxes). Old cross-border workers pay only in Switzerland until the transitional period expires. According to Marco Bernasconi, cross-border tax attorney: 'The tax credit is the key mechanism to prevent effective double taxation on new cross-border workers'."
+ a: "A G permit alone does not determine tax treatment. New cross-border workers qualifying under the agreement pay 80% of ordinary Swiss withholding tax and Italian tax with credit for Swiss tax. For old workers qualifying under Article 9, the covered salary remains taxable only in Switzerland: 2033 ends interstate compensation, not this treatment. Other income and filing obligations must be considered separately. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Zahlt ein Grenzgänger mit G-Bewilligung Steuern in Italien und der Schweiz?",
- a: "Neue Grenzgänger (ab 17.07.2023 eingestellt) zahlen Quellensteuer in der Schweiz (80 %) UND IRPEF in Italien (mit 10.000 € Freibetrag und Steuergutschrift für Schweizer Steuern). Altgrenzgänger zahlen nur in der Schweiz bis zum Ablauf der Übergangszeit. Wie RA Marco Bernasconi, Steueranwalt für Grenzgänger, erklärt: «Die Steuergutschrift ist der Schlüsselmechanismus, um eine effektive Doppelbesteuerung der neuen Grenzgänger zu verhindern»."
+ a: "Die G-Bewilligung allein bestimmt das Steuerregime nicht. Neue Grenzgänger im Sinne des Abkommens zahlen 80% der ordentlichen Schweizer Quellensteuer und italienische Steuer mit Anrechnung der Schweizer Steuer. Bei alten Grenzgängern nach Artikel 9 bleibt der erfasste Lohn ausschliesslich in der Schweiz steuerpflichtig: 2033 endet der zwischenstaatliche Ausgleich, nicht diese Behandlung. Andere Einkünfte und Erklärungspflichten sind gesondert zu prüfen. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Un frontalier avec un permis G paie-t-il des impôts en Italie et en Suisse ?",
- a: "Les nouveaux frontaliers (embauchés à partir du 17/07/2023) paient l'impôt à la source en Suisse (80 %) ET l'IRPEF en Italie (avec une franchise de 10 000 € et un crédit d'impôt pour les impôts suisses). Les anciens frontaliers paient uniquement en Suisse jusqu'à l'expiration de la période transitoire. Comme l'explique Me Marco Bernasconi, avocat fiscaliste transfrontalier: «Le crédit d'impôt est le mécanisme clé pour éviter la double imposition effective des nouveaux frontaliers»."
+ a: "Le permis G ne détermine pas seul le régime fiscal. Les nouveaux frontaliers admis par l’accord paient 80% de l’impôt suisse à la source ordinaire et l’impôt italien avec crédit pour l’impôt suisse. Pour les anciens admissibles selon l’article 9, le salaire concerné reste imposable uniquement en Suisse : 2033 met fin à la compensation entre États, non à ce traitement. Les autres revenus et obligations déclaratives sont à examiner séparément. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -898,15 +898,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Qual è la differenza tra credito d'imposta per vecchi e nuovi frontalieri?": {
  en: {
  q: "What is the difference in tax credit between old and new cross-border workers?",
- a: "Old cross-border workers (before July 2023) pay only in Switzerland and do not declare in Italy, so they don't use the tax credit. New cross-border workers pay 80% of taxes in Switzerland and declare in Italy with a €10,000 exemption, using the tax credit for Swiss tax paid."
+ a: "An eligible old worker owes no Italian IRPEF on Swiss salary covered by Article 9, so no credit is used for that income. This does not remove possible Italian obligations for other income or asset reporting. A new tax cross-border worker declares the income in Italy and can credit Swiss tax within the applicable credit limits; 80% refers to ordinary Swiss withholding tax, not a general cap on the Italian credit. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Was ist der Unterschied bei der Steuergutschrift zwischen Alt- und Neugrenzgängern?",
- a: "Altgrenzgänger (vor Juli 2023) zahlen nur in der Schweiz und deklarieren nicht in Italien, nutzen also keine Steuergutschrift. Neugrenzgänger zahlen 80 % der Steuern in der Schweiz und deklarieren in Italien mit einem Freibetrag von 10.000 €, wobei sie die Steuergutschrift für die Schweizer Steuern nutzen."
+ a: "Ein qualifizierter alter Grenzgänger schuldet auf den Schweizer Lohn nach Artikel 9 keine italienische IRPEF und benötigt dafür keine Steueranrechnung. Mögliche italienische Pflichten für andere Einkünfte oder Vermögensmeldungen bleiben gesondert zu prüfen. Ein neuer steuerlicher Grenzgänger erklärt den Lohn in Italien und kann Schweizer Steuer im zulässigen Umfang anrechnen. Die 80% beziehen sich auf die ordentliche Schweizer Quellensteuer, nicht auf eine allgemeine Grenze der italienischen Anrechnung. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Quelle est la différence de crédit d'impôt entre anciens et nouveaux frontaliers ?",
- a: "Les anciens frontaliers (avant juillet 2023) ne paient qu'en Suisse et ne déclarent pas en Italie, ils n'utilisent donc pas le crédit d'impôt. Les nouveaux frontaliers paient 80 % des impôts en Suisse et déclarent en Italie avec une franchise de 10 000 €, en utilisant le crédit d'impôt pour l'impôt suisse payé."
+ a: "Un ancien frontalier admissible ne doit pas d’IRPEF italien sur le salaire suisse couvert par l’article 9 et n’utilise donc pas de crédit pour ce revenu. Cela ne supprime pas les éventuelles obligations italiennes pour d’autres revenus ou déclarations de patrimoine. Le nouveau frontalier fiscal déclare le revenu en Italie et peut imputer l’impôt suisse dans les limites du crédit applicable ; les 80% concernent l’impôt suisse à la source ordinaire, non un plafond général du crédit italien. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -1138,15 +1138,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Posso usare il 730 o devo fare il Modello Redditi PF?": {
  en: {
  q: "Can I use the 730 form or do I need the Modello Redditi PF?",
- a: "Cross-border workers with foreign income must use the Modello Redditi PF (formerly Unico). The 730 form is not sufficient."
+ a: "The absence of an Italian withholding agent does not by itself exclude form 730: a 730 without a withholding agent exists. The choice between 730 and Redditi PF depends on the income to declare and the requirements in that year’s instructions. Check your circumstances and the treatment of Swiss income before choosing. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  },
  de: {
  q: "Kann ich das Formular 730 verwenden oder brauche ich das Modello Redditi PF?",
- a: "Grenzgänger mit ausländischem Einkommen müssen das Modello Redditi PF (ehemals Unico) verwenden. Das Formular 730 reicht nicht aus."
+ a: "Allein das Fehlen eines italienischen Steuersubstituten schliesst das Formular 730 nicht aus: Es gibt ein 730 ohne Steuersubstitut. Die Wahl zwischen 730 und Redditi PF hängt von den Einkünften und den Voraussetzungen der Jahresanleitung ab. Prüfen Sie Ihre Situation und die Behandlung des Schweizer Einkommens vor der Auswahl. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  },
  fr: {
  q: "Puis-je utiliser le formulaire 730 ou dois-je remplir le Modello Redditi PF ?",
- a: "Les frontaliers avec des revenus étrangers doivent utiliser le Modello Redditi PF (anciennement Unico). Le formulaire 730 ne suffit pas."
+ a: "La seule absence d’un substitut fiscal italien n’exclut pas le formulaire 730 : le 730 sans substitut existe. Le choix entre 730 et Redditi PF dépend des revenus à déclarer et des conditions des instructions de l’année. Vérifiez votre situation et le traitement du revenu suisse avant de choisir. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  }
  },
 
@@ -1202,15 +1202,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Il frontaliere deve fare il 730 o il Modello Redditi PF?": {
  en: {
  q: "Should a cross-border worker file the 730 or the Modello Redditi PF?",
- a: "A cross-border worker with only Swiss employment income must use the Modello Redditi PF (formerly Unico), since the 730 is reserved for workers with an Italian withholding agent. The 730 can only be used if you also have Italian income with a CU. According to Elena Colombo, international tax accountant: 'The most common mistake is filing the 730 without an Italian withholding agent, which invalidates the declaration'."
+ a: "The absence of an Italian withholding agent does not by itself exclude form 730: a 730 without a withholding agent exists. The choice between 730 and Redditi PF depends on the income to declare and the requirements in that year’s instructions. Check your circumstances and the treatment of Swiss income before choosing. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  },
  de: {
  q: "Muss der Grenzgänger das 730 oder das Modello Redditi PF abgeben?",
- a: "Ein Grenzgänger mit ausschliesslich Schweizer Einkommen aus unselbständiger Arbeit muss das Modello Redditi PF (ehemals Unico) verwenden, da das 730 für Arbeitnehmer mit italienischem Steuersubstitut reserviert ist. Das 730 kann nur verwendet werden, wenn auch italienisches Einkommen mit CU vorliegt. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Der häufigste Fehler ist die Abgabe des 730 ohne italienischen Steuersubstituten, was die Erklärung ungültig macht»."
+ a: "Allein das Fehlen eines italienischen Steuersubstituten schliesst das Formular 730 nicht aus: Es gibt ein 730 ohne Steuersubstitut. Die Wahl zwischen 730 und Redditi PF hängt von den Einkünften und den Voraussetzungen der Jahresanleitung ab. Prüfen Sie Ihre Situation und die Behandlung des Schweizer Einkommens vor der Auswahl. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  },
  fr: {
  q: "Le frontalier doit-il remplir le 730 ou le Modello Redditi PF ?",
- a: "Un frontalier avec uniquement un revenu suisse salarié doit utiliser le Modello Redditi PF (anciennement Unico), car le 730 est réservé aux travailleurs ayant un substitut fiscal italien. Le 730 ne peut être utilisé que si l'on a aussi un revenu italien avec CU. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «L'erreur la plus courante est d'utiliser le 730 sans substitut fiscal italien, ce qui invalide la déclaration»."
+ a: "La seule absence d’un substitut fiscal italien n’exclut pas le formulaire 730 : le 730 sans substitut existe. Le choix entre 730 et Redditi PF dépend des revenus à déclarer et des conditions des instructions de l’année. Vérifiez votre situation et le traitement du revenu suisse avant de choisir. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  }
  },
 
@@ -1218,15 +1218,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cos'è la franchigia di €10.000 per i nuovi frontalieri?": {
  en: {
  q: "What is the €10,000 exemption for new cross-border workers?",
- a: "Under the new 2026 tax agreement, cross-border workers hired from 17 July 2023 benefit from a €10,000 exemption: the first €10,000 of income converted to euros is not taxed in Italy. IRPEF is paid only on the amount exceeding the exemption. According to Elena Colombo, international tax accountant: 'The exemption is applied automatically in the tax return and represents a tangible benefit for all new cross-border workers'."
+ a: "Italian law excludes the first €10,000 a year of qualifying employment income earned abroad in border areas or neighbouring countries, continuously and as the exclusive object of the employment relationship, by Italian residents. Eligibility does not depend solely on hire date or the 20 km municipality zone. Salary covered by Article 9 for old workers instead benefits from the regime’s Italian exemption. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  },
  de: {
  q: "Was ist der Freibetrag von 10.000 € für neue Grenzgänger?",
- a: "Nach dem neuen Steuerabkommen 2026 profitieren Grenzgänger, die ab dem 17. Juli 2023 eingestellt wurden, von einem Freibetrag von 10.000 €: Die ersten 10.000 € des in Euro umgerechneten Einkommens werden in Italien nicht besteuert. Die IRPEF wird nur auf den übersteigenden Betrag erhoben. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Der Freibetrag wird automatisch in der Steuererklärung angewendet und stellt einen konkreten Vorteil für alle neuen Grenzgänger dar»."
+ a: "Das italienische Recht nimmt jährlich die ersten 10.000 € qualifizierender Einkünfte italienischer Einwohner aus kontinuierlicher unselbständiger Arbeit im Ausland in Grenzgebieten oder Nachbarstaaten aus der Bemessungsgrundlage aus, sofern diese ausschliesslicher Gegenstand des Arbeitsverhältnisses ist. Nicht allein Einstellungsdatum oder 20-km-Gemeindezone entscheiden. Für den Lohn alter Grenzgänger nach Artikel 9 gilt dagegen die italienische Befreiung dieses Regimes. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  },
  fr: {
  q: "Qu'est-ce que la franchise de 10 000 € pour les nouveaux frontaliers ?",
- a: "Selon le nouvel accord fiscal 2026, les frontaliers embauchés à partir du 17 juillet 2023 bénéficient d'une franchise de 10 000 € : les premiers 10 000 € de revenu converti en euros ne sont pas imposés en Italie. L'IRPEF n'est due que sur la partie excédentaire. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «La franchise s'applique automatiquement dans la déclaration de revenus et représente un avantage concret pour tous les nouveaux frontaliers»."
+ a: "La loi italienne exclut de l’assiette les premiers 10.000 € annuels des revenus admissibles de travail salarié exercé à l’étranger, dans les zones frontalières ou les pays limitrophes, de façon continue et comme objet exclusif du rapport de travail, par des résidents italiens. Ni la seule date d’embauche ni la zone des communes à 20 km ne déterminent ce droit. Le salaire des anciens couvert par l’article 9 bénéficie plutôt de l’exonération italienne de ce régime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
 
@@ -1696,15 +1696,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Che differenza c'è tra vecchio e nuovo frontaliere (accordo 2026)?": {
  en: {
  q: "What is the difference between old and new cross-border workers (2026 agreement)?",
- a: "New cross-border workers (hired after 17/07/2023) have mixed taxation with an exemption and tax credit; old cross-border workers remain under the historical regime with different rules."
+ a: "An old worker qualifying under Article 9 worked as a tax cross-border worker in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023: the covered salary is taxed exclusively in Switzerland. New tax cross-border workers pay 80% of ordinary Swiss withholding tax and Italian tax with credit for Swiss tax. An eligible municipality of residence and, in principle, daily return also matter, not just the latest contract date. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Was ist der Unterschied zwischen alten und neuen Grenzgängern (Abkommen 2026)?",
- a: "Neue Grenzgänger (ab 17.07.2023 eingestellt) haben eine gemischte Besteuerung mit Freibetrag und Steueranrechnung; alte Grenzgänger bleiben im historischen Regime mit anderen Regeln."
+ a: "Ein alter Grenzgänger nach Artikel 9 war zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 als steuerlicher Grenzgänger im Tessin, in Graubünden oder im Wallis tätig: Der erfasste Lohn wird ausschliesslich in der Schweiz besteuert. Neue steuerliche Grenzgänger zahlen 80% der ordentlichen Schweizer Quellensteuer und italienische Steuer unter Anrechnung der Schweizer Steuer. Auch die zugelassene Wohngemeinde und grundsätzlich tägliche Rückkehr zählen, nicht nur das letzte Vertragsdatum. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Quelle est la différence entre ancien et nouveau frontalier (accord 2026) ?",
- a: "Les nouveaux frontaliers (embauchés après le 17/07/2023) ont une imposition mixte avec franchise et crédit d'impôt ; les anciens frontaliers restent sous le régime historique avec des règles différentes."
+ a: "Un ancien frontalier admissible selon l’article 9 a travaillé comme frontalier fiscal au Tessin, dans les Grisons ou en Valais entre le 31 décembre 2018 et le 17 juillet 2023 : le salaire concerné est imposé exclusivement en Suisse. Les nouveaux frontaliers fiscaux paient 80% de l’impôt suisse à la source ordinaire et l’impôt italien avec crédit pour l’impôt suisse. La commune de résidence admise et le retour en principe quotidien comptent aussi, pas seulement la date du dernier contrat. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
  "Il numero di figli influisce sul netto?": {
@@ -2478,15 +2478,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Qual è la differenza tra vecchio e nuovo frontaliere?": {
  en: {
  q: "What is the difference between old and new cross-border workers?",
- a: "The old cross-border worker (hired before 17 July 2023 in municipalities within 20 km of the border) pays only Swiss withholding tax. The new cross-border worker pays both the reduced Swiss withholding tax (80%) and Italian IRPEF, with a tax credit and a EUR 10,000 exemption. According to Marco Bernasconi, cross-border tax attorney: 'This distinction is fundamental because it determines the entire tax regime applicable to the worker for the duration of the employment relationship'."
+ a: "An old worker qualifying under Article 9 worked as a tax cross-border worker in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023: the covered salary is taxed exclusively in Switzerland. New tax cross-border workers pay 80% of ordinary Swiss withholding tax and Italian tax with credit for Swiss tax. An eligible municipality of residence and, in principle, daily return also matter, not just the latest contract date. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Was ist der Unterschied zwischen alten und neuen Grenzgängern?",
- a: "Der alte Grenzgänger (vor dem 17. Juli 2023 in Gemeinden bis 20 km zur Grenze eingestellt) zahlt nur die Schweizer Quellensteuer. Der neue Grenzgänger zahlt sowohl die reduzierte Schweizer Quellensteuer (80 %) als auch die italienische IRPEF, mit Steuergutschrift und Freibetrag von 10.000 EUR. Wie RA Marco Bernasconi, Steueranwalt für Grenzgänger, erklärt: «Diese Unterscheidung ist grundlegend, da sie das gesamte steuerliche Regime bestimmt, das für den Arbeitnehmer während der gesamten Dauer des Arbeitsverhältnisses gilt»."
+ a: "Ein alter Grenzgänger nach Artikel 9 war zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 als steuerlicher Grenzgänger im Tessin, in Graubünden oder im Wallis tätig: Der erfasste Lohn wird ausschliesslich in der Schweiz besteuert. Neue steuerliche Grenzgänger zahlen 80% der ordentlichen Schweizer Quellensteuer und italienische Steuer unter Anrechnung der Schweizer Steuer. Auch die zugelassene Wohngemeinde und grundsätzlich tägliche Rückkehr zählen, nicht nur das letzte Vertragsdatum. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Quelle est la différence entre ancien et nouveau frontalier ?",
- a: "L'ancien frontalier (engagé avant le 17 juillet 2023 dans les communes à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse. Le nouveau frontalier paie à la fois l'impôt à la source suisse réduit (80 %) et l'IRPEF italienne, avec un crédit d'impôt et une franchise de 10 000 EUR. Comme l'explique Me Marco Bernasconi, avocat fiscaliste transfrontalier: «Cette distinction est fondamentale car elle détermine l'ensemble du régime fiscal applicable au travailleur pendant toute la durée du rapport de travail»."
+ a: "Un ancien frontalier admissible selon l’article 9 a travaillé comme frontalier fiscal au Tessin, dans les Grisons ou en Valais entre le 31 décembre 2018 et le 17 juillet 2023 : le salaire concerné est imposé exclusivement en Suisse. Les nouveaux frontaliers fiscaux paient 80% de l’impôt suisse à la source ordinaire et l’impôt italien avec crédit pour l’impôt suisse. La commune de résidence admise et le retour en principe quotidien comptent aussi, pas seulement la date du dernier contrat. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -2583,15 +2583,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "I frontalieri devono fare la dichiarazione dei redditi in Italia?": {
  en: {
  q: "Do cross-border workers have to file a tax return in Italy?",
- a: "New cross-border workers (hired from 17 July 2023) must file an Italian tax return (Form 730 or PF Income Model) to declare Swiss income and claim the tax credit for taxes paid in Switzerland. Old cross-border workers (hired before July 2023, within 20 km) are generally exempt for Swiss employment income."
+ a: "New tax cross-border workers have Swiss salary taxable also in Italy, with credit for Swiss taxes. Old workers qualifying under Article 9 are exempt on the covered salary but may have Italian obligations for other income or asset reporting. Status depends on tax requirements and qualifying employment between 31 December 2018 and 17 July 2023, not merely the latest hire date. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Müssen Grenzgänger eine Steuererklärung in Italien abgeben?",
- a: "Neue Grenzgänger (ab 17. Juli 2023 eingestellt) müssen eine italienische Steuererklärung (Modell 730 oder PF-Einkommensmodell) abgeben, um das Schweizer Einkommen zu deklarieren und die Steuergutschrift für in der Schweiz gezahlte Steuern zu beantragen. Alte Grenzgänger (vor Juli 2023 eingestellt, bis 20 km) sind für das Schweizer Arbeitseinkommen grundsätzlich befreit."
+ a: "Bei neuen steuerlichen Grenzgängern ist der Schweizer Lohn auch in Italien steuerpflichtig, mit Anrechnung der Schweizer Steuer. Alte Grenzgänger nach Artikel 9 sind auf den erfassten Lohn befreit; für andere Einkünfte oder Vermögensmeldungen können italienische Pflichten bestehen. Entscheidend sind die steuerlichen Voraussetzungen und qualifizierende Beschäftigung zwischen dem 31. Dezember 2018 und dem 17. Juli 2023, nicht allein die letzte Einstellung. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Les frontaliers doivent-ils faire une déclaration de revenus en Italie ?",
- a: "Les nouveaux frontaliers (engagés à partir du 17 juillet 2023) doivent obligatoirement déposer une déclaration de revenus italienne (Modèle 730 ou Modèle Revenus PF) pour déclarer le revenu suisse et demander le crédit d'impôt pour les impôts payés en Suisse. Les anciens frontaliers (engagés avant juillet 2023, à moins de 20 km) sont généralement exonérés pour le revenu d'emploi suisse."
+ a: "Le salaire suisse des nouveaux frontaliers fiscaux est également imposable en Italie, avec crédit pour l’impôt suisse. Les anciens admissibles selon l’article 9 sont exonérés sur le salaire couvert, mais peuvent avoir des obligations italiennes pour d’autres revenus ou déclarations de patrimoine. Le statut dépend des conditions fiscales et de l’activité admissible entre le 31 décembre 2018 et le 17 juillet 2023, pas seulement de la dernière embauche. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -2630,15 +2630,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come vengono tassati i nuovi frontalieri dal 2024?": {
  en: {
  q: "How are new cross-border workers taxed from 2024?",
- a: "From 2024, new cross-border workers (hired from 17 July 2023) are subject to dual taxation: Swiss withholding tax at source (80% stays in Switzerland) and Italian IRPEF with a EUR 10,000 exemption and tax credit for Swiss taxes paid. The Italian tax return is mandatory."
+ a: "Since 2024, new tax cross-border workers qualifying under the agreement pay 80% of ordinary Swiss withholding tax and Italian tax with credit for Swiss tax. They meet the tax definition but do not qualify under Article 9 through eligible employment between 31 December 2018 and 17 July 2023. The Italian €10,000 allowance separately requires the conditions of Italian law. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Wie werden neue Grenzgänger ab 2024 besteuert?",
- a: "Ab 2024 unterliegen neue Grenzgänger (ab 17. Juli 2023 eingestellt) einer Doppelbesteuerung: Schweizer Quellensteuer (80 % verbleiben in der Schweiz) und italienische IRPEF mit Freibetrag von 10.000 EUR und Steuergutschrift für gezahlte Schweizer Steuern. Die italienische Steuererklärung ist obligatorisch."
+ a: "Seit 2024 zahlen neue steuerliche Grenzgänger im Sinne des Abkommens 80% der ordentlichen Schweizer Quellensteuer und italienische Steuer mit Anrechnung der Schweizer Steuer. Sie erfüllen die steuerliche Definition, profitieren jedoch nicht aufgrund qualifizierender Beschäftigung zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 von Artikel 9. Der italienische Freibetrag von 10.000 € setzt gesondert die italienischen gesetzlichen Bedingungen voraus. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Comment les nouveaux frontaliers sont-ils imposés à partir de 2024 ?",
- a: "À partir de 2024, les nouveaux frontaliers (engagés dès le 17 juillet 2023) sont soumis à une double imposition : impôt à la source suisse (80 % reste en Suisse) et IRPEF italienne avec franchise de 10 000 EUR et crédit d'impôt pour les impôts suisses payés. La déclaration fiscale italienne est obligatoire."
+ a: "Depuis 2024, les nouveaux frontaliers fiscaux admis par l’accord paient 80% de l’impôt suisse à la source ordinaire et l’impôt italien avec crédit pour l’impôt suisse. Ils répondent à la définition fiscale sans bénéficier de l’article 9 grâce à une activité admissible entre le 31 décembre 2018 et le 17 juillet 2023. La franchise italienne de 10.000 € exige séparément les conditions de la loi italienne. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -2798,15 +2798,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Che cos'è il Nuovo Accordo frontalieri 2026?": {
  en: {
  q: "What is the 2026 New Cross-Border Worker Agreement?",
- a: "The new Italy-Switzerland tax agreement (in force since 2024 and fully applied in 2026) separates 'old' and 'new' cross-border workers. New cross-border workers (hired from 17/07/2023) who live within 20 km of the border pay 80% withholding tax in Switzerland and declare the income in Italy with a €10,000 exemption and tax credit. Beyond 20 km, Swiss withholding rises to 100%."
+ a: "It is the Italy–Switzerland tax agreement that entered into force on 17 July 2023 and applies from 1 January 2024, not a new agreement signed in 2026. It distinguishes old workers qualifying under Article 9, whose covered salary is taxed only in Switzerland, from new tax cross-border workers: the latter pay 80% of ordinary Swiss withholding tax and Italian tax with a credit. The hire date alone does not determine status. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Was ist das neue Grenzgaengerabkommen 2026?",
- a: "Das neue Steuerabkommen Italien-Schweiz (seit 2024 in Kraft und 2026 vollstaendig angewandt) unterscheidet zwischen 'alten' und 'neuen' Grenzgaengern. Neue Grenzgaenger (ab 17.07.2023 angestellt), die innerhalb 20 km zur Grenze wohnen, zahlen 80% Quellensteuer in der Schweiz und erklaeren das Einkommen in Italien mit €10'000 Freibetrag und Steuergutschrift. Ausserhalb 20 km betraegt die Schweizer Quellensteuer 100%."
+ a: "Gemeint ist das Steuerabkommen Italien–Schweiz, das am 17. Juli 2023 in Kraft trat und seit dem 1. Januar 2024 angewendet wird, kein 2026 neu abgeschlossenes Abkommen. Es unterscheidet alte Grenzgänger nach Artikel 9, deren erfasster Lohn nur in der Schweiz besteuert wird, von neuen steuerlichen Grenzgängern: Diese zahlen 80% der ordentlichen Schweizer Quellensteuer und italienische Steuer mit Anrechnung. Das Einstellungsdatum allein bestimmt den Status nicht. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Qu'est-ce que le Nouvel Accord frontaliers 2026 ?",
- a: "Le nouvel accord fiscal Italie-Suisse (en vigueur depuis 2024 et pleinement applique en 2026) distingue les 'anciens' et les 'nouveaux' frontaliers. Les nouveaux frontaliers (embauches a partir du 17/07/2023) qui residents dans les 20 km de la frontiere paient 80% d'impot a la source en Suisse et declarent leurs revenus en Italie avec une franchise de 10 000 € et un credit d'impot. Au-dela de 20 km, la retenue suisse est de 100%."
+ a: "Il s’agit de l’accord fiscal Italie–Suisse entré en vigueur le 17 juillet 2023 et applicable depuis le 1er janvier 2024, non d’un nouvel accord signé en 2026. Il distingue les anciens frontaliers admissibles selon l’article 9, dont le salaire concerné est imposé uniquement en Suisse, des nouveaux frontaliers fiscaux : ces derniers paient 80% de l’impôt suisse à la source ordinaire et l’impôt italien avec crédit. La date d’embauche ne détermine pas seule le statut. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -2933,30 +2933,30 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Qual è la franchigia per nuovi frontalieri?": {
  en: {
  q: "What is the exemption amount for new cross-border workers?",
- a: "The exemption for new cross-border workers is €10,000 per year. This means that the first €10,000 of income earned in Switzerland is exempt from Italian IRPEF. The exemption is applied automatically when filing the tax return and significantly reduces the Italian tax burden compared to ordinary taxation."
+ a: "Italian law excludes the first €10,000 a year of qualifying employment income earned abroad in border areas or neighbouring countries, continuously and as the exclusive object of the employment relationship, by Italian residents. Eligibility does not depend solely on hire date or the 20 km municipality zone. Salary covered by Article 9 for old workers instead benefits from the regime’s Italian exemption. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  },
  de: {
  q: "Wie hoch ist der Freibetrag fuer neue Grenzgaenger?",
- a: "Der Freibetrag fuer neue Grenzgaenger betraegt 10.000 EUR pro Jahr. Das bedeutet, dass die ersten 10.000 EUR des in der Schweiz erzielten Einkommens von der italienischen IRPEF befreit sind. Der Freibetrag wird bei der Steuererklaerung automatisch beruecksichtigt und senkt die italienische Steuerlast gegenueber der normalen Besteuerung erheblich."
+ a: "Das italienische Recht nimmt jährlich die ersten 10.000 € qualifizierender Einkünfte italienischer Einwohner aus kontinuierlicher unselbständiger Arbeit im Ausland in Grenzgebieten oder Nachbarstaaten aus der Bemessungsgrundlage aus, sofern diese ausschliesslicher Gegenstand des Arbeitsverhältnisses ist. Nicht allein Einstellungsdatum oder 20-km-Gemeindezone entscheiden. Für den Lohn alter Grenzgänger nach Artikel 9 gilt dagegen die italienische Befreiung dieses Regimes. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  },
  fr: {
  q: "Quelle est la franchise pour les nouveaux frontaliers ?",
- a: "La franchise pour les nouveaux frontaliers est de 10 000 EUR par an. Cela signifie que les premiers 10 000 EUR de revenu tire du travail en Suisse sont exoneres d'IRPEF en Italie. La franchise s'applique automatiquement lors de la declaration de revenus et reduit sensiblement la charge fiscale italienne par rapport a l'imposition ordinaire."
+ a: "La loi italienne exclut de l’assiette les premiers 10.000 € annuels des revenus admissibles de travail salarié exercé à l’étranger, dans les zones frontalières ou les pays limitrophes, de façon continue et comme objet exclusif du rapport de travail, par des résidents italiens. Ni la seule date d’embauche ni la zone des communes à 20 km ne déterminent ce droit. Le salaire des anciens couvert par l’article 9 bénéficie plutôt de l’exonération italienne de ce régime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
 
  "Differenza tra vecchi e nuovi frontalieri per le tasse?": {
  en: {
  q: "What is the tax difference between old and new cross-border workers?",
- a: "Old cross-border workers (hired before 17/07/2023 and resident within 20 km of the border) pay only Swiss withholding tax and are exempt from Italian IRPEF. New cross-border workers pay both Swiss withholding tax (reduced to 80%) and Italian IRPEF, but benefit from the €10,000 exemption and the tax credit. For salaries below €35,000, the net difference is often less than €100/month."
+ a: "For eligible old workers under Article 9, the covered salary is taxable only in Switzerland. For new tax cross-border workers, Switzerland levies 80% of ordinary withholding tax and Italy taxes the income with credit for Swiss tax. Qualifying employment between 31 December 2018 and 17 July 2023, residence and return requirements distinguish status: calculate the net difference for the individual case. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Was ist der steuerliche Unterschied zwischen alten und neuen Grenzgaengern?",
- a: "Alte Grenzgaenger (vor dem 17.07.2023 eingestellt und wohnhaft innerhalb von 20 km zur Grenze) zahlen nur die Quellensteuer in der Schweiz und sind von der italienischen IRPEF befreit. Neue Grenzgaenger zahlen sowohl die Schweizer Quellensteuer (auf 80 % reduziert) als auch die italienische IRPEF, profitieren aber vom Freibetrag von 10.000 EUR und der Steuergutschrift. Bei Gehaeltern unter 35.000 EUR ist der Nettounterschied oft geringer als 100 EUR/Monat."
+ a: "Bei qualifizierten alten Grenzgängern nach Artikel 9 ist der erfasste Lohn nur in der Schweiz steuerpflichtig. Bei neuen steuerlichen Grenzgängern erhebt die Schweiz 80% der ordentlichen Quellensteuer; Italien besteuert mit Anrechnung. Qualifizierende Beschäftigung zwischen dem 31. Dezember 2018 und dem 17. Juli 2023, Wohnsitz und Rückkehr bestimmen den Status. Die Nettodifferenz ist individuell zu berechnen. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Quelle est la difference fiscale entre anciens et nouveaux frontaliers ?",
- a: "Les anciens frontaliers (embauches avant le 17/07/2023 et residant dans un rayon de 20 km de la frontiere) paient uniquement l'impot a la source suisse et sont exoneres de l'IRPEF italien. Les nouveaux frontaliers paient a la fois l'impot a la source suisse (reduit a 80 %) et l'IRPEF italien, mais beneficient de la franchise de 10 000 EUR et du credit d'impot. Pour les salaires inferieurs a 35 000 EUR, l'ecart net est souvent inferieur a 100 EUR/mois."
+ a: "Pour les anciens admissibles selon l’article 9, le salaire couvert est imposable uniquement en Suisse. Pour les nouveaux frontaliers fiscaux, la Suisse prélève 80% de l’impôt à la source ordinaire et l’Italie impose avec crédit de l’impôt suisse. L’activité admissible entre le 31 décembre 2018 et le 17 juillet 2023, la résidence et le retour déterminent le statut : la différence nette se calcule individuellement. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -3158,15 +3158,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Per un nuovo frontaliere, il confronto cambia?": {
  en: {
  q: "Does the comparison change for a new cross-border worker?",
- a: "Yes. A new cross-border worker with CHF 70,000 gross in Switzerland (concurrent taxation regime) earns about CHF 4,100–4,300/month net after withholding tax reduced to 80%, Italian IRPEF with tax credit and a €10,000 exemption. The net differential versus Italy stays around +60–80%, about CHF 1,000/month less than under the old regime, but still significant."
+ a: "Yes. Comparing Italian and Swiss pay requires Italian tax with credit for Swiss taxes as well as contributions and Swiss tax. A new tax cross-border worker pays 80% of ordinary Swiss withholding tax. Allowances, deductions, exchange rates and commuting costs affect net pay: status alone does not imply a fixed percentage advantage. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Aendert sich der Vergleich fuer einen neuen Grenzgaenger?",
- a: "Ja. Ein neuer Grenzgaenger mit CHF 70.000 brutto in der Schweiz (konkurrierendes Besteuerungsregime) verdient rund CHF 4.100–4.300/Monat netto nach auf 80 % reduzierter Quellensteuer, italienischer IRPEF mit Steuergutschrift und Freibetrag von 10.000 EUR. Der Nettounterschied zu Italien liegt weiterhin bei +60–80 % und damit rund CHF 1.000/Monat unter dem alten Regime, bleibt aber erheblich."
+ a: "Ja. Beim Vergleich italienischer und Schweizer Löhne sind neben Beiträgen und Schweizer Steuer auch italienische Steuer und Anrechnung der Schweizer Steuer einzubeziehen. Ein neuer steuerlicher Grenzgänger zahlt 80% der ordentlichen Schweizer Quellensteuer. Freibeträge, Abzüge, Wechselkurs und Pendelkosten beeinflussen das Netto: Aus dem Status allein folgt kein fester prozentualer Vorteil. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "La comparaison change-t-elle pour un nouveau frontalier ?",
- a: "Oui. Un nouveau frontalier avec CHF 70 000 brut en Suisse (regime d'imposition concurrente) gagne environ CHF 4 100–4 300/mois net apres impot a la source reduit a 80 %, IRPEF italien avec credit d'impot et franchise de 10 000 EUR. L'ecart net par rapport a l'Italie reste d'environ +60–80 %, soit environ CHF 1 000/mois de moins que sous l'ancien regime, mais toujours significatif."
+ a: "Oui. Comparer les salaires italiens et suisses exige de tenir compte de l’impôt italien avec crédit pour l’impôt suisse, en plus des cotisations et de l’impôt suisse. Un nouveau frontalier fiscal paie 80% de l’impôt suisse à la source ordinaire. Franchise, déductions, change et trajets influencent le net : le seul statut ne garantit pas un avantage en pourcentage fixe. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -3580,15 +3580,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "I nuovi frontalieri pagano le tasse due volte?": {
  en: {
  q: "Do new cross-border workers pay tax twice?",
- a: "Cross-border workers hired after 17 July 2023 pay Swiss withholding tax and Italian IRPEF, but a €10,000 exemption and a tax credit prevent effective double taxation."
+ a: "New tax frontier workers under the agreement are taxable in both countries. Italy provides a credit for Swiss tax according to the applicable rules; this does not guarantee that no Italian balance is due. The regime requires checking the agreement conditions, not just the latest hiring date. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  de: {
  q: "Zahlen neue Grenzgaenger doppelt Steuern?",
- a: "Nach dem 17. Juli 2023 eingestellte Grenzgaenger zahlen die Schweizer Quellensteuer und die italienische IRPEF, doch dank eines Freibetrags von 10.000 EUR und einer Steuergutschrift wird eine effektive Doppelbesteuerung vermieden."
+ a: "Neue steuerliche Grenzgänger des Abkommens sind in beiden Staaten steuerpflichtig. Italien rechnet die Schweizer Steuer nach den geltenden Regeln an; ein italienischer Restbetrag ist damit nicht ausgeschlossen. Die Abkommensbedingungen sind zu prüfen, nicht nur das letzte Anstellungsdatum. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  },
  fr: {
  q: "Les nouveaux frontaliers paient-ils deux fois l'impot ?",
- a: "Les frontaliers embauches apres le 17 juillet 2023 paient l'impot a la source suisse et l'IRPEF italien, mais grace a une franchise de 10 000 EUR et a un credit d'impot, la double imposition effective est evitee."
+ a: "Les nouveaux frontaliers fiscaux de l’accord sont imposables dans les deux États. L’Italie accorde un crédit pour l’impôt suisse selon les règles applicables ; un solde italien peut rester dû. Il faut vérifier les conditions de l’accord, pas seulement la dernière date d’embauche. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
 
@@ -3883,9 +3883,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "A quelle frequence les articles pour frontaliers sont-ils mis a jour ?", a: "Les articles editoriaux sont revus chaque mois ; les guides fiscaux et permis sont mis a jour lorsque les regles changent. Chaque article affiche une date 'dateModified' pour savoir quand le contenu a ete mis a jour." }
  },
  "Gli articoli coprono anche le novità del nuovo accordo fiscale 2024?": {
- en: { q: "Do the articles also cover updates on the new 2024 tax agreement?", a: "Yes, the section 'Nuovo Accordo 2023-2026' tracks updates to the Italy-Switzerland treaty and the Italian and Swiss implementing acts, with worked examples for both old and new cross-border workers." },
- de: { q: "Behandeln die Artikel auch die Neuerungen des Steuerabkommens 2024?", a: "Ja, die Rubrik 'Nuovo Accordo 2023-2026' verfolgt die Aktualisierungen des Abkommens Italien-Schweiz sowie die italienischen und schweizerischen Umsetzungsnormen, mit Rechenbeispielen fuer alte und neue Grenzgaenger." },
- fr: { q: "Les articles couvrent-ils aussi les nouveautes du nouvel accord fiscal 2024 ?", a: "Oui, la rubrique 'Nuovo Accordo 2023-2026' suit les mises a jour de l'accord Italie-Suisse et les textes d'application italiens et suisses, avec des exemples chiffres pour les anciens et nouveaux frontaliers." }
+ en: { q: "Do the articles also cover updates on the new 2024 tax agreement?", a: "Yes: concurrent taxation, eligible municipalities, old-worker status, compensation payments and telework. Tax treatment for home telework up to 25% is distinct from the annual allowance of 45 failures to return home for professional reasons: those are not a remote-work day quota. https://www.bsv.admin.ch/it/newnsb/KIyFJwwqspqaOcHDaT7u0 https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ de: { q: "Behandeln die Artikel auch die Neuerungen des Steuerabkommens 2024?", a: "Ja: konkurrierende Besteuerung, zugelassene Gemeinden, Status alter Grenzgänger, Ausgleichszahlungen und Telearbeit. Die steuerliche Regelung für bis zu 25% Telearbeit zu Hause unterscheidet sich von 45 beruflich bedingten Nichtrückkehrtagen pro Jahr: Diese sind kein Homeoffice-Tagekontingent. https://www.bsv.admin.ch/it/newnsb/KIyFJwwqspqaOcHDaT7u0 https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ fr: { q: "Les articles couvrent-ils aussi les nouveautes du nouvel accord fiscal 2024 ?", a: "Oui : imposition concurrente, communes admises, statut des anciens frontaliers, compensations et télétravail. Le régime fiscal du télétravail à domicile jusqu’à 25% est distinct des 45 non-retours annuels pour raisons professionnelles : ceux-ci ne constituent pas un quota de jours de télétravail. https://www.bsv.admin.ch/it/newnsb/KIyFJwwqspqaOcHDaT7u0 https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
  },
  "Posso usare gli articoli per confrontare Permesso G e Permesso B?": {
  en: { q: "Can I use the articles to compare G permit and B permit?", a: "Yes, the 'Permits' guide and the 'G vs B' comparator break down tax, healthcare, pension and residency implications of each permit with side-by-side examples." },
@@ -3955,9 +3955,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Comment fonctionne le régime des anciens frontaliers ?", a: "Les anciens frontaliers remplissant les conditions de l’article 9 conservent l’imposition exclusivement suisse du salaire concerné. Ce régime ne prend pas automatiquement fin en 2033 ou 2034; 2033 est la dernière année fiscale des compensations versées à l’Italie. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
  },
  "Cosa cambia con il Nuovo Accordo del 17 luglio 2023?": {
- en: { q: "What changes with the New Agreement of 17 July 2023?", a: "New cross-border workers hired after 17/07/2023 pay Swiss withholding tax and Italian IRPEF with a €10,000 exemption. They also pay the 6% health contribution redistributed to Italian border regions." },
- de: { q: "Was aendert sich mit dem Neuen Abkommen vom 17. Juli 2023?", a: "Neue Grenzgaenger, die nach dem 17.07.2023 eingestellt werden, zahlen die Schweizer Quellensteuer und die italienische IRPEF mit einem Freibetrag von 10.000 EUR. Sie zahlen zudem die Gesundheitsabgabe von 6 %, die an die italienischen Grenzregionen verteilt wird." },
- fr: { q: "Qu'est-ce qui change avec le Nouvel Accord du 17 juillet 2023 ?", a: "Les nouveaux frontaliers embauches apres le 17/07/2023 paient l'impot a la source suisse et l'IRPEF italien avec une franchise de 10 000 EUR. Ils paient aussi la contribution sante de 6 % redistribuee aux regions frontalieres italiennes." }
+ en: { q: "What changes with the New Agreement of 17 July 2023?", a: "The agreement entered into force on 17 July 2023 and applies from 1 January 2024. New tax frontier workers pay 80% of ordinary Swiss withholding and Italian tax with credit for Swiss tax. Qualifying old workers retain exclusive Swiss taxation of the covered salary under Article 9. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ de: { q: "Was aendert sich mit dem Neuen Abkommen vom 17. Juli 2023?", a: "Das Abkommen trat am 17. Juli 2023 in Kraft und gilt seit 1. Januar 2024. Neue steuerliche Grenzgänger zahlen 80% der ordentlichen Schweizer Quellensteuer sowie italienische Steuer mit Anrechnung der Schweizer Steuer. Qualifizierte alte Grenzgänger behalten nach Artikel 9 die ausschliessliche Schweizer Besteuerung des erfassten Lohns. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ fr: { q: "Qu'est-ce qui change avec le Nouvel Accord du 17 juillet 2023 ?", a: "L’accord est entré en vigueur le 17 juillet 2023 et s’applique depuis le 1er janvier 2024. Les nouveaux frontaliers fiscaux paient 80% de l’impôt suisse à la source ordinaire et l’impôt italien avec crédit pour l’impôt suisse. Les anciens frontaliers admissibles conservent l’imposition exclusivement suisse du salaire concerné selon l’article 9. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
  },
 
  // ── Tassa salute landing FAQ ──
@@ -4140,9 +4140,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
 
  // ── Sprint 2 pillar-page FAQ translations (filled in by Sprint 4 follow-up) ──
  "Quanto pagano di tasse i frontalieri in Svizzera nel 2026?": {
- en: { q: "How much tax do cross-border workers pay in Switzerland in 2026?", a: "Ticino withholding tax ranges 3–35% of gross depending on salary, marital status and children. A single at CHF 70,000 gross pays roughly 10–12%; a married parent of two at CHF 80,000 gross pays 5–7%. Since 2024, new cross-border workers hired from 17/07/2023 also pay Italian IRPEF with an EUR 10,000 allowance and foreign tax credit for Swiss withholding already paid." },
- de: { q: "Wie viel Steuern zahlen Grenzgaenger 2026 in der Schweiz?", a: "Die Quellensteuer im Tessin liegt zwischen 3 und 35 % des Bruttolohns, je nach Lohn, Zivilstand und Kindern. Ein Single mit CHF 70'000 brutto zahlt rund 10–12 %; ein Verheirateter mit zwei Kindern und CHF 80'000 brutto 5–7 %. Seit 2024 zahlen neue Grenzgaenger (Einstellung ab 17.07.2023) auch die italienische IRPEF mit Freibetrag von EUR 10'000 und Anrechnung der bereits in der Schweiz gezahlten Quellensteuer." },
- fr: { q: "Combien d'impots paient les frontaliers en Suisse en 2026 ?", a: "L'impot a la source au Tessin varie de 3 a 35 % du brut selon salaire, etat civil et enfants. Un celibataire a CHF 70 000 paie environ 10–12 % ; un couple marie avec deux enfants a CHF 80 000 paie 5–7 %. Depuis 2024, les nouveaux frontaliers (embauches depuis le 17/07/2023) paient aussi l'IRPEF italienne avec une franchise de 10 000 EUR et un credit d'impot pour l'impot suisse deja verse." }
+ en: { q: "How much tax do cross-border workers pay in Switzerland in 2026?", a: "Tax depends on the cantonal tariff, income and family circumstances. New tax cross-border workers pay 80% of ordinary Swiss withholding tax alongside Italian tax with credit. Old workers qualifying under Article 9 remain taxed only in Switzerland on the covered salary. Use the year’s tariff and documented status rather than a general average percentage. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ de: { q: "Wie viel Steuern zahlen Grenzgaenger 2026 in der Schweiz?", a: "Die Steuer hängt vom kantonalen Tarif, Einkommen und Familienverhältnissen ab. Neue steuerliche Grenzgänger zahlen 80% der ordentlichen Schweizer Quellensteuer neben italienischer Steuer mit Anrechnung. Alte Grenzgänger nach Artikel 9 bleiben auf den erfassten Lohn allein in der Schweiz steuerpflichtig. Massgeblich sind der Jahrestarif und der belegte Status, kein pauschaler Durchschnittssatz. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ fr: { q: "Combien d'impots paient les frontaliers en Suisse en 2026 ?", a: "L’impôt dépend du barème cantonal, du revenu et de la situation familiale. Les nouveaux frontaliers fiscaux paient 80% de l’impôt suisse à la source ordinaire, avec imposition italienne et crédit. Les anciens admissibles selon l’article 9 restent imposés seulement en Suisse sur le salaire concerné. Utilisez le barème de l’année et le statut documenté, non un pourcentage moyen général. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
  },
  "Qual è la differenza fra nuovi e vecchi frontalieri?": {
  en: { q: "What's the difference between new and old cross-border workers?", a: "For new fiscal cross-border workers, Switzerland applies 80% of its ordinary withholding rate; Italy taxes the income with a credit for Swiss tax. The 80% is not a revenue split between the two countries. Old cross-border workers who qualify under Article 9 retain exclusive Swiss taxation of the covered salary. Their regime does not automatically end in 2033 or 2034: 2033 is the final tax year of Swiss compensation payments to Italy. ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
@@ -4345,9 +4345,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  },
 
  "Qual è la fascia di 20 km per il nuovo accordo frontalieri?": {
- en: { q: "What is the 20 km zone under the new cross-border agreement?", a: "The 2026 Italy-Switzerland tax agreement defines a 'fiscal frontaliere' as anyone whose Italian home is at most 20 km as the crow flies from the Swiss border. Eligible municipalities are listed in the agreement: provinces of Como, Varese, Lecco and Sondrio (plus Verbano-Cusio-Ossola for the VCO cross-border sector). Living within the zone grants access to the concurrent-taxation regime (Swiss withholding reduced to 80% + Italian IRPEF with tax credit and EUR 10,000 allowance)." },
- de: { q: "Was ist die 20-km-Grenzzone im neuen Grenzgaengerabkommen?", a: "Das Italien-Schweiz-Steuerabkommen 2026 definiert 'steuerliche Grenzgaenger' als Personen, deren italienischer Wohnsitz hoechstens 20 km Luftlinie von der Schweizer Grenze entfernt ist. Die zugelassenen Gemeinden sind im Abkommen aufgefuehrt: Provinzen Como, Varese, Lecco und Sondrio (plus Verbano-Cusio-Ossola fuer den Grenzgaengerbereich VCO). Wohnen innerhalb der Zone eroeffnet den Zugang zum System der konkurrierenden Besteuerung (Schweizer Quellensteuer auf 80 % reduziert + italienische IRPEF mit Steueranrechnung und EUR 10.000 Freibetrag)." },
- fr: { q: "Qu'est-ce que la zone des 20 km du nouvel accord frontalier ?", a: "L'accord fiscal Italie-Suisse 2026 definit le 'frontalier fiscal' comme toute personne dont le domicile italien est situe a 20 km maximum a vol d'oiseau de la frontiere suisse. Les communes eligibles figurent dans l'accord : provinces de Come, Varese, Lecco et Sondrio (plus Verbano-Cusio-Ossola pour le secteur frontalier VCO). Habiter dans la zone donne acces au regime de taxation concurrente (retenue a la source suisse reduite a 80 % + IRPEF italien avec credit d'impot et franchise de 10 000 EUR)." }
+ en: { q: "What is the 20 km zone under the new cross-border agreement?", a: "The requirement concerns the municipality of tax residence included in the official list agreed by both countries, not the distance of an individual home from the border. Residence in the zone alone is insufficient: employment in Ticino, Graubünden or Valais and, in principle, daily return are also required. Old versus new status additionally depends on qualifying employment during 31 December 2018–17 July 2023. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ de: { q: "Was ist die 20-km-Grenzzone im neuen Grenzgaengerabkommen?", a: "Massgeblich ist die steuerliche Wohngemeinde auf der von beiden Staaten vereinbarten amtlichen Liste, nicht die Entfernung des einzelnen Hauses zur Grenze. Der Wohnsitz in der Zone allein genügt nicht: Erforderlich sind auch eine Tätigkeit im Tessin, in Graubünden oder im Wallis und grundsätzlich tägliche Rückkehr. Der alte oder neue Status hängt zusätzlich von qualifizierender Beschäftigung zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 ab. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" },
+ fr: { q: "Qu'est-ce que la zone des 20 km du nouvel accord frontalier ?", a: "Le critère concerne la commune de résidence fiscale figurant dans la liste officielle convenue par les deux États, non la distance de chaque maison à la frontière. La résidence dans la zone ne suffit pas : il faut aussi travailler au Tessin, dans les Grisons ou en Valais et rentrer en principe chaque jour. Le statut ancien ou nouveau dépend également d’une activité admissible entre le 31 décembre 2018 et le 17 juillet 2023. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" }
  },
 
  "Quali valichi hanno meno coda al mattino?": {
@@ -4610,10 +4610,53 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Les frontaliers peuvent-ils choisir entre la LAMal suisse et le service de santé national italien ?", a: "Oui : dans les 3 mois suivant le début de l'emploi, les frontaliers exercent le droit d'option entre l'assurance maladie suisse LAMal et le service de santé national italien (SSN). Le choix est irrévocable pour toute la durée du rapport de travail." }
  },
  "Ogni quanto va rinnovato il permesso G per frontalieri?": {
- en: { q: "How often must the G permit for cross-border workers be renewed?", a: "The G permit is valid for 5 years for EU/EFTA citizens and is renewed automatically as long as the employment relationship with the Swiss employer continues, with no need to file a new application." },
- de: { q: "Wie oft muss die G-Bewilligung für Grenzgänger erneuert werden?", a: "Die G-Bewilligung ist für EU/EFTA-Bürger 5 Jahre gültig und wird automatisch erneuert, solange das Arbeitsverhältnis mit dem Schweizer Arbeitgeber fortbesteht, ohne dass ein neuer Antrag gestellt werden muss." },
- fr: { q: "À quelle fréquence le permis G pour frontaliers doit-il être renouvelé ?", a: "Le permis G est valable 5 ans pour les citoyens UE/AELE et est renouvelé automatiquement tant que le rapport de travail avec l'employeur suisse se poursuit, sans qu'il soit nécessaire de déposer une nouvelle demande." }
+ en: { q: "How often must the G permit for cross-border workers be renewed?", a: "A G permit for EU/EFTA nationals normally lasts five years for an indefinite contract or one exceeding a year; shorter contracts have a corresponding validity. Check the expiry date and follow the canton’s renewal procedure: continuing employment does not remove the need for the required formalities. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html" },
+ de: { q: "Wie oft muss die G-Bewilligung für Grenzgänger erneuert werden?", a: "Die G-Bewilligung für EU/EFTA-Angehörige gilt bei unbefristeten oder überjährigen Verträgen normalerweise fünf Jahre; bei kürzeren Verträgen entspricht die Gültigkeit der Vertragsdauer. Beachten Sie das Ablaufdatum und das kantonale Verlängerungsverfahren: Ein fortbestehendes Arbeitsverhältnis ersetzt die erforderlichen Formalitäten nicht. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html" },
+ fr: { q: "À quelle fréquence le permis G pour frontaliers doit-il être renouvelé ?", a: "Le permis G UE/AELE est normalement valable cinq ans pour un contrat indéterminé ou supérieur à un an ; les contrats plus courts ont une validité correspondante. Vérifiez l’échéance et suivez la procédure cantonale de renouvellement : la poursuite de l’emploi ne dispense pas des formalités requises. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html" }
  },
+
+  "Qual è la differenza tra imposta alla fonte e IRPEF per un frontaliere?": {
+    "en": {
+      "q": "What is the difference between withholding tax and IRPEF for a cross-border worker?",
+      "a": "Swiss withholding tax is deducted from salary by the employer; IRPEF is Italian income tax. New tax cross-border workers are subject to both, with an Italian credit for Swiss tax. Eligible old workers instead have salary covered by Article 9 taxed exclusively in Switzerland. The latest contract date alone does not distinguish the regimes. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    },
+    "de": {
+      "q": "Was unterscheidet Quellensteuer und IRPEF bei Grenzgängern?",
+      "a": "Die Schweizer Quellensteuer wird vom Arbeitgeber vom Lohn einbehalten; IRPEF ist die italienische Einkommensteuer. Neue steuerliche Grenzgänger unterliegen beiden, mit italienischer Anrechnung der Schweizer Steuer. Bei qualifizierten alten Grenzgängern wird der Lohn nach Artikel 9 dagegen ausschliesslich in der Schweiz besteuert. Das letzte Vertragsdatum allein unterscheidet die Regime nicht. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    },
+    "fr": {
+      "q": "Quelle est la différence entre impôt à la source et IRPEF pour un frontalier ?",
+      "a": "L’impôt suisse à la source est retenu sur le salaire par l’employeur ; l’IRPEF est l’impôt italien sur le revenu. Les nouveaux frontaliers fiscaux sont soumis aux deux, avec crédit italien pour l’impôt suisse. Pour les anciens admissibles, le salaire couvert par l’article 9 est imposé exclusivement en Suisse. La date du dernier contrat ne suffit pas à distinguer les régimes. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    }
+  },
+  "Le tabelle dell'imposta alla fonte cambiano ogni anno?": {
+    "en": {
+      "q": "Do withholding tax tables change every year?",
+      "a": "Use the cantonal tariff applicable to your circumstances for each tax year. New tax cross-border workers pay 80% of ordinary withholding tax: a reduction of 20%, not 80%. Check that the payslip uses the tariff appropriate to your status and family circumstances. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    },
+    "de": {
+      "q": "Ändern sich die Quellensteuertabellen jedes Jahr?",
+      "a": "Für jedes Steuerjahr ist der zur eigenen Situation passende kantonale Tarif massgeblich. Neue steuerliche Grenzgänger zahlen 80% der ordentlichen Quellensteuer: eine Reduktion um 20%, nicht um 80%. Auf der Lohnabrechnung den Tarif für Status und Familienverhältnisse prüfen. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    },
+    "fr": {
+      "q": "Les barèmes de l’impôt à la source changent-ils chaque année ?",
+      "a": "Pour chaque année fiscale, consultez le barème cantonal applicable à votre situation. Les nouveaux frontaliers fiscaux paient 80% de l’impôt à la source ordinaire : une réduction de 20%, non de 80%. Vérifiez le barème de la fiche de salaire selon le statut et la situation familiale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    }
+  },
+  "Cos'è l'IRPEF e perché riguarda anche i frontalieri?": {
+    "en": {
+      "q": "What is IRPEF and why does it also concern cross-border workers?",
+      "a": "IRPEF is Italian personal income tax. It applies to Swiss salary earned by new tax cross-border workers because the agreement provides for Italian taxation with credit for Swiss tax. Salary covered by Article 9 for eligible old workers remains subject only to Swiss taxation. A hire date alone does not establish the regime. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    },
+    "de": {
+      "q": "Was ist IRPEF und warum betrifft sie auch Grenzgänger?",
+      "a": "IRPEF ist die italienische Einkommensteuer. Sie betrifft den Schweizer Lohn neuer steuerlicher Grenzgänger, weil das Abkommen italienische Besteuerung mit Anrechnung der Schweizer Steuer vorsieht. Der Lohn qualifizierter alter Grenzgänger nach Artikel 9 bleibt allein in der Schweiz steuerpflichtig. Ein Einstellungsdatum allein bestimmt das Regime nicht. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    },
+    "fr": {
+      "q": "Qu’est-ce que l’IRPEF et pourquoi concerne-t-il aussi les frontaliers ?",
+      "a": "L’IRPEF est l’impôt italien sur le revenu des personnes physiques. Il concerne le salaire suisse des nouveaux frontaliers fiscaux, car l’accord prévoit une imposition italienne avec crédit pour l’impôt suisse. Le salaire des anciens admissibles selon l’article 9 reste imposé seulement en Suisse. Une date d’embauche ne suffit pas à déterminer le régime. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
+    }
+  }
 
 };
 

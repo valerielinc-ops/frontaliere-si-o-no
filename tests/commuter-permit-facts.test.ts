@@ -13,6 +13,16 @@ describe('permit information in job landing pages', () => {
       expect(html).toContain('href="https://www4.ti.ch/di/spop/stranieri/richiesta-nuovo-g/"');
       expect(html).not.toMatch(/è gratuito|is free of charge|ist kostenlos|est gratuit|rinnovato annualmente|yearly renewal/);
     });
+    for (const location of ['Ticino', 'Svizzera']) {
+      it(`explains withholding rather than an Italian credit cap (${locale}, ${location})`, () => {
+        const html = renderJobBoardCommuterContext({ locale, location, omitCommute: true });
+        expect(html).toContain('80%');
+        expect(html).toContain('href="https://www.recognition.swiss/en"');
+        expect(html).toContain('2018');
+        expect(html).toContain('href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"');
+        expect(html).not.toMatch(/3-6 mesi|3-6 months|3-6 Monate|3-6 mois|18-28|12-22|200-280|30-40 %|municipal refund|rimborso del comune|Gemeinderückerstattung|remboursement communal|fino all&#39;80|up to 80/);
+      });
+    }
     it(`keeps profession-city permit and fiscal rules distinct (${locale})`, () => {
       const html = renderCantonSeoProse({ locale, cantonDisplay: 'Ticino', slot: 'city-landing', entityName: 'Lugano' });
       expect(html).toContain('href="https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"');
