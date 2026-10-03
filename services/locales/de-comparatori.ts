@@ -13,7 +13,6 @@ const deComparatori: Record<string, string> = {
  'companies.filterPublishedJobs': 'Mit veröffentlichten Stellenangeboten',
  'companies.jobsPublishedSingle': '{count} veröffentlichte Stelle',
  'companies.jobsPublishedPlural': '{count} veröffentlichte Stellen',
- 'strumenti.payslip': 'Lohnabrechnung',
  'strumenti.carCost': 'Autokosten',
  'strumenti.permitCompare': 'G vs B',
  'strumenti.livability': 'Lebensqualität',

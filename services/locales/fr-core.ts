@@ -1530,6 +1530,7 @@ const frCore: Record<string, string> = {
  'freshness.source.ufsp': 'OFSP — Office fédéral de la santé publique',
  'common.day': 'jour',
  'jobs.compare': 'Comparer',
+ 'strumenti.payslip': 'Fiche de paie',
  'comparators.ral': 'Salaire Net',
  'ral.title': 'Calculateur Salaire Net : Italie vs Suisse',
  'ral.subtitle': 'Comparez le salaire net à brut égal entre l\'Italie et la Suisse',
