@@ -18,6 +18,7 @@ import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { cvChoiceOf } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
@@ -155,10 +156,13 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       candidateEditedAt: draft.candidateEditedAt || null,
       cvTextMethod: draft.cvTextMethod || null,
       coverLetterUrl: letterUrl,
+      // Which renderer made each PDF: `legacy` is the standard-font fallback (assistedApplicationPdfRenderer.js).
+      coverLetterRenderer: draft.coverLetterRenderer || null,
       ats: draft.ats || null,
       legitimacy: draft.legitimacy || null,
       tailoredCv: draft.tailoredCv ? {
         status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl,
+        renderer: draft.tailoredCv.renderer || null,
         // Phase 5: the candidate's own Word file with the adapted lines, or why it fell back to the template.
         inplace: draft.tailoredCv.inplace ? {
           status: draft.tailoredCv.inplace.status,
@@ -169,7 +173,11 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
           url: inPlaceUrl || null,
         } : null,
       } : null,
-      cvChoice: flow?.cvChoice || 'tailored',
+      // The choice that holds: an in-place file no longer offered reads as the tailored CV, as it is sent.
+      cvChoice: cvChoiceOf(draft, flow),
+      // What the candidate chose on the review page: when it differs from the line above, their own
+      // Word file fell back after they chose it, and the panel says so.
+      candidateCvChoice: flow?.cvChoice || null,
       // What the portal already received, for Valerie when she finishes by hand.
       portalAnswers: draft.portalAnswers || null,
     } : null,
@@ -394,8 +402,10 @@ const FILL_KIT_STATES = new Set(['owner_takeover']);
 
 /**
  * The fill kit of one order (assistedApplicationFillKit.js), with signed
- * links to the CV that leaves (submit.mjs chooseCv: the tailored one unless
- * the candidate chose their original) and to the cover letter.
+ * links to the CV that leaves and to the cover letter. The CV is the file the
+ * robot would send (submit.mjs chooseCv): the candidate's own Word file with
+ * the adapted lines when they chose it and it is ready, otherwise the
+ * tailored one unless they chose their original.
  */
 async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs = Date.now() } = {}) {
   const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
@@ -419,13 +429,16 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     await guard.release('owner: checked on the portal, not received', nowMs);
   }
   const sign = (key) => (key && deps.signUrl && isAssistedApplicationCvKey(orderId, key) ? deps.signUrl(key).catch(() => null) : null);
-  const tailored = draft.tailoredCv?.status === 'ready' && draft.tailoredCv.pdfKey && flow.cvChoice !== 'original';
+  const choice = cvChoiceOf(draft, flow);
+  const ready = draft.tailoredCv?.status === 'ready';
+  const inPlace = ready && choice === 'inplace';
+  const tailored = ready && draft.tailoredCv.pdfKey && choice !== 'original';
   const originalKey = String(order.cvStorageKey || '');
   const [cvUrl, letterUrl] = await Promise.all([
-    tailored ? sign(draft.tailoredCv.pdfKey) : deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null,
+    inPlace ? sign(draft.tailoredCv.inplace.docxKey) : tailored ? sign(draft.tailoredCv.pdfKey) : deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null,
     sign(draft.coverLetterPdfKey),
   ]);
-  const extension = tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
+  const extension = inPlace ? 'docx' : tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
   // The requested documents the candidate gave, each file a signed link too.
   const extra = await Promise.all(extraDocumentsToSend(draft, flow, orderId).map(async (document) => ({
     ...document,

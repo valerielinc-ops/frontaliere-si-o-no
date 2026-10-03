@@ -24,6 +24,7 @@ import {
   recordOwnerSubmission,
 } from './assistedApplicationAutomationAdmin.js';
 import { runAutomationEffect } from './assistedApplicationAutomationEffects.js';
+import { readRendererCheck } from './assistedApplicationRendererCheck.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from './assistedApplicationCvCheck.js';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
@@ -280,7 +281,15 @@ export async function handleListAssistedApplications(db, status = null) {
     return order;
   }));
   orders.sort((left, right) => Date.parse(right.createdAt || '') - Date.parse(left.createdAt || ''));
-  return { status: 200, body: { ok: true, orders } };
+  // The last self-check of the PDF renderer (assistedApplicationRendererCheck.js):
+  // only read here, never rendered, and the queue does not fail on it.
+  let pdfRenderer = null;
+  try {
+    pdfRenderer = await readRendererCheck(db);
+  } catch (error) {
+    console.error('[manageAssistedApplicationAdmin] renderer check not read', error instanceof Error ? error.message : String(error));
+  }
+  return { status: 200, body: { ok: true, orders, pdfRenderer } };
 }
 
 function transitionErrorResponse(error) {
