@@ -1429,6 +1429,9 @@ function main() {
           const queueEligible = canMintQueueLabel(iss);
           const queueMessage = queueEligible
             ? '✅ Daily bucket sigillato in modo deterministico: tutti gli item hanno ID stabile e acceptance verificabile. Ora può essere accodato a agent:fix-queued.'
+              + ((d.donePreserved || []).length
+                ? ` Eccezione: ${d.donePreserved.length} item già done conservat${d.donePreserved.length === 1 ? 'o' : 'i'} senza rivalutazione (${d.donePreserved.join(', ')}).`
+                : '')
             : '⚠️ Daily bucket sigillato, ma '
               + (queueBlockReason(iss) === 'labels non verificabili' ? 'labels non verificabili' : `${queueBlockReason(iss)} è presente`)
               + ': nessuna nuova coda automatica.';
@@ -1488,7 +1491,7 @@ function main() {
         iss = { ...iss, labels: latest.labels };
         const verbatim = demotedBlock(d.demoted);
         const why = d.action === 'dedupe'
-          ? `${MINT_GATE_MARKER}\n🧹 **Gate deterministico sul conio** (zero-Claude): ${d.duplicates.length} item con fingerprint duplicato sono stati accorpati nel primo item; le rispettive \`Sources\` restano unite e non viene creato un secondo lavoro. Fingerprint: \`target repository + target file + token/azione normalizzata\`.\n\n${duplicateList}`
+          ? `${MINT_GATE_MARKER}\n🧹 **Gate deterministico sul conio** (zero-Claude): ${d.duplicates.length} item con fingerprint duplicato sono stati accorpati in un solo item (il \`done\`, se presente; altrimenti il primo); le rispettive \`Sources\` restano unite e non viene creato un secondo lavoro. Fingerprint: \`target repository + target file + token/azione normalizzata\`.\n\n${duplicateList}`
           : `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — né un token-codice distintivo in una riga \`Suggested action\`, né una scheda con un \`COMANDO\` che nomini un referente — quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
         if (DRY_RUN) { console.log(why); continue; }
         // ORDINE, non decorazione: prima si CONSERVA il testo sulla PR, poi si tocca la

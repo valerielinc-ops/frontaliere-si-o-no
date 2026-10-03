@@ -560,10 +560,8 @@ describe('gate sul conio — un item già done è un fatto registrato, non un ca
     expect(rebuildDailyBody(head, valid)).toContain(doneItem);
   });
 
-  it('PIN: la riga contabile porta done_preserved, la misura del difetto', () => {
-    const src = readFileSync(GATE_SRC, 'utf-8');
-    expect(src).toMatch(/MINT_GATE_TALLY[^\n]*done_preserved=\$\{t\.donePreserved\}/);
-  });
+  // La riga `MINT_GATE_TALLY … done_preserved=<n>` è osservata sul processo vero in
+  // `tests/followup-mint-gate-batch.test.ts`, non con un pin sul sorgente.
 });
 
 describe('gate sul conio — pin sul sorgente', () => {

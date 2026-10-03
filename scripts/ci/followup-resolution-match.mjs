@@ -925,6 +925,10 @@ export function mergeDailyItemSources(primary, duplicate) {
  * Deduplicate parsed daily items in production.  Items with no complete
  * fingerprint are retained: the caller must let the acceptance/state gates deal
  * with them rather than silently dropping work on an incomplete record.
+ *
+ * In ogni record di `duplicates`, `kept` è il superstite AL MOMENTO di
+ * quell'accorpamento, non quello finale: con tre o più gemelli un `done` arrivato
+ * dopo può sostituirlo. Il superstite finale si legge in `items`.
  */
 export function dedupeDailyItems(items, bucketTargetRepository = '') {
   const unique = [];
