@@ -67,7 +67,7 @@ function fakePortal() {
       const dropsFirst = (id) => flaky && !dropped.has(id) && dropped.add(id);
       document.getElementById('expand').addEventListener('click', () => { if (dropsFirst('expand')) return; for (const id of ['docs', 'profile']) document.getElementById(id).hidden = false; });
       // A picklist: its options load a moment after it opens, into the list it owns.
-      const picklist = (inputId, listId, hiddenId, options) => {
+      const picklist = (inputId, listId, hiddenId, options, writesAfterMs = 400) => {
         const input = document.getElementById(inputId);
         const list = document.getElementById(listId);
         const close = () => { list.innerHTML = ''; input.setAttribute('aria-expanded', 'false'); };
@@ -83,7 +83,7 @@ function fakePortal() {
                 setTimeout(() => {
                   if (item.textContent !== 'Bitte auswählen') { input.value = item.textContent; document.getElementById(hiddenId).value = item.textContent; }
                   close();
-                }, 400);
+                }, writesAfterMs);
               });
             }
           }, 1500);
@@ -93,7 +93,8 @@ function fakePortal() {
       picklist('anrede-in', 'an:_listSelect', 'anrede-v', ['Frau', 'Herr']);
       // As on Coop's SuccessFactors (run 37118242131): an Enter in the form submits it.
       document.addEventListener('keydown', (event) => { if (event.key === 'Enter' && event.isTrusted) { event.preventDefault(); document.querySelector('form').requestSubmit(); } });
-      picklist('agency-in', 'ag:_listSelect', 'agency-v', ['Ja', 'Nein']);
+      // Review of #11061: a choice written at 2.9 s still counts (the runner waits 3 s and looks once more).
+      picklist('agency-in', 'ag:_listSelect', 'agency-v', ['Ja', 'Nein'], 2900);
       // UI5's date picker: its input in an open shadow root, its value set on change or Enter.
       customElements.get('ui5-date-picker-xweb-calendar-widget') || customElements.define('ui5-date-picker-xweb-calendar-widget', class extends HTMLElement {
         constructor() {

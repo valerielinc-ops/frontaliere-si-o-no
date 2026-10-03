@@ -157,11 +157,16 @@ async function chooseInOwnedList(page, field, locator, value) {
   }
   await option.click({ timeout: ACTION_TIMEOUT_MS });
   // SuccessFactors writes the choice into the input a moment after the click
-  // (Coop, 2026-10-03: «Nein» was there, the check had looked too early).
-  for (let waited = 0; waited < 3000; waited += 200) {
-    const shown = await locator.evaluate((element, label) => element.value === label && element.getAttribute('aria-expanded') !== 'true', value).catch(() => false);
-    if (shown) return;
-    await page.waitForTimeout(200);
+  // (Coop, 2026-10-03: «Nein» was there, the check had looked too early): up
+  // to 3 s, looked at once more when they are over (review of #11061).
+  const deadline = Date.now() + 3000;
+  for (;;) {
+    const shown = await locator.evaluate((element, label) => {
+      const same = String(element.value || '').replace(/\s+/g, ' ').trim().toLowerCase() === String(label).replace(/\s+/g, ' ').trim().toLowerCase();
+      return same && element.getAttribute('aria-expanded') !== 'true';
+    }, value).catch(() => false);
+    if (shown || Date.now() >= deadline) return;
+    await page.waitForTimeout(Math.min(200, Math.max(0, deadline - Date.now())));
   }
 }
 

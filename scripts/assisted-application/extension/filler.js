@@ -685,7 +685,7 @@
       case 'date':
         return chooseDate(element, answer.value);
       case 'ui5-date': {
-        // Typed into its own input in the pattern it states, then confirmed as Enter does.
+        // Typed into its own input in the pattern it states, then committed by its input and change events.
         const inner = element.shadowRoot?.querySelector('input');
         const date = parseDate(answer.value);
         if (!inner || !date) return false;
