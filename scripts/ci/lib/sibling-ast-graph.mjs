@@ -209,6 +209,8 @@ export function collectAstFacts(
   source,
   { lineRanges, files = new Set(), candidateOnly = false, factKeys = null } = {},
 ) {
+  // YAML/shell sources use the checker's lexical path, never the JS binder.
+  if (!isAstSourceFile(fileName)) return [];
   const sourceFile = ts.createSourceFile(
     fileName,
     String(source ?? ''),

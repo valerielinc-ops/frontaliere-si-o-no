@@ -128,6 +128,7 @@ import {
   factsContainingToken,
   isActionableAstFact,
   isAstSourceFile,
+  isExternalBinding,
   matchAstFacts,
 } from './lib/sibling-ast-graph.mjs';
 
@@ -790,12 +791,22 @@ const GENERIC_REMOVED_GUARD_PATTERNS = Object.freeze([
   /^\s*if\s*\([^)]*\btypeof\s+(?:html|body|rawHtml)\s*!==?\s*['"]string['"][^)]*\)\s*return\b/i,
 ]);
 
-export function isGenericRemovedExpression(expression) {
+export function isGenericRemovedExpression(expression, externalCalls = new Set()) {
   const value = String(expression || '');
+  // A declaration header alone carries a name/signature, not behavior.
+  if (/^(?:async\s+)?function\s*\*?\s*[A-Za-z_$][\w$]*\s*\([^{}]*\)\s*\{$/.test(value)) return true;
+  // Returning the truthy value just tested is a generic fallback idiom,
+  // regardless of the local variable name; it is not a domain relationship.
+  if (/^if\s*\(\s*([A-Za-z_$][\w$]*)\s*\)\s*return\s+\1$/.test(value)) return true;
+  // A removed block opener containing only a resolved infrastructure call
+  // carries no domain operation. Keep comparisons, compound conditions and
+  // complete branch bodies: those can contain a real antipattern.
+  const opener = /^if\s*\(\s*([\s\S]+?)\s*\)\s*\{$/.exec(value);
+  if (opener && externalCalls.has(opener[1])) return true;
   return GENERIC_REMOVED_GUARD_PATTERNS.some((pattern) => pattern.test(value));
 }
 
-export function extractRemovedExpressions(diffText) {
+export function extractRemovedExpressions(diffText, { externalCalls = new Set() } = {}) {
   const exprs = new Set();
   for (const line of diffText.split('\n')) {
     if (!line.startsWith('-') || line.startsWith('---')) continue;
@@ -815,7 +826,7 @@ export function extractRemovedExpressions(diffText) {
       // diff changed an unrelated domain rule (observed on PR #9501). Keep
       // the pass for semantic expressions, but do not turn generic plumbing
       // into a repository-wide sibling sweep.
-      if (isGenericRemovedExpression(cleaned)) continue;
+      if (isGenericRemovedExpression(cleaned, externalCalls)) continue;
       exprs.add(cleaned);
     }
   }
@@ -1240,16 +1251,21 @@ function main() {
     if (isAstSourceFile(file)) {
       for (const tok of changedTokens) astParsedTokens.add(tok);
     }
+    const baseSource = readTrackedAt(mergeBase, file);
+    const baseFacts = baseSource ? collectAstFacts(file, baseSource, { files: astFiles }) : [];
+    const projectCalls = new Set(baseFacts
+      .filter((fact) => fact.kind === 'call' && !isExternalBinding(fact.binding))
+      .map((fact) => fact.fingerprint));
+    const externalCalls = new Set(baseFacts
+      .filter((fact) => fact.kind === 'call' && isExternalBinding(fact.binding) &&
+        !projectCalls.has(fact.fingerprint))
+      .map((fact) => fact.fingerprint));
     const changedRanges = diffLineRanges(diff, 'new');
     if (source && changedRanges.length > 0) {
       const changedFacts = collectAstFacts(file, source, {
         lineRanges: changedRanges,
         files: astFiles,
       });
-      const baseSource = readTrackedAt(mergeBase, file);
-      const baseFacts = baseSource
-        ? collectAstFacts(file, baseSource, { files: astFiles })
-        : [];
       const unchangedFacts = new Set(baseFacts.map(astFactSignature));
       for (const tok of changedTokens) {
         const facts = factsContainingToken(changedFacts, tok);
@@ -1263,7 +1279,7 @@ function main() {
       }
     }
     // Pass verbatim: raccogli espressioni significative dalle sole righe rimosse
-    for (const expr of extractRemovedExpressions(diff)) {
+    for (const expr of extractRemovedExpressions(diff, { externalCalls })) {
       removedExprs.add(expr);
     }
   }

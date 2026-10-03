@@ -329,4 +329,10 @@ describe('sibling AST layer', () => {
       .toContain('project.validateDomainJob');
   });
 
+  it('leaves workflow and shell sources to the lexical checker instead of binding them as JS', () => {
+    const yaml = 'jobs:\n  check:\n    steps:\n      - run: |\n          const values = paths.map((item) => item.name).join("/");';
+    expect(collectAstFacts('.github/workflows/check.yml', yaml)).toEqual([]);
+    expect(collectAstFacts('scripts/check.sh', 'echo "$HOME"')).toEqual([]);
+  });
+
 });
