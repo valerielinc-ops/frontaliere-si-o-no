@@ -28,11 +28,12 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
+  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertHugoBossNationalReadComplete, extractPhenomDdo, parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
-import { inferAnyCanton, isKnownSwissCity } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, locationFieldHasSwissSignal } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -57,6 +58,7 @@ const PAGE_SIZE = 100;
 const MAX_PAGES = 20;
 const DUPLICATE_PAGE_RETRIES = 2;
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const HUGO_BOSS_LOCATION_FIELDS = ['city', 'state', 'cityState', 'cityStateCountry', 'country', 'address'];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
 
@@ -98,6 +100,21 @@ function rawHugoRecordKey(job = {}) {
   return id ? `id:${id}` : '';
 }
 
+function rawHugoLocationText(job = {}) {
+  return HUGO_BOSS_LOCATION_FIELDS
+    .map((field) => String(job?.[field] ?? '').trim())
+    .filter(Boolean)
+    .join(' ');
+}
+
+function isRecognizedHugoBossSourceLocation(job = {}) {
+  const locationText = rawHugoLocationText(job);
+  return Boolean(
+    locationText
+      && (locationFieldHasSwissSignal(locationText) || isLocationExplicitlyForeign(locationText)),
+  );
+}
+
 export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   console.log(`🔍 Fetching Hugo Boss jobs from ${CAREERS_URL}`);
   const allJobsById = new Map();
@@ -108,6 +125,7 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   let terminationProven = false;
   let terminationReason = null;
   let maxObserved = false;
+  const unrecognizedLocationRecordKeys = new Set();
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const pageUrl = new URL(CAREERS_URL);
@@ -185,6 +203,11 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
         + 'A non-empty source page lost records (likely title/field drift); refusing to treat the result as an empty snapshot.',
       );
     }
+    for (const rawJob of rawPageJobs) {
+      if (!isRecognizedHugoBossSourceLocation(rawJob)) {
+        unrecognizedLocationRecordKeys.add(rawHugoRecordKey(rawJob));
+      }
+    }
     console.log(`  📄 Page ${page + 1}: ${pageJobs.length} parsed jobs from ${rawPageCount} DDO records (from=${from}${totalHits ? `, total=${totalHits}` : ''})`);
     for (const job of pageJobs) {
       const key = rawHugoRecordKey(job);
@@ -224,6 +247,31 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     terminationReason,
     allowMaxObserved: maxObserved,
   });
+
+  if (unrecognizedLocationRecordKeys.size > 0) {
+    console.warn(
+      `⚠️ Hugo Boss national DDO read contained ${unrecognizedLocationRecordKeys.size} `
+      + 'record(s) without a recognized source location payload; keeping the existing slice.',
+    );
+    const unproven = [];
+    Object.defineProperty(unproven, 'hugoBossSnapshot', {
+      value: Object.freeze({
+        ...readAudit,
+        complete: false,
+        coverage: 'location-unproven',
+        terminationReason: 'location-field-drift',
+        totalHits,
+        recordsSeen,
+        discovered: allJobs.length,
+        published: 0,
+        targetMatches: 0,
+        unrecognizedLocationCount: unrecognizedLocationRecordKeys.size,
+        authoritativeEmptySnapshot: false,
+      }),
+      enumerable: false,
+    });
+    return unproven;
+  }
 
   const swissJobs = allJobs.filter(isHugoBossTargetLocation);
   console.log(`  🎯 Swiss jobs across all cantons: ${swissJobs.length}`);

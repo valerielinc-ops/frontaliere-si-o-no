@@ -275,6 +275,28 @@ describe('fetchJobs national pagination', () => {
     await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/lost records.*field drift/i);
   });
 
+  it('keeps a complete read unproven when location data moves to an unrecognized field', async () => {
+    const fetchHtml = vi.fn(async () => makeSearchPage(1, [{
+      jobId: 'location-drift',
+      reqId: 'location-drift',
+      title: 'Location drift listing',
+      location: 'Zürich, Switzerland',
+    }]));
+
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(jobs.hugoBossSnapshot).toMatchObject({
+      complete: false,
+      coverage: 'location-unproven',
+      terminationReason: 'location-field-drift',
+      discovered: 1,
+      published: 0,
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
   it('does not mark a duplicate-page zero as authoritative', async () => {
     const repeatedPage = makeSearchPage(4, [
       { ...makeSwissJob('foreign-1'), city: 'Frankfurt', state: 'Hessen', cityStateCountry: 'Frankfurt, Hessen, Germany', country: 'Germany' },
