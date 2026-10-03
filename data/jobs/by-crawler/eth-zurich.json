@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eth-zurich",
-  "assembledAt": "2026-10-02T21:41:00.293Z",
+  "assembledAt": "2026-10-03T09:32:36.695Z",
   "jobs": [
     {
       "id": "eth-zurich-8b3038243257",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_PeBFLlVSXBQT8tuOqj",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:50.743Z",
+      "crawledAt": "2026-10-03T09:32:29.157Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,12 +50,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-",
-        "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient"
+        "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient",
+        "posizione-dottorale-degli-studenti-valutazione-di-nuove-fonti-minerali-per-il-trattamento-delle-carenze-micronutrienti-n"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-",
-          "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient"
+          "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient",
+          "posizione-dottorale-degli-studenti-valutazione-di-nuove-fonti-minerali-per-il-trattamento-delle-carenze-micronutrienti-n"
         ],
         "de": [
           "doctoral-student-position-evaluating-novel-mineral-sources-for-treatment-of-micronutrient-"
@@ -111,7 +113,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xfuKg5qPN9KmLA8WvS",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:50.246Z",
+      "crawledAt": "2026-10-03T09:32:28.687Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,7 +156,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-b175e9acd07a",
@@ -187,7 +190,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_pPQbOEVFpuNEe6dwGQ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:49.751Z",
+      "crawledAt": "2026-10-03T09:32:28.218Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,11 +206,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "devops-engineer-eth-zurich-ch"
+        "devops-engineer-eth-zurich-ch",
+        "devops-ingegnere-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-eth-zurich-ch"
+          "devops-engineer-eth-zurich-ch",
+          "devops-ingegnere-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-05-27T12:30:48.588Z",
@@ -232,7 +237,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
+        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -257,7 +262,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_WutDHRW09osQjhn0JB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:49.251Z",
+      "crawledAt": "2026-10-03T09:32:27.746Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -274,13 +279,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
+        "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
+        "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systems-engineer-platform-automation-eth-zurich-ch"
+          "systems-engineer-platform-automation-eth-zurich-ch",
+          "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano"
         ],
         "de": [
+          "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
           "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
@@ -331,7 +340,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_yD8SBG1VJIv6DUeuOI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:48.751Z",
+      "crawledAt": "2026-10-03T09:32:27.274Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -352,12 +361,14 @@
         "phd-student-in-law-eth-zurich-ch",
         "doktorandin-im-recht-eth-zurich-zurich",
         "doctorat-en-droit-eth-zurich-zurich",
-        "doktorand-in-in-rechtswissenschaften-m-w-d-eth-zurich-ch"
+        "doktorand-in-in-rechtswissenschaften-m-w-d-eth-zurich-ch",
+        "dottorato-di-ricerca-in-diritto-eth-zurich-zurich-d6a685"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doktorand-in-in-rechtswissenschaften-eth-zurich-ch",
-          "doktorand-in-in-rechtswissenschaften-m-w-d-eth-zurich-ch"
+          "doktorand-in-in-rechtswissenschaften-m-w-d-eth-zurich-ch",
+          "dottorato-di-ricerca-in-diritto-eth-zurich-zurich-d6a685"
         ],
         "en": [
           "doktorand-in-in-rechtswissenschaften-eth-zurich-ch"
@@ -380,7 +391,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-42c9c19f1c26",
@@ -413,7 +425,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_8mKiqyt08ncBT4Vjmf",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:48.252Z",
+      "crawledAt": "2026-10-03T09:32:26.805Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -429,11 +441,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
+        "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch",
+        "apertura-del-dottorato-in-scienze-materiali-di-conservazione-della-pietra-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch"
+          "phd-opening-in-material-science-of-stone-conservation-eth-zurich-ch",
+          "apertura-del-dottorato-in-scienze-materiali-di-conservazione-della-pietra-eth-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -484,7 +498,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_gSBsyXkVBhYzitmZqZ",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:47.754Z",
+      "crawledAt": "2026-10-03T09:32:26.332Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,11 +514,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
+        "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
+        "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
+          "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
+          "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-02T11:06:42.112Z",
@@ -521,7 +537,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-0a28221f91e1",
@@ -554,7 +571,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_HWURgWr0zhn0vhHkTh",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:47.254Z",
+      "crawledAt": "2026-10-03T09:32:25.866Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -570,11 +587,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
+        "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
+        "landwirtschaftliche-r-collaboratore-trice-forschungsstation-fruebuel-m-w-d-eth-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
+          "landwirtschaftliche-r-mitarbeiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
+          "landwirtschaftliche-r-collaboratore-trice-forschungsstation-fruebuel-m-w-d-eth-zurich"
         ]
       },
       "firstSeenAt": "2026-07-02T11:06:41.581Z",
@@ -591,7 +610,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-23a6dc12697d",
@@ -624,7 +644,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_fV3FNoofTG427Xo88T",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:46.754Z",
+      "crawledAt": "2026-10-03T09:32:25.394Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -640,11 +660,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich"
+        "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich",
+        "posizione-del-dottorato-in-modellazione-e-controllo-di-sistemi-dinamici-non-lineari-da-dati-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich"
+          "phd-position-in-modeling-and-control-of-nonlinear-dynamical-systems-from-data-eth-zurich",
+          "posizione-del-dottorato-in-modellazione-e-controllo-di-sistemi-dinamici-non-lineari-da-dati-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-06T13:42:41.705Z",
@@ -661,7 +683,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-31dafd45dd18",
@@ -694,7 +717,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7fnNYGEQBYxvwLABPA",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:46.256Z",
+      "crawledAt": "2026-10-03T09:32:24.925Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -710,11 +733,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-positions-in-neurotechnology-next-generation-non-invasive-neurotechnologies-brain"
+        "phd-positions-in-neurotechnology-next-generation-non-invasive-neurotechnologies-brain",
+        "phd-posizioni-in-neurotecnologie-prossima-generazione-neurotecnologie-non-invasive-terapie-cerebrali-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-positions-in-neurotechnology-next-generation-non-invasive-neurotechnologies-brain"
+          "phd-positions-in-neurotechnology-next-generation-non-invasive-neurotechnologies-brain",
+          "phd-posizioni-in-neurotecnologie-prossima-generazione-neurotecnologie-non-invasive-terapie-cerebrali-eth-zurich-zurich"
         ],
         "de": [
           "phd-positions-in-neurotechnology-next-generation-non-invasive-neurotechnologies-brain"
@@ -771,7 +796,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_tw2NqKjprjOKgicyhv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:45.200Z",
+      "crawledAt": "2026-10-03T09:32:24.164Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -787,11 +812,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-fellowship-on-translational-research-in-daylighting-for-human-health-and-well"
+        "postdoctoral-fellowship-on-translational-research-in-daylighting-for-human-health-and-well",
+        "postdoctoral-fellowship-on-translational-ricerca-in-daylighting-for-human-health-and-well-being-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-fellowship-on-translational-research-in-daylighting-for-human-health-and-well"
+          "postdoctoral-fellowship-on-translational-research-in-daylighting-for-human-health-and-well",
+          "postdoctoral-fellowship-on-translational-ricerca-in-daylighting-for-human-health-and-well-being-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-fellowship-on-translational-research-in-daylighting-for-human-health-and-well"
@@ -848,7 +875,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_F9OMMLCxFXrZnitx0m",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:44.694Z",
+      "crawledAt": "2026-10-03T09:32:23.686Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -864,11 +891,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-position-in-attosecond-chiroptical-coincidence-spectroscopy-eth-zurich-ch"
+        "postdoctoral-position-in-attosecond-chiroptical-coincidence-spectroscopy-eth-zurich-ch",
+        "posizione-post-dottorale-in-attosecondo-spettroscopia-di-coincidenza-chiroptica-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-position-in-attosecond-chiroptical-coincidence-spectroscopy-eth-zurich-ch"
+          "postdoctoral-position-in-attosecond-chiroptical-coincidence-spectroscopy-eth-zurich-ch",
+          "posizione-post-dottorale-in-attosecondo-spettroscopia-di-coincidenza-chiroptica-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-position-in-attosecond-chiroptical-coincidence-spectroscopy-eth-zurich-ch"
@@ -925,7 +954,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_ZFh1EQy7dSPVVYp5Fe",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:44.184Z",
+      "crawledAt": "2026-10-03T09:32:23.213Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -941,11 +970,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-circularly-polarized-attosecond-pulses-and-chiral-charge-migration"
+        "doctoral-position-in-circularly-polarized-attosecond-pulses-and-chiral-charge-migration",
+        "posizione-dottorale-in-attosecondo-polarizzato-circolare-polso-e-migrazione-della-carica-chirale-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-circularly-polarized-attosecond-pulses-and-chiral-charge-migration"
+          "doctoral-position-in-circularly-polarized-attosecond-pulses-and-chiral-charge-migration",
+          "posizione-dottorale-in-attosecondo-polarizzato-circolare-polso-e-migrazione-della-carica-chirale-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-circularly-polarized-attosecond-pulses-and-chiral-charge-migration"
@@ -1002,7 +1033,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_P9v49K34WzF1yE3Son",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:43.684Z",
+      "crawledAt": "2026-10-03T09:32:22.743Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1018,11 +1049,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-and-phd-positions-in-neurotechnology-drug-biologics-carrier-formulation"
+        "postdoctoral-and-phd-positions-in-neurotechnology-drug-biologics-carrier-formulation",
+        "postdoctoral-e-phd-posizioni-in-neurotecnologia-droga-biologics-carrier-formulation-chemical-engineering-for-focused"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-and-phd-positions-in-neurotechnology-drug-biologics-carrier-formulation"
+          "postdoctoral-and-phd-positions-in-neurotechnology-drug-biologics-carrier-formulation",
+          "postdoctoral-e-phd-posizioni-in-neurotecnologia-droga-biologics-carrier-formulation-chemical-engineering-for-focused"
         ]
       },
       "needsRetranslation": true,
@@ -1073,7 +1106,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_JljSxe71PrbQYnXQoB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:43.179Z",
+      "crawledAt": "2026-10-03T09:32:22.274Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1089,11 +1122,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-tactile-sensing-for-dexterous-manipulation-eth-zurich-ch"
+        "postdoctoral-researcher-tactile-sensing-for-dexterous-manipulation-eth-zurich-ch",
+        "ricercatore-post-dottorato-sensazione-tattile-per-la-manipolazione-destrezza-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-tactile-sensing-for-dexterous-manipulation-eth-zurich-ch"
+          "postdoctoral-researcher-tactile-sensing-for-dexterous-manipulation-eth-zurich-ch",
+          "ricercatore-post-dottorato-sensazione-tattile-per-la-manipolazione-destrezza-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-researcher-tactile-sensing-for-dexterous-manipulation-eth-zurich-ch"
@@ -1150,7 +1185,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Jpk5hTbut4X6uJlGRu",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:42.677Z",
+      "crawledAt": "2026-10-03T09:32:21.800Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,11 +1201,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "legal-counsel-im-bereich-der-humanforschung-m-w-d-eth-zurich-ch"
+        "legal-counsel-im-bereich-der-humanforschung-m-w-d-eth-zurich-ch",
+        "avvocato-legale-nel-campo-della-ricerca-umana-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-im-bereich-der-humanforschung-m-w-d-eth-zurich-ch"
+          "legal-counsel-im-bereich-der-humanforschung-m-w-d-eth-zurich-ch",
+          "avvocato-legale-nel-campo-della-ricerca-umana-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "legal-counsel-im-bereich-der-humanforschung-m-w-d-eth-zurich-ch"
@@ -1227,7 +1264,7 @@
       "url": "https://jobs.ethz.ch/job/view/11996",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:42.172Z",
+      "crawledAt": "2026-10-03T09:32:21.328Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1247,7 +1284,8 @@
         "posizione-dottorale-presso-la-cattedra-di-marketing-tecnologico-eth-zurich-zurich",
         "doctoral-position-at-the-chair-of-technology-marketing-eth-zurich-ch",
         "doktoratsstelle-am-lehrstuhl-fur-technologiemarketing-eth-zurich-zurich",
-        "poste-de-doctorat-a-la-chaire-de-marketing-technologique-eth-zurich-zurich"
+        "poste-de-doctorat-a-la-chaire-de-marketing-technologique-eth-zurich-zurich",
+        "posizione-di-dottorato-presso-la-cattedra-di-marketing-e-tecnologia-tum-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1255,7 +1293,8 @@
           "posizione-dottorale-presso-la-cattedra-di-marketing-tecnologico-eth-zurich-zurich",
           "doctoral-position-at-the-chair-of-technology-marketing-eth-zurich-ch",
           "doktoratsstelle-am-lehrstuhl-fur-technologiemarketing-eth-zurich-zurich",
-          "poste-de-doctorat-a-la-chaire-de-marketing-technologique-eth-zurich-zurich"
+          "poste-de-doctorat-a-la-chaire-de-marketing-technologique-eth-zurich-zurich",
+          "posizione-di-dottorato-presso-la-cattedra-di-marketing-e-tecnologia-tum-eth-zurich-zurich"
         ],
         "en": [
           "doctoral-position-at-the-chair-of-technology-marketing-eth-zurich-ch"
@@ -1317,7 +1356,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Y3HjOZ86G5P5ss3eqg",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:41.672Z",
+      "crawledAt": "2026-10-03T09:32:20.855Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1333,11 +1372,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laboratory-manager-eth-zurich-ch"
+        "laboratory-manager-eth-zurich-ch",
+        "responsabile-del-laboratorio-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-manager-eth-zurich-ch"
+          "laboratory-manager-eth-zurich-ch",
+          "responsabile-del-laboratorio-eth-zurich-basel"
         ],
         "de": [
           "laboratory-manager-eth-zurich-ch"
@@ -1393,7 +1434,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_N5adwDR63ei5mvEd2z",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:41.170Z",
+      "crawledAt": "2026-10-03T09:32:20.376Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1409,11 +1450,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-student-in-operational-decision-making-with-data-science-eth-zurich-ch"
+        "doctoral-student-in-operational-decision-making-with-data-science-eth-zurich-ch",
+        "dottorato-studente-nella-decisione-operativa-che-fa-con-la-scienza-dei-dati-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-student-in-operational-decision-making-with-data-science-eth-zurich-ch"
+          "doctoral-student-in-operational-decision-making-with-data-science-eth-zurich-ch",
+          "dottorato-studente-nella-decisione-operativa-che-fa-con-la-scienza-dei-dati-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-student-in-operational-decision-making-with-data-science-eth-zurich-ch"
@@ -1469,7 +1512,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Z7OndPgBOm7sbpwkNC",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:40.661Z",
+      "crawledAt": "2026-10-03T09:32:19.901Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1546,7 +1589,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_PItOe6oQJFLOGTo0rn",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:40.151Z",
+      "crawledAt": "2026-10-03T09:32:19.425Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1562,11 +1605,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-theoretical-modeling-of-nanocrystal-growth-eth-zurich-ch"
+        "doctoral-position-in-theoretical-modeling-of-nanocrystal-growth-eth-zurich-ch",
+        "posizione-dottorale-nella-modellazione-teorica-della-crescita-del-nanocristallo-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-theoretical-modeling-of-nanocrystal-growth-eth-zurich-ch"
+          "doctoral-position-in-theoretical-modeling-of-nanocrystal-growth-eth-zurich-ch",
+          "posizione-dottorale-nella-modellazione-teorica-della-crescita-del-nanocristallo-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-theoretical-modeling-of-nanocrystal-growth-eth-zurich-ch"
@@ -1623,7 +1668,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_zqMdn6OeN8wS7ZDRfz",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:39.648Z",
+      "crawledAt": "2026-10-03T09:32:18.951Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1639,11 +1684,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-experimental-characterization-of-semiconductor-nanocrystals-eth"
+        "doctoral-position-in-experimental-characterization-of-semiconductor-nanocrystals-eth",
+        "posizione-dottorale-nella-caratterizzazione-sperimentale-dei-nanocristalli-semiconduttori-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-experimental-characterization-of-semiconductor-nanocrystals-eth"
+          "doctoral-position-in-experimental-characterization-of-semiconductor-nanocrystals-eth",
+          "posizione-dottorale-nella-caratterizzazione-sperimentale-dei-nanocristalli-semiconduttori-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-experimental-characterization-of-semiconductor-nanocrystals-eth"
@@ -1700,7 +1747,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_GBb3OdHnnRIPeSabrX",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:39.144Z",
+      "crawledAt": "2026-10-03T09:32:18.480Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -1716,11 +1763,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-neurostimulation-for-stroke-rehabilitation-eth-zurich-ch"
+        "postdoctoral-researcher-neurostimulation-for-stroke-rehabilitation-eth-zurich-ch",
+        "ricercatore-post-dottorato-neurostimolazione-per-la-riabilitazione-di-stroke-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-neurostimulation-for-stroke-rehabilitation-eth-zurich-ch"
+          "postdoctoral-researcher-neurostimulation-for-stroke-rehabilitation-eth-zurich-ch",
+          "ricercatore-post-dottorato-neurostimolazione-per-la-riabilitazione-di-stroke-eth-zurich-singapore"
         ],
         "de": [
           "postdoctoral-researcher-neurostimulation-for-stroke-rehabilitation-eth-zurich-ch"
@@ -1776,7 +1825,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Ztb8yMz2qN1JyezuM9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:38.640Z",
+      "crawledAt": "2026-10-03T09:32:18.004Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1855,7 +1904,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0z7L6XHbhhGWTMZS1r",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:38.135Z",
+      "crawledAt": "2026-10-03T09:32:17.532Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1871,11 +1920,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-assistants-law-computer-science-or-related-fields-eth-zurich-ch"
+        "research-assistants-law-computer-science-or-related-fields-eth-zurich-ch",
+        "ricerca-assistants-law-computer-science-or-related-fields-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-assistants-law-computer-science-or-related-fields-eth-zurich-ch"
+          "research-assistants-law-computer-science-or-related-fields-eth-zurich-ch",
+          "ricerca-assistants-law-computer-science-or-related-fields-eth-zurich-zurich"
         ],
         "de": [
           "research-assistants-law-computer-science-or-related-fields-eth-zurich-ch"
@@ -1898,7 +1949,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-c3398b76d551",
@@ -1931,7 +1983,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_eB7YadA8OsfYmqD1u4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:37.629Z",
+      "crawledAt": "2026-10-03T09:32:17.064Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -1947,11 +1999,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-occl-eth-zurich-ch"
+        "postdoctoral-researcher-occl-eth-zurich-ch",
+        "ricercatore-post-dottorato-occl-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-occl-eth-zurich-ch"
+          "postdoctoral-researcher-occl-eth-zurich-ch",
+          "ricercatore-post-dottorato-occl-eth-zurich-singapore"
         ],
         "de": [
           "postdoctoral-researcher-occl-eth-zurich-ch"
@@ -2007,7 +2061,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4LviIHzRgsOBAvOoB0",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:37.120Z",
+      "crawledAt": "2026-10-03T09:32:16.584Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2023,11 +2077,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-topochemical-tuning-of-layered-oxides-eth-zurich-ch"
+        "doctoral-position-in-topochemical-tuning-of-layered-oxides-eth-zurich-ch",
+        "posizione-di-dottorato-in-topochimica-di-ossidi-strati-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-topochemical-tuning-of-layered-oxides-eth-zurich-ch"
+          "doctoral-position-in-topochemical-tuning-of-layered-oxides-eth-zurich-ch",
+          "posizione-di-dottorato-in-topochimica-di-ossidi-strati-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-topochemical-tuning-of-layered-oxides-eth-zurich-ch"
@@ -2084,7 +2140,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_kzU3Bx2lE8HT9YtVg4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:36.617Z",
+      "crawledAt": "2026-10-03T09:32:16.108Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2100,11 +2156,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-functional-oxide-thin-films-eth-zurich-ch"
+        "doctoral-position-in-functional-oxide-thin-films-eth-zurich-ch",
+        "posizione-medica-in-ossido-funzionale-film-sottili-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-functional-oxide-thin-films-eth-zurich-ch"
+          "doctoral-position-in-functional-oxide-thin-films-eth-zurich-ch",
+          "posizione-medica-in-ossido-funzionale-film-sottili-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-functional-oxide-thin-films-eth-zurich-ch"
@@ -2161,7 +2219,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_g0XuxC18u21Mu6iBB3",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:36.111Z",
+      "crawledAt": "2026-10-03T09:32:15.637Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2238,7 +2296,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_vupL5965uBrAoVnyi7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:35.606Z",
+      "crawledAt": "2026-10-03T09:32:15.157Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2255,12 +2313,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doctoral-position-customer-facing-ai-in-marketing-and-service-eth-zurich-ch",
-        "doctoral-position-in-customer-facing-ai-in-marketing-and-service-eth-zurich-ch"
+        "doctoral-position-in-customer-facing-ai-in-marketing-and-service-eth-zurich-ch",
+        "posizione-di-dottorato-customer-facing-ai-in-marketing-e-servizio-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doctoral-position-customer-facing-ai-in-marketing-and-service-eth-zurich-ch",
-          "doctoral-position-in-customer-facing-ai-in-marketing-and-service-eth-zurich-ch"
+          "doctoral-position-in-customer-facing-ai-in-marketing-and-service-eth-zurich-ch",
+          "posizione-di-dottorato-customer-facing-ai-in-marketing-e-servizio-eth-zurich-zurich"
         ],
         "fr": [
           "doctoral-position-customer-facing-ai-in-marketing-and-service-eth-zurich-ch"
@@ -2314,7 +2374,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_mZ7lFXZluUIyWaON1N",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:35.100Z",
+      "crawledAt": "2026-10-03T09:32:14.684Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2330,11 +2390,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-mechanics-of-frictional-particle-suspensions-eth-zurich-ch"
+        "doctoral-position-in-mechanics-of-frictional-particle-suspensions-eth-zurich-ch",
+        "posizione-dottorale-in-meccanica-delle-sospensioni-di-particelle-attrito-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-mechanics-of-frictional-particle-suspensions-eth-zurich-ch"
+          "doctoral-position-in-mechanics-of-frictional-particle-suspensions-eth-zurich-ch",
+          "posizione-dottorale-in-meccanica-delle-sospensioni-di-particelle-attrito-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-mechanics-of-frictional-particle-suspensions-eth-zurich-ch"
@@ -2391,7 +2453,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_RXOaQH0DOpiNTKwE75",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:34.598Z",
+      "crawledAt": "2026-10-03T09:32:14.212Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2407,11 +2469,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-debris-flow-monitoring-eth-zurich-ch"
+        "doctoral-position-in-debris-flow-monitoring-eth-zurich-ch",
+        "posizione-di-dottorato-in-debris-flow-monitoring-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-debris-flow-monitoring-eth-zurich-ch"
+          "doctoral-position-in-debris-flow-monitoring-eth-zurich-ch",
+          "posizione-di-dottorato-in-debris-flow-monitoring-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-debris-flow-monitoring-eth-zurich-ch"
@@ -2467,7 +2531,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_gtMYyk17Udl4FFFV6t",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:34.084Z",
+      "crawledAt": "2026-10-03T09:32:13.741Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2478,7 +2542,7 @@
       "sector": "Università / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_gtMYyk17Udl4FFFV6t",
       "requirements": [],
       "requirementsByLocale": {
@@ -2493,7 +2557,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-02T21:40:34.084Z",
+      "firstSeenAt": "2026-10-03T09:32:13.741Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2540,7 +2604,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_QpwSDjGTFrOfniEFrV",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:33.576Z",
+      "crawledAt": "2026-10-03T09:32:13.269Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2556,11 +2620,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch"
+        "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch",
+        "scientific-assistant-biomedical-data-science-spinal-cord-injury-ricerca-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch"
+          "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch",
+          "scientific-assistant-biomedical-data-science-spinal-cord-injury-ricerca-eth-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2611,7 +2677,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_d3lDgHgDI4ewDFQ1Fb",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:33.069Z",
+      "crawledAt": "2026-10-03T09:32:12.792Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2628,11 +2694,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "doctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics-eth"
+          "doctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics-eth",
+          "doctoral-position-in-soft-and-musculoskeletal-robotics-biohybrid-systems-and-robot"
         ],
         "it": [
           "doctoral-position-in-soft-and-musculoskeletal-robotics-biohybrid-systems-and-robot",
-          "doctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics-eth"
+          "doctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics-eth",
+          "posizioni-di-dottorato-in-robot-learning-and-soft-musculoskeletal-e-biohybrid-robotics-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-soft-and-musculoskeletal-robotics-biohybrid-systems-and-robot"
@@ -2640,7 +2708,8 @@
       },
       "previousSlugs": [
         "doctoral-position-in-soft-and-musculoskeletal-robotics-biohybrid-systems-and-robot",
-        "doctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics-eth"
+        "doctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics-eth",
+        "posizioni-di-dottorato-in-robot-learning-and-soft-musculoskeletal-e-biohybrid-robotics-eth-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-25T10:10:38.188Z",
       "salaryMin": 73500,
@@ -2689,7 +2758,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_VICQKrWgFLEoyEPTP7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:32.563Z",
+      "crawledAt": "2026-10-03T09:32:12.319Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2705,11 +2774,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-neutral-atom-quantum-computing-eth-zurich-ch"
+        "doctoral-position-in-neutral-atom-quantum-computing-eth-zurich-ch",
+        "posizione-dottorale-in-calcolo-quantico-neutro-atomo-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-neutral-atom-quantum-computing-eth-zurich-ch"
+          "doctoral-position-in-neutral-atom-quantum-computing-eth-zurich-ch",
+          "posizione-dottorale-in-calcolo-quantico-neutro-atomo-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-neutral-atom-quantum-computing-eth-zurich-ch"
@@ -2766,7 +2837,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0Dk3rwrfGt0kHlu7Rh",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:32.058Z",
+      "crawledAt": "2026-10-03T09:32:11.849Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2783,16 +2854,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "postdoctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics"
+          "postdoctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics",
+          "postdoctoral-position-in-soft-and-musculoskeletal-robotics-biohybrid-systems-and-robot"
         ],
         "it": [
           "postdoctoral-position-in-soft-and-musculoskeletal-robotics-biohybrid-systems-and-robot",
-          "postdoctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics"
+          "postdoctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics",
+          "posizioni-post-dottorali-in-robot-learning-e-soft-musculoskeletal-e-biohybrid-robotics-eth-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "postdoctoral-position-in-soft-and-musculoskeletal-robotics-biohybrid-systems-and-robot",
-        "postdoctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics"
+        "postdoctoral-positions-in-robot-learning-and-soft-musculoskeletal-and-biohybrid-robotics",
+        "posizioni-post-dottorali-in-robot-learning-e-soft-musculoskeletal-e-biohybrid-robotics-eth-zurich-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T10:19:02.040Z",
@@ -2842,7 +2916,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4pQ2q5Y9qBeuGF9aBv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:31.555Z",
+      "crawledAt": "2026-10-03T09:32:11.374Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2858,11 +2932,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
+        "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium",
+        "posizione-dottorale-nello-sviluppo-del-trasformatore-a-stato-solido-con-un-focus-sui-trasformatori-a-media-frequenza-ad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
+          "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium",
+          "posizione-dottorale-nello-sviluppo-del-trasformatore-a-stato-solido-con-un-focus-sui-trasformatori-a-media-frequenza-ad"
         ],
         "de": [
           "doctoral-position-in-solid-state-transformer-development-with-a-focus-on-high-power-medium"
@@ -2919,7 +2995,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xPEbTe5DV76cK9b0qO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:31.052Z",
+      "crawledAt": "2026-10-03T09:32:10.904Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2935,11 +3011,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-in-modelling-of-early-prokaryote-evolution-and-interaction-with-earth-geodynamics"
+        "postdoc-in-modelling-of-early-prokaryote-evolution-and-interaction-with-earth-geodynamics",
+        "postdoc-nella-modellazione-dell-evoluzione-precoce-del-prokaryote-e-dell-interazione-con-la-geodinamica-della-terra-eth"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-in-modelling-of-early-prokaryote-evolution-and-interaction-with-earth-geodynamics"
+          "postdoc-in-modelling-of-early-prokaryote-evolution-and-interaction-with-earth-geodynamics",
+          "postdoc-nella-modellazione-dell-evoluzione-precoce-del-prokaryote-e-dell-interazione-con-la-geodinamica-della-terra-eth"
         ],
         "de": [
           "postdoc-in-modelling-of-early-prokaryote-evolution-and-interaction-with-earth-geodynamics"
@@ -2996,7 +3074,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7qpUJghiPxjjg3LgH1",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:30.544Z",
+      "crawledAt": "2026-10-03T09:32:10.427Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3012,11 +3090,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-fellow-process-engineer-for-metal-assisted-chemical-etching-eth-zurich-ch"
+        "postdoctoral-fellow-process-engineer-for-metal-assisted-chemical-etching-eth-zurich-ch",
+        "postdoctoral-fellow-process-ingegnere-for-metal-assisted-chemical-etching-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-fellow-process-engineer-for-metal-assisted-chemical-etching-eth-zurich-ch"
+          "postdoctoral-fellow-process-engineer-for-metal-assisted-chemical-etching-eth-zurich-ch",
+          "postdoctoral-fellow-process-ingegnere-for-metal-assisted-chemical-etching-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-fellow-process-engineer-for-metal-assisted-chemical-etching-eth-zurich-ch"
@@ -3073,7 +3153,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_sKGJYv288uud0RYkmK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:30.036Z",
+      "crawledAt": "2026-10-03T09:32:09.953Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3089,11 +3169,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-fellowship-at-design-eth-zurich-ch"
+        "postdoctoral-fellowship-at-design-eth-zurich-ch",
+        "fellowship-post-dottorale-a-design-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-fellowship-at-design-eth-zurich-ch"
+          "postdoctoral-fellowship-at-design-eth-zurich-ch",
+          "fellowship-post-dottorale-a-design-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-fellowship-at-design-eth-zurich-ch"
@@ -3150,7 +3232,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_vsmlFlflTKwJazo8iw",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:29.523Z",
+      "crawledAt": "2026-10-03T09:32:09.480Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3166,11 +3248,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-research-data-management-facility-eth-zurich-ch"
+        "head-of-research-data-management-facility-eth-zurich-ch",
+        "responsabile-ricerca-data-management-facility-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-research-data-management-facility-eth-zurich-ch"
+          "head-of-research-data-management-facility-eth-zurich-ch",
+          "responsabile-ricerca-data-management-facility-eth-zurich-basel"
         ],
         "de": [
           "head-of-research-data-management-facility-eth-zurich-ch"
@@ -3227,7 +3311,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_smgcezMC3tK7ZbfeTI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:29.018Z",
+      "crawledAt": "2026-10-03T09:32:09.008Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3244,12 +3328,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-zurich-eth-zurich-ch",
-        "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-zurich-eth-zurich-zurich"
+        "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-zurich-eth-zurich-zurich",
+        "efz-m-f-d-2027-servizio-di-accoglienza-zurigo-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-zurich-eth-zurich-ch",
-          "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-zurich-eth-zurich-zurich"
+          "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-zurich-eth-zurich-zurich",
+          "efz-m-f-d-2027-servizio-di-accoglienza-zurigo-eth-zurich-zurich"
         ],
         "en": [
           "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-zurich-eth-zurich-ch"
@@ -3272,7 +3358,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-45f3e2825e0c",
@@ -3305,7 +3392,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_jQbCEZBJ4CDH0gx68u",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:28.512Z",
+      "crawledAt": "2026-10-03T09:32:08.536Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3321,11 +3408,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nanofabrication-r-d-engineer-eth-zurich-ch"
+        "nanofabrication-r-d-engineer-eth-zurich-ch",
+        "nanofabrication-r-d-ingegnere-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nanofabrication-r-d-engineer-eth-zurich-ch"
+          "nanofabrication-r-d-engineer-eth-zurich-ch",
+          "nanofabrication-r-d-ingegnere-eth-zurich-zurich"
         ],
         "de": [
           "nanofabrication-r-d-engineer-eth-zurich-ch"
@@ -3382,7 +3471,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_7gikVYjIkZZcbykZfL",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:27.993Z",
+      "crawledAt": "2026-10-03T09:32:08.055Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3413,7 +3502,8 @@
         "ufficiale-del-dei-m-f-d-eth-zurich-zurich",
         "dei-officer-m-w-d-eth-zurich-ch",
         "fonctionnaire-charge-de-l-application-de-la-loi-m-f-d-eth-zurich-zurich",
-        "studienkoordinator-in-m-w-d-eth-zurich-ch"
+        "studienkoordinator-in-m-w-d-eth-zurich-ch",
+        "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich-d0554b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3432,7 +3522,8 @@
           "ufficiale-del-dei-m-f-d-eth-zurich-zurich",
           "dei-officer-m-w-d-eth-zurich-ch",
           "fonctionnaire-charge-de-l-application-de-la-loi-m-f-d-eth-zurich-zurich",
-          "studienkoordinator-in-m-w-d-eth-zurich-ch"
+          "studienkoordinator-in-m-w-d-eth-zurich-ch",
+          "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich-d0554b"
         ],
         "en": [
           "architect-in-m-f-d-eth-zurich-zurich",
@@ -3496,7 +3587,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_PiKcNFhW84Jnzdrsoh",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:27.485Z",
+      "crawledAt": "2026-10-03T09:32:07.583Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3513,12 +3604,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technische-r-spezialist-in-fur-nanofabrikationsanlagen-und-infrastruktur-m-w-d-eth-zurich",
-        "technische-r-spezialist-in-per-nanofabrikationsanlagen-e-infrastruktur-m-w-d-eth-zurich"
+        "technische-r-spezialist-in-per-nanofabrikationsanlagen-e-infrastruktur-m-w-d-eth-zurich",
+        "specialista-tecnico-per-impianti-di-nanofabbricazione-e-infrastrutture-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technische-r-spezialist-in-fur-nanofabrikationsanlagen-und-infrastruktur-m-w-d-eth-zurich",
-          "technische-r-spezialist-in-per-nanofabrikationsanlagen-e-infrastruktur-m-w-d-eth-zurich"
+          "technische-r-spezialist-in-per-nanofabrikationsanlagen-e-infrastruktur-m-w-d-eth-zurich",
+          "specialista-tecnico-per-impianti-di-nanofabbricazione-e-infrastrutture-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "technische-r-spezialist-in-fur-nanofabrikationsanlagen-und-infrastruktur-m-w-d-eth-zurich"
@@ -3575,7 +3668,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_3WHgzaRecSAwEDOAic",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:40:26.974Z",
+      "crawledAt": "2026-10-03T09:32:07.108Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -3646,7 +3739,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_KrZkN4TsckVwArXTdY",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:26.465Z",
+      "crawledAt": "2026-10-03T09:32:06.631Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3662,11 +3755,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partnerships-and-research-funding-manager-eth-zurich-ch"
+        "partnerships-and-research-funding-manager-eth-zurich-ch",
+        "partnerships-and-ricerca-funding-manager-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "partnerships-and-research-funding-manager-eth-zurich-ch"
+          "partnerships-and-research-funding-manager-eth-zurich-ch",
+          "partnerships-and-ricerca-funding-manager-eth-zurich-zurich"
         ],
         "de": [
           "partnerships-and-research-funding-manager-eth-zurich-ch"
@@ -3723,7 +3818,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NWTmX7lwuI3QrOGWH9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:25.959Z",
+      "crawledAt": "2026-10-03T09:32:06.150Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3739,11 +3834,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
+        "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch",
+        "responsabile-dell-ingegneria-del-software-educativo-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
+          "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch",
+          "responsabile-dell-ingegneria-del-software-educativo-m-f-d-eth-zurich-zurich"
         ],
         "fr": [
           "gruppenleitung-educational-software-engineering-m-w-d-eth-zurich-ch"
@@ -3797,7 +3894,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_o1vNvmPQLykC2qonMM",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:25.446Z",
+      "crawledAt": "2026-10-03T09:32:05.671Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3814,12 +3911,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-basel-eth-zurich-ch",
-        "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-basel-eth-zurich-zurich"
+        "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-basel-eth-zurich-zurich",
+        "specialista-manutenzione-operativa-efz-m-f-d-2027-servizio-casa-basilea-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-basel-eth-zurich-ch",
-          "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-basel-eth-zurich-zurich"
+          "fachperson-betriebsunterhalt-cfc-m-w-d-2027-hausdienst-basel-eth-zurich-zurich",
+          "specialista-manutenzione-operativa-efz-m-f-d-2027-servizio-casa-basilea-eth-zurich-zurich"
         ],
         "en": [
           "fachperson-betriebsunterhalt-efz-m-w-d-2027-hausdienst-basel-eth-zurich-ch"
@@ -3842,7 +3941,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-197bdd343c98",
@@ -3875,7 +3975,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_SksxJNWCEnDiqK0smp",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:24.943Z",
+      "crawledAt": "2026-10-03T09:32:05.193Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3892,12 +3992,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projekteinkaufer-in-dienstleistungen-und-services-m-w-d-eth-zurich-ch",
-        "projekteinkaufer-in-dienstleistungen-e-services-m-w-d-eth-zurich"
+        "projekteinkaufer-in-dienstleistungen-e-services-m-w-d-eth-zurich",
+        "acquisti-di-progetti-nei-servizi-e-nei-servizi-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projekteinkaufer-in-dienstleistungen-und-services-m-w-d-eth-zurich-ch",
-          "projekteinkaufer-in-dienstleistungen-e-services-m-w-d-eth-zurich"
+          "projekteinkaufer-in-dienstleistungen-e-services-m-w-d-eth-zurich",
+          "acquisti-di-progetti-nei-servizi-e-nei-servizi-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "projekteinkaufer-in-dienstleistungen-und-services-m-w-d-eth-zurich-ch"
@@ -3954,7 +4056,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NQ0t1anUYFmmVwevuG",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:24.433Z",
+      "crawledAt": "2026-10-03T09:32:04.721Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3970,11 +4072,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-position-in-optical-systems-for-advanced-biofabrication-eth-zurich-ch"
+        "postdoctoral-position-in-optical-systems-for-advanced-biofabrication-eth-zurich-ch",
+        "posizione-post-dottorale-in-sistemi-ottici-per-la-biofabrificazione-avanzata-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-position-in-optical-systems-for-advanced-biofabrication-eth-zurich-ch"
+          "postdoctoral-position-in-optical-systems-for-advanced-biofabrication-eth-zurich-ch",
+          "posizione-post-dottorale-in-sistemi-ottici-per-la-biofabrificazione-avanzata-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-position-in-optical-systems-for-advanced-biofabrication-eth-zurich-ch"
@@ -4030,7 +4134,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_G5U0mMTovC6WeOdD9F",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:23.926Z",
+      "crawledAt": "2026-10-03T09:32:04.251Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4046,11 +4150,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-for-science-engineer-eth-zurich-ch"
+        "ai-for-science-engineer-eth-zurich-ch",
+        "ai-for-science-ingegnere-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-for-science-engineer-eth-zurich-ch"
+          "ai-for-science-engineer-eth-zurich-ch",
+          "ai-for-science-ingegnere-eth-zurich-zurich"
         ],
         "de": [
           "ai-for-science-engineer-eth-zurich-ch"
@@ -4107,7 +4213,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_HADDooajzVrtCF2fGd",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:23.422Z",
+      "crawledAt": "2026-10-03T09:32:03.776Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4123,11 +4229,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch"
+        "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch",
+        "fondazione-nomis-eth-flelowship-postdoctorale-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch"
+          "nomis-foundation-eth-postdoctoral-fellowship-eth-zurich-ch",
+          "fondazione-nomis-eth-flelowship-postdoctorale-eth-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -4178,7 +4286,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_fEsJT6dU0XVbGPtHhO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:22.911Z",
+      "crawledAt": "2026-10-03T09:32:03.299Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4194,11 +4302,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-student-in-neuromotor-interfaces-for-dexterous-robot-teleoperation-multimodal"
+        "doctoral-student-in-neuromotor-interfaces-for-dexterous-robot-teleoperation-multimodal",
+        "dottorato-in-interfacce-di-neuromotor-per-la-teleoperazione-di-robot-dexterous-visione-egocentrica-multimodale-emg-eth"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-student-in-neuromotor-interfaces-for-dexterous-robot-teleoperation-multimodal"
+          "doctoral-student-in-neuromotor-interfaces-for-dexterous-robot-teleoperation-multimodal",
+          "dottorato-in-interfacce-di-neuromotor-per-la-teleoperazione-di-robot-dexterous-visione-egocentrica-multimodale-emg-eth"
         ],
         "de": [
           "doctoral-student-in-neuromotor-interfaces-for-dexterous-robot-teleoperation-multimodal"
@@ -4255,7 +4365,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_h2mfMU9KNBhcXo5D5p",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:22.407Z",
+      "crawledAt": "2026-10-03T09:32:02.825Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4275,7 +4385,8 @@
         "field-and-laboratory-technician-in-m-f-d-eth-zurich-zurich",
         "feld-und-labortechniker-in-m-w-d-eth-zurich-ch",
         "technicien-de-terrain-et-de-laboratoire-en-m-f-d-eth-zurich-zurich",
-        "labortechniker-in-im-hochspannungslabor-m-w-d-eth-zurich-ch"
+        "labortechniker-in-im-hochspannungslabor-m-w-d-eth-zurich-ch",
+        "tecnico-di-laboratorio-nel-laboratorio-ad-alta-tensione-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4283,7 +4394,8 @@
           "field-and-laboratory-technician-in-m-f-d-eth-zurich-zurich",
           "feld-und-labortechniker-in-m-w-d-eth-zurich-ch",
           "technicien-de-terrain-et-de-laboratoire-en-m-f-d-eth-zurich-zurich",
-          "labortechniker-in-im-hochspannungslabor-m-w-d-eth-zurich-ch"
+          "labortechniker-in-im-hochspannungslabor-m-w-d-eth-zurich-ch",
+          "tecnico-di-laboratorio-nel-laboratorio-ad-alta-tensione-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "field-and-laboratory-technician-in-m-f-d-eth-zurich-zurich",
@@ -4311,7 +4423,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-62df21108e3f",
@@ -4344,7 +4457,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_eQatl0pgVb6ow4UwxK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:21.904Z",
+      "crawledAt": "2026-10-03T09:32:02.353Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4360,11 +4473,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-student-in-high-throughput-analysis-of-protein-protein-interactions-eth-zurich-ch"
+        "doctoral-student-in-high-throughput-analysis-of-protein-protein-interactions-eth-zurich-ch",
+        "dottorato-in-analisi-ad-alto-rendimento-delle-interazioni-proteico-proteina-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-student-in-high-throughput-analysis-of-protein-protein-interactions-eth-zurich-ch"
+          "doctoral-student-in-high-throughput-analysis-of-protein-protein-interactions-eth-zurich-ch",
+          "dottorato-in-analisi-ad-alto-rendimento-delle-interazioni-proteico-proteina-eth-zurich-basel"
         ],
         "de": [
           "doctoral-student-in-high-throughput-analysis-of-protein-protein-interactions-eth-zurich-ch"
@@ -4421,7 +4536,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_9ztFwJ2Wmodh4TFajr",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:21.399Z",
+      "crawledAt": "2026-10-03T09:32:01.878Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4437,11 +4552,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-position-in-soccer-analytics-eth-zurich-ch"
+        "postdoctoral-position-in-soccer-analytics-eth-zurich-ch",
+        "posizione-post-dottorale-in-soccer-analytics-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-position-in-soccer-analytics-eth-zurich-ch"
+          "postdoctoral-position-in-soccer-analytics-eth-zurich-ch",
+          "posizione-post-dottorale-in-soccer-analytics-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-position-in-soccer-analytics-eth-zurich-ch"
@@ -4464,7 +4581,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-870344720420",
@@ -4497,7 +4615,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_NwixDnw016KLZG2MGE",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:20.895Z",
+      "crawledAt": "2026-10-03T09:32:01.407Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4514,12 +4632,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich-ch",
-        "responsabile-di-progetto-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich"
+        "responsabile-di-progetto-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich",
+        "project-manager-ih-is-building-technology-infrastructure-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich-ch",
-          "responsabile-di-progetto-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich"
+          "responsabile-di-progetto-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich",
+          "project-manager-ih-is-building-technology-infrastructure-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "projektleiter-in-ih-is-gebaudetechnik-infrastruktur-m-w-d-eth-zurich-ch"
@@ -4576,7 +4696,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_yMji88yvHcGEduZOS5",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:20.391Z",
+      "crawledAt": "2026-10-03T09:32:00.935Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4593,12 +4713,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-technisches-gebaudemanagement-tgm-m-w-d-mit-verantwortung-und-herz-fur-unsere",
-        "responsabile-technisches-gebaudemanagement-tgm-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich"
+        "responsabile-technisches-gebaudemanagement-tgm-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich",
+        "technical-building-management-tgm-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-technisches-gebaudemanagement-tgm-m-w-d-mit-verantwortung-und-herz-fur-unsere",
-          "responsabile-technisches-gebaudemanagement-tgm-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich"
+          "responsabile-technisches-gebaudemanagement-tgm-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich",
+          "technical-building-management-tgm-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich"
         ],
         "en": [
           "leiter-in-technisches-gebaudemanagement-tgm-m-w-d-mit-verantwortung-und-herz-fur-unsere"
@@ -4655,7 +4777,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_5jfFbj5xGmFSyYoPWI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:19.882Z",
+      "crawledAt": "2026-10-03T09:32:00.460Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -4671,11 +4793,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-researcher-pdtx-eth-zurich-ch"
+        "phd-researcher-pdtx-eth-zurich-ch",
+        "ricercatore-di-dottorato-pdtx-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-researcher-pdtx-eth-zurich-ch"
+          "phd-researcher-pdtx-eth-zurich-ch",
+          "ricercatore-di-dottorato-pdtx-eth-zurich-singapore"
         ],
         "de": [
           "phd-researcher-pdtx-eth-zurich-ch"
@@ -4731,7 +4855,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_3tuqaAfMtOV1CjCMWy",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:19.371Z",
+      "crawledAt": "2026-10-03T09:31:59.971Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4747,11 +4871,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
+        "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch",
+        "posizione-dottorale-in-basso-fissaggio-cardiac-risonanza-magnetica-imaging-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
+          "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch",
+          "posizione-dottorale-in-basso-fissaggio-cardiac-risonanza-magnetica-imaging-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
@@ -4807,7 +4933,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_esjWnLgV1uifiJ1JQt",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:18.871Z",
+      "crawledAt": "2026-10-03T09:31:59.498Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4825,11 +4951,13 @@
       "previousSlugs": [
         "doctoral-student-on-impacts-of-climate-and-hydrological-extremes-on-water-quality-eth",
         "doctoral-student-on-impacts-of-climate-and-hydrological-extremes-on-water-qualitat-eth-zurich-zurich",
-        "doctoral-student-on-impacts-of-climate-and-hydrological-extremes-on-water-qualite-eth-zurich-zurich"
+        "doctoral-student-on-impacts-of-climate-and-hydrological-extremes-on-water-qualite-eth-zurich-zurich",
+        "dottorato-studente-sugli-impatti-del-clima-e-degli-estremi-idrologici-sulla-qualita-dell-acqua-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-student-on-impacts-of-climate-and-hydrological-extremes-on-water-quality-eth"
+          "doctoral-student-on-impacts-of-climate-and-hydrological-extremes-on-water-quality-eth",
+          "dottorato-studente-sugli-impatti-del-clima-e-degli-estremi-idrologici-sulla-qualita-dell-acqua-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-student-on-impacts-of-climate-and-hydrological-extremes-on-water-quality-eth",
@@ -4887,7 +5015,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xNU4jaRuX9tlmqmJJB",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:18.367Z",
+      "crawledAt": "2026-10-03T09:31:59.020Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -4903,11 +5031,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hpc-systems-software-engineer-openchami-for-lugano-or-zurich-eth-zurich-ch"
+        "hpc-systems-software-engineer-openchami-for-lugano-or-zurich-eth-zurich-ch",
+        "hpc-systems-software-ingegnere-openchami-for-lugano-or-zurich-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hpc-systems-software-engineer-openchami-for-lugano-or-zurich-eth-zurich-ch"
+          "hpc-systems-software-engineer-openchami-for-lugano-or-zurich-eth-zurich-ch",
+          "hpc-systems-software-ingegnere-openchami-for-lugano-or-zurich-eth-zurich-lugano"
         ],
         "de": [
           "hpc-systems-software-engineer-openchami-for-lugano-or-zurich-eth-zurich-ch"
@@ -4930,7 +5060,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-f953d7c0156d",
@@ -4963,7 +5094,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_INHVkFm7btcpysqYwX",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:17.852Z",
+      "crawledAt": "2026-10-03T09:31:58.528Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4979,11 +5110,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-of-education-officer-eth-zurich-ch"
+        "quality-of-education-officer-eth-zurich-ch",
+        "qualita-dell-istruzione-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-of-education-officer-eth-zurich-ch"
+          "quality-of-education-officer-eth-zurich-ch",
+          "qualita-dell-istruzione-eth-zurich-zurich"
         ],
         "de": [
           "quality-of-education-officer-eth-zurich-ch"
@@ -5040,7 +5173,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_DPag8hXtGdgomqwMdO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:17.351Z",
+      "crawledAt": "2026-10-03T09:31:58.057Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5056,11 +5189,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch"
+        "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch",
+        "posizione-dottorale-in-meccanica-di-contatto-di-interfacce-architetto-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch"
+          "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch",
+          "posizione-dottorale-in-meccanica-di-contatto-di-interfacce-architetto-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-contact-mechanics-of-architected-interfaces-eth-zurich-ch"
@@ -5117,7 +5252,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_qlftX17F8qb3wQxLyd",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:16.850Z",
+      "crawledAt": "2026-10-03T09:31:57.590Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5133,11 +5268,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mediamatiker-in-efz-m-w-d-2027-eth-zurich-ch"
+        "mediamatiker-in-efz-m-w-d-2027-eth-zurich-ch",
+        "mediatica-efz-m-f-d-2027-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mediamatiker-in-efz-m-w-d-2027-eth-zurich-ch"
+          "mediamatiker-in-efz-m-w-d-2027-eth-zurich-ch",
+          "mediatica-efz-m-f-d-2027-eth-zurich-zurich"
         ],
         "en": [
           "mediamatiker-in-efz-m-w-d-2027-eth-zurich-ch"
@@ -5194,7 +5331,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_pGJRE5rDAavyV6eLYI",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:16.350Z",
+      "crawledAt": "2026-10-03T09:31:57.119Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5210,11 +5347,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
+        "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch",
+        "posizione-dottorale-in-rada-ricostruzione-di-immagini-di-istologia-virtuale-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
+          "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch",
+          "posizione-dottorale-in-rada-ricostruzione-di-immagini-di-istologia-virtuale-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
@@ -5271,7 +5410,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_KmP55NqLRcMmKXZuna",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:15.845Z",
+      "crawledAt": "2026-10-03T09:31:56.647Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5287,11 +5426,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
+        "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch",
+        "ricercatore-post-dottorato-negli-interni-ed-evoluzione-dei-sub-neptune-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
+          "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch",
+          "ricercatore-post-dottorato-negli-interni-ed-evoluzione-dei-sub-neptune-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
@@ -5348,7 +5489,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_1RQKq1dzfZNS9kPv0E",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:15.345Z",
+      "crawledAt": "2026-10-03T09:31:56.173Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5364,11 +5505,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
+        "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch",
+        "posizione-post-dottorale-in-sistemi-e-sicurezza-hardware-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
+          "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch",
+          "posizione-post-dottorale-in-sistemi-e-sicurezza-hardware-eth-zurich-zurich"
         ],
         "de": [
           "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
@@ -5424,7 +5567,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_MHYnNeCYPII0ygi4H9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:14.838Z",
+      "crawledAt": "2026-10-03T09:31:55.704Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5440,11 +5583,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch"
+        "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch",
+        "bioinformaticista-omics-monocellulari-in-biologia-muscolare-vascolare-e-scheletale-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch"
+          "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch",
+          "bioinformaticista-omics-monocellulari-in-biologia-muscolare-vascolare-e-scheletale-eth-zurich-zurich"
         ],
         "fr": [
           "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch"
@@ -5498,7 +5643,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_HDEseYpQ6hGpNOxW4w",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:14.336Z",
+      "crawledAt": "2026-10-03T09:31:55.231Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5514,11 +5659,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-data-architect-m-w-d-eth-zurich-ch"
+        "senior-data-architect-m-w-d-eth-zurich-ch",
+        "senior-data-architetto-m-w-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-architect-m-w-d-eth-zurich-ch"
+          "senior-data-architect-m-w-d-eth-zurich-ch",
+          "senior-data-architetto-m-w-d-eth-zurich-zurich"
         ],
         "fr": [
           "senior-data-architect-m-w-d-eth-zurich-ch"
@@ -5572,7 +5719,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_osPAfgMWNM4uQUVsCP",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:13.831Z",
+      "crawledAt": "2026-10-03T09:31:54.756Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -5588,11 +5735,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "researcher-ml-focus-in-soft-robotics-systems-eth-zurich-ch"
+        "researcher-ml-focus-in-soft-robotics-systems-eth-zurich-ch",
+        "ricercatore-ml-focus-in-sistemi-di-robotica-morbida-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "researcher-ml-focus-in-soft-robotics-systems-eth-zurich-ch"
+          "researcher-ml-focus-in-soft-robotics-systems-eth-zurich-ch",
+          "ricercatore-ml-focus-in-sistemi-di-robotica-morbida-eth-zurich-singapore"
         ],
         "fr": [
           "researcher-ml-focus-in-soft-robotics-systems-eth-zurich-ch"
@@ -5645,7 +5794,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_UtuGzrXTpseTskgjY9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:13.299Z",
+      "crawledAt": "2026-10-03T09:31:54.234Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5661,11 +5810,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
+        "phd-position-in-atmospheric-chemistry-eth-zurich-ch",
+        "phd-posizione-nella-chimica-atmosferica-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
+          "phd-position-in-atmospheric-chemistry-eth-zurich-ch",
+          "phd-posizione-nella-chimica-atmosferica-eth-zurich-zurich"
         ],
         "de": [
           "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
@@ -5688,7 +5839,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-d1863407aa00",
@@ -5721,7 +5873,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_5YtaoIaGG4P6JOL3F9",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:12.798Z",
+      "crawledAt": "2026-10-03T09:31:53.763Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5737,11 +5889,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "student-research-assistants-in-computer-science-law-eth-zurich-ch"
+        "student-research-assistants-in-computer-science-law-eth-zurich-ch",
+        "student-ricerca-assistants-in-computer-science-law-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "student-research-assistants-in-computer-science-law-eth-zurich-ch"
+          "student-research-assistants-in-computer-science-law-eth-zurich-ch",
+          "student-ricerca-assistants-in-computer-science-law-eth-zurich-zurich"
         ],
         "de": [
           "student-research-assistants-in-computer-science-law-eth-zurich-ch"
@@ -5798,7 +5952,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_G2Mju9n4W1cryoWq3i",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:12.288Z",
+      "crawledAt": "2026-10-03T09:31:53.288Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5814,11 +5968,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "student-assistant-for-strategic-trends-2027-eth-zurich-ch"
+        "student-assistant-for-strategic-trends-2027-eth-zurich-ch",
+        "assistente-studentesco-per-tendenze-strategiche-2027-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "student-assistant-for-strategic-trends-2027-eth-zurich-ch"
+          "student-assistant-for-strategic-trends-2027-eth-zurich-ch",
+          "assistente-studentesco-per-tendenze-strategiche-2027-eth-zurich-zurich"
         ],
         "fr": [
           "student-assistant-for-strategic-trends-2027-eth-zurich-ch"
@@ -5838,7 +5994,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-6a8f429b1fc9",
@@ -5871,7 +6028,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_DgfeAMtNrOfjGsSuCO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:11.786Z",
+      "crawledAt": "2026-10-03T09:31:52.817Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5887,11 +6044,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "office-manager-at-the-chair-of-global-security-eth-zurich-ch"
+        "office-manager-at-the-chair-of-global-security-eth-zurich-ch",
+        "office-manager-presso-la-cattedra-di-sicurezza-globale-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-manager-at-the-chair-of-global-security-eth-zurich-ch"
+          "office-manager-at-the-chair-of-global-security-eth-zurich-ch",
+          "office-manager-presso-la-cattedra-di-sicurezza-globale-eth-zurich-zurich"
         ],
         "de": [
           "office-manager-at-the-chair-of-global-security-eth-zurich-ch"
@@ -5948,7 +6107,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_MgR4A9fbpfObsSbWtR",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:11.284Z",
+      "crawledAt": "2026-10-03T09:31:52.338Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5965,12 +6124,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kauffrau-mann-efz-m-w-d-2027-branche-d-a-eth-zurich-ch",
-        "kauffrau-mann-cfc-m-w-d-2027-branche-d-a-eth-zurich"
+        "kauffrau-mann-cfc-m-w-d-2027-branche-d-a-eth-zurich",
+        "efz-m-f-d-2027-industry-d-a-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-mann-efz-m-w-d-2027-branche-d-a-eth-zurich-ch",
-          "kauffrau-mann-cfc-m-w-d-2027-branche-d-a-eth-zurich"
+          "kauffrau-mann-cfc-m-w-d-2027-branche-d-a-eth-zurich",
+          "efz-m-f-d-2027-industry-d-a-eth-zurich-zurich"
         ],
         "en": [
           "kauffrau-mann-efz-m-w-d-2027-branche-d-a-eth-zurich-ch"
@@ -6027,7 +6188,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4KN1AfZg1psz71JQOm",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:10.781Z",
+      "crawledAt": "2026-10-03T09:31:51.856Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6043,11 +6204,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfsassistent-in-rechtswissenschaft-mit-interesse-im-ip-it-recht-m-w-d-eth-zurich-ch"
+        "hilfsassistent-in-rechtswissenschaft-mit-interesse-im-ip-it-recht-m-w-d-eth-zurich-ch",
+        "diritto-aggiunto-con-interesse-ip-it-law-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfsassistent-in-rechtswissenschaft-mit-interesse-im-ip-it-recht-m-w-d-eth-zurich-ch"
+          "hilfsassistent-in-rechtswissenschaft-mit-interesse-im-ip-it-recht-m-w-d-eth-zurich-ch",
+          "diritto-aggiunto-con-interesse-ip-it-law-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "hilfsassistent-in-rechtswissenschaft-mit-interesse-im-ip-it-recht-m-w-d-eth-zurich-ch"
@@ -6070,7 +6233,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-07f914a1a33a",
@@ -6103,7 +6267,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Ih97fhUFUHgau6p6vS",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:10.268Z",
+      "crawledAt": "2026-10-03T09:31:51.384Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6119,11 +6283,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-mid-infrared-integrated-photonics-and-optical-sensing-eth-zurich-ch"
+        "doctoral-position-in-mid-infrared-integrated-photonics-and-optical-sensing-eth-zurich-ch",
+        "posizione-dottorale-in-fotonici-integrati-a-media-infrarosso-e-sensibilita-ottica-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-mid-infrared-integrated-photonics-and-optical-sensing-eth-zurich-ch"
+          "doctoral-position-in-mid-infrared-integrated-photonics-and-optical-sensing-eth-zurich-ch",
+          "posizione-dottorale-in-fotonici-integrati-a-media-infrarosso-e-sensibilita-ottica-eth-zurich-zurich"
         ],
         "fr": [
           "doctoral-position-in-mid-infrared-integrated-photonics-and-optical-sensing-eth-zurich-ch"
@@ -6177,7 +6343,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_r4sk2rJavDF3G25UXK",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:09.765Z",
+      "crawledAt": "2026-10-03T09:31:50.912Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6193,11 +6359,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "informationsspezialist-in-im-metadatenmanagement-m-w-d-eth-zurich-ch"
+        "informationsspezialist-in-im-metadatenmanagement-m-w-d-eth-zurich-ch",
+        "specialista-dell-informazione-nella-gestione-dei-metadati-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informationsspezialist-in-im-metadatenmanagement-m-w-d-eth-zurich-ch"
+          "informationsspezialist-in-im-metadatenmanagement-m-w-d-eth-zurich-ch",
+          "specialista-dell-informazione-nella-gestione-dei-metadati-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "informationsspezialist-in-im-metadatenmanagement-m-w-d-eth-zurich-ch"
@@ -6220,7 +6388,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-f8c517e05f44",
@@ -6253,7 +6422,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_IXbn4edNVp3qx7IFu7",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:09.260Z",
+      "crawledAt": "2026-10-03T09:31:50.442Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6269,11 +6438,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "informationsspezialist-in-im-bestandsmanagement-m-w-d-eth-zurich-ch"
+        "informationsspezialist-in-im-bestandsmanagement-m-w-d-eth-zurich-ch",
+        "specialista-dell-informazione-nella-gestione-dell-inventario-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informationsspezialist-in-im-bestandsmanagement-m-w-d-eth-zurich-ch"
+          "informationsspezialist-in-im-bestandsmanagement-m-w-d-eth-zurich-ch",
+          "specialista-dell-informazione-nella-gestione-dell-inventario-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "informationsspezialist-in-im-bestandsmanagement-m-w-d-eth-zurich-ch"
@@ -6296,7 +6467,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-f55734e124fd",
@@ -6329,7 +6501,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_pAPaF3G1Cho8jqgZse",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:08.757Z",
+      "crawledAt": "2026-10-03T09:31:49.967Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6345,11 +6517,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
+        "doctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch",
+        "posizione-dottorale-in-ricerca-avanzata-di-bioelettronica-e-conversione-elettrica-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
+          "doctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch",
+          "posizione-dottorale-in-ricerca-avanzata-di-bioelettronica-e-conversione-elettrica-eth-zurich-basel"
         ],
         "de": [
           "doctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
@@ -6406,7 +6580,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_lGyNbZrvjzzgjT7U10",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:08.255Z",
+      "crawledAt": "2026-10-03T09:31:49.494Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6422,11 +6596,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich"
+        "postdoctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich",
+        "posizione-post-dottorale-in-ricerca-avanzata-di-bioelettronica-e-conversione-elettrica-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich"
+          "postdoctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich",
+          "posizione-post-dottorale-in-ricerca-avanzata-di-bioelettronica-e-conversione-elettrica-eth-zurich-basel"
         ],
         "de": [
           "postdoctoral-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich"
@@ -6483,7 +6659,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_UvWKfPOUvmyiRH0Udq",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:07.753Z",
+      "crawledAt": "2026-10-03T09:31:49.021Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6499,11 +6675,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch"
+        "postdoctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch",
+        "posizione-post-dottorale-per-biologia-sintetica-terapie-ispirate-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch"
+          "postdoctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch",
+          "posizione-post-dottorale-per-biologia-sintetica-terapie-ispirate-eth-zurich-basel"
         ],
         "de": [
           "postdoctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch"
@@ -6560,7 +6738,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_EdNelUTz9tatugJayG",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:07.250Z",
+      "crawledAt": "2026-10-03T09:31:48.542Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6576,11 +6754,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch"
+        "doctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch",
+        "posizione-medica-per-biologia-sintetica-terapie-ispirate-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch"
+          "doctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch",
+          "posizione-medica-per-biologia-sintetica-terapie-ispirate-eth-zurich-basel"
         ],
         "de": [
           "doctoral-position-for-synthetic-biology-inspired-therapies-eth-zurich-ch"
@@ -6637,7 +6817,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4IJ0ZlMFzpCQZI6wck",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:06.747Z",
+      "crawledAt": "2026-10-03T09:31:48.067Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6654,12 +6834,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hausmeister-in-m-w-d-mit-verantwortung-und-herz-fur-unsere-gebaude-eth-zurich-ch",
-        "hausmeister-in-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich"
+        "hausmeister-in-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich",
+        "carriera-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich-838611"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hausmeister-in-m-w-d-mit-verantwortung-und-herz-fur-unsere-gebaude-eth-zurich-ch",
-          "hausmeister-in-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich"
+          "hausmeister-in-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich",
+          "carriera-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich-838611"
         ],
         "en": [
           "hausmeister-in-m-w-d-mit-verantwortung-und-herz-fur-unsere-gebaude-eth-zurich-ch"
@@ -6716,7 +6898,7 @@
       "url": "https://jobs.ethz.ch/job/view/12140",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:06.243Z",
+      "crawledAt": "2026-10-03T09:31:47.593Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6732,11 +6914,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch"
+        "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch",
+        "posizioni-di-dottorato-centro-eth-max-planck-per-sistemi-di-apprendimento-cls-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch"
+          "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch",
+          "posizioni-di-dottorato-centro-eth-max-planck-per-sistemi-di-apprendimento-cls-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:30.730Z",
@@ -6786,7 +6970,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_URhJoxBUBdeERNqLjC",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:05.746Z",
+      "crawledAt": "2026-10-03T09:31:47.126Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6802,11 +6986,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-experimental-fracture-mechanics-of-soft-materials-eth-zurich-ch"
+        "postdoctoral-researcher-experimental-fracture-mechanics-of-soft-materials-eth-zurich-ch",
+        "ricercatore-post-dottorato-meccanica-di-frattura-sperimentale-dei-materiali-morbidi-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-experimental-fracture-mechanics-of-soft-materials-eth-zurich-ch"
+          "postdoctoral-researcher-experimental-fracture-mechanics-of-soft-materials-eth-zurich-ch",
+          "ricercatore-post-dottorato-meccanica-di-frattura-sperimentale-dei-materiali-morbidi-eth-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -6857,7 +7043,7 @@
       "url": "https://jobs.ethz.ch/job/view/12137",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:05.241Z",
+      "crawledAt": "2026-10-03T09:31:46.648Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6920,7 +7106,7 @@
       "url": "https://jobs.ethz.ch/job/view/12136",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:04.740Z",
+      "crawledAt": "2026-10-03T09:31:46.178Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6936,11 +7122,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch"
+        "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch",
+        "eth-ai-centro-fleoship-dottorale-2027-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch"
+          "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch",
+          "eth-ai-centro-fleoship-dottorale-2027-eth-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:29.271Z",
@@ -6990,7 +7178,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_hfJQki76KJw8Dwn0Pv",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:04.231Z",
+      "crawledAt": "2026-10-03T09:31:45.710Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7006,11 +7194,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-student-in-design-and-analysis-of-human-ai-systems-eth-zurich-ch"
+        "doctoral-student-in-design-and-analysis-of-human-ai-systems-eth-zurich-ch",
+        "dottorato-in-progettazione-e-analisi-dei-sistemi-umani-ai-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-student-in-design-and-analysis-of-human-ai-systems-eth-zurich-ch"
+          "doctoral-student-in-design-and-analysis-of-human-ai-systems-eth-zurich-ch",
+          "dottorato-in-progettazione-e-analisi-dei-sistemi-umani-ai-eth-zurich-zurich"
         ],
         "de": [
           "doctoral-student-in-design-and-analysis-of-human-ai-systems-eth-zurich-ch"
@@ -7066,7 +7256,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_o1CzcEIOPQaDfAcBH4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:03.727Z",
+      "crawledAt": "2026-10-03T09:31:45.238Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7082,11 +7272,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "flight-software-systems-engineer-for-space-missions-eth-zurich-ch"
+        "flight-software-systems-engineer-for-space-missions-eth-zurich-ch",
+        "flight-software-systems-ingegnere-for-space-missions-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "flight-software-systems-engineer-for-space-missions-eth-zurich-ch"
+          "flight-software-systems-engineer-for-space-missions-eth-zurich-ch",
+          "flight-software-systems-ingegnere-for-space-missions-eth-zurich-zurich"
         ],
         "de": [
           "flight-software-systems-engineer-for-space-missions-eth-zurich-ch"
@@ -7143,7 +7335,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_U3rgbGM1qqBpQMYVNt",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:03.218Z",
+      "crawledAt": "2026-10-03T09:31:44.761Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7159,11 +7351,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "linux-systemingenieur-in-m-w-d-eth-zurich-ch"
+        "linux-systemingenieur-in-m-w-d-eth-zurich-ch",
+        "linux-system-engineer-m-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "linux-systemingenieur-in-m-w-d-eth-zurich-ch"
+          "linux-systemingenieur-in-m-w-d-eth-zurich-ch",
+          "linux-system-engineer-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "linux-systemingenieur-in-m-w-d-eth-zurich-ch"
@@ -7220,7 +7414,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_4lVKr4Bagc2babFPJx",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:02.715Z",
+      "crawledAt": "2026-10-03T09:31:44.289Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7236,11 +7430,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-manager-m-w-d-eth-zurich-ch"
+        "research-manager-m-w-d-eth-zurich-ch",
+        "ricerca-manager-m-w-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-manager-m-w-d-eth-zurich-ch"
+          "research-manager-m-w-d-eth-zurich-ch",
+          "ricerca-manager-m-w-d-eth-zurich-zurich"
         ],
         "fr": [
           "research-manager-m-w-d-eth-zurich-ch"
@@ -7294,7 +7490,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_hzimCyltZRK3k6jfqs",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:02.211Z",
+      "crawledAt": "2026-10-03T09:31:43.819Z",
       "addressLocality": "Singapore",
       "addressCountry": "CH",
       "country": "CH",
@@ -7310,11 +7506,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-researcher-eth-zurich-ch"
+        "phd-researcher-eth-zurich-ch",
+        "ricercatore-di-dottorato-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-researcher-eth-zurich-ch"
+          "phd-researcher-eth-zurich-ch",
+          "ricercatore-di-dottorato-eth-zurich-singapore"
         ],
         "de": [
           "phd-researcher-eth-zurich-ch"
@@ -7344,9 +7542,9 @@
       "slug": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
       "slugByLocale": {
         "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "en": "fire-protection-specialist-m-f-d-eth-zurich-zurich",
+        "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
+        "fr": "brandschutzfachfrau-mann-m-w-d-eth-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7370,7 +7568,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_Nggz9A2uM2fKJhfbF6",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:40:01.675Z",
+      "crawledAt": "2026-10-03T09:31:43.314Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7386,17 +7584,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
+        "fire-protection-specialist-m-f-d-eth-zurich-zurich",
+        "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
         "en": [
-          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
+          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
+          "fire-protection-specialist-m-f-d-eth-zurich-zurich"
         ],
         "fr": [
-          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
+          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
+          "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -7447,7 +7649,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_L9EB3dSHxoSQSAypSG",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:01.166Z",
+      "crawledAt": "2026-10-03T09:31:42.839Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7463,11 +7665,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doctoral-position-in-cognitive-and-moral-heuristics-in-lay-people-s-reactions-to-climate"
+        "doctoral-position-in-cognitive-and-moral-heuristics-in-lay-people-s-reactions-to-climate",
+        "posizione-dottorale-in-euristica-cognitiva-e-morale-nelle-reazioni-dei-laici-all-adattamento-dei-cambiamenti-climatici"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doctoral-position-in-cognitive-and-moral-heuristics-in-lay-people-s-reactions-to-climate"
+          "doctoral-position-in-cognitive-and-moral-heuristics-in-lay-people-s-reactions-to-climate",
+          "posizione-dottorale-in-euristica-cognitiva-e-morale-nelle-reazioni-dei-laici-all-adattamento-dei-cambiamenti-climatici"
         ],
         "de": [
           "doctoral-position-in-cognitive-and-moral-heuristics-in-lay-people-s-reactions-to-climate"
@@ -7523,7 +7727,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_rgVE2FhLWXhKVwySd6",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:00.662Z",
+      "crawledAt": "2026-10-03T09:31:42.366Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7539,11 +7743,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-position-in-fungal-cell-biology-or-biochemistry-structural-biology-of"
+        "postdoctoral-position-in-fungal-cell-biology-or-biochemistry-structural-biology-of",
+        "posizione-post-dottorale-in-biologia-delle-cellule-fungine-o-biochimica-biologia-strutturale-delle-transposizioni-di"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-position-in-fungal-cell-biology-or-biochemistry-structural-biology-of"
+          "postdoctoral-position-in-fungal-cell-biology-or-biochemistry-structural-biology-of",
+          "posizione-post-dottorale-in-biologia-delle-cellule-fungine-o-biochimica-biologia-strutturale-delle-transposizioni-di"
         ],
         "de": [
           "postdoctoral-position-in-fungal-cell-biology-or-biochemistry-structural-biology-of"
@@ -7600,7 +7806,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_RU68F1vlzLJgmsWpse",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:40:00.158Z",
+      "crawledAt": "2026-10-03T09:31:41.891Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7663,7 +7869,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_V57XZPq33p6eycgvgo",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:39:59.656Z",
+      "crawledAt": "2026-10-03T09:31:41.418Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7680,12 +7886,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "student-assistant-future-data-infrastureture-of-smart-grids-eth-zurich-ch",
-        "student-assistant-future-data-infrastructure-of-smart-grids-eth-zurich-ch"
+        "student-assistant-future-data-infrastructure-of-smart-grids-eth-zurich-ch",
+        "assistente-studentesco-infrasture-future-dei-dati-di-smart-grids-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "student-assistant-future-data-infrastureture-of-smart-grids-eth-zurich-ch",
-          "student-assistant-future-data-infrastructure-of-smart-grids-eth-zurich-ch"
+          "student-assistant-future-data-infrastructure-of-smart-grids-eth-zurich-ch",
+          "assistente-studentesco-infrasture-future-dei-dati-di-smart-grids-eth-zurich-zurich"
         ],
         "fr": [
           "student-assistant-future-data-infrastureture-of-smart-grids-eth-zurich-ch"
@@ -7705,7 +7913,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-cffd7b07de2d",
@@ -7738,7 +7947,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_qMIkB186fp0chIn47h",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:39:59.154Z",
+      "crawledAt": "2026-10-03T09:31:40.948Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7754,11 +7963,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finance-controlling-and-office-support-eth-zurich-ch"
+        "finance-controlling-and-office-support-eth-zurich-ch",
+        "finanza-controlling-and-office-support-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-controlling-and-office-support-eth-zurich-ch"
+          "finance-controlling-and-office-support-eth-zurich-ch",
+          "finanza-controlling-and-office-support-eth-zurich-zurich"
         ],
         "de": [
           "finance-controlling-and-office-support-eth-zurich-ch"
@@ -7778,7 +7989,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-67981d82952f",
@@ -7811,7 +8023,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_QTalV0i5PTKnk4q8kN",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:39:58.648Z",
+      "crawledAt": "2026-10-03T09:31:40.476Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7826,14 +8038,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_QTalV0i5PTKnk4q8kN",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "doctoral-researcher-position-in-sustainable-supply-chain-management-eth-zurich-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "doctoral-researcher-position-in-sustainable-supply-chain-management-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:36:10.562Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7848,7 +8052,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-researcher-position-in-sustainable-supply-chain-management-eth-zurich-ch",
+          "posizione-del-ricercatore-medico-nella-gestione-della-catena-di-approvvigionamento-sostenibile-eth-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-researcher-position-in-sustainable-supply-chain-management-eth-zurich-ch",
+        "posizione-del-ricercatore-medico-nella-gestione-della-catena-di-approvvigionamento-sostenibile-eth-zurich-zurich"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-33c5f1741b8e",
@@ -7881,7 +8096,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_L6KiQC87EcmxboVIBq",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:39:58.144Z",
+      "crawledAt": "2026-10-03T09:31:40.000Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7896,17 +8111,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_L6KiQC87EcmxboVIBq",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoctoral-researcher-in-embedded-hardware-fpga-edge-ai-and-smart-sensors-eth-zurich-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-researcher-in-embedded-hardware-fpga-edge-ai-and-smart-sensors-eth-zurich-ch"
-        ],
-        "fr": [
-          "postdoctoral-researcher-in-embedded-hardware-fpga-edge-ai-and-smart-sensors-eth-zurich-ch"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:36:10.046Z",
       "salaryMin": 73500,
@@ -7922,7 +8126,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-embedded-hardware-fpga-edge-ai-and-smart-sensors-eth-zurich-ch",
+          "ricercatore-post-dottorato-in-hardware-incorporato-fpga-edge-ai-e-sensori-intelligenti-eth-zurich-zurich"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-embedded-hardware-fpga-edge-ai-and-smart-sensors-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-embedded-hardware-fpga-edge-ai-and-smart-sensors-eth-zurich-ch",
+        "ricercatore-post-dottorato-in-hardware-incorporato-fpga-edge-ai-e-sensori-intelligenti-eth-zurich-zurich"
+      ]
     },
     {
       "id": "eth-zurich-18c50ba92f60",
@@ -7955,7 +8172,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_nf3rdJShQT5KWJOJnX",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:39:57.639Z",
+      "crawledAt": "2026-10-03T09:31:39.524Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8016,9 +8233,9 @@
       },
       "description": "Strategische:r Referent:in des Präsidenten (m/w/d)\n\n80%-100%, Zürich, unbefristet\n\nDer Stab Präsident erbringt strategische und operative Unterstützung, um die ETH Zürich sowie die Vision und Prioritäten des Präsidenten voranzubringen. Er unterstützt die ETH Zürich insbesondere in den Bereichen Zukunftsorientierung und strategische Entwicklung, internationale Angelegenheiten, Politikbeziehungen und Stakeholder Management sowie globale Positionierung und Sichtbarkeit und trägt zur Pflege und Weiterentwicklung der Beziehungen zu Alumni bei.\n\nAuf 1. Januar 2027 sucht der Stab Präsident eine strategisch denkende, analytisch starke und kommunikationsgewandte Persönlichkeit , die komplexe Themen rasch erfasst, relevante Informationen verdichtet und daraus klare Entscheidungsgrundlagen, Botschaften und Handlungsempfehlungen entwickelt. Ein ausgeprägtes Know-how in der verständlichen und prägnanten Darstellung komplexer Inhalte sowie die Fähigkeit, auch anspruchsvolle Sachverhalte adressatengerecht aufzubereiten und überzeugend zu präsentieren, zeichnen sie ebenso aus wie ein ausgeprägtes Verständnis für wissenschaftliche, gesellschaftliche und politische Zusammenhänge. Hinzu kommen politisches Gespür und ein ausgeprägtes Urteilsvermögen . Sie arbeitet selbstständig, lösungsorientiert und auch unter Zeitdruck, bewegt sich sicher in einem anspruchsvollen institutionellen und internationalen Umfeld und zeichnet sich durch hohe Verlässlichkeit aus.\n\nStellenbeschreibung\n\nZu den Aufgaben gehören insbesondere:\n• Erstellung von Reden, Präsentationen und weiteren Kommunikationsunterlagen für öffentliche Auftritte und interne Anlässe des Präsidenten\n• Recherche, Analyse und Aufbereitung von Informationen zu strategisch relevanten Themen sowie Erarbeitung von Entscheidungsgrundlagen\n• Erstellung von Briefings und Hintergrunddokumenten in Zusammenarbeit mit dem Stab Präsident und weiteren internen sowie externen Partnern\n• Unterstützung bei der Vorbereitung von Gesprächen, Sitzungen und öffentlichen Auftritten des Präsidenten\n• Mitwirkung an der inhaltlichen Positionierung der ETH Zürich zu ausgewählten strategischen Themen\n\nProfil\n• Ausgeprägtes strategisches und analytisches Denken: Fähigkeit, komplexe Fragestellungen rasch zu erfassen, relevante Informationen zu identifizieren, Zusammenhänge herzustellen und daraus prägnante Darstellungen und klare Entscheidungsgrundlagen zu entwickeln\n• Sehr gute schriftliche und überzeugende Präsentationskompetenz: Fähigkeit, anspruchsvolle Inhalte klar, präzise und adressatengerecht aufzubereiten – von Reden und Präsentationen bis zu Briefings, Argumentarien und Hintergrundpapieren\n• Politisches und institutionelles Verständnis: Verständnis für die Funktionsweise einer grossen, international ausgerichteten Hochschule sowie für wissenschafts-, bildungs-, innovations- und gesellschaftspolitische Fragestellungen\n• Interessen- und Stakeholderverständnis: Fähigkeit, unterschiedliche Perspektiven und Interessen zu erfassen und in die Vorbereitung von Gesprächen, Positionen und strategischen Entscheidungen einzubeziehen\n• Kommunikationsstärke: Fähigkeit, komplexe wissenschaftliche und strategische Themen für unterschiedliche Zielgruppen verständlich und überzeugend zu vermitteln\n• Selbstständigkeit und Eigeninitiative: Fähigkeit, Themen selbstständig zu recherchieren, Fragestellungen zu strukturieren und auch unter Zeitdruck hochwertige Ergebnisse zu liefern\n• Sicheres Auftreten und Diskretion: Souveräner Umgang mit vertraulichen Informationen und sensiblen institutionellen, politischen und persönlichen Themen\n• Kooperationsfähigkeit: Freude an der Zusammenarbeit mit unterschiedlichen Personen und Einheiten innerhalb und ausserhalb der ETH Zürich sowie Fähigkeit, Wissen und Expertise gezielt zusammenzuführen\n• Wissenschaftsverständnis: Hochschulabschluss, vorzugsweise mit Promotion oder vergleichbarer wissenschaftlicher Erfahrung; Fähigkeit, sich schnell in neue wissenschaftliche und technologische Themen einzuarbeiten\n• Sprachen: Hervorragende Deutsch- und Englischkenntnisse in Wort und Schrift\n\nWir bieten\n• Eine einmalige und höchst spannende Aufgabe im einem inspirierenden internationalen Umfeld\n• Die Chance, sich rasch und vertieft mit einer Vielzahl von Themen und Fragestellung auseinanderzusetzen\n• Ein anregendes und dynamisches Teamumfeld\n• Ein Arbeitsplatz im lebendigen Hochschulquartier mitten in Zürich mit Möglichkeit für Homeoffice\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n• Motivationsschreiben\n• CV\n• Arbeitszeugnisse und Diplome\n\nWeitere Informationen über den Stab Präsident finden Sie auf unserer Webseite . Für Auskünfte steht Ihnen Jürg Brunnschweiler, Leiter Stab Präsident (jürg.brunnschweiler@sl.ethz.ch) gerne zur Verfügung (keine Bewerbungsunterlagen).\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von neuen Erkenntnissen in die Gesellschaft. Über 30'000 Menschen aus mehr als 120 Ländern finden bei uns ein Umfeld, das eigenständiges Denken fördert, und ein Klima, das zu Spitzenleistungen inspiriert. Im Herzen Europas und weltweit vernetzt entwickeln wir gemeinsam Lösungen für die globalen Herausforderungen von heute und morgen.",
       "descriptionByLocale": {
+        "de": "Strategische:r Referent:in des Präsidenten (m/w/d)\n\n80%-100%, Zürich, unbefristet\n\nDer Stab Präsident erbringt strategische und operative Unterstützung, um die ETH Zürich sowie die Vision und Prioritäten des Präsidenten voranzubringen. Er unterstützt die ETH Zürich insbesondere in den Bereichen Zukunftsorientierung und strategische Entwicklung, internationale Angelegenheiten, Politikbeziehungen und Stakeholder Management sowie globale Positionierung und Sichtbarkeit und trägt zur Pflege und Weiterentwicklung der Beziehungen zu Alumni bei.\n\nAuf 1. Januar 2027 sucht der Stab Präsident eine strategisch denkende, analytisch starke und kommunikationsgewandte Persönlichkeit , die komplexe Themen rasch erfasst, relevante Informationen verdichtet und daraus klare Entscheidungsgrundlagen, Botschaften und Handlungsempfehlungen entwickelt. Ein ausgeprägtes Know-how in der verständlichen und prägnanten Darstellung komplexer Inhalte sowie die Fähigkeit, auch anspruchsvolle Sachverhalte adressatengerecht aufzubereiten und überzeugend zu präsentieren, zeichnen sie ebenso aus wie ein ausgeprägtes Verständnis für wissenschaftliche, gesellschaftliche und politische Zusammenhänge. Hinzu kommen politisches Gespür und ein ausgeprägtes Urteilsvermögen . Sie arbeitet selbstständig, lösungsorientiert und auch unter Zeitdruck, bewegt sich sicher in einem anspruchsvollen institutionellen und internationalen Umfeld und zeichnet sich durch hohe Verlässlichkeit aus.\n\nStellenbeschreibung\n\nZu den Aufgaben gehören insbesondere:\n• Erstellung von Reden, Präsentationen und weiteren Kommunikationsunterlagen für öffentliche Auftritte und interne Anlässe des Präsidenten\n• Recherche, Analyse und Aufbereitung von Informationen zu strategisch relevanten Themen sowie Erarbeitung von Entscheidungsgrundlagen\n• Erstellung von Briefings und Hintergrunddokumenten in Zusammenarbeit mit dem Stab Präsident und weiteren internen sowie externen Partnern\n• Unterstützung bei der Vorbereitung von Gesprächen, Sitzungen und öffentlichen Auftritten des Präsidenten\n• Mitwirkung an der inhaltlichen Positionierung der ETH Zürich zu ausgewählten strategischen Themen\n\nProfil\n• Ausgeprägtes strategisches und analytisches Denken: Fähigkeit, komplexe Fragestellungen rasch zu erfassen, relevante Informationen zu identifizieren, Zusammenhänge herzustellen und daraus prägnante Darstellungen und klare Entscheidungsgrundlagen zu entwickeln\n• Sehr gute schriftliche und überzeugende Präsentationskompetenz: Fähigkeit, anspruchsvolle Inhalte klar, präzise und adressatengerecht aufzubereiten – von Reden und Präsentationen bis zu Briefings, Argumentarien und Hintergrundpapieren\n• Politisches und institutionelles Verständnis: Verständnis für die Funktionsweise einer grossen, international ausgerichteten Hochschule sowie für wissenschafts-, bildungs-, innovations- und gesellschaftspolitische Fragestellungen\n• Interessen- und Stakeholderverständnis: Fähigkeit, unterschiedliche Perspektiven und Interessen zu erfassen und in die Vorbereitung von Gesprächen, Positionen und strategischen Entscheidungen einzubeziehen\n• Kommunikationsstärke: Fähigkeit, komplexe wissenschaftliche und strategische Themen für unterschiedliche Zielgruppen verständlich und überzeugend zu vermitteln\n• Selbstständigkeit und Eigeninitiative: Fähigkeit, Themen selbstständig zu recherchieren, Fragestellungen zu strukturieren und auch unter Zeitdruck hochwertige Ergebnisse zu liefern\n• Sicheres Auftreten und Diskretion: Souveräner Umgang mit vertraulichen Informationen und sensiblen institutionellen, politischen und persönlichen Themen\n• Kooperationsfähigkeit: Freude an der Zusammenarbeit mit unterschiedlichen Personen und Einheiten innerhalb und ausserhalb der ETH Zürich sowie Fähigkeit, Wissen und Expertise gezielt zusammenzuführen\n• Wissenschaftsverständnis: Hochschulabschluss, vorzugsweise mit Promotion oder vergleichbarer wissenschaftlicher Erfahrung; Fähigkeit, sich schnell in neue wissenschaftliche und technologische Themen einzuarbeiten\n• Sprachen: Hervorragende Deutsch- und Englischkenntnisse in Wort und Schrift\n\nWir bieten\n• Eine einmalige und höchst spannende Aufgabe im einem inspirierenden internationalen Umfeld\n• Die Chance, sich rasch und vertieft mit einer Vielzahl von Themen und Fragestellung auseinanderzusetzen\n• Ein anregendes und dynamisches Teamumfeld\n• Ein Arbeitsplatz im lebendigen Hochschulquartier mitten in Zürich mit Möglichkeit für Homeoffice\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n• Motivationsschreiben\n• CV\n• Arbeitszeugnisse und Diplome\n\nWeitere Informationen über den Stab Präsident finden Sie auf unserer Webseite . Für Auskünfte steht Ihnen Jürg Brunnschweiler, Leiter Stab Präsident (jürg.brunnschweiler@sl.ethz.ch) gerne zur Verfügung (keine Bewerbungsunterlagen).\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von neuen Erkenntnissen in die Gesellschaft. Über 30'000 Menschen aus mehr als 120 Ländern finden bei uns ein Umfeld, das eigenständiges Denken fördert, und ein Klima, das zu Spitzenleistungen inspiriert. Im Herzen Europas und weltweit vernetzt entwickeln wir gemeinsam Lösungen für die globalen Herausforderungen von heute und morgen.",
         "it": "Strategische:r Referent:in des Präsidenten (m/w/d)\n\n80%-100%, Zürich, unbefristet\n\nDer Stab Präsident erbringt strategische und operative Unterstützung, um die ETH Zürich sowie die Vision und Prioritäten des Präsidenten voranzubringen. Er unterstützt die ETH Zürich insbesondere in den Bereichen Zukunftsorientierung und strategische Entwicklung, internationale Angelegenheiten, Politikbeziehungen und Stakeholder Management sowie globale Positionierung und Sichtbarkeit und trägt zur Pflege und Weiterentwicklung der Beziehungen zu Alumni bei.\n\nAuf 1. Januar 2027 sucht der Stab Präsident eine strategisch denkende, analytisch starke und kommunikationsgewandte Persönlichkeit , die komplexe Themen rasch erfasst, relevante Informationen verdichtet und daraus klare Entscheidungsgrundlagen, Botschaften und Handlungsempfehlungen entwickelt. Ein ausgeprägtes Know-how in der verständlichen und prägnanten Darstellung komplexer Inhalte sowie die Fähigkeit, auch anspruchsvolle Sachverhalte adressatengerecht aufzubereiten und überzeugend zu präsentieren, zeichnen sie ebenso aus wie ein ausgeprägtes Verständnis für wissenschaftliche, gesellschaftliche und politische Zusammenhänge. Hinzu kommen politisches Gespür und ein ausgeprägtes Urteilsvermögen . Sie arbeitet selbstständig, lösungsorientiert und auch unter Zeitdruck, bewegt sich sicher in einem anspruchsvollen institutionellen und internationalen Umfeld und zeichnet sich durch hohe Verlässlichkeit aus.\n\nStellenbeschreibung\n\nZu den Aufgaben gehören insbesondere:\n• Erstellung von Reden, Präsentationen und weiteren Kommunikationsunterlagen für öffentliche Auftritte und interne Anlässe des Präsidenten\n• Recherche, Analyse und Aufbereitung von Informationen zu strategisch relevanten Themen sowie Erarbeitung von Entscheidungsgrundlagen\n• Erstellung von Briefings und Hintergrunddokumenten in Zusammenarbeit mit dem Stab Präsident und weiteren internen sowie externen Partnern\n• Unterstützung bei der Vorbereitung von Gesprächen, Sitzungen und öffentlichen Auftritten des Präsidenten\n• Mitwirkung an der inhaltlichen Positionierung der ETH Zürich zu ausgewählten strategischen Themen\n\nProfil\n• Ausgeprägtes strategisches und analytisches Denken: Fähigkeit, komplexe Fragestellungen rasch zu erfassen, relevante Informationen zu identifizieren, Zusammenhänge herzustellen und daraus prägnante Darstellungen und klare Entscheidungsgrundlagen zu entwickeln\n• Sehr gute schriftliche und überzeugende Präsentationskompetenz: Fähigkeit, anspruchsvolle Inhalte klar, präzise und adressatengerecht aufzubereiten – von Reden und Präsentationen bis zu Briefings, Argumentarien und Hintergrundpapieren\n• Politisches und institutionelles Verständnis: Verständnis für die Funktionsweise einer grossen, international ausgerichteten Hochschule sowie für wissenschafts-, bildungs-, innovations- und gesellschaftspolitische Fragestellungen\n• Interessen- und Stakeholderverständnis: Fähigkeit, unterschiedliche Perspektiven und Interessen zu erfassen und in die Vorbereitung von Gesprächen, Positionen und strategischen Entscheidungen einzubeziehen\n• Kommunikationsstärke: Fähigkeit, komplexe wissenschaftliche und strategische Themen für unterschiedliche Zielgruppen verständlich und überzeugend zu vermitteln\n• Selbstständigkeit und Eigeninitiative: Fähigkeit, Themen selbstständig zu recherchieren, Fragestellungen zu strukturieren und auch unter Zeitdruck hochwertige Ergebnisse zu liefern\n• Sicheres Auftreten und Diskretion: Souveräner Umgang mit vertraulichen Informationen und sensiblen institutionellen, politischen und persönlichen Themen\n• Kooperationsfähigkeit: Freude an der Zusammenarbeit mit unterschiedlichen Personen und Einheiten innerhalb und ausserhalb der ETH Zürich sowie Fähigkeit, Wissen und Expertise gezielt zusammenzuführen\n• Wissenschaftsverständnis: Hochschulabschluss, vorzugsweise mit Promotion oder vergleichbarer wissenschaftlicher Erfahrung; Fähigkeit, sich schnell in neue wissenschaftliche und technologische Themen einzuarbeiten\n• Sprachen: Hervorragende Deutsch- und Englischkenntnisse in Wort und Schrift\n\nWir bieten\n• Eine einmalige und höchst spannende Aufgabe im einem inspirierenden internationalen Umfeld\n• Die Chance, sich rasch und vertieft mit einer Vielzahl von Themen und Fragestellung auseinanderzusetzen\n• Ein anregendes und dynamisches Teamumfeld\n• Ein Arbeitsplatz im lebendigen Hochschulquartier mitten in Zürich mit Möglichkeit für Homeoffice\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n• Motivationsschreiben\n• CV\n• Arbeitszeugnisse und Diplome\n\nWeitere Informationen über den Stab Präsident finden Sie auf unserer Webseite . Für Auskünfte steht Ihnen Jürg Brunnschweiler, Leiter Stab Präsident (jürg.brunnschweiler@sl.ethz.ch) gerne zur Verfügung (keine Bewerbungsunterlagen).\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von neuen Erkenntnissen in die Gesellschaft. Über 30'000 Menschen aus mehr als 120 Ländern finden bei uns ein Umfeld, das eigenständiges Denken fördert, und ein Klima, das zu Spitzenleistungen inspiriert. Im Herzen Europas und weltweit vernetzt entwickeln wir gemeinsam Lösungen für die globalen Herausforderungen von heute und morgen.",
         "en": "Strategische:r Referent:in des Präsidenten (m/w/d)\n\n80%-100%, Zürich, unbefristet\n\nDer Stab Präsident erbringt strategische und operative Unterstützung, um die ETH Zürich sowie die Vision und Prioritäten des Präsidenten voranzubringen. Er unterstützt die ETH Zürich insbesondere in den Bereichen Zukunftsorientierung und strategische Entwicklung, internationale Angelegenheiten, Politikbeziehungen und Stakeholder Management sowie globale Positionierung und Sichtbarkeit und trägt zur Pflege und Weiterentwicklung der Beziehungen zu Alumni bei.\n\nAuf 1. Januar 2027 sucht der Stab Präsident eine strategisch denkende, analytisch starke und kommunikationsgewandte Persönlichkeit , die komplexe Themen rasch erfasst, relevante Informationen verdichtet und daraus klare Entscheidungsgrundlagen, Botschaften und Handlungsempfehlungen entwickelt. Ein ausgeprägtes Know-how in der verständlichen und prägnanten Darstellung komplexer Inhalte sowie die Fähigkeit, auch anspruchsvolle Sachverhalte adressatengerecht aufzubereiten und überzeugend zu präsentieren, zeichnen sie ebenso aus wie ein ausgeprägtes Verständnis für wissenschaftliche, gesellschaftliche und politische Zusammenhänge. Hinzu kommen politisches Gespür und ein ausgeprägtes Urteilsvermögen . Sie arbeitet selbstständig, lösungsorientiert und auch unter Zeitdruck, bewegt sich sicher in einem anspruchsvollen institutionellen und internationalen Umfeld und zeichnet sich durch hohe Verlässlichkeit aus.\n\nStellenbeschreibung\n\nZu den Aufgaben gehören insbesondere:\n• Erstellung von Reden, Präsentationen und weiteren Kommunikationsunterlagen für öffentliche Auftritte und interne Anlässe des Präsidenten\n• Recherche, Analyse und Aufbereitung von Informationen zu strategisch relevanten Themen sowie Erarbeitung von Entscheidungsgrundlagen\n• Erstellung von Briefings und Hintergrunddokumenten in Zusammenarbeit mit dem Stab Präsident und weiteren internen sowie externen Partnern\n• Unterstützung bei der Vorbereitung von Gesprächen, Sitzungen und öffentlichen Auftritten des Präsidenten\n• Mitwirkung an der inhaltlichen Positionierung der ETH Zürich zu ausgewählten strategischen Themen\n\nProfil\n• Ausgeprägtes strategisches und analytisches Denken: Fähigkeit, komplexe Fragestellungen rasch zu erfassen, relevante Informationen zu identifizieren, Zusammenhänge herzustellen und daraus prägnante Darstellungen und klare Entscheidungsgrundlagen zu entwickeln\n• Sehr gute schriftliche und überzeugende Präsentationskompetenz: Fähigkeit, anspruchsvolle Inhalte klar, präzise und adressatengerecht aufzubereiten – von Reden und Präsentationen bis zu Briefings, Argumentarien und Hintergrundpapieren\n• Politisches und institutionelles Verständnis: Verständnis für die Funktionsweise einer grossen, international ausgerichteten Hochschule sowie für wissenschafts-, bildungs-, innovations- und gesellschaftspolitische Fragestellungen\n• Interessen- und Stakeholderverständnis: Fähigkeit, unterschiedliche Perspektiven und Interessen zu erfassen und in die Vorbereitung von Gesprächen, Positionen und strategischen Entscheidungen einzubeziehen\n• Kommunikationsstärke: Fähigkeit, komplexe wissenschaftliche und strategische Themen für unterschiedliche Zielgruppen verständlich und überzeugend zu vermitteln\n• Selbstständigkeit und Eigeninitiative: Fähigkeit, Themen selbstständig zu recherchieren, Fragestellungen zu strukturieren und auch unter Zeitdruck hochwertige Ergebnisse zu liefern\n• Sicheres Auftreten und Diskretion: Souveräner Umgang mit vertraulichen Informationen und sensiblen institutionellen, politischen und persönlichen Themen\n• Kooperationsfähigkeit: Freude an der Zusammenarbeit mit unterschiedlichen Personen und Einheiten innerhalb und ausserhalb der ETH Zürich sowie Fähigkeit, Wissen und Expertise gezielt zusammenzuführen\n• Wissenschaftsverständnis: Hochschulabschluss, vorzugsweise mit Promotion oder vergleichbarer wissenschaftlicher Erfahrung; Fähigkeit, sich schnell in neue wissenschaftliche und technologische Themen einzuarbeiten\n• Sprachen: Hervorragende Deutsch- und Englischkenntnisse in Wort und Schrift\n\nWir bieten\n• Eine einmalige und höchst spannende Aufgabe im einem inspirierenden internationalen Umfeld\n• Die Chance, sich rasch und vertieft mit einer Vielzahl von Themen und Fragestellung auseinanderzusetzen\n• Ein anregendes und dynamisches Teamumfeld\n• Ein Arbeitsplatz im lebendigen Hochschulquartier mitten in Zürich mit Möglichkeit für Homeoffice\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n• Motivationsschreiben\n• CV\n• Arbeitszeugnisse und Diplome\n\nWeitere Informationen über den Stab Präsident finden Sie auf unserer Webseite . Für Auskünfte steht Ihnen Jürg Brunnschweiler, Leiter Stab Präsident (jürg.brunnschweiler@sl.ethz.ch) gerne zur Verfügung (keine Bewerbungsunterlagen).\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von neuen Erkenntnissen in die Gesellschaft. Über 30'000 Menschen aus mehr als 120 Ländern finden bei uns ein Umfeld, das eigenständiges Denken fördert, und ein Klima, das zu Spitzenleistungen inspiriert. Im Herzen Europas und weltweit vernetzt entwickeln wir gemeinsam Lösungen für die globalen Herausforderungen von heute und morgen.",
-        "de": "Strategische:r Referent:in des Präsidenten (m/w/d)\n\n80%-100%, Zürich, unbefristet\n\nDer Stab Präsident erbringt strategische und operative Unterstützung, um die ETH Zürich sowie die Vision und Prioritäten des Präsidenten voranzubringen. Er unterstützt die ETH Zürich insbesondere in den Bereichen Zukunftsorientierung und strategische Entwicklung, internationale Angelegenheiten, Politikbeziehungen und Stakeholder Management sowie globale Positionierung und Sichtbarkeit und trägt zur Pflege und Weiterentwicklung der Beziehungen zu Alumni bei.\n\nAuf 1. Januar 2027 sucht der Stab Präsident eine strategisch denkende, analytisch starke und kommunikationsgewandte Persönlichkeit , die komplexe Themen rasch erfasst, relevante Informationen verdichtet und daraus klare Entscheidungsgrundlagen, Botschaften und Handlungsempfehlungen entwickelt. Ein ausgeprägtes Know-how in der verständlichen und prägnanten Darstellung komplexer Inhalte sowie die Fähigkeit, auch anspruchsvolle Sachverhalte adressatengerecht aufzubereiten und überzeugend zu präsentieren, zeichnen sie ebenso aus wie ein ausgeprägtes Verständnis für wissenschaftliche, gesellschaftliche und politische Zusammenhänge. Hinzu kommen politisches Gespür und ein ausgeprägtes Urteilsvermögen . Sie arbeitet selbstständig, lösungsorientiert und auch unter Zeitdruck, bewegt sich sicher in einem anspruchsvollen institutionellen und internationalen Umfeld und zeichnet sich durch hohe Verlässlichkeit aus.\n\nStellenbeschreibung\n\nZu den Aufgaben gehören insbesondere:\n• Erstellung von Reden, Präsentationen und weiteren Kommunikationsunterlagen für öffentliche Auftritte und interne Anlässe des Präsidenten\n• Recherche, Analyse und Aufbereitung von Informationen zu strategisch relevanten Themen sowie Erarbeitung von Entscheidungsgrundlagen\n• Erstellung von Briefings und Hintergrunddokumenten in Zusammenarbeit mit dem Stab Präsident und weiteren internen sowie externen Partnern\n• Unterstützung bei der Vorbereitung von Gesprächen, Sitzungen und öffentlichen Auftritten des Präsidenten\n• Mitwirkung an der inhaltlichen Positionierung der ETH Zürich zu ausgewählten strategischen Themen\n\nProfil\n• Ausgeprägtes strategisches und analytisches Denken: Fähigkeit, komplexe Fragestellungen rasch zu erfassen, relevante Informationen zu identifizieren, Zusammenhänge herzustellen und daraus prägnante Darstellungen und klare Entscheidungsgrundlagen zu entwickeln\n• Sehr gute schriftliche und überzeugende Präsentationskompetenz: Fähigkeit, anspruchsvolle Inhalte klar, präzise und adressatengerecht aufzubereiten – von Reden und Präsentationen bis zu Briefings, Argumentarien und Hintergrundpapieren\n• Politisches und institutionelles Verständnis: Verständnis für die Funktionsweise einer grossen, international ausgerichteten Hochschule sowie für wissenschafts-, bildungs-, innovations- und gesellschaftspolitische Fragestellungen\n• Interessen- und Stakeholderverständnis: Fähigkeit, unterschiedliche Perspektiven und Interessen zu erfassen und in die Vorbereitung von Gesprächen, Positionen und strategischen Entscheidungen einzubeziehen\n• Kommunikationsstärke: Fähigkeit, komplexe wissenschaftliche und strategische Themen für unterschiedliche Zielgruppen verständlich und überzeugend zu vermitteln\n• Selbstständigkeit und Eigeninitiative: Fähigkeit, Themen selbstständig zu recherchieren, Fragestellungen zu strukturieren und auch unter Zeitdruck hochwertige Ergebnisse zu liefern\n• Sicheres Auftreten und Diskretion: Souveräner Umgang mit vertraulichen Informationen und sensiblen institutionellen, politischen und persönlichen Themen\n• Kooperationsfähigkeit: Freude an der Zusammenarbeit mit unterschiedlichen Personen und Einheiten innerhalb und ausserhalb der ETH Zürich sowie Fähigkeit, Wissen und Expertise gezielt zusammenzuführen\n• Wissenschaftsverständnis: Hochschulabschluss, vorzugsweise mit Promotion oder vergleichbarer wissenschaftlicher Erfahrung; Fähigkeit, sich schnell in neue wissenschaftliche und technologische Themen einzuarbeiten\n• Sprachen: Hervorragende Deutsch- und Englischkenntnisse in Wort und Schrift\n\nWir bieten\n• Eine einmalige und höchst spannende Aufgabe im einem inspirierenden internationalen Umfeld\n• Die Chance, sich rasch und vertieft mit einer Vielzahl von Themen und Fragestellung auseinanderzusetzen\n• Ein anregendes und dynamisches Teamumfeld\n• Ein Arbeitsplatz im lebendigen Hochschulquartier mitten in Zürich mit Möglichkeit für Homeoffice\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n• Motivationsschreiben\n• CV\n• Arbeitszeugnisse und Diplome\n\nWeitere Informationen über den Stab Präsident finden Sie auf unserer Webseite . Für Auskünfte steht Ihnen Jürg Brunnschweiler, Leiter Stab Präsident (jürg.brunnschweiler@sl.ethz.ch) gerne zur Verfügung (keine Bewerbungsunterlagen).\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von neuen Erkenntnissen in die Gesellschaft. Über 30'000 Menschen aus mehr als 120 Ländern finden bei uns ein Umfeld, das eigenständiges Denken fördert, und ein Klima, das zu Spitzenleistungen inspiriert. Im Herzen Europas und weltweit vernetzt entwickeln wir gemeinsam Lösungen für die globalen Herausforderungen von heute und morgen.",
         "fr": "Strategische:r Referent:in des Präsidenten (m/w/d)\n\n80%-100%, Zürich, unbefristet\n\nDer Stab Präsident erbringt strategische und operative Unterstützung, um die ETH Zürich sowie die Vision und Prioritäten des Präsidenten voranzubringen. Er unterstützt die ETH Zürich insbesondere in den Bereichen Zukunftsorientierung und strategische Entwicklung, internationale Angelegenheiten, Politikbeziehungen und Stakeholder Management sowie globale Positionierung und Sichtbarkeit und trägt zur Pflege und Weiterentwicklung der Beziehungen zu Alumni bei.\n\nAuf 1. Januar 2027 sucht der Stab Präsident eine strategisch denkende, analytisch starke und kommunikationsgewandte Persönlichkeit , die komplexe Themen rasch erfasst, relevante Informationen verdichtet und daraus klare Entscheidungsgrundlagen, Botschaften und Handlungsempfehlungen entwickelt. Ein ausgeprägtes Know-how in der verständlichen und prägnanten Darstellung komplexer Inhalte sowie die Fähigkeit, auch anspruchsvolle Sachverhalte adressatengerecht aufzubereiten und überzeugend zu präsentieren, zeichnen sie ebenso aus wie ein ausgeprägtes Verständnis für wissenschaftliche, gesellschaftliche und politische Zusammenhänge. Hinzu kommen politisches Gespür und ein ausgeprägtes Urteilsvermögen . Sie arbeitet selbstständig, lösungsorientiert und auch unter Zeitdruck, bewegt sich sicher in einem anspruchsvollen institutionellen und internationalen Umfeld und zeichnet sich durch hohe Verlässlichkeit aus.\n\nStellenbeschreibung\n\nZu den Aufgaben gehören insbesondere:\n• Erstellung von Reden, Präsentationen und weiteren Kommunikationsunterlagen für öffentliche Auftritte und interne Anlässe des Präsidenten\n• Recherche, Analyse und Aufbereitung von Informationen zu strategisch relevanten Themen sowie Erarbeitung von Entscheidungsgrundlagen\n• Erstellung von Briefings und Hintergrunddokumenten in Zusammenarbeit mit dem Stab Präsident und weiteren internen sowie externen Partnern\n• Unterstützung bei der Vorbereitung von Gesprächen, Sitzungen und öffentlichen Auftritten des Präsidenten\n• Mitwirkung an der inhaltlichen Positionierung der ETH Zürich zu ausgewählten strategischen Themen\n\nProfil\n• Ausgeprägtes strategisches und analytisches Denken: Fähigkeit, komplexe Fragestellungen rasch zu erfassen, relevante Informationen zu identifizieren, Zusammenhänge herzustellen und daraus prägnante Darstellungen und klare Entscheidungsgrundlagen zu entwickeln\n• Sehr gute schriftliche und überzeugende Präsentationskompetenz: Fähigkeit, anspruchsvolle Inhalte klar, präzise und adressatengerecht aufzubereiten – von Reden und Präsentationen bis zu Briefings, Argumentarien und Hintergrundpapieren\n• Politisches und institutionelles Verständnis: Verständnis für die Funktionsweise einer grossen, international ausgerichteten Hochschule sowie für wissenschafts-, bildungs-, innovations- und gesellschaftspolitische Fragestellungen\n• Interessen- und Stakeholderverständnis: Fähigkeit, unterschiedliche Perspektiven und Interessen zu erfassen und in die Vorbereitung von Gesprächen, Positionen und strategischen Entscheidungen einzubeziehen\n• Kommunikationsstärke: Fähigkeit, komplexe wissenschaftliche und strategische Themen für unterschiedliche Zielgruppen verständlich und überzeugend zu vermitteln\n• Selbstständigkeit und Eigeninitiative: Fähigkeit, Themen selbstständig zu recherchieren, Fragestellungen zu strukturieren und auch unter Zeitdruck hochwertige Ergebnisse zu liefern\n• Sicheres Auftreten und Diskretion: Souveräner Umgang mit vertraulichen Informationen und sensiblen institutionellen, politischen und persönlichen Themen\n• Kooperationsfähigkeit: Freude an der Zusammenarbeit mit unterschiedlichen Personen und Einheiten innerhalb und ausserhalb der ETH Zürich sowie Fähigkeit, Wissen und Expertise gezielt zusammenzuführen\n• Wissenschaftsverständnis: Hochschulabschluss, vorzugsweise mit Promotion oder vergleichbarer wissenschaftlicher Erfahrung; Fähigkeit, sich schnell in neue wissenschaftliche und technologische Themen einzuarbeiten\n• Sprachen: Hervorragende Deutsch- und Englischkenntnisse in Wort und Schrift\n\nWir bieten\n• Eine einmalige und höchst spannende Aufgabe im einem inspirierenden internationalen Umfeld\n• Die Chance, sich rasch und vertieft mit einer Vielzahl von Themen und Fragestellung auseinanderzusetzen\n• Ein anregendes und dynamisches Teamumfeld\n• Ein Arbeitsplatz im lebendigen Hochschulquartier mitten in Zürich mit Möglichkeit für Homeoffice\n\nDiversität und Nachhaltigkeit sind uns wichtig\n\nIm Einklang mit unseren Werten unterstützt die ETH Zürich eine inklusive Kultur. Wir fördern Chancengleichheit, schätzen Vielfalt und pflegen ein Arbeits- und Lernumfeld, in dem die Rechte und die Würde aller Mitarbeitenden und Studierenden respektiert werden. Auf unserer Webseite zur Chancengleichheit und Vielfalt erfahren Sie, wie wir ein faires und offenes Umfeld sicherstellen, in dem sich alle entwickeln und entfalten können. Nachhaltigkeit ist für uns ein zentraler Wert – wir arbeiten konsequent an einer klimaneutralen Zukunft.\n\nNeugierig? Sind wir auch.\n\nWir freuen uns auf Ihre Online-Bewerbung mit den folgenden Unterlagen:\n• Motivationsschreiben\n• CV\n• Arbeitszeugnisse und Diplome\n\nWeitere Informationen über den Stab Präsident finden Sie auf unserer Webseite . Für Auskünfte steht Ihnen Jürg Brunnschweiler, Leiter Stab Präsident (jürg.brunnschweiler@sl.ethz.ch) gerne zur Verfügung (keine Bewerbungsunterlagen).\n\nBitte bewerben Sie sich ausschliesslich über das Online-Bewerbungsportal. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.\n\nGerne weisen wir darauf hin, dass die Vorselektion durch die verantwortlichen Rekrutierenden und nicht durch künstliche Intelligenz durchgeführt wird.\n\nFür Personalvermittlungen gelten die AGB der ETH Zürich .\n\nÜber die ETH Zürich\n\nDie ETH Zürich ist eine der besten technisch-naturwissenschaftlichen Hochschulen der Welt. Wir sind bekannt für unsere exzellente Lehre, wegweisende Grundlagenforschung und den direkten Transfer von neuen Erkenntnissen in die Gesellschaft. Über 30'000 Menschen aus mehr als 120 Ländern finden bei uns ein Umfeld, das eigenständiges Denken fördert, und ein Klima, das zu Spitzenleistungen inspiriert. Im Herzen Europas und weltweit vernetzt entwickeln wir gemeinsam Lösungen für die globalen Herausforderungen von heute und morgen."
       },
       "location": "Zürich",
@@ -8026,7 +8243,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_ZITHoRnREvdetCi2CO",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:39:57.127Z",
+      "crawledAt": "2026-10-03T09:31:39.049Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8037,14 +8254,14 @@
       "sector": "Università / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_ZITHoRnREvdetCi2CO",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-02T21:39:57.127Z",
+      "firstSeenAt": "2026-10-03T09:31:39.049Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -8091,7 +8308,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_0r4YkY1enc7TSSEEt4",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:39:56.622Z",
+      "crawledAt": "2026-10-03T09:31:38.571Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8106,22 +8323,7 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_0r4YkY1enc7TSSEEt4",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
-        ],
-        "de": [
-          "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
-        ],
-        "fr": [
-          "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:28:57.480Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -8135,7 +8337,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-01T09:28:57.480Z",
+      "previousSlugs": [
+        "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
+        ],
+        "de": [
+          "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
+        ],
+        "fr": [
+          "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
+        ]
+      }
     },
     {
       "id": "eth-zurich-e68782487ba1",
@@ -8168,7 +8385,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_eEYITXPXNJCRYjSxip",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:39:56.115Z",
+      "crawledAt": "2026-10-03T09:31:38.093Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8183,19 +8400,7 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_eEYITXPXNJCRYjSxip",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mediation-support-program-officer-in-the-mediation-support-project-eth-zurich-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mediation-support-program-officer-in-the-mediation-support-project-eth-zurich-ch"
-        ],
-        "fr": [
-          "mediation-support-program-officer-in-the-mediation-support-project-eth-zurich-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:28:57.003Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -8209,7 +8414,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-01T09:28:57.003Z",
+      "previousSlugs": [
+        "mediation-support-program-officer-in-the-mediation-support-project-eth-zurich-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mediation-support-program-officer-in-the-mediation-support-project-eth-zurich-ch"
+        ],
+        "fr": [
+          "mediation-support-program-officer-in-the-mediation-support-project-eth-zurich-ch"
+        ]
+      }
     },
     {
       "id": "eth-zurich-6e25fe1a00b6",
@@ -8287,9 +8504,9 @@
       "slug": "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "it": "coordinatore-dello-studio-in-m-f-d-eth-zurich-zurich",
-        "en": "study-coordinator-in-m-f-d-eth-zurich-zurich",
+        "en": "studienkoordinator-in-m-w-d-eth-zurich",
         "de": "studienkoordinator-in-m-w-d-eth-zurich-ch",
-        "fr": "coordinateur-de-l-etude-en-h-f-d-eth-zurich-zurich"
+        "fr": "studienkoordinator-in-m-w-d-eth-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8330,6 +8547,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "studienkoordinator-in-m-w-d-eth-zurich-ch",
+        "study-coordinator-in-m-f-d-eth-zurich-zurich",
+        "coordinateur-de-l-etude-en-h-f-d-eth-zurich-zurich",
         "studienkoordinator-in-m-w-d-eth-zurich"
       ],
       "previousSlugsByLocale": {
@@ -8337,9 +8556,11 @@
           "studienkoordinator-in-m-w-d-eth-zurich-ch"
         ],
         "en": [
+          "study-coordinator-in-m-f-d-eth-zurich-zurich",
           "studienkoordinator-in-m-w-d-eth-zurich"
         ],
         "fr": [
+          "coordinateur-de-l-etude-en-h-f-d-eth-zurich-zurich",
           "studienkoordinator-in-m-w-d-eth-zurich"
         ]
       },
@@ -8392,7 +8613,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_xG5L2IjrUSX34AJS2T",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:39:55.610Z",
+      "crawledAt": "2026-10-03T09:31:37.619Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8403,7 +8624,7 @@
       "sector": "Università / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_xG5L2IjrUSX34AJS2T",
       "requirements": [],
       "requirementsByLocale": {
@@ -8432,7 +8653,7 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-02T21:39:55.610Z"
+      "firstSeenAt": "2026-10-03T09:31:37.619Z"
     },
     {
       "id": "eth-zurich-855f1394ac2e",
@@ -8465,7 +8686,7 @@
       "url": "https://jobs.ethz.ch/job/view/JOPG_ethz_tezsMpGlVuLvSND8CC",
       "source": "ETH Zürich Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:39:55.105Z",
+      "crawledAt": "2026-10-03T09:31:37.145Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -8476,7 +8697,7 @@
       "sector": "Università / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_tezsMpGlVuLvSND8CC",
       "requirements": [],
       "requirementsByLocale": {
@@ -8497,7 +8718,7 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-02T21:39:55.105Z"
+      "firstSeenAt": "2026-10-03T09:31:37.145Z"
     }
   ]
 }
