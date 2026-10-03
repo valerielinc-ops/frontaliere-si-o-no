@@ -8,6 +8,7 @@
  */
 
 import path from 'path';
+import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
@@ -346,27 +347,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleAuthorNameById: Record<string, string> = {};
  try {
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
- const catRx = /id:\s*'([^']+)'[\s\S]*?category:\s*'([^']+)'/g;
- let cm: RegExpExecArray | null;
- while ((cm = catRx.exec(articleDataSrc)) !== null) {
- articleCategoryById[cm[1]] = cm[2];
- }
- // Parse updatedAt for dateModified support
- const uaRx = /id:\s*'([^']+)'[\s\S]*?updatedAt:\s*'([^']+)'/g;
- let um: RegExpExecArray | null;
- while ((um = uaRx.exec(articleDataSrc)) !== null) {
- articleUpdatedAtById[um[1]] = um[2];
- }
- // Parse authorSlug/authorName (E-E-A-T byline + JSON-LD author, #author-eeat)
- const asRx = /id:\s*'([^']+)'[\s\S]*?authorSlug:\s*'([^']*)'/g;
- let asm: RegExpExecArray | null;
- while ((asm = asRx.exec(articleDataSrc)) !== null) {
- articleAuthorSlugById[asm[1]] = asm[2];
- }
- const anRx = /id:\s*'([^']+)'[\s\S]*?authorName:\s*'([^']*)'/g;
- let anm: RegExpExecArray | null;
- while ((anm = anRx.exec(articleDataSrc)) !== null) {
- articleAuthorNameById[anm[1]] = anm[2];
+ for (const article of readArticleRegistryMetadata(articleDataSrc)) {
+ if (article.category !== undefined) articleCategoryById[article.id] = article.category;
+ if (article.updatedAt !== undefined) articleUpdatedAtById[article.id] = article.updatedAt;
+ if (article.authorSlug !== undefined) articleAuthorSlugById[article.id] = article.authorSlug;
+ if (article.authorName !== undefined) articleAuthorNameById[article.id] = article.authorName;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
