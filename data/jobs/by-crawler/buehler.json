@@ -1,6 +1,6 @@
 {
   "crawlerKey": "buehler",
-  "assembledAt": "2026-10-02T21:19:22.075Z",
+  "assembledAt": "2026-10-03T09:24:55.273Z",
   "jobs": [
     {
       "id": "buehler-076c171e5b40",
@@ -33,7 +33,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-customer-service-systems/791d330b-f138-4919-9369-8e3d2d68dfb0",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.564Z",
+      "crawledAt": "2026-10-03T09:24:49.170Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-architect-customer-service-systems-buehler-uzwil"
+        "solution-architect-customer-service-systems-buehler-uzwil",
+        "solution-architetto-servizio-clienti-systems-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-architect-customer-service-systems-buehler-uzwil"
+          "solution-architect-customer-service-systems-buehler-uzwil",
+          "solution-architetto-servizio-clienti-systems-buhler-group-uzwil"
         ],
         "de": [
           "solution-architect-customer-service-systems-buehler-uzwil"
@@ -78,7 +80,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "buehler-0e4835288e97",
@@ -86,7 +89,7 @@
       "slugByLocale": {
         "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "rechtsberatung-buhler-group-uzwil",
+        "de": "rechtsberater-buhler-group-uzwil",
         "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -112,7 +115,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/legal-counsel/b5409f3c-72a6-42f9-b206-03990c61a7a6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.543Z",
+      "crawledAt": "2026-10-03T09:24:49.148Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -132,14 +135,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-buehler-uzwil",
+        "rechtsberatung-buhler-group-uzwil",
+        "avviso-legale-buhler-group-uzwil",
         "rechtsberater-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-buehler-uzwil"
+          "legal-counsel-buehler-uzwil",
+          "avviso-legale-buhler-group-uzwil"
         ],
         "de": [
           "legal-counsel-buehler-uzwil",
+          "rechtsberatung-buhler-group-uzwil",
           "rechtsberater-buhler-group-uzwil"
         ],
         "fr": [
@@ -192,7 +199,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-entwickler-in-digitales-business-efz/16552bec-00c5-40ef-b104-93d212a0490e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:15.540Z",
+      "crawledAt": "2026-10-03T09:24:49.144Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -211,11 +218,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil"
+        "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil",
+        "apprendistato-come-entwickler-in-digitales-business-cfc-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil"
+          "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil",
+          "apprendistato-come-entwickler-in-digitales-business-cfc-buhler-group-uzwil"
         ],
         "en": [
           "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil"
@@ -237,7 +246,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "buehler-a037706e7c7b",
@@ -270,7 +280,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-industrielackierer-in-efz/55cb4bc5-649a-4f85-b5f0-aa3372f6245e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:15.537Z",
+      "crawledAt": "2026-10-03T09:24:49.141Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -290,11 +300,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehre-als-industrielackierer-in-efz-buehler-uzwil",
-        "lehre-als-industrielackierer-in-efz-buhler-group-uzwil"
+        "lehre-als-industrielackierer-in-efz-buhler-group-uzwil",
+        "apprendistato-come-industrielackierer-in-cfc-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-industrielackierer-in-efz-buehler-uzwil"
+          "lehre-als-industrielackierer-in-efz-buehler-uzwil",
+          "apprendistato-come-industrielackierer-in-cfc-buhler-group-uzwil"
         ],
         "en": [
           "lehre-als-industrielackierer-in-efz-buhler-group-uzwil"
@@ -316,7 +328,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "buehler-894187e52321",
@@ -349,7 +362,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-logistiker-in-efz/8397c1a0-c23e-4475-9ce0-79b17935e3d4",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:15.534Z",
+      "crawledAt": "2026-10-03T09:24:49.139Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -369,11 +382,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-buehler-uzwil",
-        "lehre-als-logistiker-in-efz-buhler-group-uzwil"
+        "lehre-als-logistiker-in-efz-buhler-group-uzwil",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-logistiker-in-efz-buehler-uzwil"
+          "lehre-als-logistiker-in-efz-buehler-uzwil",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-buhler-group-uzwil"
         ],
         "en": [
           "lehre-als-logistiker-in-efz-buhler-group-uzwil"
@@ -395,7 +410,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "buehler-ae8cf27a10c0",
@@ -429,7 +445,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-c4c-v2/f4d0350e-0c77-48e8-9d25-9af7c77e60fd",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.515Z",
+      "crawledAt": "2026-10-03T09:24:49.125Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -448,11 +464,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-architect-sap-c4c-v2-buehler-uzwil"
+        "solution-architect-sap-c4c-v2-buehler-uzwil",
+        "solution-architetto-sap-c4c-v2-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-architect-sap-c4c-v2-buehler-uzwil"
+          "solution-architect-sap-c4c-v2-buehler-uzwil",
+          "solution-architetto-sap-c4c-v2-buhler-group-uzwil"
         ],
         "de": [
           "solution-architect-sap-c4c-v2-buehler-uzwil"
@@ -507,7 +525,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-ps-sd/d9f8f672-b00a-4174-9488-13ad38e8587d",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.481Z",
+      "crawledAt": "2026-10-03T09:24:49.091Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -526,11 +544,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solution-architect-sap-ps-amp-sd-buehler-uzwil"
+        "solution-architect-sap-ps-amp-sd-buehler-uzwil",
+        "solution-architetto-sap-ps-sd-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-architect-sap-ps-amp-sd-buehler-uzwil"
+          "solution-architect-sap-ps-amp-sd-buehler-uzwil",
+          "solution-architetto-sap-ps-sd-buhler-group-uzwil"
         ],
         "de": [
           "solution-architect-sap-ps-amp-sd-buehler-uzwil"
@@ -552,7 +572,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "buehler-a56ee2ff6f8d",
@@ -586,7 +607,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/system-architect-sap-pm-btp/1f3e4277-8043-4877-90e1-f91e4a6f8a58",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.478Z",
+      "crawledAt": "2026-10-03T09:24:49.088Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -607,12 +628,14 @@
       "previousSlugsByLocale": {
         "en": [
           "solution-architect-sap-pm-amp-btp-buehler-uzwil",
-          "system-architect-sap-pm-amp-btp-buehler-uzwil"
+          "system-architect-sap-pm-amp-btp-buehler-uzwil",
+          "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
         ],
         "it": [
           "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
           "solution-architect-sap-pm-amp-btp-buehler-uzwil",
-          "system-architect-sap-pm-amp-btp-buehler-uzwil"
+          "system-architect-sap-pm-amp-btp-buehler-uzwil",
+          "solution-architetto-sap-pm-bpt-buhler-group-uzwil"
         ],
         "de": [
           "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
@@ -624,7 +647,8 @@
       "previousSlugs": [
         "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
         "solution-architect-sap-pm-amp-btp-buehler-uzwil",
-        "system-architect-sap-pm-amp-btp-buehler-uzwil"
+        "system-architect-sap-pm-amp-btp-buehler-uzwil",
+        "solution-architetto-sap-pm-bpt-buhler-group-uzwil"
       ],
       "firstSeenAt": "2026-07-02T21:32:07.730Z",
       "salaryMin": 60000,
@@ -673,7 +697,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/export-compliance-engineer/ef870955-2a40-4b40-8157-d8619ea00404",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.467Z",
+      "crawledAt": "2026-10-03T09:24:49.077Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -692,11 +716,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "export-compliance-engineer-buehler-uzwil"
+        "export-compliance-engineer-buehler-uzwil",
+        "export-compliance-ingegnere-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "export-compliance-engineer-buehler-uzwil"
+          "export-compliance-engineer-buehler-uzwil",
+          "export-compliance-ingegnere-buhler-group-uzwil"
         ],
         "de": [
           "export-compliance-engineer-buehler-uzwil"
@@ -751,7 +777,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/identity-access-management-architect/f03c7409-8d94-424f-acab-55e11f3a403f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.438Z",
+      "crawledAt": "2026-10-03T09:24:49.049Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -771,11 +797,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "identity-amp-access-management-architect-buehler-uzwil",
-        "architecte-de-gestion-d-identite-et-d-acces-buhler-group-uzwil"
+        "architecte-de-gestion-d-identite-et-d-acces-buhler-group-uzwil",
+        "identity-access-management-architetto-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "identity-amp-access-management-architect-buehler-uzwil"
+          "identity-amp-access-management-architect-buehler-uzwil",
+          "identity-access-management-architetto-buhler-group-uzwil"
         ],
         "de": [
           "identity-amp-access-management-architect-buehler-uzwil"
@@ -830,7 +858,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/sap-application-business-process-manager-le-tm/f62e87ca-0eaa-486e-8c9f-582d3542bce8",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.406Z",
+      "crawledAt": "2026-10-03T09:24:49.021Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -861,7 +889,16 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "sap-application-business-process-manager-le-tm-buhler-group-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "sap-application-business-process-manager-le-tm-buhler-group-uzwil"
+      ]
     },
     {
       "id": "buehler-bd14d27683e8",
@@ -894,7 +931,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/bereichsleiter-in-berufsbildung-konstruktion-projektmanagement/76df488c-e2bf-4b07-910d-e5bcba99bbab",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:15.301Z",
+      "crawledAt": "2026-10-03T09:24:48.901Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -914,12 +951,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bereichsleiter-in-berufsbildung-konstruktion-amp-projektmanagement-buehler-uzwil",
-        "bereichsleiter-in-berufsbildung-konstruktion-projektmanagement-buhler-group-uzwil"
+        "bereichsleiter-in-berufsbildung-konstruktion-projektmanagement-buhler-group-uzwil",
+        "responsabile-della-formazione-professionale-costruzione-e-gestione-dei-progetti-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bereichsleiter-in-berufsbildung-konstruktion-amp-projektmanagement-buehler-uzwil",
-          "bereichsleiter-in-berufsbildung-konstruktion-projektmanagement-buhler-group-uzwil"
+          "bereichsleiter-in-berufsbildung-konstruktion-projektmanagement-buhler-group-uzwil",
+          "responsabile-della-formazione-professionale-costruzione-e-gestione-dei-progetti-buhler-group-uzwil"
         ],
         "en": [
           "bereichsleiter-in-berufsbildung-konstruktion-projektmanagement-buhler-group-uzwil"
@@ -941,14 +980,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "buehler-1466b5c27e4d",
       "slug": "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil",
       "slugByLocale": {
-        "it": "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil",
         "en": "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil",
+        "it": "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil",
         "de": "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil",
         "fr": "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil"
       },
@@ -975,7 +1015,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-process-engineer-innovation-wheat-rye/267569dc-af9c-4e1c-be99-3d49bdfe0f1f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.168Z",
+      "crawledAt": "2026-10-03T09:24:48.780Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1065,7 +1105,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/product-manager-chocolate-portfolio/7d31f1f7-9d85-476c-b9e6-6e300a7c2b07",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.165Z",
+      "crawledAt": "2026-10-03T09:24:48.777Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1132,7 +1172,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/cnc-schleifer-in/2c051c07-059e-4f91-80f0-a11c759cb7f6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:15.163Z",
+      "crawledAt": "2026-10-03T09:24:48.774Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1169,12 +1209,12 @@
     },
     {
       "id": "buehler-cf527cefec01",
-      "slug": "senior-installation-supervisore-buhler-group-uzwil",
+      "slug": "senior-installation-supervisor-buehler-uzwil",
       "slugByLocale": {
-        "it": "senior-installation-supervisore-buhler-group-uzwil",
+        "it": "senior-installation-supervisor-buehler-uzwil",
         "en": "senior-installation-supervisor-buehler-uzwil",
-        "de": "senior-installation-vorgesetzter-buhler-group-uzwil",
-        "fr": "senior-installation-superviseur-buhler-group-uzwil"
+        "de": "senior-installation-supervisor-buehler-uzwil",
+        "fr": "senior-installation-supervisor-buehler-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1199,7 +1239,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-installation-supervisor/ed70c224-9726-4750-95f1-8fae588a973f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:19:15.155Z",
+      "crawledAt": "2026-10-03T09:24:48.767Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1223,20 +1263,26 @@
         "senior-installation-supervisor-buehler-uzwil",
         "senior-installation-supervisore-buhler-group-uzwil-670b1e",
         "senior-installation-vorgesetzter-buhler-group-uzwil-670b1e",
-        "senior-installation-superviseur-buhler-group-uzwil-670b1e"
+        "senior-installation-superviseur-buhler-group-uzwil-670b1e",
+        "senior-installation-supervisore-buhler-group-uzwil",
+        "senior-installation-vorgesetzter-buhler-group-uzwil",
+        "senior-installation-superviseur-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-installation-supervisor-buehler-uzwil",
-          "senior-installation-supervisore-buhler-group-uzwil-670b1e"
+          "senior-installation-supervisore-buhler-group-uzwil-670b1e",
+          "senior-installation-supervisore-buhler-group-uzwil"
         ],
         "de": [
           "senior-installation-supervisor-buehler-uzwil",
-          "senior-installation-vorgesetzter-buhler-group-uzwil-670b1e"
+          "senior-installation-vorgesetzter-buhler-group-uzwil-670b1e",
+          "senior-installation-vorgesetzter-buhler-group-uzwil"
         ],
         "fr": [
           "senior-installation-supervisor-buehler-uzwil",
-          "senior-installation-superviseur-buhler-group-uzwil-670b1e"
+          "senior-installation-superviseur-buhler-group-uzwil-670b1e",
+          "senior-installation-superviseur-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-09-02T23:16:34.792Z",
@@ -1256,9 +1302,9 @@
     },
     {
       "id": "buehler-11c4eb189358",
-      "slug": "lead-plc-ingegnere-r-d-buhler-group-uzwil",
+      "slug": "lead-plc-engineer-r-amp-d-buehler-uzwil",
       "slugByLocale": {
-        "it": "lead-plc-ingegnere-r-d-buhler-group-uzwil",
+        "it": "lead-plc-engineer-r-amp-d-buehler-uzwil",
         "en": "lead-plc-engineer-r-d-buhler-group-uzwil",
         "de": "lead-plc-engineer-r-amp-d-buehler-uzwil",
         "fr": "lead-plc-engineer-r-amp-d-buehler-uzwil"
@@ -1286,7 +1332,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lead-plc-engineer-r-d/8d6ca185-1f29-4058-8434-85ab531eed7b",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:19:15.151Z",
+      "crawledAt": "2026-10-03T09:24:48.762Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
