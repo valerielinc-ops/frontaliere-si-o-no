@@ -7601,6 +7601,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tutela-inquilini-berna-2026.title': 'Mieten in der Schweiz 2026: Markt und Rechte in Bern',
     'blog.article.tutela-inquilini-berna-2026.excerpt': 'Kaution von bis zu drei Monatsmieten und Kündigung durch den Vermieter mit kantonalem Formular: die bundesrechtlichen Regeln für Personen, die 2026 eine Wohnung in Bern suchen.',
     'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Eingang einer Schweizer Wohnung mit Mietdokument und Schlüsseln',
+    'blog.article.affitti-svizzera-regole-2026.title': 'Mieten in der Schweiz: Bundesrechtliche Regeln und Kaution im Jahr 2026',
+    'blog.article.affitti-svizzera-regole-2026.excerpt': 'Leitfaden zu den bundesrechtlichen Regeln für die Miete in der Schweiz im Jahr 2026: Begrenzung der Kaution auf drei Monatsmieten, Sperrkonto und Budgetverwaltung.',
+    'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Mietmarkt in der Schweiz und bundesrechtliche Mietvorschriften',
 };
 
 export default blogMetaChDe;

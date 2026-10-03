@@ -22831,6 +22831,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-svizzera-regole-2026',
+    category: 'pratico',
+    date: '2026-10-03T01:51:50.012Z',
+    image: '/images/blog/affitti-svizzera-regole-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

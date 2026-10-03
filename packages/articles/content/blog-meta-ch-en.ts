@@ -7601,6 +7601,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tutela-inquilini-berna-2026.title': 'Renting in Switzerland 2026: market and rights in Bern',
     'blog.article.tutela-inquilini-berna-2026.excerpt': 'Security deposit of up to three months\' rent and the landlord\'s termination notice using a cantonal form: the federal rules for those looking for a home in Bern in 2026.',
     'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Entrance of a Swiss apartment with rental documents and keys',
+    'blog.article.affitti-svizzera-regole-2026.title': 'Renting in Switzerland: federal rules and security deposit in 2026',
+    'blog.article.affitti-svizzera-regole-2026.excerpt': 'Guide to the federal rules on renting in Switzerland in 2026: three-month security-deposit limit, blocked account and budget management.',
+    'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Rental market in Switzerland and federal leasing regulations',
 };
 
 export default blogMetaChEn;

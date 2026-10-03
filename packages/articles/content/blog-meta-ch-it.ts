@@ -7601,6 +7601,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tutela-inquilini-berna-2026.title': 'Affitti in Svizzera 2026: mercato e diritti a Berna',
     'blog.article.tutela-inquilini-berna-2026.excerpt': 'Deposito cauzionale fino a tre mensilità e disdetta del locatore su modulo cantonale: le regole federali per chi cerca casa a Berna nel 2026.',
     'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Ingresso di un appartamento svizzero con documento di locazione e chiavi',
+    'blog.article.affitti-svizzera-regole-2026.title': 'Affitti Svizzera: regole federali e cauzione nel 2026',
+    'blog.article.affitti-svizzera-regole-2026.excerpt': 'Guida alle regole federali sulla locazione in Svizzera nel 2026: limite della cauzione a tre mesi, conto vincolato e gestione del budget.',
+    'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Mercato degli affitti in Svizzera e regole federali sulla locazione',
 };
 
 export default blogMetaChIt;

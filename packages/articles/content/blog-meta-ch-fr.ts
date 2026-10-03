@@ -7601,6 +7601,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tutela-inquilini-berna-2026.title': 'Loyers en Suisse 2026 : marché et droits à Berne',
     'blog.article.tutela-inquilini-berna-2026.excerpt': 'Garantie locative allant jusqu’à trois mois de loyer et résiliation par le bailleur au moyen d’un formulaire cantonal : les règles fédérales pour les personnes qui cherchent un logement à Berne en 2026.',
     'blog.article.tutela-inquilini-berna-2026.imageAlt': 'Entrée d\'un appartement suisse avec document de location et clés',
+    'blog.article.affitti-svizzera-regole-2026.title': 'Location en Suisse : règles fédérales et caution en 2026',
+    'blog.article.affitti-svizzera-regole-2026.excerpt': 'Guide des règles fédérales relatives à la location en Suisse en 2026 : plafond de la garantie à trois mois, compte bloqué et gestion du budget.',
+    'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Marche locatif en Suisse et regles federales de location',
 };
 
 export default blogMetaChFr;
