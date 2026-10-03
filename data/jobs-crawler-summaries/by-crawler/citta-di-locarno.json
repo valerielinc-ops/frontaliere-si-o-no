@@ -1,7 +1,7 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-10-02T21:18:53.818Z",
+  "generatedAt": "2026-10-03T09:12:03.880Z",
   "total": 1,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -35,7 +35,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=c3d0f2a5-4111-4488-abfc-facb9f5041f8,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:18:46.709Z",
+      "crawledAt": "2026-10-03T09:11:56.937Z",
       "needsRetranslation": true,
       "_qualityScore": 73,
       "_qualityBreakdown": {
@@ -49,10 +49,11 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "durationMs": 3725,
-  "avgDurationMs": 3725,
+  "durationMs": 3939,
+  "avgDurationMs": 3939,
   "durationHistory": [
     4803,
-    3725
+    3725,
+    3939
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-10-02T21:16:04.712Z",
+  "generatedAt": "2026-10-03T09:11:40.370Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,11 +14,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3923,
-  "avgDurationMs": 3923,
+  "durationMs": 3256,
+  "avgDurationMs": 3256,
   "durationHistory": [
     4591,
-    3923
+    3923,
+    3256
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,7 +48,7 @@
       "applyUrl": "https://www.moncucco.ch/capoclinica_chirurgia_viscerale.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:15:56.426Z",
+      "crawledAt": "2026-10-03T09:11:33.753Z",
       "firstSeenAt": "2026-09-25T14:43:35.632Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -82,7 +83,7 @@
       "applyUrl": "https://www.moncucco.ch/infermiere_capo_reparto_area_internistica.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:15:56.058Z",
+      "crawledAt": "2026-10-03T09:11:33.469Z",
       "firstSeenAt": "2026-08-05T11:36:52.216Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
