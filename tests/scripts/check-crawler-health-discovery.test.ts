@@ -78,6 +78,18 @@ describe('listCrawlerSlugs', () => {
     const slugs = await listCrawlerSlugs();
     expect(slugs).toEqual(['omega']);
   });
+
+  it('does not rediscover historical slices for retired crawlers', async () => {
+    readdir.mockImplementation(async (dir: string) => {
+      if (isSummaryDir(dir)) return ['bally.json', 'omega.json'];
+      if (isByCrawlerDir(dir)) return ['bally.json'];
+      throw enoent();
+    });
+
+    const slugs = await listCrawlerSlugs({ retiredSlugs: new Set(['bally']) });
+
+    expect(slugs).toEqual(['omega']);
+  });
 });
 
 describe('missing crawler carry-forward', () => {

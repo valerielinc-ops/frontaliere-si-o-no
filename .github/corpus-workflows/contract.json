@@ -4,20 +4,20 @@
   "generatorSha256": "893b25f4d924a15c1602f08e6faa5ee1f2604915603a84b6672908792fc1f457",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "41fd7eb6e7ea4f66145f4d767a86f4aeef63f372",
+  "sourceCommit": "482868f8de1022748bdb8af49437d29dc001be81",
   "artifactObservation": {
     "generatorSha256": "893b25f4d924a15c1602f08e6faa5ee1f2604915603a84b6672908792fc1f457",
     "sourceRef": "main",
-    "sourceCommit": "41fd7eb6e7ea4f66145f4d767a86f4aeef63f372"
+    "sourceCommit": "482868f8de1022748bdb8af49437d29dc001be81"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 624,
+  "crawlerCount": 623,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:2dbb0cd78f2ac8487e04b89f96218c108b2871420ed3c3547001e33d806169ad",
+    "rosterDigest": "sha256:17038436dd1a226b7dc660d500be2ec20fe54ae2b2f132935d287e526dc2c51e",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -110,7 +110,6 @@
     "scripts/update-bachtelen-jobs.mjs",
     "scripts/update-badrutts-palace-jobs.mjs",
     "scripts/update-balgrist-jobs.mjs",
-    "scripts/update-bally-jobs.mjs",
     "scripts/update-baloise-jobs.mjs",
     "scripts/update-baronie-jobs.mjs",
     "scripts/update-barry-callebaut-jobs.mjs",
@@ -1259,8 +1258,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "67cea0592d153b271971751e4ea307582b8c49d85bbada51330efe57f09a7b08",
-      "artifactSha256": "28603e3421b194bed90e968a775eb480493d7ae8997453f886221fed68626714",
+      "sourceSha256": "f51db16e0b66403beb8424e20f8fe082c99a4b9f7d0f2b2b5ef3bb7f8047eeb3",
+      "artifactSha256": "49aa3f965d6c5b172d653e31be6faefe3faa8eb526a6b2b7e1da81bd92957b58",
       "generatorSha256": "893b25f4d924a15c1602f08e6faa5ee1f2604915603a84b6672908792fc1f457",
       "members": [
         "tertianum",
@@ -1287,7 +1286,6 @@
         "empa",
         "kantonsspital-uri",
         "bobst",
-        "bally",
         "baloise",
         "etavis",
         "amina-bank"

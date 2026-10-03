@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 624,
+  "crawlerCount": 623,
   "groups": {
     "10": [
       "atec-personal",
@@ -250,7 +250,6 @@
     "18": [
       "amina-bank",
       "apleona-schweiz-ag",
-      "bally",
       "baloise",
       "bobst",
       "canton-valais",
@@ -727,7 +726,6 @@
     "bachtelen": "data/jobs/by-crawler/bachtelen.json",
     "badrutts-palace": "data/jobs/by-crawler/badrutts-palace.json",
     "balgrist": "data/jobs/by-crawler/balgrist.json",
-    "bally": "data/jobs/by-crawler/bally.json",
     "baloise": "data/jobs/by-crawler/baloise.json",
     "banca-cler": "data/jobs/by-crawler/banca-cler.json",
     "banca-raiffeisen-vedeggio-cassarate": "data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json",
@@ -1302,5 +1300,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:2dbb0cd78f2ac8487e04b89f96218c108b2871420ed3c3547001e33d806169ad"
+  "digest": "sha256:17038436dd1a226b7dc660d500be2ec20fe54ae2b2f132935d287e526dc2c51e"
 }

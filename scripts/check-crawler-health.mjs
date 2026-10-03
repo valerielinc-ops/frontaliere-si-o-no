@@ -123,6 +123,7 @@ const SUMMARIES_DIR = path.join(
 );
 const HEALTH_STATE_PATH = path.join(ROOT, 'data', 'crawler-health.json');
 const HEALTH_ISSUES_PATH = path.join(ROOT, 'data', 'crawler-health-issues.json');
+const CRAWLER_QUARANTINE_PATH = path.join(ROOT, 'data', 'crawler-quarantine.json');
 
 // The site remains the canonical job-data repository. During the cross-repo
 // crawler migration, however, issue #6712 caused some valid crawler commits to
@@ -437,16 +438,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // after 2026-08-28. Parser healthy; re-arms when Montchoisi publishes again
   // (issue #7320).
   'clinique-de-montchoisi',
-  // Bally (Swiss luxury leather-goods house, HQ Caslano TI): the crawler was
-  // fixed (#3797) to pull from the real source — the SmartRecruiters tenant
-  // "Bally" (https://jobs.smartrecruiters.com/Bally), replacing the 4 dead
-  // bally.com/en-ch/careers.html-style URLs the old scraper 404'd against.
-  // Verified live 2026-07-08: the public API
-  // (https://api.smartrecruiters.com/v1/companies/Bally/postings) returns
-  // "totalFound":0 worldwide, not just for Switzerland — Bally genuinely has
-  // no open postings on this ATS right now. Parser is healthy and will pick
-  // up real jobs (CH-filtered) the moment any are published.
-  'bally',
   // `kone` left this list on 2026-10-02: the SmartRecruiters tenant `KONE1`
   // it read (1 posting, Belgium) was never KONE's board; its Workday site
   // lists the Swiss reqs (6 live). It now proves its own zero every run
@@ -786,18 +777,35 @@ async function listJsonSlugs(dir) {
 }
 
 /**
- * List all known crawler slugs: union of `data/jobs/by-crawler/*.json` and
- * `data/jobs-crawler-summaries/by-crawler/*.json`. A crawler that has never
- * produced an active-jobs shard (e.g. `earlyExit: true` on every run) only
- * ever writes the summary slice — reading BY_CRAWLER_DIR alone made those
- * crawlers permanently invisible to this monitor (issue #3797).
+ * List all active crawler slugs: union of `data/jobs/by-crawler/*.json` and
+ * `data/jobs-crawler-summaries/by-crawler/*.json`, excluding crawlers retired
+ * in `data/crawler-quarantine.json`. A retired crawler intentionally keeps its
+ * historical slices for route/data continuity, but those slices must not turn
+ * into a new stale/broken alert after its scheduler has been removed.
+ * A crawler that has never produced an active-jobs shard (e.g. `earlyExit: true`
+ * on every run) only ever writes the summary slice — reading BY_CRAWLER_DIR
+ * alone made those crawlers permanently invisible to this monitor (issue #3797).
  */
-async function listCrawlerSlugs() {
+async function readRetiredCrawlerSlugs() {
+  const registry = await readJsonSafe(CRAWLER_QUARANTINE_PATH);
+  const retired = registry && typeof registry === 'object' && !Array.isArray(registry)
+    ? registry.retired
+    : null;
+  if (!retired || typeof retired !== 'object' || Array.isArray(retired)) return new Set();
+  return new Set(Object.keys(retired));
+}
+
+async function listCrawlerSlugs({ retiredSlugs = null } = {}) {
   const [byCrawler, summaries] = await Promise.all([
     listJsonSlugs(BY_CRAWLER_DIR),
     listJsonSlugs(SUMMARIES_DIR),
   ]);
-  return [...new Set([...byCrawler, ...summaries])].sort();
+  const retired = retiredSlugs instanceof Set
+    ? retiredSlugs
+    : await readRetiredCrawlerSlugs();
+  return [...new Set([...byCrawler, ...summaries])]
+    .filter((slug) => !retired.has(slug))
+    .sort();
 }
 
 function shouldCarryForwardCrawlerSlug(slug) {
@@ -1620,7 +1628,8 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 async function main() {
   const nowMs = Date.now();
   const nowIso = new Date(nowMs).toISOString();
-  const slugs = await listCrawlerSlugs();
+  const retiredSlugs = await readRetiredCrawlerSlugs();
+  const slugs = await listCrawlerSlugs({ retiredSlugs });
   if (slugs.length === 0) {
     console.warn('[health] No crawler files found; nothing to check.');
   }
@@ -1716,6 +1725,21 @@ async function main() {
   // scratch companions are not crawler identities and must not survive forever
   // merely because an older monitor discovered them before isSliceFile existed.
   for (const [slug, prev] of Object.entries(prevCrawlers)) {
+    if (retiredSlugs.has(slug)) {
+      // Keep a retired crawler's prior state as a healthy, explicit marker so
+      // the monitor's existing issue closer can resolve an alert opened before
+      // the retirement. Its old summary remains available for SEO/data audits,
+      // but it is no longer an active health observation.
+      nextCrawlers[slug] = {
+        ...prev,
+        status: 'healthy',
+        advisory: false,
+        advisoryReason: null,
+        lastFailureReason: null,
+        _retired: true,
+      };
+      continue;
+    }
     if (!(slug in nextCrawlers) && shouldCarryForwardCrawlerSlug(slug)) {
       nextCrawlers[slug] = { ...prev, status: 'unknown', _missingAt: nowIso };
     }
