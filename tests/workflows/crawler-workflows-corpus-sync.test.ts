@@ -11,6 +11,7 @@ import {
   prepareCrawlerWorkflowCorpusSync,
 } from '../../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import {
+  PIN_BODY_SECTIONS,
   UNREFRESHABLE_TITLE,
   unrefreshableAnnotation,
   WATCHDOG_RUNTIME_PATH,
@@ -19,6 +20,8 @@ import {
   evaluateWatchdogTargetAssumptions,
   gitBlobSha,
   manifestDigest,
+  renderPinBodySections,
+  replacePinBodySections,
 } from '../../scripts/ci/translate-watchdog-pin.mjs';
 
 import {
@@ -94,10 +97,33 @@ describe('crawler workflow corpus transport', () => {
     expect(script).toContain('gh pr create --repo "$target_repo" --base main --head "$head_ref"');
     expect(script).toContain('git push -u origin "HEAD:$target_branch"');
     expect(script).not.toMatch(/git push[^\n]*(--force|HEAD:main|origin main)/);
-    expect(script).not.toMatch(/gh pr edit/);
-    expect(script).toContain('branch updated without replacing its body');
+    expect(script).toContain('branch updated, body kept except its watchdog pin sections');
     expect(script.indexOf('assert_transport_paths origin/main...HEAD'))
       .toBeLessThan(script.indexOf('git push -u origin "HEAD:$target_branch"'));
+  });
+
+  // Corpus PR 2066: il body dichiarava il pin del primo trasporto mentre il diff,
+  // ritrasportato, ne portava un altro. Sulla PR gia' aperta si riscrivono SOLO
+  // le sezioni del pin, e solo dopo il gate del body; titolo, label e resto no.
+  it('sulla PR gia aperta aggiorna solo le sezioni del pin, passando dal gate del body', () => {
+    const openBranch = script.slice(script.indexOf('if [ -n "$open_number" ]; then\n  # Non riscrivere'), script.indexOf('\nelse\n  if ! gh pr create'));
+    expect(openBranch.length).toBeGreaterThan(0);
+    // Invocazioni reali (argomento quotato o variabile), non i messaggi `::error::`.
+    const edits = [...script.matchAll(/gh pr edit ["$][^\n]*/g)].map((match) => match[0]);
+    expect(edits).toEqual(['gh pr edit "$open_number" --repo "$target_repo" --body-file "$updated_body"; then']);
+    expect(openBranch).toContain(edits[0]);
+    expect(openBranch).toContain('gh pr view "$open_number" --repo "$target_repo" --json body --jq .body > "$current_body"');
+    const update = openBranch.indexOf('--update-body "$current_body" "$pin_state" "$updated_body"');
+    const gate = openBranch.indexOf('pr-body-check-gate.mjs" --body-file "$updated_body"');
+    const edit = openBranch.indexOf('gh pr edit');
+    expect(update).toBeGreaterThan(-1);
+    expect(gate).toBeGreaterThan(update);
+    expect(edit).toBeGreaterThan(gate);
+    expect(openBranch).toContain('[ "$update_gate_status" -ne 0 ]');
+    // Il ramo di creazione resta quello di prima e la PR aperta non ne passa.
+    expect(openBranch).not.toContain('gh pr create');
+    expect(script.slice(script.indexOf('\nelse\n  if ! gh pr create'))).not.toContain('gh pr edit');
+    expect(script).not.toMatch(/gh pr edit[^\n]*(--title|--add-label|--remove-label|--body ")/);
   });
 
   it('deriva dal contratto l allowlist dei workflow esecutivi e rifiuta delete', () => {
@@ -530,8 +556,12 @@ set -euo pipefail
 if [ "$1 $2" = "api user" ]; then
   printf '%s\\n' 'valerielinc-ops'
 elif [ "$1 $2" = "pr list" ]; then
-  printf '%s\\n' '[]'
-elif [ "$1 $2" = "pr create" ]; then
+  printf '%s\\n' "\${GH_STUB_LIST_JSON:-[]}"
+elif [ "$1 $2" = "pr view" ]; then
+  # Come gh pr view --jq .body: il body seguito da un newline.
+  cat "$GH_STUB_BODY"; printf '\\n'
+elif [ "$1 $2" = "pr create" ] || [ "$1 $2" = "pr edit" ]; then
+  printf '%s\\n' "$1 $2" >> "$GH_STUB_BODY.calls"
   while [ "$#" -gt 0 ]; do
     if [ "$1" = "--body-file" ]; then cp "$2" "$GH_STUB_BODY"; fi
     shift
@@ -558,9 +588,9 @@ fi
     };
     const branch = 'crawler-workflows-lockstep-0123456789ab';
     const show = (ref: string) => execFileSync('git', ['--git-dir', remote, 'show', ref], { encoding: 'utf8' });
-    const run = () => execFileSync('bash', [path.join(siteRoot, 'scripts/ci/sync-crawler-workflows-to-corpus.sh')], {
+    const run = (extraEnv: Record<string, string> = {}) => execFileSync('bash', [path.join(siteRoot, 'scripts/ci/sync-crawler-workflows-to-corpus.sh')], {
       cwd: siteRoot,
-      env,
+      env: { ...env, ...extraEnv },
       stdio: 'pipe',
       encoding: 'utf8',
     });
@@ -800,5 +830,140 @@ fi
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true });
     }
+  });
+
+  // Corpus PR 2066: primo trasporto col pin `bb1c1e69…`, ritrasporto dopo un
+  // cambio di translate-pending.yml col pin `befa1307…`, body fermo al primo.
+  // Titolo di fallimento: «Lockstep crawler: il body della PR di trasporto
+  // dichiara un pin diverso dal diff».
+  describe('body della PR gia aperta: la riga del pin segue la consegna', () => {
+    const { implemented: IMPL, pending: PEND } = PIN_BODY_SECTIONS;
+    const pinLine = (from: string, to: string) => `${IMPL.legacyPrefix} \`${from}\` → \`${to}\` (resto della riga).\n`;
+    const blockedLine = `${PEND.legacyPrefix}: il pin resta \`x\`. **Motivo:** m. **Prossimo passo:** p.\n`;
+    const head = [
+      '## Implementato',
+      '',
+      '- in questa PR: primo bullet del trasporto.',
+      '- in questa PR: secondo bullet,',
+      '  con una riga di continuazione.',
+    ].join('\n');
+    const tail = [
+      '',
+      '## Non implementato (ancora)',
+      '',
+      '- in questa PR, per scelta: bullet fisso. **Motivo:** m. **Prossimo passo:** p.',
+      '- blocked: review del corpus.',
+    ].join('\n');
+    const sections = (lines: { implemented?: string; pending?: string }) => renderPinBodySections(lines);
+
+    it('con i marcatori sostituisce solo il loro interno e lascia byte per byte il resto', () => {
+      const created = sections({ implemented: pinLine('a'.repeat(40), 'b'.repeat(40)) });
+      const body = `${head}\n${created.implemented}- in questa PR: aggiunto dall'orchestratore dopo la creazione.\n${tail}\n${created.pending}\nCloses #4242\n\n### Review\n\nnota libera\n`;
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)), pending: blockedLine });
+      const { body: updated, changed } = replacePinBodySections(body, next);
+      expect(changed).toBe(true);
+      expect(updated).toBe(body
+        .replace(created.implemented, next.implemented)
+        .replace(created.pending, next.pending));
+      expect(updated.split(IMPL.legacyPrefix)).toHaveLength(2);
+      expect(updated).not.toContain('b'.repeat(40));
+      // Contenuto invariato: nessuna scrittura richiesta.
+      expect(replacePinBodySections(updated, next)).toEqual({ body: updated, changed: false });
+      // Il pin che smette di cambiare svuota la sezione ma ne lascia i marcatori.
+      const emptied = replacePinBodySections(updated, sections({})).body;
+      expect(emptied).toContain(`${IMPL.start}\n${IMPL.end}\n- in questa PR: aggiunto`);
+      expect(emptied).not.toContain(IMPL.legacyPrefix);
+      expect(emptied).not.toContain(PEND.legacyPrefix);
+    });
+
+    it('senza marcatori sostituisce la riga generata in place, senza duplicarla', () => {
+      const body = `${head}\n${pinLine('a'.repeat(40), 'b'.repeat(40))}${tail}\n\nAddresses nanakokyobashi-rgb/frontaliere-articles#1314\n`;
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)) });
+      const { body: updated } = replacePinBodySections(body, next);
+      expect(updated).toBe(`${head}\n${next.implemented}${tail}\n${next.pending}\nAddresses nanakokyobashi-rgb/frontaliere-articles#1314\n`);
+      expect(updated.split(IMPL.legacyPrefix)).toHaveLength(2);
+      // Una seconda passata trova i marcatori e non cambia niente.
+      expect(replacePinBodySections(updated, next).changed).toBe(false);
+    });
+
+    it('senza riga ne marcatori inserisce le sezioni dopo l ultimo bullet di quella giusta', () => {
+      const body = `${head}\n\nCloses #4242\n${tail}\n`;
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)), pending: blockedLine });
+      expect(replacePinBodySections(body, next).body)
+        .toBe(`${head}\n${next.implemented}\nCloses #4242\n${tail}\n${next.pending}`);
+    });
+
+    it('preserva i CRLF di un body modificato dalla UI e fallisce chiuso su marcatori ambigui', () => {
+      const created = sections({ implemented: pinLine('a'.repeat(40), 'b'.repeat(40)) });
+      const lf = `${head}\n${created.implemented}${tail}\n${created.pending}`;
+      const crlf = lf.replace(/\n/g, '\r\n');
+      const next = sections({ implemented: pinLine('a'.repeat(40), 'c'.repeat(40)) });
+      const { body: updated } = replacePinBodySections(crlf, next);
+      expect(updated).toBe(replacePinBodySections(lf, next).body.replace(/\n/g, '\r\n'));
+      expect(() => replacePinBodySections(`${lf}${IMPL.start}\n`, next)).toThrow(/non accoppiati/);
+      expect(() => replacePinBodySections('nessuna sezione\n', next)).toThrow(/assente dal body/);
+      expect(() => replacePinBodySections(lf, { implemented: 'riga senza marcatori\n', pending: next.pending }))
+        .toThrow(/coppia di marcatori/);
+    });
+
+    it('ritrasporto su PR aperta: il body dichiara il pin del diff, il testo dell orchestratore resta', () => {
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-pin-body-'));
+      try {
+        // Sito finto con i soli path dello sparse checkout del job, per poter
+        // cambiare translate-pending.yml (e il suo hash nel contratto) fra due trasporti.
+        const siteRoot = path.join(fs.realpathSync(tmp), 'site');
+        const source = path.join(siteRoot, '.github/corpus-workflows');
+        const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v7');
+        for (const entry of String(checkout.with['sparse-checkout']).split(/\r?\n/)) {
+          const relative = entry.trim().replace(/^\//, '').replace(/\/$/, '');
+          if (!relative) continue;
+          fs.mkdirSync(path.dirname(path.join(siteRoot, relative)), { recursive: true });
+          fs.cpSync(path.join(ROOT, relative), path.join(siteRoot, relative), { recursive: true });
+        }
+        const sha256 = (content: Buffer | string) => execFileSync('shasum', ['-a', '256'], { input: content, encoding: 'utf8' }).slice(0, 64);
+        const reworked = `${siteArtifact.toString('utf8')}# ritrasporto dopo un cambio del workflow\n`;
+
+        const corpus = setupCorpus(tmp, { workflow: 'name: workflow rivisto in passato\n', siteRoot });
+        const calls = `${corpus.bodyCopy}.calls`;
+        corpus.run();
+        const created = fs.readFileSync(corpus.bodyCopy, 'utf8');
+        const firstLine = `pin del watchdog rinfrescato: \`${corpus.pin}\` → \`${gitBlobSha(siteArtifact)}\``;
+        expect(created).toContain(`${IMPL.start}\n- in questa PR: ${firstLine}`);
+        expect(created).toContain(`${PEND.start}\n${PEND.end}\n`);
+
+        // L'orchestratore arricchisce il body dopo la creazione.
+        const orchestrated = `${created.replace(`${IMPL.end}\n`, `${IMPL.end}\n- in questa PR: nota dell'orchestratore aggiunta dopo la creazione.\n`)}\nCloses #4242\n`;
+        fs.writeFileSync(corpus.bodyCopy, orchestrated);
+
+        // Il sito cambia translate-pending.yml: il ritrasporto porta un pin nuovo.
+        fs.writeFileSync(path.join(source, 'translate-pending.yml'), reworked);
+        const contractPath = path.join(source, 'contract.json');
+        fs.writeFileSync(contractPath, fs.readFileSync(contractPath, 'utf8').replace(sha256(siteArtifact), sha256(reworked)));
+        const openPr = JSON.stringify([{
+          number: 2066,
+          headRefName: corpus.branch,
+          baseRefName: 'main',
+          headRepositoryOwner: { login: 'nanakokyobashi-rgb' },
+          headRepository: { name: 'frontaliere-articles' },
+          author: { login: 'valerielinc-ops' },
+          isCrossRepository: false,
+        }]);
+        corpus.run({ GH_STUB_LIST_JSON: openPr });
+
+        const deliveredPin = /^export const TARGET_WORKFLOW_BLOB_SHA = '([a-f0-9]{40})';$/m
+          .exec(corpus.show(`${corpus.branch}:${WATCHDOG_RUNTIME_PATH}`))?.[1];
+        expect(deliveredPin).toBe(gitBlobSha(reworked));
+        const updated = fs.readFileSync(corpus.bodyCopy, 'utf8');
+        expect(updated).toBe(orchestrated.replace(firstLine, `pin del watchdog rinfrescato: \`${corpus.pin}\` → \`${deliveredPin}\``));
+        expect(fs.readFileSync(calls, 'utf8').split('\n').filter(Boolean)).toEqual(['pr create', 'pr edit']);
+
+        // Stessa consegna di nuovo: body gia' allineato, nessuna scrittura.
+        corpus.run({ GH_STUB_LIST_JSON: openPr });
+        expect(fs.readFileSync(corpus.bodyCopy, 'utf8')).toBe(updated);
+        expect(fs.readFileSync(calls, 'utf8').split('\n').filter(Boolean)).toEqual(['pr create', 'pr edit']);
+      } finally {
+        fs.rmSync(tmp, { recursive: true, force: true });
+      }
+    }, 60_000);
   });
 });

@@ -292,7 +292,33 @@ head_ref=$(git rev-parse --abbrev-ref HEAD)
 if [ -n "$open_number" ]; then
   # Non riscrivere il body: review finding, Closes e contesto aggiunti dopo la
   # creazione appartengono all'orchestratore e devono sopravvivere agli schedule.
-  echo "Crawler workflow transport PR #$open_number already open; branch updated without replacing its body."
+  # Fanno eccezione le sole sezioni delimitate del pin, che descrivono il diff
+  # di QUESTA consegna: un ritrasporto che cambia il pin le deve seguire
+  # (corpus PR 2066: body col pin `bb1c1e69…`, diff con `befa1307…`).
+  echo "Crawler workflow transport PR #$open_number already open; branch updated, body kept except its watchdog pin sections."
+  current_body="$work/pr-body-current.md"
+  updated_body="$work/pr-body-updated.md"
+  if ! gh pr view "$open_number" --repo "$target_repo" --json body --jq .body > "$current_body"; then
+    # exit 1 per scelta, come il ramo di creazione: il workflow ritenta e la
+    # consegna e' idempotente; un warning lascerebbe il body col pin vecchio.
+    echo "::error::gh pr view #$open_number fallito; branch gia' pushato, sezioni del pin nel body non verificate"
+    exit 1
+  fi
+  if ! node "$site_root/scripts/ci/translate-watchdog-pin.mjs" \
+    --update-body "$current_body" "$pin_state" "$updated_body"; then
+    echo "::warning::body della PR di trasporto #$open_number senza una collocazione univoca per la riga del pin; body lasciato invariato"
+  elif [ -f "$updated_body" ]; then
+    set +e
+    node "$site_root/scripts/ci/pr-body-check-gate.mjs" --body-file "$updated_body"
+    update_gate_status=$?
+    set -e
+    if [ "$update_gate_status" -ne 0 ]; then
+      echo "::warning::body aggiornato della PR di trasporto #$open_number rifiutato dal gate (exit $update_gate_status); body lasciato invariato"
+    elif ! gh pr edit "$open_number" --repo "$target_repo" --body-file "$updated_body"; then
+      echo "::error::gh pr edit #$open_number fallito; branch gia' pushato, body col pin precedente"
+      exit 1
+    fi
+  fi
 else
   if ! gh pr create --repo "$target_repo" --base main --head "$head_ref" \
     --title 'Lockstep crawler workflows with the site' --body-file "$body"; then
