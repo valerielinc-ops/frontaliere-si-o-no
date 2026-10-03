@@ -72,7 +72,11 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
-import { SAVED_JOBS_DIGEST_ANCHOR_FIELD } from '../services/subscriberConsent.mjs';
+import {
+  SAVED_JOBS_DIGEST_ANCHOR_FIELD,
+  hasSubscriptionBasis,
+  isSavedJobsDigestAnchorOnly,
+} from '../services/subscriberConsent.mjs';
 import { savedJobsDigestChoice } from '../services/savedJobsDigestActivation.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
@@ -168,6 +172,44 @@ export async function ensureSavedJobsDigestAnchor(db, { uid, email, activationSo
     const anchor = buildSavedJobsDigestAnchor({ uid, email, activationSource });
     transaction.create(ref, anchor);
     return anchor;
+  });
+}
+
+/**
+ * Whether the marker would make this row the digest's record: no marker yet,
+ * no subscription basis (marking a row that has one would take the newsletter
+ * away from it), and none of the capture or consent acts that
+ * `isSavedJobsDigestAnchorOnly` reads as a relationship (a row carrying one
+ * would ignore the marker anyway).
+ */
+export function isUnmarkedSavedJobsDigestRecord(data) {
+  if (!data || typeof data !== 'object' || data[SAVED_JOBS_DIGEST_ANCHOR_FIELD]) return false;
+  if (hasSubscriptionBasis(data)) return false;
+  return isSavedJobsDigestAnchorOnly({ ...data, [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: {} });
+}
+
+/**
+ * A row that exists but holds no relationship is the digest's address record
+ * in fact: the legacy profile-only documents a sign-in wrote before #8341's
+ * reconciliation stopped it (name, photo, `auth_uid`, `lastLoginAt`; 235 rows
+ * measured 2026-09-24, see `hasSubscriptionBasis`). The digest already mails
+ * them, so a bounce, a recovery, the decay or the Mailtrap retry can write a
+ * `status` on them, and any status is a subscription basis: the newsletter
+ * would start. Stamping the digest's marker, and nothing else, puts them under
+ * the same protection as the record created above. A row that holds a
+ * relationship, or already carries the marker, is returned untouched.
+ */
+export async function markSavedJobsDigestRecord(db, { email, activationSource = null, now = new Date() }) {
+  const ref = db.collection('newsletter_subscribers').doc(email);
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
+    if (!exists) return null;
+    const data = snapshot.data?.() || {};
+    if (!isUnmarkedSavedJobsDigestRecord(data)) return data;
+    const marker = { created_at: now, activation_source: activationSource || null };
+    transaction.set(ref, { [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: marker }, { merge: true });
+    return { ...data, [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: marker };
   });
 }
 
@@ -1212,6 +1254,7 @@ async function main() {
   let sentCount = 0;
   let skippedCount = 0;
   let anchorCount = 0;
+  let markedCount = 0;
 
   for (const [uid, sources] of byUid) {
     const savedSourceEntries = sources;
@@ -1334,6 +1377,17 @@ async function main() {
         subscriberData = await ensureSavedJobsDigestAnchor(db, { uid, email: verifiedEmail, activationSource });
       }
       anchorCount++;
+    } else if (
+      isUnmarkedSavedJobsDigestRecord(subscriberData)
+      && savedJobsDigestChoice(userData.savedJobsDigest) === 'on'
+    ) {
+      // A row with no relationship that this digest is about to use: mark it
+      // as the digest's record before the first send (see markSavedJobsDigestRecord).
+      const activationSource = userData.savedJobsDigest?.activationSource || null;
+      if (!DRY_RUN) {
+        subscriberData = await markSavedJobsDigestRecord(db, { email: email.toLowerCase(), activationSource }) || subscriberData;
+      }
+      markedCount++;
     }
     if (!isSavedJobsDigestEligible(userData, subscriberData)) {
       skippedCount++;
@@ -1422,6 +1476,9 @@ async function main() {
   console.log(`\n📊 Done — sent ${sentCount}, skipped ${skippedCount}${DRY_RUN ? ' (dry-run)' : ''}`);
   if (anchorCount > 0) {
     console.log(`   ⚓ digest-only record ${DRY_RUN ? 'would be created' : 'created or found'} for ${anchorCount} account(s) without a central row`);
+  }
+  if (markedCount > 0) {
+    console.log(`   ⚓ digest marker ${DRY_RUN ? 'would be stamped' : 'stamped'} on ${markedCount} existing row(s) with no relationship`);
   }
 }
 

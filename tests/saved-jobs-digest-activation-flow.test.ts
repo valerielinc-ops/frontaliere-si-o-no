@@ -39,6 +39,7 @@ import {
   __setJobsForTest,
   assertUnsubscribeSecret,
   ensureSavedJobsDigestAnchor,
+  markSavedJobsDigestRecord,
   main,
 } from '../scripts/send-saved-jobs-digest.mjs';
 import { handleSavedJobsDigestUnsubscribe } from '../functions/src/savedJobsDigestUnsubscribe.js';
@@ -401,11 +402,13 @@ describe('saved-jobs digest — an account without a central row', () => {
     expect(await runDigest(db)).toContain('sent 0, skipped 1');
 
     // A late delivery disproves the provider suppression (subscriberReactivation.js):
-    // the row gets `status: 'active'`, `isActive: true`. That is the address
-    // coming back, not the person asking for the newsletter.
+    // the row gets `status: 'active'` back, and on this record only the status:
+    // the activity flags would make the admin panel count it as a subscriber.
+    // That is the address coming back, not the person asking for the newsletter.
     expect(await providerEvent(db, 'email.delivered')).toMatchObject({ handled: true });
     const recovered = docs.get(ROW);
-    expect(recovered).toMatchObject({ status: 'active', isActive: true });
+    expect(recovered).toMatchObject({ status: 'active' });
+    expect(recovered?.isActive).not.toBe(true);
     expect(hasSubscriptionBasis(recovered)).toBe(false);
     expect(hasNewsletterSubscriberRecord(recovered)).toBe(false);
 
@@ -467,6 +470,46 @@ describe('saved-jobs digest — an account without a central row', () => {
     const row = await ensureSavedJobsDigestAnchor(db, { uid: UID, email: EMAIL, activationSource: 'saved_job' });
     expect(row).toBe(stopped);
     expect(docs.get(ROW)).toBe(stopped);
+  });
+
+  // The legacy profile-only rows (a sign-in before #8341's reconciliation:
+  // name, photo, auth_uid, lastLoginAt, no relationship) already receive the
+  // digest. Marking them keeps a machine-written status from making them a
+  // newsletter subscription.
+  it('marks a legacy row with no relationship as the digest record before mailing it', async () => {
+    const { db, docs } = profileOnlyFirestore();
+    const legacy = { email: EMAIL, auth_uid: UID, auth_provider: 'google', name: 'Reader', lastLoginAt: new Date() };
+    docs.set(ROW, legacy);
+    saveListing(docs, 'job-1');
+
+    expect(await runDigest(db)).toContain('sent 1, skipped 0');
+    const row = docs.get(ROW);
+    expect(row).toEqual({
+      ...legacy,
+      [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: { created_at: expect.any(Date), activation_source: SAVED_JOBS_DIGEST_SAVE_ACTIVATION },
+    });
+    expect(isSavedJobsDigestAnchorOnly(row)).toBe(true);
+
+    // A bounce and a later delivery write a status: still not a subscription.
+    expect(await providerEvent(db, 'email.suppressed')).toMatchObject({ handled: true });
+    expect(await providerEvent(db, 'email.delivered')).toMatchObject({ handled: true });
+    expect(docs.get(ROW)).toMatchObject({ status: 'active' });
+    expect(hasSubscriptionBasis(docs.get(ROW))).toBe(false);
+    expect(hasNewsletterSubscriberRecord(docs.get(ROW))).toBe(false);
+  });
+
+  it.each([
+    // A status is a subscription basis: the marker would take the newsletter away.
+    ['a legacy subscriber with only a status', { email: EMAIL, status: 'active' }],
+    ['a registered subscriber', { email: EMAIL, status: 'confirmed', registration_terms_accepted: true }],
+    // A capture is a relationship act the marker would not override anyway.
+    ['a captured row', { email: EMAIL, auth_uid: UID, source_channel: 'web_app', lastLoginAt: new Date() }],
+    ['a row with a creation stamp', { email: EMAIL, created_at: new Date() }],
+  ])('never marks %s', async (_label, row) => {
+    const { db, docs } = profileOnlyFirestore();
+    docs.set(ROW, row);
+    expect(await markSavedJobsDigestRecord(db, { email: EMAIL, activationSource: 'saved_job' })).toBe(row);
+    expect(docs.get(ROW)).toBe(row);
   });
 
   it('an account that has its central row is unchanged: no Auth lookup, no record', async () => {
