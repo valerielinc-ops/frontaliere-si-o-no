@@ -7025,23 +7025,23 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ───────────────────────────────────────────────────────────────
 
  'tassa-salute-frontalieri': {
- title: 'Tassa Salute Frontalieri 2026: Importo, Esenzioni, Come Funziona',
- h1: 'Tassa salute frontalieri 2026 — importo, chi paga, come viene trattenuta',
- description: 'Tassa salute frontalieri 2026: importo aggiornato, chi è soggetto o esente, come viene trattenuta dal Cantone Ticino ai nuovi frontalieri, differenza con LAMal.',
- keywords: 'tassa salute frontalieri, contributo sanitario frontalieri, tassa salute ticino, tassa sanitaria frontalieri svizzera, nuovi frontalieri tassa salute, regioni frontaliere salute, trattenuta salute ticino',
+ title: 'Tassa Salute Frontalieri 2026: Regole e Importi',
+ h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
+ description: 'Contributo SSN frontalieri: soggetti previsti dalla legge, quota sul salario netto, diritto di opzione e provvedimenti regionali per il 2026.',
+ keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
- ogDescription: '💰 Guida completa alla tassa salute frontalieri 2026: importo ufficiale, chi è soggetto o esente, come viene trattenuta e rimborsata alle Regioni di confine.',
+ ogDescription: 'Contributo sanitario italiano: regole nazionali, vecchi frontalieri e opzione SSN, importi e applicazione territoriale.',
  canonicalPath: '/guida-frontaliere/tassa-salute-frontalieri/',
  structuredData: [
  {
  "@context": "https://schema.org",
  "@type": "Article",
  "headline": "Tassa salute frontalieri 2026: importo, esenzioni e funzionamento",
- "description": "Guida completa al contributo sanitario a carico dei nuovi frontalieri previsto dal Nuovo Accordo Italia-Svizzera 2026: importo, soggetti esenti, meccanismo di trattenuta e destinazione alle Regioni di confine.",
+ "description": "Contributo sanitario previsto dalla legge italiana 213/2023 e dal decreto 14 novembre 2025: condizioni, quota sul netto e competenze regionali.",
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": "2026-04-22",
+ "dateModified": "2026-10-03",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
  "speakable": SPEAKABLE_SECTION
@@ -7055,7 +7055,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cos'è la tassa salute per i frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La tassa salute (contributo sanitario frontalieri) è un prelievo introdotto dall'art. 9 del Nuovo Accordo Italia-Svizzera entrato in vigore il 17 luglio 2023. Si applica ai nuovi frontalieri — coloro che hanno iniziato a lavorare in Svizzera dopo tale data — ed è destinata a finanziare il Servizio Sanitario Nazionale nelle Regioni di confine (Lombardia, Piemonte, Valle d'Aosta, Trentino-Alto Adige). Viene trattenuta direttamente dal datore di lavoro svizzero in busta paga."
+ "text": "Il contributo al SSN è previsto dalla legge italiana 213/2023, articolo 1, commi 237–239, e dal decreto 14 novembre 2025. Riguarda le categorie previste dalla legge, compresi i vecchi frontalieri dell'articolo 9 che hanno esercitato l'opzione per l'assistenza italiana, e i familiari a carico. Non è un'imposta svizzera sui soli nuovi frontalieri."
  }
  },
  {
@@ -7063,7 +7063,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto è la tassa salute frontalieri nel 2026?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La tassa salute ammonta al 6% dell'imposta alla fonte lorda trattenuta dal Cantone svizzero di lavoro. L'aliquota, fissata dall'art. 9 del Nuovo Accordo, è stata confermata dalla Legge di Bilancio italiana e dalla circolare dell'Agenzia delle Entrate. Per uno stipendio lordo di CHF 72.000 con imposta fonte del 9%, il prelievo mensile è di circa CHF 32 (6% di CHF 540 mensili)."
+ "text": "La legge prevede il 3–6% del salario netto svizzero, con quota familiare progressiva e limiti di 30–200 euro per mese lavorato, raddoppiabili in caso di omesso pagamento o comunicazione. La quota annuale è definita dalla Regione o Provincia autonoma competente: per importo e scadenza 2026 occorre consultare il relativo provvedimento, non applicare automaticamente il 6%."
  }
  },
  {
@@ -7071,7 +7071,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "I vecchi frontalieri devono pagare la tassa salute?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "No. La tassa salute si applica esclusivamente ai nuovi frontalieri (assunti dal 17/07/2023 in avanti) e non ai vecchi frontalieri, che restano nel regime transitorio con tassazione esclusiva in Svizzera fino al 2033. Anche i frontalieri con permesso B (dimora) sono esenti, in quanto residenti fiscali in Svizzera."
+ "text": "I vecchi frontalieri non sono esclusi: la legge richiama espressamente quelli dell'articolo 9, paragrafo 1, che hanno esercitato il diritto d'opzione per il SSN. Occorre verificare copertura sanitaria, condizioni personali e provvedimenti territoriali; il solo permesso G o la data di assunzione non bastano."
  }
  },
  {
@@ -7079,7 +7079,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Chi incassa materialmente la tassa salute frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il Cantone svizzero di lavoro trattiene la somma alla fonte insieme all'imposta ordinaria e la riversa alla Confederazione, che a sua volta la trasferisce alle Regioni italiane di confine tramite un meccanismo di compensazione finanziaria. Le Regioni la destinano poi al finanziamento del SSN locale a cui il frontaliere ha comunque diritto di accesso mantenendo la residenza in Italia."
+ "text": "Il decreto 14 novembre 2025 prevede un versamento annuale degli interessati direttamente alla Regione o alla Provincia autonoma di Bolzano tramite gli strumenti di pagamento dell'articolo 5 del Codice dell'amministrazione digitale. Non prevede una trattenuta del datore svizzero o un trasferimento tramite la Confederazione."
  }
  },
  {
@@ -7087,7 +7087,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "La tassa salute è detraibile in dichiarazione dei redditi?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Sì. Il contributo sanitario frontalieri concorre al credito d'imposta per le imposte pagate in Svizzera riconosciuto in dichiarazione dei redditi (Quadro CE del modello Redditi PF o Quadro G del 730). Conservare sempre la certificazione annuale svizzera (Lohnausweis) e la traduzione giurata se richiesta dal CAF, perché il credito riduce euro su euro l'IRPEF dovuta in Italia."
+ "text": "Non va inserito automaticamente nel credito per le imposte pagate in Svizzera: si tratta di un contributo al servizio sanitario italiano. Prima di indicarlo in dichiarazione verifica le istruzioni fiscali applicabili al tuo caso con il CAF o un professionista, conservando ricevute e avviso dell'ente competente."
  }
  },
  {
@@ -7095,41 +7095,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Tassa salute e LAMal sono la stessa cosa?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "No, sono due prelievi completamente diversi. La LAMal è il premio dell'assicurazione sanitaria svizzera obbligatoria (CHF 400-600/mese) che il frontaliere può scegliere di pagare se esercita il diritto d'opzione; la tassa salute è un tributo pubblico (6% dell'imposta fonte) trattenuto dallo Stato svizzero per finanziare il SSN italiano. Un nuovo frontaliere paga sempre la tassa salute, indipendentemente dal fatto che abbia scelto LAMal o SSN come assicurazione."
+ "text": "No. La LAMal riguarda l'assicurazione malattie svizzera; il contributo sanitario italiano dipende dalle categorie e dalle condizioni stabilite dalla legge. Non si può affermare che ogni nuovo frontaliere debba pagare entrambi: va verificato il diritto d'opzione e il proprio inquadramento sanitario."
  }
- }
- ]
- },
- {
- "@context": "https://schema.org",
- "@type": "HowTo",
- "name": "Come si calcola la tassa salute frontalieri",
- "description": "Procedura per determinare l'importo della tassa salute dovuta da un nuovo frontaliere in base allo stipendio lordo svizzero.",
- "totalTime": "PT10M",
- "step": [
- {
- "@type": "HowToStep",
- "position": 1,
- "name": "Determina l'imposta alla fonte lorda annua",
- "text": "Prendi il lordo annuo in CHF e applica l'aliquota alla fonte cantonale (tabella A/B/C/H del Ticino 2026) per ottenere l'imposta fonte lorda."
- },
- {
- "@type": "HowToStep",
- "position": 2,
- "name": "Applica l'aliquota del 6%",
- "text": "Moltiplica l'imposta fonte lorda annua per 0,06 per ottenere il contributo salute annuo."
- },
- {
- "@type": "HowToStep",
- "position": 3,
- "name": "Dividi per 12 o 13 mensilità",
- "text": "Dividi il contributo annuo per le mensilità previste in busta paga per ottenere il prelievo mensile visibile sul Lohnausweis."
- },
- {
- "@type": "HowToStep",
- "position": 4,
- "name": "Verifica e conserva la documentazione",
- "text": "Controlla che la voce 'contributo salute' o 'tassa frontalieri' compaia in busta paga e conserva il Lohnausweis annuale per la dichiarazione dei redditi italiana."
  }
  ]
  }
