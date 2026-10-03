@@ -29,12 +29,11 @@
  * carries a generic `ohws.prospective.ch/public/v1/jobs/{id}` directlink
  * instead of a `jobs.pzmag.ch` one, so `acceptDirectlinkHosts` below
  * legitimately filters out 100% of postings (0 is correct, not broken —
- * see `EMPTY_OK_CRAWLERS` in `scripts/check-crawler-health.mjs`). Former PZM
+ * see the retirement entry in `data/crawler-quarantine.json`). Former PZM
  * roles are covered by `upd-job-parser.mjs`, which reads the merged UPZ
  * vacancy set (Prospective medium 1000842) including Münsingen-located
- * roles. This dedicated crawler is a candidate for
- * retirement (issue #4080) — deferred because that requires editing
- * `.github/workflows/crawler-group-10.yml`.
+ * roles. The dedicated scheduler is retired; the parser remains in the
+ * manifest for historical route/data continuity.
  */
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
 
