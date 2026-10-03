@@ -239,10 +239,10 @@ async function main() {
       if (process.env.GITHUB_ACTIONS === 'true') {
         // Annotation on the run summary, so the broken file is visible without
         // opening the step log.
-        console.error(`::error file=${shown},title=Deploy: immagine illeggibile in public/images::${message}`);
+        console.error(`::error file=${shown},title=Miniature: immagine sorgente illeggibile::${message}`);
       }
     }
-    console.error('   Fix or replace the files above; no thumbnail was written for them.');
+    console.error('   Fix or replace the files above; no thumbnail is kept for them (a previous one, if any, was removed).');
     process.exitCode = 1;
   }
 }
