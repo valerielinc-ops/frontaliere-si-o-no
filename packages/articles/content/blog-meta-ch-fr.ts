@@ -7637,6 +7637,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazio-ue-pacchi-posta.title': 'Droit UE de 3 euros : chute des colis postaux',
     'blog.article.dazio-ue-pacchi-posta.excerpt': 'Tarif douanier de l\'UE de 3 € par article : les envois de colis de la Poste suisse vers l\'UE chutent de façon spectaculaire. La part de la Chine passe de 6 % à 11 % en dix ans.',
     'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Colis dans un centre postal suisse sur fond de nouveaux droits de douane de l\'UE',
+    'blog.article.spedizioni-ue-posta-svizzera.title': 'Droits de douane de l\'UE sur les colis : impact sur la Poste suisse',
+    'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Depuis juillet, l\'UE applique un droit de 3 euros pour chaque article provenant de pays tiers. La Poste suisse signale une baisse à deux chiffres du nombre de colis à destination de l\'UE.',
+    'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Colis de la Poste suisse préparés pour l\'envoi vers l\'Union européenne',
 };
 
 export default blogMetaChFr;

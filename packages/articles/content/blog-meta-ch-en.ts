@@ -7637,6 +7637,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazio-ue-pacchi-posta.title': 'EU tariff of 3 euros: Swiss Post parcels drop',
     'blog.article.dazio-ue-pacchi-posta.excerpt': 'EU customs duty of 3 euros per item: Swiss Post parcels to the Union plunge to double digits. China’s share rises from 6% to 11% in ten years.',
     'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Parcels at a Swiss postal hub amid changes to shipments toward the European Union',
+    'blog.article.spedizioni-ue-posta-svizzera.title': 'EU duties on parcels: impact on Posta svizzera',
+    'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Since July, the EU has charged 3 euro for each item from third countries. The Posta svizzera reports a double-digit decline in parcels to the EU.',
+    'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Swiss Post parcels prepared for shipment to the European Union',
 };
 
 export default blogMetaChEn;

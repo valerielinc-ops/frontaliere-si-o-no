@@ -7637,6 +7637,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazio-ue-pacchi-posta.title': 'Dazio Ue da 3 euro: calano i pacchi della Posta svizzera',
     'blog.article.dazio-ue-pacchi-posta.excerpt': 'Dazio Ue da 3 euro per articolo: i colli della Posta svizzera verso l\'Unione crollano a due cifre. La quota cinese passa dal 6% all\'11% in dieci anni.',
     'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Pacchi in un centro postale svizzero mentre cambiano le spedizioni verso l\'Unione europea',
+    'blog.article.spedizioni-ue-posta-svizzera.title': 'Dazi UE sui pacchi: impatto sulla Posta svizzera',
+    'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Dal luglio l\'UE applica 3 euro per ogni articolo dai Paesi terzi. La Posta svizzera segnala un calo a due cifre dei pacchi verso l\'UE.',
+    'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Pacchi della Posta svizzera destinati all\'Unione europea',
 };
 
 export default blogMetaChIt;

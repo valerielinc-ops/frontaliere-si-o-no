@@ -7637,6 +7637,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazio-ue-pacchi-posta.title': 'EU-Zoll von 3 Euro: Pakete der Schweizerischen Post gehen zurück',
     'blog.article.dazio-ue-pacchi-posta.excerpt': 'EU-Zoll von 3 Euro pro Artikel: Die Pakete der Schweizerischen Post in die Europäische Union gehen im zweistelligen Prozentbereich zurück. Der Anteil chinesischer Pakete steigt in zehn Jahren von 6% auf 11%.',
     'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Pakete in einem Schweizer Postzentrum vor dem Hintergrund neuer EU-Zolltarife',
+    'blog.article.spedizioni-ue-posta-svizzera.title': 'EU-Zölle auf Pakete: Auswirkungen auf die Schweizerische Post',
+    'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Seit Juli erhebt die EU 3 Euro pro Artikel aus Drittstaaten. Die Schweizerische Post meldet einen zweistelligen Rückgang der Pakete in die EU.',
+    'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Pakete der Schweizer Post für den Versand in die Europäische Union',
 };
 
 export default blogMetaChDe;
