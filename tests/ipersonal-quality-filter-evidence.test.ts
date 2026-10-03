@@ -51,6 +51,18 @@ const ambiguousMunicipalityListing = () => ({
   url: 'https://med-ipersonal.ch/jobs/elettricista/',
 });
 
+const structuredRegionNameListing = () => ({
+  title: 'Sachbearbeiter Treuhand',
+  location: 'Niederbipp',
+  addressLocality: 'Niederbipp',
+  // The source resolver verifies the canton, but schema.org requires the
+  // canonical two-letter region code at the parser → assembler boundary.
+  addressRegion: 'Bern',
+  addressCountry: 'CH',
+  description: '<p>Aufgaben mit Verantwortung in einem professionellen Team.</p>',
+  url: 'https://med-ipersonal.ch/jobs/sachbearbeiter-treuhand/',
+});
+
 describe.each([
   { name: 'iPersonal', fetchAll: fetchAllIpersonalJobs },
   { name: 'MediPersonal', fetchAll: fetchAllMedIpersonalJobs },
@@ -61,6 +73,19 @@ describe.each([
     expect(jobs).toHaveLength(1);
     expect((jobs as any).qualityDroppedCount).toBe(0);
     expect(jobs[0].canton).toBe('SG');
+  });
+
+  it('emits the verified source canton consistently in canton and addressRegion', async () => {
+    mockListings.current = withCounts([structuredRegionNameListing()]);
+    const jobs = await fetchAll();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      location: 'Niederbipp',
+      addressLocality: 'Niederbipp',
+      canton: 'BE',
+      addressRegion: 'BE',
+      addressCountry: 'CH',
+    });
   });
 
   it.each([

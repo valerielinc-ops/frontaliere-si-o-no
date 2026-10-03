@@ -10,6 +10,8 @@ import { describe, it, expect } from 'vitest';
 import { normalizeParsedJobsForSlice } from '../../scripts/assemble-jobs-dataset.mjs';
 
 interface JobLike {
+  companyKey?: string;
+  source?: string;
   location?: string;
   url?: string;
   applyUrl?: string;
@@ -86,6 +88,22 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(jobs[0].country).toBeUndefined();
     expect(jobs[0].addressRegion).toBe('VS');
     expect(report.regionDefaulted).toBe(1);
+  });
+
+  it('reconciles a stale iPersonal canton to its verified structured region', () => {
+    const jobs: JobLike[] = [{
+      companyKey: 'med-ipersonal',
+      source: 'iPersonal AG Dedicated Parser',
+      location: 'Niederbipp',
+      addressLocality: 'Niederbipp',
+      canton: 'SO',
+      addressRegion: 'BE',
+      addressCountry: 'CH',
+    }];
+    const report = normalizeParsedJobsForSlice(jobs);
+    expect(jobs[0].canton).toBe('BE');
+    expect(jobs[0].addressRegion).toBe('BE');
+    expect(report.sourceGeographyReconciled).toBe(1);
   });
 
   it('never forges postalCode or streetAddress', () => {
