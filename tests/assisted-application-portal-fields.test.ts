@@ -191,6 +191,10 @@ describe('portal field extraction', () => {
     const asked = guardPlan({ actions: [], missingRequired: [{ fieldId: 'f27', question: 'Agenzia?', why: '', type: 'choice', options: ['Ja', 'Nein'] }] }, [agency]);
     expect(asked.actions.map((action: any) => action.value)).toEqual(['Nein']);
     expect(asked.missingRequired).toEqual([]);
+    // Review of #11036: options not read, no "No" to choose: the plan's "Ja" is dropped, the field stays open.
+    const unread = guardPlan({ actions: [{ fieldId: 'a', action: 'select', value: 'Ja', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [{ id: 'a', kind: 'combobox', label: 'Vermittlungsbüro', required: true, value: '', options: [] }]);
+    expect(unread.actions.some((action: any) => action.fieldId === 'a')).toBe(false);
+    expect(unread.missingRequired.map((item: any) => item.fieldId)).toEqual(['a']);
     // Any other Ja/Nein question is left to the plan.
     const employee = { ...agency, id: 'f26', label: '* Ich bin bereits Mitarbeiter/in bei der Coop Gruppe' };
     expect(guardPlan({ actions: [{ fieldId: 'f26', action: 'select', value: 'Nein', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [employee]).actions.map((action: any) => action.value)).toEqual(['Nein']);

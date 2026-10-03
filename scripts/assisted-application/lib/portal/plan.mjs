@@ -197,11 +197,14 @@ export function guardPlan(plan, fields, candidate = null) {
   // AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis
   // akzeptiert.)» (Coop, 2026-10-03): always its "No", whatever the plan says.
   // The candidate applies personally and no agency's terms are ever accepted.
+  // Without a "No" among the options read (review of #11036), no answer at
+  // all: the plan's is dropped and the required field holds the submission.
+  const agencyIds = new Set(fields.filter((field) => isAgencyQuestion(field)).map((field) => field.id));
   const agencyNo = new Map(fields.map((field) => [field.id, agencyNoOption(field)]).filter(([, option]) => option));
   for (const [fieldId, option] of agencyNo) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyNo.has(action.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId)),
     missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
@@ -264,9 +267,13 @@ export function guardPlan(plan, fields, candidate = null) {
 const AGENCY_RE = /(vermittlungsb[üu]ro|personalvermittl|placement agency|recruit(ment|ing) agency|staffing agency|agenzia (per il lavoro|di collocamento|interinale|per l['’]impiego)|agence (de placement|de recrutement|d['’]emploi|intérimaire))/i;
 const NO_OPTION_RE = /^(nein|no|non)$/i;
 
+export function isAgencyQuestion(field) {
+  return Boolean(field) && AGENCY_RE.test(String(field.label || ''));
+}
+
 /** The "No" of an agency question that offers one, else null. */
 export function agencyNoOption(field) {
-  if (!field || !AGENCY_RE.test(String(field.label || ''))) return null;
+  if (!isAgencyQuestion(field)) return null;
   return (field.options || []).find((option) => NO_OPTION_RE.test(String(option.label || '').trim())) || null;
 }
 
