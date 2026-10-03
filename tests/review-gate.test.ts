@@ -2000,7 +2000,7 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
     expect(historicalImportantFindings([...history, real], { includeLatest: true })).toHaveLength(1);
   });
 
-  it('approves a head whose only Important is a ledger meta-finding, and logs why', async () => {
+  it('does not approve a ledger-only Important without LGTM, and logs why', async () => {
     const history = META.map((text, index) => bot(10 + index, `## Findings (Important: 1, Nit: 0)\n${text}\n## Adversarial check`));
     const latest = bot(30, `## Findings (Important: 1, Nit: 0)\n${META[2]}\n\n## Adversarial check\n- ❓ q: nessuna. — deferred, non funnel-critical.`, HEAD_SHA);
     const log = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -2018,7 +2018,8 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
         changedLinesFn: noChangedLines,
         mutate: false,
       });
-      expect(result.approved).toBe(true);
+      expect(result.approved).toBe(false);
+      expect(result.reason).toMatch(/manca ## LGTM/i);
       expect(log.mock.calls.flat().join('\n')).toMatch(/review-gate: DECLASSIFIED-LEDGER finding=1 /u);
     } finally {
       log.mockRestore();
