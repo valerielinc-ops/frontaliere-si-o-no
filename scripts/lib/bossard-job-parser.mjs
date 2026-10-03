@@ -45,11 +45,12 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetailParts,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -208,7 +209,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location || posting.locationsText || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -233,7 +234,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location || posting.locationsText || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -327,7 +328,6 @@ export async function fetchAllBossardJobs() {
     const jobSlug = slugify(`${title} bossard ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
-    const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {
       id: `${BOSSARD_KEY}-${urlHash}`,
@@ -365,7 +365,7 @@ export async function fetchAllBossardJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],
