@@ -33,6 +33,29 @@ describe('automation e-mails', () => {
     expect(formatDeadline(DEADLINE, 'it')).toContain('21:30');
   });
 
+  // Owner decision 2026-10-03: a profile that is not a full match goes on, and the candidate is told.
+  it('tells the candidate that the CV does not show every requirement, before the button and in every language', () => {
+    const expectations: Record<string, [RegExp, RegExp]> = {
+      it: [/alcuni requisiti dell’annuncio non risultano dal tuo CV/, /indispensabile un requisito che dal tuo CV non risulta/],
+      de: [/Einige Anforderungen der Stelle gehen aus deinem Lebenslauf nicht hervor/, /als zwingend, die aus deinem Lebenslauf nicht hervorgeht/],
+      fr: [/certaines exigences de l’annonce ne ressortent pas de votre CV/, /comme indispensable une exigence qui ne ressort pas de votre CV/],
+      en: [/some requirements of the posting do not show in your CV/, /as essential a requirement your CV does not show/],
+    };
+    for (const [locale, [partial, low]] of Object.entries(expectations)) {
+      const plain = buildCandidateAutomationEmail('candidate_review', { ...base, locale, deadlineAt: DEADLINE });
+      expect(plain.text).not.toMatch(partial);
+      expect(plain.text).not.toMatch(low);
+      const some = buildCandidateAutomationEmail('candidate_review', { ...base, locale, deadlineAt: DEADLINE, fit: 'partial' });
+      expect(some.text).toMatch(partial);
+      expect(some.html).toMatch(partial);
+      expect(some.text.indexOf(base.reviewUrl)).toBeGreaterThan(some.text.search(partial));
+      const missing = buildCandidateAutomationEmail('candidate_review', { ...base, locale, held: true, openQuestions: 2, deadlineAt: null, fit: 'low' });
+      expect(missing.text).toMatch(low);
+      // Only the review e-mail says it: a reminder keeps to its own subject.
+      expect(buildCandidateAutomationEmail('candidate_reminder', { ...base, locale, deadlineAt: DEADLINE, fit: 'low' }).text).not.toMatch(low);
+    }
+  });
+
   it('never promises an automatic send while questions are open', () => {
     const email = buildCandidateAutomationEmail('candidate_review', { ...base, locale: 'it', held: true, openQuestions: 2, deadlineAt: null });
     expect(email.text).toContain('mi servono alcune informazioni o documenti che solo tu puoi darmi (2)');

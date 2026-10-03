@@ -9,6 +9,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 const { handleAssistedApplicationReview, minDateFor } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
+const { MAX_FIT_GAPS, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
 
 const SECRET = 'r'.repeat(40);
 const T0 = Date.UTC(2026, 8, 30, 10, 0, 0);
@@ -67,6 +68,52 @@ describe('candidate review API', () => {
     for (const secret of ['verdict', 'summaryIt', 'checksIt', 'factCheck', 'Profilo debole', 'Chiedere il diploma']) {
       expect(serialized).not.toContain(secret);
     }
+  });
+
+  // Owner decision 2026-10-03: a profile that is not a full match goes on, and the candidate reads why above the questions.
+  it('tells the candidate which decisive requirements the CV does not show, and nothing else of the analysis', async () => {
+    const requirements = [
+      { requirement: 'Tedesco fluente', importance: 'high', basis: 'stated', quote: 'Business fluent German' },
+      { requirement: 'Esperienza come concierge in un hotel 5 stelle', importance: 'critical', basis: 'stated', quote: 'Several years of experience as a Concierge within the 5-star hotel industry' },
+      { requirement: 'Patente B', importance: 'meaningful', basis: 'stated', quote: 'Driving licence' },
+      { requirement: 'Inglese fluente', importance: 'critical', basis: 'stated', quote: 'Business fluent English' },
+    ];
+    const matches = [
+      { index: 0, status: 'partial', evidence: 'Tedesco B1' }, { index: 1, status: 'missing', evidence: '' },
+      { index: 2, status: 'missing', evidence: '' }, { index: 3, status: 'met', evidence: 'Inglese C1' },
+    ];
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ verdict: 'poor', requirements, matches }));
+    const { body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    // The must-have first, then what is partly there; never a merely "asked for" requirement, nor one that is met.
+    expect(body.fit).toEqual({
+      level: 'low',
+      gaps: [
+        { requirement: 'Esperienza come concierge in un hotel 5 stelle', quote: 'Several years of experience as a Concierge within the 5-star hotel industry', importance: 'critical', status: 'missing' },
+        { requirement: 'Tedesco fluente', quote: 'Business fluent German', importance: 'high', status: 'partial' },
+      ],
+    });
+    const serialized = JSON.stringify(body);
+    for (const secret of ['verdict', 'summaryIt', 'checksIt', 'factCheck', 'Profilo debole', 'Tedesco B1', 'Inglese C1']) expect(serialized).not.toContain(secret);
+    // A draft of another round is not this round's notice.
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ round: 2 }, { merge: true });
+    expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token(2) } }, deps())).body.fit).toBeNull();
+  });
+
+  it('says nothing on a full match, «partial» when a requirement does not show, «low» when the verdict is poor', () => {
+    const requirement = (importance: string, index: number) => ({ requirement: `Requisito ${index}`, importance, basis: 'stated', quote: `Quote ${index}` });
+    const met = { verdict: 'good', requirements: [requirement('critical', 0), requirement('high', 1)], matches: [{ index: 0, status: 'met' }, { index: 1, status: 'met' }] };
+    expect(fitNoticeOf(met)).toBeNull();
+    expect(fitNoticeOf(null)).toBeNull();
+    // A requirement the match never judged is not called missing.
+    expect(fitNoticeOf({ ...met, matches: [{ index: 0, status: 'met' }] })).toBeNull();
+    expect(fitNoticeOf({ ...met, verdict: 'weak', matches: [{ index: 0, status: 'met' }, { index: 1, status: 'missing' }] }))
+      .toEqual({ level: 'partial', gaps: [{ requirement: 'Requisito 1', quote: 'Quote 1', importance: 'high', status: 'missing' }] });
+    // The verdict alone still warns, with whatever gaps there are.
+    expect(fitNoticeOf({ ...met, verdict: 'poor' })).toEqual({ level: 'low', gaps: [] });
+    const many = Array.from({ length: 9 }, (_, index) => requirement(index % 2 ? 'high' : 'critical', index));
+    const notice = fitNoticeOf({ verdict: 'weak', requirements: many, matches: many.map((_, index) => ({ index, status: index < 3 ? 'partial' : 'missing' })) });
+    expect(notice?.gaps).toHaveLength(MAX_FIT_GAPS);
+    expect(notice?.gaps.map((gap: any) => `${gap.importance}:${gap.status}`)).toEqual(['critical:missing', 'critical:missing', 'critical:missing', 'critical:partial', 'critical:partial', 'high:missing']);
   });
 
   it('rejects forged, expired and superseded links', async () => {
