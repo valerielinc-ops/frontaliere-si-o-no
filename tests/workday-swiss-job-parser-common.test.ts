@@ -1153,7 +1153,8 @@ describe('createWorkdaySwissParser — countryFacetParameter', () => {
 
     const unproven = await make(false).fetchAllJobs();
     expect(bodies[0].appliedFacets).toEqual({ Country: ['187134fccb084a0ea9b4b95f23890dbe'] });
-    expect(bodies).toHaveLength(1);
+    expect(bodies[1].appliedFacets).toEqual({});
+    expect(bodies).toHaveLength(2);
     expect(isAuthoritativeEmptySnapshot(unproven)).toBe(false);
 
     const proven = await make(true).fetchAllJobs();
