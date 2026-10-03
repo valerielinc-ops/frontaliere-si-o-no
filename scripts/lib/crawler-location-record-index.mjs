@@ -7,17 +7,20 @@ function normalizeJobId(value) {
 }
 
 function locationRecord(job) {
+  const sourceLocationCanton = String(job.sourceLocationCanton || '').trim().toUpperCase();
   return {
     canton: String(job.canton || '').trim().toUpperCase(),
     city: String(job.addressLocality || job.location || '').trim(),
     location: String(job.location || '').trim(),
+    ...(sourceLocationCanton ? { sourceLocationCanton } : {}),
   };
 }
 
 function sameLocationRecord(left, right) {
   return left.canton === right.canton
     && left.city === right.city
-    && left.location === right.location;
+    && left.location === right.location
+    && (left.sourceLocationCanton || '') === (right.sourceLocationCanton || '');
 }
 
 function addUniqueRecord(index, key, record) {

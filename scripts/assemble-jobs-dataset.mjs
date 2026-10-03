@@ -3169,6 +3169,7 @@ async function assembleJobs() {
         cityText: city,
         locationText: job.location,
         crawlerCanton,
+        sourceLocationCanton: job.sourceLocationCanton,
       })
       : null;
     // Guard: only accept the inference if it lands in a canton the funnel

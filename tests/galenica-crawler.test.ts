@@ -109,6 +109,24 @@ const APPRENTICESHIP_VARIANTS = [
   { id: '12692283', lang: 'it', contact: { firm: 'Amavita', street: 'Place du Lignon 19', zip: '1219', city: 'Le Lignon', state: 'GE' }, textblocks: { jobtitle: 'Assistente di farmacia AFC', profilelink: 'https://www.yousty.ch/de-CH/lehrstellen/profile/12692283-fachmann-frau-apotheke-efz-le-lignon-ge-amavita' } },
 ];
 
+const SEEWEN_HOMONYM_VARIANTS = [
+  {
+    id: '12692413',
+    lang: 'it',
+    contact: {
+      firm: 'Coop Vitality',
+      street: 'Seewen Markt, Steinbislin 7',
+      zip: '6423',
+      city: 'Seewen',
+      state: 'SZ',
+    },
+    textblocks: {
+      jobtitle: 'Assistente di farmacia AFC',
+      profilelink: 'https://www.yousty.ch/it-CH/posti-di-apprendistato/profili/12692413-assistente-di-farmacia-afc-seewen-sz-coop-vitality',
+    },
+  },
+];
+
 // Yousty profile text of 12692278 (Amavita Lausanne), 2026-09-29 — the same text
 // Amavita publishes for every Lausanne pharmacy; only the workplace differs.
 const YOUSTY_TEXT = [
@@ -172,6 +190,18 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
     expect(job.description).toBe(`**Lieu de travail:** Amavita, Route des Plaines-du-Loup 2, 1018 Lausanne\n\n${YOUSTY_TEXT}`);
     expect(job.descriptionByLocale).toEqual({ fr: job.description });
     expect(job.descriptionIt).toBeUndefined();
+  });
+
+  it('retains the source canton for the Seewen homonym after locality normalization', () => {
+    const { job } = buildGalenicaJob(SEEWEN_HOMONYM_VARIANTS, {
+      youstyEnrichment: { description: YOUSTY_TEXT, sourceLang: 'it', applyUrl: 'x' },
+    });
+    expect(job.location).toBe('Seewen');
+    expect(job.addressLocality).toBe('Seewen');
+    expect(job.canton).toBe('SZ');
+    expect(job.sourceLocationCanton).toBe('SZ');
+    expect(job.postalCode).toBe('6423');
+    expect(job.streetAddress).toBe('Seewen Markt, Steinbislin 7');
   });
 
   it('never builds a blurb: no source text → flagged, empty description', () => {
