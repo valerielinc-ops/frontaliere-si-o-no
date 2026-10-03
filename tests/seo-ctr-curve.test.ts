@@ -8,7 +8,9 @@ import {
   aggregateFamilyRows,
   rankBelowCurvePagesByLostClicks,
   renderBelowCurvePagesSection,
+  belowCurvePagesForState,
   BELOW_CURVE_ISSUE_PAGE_LIMIT,
+  BELOW_CURVE_STATE_PAGE_LIMIT,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
@@ -889,17 +891,54 @@ describe('seo-ctr-curve (issue #4300)', () => {
     it('con zero pagine sotto curva lo dice, invece di omettere la sezione', () => {
       const agg = aggregateFamilyRows([rows[2]], { minImpressions: MIN_IMPRESSIONS });
       const section = renderBelowCurvePagesSection(agg.belowCurvePages);
-      expect(section).toContain('Nessuna pagina della famiglia sta sotto la curva');
+      expect(section).toContain('Nessuna pagina sotto la soglia');
+      // Il criterio e' dichiarato: «sotto curva» e' 0,6 × la CTR attesa, non la curva piena.
+      expect(section).toContain('CTR < 0,6 × la CTR attesa');
       expect(section).not.toContain('| Path |');
     });
 
-    it('il monitor passa le pagine alla issue e ne salva cinque nello state file', () => {
+    it('la tabella dichiara il criterio di «sotto curva»', () => {
+      const agg = aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS });
+      expect(renderBelowCurvePagesSection(agg.belowCurvePages)).toContain('Sotto curva = CTR < 0,6 × la CTR attesa');
+    });
+
+    it('lo state file riceve le prime cinque per click persi, con sei campi arrotondati', () => {
+      const many = Array.from({ length: 12 }, (_, i) => ({
+        path: `/s-${String(i).padStart(2, '0')}/`,
+        clicks: 0,
+        impressions: 100 + i,
+        position: 3,
+        ctr: 0,
+        query: 'campo estraneo che non deve finire nello state',
+      }));
+      const agg = aggregateFamilyRows(many, { minImpressions: MIN_IMPRESSIONS });
+      const forState = belowCurvePagesForState(agg.belowCurvePages);
+      expect(BELOW_CURVE_STATE_PAGE_LIMIT).toBe(5);
+      expect(forState).toHaveLength(BELOW_CURVE_STATE_PAGE_LIMIT);
+      expect(forState.map((p: { path: string }) => p.path)).toEqual(['/s-11/', '/s-10/', '/s-09/', '/s-08/', '/s-07/']);
+      for (const page of forState) {
+        expect(Object.keys(page)).toEqual(['path', 'impressions', 'position', 'ctr', 'expectedCtr', 'lostClicks']);
+      }
+      expect(forState[0]).toEqual({
+        path: '/s-11/',
+        impressions: 111,
+        position: 3,
+        ctr: 0,
+        expectedCtr: Number(expectedAt3.toFixed(4)),
+        lostClicks: Number((111 * expectedAt3).toFixed(1)),
+      });
+      // Ordine per click persi, non per impressioni: stesso caso della tabella.
+      const mixed = belowCurvePagesForState(aggregateFamilyRows(rows, { minImpressions: MIN_IMPRESSIONS }).belowCurvePages);
+      expect(mixed.map((p: { path: string }) => p.path)).toEqual(['/mid-zero-ctr/', '/big-small-gap/']);
+      expect(belowCurvePagesForState(undefined)).toEqual([]);
+    });
+
+    it('il monitor usa la proiezione e la sezione del modulo della curva', () => {
+      // Il monitor esegue main() all'import: il cablaggio si controlla sul nome
+      // delle due funzioni, il comportamento e' nei casi qui sopra.
       const monitor = readFileSync(join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
-      expect(monitor).toContain('belowCurvePages = agg.belowCurvePages;');
-      expect(monitor).toContain('${renderBelowCurvePagesSection(belowCurvePages)}');
-      expect(monitor).toContain('run: consecutiveBelowRuns, belowCurvePages }');
-      expect(monitor).toContain('const STATE_BELOW_CURVE_PAGES = 5;');
-      expect(monitor).toMatch(/lastBelowCurvePages: rankBelowCurvePagesByLostClicks\(belowCurvePages\)\s*\.slice\(0, STATE_BELOW_CURVE_PAGES\)/);
+      expect(monitor).toContain('belowCurvePagesForState(');
+      expect(monitor).toContain('renderBelowCurvePagesSection(');
     });
   });
 });

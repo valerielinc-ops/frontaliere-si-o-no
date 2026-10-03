@@ -48,7 +48,7 @@ import {
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
   aggregateFamilyRows,
-  rankBelowCurvePagesByLostClicks,
+  belowCurvePagesForState,
   renderBelowCurvePagesSection,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
@@ -67,9 +67,6 @@ const STATE_PATH = resolve(ROOT, 'data', 'seo-ctr-monitor-state.json');
 const WINDOW_DAYS = 14;
 const CONSECUTIVE_RUNS_TO_ESCALATE = 2;
 const DISCOVERY_WINDOW_DAYS = 90;
-// Pagine sotto curva conservate nello state file accanto ai numeri di famiglia:
-// bastano a dire da dove partire senza riaprire la Search Console.
-const STATE_BELOW_CURVE_PAGES = 5;
 const DRY_RUN_COMMAND = 'npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --dry-run';
 
 const dryRun = process.argv.includes('--dry-run');
@@ -370,16 +367,7 @@ async function main() {
       lastCtr: ctr,
       lastPosition: position,
       lastTargetCtr: target,
-      lastBelowCurvePages: rankBelowCurvePagesByLostClicks(belowCurvePages)
-        .slice(0, STATE_BELOW_CURVE_PAGES)
-        .map(({ path, impressions, position: pagePosition, ctr: pageCtr, expectedCtr, lostClicks }) => ({
-          path,
-          impressions,
-          position: pagePosition,
-          ctr: pageCtr,
-          expectedCtr,
-          lostClicks,
-        })),
+      lastBelowCurvePages: belowCurvePagesForState(belowCurvePages),
       lastCheckedIso: nowIso,
       lastError: null,
     };

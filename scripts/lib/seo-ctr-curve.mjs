@@ -1006,6 +1006,19 @@ export function aggregateFamilyRows(rows, { underperformRatio = 0.6, minImpressi
 export const BELOW_CURVE_ISSUE_PAGE_LIMIT = 15;
 
 /**
+ * Quante pagine sotto curva restano nello state file accanto ai numeri di
+ * famiglia: bastano a dire da dove partire senza riaprire la Search Console.
+ */
+export const BELOW_CURVE_STATE_PAGE_LIMIT = 5;
+
+// Il criterio dichiarato nella issue: «sotto curva» non vuol dire «sotto la
+// CTR attesa», ma sotto la frazione `underperformRatio` di `aggregateFamilyRows`
+// (0,6 di default, quella usata dal monitor), fra le pagine che superano il
+// minimo di impressioni. Senza dirlo, «nessuna pagina sotto curva» si legge
+// come «niente da correggere per pagina».
+const BELOW_CURVE_CRITERION = 'CTR < 0,6 × la CTR attesa per la propria posizione, fra le pagine sopra il minimo di impressioni';
+
+/**
  * Ordina le `belowCurvePages` di `aggregateFamilyRows` per click persi stimati
  * (`impressioni × (CTR attesa − CTR)`), dal piu' costoso. L'ordine nativo e'
  * per impressioni: mette in cima la pagina piu' vista, non quella che perde di
@@ -1014,6 +1027,11 @@ export const BELOW_CURVE_ISSUE_PAGE_LIMIT = 15;
  *
  * Non riaggrega e non rifiltra: chi e' «sotto curva» e chi supera il minimo di
  * impressioni lo ha gia' deciso `aggregateFamilyRows`.
+ *
+ * L'elenco puo' essere piu' corto di `belowCurveCount`: una riga GSC con `ctr`
+ * nullo e' contata sotto curva dall'aggregazione (rapporto 0), ma qui la CTR
+ * e' ricalcolata da click/impressioni e, se risulta sopra la curva, la riga
+ * non ha click persi e viene scartata.
  */
 export function rankBelowCurvePagesByLostClicks(belowCurvePages) {
   return (belowCurvePages || [])
@@ -1044,8 +1062,9 @@ export function renderBelowCurvePagesSection(belowCurvePages, { limit = BELOW_CU
     return [
       heading,
       '',
-      'Nessuna pagina della famiglia sta sotto la curva attesa per la propria posizione:',
-      'il divario dal target e\' distribuito sulla famiglia, non concentrato su pagine singole.',
+      `Nessuna pagina sotto la soglia: ${BELOW_CURVE_CRITERION}.`,
+      'Il divario dal target e\' distribuito sulla famiglia, non concentrato su pagine singole;',
+      'pagine fra la soglia e la curva piena possono comunque perdere click e qui non compaiono.',
     ].join('\n');
   }
   const pctCell = (n) => `${(n * 100).toFixed(2)}%`;
@@ -1063,9 +1082,30 @@ export function renderBelowCurvePagesSection(belowCurvePages, { limit = BELOW_CU
     heading,
     '',
     `${shown.length} di ${ranked.length} pagine sotto curva; click persi stimati sull'intero elenco: ${totalLost.toFixed(1)}.`,
+    `Sotto curva = ${BELOW_CURVE_CRITERION}.`,
     '',
     '| Path | Impressioni | Posizione | CTR | CTR attesa | Click persi stimati |',
     '|---|---:|---:|---:|---:|---:|',
     ...rows.map((row) => `| ${row} |`),
   ].join('\n');
+}
+
+/**
+ * Proiezione delle pagine sotto curva per lo state file del monitor: le prime
+ * `limit` per click persi, con i soli sei campi che servono a ritrovarle. I
+ * numeri sono arrotondati (CTR a quattro decimali, click persi a uno) perche'
+ * il file e' committato a ogni run e i float pieni sono solo rumore nel diff.
+ */
+export function belowCurvePagesForState(belowCurvePages, limit = BELOW_CURVE_STATE_PAGE_LIMIT) {
+  const round = (n, digits) => Number(Number(n).toFixed(digits));
+  return rankBelowCurvePagesByLostClicks(belowCurvePages)
+    .slice(0, limit)
+    .map((page) => ({
+      path: page.path,
+      impressions: Number(page.impressions || 0),
+      position: Number.isFinite(Number(page.position)) && page.position !== null ? Number(page.position) : null,
+      ctr: round(page.ctr, 4),
+      expectedCtr: round(page.expectedCtr || 0, 4),
+      lostClicks: round(page.lostClicks, 1),
+    }));
 }
