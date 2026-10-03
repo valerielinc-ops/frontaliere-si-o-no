@@ -4,6 +4,10 @@ import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/port
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
+  formPostingMatch,
+  namesAnotherEmployer,
+  ownAccountForm,
+  sendsApplication,
   privacyConsentControls,
   postingMatch,
   PREREAD_CHANNELS,
@@ -37,6 +41,95 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044', job)).toBe('match');
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Migros&career_ns=job_application', job)).toBe('mismatch');
     expect(postingMatch('Coop Genossenschaft · Bäcker:in', job)).toBe('match');
+  });
+
+  // umantis for a hotel, 2026-10-03: the form names the role («Concierge - Application»), never the employer.
+  it('reads the company on the posting and the role on the form its apply button opened', () => {
+    const job = { company: 'Grand Hotel Esempio', title: 'Concierge (m/w/d)' };
+    const form = 'Concierge - Application | Application Tracking System Concierge Click on Login if you have already set up your profile. https://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
+    // The form alone: a stop, as before.
+    expect(formPostingMatch(form, job)).toBe('mismatch');
+    // Opened by the apply button of a posting that named the company: the role is enough.
+    expect(formPostingMatch(form, job, { postingMatched: true })).toBe('match');
+    // Never another role of the same employer, and never without a role to read.
+    expect(formPostingMatch(form, { ...job, title: 'Chef de Rang' }, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch(form, { company: job.company }, { postingMatched: true })).toBe('mismatch');
+    // A form that names the company needs no posting; an order that names nothing is never stopped.
+    expect(formPostingMatch(`Grand Hotel Esempio · ${form}`, job)).toBe('match');
+    expect(formPostingMatch('anything', {}, { postingMatched: true })).toBe('unknown');
+    // Review of #11033: a form that names another employer of the kind is a stop, whatever the posting said.
+    expect(formPostingMatch('Concierge — Other Hotel', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Concierge - Application | Esempio Resort', job, { postingMatched: true })).toBe('mismatch');
+    // …while one that is silent about the employer goes on with the role alone.
+    expect(formPostingMatch('Concierge — Application Tracking System', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('match');
+  });
+
+  // Reviews of #11033 on the employer a form names. Their acceptances as written, for
+  // company "Grand Hotel Esempio", title "Concierge", postingMatched true.
+  it('takes for another employer only the word next to a word of the order’s company, whatever the case or the separator', () => {
+    const job = { company: 'Grand Hotel Esempio', title: 'Concierge' };
+    const viaPosting = (formText: string, order: Record<string, string> = job) => formPostingMatch(formText, order, { postingMatched: true });
+    // First review: a form that names another employer with the same role is a stop.
+    expect(viaPosting('Concierge — Other Hotel')).toBe('mismatch');
+    // Second: a shared word proves nothing by itself.
+    expect(viaPosting('Concierge — Hotel application')).toBe('match');
+    // Third: neither a generic heading nor a company named elsewhere on the page (the ATS's own footer).
+    expect(viaPosting('Concierge — Hotel Application Process\nPowered by Palace Resort AG')).toBe('match');
+    // Third: the other employer in lower case, or joined by a hyphen, is still another employer.
+    expect(viaPosting('Concierge — other hotel')).toBe('mismatch');
+    expect(viaPosting('Concierge — Other-Hotel')).toBe('mismatch');
+
+    // The same rule around those cases: the neighbour, with filler skipped, in the same phrase.
+    expect(viaPosting('Concierge — Other Hotel', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('mismatch');
+    expect(viaPosting('Concierge - Application https://jobs.other-hotel.example/apply')).toBe('mismatch');
+    expect(viaPosting('Bewerbung als Concierge (m/w/d) im Grand Resort')).toBe('mismatch');
+    expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
+    expect(namesAnotherEmployer('CONCIERGE | HOTEL SPLENDIDE', job)).toBe(true);
+    // The page's own vocabulary, the role, the company's own words and another phrase name nobody.
+    expect(viaPosting('Hotel Concierge · Bewerbung im Hotel Bereich · Hotel Jobs')).toBe('match');
+    expect(namesAnotherEmployer('Concierge — Hotel application', job)).toBe(false);
+    expect(namesAnotherEmployer('Grand Hotel · Concierge', job)).toBe(false);
+    expect(namesAnotherEmployer('Concierge - Application | Application Tracking System', job)).toBe(false);
+    expect(namesAnotherEmployer('Hotel. Splendide careers', job)).toBe(false);
+    expect(namesAnotherEmployer('Concierge https://careers.recruiting-0000.example/apply', job)).toBe(false);
+    // A company with no word in common is beyond what the text can tell: the posting's own button brought here.
+    expect(viaPosting('Concierge — Palace Resort AG')).toBe('match');
+    expect(namesAnotherEmployer('anything', {})).toBe(false);
+
+    // Without a posting that named the company there is no fallback at all.
+    expect(formPostingMatch('Concierge — Application Tracking System', job)).toBe('mismatch');
+    expect(formPostingMatch('Concierge — Application Tracking System', job, { postingMatched: false })).toBe('mismatch');
+    // The whole name on the form is the direct match, as ever.
+    expect(viaPosting('Concierge — Grand Hotel Esempio')).toBe('match');
+    expect(viaPosting('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('match');
+  });
+
+  it('knows a page whose button sends an application, whatever else it asks', () => {
+    // Third review of #11033: a password and «Submit final application», the CV field still in a closed section.
+    const closed = { passwordVisible: true, fields: [{ id: 'f1', kind: 'text', inputType: 'password', label: 'Password', form: 0 }], buttons: [{ text: 'Expand all sections' }, { text: 'Submit final application' }] };
+    expect(sendsApplication(closed)).toBe(true);
+    expect(ownAccountForm(closed)).toBe(false);
+    // Once the section is open the CV is sent with the password: the form, not a login page.
+    expect(ownAccountForm({ ...closed, fields: [...closed.fields, { id: 'f2', kind: 'file', inputType: 'file', label: 'Resume', form: 0 }] })).toBe(true);
+    // A login page sends no application.
+    expect(sendsApplication({ buttons: [{ text: 'Anmelden' }, { text: 'Konto erstellen' }] })).toBe(false);
+    expect(sendsApplication({ buttons: [{ text: 'Submit' }] })).toBe(false);
+    expect(sendsApplication({})).toBe(false);
+  });
+
+  it('takes a form with its own password field for the form only when its button sends an application', () => {
+    const fields = [{ id: 'f1', kind: 'text', inputType: 'password', label: 'Password', form: 0 }, { id: 'f2', kind: 'file', inputType: 'file', label: 'Resume', form: 0 }];
+    const page = (text: string, extra: Record<string, unknown> = {}) => ({ passwordVisible: true, fields, buttons: [{ text: 'Login for recruiters' }, { text }], ...extra });
+    expect(ownAccountForm(page('Submit final application'))).toBe(true);
+    expect(ownAccountForm(page('Bewerbung absenden'))).toBe(true);
+    expect(ownAccountForm(page('Invia candidatura'))).toBe(true);
+    // A registration that also takes a CV: its button creates an account, the login pages handle it.
+    expect(ownAccountForm(page('Konto erstellen'))).toBe(false);
+    expect(ownAccountForm(page('Submit'))).toBe(false);
+    // No password on the page, or no CV sent with it.
+    expect(ownAccountForm(page('Submit final application', { passwordVisible: false }))).toBe(false);
+    expect(ownAccountForm(page('Submit final application', { fields: [fields[0]] }))).toBe(false);
+    expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
   });
 
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
