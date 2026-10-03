@@ -21,6 +21,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l5-decision-moments.yml'
   pull_request:
     paths:
@@ -39,6 +40,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l5-decision-moments.yml'
   workflow_dispatch:
     inputs:
@@ -81,6 +83,7 @@ jobs:
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/posthog-client.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l5-decision-moments.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js

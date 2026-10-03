@@ -13,7 +13,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -29,6 +29,8 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L10';
+const ISSUE_TITLE = 'L10 Fleet Control: execution health or quota ledger is not trustworthy';
+const ISSUE_WORKFLOW = 'Loop L10 Engineering Learning and Fleet Control';
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_QUOTA_PATH = path.join('data', 'quota-history.jsonl');
 export const DEFAULT_HEALTH_PATH = path.join('data', 'loop-fleet', 'ledger', 'loop-health-history.jsonl');
@@ -899,7 +901,8 @@ export async function runL10({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -1031,13 +1034,18 @@ export async function runL10({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L10 Fleet Control: execution health or quota ledger is not trustworthy',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'fleet-control', 'loop-l10'],
-      workflow: 'Loop L10 Engineering Learning and Fleet Control',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);

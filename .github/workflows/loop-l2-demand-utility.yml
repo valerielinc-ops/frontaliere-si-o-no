@@ -20,6 +20,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'services/analytics.ts'
       - '.github/workflows/loop-l2-demand-utility.yml'
   pull_request:
@@ -38,6 +39,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'services/analytics.ts'
       - '.github/workflows/loop-l2-demand-utility.yml'
   workflow_dispatch:
@@ -80,6 +82,7 @@ jobs:
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l2-demand-utility.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
