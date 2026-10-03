@@ -1,7 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { buildIstDescriptionFields, dropIstFabricatedText, isIstDetailJob, parseCountryCode } from '@/scripts/update-ist-jobs.mjs';
+import {
+  buildIstDescriptionFields,
+  dropIstFabricatedText,
+  isIstDetailJob,
+  parseCountryCode,
+  parseIstSitemapJobUrls,
+} from '@/scripts/update-ist-jobs.mjs';
 
 describe('IST country-code parsing', () => {
   it('keeps Swiss canton codes Swiss when they are the final location component', () => {
@@ -12,6 +18,34 @@ describe('IST country-code parsing', () => {
   it('retains a genuinely foreign final country code', () => {
     expect(parseCountryCode('Como, IT')).toBe('IT');
     expect(parseCountryCode('Zurich, FR')).toBe('FR');
+  });
+});
+
+describe('IST sitemap discovery', () => {
+  it('treats an empty flat sitemap as an authoritative empty snapshot', () => {
+    expect(parseIstSitemapJobUrls('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>'))
+      .toEqual({ urls: [], authoritativeEmptySnapshot: true });
+  });
+
+  it('rejects a reachable sitemap whose URL shape no longer matches the parser', () => {
+    expect(() => parseIstSitemapJobUrls(
+      '<urlset><url><loc>https://jobs.inspirededu.com/careers/teacher</loc></url></urlset>',
+    )).toThrow(/contains URL entries but no \/job\//);
+  });
+
+  it('extracts job URLs and does not confuse foreign listings with an empty feed', () => {
+    expect(parseIstSitemapJobUrls(
+      '<urlset>'
+      + '<url><loc>https://jobs.inspirededu.com/job/Lugano-Teacher/12345/</loc></url>'
+      + '<url><loc>https://jobs.inspirededu.com/job/Milan-Teacher/67890/</loc></url>'
+      + '</urlset>',
+    )).toEqual({
+      urls: [
+        'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+        'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+      ],
+      authoritativeEmptySnapshot: false,
+    });
   });
 });
 

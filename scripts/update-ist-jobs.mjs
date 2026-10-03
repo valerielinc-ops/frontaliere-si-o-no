@@ -64,7 +64,12 @@ import {
 } from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import {
+  exitCrawlerOnError,
+  fetchHtml as fetchHtmlShared,
+  isConnectionLevelFetchError,
+  WAF_IP_BLOCK_STATUS,
+} from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -89,6 +94,13 @@ const IST_COMPANY_NAME = 'International School of Ticino';
 const IST_COMPANY_HOST = 'jobs.inspirededu.com';
 const IST_SITEMAP_URL = 'https://jobs.inspirededu.com/sitemap.xml';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const SUMMARY_COUNTS = {
+  discovered: null,
+  parsed: null,
+  lastFetchOutcome: null,
+  abortKind: null,
+  authoritativeEmptySnapshot: false,
+};
 
 // Stable discovery seed recorded in the adapter config. The sitemap stays
 // valid as postings rotate — NOT the per-job `/job/<id>/` URLs, which 404 the
@@ -228,28 +240,64 @@ function isTrustedDomain(rawUrl = '') {
 
 async function fetchHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    return await fetchHtmlShared(url, {
+      timeoutMs,
       headers: {
         Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en,it-CH;q=0.9',
         'User-Agent': UA,
       },
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.text();
   } catch (err) {
-    console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
-    return null;
-  } finally {
-    clearTimeout(timer);
+    if (WAF_IP_BLOCK_STATUS.has(err?.status)) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'anti_bot_block';
+    } else if (err?.retryExhausted === true || err?.response?.retryBudgetExhausted === true) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'exhausted_retry';
+    } else if (isConnectionLevelFetchError(err)) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'connection_error';
+    } else if (Number.isFinite(err?.status)) {
+      SUMMARY_COUNTS.lastFetchOutcome = 'feed_endpoint_unavailable';
+    }
+    throw err;
   }
+}
+
+/**
+ * Parse the flat sitemap contract used by the Inspired portal.
+ *
+ * A reachable but non-sitemap response, or a sitemap with URL entries whose
+ * links no longer match the known `/job/` shape, is parser drift — never a
+ * legitimate empty source. Only an empty `<urlset>` is authoritative zero.
+ */
+export function parseIstSitemapJobUrls(xml = '') {
+  const source = String(xml || '');
+  if (!/<urlset\b/i.test(source)) {
+    const error = new Error('IST sitemap response is not a flat <urlset> document');
+    error.fetchOutcome = 'selector_miss';
+    error.abortKind = 'no-jobs-parsed';
+    throw error;
+  }
+
+  const locPattern = /<loc>\s*(https?:\/\/[^<]*\/job\/[^<]+?)\s*<\/loc>/gi;
+  const allJobUrls = [];
+  let match;
+  while ((match = locPattern.exec(source)) !== null) {
+    allJobUrls.push(match[1].trim());
+  }
+
+  const sitemapUrlCount = (source.match(/<url(?:\s|>)/gi) || []).length;
+  if (sitemapUrlCount > 0 && allJobUrls.length === 0) {
+    const error = new Error('IST sitemap contains URL entries but no /job/ links');
+    error.fetchOutcome = 'selector_miss';
+    error.abortKind = 'no-jobs-parsed';
+    throw error;
+  }
+
+  return {
+    urls: [...new Set(allJobUrls)],
+    authoritativeEmptySnapshot: sitemapUrlCount === 0,
+  };
 }
 
 /**
@@ -265,25 +313,24 @@ async function discoverIstJobUrls() {
   console.log(`🔍 Reading IST job sitemap: ${IST_SITEMAP_URL}`);
 
   const xml = await fetchHtml(IST_SITEMAP_URL);
-  if (!xml) {
-    console.warn('⚠️ Could not fetch IST sitemap.xml — keeping existing data.');
-    return [];
+  let parsed;
+  try {
+    parsed = parseIstSitemapJobUrls(xml);
+  } catch (error) {
+    SUMMARY_COUNTS.lastFetchOutcome = error.fetchOutcome || SUMMARY_COUNTS.lastFetchOutcome;
+    SUMMARY_COUNTS.abortKind = error.abortKind || SUMMARY_COUNTS.abortKind;
+    throw error;
   }
 
-  const locPattern = /<loc>\s*(https?:\/\/[^<]*\/job\/[^<]+?)\s*<\/loc>/gi;
-  const allJobUrls = [];
-  let match;
-  while ((match = locPattern.exec(xml)) !== null) {
-    allJobUrls.push(match[1].trim());
-  }
-  console.log(`  🗺️  Sitemap lists ${allJobUrls.length} total job URLs`);
-
-  const urls = new Set(allJobUrls);
-  console.log(`  📋 Discovered ${urls.size} job URLs for detail-level Swiss filtering`);
-  if (urls.size === 0) {
+  SUMMARY_COUNTS.discovered = parsed.urls.length;
+  SUMMARY_COUNTS.authoritativeEmptySnapshot = parsed.authoritativeEmptySnapshot;
+  SUMMARY_COUNTS.lastFetchOutcome = 'ok';
+  console.log(`  🗺️  Sitemap lists ${parsed.urls.length} total job URLs`);
+  console.log(`  📋 Discovered ${parsed.urls.length} job URLs for detail-level Swiss filtering`);
+  if (parsed.urls.length === 0) {
     console.log('  ℹ️ No live job URLs in the portal sitemap.');
   }
-  return [...urls];
+  return parsed.urls;
 }
 
 /* ── Job detail parsing ────────────────────────────────────── */
@@ -449,16 +496,19 @@ export async function fetchIstJobs() {
   const jobUrls = await discoverIstJobUrls();
   if (jobUrls.length === 0) {
     console.warn('⚠️ No IST job URLs discovered.');
+    SUMMARY_COUNTS.parsed = 0;
     return [];
   }
 
   const jobs = [];
+  let titledDetails = 0;
   for (const url of jobUrls) {
     const detail = await fetchJobDetail(url);
     if (!detail || !detail.title) {
       console.log(`  ⏭️  Skipped — no title extracted`);
       continue;
     }
+    titledDetails++;
 
     if (!isIstDetailJob(detail)) {
       console.log(`  ⏭️  Skipped — detail belongs to another Inspired tenant: ${detail.title}`);
@@ -529,6 +579,10 @@ export async function fetchIstJobs() {
     jobs.push(job);
   }
 
+  SUMMARY_COUNTS.parsed = jobs.length;
+  SUMMARY_COUNTS.lastFetchOutcome = jobs.length > 0
+    ? 'ok'
+    : (titledDetails > 0 ? 'filtered_empty' : 'selector_miss');
   console.log(`\n📋 Total unique IST jobs discovered: ${jobs.length}`);
   return jobs;
 }
@@ -769,7 +823,7 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(IST_KEY, 'International School of Ticino');
+  registerCrawlerSummaryGuard(IST_KEY, 'International School of Ticino', SUMMARY_COUNTS);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  International School of Ticino — Crawler');
@@ -794,6 +848,29 @@ async function main() {
     updateAdapterConfig();
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    const _durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: IST_KEY,
+      label: 'International School of Ticino',
+      generatedAt: new Date().toISOString(),
+      total: _cdResult.total,
+      discovered: SUMMARY_COUNTS.discovered,
+      parsed: SUMMARY_COUNTS.parsed,
+      lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+      authoritativeEmptySnapshot: SUMMARY_COUNTS.authoritativeEmptySnapshot === true,
+      written: _cdResult.total,
+      newCount: crawlDiff.newJobs.length,
+      updatedCount: crawlDiff.updatedJobs.length,
+      removedCount: crawlDiff.removedJobs.length,
+      unchangedCount: crawlDiff.unchangedCount,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: crawlDiff.newJobs.slice(0, 30),
+      updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+      removedJobs: crawlDiff.removedJobs.slice(0, 30),
+      unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+    });
     return;
   }
 
@@ -832,6 +909,9 @@ async function main() {
     label: 'International School of Ticino',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: SUMMARY_COUNTS.parsed,
+    lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,
