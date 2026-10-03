@@ -35,7 +35,7 @@ const sfOrigin = (server) => `http://career2.successfactors.localhost:${server.a
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], cvUploads: 0, validationRefusals: 0 };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], cvUploads: 0, validationRefusals: 0, flaky: false };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -57,8 +57,13 @@ function fakePortal() {
       <button type="button">Speichern</button><button type="submit">Bewerben</button>`)}
     <div role="dialog" id="up" hidden></div>
     <script>
-      document.getElementById('expand').addEventListener('click', () => { for (const id of ['docs', 'profile']) document.getElementById(id).hidden = false; });
+      // A flaky portal (review of #11022): the first click on each control is dropped.
+      const flaky = ${coop.flaky ? 'true' : 'false'};
+      const dropped = new Set();
+      const dropsFirst = (id) => flaky && !dropped.has(id) && dropped.add(id);
+      document.getElementById('expand').addEventListener('click', () => { if (dropsFirst('expand')) return; for (const id of ['docs', 'profile']) document.getElementById(id).hidden = false; });
       document.getElementById('cvbtn').addEventListener('click', () => {
+        if (dropsFirst('cvbtn')) return;
         const dialog = document.getElementById('up');
         dialog.innerHTML = '<p>Quelle für das Hochladen der Datei auswählen</p><label for="f">Von Gerät hochladen</label><input type="file" id="f">';
         dialog.hidden = false;
@@ -576,7 +581,13 @@ async function main() {
       coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
       && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed');
     check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
+    // This time the portal drops the first click on the sections and on the CV dialog.
+    coop.flaky = true;
     const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
+    coop.flaky = false;
+    check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
+      coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
+      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
     // Review of #11015: a statement whose dialog takes 6 s to open is still accepted (8 s per click).

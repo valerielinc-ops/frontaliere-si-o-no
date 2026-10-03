@@ -91,7 +91,8 @@ const RULES = [
 // runner creates the account, before any application): never a receipt, which
 // would confirm a held submission and tell the candidate the employer has it.
 const ACCOUNT_NOTICE_RE = /(registrierungsbest[aä]tigung|registrierung (erfolgreich|best[aä]tigt|abgeschlossen)|(ihr|dein) (benutzer)?(konto|profil) (wurde|ist) (erfolgreich )?(erstellt|angelegt|eingerichtet)|registration (confirmation|successful|complete)|(your )?(account|profile) (has been |was )?(successfully )?created|welcome to (the |our )?(career|job|talent) (portal|site|community)|conferma (di |della )?registrazione|registrazione (completata|avvenuta|confermata)|(il tuo |il suo )?(account|profilo) (è stato )?creato|confirmation d['’]inscription|inscription (confirmée|réussie)|(votre )?(compte|profil) (a été )?créé)/i;
-const APPLICATION_RECEIVED_RE = /(bewerbung (ist )?(bei uns )?(eingegangen|erhalten)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(received|submitted)|candidatura (è stata )?(ricevuta|inviata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise)|reçu votre candidature)/i;
+// The receipt wording the rules know (RULES' auto_acknowledgement), and more.
+const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(eingegangen|erhalten)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(received|submitted)|candidatura (è stata )?(ricevuta|inviata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise)|reçu votre candidature)/i;
 
 /** An "acknowledgement" that only confirms a portal account is the account's own mail. */
 export function correctedCategory(category, { subject = '', text = '' } = {}) {
@@ -103,8 +104,8 @@ export function correctedCategory(category, { subject = '', text = '' } = {}) {
 /** Deterministic fallback: the first matching rule wins; auto-generated mail defaults to acknowledgement. */
 export function classifyByRules({ subject, text, autoSubmitted }) {
   const haystack = `${subject}\n${text}`.slice(0, 20_000);
-  for (const [category, pattern] of RULES) if (pattern.test(haystack)) return category;
-  return autoSubmitted ? 'auto_acknowledgement' : 'other';
+  const matched = RULES.find(([, pattern]) => pattern.test(haystack))?.[0];
+  return correctedCategory(matched || (autoSubmitted ? 'auto_acknowledgement' : 'other'), { subject, text });
 }
 
 function sanitizeClassification(raw, message) {

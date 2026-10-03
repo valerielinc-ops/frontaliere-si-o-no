@@ -433,41 +433,67 @@ export async function acceptPrivacyStatement(page, snapshot) {
 export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
 export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|télécharger|joindre|importer)|(upload|carica|caricare|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
 
-/**
- * Before a page is planned: its closed sections opened, and the CV put in a
- * dialog's file input when the page has no file field of its own. Once per
- * page of a run (`done`).
- * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable'}>}
- */
-export async function openFormSections(page, snapshot, { files = {}, done = new Set() } = {}) {
-  let current = snapshot;
-  const where = anonymizePath(page.url());
-  const expand = findButton(current.buttons, EXPAND_ALL_RE);
-  if (expand && !done.has(`expand|${where}`)) {
-    done.add(`expand|${where}`);
-    await clickButton(page, expand).catch(() => {});
-    await settle(page);
-    await page.waitForTimeout(1000);
-    current = await extractFields(page);
+// Tries per page and action in one run: a click a portal drops is tried again
+// at once, a page that never opens does not hold the run (review of #11022).
+const MAX_SECTION_TRIES = 3;
+
+/** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
+async function uploadThroughDialog(page, trigger, file) {
+  try {
+    await trigger.click({ timeout: 6_000 });
+  } catch {
+    return 'unavailable';
   }
-  const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
-  if (!cvFile || done.has(`cv|${where}`) || current.fields.some((field) => field.kind === 'file')) return { snapshot: current };
-  const trigger = page.getByRole('button', { name: CV_UPLOAD_RE }).first();
-  if (!await trigger.isVisible().catch(() => false)) return { snapshot: current };
-  done.add(`cv|${where}`);
-  await trigger.click({ timeout: 6_000 }).catch(() => {});
   const input = page.locator('[role="dialog"] input[type="file"], [aria-modal="true"] input[type="file"]').first();
   try {
     await input.waitFor({ state: 'attached', timeout: 8_000 });
-    await input.setInputFiles(cvFile);
+    await input.setInputFiles(file);
   } catch {
     await page.keyboard.press('Escape').catch(() => {});
-    return { snapshot: await extractFields(page), cv: 'unavailable' };
+    return 'unavailable';
   }
   // The dialog closes once the portal holds the file (SuccessFactors reads it first).
   const closed = await input.waitFor({ state: 'detached', timeout: 60_000 }).then(() => true, () => false);
   await settle(page);
-  return { snapshot: await extractFields(page), cv: closed ? 'uploaded' : 'uploaded_unconfirmed' };
+  return closed ? 'uploaded' : 'uploaded_unconfirmed';
+}
+
+/**
+ * Before a page is planned: its closed sections opened, and the CV put in a
+ * dialog's file input when the page has no file field of its own. A page is
+ * done only once the action is seen to work (more fields in sight, the file
+ * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
+ * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable'}>}
+ */
+export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map() } = {}) {
+  let current = snapshot;
+  const where = anonymizePath(page.url());
+  const attempt = (key) => {
+    const count = (tries.get(key) || 0) + 1;
+    tries.set(key, count);
+    return count <= MAX_SECTION_TRIES;
+  };
+  const expandKey = `expand|${where}`;
+  while (!done.has(expandKey) && findButton(current.buttons, EXPAND_ALL_RE) && attempt(expandKey)) {
+    const before = current.fields.length;
+    await clickButton(page, findButton(current.buttons, EXPAND_ALL_RE)).catch(() => {});
+    await settle(page);
+    await page.waitForTimeout(1000);
+    current = await extractFields(page);
+    if (current.fields.length > before) done.add(expandKey);
+  }
+  const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
+  const cvKey = `cv|${where}`;
+  let cv;
+  while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
+    const trigger = page.getByRole('button', { name: CV_UPLOAD_RE }).first();
+    if (!await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
+    cv = await uploadThroughDialog(page, trigger, cvFile);
+    current = await extractFields(page);
+    // A file that went in, confirmed or not, never goes in twice.
+    if (cv !== 'unavailable') done.add(cvKey);
+  }
+  return cv ? { snapshot: current, cv } : { snapshot: current };
 }
 
 /**
@@ -777,8 +803,9 @@ export async function submitViaPortal(ctx) {
     let stuckOnPage = 0;
     let authSteps = 0;
     const uploaded = new Set();
-    // Pages whose sections and CV dialog were opened (openFormSections).
+    // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
     const openedOnce = new Set();
+    const openTries = new Map();
     // What went into the form, question by question (career-ops application-answers):
     // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
     const given = new Map();
@@ -855,7 +882,7 @@ export async function submitViaPortal(ctx) {
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
       }
-      const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce });
+      const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
       snapshot = opened.snapshot;
       if (opened.cv) {
         evidence.steps.at(-1).cv = opened.cv;

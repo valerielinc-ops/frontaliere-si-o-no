@@ -302,6 +302,10 @@ describe('employer messages on the alias', () => {
     expect(correctedCategory('auto_acknowledgement', { subject: 'Candidatura', text: 'Abbiamo ricevuto la sua candidatura.' })).toBe('auto_acknowledgement');
     // Other categories are left as they are.
     expect(correctedCategory('interview_invite', coop)).toBe('interview_invite');
+    // Review of #11022: a receipt in the rules' own words stays a receipt; the rules' fallback is corrected too.
+    expect(correctedCategory('auto_acknowledgement', { subject: 'Registration confirmation', text: 'Thank you for your application' })).toBe('auto_acknowledgement');
+    expect(classifyByRules({ subject: 'Registrierungsbestätigung Stellenportal', text: 'Ihr Profil wurde erstellt.', autoSubmitted: true })).toBe('verification');
+    expect(classifyByRules({ subject: 'Ihre Bewerbung', text: 'Vielen Dank, wir haben Ihre Bewerbung erhalten.', autoSubmitted: true })).toBe('auto_acknowledgement');
   });
 });
 
