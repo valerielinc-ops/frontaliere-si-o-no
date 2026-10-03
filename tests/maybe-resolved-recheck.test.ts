@@ -17,6 +17,7 @@ import {
   staticClass,
 } from '../scripts/ci/maybe-resolved-recheck.mjs';
 import { validateWorkflowText } from '../scripts/ci/validate-modified-workflows.mjs';
+import { RECURRENCE_MARKER, countRecurrences } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
 const SCRIPT = readFileSync(new URL('../scripts/ci/maybe-resolved-recheck.mjs', import.meta.url), 'utf8');
 const WORKFLOW_PATH = '.github/workflows/maybe-resolved-recheck.yml';
@@ -274,6 +275,23 @@ describe('runRecheck: mutazioni, tetto e fail-closed', () => {
     const body = rejectCommentBody({ reason: 'reopened', at: Date.parse('2026-10-02T08:00:00Z'), url: 'https://x/1#event-2', labeledAt: Date.parse(LABEL_AT) });
     expect(body.startsWith(`<!-- ${REJECT_MARKER}: reason=reopened at=2026-10-02T08:00:00.000Z -->`)).toBe(true);
     expect(body).toContain('https://x/1#event-2');
+  });
+
+  it('il corpo del rigetto non conta come ricorrenza per close-recovered (nessun 🔁)', () => {
+    for (const reason of ['recurrence', 'reopened'] as const) {
+      const body = rejectCommentBody({ reason, at: Date.parse('2026-10-02T08:00:00Z'), url: 'https://x/1#issuecomment-9', labeledAt: Date.parse(LABEL_AT) });
+      expect(body).not.toContain(RECURRENCE_MARKER);
+      expect(countRecurrences([{ body, created_at: '2026-10-02T08:00:00Z' }], { now: Date.parse('2026-10-02T09:00:00Z') })).toBe(0);
+    }
+  });
+
+  it('una scrittura fallita emette un ::warning:: visibile nel run', () => {
+    const issues = [issue(1, 'CI Failure: x')];
+    const { deps, logs } = fakeDeps({ issues });
+    deps.removeLabel = () => { throw new Error('HTTP 403'); };
+    const result = runRecheck({ issues, deps, dryRun: false });
+    expect(result.applied).toEqual([]);
+    expect(logs.some((l) => l.startsWith('::warning::#1: rimozione label fallita'))).toBe(true);
   });
 });
 

@@ -164,6 +164,11 @@ export function lastVerifyLabeledAt(events) {
 /**
  * La prima obiezione successiva alla label: un commento che COMINCIA con `🔁`
  * di autore fidato (ricorrenza) o un evento `reopened`.
+ * Predicato largo per scelta: oltre a `🔁 Recurrence on workflow run.` di
+ * `github-issue-creator.mjs` vale ogni nota `🔁` di un'automazione fidata
+ * (pre-pass needs-human compreso). Note come `🔁 Codex auth recovery` o
+ * `🔁 **Deploy re-arm**` non arrivano oggi su issue `maybe-resolved`; se ci
+ * arrivassero il costo e' un rientro nel ciclo, mai una chiusura.
  * @returns {{reason:'recurrence'|'reopened', at:number, url:string|null}|null}
  */
 export function findObjection({ events, comments, labeledAt, issueUrl = '' }) {
@@ -251,7 +256,12 @@ export function classifyMaybeResolved({ issue, events, comments, openPrRefs, bin
 
 export function rejectCommentBody({ reason, at, url, labeledAt }) {
   const iso = new Date(at).toISOString();
-  const what = reason === 'reopened' ? 'la issue è stata **riaperta**' : 'è arrivata una **ricorrenza** `🔁` di un autore fidato';
+  // Il corpo NON contiene il marcatore di ricorrenza: `close-recovered-failure-issues.mjs`
+  // conta le ricorrenze con `body.includes(<marcatore>)` (`countRecurrences`,
+  // `alreadyRecurrenceHeld`), quindi un rigetto che lo citasse gonfierebbe il
+  // contatore cronico della stessa issue e potrebbe farle riprendere
+  // `automation-deferred`, cioè rimetterla fuori dal ciclo.
+  const what = reason === 'reopened' ? 'la issue è stata **riaperta**' : 'è arrivato un **commento di ricorrenza** di un autore fidato';
   return [
     `<!-- ${REJECT_MARKER}: reason=${reason} at=${iso} -->`,
     `↩️ **\`${VERIFY_LABEL}\` smentita dai fatti (zero-Claude)**: dopo l'applicazione della label (${new Date(labeledAt).toISOString()}) ${what} il ${iso}${url ? ` — ${url}` : ''}.`,
@@ -315,6 +325,7 @@ export function runRecheck({ issues, deps, dryRun, maxRejects = MAX_REJECTS_PER_
         deps.removeLabel(row.number);
       } catch (e) {
         row.note = `rimozione label fallita: ${String(e?.message ?? e).slice(0, 120)}`;
+        log(`::warning::#${row.number}: ${row.note}`);
         continue;
       }
       try {
@@ -322,6 +333,7 @@ export function runRecheck({ issues, deps, dryRun, maxRejects = MAX_REJECTS_PER_
         row.note = 'label tolta';
       } catch (e) {
         row.note = `label tolta, commento fallito: ${String(e?.message ?? e).slice(0, 120)}`;
+        log(`::warning::#${row.number}: ${row.note}`);
       }
       applied.push(row.number);
     }
