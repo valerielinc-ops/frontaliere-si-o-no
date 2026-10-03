@@ -265,7 +265,15 @@ export function galenicaWorkLocation(item = {}) {
   const contactSourceCanton = (!tb.worklocationaddress && !tb.location && tb.profilelink)
     ? (inferAnyCanton(fromContact.state) || '')
     : '';
-  return { ...fromContact, sourceLocationCanton: contactSourceCanton };
+  return {
+    ...fromContact,
+    sourceLocationCanton: contactSourceCanton,
+    // For apprenticeship records without a textblock location, `contact` is
+    // the branch address itself. Keep that provenance separate from the
+    // regular vacancy's georegion/canton, which can be stale versus the
+    // parsed branch city (for example Sion/VD).
+    sourceLocationFromContact: Boolean(contactSourceCanton),
+  };
 }
 
 /* ── Build job detail URL ──────────────────────────────────── */
@@ -293,6 +301,7 @@ export function resolveGalenicaCanton(contact = {}) {
   const city = String(contact.city || '').trim();
   const rawState = String(contact.state || '').trim();
   const stateCanton = inferAnyCanton(rawState);
+  const sourceCanton = inferAnyCanton(String(contact.sourceLocationCanton || '').trim());
   const country = String(contact.country || contact.countryCode || '').trim().toUpperCase();
 
   if (!hasUsableGalenicaCity(city)
@@ -301,7 +310,15 @@ export function resolveGalenicaCanton(contact = {}) {
 
   const cityCantons = swissMunicipalityCantons(city);
   let canton = '';
-  if (cityCantons.length === 1) {
+  if (contact.sourceLocationFromContact === true
+    && sourceCanton
+    && (!stateCanton || sourceCanton === stateCanton)) {
+    // Apprenticeship records have no branch textblock: their contact is the
+    // source address. This explicit canton can identify a real locality that
+    // the municipality snapshot currently lists under a different homonym
+    // (Seewen/SO versus the source's Seewen/SZ).
+    canton = sourceCanton;
+  } else if (cityCantons.length === 1) {
     // A source-backed, unambiguous municipality outranks a contact/default
     // state. This is the Sion/VD and Moutier/BE failure mode from #11049.
     canton = cityCantons[0];
