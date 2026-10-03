@@ -28,6 +28,12 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '1196',
   sector: 'Software / Fintech',
   defaultSourceLang: 'en',
+  // Temenos calls the country facet `locationMainGroup`; the shared default
+  // `locationCountry` is rejected with HTTP 400. Keep the source-empty proof
+  // enabled so a live global board with no Swiss value is a published,
+  // revalidated zero rather than an indistinguishable parser bail-out.
+  countryFacetParameter: 'locationMainGroup',
+  proveSwissAbsentFromLiveBoard: true,
 });
 
 export const fetchAllTemenosJobs = parser.fetchAllJobs;

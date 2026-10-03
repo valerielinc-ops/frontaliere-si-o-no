@@ -23,7 +23,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, isCantonOnlyLabel } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isCantonOnlyLabel, isSwissLocationText } from './target-swiss-locations.mjs';
 import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
 import {
   isAuthoritativeEmptySnapshot,
@@ -94,9 +94,9 @@ function workdayBoardListsSwitzerland(summary, { facetParameter, swissIds = WORK
  * (`S21 not found: Job_Posting_Site_ID`) and never reaches this check, but a
  * site emptied by a migration to another ATS answers 200 with `total: 0` — the
  * same zero the Swiss-faceted query gives. Only a board that states postings
- * (`total > 0`) AND lists its country facet with Switzerland absent from every
- * value is the employer's own statement that the Swiss zero is real. A missing
- * facet, an empty one, or a Swiss value of any count is not a proof.
+ * (`total > 0`) AND lists its country/location facet with Switzerland absent
+ * from every value is the employer's own statement that the Swiss zero is real.
+ * A missing facet, an empty one, or a Swiss value of any count is not a proof.
  *
  * @param {import('./ats-clients/workday-client.mjs').WorkdayBoardSummary|null|undefined} summary
  * @param {{ facetParameter: string, swissIds?: string[] }} options
@@ -107,7 +107,11 @@ export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swi
   if (!Number.isSafeInteger(total) || total <= 0) return false;
   const values = workdayFacetLeafValues(summary.facets, facetParameter);
   if (!values || values.length === 0) return false;
-  return !workdayBoardListsSwitzerland(summary, { facetParameter, swissIds });
+  return values.every((value) => (
+    !swissIds.includes(value.id)
+    && !SWISS_COUNTRY_LABEL_RE.test(value.descriptor)
+    && !isSwissLocationText(value.descriptor)
+  ));
 }
 
 /**
@@ -483,13 +487,13 @@ function detectEmploymentType(timeType = '', title = '') {
  * @param {string} [config.defaultSourceLang='en']
  * @param {string[]} [config.locationFilters] Override the Swiss country facet.
  * @param {string} [config.countryFacetParameter='locationCountry'] Name of the
- *   tenant's country facet. Most tenants call it `locationCountry`; some (Imerys,
- *   KONE) call it `Country` and answer HTTP 400 to the default key, which would
+ *   tenant's country/location facet. Most tenants call it `locationCountry`;
+ *   some (Imerys, KONE) call it `Country` and answer HTTP 400 to the default key, which would
  *   otherwise drop the run onto the unfiltered global board.
  * @param {boolean} [config.proveSwissAbsentFromLiveBoard=false] Stamp an empty
  *   result as a source-proven zero when the Swiss-faceted query itself states
  *   `total: 0` AND the unfiltered board is live (`total > 0`) with Switzerland
- *   absent from its country facet (`provesWorkdaySwissAbsentFromBoard`). Pair
+ *   absent from its country/location facet (`provesWorkdaySwissAbsentFromBoard`). Pair
  *   with the runner's `allowAuthoritativeEmptySnapshot` +
  *   `authoritativeSnapshotScope: 'empty-only'`.
  * @param {boolean} [config.preferJobRequisitionLocation=false] Use the
@@ -652,10 +656,10 @@ export function createWorkdaySwissParser(config) {
       }
       return empty;
     }
-    const countries = workdayFacetLeafValues(summary.facets, countryFacetParameter);
+    const locations = workdayFacetLeafValues(summary.facets, countryFacetParameter);
     const evidence = `${companyName} Workday site ${sitePath}: Swiss-faceted query total 0; live board `
-      + `${summary.total} posting(s) in ${countries.length} countries (${countries.slice(0, 5).map((c) => c.descriptor).join(', ')}`
-      + `${countries.length > 5 ? ', …' : ''}), Switzerland not among them`;
+      + `${summary.total} posting(s) across ${locations.length} location value(s) (${locations.slice(0, 5).map((c) => c.descriptor).join(', ')}`
+      + `${locations.length > 5 ? ', …' : ''}), Switzerland not among them`;
     console.log(`  🧾 Proven empty Swiss board — ${evidence}`);
     return markAuthoritativeEmptySnapshot(empty, evidence);
   }
