@@ -656,12 +656,14 @@ describe('services/locales/*-weekly-employers.ts — locale completeness', () =>
   });
 
   function extractKeys(src: string): Set<string> {
-    // 'key': … matches both 'key': 'value' and 'key': "value" shapes.
-    const re = /'([^']+)':/g;
+    // 'key': … matches both 'key': 'value' and 'key': "value" shapes; a
+    // double-quoted key ("key": …) is recognised only at the start of a line,
+    // same contract as LOCALE_KEY_RE in tests/i18n-completeness.test.ts.
+    const re = /'([^']+)':|^[ \t]*"([^"\n]+)":/gm;
     const keys = new Set<string>();
     let m: RegExpExecArray | null;
     while ((m = re.exec(src)) !== null) {
-      keys.add(m[1]);
+      keys.add(m[1] ?? m[2]);
     }
     return keys;
   }
