@@ -12391,6 +12391,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-tassa-ingresso-franchi.title': 'Schweiz: Eintrittsgebühr bis zu 4.000 Franken',
     'blog.article.svizzera-tassa-ingresso-franchi.excerpt': 'Der Schweizer Vorschlag beinhaltet eine Anreizsteuer zwischen 2.000 und 4.000 Franken, die an die Schutzklausel für EU-Bürger gekoppelt ist.',
     'blog.article.svizzera-tassa-ingresso-franchi.imageAlt': 'Grenzstrasse im Tessin mit Schweizer Beschilderung und wenig Verkehr.',
+    'blog.article.bollettino-frontaliere-2026-10-03.title': 'Grenzgänger-Tagesbulletin – 3. Oktober 2026: 41 Minuten Wartezeit in Ponte Tresa',
+    'blog.article.bollettino-frontaliere-2026-10-03.excerpt': 'Die Zahlen von heute, 3. Oktober 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-03.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 3. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-10-03.seoDescription': 'Grenzgänger-Bulletin vom 3. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-03.ogDescription': 'Die Zahlen vom 3. Oktober 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

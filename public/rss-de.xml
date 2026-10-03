@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Sat, 03 Oct 2026 07:17:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 10:17:32 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -17,6 +17,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 3. Oktober 2026: 41 Minuten Wartezeit in Ponte Tresa</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-10-03/</link>
+      <description><![CDATA[Die Zahlen von heute, 3. Oktober 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Samstag, der 3. Oktober 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+Die jüngste Messung (141 überwachte Übergänge) zeigt die längste Wartezeit in **Ponte Tresa: 41 Minuten**. 108 Übergänge melden keine Warteschlange.
+
+| Übergang | Wartezeit | Status |
+|---|---|---|
+| Ponte Tresa | 41 Min. | Stau |
+| Chiasso Centro (Ponte Chiasso) | 8 Min. | stockend |
+| Chiasso-Brogeda | 8 Min. | stockend |
+| Chiasso-Strada | 8 Min. | stockend |
+| Ferney-Voltaire / Grand-Saconnex | 8 Min. | stockend |
+
+Der Verkehr ändert sich stündlich — der Live-Status jedes Übergangs steht auf der [Seite zur Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+In 518 überwachten Grenzgemeinden lohnt sich das Tanken heute in 81 Fällen in der Schweiz und in 58 in Italien.
+
+| Gemeinde (IT) | Bleifrei, Tiefstpreis |
+|---|---|
+| Livigno (SO) | 1.206 €/L |
+| Arcisate (VA) | 1.854 €/L |
+| Saint-Pierre (AO) | 1.900 €/L |
+| Aprica (SO) | 1.919 €/L |
+| Gera Lario (CO) | 1.969 €/L |
+
+📊 **Die richtige Seite für eine volle Tankfüllung.** In **Livigno** (SO) ist die Differenz heute **52.85 € pro 50-Liter-Tank** wert (1.206 €/L in Italien gegenüber 2.263 €/L an der nächsten Schweizer Tankstelle).
+
+Preise Gemeinde für Gemeinde, täglich aktualisiert: [Benzinpreise an der Grenze, heute](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0618 €** wert (Schluss 2026-10-02). Gegenüber dem Vortag gewinnt er +0.0037 €; über sieben Tage beträgt die Veränderung +0.0017 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+Gestern kamen **1'131 neue Stellenangebote** in der Schweiz auf unser Job-Board; in den letzten sieben Tagen 11'242. Insgesamt sind **30'162** Anzeigen aktiv, von 849 Unternehmen.
+
+Nach Kanton, Branche und Stadt filtern: [Jobs im Tessin und in der Schweiz](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Sat, 03 Oct 2026 10:17:32 GMT</pubDate>
+      <dc:creator><![CDATA[Samuele Valente]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/bollettino-frontaliere-2026-10-03</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-10-03.webp" medium="image"/>
+    </item>
     <item>
       <title>Schweiz: Eintrittsgebühr bis zu 4.000 Franken</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/schweiz-einreisesteuer-franken/</link>
@@ -3389,84 +3443,6 @@ Entdecken Sie Stellenangebote im Tessin — täglich aktualisiert: über 4.000 S
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/varese-ponti-gallerie-controllo-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/varese-ponti-gallerie-controllo-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Job Day Öffentliche Verwaltung in Como: Termine und Details</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/job-day-oeffentliche-verwaltung-como/</link>
-      <description><![CDATA[Am 1. Oktober in der Villa Gallia und der Villa Saporiti: 28 öffentliche Einrichtungen stellen gesuchte Profile, Ausschreibungen und berufliche Möglichkeiten vor.]]></description>
-      <content:encoded><![CDATA[## Kurz gesagt
-- Der Jobtag findet am Donnerstag, 1. Oktober, von 9.30 bis 14.00 Uhr statt
-- Termin in der Villa Gallia und Villa Saporiti
-- 28 öffentliche und lokale Einrichtungen sind geplant
-- Kostenlose Teilnahme mit Registrierung auf Eventbrite
-
-## Wichtige Fakten
-- Was → Jobtag der öffentlichen Verwaltung
-- Wann → Donnerstag, 1. Oktober, von 9.30 bis 14.00 Uhr
-- Wo → Villa Gallia und Villa Saporiti
-- Wer → 28 öffentliche und lokale Einrichtungen
-- Wie es aussieht → Aktivitäten, gefragte Profile, offene Wettbewerbe und Auswahlen
-- Zugang → kostenlose Teilnahme und Registrierung auf Eventbrite
-
-Am Donnerstag, den 1. Oktober, findet von 9.30 bis 14.00 Uhr in Villa Gallia und Villa Saporiti der Jobtag der öffentlichen Verwaltung statt. Die Initiative richtet sich an diejenigen, die mehr über die öffentliche Arbeit, die verfügbaren beruflichen Möglichkeiten und die Zugangsmöglichkeiten zu den verschiedenen Stellen erfahren möchten.
-
-Tagsüber wird es möglich sein, 28 öffentliche und lokale Einrichtungen direkt zu treffen. Die Vertreter stellen die Aktivitäten der Institutionen, die gesuchten Berufsprofile, die offenen Wettbewerbe und die Möglichkeiten zur Teilnahme an den Auswahlverfahren vor. Der direkte Vergleich ermöglicht es uns, Informationen zu sammeln und uns an den verschiedenen beruflichen Möglichkeiten zu orientieren, die die öffentliche Verwaltung bietet.
-
-Zu den Teilnehmern gehören die Finanzagentur, ALER Varese-Como-Monza Brianza-Busto Arsizio, ASCI - Azienda Sociale Comuni Insieme, ASF Autolinee, Azalea Cooperativa Sociale, Azienda Sociale Lariana, Azienda Sociale Comasca Lariana, Handelskammer Como-Lecco, Gefängnis Como, CFP Como, Como Acqua und verschiedene lokale Gemeinden. CSV Insubria, Guardia di Finanza, INAIL, INPS, Consorzio Mosaico, OPI Como, Provinz Como, Polizeipräsidium Como, Region Lombardei, ATS Insubria und die Universität Insubria werden ebenfalls anwesend sein.
-
-Das Programm umfasst auch Seminare und vertiefende Momente. Zu den Terminen gehört ein Treffen zum Thema InPA, von der Bewerbung bis zur Vorbereitung des Wettbewerbs, mit praktischen Hinweisen zur Beratung der Möglichkeiten, zur korrekten Einreichung der Bewerbung und zur Vorbereitung auf die Prüfungen. Auch der allgemeine öffentliche Dienst, die bürgerschaftliche Hebelwirkung und Praktikumsmöglichkeiten in der öffentlichen Verwaltung werden angesprochen.
-
-> „Mit diesem Job Day möchten wir den Bürgern, insbesondere den jüngeren, die Möglichkeit bieten, mehr über eine Welt zu erfahren, die oft komplex oder nicht sehr zugänglich erscheint“, betont Fiorenzo Bongiasca, Präsident der Provinz Como.
-
-Um auch andere berufliche Möglichkeiten zu verfolgen, ist es möglich, die [Stellenanzeigen] () zu konsultieren, wobei der allgemeine Katalog von der Liste der bei der Initiative vertretenen Unternehmen getrennt bleibt.
-## Eine nützliche Orientierung mit einem präzisen Umfang
-
-Für einen Grenzgänger, der jetzt im Kanton Tessin arbeitet, beschränkt sich der konkrete Zusammenhang, der sich aus den Nachrichten ziehen lässt, auf die Möglichkeit, sich über berufliche Möglichkeiten in der öffentlichen Verwaltung in Como zu informieren. Die Quelle beschreibt einen Tag der Begegnung, Information und Orientierung; es stellt es weder als eine der grenzüberschreitenden Arbeit gewidmete Veranstaltung noch als eine Änderung der Steuer- oder Sozialversicherungsvorschriften dar.
-
-### Was der Tag wirklich bietet
-
-Der Text enthält keine Angaben zur Bewilligung G, AVS, BVG, KVG, Rückerstattungen, Verrechnungssteuer oder Doppelbesteuerung. Es geht nicht einmal um den Brogeda-Übergang. Diese Themen sollten daher weder den anwesenden Gremien zugeschrieben noch dazu verwendet werden, den Job Day als Aktualisierung der Beziehung zwischen der Arbeit in der Schweiz und dem Leben in der Region Como zu interpretieren. Die nützlichen Daten für diejenigen, die einen anderen Weg bewerten, sind eine andere: Sie können direkt mit den teilnehmenden Unternehmen sprechen und verstehen, nach welchen Profilen sie suchen, welche Wettbewerbe offen sind und wie die Auswahl funktioniert.
-
-Das Programm eignet sich für die praktische Lektüre auf drei Ebenen:
-
-| Pfad | Verfügbare Informationen |
-|---|---|
-| InPA | Beratung zu Möglichkeiten, korrekte Bewerbung und Vorbereitung des Wettbewerbs |
-| Allgemeiner Zivildienst und allgemeine Wehrpflicht | Eingehende Analyse der beiden Kanäle |
-| Praktika | Informationen zu Möglichkeiten in öffentlichen Verwaltungen |
-
-Diese Artikulation hilft dabei, die anfängliche Erkundung von der Anwendungsphase zu unterscheiden. Zunächst können Sie sich über Aktivitäten und Entitäten informieren. Dann können Sie tiefer in den Zugangskanal eintauchen, der Ihrem Interesse am nächsten kommt. Die Quelle weist nicht auf zusätzliche Anforderungen, spezifische Dokumente oder besondere Bedingungen für diejenigen hin, die über eine Berufserfahrung im Ausland verfügen. Es ist daher nicht möglich, den Nachrichten Informationen zu Genehmigungen, Krankenversicherung, Beiträgen oder Steuern zu entnehmen.
-
-Wer seine Suche erweitern möchte, kann die in Como gesammelten Informationen mit der Konsultation von Stellenanzeigen kombinieren, ohne die beim Job Day präsentierten öffentlichen Möglichkeiten mit anderen Berufswegen zu verwechseln.
-
-## Nützliche Tools für Ihren Fall
-Um Ihr Szenario innerhalb/über 20 km bequem zu überprüfen, verwenden Sie den Nettogehaltsrechner und den Leitfaden zur Steuererklärung.
-## So nehmen Sie teil
-
-Das angegebene Verfahren zur Teilnahme am Job Day ist einfach und beinhaltet die Registrierung auf der Eventbrite-Plattform. Die Teilnahme ist kostenlos und die Anmeldung ist offen.
-
-### Die vom Programm angegebenen Schritte
-
-1. Registrieren Sie sich über Eventbrite, wo Sie sich für die Initiative anmelden können.
-
-2. Erscheinen Sie am Donnerstag, dem 1. Oktober, zwischen 9.30 und 14.00 Uhr in der Villa Gallia und der Villa Saporiti.
-
-3. Identifizieren Sie die Unternehmen mit dem größten Interesse und treffen Sie deren Vertreter direkt. Über das Programm können Sie Informationen zu Aktivitäten, gesuchten Berufsprofilen, offenen Wettbewerben und der Teilnahme an Auswahlverfahren anfordern.
-
-4. Nehmen Sie an der InPA-Besprechung teil und folgen Sie den Anweisungen, wie Sie die verfügbaren Möglichkeiten prüfen, die Bewerbung korrekt einreichen und sich auf die Wettbewerbstests vorbereiten können.
-
-5. Achten Sie auf ausführliche Studien zum allgemeinen öffentlichen Dienst, zur bürgerschaftlichen Hebelwirkung und zu Praktika in der öffentlichen Verwaltung.
-
-Die Quelle gibt keine weiteren obligatorischen Schritte, Dokumente, die der Registrierung beigefügt werden müssen, oder spezifische Anforderungen für den Zugang zum Veranstaltungsort an. Die dokumentierte Aktion ist daher die Registrierung auf Eventbrite und die anschließende Teilnahme an den geplanten Meetings und Seminaren. Das Gespräch mit den Vertretern der Institutionen dient der Informationsbeschaffung und Orientierung über die beruflichen Möglichkeiten.
-
-Um nach der Veranstaltung weiter nach Möglichkeiten zu suchen, sehen Sie sich bitte die Stellenanzeigen an.
-
-*Quelle: [comozero.it](https://comozero.it/attualita/cerchi-lavoro-nella-pubblica-amministrazione-a-como-ecco-il-job-day/)*]]></content:encoded>
-      <pubDate>Mon, 28 Sep 2026 22:12:47 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/job-day-pa-como</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/job-day-pa-como.webp" medium="image"/>
     </item>
   </channel>
 </rss>

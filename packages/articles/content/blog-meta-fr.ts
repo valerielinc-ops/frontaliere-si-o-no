@@ -12394,6 +12394,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-tassa-ingresso-franchi.title': 'Suisse, taxe d\'entrée jusqu\'à 4mila francs',
     'blog.article.svizzera-tassa-ingresso-franchi.excerpt': 'La proposition suisse prévoit une taxe incitative comprise entre 2mila et 4mila francs, liée à la clause de sauvegarde pour les citoyens de l\'UE.',
     'blog.article.svizzera-tassa-ingresso-franchi.imageAlt': 'Route frontalière au Tessin avec signalisation suisse et trafic léger.',
+    'blog.article.bollettino-frontaliere-2026-10-03.title': 'Bulletin du frontalier – 3 octobre 2026 : 41 minutes d\'attente à Ponte Tresa',
+    'blog.article.bollettino-frontaliere-2026-10-03.excerpt': 'Les chiffres du jour, 3 octobre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-10-03.imageAlt': 'Les chiffres du jour pour les frontaliers – 3 octobre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-10-03.seoDescription': 'Bulletin du frontalier du 3 octobre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-10-03.ogDescription': 'Les chiffres du 3 octobre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

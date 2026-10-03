@@ -12393,6 +12393,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-tassa-ingresso-franchi.title': 'Svizzera, tassa d\'ingresso fino a 4mila franchi',
     'blog.article.svizzera-tassa-ingresso-franchi.excerpt': 'La proposta svizzera prevede un\'imposta di incentivazione tra 2mila e 4mila franchi, legata alla clausola di salvaguardia per i cittadini UE.',
     'blog.article.svizzera-tassa-ingresso-franchi.imageAlt': 'Strada di confine in Ticino con segnaletica svizzera e traffico leggero.',
+    'blog.article.bollettino-frontaliere-2026-10-03.title': 'Bollettino del frontaliere – 3 ottobre 2026: a Ponte Tresa 41 minuti di coda',
+    'blog.article.bollettino-frontaliere-2026-10-03.excerpt': 'I numeri di oggi, 3 ottobre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-03.imageAlt': 'I numeri del giorno per i frontalieri – 3 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-03.seoDescription': 'Bollettino frontalieri del 3 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-03.ogDescription': 'I numeri del 3 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
