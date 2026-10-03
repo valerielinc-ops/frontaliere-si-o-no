@@ -119,6 +119,7 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_consent_reopened',
   'rewarded_offerwall_consent_decided',
   'rewarded_offerwall_consent_declined',
+  'rewarded_offerwall_staged',
   'external_apply_redirected',
   // New-tab hand-off after the reward (RewardedApplicationOffer). Distinct
   // names instead of a parameter: GA4 reads them without a custom dimension.
