@@ -183,6 +183,7 @@ describe('application-intent reminder sender — main()', () => {
     expect(first).toContain('sent 1, skipped 0');
     expect(cascade.calls).toHaveLength(1);
     expect(cascade.calls[0][0].payload.to).toEqual(['uid-1@example.invalid']);
+    expect(cascade.calls[0][0].payload.subject).toBe('Hai cliccato «Candidati» su un annuncio');
     expect(docs.get(`${LEDGER}/${intent.intentId}`)).toMatchObject({ state: 'sent', uid: 'uid-1' });
 
     const second = await runSender(db);
