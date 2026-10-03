@@ -203,8 +203,8 @@ export async function fetchAllIpersonalJobs({ existingJobs = [] } = {}) {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: normalizeSpace(addressLocality),
-      addressRegion: normalizeSpace(addressRegion || canton),
+      addressLocality: normalizeSpace(addressLocality || listing.addressLocality),
+      addressRegion: normalizeSpace(addressRegion || listing.addressRegion || canton),
       addressCountry: normalizeSpace(addressCountry || "CH"),
       country: normalizeSpace(addressCountry || "CH"),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
