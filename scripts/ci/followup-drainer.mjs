@@ -93,6 +93,8 @@ import {
   parseFollowupItems,
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
+import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export {
   detectWorkflowScoped,
@@ -822,6 +824,102 @@ export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = fals
       : { action: 'close', reason: 'already-fixed: difetto verificato assente' };
   }
   return { action: 'escalate', reason: `capacità/causa fuori dalla portata della CI: ${outcome}` };
+}
+
+// --- VERDETTO A GRANA ITEM SUI BUCKET GIORNALIERI ----------------------------
+// Su un bucket `follow-up(daily:…)` l'ultimo `FIX_OUTCOME` riguarda UN item, non
+// la issue. Quando `route-already-fixed.mjs` lo ha gia' scritto sull'item
+// (`FU_ITEM_EVIDENCE` / `FU_ITEM_BLOCKED` dopo il verdetto, `State: blocked` nel
+// corpo), rileggerlo come verdetto del bucket parcheggiava, flaggava
+// `maybe-resolved` o differiva l'INTERA issue, e gli item successivi non
+// venivano mai raggiunti: la issue 8334 portava `fu-attempt:3` + `fu-parked` +
+// `maybe-resolved` insieme, e 5 bucket giornalieri erano `fu-parked`.
+//
+// «Coperto» significa soltanto «non fermare il resto del bucket per questo
+// verdetto»: NON e' una prova di chiusura, e nessun ramo lo usa per chiudere.
+// `FU_ITEM_ATTEMPT` da solo non copre: registra il tentativo, non l'esito
+// sull'item. Senza marker di autore fidato DOPO il verdetto nulla cambia
+// (fail-closed): il verdetto vale per il bucket come prima.
+
+/** Commento GraphQL o REST nella forma che leggono `parseItemMarkers` e
+ * `isTrustedAuthor` (`createdAt`, `author.login`, `authorAssociation`). Su REST
+ * `user.type` e' autoritativo: un utente non-bot con un login da bot perde il
+ * login, e resta solo la sua associazione al repository. */
+function markerCommentShape(comment) {
+  const restType = comment?.user?.type;
+  const login = restType && String(restType).toLowerCase() !== 'bot'
+    ? ''
+    : (comment?.author?.login ?? comment?.user?.login ?? '');
+  return {
+    body: comment?.body,
+    createdAt: comment?.createdAt ?? comment?.created_at ?? null,
+    author: { login },
+    authorAssociation: comment?.authorAssociation ?? comment?.author_association ?? '',
+  };
+}
+
+/** Autore fidato per un marker `FU_ITEM_*`: lo stesso predicato con cui
+ * `route-already-fixed.mjs` legge i marker, esteso alla forma REST. */
+export function isTrustedMarkerAuthor(comment) {
+  return isTrustedAuthor(markerCommentShape(comment));
+}
+
+const ITEM_VERDICT_COVER_TYPES = new Set(['evidence', 'blocked']);
+
+/**
+ * Il verdetto dell'issue e se un marker d'item lo ha gia' consumato. Pura.
+ * - issue non giornaliera, nessun verdetto o nessun predicato di fiducia →
+ *   `covered: false` (l'ultimo `FIX_OUTCOME`, come `latestFixOutcomeFromComments`);
+ * - bucket giornaliero → `covered: true` se un commento di autore fidato
+ *   SUCCESSIVO al commento del verdetto (per `createdAt`; a parita' di secondo,
+ *   per posizione) porta `FU_ITEM_EVIDENCE` o `FU_ITEM_BLOCKED`, E il bucket ha
+ *   ancora un item `open` (`hasOpenItem`). Senza un item da lavorare «il resto
+ *   del bucket» non esiste: il verdetto torna a valere per la issue (park /
+ *   flag `maybe-resolved` come prima), invece di rimettere in coda un bucket
+ *   che il DRAIN salterebbe a ogni tick come `no-open-item`. `hasOpenItem`
+ *   assente → `false` (fail-closed).
+ *
+ * @param {Array<object>} comments forma GraphQL o REST
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @returns {{outcome: string|null, covered: boolean, marker: {type: string, item: string}|null}}
+ */
+export function bucketVerdictCoverage(comments, { isDailyBucket = false, hasOpenItem = false, isTrusted } = {}) {
+  const list = Array.isArray(comments) ? comments : [];
+  const latest = latestFixOutcomeEntryFromComments(list);
+  const uncovered = { outcome: latest.outcome, covered: false, marker: null };
+  if (!latest.outcome || !isDailyBucket || hasOpenItem !== true || typeof isTrusted !== 'function') return uncovered;
+  // Il commento del verdetto: l'ultimo con lo stesso esito e lo stesso istante,
+  // cioe' quello che `latestFixOutcomeEntryFromComments` sceglie (`>=`).
+  let verdictIndex = -1;
+  list.forEach((comment, index) => {
+    const entry = latestFixOutcomeEntryFromComments([comment]);
+    if (entry.outcome === latest.outcome && entry.at === latest.at) verdictIndex = index;
+  });
+  for (let index = 0; index < list.length; index++) {
+    const shaped = markerCommentShape(list[index]);
+    const at = Date.parse(String(shaped.createdAt ?? ''));
+    if (!Number.isFinite(at)) continue;
+    if (at < latest.at || (at === latest.at && index <= verdictIndex)) continue;
+    const marker = parseItemMarkers([shaped], { isTrusted })
+      .find((candidate) => ITEM_VERDICT_COVER_TYPES.has(candidate.type));
+    if (marker) return { outcome: latest.outcome, covered: true, marker: { type: marker.type, item: marker.item } };
+  }
+  return uncovered;
+}
+
+/**
+ * Verdetto con cui uno stadio decide se parcheggiare, differire, flaggare o
+ * saltare un'issue. Issue non giornaliera → l'ultimo `FIX_OUTCOME` (come
+ * prima); bucket giornaliero → `null` se il verdetto e' gia' scritto sull'item
+ * (vedi `bucketVerdictCoverage`), altrimenti l'ultimo `FIX_OUTCOME`. Pura.
+ *
+ * @param {Array<object>} comments forma GraphQL o REST
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @returns {string|null}
+ */
+export function effectiveIssueVerdict(comments, options = {}) {
+  const coverage = bucketVerdictCoverage(comments, options);
+  return coverage.covered ? null : coverage.outcome;
 }
 
 // Esiti ZERO-WORK: la run è morta PRIMA che l'agent leggesse la issue, quindi
@@ -3514,6 +3612,64 @@ function latestFixOutcome(num) {
   return latestFixOutcomeFromComments(issueComments(num) || []);
 }
 
+// Bucket giornalieri DISTINTI il cui verdetto NON_RETRYABLE era gia' scritto
+// sull'item (vedi `bucketVerdictCoverage`): stampato a fine run come
+// `verdict_covered=<n>`. Un Set, non un contatore: lo stesso bucket passa da
+// VERDICT-EXIT e da parked-retry nello stesso tick.
+const verdictCoveredIssues = new Set();
+
+function noteVerdictCovered(iss, coverage, stage) {
+  verdictCoveredIssues.add(iss.number);
+  console.log(`${stage}: verdetto coperto da marker item (#${iss.number}, ${coverage.marker.item}) — \`${coverage.outcome}\` già scritto sull'item (${coverage.marker.type}), il bucket non si ferma su questo verdetto.`);
+}
+
+/** Opzioni di `bucketVerdictCoverage` per una riga di issue REST (con `body`). */
+function bucketCoverageOptions(iss) {
+  return {
+    isDailyBucket: isDailyBucketTitle(iss?.title || ''),
+    hasOpenItem: selectFirstOpenItem(iss?.body || '') !== null,
+    isTrusted: isTrustedMarkerAuthor,
+  };
+}
+
+/** Copertura del verdetto per uno stadio che parcheggia, differisce, flagga o
+ * salta. Logga e conta solo quando la regola cambia una decisione, cioe' su un
+ * verdetto NON_RETRYABLE coperto. Nessun ramo chiude su un verdetto coperto. */
+function stageVerdictCoverage(iss, comments, stage) {
+  const coverage = bucketVerdictCoverage(comments, bucketCoverageOptions(iss));
+  if (coverage.covered && NON_RETRYABLE.has(coverage.outcome)) noteVerdictCovered(iss, coverage, stage);
+  return coverage;
+}
+
+/** Rescue: il verdetto NON_RETRYABLE della promozione corrente e' gia' scritto
+ * sull'item del bucket? Commenti illeggibili → `false`, cioe' il park di prima
+ * (fail-closed). Una sola lettura in piu', e solo sui bucket giornalieri. */
+function rescueVerdictCovered(iss, outcome) {
+  const options = bucketCoverageOptions(iss);
+  if (!options.isDailyBucket || !options.hasOpenItem) return false;
+  const comments = issueComments(iss.number);
+  if (comments === null) return false;
+  const coverage = bucketVerdictCoverage(comments, options);
+  if (!coverage.covered || coverage.outcome !== outcome) return false;
+  noteVerdictCovered(iss, coverage, 'rescue');
+  return true;
+}
+
+/** Contatore `verdict_covered` nel log e nello step summary della run. */
+function reportVerdictCovered() {
+  const verdictCoveredCount = verdictCoveredIssues.size;
+  console.log(`verdict_covered=${verdictCoveredCount}`);
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  try {
+    appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      `### verdetti a grana item\n\n\`verdict_covered=${verdictCoveredCount}\` — bucket giornalieri non fermati da un verdetto già scritto sull'item (\`FU_ITEM_EVIDENCE\` / \`FU_ITEM_BLOCKED\`).\n\n`,
+    );
+  } catch (e) {
+    console.log(`verdict_covered: step summary non scrivibile (${String(e).slice(0, 120)})`);
+  }
+}
+
 /** Beacon di quota sulla issue (epoch di reset), o null. Best-effort. */
 function quotaResetsAt(num) {
   return maxQuotaResetsAt(issueComments(num) || []);
@@ -3589,6 +3745,7 @@ function main() {
     runDrain();
   } finally {
     budget.report();
+    reportVerdictCovered();
   }
 }
 
@@ -4077,6 +4234,12 @@ export function runDrain() {
         continue;
       }
 
+      // Bucket giornaliero il cui verdetto e' gia' scritto sull'item: niente
+      // flag `maybe-resolved` ne' defer dell'intera issue. Resta parked e il
+      // parked-retry la rimette in coda per l'item successivo. Il ramo UNPARK
+      // sopra legge invece il verdetto GREZZO: un verdetto coperto c'e' stato,
+      // non e' «nessun tentativo reale».
+      if (stageVerdictCoverage(iss, comments, 'verdict-exit').covered) continue;
       const d = verdictExitDecision(outcome, {
         hasPR: hasFixPR(iss.number),
         noAutoclose: VERDICT_EXIT_NO_AUTOCLOSE,
@@ -4311,7 +4474,11 @@ export function runDrain() {
       // commenti sono già in mano da `issueCommentsRest`, e da quando
       // `latestFixOutcomeFromComments` accetta anche la forma REST li legge
       // davvero — prima, su una lista REST, restituiva `null` sempre.
-      const parkedVerdict = latestFixOutcomeFromComments(comments);
+      // Su un bucket giornaliero il verdetto gia' scritto sull'item non vale
+      // per la issue (`effectiveIssueVerdict`): il bucket rientra per l'item
+      // successivo, con cooldown e tetti invariati.
+      const parkedCoverage = stageVerdictCoverage(iss, comments, 'parked-retry');
+      const parkedVerdict = parkedCoverage.covered ? null : parkedCoverage.outcome;
       if (parkedVerdict && NON_RETRYABLE.has(parkedVerdict)) { verdictSkipped++; continue; }
       if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: cdDays })) continue;
       eligible.push({ iss, at: lastSignificantActivityAt(iss, comments) });
@@ -4665,9 +4832,16 @@ export function runDrain() {
       }
     }
     if (outcome && NON_RETRYABLE.has(outcome)) {
-      console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
-      edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
-      continue;
+      // Bucket giornaliero con il verdetto gia' scritto sull'item: di norma
+      // `route-already-fixed.mjs` lo ha gia' rimesso in coda, e qui arriva solo
+      // se quella edit delle label e' fallita. Niente park dell'intera issue:
+      // si prosegue verso il ramo età-tentativi qui sotto, che ri-accoda
+      // consumando un tentativo (MAX_ATTEMPTS invariato, bound conservato).
+      if (!rescueVerdictCovered(iss, outcome)) {
+        console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
+        edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
+        continue;
+      }
     }
     if (outcome && DELIVERED.has(outcome)) {
       // Run conclusa CON una PR, e quella PR è stata MERGIATA in questo ciclo.
