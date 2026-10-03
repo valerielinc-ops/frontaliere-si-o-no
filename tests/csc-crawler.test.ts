@@ -4,6 +4,7 @@ import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import {
   buildCscAdapterConfig,
+  buildCscAuthoritativeEmptySummary,
   canonicalCscDetailUrl,
   fetchCscJobUrls,
   parseCscPrimaryJobDetail,
@@ -164,6 +165,22 @@ describe('CSC authoritative Drupal discovery', () => {
       authoritativeEmpty: true,
     });
     expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('builds a canonical health proof for the explicit empty state', () => {
+    const summary = buildCscAuthoritativeEmptySummary('2026-10-03T00:00:00.000Z', 123);
+
+    expect(summary).toMatchObject({
+      key: 'csc-costruzioni',
+      total: 0,
+      discovered: 0,
+      parsed: 0,
+      written: 0,
+      authoritativeEmptySnapshot: true,
+      durationMs: 123,
+    });
+    expect(summary).not.toHaveProperty('earlyExit');
+    expect(summary).not.toHaveProperty('exitCode');
   });
 
   it('fails closed on truncated listings and partial detail responses', async () => {

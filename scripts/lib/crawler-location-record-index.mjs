@@ -11,19 +11,24 @@ function normalizeCrawler(value) {
 }
 
 function locationRecord(job, { crawler = '' } = {}) {
+  const sourceLocationCanton = String(job.sourceLocationCanton || '').trim().toUpperCase();
   return {
     crawler: normalizeCrawler(crawler),
     canton: String(job.canton || '').trim().toUpperCase(),
     city: String(job.addressLocality || job.location || '').trim(),
     location: String(job.location || '').trim(),
+    ...(sourceLocationCanton ? { sourceLocationCanton } : {}),
   };
 }
 
 function sameLocationRecord(left, right) {
+  const leftSource = left.sourceLocationCanton || '';
+  const rightSource = right.sourceLocationCanton || '';
   return left.crawler === right.crawler
     && left.canton === right.canton
     && left.city === right.city
-    && left.location === right.location;
+    && left.location === right.location
+    && (!leftSource || !rightSource || leftSource === rightSource);
 }
 
 function addUniqueRecord(index, key, record) {
@@ -37,6 +42,29 @@ function addUniqueRecord(index, key, record) {
   if (previous !== AMBIGUOUS_RECORD && !sameLocationRecord(previous, record)) {
     index.set(key, AMBIGUOUS_RECORD);
   }
+}
+
+function lookupRecord(job, byJobId, byStableIdentity) {
+  if (!job || typeof job !== 'object' || Array.isArray(job)) {
+    return { record: null, status: 'missing' };
+  }
+
+  const jobId = normalizeJobId(job.id);
+  if (jobId && byJobId.has(jobId)) {
+    const record = byJobId.get(jobId);
+    return record === AMBIGUOUS_RECORD
+      ? { record: null, status: 'ambiguous' }
+      : { record, status: 'found' };
+  }
+
+  const identity = buildStableJobIdentity(job);
+  if (!identity || !byStableIdentity.has(identity)) {
+    return { record: null, status: 'missing' };
+  }
+  const record = byStableIdentity.get(identity);
+  return record === AMBIGUOUS_RECORD
+    ? { record: null, status: 'ambiguous' }
+    : { record, status: 'found' };
 }
 
 /**
@@ -64,19 +92,12 @@ export function createCrawlerLocationRecordIndex() {
       addUniqueRecord(byStableIdentity, buildStableJobIdentity(job), record);
     },
 
+    getWithStatus(job) {
+      return lookupRecord(job, byJobId, byStableIdentity);
+    },
+
     get(job) {
-      if (!job || typeof job !== 'object' || Array.isArray(job)) return null;
-
-      const jobId = normalizeJobId(job.id);
-      if (jobId && byJobId.has(jobId)) {
-        const record = byJobId.get(jobId);
-        return record === AMBIGUOUS_RECORD ? null : record;
-      }
-
-      const identity = buildStableJobIdentity(job);
-      if (!identity || !byStableIdentity.has(identity)) return null;
-      const record = byStableIdentity.get(identity);
-      return record === AMBIGUOUS_RECORD ? null : record;
+      return lookupRecord(job, byJobId, byStableIdentity).record;
     },
 
     get size() {
