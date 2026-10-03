@@ -12447,6 +12447,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate: 22-Jähriger wegen Raubes und Gewalt beschuldigt',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'Ein 22-Jähriger wurde nach einem Übergriff in der Nähe des Bahnhofs von Gallarate wegen schweren Raubes und sexueller Gewalt auf freiem Fuß angezeigt; das Opfer, eine 36-Jährige, wurde mit einer Prognose von sieben Tagen entlassen.',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Einsatz der Carabinieri am Bahnhof von Gallarate nach einem Überfall',
+    'blog.article.pizzautobus-varese-inclusione.title': 'PizzAutobus in Varese: vier Autisten bei der Arbeit',
+    'blog.article.pizzautobus-varese-inclusione.excerpt': 'Am 3. Oktober findet auf der Piazza Monte Grappa in Varese anlässlich des Granfondo Tre Valli Varesine die erste Ausfahrt des PizzAutobus statt, eines Foodtrucks der Abad, einer sozialen Genossenschaft mit vier autistischen Menschen bei der Arbeit.',
+    'blog.article.pizzautobus-varese-inclusione.imageAlt': 'PizzAutobus-Lastwagen auf einem Platz in Tessin mit Alpenpanorama',
 };
 
 export default blogMetaDe;

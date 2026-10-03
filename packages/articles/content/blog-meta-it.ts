@@ -12449,6 +12449,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate: 22enne accusato di rapina e violenza',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'Un 22enne è stato denunciato in stato di libertà per rapina aggravata e violenza sessuale dopo un\'aggressione vicino alla stazione di Gallarate; la vittima, una 36enne, è stata dimessa con prognosi di sette giorni.',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Intervento dei Carabinieri presso la stazione di Gallarate dopo un\'aggressione',
+    'blog.article.pizzautobus-varese-inclusione.title': 'PizzAutobus a Varese: quattro autistici al lavoro',
+    'blog.article.pizzautobus-varese-inclusione.excerpt': 'Il 3 ottobre Piazza Monte Grappa a Varese ospita la prima uscita del PizzAutobus, food truck di Abad cooperativa sociale con quattro persone autistiche al lavoro, in occasione della Granfondo Tre Valli Varesine.',
+    'blog.article.pizzautobus-varese-inclusione.imageAlt': 'PizzAutobus davanti a una piazza ticinese con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

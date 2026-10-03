@@ -12450,6 +12450,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate : un homme de 22 ans accusé de vol et de violence',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'Un jeune homme de 22 ans a été mis en cause, sans être placé en détention, pour vol aggravé et agression sexuelle après une agression près de la gare de Gallarate ; la victime, une femme de 36 ans, est sortie avec un pronostic de sept jours.',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Intervention des carabiniers à la gare de Gallarate après une agression',
+    'blog.article.pizzautobus-varese-inclusione.title': 'PizzAutobus à Varese : quatre personnes autistes au travail',
+    'blog.article.pizzautobus-varese-inclusione.excerpt': 'Le 3 octobre, Piazza Monte Grappa à Varese accueille la première sortie du PizzAutobus, le food truck d\'Abad cooperativa sociale où travaillent quatre personnes autistes, à l\'occasion de la Granfondo Tre Valli Varesine.',
+    'blog.article.pizzautobus-varese-inclusione.imageAlt': 'Camion pizza PizzAutobus sur une place tessinoise avec fond alpestre',
 };
 
 export default blogMetaFr;

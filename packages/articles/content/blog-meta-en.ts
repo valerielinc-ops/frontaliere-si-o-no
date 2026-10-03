@@ -12448,6 +12448,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.title': 'Gallarate: 22-year-old accused of robbery and violence',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.excerpt': 'A 22-year-old man was reported while at liberty for aggravated robbery and sexual assault following an attack near the station in Gallarate; the victim, a 36-year-old woman, was discharged with a prognosis of seven days.',
     'blog.article.gallarate-rapina-violenza-sessuale-22enne.imageAlt': 'Carabinieri intervention at Gallarate train station after an assault',
+    'blog.article.pizzautobus-varese-inclusione.title': 'PizzAutobus in Varese: four autistic people at work',
+    'blog.article.pizzautobus-varese-inclusione.excerpt': 'On 3 ottobre Piazza Monte Grappa in Varese hosts the first outing of the PizzAutobus, the food truck of Abad cooperativa sociale with four autistic people at work, on the occasion of the Granfondo Tre Valli Varesine.',
+    'blog.article.pizzautobus-varese-inclusione.imageAlt': 'PizzAutobus food truck in a Ticino square with Alpine backdrop',
 };
 
 export default blogMetaEn;
