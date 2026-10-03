@@ -4,6 +4,7 @@
  * Tests parseSearchPage(), parseDetailPage(), buildDetailUrl(),
  * detectCategory(), detectExperienceLevel(), and isHugoBossTargetLocation().
  */
+import fs from 'node:fs';
 import { describe, it, expect, vi } from 'vitest';
 
 import { fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
@@ -291,6 +292,17 @@ describe('fetchJobs national pagination', () => {
       targetMatches: 0,
       authoritativeEmptySnapshot: false,
     });
+  });
+
+  it('uses a per-run source proof instead of the health allowlist', () => {
+    const runner = fs.readFileSync(new URL('../scripts/update-hugo-boss-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain('markAuthoritativeEmptySnapshot');
+    expect(runner).toContain('isAuthoritativeEmptySnapshot');
+
+    const monitor = fs.readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
+    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
+    expect(allowlist).toBeTruthy();
+    expect(allowlist?.[1]).not.toMatch(/^\s*'hugo-boss',/m);
   });
 
   it('publishes the maximum observed snapshot when Phenom repeats a page after bounded retries', async () => {
