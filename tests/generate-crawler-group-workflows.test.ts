@@ -2972,14 +2972,14 @@ esac
     );
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
-  it('con il conteggio fantasma e un elenco lungo prova la coda con una pagina piena di run concluse (criterio b)', () => {
+  it('non accetta una pagina piena senza leggere la pagina finale corta', () => {
     const { outDir } = generateArtifacts();
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const guardStep = translation.jobs.translate_queue_guard.steps
       .find((step: any) => step.id === 'translate_queue_guard');
-    // Prima pagina senza filtro piena: la corrente e 99 run concluse. Una
-    // seconda pagina non esiste nella fixture: chiederla farebbe fallire il
-    // `gh` finto e il guard andrebbe in fail_closed.
+    // Prima pagina senza filtro piena: la corrente e 99 run concluse. La
+    // seconda pagina contiene una run queued piu' vecchia: il guard deve
+    // leggerla invece di concludere dal solo contenuto della prima pagina.
     const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
 set -euo pipefail
 endpoint="$2"
@@ -2994,6 +2994,9 @@ case "$endpoint" in
   *"/runs?per_page=100&page=1")
     jq -cn '{total_count: 5000, workflow_runs: ([{id: 400, created_at: "2026-09-30T10:00:00Z", status: "in_progress"}] + [range(1; 100) | {id: (400 - .), created_at: "2026-09-30T09:00:00Z", status: "completed"}])}'
     ;;
+  *"/runs?per_page=100&page=2")
+    printf '%s\n' '{"total_count":101,"workflow_runs":[{"id":90,"created_at":"2026-09-30T07:00:00Z","status":"queued"}]}'
+    ;;
   */actions/runs/400)
     printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
     ;;
@@ -3005,14 +3008,15 @@ esac
 `);
 
     expect(stdout).not.toContain('could not inspect GitHub Actions');
-    expect(stdout).toContain('by criterion b (page 1 is full and every run on it is completed except the current one');
-    expect(stdout).toContain('admits the oldest waiting run');
-    expect(output).toContain('run=true');
+    expect(stdout).toContain('by criterion a (page 2 has 1 row(s) and ends the list)');
+    expect(stdout).toContain('found older run 90');
+    expect(output).toContain('run=false');
     expect(output).toMatch(/^guard_error=$/m);
     const unfilteredReads = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
     const pendingReads = calls.filter((endpoint) => endpoint.endsWith('status=pending'));
-    expect(unfilteredReads.length).toBe(pendingReads.length);
+    expect(unfilteredReads.length).toBe(pendingReads.length + 1);
     expect(unfilteredReads[0]).toMatch(/&page=1$/);
+    expect(unfilteredReads[1]).toMatch(/&page=2$/);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('la prova senza filtro porta fra i candidati la run davvero mancante dalle letture per stato', () => {
@@ -3086,7 +3090,7 @@ esac
 `);
 
     expect(stdout).toContain(
-      'could not inspect GitHub Actions (workflow_runs_queue_unproven; queued total_count=3 rows=0; unfiltered pages=3, each full with unfinished runs)',
+      'could not inspect GitHub Actions (workflow_runs_queue_unproven; queued total_count=3 rows=0; unfiltered pages=3, no short final page)',
     );
     expect(output).toContain('run=false');
     expect(output).toContain('waiting_runs=-1');

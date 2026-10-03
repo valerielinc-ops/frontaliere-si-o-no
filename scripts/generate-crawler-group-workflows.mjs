@@ -2134,11 +2134,11 @@ const TRANSLATION_WRITE_BOUNDARY_HEADER = [
 //    l'elenco delle run del workflow SENZA filtro di stato (stesso `guard_api`,
 //    stesso tetto di pagine). Quell'elenco non ha il conteggio fantasma: il suo
 //    `total_count` e' il totale delle run e la paginazione lo rispetta. La prova
-//    chiude con una pagina corta (elenco finito: ogni run vista col suo stato)
-//    oppure con una pagina piena di run tutte concluse esclusa la corrente
-//    (cento run consecutive per data di creazione sono finite: una piu' vecchia
-//    ancora «in coda» e' bloccata, non in attesa). Al tetto senza prova la
-//    coda e' davvero piu' lunga di cio' che il guard vede: fail-closed. Un
+//    chiude solo con una pagina corta (elenco finito: ogni run vista col suo
+//    stato). Una pagina piena non dimostra che la pagina successiva sia priva
+//    di una run piu' vecchia ancora in coda, anche quando quella pagina contiene
+//    solo run concluse oltre alla corrente: si continua a leggere fino alla
+//    pagina corta e al tetto senza tale pagina si fa fail-closed. Un
 //    fail-closed sul solo confronto conteggio/righe resta escluso: sotto il
 //    conteggio fantasma (run del corpus 37122259464 e 37101329262) spegneva la
 //    traduzione in 13 run su 14.
@@ -2244,12 +2244,12 @@ function translatePendingQueueGuardJob() {
         '  done',
         '}',
         '# Proves the queue on the run list of this workflow WITHOUT a status filter',
-        '# (why, and the two closing criteria: see the comment above its call).',
+        '# (why, and the closing criterion: see the comment above its call).',
         '# Called directly (never in a subshell) so fail_closed ends the step; reads',
         '# go through guard_api, so they share the one time budget.',
         'prove_queue_beyond_union() {',
         '  local proof_page=1',
-        '  local runs_path proof_json proof_returned_count proof_page_unfinished proof_page_open_others proof_criterion known_ids proof_unfinished_count proof_new_ids',
+        '  local runs_path proof_json proof_returned_count proof_page_unfinished proof_criterion known_ids proof_unfinished_count proof_new_ids',
         '  local proof_unfinished=""',
         '  while :; do',
         '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${proof_page}"',
@@ -2262,12 +2262,7 @@ function translatePendingQueueGuardJob() {
         '      proof_criterion="a (page ${proof_page} has ${proof_returned_count} row(s) and ends the list)"',
         '      break',
         '    fi',
-        '    if ! proof_page_open_others="$(printf "%s" "$proof_json" | jq -r --arg current "$GITHUB_RUN_ID" \'[.workflow_runs[] | select(.status != "completed" and (.id | tostring) != $current)] | length\')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi',
-        '    if [ "$proof_page_open_others" -eq 0 ]; then',
-        '      proof_criterion="b (page ${proof_page} is full and every run on it is completed except the current one; an older run still waiting is stuck, not queued)"',
-        '      break',
-        '    fi',
-        '    if [ "$proof_page" -ge "$status_page_limit" ]; then fail_closed "workflow_runs_queue_unproven" "${queue_proof_reasons}; unfiltered pages=${proof_page}, each full with unfinished runs"; fi',
+        '    if [ "$proof_page" -ge "$status_page_limit" ]; then fail_closed "workflow_runs_queue_unproven" "${queue_proof_reasons}; unfiltered pages=${proof_page}, no short final page"; fi',
         '    proof_page=$((proof_page + 1))',
         '  done',
         '  if ! known_ids="$(printf "%s\\n" "$active_runs" | jq -cs \'[.[] | .id | tostring] | unique\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
@@ -2313,14 +2308,12 @@ function translatePendingQueueGuardJob() {
         '# without the phantom count: the run list of this workflow with no status',
         '# filter (its total_count is the total of the runs and pagination honours',
         '# it). Its unfinished rows join active_runs (the dedupe below keeps one row',
-        '# per id). The proof closes on (a) a short page: the list is over and every',
-        '# run of the workflow was seen with its current status; or (b) a full page',
-        '# whose runs are all completed except the current one: a hundred consecutive',
-        '# runs by creation date finished, so an older run still "queued" was',
-        '# overtaken by a hundred later runs that found a runner and ended; it is',
-        '# stuck, not waiting, and must not hold the queue. At the page ceiling with',
-        '# neither, the queue is longer than the guard can see: fail closed. Called',
-        '# once per guard run, however many statuses disagree, and only then.',
+        '# per id). The proof closes only on a short page: the list is over and every',
+        '# run of the workflow was seen with its current status. A full page cannot',
+        '# rule out an older waiting run on the next page, even if all rows there',
+        '# except the current one are completed. At the page ceiling without a short',
+        '# page, the queue is longer than the guard can see: fail closed. Called once',
+        '# per guard run, however many statuses disagree, and only then.',
         'if [ -n "$queue_proof_reasons" ]; then prove_queue_beyond_union; fi',
         '# One row per run, latest read wins: statuses are read in sequence, so a run',
         '# that moved from queued to in_progress mid-scan was listed twice and would',
