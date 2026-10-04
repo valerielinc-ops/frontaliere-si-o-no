@@ -1012,9 +1012,9 @@ export function bucketAlarmBody({ unparseable = [], conflicts = [], repository =
  * `resolve` se tutto e' pulito E l'elenco delle issue era completo, altrimenti
  * `none` (un elenco troncato non prova che i bucket mancanti siano sani).
  */
-export function decideBucketAlarmAction({ unparseable = [], conflicts = [], listComplete = false } = {}) {
+export function decideBucketAlarmAction({ unparseable = [], conflicts = [], listComplete = false, noAutoclose = false } = {}) {
   if (unparseable.length || conflicts.length) return 'open';
-  return listComplete ? 'resolve' : 'none';
+  return listComplete && !noAutoclose ? 'resolve' : 'none';
 }
 
 /**
@@ -1066,6 +1066,7 @@ export function reconcileSummaryLine({
  */
 export async function applyBucketAlarm(plan, {
   listComplete = false,
+  noAutoclose = false,
   dryRun = false,
   repository = '',
   readBodyEdits = () => null,
@@ -1080,7 +1081,7 @@ export async function applyBucketAlarm(plan, {
     return { ...entry, editors: Array.isArray(editors) ? editors : null };
   });
   const conflicts = plan?.conflicts || [];
-  const action = decideBucketAlarmAction({ unparseable, conflicts, listComplete });
+  const action = decideBucketAlarmAction({ unparseable, conflicts, listComplete, noAutoclose });
   if (action === 'none') return { action, result: null };
   if (dryRun) {
     log(`bucket alarm: ${action} (dry-run, nessuna scrittura)`);
@@ -1702,6 +1703,7 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
   }
   const alarm = await applyBucketAlarm(bucketAlarmPlan, {
     listComplete: issues.length < MAX_ISSUES,
+    noAutoclose: NO_AUTOCLOSE,
     dryRun: DRY_RUN,
     repository: process.env.GH_REPO || '',
     readBodyEdits,

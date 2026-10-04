@@ -542,6 +542,7 @@ describe('allarme a titolo stabile per i bucket illeggibili dal parser', () => {
     expect(plan).toEqual({ unparseable: [], conflicts: [] });
     expect(decideBucketAlarmAction({ ...plan, listComplete: true })).toBe('resolve');
     expect(decideBucketAlarmAction({ ...plan, listComplete: false })).toBe('none');
+    expect(decideBucketAlarmAction({ ...plan, listComplete: true, noAutoclose: true })).toBe('none');
   });
 
   it('un bucket collecting più giovane di 48 ore con veto strutturale non apre l’allarme', () => {
@@ -585,6 +586,10 @@ describe('allarme a titolo stabile per i bucket illeggibili dal parser', () => {
     expect(created).toHaveLength(2); // cron-count-ok: due chiamate esplicite sopra, nessun dato di cron
     // Un elenco troncato non prova che i bucket mancanti siano sani: nessuna chiusura.
     await applyBucketAlarm({ unparseable: [], conflicts: [] }, { ...deps, listComplete: false });
+    expect(resolved).toHaveLength(1);
+    // L'escape hatch vale anche per il percorso applicativo, non solo per la funzione pura.
+    const protectedEmpty = await applyBucketAlarm({ unparseable: [], conflicts: [] }, { ...deps, noAutoclose: true });
+    expect(protectedEmpty.action).toBe('none');
     expect(resolved).toHaveLength(1);
   });
 
