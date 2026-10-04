@@ -43,24 +43,25 @@ describe('validate-dist failure classification', () => {
     expect(v.blocking).toEqual([]);
   });
 
-  it('blocks publish when the sitemap validators fail', () => {
-    // publish submits the sitemap URL set verbatim to IndexNow + Indexing
-    // API. A bad sitemap means pushing dead URLs to Google and Bing.
-    for (const gate of [
-      'validate:sitemap-pages',
-      'validate:sitemap-links',
-      'audit:sitemap-canonicals',
-    ]) {
+  it('owner decision 2026-10-03: the class A sitemap validators no longer block publish', () => {
+    // They used to: publish submits the sitemap URL set verbatim to IndexNow
+    // + Indexing API. The owner chose to let publish run and have the P1
+    // issue drive the fix (scripts/ci/lib/seo-gate-classes.mjs). A sitemap
+    // gate that is NOT classified there still blocks by default-deny.
+    for (const gate of ['validate:sitemap-pages', 'validate:sitemap-links']) {
       const v = evaluateIntegrity([gate]);
-      expect(v.integrityOk, `${gate} must block publish`).toBe(false);
-      expect(v.blocking).toContain(gate);
+      expect(v.integrityOk, `${gate} is class A, issue-only`).toBe(true);
+      expect(v.quality).toEqual([gate]);
     }
+    const unclassified = evaluateIntegrity(['audit:sitemap-canonicals']);
+    expect(unclassified.integrityOk).toBe(false);
+    expect(unclassified.blocking).toEqual(['audit:sitemap-canonicals']);
   });
 
-  it('blocks when a structural gate fails alongside a quality one', () => {
-    const v = evaluateIntegrity(['audit:all/title-length', 'audit:no-dotfile-html']);
+  it('blocks when an unclassified gate fails alongside a classified one', () => {
+    const v = evaluateIntegrity(['audit:all/title-length', 'validate:crawler-summaries']);
     expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:no-dotfile-html']);
+    expect(v.blocking).toEqual(['validate:crawler-summaries']);
     expect(v.quality).toEqual(['audit:all/title-length']);
   });
 
@@ -119,27 +120,31 @@ describe('validate-dist failure classification', () => {
     // 19 → 20 by one deliberate owner decision: `audit:all/faqpage-validity`
     // moved from A to C (FAQ rich results are limited to government/health
     // sites since 2023-09-14).
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(20);
+    //
+    // 2026-10-03: raised 20 → 31 by one deliberate owner decision: class A
+    // gates open a P1 issue instead of sequestering publish, so every
+    // classified gate is on the list. The list still cannot grow by itself:
+    // a gate enters it only by being classified (with evidence) in
+    // seo-gate-classes.mjs, and everything else stays default-deny.
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(31);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
-    expect(topLevel).toHaveLength(5);
+    expect(topLevel).toHaveLength(13);
     // Every entry carries a rationale string, not a bare flag.
     for (const [gate, why] of Object.entries(QUALITY_GATES)) {
       expect(String(why).length, `${gate} needs a rationale`).toBeGreaterThan(10);
     }
   });
 
-  it('never classifies a sitemap or dist-integrity gate as quality', () => {
-    // Guards the allowlist against future edits that would let publish
-    // submit URLs from a dist we know is malformed. Exact names — note
-    // `audit:orphan-sitemap-pages` IS quality (the page exists, it is just
-    // not internally linked) and must not be confused with
-    // `validate:sitemap-pages` (the sitemap lists pages that do not exist).
+  it('keeps the non-SEO validators and unclassified gates out of the allowlist', () => {
+    // The class A sitemap and dist-integrity gates left this list on
+    // 2026-10-03 (owner decision: issue P1, publish runs). What remains
+    // blocking is everything the SEO classification does not own.
     const MUST_BLOCK = [
-      'validate:sitemap-pages',
-      'validate:sitemap-links',
       'audit:sitemap-canonicals',
-      'audit:no-dotfile-html',
-      'audit:spa-bundle-injection',
+      'validate:keyword-landing-coverage',
+      'validate:translation-completeness',
+      'validate:crawler-summaries',
+      'validate:third-party-secrets',
     ];
     for (const gate of MUST_BLOCK) {
       expect(QUALITY_GATES, `${gate} must never be allowlisted`).not.toHaveProperty(gate);
@@ -177,33 +182,30 @@ describe('audit:all bundle expansion (#4828)', () => {
     expect(v.quality).toEqual(RUN_31077435060_SUB_AUDITS);
   });
 
-  it('NEGATIVE CASE: a structural sub-auditor still blocks', () => {
-    // The auditors deliberately left off the allowlist. If any of these ever
-    // reads as quality, a broken shell or a broken document gets announced to
-    // Google — the failure this whole gate exists to prevent.
-    // `audit:all/faqpage-validity` left this list on 2026-10-02 (owner
-    // decision, class C): an invalid FAQPage costs nothing on this site, FAQ
-    // rich results being limited to government/health sites.
-    const MUST_BLOCK = [
+  it('owner decision 2026-10-03: the class A sub-auditors are issue-only too', () => {
+    // footer-root-presence, jsonld-no-nested-scripts and image-object-license
+    // used to sequester publish. They now open a P1 issue and publish runs;
+    // `audit:all/faqpage-validity` had already left A for C on 2026-10-02.
+    const CLASS_A = [
       'audit:all/footer-root-presence',
       'audit:all/jsonld-no-nested-scripts',
       'audit:all/image-object-license',
     ];
-    for (const gate of MUST_BLOCK) {
-      expect(QUALITY_GATES, `${gate} must never be allowlisted`).not.toHaveProperty(gate);
+    for (const gate of CLASS_A) {
+      expect(QUALITY_GATES, `${gate} is classified`).toHaveProperty(gate);
       const v = evaluateIntegrity([gate]);
-      expect(v.integrityOk, `${gate} must block publish`).toBe(false);
-      expect(v.blocking).toContain(gate);
+      expect(v.integrityOk, `${gate} lets publish run`).toBe(true);
+      expect(v.quality).toEqual([gate]);
     }
   });
 
-  it('NEGATIVE CASE: one structural sub-auditor overrides many cosmetic ones', () => {
+  it('NEGATIVE CASE: an unclassified sub-auditor overrides many classified ones', () => {
     const v = evaluateIntegrity([
       ...RUN_31077435060_SUB_AUDITS,
-      'audit:all/footer-root-presence',
+      'audit:all/auditor-added-next-quarter',
     ]);
     expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:all/footer-root-presence']);
+    expect(v.blocking).toEqual(['audit:all/auditor-added-next-quarter']);
     expect(v.quality).toEqual(RUN_31077435060_SUB_AUDITS);
   });
 
@@ -226,17 +228,17 @@ describe('audit:all bundle expansion (#4828)', () => {
     expect(v.blocking).toEqual(['audit:all/auditor-added-next-quarter']);
   });
 
-  it('NEGATIVE CASE: expansion does not rescue a red sitemap validator', () => {
-    // The full failed-gate set of run 31077435060. Even with the bundle
-    // expanded, `validate:sitemap-pages` was red (106'276 noindex URLs in
-    // sitemaps) and publish must stay blocked: publish submits the sitemap
-    // URL set verbatim.
+  it('NEGATIVE CASE: expansion does not rescue an unclassified validator', () => {
+    // Run 31077435060's sub-audits plus a red non-SEO validator: the expanded
+    // sub-audits are classified, the validator is not, and publish stays
+    // blocked by default-deny. (`validate:sitemap-pages`, red in that run, is
+    // class A and issue-only since 2026-10-03.)
     const v = evaluateIntegrity([
-      'validate:sitemap-pages',
+      'validate:translation-completeness',
       ...RUN_31077435060_SUB_AUDITS,
     ]);
     expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['validate:sitemap-pages']);
+    expect(v.blocking).toEqual(['validate:translation-completeness']);
   });
 });
 

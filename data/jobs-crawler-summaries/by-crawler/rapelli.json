@@ -1,16 +1,16 @@
 {
   "key": "rapelli",
   "label": "Rapelli",
-  "generatedAt": "2026-10-03T21:27:32.569Z",
+  "generatedAt": "2026-10-04T09:27:39.638Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6009,
-  "avgDurationMs": 6009,
+  "durationMs": 5850,
+  "avgDurationMs": 5850,
   "durationHistory": [
-    6009
+    5850
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,9 +35,9 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Head-of-Logistics-&-Shipping-%28100%29-TI/1441755033/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T21:27:21.475Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-04T09:27:27.929Z",
       "firstSeenAt": "2026-09-28T21:24:44.993Z",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -67,8 +67,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T21:27:22.146Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-10-04T09:27:28.668Z",
       "firstSeenAt": "2026-09-19T23:17:53.063Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -99,9 +98,9 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T21:27:22.528Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-04T09:27:29.010Z",
       "firstSeenAt": "2026-09-08T23:33:45.493Z",
+      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -131,7 +130,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Responsabile-Intermedio-Produzione%2C-100-%28mwd%29-TI/1431352833/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T21:27:21.823Z",
+      "crawledAt": "2026-10-04T09:27:28.259Z",
       "firstSeenAt": "2026-08-31T17:32:26.004Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -144,5 +143,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tpl-lugano",
-  "assembledAt": "2026-10-03T21:15:36.553Z",
+  "assembledAt": "2026-10-04T09:20:43.646Z",
   "jobs": [
     {
       "title": "Addetto/a rimessa",
@@ -17,7 +17,7 @@
       "employmentType": "FULL_TIME",
       "source": "tpl-lugano-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-12",
+      "postedDate": "2026-09-11",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -44,7 +44,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "",
+      "crawledAt": "2026-10-04T09:20:39.829Z",
       "slug": "addetto-a-rimessa-tpl-lugano",
       "id": "tpl-trasporti-pubblici-luganesi-38d6a2d08982",
       "previousSlugsByLocale": {
@@ -78,7 +78,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-12T13:03:25.263Z"
+      "firstSeenAt": "2026-09-12T13:03:25.263Z",
+      "datePosted": "2026-09-11",
+      "postingDateSource": "reported"
     }
   ]
 }

@@ -120,6 +120,14 @@ function takeoverStep(heldBy: string[]): NextStep {
       detail: 'Il modulo aperto non nomina l’azienda o il ruolo dell’annuncio. Se è quello giusto, «Riprova l’invio automatico» va avanti.',
     };
   }
+  // #11161: a WhatsApp application (PastaHR, Coop's apprenticeships) has no page to fix or to fill. A retry
+  // completes the order when the channel has a PastaHR https link; any other WhatsApp channel stops here again.
+  if (held === 'portal:whatsapp') {
+    return {
+      group: 'owner', code: 'whatsapp', label: 'Solo via WhatsApp',
+      detail: 'Il candidato deve completare la candidatura nella chat WhatsApp del datore, dal suo telefono. Se il canale ha un link PastaHR (https), «Riprova l’invio automatico» chiude l’ordine mandandogli per email il link e i passaggi; altrimenti «Affida al candidato».',
+    };
+  }
   if (held === 'portal_validation' || held.startsWith('portal:')) {
     return {
       group: 'fix', code: 'portal_page', label: 'Bloccata: pagina del portale',
@@ -142,6 +150,13 @@ function takeoverStep(heldBy: string[]): NextStep {
     return {
       group: 'done', code: 'posting_closed', label: 'Annuncio chiuso',
       detail: 'L’annuncio è stato chiuso prima dell’invio: il rimborso automatico è partito (se non riesce ricevi un avviso).',
+    };
+  }
+  // The runner checks the facts again right before sending: nothing left, and a plain retry would stop again.
+  if (held === 'fact_check_not_acknowledged') {
+    return {
+      group: 'owner', code: 'confirm_facts', label: 'Conferma i fatti e riprova',
+      detail: 'L’invio si è fermato prima di partire: nei testi ci sono fatti che il controllo non trova nel CV. Li vedi nel pannello sotto «Fatti non trovati»: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi «Riprova l’invio automatico».',
     };
   }
   return {
@@ -180,7 +195,7 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
       };
     case 'owner_review':
       if (heldBy.length) {
-        return { group: 'owner', code: 'review_held', label: 'Bozza ferma: serve il tuo ok', detail: 'La bozza non passa al candidato finché non confermi gli avvisi qui sotto (fatti non verificati, requisito mancante, canale).' };
+        return { group: 'owner', code: 'review_held', label: 'Bozza ferma: serve il tuo ok', detail: 'La bozza non passa al candidato finché non confermi gli avvisi qui sotto (fatti non verificati, canale).' };
       }
       return {
         group: 'owner', code: 'review', label: 'Bozza da rivedere',

@@ -1,5 +1,5 @@
 import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
-import { resolveSchemaPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the cost-of-living city landings (AE-4 template B).
  *
@@ -230,7 +230,7 @@ function toFeatured(
     salarySource: job.salarySource,
     currency: job.currency,
     postingDateSource: job.postingDateSource ?? undefined,
-    datePosted: resolveSchemaPostingDate(job, new Date(now)),
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     daysAgo,
     slug: job.slug,

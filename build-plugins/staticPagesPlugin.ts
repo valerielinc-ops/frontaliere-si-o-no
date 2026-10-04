@@ -1,3 +1,6 @@
+import { buildMethodologyEditorial, localizeMethodologyStructuredData } from './shared/editorialMethodology';
+import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
+import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from './shared/legalEditorial';
 /**
  * Generate static HTML landing pages for every URL in the sitemaps.
  *
@@ -8,7 +11,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { renderAuthorEditorial, resolveAuthorStaticSeo } from './shared/authorEditorial';
+import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { localizeArticlePageIdentity } from '../services/seo/article-page-identity';
 import { editorialModifiedDate } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
@@ -24,7 +27,6 @@ import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySection
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
-import { DATA_CONTROLLER_NAME } from '../functions/src/lib/dataControllerIdentity.js';
 import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
@@ -2980,6 +2982,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const page = buildCorrezioniSeo(locale as CorrectionsLocale);
  return { title: page.title, desc: page.description, ogT: page.title, ogD: page.description, sd: JSON.stringify([page.jsonLd]) };
  }
+ if (sourceCanonicalPath === '/metodologia/') {
+ const copy = METHODOLOGY_COPY[locale as MethodologyLocale];
+ const title = `${copy.title} | Frontaliere Ticino`;
+ return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
+ }
 
  // Keep the static head in lockstep with the SPA's localized Guide metadata.
  // The previous fallback title-cased the translated slug (for example,
@@ -3234,7 +3241,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
- let seo: SeoEntry | undefined = resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
+ let seo: SeoEntry | undefined = resolveLegalStaticSeo(url.path, /^\/privacy-policy\/?$/.test(url.path) ? 'en' : 'it') ?? resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
  if (!seo) {
  // Derive a basic page from URL path so every sitemap URL gets a static HTML file
  const pathLabel = url.path.split('/').filter(Boolean).pop() || url.path;
@@ -3466,11 +3473,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // If the entry has an 'it' key, use it instead of the inline chain below.
  const sectionKey = SECTION_EDITORIAL_KEYS
  .find(prefix => italianPath.startsWith(prefix));
+ const legalPage = resolveLegalPage(sourcePathForContent);
  const authorEditorial = renderAuthorEditorial(sourcePathForContent, locale as 'it' | 'en' | 'de' | 'fr');
- if (authorEditorial) {
+ if (legalPage) {
+ editorialBlocks.push(...renderLegalEditorial(legalPage, locale as 'it' | 'en' | 'de' | 'fr'));
+ } else if (authorEditorial) {
  editorialBlocks.push(...authorEditorial);
  } else if (italianPath.replace(/\/+$/, '') === '/correzioni') {
  editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
+ } else if (italianPath.replace(/\/+$/, '') === '/metodologia') {
+ editorialBlocks.push(...buildMethodologyEditorial(locale as MethodologyLocale, esc));
  } else if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
  // SECTION_EDITORIAL short-circuits the `else if` chain that would
@@ -3795,7 +3807,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2>Assicurazione sanitaria: LAMal, diritto d'opzione e CMB</h2>`,
  `I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. <a href="https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera">Fonte UFSP</a>.`,
  `Per i frontalieri residenti in Italia si applicano i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella UFSP 2026 per l’Italia comprende 14 assicuratori: per adulti da 26 anni senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20. La franchigia ordinaria è CHF 300 per adulti e giovani adulti, CHF 0 per bambini; non sono disponibili franchigie opzionali né modelli HMO o Telmed. Confrontare il premio per età e copertura infortuni. <a href="https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf">Premi ufficiali Italia 2026</a>; <a href="https://www.bag.admin.ch/it/assicurazione-malattie-forme-particolari-dassicurazione">UFSP: limiti alle forme particolari per residenti all’estero</a>.`,
- `Chi opta per il SSN italiano non paga un premio separato (il costo è coperto dalla fiscalità generale), ma non ha copertura automatica per le cure mediche in Svizzera, salvo emergenze coperte dalla Tessera Sanitaria Europea (TSE/TEAM). Per integrare la copertura, molti frontalieri che scelgono il SSN sottoscrivono un'assicurazione complementare privata (CMB, Cassa Malati dei Frontalieri, o polizze integrative) con costi mensili variabili da EUR 50 a EUR 150. La scelta tra LAMal e SSN dipende da fattori personali: età, stato di salute, composizione familiare e preferenza sulla qualità e velocità delle cure. Fonte: UFSP (Ufficio federale della sanità pubblica), LAMal art. 3.`,
+ `Il SSN è finanziato dalla fiscalità e da trasferimenti pubblici: non è un premio assicurativo confrontabile con “contributi INPS inferiori”. Ticket ed eventuali contributi sanitari dipendono dal regime applicabile, da verificare con l’ASL. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. <a href="https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en">Commissione europea: TEAM</a>.`,
 
  // Block 6: Costo della Vita e Pendolarismo
  `<h2>Pendolarismo e costo della vita: Italia vs Svizzera</h2>`,
@@ -4858,26 +4870,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Tutti i contenuti sono basati esclusivamente su fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. La piattaforma è completamente indipendente da banche, assicurazioni e datori di lavoro — le informazioni fornite sono imparziali e verificabili.`,
  `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Oltre 700 articoli di approfondimento coprono ogni aspetto della vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
  `<h2 class="s-o3IET6">Le firme della redazione</h2>`,
- `<ul class="s-QkRjp8">` +
- `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/marco-ferrari/" rel="author">Marco Ferrari</a> — Esperto fiscalità frontaliera (730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026).</li>` +
- `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/laura-bianchi/" rel="author">Laura Bianchi</a> — Specialista previdenza svizzera (AVS, LPP, LAMal, pensioni, assicurazioni sociali).</li>` +
- `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/redazione/" rel="author">Redazione Frontaliere Ticino</a> — Lavoro frontaliere, salari, trasporti transfrontalieri, dogana.</li>` +
- `</ul>`,
+ // Derived from data/authors.ts: the hand-copied list missed samuele-valente
+ // and kept the superseded expertise text after the registry was corrected.
+ `<ul class="s-QkRjp8">${renderAuthorRosterItems('it', 's-wP4Jn1', 's-OsohZU')}</ul>`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
- );
- } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
- `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. La produzione comprende raccolta delle fonti, generazione assistita, controlli automatici e pubblicazione tracciata. Le verifiche redazionali e le correzioni possono avvenire anche dopo la pubblicazione. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
- `<h2 class="s-o3IET6">Strumenti di intelligenza artificiale e revisione umana</h2>`,
- `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. La pipeline può pubblicare contenuti generati automaticamente dopo i controlli tecnici. Non dichiariamo una revisione umana preventiva per ogni articolo: i controlli automatici non equivalgono a una verifica umana o a un parere professionale.`,
- `<h2 class="s-o3IET6">Fonti primarie utilizzate</h2>`,
- `Privilegiamo le fonti primarie per norme, importi e scadenze: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le notizie possono basarsi anche su fonti giornalistiche, attribuite e collegate nel testo. Una notizia riportata non equivale a una verifica indipendente della fonte primaria.`,
- `<h2 class="s-o3IET6">Standard giornalistici</h2>`,
- `Aderiamo agli standard di riferimento del giornalismo economico-finanziario: separazione netta tra fatti e opinioni, attribuzione esplicita di ogni dato numerico, citazioni verbatim, verificabilità di ogni affermazione importante, imparzialità rispetto a banche, casse malati e datori di lavoro, trasparenza sugli autori.`,
- `<h2 class="s-o3IET6">Politica di aggiornamento e correzioni</h2>`,
- `<p>Gli articoli vengono aggiornati ogni volta che cambiano i fatti, entro 48 ore lavorative. Le correzioni sono registrate in modo permanente nel <a class="s-OsohZU" href="/correzioni/">registro delle correzioni</a>. Per segnalare un errore scrivere a redazione@frontaliereticino.ch.</p>`,
- `<p class="s-tTvoK-">Pagine collegate: <a class="s-OsohZU" href="/chi-siamo/">Chi siamo</a> · <a class="s-OsohZU" href="/correzioni/">Registro delle correzioni</a></p>`,
  );
  } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
  editorialBlocks.push(
@@ -4895,18 +4891,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Le aree principali includono: dichiarazione dei redditi italiana per redditi svizzeri, scelta del regime fiscale (vecchi vs nuovi frontalieri), calcolo e applicazione della franchigia di €10.000, ottimizzazione dei crediti d'imposta per imposte pagate all'estero (Art. 165 TUIR), pianificazione previdenziale AVS/LPP/terzo pilastro 3a, e scelta tra LAMal e SSN.`,
  `Ogni consulenza parte dall'analisi della situazione individuale — stato civile, distanza dal confine, anzianità lavorativa in Svizzera, reddito lordo — per identificare la strategia fiscale più vantaggiosa. I professionisti utilizzano gli stessi parametri dei simulatori del sito, verificati sulle tabelle ufficiali dell'Amministrazione federale delle contribuzioni e dell'Agenzia delle Entrate.`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
- );
- } else if (canonicalPath === '/privacy' || canonicalPath === '/privacy/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Informativa sulla privacy per i frontalieri</h2>`,
- `Frontaliere Ticino tratta i dati personali degli utenti nel rispetto del Regolamento Generale sulla Protezione dei Dati (GDPR, Regolamento UE 2016/679) e della Legge federale svizzera sulla protezione dei dati (LPD, nLPD 2023). La piattaforma non richiede registrazione obbligatoria: tutti i calcolatori e i comparatori possono essere utilizzati senza fornire dati personali.`,
- `<h2 class="s-o3IET6">Dati raccolti e finalità del trattamento</h2>`,
- `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
- `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
- `<h2 class="s-o3IET6">Titolare del trattamento e diritti dell'utente</h2>`,
- `<p>Il titolare del trattamento (data controller ai sensi del GDPR e della LPD svizzera) è <strong>${DATA_CONTROLLER_NAME}</strong>. Per esercitare i diritti di accesso, rettifica, cancellazione e portabilità dei dati, o per qualsiasi richiesta relativa al trattamento, è possibile scrivere a <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. Per maggiori dettagli consultare l'<a href="/en/privacy/">informativa privacy completa</a>.</p>`,
- `<h2 class="s-o3IET6">Base giuridica, conservazione e subresponsabili</h2>`,
- `<p>Il trattamento si fonda sul consenso dell'utente (art. 6 GDPR, art. 6 nLPD) per l'iscrizione a newsletter e allerte lavoro e per i cookie non essenziali, sull'esecuzione del servizio richiesto per la gestione delle allerte stesse, e sul legittimo interesse per la sicurezza della piattaforma e le statistiche aggregate. I dati di iscrizione a newsletter e allerte lavoro sono conservati fino alla revoca del consenso o alla cancellazione dell'iscrizione; le candidature inviate tramite la bacheca lavoro sono conservate 90 giorni e poi cancellate automaticamente; i dati inseriti nei calcolatori non lasciano mai il browser dell'utente. Il trattamento coinvolge alcuni subresponsabili esterni — tra cui Google (Analytics, Firebase, AdSense), Partnerize (attribuzione dei link ai partner affiliati), i fornitori di invio e-mail e i servizi elencati nell'informativa completa — ciascuno vincolato dalla propria informativa privacy.</p>`,
  );
  } else if (canonicalPath === '/about' || canonicalPath === '/about/') {
  editorialBlocks.push(
@@ -4938,25 +4922,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Professional Consulting Services</h2>`,
  `<p>For personalized advice beyond the scope of our free tools, we partner with licensed Swiss and Italian tax consultants who specialize in cross-border employment. These professionals can assist with specific tax return preparation, optimization strategies, and complex scenarios involving multiple jurisdictions or family situations. Learn more on our <a href="/en/about-us/">about page</a> or review our <a href="/en/privacy/">privacy policy</a>.</p>`,
  `<p class="s-tTvoK-">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
- );
- } else if (canonicalPath === '/privacy-policy' || canonicalPath === '/privacy-policy/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Privacy Policy for Cross-Border Workers</h2>`,
- `Frontaliere Ticino processes personal data in compliance with the General Data Protection Regulation (GDPR, EU Regulation 2016/679) and the Swiss Federal Act on Data Protection (FADP, nDSG 2023). The platform does not require mandatory registration: all calculators and comparators can be used without providing personal data.`,
- `<h2 class="s-o3IET6">Data Collection and Processing Purposes</h2>`,
- `Any collected information (email addresses for job alerts, browsing behaviour via Google Analytics 4) is used exclusively for operating user-requested services and aggregate platform usage analysis. No information is shared with third parties for marketing purposes.`,
- `Tax and pension simulations are performed entirely in the user's browser: inputs entered in calculators (salary, marital status, number of children) are never transmitted to servers. This architecture ensures maximum privacy of personal financial information.`,
- `<h2 class="s-o3IET6">Cookies and Tracking Technologies</h2>`,
- `The platform uses first-party cookies for essential functionality (language preference, consent state) and Google Analytics 4 for anonymised traffic analysis. No advertising or remarketing cookies are used. Users can opt out of analytics tracking via the cookie consent banner displayed on first visit. Consent preferences are stored locally and can be updated at any time from the footer settings link.`,
- `<h2 class="s-o3IET6">Your Rights Under GDPR and FADP</h2>`,
- `<p>The data controller for Frontaliere Ticino is <strong>${DATA_CONTROLLER_NAME}</strong>. Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/en/about-us/">about page</a> or <a href="/en/contact-us/">contact page</a>.</p>`,
- `<h2 class="s-o3IET6">Legal Basis for Processing</h2>`,
- `We only process personal data when a valid legal basis applies under GDPR Art. 6 and Swiss FADP Art. 6: <strong>consent</strong> for newsletter/job-alert sign-up and for non-essential (analytics and advertising) cookies, which can be withdrawn at any time without affecting the lawfulness of processing carried out before withdrawal; <strong>performance of the requested service</strong> for managing the alerts and account features you sign up for; and <strong>legitimate interest</strong> for platform security, abuse prevention, and aggregate usage statistics, always balanced against your rights.`,
- `<h2 class="s-o3IET6">Data Retention</h2>`,
- `Newsletter and job-alert subscriber data is retained until consent is withdrawn or the subscription is cancelled. Job applications submitted through the job board are automatically deleted 90 days after submission. Calculator and simulator inputs are never transmitted to our servers, so no server-side retention applies to them. Aggregate analytics data is retained according to the respective provider's own retention settings.`,
- `<h2 class="s-o3IET6">Third-Party Services and Sub-Processors</h2>`,
- `The platform integrates with the following third-party services, each acting as a sub-processor for the personal data it handles on our behalf: Firebase (Google) for hosting, analytics, and configuration; our transactional email providers for newsletter and job-alert delivery; TwelveData for live CHF-EUR exchange rates; Google Maps API for border crossing traffic estimates; and reCAPTCHA v3 for form protection. Each sub-processor has its own privacy policy, and we limit the information shared to the minimum necessary for service operation. No personal financial information entered in our calculators is ever sent to any third party.`,
- `<p class="s-tTvoK-">References: <a href="https://gdpr.eu/" rel="noopener">GDPR</a> · <a href="https://www.fedlex.admin.ch/eli/cc/2022/491/en" rel="noopener">Swiss FADP</a></p>`,
  );
  } else if (canonicalPath === '/stato-api' || canonicalPath === '/stato-api/') {
  editorialBlocks.push(
@@ -5881,7 +5846,7 @@ ${hrefTags}
  // variants, so always regenerate so JSON-LD reflects current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
- const locSeo: SeoEntry = resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
+ const locSeo: SeoEntry = resolveLegalStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr') ?? resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
 
  // Dynamic override for per-locale job-board landings (en/de/fr): inject
  // live active-job count + fire emoji so each locale ships a unique title

@@ -39,18 +39,18 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
       Object.keys(SEO_GATE_CLASSES).map((key) => [key, `${SEO_GATE_CLASSES[key].class}/${effectiveMode(key)}`]),
     );
     expect(table).toEqual({
-      // A — bloccante assoluto
-      'gate:seo-source': 'A/blocking',
-      'validate:jobposting-schema': 'A/blocking',
-      'validate:sitemap-pages': 'A/blocking',
-      'validate:sitemap-links': 'A/blocking',
-      'audit:canonical-trailing-slash': 'A/blocking',
-      'audit:news-sitemap': 'A/blocking',
-      'audit:no-dotfile-html': 'A/blocking',
-      'audit:spa-bundle-injection': 'A/blocking',
-      'audit:all/footer-root-presence': 'A/blocking',
-      'audit:all/jsonld-no-nested-scripts': 'A/blocking',
-      'audit:all/image-object-license': 'A/blocking',
+      // A — issue P1 a ogni fallimento, publish non bloccato (owner 2026-10-03)
+      'gate:seo-source': 'A/issue-on-failure',
+      'validate:jobposting-schema': 'A/issue-on-failure',
+      'validate:sitemap-pages': 'A/issue-on-failure',
+      'validate:sitemap-links': 'A/issue-on-failure',
+      'audit:canonical-trailing-slash': 'A/issue-on-failure',
+      'audit:news-sitemap': 'A/issue-on-failure',
+      'audit:no-dotfile-html': 'A/issue-on-failure',
+      'audit:spa-bundle-injection': 'A/issue-on-failure',
+      'audit:all/footer-root-presence': 'A/issue-on-failure',
+      'audit:all/jsonld-no-nested-scripts': 'A/issue-on-failure',
+      'audit:all/image-object-license': 'A/issue-on-failure',
       // B — issue P2 sulla regressione, publish non bloccato (owner 2026-10-02)
       'audit:max-bfs-depth': 'B/issue-on-regression',
       'audit:orphan-sitemap-pages': 'B/issue-on-regression',
@@ -76,28 +76,34 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
     });
   });
 
-  it('QUALITY_GATES di validate-dist è esattamente l\'insieme non bloccante (B e C)', () => {
+  it('QUALITY_GATES di validate-dist è esattamente l\'insieme classificato (A, B e C)', () => {
     expect(QUALITY_GATES).toEqual(publishNonBlockingGateRationales());
+    expect(Object.keys(QUALITY_GATES).sort()).toEqual(Object.keys(SEO_GATE_CLASSES).sort());
     for (const key of Object.keys(SEO_GATE_CLASSES)) {
-      const blocking = SEO_GATE_CLASSES[key].class === 'A';
-      expect(isPublishBlocking(key), key).toBe(blocking);
-      expect(evaluateIntegrity([key]).integrityOk, `${key}: publish ${blocking ? 'sequestrato' : 'procede'}`)
-        .toBe(!blocking);
+      expect(isPublishBlocking(key), key).toBe(false);
+      expect(evaluateIntegrity([key]).integrityOk, `${key}: publish procede`).toBe(true);
     }
   });
 
-  it('decisione del proprietario: nessun gate B o C blocca, nemmeno insieme', () => {
-    const nonBlocking = Object.keys(SEO_GATE_CLASSES).filter((k) => SEO_GATE_CLASSES[k].class !== 'A');
-    expect(nonBlocking.length).toBe(20);
-    const v = evaluateIntegrity(nonBlocking);
+  it('decisione del proprietario: nessun gate classificato blocca, nemmeno tutti insieme', () => {
+    // B e C dal 2026-10-02, A dal 2026-10-03.
+    const all = Object.keys(SEO_GATE_CLASSES);
+    expect(all.length).toBe(31);
+    const v = evaluateIntegrity(all);
     expect(v.integrityOk).toBe(true);
     expect(v.blocking).toEqual([]);
   });
 
-  it('i gate A che già bloccavano restano bloccanti', () => {
-    const v = evaluateIntegrity(['audit:all/text-html-ratio', 'audit:max-bfs-depth', 'gate:seo-source']);
+  it('un gate A non blocca ma ha la issue più pesante; un gate fuori tabella blocca ancora', () => {
+    for (const key of Object.keys(SEO_GATE_CLASSES).filter((k) => SEO_GATE_CLASSES[k].class === 'A')) {
+      expect(effectiveMode(key), key).toBe('issue-on-failure');
+      expect(MODE_ISSUE_PRIORITY[effectiveMode(key) as keyof typeof MODE_ISSUE_PRIORITY], key).toBe(1);
+    }
+    // Default-deny invariato: il validatore non SEO e il bundle opaco audit:all.
+    const v = evaluateIntegrity(['gate:seo-source', 'validate:third-party-secrets', 'audit:all']);
     expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['gate:seo-source']);
+    expect(v.blocking).toEqual(['validate:third-party-secrets', 'audit:all']);
+    expect(v.quality).toEqual(['gate:seo-source']);
   });
 });
 
@@ -116,17 +122,17 @@ describe('cathedral e validate-dist danno a ogni gate la stessa modalità', () =
       const c = gateClassification(gate);
       expect(c.mode).toBe(effectiveMode(gate.gateKey));
       expect(c.issuePriority).toBe(MODE_ISSUE_PRIORITY[c.mode as keyof typeof MODE_ISSUE_PRIORITY]);
-      expect(evaluateIntegrity([gate.gateKey]).integrityOk).toBe(c.mode !== 'blocking');
+      expect(evaluateIntegrity([gate.gateKey]).integrityOk).toBe(!isPublishBlocking(gate.gateKey));
     }
   });
 
   it('un gate di cathedral non classificato non può sembrare advisory', () => {
     const c = gateClassification({ ...GATES[0], gateKey: 'audit:all/not-in-the-table' });
-    expect(c).toMatchObject({ class: '?', mode: 'blocking', issuePriority: 1 });
+    expect(c).toMatchObject({ class: '?', mode: 'unclassified', issuePriority: 1 });
   });
 
   it('la issue di regressione prende la priorità dalla modalità (A=1, B=2, C=3)', () => {
-    expect(MODE_ISSUE_PRIORITY).toEqual({ blocking: 1, 'issue-on-regression': 2, advisory: 3 });
+    expect(MODE_ISSUE_PRIORITY).toEqual({ 'issue-on-failure': 1, 'issue-on-regression': 2, advisory: 3 });
     const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/cathedral-seo-gates-check.yml'), 'utf8');
     const failgate = wf.slice(wf.indexOf('- name: Open issue + fail workflow on regression'));
     expect(failgate).toContain(".issuePriority // 1'");

@@ -64,7 +64,8 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { parseDotNetJsonDate } from './dotnet-json-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { detectLang, workloadPercent } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -308,21 +309,23 @@ async function fetchJobListings() {
 
 /**
  * Fetch a single job's detail page and extract its description block.
- * Soft-fails to '' on any per-job fetch error — a single broken detail page
+ * Soft-fails to an empty detail on any per-job fetch error — a single broken detail page
  * must not abort the whole crawl (the listing already has title/location).
  *
  * @param {number|string} id
- * @returns {Promise<string>} Plain-text description, or '' on failure.
+ * @returns {Promise<object>} Description and explicit publication-date provenance.
  */
-async function fetchJobDescription(id) {
+async function fetchJobDetail(id) {
   try {
     const html = await fetchHtml(`https://${ATS_HOST}/Job/${id}`);
     const contentHtml = extractJobAdContent(html);
-    if (!contentHtml) return '';
-    return normalizeSpace === null ? stripHtml(contentHtml) : stripHtml(contentHtml).trim();
+    return {
+      description: contentHtml ? stripHtml(contentHtml).trim() : '',
+      ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')),
+    };
   } catch (err) {
     console.warn(`  ⚠️ Selecta: failed to fetch detail for job ${id}: ${err?.message || err}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -372,7 +375,8 @@ export async function fetchAllSelectaJobs() {
     // Only the posting's own text is published (issue 5253): a page without
     // a body used to go out as "{title} ({subtitle}) — Selecta, {city}."; it
     // is not published any more.
-    const descriptionText = normalizeSpace(await fetchJobDescription(id));
+    const detail = await fetchJobDetail(id);
+    const descriptionText = normalizeSpace(detail.description);
     if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️ no vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
@@ -385,10 +389,8 @@ export async function fetchAllSelectaJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(`${subTitle} ${title}`);
 
-    // .NET "/Date(epoch_ms)/" wire format — more reliable than the
-    // locale-ambiguous "dd.mm.yyyy" Date string also present on the listing.
-    const epochDate = parseDotNetJsonDate(String(listing.OnlineDateCorrected || ''));
-    const postedDate = (epochDate || new Date()).toISOString().split('T')[0];
+    // OnlineDateCorrected can reflect a relisting; only the detail's explicit
+    // JobPosting.datePosted establishes the original publication.
 
     const job = {
       // ── Required fields ──
@@ -423,7 +425,7 @@ export async function fetchAllSelectaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       department: '',
       jobReqId: String(id),

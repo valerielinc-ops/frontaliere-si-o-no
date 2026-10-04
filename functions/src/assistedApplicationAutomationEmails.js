@@ -73,6 +73,11 @@ const CANDIDATE_COPY = {
       // A profile that is not a full match goes on: the candidate is told here and on the page (assistedApplicationFitNotice.js).
       fitPartial: 'Nota: alcuni requisiti dell’annuncio non risultano dal tuo CV. Nella pagina trovi quali: se li soddisfi, precisalo nelle risposte prima dell’invio.',
       fitLow: 'Attenzione: l’annuncio indica come indispensabile un requisito che dal tuo CV non risulta, e l’azienda potrebbe scartare la candidatura. Nella pagina trovi quale: se lo soddisfi, precisalo nelle risposte prima dell’invio.',
+      // A verdict «poor» with no requirement to list; then the three for a page with no questions (fitNoticeWording).
+      fitFar: 'Attenzione: nel complesso il tuo profilo sembra lontano da quello che chiede l’annuncio, e l’azienda potrebbe scartare la candidatura. Se il CV non dice tutto quello che sai fare, precisalo nelle risposte prima dell’invio.',
+      fitPartialEdit: 'Nota: alcuni requisiti dell’annuncio non risultano dal tuo CV. Nella pagina trovi quali: se li soddisfi, scrivilo nella lettera con «Modifica» o chiedi una nuova versione con «Chiedi modifiche» prima dell’invio.',
+      fitLowEdit: 'Attenzione: l’annuncio indica come indispensabile un requisito che dal tuo CV non risulta, e l’azienda potrebbe scartare la candidatura. Nella pagina trovi quale: se lo soddisfi, scrivilo nella lettera con «Modifica» o chiedi una nuova versione con «Chiedi modifiche» prima dell’invio.',
+      fitFarEdit: 'Attenzione: nel complesso il tuo profilo sembra lontano da quello che chiede l’annuncio, e l’azienda potrebbe scartare la candidatura. Se il CV non dice tutto quello che sai fare, scrivilo nella lettera con «Modifica» o chiedi una nuova versione con «Chiedi modifiche» prima dell’invio.',
       feedbackNote: 'Se qualcosa non ti convince, scrivimelo nella pagina: preparo una nuova versione e te la rimando.',
     },
     reminder: {
@@ -140,6 +145,10 @@ const CANDIDATE_COPY = {
       held: 'Vor dem Versand brauche ich noch Angaben oder Unterlagen, die nur du mir geben kannst ({count}). Solange du nicht antwortest, geht die Bewerbung nicht raus.',
       fitPartial: 'Hinweis: Einige Anforderungen der Stelle gehen aus deinem Lebenslauf nicht hervor. Auf der Seite siehst du, welche: Erfüllst du sie, ergänze es vor dem Versand in den Antworten.',
       fitLow: 'Achtung: Die Stelle nennt eine Anforderung als zwingend, die aus deinem Lebenslauf nicht hervorgeht; das Unternehmen könnte die Bewerbung aussortieren. Auf der Seite siehst du, welche: Erfüllst du sie, ergänze es vor dem Versand in den Antworten.',
+      fitFar: 'Achtung: Insgesamt wirkt dein Profil weit entfernt von dem, was die Stelle verlangt; das Unternehmen könnte die Bewerbung aussortieren. Zeigt dein Lebenslauf nicht alles, was du kannst, ergänze es vor dem Versand in den Antworten.',
+      fitPartialEdit: 'Hinweis: Einige Anforderungen der Stelle gehen aus deinem Lebenslauf nicht hervor. Auf der Seite siehst du, welche: Erfüllst du sie, schreib es vor dem Versand mit «Bearbeiten» ins Anschreiben oder bitte mit «Änderungen wünschen» um eine neue Version.',
+      fitLowEdit: 'Achtung: Die Stelle nennt eine Anforderung als zwingend, die aus deinem Lebenslauf nicht hervorgeht; das Unternehmen könnte die Bewerbung aussortieren. Auf der Seite siehst du, welche: Erfüllst du sie, schreib es vor dem Versand mit «Bearbeiten» ins Anschreiben oder bitte mit «Änderungen wünschen» um eine neue Version.',
+      fitFarEdit: 'Achtung: Insgesamt wirkt dein Profil weit entfernt von dem, was die Stelle verlangt; das Unternehmen könnte die Bewerbung aussortieren. Zeigt dein Lebenslauf nicht alles, was du kannst, schreib es vor dem Versand mit «Bearbeiten» ins Anschreiben oder bitte mit «Änderungen wünschen» um eine neue Version.',
       feedbackNote: 'Wenn dir etwas nicht passt, schreib es mir auf der Seite: Ich bereite eine neue Version vor und schicke sie dir.',
     },
     reminder: {
@@ -207,6 +216,10 @@ const CANDIDATE_COPY = {
       held: 'Avant l’envoi, j’ai besoin d’informations ou de documents que vous seul pouvez me donner ({count}). Tant que vous n’avez pas répondu, la candidature ne part pas.',
       fitPartial: 'À noter : certaines exigences de l’annonce ne ressortent pas de votre CV. La page indique lesquelles : si vous les remplissez, précisez-le dans vos réponses avant l’envoi.',
       fitLow: 'Attention : l’annonce présente comme indispensable une exigence qui ne ressort pas de votre CV, et l’entreprise pourrait écarter la candidature. La page indique laquelle : si vous la remplissez, précisez-le dans vos réponses avant l’envoi.',
+      fitFar: 'Attention : dans l’ensemble, votre profil semble éloigné de ce que demande l’annonce, et l’entreprise pourrait écarter la candidature. Si votre CV ne dit pas tout ce que vous savez faire, précisez-le dans vos réponses avant l’envoi.',
+      fitPartialEdit: 'À noter : certaines exigences de l’annonce ne ressortent pas de votre CV. La page indique lesquelles : si vous les remplissez, précisez-le dans la lettre avec « Modifier » ou demandez une nouvelle version avec « Demander des modifications » avant l’envoi.',
+      fitLowEdit: 'Attention : l’annonce présente comme indispensable une exigence qui ne ressort pas de votre CV, et l’entreprise pourrait écarter la candidature. La page indique laquelle : si vous la remplissez, précisez-le dans la lettre avec « Modifier » ou demandez une nouvelle version avec « Demander des modifications » avant l’envoi.',
+      fitFarEdit: 'Attention : dans l’ensemble, votre profil semble éloigné de ce que demande l’annonce, et l’entreprise pourrait écarter la candidature. Si votre CV ne dit pas tout ce que vous savez faire, précisez-le dans la lettre avec « Modifier » ou demandez une nouvelle version avec « Demander des modifications » avant l’envoi.',
       feedbackNote: 'Si quelque chose ne vous convient pas, écrivez-le sur la page : je prépare une nouvelle version et vous la renvoie.',
     },
     reminder: {
@@ -274,6 +287,10 @@ const CANDIDATE_COPY = {
       held: 'Before sending I need some information or documents only you can give me ({count}). Until you reply, the application does not go out.',
       fitPartial: 'Note: some requirements of the posting do not show in your CV. The page lists them: if you meet them, say so in your answers before it is sent.',
       fitLow: 'Please note: the posting lists as essential a requirement your CV does not show, and the company may turn the application down. The page says which: if you meet it, say so in your answers before it is sent.',
+      fitFar: 'Please note: overall your profile looks far from what the posting asks for, and the company may turn the application down. If your CV does not show everything you can do, say so in your answers before it is sent.',
+      fitPartialEdit: 'Note: some requirements of the posting do not show in your CV. The page lists them: if you meet them, say so in the letter with “Edit” or ask for a new version with “Ask for changes” before it is sent.',
+      fitLowEdit: 'Please note: the posting lists as essential a requirement your CV does not show, and the company may turn the application down. The page says which: if you meet it, say so in the letter with “Edit” or ask for a new version with “Ask for changes” before it is sent.',
+      fitFarEdit: 'Please note: overall your profile looks far from what the posting asks for, and the company may turn the application down. If your CV does not show everything you can do, say so in the letter with “Edit” or ask for a new version with “Ask for changes” before it is sent.',
       feedbackNote: 'If something is not right, write it on the page: I will prepare a new version and send it back to you.',
     },
     reminder: {
@@ -328,7 +345,6 @@ const CANDIDATE_COPY = {
 
 const OWNER_FLAG_LABELS = {
   fact_check: 'nei testi ci sono numeri, date o contatti che non compaiono nel CV o nell’annuncio',
-  knock_out: 'il CV non soddisfa un requisito indispensabile dell’annuncio (verdetto «scarso»)',
   no_posting: 'il testo dell’annuncio non è stato recuperato',
   channel_unknown: 'non è chiaro come candidarsi (nessun link o indirizzo valido)',
   legitimacy: 'l’annuncio ha più segnali di posizione fantasma (vecchio, generico o contraddittorio): verifica prima di inviare',
@@ -370,8 +386,10 @@ const PORTAL_STOPS = {
   whatsapp: 'il datore accetta candidature solo via WhatsApp (PastaHR, gli apprendistati Coop): la chat parte dal telefono del candidato e nessun robot può inviarla',
 };
 // What to do when the stop says more than "complete it on the portal".
+// whatsapp (#11161): a retry completes the order when the channel has a PastaHR https link (the
+// candidate gets it by e-mail, with the steps); any other WhatsApp channel stops here again.
 const PORTAL_STOP_HINTS = {
-  whatsapp: 'Non c’è un modulo da compilare: dalla coda premi «Affida al candidato». Riceve il link WhatsApp, le risposte già pronte e i documenti, e conferma quando ha inviato.',
+  whatsapp: 'Non c’è un modulo da compilare: il candidato deve completare la candidatura nella chat WhatsApp del datore, dal suo telefono. Se il canale ha un link PastaHR (https), dalla coda «Riprova l’invio automatico» chiude l’ordine: il candidato riceve per email il link e i passaggi. Altrimenti premi «Affida al candidato»: riceve il link WhatsApp, le risposte già pronte e i documenti, e conferma quando ha inviato.',
 };
 const PORTAL_HINT = 'Il candidato non deve fare nulla. Dalla coda completa tu l’invio sul portale (link, risposte e documenti sono nel pannello) e segnala la candidatura come inviata, oppure premi «Riprova l’invio automatico».';
 const STAGE_HINTS = {
@@ -385,6 +403,8 @@ const STAGE_HINTS = {
 // (owner decision 2026-10-01).
 const RUNNER_HINTS = {
   portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: completala tu sul portale (link, risposte e documenti sono nel pannello) e poi premi «Segna come inviata».',
+  // The gate is run again right before sending: nothing left, there is nothing to check at the employer.
+  fact_check_not_acknowledged: 'Non è partito nulla. Nel pannello della coda trovi i fatti che il controllo non trova nel CV: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi premi «Riprova l’invio automatico».',
 };
 
 /**
@@ -421,7 +441,9 @@ export function describeTakeover({ reason, stage, attempts }) {
  *   candidate_handoff_reminder | candidate_action_needed | candidate_questions_reminder | candidate_posting_closed |
  *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
- *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|null, openQuestions?:number, reason?:string, price?:string, orderId:string}} vars
+ *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|'far'|null, fitVia?:'answers'|'edit'|null,
+ *   openQuestions?:number, reason?:string, price?:string, orderId:string}} vars `fit` and `fitVia` as
+ *   fitNoticeWording (assistedApplicationFitNotice.js) gives them
  */
 export function buildCandidateAutomationEmail(kind, vars) {
   const locale = CANDIDATE_COPY[vars.locale] ? vars.locale : 'it';
@@ -454,8 +476,10 @@ export function buildCandidateAutomationEmail(kind, vars) {
   }
   if (kind === 'candidate_review') {
     const clock = vars.held ? fill(section.held, values) : fill(section.auto, values);
-    // Said before the button: the candidate opens the page knowing why it lists requirements.
-    const fit = { low: section.fitLow, partial: section.fitPartial }[vars.fit] || '';
+    // Said before the button: the candidate opens the page knowing why it lists requirements. With
+    // no questions on the page, the sentence points to the letter or to a new version instead.
+    const fitKey = { low: 'fitLow', partial: 'fitPartial', far: 'fitFar' }[vars.fit];
+    const fit = fitKey ? section[vars.fitVia === 'edit' ? `${fitKey}Edit` : fitKey] : '';
     html.push(brandCallout(`<strong>${esc(clock)}</strong>`), ...(fit ? [brandParagraph(esc(fit))] : []), brandButton(vars.reviewUrl, copy.reviewCta), brandParagraph(esc(section.feedbackNote)));
     text.push(clock, ...(fit ? [fit] : []), `${copy.reviewCta}: ${vars.reviewUrl}`, section.feedbackNote);
   } else if (kind === 'candidate_followup_review') {
