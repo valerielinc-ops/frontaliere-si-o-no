@@ -12517,6 +12517,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontro-notturno-gallarate.title': 'Nighttime accident in Gallarate: three young people involved',
     'blog.article.scontro-notturno-gallarate.excerpt': 'Accident in Gallarate, on Stelvio: three young people aged 18, 20 and 24 involved. Two were transported to the hospitals of Legnano and Gallarate.',
     'blog.article.scontro-notturno-gallarate.imageAlt': 'Night crash in Gallarate involving three young people',
+    'blog.article.saracino-comandante-carabinieri-mornago.title': 'Saracino, new commander of the Carabinieri in Mornago',
+    'blog.article.saracino-comandante-carabinieri-mornago.excerpt': 'Lieutenant with Special Charge Anacleto Antonio Saracino leads the Carabinieri Station of Mornago, under the Gallarate Company, responsible for public safety in the municipalities of Mornago, Sumirago, Casale Litta and Inarzo.',
+    'blog.article.saracino-comandante-carabinieri-mornago.imageAlt': 'Lieutenant Anacleto Antonio Saracino in front of the Mornago Carabinieri station',
 };
 
 export default blogMetaEn;

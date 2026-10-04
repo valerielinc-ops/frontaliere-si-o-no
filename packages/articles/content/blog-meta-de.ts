@@ -12516,6 +12516,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scontro-notturno-gallarate.title': 'Nächtlicher Unfall in Gallarate: drei Jugendliche betroffen',
     'blog.article.scontro-notturno-gallarate.excerpt': 'Unfall in Gallarate, Straße Stelvio: drei Jugendliche im Alter von 18, 20 und 24 Jahren betroffen. Zwei wurden in die Krankenhäuser von Legnano und Gallarate gebracht.',
     'blog.article.scontro-notturno-gallarate.imageAlt': 'Nachtunfall in Gallarate mit drei jungen Menschen',
+    'blog.article.saracino-comandante-carabinieri-mornago.title': 'Saracino ist neuer Kommandant der Carabinieri in Mornago',
+    'blog.article.saracino-comandante-carabinieri-mornago.excerpt': 'Leutnant mit Sonderfunktion Anacleto Antonio Saracino leitet die Carabinieri-Station von Mornago, die der Kompanie von Gallarate untersteht und für die öffentliche Sicherheit in den Gemeinden Mornago, Sumirago, Casale Litta und Inarzo zuständig ist.',
+    'blog.article.saracino-comandante-carabinieri-mornago.imageAlt': 'Leutnant Anacleto Antonio Saracino vor der Carabinieri-Wache in Mornago',
 };
 
 export default blogMetaDe;

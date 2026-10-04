@@ -12518,6 +12518,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scontro-notturno-gallarate.title': 'Incidente notturno a Gallarate: tre giovani coinvolti',
     'blog.article.scontro-notturno-gallarate.excerpt': 'Incidente a Gallarate, via Stelvio: tre ragazzi di 18, 20 e 24 anni coinvolti. Due trasportati negli ospedali di Legnano e Gallarate.',
     'blog.article.scontro-notturno-gallarate.imageAlt': 'Incidente notturno a Gallarate con tre giovani coinvolti',
+    'blog.article.saracino-comandante-carabinieri-mornago.title': 'Saracino nuovo comandante dei Carabinieri di Mornago',
+    'blog.article.saracino-comandante-carabinieri-mornago.excerpt': 'Luogotenente Carica Speciale Anacleto Antonio Saracino guida la Stazione dei Carabinieri di Mornago, dipendente dalla Compagnia di Gallarate, responsabile della sicurezza pubblica nei comuni di Mornago, Sumirago, Casale Litta e Inarzo.',
+    'blog.article.saracino-comandante-carabinieri-mornago.imageAlt': 'Luogotenente Anacleto Antonio Saracino davanti alla stazione dei Carabinieri di Mornago',
 };
 
 export default blogMetaIt;

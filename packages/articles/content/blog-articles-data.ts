@@ -37558,6 +37558,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'saracino-comandante-carabinieri-mornago',
+ category: 'novita',
+ date: '2026-10-04T08:19:45.149Z',
+ image: '/images/blog/saracino-comandante-carabinieri-mornago.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
