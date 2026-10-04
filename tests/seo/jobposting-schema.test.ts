@@ -5,7 +5,7 @@ import { buildReportedJobPostingFixture as buildJobPostingSchema } from '../help
  *
  * Verifies CLAUDE.md rule #3: every JobPosting schema must always contain
  * all 9 mandatory fields with realistic, non-empty values — even when the
- * other source fields are sparse, provided publication provenance is verified.
+ * other source fields are sparse or publication provenance is unknown.
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -153,11 +153,12 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
 });
 
 describe('buildJobPostingSchema — missing publication under different build clocks', () => {
-  it('never turns a build date into an employer publication date', () => {
+  it('uses the build date only as a schema fallback, not as employer evidence', () => {
     const job: JobInput = { title: 'Operatore amministrativo', company: 'Fixture SA', city: 'Lugano', postingDateSource: 'unknown' };
     const now = new Date();
-    expect(buildRawJobPostingSchema(job, { ...OPTS, now })).toBeNull();
-    expect(buildRawJobPostingSchema(job, { ...OPTS, now: new Date(now.getTime() + 86400000) })).toBeNull();
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now })?.datePosted).toBe(now.toISOString());
+    const later = new Date(now.getTime() + 86400000);
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now: later })?.datePosted).toBe(later.toISOString());
   });
 });
 

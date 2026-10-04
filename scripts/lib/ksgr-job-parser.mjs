@@ -1,3 +1,4 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { JSDOM } from 'jsdom';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { decodeHtmlEntities } from './decode-html-entities.mjs';
@@ -18,9 +19,7 @@ function decodeHtml(value = '') {
 }
 
 function normalizeDate(raw = '') {
-  const parsed = new Date(String(raw || '').trim());
-  if (Number.isNaN(parsed.getTime())) return '';
-  return parsed.toISOString().slice(0, 10);
+  return sourcePostingDateFields(raw).postedDate.slice(0, 10);
 }
 
 function pickLocation(job = {}) {
@@ -137,7 +136,7 @@ export function parseKsgrApiJob(job = {}) {
     applyUrl: normalizeSpace(szas.sza_apply_link || ''),
     location: pickLocation(job),
     canton: HQ.canton,
-    postedDate: normalizeDate(job?.start_date || job?.last_modification_timestamp || ''),
+    postedDate: normalizeDate(job?.start_date || ''),
     employmentType: pickPensum(job),
     description: buildDescription(job),
     industry: normalizeSpace(szas.sza_industry || ''),
