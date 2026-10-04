@@ -2,9 +2,13 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   citedPaths,
   classifyCandidateBullets,
+  createMergeRunLookup,
   createTwinLookup,
   fetchManifestFiles,
+  isOwnVerificationBullet,
   mirrorRoute,
+  namedTestFiles,
+  parseVitestFileResults,
   renderCandidateBulletsSection,
 } from '../scripts/ci/followup-candidate-bullets.mjs';
 import { isCandidateItem } from '../scripts/ci/followup-has-candidates.mjs';
@@ -652,5 +656,181 @@ describe('I/O iniettato', () => {
     expect(section).toContain('### PR #7');
     expect(section).toContain('"error": "pr-body-unavailable"');
     expect(section).toContain('NON leggibile');
+  });
+});
+
+// Titolo di fallimento: «Triage follow-up: verifica rinviata alla CI coniata
+// senza leggere la run del merge».
+//
+// «Vitest in locale — blocked: il resource guard blocca vitest; la CI di questa
+// PR fa da oracolo» è candidato per `bulletState()` e il triage lo coniava
+// sempre: 13 item su #10433 e 2 su #10283. Lo stato `blocked:` resta (è la
+// forma onesta): decide la run `tests` sull'head della PR, letta davvero.
+describe('own-verification: la verifica rinviata alla CI la decide la run del merge', () => {
+  // Righe reali, verbatim.
+  const PR_10197_BULLET = '- blocked: la suite Vitest locale è stata rifiutata dal resource guard per swap oltre la soglia dell\'85%; la verifica completa è affidata alla CI di questa PR.';
+  const PR_10221_BULLETS = [
+    '- Esecuzione vitest locale di `git-commit-data-append-only-sets.test.ts` e del nuovo test: blocked: il resource guard blocca vitest con lo swap all\'89-92% (soglia 85%), occupato da altri processi. Motivo: la verifica locale è la riproduzione bash dello stesso scenario, con numeri prima/dopo. Prossimo passo: il check `vitest` di questa PR esegue il nuovo test; la suite locale si rilancia quando lo swap scende.',
+    '- Esecuzione in CI del caso originale `canonicalizes expired routes after a successful stash pop`: blocked: il file gira solo in `live-data gates`, la cui ultima run (36418824033) si ferma all\'Assemble per il dato `convit-holding.json` (shrink 98.6%) prima di vitest. Motivo: è un problema di dati, indipendente da questa PR. Prossimo passo: alla prima run di `live-data gates` che supera l\'Assemble, leggere l\'esito del file (atteso 13/13).',
+  ];
+  const HEAD = '04b69c52c7db85decf4a9b1675b1696fe505362d';
+  const body = (...bullets: string[]) => ['## Non implementato (ancora)', '', ...bullets].join('\n');
+
+  // Forma reale di `gh run view --log` (run 36425406490): prefisso
+  // `<job>\t<step>\t<timestamp>` e colori in notazione caret, non byte ESC.
+  const logLine = (text: string) => `vitest (unit + integration)\tUNKNOWN STEP\t2026-09-28T13:05:32.3030427Z ${text}`;
+  const greenLine = (file: string) => logLine(` ^[[32m✓^[[39m ^[[30m^[[43m node ^[[49m^[[39m ${file} ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m)^[[22m^[[33m 1288^[[2mms^[[22m^[[39m`);
+  const failedLine = (file: string) => logLine(` ^[[31m❯^[[39m ^[[30m^[[43m node ^[[49m^[[39m ${file} ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m | ^[[22m^[[31m1 failed^[[39m^[[2m)^[[22m`);
+  // Il body della PR stampato nel log nomina il file: non deve valere come esecuzione.
+  const bodyEcho = (file: string) => logLine(`  "body": "- Esecuzione vitest locale di \`${file}\`: blocked: …"`);
+
+  const fakeGh = (runs: object[], logs: Record<string, string>) => vi.fn((args: string[]) => {
+    if (args[0] === 'run' && args[1] === 'list') return JSON.stringify(runs);
+    if (args[0] === 'run' && args[1] === 'view') {
+      const log = logs[args[2]];
+      if (log === undefined) throw new Error('log unavailable');
+      return log;
+    }
+    throw new Error(`unexpected gh ${args.join(' ')}`);
+  });
+  const run = (databaseId: number, conclusion: string, createdAt = '2026-09-28T12:59:10Z') => (
+    { databaseId, conclusion, status: 'completed', createdAt }
+  );
+  const classify = (text: string, mergeRunVerdict?: unknown, existsHere = only()) => classifyCandidateBullets({
+    pr: { body: text, headRefOid: HEAD } as { body: string },
+    side: 'site', manifestFiles: MANIFEST, existsHere, existsTwin: only(),
+    mergeRunVerdict: mergeRunVerdict as never,
+  });
+
+  it('le righe reali delle PR 10197 e 10221 sono della classe; `live-data gates` no', () => {
+    expect(isOwnVerificationBullet(PR_10197_BULLET)).toBe(true);
+    expect(isOwnVerificationBullet(PR_10221_BULLETS[0])).toBe(true);
+    // Il secondo bullet della 10221 nomina vitest ma rinvia a un altro workflow.
+    expect(isOwnVerificationBullet(PR_10221_BULLETS[1])).toBe(false);
+  });
+
+  it('una fonte assente, una misura al deploy o una run naturale restano lavoro sospeso', () => {
+    for (const text of [
+      '- Salari ticinesi — blocked: fonte ufficiale assente',
+      '- Tempo di build — blocked: si misura al primo deploy',
+      '- Copertura del crawler — blocked: serve la prossima run naturale del cron',
+      '- Test del portale — blocked: il resource guard blocca vitest; la prova vera è la verifica live dopo il deploy',
+      '- Nuovo test vitest — per scelta: il resource guard blocca vitest. **Motivo:** x. **Prossimo passo:** y.',
+    ]) expect(isOwnVerificationBullet(text)).toBe(false);
+  });
+
+  it('riconosce il rinvio esplicito alla CI come oracolo, e la guardia solo se dopo `blocked:`', () => {
+    expect(isOwnVerificationBullet('- Verifica locale con vitest: blocked: macchina satura. Prossimo passo: la CI di questa PR fa da oracolo.')).toBe(true);
+    expect(isOwnVerificationBullet('- Vitest bloccato dal resource guard (swap 92%): blocked: attendo la decisione sul crawler.')).toBe(false);
+  });
+
+  it('i file di test nominati: path, nomi nudi e comandi; il resto no', () => {
+    expect(namedTestFiles(PR_10221_BULLETS[0])).toEqual(['git-commit-data-append-only-sets.test.ts']);
+    expect(namedTestFiles('`npx vitest run tests/a.test.ts tests/b.test.tsx` e `scripts/x.mjs`, `tests/fixtures/x.json`'))
+      .toEqual(['tests/a.test.ts', 'tests/b.test.tsx']);
+    expect(namedTestFiles(PR_10197_BULLET)).toEqual([]);
+  });
+
+  it('il reporter vitest nel log: righe verdi e rosse, mai il body della PR ristampato', () => {
+    const results = parseVitestFileResults([
+      greenLine('tests/a.test.ts'),
+      failedLine('tests/b.test.ts'),
+      bodyEcho('tests/c.test.ts'),
+      logLine(' ^[[33m↓^[[39m tests/d.test.ts ^[[2m(3 tests | 3 skipped)^[[22m'),
+    ].join('\n'));
+    expect(Object.fromEntries(results)).toEqual({ 'tests/a.test.ts': 'green', 'tests/b.test.ts': 'failed' });
+  });
+
+  it('file nominato verde nel log della run → non candidato, `verified-by-merge-run` con l\'id della run', () => {
+    const gh = fakeGh([run(36425406490, 'success')], {
+      36425406490: [greenLine('tests/git-commit-data-append-only-sets.test.ts'), bodyEcho('x')].join('\n'),
+    });
+    const [bullet] = classify(body(PR_10221_BULLETS[0]), createMergeRunLookup({ repo: 'o/site', gh }));
+    expect(bullet).toMatchObject({
+      candidate: false,
+      reason: 'verified-by-merge-run',
+      routes: [],
+      ownVerification: { verdict: 'executed-green', runId: 36425406490 },
+    });
+    expect(gh.mock.calls[0][0]).toEqual(expect.arrayContaining(['--workflow', 'tests.yml', '--commit', HEAD]));
+  });
+
+  it('file nominato ASSENTE dal log di una run `success` → resta candidato, con il comando', () => {
+    // Red-first: è il caso reale della PR 10221 (run 36425406490 verde, ma il
+    // file è live-data e il gate PR non lo esegue). Fidarsi del solo verde lo
+    // avrebbe archiviato.
+    const gh = fakeGh([run(36425406490, 'success')], {
+      36425406490: [greenLine('tests/git-commit-data-legacy-staging.test.ts'), bodyEcho('git-commit-data-append-only-sets.test.ts')].join('\n'),
+    });
+    const [bullet] = classify(
+      body(PR_10221_BULLETS[0]),
+      createMergeRunLookup({ repo: 'o/site', gh }),
+      only('tests/git-commit-data-append-only-sets.test.ts'),
+    );
+    expect(bullet.candidate).toBe(true);
+    expect(bullet.reason).toBeNull();
+    expect(bullet.ownVerification).toMatchObject({
+      verdict: 'not-executed',
+      runId: 36425406490,
+      files: [{ file: 'git-commit-data-append-only-sets.test.ts', status: 'absent' }],
+      command: 'npx vitest run tests/git-commit-data-append-only-sets.test.ts',
+    });
+  });
+
+  it('run `failure`, lookup in errore, tetto raggiunto o lookup assente → resta candidato', () => {
+    const failing = createMergeRunLookup({ repo: 'o/site', gh: fakeGh([run(1, 'failure')], {}) });
+    const throwing = () => { throw new Error('boom'); };
+    const listFails = createMergeRunLookup({ repo: 'o/site', gh: vi.fn(() => { throw new Error('HTTP 502'); }) });
+    const capped = createMergeRunLookup({
+      repo: 'o/site', logCap: 0, gh: fakeGh([run(1, 'success')], { 1: greenLine('tests/git-commit-data-append-only-sets.test.ts') }),
+    });
+    const logFails = createMergeRunLookup({ repo: 'o/site', gh: fakeGh([run(1, 'success')], {}) });
+    const verdicts = [failing, throwing, listFails, capped, logFails, undefined].map((lookup) => {
+      const [bullet] = classify(body(PR_10221_BULLETS[0]), lookup);
+      expect(bullet.candidate).toBe(true);
+      return [bullet.ownVerification?.verdict, bullet.ownVerification?.why?.split(':')[0]];
+    });
+    expect(verdicts).toEqual([
+      ['not-executed', 'run-failure'],
+      ['unknown', 'lookup-error'],
+      ['unknown', 'run-list-failed'],
+      ['unknown', 'log-cap-reached'],
+      ['unknown', 'log-read-failed'],
+      ['unknown', 'lookup-unavailable'],
+    ]);
+    // Anche senza file nominati una run rossa non chiude niente.
+    const [plain] = classify(body(PR_10197_BULLET), createMergeRunLookup({ repo: 'o/site', gh: fakeGh([run(2, 'failure')], {}) }));
+    expect(plain).toMatchObject({ candidate: true, ownVerification: { verdict: 'not-executed' } });
+  });
+
+  it('nessun file nominato e run `success` → non candidato, senza leggere il log', () => {
+    const gh = fakeGh([run(36394507210, 'success')], {});
+    const [bullet] = classify(body(PR_10197_BULLET), createMergeRunLookup({ repo: 'o/site', gh }));
+    expect(bullet).toMatchObject({
+      candidate: false, reason: 'verified-by-merge-run', ownVerification: { verdict: 'executed-green', runId: 36394507210 },
+    });
+    expect(gh.mock.calls.some((call) => call[0][1] === 'view')).toBe(false);
+  });
+
+  it('un bullet non della classe non interroga la run', () => {
+    const lookup = vi.fn();
+    const bullets = classify(body(PR_10221_BULLETS[1], '- Salari — blocked: fonte ufficiale assente'), lookup);
+    expect(bullets.every((b) => b.candidate && b.ownVerification === undefined)).toBe(true);
+    expect(lookup).not.toHaveBeenCalled();
+  });
+
+  it('una head SHA mancante è `unknown`; log e liste in cache, una lettura per run', () => {
+    const gh = fakeGh([run(1, 'success')], { 1: greenLine('tests/a.test.ts') });
+    const lookup = createMergeRunLookup({ repo: 'o/site', gh });
+    expect(lookup({ pr: {}, testFiles: [] })).toMatchObject({ verdict: 'unknown', why: 'head-sha-unavailable' });
+    expect(lookup({ pr: { headRefOid: HEAD }, testFiles: ['tests/a.test.ts'] }).verdict).toBe('executed-green');
+    expect(lookup({ pr: { headRefOid: HEAD }, testFiles: ['a.test.ts'] }).verdict).toBe('executed-green');
+    expect(gh.mock.calls.map((call) => call[0][1])).toEqual(['list', 'view']);
+  });
+
+  it('la sezione del bundle dice al triage di non coniare `verified-by-merge-run` e di citare la run', () => {
+    const section = renderCandidateBulletsSection([], { manifestOk: true });
+    expect(section).toMatch(/`reason: verified-by-merge-run`[^\n]*NON creare issue[^\n]*`ownVerification\.runId`/);
+    expect(section).toMatch(/`ownVerification\.verdict: not-executed\|unknown`[^\n]*`COMANDO: <ownVerification\.command>`/);
   });
 });
