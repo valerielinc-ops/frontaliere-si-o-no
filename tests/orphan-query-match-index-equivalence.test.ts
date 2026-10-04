@@ -172,10 +172,11 @@ function corpus(): JobSeed[] {
       company,
       location: city,
       addressLocality: city,
+      postingDateSource: 'reported',
       // Same calendar day for many jobs → ties, so a change in sort stability
       // (or a wrong precomputed sort key) reorders the `limit` slice.
       postedDate: `2026-0${(i % 5) + 1}-${String((i % 28) + 1).padStart(2, '0')}`,
-      datePosted: `2026-01-${String((i % 28) + 1).padStart(2, '0')}`,
+      datePosted: `2026-0${(i % 5) + 1}-${String((i % 28) + 1).padStart(2, '0')}`,
       description: LONG('mansione'),
     };
 
@@ -290,6 +291,7 @@ describe('#5252 — orphan-query filterMatchingJobs index preserves output exact
         company: 'Clinica',
         location: 'Lugano',
         addressLocality: 'Lugano',
+        postingDateSource: 'reported',
         postedDate: '2026-03-01',
         description: LONG('mansione'),
         descriptionByLocale: { it: LONG('mansione'), en: LONG('duty'), de: LONG('aufgabe'), fr: LONG('tache') },
@@ -301,6 +303,7 @@ describe('#5252 — orphan-query filterMatchingJobs index preserves output exact
         company: 'Ospedale',
         location: 'Lugano',
         addressLocality: 'Lugano',
+        postingDateSource: 'reported',
         postedDate: '2026-03-02',
         description: LONG('mansione'),
         descriptionByLocale: { it: LONG('mansione'), en: LONG('duty'), de: LONG('aufgabe'), fr: LONG('tache') },
@@ -327,6 +330,7 @@ describe('#5252 — orphan-query filterMatchingJobs index preserves output exact
       company: 'Clinica',
       location: 'Lugano',
       addressLocality: 'Lugano',
+      postingDateSource: 'reported',
       postedDate: `2026-03-0${i + 1}`,
       description: LONG('mansione'),
       descriptionByLocale: { it: LONG('mansione'), en: LONG('duty'), de: 'kurz', fr: 'court' },
@@ -344,12 +348,12 @@ describe('#5252 — orphan-query filterMatchingJobs index preserves output exact
 
   it('sort key and limit slice are unchanged (ties, malformed and missing dates)', () => {
     const jobs: JobSeed[] = [
-      { slug: 'newest', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-09' },
+      { slug: 'newest', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-09' },
       // malformed postedDate must fall through to datePosted, NOT sort as a string
-      { slug: 'malformed', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '30/05/26', datePosted: '2026-05-08' },
-      { slug: 'tie-a', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-07' },
-      { slug: 'tie-b', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-07' },
-      { slug: 'nodate', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m') },
+      { slug: 'malformed', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '30/05/26', datePosted: '2026-05-08' },
+      { slug: 'tie-a', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-07' },
+      { slug: 'tie-b', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-07' },
+      { slug: 'nodate', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'unknown' },
     ];
     const cluster = makeCluster('it', 'infermiere-lugano', ['infermier'], ['lugano']);
     for (const limit of [15, 4, 3, 2, 1]) {
@@ -364,11 +368,11 @@ describe('#5252 — orphan-query filterMatchingJobs index preserves output exact
   it('a different jobs array is never served from another array index', () => {
     const cluster = makeCluster('it', 'infermiere-lugano', ['infermier'], ['lugano']);
     const a: JobSeed[] = [
-      { slug: 'a1', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-01' },
+      { slug: 'a1', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-01' },
     ];
     const b: JobSeed[] = [
-      { slug: 'b1', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-01' },
-      { slug: 'b2', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-02' },
+      { slug: 'b1', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-01' },
+      { slug: 'b2', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-02' },
     ];
     expect(slugs(filterMatchingJobs(a, cluster, 15))).toEqual(['a1']);
     expect(slugs(filterMatchingJobs(b, cluster, 15))).toEqual(['b2', 'b1']);
@@ -383,13 +387,13 @@ describe('#5252 — orphan-query filterMatchingJobs index preserves output exact
     // with no error anywhere.
     const cluster = makeCluster('it', 'infermiere-lugano', ['infermier'], ['lugano']);
     const jobs: JobSeed[] = [
-      { slug: 'g1', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-01' },
+      { slug: 'g1', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-01' },
     ];
     expect(slugs(filterMatchingJobs(jobs, cluster, 15))).toEqual(['g1']);
 
     jobs.push(
-      { slug: 'g2', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-02' },
-      { slug: 'g3', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postedDate: '2026-05-03' },
+      { slug: 'g2', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-02' },
+      { slug: 'g3', title: 'Infermiere', location: 'Lugano', addressLocality: 'Lugano', description: LONG('m'), postingDateSource: 'reported', postedDate: '2026-05-03' },
     );
     expect(slugs(filterMatchingJobs(jobs, cluster, 15))).toEqual(['g3', 'g2', 'g1']);
     expect(slugs(filterMatchingJobs(jobs, cluster, 15))).toEqual(slugs(refFilterMatchingJobs(jobs, cluster, 15)));

@@ -851,10 +851,10 @@ describe('jobSectorLanding — counts and filtering', () => {
 
   it('filterSectorJobs sorts by datePosted desc and caps at maxJobs', () => {
     const jobs = [
-      { title: 'Infermiere A', description: baseDesc, datePosted: '2026-04-15' },
-      { title: 'Infermiere B', description: baseDesc, datePosted: '2026-04-18' },
-      { title: 'Infermiere C', description: baseDesc, datePosted: '2026-04-10' },
-      { title: 'Software Engineer', description: baseDesc, datePosted: '2026-04-19' },
+      { title: 'Infermiere A', description: baseDesc, postingDateSource: 'reported', datePosted: '2026-04-15' },
+      { title: 'Infermiere B', description: baseDesc, postingDateSource: 'reported', datePosted: '2026-04-18' },
+      { title: 'Infermiere C', description: baseDesc, postingDateSource: 'reported', datePosted: '2026-04-10' },
+      { title: 'Software Engineer', description: baseDesc, postingDateSource: 'reported', datePosted: '2026-04-19' },
     ];
     const filtered = filterSectorJobs(jobs, 'infermieri', 'it', 50);
     expect(filtered).toHaveLength(3);

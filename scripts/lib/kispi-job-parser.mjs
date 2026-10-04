@@ -20,6 +20,7 @@
  * Kispi has ~3'000 employees and is the largest paediatric hospital in
  * Switzerland (canton Zürich); typically 50+ open positions.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -188,7 +189,6 @@ export async function fetchAllKispiJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for JSON-LD JobPosting payloads...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let ldHits = 0;
 
@@ -220,8 +220,7 @@ export async function fetchAllKispiJobs() {
     const city = normalizeSpace(decodeEntities(String(address.addressLocality || DEFAULT_CITY)));
     const street = normalizeSpace(decodeEntities(String(address.streetAddress || DEFAULT_STREET)));
     const postal = String(address.postalCode || DEFAULT_POSTAL_CODE);
-    const datePostedRaw = String(ld.datePosted || '').slice(0, 10);
-    const datePosted = /^\d{4}-\d{2}-\d{2}$/.test(datePostedRaw) ? datePostedRaw : todayIso;
+    const publication = sourcePostingDateFields(ld.datePosted);
     const employmentType = normaliseEmploymentType(ld.employmentType);
 
     const sourceLang = detectLang(description || title, 'de');
@@ -266,7 +265,7 @@ export async function fetchAllKispiJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

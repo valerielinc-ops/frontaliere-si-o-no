@@ -52,6 +52,7 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -391,9 +392,7 @@ export async function fetchAllEtavisJobs(options = {}) {
     const jobSlug = slugify(`${title} etavis ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = detail?.datePosted
-      ? String(detail.datePosted).slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    const publication = sourcePostingDateFields(detail?.datePosted);
 
     const employmentTypeRaw = Array.isArray(detail?.employmentType)
       ? detail.employmentType[0]
@@ -433,7 +432,7 @@ export async function fetchAllEtavisJobs(options = {}) {
       sector: 'Impiantistica elettrica', // Electrical / building-technology installation
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

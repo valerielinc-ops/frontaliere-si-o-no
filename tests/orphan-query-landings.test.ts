@@ -452,6 +452,7 @@ function activeJob(partial: Partial<OrphanCountableJob>): OrphanCountableJob {
     company: 'Acme AG',
     location: 'Lugano',
     addressLocality: 'Lugano',
+    postingDateSource: 'reported',
     postedDate: '2026-04-18',
     description: longDescription,
     descriptionByLocale: {

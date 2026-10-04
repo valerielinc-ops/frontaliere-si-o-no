@@ -11,11 +11,12 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
+import { extractMicrodataDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -256,7 +257,7 @@ async function fetchJobListings() {
         streetAddress,
         jobFunction: normalizeSpace(jobFunction || ''),
         contractType: normalizeSpace(contractType || ''),
-        postedAt: parseStartDate(r.unifiedStandardStart),
+
       });
     }
 
@@ -310,17 +311,6 @@ function parseLocation(jobLocationShort) {
 }
 
 /**
- * RMK start dates are "DD.MM.YY" (German short). Normalize to ISO YYYY-MM-DD.
- * Returns null when unparseable.
- */
-function parseStartDate(raw) {
-  const m = String(raw || '').match(/^(\d{2})\.(\d{2})\.(\d{2})$/);
-  if (!m) return null;
-  const [, dd, mm, yy] = m;
-  return `20${yy}-${mm}-${dd}`;
-}
-
-/**
  * Plain text of the detail body with its structure kept: headings as `##`
  * lines, `<li>` as `• ` bullets, paragraphs on their own lines. Collapsing
  * every newline (the former `normalizeSpace(stripHtml(…))`) turned each
@@ -346,18 +336,22 @@ export function impleniaDetailText(html = '') {
  * microdata — one span for the company intro, one per section after it
  * (verified live 2026-09-29), all read by `extractMicrodataDescription`.
  * fetchHtml follows the 302 to the canonical `/job/{slug}/{seq}-de_DE/` URL.
- * Returns inner HTML or '' on any failure.
+ * Returns the description and publication date from the same response.
+ * RMK unifiedStandardStart is not used: its publication semantics are unverified.
  */
-async function fetchImpleniaDetailDescription(url) {
-  if (!url || !/^https?:\/\//.test(url)) return '';
+async function fetchImpleniaDetail(url) {
+  if (!url || !/^https?:\/\//.test(url)) return { description: '', ...sourcePostingDateFields('') };
   try {
     const html = await fetchHtml(url, {
       timeoutMs: 15000,
       headers: { 'User-Agent': BROWSER_UA },
     });
-    return extractMicrodataDescription(html);
+    return {
+      description: extractMicrodataDescription(html),
+      ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')),
+    };
   } catch {
-    return ''; // network/timeout → caller falls back to the metadata lede
+    return { description: '', ...sourcePostingDateFields('') }; // network/timeout → metadata lede only
   }
 }
 
@@ -402,7 +396,8 @@ export async function fetchAllImpleniaJobs() {
     // so jobs aren't thin → boilerplate-padded → boilerplate-guard failure
     // (#1723). Fall back to a concise metadata lede on any fetch failure
     // (fail-per-record, never fake content).
-    const detailDescHtml = await fetchImpleniaDetailDescription(publicUrl);
+    const detail = await fetchImpleniaDetail(publicUrl);
+    const detailDescHtml = detail.description;
     const detailDescText = detailDescHtml
       ? impleniaDetailText(detailDescHtml)
       : '';
@@ -449,7 +444,7 @@ export async function fetchAllImpleniaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
