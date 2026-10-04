@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts } from '../build-plugins/shared/jobPostingSchema';
 import { fetchAllStrykerJobs } from '../scripts/lib/stryker-job-parser.mjs';
 
 const SOURCE_BODY = [
@@ -116,17 +116,9 @@ describe('Stryker crawler source-body acceptance', () => {
     expect(jobs[0].description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
 
     for (const locale of ['it', 'en', 'de', 'fr']) {
-      const schema = buildJobPostingSchema(jobs[0], {
-        locale,
-        url: `https://frontaliereticino.ch/jobs/stryker/${locale}/senior-quality-engineer/`,
-        now: new Date(),
-      });
+      const facts = buildJobPostingFacts(jobs[0], locale);
 
-      expect(schema).toMatchObject({
-        '@type': 'JobPosting',
-        title: 'Senior Quality Engineer',
-        description: expect.any(String),
-        datePosted: expect.any(String),
+      expect(facts).toMatchObject({
         employmentType: 'FULL_TIME',
         hiringOrganization: { name: 'Stryker' },
         jobLocation: {
