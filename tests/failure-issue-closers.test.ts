@@ -9,7 +9,15 @@ import {
   coverageOf,
   parseWorkflow,
   REPORT_ACTION_USES,
+  SCOPED_TIMEOUT_CLOSER,
+  scriptReporterCoverage,
 } from '../scripts/ci/failure-issue-inventory.mjs';
+import {
+  JOB_TIMEOUT_REPORT_SIGNATURE,
+  SCOPED_TIMEOUT_TITLE_RE,
+  SCOPED_TITLE_EVENTS,
+  scopedTitle,
+} from '../scripts/ci/scan-job-timeouts.mjs';
 import {
   CLOSERS,
   findStepRun,
@@ -401,6 +409,79 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       }
     }
     expect(offenders).toEqual([]);
+  });
+
+  it('un reporter lato script che apre ha la sua metà di chiusura nello stesso workflow', () => {
+    // Gli opener lato script non sono nell'inventario dei workflow (titolo
+    // computato), ma `scan-job-timeouts.mjs` porta apertura e chiusura nello
+    // stesso file: l'accoppiamento sta nel workflow che lo esegue. Se lo step
+    // `--resolve` sparisce da `job-timeout-monitor.yml`, ogni `CI Failure
+    // (<evento>): …` torna immortale — caso misurato: la issue 10809.
+    const rows = scriptReporterCoverage(WORKFLOWS_DIR);
+    expect(rows.length).toBeGreaterThan(0);
+    const offenders: string[] = [];
+    for (const row of rows) {
+      if (row.openers.length === 0) offenders.push(`${row.script}: nessun workflow lo esegue per aprire`);
+      const closingFiles = new Set(row.closers.map((c) => c.split(':')[0]));
+      for (const opener of row.openers) {
+        if (!closingFiles.has(opener.split(':')[0])) {
+          offenders.push(`${opener} — apre con ${row.script} ma nello stesso workflow nessuno step lo esegue in chiusura`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it('ogni titolo `CI Failure (<evento>)` dello scanner è coperto dal suo `--resolve`', () => {
+    const record = { closers: [] as { title: string }[] };
+    for (const event of SCOPED_TITLE_EVENTS) {
+      const title = scopedTitle({ head_branch: 'feat/x', event, name: 'W' });
+      expect(coverageOf({ title, signature: JOB_TIMEOUT_REPORT_SIGNATURE }, record), title)
+        .toEqual({ by: SCOPED_TIMEOUT_CLOSER });
+    }
+  });
+
+  it('un opener di workflow con la forma `CI Failure (<evento>)` ma senza firma NON risulta coperto', () => {
+    // `--resolve` esamina solo le issue con la firma dello scanner nel body: la
+    // sola forma del titolo farebbe sembrare coperto ciò che non chiude nessuno.
+    const record = parseWorkflow(
+      [
+        'name: W',
+        'jobs:',
+        '  x:',
+        '    steps:',
+        '      - name: Open',
+        '        if: failure()',
+        '        run: |',
+        '          node scripts/lib/github-issue-creator.mjs \\',
+        '            --title "CI Failure (push): W"',
+      ].join('\n'),
+      'w.yml',
+    );
+    expect(coverageOf(record.openers[0], record)).toBeNull();
+  });
+
+  it('la stessa forma con un gemello `--resolve` a titolo identico nel workflow è coperta da quello', () => {
+    const title = 'CI Failure (schedule): W';
+    expect(coverageOf({ title }, { closers: [{ title }] })).toEqual({ by: 'sibling-resolve-step' });
+  });
+
+  it('`CI Failure (deploy|build)` hanno UN solo chiuditore: quello del loro workflow', () => {
+    // Stessa forma del titolo dello scanner, ma `deploy`/`build` non sono eventi:
+    // un secondo chiuditore con un criterio sui timeout chiuderebbe un guasto
+    // di un altro genere.
+    const records = inventory(WORKFLOWS_DIR);
+    for (const title of [
+      'CI Failure (deploy): Publish to GitHub Pages (deploy + validate)',
+      'CI Failure (build): Deploy to GitHub Pages',
+    ]) {
+      expect(SCOPED_TIMEOUT_TITLE_RE.test(title), title).toBe(false);
+      const closingFiles = records.filter((rec) => rec.closers.some((c) => c.title === title)).map((rec) => rec.file);
+      expect(closingFiles, title).toHaveLength(1);
+    }
+    for (const row of coverageReport(WORKFLOWS_DIR).filter((r) => r.title.startsWith('CI Failure ('))) {
+      expect(row.closedBy, row.title).not.toBe(SCOPED_TIMEOUT_CLOSER);
+    }
   });
 
   it("l'inventario vede la composite action, non solo le invocazioni shell", () => {
