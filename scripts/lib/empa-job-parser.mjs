@@ -42,6 +42,7 @@
  * block; the Dübendorf HQ address below is used ONLY as a last-resort
  * fallback when JSON-LD is absent/malformed for a given posting.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawler-common.mjs';
@@ -271,9 +272,7 @@ export async function fetchAllEmpaJobs() {
       : jsonLd?.employmentType;
     const employmentType = jsonLdEmploymentTypeRaw
       || detectEmploymentType(`${listing.workload || ''} ${resolvedTitle}`);
-    const postedDate = (jsonLd?.datePosted && String(jsonLd.datePosted).slice(0, 10))
-      || (listing.entryDate && /^\d{4}-\d{2}-\d{2}/.test(listing.entryDate) ? listing.entryDate.slice(0, 10) : '')
-      || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(jsonLd?.datePosted);
     const hiringOrgName = jsonLd?.hiringOrganization?.name || EMPA_COMPANY_NAME;
 
     const job = {
@@ -309,7 +308,7 @@ export async function fetchAllEmpaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       hiringOrganizationName: hiringOrgName,
       jobReqId: listing.posId || null,
