@@ -156,6 +156,11 @@ const sourceTreeLintTests = new Map([
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
   ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
+  // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
+  // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
+  // path, non un import; il test verifica che la chiusura dei job ci stia.
+  ['tests/seo/bing-seo-loop-sparse-closure.test.ts', /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\/|^\.github\/workflows\/bing-seo-loop\.yml$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
