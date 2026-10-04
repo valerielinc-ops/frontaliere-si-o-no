@@ -50,6 +50,7 @@
  * other foundations' postings from the same search page.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -241,7 +242,6 @@ export async function fetchAllFondationSoinsLausanneJobs() {
   );
   if (!cards.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
@@ -253,8 +253,13 @@ export async function fetchAllFondationSoinsLausanneJobs() {
     // Description from the jobup detail JSON-LD (shared helper), and only that
     // (issue 5253): no French text of the crawler's own in its place.
     let detailDescription = '';
+    let rawPostedDate = '';
     try {
-      detailDescription = await fetchJobupDetailDescription(card.url);
+      const detail = await fetchJobupDetailDescription(card.url, { includePostingDate: true });
+      if (detail && typeof detail === 'object') {
+        detailDescription = detail.description;
+        rawPostedDate = detail.rawPostedDate;
+      }
     } catch {
       detailDescription = '';
     }
@@ -308,7 +313,7 @@ export async function fetchAllFondationSoinsLausanneJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(rawPostedDate),
       applyUrl: card.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
