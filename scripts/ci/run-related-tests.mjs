@@ -167,6 +167,18 @@ const sourceTreeLintTests = new Map([
   // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
   // path, non un import; il test verifica che la chiusura dei job ci stia.
   ['tests/seo/bing-seo-loop-sparse-closure.test.ts', /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\/|^\.github\/workflows\/bing-seo-loop\.yml$/],
+  // I due pin del SiteShellContract (golden delle funzioni e digest degli
+  // scalari) confrontano il bootstrap con file letti da disco che il corpus
+  // asserisce identici. `services/` e `build-plugins/` li raggiungono gia' col
+  // grafo; `data/` invece e' fuori dal grafo (GRAPH_IGNORED_RE), e la chiusura
+  // del bootstrap ne importa moduli: `data/authors.ts` (getAuthorBySlug) e i
+  // JSON dei cantoni e delle professioni. La PR 11327 ha cambiato la bio di
+  // marco-ferrari in `data/authors.ts`, il diff ha selezionato zero test e il
+  // golden e' diventato rosso su main e sulle PR successive (11381).
+  // Perimetro: i file di primo livello di `data/` che un modulo puo'
+  // importare; il test costa meno di un secondo.
+  ['tests/articles-shell-contract-functions.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
+  ['tests/articles-shell-contract-fingerprint.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

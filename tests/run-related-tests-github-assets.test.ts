@@ -526,6 +526,22 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
   }, 120_000);
 
+  it('un dato importato dal bootstrap della shell seleziona i pin del SiteShellContract', () => {
+    // PR 11327: la bio di marco-ferrari in `data/authors.ts` e' cambiata,
+    // `data/` e' fuori dal grafo e il diff ha selezionato zero test; il golden
+    // di getAuthorBySlug e' diventato rosso su main e sulla 11381.
+    const functions = 'tests/articles-shell-contract-functions.test.ts';
+    const fingerprint = 'tests/articles-shell-contract-fingerprint.test.ts';
+    const authors = selectionFor(['data/authors.ts']);
+    expect(authors).toContain(functions);
+    expect(authors).toContain(fingerprint);
+    // Anche i JSON di primo livello che la chiusura del bootstrap importa.
+    expect(selectionFor(['data/canton-url-slugs.json'])).toContain(functions);
+    // Le sottocartelle di `data/` sono dati dei cron, non moduli importati.
+    expect(selectionFor(['data/jobs/by-crawler/future.json'])).not.toContain(functions);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(functions);
+  }, 120_000);
+
   it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
     // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
     // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.
