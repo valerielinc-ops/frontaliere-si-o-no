@@ -8,20 +8,26 @@
  * the portal. The operator's analysis (verdict, summary, fact warnings) is
  * never part of it; the posting's decisive requirements the CV does not show
  * are, since a profile that is not a full match goes on to the candidate
- * (assistedApplicationFitNotice.js). POST performs one action, only for the round the link belongs
+ * (assistedApplicationFitNotice.js). After the sending, GET also lists what
+ * the candidate keeps (the files that left), and `file=letter.docx|cv.docx`
+ * answers an editable Word copy built on the spot (assistedApplicationDocx.js).
+ * POST performs one action, only for the round the link belongs
  * to: approve, reject with feedback, answer the questions, confirm a portal
  * submission.
  */
 
 import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
-import { checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
-import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
+import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
+import { letterBlocksFor, rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import {
   MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvCarriesPhoto, tailoredCvChanges,
+  tailoredCvDocumentFor,
 } from './assistedApplicationTailoredCvPdf.js';
 import { CvCommitError, commitRebuild, deleteStored, rebuildCvToCommit, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
-import { cvChoiceOf, inPlaceReady } from './assistedApplicationDocxInPlace.js';
+import { DOCX_CONTENT_TYPE, cvChoiceOf, cvToSend, inPlaceReady } from './assistedApplicationDocxInPlace.js';
+import { renderCvDocx, renderLetterDocx } from './assistedApplicationDocx.js';
+import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
@@ -36,6 +42,7 @@ import {
   DOCUMENT_CONTENT_TYPES,
   MAX_DOCUMENT_BYTES,
   MAX_FILES_PER_DOCUMENT,
+  MAX_REQUIRED_DOCUMENTS,
   detectDocumentType,
   documentFileId,
   documentsView,
@@ -56,6 +63,14 @@ const CV_CHOICES = new Set(['tailored', 'original', 'inplace']);
 const FOLLOWUP_ACTIONS = new Set(['followup_send', 'followup_skip']);
 const MAX_ANSWER_CHARS = 500;
 const MIN_FEEDBACK_CHARS = 5;
+// The candidate's editable Word copies (owner decision 2026-10-03): built at each request, never stored, never sent.
+const WORD_FILES = new Set(['letter.docx', 'cv.docx']);
+// What the runner records as sent (draft.sent.files).
+const KEPT_KINDS = new Set(['letter', 'cv', 'dossier', 'documents', 'document']);
+// The letter, the CV and every file of every requested document, at most.
+const MAX_KEPT_FILES = 2 + MAX_REQUIRED_DOCUMENTS * MAX_FILES_PER_DOCUMENT;
+const CV_KEPT_KIND = { tailored: 'cvTailored', inplace: 'cvInplace', original: 'cvOriginal' };
+const CV_KEPT_KINDS = new Set(Object.values(CV_KEPT_KIND));
 
 class ReviewError extends Error {
   constructor(code, status = 400, details = null) {
@@ -143,7 +158,117 @@ function whatsappUrlOf(order, state) {
   }
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, nowMs = Date.now() }) {
+/** The Word copies the server builds for this draft (the page links only these): the round's ready draft, a letter with a body, a tailored CV kept on the draft. */
+export function wordCopiesOf({ flow, draft }) {
+  const ready = Boolean(draft && draft.status === 'ready' && Number(draft.round) === (Number(flow?.round) || 1));
+  return {
+    letter: ready && Array.isArray(draft.coverLetter?.paragraphs) && draft.coverLetter.paragraphs.some((text) => String(text ?? '').trim() !== ''),
+    cv: ready && draft.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
+  };
+}
+
+/** The Word letter's date: the day of the download before the sending, the day the application left afterwards (owner decision 2026-10-03). */
+export function letterDayMs({ order, flow, draft, nowMs }) {
+  if (flow?.state !== 'submitted') return nowMs;
+  const submittedAt = typeof order?.submittedAt?.toMillis === 'function' ? order.submittedAt.toMillis() : Number(order?.submittedAt);
+  // The runner's record (when the letter that left was built), else the order's mark, the date the «inviata» e-mail gives.
+  return [Number(draft?.sent?.at), submittedAt].find((value) => Number.isFinite(value) && value > 0) ?? nowMs;
+}
+
+/**
+ * An editable Word copy, built at each request from the document the PDF is built from: nothing is
+ * stored, nothing reaches chooseCv or the fill kit.
+ * @returns {{buffer:Buffer, contentType:string, fileName:string}|null} null: nothing to build from
+ */
+export function buildWordCopy(file, { order, orderId, flow, draft, nowMs }) {
+  const copies = wordCopiesOf({ flow, draft });
+  const language = draft?.language || 'it';
+  if (file === 'letter.docx' && copies.letter) {
+    const blocks = letterBlocksFor({ order, orderId, draft, flow, nowMs: letterDayMs({ order, flow, draft, nowMs }) });
+    return { buffer: renderLetterDocx(blocks), contentType: DOCX_CONTENT_TYPE, fileName: applicationFileName('letter', { name: blocks.signature, language, extension: 'docx' }) };
+  }
+  if (file === 'cv.docx' && copies.cv) {
+    const document = tailoredCvDocumentFor({ order, draft, flow });
+    if (!document) return null;
+    return { buffer: renderCvDocx(document), contentType: DOCX_CONTENT_TYPE, fileName: applicationFileName('cv', { name: document.name, language, extension: 'docx' }) };
+  }
+  return null;
+}
+
+/**
+ * What the candidate keeps once the application left (owner decision 2026-10-03): the files the runner
+ * recorded as sent or, for an older order and a record of which nothing can be signed, the stored letter
+ * PDF and the CV that leaves (cvToSend). A WhatsApp application leaves from the candidate's phone and the
+ * candidate chooses the CV they send in the chat (owner decision 2026-10-03): the letter, the tailored CV,
+ * highlighted when there is one (`suggested`, never stored as a choice), and their own CV. Only keys in
+ * the order's folder; the Word copies go beside the letter and the tailored CV.
+ * @returns {{source:'sent'|'prepared', whatsapp:boolean, files:Array<{kind:string, name:string, key:string, word:string[], suggested:boolean}>}|null}
+ */
+export function keptDocumentsOf({ order, orderId, flow, draft }) {
+  if (flow?.state !== 'submitted' || !draft) return null;
+  const whatsapp = order?.submissionChannel === 'whatsapp';
+  const copies = wordCopiesOf({ flow, draft });
+  const cv = cvToSend(draft, flow, order);
+  const wordFor = (kind) => [
+    ...((kind === 'letter' || kind === 'dossier') && copies.letter ? ['letter.docx'] : []),
+    ...((kind === 'cvTailored' || (kind === 'dossier' && cv.cv === 'tailored')) && copies.cv ? ['cv.docx'] : []),
+  ];
+  // A key outside the order's folder is never signed (resolveCvLink hands an https:// value back as it is).
+  const inFolder = (file) => isAssistedApplicationCvKey(orderId, file.key);
+  const cvKindOf = (key) => (key === draft.tailoredCv?.pdfKey ? 'cvTailored' : key === draft.tailoredCv?.inplace?.docxKey ? 'cvInplace' : 'cvOriginal');
+  const recorded = (whatsapp ? [] : Array.isArray(draft.sent?.files) ? draft.sent.files : [])
+    .filter((file) => KEPT_KINDS.has(file?.kind))
+    .map((file) => {
+      const key = String(file.key || '');
+      return { kind: file.kind === 'cv' ? cvKindOf(key) : file.kind, name: clean(file.name, 160) || key.split('/').pop(), key };
+    })
+    .filter(inFolder);
+  let files = recorded;
+  if (!files.length) {
+    const { name } = candidateWithEdits({ order, draft, flow }).identity;
+    const language = draft.language || 'it';
+    // WhatsApp: the tailored CV first (the same as the original when there is none), then the candidate's own.
+    const cvs = whatsapp
+      ? [cvToSend(draft, { ...flow, cvChoice: 'tailored' }, order), cvToSend(draft, { ...flow, cvChoice: 'original' }, order)]
+      : [cv];
+    files = [
+      { kind: 'letter', name: applicationFileName('letter', { name, language, extension: 'pdf' }), key: String(draft.coverLetterPdfKey || '') },
+      ...cvs.filter((item, index) => cvs.findIndex((other) => other.key === item.key) === index)
+        .map((item) => ({ kind: CV_KEPT_KIND[item.cv], name: applicationFileName('cv', { name, language, extension: item.extension }), key: item.key })),
+    ].filter(inFolder);
+  }
+  return {
+    source: recorded.length ? 'sent' : 'prepared',
+    whatsapp,
+    files: withSuggestion(files.slice(0, MAX_KEPT_FILES).map((file) => ({ ...file, word: wordFor(file.kind) })), whatsapp),
+  };
+}
+
+/** WhatsApp: the tailored CV is highlighted only while the candidate has another CV listed to choose instead. */
+function withSuggestion(files, whatsapp) {
+  const choosing = whatsapp && files.filter((file) => CV_KEPT_KINDS.has(file.kind)).length > 1;
+  return files.map((file) => ({ ...file, suggested: choosing && file.kind === 'cvTailored' }));
+}
+
+/**
+ * The HTTP answer (functions/index.js): a Word copy as a download no cache keeps, everything else as JSON.
+ * @param {{set:Function, status:Function}} res
+ * @param {{status:number, body?:object, file?:{buffer:Buffer, contentType:string, fileName:string}}} answer handleAssistedApplicationReview's result
+ */
+export function sendReviewResponse(res, { status, body, file }) {
+  if (file) {
+    res.set({
+      'Content-Type': file.contentType,
+      'Content-Disposition': `attachment; filename="${file.fileName}"`,
+      'Cache-Control': 'private, no-store',
+      'X-Content-Type-Options': 'nosniff',
+    });
+    return res.status(status).send(file.buffer);
+  }
+  return res.status(status).json(body);
+}
+
+export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const answers = { ...(flow?.answers || {}) };
@@ -226,6 +351,10 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
       // The permit G left out: the nationality given is not one of the EU or EFTA (decision 3), the page says why.
       permitOmitted: permitOmitted(profile.permitStatus, profile.nationality),
     } : null,
+    // The editable Word copies the server builds on request: never stored, never a CV choice.
+    word: wordCopiesOf({ flow, draft }),
+    // After the sending: what the candidate keeps (keptDocumentsOf), with signed links.
+    keptDocuments: state === 'submitted' && keptDocuments?.files?.length ? keptDocuments : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
       approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
@@ -541,6 +670,8 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
  * @param {{method:string, query?:object, body?:object}} req
  * @param {{db, runEffect, bucket?, sendCascade?, getSecret?, signUrl?, nowMs?}} deps bucket: the order's Storage, for
  *   the files a request stores and the PDFs a change rebuilds
+ * @returns {Promise<{status:number, body?:object, file?:{buffer:Buffer, contentType:string, fileName:string}}>} file: a Word
+ *   copy (GET `file=letter.docx|cv.docx`), answered by sendReviewResponse
  */
 export async function handleAssistedApplicationReview(req, deps) {
   const nowMs = deps.nowMs || Date.now();
@@ -549,6 +680,14 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (method === 'GET') {
       const token = String(req.query?.t || '');
       const { orderId, round, kind } = await authorize(token, { ...deps, nowMs });
+      // An editable Word copy: the page's token checks, then built in memory and answered as a file.
+      if (req.query?.file !== undefined) {
+        if (kind !== 'review' || !WORD_FILES.has(String(req.query.file))) throw new ReviewError('not_found', 404);
+        const { order, flow, draft } = await loadAll(deps.db, orderId);
+        const file = buildWordCopy(String(req.query.file), { order, orderId, flow, draft, nowMs });
+        if (!file) throw new ReviewError('not_found', 404);
+        return { status: 200, file };
+      }
       if (kind === 'followup') {
         const [orderSnapshot, draftSnapshot, followupSnapshot] = await Promise.all([
           orderRefFor(deps.db, orderId).get(), draftRefFor(deps.db, orderId).get(), followupRefFor(deps.db, orderId).get(),
@@ -557,13 +696,29 @@ export async function handleAssistedApplicationReview(req, deps) {
         return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
       }
       const { order, flow, draft } = await loadAll(deps.db, orderId);
-      const sign = (key) => (key && deps.signUrl ? deps.signUrl(key).catch(() => null) : null);
-      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl] = await Promise.all([
+      // One signature per key and request: the letter can be both the review's and a kept file.
+      const signed = new Map();
+      const sign = (key) => {
+        if (!key || !deps.signUrl) return null;
+        if (!signed.has(key)) signed.set(key, deps.signUrl(key).catch(() => null));
+        return signed.get(key);
+      };
+      const kept = keptDocumentsOf({ order, orderId, flow, draft });
+      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, ...keptUrls] = await Promise.all([
         sign(draft?.coverLetterPdfKey),
         sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
         sign(inPlaceReady(draft) ? draft.tailoredCv.inplace.docxKey : null),
+        ...(kept?.files || []).map((file) => sign(file.key)),
       ]);
-      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, nowMs }) };
+      // Signed links only: the storage keys never reach the page. A file without a link is not offered.
+      const keptDocuments = kept && {
+        source: kept.source,
+        whatsapp: kept.whatsapp,
+        files: withSuggestion(kept.files
+          .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
+          .filter((file) => file.url), kept.whatsapp),
+      };
+      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, nowMs }) };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 

@@ -28,7 +28,9 @@ import {
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
-import { isAutomationEnabledFor } from './assistedApplicationAutomation.js';
+import { flowRefFor, isAutomationEnabledFor } from './assistedApplicationAutomation.js';
+import { REVIEW_TOKEN_TTL_MS, getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
+import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
 import {
   brandButton,
   brandCallout,
@@ -195,6 +197,31 @@ export function buildReviewPageUrl(order, token, locale = resolveOrderLocale(ord
   return url.toString();
 }
 
+/**
+ * The review page of an automated order whose application left (owner decision 2026-10-03): the
+ * documents prepared and sent stay there for the candidate. Minted as the automated e-mails mint it
+ * (assistedApplicationAutomationEffects.js: the flow's round), and valid until the retention purge
+ * deletes those documents (owner decision 2026-10-03, «Fino alla cancellazione»). '' for any other
+ * order and whenever the link cannot be made: the «inviata» e-mail always leaves.
+ */
+export async function submittedReviewUrl({ db, orderId, order, nowMs = Date.now(), getSecret = getReviewTokenSecret }) {
+  // The flow mirrors its state on the order in the transaction that commits it, before mark_submitted runs.
+  if (order?.automationState !== 'submitted') return '';
+  try {
+    const snapshot = await flowRefFor(db, orderId).get();
+    const flow = snapshot.exists ? snapshot.data() || {} : null;
+    if (flow?.state !== 'submitted') return '';
+    // An order the purge never reaches keeps the usual lifetime; one already due for it gets no link.
+    const purgeAt = retentionPurgeDueAt(order);
+    const ttlMs = purgeAt === null ? REVIEW_TOKEN_TTL_MS : purgeAt - nowMs;
+    if (ttlMs <= 0) return '';
+    return buildReviewPageUrl(order, mintReviewToken({ secret: await getSecret(), orderId, round: Number(flow.round) || 1, nowMs, ttlMs }));
+  } catch (error) {
+    console.warn('[assistedApplicationNotifications] «inviata» e-mail without the review link:', error instanceof Error ? error.message : String(error));
+    return '';
+  }
+}
+
 /** Where the customer is reachable: the address typed in the form wins over Stripe's. */
 export function customerEmailFor(order) {
   const candidates = [order?.applicantEmail, order?.customerEmail];
@@ -301,6 +328,11 @@ const COPY = {
     ],
     whatsappCta: 'Apri la candidatura su WhatsApp',
     whatsappNext: "Il mio lavoro sulla tua candidatura si conclude qui: l'invio su WhatsApp è l'ultimo passo, ed è tuo. Se l'azienda ti contatta, rispondi direttamente a loro. Se qualcosa non funziona, scrivimi rispondendo a questa email. In bocca al lupo!",
+    // The third step when the e-mail links the page (owner decision 2026-10-03: the candidate chooses the CV).
+    whatsappCvStep: "rispondi alle domande dell'assistente: a scelta, a testo o con un breve messaggio vocale; se ti chiede il CV, invia quello che scegli tra i tuoi documenti nella pagina della tua candidatura;",
+    documentsCta: 'I tuoi documenti',
+    submittedDocuments: 'Nella pagina della tua candidatura trovi i documenti preparati e inviati: puoi scaricarli e conservarli.',
+    whatsappDocuments: 'La lettera e il CV per questa candidatura sono nella pagina della tua candidatura, tra i tuoi documenti.',
   },
   fr: {
     greeting: (name) => (name ? `Bonjour ${name},` : 'Bonjour,'),
@@ -369,6 +401,10 @@ const COPY = {
     ],
     whatsappCta: 'Ouvrir la candidature sur WhatsApp',
     whatsappNext: "Mon travail sur votre candidature s'arrête ici : l'envoi sur WhatsApp est la dernière étape, et elle vous revient. Si l'entreprise vous contacte, répondez-lui directement. Si quelque chose ne fonctionne pas, écrivez-moi en répondant à cet e-mail. Bonne chance !",
+    whatsappCvStep: "répondez aux questions de l'assistant : à choix, en texte ou par un court message vocal ; s'il demande votre CV, envoyez celui que vous choisissez parmi vos documents sur la page de votre candidature ;",
+    documentsCta: 'Vos documents',
+    submittedDocuments: 'Sur la page de votre candidature, vous retrouvez les documents préparés et envoyés : vous pouvez les télécharger et les conserver.',
+    whatsappDocuments: 'La lettre et le CV pour cette candidature se trouvent sur la page de votre candidature, parmi vos documents.',
   },
   de: {
     // Informal «du», like the German site copy (services/locales/de-core.ts).
@@ -438,6 +474,10 @@ const COPY = {
     ],
     whatsappCta: 'Bewerbung auf WhatsApp öffnen',
     whatsappNext: 'Meine Arbeit an deiner Bewerbung ist damit abgeschlossen: Der Versand über WhatsApp ist der letzte Schritt, und den machst du. Wenn sich das Unternehmen meldet, antworte bitte direkt. Wenn etwas nicht klappt, schreib mir einfach auf diese E-Mail. Viel Erfolg!',
+    whatsappCvStep: 'beantworte die Fragen des Assistenten: zur Auswahl, als Text oder als kurze Sprachnachricht; fragt er nach dem Lebenslauf, schick den, den du unter deinen Unterlagen auf der Seite deiner Bewerbung auswählst;',
+    documentsCta: 'Deine Unterlagen',
+    submittedDocuments: 'Auf der Seite deiner Bewerbung findest du die vorbereiteten und versendeten Unterlagen: Du kannst sie herunterladen und aufbewahren.',
+    whatsappDocuments: 'Das Motivationsschreiben und der Lebenslauf für diese Bewerbung sind auf der Seite deiner Bewerbung, unter deinen Unterlagen.',
   },
   en: {
     greeting: (name) => (name ? `Hi ${name},` : 'Hi,'),
@@ -506,6 +546,10 @@ const COPY = {
     ],
     whatsappCta: 'Open the application on WhatsApp',
     whatsappNext: 'My work on your application ends here: sending it on WhatsApp is the last step, and it is yours. If the company contacts you, reply to them directly. If something does not work, just reply to this email. Good luck!',
+    whatsappCvStep: 'answer the assistant’s questions: choices, text or a short voice message; if it asks for your CV, send the one you choose from your documents on your application page;',
+    documentsCta: 'Your documents',
+    submittedDocuments: "On your application page you'll find the documents prepared and sent: you can download and keep them.",
+    whatsappDocuments: 'The cover letter and the CV for this application are on your application page, under your documents.',
   },
 };
 
@@ -547,12 +591,17 @@ function footer(copy, vars) {
   return { html, text, footerLines };
 }
 
+// The WhatsApp step that says which CV to send in the chat (whatsappSteps[2]).
+const WHATSAPP_CV_STEP = 2;
+
 /**
  * Build a customer-facing message.
  * @param {'intro'|'recovery'|'reminder'|'received'|'submitted'} kind
+ * @param {{nowMs?:number, automation?:boolean, reviewUrl?:string}} [options] reviewUrl: the review page of an
+ *   automated order («inviata» only, submittedReviewUrl), where the candidate keeps the documents
  * @returns {{subject:string, html:string, text:string, locale:string}}
  */
-export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), automation = false } = {}) {
+export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), automation = false, reviewUrl = '' } = {}) {
   const locale = resolveOrderLocale(order);
   const copy = COPY[locale] || COPY.it;
   const vars = orderVars(order, orderId, locale, nowMs);
@@ -600,15 +649,27 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
     htmlParts.push(paragraph(fillHtml(receivedLead, vars)));
     textParts.push(fill(receivedLead, vars));
   } else if (kind === 'submitted' && whatsappUrl) {
+    // With the page linked, the candidate sends the CV they choose among their documents there (owner
+    // decision 2026-10-03); without it, the step names the CV they gave.
+    const steps = reviewUrl ? copy.whatsappSteps.map((step, index) => (index === WHATSAPP_CV_STEP ? copy.whatsappCvStep : step)) : copy.whatsappSteps;
     htmlParts.push(paragraph(fillHtml(copy.whatsappLead, vars)), job.html);
     textParts.push(fill(copy.whatsappLead, vars), job.text);
-    htmlParts.push(brandSectionLabel(copy.whatsappHow), brandChecklist(copy.whatsappSteps), brandButton(whatsappUrl, copy.whatsappCta));
-    textParts.push(`${copy.whatsappHow}:\n${copy.whatsappSteps.map((step, index) => `${index + 1}. ${step}`).join('\n')}`, `${copy.whatsappCta}: ${whatsappUrl}`);
+    htmlParts.push(brandSectionLabel(copy.whatsappHow), brandChecklist(steps), brandButton(whatsappUrl, copy.whatsappCta));
+    textParts.push(`${copy.whatsappHow}:\n${steps.map((step, index) => `${index + 1}. ${step}`).join('\n')}`, `${copy.whatsappCta}: ${whatsappUrl}`);
+    if (reviewUrl) {
+      htmlParts.push(paragraph(esc(copy.whatsappDocuments)), brandButton(reviewUrl, copy.documentsCta));
+      textParts.push(`${copy.whatsappDocuments}\n${copy.documentsCta}: ${reviewUrl}`);
+    }
     htmlParts.push(paragraph(esc(copy.whatsappNext)), brandFinePrint(esc(copy.noGuarantee)));
     textParts.push(copy.whatsappNext, copy.noGuarantee);
   } else if (kind === 'submitted') {
     htmlParts.push(paragraph(fillHtml(copy.submittedLead, vars)), job.html);
     textParts.push(fill(copy.submittedLead, vars), job.text);
+    // The page where the documents prepared and sent stay (automated orders).
+    if (reviewUrl) {
+      htmlParts.push(paragraph(esc(copy.submittedDocuments)), brandButton(reviewUrl, copy.documentsCta));
+      textParts.push(`${copy.submittedDocuments}\n${copy.documentsCta}: ${reviewUrl}`);
+    }
     htmlParts.push(paragraph(esc(copy.submittedNext)), brandFinePrint(esc(copy.noGuarantee)));
     textParts.push(copy.submittedNext, copy.noGuarantee);
   } else {
@@ -901,7 +962,7 @@ export async function handleAssistedApplicationOrderWritten(
   before,
   after,
   orderId,
-  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv, automationEnabled = isAutomationEnabledFor } = {},
+  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv, automationEnabled = isAutomationEnabledFor, reviewSecret = getReviewTokenSecret } = {},
 ) {
   if (!after) return { ok: true, skipped: 'deleted' };
   const results = [];
@@ -941,11 +1002,13 @@ export async function handleAssistedApplicationOrderWritten(
       }));
     }
     if (toStatus === 'submitted') {
+      // The page with the documents prepared and sent; no button when it cannot be minted.
+      const reviewUrl = await submittedReviewUrl({ db, orderId, order: after, nowMs, getSecret: reviewSecret });
       results.push(await sendOrderNotification({
         db,
         orderId,
         key: NOTIFICATION_KEYS.customerSubmitted,
-        build: (order) => buildCustomerEmail('submitted', order, orderId, { nowMs }),
+        build: (order) => buildCustomerEmail('submitted', order, orderId, { nowMs, reviewUrl }),
         nowMs,
       }));
     }
