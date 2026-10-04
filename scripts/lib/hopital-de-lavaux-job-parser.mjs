@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * Hôpital de Lavaux job parser — Beehire ATS.
  *
@@ -79,7 +80,6 @@ export async function fetchAllHopitalDeLavauxJobs() {
   console.log(`  ✓ ${campaigns.length} campaigns in Beehire feed`);
   if (!campaigns.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const c of campaigns) {
     const title = beehireTitle(c, PREFERRED_LANGS);
@@ -135,7 +135,8 @@ export async function fetchAllHopitalDeLavauxJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The public campaign API exposes no publication field.
+      ...sourcePostingDateFields(''),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

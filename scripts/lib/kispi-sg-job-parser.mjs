@@ -24,6 +24,8 @@
  * Basel) and kispi-zurich-job-parser.mjs — separate hospitals.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -338,7 +340,6 @@ export async function fetchAllKispiSgJobs() {
   if (cards.length === 0) return [];
   console.log(`  📄 Fetching individual job pages for descriptions…`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let descriptionHits = 0;
 
@@ -350,10 +351,12 @@ export async function fetchAllKispiSgJobs() {
     const detailPageUrl = `${BASE_HOST}${slug}`;
     let description = '';
     let applyUrl = '';
+    let publication = sourcePostingDateFields('');
 
     try {
       const detailHtml = await fetchHtml(detailPageUrl);
       const parsed = parseDetailPage(detailHtml);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
       description = parsed.description;
       applyUrl = parsed.applyUrl;
       if (description) descriptionHits++;
@@ -411,7 +414,7 @@ export async function fetchAllKispiSgJobs() {
       sector: COMPANY_SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: applyUrl || jobUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
