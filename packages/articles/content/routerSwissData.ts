@@ -2583,6 +2583,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'swiss-steel-ristrutturazione-germania': { it: 'swiss-steel-ristrutturazione-germania', en: 'swiss-steel-restructuring-germany', de: 'swiss-steel-umstrukturierung-deutschland', fr: 'swiss-steel-restructuration-allemagne' },
  'salario-minimo-zurigo-requisiti': { it: 'salario-minimo-zurigo-requisiti', en: 'zurich-minimum-wage-rules', de: 'mindestlohn-zurich-regeln', fr: 'salaire-minimum-zurich-regles' },
  'assistenza-sociale-zurigo-domanda': { it: 'assistenza-sociale-zurigo-domanda', en: 'social-assistance-zurich-application', de: 'sozialhilfe-zuerich-antrag', fr: 'aide-sociale-zurich-demande' },
+ 'imposta-auto-zurigo-pagamento': { it: 'imposta-auto-zurigo-pagamento', en: 'zurich-vehicle-tax-calculation', de: 'fahrzeugsteuer-zuerich-berechnung', fr: 'impot-vehicules-zurich-calcul' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
