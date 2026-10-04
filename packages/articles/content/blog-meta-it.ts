@@ -12547,6 +12547,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lido-san-domenico-lugano-concorsi.title': 'Lido San Domenico: Lugano pubblica due concorsi',
     'blog.article.lido-san-domenico-lugano-concorsi.excerpt': 'Il Municipio ha avviato i bandi per la gestione della buvette e la ristrutturazione degli spazi tramite partenariato pubblico-privato.',
     'blog.article.lido-san-domenico-lugano-concorsi.imageAlt': 'Veduta del lungolago di Lugano con il Lido San Domenico sullo sfondo',
+    'blog.article.gordola-avviso-scomparsa-revocato.title': 'Gordola: revocato l\'avviso di scomparsa',
+    'blog.article.gordola-avviso-scomparsa-revocato.excerpt': 'La Polizia cantonale ticinese ha revocato l\'avviso per una 41enne di Gordola, data per scomparsa dal 2 ottobre. L\'annuncio era stato diramato sabato.',
+    'blog.article.gordola-avviso-scomparsa-revocato.imageAlt': 'Gordola in Ticino, dove è stato revocato un avviso di scomparsa',
 };
 
 export default blogMetaIt;
