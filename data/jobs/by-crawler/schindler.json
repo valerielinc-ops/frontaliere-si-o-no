@@ -94,8 +94,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "schindler-7edfc2c56f83",
@@ -2197,7 +2196,7 @@
       "title": "Working Student à Bussigny (h/f/d) 40%",
       "titleByLocale": {
         "it": "Working Student à Bussigny (f/m/d) 40%",
-        "en": "Working Student à Bussigny (h/f/d) 40%",
+        "en": "Working Student in Bussigny (m/f/d) 40%",
         "de": "Werkstudent in Bussigny (m/w/d) 40%",
         "fr": "Working Student à Bussigny (h/f/d) 40%"
       },
@@ -2231,7 +2230,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T23:09:48.525Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "salarySource": "estimated",
@@ -6444,7 +6442,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:31:53.516Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",

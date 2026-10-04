@@ -899,6 +899,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-18T23:11:57.218Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
@@ -912,20 +925,7 @@
       },
       "previousSlugs": [
         "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
-      ],
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "kispi-zurich-b38097e12e6a",
