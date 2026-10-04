@@ -16,6 +16,8 @@
  *
  * Polite delay: 250 ms between detail fetches.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -194,7 +196,6 @@ export async function fetchAllPallasKlinikenJobs() {
   console.log(`  ✓ ${positions.length} Flair HR positions parsed`);
   if (!positions.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < positions.length; i += 1) {
     const p = positions[i];
@@ -213,6 +214,15 @@ export async function fetchAllPallasKlinikenJobs() {
     }
 
     const title = normalizeSpace(decodeEntities(ld.title));
+    const postings = extractJobPostingsLd(html);
+    const matching = postings.filter((posting) => {
+      if (normalizeSpace(posting.title || '').toLowerCase() !== normalizeSpace(title).toLowerCase()) return false;
+      const urls = [posting.url, posting.sameAs].filter(Boolean);
+      if (!urls.length) return postings.length === 1;
+      try { return urls.every((value) => new URL(value, p.detailUrl).href === new URL(p.detailUrl).href); }
+      catch { return false; }
+    });
+    const publication = sourcePostingDateFields(matching.length === 1 ? matching[0].datePosted : '');
     const sourceLang = detectLang(htmlDescriptionToText(ld.description || '') || title, 'de');
     const description = buildPallasDescription(ld, sourceLang);
     if (!title || description.split(/\s+/).length < 30) {
@@ -230,9 +240,7 @@ export async function fetchAllPallasKlinikenJobs() {
       : (isHqCity ? HQ.streetAddress : '');
     const canton = pickCanton(city);
 
-    const datePosted = (ld.datePosted && /^\d{4}-\d{2}-\d{2}$/.test(ld.datePosted))
-      ? ld.datePosted
-      : todayIso;
+
 
     const jobSlug = slugify(`${title} ${PALLAS_KLINIKEN_KEY} ${city}`);
     const urlHash = createHash('sha1').update(p.detailUrl).digest('hex').slice(0, 12);
@@ -268,7 +276,7 @@ export async function fetchAllPallasKlinikenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted,
+      ...publication,
       applyUrl: p.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
