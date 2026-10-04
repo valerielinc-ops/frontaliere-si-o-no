@@ -12531,6 +12531,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sindacati-miazzina-diritti-9-ottobre.title': 'Miazzina, unions on 9 October: \'We ask for respect\'',
     'blog.article.sindacati-miazzina-diritti-9-ottobre.excerpt': 'Trade-union mobilization on 9 October at 14 at Eremo di Miazzina, organized by Cgil Novara Vco, Cisl Piemonte Orientale and Uil Novara Vco on work, care and support for families.',
     'blog.article.sindacati-miazzina-diritti-9-ottobre.imageAlt': 'Trade union demonstration at the Hermitage of Miazzina with banners asking for respect for workers, people under care, and families.',
+    'blog.article.italia-mondiale-baseball-ciechi-varese.title': 'Italy are world champions in blind baseball',
+    'blog.article.italia-mondiale-baseball-ciechi-varese.excerpt': 'Italy triumphs in Castiglione della Pescaia: Cuba defeated 10-4. Varese players Oliveri (MVP) and Trombini (best young player) were the protagonists.',
+    'blog.article.italia-mondiale-baseball-ciechi-varese.imageAlt': 'Italy wins the Blind Baseball World Cup in Castiglione della Pescaia',
 };
 
 export default blogMetaEn;

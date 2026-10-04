@@ -12532,6 +12532,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sindacati-miazzina-diritti-9-ottobre.title': 'Miazzina, sindacati il 9 ottobre: \'Chiediamo rispetto\'',
     'blog.article.sindacati-miazzina-diritti-9-ottobre.excerpt': 'Mobilitazione sindacale il 9 ottobre alle 14 all\'Eremo di Miazzina, promossa da Cgil Novara Vco, Cisl Piemonte Orientale e Uil Novara Vco su lavoro, assistenza e sostegno alle famiglie.',
     'blog.article.sindacati-miazzina-diritti-9-ottobre.imageAlt': 'Manifestazione sindacale all\'Eremo di Miazzina con striscioni che chiedono rispetto per lavoratori, persone in cura e famiglie.',
+    'blog.article.italia-mondiale-baseball-ciechi-varese.title': 'Italia campione del mondo di baseball per ciechi',
+    'blog.article.italia-mondiale-baseball-ciechi-varese.excerpt': 'Trionfo azzurro a Castiglione della Pescaia: battuta Cuba 10-4. Protagonisti i varesini Oliveri (MVP) e Trombini (miglior giovane).',
+    'blog.article.italia-mondiale-baseball-ciechi-varese.imageAlt': 'L\'Italia vince il mondiale di baseball per ciechi a Castiglione della Pescaia',
 };
 
 export default blogMetaIt;
