@@ -413,6 +413,8 @@ const IT_CONTRATTI: CareerLandingCopy = {
   faqTitle: 'Domande frequenti',
   sourcesLabel: 'Fonti',
   sources: [
+ // locale-segment-ok: official external SECO source used across locales
+    { label: 'SECO — PD U1', href: 'https://www.arbeit.swiss/it/persone-in-cerca-dimpiego/prestazioni-dellassicurazione' },
     {
       label:
         'Accordo Italia-Svizzera sui frontalieri del 23 dicembre 2020 (AFC)',
@@ -463,7 +465,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
       title: 'Diritti specifici dei frontalieri',
       paragraphs: [
         'Oltre ai diritti del CCL, il frontaliere italiano ha alcune tutele specifiche: diritto di opzione LAMal (l\'obbligo di assicurazione sanitaria svizzera può essere sostituito dall\'iscrizione al SSN italiano, usando il modulo S1); tassazione della retribuzione di fine rapporto con regole specifiche (trattamento del 2° pilastro al momento del ritiro); accesso al Fondo Nazionale Assicurazione Disoccupazione svizzero (DI) anche per i frontalieri che lavorano in Svizzera.',
-        'In caso di licenziamento, il frontaliere italiano richiede l\'indennità di disoccupazione in Italia (NASpI) secondo il principio del paese di residenza, ma il calcolo si basa sugli ultimi salari svizzeri. Il trasferimento dei contributi richiede il modulo U1/U2. È una procedura spesso complessa: in caso di dubbio, contattare i sindacati OCST o UNIA (hanno sedi ticinesi ed esperienza specifica sul segmento frontalieri).',
+        'In caso di licenziamento, il frontaliere italiano richiede l\'indennità di disoccupazione in Italia (NASpI) secondo il principio del paese di residenza, ma il calcolo si basa sugli ultimi salari svizzeri. Il PD U1 certifica i periodi assicurativi e lavorativi svizzeri: non trasferisce i contributi. Il PD U2 riguarda invece l’esportazione di prestazioni durante la ricerca di lavoro all’estero, una procedura distinta. È una procedura spesso complessa: in caso di dubbio, contattare i sindacati OCST o UNIA (hanno sedi ticinesi ed esperienza specifica sul segmento frontalieri).',
       ],
     },
     {

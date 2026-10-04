@@ -2474,19 +2474,22 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  // ───── Guide: cross-border unemployment ─────────────────────
  '/guida-frontaliere/disoccupazione-transfrontaliera': {
  en: [
- 'Cross-border unemployment insurance is a complex area where Swiss and Italian regulations intersect. If you lose your job in Switzerland, unemployment benefits are generally paid by Italy (your country of residence), not Switzerland. However, the benefit amount is calculated based on Italian rules and your Italian contribution history, not your Swiss salary.',
- 'There is a critical exception: if you had at least 12 months of Swiss employment, you can request Switzerland to transfer your contribution record to Italian INPS via the U1 form (formerly E301). This allows INPS to factor your Swiss employment period into the Italian NASPI unemployment benefit calculation.',
- 'The guide covers the step-by-step procedure: obtaining the U1 attestation from the Swiss cantonal employment office (Ufficio del lavoro), filing the NASPI application with INPS within 68 days of job loss, and understanding the benefit duration and amount based on your combined Swiss-Italian contribution history.',
+ "Cross-border workers who become unemployed generally claim benefits in their country of residence. The competent institution checks the applicable eligibility conditions; the PD U1 certificate does not itself establish entitlement.",
+ "PD U1 certifies Swiss insurance and employment periods for INPS to assess the unemployment claim; it does not transfer the contributions paid. It is evidence of periods completed in Switzerland, not a payment between pension or unemployment institutions.",
+ // locale-segment-ok: official external SECO source used across locales
+ "Request PD U1 from the Swiss unemployment insurance fund that previously handled your case. If you have never registered with a fund, SECO indicates a fund at your last Swiss residence or, if you did not live in Switzerland, at your last employer’s place of business. <a href=\"https://www.arbeit.swiss/it/persone-in-cerca-dimpiego/prestazioni-dellassicurazione\">SECO — PD U1</a>.",
  ],
  de: [
- 'Die grenzüberschreitende Arbeitslosenversicherung ist ein komplexer Bereich, in dem schweizerische und italienische Regelungen aufeinandertreffen. Bei Arbeitsplatzverlust in der Schweiz werden Arbeitslosenleistungen grundsätzlich von Italien (dem Wohnsitzland) gezahlt, nicht von der Schweiz. Die Höhe richtet sich nach italienischen Regeln und Ihrer italienischen Beitragsgeschichte.',
- 'Es gibt eine wichtige Ausnahme: Bei mindestens 12 Monaten Schweizer Beschäftigung können Sie die Übertragung Ihrer Beitragszeiten an die italienische INPS über das Formular U1 (ehemals E301) beantragen. Dies ermöglicht der INPS, Ihre Schweizer Beschäftigungszeit in die Berechnung des italienischen NASPI einzubeziehen.',
- 'Der Leitfaden behandelt das Verfahren Schritt für Schritt: Beschaffung der U1-Bescheinigung vom kantonalen Arbeitsamt, NASPI-Antrag bei der INPS innerhalb von 68 Tagen nach Arbeitsplatzverlust und Verständnis der Leistungsdauer basierend auf der kombinierten Beitragsgeschichte.',
+ "Grenzgänger beantragen Arbeitslosenleistungen grundsätzlich im Wohnsitzstaat. Der zuständige Träger prüft die geltenden Anspruchsvoraussetzungen; die Bescheinigung PD U1 begründet allein keinen Leistungsanspruch.",
+ "PD U1 bescheinigt Schweizer Versicherungs- und Beschäftigungszeiten für die Prüfung des Arbeitslosenantrags durch die INPS; die gezahlten Beiträge werden nicht übertragen. Sie belegt die in der Schweiz zurückgelegten Zeiten und bewirkt keine Zahlung zwischen Versicherungsinstitutionen.",
+ // locale-segment-ok: official external SECO source used across locales
+ "Beantragen Sie PD U1 bei der Schweizer Arbeitslosenkasse, die Ihren Fall zuvor betreut hat. Waren Sie nie angemeldet, nennt SECO eine Kasse am letzten Schweizer Wohnort oder, ohne Schweizer Wohnsitz, am Betriebssitz des letzten Arbeitgebers. <a href=\"https://www.arbeit.swiss/it/persone-in-cerca-dimpiego/prestazioni-dellassicurazione\">SECO — PD U1</a>.",
  ],
  fr: [
- 'L\'assurance chômage transfrontalière est un domaine complexe où les réglementations suisse et italienne s\'entrecroisent. En cas de perte d\'emploi en Suisse, les prestations de chômage sont généralement versées par l\'Italie (pays de résidence), pas par la Suisse. Le montant est calculé selon les règles italiennes et votre historique de cotisations italiennes.',
- 'Il existe une exception critique : avec au moins 12 mois d\'emploi en Suisse, vous pouvez demander le transfert de vos périodes de cotisation à l\'INPS italienne via le formulaire U1 (anciennement E301). Cela permet à l\'INPS d\'intégrer votre période d\'emploi suisse dans le calcul de la NASPI italienne.',
- 'Le guide couvre la procédure étape par étape : obtention de l\'attestation U1 auprès de l\'office cantonal de l\'emploi suisse, dépôt de la demande NASPI auprès de l\'INPS dans les 68 jours suivant la perte d\'emploi, et compréhension de la durée et du montant des prestations.',
+ "Les frontaliers demandent généralement les prestations de chômage dans leur pays de résidence. L’institution compétente vérifie les conditions applicables ; le certificat PD U1 ne crée pas à lui seul un droit aux prestations.",
+ "Le PD U1 atteste les périodes suisses d’assurance et d’emploi pour l’examen de la demande de chômage par l’INPS ; il ne transfère pas les cotisations versées. Il prouve les périodes accomplies en Suisse et ne constitue pas un paiement entre institutions d’assurance.",
+ // locale-segment-ok: official external SECO source used across locales
+ "Demandez le PD U1 à la caisse suisse de chômage qui a précédemment traité votre dossier. Si vous n’avez jamais été inscrit, le SECO indique une caisse de votre dernier domicile suisse ou, sans domicile en Suisse, du lieu d’activité de votre dernier employeur. <a href=\"https://www.arbeit.swiss/it/persone-in-cerca-dimpiego/prestazioni-dellassicurazione\">SECO — PD U1</a>.",
  ],
  },
 

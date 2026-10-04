@@ -681,7 +681,7 @@ const frGuide: Record<string, string> = {
  'guide.unemployment.ch.frontalieriTitle': 'Note pour les frontaliers',
  'guide.unemployment.ch.frontalieri1': 'Les frontaliers en chômage total reçoivent les prestations du pays de résidence (Italie/INPS)',
  'guide.unemployment.ch.frontalieri2': 'Les frontaliers en chômage partiel (ex. réduction d\'horaire) conservent le droit aux prestations suisses',
- 'guide.unemployment.ch.frontalieri3': 'Les cotisations versées en Suisse sont transférées à l\'INPS via le formulaire PD U1',
+ 'guide.unemployment.ch.frontalieri3': "Le PD U1 atteste les périodes suisses d’assurance et d’emploi pour l’examen de la demande de chômage par l’INPS ; il ne transfère pas les cotisations versées",
  'guide.unemployment.ch.frontalieri4': 'Demander le formulaire PD U1 à la caisse de chômage suisse avant de retourner en Italie',
  'guide.unemployment.it.title': '🇮🇹 Italie - NASpI (Nouvelle Assurance Sociale pour l\'Emploi)',
  'guide.unemployment.it.whoTitle': 'Qui a droit',

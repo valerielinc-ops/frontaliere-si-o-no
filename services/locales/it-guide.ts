@@ -700,7 +700,7 @@ const translations: Record<string, string> = {
  'guide.unemployment.ch.frontalieriTitle': 'Nota per i frontalieri',
  'guide.unemployment.ch.frontalieri1': 'I frontalieri in disoccupazione totale ricevono le prestazioni dal paese di residenza (Italia/INPS)',
  'guide.unemployment.ch.frontalieri2': 'I frontalieri in disoccupazione parziale (es. riduzione dell\'orario) mantengono il diritto alle prestazioni svizzere',
- 'guide.unemployment.ch.frontalieri3': 'I contributi versati in Svizzera vengono trasferiti all\'INPS tramite il formulario PD U1',
+ 'guide.unemployment.ch.frontalieri3': "Il PD U1 attesta i periodi assicurativi e lavorativi svizzeri per la valutazione della domanda di disoccupazione da parte dell’INPS; non trasferisce i contributi versati",
  'guide.unemployment.ch.frontalieri4': 'Richiedere il formulario PD U1 alla cassa di disoccupazione svizzera prima di tornare in Italia',
  'guide.unemployment.it.title': '🇮🇹 Italia - NASpI (Nuova Assicurazione Sociale per l\'Impiego)',
  'guide.unemployment.it.whoTitle': 'Chi ha diritto',
