@@ -128,6 +128,7 @@ export function isAplusEmptyListingPage(html = '', listings = parseAplusListings
     if (element.closest('script, style, noscript, template')) return false;
     for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
       if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return false;
+      if (ancestor.classList.contains('hidden')) return false;
       const inlineStyle = ancestor.getAttribute('style') || '';
       if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return false;
     }
