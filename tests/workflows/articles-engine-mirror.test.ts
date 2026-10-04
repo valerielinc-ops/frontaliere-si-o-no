@@ -329,9 +329,12 @@ describe('the lockstep PR body satisfies the contract nanako gates on', () => {
 
   it('non usa deroghe decisionali nude nel corpo generato', () => {
     // The strict gate rejects `by construction` unless the same bullet carries
-    // concrete Motivo/Prossimo passo fields. These residual mirror effects are
-    // ordinary work deferred until merge, so `in questa PR` is the honest state
-    // and keeps the generated body accepted by the gate.
+    // concrete Motivo/Prossimo passo fields. FULL_ENV touches
+    // engine/siteShell.ts, so its body has no `by construction` bullet: the two
+    // residual mirror effects are ordinary work deferred until merge
+    // (`in questa PR`) and the host/ boundary stays `blocked:`. A lockstep that
+    // leaves the contract alone legitimately emits one `by construction` bullet
+    // with Motivo and Prossimo passo: the FU-010 describe below covers it.
     const body = renderPrBody(FULL_ENV);
     expect(decisionDeferralsAreSpecific(body)).toBe(true);
     expect(body).not.toMatch(/^\s*- by construction:/m);
