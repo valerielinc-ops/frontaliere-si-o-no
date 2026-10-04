@@ -1,39 +1,35 @@
-name: Revenue signal monitor
+name: Deploy skew monitor
 
-# Hourly ad-revenue alarm on GA4, Italy + Switzerland only.
+# Hourly deploy-skew alarm from the users' side: GA4 `app_error`, Italy +
+# Switzerland only, with either skew signature (`error_stack` CONTAINS "does
+# not provide an export" OR `error_message` CONTAINS "dynamically imported
+# module", the shape services/resilientImport.ts gives an empty stale chunk).
 #
-# The daily canaries (rpm-canary.yml, user-value-canary.yml) judge settled
-# DAYS. On 2026-09-27 the Offerwall gate suppressed the CMP from 12h Zurich and
-# ad revenue fell ~75% for six hours with sessions normal: a day-level canary
-# sees that the next morning. Consent decisions and filled ads reach GA4 within
-# the hour, so this monitor catches that class in ~2 h and opens a backlog issue
-# (the channel the loop reads, not the step summary).
-#
-# Signals, each a ratio compared with the median of the same hours on the same
-# weekday 1-3 weeks earlier (scripts/lib/revenue-signals.mjs, backtested on
-# 2026-09-07..28: it fires on 09-09 18-22h, 09-12 23h and 09-27, silent otherwise):
-#   consent  CMP decisions per session       < 0.40 of baseline, 1 run
-#   fill     ad_filled per page view         < 0.35 of baseline, 2 runs
-#   revenue  AdSense revenue per 1,000 pages < 0.50 of baseline, 2 runs (settled hours only)
-#   traffic  human page views                < 0.50 of baseline, 2 runs
-#
-# Why hourly is not the quota waste the daily canaries warn about: it reads
-# two small GA4 reports (~22 days x 24 rows) and never re-reads AdSense.
+# Why a second observer next to the Runtime reliability watchdog: that one
+# walks the chunk graph from ONE GitHub runner, i.e. ONE Cloudflare PoP (run
+# 36830160647 on 2026-10-01: `colos: ["ORD"]`, `broken: []` during the skew),
+# and a runner cannot choose its PoP. Users are the only multi-PoP view.
+# Why IT+CH only: all countries put 7 hours above 150 events on 2026-10-01
+# (a Singapore bot fleet), while IT+CH stays at <= 7 events / 4 users outside
+# the real incident of 2026-09-25 (92/22 and 82/15). Threshold: 20 events AND
+# 5 users in one closed hour (scripts/lib/deploy-skew-signal.mjs). A slow
+# skew below that (a few events a day) is the weekly app-error feeder's job.
 #
 # The issue lifecycle, both halves here:
 #   - status=alarm     → open or comment the fixed-title issue (dedup on the
-#                        first 60 chars; issue-triage routes it by the
-#                        `revenue` label, no fixer label set by hand);
-#   - status=recovered → 24 consecutive runs without alarm: resolve it;
-#   - a run that cannot measure (credentials, API) fails and reports as
-#     `Workflow Failure: Revenue signal monitor`, closed by
-#     close-recovered-failure-issues on the next green run — never as a
-#     revenue alarm.
+#                        first 60 chars);
+#   - status=recovered → 6 consecutive clean closed hours after an alarm in
+#                        the last 30: resolve it. Stateless: every run re-reads
+#                        30 hours, so a skipped cron loses nothing;
+#   - a run that cannot measure (credentials, API, truncated report, no
+#     sessions in the probe) fails and reports as
+#     `Workflow Failure: Deploy skew monitor` — never as a skew alarm.
 
 on:
   schedule:
-    # :41 — the previous hour's events have mostly landed in GA4 by then.
-    - cron: '41 * * * *'
+    # :43 — the previous hour's events have mostly landed in GA4 by then; two
+    # minutes after the revenue monitor so the two do not start together.
+    - cron: '43 * * * *'
   workflow_dispatch:
     inputs:
       current_hour:
@@ -43,12 +39,12 @@ on:
         type: string
 
 concurrency:
-  group: revenue-signal-monitor
+  group: deploy-skew-monitor
   cancel-in-progress: false
 
 jobs:
   monitor:
-    name: Monitor revenue signals
+    name: Monitor deploy skew
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -89,11 +85,8 @@ jobs:
         with:
           node-version: '22'
 
-      # The GA4 helper needs only google-auth-library (23 packages, 2.4-3.1 s
-      # cold, measured 2026-09-28) where the sibling canaries' `npm ci` installs
-      # 1,384 in 13-26 s with a warm cache (rpm-canary runs 36327878228,
-      # 36461800327). Isolated prefix + symlink so the dynamic import in
-      # scripts/lib/ga4-service-account.mjs resolves it.
+      # Same isolated install as revenue-signal-monitor: the GA4 helper needs
+      # only google-auth-library, not the 1,384 packages of `npm ci`.
       - name: Install GA4 auth client
         run: |
           npm install --prefix "$RUNNER_TEMP/ga4-deps" --no-save --ignore-scripts --no-fund --no-audit google-auth-library@11.1.0 >/dev/null
@@ -108,55 +101,55 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
-      - name: Evaluate revenue signals
+      - name: Evaluate deploy skew
         id: monitor
         env:
           CURRENT_HOUR: ${{ github.event.inputs.current_hour }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
-          args=(--out=revenue-signals.json --body-out=revenue-signals-issue.md)
+          args=(--out=deploy-skew.json --body-out=deploy-skew-issue.md)
           if [ -n "${CURRENT_HOUR:-}" ]; then args+=("--current-hour=$CURRENT_HOUR"); fi
-          node scripts/monitor-revenue-signals.mjs "${args[@]}"
+          node scripts/monitor-deploy-skew.mjs "${args[@]}"
 
       - name: Append summary to job log
         if: always()
         run: |
-          if [ -s revenue-signals.json ]; then
+          if [ -s deploy-skew.json ]; then
             {
-              echo "## Revenue signals"
+              echo "## Deploy skew (IT+CH)"
               echo '```json'
-              cat revenue-signals.json
+              cat deploy-skew.json
               echo '```'
             } >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      # A replay (current_hour set) never touches the issue: the hourly runs
-      # judge the real hour, so nothing would resolve an issue a replay opened.
-      - name: Open or update the revenue issue
+      # A replay (current_hour set) never touches the issue: a replayed alarm
+      # lies outside the 30 hours the hourly runs read, so nothing would ever
+      # resolve the issue it opened.
+      - name: Open or update the deploy skew issue
         if: steps.monitor.outputs.status == 'alarm' && github.event.inputs.current_hour == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           node scripts/lib/github-issue-creator.mjs \
-            --title "Revenue ads: segnali orari sotto la baseline IT+CH" \
-            --description-file revenue-signals-issue.md \
+            --title "Deploy skew IT+CH: moduli JS incoerenti visti da utenti reali" \
+            --description "$(cat deploy-skew-issue.md)" \
             --priority 1 \
             --label Bug \
-            --label revenue \
-            --label revenue-signal-monitor \
+            --label stability \
+            --label deploy-skew-monitor \
             --workflow "${{ github.workflow }}"
 
-      # Closing half: only after 24 consecutive runs without an alarm, so the
-      # backlog has a day to verify the cause (a fixer may close it earlier).
-      - name: Resolve the revenue issue after recovery
+      # Closing half: 6 consecutive clean closed hours after the last alarm.
+      - name: Resolve the deploy skew issue after recovery
         if: steps.monitor.outputs.status == 'recovered' && github.event.inputs.current_hour == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs --resolve \
-            --title "Revenue ads: segnali orari sotto la baseline IT+CH" \
+            --title "Deploy skew IT+CH: moduli JS incoerenti visti da utenti reali" \
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
@@ -173,10 +166,10 @@ jobs:
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Workflow fallito
-          Il monitor revenue non ha potuto misurare (credenziali GA4, API o report troncato): nessun allarme revenue è stato valutato in questa run.
+          Il monitor del deploy skew non ha potuto misurare (credenziali GA4, API, report troncato o sonda sessioni vuota): nessun allarme di skew è stato valutato in questa run.
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Trigger:** ${{ github.event_name }}
-          **Riproduci:** \`node scripts/monitor-revenue-signals.mjs\` con \`GOOGLE_APPLICATION_CREDENTIALS\`, script in \`scripts/monitor-revenue-signals.mjs\` e \`scripts/lib/revenue-signals.mjs\`." \
+          **Riproduci:** \`node scripts/monitor-deploy-skew.mjs\` con \`GOOGLE_APPLICATION_CREDENTIALS\`, script in \`scripts/monitor-deploy-skew.mjs\` e \`scripts/lib/deploy-skew-signal.mjs\`." \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"

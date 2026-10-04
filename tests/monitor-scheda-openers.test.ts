@@ -27,6 +27,7 @@ import { buildIssueBody as buildCf5xxBody } from '../scripts/cf-5xx-issue-sync.m
 import { buildIssueBody as buildAppErrorBody } from '../scripts/app-error-issue-sync.mjs';
 import { buildIssueBody as buildPostHogBody } from '../scripts/posthog-error-issue-sync.mjs';
 import { buildIssueBody as buildCwvBody } from '../scripts/cwv-monitor-check.mjs';
+import { buildIssueBody as buildDeploySkewBody, evaluateSkew as evaluateDeploySkew } from '../scripts/lib/deploy-skew-signal.mjs';
 import { buildIssueBody as buildTelegramBody } from '../scripts/monitor-telegram-member-count.mjs';
 import { buildIssueBody as buildCampaignGoalBody } from '../scripts/campaign-goal-check.mjs';
 import { buildIndexationIssueBody, buildStructuredDataIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
@@ -78,6 +79,9 @@ const OPENERS: Array<[string, () => string]> = [
     previous: { date: '2026-08-31', cls_p75: 0.21 },
     current: { date: '2026-09-07', cls_p75: 0.24 },
     fmt: (v: number) => String(v),
+  })],
+  ['deploy-skew', () => buildDeploySkewBody({
+    result: evaluateDeploySkew({ hours: [{ dateHour: '2026092508', events: 82, users: 15 }], currentHour: '2026092509' }),
   })],
   ['telegram-member-count', () => buildTelegramBody({
     chatId: '@canale', count: 1234, daysUnchanged: 21, reason: 'invariato da 21 giorni',

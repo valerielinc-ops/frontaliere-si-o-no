@@ -278,6 +278,11 @@ describe('revenue-signal-monitor.yml', () => {
     expect(workflow).not.toMatch(/steps\.monitor\.outcome/);
   });
 
+  it('never opens or resolves the issue on a replay (dispatch with current_hour)', () => {
+    expect(workflow).toMatch(/status == 'alarm' && github\.event\.inputs\.current_hour == ''/);
+    expect(workflow).toMatch(/status == 'recovered' && github\.event\.inputs\.current_hour == ''/);
+  });
+
   it('opens and resolves the same fixed title, with the revenue routing label', () => {
     expect(titles.filter((t) => t === ISSUE_TITLE)).toHaveLength(2);
     expect(workflow).toContain('--resolve');
