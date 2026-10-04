@@ -1,23 +1,23 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-10-03T21:16:32.510Z",
-  "total": 12,
+  "generatedAt": "2026-10-04T09:17:44.461Z",
+  "total": 10,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 12,
+  "written": 10,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 22070,
-  "avgDurationMs": 22070,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 7367,
+  "avgDurationMs": 7367,
   "durationHistory": [
-    22070
+    7367
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:04.346Z",
+      "crawledAt": "2026-10-04T09:17:31.132Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -71,7 +71,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1949b04a-7c46-475f-a2f8-90ee4fc5f989/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:04.751Z",
+      "crawledAt": "2026-10-04T09:17:31.552Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -87,11 +87,11 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/1949b04a-7c46-475f-a2f8-90ee4fc5f989",
       "firstSeenAt": "2026-10-03T09:19:32.112Z",
-      "_qualityScore": 76,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -108,7 +108,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7fefd7e3-8955-495c-805e-aea9db9b1ea8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:05.140Z",
+      "crawledAt": "2026-10-04T09:17:31.977Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -144,7 +144,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/58463804-b58f-4b0e-861b-f49ff9710f89/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:05.556Z",
+      "crawledAt": "2026-10-04T09:17:32.401Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1f53cea8-175e-41d0-96f6-a3b33cc59cb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:05.969Z",
+      "crawledAt": "2026-10-04T09:17:32.798Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -218,7 +218,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f8aaa339-770b-4789-a160-62d37f28cc96/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:06.369Z",
+      "crawledAt": "2026-10-04T09:17:33.223Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5803507c-bc78-4364-a15e-fd5e39a20c8f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:06.801Z",
+      "crawledAt": "2026-10-04T09:17:33.732Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -292,7 +292,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/cd19526d-68be-4e8f-8eb4-801b4e12c98a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:07.196Z",
+      "crawledAt": "2026-10-04T09:17:34.155Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -329,7 +329,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:20.921Z",
+      "crawledAt": "2026-10-04T09:17:34.665Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -366,7 +366,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:16:21.423Z",
+      "crawledAt": "2026-10-04T09:17:35.167Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -391,8 +391,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "spital-sts-4091536added",
       "slug": "dipl-nutrizionisti-spital-sts-thun",
@@ -476,5 +475,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
