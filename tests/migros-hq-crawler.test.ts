@@ -128,6 +128,35 @@ describe('Migros HQ Zürich crawler parser', () => {
     expect(jobs[0]).toMatchObject({ title: 'Live Migros role', url: liveUrl });
   });
 
+  describe('source publication dates', () => {
+    it.each(['basic-offset', 'iso', 'missing', 'future', 'invalid', 'non-string'])('preserves source evidence and retains the job: %s', async (kind) => {
+      const past = new Date(Date.now() - 2 * 86400000).toISOString();
+      const basic = past.replace('Z', '+0200');
+      const raw = kind === 'basic-offset' ? basic
+        : kind === 'iso' ? past
+          : kind === 'future' ? new Date(Date.now() + 2 * 86400000).toISOString()
+            : kind === 'invalid' ? 'not-a-date' : kind === 'non-string' ? 123 : undefined;
+      const url = 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/source-date/5ebe9a24-db13-4fee-a3b1-b041531b7f2b';
+      const detail = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting', title: 'Source date role', description: 'Authentic description retained.',
+        datePosted: raw, jobLocation: { address: { addressLocality: 'Lugano' } },
+      })}</script>`;
+      const jobs = await fetchAllMigrosHqJobs({
+        fetchPage: async (requested: string) => requested.endsWith('/sitemap.xml')
+          ? `<url><loc>${url}</loc></url>` : detail,
+        delayMs: 0,
+      });
+      expect(jobs).toHaveLength(1);
+      const expected = kind === 'basic-offset' ? basic.replace('+0200', '+02:00') : kind === 'iso' ? past : '';
+      expect(jobs[0]).toMatchObject({
+        postedDate: expected, datePosted: expected,
+        postingDateSource: expected ? 'reported' : 'unknown',
+        description: 'Authentic description retained.', url,
+      });
+      expect(Number.isFinite(Date.parse(jobs[0].crawledAt))).toBe(true);
+    });
+  });
+
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
     it('trusts primary domain', () => {
