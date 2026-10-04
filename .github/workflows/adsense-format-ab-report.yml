@@ -206,7 +206,7 @@ jobs:
           # `category: other` / `fu-prio: low`.
           node scripts/lib/github-issue-creator.mjs \
             --title "AdSense in-feed A/B: monitor settimanale" \
-            --description "$(cat /tmp/adsense-format-ab-report.md)" \
+            --description-file /tmp/adsense-format-ab-report.md \
             --priority 4 \
             --label adsense-ab-test \
             --workflow "${{ github.workflow }}"

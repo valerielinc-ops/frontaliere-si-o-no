@@ -12535,6 +12535,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-mondiale-baseball-ciechi-varese.title': 'Italia campione del mondo di baseball per ciechi',
     'blog.article.italia-mondiale-baseball-ciechi-varese.excerpt': 'Trionfo azzurro a Castiglione della Pescaia: battuta Cuba 10-4. Protagonisti i varesini Oliveri (MVP) e Trombini (miglior giovane).',
     'blog.article.italia-mondiale-baseball-ciechi-varese.imageAlt': 'L\'Italia vince il mondiale di baseball per ciechi a Castiglione della Pescaia',
+    'blog.article.urto-spartitraffico-camorino.title': 'Incidente a Camorino, donna ferita verso l\'A2',
+    'blog.article.urto-spartitraffico-camorino.excerpt': 'Dopo aver perso il controllo in curva, l\'auto ha urtato uno spartitraffico e si è rovesciata. L\'entrata verso sud dell\'A2 è rimasta chiusa per oltre un\'ora.',
+    'blog.article.urto-spartitraffico-camorino.imageAlt': 'Svincolo di Camorino verso l\'A2 con uno spartitraffico, luogo dell\'incidente.',
 };
 
 export default blogMetaIt;

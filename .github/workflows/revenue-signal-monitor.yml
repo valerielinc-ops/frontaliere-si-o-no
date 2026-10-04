@@ -139,7 +139,7 @@ jobs:
           set -euo pipefail
           node scripts/lib/github-issue-creator.mjs \
             --title "Revenue ads: segnali orari sotto la baseline IT+CH" \
-            --description "$(cat revenue-signals-issue.md)" \
+            --description-file revenue-signals-issue.md \
             --priority 1 \
             --label Bug \
             --label revenue \
