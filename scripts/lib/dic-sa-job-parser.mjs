@@ -34,6 +34,7 @@
  *   - isTrustedDomain()    — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, fetchJson, slugify, stripHtml } from './crawler-template.mjs';
@@ -240,7 +241,12 @@ export async function fetchAllDicSaJobs() {
     seenSlugs.add(jobSlug);
 
     const employmentType = detectEmploymentTypeFromOccupation(min, max) === 'PART_TIME' ? 'PART_TIME' : 'FULL_TIME';
-    const postedDate = String(post?.date || '').slice(0, 10) || new Date().toISOString().split('T')[0];
+    // WordPress defines date_gmt as publication in GMT; modified is not publication.
+    const gmt = typeof post?.date_gmt === 'string' ? post.date_gmt : '';
+    const publication = sourcePostingDateCandidatesFields([
+      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(gmt) ? `${gmt}Z` : gmt,
+      post?.date, // accepted only with an explicit timezone (or a source date-only value)
+    ]);
 
     const job = {
       // ── Required fields ──
@@ -275,7 +281,7 @@ export async function fetchAllDicSaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: url,
       hiringOrganizationName: DIC_SA_COMPANY_NAME,
       requirements: [],

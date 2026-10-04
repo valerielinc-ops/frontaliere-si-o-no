@@ -31,6 +31,7 @@
  *     romande de réadaptation has its own TYPO3 listing).
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { detectLang, hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -318,7 +319,6 @@ export function createJobpublishChParser(config) {
     }
     console.log(`  ✓ ${feed.length} openings in JobPublish XML feed`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
     let failed = 0;
@@ -397,10 +397,10 @@ export function createJobpublishChParser(config) {
         .digest('hex')
         .slice(0, 12);
 
-      // Posted date: prefer publishStartDate, fallback to today.
-      const postedDate = (item.publishStartDate && /^\d{4}-\d{2}-\d{2}$/.test(item.publishStartDate))
-        ? item.publishStartDate
-        : todayIso;
+      // Only explicit publication fields; employment start and crawl clocks are not evidence.
+      const postingDates = sourcePostingDateCandidatesFields([
+        item.publishStartDate, extractJobPostingLd(detailHtml)?.datePosted,
+      ]);
 
       const publicUrl = detailUrl || (publicCareerUrl || `${FEED_HOST}/feed/v2/website/${jobpublishTenant}`);
 
@@ -434,7 +434,7 @@ export function createJobpublishChParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingDates,
         applyUrl: item.application_url || publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
