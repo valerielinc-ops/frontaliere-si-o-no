@@ -48,6 +48,7 @@
  *   - isTrustedDomain()             — Validate URLs belong to this company
  *   - slugify() / stripHtml()       — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
@@ -282,11 +283,12 @@ export async function fetchAllHessCarrosserieJobs() {
     const jobSlug = slugify(`${title} hess ${city}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.workload_max, ld?.employmentType);
-    const postedDate =
-      (ld?.datePosted && String(ld.datePosted).slice(0, 10)) ||
-      (listing.timestamp && /^\d+$/.test(String(listing.timestamp))
-        ? new Date(Number(listing.timestamp) * 1000).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0]);
+    let sameIdentity = normalizeSpace(ld?.title || '').toLowerCase() === title.toLowerCase();
+    if (ld?.url) {
+      try { sameIdentity = sameIdentity && new URL(ld.url, publicUrl).href === new URL(publicUrl).href; }
+      catch { sameIdentity = false; }
+    }
+    const publication = sourcePostingDateFields(sameIdentity ? ld?.datePosted : '');
 
     const job = {
       // ── Required fields ──
@@ -321,7 +323,7 @@ export async function fetchAllHessCarrosserieJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: listing.id != null ? String(listing.id) : null,
       requirements: [],
