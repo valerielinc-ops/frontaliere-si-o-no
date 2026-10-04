@@ -8,7 +8,8 @@
  * compares the document before and after). The draft keeps the sanitized
  * tailored CV (`tailoredCv.cv`); every fact is still copied from the profile,
  * the candidate's corrections win (candidateWithEdits), and the PDF goes
- * through the same Typst renderer as the runner's.
+ * through the same Typst renderer as the runner's. tailoredCvDocumentFor
+ * gives the same document to the candidate's Word copy.
  *
  * The photo (study 2026-10-02, report-cv-lettera §4): optional, never taken
  * from the candidate's CV, given on the review page. Customary in German-
@@ -111,8 +112,8 @@ export function supersededPhotoPdf(draft) {
 /**
  * The tailored CV's document (buildCvDocument) as every rebuild prints it: the
  * draft's text, the candidate's corrections and answers, and the line choices
- * of the round. The only builder of a rebuild's document (the name the Word
- * copy of the kept documents shares, close-out P8).
+ * of the round. The only builder of a rebuild's document: the PDF's and the
+ * candidate's Word copy's (assistedApplicationDocx.js).
  * @param {{order:object, draft:object, flow?:object, cv?:object}} input cv: the tailored CV to print (default: the draft's)
  * @returns {object|null} null when the draft has no tailored CV to rebuild
  */

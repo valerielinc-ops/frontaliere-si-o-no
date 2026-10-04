@@ -4,6 +4,7 @@
  * that leave with it are known. One place, so every rebuild prints the same
  * recipient (the posting's address kept on the draft; before, the rebuilds
  * printed only the contact person) and lists the enclosures that really leave.
+ * letterBlocksFor gives the same blocks to the candidate's Word copy.
  */
 
 import { letterEnclosures, letterPdfBlocks } from './assistedApplicationAiDraftCore.js';
@@ -13,13 +14,14 @@ import { enclosedDocumentLabels } from './assistedApplicationExtraDocuments.js';
 import { pdfRendererMode, renderLetterPdf } from './assistedApplicationPdfRenderer.js';
 
 /**
- * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number, mode?:string}} input
- * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>} renderer: kept on the draft (`coverLetterRenderer`)
+ * The letter's blocks (letterPdfBlocks): what every rebuild prints, the PDF and the candidate's Word copy
+ * alike (assistedApplicationDocx.js).
+ * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number}} input
  */
-export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, nowMs, mode }) {
+export function letterBlocksFor({ order, orderId, draft, flow = {}, letter, nowMs }) {
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
   const language = draft?.language || 'it';
-  const blocks = letterPdfBlocks({
+  return letterPdfBlocks({
     identity,
     profile,
     posting: draft?.letterAddress || { contactPerson: draft?.contactPerson || '' },
@@ -32,5 +34,12 @@ export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, lette
     // The apprenticeship's subject needs the type the draft was written for.
     type: draftCandidateType(draft),
   });
-  return renderLetterPdf(blocks, { mode: mode || await pdfRendererMode() });
+}
+
+/**
+ * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number, mode?:string}} input
+ * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>} renderer: kept on the draft (`coverLetterRenderer`)
+ */
+export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, nowMs, mode }) {
+  return renderLetterPdf(letterBlocksFor({ order, orderId, draft, flow, letter, nowMs }), { mode: mode || await pdfRendererMode() });
 }

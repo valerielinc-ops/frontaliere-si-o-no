@@ -91,7 +91,7 @@ import {
   runAutomationSweep,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
-import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
+import { handleAssistedApplicationReview, sendReviewResponse } from './src/assistedApplicationReview.js';
 import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
 import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
 import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
@@ -2441,7 +2441,8 @@ export const assistedApplicationReview = onRequest(
   { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: true },
   async (req, res) => {
     try {
-      const { status, body } = await handleAssistedApplicationReview(req, {
+      // JSON, or an editable Word copy as a download (file=letter.docx|cv.docx).
+      sendReviewResponse(res, await handleAssistedApplicationReview(req, {
         db: getAdminDb(),
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         runEffect: (context) => runAutomationEffect(context),
@@ -2451,8 +2452,7 @@ export const assistedApplicationReview = onRequest(
           await bridgeEmailCascadeCredentialsToEnv();
           return sendAssistedApplicationCascade(emails, options);
         },
-      });
-      res.status(status).json(body);
+      }));
     } catch (error) {
       console.error('[assistedApplicationReview]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
