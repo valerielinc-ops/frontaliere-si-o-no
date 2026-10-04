@@ -116,6 +116,72 @@ export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swi
 }
 
 /**
+ * Country-facet names seen on the fleet's Workday tenants, the closed list the
+ * factory may fall back to when a tenant rejects the default key with HTTP 400
+ * and its board summary shows no facet holding the Swiss id. Only facets whose
+ * values are COUNTRIES belong here: the proof reads the same facet's values.
+ *
+ * `locationMainGroup` is deliberately absent. It is a group of nested facets
+ * (`locations`, `primaryLocation`, `locationCountry`), not a filter key:
+ * measured 2026-10-04, `appliedFacets: { locationMainGroup: [<CH id>] }`
+ * answers HTTP 400 on Temenos, Lombard Odier, Medbase, Georg Fischer and
+ * Medtronic, and the nested `locations` answers 502 to a country id.
+ */
+export const WORKDAY_COUNTRY_FACET_PARAMETERS = Object.freeze([
+  'locationCountry', // the default, accepted 2026-10-04 by Georg Fischer, Medtronic, Siemens Healthineers, Sulzer, Trafigura
+  'Country', // Imerys, KONE
+  'Location', // Vontobel
+  'Location_Country', // Ferring (no Swiss value: the zero is proven on it)
+  'alocationCountry', // Galderma
+]);
+
+/**
+ * Pick the facet a Swiss-scoped query should use on a tenant that rejected the
+ * configured key, from the UNFILTERED board summary (`fetchWorkdayBoardSummary`).
+ *
+ *   1. `swiss-value`: the one facet, at any nesting depth, whose own values
+ *      carry a Swiss id (Galderma `alocationCountry`, Vontobel `Location`,
+ *      Imerys / KONE `Country`). The query then returns the Swiss postings
+ *      already filtered.
+ *   2. `known-name`: otherwise, the one TOP-LEVEL facet named in
+ *      `WORKDAY_COUNTRY_FACET_PARAMETERS` (Ferring `Location_Country`). Top
+ *      level only, because that is where the proof reads its values.
+ *
+ * Zero or several candidates at a step → `null`: the caller keeps today's
+ * behaviour (whole board + per-listing Swiss gate, unstamped zero). The
+ * rejected key is never proposed again.
+ *
+ * @param {import('./ats-clients/workday-client.mjs').WorkdayBoardSummary|null|undefined} summary
+ * @param {{ rejectedParameter?: string, swissIds?: string[] }} [options]
+ * @returns {{ facetParameter: string, reason: 'swiss-value'|'known-name' }|null}
+ */
+export function discoverWorkdayCountryFacet(summary, { rejectedParameter = '', swissIds = WORKDAY_SWISS_LOCATION_IDS } = {}) {
+  const facets = Array.isArray(summary?.facets) ? summary.facets : [];
+  const withSwissValue = new Set();
+  const walk = (nodes) => {
+    for (const node of nodes) {
+      if (!node || typeof node !== 'object' || !Array.isArray(node.values)) continue;
+      const parameter = typeof node.facetParameter === 'string' ? node.facetParameter : '';
+      if (parameter && node.values.some((value) => (
+        value && typeof value === 'object' && !Array.isArray(value.values) && swissIds.includes(String(value.id ?? ''))
+      ))) {
+        withSwissValue.add(parameter);
+      }
+      walk(node.values);
+    }
+  };
+  walk(facets);
+  withSwissValue.delete(rejectedParameter);
+  if (withSwissValue.size === 1) return { facetParameter: [...withSwissValue][0], reason: 'swiss-value' };
+  if (withSwissValue.size > 1) return null;
+
+  const known = [...new Set(facets
+    .map((facet) => facet?.facetParameter)
+    .filter((parameter) => parameter !== rejectedParameter && WORKDAY_COUNTRY_FACET_PARAMETERS.includes(parameter)))];
+  return known.length === 1 ? { facetParameter: known[0], reason: 'known-name' } : null;
+}
+
+/**
  * The req's structured primary country, when Workday states one and it is NOT
  * Switzerland; otherwise `''`.
  *
@@ -489,14 +555,18 @@ function detectEmploymentType(timeType = '', title = '') {
  * @param {string[]} [config.locationFilters] Override the Swiss country facet.
  * @param {string} [config.countryFacetParameter='locationCountry'] Name of the
  *   tenant's country/location facet. Most tenants call it `locationCountry`;
- *   some (Imerys, KONE) call it `Country` and answer HTTP 400 to the default key, which would
- *   otherwise drop the run onto the unfiltered global board.
- * @param {boolean} [config.proveSwissAbsentFromLiveBoard=false] Stamp an empty
+ *   some (Imerys, KONE) call it `Country` and answer HTTP 400 to the default
+ *   key. Leave it out: when the default is rejected with HTTP 400 the factory
+ *   reads the board's facets and picks the country facet itself
+ *   (`discoverWorkdayCountryFacet`). Declare it only when that discovery finds
+ *   nothing or the wrong facet; a declared key is never second-guessed.
+ * @param {boolean} [config.proveSwissAbsentFromLiveBoard=true] Stamp an empty
  *   result as a source-proven zero when the Swiss-faceted query itself states
  *   `total: 0` AND the unfiltered board is live (`total > 0`) with Switzerland
- *   absent from its country/location facet (`provesWorkdaySwissAbsentFromBoard`). Pair
- *   with the runner's `allowAuthoritativeEmptySnapshot` +
- *   `authoritativeSnapshotScope: 'empty-only'`.
+ *   absent from its country/location facet (`provesWorkdaySwissAbsentFromBoard`).
+ *   On by default: the standard crawler template honours the stamp. Pass
+ *   `false` only with a comment on that line, or the one above, saying why
+ *   (tests/workday-swiss-job-parser-common.test.ts enforces the comment).
  * @param {boolean} [config.preferJobRequisitionLocation=false] Use the
  *   requisition's structured workplace when the tenant's public listing
  *   location is a search/region label.
@@ -532,7 +602,7 @@ export function createWorkdaySwissParser(config) {
     defaultSourceLang = 'en',
     locationFilters = WORKDAY_SWISS_LOCATION_IDS,
     countryFacetParameter = 'locationCountry',
-    proveSwissAbsentFromLiveBoard = false,
+    proveSwissAbsentFromLiveBoard = true,
     preferJobRequisitionLocation = false,
     proveForeignOnlyBoardEmpty = false,
     includeCareerSiteSidebar = false,
@@ -541,6 +611,9 @@ export function createWorkdaySwissParser(config) {
   if (!companyKey || !companyName || !tenantHost || !sitePath || !defaultCanton) {
     throw new Error('createWorkdaySwissParser: missing required config (companyKey, companyName, tenantHost, sitePath, defaultCanton)');
   }
+
+  // A key the parser declared is the tenant's own answer: no discovery over it.
+  const countryFacetDeclared = config.countryFacetParameter !== undefined;
 
   const API_BASE = buildWorkdayApiBase(tenantHost, sitePath);
   const PUBLIC_BASE = `https://${tenantHost}/en-US/${sitePath}`;
@@ -576,14 +649,16 @@ export function createWorkdaySwissParser(config) {
     }
   }
 
-  async function fetchJobListings({ useCountryFacet, stats = undefined }) {
+  async function fetchJobListings({ useCountryFacet, stats = undefined, facetParameter = countryFacetParameter }) {
     const out = [];
     // Default path applies the canonical Swiss `locationCountry` facet. Some
     // tenants name their country facet differently (`Location`,
     // `alocationCountry`, …) and reject `locationCountry` with HTTP 400 — for
-    // those we refetch the unfiltered board and rely on strict canton inference.
+    // those fetchAllJobs() first looks for the tenant's own country facet, and
+    // only without one refetches the unfiltered board under strict canton
+    // inference.
     const fetchOpts = useCountryFacet
-      ? { appliedFacets: { [countryFacetParameter]: locationFilters }, maxPages: 100000, stats }
+      ? { appliedFacets: { [facetParameter]: locationFilters }, maxPages: 100000, stats }
       : { appliedFacets: {}, maxPages: 100000, stats };
     try {
       for await (const posting of fetchWorkdayJobs(API_BASE, fetchOpts)) {
@@ -634,35 +709,70 @@ export function createWorkdaySwissParser(config) {
    * Returns null when the unfiltered board explicitly lists Switzerland: the
    * faceted zero is then inconsistent with the source and the caller must
    * refetch the unfiltered board through the strict per-listing CH gate.
+   * `facetParameter` is the key the faceted query actually used (declared or
+   * discovered): the board must be read on that same facet. `boardCache` holds
+   * the unfiltered summary already read in this run (by facet discovery or an
+   * earlier proof attempt), so the board is read at most once per run; a failed
+   * read is not cached.
    */
-  async function proveSwissAbsentEmpty(facetApplied, facetStats) {
+  async function proveSwissAbsentEmpty(facetApplied, facetStats, facetParameter, boardCache) {
     const empty = [];
     const facetSaidZero = facetApplied
       && facetStats?.firstPageTotal === 0
       && facetStats?.endReason === 'empty-page'
       && facetStats?.yielded === 0;
     if (!facetSaidZero) return empty;
-    let summary;
-    try {
-      summary = await fetchWorkdayBoardSummary(API_BASE);
-    } catch (err) {
-      console.warn(`⚠️ ${companyName}: could not read the unfiltered Workday board to prove the Swiss zero (${err?.message || err}).`);
-      return empty;
+    let summary = boardCache?.summary;
+    if (!summary) {
+      try {
+        summary = await fetchWorkdayBoardSummary(API_BASE);
+      } catch (err) {
+        console.warn(`⚠️ ${companyName}: could not read the unfiltered Workday board to prove the Swiss zero (${err?.message || err}).`);
+        return empty;
+      }
+      if (boardCache) boardCache.summary = summary;
     }
-    if (!provesWorkdaySwissAbsentFromBoard(summary, { facetParameter: countryFacetParameter, swissIds: locationFilters })) {
+    if (!provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swissIds: locationFilters })) {
       console.warn(`⚠️ ${companyName}: the unfiltered Workday board does not prove the Swiss zero `
-        + `(total=${summary?.total ?? 'n/a'}, ${countryFacetParameter} facet ${workdayFacetLeafValues(summary?.facets, countryFacetParameter) ? 'present' : 'missing'}).`);
-      if (workdayBoardListsSwitzerland(summary, { facetParameter: countryFacetParameter, swissIds: locationFilters })) {
+        + `(total=${summary?.total ?? 'n/a'}, ${facetParameter} facet ${workdayFacetLeafValues(summary?.facets, facetParameter) ? 'present' : 'missing'}).`);
+      if (workdayBoardListsSwitzerland(summary, { facetParameter, swissIds: locationFilters })) {
         return null;
       }
       return empty;
     }
-    const locations = workdayFacetLeafValues(summary.facets, countryFacetParameter);
+    const locations = workdayFacetLeafValues(summary.facets, facetParameter);
     const evidence = `${companyName} Workday site ${sitePath}: Swiss-faceted query total 0; live board `
       + `${summary.total} posting(s) across ${locations.length} location value(s) (${locations.slice(0, 5).map((c) => c.descriptor).join(', ')}`
       + `${locations.length > 5 ? ', …' : ''}), Switzerland not among them`;
     console.log(`  🧾 Proven empty Swiss board — ${evidence}`);
     return markAuthoritativeEmptySnapshot(empty, evidence);
+  }
+
+  /**
+   * After the Swiss-faceted query failed: when it was an HTTP 400 on the
+   * default key (the tenant names its country facet differently), read the
+   * unfiltered board's facets and pick the tenant's own country facet. Any
+   * other failure (anti-bot, 5xx, network), a key the parser declared, or a
+   * board that does not name one facet unambiguously → `null`, today's path.
+   * The summary read here is kept in `boardCache` for the zero proof.
+   */
+  async function discoverCountryFacetAfterRejection(err, boardCache) {
+    if (countryFacetDeclared) return null;
+    if (err instanceof WorkdayAuthError || err?.statusCode !== 400) return null;
+    let summary;
+    try {
+      summary = await fetchWorkdayBoardSummary(API_BASE);
+    } catch (summaryErr) {
+      console.warn(`⚠️ ${companyName}: could not read the Workday board facets to find the country facet (${summaryErr?.message || summaryErr}).`);
+      return null;
+    }
+    if (boardCache) boardCache.summary = summary;
+    const discovered = discoverWorkdayCountryFacet(summary, { rejectedParameter: countryFacetParameter, swissIds: locationFilters });
+    if (!discovered) {
+      const names = (summary?.facets || []).map((facet) => facet?.facetParameter).filter(Boolean);
+      console.warn(`⚠️ ${companyName}: no single country facet on the Workday board (facets: ${names.join(', ') || 'none'}).`);
+    }
+    return discovered;
   }
 
   async function fetchAllJobs() {
@@ -677,14 +787,37 @@ export function createWorkdaySwissParser(config) {
     // How the faceted pagination ended — the completeness evidence for the
     // authoritative-empty proof. Only the faceted fetch fills it.
     const facetStats = {};
+    // The facet key the Swiss-scoped query ends up using: the declared one, or
+    // the one discovered on the board after the default was rejected.
+    let facetParameter = countryFacetParameter;
+    // The unfiltered board summary, read at most once per run and shared by
+    // facet discovery and the zero proof.
+    const boardCache = {};
     try {
-      listings = await fetchJobListings({ useCountryFacet: true, stats: facetStats });
+      listings = await fetchJobListings({ useCountryFacet: true, stats: facetStats, facetParameter });
     } catch (err) {
-      // Country facet not recognised by this tenant — refetch the full board and
-      // apply a strict Swiss-canton gate per listing instead.
-      console.warn(`⚠️ ${companyName}: locationCountry facet rejected (${err?.message || err}). Refetching unfiltered with strict CH gate.`);
-      facetApplied = false;
-      listings = await fetchJobListings({ useCountryFacet: false });
+      console.warn(`⚠️ ${companyName}: ${countryFacetParameter} facet rejected (${err?.message || err}).`);
+      const discovered = await discoverCountryFacetAfterRejection(err, boardCache);
+      let discoveredListings = null;
+      if (discovered) {
+        console.warn(`⚠️ ${companyName}: using the board's own country facet "${discovered.facetParameter}" `
+          + `(found by ${discovered.reason === 'swiss-value' ? 'its Swiss value' : 'its known name'}).`);
+        try {
+          discoveredListings = await fetchJobListings({ useCountryFacet: true, stats: facetStats, facetParameter: discovered.facetParameter });
+          facetParameter = discovered.facetParameter;
+        } catch (retryErr) {
+          console.warn(`⚠️ ${companyName}: discovered facet "${discovered.facetParameter}" rejected too (${retryErr?.message || retryErr}).`);
+        }
+      }
+      if (discoveredListings) {
+        listings = discoveredListings;
+      } else {
+        // No usable country facet on this tenant — refetch the full board and
+        // apply a strict Swiss-canton gate per listing instead.
+        console.warn(`⚠️ ${companyName}: refetching unfiltered with strict CH gate.`);
+        facetApplied = false;
+        listings = await fetchJobListings({ useCountryFacet: false });
+      }
     }
 
     // Some tenants accept the locationCountry facet without erroring and
@@ -695,7 +828,7 @@ export function createWorkdaySwissParser(config) {
     // strict per-listing gate using the SAME (already unfiltered) listings,
     // no extra fetch needed.
     if (facetApplied && listings.some((l) => isLocationExplicitlyForeign(l.locationRaw))) {
-      console.warn(`⚠️ ${companyName}: locationCountry facet silently ignored (foreign listings present in "filtered" board). Applying strict CH gate.`);
+      console.warn(`⚠️ ${companyName}: ${facetParameter} facet silently ignored (foreign listings present in "filtered" board). Applying strict CH gate.`);
       facetApplied = false;
     }
 
@@ -707,7 +840,7 @@ export function createWorkdaySwissParser(config) {
     if (facetApplied && listings.length === 0) {
       facetReturnedEmpty = true;
       if (proveSwissAbsentFromLiveBoard) {
-        emptyProof = await proveSwissAbsentEmpty(true, facetStats);
+        emptyProof = await proveSwissAbsentEmpty(true, facetStats, facetParameter, boardCache);
         if (isAuthoritativeEmptySnapshot(emptyProof)) return emptyProof;
       }
       console.warn(`⚠️ ${companyName}: Swiss facet returned no listings. Refetching unfiltered with strict CH gate.`);
@@ -728,7 +861,7 @@ export function createWorkdaySwissParser(config) {
       if (listings?.fetchOutcome === 'anti_bot_block') return listings;
       if (proveSwissAbsentFromLiveBoard) {
         const proof = emptyProof === undefined
-          ? await proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats)
+          ? await proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats, facetParameter, boardCache)
           : emptyProof;
         if (isAuthoritativeEmptySnapshot(proof)) return proof;
       }
@@ -964,7 +1097,7 @@ export function createWorkdaySwissParser(config) {
     // produces no Swiss jobs. Preserve an unproven result as a bare batch.
     if (proveSwissAbsentFromLiveBoard && facetReturnedEmpty && jobs.length === 0) {
       const proven = emptyProof === undefined || (Array.isArray(emptyProof) && !isAuthoritativeEmptySnapshot(emptyProof))
-        ? await proveSwissAbsentEmpty(true, facetStats)
+        ? await proveSwissAbsentEmpty(true, facetStats, facetParameter, boardCache)
         : emptyProof;
       if (isAuthoritativeEmptySnapshot(proven)) return proven;
     }
