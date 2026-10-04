@@ -730,7 +730,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
+        "en": "Automatic / PLC programmer / automation technician",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
         "fr": "Automatique (m/f/d)"
       },
@@ -1217,7 +1217,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Linee di estrusione (m/f/d) - Operatore di processo (m/f/d)",
-        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
+        "en": "Plant Manager (m/f/d) Extrusion Lines - Process Operator (m/f/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Plant Manager (h/f/d) Lignes d'extrusion - Opérateur de processus (h/f/d)"
       },
@@ -1279,8 +1279,7 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sika-480d8c0d855e",
@@ -1297,7 +1296,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
-        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
+        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Gestionnaire d'usine Recyclage (h/f/d) - Recyclage de l'opérateur de processus (h/f/d)"
       },
@@ -1355,8 +1354,7 @@
           "maxValue": 171000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sika-3fe11d440497",
@@ -1545,7 +1543,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palettierer",
+        "it": "Palletizzatori",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1609,8 +1607,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sika-757e4a7d8e68",
@@ -1786,7 +1783,7 @@
       "title": "Anlagenführer (w/m) / Process Operator (f/m)",
       "titleByLocale": {
         "it": "Gestione del sistema (m/f) / Operatore di processo (m/f)",
-        "en": "Anlagenführer (w/m) / Process Operator (f/m)",
+        "en": "System Manager (m/f) / Process Operator (m/f)",
         "de": "Anlagenführer (w/m) / Process Operator (f/m)",
         "fr": "Gestionnaire de système (h/f) / Opérateur de processus (h/f)"
       },
@@ -1847,8 +1844,7 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sika-880538c4d908",
