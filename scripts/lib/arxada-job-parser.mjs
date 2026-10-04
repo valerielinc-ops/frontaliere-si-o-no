@@ -15,6 +15,8 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
@@ -358,7 +360,7 @@ export async function fetchAllArxadaJobs() {
       sector: 'Chimica / Specialty Chemicals',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(workdayPostingDateFields(listing), workdayPostingDateFields(detail)),
       url: publicUrl,
       applyUrl: publicUrl,
       source: 'Arxada Dedicated Parser (Workday)',
