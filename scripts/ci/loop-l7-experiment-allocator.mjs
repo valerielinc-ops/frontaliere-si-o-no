@@ -216,6 +216,78 @@ export function validateCandidateRegistry(registry, {
   };
 }
 
+const OUTCOME_COUNT_FIELDS = Object.freeze([
+  'eligibleCohort',
+  'assignments',
+  'exposures',
+  'primaryOutcomes',
+  'guardrailBreaches',
+  'persistentAssignments',
+  'contaminatedAssignments',
+]);
+
+/**
+ * An export that declares `activeExperiments: 0` says there is nothing to
+ * allocate. It is accepted as the `zero` idle state only when it is fresh,
+ * explicitly independent, sourced, and reports no participation; anything
+ * else is a finding like any other ledger defect.
+ */
+function validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath }) {
+  const issues = [];
+  const evidence = outcomes.evidence || outcomes.provenance;
+  if (outcomes.independent !== true) {
+    issues.push('outcomes.independent must be explicitly true for a declared idle state');
+  }
+  if (!object(evidence) || !text(evidence.source)) {
+    issues.push('outcomes.evidence.source is missing for a declared idle state');
+  }
+  for (const name of OUTCOME_COUNT_FIELDS) {
+    const value = outcomes[name] ?? outcomes.metrics?.[name];
+    if (integer(value) && value > 0) {
+      issues.push(`outcomes.activeExperiments is 0 but outcomes.${name} reports ${value}`);
+    }
+  }
+  const generatedAt = finiteDate(outcomes.generatedAt || outcomes._meta?.generatedAt);
+  let ageHours = null;
+  if (!generatedAt) {
+    issues.push('outcomes.generatedAt is missing or invalid');
+  } else {
+    ageHours = hoursBetween(now, generatedAt);
+    if (ageHours < -0.0834) issues.push('outcomes.generatedAt is in the future');
+    if (ageHours > maxAgeHours) issues.push(`experiment outcomes are ${ageHours.toFixed(1)}h old (max ${maxAgeHours}h)`);
+  }
+  let quality = 'zero';
+  if (!generatedAt) quality = 'partial';
+  else if (ageHours < -0.0834 || ageHours > maxAgeHours) quality = 'stale';
+  else if (issues.length) quality = 'partial';
+  return {
+    quality,
+    idle: true,
+    issues,
+    snapshot: {
+      path: sourcePath,
+      missing: false,
+      idle: true,
+      activeExperiments: 0,
+      independent: outcomes.independent === true,
+      evidence: object(evidence)
+        ? {
+          source: text(evidence.source) ? evidence.source.trim() : null,
+          sourceRefs: Array.isArray(evidence.sourceRefs) ? evidence.sourceRefs.filter(text).map((sourceRef) => sourceRef.trim()) : [],
+        }
+        : null,
+      preRegistration: null,
+      assignmentLedger: null,
+      contaminationPolicy: null,
+      generatedAt: generatedAt?.toISOString() || null,
+      ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
+      ...Object.fromEntries(OUTCOME_COUNT_FIELDS.map((name) => [name, null])),
+      durationDays: null,
+      quality,
+    },
+  };
+}
+
 function validateOutcomes(outcomes, {
   now,
   maxAgeHours,
@@ -249,6 +321,9 @@ function validateOutcomes(outcomes, {
         quality: 'partial',
       },
     };
+  }
+  if (outcomes.activeExperiments === 0) {
+    return validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath });
   }
   const issues = [];
   const evidence = outcomes.evidence || outcomes.provenance;
@@ -446,15 +521,21 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   else if (issues.length) quality = 'partial';
   else if (outcomeVerdict.quality === 'zero') quality = 'zero';
   else if (outcomeVerdict.quality !== 'observed') quality = 'partial';
-  const ok = quality === 'observed' && issues.length === 0;
+  // A declared idle state (no active experiment) is a true zero, not a
+  // defective ledger: nothing is allocated, so there is nothing to report.
+  // A registered experiment that measures zero still fails below.
+  const idle = outcomeVerdict.idle === true && quality === 'zero' && issues.length === 0;
+  const ok = (quality === 'observed' || idle) && issues.length === 0;
   return baseVerdict({
     sourcePath,
     now,
     quality,
     ok,
-    reason: ok
-      ? 'candidate provenance and independent experiment outcomes are fresh and coherent'
-      : summarizeIssues(issues, quality),
+    reason: idle
+      ? 'no active experiment: nothing to allocate'
+      : (ok
+        ? 'candidate provenance and independent experiment outcomes are fresh and coherent'
+        : summarizeIssues(issues, quality)),
     issues,
     warnings,
     snapshot,
@@ -531,7 +612,9 @@ function buildExperimentOutcome({ source, verdict, policy, registry, plan, now }
     observedAt: generatedAt?.toISOString() || null,
     reason: measured
       ? 'explicit independent experiment ledger with persistent assignment, guardrails and expiry'
-      : `experiment outcome is ${status}; no traffic or price change is authorized`,
+      : (outcomeSnapshot.idle === true
+        ? 'no experiment is registered as active; nothing is allocated and no traffic or price change is authorized'
+        : `experiment outcome is ${status}; no traffic or price change is authorized`),
     now,
   });
   return {

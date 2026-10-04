@@ -481,4 +481,108 @@ describe('L7 Experiment Allocator', () => {
     })).rejects.toThrow('issue API unavailable');
     expect(fs.existsSync(path.join(files.reportDir, 'l7-result.json'))).toBe(false);
   });
+
+  describe('declared idle state (no active experiment)', () => {
+    function idleExport(overrides: Record<string, unknown> = {}) {
+      return {
+        schemaVersion: 1,
+        loopId: 'L7',
+        status: 'idle',
+        quality: 'zero',
+        generatedAt: NOW.toISOString(),
+        independent: true,
+        activeExperiments: 0,
+        eligibleCohort: null,
+        assignments: null,
+        exposures: null,
+        primaryOutcomes: null,
+        guardrailBreaches: null,
+        persistentAssignments: null,
+        contaminatedAssignments: null,
+        durationDays: null,
+        evidence: {
+          source: 'data/experiments/active-experiments.json declares no active experiment; no telemetry source was queried',
+          sourceRefs: ['experiment-assignment-exposure-outcome'],
+          status: 'idle',
+        },
+        reason: 'no experiment is registered as active (data/experiments/active-experiments.json)',
+        ...overrides,
+      };
+    }
+
+    it('reports nothing to allocate, keeps allocation disabled and opens no issue', async () => {
+      const files = tempFiles(registry(), idleExport());
+      let issues = 0;
+      let resolved = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        reportDir: files.reportDir,
+        issue: true,
+        apply: true,
+        createIssueImpl: async () => { issues += 1; return { persisted: true }; },
+        resolveIssueImpl: async () => { resolved += 1; return null; },
+        logger: { log() {} },
+      });
+      expect(result.verdict).toMatchObject({ ok: true, quality: 'zero', reason: 'no active experiment: nothing to allocate' });
+      expect(result.decision).toMatchObject({ decision: 'observing', actionClass: 'observe' });
+      expect(result.issued).toBe(false);
+      expect(issues).toBe(0);
+      expect(resolved).toBe(1);
+      expect(result.outcome).toMatchObject({ safeToAct: false, independent: false, ledger: { persistent: false } });
+      expect(result.allocationPlan).toMatchObject({ persistent: false, boundedCanary: { enabled: false } });
+      expect(result.observation.numerator).toBeNull();
+      expect(result.verdict.candidates.length).toBe(registry().candidates.length);
+    });
+
+    it('still fails on candidate defects while idle', () => {
+      const verdict = validateExperimentAllocator({
+        registry: registry({ candidates: [candidate({ sources: [] })] }),
+        outcomes: idleExport(),
+      }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.issues.join(' ')).toContain('sources must be');
+    });
+
+    it('does not accept a stale, unsourced or participating idle declaration', () => {
+      const check = (overrides: Record<string, unknown>) => validateExperimentAllocator({
+        registry: registry(),
+        outcomes: idleExport(overrides),
+      }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY });
+      expect(check({ generatedAt: '2026-09-01T00:00:00.000Z' })).toMatchObject({ ok: false, quality: 'stale' });
+      expect(check({ evidence: null })).toMatchObject({ ok: false, quality: 'partial' });
+      expect(check({ independent: false })).toMatchObject({ ok: false, quality: 'partial' });
+      const participating = check({ assignments: 12 });
+      expect(participating.ok).toBe(false);
+      expect(participating.issues.join(' ')).toContain('activeExperiments is 0 but outcomes.assignments reports 12');
+    });
+
+    it('keeps a registered experiment that measures zero as a blind ledger with an issue', async () => {
+      const files = tempFiles(registry(), outcomes({
+        activeExperiments: 1,
+        eligibleCohort: 0,
+        assignments: 0,
+        exposures: 0,
+        primaryOutcomes: 0,
+        persistentAssignments: 0,
+      }));
+      let issues = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        reportDir: files.reportDir,
+        issue: true,
+        createIssueImpl: async () => { issues += 1; return { persisted: true }; },
+        logger: { log() {} },
+      });
+      expect(result.verdict).toMatchObject({ ok: false, quality: 'zero' });
+      expect(result.issued).toBe(true);
+      expect(issues).toBe(1);
+      expect(result.outcome.safeToAct).toBe(false);
+      expect(result.allocationPlan.boundedCanary.enabled).toBe(false);
+    });
+  });
 });
+

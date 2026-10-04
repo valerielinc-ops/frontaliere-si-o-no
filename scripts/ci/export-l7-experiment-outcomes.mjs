@@ -3,12 +3,21 @@
 /**
  * Read-only L7 experiment outcome export.
  *
- * The current bounded experiment is G4 affiliate contextual recommendations.
- * Assignment is stable for an experiment session in sessionStorage and the
- * exposure/click evidence is persisted by PostHog. This exporter joins only
- * categorical events on `properties.$session_id`; it never reads email, URL, identity,
- * partner revenue, or any user-level payload and never mutates traffic, price,
- * inventory, or Remote Config.
+ * Which experiment is active is declared in
+ * `data/experiments/active-experiments.json`, the only source of truth. When it
+ * lists no experiment the exporter queries no source at all and writes an
+ * explicit `idle` export (`activeExperiments: 0`): with nothing assigned there
+ * is nothing to measure, and a zero read from a switched-off source must not
+ * be reported as an untrustworthy ledger.
+ *
+ * When an experiment is registered the exporter runs the G4 affiliate
+ * contextual reader below: categorical exposure/click events joined on
+ * `properties.$session_id` in PostHog. PostHog product events are hard-stopped
+ * (`POSTHOG_EVENT_SAMPLE_RATE = 0`), so the first registered entry has to move
+ * this reader to GA4; `tests/loop-fleet-source-liveness.test.ts` enforces it.
+ * The exporter never reads email, URL, identity, partner revenue, or any
+ * user-level payload and never mutates traffic, price, inventory, or Remote
+ * Config.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,6 +28,7 @@ import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L7_WINDOW_DAYS = 8;
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
+export const DEFAULT_ACTIVE_EXPERIMENTS_PATH = path.join('data', 'experiments', 'active-experiments.json');
 export const L7_EXPERIMENT_EVENT_CONTRACT = Object.freeze({
   experimentId: 'g4-affiliate-contextual',
   exposureEvent: 'affiliate_experiment_exposure',
@@ -78,6 +88,100 @@ function completeUtcWindow(now, days) {
 
 function readL7Policy(registryPath) {
   return loadLoopPolicy(registryPath, 'L7').policy;
+}
+
+const ACTIVE_EXPERIMENT_TEXT_FIELDS = Object.freeze(['experimentId', 'exposureEvent', 'outcomeEvent', 'rcParam']);
+
+/**
+ * Parse the declared list of active experiments. Anything but a well-formed
+ * file throws: a missing or malformed declaration must not read as "idle".
+ */
+export function parseActiveExperiments(value, label = DEFAULT_ACTIVE_EXPERIMENTS_PATH) {
+  if (!isObject(value) || value.schemaVersion !== 1 || !Array.isArray(value.experiments)) {
+    throw new Error(`${label} must be { schemaVersion: 1, experiments: [] }`);
+  }
+  const seen = new Set();
+  value.experiments.forEach((entry, index) => {
+    const prefix = `${label} experiments[${index}]`;
+    if (!isObject(entry)) throw new Error(`${prefix} is not an object`);
+    for (const field of ACTIVE_EXPERIMENT_TEXT_FIELDS) {
+      if (!text(entry[field])) throw new Error(`${prefix}.${field} is missing`);
+    }
+    if (!Array.isArray(entry.variants) || entry.variants.length < 2 || entry.variants.some((variant) => !text(variant))) {
+      throw new Error(`${prefix}.variants must list at least two variants`);
+    }
+    if (!finiteDate(entry.startedAt)) throw new Error(`${prefix}.startedAt is missing or invalid`);
+    if (seen.has(entry.experimentId)) throw new Error(`${prefix}.experimentId ${entry.experimentId} is duplicated`);
+    seen.add(entry.experimentId);
+  });
+  return value.experiments;
+}
+
+export function readActiveExperiments(filePath = DEFAULT_ACTIVE_EXPERIMENTS_PATH) {
+  return parseActiveExperiments(JSON.parse(fs.readFileSync(path.resolve(filePath), 'utf8')), filePath);
+}
+
+/**
+ * Explicit "nothing to measure" export. `independent` holds because the
+ * declaration file is maintained apart from the candidate generator and is
+ * tied to the client emitters by a test; no count is reported because no
+ * source was read.
+ */
+export function buildIdleL7ExperimentOutcome({
+  policy = {},
+  now = new Date(),
+  activeExperimentsPath = DEFAULT_ACTIVE_EXPERIMENTS_PATH,
+} = {}) {
+  const reason = `no experiment is registered as active (${activeExperimentsPath})`;
+  return {
+    schemaVersion: 1,
+    loopId: 'L7',
+    status: 'idle',
+    quality: 'zero',
+    generatedAt: now.toISOString(),
+    independent: true,
+    activeExperiments: 0,
+    eligibleCohort: null,
+    assignments: null,
+    exposures: null,
+    primaryOutcomes: null,
+    guardrailBreaches: null,
+    persistentAssignments: null,
+    contaminatedAssignments: null,
+    durationDays: null,
+    metrics: {
+      eligibleCohort: null,
+      assignments: null,
+      exposures: null,
+      primaryOutcomes: null,
+      guardrailBreaches: null,
+      persistentAssignments: null,
+      contaminatedAssignments: null,
+      durationDays: null,
+    },
+    variants: {},
+    evidence: {
+      source: `${activeExperimentsPath} declares no active experiment; no telemetry source was queried`,
+      sourceRefs: sourceRefs(policy),
+      status: 'idle',
+    },
+    export: {
+      schemaVersion: 1,
+      experimentId: null,
+      readOnly: true,
+      idle: true,
+      mutationsPerformed: false,
+      trafficMutationAllowed: false,
+      priceMutationAllowed: false,
+      noAutomaticPriceChange: true,
+    },
+    _meta: {
+      generatedAt: now.toISOString(),
+      source: activeExperimentsPath,
+      purpose: 'Declared idle state for Loop L7: no experiment to allocate',
+    },
+    reason,
+  };
 }
 
 function readRemoteConfigValue(template, name) {
@@ -383,18 +487,28 @@ export async function exportL7({
   client = null,
   config = null,
   posthogRunner = runHogQL,
+  activeExperimentsPath = DEFAULT_ACTIVE_EXPERIMENTS_PATH,
 } = {}) {
   if (!text(outputPath)) throw new Error('--out is required');
   const policy = readL7Policy(registryPath);
-  const window = completeUtcWindow(now, days);
-  const posthogConfig = config || await resolvePostHogConfig(client || new GoogleDataClient());
-  const counts = await fetchL7ExperimentCounts({
-    posthogRunner,
-    config: posthogConfig,
-    start: window.start,
-    end: window.end,
-  });
-  const outcome = buildL7ExperimentOutcome({ counts, policy, now, telemetryWindow: window });
+  const experiments = readActiveExperiments(activeExperimentsPath);
+  let outcome;
+  if (experiments.length === 0) {
+    outcome = buildIdleL7ExperimentOutcome({ policy, now, activeExperimentsPath });
+  } else {
+    const window = completeUtcWindow(now, days);
+    const posthogConfig = config || await resolvePostHogConfig(client || new GoogleDataClient());
+    const counts = await fetchL7ExperimentCounts({
+      posthogRunner,
+      config: posthogConfig,
+      start: window.start,
+      end: window.end,
+    });
+    outcome = {
+      ...buildL7ExperimentOutcome({ counts, policy, now, telemetryWindow: window }),
+      activeExperiments: experiments.length,
+    };
+  }
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
   return outcome;
@@ -412,6 +526,7 @@ function parseArgs(argv) {
     unavailable: argv.includes('--unavailable'),
     outputPath: valueAfter('--out', null),
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
+    activeExperimentsPath: valueAfter('--active-experiments', DEFAULT_ACTIVE_EXPERIMENTS_PATH),
     days,
   };
 }
@@ -428,7 +543,8 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
     fs.mkdirSync(path.dirname(path.resolve(options.outputPath)), { recursive: true });
     fs.writeFileSync(path.resolve(options.outputPath), `${JSON.stringify(result, null, 2)}\n`);
   }
-  logger.log(options.json ? JSON.stringify(result, null, 2) : `[L7] experiment outcome exported (${result.independent ? 'independent' : 'unavailable/unverified'})`);
+  const label = result.activeExperiments === 0 ? 'idle: no active experiment' : (result.independent ? 'independent' : 'unavailable/unverified');
+  logger.log(options.json ? JSON.stringify(result, null, 2) : `[L7] experiment outcome exported (${label})`);
   return result;
 }
 
