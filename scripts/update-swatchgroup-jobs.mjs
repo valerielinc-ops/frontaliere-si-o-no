@@ -21,6 +21,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import {
   SHARED_POOL_BRAND_PATTERNS,
+  hasAuthoritativeSharedPoolEmpty,
   isSharedSwatchPoolJob,
   selectSharedPoolBrandJobs,
 } from './lib/swatchgroup-brand-filter.mjs';
@@ -191,7 +192,12 @@ async function main() {
     } catch {}
   }
 
-  await runBaseCrawler(companyKeys);
+  const baseRun = await runBaseCrawler(companyKeys);
+  // `baseRun.observedJobs` comes from the current shared crawl, whereas
+  // `_allJobs` below is the merged scratch slice and may intentionally retain
+  // prior jobs after a failed/empty fetch. Only the former can prove that an
+  // empty shared-pool brand was actually observed today.
+  const observedJobs = Array.isArray(baseRun?.observedJobs) ? baseRun.observedJobs : [];
   ensureSourceLang(companyKeys);
 
   // Log stats: total jobs found and canton coverage
@@ -317,6 +323,7 @@ async function main() {
       label: ck,
       generatedAt: new Date().toISOString(),
       total: _ckTotal,
+      authoritativeEmptySnapshot: hasAuthoritativeSharedPoolEmpty(ck, observedJobs),
       newCount: crawlDiff.newJobs.length,
       updatedCount: crawlDiff.updatedJobs.length,
       removedCount: crawlDiff.removedJobs.length,
