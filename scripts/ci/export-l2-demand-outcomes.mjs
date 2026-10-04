@@ -312,17 +312,26 @@ export function buildL2ExportSummary(snapshot, { outputPath, limit = SUMMARY_CAN
   const hasOutcomes = object(safe.outcomes)
     && integer(safe.outcomes.eligibleLandingSessions)
     && integer(safe.outcomes.usefulActions);
+  // Same minimum validity and order as the loop's candidates
+  // (loop-l2-demand-utility.mjs validateDemandSnapshot): malformed clusters are
+  // skipped so they cannot outrank the ones the loop actually considers.
   const topCandidates = clusters
-    .filter((cluster) => object(cluster))
+    .filter((cluster) => object(cluster)
+      && text(cluster.canonicalSlug)
+      && text(cluster.canonicalQuery)
+      && integer(cluster.totalImpressions)
+      && integer(cluster.totalClicks)
+      && cluster.totalClicks <= cluster.totalImpressions)
     .map((cluster) => ({
       locale: cluster.locale ?? null,
-      canonicalQuery: cluster.canonicalQuery ?? null,
-      canonicalSlug: cluster.canonicalSlug ?? null,
-      totalImpressions: Number.isFinite(cluster.totalImpressions) ? cluster.totalImpressions : 0,
-      totalClicks: Number.isFinite(cluster.totalClicks) ? cluster.totalClicks : 0,
+      canonicalQuery: cluster.canonicalQuery.trim(),
+      canonicalSlug: cluster.canonicalSlug.trim().replace(/^\/+|\/+$/gu, ''),
+      totalImpressions: cluster.totalImpressions,
+      totalClicks: cluster.totalClicks,
     }))
+    .filter((cluster) => cluster.canonicalSlug !== '')
     .sort((a, b) => b.totalImpressions - a.totalImpressions
-      || String(a.canonicalSlug).localeCompare(String(b.canonicalSlug)))
+      || a.canonicalSlug.localeCompare(b.canonicalSlug))
     .slice(0, limit);
   return {
     loopId: LOOP_ID,

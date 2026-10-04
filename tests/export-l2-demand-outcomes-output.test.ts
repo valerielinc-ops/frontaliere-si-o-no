@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL2DemandExport,
+  buildL2ExportSummary,
   main,
   SUMMARY_CANDIDATE_LIMIT,
 } from '../scripts/ci/export-l2-demand-outcomes.mjs';
@@ -105,6 +106,24 @@ describe('L2 export CLI output budget', () => {
     const verdictOptions = { now: NOW, sourcePath: outputPath };
     expect(validateDemandSnapshot(written, verdictOptions))
       .toEqual(validateDemandSnapshot(expected, verdictOptions));
+  });
+
+  it('lists the same top candidates the loop considers, skipping malformed clusters', async () => {
+    const { outputPath } = await runCli();
+    const written = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    const topImpressions = Math.max(...written.clusters.map((cluster: any) => cluster.totalImpressions));
+    const malformed = [
+      { locale: 'it', canonicalQuery: 'senza slug', totalImpressions: topImpressions + 3, totalClicks: 0 },
+      { locale: 'it', canonicalQuery: 'click oltre', canonicalSlug: 'click-oltre', totalImpressions: topImpressions + 2, totalClicks: topImpressions + 5 },
+      { locale: 'it', canonicalQuery: 'frazione', canonicalSlug: 'frazione', totalImpressions: topImpressions + 1.5, totalClicks: 0 },
+    ];
+    const snapshot = { ...written, clusters: [...malformed, ...written.clusters] };
+    const summary = buildL2ExportSummary(snapshot, { outputPath });
+    const loopSlugs = validateDemandSnapshot(snapshot, { now: NOW, sourcePath: outputPath }).candidates
+      .slice(0, SUMMARY_CANDIDATE_LIMIT)
+      .map((candidate: any) => candidate.canonicalSlug);
+    expect(summary.topCandidates.map((candidate: any) => candidate.canonicalSlug)).toEqual(loopSlugs);
+    expect(summary.clusters).toBe(snapshot.clusters.length);
   });
 
   it('summarizes an explicitly unavailable export without the snapshot', async () => {
