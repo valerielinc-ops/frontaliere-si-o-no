@@ -36,9 +36,9 @@
  *
  * Filenames are STABLE (no content hash) like every other bundler asset — see
  * vite.config.ts `chunkFileNames`/`assetFileNames` for the rationale. A content
- * change propagates via the serving stack's max-age=600 revalidation, not via
- * a rename (the legacy `?v=${BUILD_ID}` query string stays dropped — saves
- * ~75 B/page across ~822k SEO pages).
+ * change propagates via the serving stack's revalidation; the identity-bearing
+ * gtag-init reference additionally carries a short content hash in its query
+ * string so a stale CDN copy cannot emit page_view without emission_id (#9403).
  *
  * The dark-mode + spa-action-redirect + self-heal merge collapses what would be
  * three synchronous <script> tags into one — dark-mode still runs first because
