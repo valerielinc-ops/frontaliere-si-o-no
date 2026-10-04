@@ -12499,6 +12499,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-teatro-mutuo-2026.title': 'Varese approves 10,8 million loan for the new theater',
     'blog.article.nuovo-teatro-mutuo-2026.excerpt': 'The City Council approved the budget adjustment that brings the investment to approximately 22 million, with a loan from Cassa Depositi e Prestiti of 10,8 million.',
     'blog.article.nuovo-teatro-mutuo-2026.imageAlt': 'Rendering of the new Varese theatre with mountains in the background',
+    'blog.article.festa-cairate-2026-monastero.title': 'Festival of Cairate 2026: art, flavours and music at the Monastery',
+    'blog.article.festa-cairate-2026-monastero.excerpt': 'On Sunday 4 October 2026 from 10, the sixteenth Cairate Festival takes place at the Monastero di Santa Maria Assunta with Camminar Gustando (10 € card) and a concert on Saturday 3 October at 21.',
+    'blog.article.festa-cairate-2026-monastero.imageAlt': 'Monastery of Santa Maria Assunta courtyard during Cairate Festival with food stalls and music',
 };
 
 export default blogMetaEn;

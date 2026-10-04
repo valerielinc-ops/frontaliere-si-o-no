@@ -12501,6 +12501,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-teatro-mutuo-2026.title': 'Varese approuve un emprunt de 10,8 millions pour le nouveau théâtre',
     'blog.article.nuovo-teatro-mutuo-2026.excerpt': 'Le Conseil municipal a approuvé la modification budgétaire qui porte l\'investissement à environ 22 millions, avec un emprunt auprès de Cassa Depositi e Prestiti de 10,8 millions.',
     'blog.article.nuovo-teatro-mutuo-2026.imageAlt': 'Rendering du nouveau théâtre de Varese avec les montagnes en arrière-plan',
+    'blog.article.festa-cairate-2026-monastero.title': 'Fête de Cairate 2026 : art, saveurs et musique au monastère',
+    'blog.article.festa-cairate-2026-monastero.excerpt': 'Dimanche 4 octobre 2026 à partir de 10h, la seizième Fête de Cairate se déroule au Monastère de Santa Maria Assunta avec Camminar Gustando (carte 10 € ) et concert le samedi 3 octobre à 21h.',
+    'blog.article.festa-cairate-2026-monastero.imageAlt': 'Cloître du monastère de Santa Maria Assunta pendant la fête de Cairate avec stands de nourriture et musique',
 };
 
 export default blogMetaFr;
