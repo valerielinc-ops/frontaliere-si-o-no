@@ -311,7 +311,9 @@ jobs:
           fi
           healthy="$(jq -r '.healthySources[].plateCode' "$HEALTH_REPORT")"
           open_issues="$RUNNER_TEMP/plate-source-issues.json"
-          if ! gh issue list --state open --limit 500 --json number,title > "$open_issues"; then
+          # Filtered server-side so the ceiling cannot hide an old source issue
+          # behind unrelated open issues; the exact prefix is re-checked below.
+          if ! gh issue list --state open --search 'in:title "Plate auction source degraded"' --limit 500 --json number,title > "$open_issues"; then
             echo "::warning::could not list the open issues; no source issue resolved."
             exit 0
           fi

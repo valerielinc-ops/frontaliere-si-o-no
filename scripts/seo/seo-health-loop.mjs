@@ -75,6 +75,12 @@ const DEFAULT_GSC_STATE_MAX_AGE_DAYS = 10;
 export const DEFAULT_MAX_FETCHES = 640;
 export const DEFAULT_CYCLE_BUDGET_MS = 25 * 60 * 1000;
 export const SEO_CONCURRENCY_GROUP = 'seo-health-loop';
+/**
+ * Title of the issue that owns the workflow's actionable-finding verdict: the
+ * same literal is created and resolved below, and its prefix is the `owner` of
+ * the `VERDICT_STEPS` entry in scripts/ci/close-recovered-failure-issues.mjs.
+ */
+export const SEO_HEALTH_ISSUE_TITLE = 'SEO health loop: repeated production findings';
 const MAX_ISSUE_FINDINGS = 50;
 const MAX_HISTORY_LINES = 400;
 const OBSERVATION_ONLY_FINDING_CODES = new Set([
@@ -762,7 +768,7 @@ async function reportIssueIfNeeded(report) {
       );
       if (!canResolve) return { attempted: false, persisted: false };
       const result = resolveGithubIssue(
-        'SEO health loop: repeated production findings',
+        SEO_HEALTH_ISSUE_TITLE,
         {
           workflow: process.env.GITHUB_WORKFLOW || 'SEO closed-loop health and recovery',
           runUrl: process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
@@ -773,7 +779,7 @@ async function reportIssueIfNeeded(report) {
       return { attempted: true, persisted: Boolean(result), resolved: Boolean(result) };
     }
     const result = await createGithubIssue({
-      title: 'SEO health loop: repeated production findings',
+      title: SEO_HEALTH_ISSUE_TITLE,
       description: buildIssueBody(report),
       priority: 2,
       labels: ['seo', 'monitoring', 'automation'],

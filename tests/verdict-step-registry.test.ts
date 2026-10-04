@@ -542,15 +542,6 @@ describe('lint del registro contro i YAML veri', () => {
     .flatMap((job) => (job?.steps ?? []).map((s) => s?.name).filter((n): n is string => typeof n === 'string'));
 
   /**
-   * Workflow con uno step-verdetto NON ancora registrato. Il loro reporter INTERNO
-   * segnalava apposta anche il verdetto: registrarli prima di dar loro una issue
-   * proprietaria apriva un ciclo chiudi/riapri. LC-07 ha registrato gli ultimi due
-   * (seo-health-loop, refresh-plate-auctions) insieme ai loro reporter proprietari:
-   * la lista è vuota e resta vuota (tests/verdict-owner-reporters.test.ts).
-   */
-  const PENDING_VERDICT_WORKFLOWS = new Set<string>([]);
-
-  /**
    * Step che il pattern intercetta ma che NON sono verdetti, verificati a mano: restano
    * guasti segnalabili.
    */
@@ -576,11 +567,10 @@ describe('lint del registro contro i YAML veri', () => {
     }
   });
 
-  it('nessuno step-verdetto fuori registro, salvo la lista in attesa di LC-07', () => {
+  it('nessuno step-verdetto fuori registro (LC-07 ha registrato gli ultimi due: nessuna lista d\'attesa)', () => {
     const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /\.ya?ml$/.test(f)).sort();
     expect(files.length).toBeGreaterThan(0);
     const unregistered: string[] = [];
-    const pendingSeen = new Set<string>();
     for (const file of files) {
       const rel = `.github/workflows/${file}`;
       const { doc } = readWorkflow(rel);
@@ -588,10 +578,6 @@ describe('lint del registro contro i YAML veri', () => {
         if (!VERDICT_STEP_NAME_RE.test(name)) continue;
         if (VERDICT_STEPS[rel]?.verdict === name) continue;
         if (REVIEWED_NON_VERDICT_STEPS.has(`${rel}#${name}`)) continue;
-        if (PENDING_VERDICT_WORKFLOWS.has(rel)) {
-          pendingSeen.add(rel);
-          continue;
-        }
         unregistered.push(`${rel}#${name}`);
       }
     }
@@ -601,7 +587,5 @@ describe('lint del registro contro i YAML veri', () => {
         + 'Registralo in VERDICT_STEPS (scripts/ci/close-recovered-failure-issues.mjs) oppure, se è un guasto vero, '
         + 'in REVIEWED_NON_VERDICT_STEPS con il motivo.',
     ).toEqual([]);
-    // La lista in attesa si accorcia soltanto: una voce registrata o sparita va tolta.
-    expect([...PENDING_VERDICT_WORKFLOWS].filter((rel) => !pendingSeen.has(rel))).toEqual([]);
   });
 });

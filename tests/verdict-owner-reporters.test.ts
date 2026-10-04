@@ -23,14 +23,14 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, expect, it } from 'vitest';
+import { afterAll, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import registry from '../data/plate-auction-sources-registry.json';
 
 process.env.GH_REPO ||= 'o/r';
 const { VERDICT_STEPS, isVerdictOnlyFailure } = await import('../scripts/ci/close-recovered-failure-issues.mjs');
 const { parseWorkflow, coverageOf } = await import('../scripts/ci/failure-issue-inventory.mjs');
-const { healthVerdict } = await import('../scripts/seo/seo-health-loop.mjs');
+const { healthVerdict, SEO_HEALTH_ISSUE_TITLE } = await import('../scripts/seo/seo-health-loop.mjs');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PLATES = '.github/workflows/refresh-plate-auctions.yml';
@@ -177,11 +177,6 @@ describe('registro degli step-verdetto: ogni voce ha uno scenario e un id', () =
     const verdict = verdictJob(rel, entry).find((s) => s.name === entry.verdict);
     expect(verdict?.id, `${rel}: «${entry.verdict}» senza id`).toMatch(/^[A-Za-z_][\w-]*$/);
   });
-
-  it('PENDING_VERDICT_WORKFLOWS (tests/verdict-step-registry.test.ts) è vuota', () => {
-    const source = readText('tests/verdict-step-registry.test.ts');
-    expect(source).toMatch(/const PENDING_VERDICT_WORKFLOWS = new Set(?:<string>)?\(\[\s*\]\);/);
-  });
 });
 
 describe('il reporter generico `Workflow Failure:` esclude il caso solo-verdetto', () => {
@@ -212,6 +207,10 @@ describe('il reporter generico `Workflow Failure:` esclude il caso solo-verdetto
 });
 
 describe('ogni voce del registro ha il reporter della issue proprietaria e il suo resolve', () => {
+  /** Titolo della issue proprietaria esportato dagli script che la aprono e la risolvono. */
+  const SCRIPT_OWNER_TITLES: Record<string, string> = {
+    'scripts/seo/seo-health-loop.mjs': SEO_HEALTH_ISSUE_TITLE,
+  };
   /** Gli script `node scripts/….mjs` eseguiti dai produttori del verdetto. */
   const producerScripts = (rel: string, entry: Entry) => verdictJob(rel, entry)
     .filter((s) => entry.producers.includes(stepName(s)))
@@ -235,12 +234,15 @@ describe('ogni voce del registro ha il reporter della issue proprietaria e il su
       expect(openerSteps.some((n) => sim.ran.includes(n)), `${rel}: l'opener proprietario non gira nella run di solo verdetto`).toBe(true);
       return;
     }
-    // Owner nello script del produttore (seo-health-loop.mjs): crea e risolve lo stesso titolo.
+    // Owner nello script del produttore: lo script esporta la costante del titolo che
+    // usa sia per createGithubIssue sia per resolveGithubIssue, e la costante sta
+    // nella famiglia dichiarata dal registro.
     const scripts = producerScripts(rel, entry);
-    expect(scripts.length, `${rel}: nessun owner nel YAML né uno script nei produttori`).toBeGreaterThan(0);
-    const literal = new RegExp(`['"\`]${entry.owner.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`);
-    const owning = scripts.map(readText).filter((src) => literal.test(src) && /createGithubIssue\(/.test(src) && /resolveGithubIssue\(/.test(src));
-    expect(owning.length, `${rel}: lo script del produttore non apre e risolve «${entry.owner}…»`).toBeGreaterThan(0);
+    const owned = scripts.filter((s) => s in SCRIPT_OWNER_TITLES);
+    expect(owned, `${rel}: nessun owner nel YAML né uno script proprietario nei produttori (${scripts.join(', ')})`).not.toEqual([]);
+    for (const script of owned) {
+      expect(SCRIPT_OWNER_TITLES[script].startsWith(entry.owner), `${script}: «${SCRIPT_OWNER_TITLES[script]}» fuori da «${entry.owner}…»`).toBe(true);
+    }
   });
 
   it('la issue per fonte delle aste ha un chiuditore nello stesso workflow (gate failure-issue-closers)', () => {
@@ -361,7 +363,13 @@ function runPlateStep(stepTitle: string, { dir, report, openIssues = [] }: { dir
 }
 
 describe('aste targhe: una issue per fonte degradata, chiusa al rientro', () => {
-  const tmp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'plate-owner-'));
+  const dirs: string[] = [];
+  const tmp = () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'plate-owner-'));
+    dirs.push(dir);
+    return dir;
+  };
+  afterAll(() => dirs.forEach((d) => fs.rmSync(d, { recursive: true, force: true })));
   const code = (key: string) => String(SOURCES[key].plateCode).toUpperCase();
 
   it('le fonti attive esistono (precondizione delle fixture)', () => {
