@@ -142,7 +142,7 @@ jobs:
           # github-issue-creator dedups by commenting on the canonical issue.
           node scripts/lib/github-issue-creator.mjs \
             --title "SEO: professioni da attaccare — gap ranking settimanale" \
-            --description "$(cat /tmp/profession-opportunities.md)" \
+            --description-file /tmp/profession-opportunities.md \
             --priority 3 \
             --label seo \
             --workflow "${{ github.workflow }}"
