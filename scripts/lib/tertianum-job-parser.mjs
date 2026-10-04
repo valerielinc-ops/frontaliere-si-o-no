@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
  * Tertianum job parser — SuccessFactors CSB (tile-search variant).
  *
@@ -146,14 +148,10 @@ export function parseTertianumDetailPage(html = '') {
     if (htmlLang) language = htmlLang[1].toLowerCase();
   }
 
-  // Date posted — schema.org itemprop or `data-careersite-propertyid="latestHireDate"`
-  let postedDate = '';
+  // Only explicit schema.org publication; hiring/start dates are not publication.
   const dpTag = readTagByAttr(html, 'itemprop', 'datePosted');
   const dp = dpTag ? readAttr(dpTag, 'content') : '';
-  if (dp) {
-    const d = new Date(dp);
-    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-  }
+  const postingDates = successFactorsPostingDateFields(dp);
 
   // Apply URL — SF "Apply Now" widget points at /sfcareer/jobreqcareer or the
   // talentcommunity endpoint. Fall back to canonical URL.
@@ -165,7 +163,7 @@ export function parseTertianumDetailPage(html = '') {
     || hrefs.find((h) => h.includes('talentcommunity/apply'))
     || '';
 
-  return { title, descriptionText, language, postedDate, applyUrl };
+  return { title, descriptionText, language, ...postingDates, applyUrl };
 }
 
 /* ── Factory-style exports ────────────────────────────────── */
@@ -217,7 +215,6 @@ export async function fetchAllTertianumJobs() {
       ? detail.language
       : detectLang(description || title, 'de');
 
-    const postedDate = detail?.postedDate || new Date().toISOString().slice(0, 10);
     const employmentType = detectHealthcareEmploymentType(title);
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} ${TERTIANUM_KEY} ${city}`);
@@ -256,7 +253,7 @@ export async function fetchAllTertianumJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
