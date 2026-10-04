@@ -25,6 +25,9 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { JSDOM } from 'jsdom';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -248,21 +251,25 @@ export function extractEpflDetailDescription(html = '') {
 }
 
 /**
- * Fetch the SuccessFactors detail page for an EPFL job and extract the body.
- * Returns plain text with `\n• ` bullets (preserved by crawler-template.stripHtml).
- * Empty string on failure.
+ * Fetch the existing detail response once for body and explicit publication.
+ * Returns empty body and unknown publication on failure.
  */
-async function fetchEpflDetailDescription(jobUrl) {
-  if (!jobUrl) return '';
+async function fetchEpflDetailFields(jobUrl) {
+  const empty = { description: '', ...successFactorsPostingDateFields('') };
+  if (!jobUrl) return empty;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), DETAIL_TIMEOUT_MS);
   try {
     const res = await fetch(jobUrl, { headers: FETCH_HEADERS, signal: ctrl.signal, redirect: 'follow' });
-    if (!res.ok) return '';
+    if (!res.ok) return empty;
     const html = await res.text();
-    return extractEpflDetailDescription(html);
+    const dom = new JSDOM(html);
+    try {
+      const date = dom.window.document.querySelector('meta[itemprop="datePosted"]')?.getAttribute('content') || '';
+      return { description: extractEpflDetailDescription(html), ...successFactorsPostingDateFields(date) };
+    } finally { dom.window.close(); }
   } catch {
-    return '';
+    return empty;
   } finally {
     clearTimeout(timer);
   }
@@ -325,7 +332,8 @@ export async function fetchAllEpflJobs() {
     // The description is the EPFL SuccessFactors detail page, rate-limited so
     // we don't hammer careers.epfl.ch. The page can also be j2w chrome (same
     // widget bleed as the title): sanitize, so chrome never passes as a body.
-    const detailDescription = sanitizeSuccessFactorsField(await fetchEpflDetailDescription(publicUrl));
+    const detail = await fetchEpflDetailFields(publicUrl);
+    const detailDescription = sanitizeSuccessFactorsField(detail.description);
     if (publicUrl) {
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
@@ -379,7 +387,7 @@ export async function fetchAllEpflJobs() {
       sector: 'education',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

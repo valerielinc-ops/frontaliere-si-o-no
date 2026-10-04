@@ -22,6 +22,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -245,18 +247,13 @@ async function fetchJobDetail(href) {
     descriptionHtml = html.slice(from, end !== -1 ? end : from + 20000);
   }
 
-  let postedDate = '';
-  if (dateM) {
-    const d = new Date(dateM[1]);
-    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-  }
 
   return {
     addressLocality: addrM ? addrM[1] : '',
     addressRegion: addrM ? addrM[2] : '',
     postalCode: addrM ? addrM[3] : '',
     addressCountry: addrM ? addrM[4] : '',
-    postedDate,
+    ...successFactorsPostingDateFields(dateM?.[1] || ''),
     descriptionHtml,
     url,
   };
@@ -369,7 +366,7 @@ export async function fetchAllConstelliumJobs() {
       sector: 'Metallurgia / Alluminio',
       currency: 'CHF',
       featured: false,
-      postedDate: detail.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail),
       url: publicUrl,
       applyUrl: publicUrl,
       source: 'Constellium Valais Dedicated Parser (Jobs2Web)',
