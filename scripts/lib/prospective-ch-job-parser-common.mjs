@@ -22,6 +22,8 @@
  * factory.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -603,7 +605,7 @@ async function fetchDetailHtml(url, { fetchImpl = fetch, timeoutMs } = {}) {
  *
  * @param {object[]} jobs  crawler jobs ({ url, title, description, descriptionByLocale, sourceLang })
  * @param {{ isTrustedDomain?: (url: string) => boolean, label?: string, concurrency?: number,
- *   delayMs?: number, fetchImpl?: DetailFetch }} [opts]
+ *   delayMs?: number, fetchImpl?: DetailFetch, includePostingDate?: boolean }} [opts]
  * @returns {Promise<{ used: number, fallback: Record<string, number>, pageDescribed: Set<object> }>}
  */
 export async function enrichProspectiveJobsFromDetailPages(jobs, {
@@ -612,6 +614,7 @@ export async function enrichProspectiveJobsFromDetailPages(jobs, {
   concurrency = 3,
   delayMs = 250,
   fetchImpl = fetch,
+  includePostingDate = false,
 } = {}) {
   const list = Array.isArray(jobs) ? jobs : [];
   const fallback = {};
@@ -649,6 +652,13 @@ export async function enrichProspectiveJobsFromDetailPages(jobs, {
         listingText,
       });
       if (!text) { miss(reason); continue; }
+      if (includePostingDate) {
+        const posting = extractJobPostingLd(page.html);
+        // The structured posting must identify this vacancy, not a related-job widget.
+        const sameTitle = normalize(normalizeSpace(stripHtml(posting?.title || '')))
+          === normalize(normalizeSpace(stripHtml(job.title || '')));
+        Object.assign(job, sourcePostingDateFields(sameTitle ? posting?.datePosted : ''));
+      }
       // Runners that seed every locale with the source text until
       // translation fills them (Agroscope, PwC) keep that seed consistent.
       const byLocale = { ...(job.descriptionByLocale || {}) };
@@ -1142,12 +1152,8 @@ export function createProspectiveChParser(config) {
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-      const postedDate = (() => {
-        const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-        const d = new Date(String(raw || ''));
-        if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-        return new Date().toISOString().slice(0, 10);
-      })();
+      // Listing start/modification timestamps are not publication evidence.
+      const postingDates = sourcePostingDateFields('');
 
       const department = normalizeSpace(
         (Array.isArray(listing?.attributes?.['20']) ? listing.attributes['20'][0] : '')
@@ -1192,7 +1198,7 @@ export function createProspectiveChParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingDates,
         applyUrl: resolvedApplyUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
@@ -1210,7 +1216,7 @@ export function createProspectiveChParser(config) {
     }
     let pageDescribed = new Set();
     if (detailPageDescription && jobs.length) {
-      ({ pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: companyName }));
+      ({ pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: companyName, includePostingDate: true }));
     }
     const unique = dropRepostedListings(jobs, companyName, { pageDescribed });
     console.log(`📋 Total ${companyName} jobs discovered: ${unique.length}`);
