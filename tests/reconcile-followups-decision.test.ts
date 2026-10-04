@@ -13,7 +13,10 @@ import { describe, it, expect } from 'vitest';
 import {
   BUCKET_ALARM_LABELS,
   BUCKET_ALARM_TITLE,
+  ISSUE_LIST_FIELDS,
   applyBucketAlarm,
+  reconcileSummaryLine,
+  safePlanBucketAlarm,
   bucketAlarmBody,
   bucketLabelConflicts,
   bucketStructuralVeto,
@@ -631,10 +634,48 @@ describe('allarme a titolo stabile per i bucket illeggibili dal parser', () => {
     expect(descriptions[1]).toContain('--title "follow-up(daily:2026-09-15): 7 items — valerielinc-ops/frontaliere-si-o-no"');
   });
 
-  it('il summary del reconciler porta unparseable_buckets e label_conflicts', () => {
-    const source = fs.readFileSync(path.resolve(process.cwd(), 'scripts/ci/reconcile-followups.mjs'), 'utf8');
-    expect(source).toContain('unparseable_buckets=${bucketAlarmPlan.unparseable.length}');
-    expect(source).toContain('label_conflicts=${bucketAlarmPlan.conflicts.length}');
-    expect(source).toContain("'number,title,body,labels,createdAt'");
+  it('il summary del reconciler porta unparseable_buckets, label_conflicts e bucket_alarm coi valori dati', () => {
+    const line = reconcileSummaryLine({
+      scanned: 18,
+      verifyRequested: 2,
+      unparseableBuckets: 1,
+      labelConflicts: 6,
+      bucketAlarm: 'open',
+      dryRun: true,
+    });
+    expect(line).toContain('scanned 18,');
+    expect(line).toContain('verify_requested=2, unparseable_buckets=1, label_conflicts=6, bucket_alarm=open');
+    expect(line).toContain('(dry-run)');
+    expect(line).not.toContain('(no-autoclose)');
+    expect(reconcileSummaryLine({})).toContain('unparseable_buckets=0, label_conflicts=0, bucket_alarm=none');
+    // createdAt serve alla finestra di 48 ore: senza, ogni bucket collecting giovane andrebbe in allarme.
+    expect(ISSUE_LIST_FIELDS.split(',')).toEqual(expect.arrayContaining(['number', 'title', 'body', 'labels', 'createdAt']));
+  });
+
+  it('un piano che lancia non ferma il reconciler: elenchi vuoti, nessuna scrittura, mai una chiusura', async () => {
+    const logs: string[] = [];
+    const plan = safePlanBucketAlarm([bucket8705], {
+      now: hoursAfter(bucket8705.createdAt, 72),
+      plan: () => { throw new Error('regex esplosa'); },
+      log: (line: string) => { logs.push(line); },
+    });
+    expect(plan.unparseable).toEqual([]);
+    expect(plan.conflicts).toEqual([]);
+    expect(plan.error).toContain('regex esplosa');
+    expect(logs.join('\n')).toContain('piano allarme bucket non calcolabile');
+
+    const calls: string[] = [];
+    const outcome = await applyBucketAlarm(plan, {
+      listComplete: true,
+      create: async () => { calls.push('create'); return null; },
+      resolve: () => { calls.push('resolve'); return null; },
+      log: () => {},
+    });
+    expect(outcome.action).toBe('error');
+    expect(calls).toEqual([]);
+
+    const ok = safePlanBucketAlarm([bucket8705], { now: hoursAfter(bucket8705.createdAt, 72) });
+    expect(ok.error).toBeNull();
+    expect(ok.unparseable.map((entry: { number: number }) => entry.number)).toEqual([8705]);
   });
 });

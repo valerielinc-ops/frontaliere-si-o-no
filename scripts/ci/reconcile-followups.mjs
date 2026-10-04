@@ -1018,6 +1018,45 @@ export function decideBucketAlarmAction({ unparseable = [], conflicts = [], list
 }
 
 /**
+ * Il piano dell'allarme senza mai lanciare: l'allarme e' sola osservazione e
+ * un corpo inatteso non deve fermare flag, chiusure e richieste di verifica.
+ * Su eccezione restituisce elenchi vuoti con `error` valorizzato:
+ * `applyBucketAlarm` lo traduce in `error` (nessuna scrittura, mai una
+ * chiusura su uno stato sconosciuto).
+ * @returns {{unparseable: object[], conflicts: object[], error: string|null}}
+ */
+export function safePlanBucketAlarm(issues, { now = Date.now(), plan = planBucketAlarm, log = console.log } = {}) {
+  try {
+    const computed = plan(issues, { now });
+    return { unparseable: computed?.unparseable || [], conflicts: computed?.conflicts || [], error: null };
+  } catch (e) {
+    const error = String(e?.message ?? e).slice(0, 120);
+    log(`::warning::reconcile-followups: piano allarme bucket non calcolabile (${error})`);
+    return { unparseable: [], conflicts: [], error };
+  }
+}
+
+/** I campi letti da `gh issue list`: `createdAt` serve alla finestra di 48 ore dell'allarme. */
+export const ISSUE_LIST_FIELDS = 'number,title,body,labels,createdAt';
+
+/** La riga di riepilogo del reconciler, con i contatori dell'allarme bucket. */
+export function reconcileSummaryLine({
+  scanned = 0,
+  cacheSkipped = 0,
+  cacheMarked = 0,
+  flagged = 0,
+  autoClosed = 0,
+  verifyRequested = 0,
+  unparseableBuckets = 0,
+  labelConflicts = 0,
+  bucketAlarm = 'none',
+  dryRun = false,
+  noAutoclose = false,
+} = {}) {
+  return `Reconcile follow-ups: scanned ${scanned}, cache-skipped ${cacheSkipped}, cache-marked ${cacheMarked}, flagged ${flagged}, auto-closed ${autoClosed}, verify_requested=${verifyRequested}, unparseable_buckets=${unparseableBuckets}, label_conflicts=${labelConflicts}, bucket_alarm=${bucketAlarm}${dryRun ? ' (dry-run)' : ''}${noAutoclose ? ' (no-autoclose)' : ''}.`;
+}
+
+/**
  * Applica il piano: attribuzione dello scrittore (una lettura per bucket in
  * allarme; lettura fallita → «scrittore non determinato», l'allarme si apre
  * comunque), poi crea/aggiorna l'issue a titolo stabile o la chiude. Le
@@ -1034,6 +1073,7 @@ export async function applyBucketAlarm(plan, {
   resolve = resolveGithubIssue,
   log = console.log,
 } = {}) {
+  if (plan?.error) return { action: 'error', result: null };
   const unparseable = (plan?.unparseable || []).map((entry) => {
     let editors = null;
     try { editors = readBodyEdits(entry.number); } catch { editors = null; }
@@ -1372,13 +1412,13 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
 async function main() {
   const raw = gh([
     'issue', 'list', '--label', 'follow-up', '--state', 'open',
-    ...repoArgs, '--json', 'number,title,body,labels,createdAt', '--limit', String(MAX_ISSUES),
+    ...repoArgs, '--json', ISSUE_LIST_FIELDS, '--limit', String(MAX_ISSUES),
   ]);
   const issues = JSON.parse(raw || '[]');
   // Sui corpi e sulle label COME LETTI, prima di qualunque scrittura del giro:
   // un veto strutturale ferma ogni scrittura sul suo bucket, quindi la diagnosi
   // non dipende dall'ordine.
-  const bucketAlarmPlan = planBucketAlarm(issues, { now: Date.now() });
+  const bucketAlarmPlan = safePlanBucketAlarm(issues, { now: Date.now() });
 
   // In-flight exclusion: an open PR for issue #N means the work is in progress, NOT done
   // — its cited status-quo code is still in the file. Skip those (mirrors FOLLOWUP.md §
@@ -1667,7 +1707,19 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     readBodyEdits,
   });
 
-  const summary = `Reconcile follow-ups: scanned ${issues.length}, cache-skipped ${unclassifiableSkipped}, cache-marked ${unclassifiableCandidates.length}, flagged ${flagged.length}, auto-closed ${closed.length}, verify_requested=${verifyRequests.length} unparseable_buckets=${bucketAlarmPlan.unparseable.length} label_conflicts=${bucketAlarmPlan.conflicts.length} bucket_alarm=${alarm.action}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
+  const summary = reconcileSummaryLine({
+    scanned: issues.length,
+    cacheSkipped: unclassifiableSkipped,
+    cacheMarked: unclassifiableCandidates.length,
+    flagged: flagged.length,
+    autoClosed: closed.length,
+    verifyRequested: verifyRequests.length,
+    unparseableBuckets: bucketAlarmPlan.unparseable.length,
+    labelConflicts: bucketAlarmPlan.conflicts.length,
+    bucketAlarm: alarm.action,
+    dryRun: DRY_RUN,
+    noAutoclose: NO_AUTOCLOSE,
+  });
   console.log(summary);
   const blockedLine = `Blocked recheck: ${blockedRecheckSummary(blockedResults)} reads=${blockedRecheckReads}/${BLOCKED_RECHECK_MAX_READS} reentry_cap=${BLOCKED_RECHECK_MAX_REENTRIES}`;
   console.log(blockedLine);
