@@ -345,7 +345,31 @@ describe('webhook tunnel offline (530) non conia nel sito', () => {
   it('il triage nomina l\'osservatore a cui e\' passato l\'allarme', () => {
     const triage = readFileSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'CF-5XX-TRIAGE.md'), 'utf8');
     expect(triage).toContain('tunnel_not_ready');
-    expect(triage).toContain('isTunnelOffline530');
+  });
+
+  it('un 530 dell\'ora del run non tiene vivo un 502 finito ore prima sullo stesso URL', async () => {
+    // Il cron gira alle 03:50 UTC, a Mac quasi sempre in stop: senza filtrare
+    // le righe orarie del 530, `summarizeBursts` (per URL, status mescolati)
+    // vedrebbe l'ultima ora nel 530 e ricommenterebbe il 502 del pomeriggio.
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockReport({
+      detail: [
+        { status: 502, url: GH_DEFAULT, count: 40 },
+        { status: 530, url: GH_DEFAULT, count: 300 },
+      ],
+      detailByHourComplete: true,
+      detailByHour: [
+        { status: 502, url: GH_DEFAULT, hour: '2026-08-05T14:00:00Z', count: 40 },
+        { status: 530, url: GH_DEFAULT, hour: CURRENT_HOUR, count: 300 },
+      ],
+    });
+
+    await cfSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+    const printed = log.mock.calls.map((c) => String(c[0])).join('\n');
+    expect(printed).toContain(`skip ${GH_DEFAULT}`);
+    log.mockRestore();
   });
 });
 

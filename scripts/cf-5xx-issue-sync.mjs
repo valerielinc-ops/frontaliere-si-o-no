@@ -187,6 +187,12 @@ const WEBHOOK_TUNNEL_SURFACES = new Set(['github-webhook-default', 'github-webho
  * superficie continuano a coniare. Lo snapshot (`scripts/ci/cf-5xx-snapshot.mjs`)
  * registra comunque tutto in `bySurface`.
  *
+ * Conseguenza voluta: `checkUrlClean` e `cf5xxSeenNow` contano ogni status,
+ * 530 compreso, quindi una issue webhook aperta per un 502/503 non viene
+ * chiusa dalla fase di riconciliazione finche' il 530 compare nel report o
+ * nello snapshot; la sua chiusura resta manuale (orchestratore, con evidenza)
+ * finche' una decisione del proprietario non cambia il criterio.
+ *
  * @param {{url?:string,status?:number|string}} entry
  */
 export function isTunnelOffline530(entry) {
@@ -488,7 +494,13 @@ export async function main() {
         'current failure and endpoint origin are unverified.',
     );
   }
-  const shapes = hourlyComplete ? summarizeBursts(hourly) : new Map();
+  // `summarizeBursts` raggruppa per URL mescolando gli status: le righe orarie
+  // del 530 del tunnel webhook escono anche da qui, altrimenti un 530 dell'ora
+  // del run (Mac in stop) terrebbe «vivo» un 502/503 finito ore prima sullo
+  // stesso URL, con `Last 5xx` ed evidenza edge=530 nella scheda.
+  const shapes = hourlyComplete
+    ? summarizeBursts(hourly.filter((r) => !isTunnelOffline530(r)))
+    : new Map();
 
   const entries = [];
   for (const e of overThreshold) {

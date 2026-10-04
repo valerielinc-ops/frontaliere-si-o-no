@@ -232,7 +232,11 @@ segno **conclusivo** che `serve_stale` scatta davvero — la prima volta da quan
   `webhook_receiver_down` e `host_slept`, più i log timestampati del receiver
   (`bin/github-webhook-receiver.mjs`, fase e causa di ogni 5xx/400). Gli altri status sugli
   stessi host (502/503/524: tunnel su, receiver rotto) continuano a coniare, con `**REPO**:
-  workspace` nella scheda.
+  workspace` nella scheda; le righe orarie del 530 escono anche dalla forma del burst, così
+  un 530 dell'ora del run non tiene «vivo» un 502 finito ore prima. Quelle issue 502/503 non
+  vengono chiuse dalla riconciliazione finché il 530 compare nel report o nello snapshot
+  (`checkUrlClean` e `cf5xxSeenNow` contano ogni status): la chiusura resta manuale, con
+  evidenza, finché il proprietario non cambia il criterio.
 - **Un burst senza righe orarie non è un guasto attuale verificato.** Il feeder mantiene la
   issue per prudenza se le righe mancano o la query tocca il limite, ma il body deve dire che
   recency e origine sono sconosciute. L'assenza di righe non è un verde né una diagnosi.
