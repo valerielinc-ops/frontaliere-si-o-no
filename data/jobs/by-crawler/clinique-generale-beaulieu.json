@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-instrumentiste-clinique-generale-beaulieu",
-        "infermiere-strumentali-clinique-generale-beaulieu-geneve"
+        "infirmier-ere-instrumentiste-clinique-generale-beaulieu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-instrumentiste-clinique-generale-beaulieu",
-          "infermiere-strumentali-clinique-generale-beaulieu-geneve"
+          "infirmier-ere-instrumentiste-clinique-generale-beaulieu"
         ],
         "en": [
           "infirmier-ere-instrumentiste-clinique-generale-beaulieu"
@@ -85,11 +83,11 @@
     },
     {
       "id": "clinique-generale-beaulieu-1f0325b73916",
-      "slug": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
+      "slug": "infermiere-a-chirurgia-notte-clinique-generale-beaulieu-geneve",
       "slugByLocale": {
-        "it": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
-        "en": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
-        "de": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
+        "it": "infermiere-a-chirurgia-notte-clinique-generale-beaulieu-geneve",
+        "en": "nurse-surgery-night-clinique-generale-beaulieu-geneve",
+        "de": "krankenpfleger-in-nachtchirurgie-clinique-generale-beaulieu-geneve",
         "fr": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu"
       },
       "company": "Clinique Générale-Beaulieu",
@@ -146,7 +144,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu"
+        ],
+        "en": [
+          "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu"
+        ],
+        "de": [
+          "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu"
+      ]
     }
   ]
 }

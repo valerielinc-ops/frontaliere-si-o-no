@@ -14,6 +14,7 @@
  *   5. Runs base crawler in localize-existing-only mode (4 locales)
  *   6. Validates locale coverage
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -220,9 +221,9 @@ export function buildTplAdapterSeedFields(sourceJobs = []) {
     // its intentionally generic detail-URL classifier.
     seedUrls: seedDetailUrls,
     seedDetailUrls,
-    seedMetaByUrl: Object.fromEntries(seedDetailUrls.map((url) => [
-      url,
-      { location: 'Lugano', canton: 'TI', company: TPL_COMPANY_NAME },
+    seedMetaByUrl: Object.fromEntries(sourceJobs.map((job) => [
+      job.url,
+      { location: 'Lugano', canton: 'TI', company: TPL_COMPANY_NAME, ...sourcePostingDateFields(job.datePosted) },
     ])),
   };
 }
@@ -290,7 +291,7 @@ function tplSlug(title = '') {
  * therefore materialised here, exactly as the sibling FART crawler does, and the
  * shared engine is used for localization only.
  */
-export function buildTplJobRow(source, postedDate = new Date().toISOString().slice(0, 10)) {
+export function buildTplJobRow(source, postedDate = source.datePosted || '') {
   const title = source.title;
   const description = source.body;
   return {
@@ -308,7 +309,8 @@ export function buildTplJobRow(source, postedDate = new Date().toISOString().sli
     employmentType: inferEmploymentType(title, description),
     source: 'tpl-lugano-crawler',
     sourceLang: detectLang(description || title, 'it'),
-    postedDate,
+    ...sourcePostingDateFields(postedDate),
+    crawledAt: new Date().toISOString(),
     addressLocality: 'Lugano',
     addressRegion: 'TI',
     postalCode: '6900',
@@ -353,7 +355,7 @@ export function mergeTplJobRows(sourceJobs = [], existingJobs = [], postedDate =
     merged.push({
       ...existing,
       ...fresh,
-      postedDate: existing.postedDate || fresh.postedDate,
+      ...mergeSourcePostingDates(existing, fresh),
       titleByLocale: mergeLocaleTextMap(existing.titleByLocale, fresh.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(
         existing.descriptionByLocale,
