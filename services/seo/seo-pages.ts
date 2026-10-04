@@ -1,6 +1,8 @@
 // Core page SEO metadata (lazy-loaded chunk)
 // This file is code-split from seoService.ts to reduce initial bundle size.
 // ~90 entries for main pages (calculator, comparators, guide, stats, etc.)
+// Claim original-publication and Dataset publication/update dates are omitted
+// when unverified. Review/article publication and temporalCoverage are separate facts.
 //
 // BUILD PLUGINS: vite.config.ts staticPagesPlugin and llmsTxtPlugin regex-parse
 // this file at build time. Keep the same format as other seo-*.ts entries.
@@ -894,7 +896,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Opinione comune" },
- "datePublished": "2025-01-01",
  "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
  }
  },
@@ -919,7 +920,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Opinione comune" },
- "datePublished": "2025-01-01",
  "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
  }
  },
@@ -944,7 +944,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Opinione comune" },
- "datePublished": "2025-01-01",
  "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
  }
  },
@@ -969,7 +968,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Opinione comune" },
- "datePublished": "2025-01-01",
  "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
  }
  },
@@ -994,7 +992,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Opinione comune" },
- "datePublished": "2025-01-01",
  "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
  }
  }
@@ -1070,7 +1067,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "AFC Ticino — Divisione delle contribuzioni" },
- "datePublished": "2026-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tabelle-e-aliquote/", "name": "AFC Ticino — Tabelle e aliquote imposta alla fonte 2026" }
  },
  "reviewBody": "Tabelle cantonali AFC Ticino 2026 (art. 33 LT): A single senza figli, B coniugati monoreddito, C coniugati bireddito, H genitori soli con figli."
@@ -1086,7 +1082,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Legge tributaria cantonale (LT) Canton Ticino, art. 109" },
- "datePublished": "2024-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/434", "name": "Canton Ticino — Legge tributaria (LT) art. 107-117 imposta alla fonte" }
  },
  "reviewBody": "La LT Ticino (art. 107-117) assegna la tabella in base a stato civile e figli dichiarati al datore; il Comune italiano di residenza è irrilevante per il calcolo svizzero (rileva solo per la fiscalità italiana)."
@@ -1487,7 +1482,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — AVS 1° pilastro" },
- "datePublished": "2026-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/it", "name": "UFAS — Assicurazione vecchiaia e superstiti (AVS) 2026" }
  },
  "reviewBody": "Adeguamento rendite AVS/AI 2026 deciso dal Consiglio federale: rendita minima CHF 1.225/mese, rendita massima CHF 2.450/mese alla scala 44 (art. 34 LAVS)."
@@ -1503,7 +1497,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Legge federale sulla previdenza professionale (LPP), art. 16" },
- "datePublished": "1982-06-25",
  "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1983/797_797_797/it", "name": "Fedlex — LPP art. 16 (accrediti di vecchiaia)" }
  },
  "reviewBody": "Aliquote minime LPP definite dall'art. 16 LPP: 7/10/15/18% per fasce 25-34/35-44/45-54/55-65. Le casse pensione possono applicare aliquote superiori (piani sovraobbligatori)."
@@ -1519,7 +1512,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Accordo bilaterale sulla libera circolazione delle persone (ALC) — Regolamento (CE) 883/2004" },
- "datePublished": "2002-06-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.50285.totalizzazione-internazionale-dei-periodi-assicurativi.html", "name": "INPS — Totalizzazione internazionale dei periodi assicurativi" }
  },
  "reviewBody": "Applicabile ai frontalieri italiani in Svizzera dall'entrata in vigore dell'ALC (1/6/2002) e confermato dal Regolamento (CE) 883/2004 e dalla decisione del Comitato misto CH-UE del 2012. Ogni Paese paga la quota pro-rata in base agli anni effettivi."
@@ -1549,8 +1541,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Dataset",
  "name": "Statistiche frontalieri e osservatorio offerte lavoro Ticino 2026",
  "description": "Dati statistici sui frontalieri svizzeri-italiani e osservatorio del job board Ticino: numero permessi G, aziende attive, localities, trend offerte e statistiche BFS 2026.",
- "dateModified": "2024-01-01",
- "datePublished": "2024-01-01",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "temporalCoverage": "2024/2026",
@@ -1937,7 +1927,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — OPP 3" },
- "datePublished": "2026-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/it", "name": "UFAS — Previdenza individuale vincolata (pilastro 3a)" }
  },
  "reviewBody": "Limite deducibile 2026 fissato dall'art. 7 OPP 3: CHF 7.258 per affiliati LPP; 20% del reddito netto fino a CHF 36.288 per indipendenti senza 2° pilastro."
@@ -2543,7 +2532,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Cancelleria dello Stato del Canton Ticino — Legge sui giorni festivi (LGF)" },
- "datePublished": "2024-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Canton Ticino — Legge concernente i giorni festivi ufficiali (art. 1)" }
  },
  "reviewBody": "Elenco ufficiale dei giorni festivi cantonali stabilito dalla Legge cantonale sui giorni festivi (art. 1) + festività federali art. 110 CO: totale 15 giorni nel 2026."
@@ -2559,7 +2547,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Codice delle Obbligazioni svizzero (CO) art. 110 + Regolamento (CE) 883/2004" },
- "datePublished": "2004-04-29",
  "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it#art_110", "name": "Fedlex — CO art. 110 (giorni festivi ufficiali)" }
  },
  "reviewBody": "Principio lex loci laboris del diritto internazionale del lavoro: rapporto di lavoro e festività regolati dalla legge del luogo di esecuzione (Svizzera/Ticino). Confermato art. 11 Reg. (CE) 883/2004 + dottrina SECO."
@@ -2645,7 +2632,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Staatskanzlei Kanton Tessin — Gesetz über die offiziellen Feiertage (LGF)" },
- "datePublished": "2024-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Kanton Tessin — Gesetz über die offiziellen Feiertage (Art. 1)" }
  },
  "reviewBody": "Offizielle Liste der kantonalen Feiertage gemäss kantonalem Feiertagsgesetz (Art. 1) ergänzt durch Bundesfeiertage nach OR Art. 110: insgesamt 15 Tage im Jahr 2026."
@@ -2661,7 +2647,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Schweizerisches Obligationenrecht (OR) Art. 110 + Verordnung (EG) 883/2004" },
- "datePublished": "2004-04-29",
  "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_110", "name": "Fedlex — OR Art. 110 (offizielle Feiertage)" }
  },
  "reviewBody": "Grundsatz lex loci laboris des internationalen Arbeitsrechts: Arbeitsverhältnis und Feiertage richten sich nach dem Recht des Arbeitsortes (Schweiz/Tessin). Bestätigt durch Art. 11 Verordnung (EG) 883/2004 + Lehrmeinung SECO."
@@ -4396,8 +4381,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Confronto Stipendi Frontalieri Svizzera-Italia 2026",
  "url": `${BASE_URL}/statistiche/confronta-stipendi/`,
  "description": "Database salariale con 60 professioni in 15 settori: range min-mediano-max per livello junior, mid e senior. Dati Svizzera (CHF) e Italia (EUR) per lavoratori frontalieri.",
- "dateModified": "2024-06-01",
- "datePublished": "2024-06-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "temporalCoverage": "2023/2026",
@@ -4437,8 +4420,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Classifica Migliori Comuni di Frontiera 2026",
  "url": `${BASE_URL}/statistiche/migliori-comuni-frontiera/`,
  "description": "Classifica dei migliori comuni italiani di frontiera per qualità della vita, servizi e distanza dalla dogana",
- "dateModified": "2024-06-01",
- "datePublished": "2024-06-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "temporalCoverage": "2024/2026",
@@ -4466,10 +4447,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Osservatorio stipendi e lavori in Ticino",
  "url": `${BASE_URL}/statistiche/osservatorio-stipendi-lavori-ticino/`,
  "description": "Osservatorio giornaliero del job board Frontaliere Ticino con trend annunci, aziende attive, localita piu dinamiche e salary range osservati nelle offerte.",
- "dateModified": "2024-06-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
- "datePublished": "2024-06-01",
  "temporalCoverage": "2024/2026",
  "variableMeasured": [
  { "@type": "PropertyValue", "name": "Numero annunci attivi", "value": "Conteggio offerte per azienda e località" },
@@ -4504,10 +4483,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Storico Traffico Dogane Svizzera-Italia",
  "url": `${BASE_URL}/statistiche/storico-traffico-dogane/`,
  "description": "Dati storici del traffico ai valichi di frontiera tra Svizzera e Italia con tendenze e confronti",
- "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
- "datePublished": "2024-01-01",
  "temporalCoverage": "2020/2026",
  "variableMeasured": [
  { "@type": "PropertyValue", "name": "Volume veicoli", "value": "Transiti giornalieri per valico" },
@@ -4532,11 +4509,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Tasso di Disoccupazione Svizzera",
  "url": `${BASE_URL}/statistiche/disoccupazione-svizzera/`,
  "description": "Serie storica mensile del tasso di disoccupazione registrata in Svizzera (SECO) dal 2016",
- "dateModified": "2016-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
  "isBasedOn": { "@type": "CreativeWork", "name": "Statistiche del mercato del lavoro della SECO", "url": "https://www.seco.admin.ch" },
- "datePublished": "2016-01-01",
  "temporalCoverage": "2016/2026",
  "variableMeasured": [
  { "@type": "PropertyValue", "name": "Tasso di disoccupazione", "value": "Percentuale mensile registrata SECO" },
@@ -4579,10 +4554,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Prezzi benzina al confine Italia-Svizzera",
  "url": `${BASE_URL}/statistiche/prezzi-benzina-confine/`,
  "description": "Dataset comparativo dei prezzi benzina tra comuni di confine italiani e stazioni svizzere dell'area di frontiera.",
- "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
- "datePublished": "2024-01-01",
  "temporalCoverage": "2024/2026",
  "variableMeasured": [
  { "@type": "PropertyValue", "name": "Prezzo benzina Italia", "value": "EUR/litro per comune di confine" },
@@ -4608,10 +4581,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Premi cassa malati per comune svizzero",
  "url": `${BASE_URL}/statistiche/premi-malattia-comuni/`,
  "description": "Dataset dei premi LAMal per comune e cantone svizzero, con evoluzione storica e confronto tra fasce d'età.",
- "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
- "datePublished": "2024-01-01",
  "temporalCoverage": "2024/2026",
  "variableMeasured": [
  { "@type": "PropertyValue", "name": "Premio mensile LAMal", "value": "CHF/mese per comune e fascia d'età" },
@@ -4632,7 +4603,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Ufficio federale della sanità pubblica (UFSP) — Premi dell'assicurazione malattie" },
- "datePublished": "2025-09-30",
  "appearance": { "@type": "CreativeWork", "url": "https://www.priminfo.admin.ch/it/praemien", "name": "UFSP — Priminfo, confronto premi LAMal per regione" }
  },
  "reviewBody": "Dati ufficiali UFSP Priminfo 2026: variazione regionale documentata fino a +120% tra cantone con premio mediano più basso (Appenzello Interno) e più alto (Basilea Città), e differenze significative tra regioni di premio nello stesso cantone."
@@ -4648,7 +4618,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Legge federale sull'assicurazione malattie (LAMal) art. 61 + OAMal art. 91" },
- "datePublished": "1994-03-18",
  "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1995/1328_1328_1328/it", "name": "Fedlex — LAMal art. 61 (fissazione dei premi per regione)" }
  },
  "reviewBody": "Art. 61 LAMal e art. 91 OAMal: le casse malati possono fissare premi diversi per regioni di premio riconosciute dall'UFSP. Esempio verificato 2026: in Canton Ticino passaggio Regione 1 (Lugano) → Regione 2 (comuni montani) comporta risparmio CHF 40-80/mese = CHF 500-1.000/anno per adulto."
@@ -4670,10 +4639,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Ristorni Fiscali Frontalieri per Comune",
  "url": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali/`,
  "description": "Statistiche sui ristorni fiscali versati ai comuni italiani di frontiera",
- "dateModified": "2024-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
- "datePublished": "2024-01-01",
  "temporalCoverage": "2020/2026",
  "variableMeasured": [
  { "@type": "PropertyValue", "name": "Importo ristorni", "value": "EUR per comune italiano di frontiera" },
@@ -7378,7 +7345,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "AFC — Divisione delle contribuzioni Ticino" },
- "datePublished": "2026-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/", "name": "AFC Ticino — Imposta alla fonte: tabelle A/B/C/H 2026" }
  },
  "reviewBody": "Tabelle cantonali AFC Ticino 2026: aliquote progressive dal 3% (redditi bassi, coniugati con figli) al 35% (redditi molto alti) per tabelle A, B, C, H."
@@ -7395,7 +7361,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Legge 13 giugno 2023 n. 83 — Ratifica Accordo Italia-Svizzera" },
- "datePublished": "2023-06-13",
  "appearance": { "@type": "CreativeWork", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-06-13;83", "name": "Legge n. 83/2023 — Ratifica ed esecuzione dell'Accordo tra la Repubblica italiana e la Confederazione svizzera" }
  },
  "reviewBody": "L’articolo 4 della legge 83/2023 innalza a 10.000 euro la franchigia sui redditi di lavoro dipendente frontaliero qualificati dalla norma italiana, dal periodo di imposta 2024. La franchigia non è limitata ai soli comuni entro 20 km. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
@@ -7411,7 +7376,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Convenzione Italia-Svizzera contro le doppie imposizioni (art. 15 e 24)" },
- "datePublished": "1978-03-09",
  "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/schede/normativa/convenzione-per-evitare-le-doppie-imposizioni-italia-svizzera", "name": "Agenzia Entrate — Convenzione Italia-Svizzera contro le doppie imposizioni" }
  },
  "reviewBody": "L'art. 24 della Convenzione Italia-Svizzera 9/3/1976 (ratificata con L. 943/1978) prevede il credito d'imposta: l'imposta alla fonte pagata in Svizzera si detrae dall'IRPEF italiana sullo stesso reddito, evitando la doppia imposizione."
@@ -7465,7 +7429,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Ufficio federale di statistica (UST) — Statistica dei frontalieri (STAF)" },
- "datePublished": "2025-08-21",
  "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito/attivita-professionale-orario-lavoro.html", "name": "UST — Statistica dei lavoratori frontalieri stranieri (STAF)" }
  },
  "reviewBody": "Fonte ufficiale UST/BFS (Statistica STAF): il Canton Ticino conta oltre 74.000 frontalieri attivi nel 2° trimestre 2025, di cui circa il 90% italiani."
@@ -7481,7 +7444,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "USTAT — Ufficio di statistica del Canton Ticino, Mercato del lavoro" },
- "datePublished": "2025-10-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28", "name": "USTAT — Lavoro e reddito in Canton Ticino" }
  },
  "reviewBody": "Dati USTAT e osservatorio mercato del lavoro cantonale: concentrazione di occupazione frontaliera nel terziario avanzato luganese (banche UBS/BancaStato/EFG, EOC, cliniche private, Rhenus/Planzer, SUPSI/ICT)."
@@ -7535,7 +7497,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Accordo Italia-Svizzera relativo all'imposizione dei lavoratori frontalieri, firmato 23/12/2020, in vigore 17/07/2023" },
- "datePublished": "2020-12-23",
  "appearance": { "@type": "CreativeWork", "url": "https://www.esteri.it/wp-content/uploads/2021/01/ACCORDO-FRONTALIERI-ITALIA-SVIZZERA.pdf", "name": "Ministero degli Esteri — Accordo Italia-Svizzera sui lavoratori frontalieri (23/12/2020)" }
  },
  "reviewBody": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
@@ -7551,7 +7512,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Accordo amichevole Italia-Svizzera sul telelavoro dei frontalieri, 23/12/2023" },
- "datePublished": "2023-12-23",
  "appearance": { "@type": "CreativeWork", "url": "https://www.finanze.gov.it/it/inevidenza/Accordo-amichevole-Italia-Svizzera-telelavoro-frontalieri/", "name": "MEF — Accordo amichevole Italia-Svizzera sul telelavoro dei lavoratori frontalieri (23/12/2023)" }
  },
  "reviewBody": "L'accordo amichevole Italia-Svizzera del 23/12/2023 consente fino al 25% di telelavoro dall'Italia senza compromettere lo status fiscale di frontaliere né l'applicazione dell'Accordo fiscale 2020."
@@ -7567,7 +7527,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Agenzia delle Entrate — Circolare n. 25/E del 2024" },
- "datePublished": "2024-07-18",
  "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/-/circolare-n-25-e-del-18-luglio-2024", "name": "Agenzia Entrate — Circolare n. 25/E del 18 luglio 2024, nuovo regime frontalieri" }
  },
  "reviewBody": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
@@ -7621,7 +7580,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "CCL Sanità Ticino 2024-2026 — Ente Ospedaliero Cantonale + OCST" },
- "datePublished": "2024-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www.eoc.ch/Lavorare-in-EOC.html", "name": "EOC — Condizioni di lavoro e grilles salariali Sanità Ticino" }
  },
  "reviewBody": "Conforme al CCL Sanità Ticino (EOC, OCST/VPOD/SCS, cliniche private). Classe salariale ASSC classe 7-8 a 13 mensilità."
@@ -7637,7 +7595,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Croce Rossa Svizzera (SRK/CRS) — Ufficio riconoscimento titoli" },
- "datePublished": "2024-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www.redcross.ch/it/offerta/riconoscimento-di-diplomi-esteri", "name": "Croce Rossa Svizzera — Riconoscimento di diplomi esteri in professioni sanitarie" }
  },
  "reviewBody": "Procedura ufficiale SRK per professioni sanitarie (Assistente di cura, FaGe/ASSC, infermiere): tassa 2026 CHF 800-1.200, tempi medi 4-6 mesi con documenti completi."
@@ -7690,7 +7647,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "Ufficio federale di statistica (UST) — Rilevazione svizzera della struttura dei salari (RSS)" },
- "datePublished": "2024-10-17",
  "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito.html", "name": "UST — Livello dei salari in Svizzera (RSS)" }
  },
  "reviewBody": "Incrocio fonti UST-RSS 2024 (salario lordo mediano CH CHF 6.788/mese = CHF 88.244/anno) e ISTAT \"Retribuzioni contrattuali\" 2024 (mediana IT €30.720): rapporto lordo 2,2-2,4x per ruoli equivalenti."
@@ -7706,7 +7662,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "UST/IPC — Indice svizzero dei prezzi al consumo + ISTAT NIC Milano" },
- "datePublished": "2025-09-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi/indice-nazionale-prezzi-consumo.html", "name": "UST — Indice svizzero dei prezzi al consumo (IPC)" }
  },
  "reviewBody": "Confronto IPC Lugano vs NIC Milano 2025 su panieri affitto, ristorazione e servizi: differenziale medio +32% (affitti +38%, ristorazione +35%, beni alimentari +25%)."
@@ -7722,7 +7677,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemReviewed": {
  "@type": "Claim",
  "author": { "@type": "Organization", "name": "AFC Ticino — Divisione delle contribuzioni, Tabelle imposta alla fonte 2026" },
- "datePublished": "2026-01-01",
  "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tabelle-e-aliquote/", "name": "AFC Ticino — Tabelle e aliquote imposta alla fonte 2026" }
  },
  "reviewBody": "Calcolo verificato per tabella A single, CHF 80.000 lordi: imposta alla fonte TI 11-13% + AVS/AI/IPG 5,3% + AD 1,1% + LAINF ~1% + LPP ~7% ≈ 25% totale deduzioni; il netto dell'imposta pura (escluso LPP che è previdenza) è 18-22%."
