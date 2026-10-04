@@ -488,6 +488,12 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(flat).toContain('tests/slug-write-encapsulation.test.ts');
     // Gli scan che leggono anche fuori da scripts/lib.
     expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    // Il ratchet a due lati dei runner senza contatori deve girare sulla PR
+    // che cambia il conteggio, non su quella dopo.
+    const zeroPath = 'tests/crawler-zero-path-contract.test.ts';
+    expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain(zeroPath);
+    expect(selectionFor(['scripts/lib/crawler-template.mjs'])).toContain(zeroPath);
+    expect(selectionFor(['scripts/lib/future-j2w-tenant-job-parser.mjs'])).not.toContain(zeroPath);
     expect(selectionFor(['scripts/publish-article-fast.mjs'])).toContain('tests/sanitize-control-chars.test.ts');
     // Lo scan j2w e' ricorsivo: un parser in una sottocartella non sfugge.
     expect(selectionFor(['scripts/lib/tenants/future-job-parser.mjs'])).toContain(j2wFamily);
