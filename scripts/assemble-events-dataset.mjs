@@ -57,6 +57,8 @@ import {
   normalizeText,
   resolveItalianFrontierComuni,
   haversineKm,
+  EVENT_PRICE_SOURCES,
+  hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
 
@@ -131,13 +133,58 @@ function knownPrice(price) {
   return { amount, currency: price.currency || 'CHF', isFree: amount === 0 };
 }
 
+const PRICE_PROVENANCE_FIELDS = ['priceSource', 'priceField'];
+
+function priceProvenance(price) {
+  return Object.fromEntries(PRICE_PROVENANCE_FIELDS.filter((field) => price?.[field]).map((field) => [field, price[field]]));
+}
+
+function withoutPriceProvenance(price) {
+  if (!price || typeof price !== 'object') return price;
+  return Object.fromEntries(Object.entries(price).filter(([key]) => (
+    !PRICE_PROVENANCE_FIELDS.includes(key) && key !== 'priceConflicts'
+  )));
+}
+
+function samePrice(a, b) {
+  return a.amount === b.amount && a.currency === b.currency;
+}
+
+/**
+ * The reliable tariff of a fuzzy-duplicate group, by source precedence
+ * (EVENT_PRICE_SOURCES: MySwitzerland before Guidle), plus every other known
+ * duplicate tariff that disagrees with it. Only structured source fields
+ * (`hasConfidentPrice`) can be chosen; a disagreeing text tariff is still
+ * recorded as a conflict, never silently dropped.
+ */
+function structuredGroupPrice(group) {
+  const ranked = group
+    .filter((event) => hasConfidentPrice(event.price) && knownPrice(event.price))
+    .sort((a, b) => (
+      EVENT_PRICE_SOURCES.indexOf(a.price.priceSource) - EVENT_PRICE_SOURCES.indexOf(b.price.priceSource)
+      || String(a.id).localeCompare(String(b.id))
+    ));
+  if (!ranked.length) return undefined;
+  const chosen = ranked[0];
+  const value = knownPrice(chosen.price);
+  const conflicts = group
+    .filter((event) => event !== chosen && knownPrice(event.price) && !samePrice(knownPrice(event.price), value))
+    .sort((a, b) => String(a.id).localeCompare(String(b.id)))
+    .map((event) => ({ eventId: event.id, ...knownPrice(event.price), ...priceProvenance(event.price) }));
+  return { chosen, value: { ...value, ...priceProvenance(chosen.price) }, conflicts };
+}
+
 /**
  * Pick the single best record out of a group of fuzzy-duplicate events:
  * highest richness score wins; ties broken by SOURCE_PRIORITY; any remaining
  * tie (same source, e.g. a future multi-slice source) is broken by the
  * lexicographically smaller id, so the result is deterministic run-to-run.
- * Recover a missing tariff when the known prices of its duplicates agree,
- * without changing the winner's identity or ticketing metadata.
+ * The tariff follows the owner's source precedence (2026-10-04): a structured
+ * MySwitzerland, then Guidle, price of any duplicate replaces the winner's
+ * amount, and disagreeing duplicate tariffs are kept in `price.priceConflicts`.
+ * Without a structured price, a missing tariff is recovered only when the
+ * known prices of its duplicates agree. Neither path changes the winner's
+ * identity or ticketing metadata.
  */
 export function pickRichestEvent(group) {
   const winner = [...group].sort((a, b) => {
@@ -147,13 +194,30 @@ export function pickRichestEvent(group) {
     if (prioDiff !== 0) return prioDiff;
     return String(a.id).localeCompare(String(b.id));
   })[0];
+  // A structured MySwitzerland/Guidle tariff wins over any other duplicate
+  // price, the winner's own included; a disagreement is recorded on the price.
+  const structured = structuredGroupPrice(group);
   const prices = group.map((event) => knownPrice(event.price)).filter(Boolean);
-  const agreedPrice = prices.length && prices.every((price) => (
-    price.amount === prices[0].amount && price.currency === prices[0].currency
-  )) ? prices[0] : undefined;
-  const enrichedWinner = !knownPrice(winner.price) && agreedPrice
-    ? { ...winner, price: { ...winner.price, ...agreedPrice } }
-    : winner;
+  const agreedPrice = prices.length && prices.every((price) => samePrice(price, prices[0])) ? prices[0] : undefined;
+  let enrichedWinner = winner;
+  if (structured && !(structured.chosen === winner && !structured.conflicts.length)) {
+    enrichedWinner = {
+      ...winner,
+      price: {
+        ...withoutPriceProvenance(winner.price),
+        ...structured.value,
+        ...(structured.conflicts.length ? { priceConflicts: structured.conflicts } : {}),
+      },
+    };
+  } else if (!structured && !knownPrice(winner.price) && agreedPrice) {
+    // No reliable tariff: carry the agreed value with the provenance of the
+    // record it came from, so a text tariff never looks structured.
+    const donor = group.find((event) => knownPrice(event.price));
+    enrichedWinner = {
+      ...winner,
+      price: { ...withoutPriceProvenance(winner.price), ...agreedPrice, ...priceProvenance(donor.price) },
+    };
+  }
   // Fuzzy duplicates have different stable ids and may not describe the same
   // URL namespace (one can be comune-less). Carry only explicit history from
   // those records; the current route of a discarded duplicate is not safe to
@@ -388,6 +452,18 @@ function printStats(events, mergedAway, frontierAttached) {
   console.log(`categories: ${[...byCategory.entries()].sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}(${n})`).join(', ')}`);
   console.log(`cross-source fuzzy dedup: merged away ${mergedAway} duplicate(s)`);
   console.log(`italian frontier comuni attached: ${frontierAttached} event(s)`);
+  const priceFields = new Map();
+  let reliablePrices = 0;
+  let priceConflicts = 0;
+  for (const e of events) {
+    if (!e.price || (e.price.amount == null && e.price.isFree !== true)) continue;
+    const key = `${e.price.priceSource || 'unsourced'}/${e.price.priceField || 'unknown'}`;
+    priceFields.set(key, (priceFields.get(key) || 0) + 1);
+    if (hasConfidentPrice(e.price)) reliablePrices += 1;
+    if (Array.isArray(e.price.priceConflicts) && e.price.priceConflicts.length) priceConflicts += 1;
+  }
+  console.log(`prices: ${reliablePrices} reliable (structured source field) | conflicts recorded: ${priceConflicts}`);
+  console.log(`price provenance: ${[...priceFields.entries()].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k}(${n})`).join(', ')}`);
 }
 
 // Guard the CLI entry point so importing this module for its exported pure

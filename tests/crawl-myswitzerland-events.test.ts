@@ -39,6 +39,14 @@ import {
   parseEventPriceText,
 } from '../scripts/lib/event-metadata.mjs';
 
+// Provenance stamps (owner decision 2026-10-04): only the JSON-LD fields are
+// structured; every other price is recorded with its field but not reliable.
+const OFFER_PRICE = { priceSource: 'myswitzerland', priceField: 'offers.price' };
+const FREE_FLAG = { priceSource: 'myswitzerland', priceField: 'isAccessibleForFree' };
+const DETAIL_TABLE = { priceSource: 'myswitzerland', priceField: 'detail-table' };
+const INDEX_CONTENT = { priceSource: 'myswitzerland', priceField: 'index-content' };
+const BOOKING_PAGE = { priceSource: 'myswitzerland', priceField: 'booking-page' };
+
 describe('parseCompactUtc', () => {
   it('parses Algolia compact UTC timestamps', () => {
     const d = parseCompactUtc('20260704T173000Z');
@@ -186,7 +194,7 @@ describe('extractIndexedEventPrice', () => {
     'Entrata libera',
     'Une exposition. Entrée libre\n',
   ])('recovers a terminal admission tariff from indexed content: %s', (content) => {
-    expect(extractIndexedEventPrice(content)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(extractIndexedEventPrice(content)).toEqual({ amount: 0, currency: 'CHF', isFree: true, ...INDEX_CONTENT });
   });
 
   it.each([
@@ -207,7 +215,7 @@ describe('extractIndexedEventPrice', () => {
     ['Prix: CHF 59 par personne.', 59, 'CHF'],
     ['Price: CHF 59 for everyone.', 59, 'CHF'],
   ])('recovers an explicit indexed monetary tariff without ancillary amounts: %s', (content, amount, currency) => {
-    expect(extractIndexedEventPrice(content)).toEqual({ amount, currency, isFree: false });
+    expect(extractIndexedEventPrice(content)).toEqual({ amount, currency, isFree: false, ...INDEX_CONTENT });
   });
 
   it.each([
@@ -278,7 +286,7 @@ describe('recoverExistingIndexedPrices', () => {
     };
     const records = [{ objectID: 'priced', perLocaleHits: { en: { content: 'Admission: CHF 25.' } } }];
     expect(recoverExistingIndexedPrices([existing], records)).toEqual([{
-      ...existing, price: { url: 'https://tickets.example.org/booking/', amount: 25, currency: 'CHF', isFree: false },
+      ...existing, price: { url: 'https://tickets.example.org/booking/', amount: 25, currency: 'CHF', isFree: false, ...INDEX_CONTENT },
     }]);
     expect(existing.price).toEqual({ url: 'https://tickets.example.org/booking/' });
   });
@@ -300,7 +308,7 @@ describe('recoverExistingIndexedPrices', () => {
   it('can use another locale when the preferred index has no admission tariff', () => {
     expect(recoverExistingIndexedPrices([{ id: 'myswitzerland:free' }], [{
       objectID: 'free', perLocaleHits: { it: { content: 'Prezzo su richiesta' }, en: { content: 'Free entrance.' } },
-    }])).toEqual([{ id: 'myswitzerland:free', price: { amount: 0, currency: 'CHF', isFree: true } }]);
+    }])).toEqual([{ id: 'myswitzerland:free', price: { amount: 0, currency: 'CHF', isFree: true, ...INDEX_CONTENT } }]);
   });
 });
 
@@ -336,7 +344,7 @@ describe('recoverExistingBookingPrices', () => {
     const event = existing();
     const fetchFn = vi.fn().mockResolvedValue({ amount: 10, currency: 'CHF', isFree: false });
     expect(await recoverExistingBookingPrices([event], [record()], { fetchFn })).toEqual([{
-      ...event, price: { ...event.price, amount: 10, currency: 'CHF', isFree: false },
+      ...event, price: { ...event.price, amount: 10, currency: 'CHF', isFree: false, ...BOOKING_PAGE },
     }]);
     expect(fetchFn).toHaveBeenCalledWith(event, event.price.url);
     expect(event.price).not.toHaveProperty('amount');
@@ -433,7 +441,7 @@ describe('extractPrice', () => {
   it('takes a published ticket amount instead of a category number in a real tariff table', () => {
     const tariff = 'EHC-K Lounge: 158,90 CHF Kategorie 1: 81,80 CHF Kategorie 2: 63,60 CHF Kategorie 3: 40,80 CHF Kategorie 4 Family: 40,80 CHF Kids: 5,30 CHF Stehplatz Gast: 31,50 CHF Stehplatz Heim: 31,50 CHF';
     expect(extractPrice({}, `<table><tr><th>Prezzo</th><td>${tariff}</td></tr></table>`))
-      .toEqual({ amount: 5.3, currency: 'CHF', isFree: false });
+      .toEqual({ amount: 5.3, currency: 'CHF', isFree: false, ...DETAIL_TABLE });
   });
 
   it.each([
@@ -486,12 +494,12 @@ describe('extractPrice', () => {
 
   it('does not interpret the minimum participant age as an admission price', () => {
     const html = '<table><tr><th>Preis</th><td>Erwachsene und Kinder kostenlos. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
-    expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true, ...DETAIL_TABLE });
   });
 
   it('keeps the ticket price while excluding a minimum participant age', () => {
     const html = '<table><tr><th>Preis</th><td>CHF 25. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
-    expect(extractPrice({}, html)).toEqual({ amount: 25, currency: 'CHF', isFree: false });
+    expect(extractPrice({}, html)).toEqual({ amount: 25, currency: 'CHF', isFree: false, ...DETAIL_TABLE });
   });
 
   it('preserves source ticket metadata when the admission price lives in the detail table', () => {
@@ -501,7 +509,7 @@ describe('extractPrice', () => {
     } }, html, 'https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/tour/')).toEqual({
       amount: 0, currency: 'CHF', isFree: true,
       availability: 'https://schema.org/InStock', validFrom: '2026-06-01T09:00:00+02:00',
-      url: 'https://www.myswitzerland.com/booking/tour',
+      url: 'https://www.myswitzerland.com/booking/tour', ...DETAIL_TABLE,
     });
   });
 
@@ -528,6 +536,7 @@ describe('extractPrice', () => {
       amount: 25,
       currency: 'CHF',
       isFree: false,
+      ...OFFER_PRICE,
     });
   });
 
@@ -547,6 +556,7 @@ describe('extractPrice', () => {
       availability: 'https://schema.org/InStock',
       validFrom: '2026-06-01T09:00:00+02:00',
       url: 'https://www.myswitzerland.com/tickets/kunst-zu-mittag',
+      ...OFFER_PRICE,
     });
   });
 
@@ -590,18 +600,18 @@ describe('extractPrice', () => {
           { price: '15', priceCurrency: 'CHF' },
         ],
       }),
-    ).toEqual({ amount: 15, currency: 'CHF', isFree: false });
+    ).toEqual({ amount: 15, currency: 'CHF', isFree: false, ...OFFER_PRICE });
   });
 
   it('flags isAccessibleForFree as a free event', () => {
-    expect(extractPrice({ isAccessibleForFree: true })).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(extractPrice({ isAccessibleForFree: true })).toEqual({ amount: 0, currency: 'CHF', isFree: true, ...FREE_FLAG });
   });
 
   it('gives isAccessibleForFree priority over positive offers', () => {
     expect(extractPrice({
       isAccessibleForFree: true,
       offers: [{ price: '25', priceCurrency: 'CHF' }, { price: '0', priceCurrency: 'CHF' }],
-    })).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    })).toEqual({ amount: 0, currency: 'CHF', isFree: true, ...FREE_FLAG });
   });
 
   it('does not carry paid Offer metadata into a free event without a zero-priced Offer', () => {
@@ -618,13 +628,14 @@ describe('extractPrice', () => {
       amount: 0,
       currency: 'CHF',
       isFree: true,
+      ...FREE_FLAG,
     });
   });
 
   it('falls back to the localized detail table when JSON-LD omits offers', () => {
     const html = '<table><tr><th scope="row">Prezzo</th><td><div class="richtext">Gratuito</div></td></tr></table>';
     expect(extractDetailTableValue(html, ['Prezzo', 'Preis'])).toBe('Gratuito');
-    expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true, ...DETAIL_TABLE });
   });
 
   it('reads definition-list metadata and a structured Località address', () => {
@@ -913,11 +924,11 @@ describe('mapEventRecord', () => {
   it('recovers an indexed admission tariff when the detail page is unavailable', () => {
     const indexedHit = { ...hitIt, content: 'Una fiera di quattro secoli.Gratuito\n' };
     expect(mapEventRecord('abc123', { it: indexedHit })?.event.price).toEqual({
-      amount: 0, currency: 'CHF', isFree: true,
+      amount: 0, currency: 'CHF', isFree: true, ...INDEX_CONTENT,
     });
     expect(mapEventRecord('abc123', { it: indexedHit }, {
       detailLd: { offers: { price: '25', priceCurrency: 'CHF' } },
-    })?.event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false });
+    })?.event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false, ...OFFER_PRICE });
   });
 
   it('uses indexed admission when the detail tariff is unknown and keeps booking metadata', () => {
@@ -928,6 +939,7 @@ describe('mapEventRecord', () => {
     })?.event.price).toEqual({
       amount: 0, currency: 'CHF', isFree: true,
       url: 'https://www.myswitzerland.com/booking/', availability: 'https://schema.org/InStock',
+      ...INDEX_CONTENT,
     });
   });
 
@@ -936,11 +948,11 @@ describe('mapEventRecord', () => {
     expect(mapEventRecord('abc123', { it: indexedHit }, {
       detailLd: { offers: { url: '/booking/' } },
     })?.event.price).toEqual({
-      amount: 59, currency: 'CHF', isFree: false, url: 'https://www.myswitzerland.com/booking/',
+      amount: 59, currency: 'CHF', isFree: false, url: 'https://www.myswitzerland.com/booking/', ...INDEX_CONTENT,
     });
     expect(mapEventRecord('abc123', { it: indexedHit }, {
       detailLd: { offers: { price: '65', priceCurrency: 'CHF' } },
-    })?.event.price).toEqual({ amount: 65, currency: 'CHF', isFree: false });
+    })?.event.price).toEqual({ amount: 65, currency: 'CHF', isFree: false, ...OFFER_PRICE });
   });
 
   it('keeps a booking link without inventing an amount when both price sources are unknown', () => {
@@ -963,7 +975,7 @@ describe('mapEventRecord', () => {
     expect(event.category).toBe('Music');
     expect(event.venue).toBe('LAC Lugano Arte e Cultura');
     expect(event.address).toEqual({ street: 'Piazza Bernardino Luini 6', postalCode: '6900' });
-    expect(event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false });
+    expect(event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false, ...OFFER_PRICE });
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');
   });
 
@@ -990,7 +1002,7 @@ describe('mapEventRecord', () => {
       url: 'https://www.myswitzerland.com/organizer',
     });
     expect(event.performer).toEqual([{ '@type': 'Person', name: 'Artista principale' }]);
-    expect(event.price).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(event.price).toEqual({ amount: 0, currency: 'CHF', isFree: true, ...DETAIL_TABLE });
     expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
       'https://www.myswitzerland.com/-/media/events/metadata.jpg',
     );

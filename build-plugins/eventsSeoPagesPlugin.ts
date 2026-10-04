@@ -99,6 +99,12 @@ type EventPrice = {
   validFrom?: string;
   url?: string;
   evidence?: 'structured-zero' | 'structured-free-access' | 'label-free' | 'numeric' | 'unknown';
+  // Provenance (owner decision 2026-10-04): which admitted source and which of
+  // its fields produced the value. hasConfidentPrice() publishes only
+  // structured fields (JSON-LD offers.price / isAccessibleForFree).
+  priceSource?: string;
+  priceField?: string;
+  priceConflicts?: Array<{ eventId: string; amount: number; currency: string; isFree: boolean; priceSource?: string; priceField?: string }>;
 };
 
 interface SiteEvent {
@@ -1283,7 +1289,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    ...(event.price?.isFree ? { isAccessibleForFree: true } : {}),
+    // Free admission is a price claim too: only a structured source field may assert it.
+    ...(confidentPrice && event.price?.isFree ? { isAccessibleForFree: true } : {}),
     ...(offer ? { offers: offer } : {}),
   };
 }
