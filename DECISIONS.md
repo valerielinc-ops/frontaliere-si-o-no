@@ -2,6 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
+| 2026-09-29 → confermata 2026-10-04 | #6408/#6280 antivirus dei CV della candidatura assistita: **NO, nessuna scansione**. Il CV entra nella coda admin con il badge «non scansionato»; restano il controllo dei magic bytes (`cvFileCheck`), il rifiuto dei verdetti `pending/infected/rejected/error` e `storage.rules` chiuso ai client. Motivo: non esiste un provider AV approvato e integrarne uno vuol dire mandare CV reali a un servizio terzo, con secret, egress e retention da contrattare; il gate su un `cvScanStatus` che nessuno scriveva nascondeva i CV di ordini pagati. Il test EICAR non è una scansione e non va presentato come tale. #6408 si chiude `not planned`, non si riapre senza una nuova riga qui | sessione 29-09 (PR #10287), conferma sessione 04-10 |
 | 2026-09-24 | **Nessun veto sul ciclo autonomo**: F1/F7, control-plane, path/categorie ignoti e `needs-human` sono evidenza, mai deny (policy f1-f7-v4). Supersede il veto del contratto VISION | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | **Scelte interne sempre autonome**, mai una riga del proprietario. Direttiva: non perdere pagine SEO, revenue o utenti; default conservativo documentato nella PR | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | **Job alert: SÌ, procedi**, nessun congelamento di famiglia. Blocca un invio solo l'unsubscribe dell'utente da quel canale | sessione 24-09 (#9573, #9575, #9576, #9577, #9060, #9314, #5705, #5823) |
