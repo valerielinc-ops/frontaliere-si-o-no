@@ -51,7 +51,9 @@ import {
   bucketState,
   dailyKeyFromBucketBody,
   dailyBucketInfo,
+  dailyBucketTargetRepository,
   detectAlreadyResolved,
+  followupItemDailyKey,
   hasEnumeratedItems,
   hasDailyBucketRepositoryConsistency,
   hasFalsifiableAcceptance,
@@ -75,6 +77,8 @@ import {
   unblockedCommentBody,
 } from './lib/followup-blocked-recheck.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
+import { rebuildDailyBody } from './gate-minted-followups.mjs';
+import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 
 export { hasEnumeratedItems };
 
@@ -694,6 +698,378 @@ export function decideReconcileAction({ resolved, hasMaybeResolved, hasPriorFlag
   return hasPriorFlag ? 'none' : 'flag'; // held (already flagged) vs first detection
 }
 
+/*
+ * ── Allarme per i bucket illeggibili ──────────────────────────────────────
+ *
+ * Il corpo di un bucket giornaliero lo scrivono a testo libero il triage
+ * (`post-merge-followup.yml`) e, a volte, sessioni di agenti. Quando esce dal
+ * formato, `dailyBucketCloseGate` e `reconcileDailyItems` restituiscono un
+ * veto STRUTTURALE e il ciclo principale stampa soltanto «bucket aperto
+ * (<motivo>)»: lo stesso veto ferma il gate sul conio e il drainer, e nessuno
+ * lo dice. Misurato su #8705 (corpo riscritto a mano il 29-09, titolo
+ * «… 7 items — status reconciled 2026-09-29»): da allora ogni run dice
+ * `bucket aperto (mismatched-target-repository)` e nessun item puo' cambiare
+ * stato. Qui il veto diventa UNA issue di allarme a titolo stabile, che si
+ * chiude da sola quando l'elenco torna vuoto. Sola osservazione: nessun corpo
+ * viene riscritto e nessuna label viene tolta da qui.
+ */
+
+/**
+ * I motivi che dicono «il corpo non e' leggibile», non «un item aspetta
+ * ancora la prova». Elenco chiuso: `valid-item-unconfirmed`,
+ * `weak-item-evidence`, `born-satisfied-token`, `bucket-collecting` e
+ * `invalid-item` sono attese legittime e restano fuori. `round-trip-unstable`
+ * e' il motivo della guardia di round-trip (`dailyBucketRoundTripReason`).
+ */
+export const STRUCTURAL_BUCKET_VETOES = Object.freeze([
+  'mismatched-target-repository',
+  'mismatched-item-count',
+  'missing-stable-item-id',
+  'mismatched-stable-item-id',
+  'missing-daily-key',
+  'mismatched-daily-key',
+  'ambiguous-bucket-state',
+  'unterminated-markdown-fence',
+  'aggregate-unparsed',
+  'round-trip-unstable',
+]);
+const STRUCTURAL_BUCKET_VETO_SET = new Set(STRUCTURAL_BUCKET_VETOES);
+
+/** Il motivo e' un veto strutturale (corpo illeggibile) e non un'attesa? */
+export function isStructuralBucketVeto(reason) {
+  return STRUCTURAL_BUCKET_VETO_SET.has(String(reason ?? ''));
+}
+
+export const BUCKET_ALARM_TITLE = 'Bucket follow-up illeggibile dal parser';
+// Lavoro per lo sweep autonomo, non per la coda del fixer: con
+// `automation-deferred` `classifyIssue` da' route `none`. MAI `agent:fix`,
+// `agent:fix-queued` o `follow-up` (quest'ultima la farebbe rileggere da qui).
+export const BUCKET_ALARM_LABELS = Object.freeze(['automation-deferred']);
+// Un bucket `collecting` piu' giovane di cosi' e' ancora nelle mani del triage.
+export const BUCKET_ALARM_MIN_AGE_HOURS = 48;
+
+// Un veto strutturale scatta sempre prima di qualunque lettura di file: per la
+// sola diagnosi di forma basta un io che non legge niente.
+const NO_FILE_IO = Object.freeze({ fileExists: () => false, readFile: () => '' });
+
+/**
+ * Guardia di round-trip, sola diagnosi: `parseFollowupItems` →
+ * `rebuildDailyBody` (lo stesso ricostruttore del gate sul conio) → nuovo
+ * parse. Numero, ID o stati diversi → `round-trip-unstable`: il prossimo
+ * scrittore deterministico cambierebbe cio' che i gate vedono. NON riscrive
+ * il corpo. `null` se stabile o se non c'e' alcun item (quello e' gia'
+ * `aggregate-unparsed`).
+ */
+export function dailyBucketRoundTripReason(body) {
+  const source = String(body || '');
+  const items = parseFollowupItems(source);
+  if (!items.length) return null;
+  const again = parseFollowupItems(rebuildDailyBody(source.slice(0, items[0].start), items));
+  const signature = (list) => list.map((item) => `${item.id}\0${item.state}`).join('\n');
+  return again.length === items.length && signature(again) === signature(items) ? null : 'round-trip-unstable';
+}
+
+/**
+ * Il veto strutturale di un bucket giornaliero letto da titolo e corpo, senza
+ * I/O: lo stesso `dailyBucketCloseGate` del ciclo principale, poi la guardia
+ * di round-trip. `null` se il titolo non e' di un bucket giornaliero o se il
+ * corpo e' leggibile.
+ */
+export function bucketStructuralVeto(issue) {
+  const daily = dailyBucketInfo(issue?.title || '');
+  if (!daily) return null;
+  const body = String(issue?.body || '');
+  const gate = dailyBucketCloseGate(body, NO_FILE_IO, daily.dailyKey, daily.targetRepository, daily.itemCount, null);
+  if (isStructuralBucketVeto(gate.reason)) return gate.reason;
+  return dailyBucketRoundTripReason(body);
+}
+
+/**
+ * Allarme dovuto per un bucket? Solo con veto strutturale, e solo se il
+ * bucket e' `sealed` oppure piu' vecchio di `BUCKET_ALARM_MIN_AGE_HOURS`: un
+ * `collecting` giovane e' ancora scritto dal triage. Data di creazione
+ * illeggibile → allarme: il silenzio e' esattamente il difetto da chiudere.
+ */
+export function shouldAlarmBucket({ reason, body, createdAt, now }) {
+  if (!isStructuralBucketVeto(reason)) return false;
+  if (bucketState(body) === 'sealed') return true;
+  const created = Date.parse(String(createdAt || ''));
+  if (!Number.isFinite(created)) return true;
+  return now - created >= BUCKET_ALARM_MIN_AGE_HOURS * 3_600_000;
+}
+
+const REPOSITORY_SLUG_RE = /^[\w.-]+\/[\w.-]+$/u;
+
+/**
+ * Le righe che violano il formato, dall'alto in basso (al piu' `limit`), per
+ * dire nell'allarme DOVE riparare: titolo, recinto non chiuso, campi di testa
+ * (`Daily key`, `State`, `Target repository`), heading degli item, `State`
+ * degli item. Diagnosi euristica: il verdetto resta di `bucketStructuralVeto`.
+ * @returns {Array<{where: string, text: string, why: string}>}
+ */
+export function bucketFormatViolations(title, body, { limit = 5 } = {}) {
+  const source = String(body || '');
+  const lines = source.split('\n');
+  const lineAt = (offset) => source.slice(0, offset).split('\n').length;
+  const out = [];
+  const push = (where, text, why) => { if (out.length < limit) out.push({ where, text: String(text || '').trim().slice(0, 200), why }); };
+  const daily = dailyBucketInfo(title || '');
+  const items = parseFollowupItems(source);
+  const headerRepository = dailyBucketTargetRepository(source);
+  if (daily) {
+    if (!REPOSITORY_SLUG_RE.test(daily.targetRepository)) {
+      push('titolo', title, `il repository nel titolo («${daily.targetRepository}») non e' owner/repo`);
+    } else if (headerRepository && headerRepository.toLowerCase() !== daily.targetRepository.toLowerCase()) {
+      push('titolo', title, `il repository nel titolo non coincide con l'header (${headerRepository})`);
+    }
+    if (items.length && daily.itemCount !== items.length) {
+      push('titolo', title, `il titolo dice ${daily.itemCount} item, il corpo ne ha ${items.length}`);
+    }
+  }
+  let fenceLine = 0;
+  let fence = null;
+  for (let i = 0; i < lines.length; i += 1) {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(lines[i]);
+    if (/^\s*>/.test(lines[i]) || !marker) continue;
+    if (fence) {
+      if (marker[1][0] === fence.char && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) fence = null;
+    } else {
+      fence = { char: marker[1][0], length: marker[1].length };
+      fenceLine = i + 1;
+    }
+  }
+  if (fence) push(`riga ${fenceLine}`, lines[fenceLine - 1], 'recinto di codice aperto e mai chiuso');
+  const headLines = source.slice(0, items[0]?.start ?? source.length).split('\n');
+  let headStates = 0;
+  for (let i = 0; i < headLines.length; i += 1) {
+    const field = /^\s*(?:-\s+)?(State|Daily key|Target repository)\s*:\s*(.*?)\s*$/i.exec(headLines[i]);
+    if (!field) continue;
+    const name = field[1].toLowerCase();
+    if (name === 'state') {
+      headStates += 1;
+      if (headStates > 1) push(`riga ${i + 1}`, headLines[i], 'secondo campo `State` di testa');
+      else if (!/^(collecting|sealed)$/i.test(field[2])) push(`riga ${i + 1}`, headLines[i], 'lo `State` di testa deve essere esattamente `collecting` o `sealed`');
+    } else if (name === 'daily key' && !/^\d{4}-\d{2}-\d{2}\b/.test(field[2])) {
+      push(`riga ${i + 1}`, headLines[i], '`Daily key` senza data YYYY-MM-DD');
+    } else if (name === 'target repository' && !REPOSITORY_SLUG_RE.test(field[2])) {
+      push(`riga ${i + 1}`, headLines[i], '`Target repository` non e\' owner/repo');
+    }
+  }
+  if (!headStates && items.length) push('testa', '', 'manca il campo `- State: collecting|sealed` prima del primo item');
+  if (!items.length) push('corpo', '', 'nessun heading item `### FU-YYYY-MM-DD-NNN — titolo`');
+  for (const item of items) {
+    const headingLine = lineAt(item.start);
+    if (!item.id || !FOLLOWUP_ITEM_ID_SINGLE_RE.test(item.id)
+        || (daily && followupItemDailyKey(item.id) !== daily.dailyKey)) {
+      push(`riga ${headingLine}`, lines[headingLine - 1], 'heading senza ID stabile `FU-<daily key>-NNN`');
+      continue;
+    }
+    const rawLines = String(item.raw || '').split('\n');
+    // Confronto LETTERALE, come `hasDailyBucketRepositoryConsistency`: un valore
+    // fra backtick e' un altro repository per il parser (misurato su #11301).
+    const repoIndex = rawLines.findIndex((line) => {
+      const field = /^\s*-\s+Target repository\s*:\s*(.*?)\s*$/i.exec(line);
+      return field && headerRepository && field[1].trim().toLowerCase() !== headerRepository.toLowerCase();
+    });
+    if (repoIndex >= 0) {
+      const quoted = /`/.test(rawLines[repoIndex]);
+      push(`riga ${headingLine + repoIndex}`, rawLines[repoIndex], quoted
+        ? `\`Target repository\` dell'item fra backtick: il parser lo confronta alla lettera con l'header (${headerRepository})`
+        : `\`Target repository\` dell'item diverso dall'header (${headerRepository})`);
+    }
+    if (item.state) continue;
+    const stateIndex = rawLines.findIndex((line) => /^\s*-\s+State\s*:/i.test(line));
+    if (stateIndex >= 0) {
+      push(`riga ${headingLine + stateIndex}`, rawLines[stateIndex], 'lo `State` di un item deve essere esattamente `open`, `in-progress`, `done` o `blocked`');
+    } else {
+      push(`riga ${headingLine}`, lines[headingLine - 1], 'item senza riga `- State:`');
+    }
+  }
+  return out;
+}
+
+/**
+ * Coppie di label che tre script diversi scrivono senza un invariante comune.
+ * Elenco chiuso; sola osservazione, nessuna label viene tolta da qui.
+ * @param {Array<string|{name:string}>} labels
+ * @param {{hasOpenItem?: boolean}} [state]
+ * @returns {string[]} i conflitti, in forma leggibile (vuoto se nessuno)
+ */
+export function bucketLabelConflicts(labels, { hasOpenItem = false } = {}) {
+  const set = new Set((Array.isArray(labels) ? labels : []).map(labelName).filter(Boolean).map((name) => String(name).toLowerCase()));
+  const out = [];
+  if (set.has(LABEL) && set.has('agent:fix-queued')) out.push('`maybe-resolved` + `agent:fix-queued`');
+  if (set.has('fu-parked') && set.has('agent:fix-queued')) out.push('`fu-parked` + `agent:fix-queued`');
+  for (const queue of ['agent:fix', 'agent:fix-queued']) {
+    if (set.has('decomposed:1') && set.has(queue)) out.push(`\`decomposed:1\` + \`${queue}\``);
+  }
+  if (set.has(LABEL) && hasOpenItem) out.push('`maybe-resolved` con un item ancora `open`');
+  return out;
+}
+
+/**
+ * Piano puro dell'allarme su TUTTE le issue lette (anche quelle che il ciclo
+ * principale salta per una PR in volo o per commenti illeggibili: la forma
+ * del corpo non dipende da nessuna delle due).
+ * @returns {{unparseable: object[], conflicts: object[]}}
+ */
+export function planBucketAlarm(issues, { now = Date.now() } = {}) {
+  const unparseable = [];
+  const conflicts = [];
+  for (const iss of Array.isArray(issues) ? issues : []) {
+    const daily = dailyBucketInfo(iss?.title || '');
+    if (!daily) continue;
+    const body = String(iss?.body || '');
+    const reason = bucketStructuralVeto(iss);
+    if (reason && shouldAlarmBucket({ reason, body, createdAt: iss?.createdAt, now })) {
+      const created = Date.parse(String(iss?.createdAt || ''));
+      unparseable.push({
+        number: iss.number,
+        title: String(iss.title || ''),
+        reason,
+        state: bucketState(body),
+        ageHours: Number.isFinite(created) ? Math.floor((now - created) / 3_600_000) : null,
+        dailyKey: daily.dailyKey,
+        itemCount: parseFollowupItems(body).length,
+        headerRepository: dailyBucketTargetRepository(body),
+        titleRepository: daily.targetRepository,
+        violations: bucketFormatViolations(iss.title, body),
+      });
+    }
+    const hasOpenItem = parseFollowupItems(body).some((item) => item.state === 'open' || item.state === 'in-progress');
+    const found = bucketLabelConflicts(iss?.labels, { hasOpenItem });
+    if (found.length) conflicts.push({ number: iss.number, title: String(iss.title || ''), conflicts: found });
+  }
+  return { unparseable, conflicts };
+}
+
+/** La risposta GraphQL di `userContentEdits` → `[{editedAt, login}]`, o `null` se illeggibile. */
+export function parseBodyEditsResponse(raw) {
+  if (typeof raw !== 'string' || !raw.trim()) return null;
+  try {
+    const nodes = JSON.parse(raw)?.data?.repository?.issue?.userContentEdits?.nodes;
+    if (!Array.isArray(nodes)) return null;
+    return nodes.map((node) => ({
+      editedAt: String(node?.editedAt || ''),
+      login: String(node?.editor?.login || 'sconosciuto'),
+    }));
+  } catch {
+    return null;
+  }
+}
+
+/** La riga «scrittori» di un bucket in allarme. */
+export function formatBodyEditors(edits) {
+  if (!Array.isArray(edits)) return 'scrittore non determinato';
+  if (!edits.length) return 'nessuna modifica del corpo dopo la creazione';
+  return edits.map((edit) => `${edit.editedAt || '?'} ${inertCommentText(edit.login)}`).join('; ');
+}
+
+/** Il corpo dell'allarme: un blocco per bucket illeggibile, poi i conflitti di label. */
+export function bucketAlarmBody({ unparseable = [], conflicts = [], repository = '' } = {}) {
+  const repo = REPOSITORY_SLUG_RE.test(String(repository)) ? String(repository) : '<owner/repo>';
+  const lines = [
+    `Il reconciler dei follow-up (\`scripts/ci/reconcile-followups.mjs\`) non riesce a leggere ${unparseable.length} bucket giornalieri e trova ${conflicts.length} bucket con label contraddittorie. Un bucket illeggibile non cambia mai stato: lo stesso veto ferma il gate sul conio e il drainer.`,
+    '',
+    'Questa issue si aggiorna a ogni run del reconciler e si chiude da sola quando entrambi gli elenchi sono vuoti.',
+    '',
+    `## Bucket illeggibili (${unparseable.length})`,
+  ];
+  if (!unparseable.length) lines.push('', '- Nessuno.');
+  for (const entry of unparseable) {
+    const [first, ...rest] = entry.violations || [];
+    const where = (violation) => `${violation.where}${violation.text ? ` ${codeSpan(violation.text)}` : ''} — ${inertCommentText(violation.why)}`;
+    lines.push(
+      '',
+      `### #${entry.number} — motivo \`${entry.reason}\``,
+      `- Stato di testa: \`${entry.state || 'non leggibile'}\`; eta': ${entry.ageHours ?? '?'} h`,
+      `- Prima riga fuori formato: ${first ? where(first) : 'non localizzata (vedi il motivo)'}`,
+      ...rest.map((violation) => `- Anche: ${where(violation)}`),
+      `- Ultime modifiche del corpo: ${formatBodyEditors(entry.editors)}`,
+      '- Riparazione:',
+    );
+    const fixTitle = entry.headerRepository && REPOSITORY_SLUG_RE.test(entry.headerRepository)
+      && entry.itemCount > 0
+      && (entry.titleRepository !== entry.headerRepository || (entry.violations || []).some((v) => v.where === 'titolo'));
+    if (fixTitle) {
+      lines.push(`  - \`gh issue edit ${entry.number} --repo ${repo} --title "follow-up(daily:${entry.dailyKey}): ${entry.itemCount} items — ${entry.headerRepository}"\``);
+    }
+    lines.push(
+      `  - rigenera il corpo canonico dagli item noti (testa \`- Daily key:\`, \`- State: sealed\`, \`- Target repository:\`; per item \`### FU-${entry.dailyKey}-NNN — titolo\` e \`- State: open|in-progress|done|blocked\`) e scrivilo con \`gh issue edit ${entry.number} --repo ${repo} --body-file <corpo>\``,
+      `  - verifica: \`DRY_RUN=1 GH_REPO=${repo} node scripts/ci/reconcile-followups.mjs\` → la riga \`bucket #${entry.number}\` non porta piu' un motivo strutturale`,
+    );
+  }
+  lines.push('', `## Label contraddittorie (${conflicts.length})`);
+  if (!conflicts.length) lines.push('', '- Nessuna.');
+  else lines.push('');
+  for (const entry of conflicts) lines.push(`- #${entry.number}: ${entry.conflicts.join('; ')}`);
+  lines.push('', 'Sola osservazione: il reconciler non riscrive corpi e non toglie label da qui.');
+  return lines.join('\n');
+}
+
+/**
+ * Esito dell'allarme: `open` (crea o aggiorna) se c'e' qualcosa da dire,
+ * `resolve` se tutto e' pulito E l'elenco delle issue era completo, altrimenti
+ * `none` (un elenco troncato non prova che i bucket mancanti siano sani).
+ */
+export function decideBucketAlarmAction({ unparseable = [], conflicts = [], listComplete = false } = {}) {
+  if (unparseable.length || conflicts.length) return 'open';
+  return listComplete ? 'resolve' : 'none';
+}
+
+/**
+ * Applica il piano: attribuzione dello scrittore (una lettura per bucket in
+ * allarme; lettura fallita → «scrittore non determinato», l'allarme si apre
+ * comunque), poi crea/aggiorna l'issue a titolo stabile o la chiude. Le
+ * dipendenze sono iniettate per i test. Non lancia mai: un guasto dell'allarme
+ * non deve far fallire il reconciler.
+ * @returns {Promise<{action: string, result: unknown}>}
+ */
+export async function applyBucketAlarm(plan, {
+  listComplete = false,
+  dryRun = false,
+  repository = '',
+  readBodyEdits = () => null,
+  create = createGithubIssue,
+  resolve = resolveGithubIssue,
+  log = console.log,
+} = {}) {
+  const unparseable = (plan?.unparseable || []).map((entry) => {
+    let editors = null;
+    try { editors = readBodyEdits(entry.number); } catch { editors = null; }
+    return { ...entry, editors: Array.isArray(editors) ? editors : null };
+  });
+  const conflicts = plan?.conflicts || [];
+  const action = decideBucketAlarmAction({ unparseable, conflicts, listComplete });
+  if (action === 'none') return { action, result: null };
+  if (dryRun) {
+    log(`bucket alarm: ${action} (dry-run, nessuna scrittura)`);
+    return { action, result: null };
+  }
+  try {
+    if (action === 'resolve') {
+      return { action, result: resolve(BUCKET_ALARM_TITLE, { workflow: 'followup-reconcile', exactTitle: true }) };
+    }
+    const result = await create({
+      title: BUCKET_ALARM_TITLE,
+      exactTitle: true,
+      description: bucketAlarmBody({ unparseable, conflicts, repository }),
+      priority: 3,
+      labels: [...BUCKET_ALARM_LABELS],
+      workflow: 'followup-reconcile',
+      signals: {
+        cosa: 'bucket follow-up giornalieri che il parser non legge o con label contraddittorie',
+        metrica: { osservato: `unparseable_buckets=${unparseable.length} label_conflicts=${conflicts.length}`, atteso: 'unparseable_buckets=0 label_conflicts=0' },
+        comando: 'DRY_RUN=1 node scripts/ci/reconcile-followups.mjs',
+      },
+    });
+    return { action, result };
+  } catch (e) {
+    log(`::warning::reconcile-followups: allarme bucket non scritto (${String(e?.message ?? e).slice(0, 120)})`);
+    return { action, result: null };
+  }
+}
+
 function gh(args, { allowFail = false } = {}) {
   try {
     return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
@@ -755,6 +1131,23 @@ function readIssueComments(number) {
   const result = parseIssueCommentsResponse(out);
   issueCommentCache.set(number, result);
   return result;
+}
+
+const BODY_EDITS_QUERY = 'query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){issue(number:$number){userContentEdits(first:5){nodes{editedAt editor{login}}}}}}';
+
+/**
+ * Le ultime 5 modifiche del corpo di una issue (chi ha riscritto il bucket):
+ * una lettura `gh api graphql` per bucket in allarme. `null` se il repository
+ * non e' noto o la lettura fallisce. `first`, non `last`: la connessione
+ * `userContentEdits` e' ordinata dalla piu' recente (misurato su #8705, 9
+ * modifiche: `last:5` restituiva le cinque del 15-09 e nascondeva la
+ * riscrittura del 29-09).
+ */
+function readBodyEdits(number) {
+  const [owner, name] = String(process.env.GH_REPO || '').split('/');
+  if (!owner || !name) return null;
+  const out = gh(['api', 'graphql', '-f', `query=${BODY_EDITS_QUERY}`, '-f', `owner=${owner}`, '-f', `name=${name}`, '-F', `number=${Number(number)}`], { allowFail: true });
+  return parseBodyEditsResponse(out);
 }
 
 // Letture GitHub della rimisura dei `blocked`, con tetto per run e cache.
@@ -976,12 +1369,16 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
   return { results, body: nextBody, labelNames: nextLabels, skipIssue: false };
 }
 
-function main() {
+async function main() {
   const raw = gh([
     'issue', 'list', '--label', 'follow-up', '--state', 'open',
-    ...repoArgs, '--json', 'number,title,body,labels', '--limit', String(MAX_ISSUES),
+    ...repoArgs, '--json', 'number,title,body,labels,createdAt', '--limit', String(MAX_ISSUES),
   ]);
   const issues = JSON.parse(raw || '[]');
+  // Sui corpi e sulle label COME LETTI, prima di qualunque scrittura del giro:
+  // un veto strutturale ferma ogni scrittura sul suo bucket, quindi la diagnosi
+  // non dipende dall'ordine.
+  const bucketAlarmPlan = planBucketAlarm(issues, { now: Date.now() });
 
   // In-flight exclusion: an open PR for issue #N means the work is in progress, NOT done
   // — its cited status-quo code is still in the file. Skip those (mirrors FOLLOWUP.md §
@@ -1254,7 +1651,23 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     gh(['issue', 'edit', String(v.number), ...repoArgs, '--add-label', LABEL], { allowFail: true });
   }
 
-  const summary = `Reconcile follow-ups: scanned ${issues.length}, cache-skipped ${unclassifiableSkipped}, cache-marked ${unclassifiableCandidates.length}, flagged ${flagged.length}, auto-closed ${closed.length}, verify_requested=${verifyRequests.length}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
+  // Allarme dei bucket illeggibili / con label contraddittorie. La chiusura
+  // richiede un elenco completo: con `--limit` raggiunto un bucket illeggibile
+  // potrebbe essere fuori dalla pagina letta.
+  for (const entry of bucketAlarmPlan.unparseable) {
+    console.log(`#${entry.number}: bucket illeggibile dal parser (${entry.reason}) → allarme «${BUCKET_ALARM_TITLE}»`);
+  }
+  for (const entry of bucketAlarmPlan.conflicts) {
+    console.log(`#${entry.number}: label contraddittorie: ${entry.conflicts.join('; ').replace(/`/g, '')}`);
+  }
+  const alarm = await applyBucketAlarm(bucketAlarmPlan, {
+    listComplete: issues.length < MAX_ISSUES,
+    dryRun: DRY_RUN,
+    repository: process.env.GH_REPO || '',
+    readBodyEdits,
+  });
+
+  const summary = `Reconcile follow-ups: scanned ${issues.length}, cache-skipped ${unclassifiableSkipped}, cache-marked ${unclassifiableCandidates.length}, flagged ${flagged.length}, auto-closed ${closed.length}, verify_requested=${verifyRequests.length} unparseable_buckets=${bucketAlarmPlan.unparseable.length} label_conflicts=${bucketAlarmPlan.conflicts.length} bucket_alarm=${alarm.action}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
   console.log(summary);
   const blockedLine = `Blocked recheck: ${blockedRecheckSummary(blockedResults)} reads=${blockedRecheckReads}/${BLOCKED_RECHECK_MAX_READS} reentry_cap=${BLOCKED_RECHECK_MAX_REENTRIES}`;
   console.log(blockedLine);
@@ -1268,12 +1681,14 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     const vr = verifyRequests.map((v) => `- 🔎 #${v.number} richiesta di verifica: ${v.ids.join(',')}`).join('\n');
     const bk = bucketLines.map((line) => `- \`${line}\``).join('\n');
     const bl = `- \`${blockedLine}\``;
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl, vr, bk, bl].filter(Boolean).join('\n')}\n`);
+    const ub = bucketAlarmPlan.unparseable.map((entry) => `- 🚨 #${entry.number} bucket illeggibile dal parser (${entry.reason})`).join('\n');
+    const lc = bucketAlarmPlan.conflicts.map((entry) => `- ⚠️ #${entry.number} label contraddittorie: ${entry.conflicts.join('; ')}`).join('\n');
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl, vr, ub, lc, bk, bl].filter(Boolean).join('\n')}\n`);
   }
 }
 
 // Run only as a CLI entrypoint — importing for tests (pure decision helpers above) must
 // not trigger the gh-driven scan.
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  main();
+  await main();
 }
