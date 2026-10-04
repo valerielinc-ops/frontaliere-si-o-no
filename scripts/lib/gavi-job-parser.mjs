@@ -57,6 +57,8 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchWithRetry, RETRYABLE_STATUS } from './crawler-template.mjs';
@@ -396,16 +398,15 @@ async function fetchListingPages() {
  * `datePosted` from JSON-LD only, and takes everything else (location,
  * description, contract type) from the label/value table like Sygnum does.
  */
-function extractJsonLdDatePosted(html = '') {
-  const rx = /<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/i;
-  const m = rx.exec(html);
-  if (!m) return '';
-  try {
-    const ld = JSON.parse(m[1]);
-    return ld?.datePosted ? String(ld.datePosted).slice(0, 10) : '';
-  } catch {
-    return '';
-  }
+function extractPublication(html, expectedUrl) {
+  const posting = extractJobPostingLd(html);
+  const identities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+  const sameVacancy = identities.length > 0 && identities.every((value) => {
+    if (typeof value !== 'string' || !value.trim()) return false;
+    try { return new URL(value, expectedUrl).href === new URL(expectedUrl).href; }
+    catch { return false; }
+  });
+  return sourcePostingDateFields(sameVacancy ? posting?.datePosted : '');
 }
 
 function extractLabelFields(html = '') {
@@ -441,7 +442,7 @@ async function fetchDetailPage(vacancyNo, cookieJar) {
   }
 
   return {
-    datePosted: extractJsonLdDatePosted(html),
+    ...extractPublication(html, DETAIL_URL(vacancyNo)),
     contractRaw: extractContractLine(jobDescriptionHtml),
     location: labelFields['Location'] ? stripHtml(labelFields['Location']) : '',
     description: normalizeSpace(descriptionParts.join(' ')),
@@ -521,7 +522,7 @@ export async function fetchAllGaviJobs() {
     const jobSlug = slugify(`${title} gavi ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = mapEmploymentType(detail.contractRaw, title);
-    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+    const publication = mergeSourcePostingDates({}, detail);
 
     const job = {
       // ── Required fields ──
@@ -556,7 +557,7 @@ export async function fetchAllGaviJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: row.vacancyNo || null,
       requirements: [],
