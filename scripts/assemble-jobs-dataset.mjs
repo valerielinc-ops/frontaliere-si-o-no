@@ -93,6 +93,12 @@ import {
   summarizeTranslationHold,
 } from './lib/translation-publication-hold.mjs';
 import { countPopulationSlots } from './lib/job-locale-population.mjs';
+import {
+  dropSpuriousRetranslationFlags,
+  getRetranslationBaseline,
+  recordRetranslationBaseline,
+} from './lib/crawler-retranslation-baseline.mjs';
+import { isIncomplete } from './lib/translation-incomplete.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -1027,6 +1033,10 @@ export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   if (fs.existsSync(slicePath)) {
     const data = readJson(slicePath);
     const jobs = data?.jobs || (Array.isArray(data) ? data : []);
+    // First read of the run = the previous run's committed slice: the
+    // baseline writeJobsCrawlerSlice judges this run's new flags against
+    // (lib/crawler-retranslation-baseline.mjs). Later reads never replace it.
+    recordRetranslationBaseline(crawlerKey, jobs);
     if (jobs.length > 0) return jobs;
   }
   // Fallback: data/jobs.json (gitignored, only available locally)
@@ -2549,6 +2559,31 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     if (needsFlag) { job.needsRetranslation = true; flagged++; }
   }
   if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content${nearDupFlagged > 0 ? ` (${nearDupFlagged} near-duplicate titles, cap ${nearDupFlagCap}/run)` : ''}`);
+
+  // ── Crawler flags on unchanged, complete records (RETRANS-FLAG, 2026-10-04) ──
+  // Every flagger above and upstream (localization with SKIP_AI_TRANSLATION,
+  // hardenJobLocaleFields, the word-list gate just run) re-judges translations
+  // the previous crawl already published. translate-pending clears any flag on
+  // a record that passes isIncomplete() before translating it, so such a flag
+  // is erased unrepaired one run later and re-raised on the next crawl — 98,7%
+  // of the 9.223 flags of the 2026-09-26 wave had unchanged source text. Keep
+  // a flag only when it is not new, the source text changed, or the
+  // translations are incomplete; see lib/crawler-retranslation-baseline.mjs.
+  // The baseline is the slice as this process first read it, or an explicit
+  // `options.retranslationBaseline` (records or snapshot) from the caller.
+  {
+    const baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
+    if (baseline) {
+      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
+      if (retrans.dropped > 0) {
+        console.log(
+          `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
+            + `(kept: ${retrans.keptSourceChanged} source changed, ${retrans.keptIncomplete} incomplete, `
+            + `${retrans.keptAlreadyFlagged} already flagged, ${retrans.keptNoBaseline} new)`,
+        );
+      }
+    }
+  }
 
   // Boilerplate guard: detect parsers that silently fell back to generic descriptions.
   if (!process.env.SKIP_BOILERPLATE_GUARD) {
