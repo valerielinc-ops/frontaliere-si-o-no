@@ -587,7 +587,10 @@ async function fetchJobListings() {
       html = await fetchHtml(pageUrl, { headers: { 'User-Agent': USER_AGENT } });
     } catch (err) {
       console.warn(`⚠️ Listing fetch failed (startrow=${startrow}): ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const rows = parseSearchPage(html);

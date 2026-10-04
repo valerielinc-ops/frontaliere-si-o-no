@@ -279,7 +279,10 @@ export async function fetchBaronieJobUrls(timeoutMs = 15000) {
     return [...urls];
   } catch (err) {
     console.warn(`⚠️ Failed to fetch careers page: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   } finally {
     clearTimeout(timer);
   }

@@ -306,6 +306,7 @@ async function fetchJobListings(options = {}) {
     );
     return swissOnly;
   } catch (err) {
+    // fetch-failure-empty-ok: typed Playwright branches (anti-bot, navigation timeout, browser launch) are runner transients the pipeline does not soft-exit
     if (AntiBotBlockError && err instanceof AntiBotBlockError) {
       console.warn(
         `   ⚠️ Vaudoise: anti-bot block (status=${err.status}, title=${JSON.stringify(err.title || '')}). Returning [].`,

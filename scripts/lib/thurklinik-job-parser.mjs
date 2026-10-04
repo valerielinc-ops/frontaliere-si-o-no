@@ -135,7 +135,10 @@ export async function fetchAllThurklinikJobs() {
     listingHtml = await fetchHtml(THURKLINIK_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   let rows = parseListing(listingHtml);
   // Drop spontaneous-application placeholders, they are not real openings.

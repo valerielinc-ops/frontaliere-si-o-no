@@ -169,7 +169,10 @@ async function fetchJobListings() {
     listingHtml = await fetchHtml(CAREER_URL, { headers: { 'User-Agent': UA } });
   } catch (err) {
     console.warn(`  ⚠️ Failed to fetch listing: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const detailUrls = extractDetailUrls(listingHtml);
