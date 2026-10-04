@@ -624,6 +624,7 @@ export function closingStageStats(runGh = gh, {
   return {
     measured: true,
     truncated: list.truncated || ordered.length > inspectionLimit,
+    listTruncated: list.truncated,
     issues,
     killSwitch,
   };
@@ -658,7 +659,11 @@ export function renderClosingStage(stats) {
   }
   const issues = stats.issues;
   const aged = issues.filter((issue) => issue.ageHours !== null);
-  const unmeasured = issues.length - aged.length;
+  // Two different gaps, reported apart: an issue skipped by the inspection cap
+  // was never read, an inspected one with no age is a read error (or a label
+  // event the API did not return).
+  const notInspected = issues.filter((issue) => issue.inspected === false).length;
+  const unmeasured = issues.length - aged.length - notInspected;
   const stale = aged.filter((issue) => issue.ageHours > CLOSING_STALE_HOURS);
   const staleUnowned = stale.filter((issue) => issue.owner === null);
   const ref = (issue) => `#${issue.number} (${ageLabel(issue.ageHours)})`;
@@ -669,7 +674,7 @@ export function renderClosingStage(stats) {
     const owned = stale.filter((issue) => issue.owner === owner);
     if (owned.length === 0) continue;
     const extra = owner === 'follow-up' ? `, ${killSwitchLabel(stats.killSwitch)}` : '';
-    lines.push(`**Oltre 72 h con chiuditore — ${OWNER_TEXT[owner]}${extra}:** ${owned.length} (${owned.slice(0, CLOSING_OLDEST_SHOWN).map(ref).join(', ')}).`);
+    lines.push(`**Oltre ${CLOSING_STALE_HOURS} h con chiuditore — ${OWNER_TEXT[owner]}${extra}:** ${owned.length} (${owned.slice(0, CLOSING_OLDEST_SHOWN).map(ref).join(', ')}).`);
   }
   const oldest = [...aged].sort((a, b) => b.ageHours - a.ageHours).slice(0, CLOSING_OLDEST_SHOWN);
   if (oldest.length) {
@@ -682,10 +687,14 @@ export function renderClosingStage(stats) {
   }
   if (unmeasured > 0) {
     warnings.push(`età della label ${VERIFY_LABEL} non misurata su ${unmeasured}/${issues.length} issue`);
-  } else if (stats.truncated) {
+  }
+  if (notInspected > 0) {
+    warnings.push(`età della label ${VERIFY_LABEL} letta solo sulle prime ${issues.length - notInspected}/${issues.length} issue (limite di ispezione)`);
+  }
+  if (stats.listTruncated) {
     warnings.push(`stadio di chiusura troncato: lista ${VERIFY_LABEL} oltre il limite di lettura`);
   }
-  return { lines, warnings, incomplete: unmeasured > 0 || stats.truncated };
+  return { lines, warnings, incomplete: unmeasured > 0 || notInspected > 0 || Boolean(stats.truncated) };
 }
 
 /** Tracker issue number (find only — creation stays in the posting path). */

@@ -263,6 +263,18 @@ describe('stadio di chiusura — maybe-resolved visibili, allarme solo senza chi
     expect(out.lines.join('\n')).toContain('maybe-resolved aperte da più di 72 h: 0');
   });
 
+  it('le issue saltate per il cap non passano per errori di lettura', () => {
+    const capped = fakeClosingGh(
+      [issue(301, 'Older', [], 400), issue(302, 'Newer', [], 300)],
+      new Map([[301, [stale]], [302, [stale]]]),
+    );
+    const out = renderClosingStage(closingStageStats(capped.runGh, { inspectionLimit: 1, env: {} }));
+    expect(out.incomplete).toBe(true);
+    expect(out.warnings.some((w: string) => w.includes('non misurata'))).toBe(false);
+    expect(out.warnings).toContain('età della label maybe-resolved letta solo sulle prime 1/2 issue (limite di ispezione)');
+    expect(capped.calls.filter((args) => args[0] === 'api')).toHaveLength(1);
+  });
+
   it('una lista illeggibile non diventa uno zero misurato', () => {
     const out = renderClosingStage(closingStageStats(() => { throw new Error('HTTP 500'); }));
     expect(out.incomplete).toBe(true);
