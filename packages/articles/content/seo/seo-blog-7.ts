@@ -75,7 +75,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "FFS e Siemens firmano contratto per 116 nuovi treni",
       "description": "Le FFS e Siemens Mobility Svizzera hanno firmato il contratto per 116 nuovi treni a due piani per la S-Bahn, con un investimento di fino a 2 miliardi di",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ffs-siemens-nuovi-treni-ticino.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ffs-siemens-nuovi-treni-ticino.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Nuovi treni a due piani alla stazione di Lugano, Lago Ceresio"
@@ -915,7 +915,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Iniziativa per la democrazia respinta dal Consiglio nazionale",
       "description": "Il Consiglio nazionale ha respinto l'iniziativa per la democrazia con 130 voti a 62. Scopri le implicazioni per i frontalieri e i requisiti per la n",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/iniziativa-democrazia-respinta-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/iniziativa-democrazia-respinta-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo"
@@ -1671,7 +1671,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Summer camp a Malnate: natura, fattoria e inglese per bambini",
       "description": "Alla Tenuta La Novella di Malnate, un'estate tra animali, attività all'aperto e inglese per bambini dai 6 ai 10 anni. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/summer-camp-malnate-tenuta-novella.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/summer-camp-malnate-tenuta-novella.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Bambini in un campo estivo alla Tenuta La Novella di Malnate, tra animali e natura"
@@ -2007,7 +2007,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Ponte del Primo Maggio a Villa Panza: visite guidate e laboratori per bambini",
       "description": "Dal 1 al 3 maggio 2026, Villa Panza di Varese ospita visite guidate e laboratori creativi per bambini ispirati all'artista Josef Albers. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ponte-maggio-villa-panza-laboratori-bambini.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ponte-maggio-villa-panza-laboratori-bambini.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Villa Panza di Varese con bambini che partecipano a laboratori artistici"
@@ -3379,7 +3379,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "CBT Italia sfida il mercato: prezzi come patto di fiducia con i ciclisti",
       "description": "CBT Italia, azienda cuneese con 75 anni di storia, entra nel mercato italiano con prezzi aggressivi e trasparenza, sorprendendo i consumatori. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cbt-italia-ciclisti-mercato.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cbt-italia-ciclisti-mercato.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Un ciclista che pedala lungo le rive del Lago di Lugano, con il panorama cittadino sullo sfondo"
@@ -4583,7 +4583,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Dopo il ponte, l’acqua: meteo Ticino 2026",
       "description": "Fine settimana soleggiato, ma da lunedì piogge e temperature più fresche. Ecco cosa aspettarsi in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ponte-l-acqua-ticino-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ponte-l-acqua-ticino-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con cielo sereno e sole splendente"
@@ -4891,7 +4891,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Rive libere: Ascona apre al pubblico d'inverno",
       "description": "L'associazione Rive pubbliche della Svizzera italiana celebra due successi: l'inclusione nel gruppo di lavoro per il Sentiero delle Rive e l'apertura invernale",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/rive-libere-ascona-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/rive-libere-ascona-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Passeggiata invernale lungo le rive libere di Ascona sul Lago Maggiore"
@@ -5591,7 +5591,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Delia cambia testo Bella Ciao al Concertone: più attuale",
       "description": "Delia modifica Bella Ciao al Concertone del 1° maggio a Roma, sostituendo 'partigiano' con 'essere umano' per rendere il messaggio più attuale. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/delia-bella-ciao-concertone-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/delia-bella-ciao-concertone-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Palco del concertone con pubblico e Lago di Lugano sullo sfondo"
@@ -5619,7 +5619,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Funivia del Säntis chiusa per mesi: ammodernamento da 30 milioni",
       "description": "La funivia del Säntis chiuderà per diversi mesi per un ammodernamento da 30 milioni di franchi. Riapertura prevista in autunno. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/funivia-santis-ammodernamento-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/funivia-santis-ammodernamento-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del monte Säntis e della funivia, con il paesaggio circostante e la stazione della funivia."
@@ -5647,7 +5647,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Cinque curiosità sui brevetti svizzeri",
       "description": "La Svizzera è il paese più innovativo d'Europa in materia di brevetti. Ecco i dati più interessanti del 2025. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cinque-curiosita-brevetti-svizzeri-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cinque-curiosita-brevetti-svizzeri-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Monte San Salvatore sopra Lugano, Ticino, Svizzera"
@@ -5675,7 +5675,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Libertà di stampa in Svizzera: ottava nel mondo",
       "description": "La Svizzera si posiziona all'ottavo posto nella classifica mondiale della libertà di stampa, ma presenta criticità giuridiche ed economiche. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/liberta-stampa-minimi-25-anni.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/liberta-stampa-minimi-25-anni.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Castelgrande a Bellinzona, Ticino, Svizzera"
@@ -5703,7 +5703,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Tutto il villaggio dal suo piccolo angelo: il dolore, la vicinanza, l'affetto per Matteo e la sua famiglia",
       "description": "Il villaggio di Busto Arsizio si stringe intorno alla famiglia di Matteo, un bambino di 4 anni scomparso, con dolore e affetto. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/villaggio-angelo-busto-arsizio.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/villaggio-angelo-busto-arsizio.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Villaggio di Busto Arsizio con una chiesa e persone riunite intorno"
@@ -5731,7 +5731,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Chiese derubate in Ticino e Graubünden: due rumeni arrestati",
       "description": "Due rumeni arrestati per furti in sei chiese tra Ticino e Graubünden. Scopri i dettagli delle indagini e cosa fare se sei stato vittima di un furto.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/chiese-ticino-derubate-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/chiese-ticino-derubate-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Veduta aerea di Claro e delle chiese circostanti in Ticino"
@@ -5759,7 +5759,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "1° maggio: sindacati Ticino contro iniziative UDC e destra",
       "description": "3.000 persone in corteo a Lugano. Critiche a proposte considerate razziste e xenofobe. Fonio: condizioni di lavoro a rischio. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/sindacati-ticino-1-maggio-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/sindacati-ticino-1-maggio-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
@@ -5787,7 +5787,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Polizia Ticino: progetto abbandonato dopo opposizioni",
       "description": "Il progetto di riforma della polizia ticinese è stato abbandonato dopo 12 mesi di consultazione e forti opposizioni. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/polizia-ticino-abbandono-progetto-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/polizia-ticino-abbandono-progetto-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano con il lago Ceresio"
@@ -5815,7 +5815,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Tragedia a Vico Morcote: bimbo di due anni annega in piscina",
       "description": "Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La tragedia si è verificata in una villa privata. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tragedia-vico-morcote-bimbo-piscina.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tragedia-vico-morcote-bimbo-piscina.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Villa a Vico Morcote con piscina e vista sul Lago di Lugano"
@@ -5843,7 +5843,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Crans-Montana, denunciata l'Organizzazione cantonale di soccorso",
       "description": "Indagine aperta sul dispositivo di intervento dopo l'incendio del bar Le Constellation. Avvocati delle vittime denunciano carenze. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/crans-montana-soccorso-denunciato.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/crans-montana-soccorso-denunciato.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Crans-Montana, Svizzera, con i soccorsi attivi dopo l'incendio"
@@ -5871,7 +5871,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "IA fallisce previsioni eventi estremi: studio Università di Ginevra",
       "description": "Nuovo studio rivela che l'IA sbaglia sistematicamente previsioni su eventi meteorologici estremi, sottostimando ondate di calore e freddo. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ia-meteo-eventi-estremi.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ia-meteo-eventi-estremi.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con cielo tempestoso e tecnologia di previsione meteo"
@@ -5899,7 +5899,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Condannato a 11 anni per tentato assassinio a Chiasso",
       "description": "Un 34enne è stato condannato a 11 anni per tentato assassinio della compagna a Chiasso. La corte ha ordinato anche l'espulsione. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tentato-assassinio-chiasso-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tentato-assassinio-chiasso-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Corte delle Assise Criminali a Chiasso"
@@ -6011,7 +6011,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Polizia unica in Ticino: Galusero vs Galli, il dibattito si accende",
       "description": "Il Consiglio di Stato ha deciso di stoppare il progetto 'Polizia ticinese'. Le reazioni di Galusero e Galli e le implicazioni per i frontalieri. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/polizia-ticino-progetto-abbandono-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/polizia-ticino-progetto-abbandono-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Veduta aerea di Lugano, Ticino, Svizzera"
@@ -6039,7 +6039,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Nazionale respinge iniziativa per la democrazia",
       "description": "Il Consiglio nazionale ha respinto l'iniziativa per dimezzare i tempi per la cittadinanza a 5 anni. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/iniziativa-democrazia-respinta-nazionale.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/iniziativa-democrazia-respinta-nazionale.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Bellinzona centro storico con bandiera ticinese"
@@ -6067,7 +6067,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "UISP alla scuola Dante di Varese per promuovere lo sport inclusivo",
       "description": "L'incontro tra UISP e Associazione Genitori alla scuola Dante di Varese ha promosso lo sport per tutti, con progetti inclusivi e attività per disabili.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/uisp-scuola-dante-varese-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/uisp-scuola-dante-varese-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Evento scolastico a Varese con rappresentanti UISP che discutono di sport inclusivo"
@@ -6095,7 +6095,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Capanna Soveltra, la ricostruzione avanza più velocemente dell’iter giudiziario",
       "description": "La ricostruzione della Capanna Soveltra in Val Maggia procede rapidamente, mentre il ricorso al Tribunale federale è ancora in fase di definizione.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ricostruzione-capanna-soveltra-avanza.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ricostruzione-capanna-soveltra-avanza.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea della Capanna Soveltra in Val Maggia, Ticino, Svizzera, che mostra i lavori di ricostruzione in corso, circondata dalle Alpi."
@@ -6123,7 +6123,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Processo Quadroni: l'ex capo posto contesta le accuse",
       "description": "L'ex capo del posto di polizia di Scuol contesta le accuse di abuso di autorità, sequestro di persona e violazione di domicilio. La Procura pubblica chiede una",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/processo-quadroni-ex-capo-posto-contesta-accuse.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/processo-quadroni-ex-capo-posto-contesta-accuse.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Aula di tribunale con giudice, imputato e avvocati"
@@ -6151,7 +6151,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Docente arrestato a Giubiasco, richiesta proroga detenzione",
       "description": "La Procura richiede proroga detenzione per docente arrestato a Giubiasco. Inchiesta su minorenni in corso. Scopri di più. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/docente-arrestato-giubiasco-proroga.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/docente-arrestato-giubiasco-proroga.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Giubiasco con Castelgrande sullo sfondo"
@@ -6207,7 +6207,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Agenzia formativa Varese: dimissioni del CDA",
       "description": "Ilaria Azzimonti annuncia le dimissioni dal consiglio di amministrazione dell'Agenzia formativa della Provincia di Varese a causa di tensioni interne.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/agenzia-formativa-varese-dimissioni-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/agenzia-formativa-varese-dimissioni-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Incontro del consiglio di amministrazione con vista sul Lago di Lugano"
@@ -6235,7 +6235,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Varese: presentazione libro sul femminismo pacifista",
       "description": "Giovedì 7 maggio in Sala Morselli a Varese, presentazione libro 'Al di sopra dell’odio e del massacro' di Lacaita e Suriano. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/presentazione-libro-odio-massacro-varese.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/presentazione-libro-odio-massacro-varese.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Sala Morselli Biblioteca Civica Varese presentazione libro"
@@ -6263,7 +6263,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Energia: la fattura miliardaria del conflitto in Medio Oriente",
       "description": "Il prezzo del diesel supera i 2 franchi al litro in Svizzera a causa del conflitto in Medio Oriente, con costi aggiuntivi per famiglie e imprese. Dati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/fattura-miliardaria-energia-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/fattura-miliardaria-energia-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con vista sulla città, barche sull'acqua, persone che camminano lungo la riva"
@@ -6347,7 +6347,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Biandronno: incontro pubblico con Astuti e Licata su sanità e trasporti",
       "description": "Biandronno Più organizza un incontro pubblico con i consiglieri regionali Astuti e Licata per discutere di sanità e trasporti nel Varesotto. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/biandronno-incontro-astuti-licata-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/biandronno-incontro-astuti-licata-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Incontro pubblico a Biandronno con i consiglieri regionali Astuti e Licata"
@@ -6375,7 +6375,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Gratis al museo in costume da bagno: l'iniziativa della Fondazione Beyeler",
       "description": "La Fondazione Beyeler di Riehen offre ingresso gratuito in costume da bagno per una giornata dedicata a Paul Cézanne e ai suoi dipinti di bagnanti.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/gratis-museo-costume-bagno-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gratis-museo-costume-bagno-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Museo Fondazione Beyeler a Riehen, Svizzera"
@@ -6403,7 +6403,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Sfratto agli allenatori: la Svicc chiude le scuderie di Varese",
       "description": "La Svicc sfratta gli allenatori delle scuderie di Varese entro 60 giorni. Progetto di demolizione e ristrutturazione. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ippodromo-varese-svicc-allenatori.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ippodromo-varese-svicc-allenatori.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Ippodromo di Varese con cavalli nelle scuderie"
@@ -6431,7 +6431,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Luigi Bignami all'Insubria: l'arte di comunicare la scienza",
       "description": "Luigi Bignami all'Università dell'Insubria per parlare di comunicazione scientifica. Scopri come tradurre la complessità in linguaggio accessibile.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/luigi-bignami-insubria-scienza-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/luigi-bignami-insubria-scienza-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Aula universitaria all'Università dell'Insubria a Varese, con studenti che ascoltano una conferenza su scienza e comunicazione."
@@ -6459,7 +6459,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Denuncia di Cecilia Strada al Parlamento europeo sul sovraffollamento del carcere di Busto Arsizio",
       "description": "Denuncia di Cecilia Strada al Parlamento europeo sul sovraffollamento del carcere di Busto Arsizio, con tasso oltre il 200% e condizioni disumane.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/busto-arsizio-carcere-denuncia-strada.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/busto-arsizio-carcere-denuncia-strada.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Veduta aerea del carcere di Busto Arsizio, Italia"
@@ -6515,7 +6515,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Maggiolone Social Park: un mese di feste a Cassano Magnago",
       "description": "Dal 1° maggio, Cassano Magnago ospita il nuovo Maggiolone Social Park con eventi gratuiti per tutte le età. Scopri il programma e come partecipare.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/maggiolone-social-park-cassano-magnago.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/maggiolone-social-park-cassano-magnago.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea dello spazio eventi Maggiolone Social Park a Cassano Magnago"
@@ -6543,7 +6543,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Grassi 1925 entra nel Registro Speciale dei Marchi Storici di Interesse Nazionale",
       "description": "Grassi 1925, azienda varesina fondata nel 1925, entra nel Registro Speciale dei Marchi Storici di Interesse Nazionale. Scopri le implicazioni per i frontalieri.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/grassi-1925-marchio-storico.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/grassi-1925-marchio-storico.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea dell'area industriale di Lonate Pozzolo con fabbriche moderne e campi verdi in Ticino"
@@ -6571,7 +6571,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "LATI premiata tra le Imprese Vincenti di Intesa Sanpaolo",
       "description": "LATI Industria Termoplastici premiata tra le Imprese Vincenti di Intesa Sanpaolo per solidità, innovazione e visione internazionale. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/lati-industria-termoplastici-premiata-intesanpaolo.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lati-industria-termoplastici-premiata-intesanpaolo.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Cerimonia di premiazione Intesa Sanpaolo con dirigenti svizzeri e italiani"
@@ -6627,7 +6627,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Giovani agenti con la polizia locale a Como: monopattini, droghe e alcol",
       "description": "Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/giovani-agenti-como-polizia-locale.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/giovani-agenti-como-polizia-locale.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Giovani agenti con la polizia locale a Como"
@@ -6683,7 +6683,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Formula 1 riparte fra rischi e polemiche",
       "description": "Il Mondiale di Formula 1 riprende a Miami dopo un mese di stop. Critiche al nuovo regolamento che penalizza piloti e monoposto. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/formula-1-riparte-rischi-polemiche.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/formula-1-riparte-rischi-polemiche.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Formula 1 a Miami, tribune moderne, cielo azzurro"
@@ -6711,7 +6711,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Unitalsi Busto e Varese: sollievo spirituale e miracoli per i malati",
       "description": "Scopri come l'Unitalsi di Busto Arsizio e Varese offre supporto ai malati attraverso pellegrinaggi e assistenza spirituale. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/unitalsi-busto-varese-malati-spiritualita.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/unitalsi-busto-varese-malati-spiritualita.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Volontari Unitalsi assistono malati vicino al Lago di Lugano"
@@ -6739,7 +6739,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Vita ai confini del mondo sull'isola artica d'Islanda\",\"description\":\"Scopri la storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull'isola di Grímsey in Islanda, lavorando e scrivendo un libro sulla sua esperienza.\",\"datePublished\":\"2026-05-15\",\"dateModified\":\"2026-05-15\",\"author\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\"}}",
       "description": "Scopri la storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull'isola di Grímsey in Islanda, lavorando e scrivendo un libro sulla sua esperienza.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/isola-artica-islanda-pugliese.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/isola-artica-islanda-pugliese.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista panoramica del Lago di Lugano con le montagne circostanti"
@@ -6767,7 +6767,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Chocolat Stella torna a Bellinzona con nuovo negozio",
       "description": "Chocolat Stella apre nuovo punto vendita in piazza Nosetto, Palazzo civico, Bellinzona. Apertura prevista nei prossimi mesi del 2026. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cioccolato-illumina-bellinzona-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cioccolato-illumina-bellinzona-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Centro di Bellinzona illuminato a tema cioccolato"
@@ -6795,7 +6795,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Luna Park Schiranna: vita tra giostre e carovane",
       "description": "Scopri la vita dei giostrai e delle giostraie che ogni anno portano musica e luci alla Schiranna di Varese. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/varese-luna-park-schiranna-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/varese-luna-park-schiranna-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Panoramica del Luna Park della Schiranna a Varese"
@@ -6907,7 +6907,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Cinque concerti a San Cassiano per riscoprire un gioiello da salvare\",\"description\":\"Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo\",\"datePublished\":\"2026-05-09\",\"image\":\"https://frontaliereticino.ch/images/chiesa-san-cassiano.webp\"}",
       "description": "Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/musica-antica-san-cassiano-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/musica-antica-san-cassiano-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Chiesa di San Cassiano a Varese, con vista aerea del luogo immerso nel verde e dettagli dell'interno con affreschi e palco per concerti"
@@ -6963,7 +6963,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Mal d’Islanda a Materia: storie dal Circolo Polare Artico",
       "description": "Incontro sull'isola di Grímsey a Castronno il 9 maggio con Leonardo Piccione e Francesca Milano. Scopri di più. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/mal-dislanda-materia-castronno-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/mal-dislanda-materia-castronno-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista panoramica del Lago di Lugano con il panorama cittadino sullo sfondo"
@@ -6991,7 +6991,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Frontaliere: pensione AVS/INPS 2026, errori comuni e checklist",
       "description": "Scopri gli errori comuni nel coordinamento AVS/INPS per i frontalieri Ticino e come evitarli con una checklist operativa. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/frontaliere-pensione-avs-inps-2026-errori-comuni.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/frontaliere-pensione-avs-inps-2026-errori-comuni.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con vista sulle montagne e una barca in primo piano"
@@ -7019,7 +7019,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Due attivisti Flotilla portati in Israele per interrogatorio",
       "description": "Saif Abu Keshek e Thiago Ávila, attivisti pro-Palestina, saranno interrogati dalle autorità israeliane dopo l'intercettazione della Flotilla. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/attivisti-flotilla-israele-interrogati.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/attivisti-flotilla-israele-interrogati.webp`,
         "width": 1200,
         "height": 675,
         "caption": "LAC Lugano, centro culturale moderno con vista sulla città"
@@ -7047,7 +7047,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Massiccio intervento di polizia a Lugano in Pensilina",
       "description": "Massiccio intervento della polizia a Lugano con uso di spray lacrimogeno contro un gruppo di persone esagitate. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/massiccio-intervento-polizia-lugano-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/massiccio-intervento-polizia-lugano-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano di notte con intervento della polizia"
@@ -7075,7 +7075,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Giovani rematori protagonisti sul Ceresio",
       "description": "La 22ª Regata giovanile organizzata dalla Canottieri Ceresio Castagnola si è tenuta venerdì 1° maggio 2026 sul Lago Ceresio. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/giovani-rematori-ceresio-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/giovani-rematori-ceresio-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Giovani rematori in gara sul Lago di Lugano, Ticino"
@@ -7103,7 +7103,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Confronto tecnico tra Permesso G e B per frontalieri Ticino nel 2026. Focus su 'entro 20 km' con checklist operativa e scenari concreti.",
       "description": "Confronto tecnico tra Permesso G e B per frontalieri Ticino nel 2026. Focus su 'entro 20 km' con checklist operativa e scenari concreti. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/permesso-g-b-2026-20km-frontalieri.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/permesso-g-b-2026-20km-frontalieri.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con segnale di confine svizzero-italiano"
@@ -7131,7 +7131,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Cure a domicilio: chi ha lavorato una vita non può essere penalizzato",
       "description": "Luca Frasa, Municipale di Quinto, solleva la questione delle cure a domicilio per i pensionati in Ticino, evidenziando il rischio di penalizzazione per chi ha",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cure-domicilio-pensionati-ticino-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cure-domicilio-pensionati-ticino-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Una persona anziana riceve assistenza domiciliare in un appartamento del Ticino, con un operatore che la assiste."
@@ -7159,7 +7159,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Oltre mille studenti in gara per il concorso Libriamoci a Varese",
       "description": "La diciottesima edizione del concorso Libriamoci a Varese vede la partecipazione di quasi mille studenti con testi narrativi ed elaborati grafico-pittorici.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/libriamoci-varese-studenti-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/libriamoci-varese-studenti-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Studenti presentano i loro lavori al concorso Libriamoci a Varese"
@@ -7215,7 +7215,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Corteo pro Palestina invade il lungolago di Lugano",
       "description": "Una cinquantina di manifestanti ha sfilato in via Nassa e poi lungo il lungolago, bloccando il traffico e suscitando reazioni contrastanti. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/corteo-pro-palestina-lungolago-lugano.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/corteo-pro-palestina-lungolago-lugano.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Manifestanti lungo il lungolago di Lugano con bandiere palestinesi"
@@ -7243,7 +7243,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Social media e minori: i divieti non bastano",
       "description": "Riprogettare le piattaforme per evitare la dipendenza è la soluzione, non limitare l'accesso. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/divieti-social-media-minori.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/divieti-social-media-minori.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Ragazzi che usano smartphone in una piazza di Locarno"
@@ -7271,7 +7271,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Baume-Schneider: sanità, AVS e immigrazione al centro del discorso del 1° maggio",
       "description": "Elisabeth Baume-Schneider ha parlato di cure, AVS e rapporti con l'Europa nel suo discorso del 1° maggio a Liestal. Implicazioni per i frontalieri.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/primo-maggio-baume-schneider-sanita-avs.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/primo-maggio-baume-schneider-sanita-avs.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Elisabeth Baume-Schneider parla a Liestal"
@@ -7299,7 +7299,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Migros: Immigrazione necessaria per garantire l'offerta",
       "description": "Il CEO di Migros sottolinea l'importanza dell'immigrazione per il settore alimentare e del commercio al dettaglio in Svizzera. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/migros-immigrazione-necessaria-offerta.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/migros-immigrazione-necessaria-offerta.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Supermercato Migros in Ticino con dipendenti e clienti"
@@ -7327,7 +7327,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Tragedia a Vico Morcote: bambino muore in piscina privata",
       "description": "Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La famiglia riceve supporto psicologico. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/vico-morcote-tragedia-bambino-pool.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/vico-morcote-tragedia-bambino-pool.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista serena del Lago di Lugano con acqua blu cristallina e montagne circostanti"
@@ -7355,7 +7355,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Limiti età smartphone e social media: Unicef spiega perché non bastano",
       "description": "Secondo Unicef, i limiti di età per smartphone e social media non sono sufficienti. Ecco perché la regolamentazione deve intervenire sulle piattaforme stesse.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/limiti-eta-smartphone-social-media.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/limiti-eta-smartphone-social-media.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Ragazzi che usano smartphone in un parco a Locarno"
@@ -7383,7 +7383,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Volandia: battesimo del volo in elicottero torna nel 2026",
       "description": "Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/volandia-battesimo-volo-elicottero-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/volandia-battesimo-volo-elicottero-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Lago di Lugano con un elicottero sopra Volandia"
@@ -7411,7 +7411,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Banche svizzere preparano accoglienza clienti Golfo",
       "description": "Trasferimenti di fondi in corso verso la Svizzera da Paesi del Golfo a causa della guerra in Iran. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/banche-golfo-preparano-frontalieri.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/banche-golfo-preparano-frontalieri.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con vista sul centro finanziario"
@@ -7439,7 +7439,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "La storia di Paperino passa da Cuasso al Monte",
       "description": "Scopri il legame tra il padre italiano di Paperino e il Ticino durante la Seconda Guerra Mondiale. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/papa-paperino-cuasso-monte.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/papa-paperino-cuasso-monte.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Lago di Lugano con Cuasso al Monte sullo sfondo"
@@ -7467,7 +7467,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Venezia torna in Serie A con un pareggio contro lo Spezia",
       "description": "Il Venezia ottiene la promozione in Serie A con un pareggio 2-2 contro lo Spezia, grazie alla sconfitta del Monza. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/venezia-serie-a-promozione-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/venezia-serie-a-promozione-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Lago di Lugano con montagne e edifici circostanti"
@@ -7495,7 +7495,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Meloni: il mio Governo è il secondo più longevo della Repubblica",
       "description": "Il Governo Meloni supera i 1.000 giorni di durata, diventando il secondo più longevo della storia repubblicana. Implicazioni per i frontalieri. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/meloni-governo-longevo-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/meloni-governo-longevo-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista panoramica del Lago di Lugano con montagne e barche"
@@ -7523,7 +7523,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Newsletter gratuita: iscriviti per aggiornamenti su Ticino",
       "description": "Scopri come ricevere notizie quotidiane, settimanali e mensili sulla Svizzera e il Canton Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/abbonamento-newsletter-ticino.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/abbonamento-newsletter-ticino.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista panoramica di Lugano dal lago, cielo azzurro limpido"
@@ -7551,7 +7551,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Varese: 100 atleti alla Salewa Cube per la Coppa Italia Lead",
       "description": "Sabato 2 e domenica 3 maggio, la Salewa Cube di Varese ospita la seconda tappa della Coppa Italia Lead con 109 atleti tra i migliori della nazione.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/varese-arrampicata-salewa-cube-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/varese-arrampicata-salewa-cube-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Atleti di arrampicata alla Salewa Cube di Varese"
@@ -7579,7 +7579,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Migros: «L'immigrazione è necessaria per il Ticino»",
       "description": "Mario Irminger, CEO di Migros, si oppone all'iniziativa UDC contro l'immigrazione, sottolineando la sua importanza per il commercio al dettaglio in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/migros-immigrazione-necessaria-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/migros-immigrazione-necessaria-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Supermercato Migros a Lugano con clienti e dipendenti"
@@ -7635,7 +7635,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "GrAudio Flash del 2 maggio 2026: notizie dal Canton Ticino",
       "description": "Le ultime notizie dal Canton Ticino e dintorni: eventi sportivi, cronaca locale e molto altro. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/graudio-flash-2-maggio-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/graudio-flash-2-maggio-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista panoramica di Lugano con il lago e le montagne"
@@ -7663,7 +7663,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Il 60% degli investimenti immobiliari in Italia viene dall’estero",
       "description": "Secondo Roberto Giovenco, COO di RINA Prime, il 60% degli investimenti immobiliari in Italia proviene dall'estero, segnale di resilienza del Paese.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/investimenti-immobiliari-italia-estero-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/investimenti-immobiliari-italia-estero-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
@@ -7691,7 +7691,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Carenza carburante Svizzera: rischio alto, ecco perché",
       "description": "Florence Schurch, Segretaria generale di Suissenégoce, avverte di un rischio elevato di carenza di carburante in Svizzera. Ecco i dettagli. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/carenza-carburante-svizzera-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/carenza-carburante-svizzera-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con montagne sullo sfondo"
@@ -7747,7 +7747,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Addio ad Alex Zanardi: l'incidente del 2001 che cambiò la sua vita",
       "description": "Ripercorriamo la vita straordinaria di Alex Zanardi, dal terribile incidente del 2001 alla sua rinascita sportiva. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/addio-alex-zanardi-2001-incidente-vita.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/addio-alex-zanardi-2001-incidente-vita.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Handbike race in Ticino with a focus on the athlete and the scenic landscape"
@@ -7775,7 +7775,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Caronno Varesino inaugura il nuovo campetto in memoria di Dante Mercanti",
       "description": "Sabato 9 maggio alle 16 l'inaugurazione del nuovo campo sportivo di via Macchi a Caronno Varesino, intitolato a Dante Mercanti. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/caronno-varesino-campetto-dante-mercanti-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/caronno-varesino-campetto-dante-mercanti-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Inaugurazione del nuovo campetto sportivo a Caronno Varesino"
@@ -7803,7 +7803,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Confederazione valuta sistemi difesa aerea alternativi",
       "description": "La Confederazione svizzera valuta sistemi di difesa aerea alternativi a causa dei ritardi nei sistemi Patriot statunitensi. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/confederazione-valuta-sistemi-difesa-aerea.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/confederazione-valuta-sistemi-difesa-aerea.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti"
@@ -7831,7 +7831,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Penuria di carburante in Svizzera: rischio molto elevato",
       "description": "Florence Schurch di Suissenégoce avverte: le riserve strategiche di carburante potrebbero esaurirsi presto, con conseguenze gravi per la Svizzera.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/penuria-carburante-svizzera-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/penuria-carburante-svizzera-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con una stazione di servizio in primo piano, pompe di carburante e un'auto che fa rifornimento"
@@ -7859,7 +7859,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Christian Bagatin vince la tappa regina del Giro di Turchia",
       "description": "Christian Bagatin, 23enne di Orino, conquista la prima vittoria da professionista nella sesta tappa del Giro di Turchia, arrivando in solitaria sul traguardo di",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/vittoria-bagatin-tappa-turchia.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/vittoria-bagatin-tappa-turchia.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Christian Bagatin celebra la vittoria in cima alla tappa regina del Giro di Turchia"
@@ -7887,7 +7887,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Taglio accise carburanti prorogato al 22 maggio",
       "description": "Il Consiglio dei ministri ha prorogato il taglio delle accise sui carburanti fino al 22 maggio 2026. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/taglio-accise-carburanti-22-maggio.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/taglio-accise-carburanti-22-maggio.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Una stazione di servizio a Lugano con i prezzi dei carburanti in evidenza"
@@ -7915,7 +7915,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Dai generatori alla ricostruzione: il maxi piano svizzero per Kiev",
       "description": "Il delegato del Consiglio federale per l'Ucraina, Jacques Gerber, illustra il programma di aiuti da 1,5 miliardi di franchi. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/aiuti-svizzera-ucraina-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/aiuti-svizzera-ucraina-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano con il Lago di Lugano in primo piano, con il centro culturale LAC e l'architettura moderna della città."
@@ -7943,7 +7943,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Bus elettrici a Lugano: problemi e ritardi",
       "description": "Scopri i problemi tecnici dei nuovi bus elettrici di Lugano e le soluzioni per migliorare il servizio di trasporto pubblico. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/bus-elettrici-lugano-problemi-utenti.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bus-elettrici-lugano-problemi-utenti.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Autobus elettrici a Lugano con passeggeri in attesa alla fermata"
@@ -7971,7 +7971,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Galà del Sorriso incanta Varese con magia e solidarietà",
       "description": "Grande successo per il Galà del Sorriso a Varese, con spettacoli di magia e raccolte fondi per le sale parto dell'Ospedale Del Ponte. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/gala-sorriso-solidarieta-ospedale-del-ponte.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gala-sorriso-solidarieta-ospedale-del-ponte.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Evento serale magico all'Ospedale Del Ponte a Varese con artisti sul palco e pubblico"
@@ -7999,7 +7999,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Varese, rogo all'ultimo piano di un palazzo: fiamme domate, nessun ferito",
       "description": "Incendio in un appartamento al piano sommitale di un palazzo a Varese, nessun ferito grazie all'intervento tempestivo dei vigili del fuoco. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/varese-incendio-palazzo-frontalieri.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/varese-incendio-palazzo-frontalieri.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Incendio in un palazzo a Varese, con vigili del fuoco in azione"
@@ -8027,7 +8027,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Carenza carburante Svizzera: rischio concreto per frontalieri",
       "description": "Florence Schurch di Suissenégoce lancia l'allarme: prezzo petrolio a 150 dollari al barile e rischi per l'approvvigionamento energetico. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/carenza-carburante-svizzera-frontalieri.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/carenza-carburante-svizzera-frontalieri.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Una stazione di servizio in Ticino con lunghe code di auto, sullo sfondo delle Alpi svizzere"
@@ -8055,7 +8055,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Scontro e intervento di polizia con spray urticante in centro Lugano",
       "description": "Due gruppi di ragazzi si sono scontrati in centro Lugano, causando l'intervento della polizia con spray urticante. Due persone ferite e soccorse.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/scontro-polizia-lugano-spray-urticante.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/scontro-polizia-lugano-spray-urticante.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Centro di Lugano di notte con vista sul lago"
@@ -8083,7 +8083,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Saronno: licenza sospesa per bar dopo rissa",
       "description": "La licenza di un bar a Saronno è stata sospesa dopo una rissa. Ecco cosa è successo e le implicazioni per la zona. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/saronno-bar-licenza-sospesa-rissa.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/saronno-bar-licenza-sospesa-rissa.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Bar a Saronno con presenza di polizia dopo una rissa"
@@ -8111,7 +8111,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Movieri in azione domenica per il traffico record sul Lago di Como",
       "description": "Servizio straordinario degli osservatori del traffico domenica 3 maggio lungo la SS 340 Regina per gestire l'afflusso turistico previsto. Dati aggiornati 2026",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/movieri-traffico-ss340-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/movieri-traffico-ss340-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Osservatori del traffico in azione lungo la Statale del Lago di Como"
@@ -8139,7 +8139,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Doppietta frontalieri a Sant'Antonino: cosa cambia",
       "description": "A Sant'Antonino, sempre più frontalieri scelgono la doppietta: lavoro in Svizzera e residenza in Italia. Ecco cosa sapere. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/doppietta-frontalieri-santonino-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/doppietta-frontalieri-santonino-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Una strada affollata a Mendrisio, Ticino, con persone che camminano e fanno shopping, in una giornata di sole con cieli blu limpidi."
@@ -8167,7 +8167,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Taglio accise carburanti: diesel a sconto pieno, benzina ridotto",
       "description": "Il governo proroga il taglio delle accise sui carburanti, con sconto pieno sul diesel e ridotto sulla benzina. Scopri cosa cambia e come ti riguarda.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/taglio-accise-carburanti-maggio-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/taglio-accise-carburanti-maggio-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con un distributore di carburante in primo piano"
@@ -8223,7 +8223,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Como e Cantù uniscono le forze per la Lake Como Creativity Week",
       "description": "I comuni di Como e Cantù collaborano per la Lake Como Creativity Week, con un accordo triennale firmato il 7 maggio 2026. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/como-cantu-creativity-week-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/como-cantu-creativity-week-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Evento Lake Como Creativity Week a Como, Italia, con artigiani e creazioni artistiche lungo il lungolago"
@@ -8279,7 +8279,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Rissa a Lugano: due feriti alla Pensilina Botta",
       "description": "Un tumulto sedato dalla polizia ha coinvolto due persone ferite in un incidente alla Pensilina Botta di Lugano. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/rissa-lugano-pensilina-botta-feriti-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/rissa-lugano-pensilina-botta-feriti-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista del lago di Lugano con lo skyline cittadino"
@@ -8307,7 +8307,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Rissa a Lugano durante il Primo Maggio: spray urticante per calmare i disordini",
       "description": "Disordini a Lugano durante il Primo Maggio con due feriti lievi e intervento della polizia con spray urticante. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/rissa-lugano-primo-maggio-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/rissa-lugano-primo-maggio-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano di notte con le luci della città riflesse sul Lago di Lugano, in Svizzera."
@@ -8335,7 +8335,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Attivo il 142: nuovo servizio per le vittime di violenza",
       "description": "Dal 1° maggio 2026 è operativo il numero 142 per le vittime di violenza in Ticino. Scopri come funziona e cosa cambia. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/protezione-vittime-142-ticino-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/protezione-vittime-142-ticino-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "LAC Lugano Arts Center con vista sul lago"
@@ -8363,7 +8363,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Golasecca: 140 escursionisti alla scoperta dei luoghi più belli",
       "description": "Una giornata di cammino di 13 km attraverso i luoghi più suggestivi di Golasecca, con aperitivo, pranzo e merenda. Partecipanti ricevono gadget e defibrillatore",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/golasecca-esplorazione-passeggiata-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/golasecca-esplorazione-passeggiata-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Gruppo di persone in escursione nei paesaggi suggestivi di Golasecca, con le rovine dell'Ipposidra sullo sfondo."
@@ -8419,7 +8419,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Nuovi posti moto a Como: sosta vietata durante le partite del Como",
       "description": "La polizia locale ha attivato il carro attrezzi per rimuovere le moto parcheggiate illegalmente durante le partite del Como. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/nuovi-posti-moto-lago-como.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/nuovi-posti-moto-lago-como.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Nuovi posti moto fronte lago a Como con vista sul lago e montagne"
@@ -8475,7 +8475,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Varese, prima panchina bianca contro abusi minori",
       "description": "Inaugurata a Varese la prima panchina bianca dedicata al numero 114 per la protezione dei minori, in occasione della Giornata nazionale contro la pedofilia e la",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/panchina-bianca-varese-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/panchina-bianca-varese-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Una panchina bianca nei giardini pubblici con un telefono azzurro vicino, simbolo di supporto per i minori in pericolo"
@@ -8503,7 +8503,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Furti in chiese: arrestati due rumeni nel Bellinzonese",
       "description": "Due cittadini rumeni sono stati arrestati per furti in chiese nel Bellinzonese. Scopri i dettagli dell'operazione e cosa fare se sei stato vittima di un furto",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/furti-chiese-bellinzonese-arresti-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/furti-chiese-bellinzonese-arresti-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Operazione di polizia a Bellinzona con Castelgrande sullo sfondo"
@@ -8531,7 +8531,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026\",\"description\":\"Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri.\",\"datePublished\":\"2026-05-02\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\"}",
       "description": "Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/a4-milano-brescia-diviazione-obbligatoria-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/a4-milano-brescia-diviazione-obbligatoria-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Autostrada A4 Milano-Brescia con deviazione obbligatoria verso Varese"
@@ -8559,7 +8559,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Editto canonizzazione Don Roberto Malgesini: cosa succede ora",
       "description": "Pubblicato l'editto per la canonizzazione di Don Roberto Malgesini, ucciso nel 2020. Ecco i prossimi passi e cosa chiede la Diocesi di Como. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/editto-canonizzazione-don-roberto-malgesini.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/editto-canonizzazione-don-roberto-malgesini.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Cerimonia solenne a Como con focus sulla Curia Vescovile e oggetti religiosi"
@@ -8587,7 +8587,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Beat Jans e l’iniziativa 10 milioni: tutto in regola?",
       "description": "Il consigliere federale Beat Jans è sotto indagine per presunte violazioni delle regole della comunicazione istituzionale nella campagna contro l’iniziativa",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/beat-jans-10-milioni-comunicazione.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/beat-jans-10-milioni-comunicazione.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Giornalista professionista che copre un evento politico a Lugano, Ticino, con focus sul lavoro transfrontaliero svizzero-italiano."
@@ -8671,7 +8671,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Scontri a Lugano in Pensilina: Valenzano Rossi, «C'è molta preoccupazione»",
       "description": "Due feriti lievi, ma la matrice politica degli scontri preoccupa le autorità luganesi. Karin Valenzano Rossi: «Non c'entra la movida». Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/scontri-lugano-pensilina-2024.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/scontri-lugano-pensilina-2024.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea della Pensilina a Lugano durante una manifestazione pacifica"
@@ -8699,7 +8699,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Gordola, nuovo ricorso blocca Santa Maria",
       "description": "Il Municipio di Gordola prepara la difesa contro il ricorso che blocca il piano del comparto Santa Maria, approvato dopo 30 anni. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/gordola-santa-maria-ricorso-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gordola-santa-maria-ricorso-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Gordola, Ticino, con l'area di Santa Maria in primo piano"
@@ -8727,7 +8727,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Vino amaro in Vallese: Provins SA annuncia perdite e misure drastiche",
       "description": "Provins SA, azienda chiave della viticoltura vallesana, annuncia una perdita di 6 milioni di franchi per il 2025 e misure drastiche per adattarsi alla crisi del",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/vino-amaro-vallese-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/vino-amaro-vallese-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vigneto in Ticino con lavoratore e montagne in sfondo"
@@ -8755,7 +8755,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "{\"it\":\"Beatificazione don Roberto Malgesini: avvia l'iter la Diocesi di Como\"}",
       "description": "La Diocesi di Como ha avviato il processo per la beatificazione di don Roberto Malgesini, ucciso nel 2020. Scopri come contribuire. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/beatificazione-don-roberto-malgesini-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/beatificazione-don-roberto-malgesini-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con una chiesa sullo sfondo"
@@ -8811,7 +8811,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Cavalli esercito svizzero: costi in aumento",
       "description": "L'esercito svizzero spenderà 3,8 milioni di franchi per i cavalli dal 2026 al 2028, con critiche alla gestione delle risorse. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cavalli-esercito-svizzero-costi.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cavalli-esercito-svizzero-costi.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Cavalli dell'esercito svizzero in addestramento al Centro Equestre Nazionale di Berna"
@@ -8838,7 +8838,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Svizzera sconfitta dalla Finlandia nell'Euro Hockey Tour",
       "description": "La nazionale svizzera di hockey su ghiaccio perde 5-3 contro la Finlandia. Prossimo avversario la Repubblica Ceca. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/svizzera-hockey-sconfitta-finlandia.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/svizzera-hockey-sconfitta-finlandia.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Partita di hockey su ghiaccio in corso in un'arena professionale in Svizzera."
@@ -8866,7 +8866,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Pd Como insiste sulla sfiducia a Maccabeo: \"Mancanza di responsabilità politica\"",
       "description": "Il Partito Democratico di Como non molla sulla mozione di sfiducia all'assessore Maccabeo, bocciata in consiglio comunale. Dati aggiornati 2026 per frontalieri",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/pd-como-sfiducia-maccabeo-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/pd-como-sfiducia-maccabeo-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Panorama di Como con il Lago di Como sullo sfondo"
@@ -8894,7 +8894,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Patriot in ritardo, Berna valuta altri sistemi",
       "description": "La Svizzera cerca alternative ai sistemi Patriot in ritardo, interpellando Germania, Francia, Israele e Corea del Sud. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/patriot-ritardo-svizzera-valuta-alternative.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/patriot-ritardo-svizzera-valuta-alternative.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Sistema di difesa aerea in Ticino"
@@ -8922,7 +8922,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Bambini in visita dai Carabinieri di Como",
       "description": "38 alunni della scuola primaria Nazario Sauro hanno visitato la caserma dei Carabinieri di Como nell'ambito della campagna 'Cultura della Legalità'.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/bambini-carabinieri-como-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bambini-carabinieri-como-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Bambini in visita alla caserma dei Carabinieri di Como"
@@ -8950,7 +8950,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Incendio Malpensa Terminal 1: intervento Vigili del Fuoco",
       "description": "Un corto circuito ha causato un principio di incendio al Terminal 1 di Malpensa il 2 maggio 2026. Nessun ferito. Procedure di sicurezza per i frontalieri.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/incendio-malpensa-terminal-1-2-maggio-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/incendio-malpensa-terminal-1-2-maggio-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Terminal 1 dell'aeroporto di Malpensa con veicoli di emergenza e fumo"
@@ -8978,7 +8978,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Parcheggio abusivo a Como nel parco di Villa Olmo\",\"description\":\"Numerose auto, tra cui una ticinese, parcheggiate illegalmente nel parco di Villa Olmo e sui marciapiedi di Como.\",\"datePublished\":\"2026-05-02\",\"image\":\"https://frontaliereticino.ch/images/villa-olmo.webp\"}",
       "description": "Numerose auto, tra cui una ticinese, parcheggiate illegalmente nel parco di Villa Olmo e sui marciapiedi di Como. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/parcheggio-abusivo-como-villa-olmo.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/parcheggio-abusivo-como-villa-olmo.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Villa Olmo a Como con auto parcheggiate illegalmente nel parco e sul marciapiede"
@@ -9006,7 +9006,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Svizzera amplia la caccia agli evasori fiscali: coinvolti 110 Paesi",
       "description": "Le autorità elvetiche monitorano anche gli svizzeri in Thailandia. Quasi 7mila richieste di assistenza dall'estero nel 2025. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/svizzera-caccia-evasori-fiscali-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/svizzera-caccia-evasori-fiscali-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo"
@@ -9039,7 +9039,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Landsgemeinde di Glarona: austerità e ambiente al voto",
       "description": "Gli elettori di Glarona decidono su tagli alla spesa pubblica, nuove tasse ambientali e alloggi accessibili nella storica assemblea. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/landsgemeinde-glarona-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/landsgemeinde-glarona-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Assemblea Landsgemeinde a Glarona, Svizzera, con cittadini riuniti in una piazza pubblica per votare su importanti questioni."
@@ -9072,7 +9072,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Interpellanza al Municipio: costi aeroporto Lugano-Agno",
       "description": "Le consigliere comunali criticano la gestione finanziaria e i ritardi nei piani di sviluppo dello scalo ticinese di Lugano-Agno. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/aeroporto-lugano-costi-interpellanza.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/aeroporto-lugano-costi-interpellanza.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea dell'aeroporto di Lugano-Agno con montagne sullo sfondo e aerei sulla pista"
@@ -9138,7 +9138,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "SECO blocca accesso atti trattative con Washington",
       "description": "La SECO mantiene segreti i documenti sulle trattative con gli USA sui dazi, rischiando una causa in tribunale. Scopri le implicazioni per i frontalieri.",
       "image": {
-        "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/seco-dazi-segreti-washington.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/seco-dazi-segreti-washington.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista del Lago di Lugano con il panorama cittadino sullo sfondo"
