@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-10-04T09:16:26.590Z",
+  "assembledAt": "2026-10-04T21:14:11.360Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
@@ -106,7 +106,7 @@
         "it": "Junior Contabile",
         "en": "Junior Accountant",
         "de": "Junior Buchhalter",
-        "fr": "Comptable junior"
+        "fr": "Junior Accountant"
       },
       "slugByLocale": {
         "it": "junior-contabile-dxt-commodities-s-a-lugano",
@@ -165,7 +165,8 @@
       "streetAddress": "Corso Elvezia 14",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     }
   ]
 }
