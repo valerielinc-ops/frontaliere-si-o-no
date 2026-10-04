@@ -293,6 +293,8 @@ describe('cwv-monitor.yml wiring', () => {
     expect(step.run).toContain('node scripts/cwv-attribution-report.mjs --comment');
     expect(step).not.toHaveProperty('continue-on-error');
     expect(step).not.toHaveProperty('if');
+    expect(step['timeout-minutes']).toBeGreaterThan(0);
+    expect(step['timeout-minutes']).toBeLessThan(YAML.parse(source).jobs.monitor['timeout-minutes']);
     expect(step.env.GH_TOKEN).toBe('${{ secrets.GITHUB_TOKEN }}');
     expect(step.env.GH_REPO).toBe('${{ github.repository }}');
     expect(YAML.parse(source).permissions.issues).toBe('write');

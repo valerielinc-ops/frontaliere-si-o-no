@@ -23,6 +23,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   GA4_READONLY_SCOPE,
+  fetchRetry,
   ga4DateRange,
   getServiceAccountToken,
 } from './lib/ga4-service-account.mjs';
@@ -37,6 +38,13 @@ import {
 
 export const WINDOW_DAYS = 7;
 export const LAG_DAYS = 2;
+// Each GA4 request is bounded (30 s) and retried only on 429/5xx: a transient
+// Data API hiccup does not fail the run, a 4xx (unregistered dimension) still
+// returns at once and fails closed.
+export const GA4_REQUEST_TIMEOUT_MS = 30_000;
+export const GA4_REQUEST_RETRIES = 2;
+const defaultFetch = (url, options) =>
+  fetchRetry(url, options, GA4_REQUEST_RETRIES, GA4_REQUEST_TIMEOUT_MS);
 export const CWV_REGRESSION_LABEL = 'cwv-regression';
 export const WATCHLIST_TITLE_PREFIX = 'CWV field regression on a tracked page';
 export const NO_EVENTS_MESSAGE = 'nessun evento di attribuzione nella finestra';
@@ -136,7 +144,7 @@ export async function main({
   argv = process.argv.slice(2),
   env = process.env,
   now = new Date(),
-  fetchImpl = fetch,
+  fetchImpl = defaultFetch,
   getToken = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
   gh = defaultGh,
   log = console.log,
