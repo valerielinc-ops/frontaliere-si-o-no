@@ -155,6 +155,10 @@ jobs:
         # baseline. A degraded source is a fact about that source; it is not a
         # reason to stop the other twenty-five from advancing.
         continue-on-error: true
+        env:
+          # The per-source issue steps below read the degraded/healthy sources
+          # from this file (written even when the check exits 1).
+          PLATE_AUCTION_HEALTH_REPORT: ${{ runner.temp }}/plate-health.json
         run: node scripts/plate-auctions/check-health.mjs
 
       - name: Stop before publishing a structurally unusable snapshot
@@ -228,21 +232,115 @@ jobs:
             exit 1
           fi
 
-      - name: Fail the run on the source-health verdict
-        # The verdict has to be the LAST thing that decides the exit code, and
-        # it has to sit ABOVE the issue reporter: `failure()` below only sees a
-        # job that has already failed, so moving this after it would mean a
-        # health-only red run never opened an issue. Narrow on purpose —
-        # `steps.health.outcome == 'failure'` fires only when check-health
-        # actually reported errors, so a cancelled or skipped run is not
-        # relabelled as a health failure.
-        if: ${{ !cancelled() && steps.health.outcome == 'failure' }}
+      # The source-health verdict below is OWNED by one issue per degraded
+      # source, `Plate auction source degraded: <plate code>`: opened (or given
+      # a recurrence) on the FIRST red run of that source, resolved on its first
+      # healthy run by the step after this one. Until 2026-10 the only owner was
+      # the generic `Workflow Failure: Refresh Plate Auctions` thread (issue
+      # 8670), which names no source: the fixer twice concluded "by
+      # construction" and the thread could never close. Not continue-on-error:
+      # if the owner cannot be written (no readable report, a failed health check
+      # that names no source), the job fails here and the generic reporter takes
+      # the run instead.
+      - name: Open one issue per degraded plate-auction source (dedup, zero-Claude)
+        id: source_issues
+        if: ${{ !cancelled() && steps.health.outcome == 'failure' && inputs.dry_run != true && inputs.dry_run != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          HEALTH_REPORT: ${{ runner.temp }}/plate-health.json
         run: |
-          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible, including after a push-retry regeneration."
-          exit 1
+          set -euo pipefail
+          if ! jq -e '(.degradedSources | type) == "array"' "$HEALTH_REPORT" > /dev/null 2>&1; then
+            echo "::error::check-health left no readable report at $HEALTH_REPORT: the degraded sources are unknown, so no source issue can own this verdict."
+            exit 1
+          fi
+          count=$(jq '.degradedSources | length' "$HEALTH_REPORT")
+          if [ "$count" -eq 0 ]; then
+            if [ "$(jq -r '.blocking' "$HEALTH_REPORT")" = "true" ]; then
+              echo "Structural errors only, no degraded source: the publication gate failed and the generic failure reporter owns this run."
+              exit 0
+            fi
+            echo "::error::check-health failed with neither a structural error nor a degraded source: nothing can own this verdict."
+            exit 1
+          fi
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          for i in $(seq 0 $((count - 1))); do
+            code=$(jq -r ".degradedSources[$i].plateCode" "$HEALTH_REPORT")
+            canton=$(jq -r ".degradedSources[$i].canton // \"\"" "$HEALTH_REPORT")
+            official=$(jq -r ".degradedSources[$i].officialUrl // \"\"" "$HEALTH_REPORT")
+            errors=$(jq -r ".degradedSources[$i].errors[] | \"- \" + ." "$HEALTH_REPORT")
+            # One issue per source: the plate code is the discriminant, at the
+            # end of a title well inside the 60-character dedup prefix. The
+            # resolve step below rebuilds this exact literal from the code.
+            title="Plate auction source degraded: ${code}"
+            body="$(printf '%s\n' \
+              "check-health reported the plate-auction source **${code}** (${canton}) as degraded in this run." \
+              "" \
+              "$errors" \
+              "" \
+              "- Official source: ${official}" \
+              "- Run: ${run_url}" \
+              "- Check: node scripts/plate-auctions/check-health.mjs (reads public/data/plate-auctions.json)" \
+              "" \
+              "The snapshot was still committed: a degraded source does not freeze the other cantons. The run stays red through the step 'Fail the run on the source-health verdict'." \
+              "This issue is resolved automatically by refresh-plate-auctions.yml on the first run in which ${code} is healthy again.")"
+            node scripts/lib/github-issue-creator.mjs \
+              --title "$title" \
+              --description "$body" \
+              --priority 3 \
+              --label Bug \
+              --workflow "$GITHUB_WORKFLOW"
+          done
 
+      # Closer of the issues above. Only on a publishable snapshot
+      # (`blocking=false`): a structurally broken file is not evidence that any
+      # source recovered, and check-health lists no healthy source for it.
+      - name: Resolve issues of plate-auction sources that are healthy again
+        if: ${{ !cancelled() && (steps.health.outcome == 'success' || steps.health.outcome == 'failure') && steps.health.outputs.blocking == 'false' && inputs.dry_run != true && inputs.dry_run != 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          HEALTH_REPORT: ${{ runner.temp }}/plate-health.json
+        run: |
+          set -uo pipefail
+          if ! jq -e '(.healthySources | type) == "array"' "$HEALTH_REPORT" > /dev/null 2>&1; then
+            echo "::warning::check-health left no readable report at $HEALTH_REPORT; no source issue resolved."
+            exit 0
+          fi
+          healthy="$(jq -r '.healthySources[].plateCode' "$HEALTH_REPORT")"
+          open_issues="$RUNNER_TEMP/plate-source-issues.json"
+          if ! gh issue list --state open --limit 500 --json number,title > "$open_issues"; then
+            echo "::warning::could not list the open issues; no source issue resolved."
+            exit 0
+          fi
+          jq -r '.[] | select(.title | startswith("Plate auction source degraded: ")) | .title' "$open_issues" \
+            | sort -u > "$RUNNER_TEMP/plate-source-titles.txt"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          # Titles on fd 9: the `node` resolver below must not read the list.
+          while IFS= read -r -u 9 open_title; do
+            code="${open_title#Plate auction source degraded: }"
+            if ! printf '%s\n' "$healthy" | grep -qxF -- "$code"; then
+              echo "Keeping \"$open_title\": ${code} is not healthy in this run."
+              continue
+            fi
+            title="Plate auction source degraded: ${code}"
+            node scripts/lib/github-issue-creator.mjs --resolve \
+              --title "$title" \
+              --workflow "$GITHUB_WORKFLOW" \
+              --run-url "$run_url"
+          done 9< "$RUNNER_TEMP/plate-source-titles.txt"
+
+      # Sits BEFORE the verdict on purpose: at this point `failure()` sees only
+      # what is NOT the verdict (a crash, a structural snapshot error, the
+      # commit, the deploy, an owner step that could not write its issue), so a
+      # run that is red for the source-health verdict alone, already carried by
+      # the per-source issues, does not also comment on `Workflow Failure:`.
+      # The second clause keeps a verdict whose owner step did not run (a
+      # dry-run dispatch) reported here, as before.
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: ${{ !cancelled() && (failure() || (steps.health.outcome == 'failure' && steps.source_issues.outcome != 'success')) }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -256,3 +354,19 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      - name: Fail the run on the source-health verdict
+        id: verdict
+        # The verdict has to be the LAST thing that decides the exit code.
+        # Its issues are opened above, one per degraded source, so the run
+        # stays red without a second thread: the generic reporter runs before
+        # this step and never sees it. Registered as a verdict step in
+        # VERDICT_STEPS (scripts/ci/close-recovered-failure-issues.mjs), so the
+        # central scanner and closer do not count a verdict-only red either.
+        # Narrow on purpose — `steps.health.outcome == 'failure'` fires only
+        # when check-health actually reported errors, so a cancelled or skipped
+        # run is not relabelled as a health failure.
+        if: ${{ !cancelled() && steps.health.outcome == 'failure' }}
+        run: |
+          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible, including after a push-retry regeneration."
+          exit 1

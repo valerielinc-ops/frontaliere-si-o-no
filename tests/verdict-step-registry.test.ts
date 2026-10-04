@@ -543,14 +543,12 @@ describe('lint del registro contro i YAML veri', () => {
 
   /**
    * Workflow con uno step-verdetto NON ancora registrato. Il loro reporter INTERNO
-   * segnala apposta anche il verdetto: registrarli prima di dar loro una issue
-   * proprietaria aprirebbe un ciclo chiudi/riapri. Li registra LC-07, che svuota questa
-   * lista. Solo in diminuzione.
+   * segnalava apposta anche il verdetto: registrarli prima di dar loro una issue
+   * proprietaria apriva un ciclo chiudi/riapri. LC-07 ha registrato gli ultimi due
+   * (seo-health-loop, refresh-plate-auctions) insieme ai loro reporter proprietari:
+   * la lista è vuota e resta vuota (tests/verdict-owner-reporters.test.ts).
    */
-  const PENDING_VERDICT_WORKFLOWS = new Set([
-    '.github/workflows/seo-health-loop.yml',
-    '.github/workflows/refresh-plate-auctions.yml',
-  ]);
+  const PENDING_VERDICT_WORKFLOWS = new Set<string>([]);
 
   /**
    * Step che il pattern intercetta ma che NON sono verdetti, verificati a mano: restano

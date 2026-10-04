@@ -1166,6 +1166,18 @@ export const VERDICT_STEPS = Object.freeze({
     producers: Object.freeze(['Run health check']),
     owner: '[crawler-health] ',
   }),
+  '.github/workflows/seo-health-loop.yml': Object.freeze({
+    workflowName: 'SEO closed-loop health and recovery',
+    verdict: 'Fail when the health loop has an actionable finding',
+    producers: Object.freeze(['Run five-phase SEO health loop']),
+    owner: 'SEO health loop: ',
+  }),
+  '.github/workflows/refresh-plate-auctions.yml': Object.freeze({
+    workflowName: 'Refresh Plate Auctions',
+    verdict: 'Fail the run on the source-health verdict',
+    producers: Object.freeze(['Fail closed on source health or snapshot drift']),
+    owner: 'Plate auction source degraded: ',
+  }),
 });
 
 /** La voce del registro per un `name:` di workflow, o `null`. */

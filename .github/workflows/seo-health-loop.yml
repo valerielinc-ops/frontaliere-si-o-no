@@ -86,6 +86,12 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      # The script owns its finding: it opens (or resolves) the issue
+      # `SEO health loop: repeated production findings` itself, and writes
+      # `verdict=ok|finding|error` to GITHUB_OUTPUT. `finding` = actionable
+      # findings AND that issue was written; anything else that exits 1 (a
+      # crash, an issue that could not be written) is `error` or no output at
+      # all, and is reported below as a workflow failure.
       - name: Run five-phase SEO health loop
         id: health
         if: inputs.dry_run != true && inputs.dry_run != 'true'
@@ -269,7 +275,12 @@ jobs:
         # is named too: a missing latest.json is the one symptom that surfaces a
         # run where the producer never executed at all, and while it was left
         # out that failure raised no issue for two consecutive days.
-        if: ${{ always() && inputs.dry_run != true && (steps.health.outcome == 'failure' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure' || steps.health_report.outcome == 'failure') }}
+        # The health step counts only when it is NOT an owned finding: a
+        # `verdict=finding` run already reopened or commented on its own
+        # issue, and commenting here too (issue 8591) told the same fact in a
+        # second thread that could never close. (`&&` binds before `||`: the
+        # verdict guard applies to the health step alone.)
+        if: ${{ always() && inputs.dry_run != true && (steps.health.outcome == 'failure' && steps.health.outputs.verdict != 'finding' || steps.compat_reconcile.outcome == 'failure' || steps.compat_validation.outcome == 'failure' || steps.compat.outcome == 'failure' || steps.health_commit.outcome == 'failure' || steps.deploy.outcome == 'failure' || steps.health_report.outcome == 'failure') }}
         continue-on-error: true
         env:
           GH_REPO: ${{ github.repository }}
@@ -292,6 +303,21 @@ jobs:
         if: always()
         run: rm -f /tmp/firebase-sa.json
 
+      # Two red endings, kept apart on purpose. The verdict (registered in
+      # VERDICT_STEPS, scripts/ci/close-recovered-failure-issues.mjs) is a
+      # finding whose issue the script already wrote; the central scanner and
+      # closer do not count a run red for it alone. A crash, or a finding whose
+      # issue could not be written, ends in the second step instead, so in the
+      # jobs API it never looks like a verdict-only run.
       - name: Fail when the health loop has an actionable finding
-        if: ${{ steps.health.outcome == 'failure' }}
+        id: verdict
+        if: ${{ steps.health.outcome == 'failure' && steps.health.outputs.verdict == 'finding' }}
         run: exit 1
+
+      - name: Fail when the health loop crashed or could not write its issue
+        if: ${{ steps.health.outcome == 'failure' && steps.health.outputs.verdict != 'finding' }}
+        env:
+          HEALTH_VERDICT: ${{ steps.health.outputs.verdict }}
+        run: |
+          echo "::error::The SEO health loop exited non-zero with verdict='${HEALTH_VERDICT}' (an owned finding is 'finding'): see the 'Run five-phase SEO health loop' step."
+          exit 1
