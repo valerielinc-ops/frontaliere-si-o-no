@@ -16,6 +16,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -155,10 +156,7 @@ async function fetchOtbListings() {
     html = await fetchHtml(OTB_PORTLET_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`   ⚠️ Failed to fetch État du Valais job portlet: ${err.message}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
-    throw err;
+    return [];
   }
   return parseOtbListings(html);
 }
@@ -297,7 +295,8 @@ export async function fetchAllCantonValaisJobs() {
       sector: 'Administration publique / Service public',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || listing.posted_date || listing.sys_created_on?.slice(0, 10) || new Date().toISOString().split('T')[0],
+      // The actual OTB listing/PDF pipeline exposes no verified publication field.
+      ...sourcePostingDateFields(),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

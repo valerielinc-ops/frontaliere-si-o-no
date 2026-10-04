@@ -35,15 +35,6 @@
  * the fail-closed behavior for an actually unreadable source while avoiding a
  * false zero when JobCloud changes the embedded page URL or markup.
  *
- * The listing phase keeps three outcomes apart (issue 11077): job links are
- * crawled; a fetch failure is thrown, never read as an empty listing, so the
- * crawler pipeline records its real cause; and a zero is only *proven* when
- * BOTH sources render their own "no open positions" state (JobCloud's
- * server-rendered `initialJobs: []` plus "Aucun poste ouvert", Jobup's
- * `company-no-vacancies` block) — then the empty batch is stamped with
- * `markAuthoritativeEmptySnapshot`. Any other zero stays the fail-closed
- * `no-jobs-parsed` abort (markup drift keeps the previous slice live).
- *
  * Small volume (3 open postings, confirmed live) is expected and normal for
  * a cantonal Red Cross section of this size — same class as Hospice général
  * (4) / EPI Genève (11), not a sign of a broken source.
@@ -75,6 +66,7 @@
  *   - resolveAddress()                      — City-gated HQ address resolution
  *   - slugify() / stripHtml()               — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -82,7 +74,6 @@ import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } 
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
-import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -115,14 +106,6 @@ const JOBUP_PROFILE_JOB_LIST_SELECTORS = [
   '[class~="company-job-list"]',
   '[class~="company-jobs"]',
 ].join(',');
-// The source's own "no open positions" states. JobCloud's Next.js company page
-// serialises its server-side list as `initialJobs` inside the RSC payload
-// (quotes escaped) and renders a visible "Aucun poste ouvert" notice; Jobup's
-// profile renders a dedicated `company-no-vacancies` block instead of the list.
-const JOBCLOUD_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*\]/;
-const JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*[^\]\s]/;
-const JOBCLOUD_NO_POSITIONS_TEXT_RE = /Aucun poste ouvert/i;
-const JOBUP_NO_VACANCIES_SELECTOR = '[data-cy="company-no-vacancies"]';
 const JOBUP_DETAIL_PATH_RE = /^\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?$/i;
 
 const SECTOR = 'Sociale / Socio-sanitario';
@@ -305,37 +288,6 @@ export function extractListingLinks(html = '') {
 }
 
 /**
- * True only when the JobCloud company page itself states it has no open
- * position: an empty server-side `initialJobs` list, no non-empty one, the
- * visible "Aucun poste ouvert" notice, and no detail link. A page missing any
- * of these is unreadable (markup drift), not empty.
- */
-export function isJobCloudListingProvenEmpty(html = '') {
-  const source = String(html || '');
-  if (!source) return false;
-  return JOBCLOUD_EMPTY_INITIAL_JOBS_RE.test(source)
-    && !JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE.test(source)
-    && JOBCLOUD_NO_POSITIONS_TEXT_RE.test(stripScriptsAndStyles(source))
-    && extractListingLinks(source).length === 0;
-}
-
-/**
- * True only when the Jobup company profile renders its own "no vacancies"
- * block and no job-list container.
- */
-export function isJobupProfileProvenEmpty(html = '') {
-  if (!html) return false;
-  const dom = new JSDOM(String(html));
-  try {
-    const doc = dom.window.document;
-    return Boolean(doc.querySelector(JOBUP_NO_VACANCIES_SELECTOR))
-      && !doc.querySelector(JOBUP_PROFILE_JOB_LIST_SELECTORS);
-  } finally {
-    dom.window.close();
-  }
-}
-
-/**
  * Extract Jobup company-profile detail links. Jobup currently renders these
  * cards server-side, but the profile has used both relative and absolute
  * hrefs (and both quote styles) over time.
@@ -465,9 +417,9 @@ function extractJobupDescription(html, posting) {
 }
 
 function normalizePostedDate(rawDate = '') {
-  const value = normalizeSpace(rawDate);
-  if (/^\d{4}-\d{2}-\d{2}/.test(value)) return value.slice(0, 10);
-  return parseSwissShortDate(value);
+  if (typeof rawDate !== 'string') return '';
+  const value = rawDate.trim();
+  return sourcePostingDateFields(parseSwissShortDate(value) || value).postedDate;
 }
 
 function isJobupDetailUrl(rawUrl = '') {
@@ -489,36 +441,40 @@ function toDetailUrl(rawHref = '') {
 /**
  * Fetch and parse a single job detail page.
  * @param {string} href Relative path, e.g. "/fr/jobs/{uuid}".
- * @returns {Promise<object>} Parsed detail fields. A fetch failure is thrown;
- *   the caller decides whether one failed detail is tolerable.
+ * @returns {Promise<object|null>} Parsed detail fields, or null on failure.
  */
 async function fetchJobDetail(href) {
   const detailUrl = toDetailUrl(href);
   const isJobupDetail = isJobupDetailUrl(detailUrl);
-  const html = await fetchHtml(detailUrl);
-  const visibleHtml = stripScriptsAndStyles(html);
-  const posting = isJobupDetail ? extractJobupPostingJsonLd(html) : null;
-  const titleMatch = visibleHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = normalizeSpace(decodeNumericEntities(posting?.title || (titleMatch ? stripHtml(titleMatch[1]) : '')));
-  const description = isJobupDetail
-    ? extractJobupDescription(html, posting)
-    : normalizeSpace(stripHtml(extractRichTextBlock(html)));
-  const datePosted = isJobupDetail
-    ? normalizePostedDate(posting?.datePosted)
-    : parseSwissShortDate(extractKeyInfoValue(html, 'Date de publication'));
-  const occupationRange = isJobupDetail
-    ? normalizeSpace(posting?.employmentType || visibleHtml.match(/\b\d{1,3}(?:\s*[–-]\s*\d{1,3})?\s*%/)?.[0] || '')
-    : extractKeyInfoValue(html, 'Taux d’activité');
-  const contractTypeRaw = isJobupDetail
-    ? normalizeSpace(posting?.employmentType || '')
-    : extractKeyInfoValue(html, 'Type de contrat');
-  const lieuDeTravail = isJobupDetail
-    ? extractJobupLocation(posting)
-    : extractKeyInfoValue(html, 'Lieu de travail');
-  const applyUrl = isJobupDetail ? '' : extractApplyUrl(html);
-  const employmentType = isJobupDetail ? normalizeSpace(posting?.employmentType || '') : '';
+  try {
+    const html = await fetchHtml(detailUrl);
+    const visibleHtml = stripScriptsAndStyles(html);
+    const posting = isJobupDetail ? extractJobupPostingJsonLd(html) : null;
+    const titleMatch = visibleHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
+    const title = normalizeSpace(decodeNumericEntities(posting?.title || (titleMatch ? stripHtml(titleMatch[1]) : '')));
+    const description = isJobupDetail
+      ? extractJobupDescription(html, posting)
+      : normalizeSpace(stripHtml(extractRichTextBlock(html)));
+    const datePosted = isJobupDetail
+      ? normalizePostedDate(posting?.datePosted)
+      : parseSwissShortDate(extractKeyInfoValue(html, 'Date de publication'));
+    const occupationRange = isJobupDetail
+      ? normalizeSpace(posting?.employmentType || visibleHtml.match(/\b\d{1,3}(?:\s*[–-]\s*\d{1,3})?\s*%/)?.[0] || '')
+      : extractKeyInfoValue(html, 'Taux d’activité');
+    const contractTypeRaw = isJobupDetail
+      ? normalizeSpace(posting?.employmentType || '')
+      : extractKeyInfoValue(html, 'Type de contrat');
+    const lieuDeTravail = isJobupDetail
+      ? extractJobupLocation(posting)
+      : extractKeyInfoValue(html, 'Lieu de travail');
+    const applyUrl = isJobupDetail ? '' : extractApplyUrl(html);
+    const employmentType = isJobupDetail ? normalizeSpace(posting?.employmentType || '') : '';
 
-  return { detailUrl, title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl, employmentType };
+    return { detailUrl, title, description, datePosted, occupationRange, contractTypeRaw, lieuDeTravail, applyUrl, employmentType };
+  } catch (err) {
+    console.warn(`  ⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: failed to fetch detail ${detailUrl}: ${err?.message || err}`);
+    return null;
+  }
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
@@ -535,65 +491,36 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
   console.log(`🔍 Fetching ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL} (JobCloud Company Page)\n`);
 
+  let listingHtml = '';
   let links = [];
-  let jobCloudError = null;
-  let jobCloudProvenEmpty = false;
   try {
-    const listingHtml = await fetchHtml(LISTING_URL);
+    listingHtml = await fetchHtml(LISTING_URL);
     links = extractListingLinks(listingHtml);
-    jobCloudProvenEmpty = !links.length && isJobCloudListingProvenEmpty(listingHtml);
   } catch (err) {
-    jobCloudError = err;
     console.warn(`⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: JobCloud listing unavailable: ${err?.message || err}`);
   }
 
   if (!links.length) {
-    console.warn(jobCloudError
-      ? '⚠️ JobCloud listing failed; trying the Jobup company profile fallback.'
-      : `⚠️ JobCloud listing exposed no job links (own "no open positions" state: ${jobCloudProvenEmpty}); trying the Jobup company profile fallback.`);
-    let jobupHtml;
+    console.warn('⚠️ JobCloud listing exposed no job links; trying the Jobup company profile fallback.');
     try {
-      jobupHtml = await fetchHtml(JOBUP_COMPANY_URL);
+      listingHtml = await fetchHtml(JOBUP_COMPANY_URL);
+      links = extractJobupListingLinks(listingHtml);
+      if (links.length) console.log(`  📋 Jobup listings found: ${links.length}`);
     } catch (err) {
-      // A fetch failure is not an empty listing: let the crawler pipeline
-      // classify it (connection-level soft exit or HTTP error) instead of
-      // publishing a cause-less no-jobs-parsed abort.
       console.warn(`⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: Jobup fallback unavailable: ${err?.message || err}`);
-      throw err;
     }
-    links = extractJobupListingLinks(jobupHtml);
-    if (links.length) {
-      console.log(`  📋 Jobup listings found: ${links.length}`);
-    } else {
-      // JobCloud never answered: one empty fallback does not prove the
-      // employer has no openings, and the fetch failure is the real cause.
-      if (jobCloudError) throw jobCloudError;
-      if (jobCloudProvenEmpty && isJobupProfileProvenEmpty(jobupHtml)) {
-        console.log('  ✅ Both JobCloud and Jobup state that no position is open.');
-        return markAuthoritativeEmptySnapshot(
-          [],
-          'JobCloud company page initialJobs=[] with "Aucun poste ouvert"; Jobup profile company-no-vacancies',
-        );
-      }
-      console.warn('⚠️ No job listings found, and the sources do not both state an empty board (markup drift?).');
-      return [];
-    }
+  }
+
+  if (!links.length) {
+    console.warn('⚠️ No job listings found.');
+    return [];
   }
   console.log(`  📋 Listings found: ${links.length}`);
 
   const jobs = [];
-  let detailFailures = 0;
-  let firstDetailError = null;
   for (const href of links) {
-    let detail;
-    try {
-      detail = await fetchJobDetail(href);
-    } catch (err) {
-      detailFailures += 1;
-      firstDetailError ??= err;
-      console.warn(`  ⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: failed to fetch detail ${toDetailUrl(href)}: ${err?.message || err}`);
-      continue;
-    }
+    const detail = await fetchJobDetail(href);
+    if (!detail) continue;
     const {
       detailUrl,
       title,
@@ -613,7 +540,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
     const jobSlug = slugify(`${title} croix-rouge-fribourgeoise ${city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
     const employmentType = sourceEmploymentType || detectEmploymentType(occupationRange, title);
-    const postedDate = datePosted || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(datePosted);
 
     const job = {
       // ── Required fields ──
@@ -651,7 +578,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: applyUrl || detailUrl,
       department: '',
       requirements: [],
@@ -661,10 +588,6 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
 
     jobs.push(job);
   }
-
-  // One unreachable detail is tolerated; every detail failing is a fetch
-  // failure of the whole board, not an empty one.
-  if (detailFailures > 0 && detailFailures === links.length) throw firstDetailError;
 
   console.log(`\n📋 Total ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;

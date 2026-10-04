@@ -33,7 +33,7 @@ const FIXTURE_API_RESPONSE = {
       locations: [{ city: 'Lugano', state: 'Ticino', country: 'Switzerland', country_code: 'CH' }],
       employment_type_code: 'fulltime_permanent',
       department: 'Engineering',
-      published_at: '2026-03-10T10:00:00Z',
+      published_at: new Date(Date.now() - 5 * 86400000).toISOString(),
       remote: false,
       hybrid: false,
       careers_apply_url: 'https://recruit.casale.ch/o/senior-process-engineer-1/c/new',
@@ -164,7 +164,11 @@ describe('buildJobFromApi', () => {
 
   it('extracts date posted', () => {
     const job = buildJobFromApi(FIXTURE_API_RESPONSE.offers[0]);
-    expect(job.datePosted).toBe('2026-03-10');
+    expect(job).toMatchObject({
+      datePosted: FIXTURE_API_RESPONSE.offers[0].published_at,
+      postedDate: FIXTURE_API_RESPONSE.offers[0].published_at,
+      postingDateSource: 'reported',
+    });
   });
 
   it('sets INTERNSHIP employment type for apprenticeship', () => {

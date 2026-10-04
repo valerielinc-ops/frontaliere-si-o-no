@@ -24,6 +24,8 @@
  *
  * Polite delay: 250 ms between detail-page fetches.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -52,12 +54,7 @@ const DETAIL_DELAY_MS = 250;
 
 function assertUsableMaskHtml(html, url) {
   if (looksLikeAntiBotChallenge(html)) {
-    // Direct fetch and the Jina clean-IP rescue are both challenged: the same
-    // exhausted-fence signal as fachkraft/jobup, which the crawler pipeline
-    // records as a connection-level soft exit instead of an empty listing.
-    const error = new Error(`Unrecovered anti-bot challenge from ${url}`);
-    error.antiBotExhausted = true;
-    throw error;
+    throw new Error(`Unrecovered anti-bot challenge from ${url}`);
   }
   return html;
 }
@@ -156,10 +153,13 @@ function inferLocalityFromSite(site = '', titleFull = '') {
   return { city: 'Saxon', postalCode: '1907', canton: 'VS' };
 }
 
-async function fetchDetailDescription(detailUrl) {
+async function fetchDetailData(detailUrl, title) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
+    if (!html) return { description: '', ...sourcePostingDateFields() };
+    const posting = extractJobPostingLd(html);
+    const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === title.toLowerCase();
+    const publication = sourcePostingDateFields(sameTitle ? posting?.datePosted : '');
     // jobup.ch detail pages render the description inside a JSON-LD
     // schema.org/JobPosting block — prefer that for clean text. Fall back
     // to a generic main-content extraction.
@@ -169,16 +169,16 @@ async function fetchDetailDescription(detailUrl) {
         const data = JSON.parse(ldMatch[1]);
         const desc = Array.isArray(data) ? data.find((d) => d['@type'] === 'JobPosting')?.description : data.description;
         if (desc && typeof desc === 'string') {
-          return normalizeSpace(htmlToText(desc));
+          return { description: normalizeSpace(htmlToText(desc)), ...publication };
         }
       } catch { /* swallow JSON parse */ }
     }
     const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-    if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1]));
-    return '';
+    if (mainMatch) return { description: normalizeSpace(htmlToText(mainMatch[1])), ...publication };
+    return { description: '', ...sourcePostingDateFields() };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields() };
   }
 }
 
@@ -192,21 +192,18 @@ export async function fetchAllCicJobs() {
     html = await fetchMaskHtml(MASK_URL);
   } catch (err) {
     console.warn(`⚠️ Mask fetch failed: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
-    throw err;
+    return [];
   }
   const rows = parseMaskHtml(html);
   console.log(`  ✓ ${rows.length} real openings (spontaneous-application rows dropped)`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const description = await fetchDetailDescription(r.url);
+    const detail = await fetchDetailData(r.url, r.title);
+    const description = detail.description;
     const loc = inferLocalityFromSite(r.site, r.title);
     const fallback = `${r.title} chez ${r.site || CIC_COMPANY_NAME}, ${loc.city} (${loc.canton}). Contrat: ${r.contract || 'permanent'}.`;
     const safeDescription = description && description.split(/\s+/).length >= 30
@@ -254,7 +251,7 @@ export async function fetchAllCicJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

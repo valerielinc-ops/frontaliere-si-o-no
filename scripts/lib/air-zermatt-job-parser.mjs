@@ -8,6 +8,8 @@
  * Each job is in a `.listing_entry` div inside `div#mixItUp`.
  * Detail pages are at /de/service/offene-stellen/{slug}-{id}
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
@@ -189,10 +191,14 @@ export async function fetchAllAirZermattJobs() {
   let belowFloor = 0;
   for (const listing of listings) {
     let description = listing.snippet || '';
+    let publication = sourcePostingDateFields();
     if (listing.url) {
       try {
         const detailHtml = await fetchHtml(listing.url);
         const detailBody = parseDetailPage(detailHtml);
+        const posting = extractJobPostingLd(detailHtml);
+        const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === listing.title.toLowerCase();
+        publication = sourcePostingDateFields(sameTitle ? posting?.datePosted : '');
         if (detailBody && detailBody.length > description.length) {
           description = detailBody;
         }
@@ -243,7 +249,7 @@ export async function fetchAllAirZermattJobs() {
       employmentType: inferEmploymentType(listing.title, description),
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Air Zermatt Dedicated Parser',
