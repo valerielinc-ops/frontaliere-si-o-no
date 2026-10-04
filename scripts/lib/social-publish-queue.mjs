@@ -238,20 +238,23 @@ export function isConfirmedInLedger(ledger, queueId) {
  * Skips: entries of another channel, expired entries, entries the ledger
  * already confirms, entries the local journal says were published (waiting
  * for the confirm commit to land) or left unconfirmed (a human must look),
- * entries carrying any ledger key (`<kind>:<id>`) of such a press — the next
- * day's entry may repeat the same articles under a new id — and entries whose
- * images are not on the site's CDN. Oldest first.
+ * entries carrying any ledger key (`<kind>:<id>`) already present in the
+ * ledger or belonging to such a press — the next day's entry may repeat the
+ * same articles under a new id — and entries whose images are not on the
+ * site's CDN. Oldest first.
  *
  * @param {{ pending: object[] }} queue
  * @param {{ channel: string, now?: number|Date, ledger?: object,
  *   blockedIds?: Set<string>, blockedLedgerKeys?: Set<string> }} opts
  */
 export function selectNextPending(queue, { channel, now = Date.now(), ledger = null, blockedIds = new Set(), blockedLedgerKeys = new Set() }) {
+  const ledgerKeys = new Set(parseLedger(ledger).posted.map(ledgerKey));
   const candidates = parseQueue(queue).pending
     .filter((e) => e.channel === channel)
     .filter((e) => !isExpired(e, now))
     .filter((e) => !(ledger && isConfirmedInLedger(ledger, e.id)))
     .filter((e) => !blockedIds.has(e.id))
+    .filter((e) => !(e.ledgerEntries || []).some((l) => ledgerKeys.has(ledgerKey(l))))
     .filter((e) => !(e.ledgerEntries || []).some((l) => blockedLedgerKeys.has(ledgerKey(l))))
     .filter((e) => Array.isArray(e.imageUrls) && e.imageUrls.length > 0 && e.imageUrls.every(isAllowedImageUrl))
     .filter((e) => String(e.caption || '').trim());

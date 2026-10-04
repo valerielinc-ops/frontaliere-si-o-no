@@ -152,6 +152,12 @@ describe('the queue', () => {
     expect(selectNextPending(queue, { channel: 'instagram', now: NOW, blockedIds: new Set([b.id]) })?.id).toBe(a.id);
     const ledger = { posted: [{ id: 'x', queueId: b.id }, { id: 'y', queueId: a.id }] };
     expect(selectNextPending(queue, { channel: 'instagram', now: NOW, ledger })?.id).toBe(j.id);
+    const replacement = entry('article', '2026-10-04');
+    expect(selectNextPending({ pending: [replacement] }, {
+      channel: 'instagram',
+      now: NOW,
+      ledger: { posted: [{ id: 'article-slug-a', kind: 'article' }] },
+    })).toBeNull();
     expect(selectNextPending(queue, { channel: 'instagram', now: NOW + 40 * HOUR, ledger })).toBeNull();
     expect(selectNextPending({ pending: [{ ...a, imageUrls: ['https://evil.example/a.jpg'] }] }, { channel: 'instagram', now: NOW })).toBeNull();
   });
