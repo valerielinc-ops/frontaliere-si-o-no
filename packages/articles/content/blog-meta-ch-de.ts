@@ -7673,6 +7673,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genf: 1.500 für Palästina auf der Straße, Sanktionen gegen Israel gefordert',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Etwa 1.500 Demonstrierende in Genf fordern eine Blockade der Beziehungen zu Israel und die Festnahme von Netanyahu. Bern: keine Festnahme aus Verhandlungsgründen.',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Pro-Palästina-Demonstration in Genf mit palästinensischen und Schweizer Flaggen',
+    'blog.article.swiss-steel-ristrutturazione-germania.title': 'Swiss Steel kündigt Umstrukturierung und Stellenabbau in Deutschland an',
+    'blog.article.swiss-steel-ristrutturazione-germania.excerpt': 'Der multinationale Konzern aus Luzern leitet eine Reorganisation ein, um bis 2028 wieder profitabel zu werden. Kantonale Unterstützung in Höhe von 17 Millionen für die Tochtergesellschaft Steeltec.',
+    'blog.article.swiss-steel-ristrutturazione-germania.imageAlt': 'Schweizer Stahlwerk in einer industriellen Umgebung',
 };
 
 export default blogMetaChDe;

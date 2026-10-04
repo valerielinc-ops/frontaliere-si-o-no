@@ -7673,6 +7673,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Ginevra: 1.500 in piazza pro Palestina, chieste sanzioni a Israele',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Circa 1.500 manifestanti a Ginevra chiedono blocco relazioni con Israele e arresto Netanyahu. Berna: no fermo per motivi negoziali.',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Manifestazione pro Palestina a Ginevra con bandiere palestinesi e svizzere',
+    'blog.article.swiss-steel-ristrutturazione-germania.title': 'Swiss Steel annuncia ristrutturazione e tagli in Germania',
+    'blog.article.swiss-steel-ristrutturazione-germania.excerpt': 'La multinazionale di Lucerna avvia una riorganizzazione per tornare all\'utile entro il 2028. Sostegno di 17 milioni dal Cantone per la filiale Steeltec.',
+    'blog.article.swiss-steel-ristrutturazione-germania.imageAlt': 'Stabilimento siderurgico svizzero in un contesto industriale',
 };
 
 export default blogMetaChIt;

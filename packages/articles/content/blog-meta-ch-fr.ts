@@ -7673,6 +7673,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genève : 1 500 pro-Palestine demandent des sanctions',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Environ 1.500 manifestants à Genève demandent le blocage des relations avec Israël et l\'arrestation de Netanyahu. Berne : pas d\'arrestation pour des raisons de négociation.',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Manifestation pro-Palestine à Genève avec drapeaux palestiniens et suisses',
+    'blog.article.swiss-steel-ristrutturazione-germania.title': 'Swiss Steel : restructuration et coupes en Allemagne',
+    'blog.article.swiss-steel-ristrutturazione-germania.excerpt': 'La multinationale de Lucerne lance une réorganisation pour renouer avec les bénéfices d’ici 2028. Soutien de 17 millions du canton pour la filiale Steeltec.',
+    'blog.article.swiss-steel-ristrutturazione-germania.imageAlt': 'Usine sidérurgique suisse dans un cadre industriel',
 };
 
 export default blogMetaChFr;

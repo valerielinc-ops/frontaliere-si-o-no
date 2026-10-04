@@ -2580,6 +2580,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lista-governo-ticino-2027': { it: 'lista-governo-ticino-2027', en: 'ticino-government-list-2027', de: 'tessiner-regierungs-liste-2027', fr: 'liste-gouvernement-tessin-2027' },
  'guida-3a-fisco-vaud': { it: 'guida-3a-fisco-vaud', en: 'third-pillar-3a-vaud-guide', de: '3a-saeule-steuern-waadt', fr: 'pilier-3a-fiscalite-vaud' },
  'ginevra-manifestazione-palestina-sanzioni-2025': { it: 'ginevra-manifestazione-palestina-sanzioni-2025', en: 'geneva-pro-palestine-protest-sanctions-israel-2025', de: 'genf-pro-palastina-demo-sanktionen-israel-2025', fr: 'geneve-manifestation-pro-palestine-sanctions-israel-2025' },
+ 'swiss-steel-ristrutturazione-germania': { it: 'swiss-steel-ristrutturazione-germania', en: 'swiss-steel-restructuring-germany', de: 'swiss-steel-umstrukturierung-deutschland', fr: 'swiss-steel-restructuration-allemagne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
