@@ -471,6 +471,158 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
+  describe('L4 delivery evidence join (#8409)', () => {
+    const USER = 'job_alert_subscribers/user@example.test';
+    const consented = { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) };
+    const delivery = (id: string, data: Record<string, unknown>) => row(`${USER}/campaign_deliveries/${id}`, {
+      campaign_id: 'a1',
+      scheduled_for: null,
+      send_time_source: 'global',
+      ...data,
+    });
+    const event = (id: string, data: Record<string, unknown>) => row(`${USER}/events/${id}`, data);
+    const ledger = (deliveryRows: unknown[], eventRows: unknown[], alertRows = [row(`${USER}/alerts/a1`, { active: true })]) => buildL4OutcomeLedger({
+      now: NOW,
+      alertRows,
+      jobAlertRoots: [row(USER, {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows,
+      eventRows,
+      predicates: consented,
+    });
+
+    it('joins a Maileroo delivered event by recipient window when the provider id differs', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toEqual({
+        deliveredAt: 0, messageId: 0, recipientWindow: 1, impliedByEngagement: 0, none: 0,
+      });
+      expect(output.export.deliveredByProvider).toEqual({ maileroo: 1 });
+      expect(output.export.deliveryRowsByProvider).toEqual({ maileroo: 1 });
+      expect(output.export.deliveryEvidenceJoin).toBe('joined');
+    });
+
+    it('counts an id-joined Mailjet open as delivery even without a delivered event', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'mj-1', provider: 'mailjet', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [
+          event('e1', { event_type: 'send', message_id: 'mj-1', provider: 'mailjet', occurred_at: '2026-09-12T09:00:05.000Z' }),
+          event('e2', { event_type: 'open', message_id: 'mj-1', provider: 'mailjet', occurred_at: '2026-09-12T09:30:00.000Z' }),
+        ],
+      );
+      expect(output).toMatchObject({ deliveredAlerts: 1, openedAlerts: 1, clickedAlerts: 0 });
+      expect(output.export.deliveryEvidenceByJoin.impliedByEngagement).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin.none).toBe(0);
+    });
+
+    it('lets one window event support a single delivery of the same recipient', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/a1`, { active: true }), row(`${USER}/alerts/a2`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          delivery('d2', { campaign_id: 'a2', message_id: 'ref-2', provider: 'maileroo', sent_at: '2026-09-12T09:05:00.000Z' }),
+          delivery('d1', { campaign_id: 'a1', message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' }),
+        ],
+        eventRows: [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        predicates: consented,
+      });
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toMatchObject({ recipientWindow: 1, none: 1 });
+    });
+
+    it('rejects window events past 72 hours or from another provider', () => {
+      const late = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-09T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T10:00:00.000Z' })],
+      );
+      const otherProvider = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'mailgun', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      const early = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T08:58:00.000Z' })],
+      );
+      for (const output of [late, otherProvider, early]) {
+        expect(output.deliveredAlerts).toBe(0);
+        expect(output.export.deliveryEvidenceByJoin.none).toBe(1);
+      }
+    });
+
+    it('falls back to the server timestamp when occurred_at is unparseable', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '', timestamp: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin.recipientWindow).toBe(1);
+    });
+
+    it('keeps events id-joined to operator or unattributed rows out of the window join', () => {
+      for (const owner of [
+        delivery('op', { is_operator_verification: true, message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+        delivery('ux', { campaign_id: 'gone', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+      ]) {
+        const output = ledger(
+          [owner, delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+          [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        );
+        expect(output.deliveredAlerts).toBe(0);
+        expect(output.export.deliveryEvidenceByJoin).toMatchObject({ recipientWindow: 0, none: 1 });
+      }
+    });
+
+    it('does not reuse an event already joined by message id to another delivery', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/a1`, { active: true }), row(`${USER}/alerts/a2`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          delivery('d1', { campaign_id: 'a1', message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' }),
+          delivery('d2', { campaign_id: 'a2', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T09:05:00.000Z' }),
+        ],
+        eventRows: [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        predicates: consented,
+      });
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toMatchObject({ messageId: 1, recipientWindow: 0, none: 1 });
+    });
+
+    it('flags an empty delivery-evidence join when sends exist but none is proven', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [],
+      );
+      expect(output.deliveredAlerts).toBe(0);
+      expect(output.export.deliveryRows).toBe(1);
+      expect(output.export.deliveryEvidenceJoin).toBe('empty');
+      expect(ledger([], []).export.deliveryEvidenceJoin).toBe('no-deliveries');
+    });
+
+    it('keeps an unknown campaign id unattributed and the consent gates closed', () => {
+      const foreignId = 'x'.repeat(42);
+      const output = ledger(
+        [delivery('d1', { campaign_id: foreignId, message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'ref-1', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(0);
+      expect(output.export).toMatchObject({
+        consentChecked: false,
+        deduplicationChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { noConsentedAlert: 1 },
+        unattributedDeliveryShapes: { [String(foreignId.length)]: 1 },
+      });
+      expect(JSON.stringify(output.export)).not.toContain(foreignId);
+    });
+  });
+
   it('exports the L5 completed-task to next-useful-action contract', async () => {
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
     const calls: string[] = [];

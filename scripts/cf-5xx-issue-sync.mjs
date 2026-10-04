@@ -61,12 +61,19 @@
  * still `on` first; a recurrence with it on is a genuinely new signal.
  */
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { classifyCfErrorUrl, SURFACES } from './lib/cf-error-surface.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import {
+  CHECK_URL_DEFAULT_SNAPSHOTS,
+  checkUrlClean,
+  historyUrlKey,
+  loadHistory,
+} from './ci/cf-5xx-snapshot.mjs';
 
 const HOURS = process.env.CF_5XX_HOURS || '23';
 const MIN_COUNT = intFromEnv('CF_5XX_MIN_COUNT', 20);
@@ -227,10 +234,139 @@ export function buildIssueBody(e, hours = HOURS) {
         '`.github/workflows/cf-5xx-monitor.yml`, che ogni giorno alle 03:50 UTC riconia questa',
         "issue se l'URL torna sopra soglia e appende uno snapshot a",
         '`data/cf-5xx-history.jsonl` — la serie su cui il COMANDO qui sopra si verifica.',
+        "Lo stesso passo chiude questa issue quando il COMANDO esce 0 e l'URL manca anche dai",
+        'primi 50 path del report del giorno, guardia in più (`scripts/lib/monitor-issue-reconcile.mjs`).',
       ],
       fallimento: `\`CF 5xx: ${url.slice(0, 80)}\``,
     }),
   ].join('\n');
+}
+
+/** La serie su cui si misura il criterio di chiusura: quella gia' mergiata su main. */
+const HISTORY_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'cf-5xx-history.jsonl');
+const ISSUE_TITLE_PREFIX = 'CF 5xx: ';
+const ISSUE_FAMILY_LABEL = 'cloudflare-5xx';
+/** Righe di `detail` chieste a cf-status-report: un `detail` pieno al limite è un top-N troncato. */
+const DETAIL_LIMIT = 50;
+/** Il verdetto «non so» quando il report corrente non è una misura (`cf5xxSeenNow` → `null`). */
+const INCOMPLETE_REPORT_EVIDENCE =
+  'report corrente incompleto: `detail` assente, non array o pieno al limite di ' +
+  `${DETAIL_LIMIT} righe senza un \`detailByHour\` completo — l'assenza di un URL non prova zero 5xx`;
+/** Le ragioni di `checkUrlClean` che sono una MISURA; tutte le altre dicono «non so». */
+const COMPLETE_CHECK_CODES = new Set(['clean', 'still-failing']);
+
+/**
+ * L'URL della issue, dalla riga `**URL:** …` del corpo. Non dal titolo: il
+ * titolo e' tagliato a 80 caratteri, e una chiave tagliata non fa mai match
+ * con la storia (`checkUrlClean` la rifiuterebbe come «mai osservato»).
+ */
+export function issueUrlFromBody(body) {
+  const m = String(body ?? '').match(/^\*\*URL:\*\*[ \t]*(\S+)[ \t\r]*$/m);
+  return m ? m[1] : '';
+}
+
+/**
+ * Il verdetto del chiuditore per UNA issue `CF 5xx:` — lo stesso del comando
+ * della scheda (`cf-5xx-snapshot.mjs --check-url <url> --snapshots 7`), piu' un
+ * vincolo che il comando non puo' vedere: la storia letta qui e' quella gia'
+ * mergiata, e lo snapshot di oggi arriva su main DOPO questo passo. Un URL
+ * presente nel report corrente (`detail`, qualunque conteggio) non e' pulito,
+ * anche se i 7 snapshot precedenti lo sono.
+ *
+ * `complete` e' vero solo quando la risposta e' una misura (`clean` o
+ * `still-failing`): storia corta, serie ferma, dettagli troncati, URL mai
+ * osservato o URL illeggibile dal corpo sono «non so» → nessuna scrittura.
+ * `seenNow` e' il report corrente (`cf5xxSeenNow`): `null` o assente = report
+ * non misurato → `complete: false`, mai «nessun URL in errore adesso».
+ *
+ * @param {{body?:string}} issue
+ * @param {{history:Array<object>, seenNow?:Map<string,number>|null, hours?:string|number, now?:number}} ctx
+ */
+export function cf5xxVerdict(issue, { history, seenNow = null, hours = HOURS, now = Date.now() } = {}) {
+  const url = issueUrlFromBody(issue?.body);
+  if (!url) {
+    return { clean: false, complete: false, evidence: 'URL non leggibile dal corpo della issue (riga `**URL:**` assente)' };
+  }
+  if (!(seenNow instanceof Map)) {
+    return { clean: false, complete: false, evidence: INCOMPLETE_REPORT_EVIDENCE };
+  }
+  const command = `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots ${CHECK_URL_DEFAULT_SNAPSHOTS}`;
+  const live = seenNow.get(historyUrlKey(url));
+  if (live) {
+    return {
+      clean: false,
+      complete: true,
+      evidence: `ancora nel report corrente: ${live} risposte 5xx nelle ultime ${hours}h`,
+      command,
+    };
+  }
+  const res = checkUrlClean(history, url, { now });
+  const lastTs = (history || []).filter((s) => s && s.ts).at(-1)?.ts;
+  return {
+    clean: res.ok === true,
+    complete: COMPLETE_CHECK_CODES.has(res.code),
+    evidence: res.reason,
+    command,
+    measure: lastTs,
+    measuredAt: lastTs,
+  };
+}
+
+/**
+ * Gli URL con 5xx nel report corrente, o `null` quando il report non e' una
+ * misura completa. Completo = `detailByHour` dichiarato completo (righe
+ * (url, ora) fino al tetto del dataset), oppure `detail` presente e SOTTO il
+ * limite di righe chiesto a cf-status-report. Un `detail` mancante, nullo,
+ * non array o pieno al limite (top-N troncato: un URL oltre l'ultima riga
+ * fallisce adesso ma non compare) non prova che un URL sia a zero → `null`.
+ *
+ * @returns {Map<string, number>|null}
+ */
+export function cf5xxSeenNow(data, { detailLimit = DETAIL_LIMIT } = {}) {
+  let rows = null;
+  if (data?.detailByHourComplete === true && Array.isArray(data?.detailByHour)) rows = data.detailByHour;
+  else if (Array.isArray(data?.detail) && data.detail.length < detailLimit) rows = data.detail;
+  if (!rows) return null;
+  const seenNow = new Map();
+  for (const r of rows) {
+    const n = Number(r?.count) || 0;
+    if (n <= 0 || !r?.url) continue;
+    const k = historyUrlKey(r.url);
+    seenNow.set(k, (seenNow.get(k) || 0) + n);
+  }
+  return seenNow;
+}
+
+/**
+ * La configurazione della fase «riconcilia» per questa famiglia.
+ * `confirmations: 1` perche' `checkUrlClean` e' gia' un criterio sostenuto
+ * (7 snapshot completi e freschi): una seconda conferma sarebbe un'ottava.
+ * Un report corrente non misurato (`cf5xxSeenNow` → `null`) rende ogni
+ * verdetto `complete: false`: nessuna chiusura, nessuna scrittura, e la storia
+ * non viene nemmeno letta.
+ */
+export function cf5xxReconcile(data, { historyFile = HISTORY_FILE, hours = HOURS } = {}) {
+  const base = {
+    family: 'cf-5xx',
+    labels: [ISSUE_FAMILY_LABEL],
+    titlePrefix: ISSUE_TITLE_PREFIX,
+    confirmations: 1,
+  };
+  const seenNow = cf5xxSeenNow(data);
+  if (!seenNow) {
+    return {
+      ...base,
+      verdictFor: () => ({ clean: false, complete: false, evidence: INCOMPLETE_REPORT_EVIDENCE }),
+    };
+  }
+  let history = null;
+  return {
+    ...base,
+    verdictFor: (issue) => {
+      history ??= loadHistory(historyFile);
+      return cf5xxVerdict(issue, { history, seenNow, hours });
+    },
+  };
 }
 
 export async function main() {
@@ -243,7 +379,7 @@ export async function main() {
   try {
     const out = execFileSync(
       'node',
-      ['scripts/cf-status-report.mjs', '--json', '--class=5', `--hours=${HOURS}`, '--limit=50', '--by-hour'],
+      ['scripts/cf-status-report.mjs', '--json', '--class=5', `--hours=${HOURS}`, `--limit=${DETAIL_LIMIT}`, '--by-hour'],
       { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 },
     );
     data = JSON.parse(out);
@@ -252,12 +388,29 @@ export async function main() {
     return;
   }
 
+  // Da qui in poi i dati di Cloudflare sono stati letti: ogni ramo, anche
+  // quello che non conia niente, passa dalla fase «riconcilia». Il caso
+  // «nessun path sopra soglia» e' proprio quello in cui le issue guarite si
+  // chiudono; con un `return` secco non si chiuderebbero mai.
+  const syncOptions = {
+    dryRun: process.argv.includes('--dry-run'),
+    maxIssues: MAX_ISSUES,
+    labels: ['stability', ISSUE_FAMILY_LABEL],
+    source: `Cloudflare 5xx Monitor — last ${HOURS}h (zone-wide)`,
+    priorityFor: (e) => (e.count >= MIN_COUNT * 5 ? 2 : 3),
+    titleFor: (e) => `${ISSUE_TITLE_PREFIX}${sanitizeUrlLikeText(e.url).slice(0, 80)}`,
+    bodyFor: (e) => buildIssueBody(e, HOURS),
+    reconcile: cf5xxReconcile(data),
+  };
+  const reconcileOnly = () => syncErrorIssues({ ...syncOptions, entries: [] });
+
   const overThreshold = (data.detail || [])
     .filter((r) => r.count >= MIN_COUNT)
     .sort((a, b) => b.count - a.count);
 
   if (!overThreshold.length) {
     console.log(`[cf-5xx-issue-sync] no path with >= ${MIN_COUNT} 5xx in last ${HOURS}h — nothing to sync`);
+    await reconcileOnly();
     return;
   }
 
@@ -293,19 +446,11 @@ export async function main() {
       `[cf-5xx-issue-sync] ${overThreshold.length} path(s) over threshold, all with no 5xx in the ` +
         `last ${MAX_AGE_HOURS}h — nothing live to sync`,
     );
+    await reconcileOnly();
     return;
   }
 
-  return syncErrorIssues({
-    entries,
-    dryRun: process.argv.includes('--dry-run'),
-    maxIssues: MAX_ISSUES,
-    labels: ['stability', 'cloudflare-5xx'],
-    source: `Cloudflare 5xx Monitor — last ${HOURS}h (zone-wide)`,
-    priorityFor: (e) => (e.count >= MIN_COUNT * 5 ? 2 : 3),
-    titleFor: (e) => `CF 5xx: ${sanitizeUrlLikeText(e.url).slice(0, 80)}`,
-    bodyFor: (e) => buildIssueBody(e, HOURS),
-  });
+  return syncErrorIssues({ ...syncOptions, entries });
 }
 
 // Run only when invoked directly (not when imported by the test suite), so

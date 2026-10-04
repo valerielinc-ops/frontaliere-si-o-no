@@ -1,3 +1,4 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Agroscope — Prospective.ch JSON API job parser
@@ -208,7 +209,11 @@ export function parseAgroscopeApiResponse(data = {}) {
       description,
       applyUrl: szas.sza_apply_link || '',
       directLink: links.directlink || '',
-      startDate: j.start_date || '',
+      // Federal Prospective medium1000624 start_date is the publication instant:
+      // jobs.admin.ch detail c927355d-e225-479e-9c1b-fa450252ff02 declares
+      // JSON-LD datePosted2026-10-02 alongside API2026-10-01T22:00:00Z;
+      // the employment starts in March2027. Preserve the complete source instant.
+      ...sourcePostingDateFields(j.start_date),
       endDate: j.end_date || '',
       language: j.language || 'it',
       fieldOfActivity: szas.sza_field_of_activity || (attrs.taetigkeitsbereich || [])[0] || '',

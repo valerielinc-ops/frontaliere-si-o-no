@@ -7,6 +7,7 @@ import {
   mirrorRoute,
   renderCandidateBulletsSection,
 } from '../scripts/ci/followup-candidate-bullets.mjs';
+import { isCandidateItem } from '../scripts/ci/followup-has-candidates.mjs';
 
 // Titolo di fallimento: «Triage follow-up: il prompt conia item con token già
 // vero o nel repository sbagliato».
@@ -266,13 +267,12 @@ describe('classifyCandidateBullets', () => {
     expect(existsTwin).not.toHaveBeenCalled();
   });
 
-  it('le righe di chiusura e «Nessuno» con motivo non diventano candidati', () => {
-    // Forme reali: PR 11113 («Nessuno — snapshot automatizzato, senza residui.»)
-    // e PR 11195 (`Addresses #7079` in coda alla sezione).
+  it('le righe di chiusura non diventano bullet e «Nessuno» da solo è una sezione vuota', () => {
+    // Forma reale: PR 11195 (`Addresses #7079` in coda alla sezione).
     const body = [
       '## Non implementato (ancora)',
       '',
-      '- Nessuno — snapshot automatizzato, senza residui.',
+      '- Nessuno.',
       '',
       'Addresses #7079',
       'Closes #12',
@@ -282,13 +282,96 @@ describe('classifyCandidateBullets', () => {
     ].join('\n');
     const bullets = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
     expect(bullets).toEqual([{
-      text: 'Nessuno — snapshot automatizzato, senza residui.',
+      text: 'Nessuno.',
       kind: 'empty-declared',
       state: null,
       candidate: false,
       reason: 'empty',
       routes: [],
     }]);
+  });
+
+  // Review della PR corpus 2080: la regex era ancorata solo all'inizio, quindi
+  // «Nessuno» seguito da un segno e poi da un'azione usciva `reason: empty` e il
+  // triage lo scartava, mentre l'oracolo condiviso lo dichiara candidato.
+  it.each([
+    ['Nessuno.'],
+    ['**Nessuno**'],
+    ['none'],
+    ['_Niente._'],
+    ['Nothing —'],
+  ])('«%s» da solo è una sezione dichiarata vuota', (line) => {
+    const body = `## Non implementato (ancora)\n- ${line}\n`;
+    const [bullet] = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
+    expect(bullet).toMatchObject({ kind: 'empty-declared', candidate: false, reason: 'empty' });
+  });
+
+  it.each([
+    ['Nessuno: aggiornare `scripts/ci/foo.mjs`', ['scripts/ci/foo.mjs']],
+    ['Nessuno — aggiungere il guard', []],
+    // Forma reale della PR 11113: il motivo è testo, e il testo lo giudica
+    // l'oracolo condiviso, non un elenco di frasi «non residue».
+    ['Nessuno — snapshot automatizzato, senza residui.', []],
+  ])('«%s»: «Nessuno» seguito da un\'azione resta materia dell\'oracolo', (line, paths) => {
+    const body = `## Non implementato (ancora)\n- ${line}\n`;
+    const [bullet] = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only('scripts/ci/foo.mjs'), existsTwin: only(),
+    });
+    expect(bullet).toMatchObject({ kind: 'bullet', candidate: isCandidateItem(line), reason: null });
+    expect(bullet.candidate).toBe(true);
+    expect(bullet.routes.map((r) => r.path)).toEqual(paths);
+  });
+
+  it('fuori dalla sezione vuota il verdetto è sempre quello di isCandidateItem()', () => {
+    // Osservatore di parità: il bundle non deve mai dire `candidate: false` a
+    // un item che l'oracolo dichiara candidato, salvo la sola dichiarazione vuota.
+    const lines = [
+      'Nessuno: aggiornare `scripts/ci/foo.mjs`',
+      'Nessuno — aggiungere il guard',
+      'Niente; resta da portare il parser nel gemello',
+      'none (see `scripts/ci/foo.mjs`)',
+      'Nessuno dei crawler sibling è stato corretto',
+      'Altro lavoro — in questa PR',
+      'Nessuno.',
+      '**Nessuno**',
+    ];
+    const body = `## Non implementato (ancora)\n${lines.map((l) => `- ${l}`).join('\n')}\n`;
+    const bullets = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only(), existsTwin: only(),
+    });
+    for (const bullet of bullets) {
+      if (bullet.kind === 'empty-declared') continue;
+      expect([bullet.text, bullet.candidate]).toEqual([bullet.text, isCandidateItem(bullet.text)]);
+    }
+    expect(bullets.filter((b) => b.kind === 'empty-declared').map((b) => b.text)).toEqual(['Nessuno.', '**Nessuno**']);
+  });
+
+  it('i sub-bullet di una voce si leggono con la voce, non come item separati', () => {
+    // Adversarial check della PR corpus 2080: `Motivo`/`Prossimo passo` su righe
+    // annidate uscivano come tre `kind: bullet` candidati, e il genitore `per
+    // scelta`, letto senza il suo motivo, diventava candidato anche lui.
+    const body = [
+      '## Non implementato (ancora)',
+      '- Portare il guard nel gemello — per scelta',
+      '  - **Motivo:** il gemello scende col transport.',
+      '  - **Prossimo passo:** rebase della 2080 dopo il merge.',
+      '- Sibling da correggere:',
+      '  - `scripts/ci/foo.mjs`',
+      '    1. `scripts/ci/bar.mjs`',
+      '- Estendere il fix ai crawler sibling',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only('scripts/ci/foo.mjs', 'scripts/ci/bar.mjs'), existsTwin: only(),
+    });
+    expect(bullets.map((b) => [b.kind, b.state, b.candidate, b.reason])).toEqual([
+      ['bullet', 'by-choice', false, 'closing-state'],
+      ['bullet', null, true, null],
+      ['bullet', null, true, null],
+    ]);
+    expect(bullets[0].text).toBe(
+      'Portare il guard nel gemello — per scelta **Motivo:** il gemello scende col transport. **Prossimo passo:** rebase della 2080 dopo il merge.',
+    );
+    expect(bullets[1].routes.map((r) => r.path)).toEqual(['scripts/ci/foo.mjs', 'scripts/ci/bar.mjs']);
   });
 
   it('«Nessuno» seguito da testo è un residuo, non una sezione vuota', () => {
