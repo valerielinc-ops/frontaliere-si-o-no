@@ -330,6 +330,19 @@ describe('auditEvergreen with articleType and verifiedAt', () => {
     expect(r.stale[0]?.freshnessSource).toBe('date');
   });
 
+  it('rejects 2026-02-29 (not a leap year) and keeps the article stale', () => {
+    const now = new Date('2026-10-02T00:00:00Z');
+    const r = auditEvergreen([{ id: 'leap', category: 'pratico', date: '2025-01-01', verifiedAt: '2026-02-29' }], now);
+    expect(r.staleCount).toBe(1);
+    expect(r.stale[0]?.freshnessSource).toBe('date');
+  });
+
+  it('accepts the valid ISO date 2026-10-01 as freshness', () => {
+    const now = new Date('2026-10-02T00:00:00Z');
+    const r = auditEvergreen([{ id: 'ok', category: 'pratico', date: '2025-01-01', verifiedAt: '2026-10-01' }], now);
+    expect(r.staleCount).toBe(0);
+  });
+
   it('accounts for every article in an evergreen category exactly once', () => {
     const r = auditEvergreen(ARTICLES, NOW);
     expect(r.totalEvergreen + r.datedExcludedCount + r.newsExcludedCount).toBe(inEvergreenCategory);
