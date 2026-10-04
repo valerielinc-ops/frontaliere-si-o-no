@@ -178,9 +178,15 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
   if (!text.trim() || !referenceText.trim()) return [];
 
   const referenceWords = countTranslationWords(referenceText);
-  if (referenceWords < MIN_TRANSLATION_REFERENCE_WORDS) return [];
-
   const translatedWords = countTranslationWords(text);
+  // Il floor protegge le sezioni brevi dalla varianza naturale fra lingue. Un
+  // body senza ALCUNA parola («...», «…», «—») contro un italiano che ne ha non
+  // e' varianza: e' una traduzione assente, e chiusa da un punto passava ogni
+  // controllo di punteggiatura (`como-fai-giornate-autunno`, 2026-10-03). Il
+  // placeholder si giudica quindi PRIMA del floor; tutto il resto dopo.
+  const placeholder = translatedWords === 0 && referenceWords > 0;
+  if (!placeholder && referenceWords < MIN_TRANSLATION_REFERENCE_WORDS) return [];
+
   const ratio = translatedWords / referenceWords;
   const lostParagraph = countParagraphs(text) < countParagraphs(referenceText);
   const threshold = lostParagraph
@@ -1504,8 +1510,10 @@ const NORM_CITATION_CUE =
 // senza la parola `legge`, `art.` o `RS`. Manteniamo il bare match storico e
 // scartiamo soltanto forme esplicitamente da nome di entita'/prodotto, che e'
 // l'intento anti-falso-positivo della meta' corpus senza aprire quel buco.
+// Le forme societarie coprono i quattro locali del corpus, accenti compresi:
+// `soci[eé]t[aàeé]` tiene società/societa e société/societe.
 const benignNormEntity = (acronym) => new RegExp(
-  String.raw`\b(?:gruppo|azienda|societ[aà]|associazione|banca|app|company|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen)\s+${acronym}$`,
+  String.raw`\b(?:gruppo|azienda|soci[eé]t[aàeé]|associazione|banca|app|company|firm|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen|Gesellschaft|Firma)\s+${acronym}$`,
   'i',
 );
 

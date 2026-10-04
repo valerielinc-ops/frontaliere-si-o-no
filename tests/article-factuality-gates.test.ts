@@ -622,6 +622,18 @@ describe('checkFabricatedNormAcronyms', () => {
     )).toEqual([]);
   });
 
+  // Le forme societarie valgono in ogni locale del corpus: «la société LFW» e
+  // «die Gesellschaft LPS» sono la stessa entita' di «il gruppo LFW».
+  it.each([
+    ['fr', 'La société LFW a ouvert un guichet pour les frontaliers près de la frontière.'],
+    ['fr', 'La societe LCO recrute des frontaliers au Tessin.'],
+    ['de', 'Die Gesellschaft LPS hat eine neue Filiale für Grenzgänger eröffnet.'],
+    ['de', 'Die Firma LFW sucht Grenzgänger im Tessin.'],
+    ['en', 'The firm LCO hired cross-border commuters in Ticino.'],
+  ])('leaves a %s company name using the sigla alone', (_locale, text) => {
+    expect(checkFabricatedNormAcronyms(text)).toEqual([]);
+  });
+
   it('keeps blocking unambiguous norm uses even without legge/art./RS nearby', () => {
     expect(codes(checkFabricatedNormAcronyms(
       'Secondo la LFW, il datore di lavoro deve registrare ogni ora supplementare.',
