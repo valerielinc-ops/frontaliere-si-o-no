@@ -50,6 +50,7 @@ type Child = { number: number; state: string; body: string; labels: { name: stri
 function fakeIo({
   children,
   site = new Set<string>(),
+  siteUnknown = new Set<string>(),
   corpus = new Set<string>([CORPUS_PROBE_PATH]),
   corpusReadable = true,
   digest = DIGEST as number | null,
@@ -69,7 +70,7 @@ function fakeIo({
       { body: `- [ ] #${children.map((c) => c.number).join(' #')}\n<!-- DECOMPOSED_INTO: ${children.map((c) => c.number).join(' ')} -->\n<!-- DECOMPOSE_OUTCOME: decomposed-${children.length} -->` },
     ],
     child: (n: number) => children.find((c) => c.number === n) ?? null,
-    siteHas: (p: string) => site.has(p),
+    siteHas: (p: string) => (siteUnknown.has(p) ? null : site.has(p)),
     corpusHas: (p: string) => {
       corpusReads.push(p);
       return corpusReadable ? corpus.has(p) : null;
@@ -121,6 +122,14 @@ describe('extractRepoPaths', () => {
       'services/router.ts',
     ]);
   });
+
+  it('riconosce anche articoli, asset pubblici e dati del corpus', () => {
+    expect(extractRepoPaths('FIX content/foo.md public/logo.svg data/foo.json')).toEqual([
+      'content/foo.md',
+      'data/foo.json',
+      'public/logo.svg',
+    ]);
+  });
 });
 
 describe('classifyChildRoute', () => {
@@ -141,6 +150,16 @@ describe('classifyChildRoute', () => {
       { [corpusOnly]: false, [site]: true },
       { [corpusOnly]: true, [site]: null },
     ).verdict).toBe('ok');
+  });
+
+  it('un lookup del sito non letto rende il verdetto non decidibile', () => {
+    const knownCorpusPath = 'scripts/site.js';
+    const unknownSitePath = 'scripts/unknown.js';
+    expect(classifyChildRoute(
+      [knownCorpusPath, unknownSitePath],
+      { [knownCorpusPath]: false, [unknownSitePath]: null },
+      { [knownCorpusPath]: true, [unknownSitePath]: null },
+    )).toEqual({ verdict: 'undecided', corpusOnly: [] });
   });
 });
 
@@ -211,6 +230,20 @@ describe('runRouteCheck', () => {
     expect(corpusReads).toEqual([CORPUS_PROBE_PATH]);
   });
 
+  it('lookup del sito fallito: nessuna decisione e nessuna scrittura per la figlia', () => {
+    const corpusPath = 'scripts/lib/corpus-floors.mjs';
+    const unknownPath = 'scripts/ci/unknown-gate.mjs';
+    const { io, writes } = fakeIo({
+      children: [child(4, `FIX: ${corpusPath} e ${unknownPath}`)],
+      siteUnknown: new Set([unknownPath]),
+      corpus: new Set([CORPUS_PROBE_PATH, corpusPath]),
+    });
+    const result = runRouteCheck({ parentNumber: PARENT, io });
+    expect(result.undecided).toBe(true);
+    expect(result.misrouted).toEqual([]);
+    expect(writes).toEqual([]);
+  });
+
   it('sonda del corpus fallita: nessuna decisione per la run, zero scritture', () => {
     const { io, writes, corpusReads } = fakeIo({
       children: [child(10925, BODY_10925, ['agent:fix'])],
@@ -233,12 +266,25 @@ describe('runRouteCheck', () => {
     expect(writes).toEqual([]);
   });
 
-  it('digest assente: figlia comunque pinnata e marcata, nessun commento altrove', () => {
+  it('digest assente: figlia pinnata ma non marcata, così il run successivo può ritentare', () => {
     const corpus = new Set([CORPUS_PROBE_PATH, 'scripts/ci/generator-ci-gate.mjs']);
     const { io, writes, logs } = fakeIo({ children: [child(10925, BODY_10925)], corpus, digest: null });
     runRouteCheck({ parentNumber: PARENT, io });
-    expect(writes.map((w) => `${w.kind}:${w.n}`)).toEqual(['labels:10925', 'comment:10925']);
+    expect(writes.map((w) => `${w.kind}:${w.n}`)).toEqual(['labels:10925']);
+    expect(writes.some((w) => w.body?.includes('DECOMPOSE_MISROUTED'))).toBe(false);
     expect(logs.some((l) => l.includes(OWNER_DIGEST_TITLE))).toBe(true);
+  });
+
+  it('con il digest disponibile, il retry pubblica prima la richiesta e poi il marker', () => {
+    const corpus = new Set([CORPUS_PROBE_PATH, 'scripts/ci/generator-ci-gate.mjs']);
+    const { io, writes } = fakeIo({ children: [child(10925, BODY_10925)], corpus, digest: DIGEST });
+    runRouteCheck({ parentNumber: PARENT, io });
+    expect(writes.map((w) => `${w.kind}:${w.n}`)).toEqual([
+      'labels:10925',
+      `comment:${DIGEST}`,
+      'comment:10925',
+    ]);
+    expect(writes.at(-1)?.body).toContain('DECOMPOSE_MISROUTED');
   });
 
   it('una scrittura che fallisce su una figlia non ferma il controllo delle altre', () => {
@@ -320,9 +366,14 @@ describe('contratto di issue-decompose.yml', () => {
     const run = String(snap.run ?? '');
     expect(run).toContain('https://github.com/nanakokyobashi-rgb/frontaliere-articles.git');
     expect(run).toContain('--filter=blob:none');
-    // L'indice copre TUTTO main, anche i path non materializzati.
+    // Il manifest copre TUTTO main e alimenta lo stesso checkout completo.
     expect(run).toMatch(/ls-tree -r --name-only HEAD/);
     expect(run).toContain('"$snap/.paths"');
+    expect(run).toContain('sparse-checkout set --no-cone --stdin < "$snap/.paths"');
+    expect(run).not.toContain("!/content/");
+    expect(run).not.toContain("!/public/");
+    expect(run).not.toContain("!/data/");
+    expect(prompt).toContain('la fotografia materializza ogni path elencato');
     // Niente repository annidato nel workspace del sito: la copia si prepara
     // fuori e arriva nel workspace solo a `.git` tolto, come ultimo comando.
     expect(run).toContain('rm -rf "$snap/.git"');

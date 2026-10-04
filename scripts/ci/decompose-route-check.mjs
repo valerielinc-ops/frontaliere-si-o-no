@@ -54,7 +54,7 @@ export const MISROUTED_MARKER_RE = /<!--\s*DECOMPOSE_MISROUTED:/;
 // SiteShellContract); `services/` esiste in entrambi e decide l'esistenza.
 export const REPO_PATH_PREFIXES = Object.freeze([
   'scripts', '.github', 'tests', 'generator', 'packages', 'functions', 'build-plugins',
-  'engine', 'host', 'services',
+  'engine', 'host', 'services', 'content', 'public', 'data',
 ]);
 
 const PREFIX_ALT = REPO_PATH_PREFIXES.map((p) => p.replace(/\./g, '\\.')).join('|');
@@ -89,10 +89,13 @@ export function extractRepoPaths(body) {
  * @param {string[]} paths
  * @param {Record<string, boolean|null>} siteHas   true/false; null = non letto
  * @param {Record<string, boolean|null>} corpusHas true/false; null = non letto
- * @returns {{verdict: 'misrouted'|'ok'|'no-paths', corpusOnly: string[]}}
+ * @returns {{verdict: 'misrouted'|'ok'|'no-paths'|'undecided', corpusOnly: string[]}}
  */
 export function classifyChildRoute(paths, siteHas, corpusHas) {
   if (!paths.length) return { verdict: 'no-paths', corpusOnly: [] };
+  // Un errore di lettura del tree del sito non è evidenza di assenza: senza
+  // questo guard un path corpus-only noto potrebbe pinnare una figlia valida.
+  if (paths.some((p) => siteHas[p] === null)) return { verdict: 'undecided', corpusOnly: [] };
   const corpusOnly = paths.filter((p) => siteHas[p] === false && corpusHas[p] === true);
   if (paths.some((p) => siteHas[p] === true)) return { verdict: 'ok', corpusOnly };
   return { verdict: corpusOnly.length ? 'misrouted' : 'ok', corpusOnly };
@@ -169,6 +172,7 @@ export function runRouteCheck({ parentNumber, io, dryRun = false, corpusRepo = C
     for (const p of paths) corpusHas[p] = !anySite && siteHas[p] === false ? io.corpusHas(p) : null;
     const { verdict, corpusOnly } = classifyChildRoute(paths, siteHas, corpusHas);
     io.log(`#${n}: ${verdict}${corpusOnly.length ? ` (${corpusOnly.join(', ')})` : ''}`);
+    if (verdict === 'undecided') result.undecided = true;
     if (verdict !== 'misrouted') continue;
     result.misrouted.push({ number: n, paths: corpusOnly });
     // Una scrittura che fallisce (label mancante, 5xx) resta confinata a
@@ -179,8 +183,11 @@ export function runRouteCheck({ parentNumber, io, dryRun = false, corpusRepo = C
       const remove = ROUTING_LABELS.filter((l) => present.has(l));
       write(() => io.editLabels(n, { add: [PIN_LABEL], remove }));
       const digest = io.findDigest();
-      if (digest) write(() => io.comment(digest, migrationRequestComment(n, corpusOnly, corpusRepo)));
-      else io.log(`digest «${OWNER_DIGEST_TITLE}» assente: richiesta di migrazione per #${n} non postata.`);
+      if (!digest) {
+        io.log(`digest «${OWNER_DIGEST_TITLE}» assente: richiesta di migrazione per #${n} non postata; marker rinviato.`);
+        continue;
+      }
+      write(() => io.comment(digest, migrationRequestComment(n, corpusOnly, corpusRepo)));
       // Il marker sulla figlia va per ultimo: è il record di «fatto» che rende
       // idempotente un ri-lancio.
       write(() => io.comment(n, misroutedComment(corpusOnly, corpusRepo)));

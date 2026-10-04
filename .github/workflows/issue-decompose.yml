@@ -168,13 +168,14 @@ jobs:
       # sito): l'unico modo in cui il prompt può sapere se un file vive solo
       # nel corpus, e leggerlo per verificare la metrica, è questa copia
       # locale. Il corpus è pubblico: clone anonimo, poco profondo, blobless,
-      # materializzati solo i sorgenti (content/, public/ e data/ restano
-      # nell'indice `.paths`, che elenca TUTTI i file di main). Senza `.git`
+      # materializzati tutti i sorgenti elencati nell'indice `.paths`, inclusi
+      # content/, public/ e data/. Senza `.git`
       # la copia è una cartella inerte: niente repository annidato. Si
       # prepara in RUNNER_TEMP e si sposta nel workspace come ULTIMO comando:
       # un timeout a metà non lascia nel sito un `.git` annidato senza `.paths`.
-      # Il tetto è stretto (~1000 file fuori da content/public/data: secondi)
-      # perché esce dal margine fra il cap del job e quello di Codex.
+      # Il manifest completo è la fonte comune: ogni path che il prompt può
+      # riconoscere deve essere leggibile per misurare la metrica prima di
+      # creare una figlia nel repository del sito.
       - name: Snapshot corpus for child routing (zero-Claude)
         continue-on-error: true
         timeout-minutes: 2
@@ -186,9 +187,9 @@ jobs:
           rm -rf "$snap" "$CORPUS_SNAPSHOT_DIR"
           git clone --quiet --depth 1 --filter=blob:none --no-checkout \
             https://github.com/nanakokyobashi-rgb/frontaliere-articles.git "$snap"
-          git -C "$snap" sparse-checkout set --no-cone '/*' '!/content/' '!/public/' '!/data/'
-          git -C "$snap" checkout --quiet
           git -C "$snap" ls-tree -r --name-only HEAD > "$snap/.paths"
+          git -C "$snap" sparse-checkout set --no-cone --stdin < "$snap/.paths"
+          git -C "$snap" checkout --quiet
           echo "corpus main @ $(git -C "$snap" rev-parse --short HEAD): $(wc -l < "$snap/.paths") file"
           rm -rf "$snap/.git"
           mv "$snap" "$CORPUS_SNAPSHOT_DIR"
@@ -242,7 +243,7 @@ jobs:
 
             **Decomposizione (il caso normale):**
             1. Identifica da 2 a 6 unità di lavoro ATOMICHE: una root cause ciascuna, un insieme di file target ciascuna, indipendenti fra loro dove possibile. Se le unità naturali sono più di 6: crea le 5 di massimo valore (funnel: revenue > SEO > stabilità > resto) più UNA issue-contenitore con l'elenco del residuo — la issue-contenitore NON riceve `from-decompose`, così il ciclo la ri-decompone al giro successivo (convergenza: ogni giro chiude ≥5 unità).
-            2. **Repository proprietario, prima di tutto il resto** (DECISIONS 2026-09-23: la issue nasce nel repository che possiede il file). Per ogni file che la scheda dell'unità chiederebbe di modificare: `git ls-tree --name-only HEAD -- <path>` (legge solo gli alberi: il checkout è blobless e sparse, `ls` e `cat-file` qui mentono o vanno in rete). Se stampa il path, esiste qui e l'unità è del sito. Se NON esiste qui, controlla il corpus nella sua fotografia locale di `main` (preparata prima di questo run: qui non c'è rete, e `gh api` non raggiunge il corpus): `grep -Fxq -- '<path>' .decompose-corpus/.paths && echo corpus`. `.paths` elenca TUTTI i file del corpus; sotto `.decompose-corpus/` sono materializzati i sorgenti (tutto tranne `content/`, `public/`, `data/`). Se esiste solo nel corpus, l'unità è del CORPUS:
+            2. **Repository proprietario, prima di tutto il resto** (DECISIONS 2026-09-23: la issue nasce nel repository che possiede il file). Per ogni file che la scheda dell'unità chiederebbe di modificare: `git ls-tree --name-only HEAD -- <path>` (legge solo gli alberi: il checkout è blobless e sparse, `ls` e `cat-file` qui mentono o vanno in rete). Se stampa il path, esiste qui e l'unità è del sito. Se NON esiste qui, controlla il corpus nella sua fotografia locale di `main` (preparata prima di questo run: qui non c'è rete, e `gh api` non raggiunge il corpus): `grep -Fxq -- '<path>' .decompose-corpus/.paths && echo corpus`. `.paths` elenca TUTTI i file del corpus e la fotografia materializza ogni path elencato, inclusi `content/`, `public/` e `data/`. Se esiste solo nel corpus, l'unità è del CORPUS:
                - leggi il file nella fotografia (`.decompose-corpus/<path>`) e verifica che la metrica non sia già soddisfatta lì; se lo è, NON creare la figlia: annota l'unità nel riepilogo sul padre come «già coperta nel corpus» con la misura;
                - altrimenti creala nel corpus con `gh issue create --repo nanakokyobashi-rgb/frontaliere-articles` (stesso formato e stesse label del punto 4), dopo il dedup nel corpus (`gh issue list --repo nanakokyobashi-rgb/frontaliere-articles --state open --search "<discriminante> in:title" --json number,title --limit 5`);
                - se il bridge rifiuta la creazione nel corpus, NON ripiegare sul sito: annota l'unità nel riepilogo come «da aprire nel corpus» con i path.
