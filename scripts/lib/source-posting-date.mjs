@@ -1,4 +1,4 @@
-import { resolveReportedPostingDate } from './job-posting-date.mjs';
+import { compareValidatedPostingDates, resolveReportedPostingDate } from './job-posting-date.mjs';
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
@@ -29,7 +29,7 @@ export function sourcePostingDateCandidatesFields(candidates = [], now = new Dat
 export function mergeSourcePostingDates(previous = {}, fresh = {}, now = new Date()) {
   const before = resolveReportedPostingDate(previous, now);
   const after = resolveReportedPostingDate(fresh, now);
-  const date = before && after ? (Date.parse(before) < Date.parse(after) ? before : after) : before || after;
+  const date = before && after ? (compareValidatedPostingDates(before, after) < 0 ? before : after) : before || after;
   return date
     ? { datePosted: date, postedDate: date, postingDateSource: 'reported' }
     : { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
