@@ -25,7 +25,11 @@ import {
   hasConfidentPrice,
   hasParsedPrice,
 } from '../scripts/lib/events-utils.mjs';
-import { extractEventJsonLd, extractPrice as extractMySwitzerlandPrice } from '../scripts/crawl-myswitzerland-events.mjs';
+import {
+  applyKnownPriceBackfills,
+  extractEventJsonLd,
+  extractPrice as extractMySwitzerlandPrice,
+} from '../scripts/crawl-myswitzerland-events.mjs';
 import { mapDetailPageToLocaleData } from '../scripts/crawl-guidle-events.mjs';
 import { pickRichestEvent } from '../scripts/assemble-events-dataset.mjs';
 import { eventLd, renderEventDetailPage } from '../build-plugins/eventsSeoPagesPlugin';
@@ -149,6 +153,40 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
       ]);
       expect(hasConfidentPrice(winner.price)).toBe(true);
     }
+  });
+
+  it('a structured price from a duplicate brings its own Offer metadata, never the winner ticket page', () => {
+    const offerPrice = mySwitzerlandPrice('myswitzerland-offer.html');
+    const mySwitzerland = { ...BASE_EVENT, id: 'myswitzerland:spengler', sourceKey: 'myswitzerland', price: offerPrice };
+    const winner = {
+      ...BASE_EVENT, id: 'guidle:spengler', sourceKey: 'guidle',
+      description: 'Richest duplicate, keeps its identity.', imageUrl: '/images/events/x.webp',
+      price: {
+        amount: 25, currency: 'CHF', isFree: false, priceSource: 'guidle', priceField: 'price-accordion',
+        url: 'https://tickets.example/guidle', availability: 'https://schema.org/SoldOut', validFrom: '2026-01-01',
+      },
+    };
+    const merged = pickRichestEvent([winner, mySwitzerland]);
+    expect(merged.id).toBe(winner.id);
+    const { priceConflicts, ...price } = merged.price;
+    expect(price).toEqual(offerPrice);
+    expect(priceConflicts).toEqual([
+      { eventId: 'guidle:spengler', amount: 25, currency: 'CHF', isFree: false, priceSource: 'guidle', priceField: 'price-accordion' },
+    ]);
+    const offers = (eventLd(merged as never, 'it') as Record<string, any>).offers;
+    expect(offers.url).not.toBe(winner.price.url);
+    expect(offers.availability).not.toBe(winner.price.availability);
+  });
+
+  it('a structured backfill from an earlier run outranks a fresh text price, not a fresh structured one', () => {
+    const structured = { ...BASE_EVENT, id: 'myswitzerland:spengler', sourceKey: 'myswitzerland', price: mySwitzerlandPrice('myswitzerland-offer.html') };
+    const freshText = { ...structured, price: mySwitzerlandPrice('myswitzerland-detail-table.html') };
+    const [fromText] = applyKnownPriceBackfills([freshText], [structured]);
+    expect(fromText.price).toMatchObject({ amount: structured.price.amount, priceSource: 'myswitzerland', priceField: 'offers.price' });
+    expect(hasConfidentPrice(fromText.price)).toBe(true);
+    const freshStructured = { ...structured, price: { amount: 40, currency: 'CHF', isFree: false, priceSource: 'myswitzerland', priceField: 'offers.price' } };
+    expect(applyKnownPriceBackfills([freshStructured], [structured])[0]).toBe(freshStructured);
+    expect(applyKnownPriceBackfills([freshText], [freshText])[0]).toBe(freshText);
   });
 
   it('Guidle structured price is used when MySwitzerland has none; text never outranks it', () => {

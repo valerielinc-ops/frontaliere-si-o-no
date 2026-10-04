@@ -181,10 +181,11 @@ function structuredGroupPrice(group) {
  * lexicographically smaller id, so the result is deterministic run-to-run.
  * The tariff follows the owner's source precedence (2026-10-04): a structured
  * MySwitzerland, then Guidle, price of any duplicate replaces the winner's
- * amount, and disagreeing duplicate tariffs are kept in `price.priceConflicts`.
+ * price as a whole (amount and that record's own Offer metadata), and
+ * disagreeing duplicate tariffs are kept in `price.priceConflicts`.
  * Without a structured price, a missing tariff is recovered only when the
  * known prices of its duplicates agree. Neither path changes the winner's
- * identity or ticketing metadata.
+ * identity.
  */
 export function pickRichestEvent(group) {
   const winner = [...group].sort((a, b) => {
@@ -201,10 +202,14 @@ export function pickRichestEvent(group) {
   const agreedPrice = prices.length && prices.every((price) => samePrice(price, prices[0])) ? prices[0] : undefined;
   let enrichedWinner = winner;
   if (structured && !(structured.chosen === winner && !structured.conflicts.length)) {
+    // The whole Offer comes from the chosen record: its ticket url,
+    // availability, validFrom and evidence describe that value. The winner's
+    // own ticketing metadata belongs to a price that lost (or was absent), so
+    // pairing it with the chosen amount would publish a mixed Offer.
     enrichedWinner = {
       ...winner,
       price: {
-        ...withoutPriceProvenance(winner.price),
+        ...withoutPriceProvenance(structured.chosen.price),
         ...structured.value,
         ...(structured.conflicts.length ? { priceConflicts: structured.conflicts } : {}),
       },

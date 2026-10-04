@@ -489,7 +489,11 @@ export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
   const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
   return freshEvents.map(event => {
     const backfill = backfills.get(event?.id);
-    if (!backfill || hasParsedPrice(event?.price) || !backfill?.price || typeof backfill.price !== 'object'
+    // A fresh price is kept unless it is text and the backfill holds a
+    // structured value: the structured field comes first (owner, 2026-10-04).
+    const freshPriceWins = hasConfidentPrice(event?.price)
+      || (hasParsedPrice(event?.price) && !hasConfidentPrice(backfill?.price));
+    if (!backfill || freshPriceWins || !backfill?.price || typeof backfill.price !== 'object'
       || !Object.keys(backfill.price).length
       || !event?.startDate || !backfill.startDate || event.startDate !== backfill.startDate
       || !sameBackfillVenue(event, backfill)) return event;
