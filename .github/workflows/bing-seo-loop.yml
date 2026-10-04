@@ -507,6 +507,8 @@ jobs:
         with:
           fetch-depth: 1
           persist-credentials: false
+          # The report's template inventory imports the route matchers and
+          # shared article registry; materialize that closure explicitly.
           sparse-checkout: |
             /scripts/seo/
             /scripts/lib/canonicalExemptions.mjs
@@ -514,6 +516,14 @@ jobs:
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
             /data/profession-landing-routes.json
+            /build-plugins/shared/fuelRouteSlugs.mjs
+            /scripts/lib/articleSections.mjs
+            /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/plateAuctionSections.mjs
+            /build-plugins/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/articleSectionCore.mjs
+            /data/blog-articles-data.ts
+            /data/swiss-articles-data.ts
             /scripts/lib/github-issue-creator.mjs
             /scripts/load-rc-env.mjs
             /package.json
