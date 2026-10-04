@@ -49,6 +49,7 @@
  * `fetchAllJobs()` call.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -543,7 +544,6 @@ export function createReflineParser(config) {
     // back into the generic no-jobs-parsed exit-guard path.
     if (!listings.length) return listings;
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let withoutBody = 0;
 
@@ -551,9 +551,12 @@ export function createReflineParser(config) {
       let detail = { title: '', description: '' };
       const listingWorkplace = String(listing.workplace || '').trim();
       let structuredLocation = null;
+      let postingDates = sourcePostingDateFields('');
       try {
         const detailHtml = await fetchHtml(listing.url, { timeoutMs });
         detail = parseReflineDetail(detailHtml);
+        // Only the employer's publication field is evidence; entryDate is an employment start.
+        postingDates = sourcePostingDateFields(parseReflineJobPostingJsonLd(detailHtml)?.datePosted);
         if (!listingWorkplace) structuredLocation = extractReflineJobPostingLocation(detailHtml);
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
@@ -620,7 +623,7 @@ export function createReflineParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate: todayIso,
+        ...postingDates,
         applyUrl: listing.url,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

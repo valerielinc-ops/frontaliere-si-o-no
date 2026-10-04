@@ -509,7 +509,6 @@ export function createJobupChFeedParser(config) {
 
     if (!items.length) return [];
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     const seenLinks = new Set();
     let detailHits = 0;
@@ -591,7 +590,7 @@ export function createJobupChFeedParser(config) {
       const urlHash = createHash('sha1').update(link).digest('hex').slice(0, 12);
       const postingFields = publicationDateFromDetail
         ? sourcePostingDateFields(typeof detail === 'object' ? detail.rawPostedDate : '')
-        : { postedDate: parseJobupDate(raw?.puddate || '') || todayIso };
+        : sourcePostingDateFields('');
 
       jobs.push({
         id: `${companyKey}-${urlHash}`,

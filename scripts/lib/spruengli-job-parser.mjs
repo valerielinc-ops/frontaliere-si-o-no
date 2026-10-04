@@ -39,6 +39,7 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawler-common.mjs';
@@ -359,8 +360,7 @@ export async function fetchAllSpruengliJobs() {
 
     const jsonLdEmploymentType = Array.isArray(jsonLd?.employmentType) ? jsonLd.employmentType[0] : jsonLd?.employmentType;
     const employmentType = jsonLdEmploymentType || detectEmploymentType(`${listing.workload || ''} ${resolvedTitle}`);
-    const postedDate = (jsonLd?.datePosted && String(jsonLd.datePosted).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(jsonLd?.datePosted);
     const hiringOrgName = jsonLd?.hiringOrganization?.name || SPRUENGLI_COMPANY_NAME;
 
     const job = {
@@ -396,7 +396,7 @@ export async function fetchAllSpruengliJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       hiringOrganizationName: hiringOrgName,
       jobReqId: listing.posId || null,
