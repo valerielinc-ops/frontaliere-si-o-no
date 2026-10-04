@@ -98585,6 +98585,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lido-san-domenico-lugano-concorsi': {
+    title: 'Lido San Domenico: Lugano pubblica due concorsi',
+    description: 'Il Municipio di Lugano ha pubblicato due concorsi per il futuro del Lido San Domenico: gestione buvette e ristrutturazione tramite partenariato',
+    keywords: 'frontalieri, ticino, svizzera, italia, lido, domenico, lugano, pubblica',
+    ogTitle: 'Lido San Domenico, una mobilitazione per la cultura',
+    ogDescription: 'Il futuro del Lido San Domenico è al centro del dibattito: tra nuovi concorsi per la gestione e la ristrutturazione, i cittadini chiedono di tutelare uno spazio di aggregazione e cultura indipendente.',
+    canonicalPath: '/articoli-frontaliere/lido-san-domenico-lugano-concorsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lido San Domenico: Lugano pubblica due concorsi",
+      "description": "Il Municipio di Lugano ha pubblicato due concorsi per il futuro del Lido San Domenico: gestione buvette e ristrutturazione tramite partenariato",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lido-san-domenico-lugano-concorsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del lungolago di Lugano con il Lido San Domenico sullo sfondo"
+      },
+      "datePublished": "2026-10-04T20:03:35+00:00",
+      "dateModified": "2026-10-04T20:03:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lido-san-domenico-lugano-concorsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

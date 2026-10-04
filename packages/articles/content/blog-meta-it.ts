@@ -12544,6 +12544,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stra-woman-varese-2026.title': 'StraWoman Varese 2026: quasi 4mila ai Giardini Estensi',
     'blog.article.stra-woman-varese-2026.excerpt': 'Quasi 4mila partecipanti hanno corso o camminato 5 km nei Giardini Estensi per la sedicesima StraWoman Varese, parte delle 21 tappe da marzo a novembre, promuovendo sport, prevenzione senologica e solidarietà.',
     'blog.article.stra-woman-varese-2026.imageAlt': 'Donne partecipanti alla StraWoman Varese 2026 nei Giardini Estensi, corsa non competitiva di 5 km per prevenzione e solidarietà.',
+    'blog.article.lido-san-domenico-lugano-concorsi.title': 'Lido San Domenico: Lugano pubblica due concorsi',
+    'blog.article.lido-san-domenico-lugano-concorsi.excerpt': 'Il Municipio ha avviato i bandi per la gestione della buvette e la ristrutturazione degli spazi tramite partenariato pubblico-privato.',
+    'blog.article.lido-san-domenico-lugano-concorsi.imageAlt': 'Veduta del lungolago di Lugano con il Lido San Domenico sullo sfondo',
 };
 
 export default blogMetaIt;
