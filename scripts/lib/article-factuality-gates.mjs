@@ -197,14 +197,21 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
   const label = opts.label ? `[${opts.label}] ` : '';
   const percentage = Math.round(ratio * 100);
   const severity = ratio < TRANSLATION_CRITICAL_RATIO ? 'critical' : 'major';
-  return [issue(
+  // Quale regola ha parlato. `word-ratio`: mancano parole oltre la varianza
+  // fra lingue, con o senza paragrafi persi. `paragraph-drop`: le parole sono
+  // fra il 70% e l'85% e c'e' un paragrafo in meno — un paragrafo omesso OPPURE
+  // una traduzione compatta che ne ha accorpati due. La diagnosi e' la stessa;
+  // chi agisce sul body (il retry del generatore, che lo lascia in attesa se
+  // il retry fallisce) distingue, per non togliere una traduzione valida.
+  const rule = ratio < TRANSLATION_RATIO_THRESHOLD ? 'word-ratio' : 'paragraph-drop';
+  return [{ ...issue(
     'translation-semantic-truncation',
     severity,
     `${label}La traduzione contiene solo ${translatedWords}/${referenceWords} parole dell'italiano (${percentage}%) — possibile paragrafo omesso anche se la frase finale è chiusa`,
     `${label}paragrafi: ${countParagraphs(referenceText)} → ${countParagraphs(text)}; parole: ${referenceWords} → ${translatedWords}`,
     `Confronta la sezione ${label || 'tradotta'} con l'italiano e reintegra ogni paragrafo mancante. `
       + 'Il testo tradotto deve conservare tutto il contenuto, non solo terminare con punteggiatura valida.',
-  )];
+  ), rule }];
 }
 
 /**
@@ -2627,12 +2634,19 @@ export function runFactualityGates(params = {}) {
   const fullText = joined(sections);
   const localeOptions = { ...options, locale };
   // A missing/thin source cannot support the learner's negative evidence: an
-  // empty source is not proof that an acronym is fabricated. Keep curated
-  // static guards active, but do not let memory learned from other articles
-  // block this run or feed another unknown observation back into the learner.
+  // empty source is not proof that an acronym is fabricated. So without a
+  // usable source nothing is LEARNED (no observations, below) and the
+  // unconfirmed suspects stay quiet. The DENYLIST is different: an acronym gets
+  // there only as CONFIRMED fabricated, from sourced evidence across articles
+  // (source-less observations never reach the learner), so it is a fact about
+  // the acronym, not about this article's source — exactly like the curated
+  // static guards, which stay active too. Dropping it here switched it off for
+  // every evergreen, whose gate source is '' by construction.
   const hasUsableSourceForLearning = typeof sourceText === 'string'
     && sourceText.length >= MIN_SOURCE_CHARS_FOR_SUPPORT;
-  const learnedMemory = hasUsableSourceForLearning ? memory : {};
+  const learnedMemory = hasUsableSourceForLearning
+    ? memory
+    : { denylist: memory?.denylist, degraded: memory?.degraded };
 
   let issues = [];
   for (const [label, text] of Object.entries(sections)) {
