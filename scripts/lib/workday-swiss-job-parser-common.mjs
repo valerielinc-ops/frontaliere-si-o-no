@@ -706,7 +706,7 @@ export function createWorkdaySwissParser(config) {
    * Switzerland returns null so the caller can retry through the strict
    * per-listing CH gate.
    */
-  async function proveSwissAbsentFromLiveBoard(facetParameter, boardCache, reason) {
+  async function proveSwissAbsentOnLiveBoard(facetParameter, boardCache, reason) {
     const empty = [];
     let summary = boardCache?.summary;
     if (!summary) {
@@ -756,7 +756,7 @@ export function createWorkdaySwissParser(config) {
       && facetStats?.endReason === 'empty-page'
       && facetStats?.yielded === 0;
     if (!facetSaidZero) return [];
-    return proveSwissAbsentFromLiveBoard(facetParameter, boardCache, 'Swiss-faceted query total 0');
+    return proveSwissAbsentOnLiveBoard(facetParameter, boardCache, 'Swiss-faceted query total 0');
   }
 
   /**
@@ -841,7 +841,7 @@ export function createWorkdaySwissParser(config) {
     // (already unfiltered) listings.
     if (facetApplied && listings.some((l) => isLocationExplicitlyForeign(l.locationRaw))) {
       if (proveSwissAbsentFromLiveBoard) {
-        const proof = await proveSwissAbsentFromLiveBoard(
+        const proof = await proveSwissAbsentOnLiveBoard(
           facetParameter,
           boardCache,
           'Swiss-faceted query returned foreign listing(s)',
