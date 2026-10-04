@@ -5561,7 +5561,11 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
   if (!url) return false;
   let host = '';
   try { host = new URL(url).hostname.toLowerCase(); } catch {}
-  if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
+  // The Swiss Timing central board keeps the listing path
+  // (`/company/job-offers`) for detail pages and identifies the vacancy with
+  // `?company=<id>&job=<id>`. The path alone is still a listing; only the
+  // numeric detail query makes it a job page.
+  if (/\/job\b/.test(url) && /[?&](?:id|job)=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;
   if (/[?&](q|query|search)=/.test(url) && /vacanc|jobs?|careers?/.test(url)) return false;
