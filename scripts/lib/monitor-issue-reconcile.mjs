@@ -114,8 +114,10 @@ export function skipReason(issue) {
  *
  * @param {object} opts
  * @param {{number:number,title:string,state?:string,labels?:Array<string|{name:string}>}} opts.issue
- * @param {Array<{body:string,createdAt?:string,created_at?:string}>} [opts.comments]
- * @param {Array<{event:string,createdAt?:string,created_at?:string}>} [opts.events]
+ * @param {Array<{body:string,createdAt?:string,created_at?:string}>|null} [opts.comments]
+ *   La storia della issue: con `confirmations > 1` va passata letta. `null` o
+ *   assente = storia illeggibile → `keep`, mai «storia vuota».
+ * @param {Array<{event:string,createdAt?:string,created_at?:string}>|null} [opts.events]
  * @param {{clean:boolean,complete:boolean,evidence:string,measuredAt?:string,measure?:string}|null} opts.verdict
  * @param {string} opts.family
  * @param {number} [opts.confirmations]  2 = regola generale; 1 = criterio già sostenuto.
@@ -124,8 +126,8 @@ export function skipReason(issue) {
  */
 export function decideMonitorIssue({
   issue,
-  comments = [],
-  events = [],
+  comments,
+  events,
   verdict,
   family,
   confirmations = 2,
@@ -141,12 +143,18 @@ export function decideMonitorIssue({
   }
   if (verdict.clean !== true) return { action: 'keep', reason: `difetto ancora presente: ${verdict.evidence}` };
   if (confirmations <= 1) return { action: 'close', reason: `criterio soddisfatto: ${verdict.evidence}` };
+  // Con due conferme la storia è parte della misura: senza commenti ed eventi
+  // letti non si sa se una riconferma o una riapertura ha azzerato la prima
+  // misura pulita. Illeggibile = «non so», mai lista vuota.
+  if (!Array.isArray(comments) || !Array.isArray(events)) {
+    return { action: 'keep', reason: 'storia della issue illeggibile — nessuna scrittura' };
+  }
 
   const marker = lastCleanMarker(comments, family);
   if (!marker) return { action: 'note-first-clean', reason: `prima misura pulita: ${verdict.evidence}` };
   const after = (item) => Number.isFinite(timeOf(item)) && timeOf(item) > marker.commentAt;
-  const recurred = (comments || []).some((c) => after(c) && String(c?.body ?? '').includes(RECURRENCE_MARKER))
-    || (events || []).some((e) => e?.event === 'reopened' && after(e));
+  const recurred = comments.some((c) => after(c) && String(c?.body ?? '').includes(RECURRENCE_MARKER))
+    || events.some((e) => e?.event === 'reopened' && after(e));
   if (recurred) {
     return { action: 'note-first-clean', reason: `riconferma o riapertura dopo la misura pulita del ${marker.at}: si riparte da capo` };
   }
