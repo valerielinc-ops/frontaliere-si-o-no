@@ -99,7 +99,14 @@ function balancedSpan(text: string, from: number, open: string, close: string): 
   return null;
 }
 
-/** emission_id present with a value that is not a literal empty/absent one. */
+/**
+ * emission_id present with a value that is not a literal empty/absent one.
+ * An identifier passes: `emission_id: resolvedPageViewEmissionId` in
+ * trackPageView is null only when a caller passes `emissionId === null`
+ * explicitly, the documented «dedup non disponibile» opt-out of its signature
+ * (no caller does it today). That runtime path is behaviour, not inventory,
+ * and stays out of this static scan by design.
+ */
 function carriesEmissionId(params: string): boolean {
   const match = params.match(/(?:^|[{,\s])['"]?emission_id['"]?\s*:\s*([^,}\s]+)/);
   if (!match) return false;
@@ -142,6 +149,46 @@ function gtagConfigCalls(file: string, text: string): Array<{ file: string; line
     });
   }
   return out;
+}
+
+/** The Firebase Analytics SDK specifier, with or without the `@firebase/` scope. */
+const SDK_SPECIFIER = String.raw`(['"])@?firebase\/analytics\2`;
+
+/**
+ * Every way `code` reaches the SDK `getAnalytics`: a named or destructured
+ * binding, or `<ns>.getAnalytics` where `<ns>` is bound to the SDK module
+ * (`await import(…)`, `import * as`, or a position of `await Promise.all([…])`).
+ * The site wrapper `import('./firebase').getAnalytics` is not the SDK one.
+ */
+function sdkGetAnalyticsUses(code: string): string[] {
+  const hits: string[] = [];
+  const named = [
+    new RegExp(String.raw`\{([^}]*)\}\s*=\s*await\s+import\(\s*${SDK_SPECIFIER}\s*\)`, 'g'),
+    new RegExp(String.raw`import\s*\{([^}]*)\}\s*from\s*${SDK_SPECIFIER}`, 'g'),
+  ];
+  for (const pattern of named) {
+    for (const match of code.matchAll(pattern)) if (/\bgetAnalytics\b/.test(match[1])) hits.push(match[0]);
+  }
+  const namespaces = new Set<string>();
+  const nsPatterns = [
+    new RegExp(String.raw`\b(?:const|let|var)\s+([\w$]+)\s*=\s*await\s+import\(\s*${SDK_SPECIFIER}\s*\)`, 'g'),
+    new RegExp(String.raw`import\s*\*\s*as\s+([\w$]+)\s+from\s*${SDK_SPECIFIER}`, 'g'),
+  ];
+  for (const pattern of nsPatterns) for (const match of code.matchAll(pattern)) namespaces.add(match[1]);
+  const sdkImport = new RegExp(String.raw`^import\(\s*${SDK_SPECIFIER.replace('\\2', '\\1')}\s*\)$`);
+  for (const match of code.matchAll(/\[([^\]]*)\]\s*=\s*await\s+Promise\.all\(\s*\[([^\]]*)\]/g)) {
+    const names = match[1].split(',').map((name) => name.trim());
+    const sources = match[2].split(',').map((source) => source.trim());
+    sources.forEach((source, index) => {
+      if (sdkImport.test(source) && names[index]) namespaces.add(names[index]);
+    });
+  }
+  for (const ns of namespaces) {
+    const access = new RegExp(String.raw`(?<![\w$])${ns.replace(/\$/g, '\\$')}\s*(?:\?\.|\.)\s*getAnalytics\b`);
+    const hit = code.match(access);
+    if (hit) hits.push(hit[0]);
+  }
+  return hits;
 }
 
 function codeLines(text: string): string {
@@ -202,13 +249,7 @@ describe('GA4 page_view producers all carry emission_id', () => {
     const initCalls: Array<{ file: string; args: string | null }> = [];
     for (const file of FILES) {
       const code = codeLines(TEXTS.get(file)!);
-      const destructured = /\{([^}]*)\}\s*=\s*await\s+import\(\s*(['"])firebase\/analytics\2\s*\)/g;
-      const imported = /import\s*\{([^}]*)\}\s*from\s*(['"])firebase\/analytics\2/g;
-      for (const pattern of [destructured, imported]) {
-        for (let match = pattern.exec(code); match; match = pattern.exec(code)) {
-          if (/\bgetAnalytics\b/.test(match[1])) sdkGetAnalytics.push(file);
-        }
-      }
+      for (const hit of sdkGetAnalyticsUses(code)) sdkGetAnalytics.push(`${file}: ${hit}`);
       const init = /\binitializeAnalytics(?=\()/g;
       for (let match = init.exec(code); match; match = init.exec(code)) {
         initCalls.push({ file, args: balancedSpan(code, match.index + match[0].length, '(', ')') });
@@ -220,10 +261,33 @@ describe('GA4 page_view producers all carry emission_id', () => {
     const firebaseSource = TEXTS.get('services/firebase.ts')!;
     const settings = firebaseSource.match(/const FIREBASE_ANALYTICS_SETTINGS\s*=\s*(\{[^;]*\});/);
     expect(settings?.[1]).toMatch(/send_page_view\s*:\s*false\b/);
+    // The FIREBASE_ANALYTICS_SETTINGS shortcut is accepted only where its value
+    // is checked above: a same-named constant elsewhere proves nothing.
     const offenders = initCalls
-      .filter((c) => !(c.args && (/,\s*FIREBASE_ANALYTICS_SETTINGS\s*\)$/.test(c.args) || /send_page_view\s*:\s*false\b/.test(c.args))))
+      .filter((c) => !(c.args && (
+        (c.file === 'services/firebase.ts' && /,\s*FIREBASE_ANALYTICS_SETTINGS\s*\)$/.test(c.args))
+        || /send_page_view\s*:\s*false\b/.test(c.args)
+      )))
       .map((c) => `${c.file}: initializeAnalytics${c.args ?? '(?)'}`);
     expect(offenders, 'initializeAnalytics without send_page_view:false sends a page_view without emission_id').toEqual([]);
+  });
+
+  it('the SDK getAnalytics detector sees every import form, and only the SDK', () => {
+    const caught = [
+      "const { getAnalytics: ga } = await import('firebase/analytics');",
+      "import { getAnalytics } from 'firebase/analytics';",
+      "import { getAnalytics as ga } from '@firebase/analytics';",
+      "const m = await import('firebase/analytics');\nm.getAnalytics(app);",
+      "import * as fa from \"firebase/analytics\";\nfa.getAnalytics(app);",
+      "const [a, sdk] = await Promise.all([\n import('./firebase'),\n import('@firebase/analytics'),\n]);\nsdk.getAnalytics(app);",
+    ];
+    for (const snippet of caught) expect(sdkGetAnalyticsUses(snippet), snippet).not.toEqual([]);
+    const allowed = [
+      // services/analytics.ts: the site wrapper, which initializes with the shared settings.
+      "const [firebaseModule, analyticsModule] = await Promise.all([\n import('./firebase'),\n import('firebase/analytics'),\n]);\nawait firebaseModule.getAnalytics();\nanalyticsModule.logEvent(x, 'y');",
+      "const { initializeAnalytics } = await import('firebase/analytics');",
+    ];
+    for (const snippet of allowed) expect(sdkGetAnalyticsUses(snippet), snippet).toEqual([]);
   });
 
   it('the producer scan is not vacuous', () => {

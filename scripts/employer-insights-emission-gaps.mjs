@@ -21,8 +21,11 @@
  *     node scripts/employer-insights-emission-gaps.mjs [--from YYYY-MM-DD] [--to YYYY-MM-DD] [--json] [--expect-zero]
  *
  * Defaults: the last three GA4 days through today. Days before today use the
- * settled report; today uses the live (current-date) probe up to now.
- * `--expect-zero` exits 1 when any day in range has a missing id.
+ * daily report; today uses the live (current-date) probe up to now. GA4 may
+ * still be filling yesterday, so it is labelled `provisional`, not `settled`.
+ * `--expect-zero` exits 1 when any day in range has a missing id, a truncated
+ * read, or (for a non-live day) no evidence at all: an empty day proves
+ * nothing, so it can never be the zero the check is waiting for.
  */
 import { queryGa4EmissionEvidence } from './build-employer-insights.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -87,6 +90,31 @@ export function summarizeEmissionGapDay(day, result) {
   };
 }
 
+/** `live` for today, `provisional` for yesterday (GA4 still processing), else `settled`. */
+export function emissionGapDayLabel(day, now = new Date()) {
+  const today = now.toISOString().slice(0, 10);
+  if (day >= today) return 'live';
+  const yesterday = new Date(dayStart(today) - DAY_MS).toISOString().slice(0, 10);
+  return day === yesterday ? 'provisional' : 'settled';
+}
+
+/**
+ * The `--expect-zero` verdict: the days that stop it from passing, with why.
+ * A non-live day with zero evidence events fails too (GA4 lag or an empty
+ * property response would otherwise be a vacuous green).
+ */
+export function emissionGapFailures(summaries) {
+  const failures = [];
+  for (const summary of summaries) {
+    const reasons = [];
+    if (summary.missingObserved > 0) reasons.push(`missing_emission_id=${summary.missingObserved}`);
+    if (summary.truncated) reasons.push('truncated');
+    if (!summary.live && !(summary.evidenceObserved > 0)) reasons.push('no evidence');
+    if (reasons.length) failures.push({ day: summary.day, reasons });
+  }
+  return failures;
+}
+
 function parseArgs(argv, now = new Date()) {
   const args = { json: false, expectZero: false, from: null, to: null };
   for (let i = 0; i < argv.length; i++) {
@@ -117,19 +145,27 @@ async function main() {
   for (const day of emissionGapDays(args.from, args.to)) {
     const { window, live } = emissionGapWindow(day, now);
     const { result } = await queryGa4EmissionEvidence(window, { token, propertyId, includeCurrentDate: live });
-    summaries.push({ ...summarizeEmissionGapDay(day, result), live });
+    summaries.push({ ...summarizeEmissionGapDay(day, result), live, label: emissionGapDayLabel(day, now) });
   }
 
   if (args.json) {
     console.log(JSON.stringify({ generatedAt: now.toISOString(), propertyId, days: summaries }, null, 2));
   } else {
     for (const summary of summaries) {
-      const flags = [summary.live ? 'live' : 'settled', summary.truncated ? 'TRUNCATED' : ''].filter(Boolean).join(', ');
+      const flags = [
+        summary.label,
+        summary.truncated ? 'TRUNCATED' : '',
+        !summary.live && !(summary.evidenceObserved > 0) ? 'NO EVIDENCE' : '',
+      ].filter(Boolean).join(', ');
       console.log(`${summary.day}  evidence=${summary.evidenceObserved}  missing_emission_id=${summary.missingObserved}  (${flags})`);
       for (const row of summary.missing) console.log(`  - ${row.event} ${row.path} x${row.observed}`);
     }
   }
-  if (args.expectZero && summaries.some((summary) => summary.missingObserved > 0 || summary.truncated)) process.exitCode = 1;
+  if (args.expectZero) {
+    const failures = emissionGapFailures(summaries);
+    for (const failure of failures) console.error(`::error::${failure.day}: ${failure.reasons.join(', ')}`);
+    if (failures.length) process.exitCode = 1;
+  }
 }
 
 if (isInvokedDirectly(import.meta.url)) {

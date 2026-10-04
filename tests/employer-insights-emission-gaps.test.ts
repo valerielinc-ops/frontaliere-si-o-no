@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  emissionGapDayLabel,
   emissionGapDays,
+  emissionGapFailures,
   emissionGapWindow,
   summarizeEmissionGapDay,
 } from '../scripts/employer-insights-emission-gaps.mjs';
@@ -52,5 +54,30 @@ describe('employer-insights-emission-gaps (read-only D18 measure)', () => {
     expect(summary.missingObserved).toBe(0);
     expect(summary.missing).toEqual([]);
     expect(summary.truncated).toBe(true);
+  });
+
+  it('labels today live, yesterday provisional and older days settled', () => {
+    const now = new Date('2026-10-04T06:30:00.000Z');
+    expect(emissionGapDayLabel('2026-10-04', now)).toBe('live');
+    expect(emissionGapDayLabel('2026-10-03', now)).toBe('provisional');
+    expect(emissionGapDayLabel('2026-10-02', now)).toBe('settled');
+  });
+
+  it('--expect-zero never passes on an empty non-live day, a truncated read or a missing id', () => {
+    const clean = { day: '2026-10-07', live: false, evidenceObserved: 12, missingObserved: 0, truncated: false };
+    expect(emissionGapFailures([clean])).toEqual([]);
+    // Today may legitimately be empty early in the UTC day.
+    expect(emissionGapFailures([{ ...clean, day: '2026-10-08', live: true, evidenceObserved: 0 }])).toEqual([]);
+
+    const failures = emissionGapFailures([
+      clean,
+      { ...clean, day: '2026-10-08', evidenceObserved: 0 },
+      { ...clean, day: '2026-10-09', truncated: true },
+      { ...clean, day: '2026-10-10', missingObserved: 1 },
+    ]);
+    expect(failures.map((failure) => failure.day)).toEqual(['2026-10-08', '2026-10-09', '2026-10-10']);
+    expect(failures[0].reasons).toEqual(['no evidence']);
+    expect(failures[1].reasons).toEqual(['truncated']);
+    expect(failures[2].reasons).toEqual(['missing_emission_id=1']);
   });
 });
