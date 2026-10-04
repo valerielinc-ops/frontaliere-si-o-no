@@ -182,7 +182,7 @@ const IT: ComparisonsHubCopy = {
   healthIntro:
     'La Tabella 3 mette in fila i 26 cantoni svizzeri ordinati alfabeticamente con il premio mensile mediano LAMal per l\'adulto standard (26+, modello base franchigia 300 CHF). I cantoni urbani (GE, BS, VD, NE) hanno premi strutturalmente più alti per la densità di ricovero; cantoni rurali (AI, NW, OW, UR) restano sotto i CHF 320. Il Ticino (CHF 425) si colloca in fascia alta per costi ospedalieri specifici e demografia anziana.',
   benefitsIntro:
-    'La Tabella 4 confronta la struttura delle prestazioni sociali obbligatorie: sulla carta la Svizzera sembra meno generosa perché il 2° pilastro (LPP) è parzialmente a carico del lavoratore, ma il sistema è a capitalizzazione individuale e il capitale accumulato è trasferibile all\'uscita del Paese (possibile riscatto in caso di rientro definitivo in Italia, soggetto a imposizione speciale).',
+    "La Tabella 4 confronta le prestazioni sociali. I contributi AVS non vengono trasferiti all’INPS: ciascuno Stato determina e paga la propria pensione. Per il 2° pilastro occorre distinguere le prestazioni al pensionamento dal prelievo anticipato per partenza prima del pensionamento.",
   costIntro:
     'La Tabella 5 confronta un paniere realistico di spesa Lugano vs Varese/Como. Il frontaliere che mantiene la residenza italiana e fa pendolarismo combina il vantaggio (salario CH) con il costo contenuto (spesa + affitto IT): è questa l\'equazione che rende il pendolarismo economicamente conveniente per molti ruoli qualificati.',
 
@@ -204,7 +204,7 @@ const IT: ComparisonsHubCopy = {
     {
       question: 'Il 2° pilastro (LPP) è recuperabile in Italia?',
       answer:
-        'Sì ma con vincoli. Se si cessa l\'attività in Svizzera e si rientra definitivamente in Italia senza riprendere lavoro CH, la quota "sovraobbligatoria" del 2° pilastro è riscattabile in contanti (soggetta a imposta alla fonte 7-8%). La quota "obbligatoria" resta vincolata a un conto di libero passaggio fino all\'età pensionabile AVS, salvo acquisto prima casa o invalidità. È l\'area in cui la pianificazione con un commercialista transfrontaliero genera il maggior valore.',
+        "Il rientro in Italia prima del pensionamento non rende automaticamente prelevabile tutto il 2° pilastro. In caso di assicurazione obbligatoria italiana per vecchiaia, invalidità e superstiti, la parte LPP obbligatoria resta vincolata in Svizzera. La parte sovraobbligatoria segue regole distinte: la cassa pensione verifica le condizioni del pagamento. Non è un divieto generale delle prestazioni al pensionamento. [Fonte: AVS/AI, Lasciare la Svizzera](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'Come si calcola il prelievo fiscale totale del nuovo frontaliere 2026?',
@@ -304,7 +304,7 @@ const EN: ComparisonsHubCopy = {
   healthIntro:
     'Table 3 lists all 26 Swiss cantons alphabetically with the 2026 median adult (26+) LAMal premium (standard CHF 300 deductible). Urban cantons (GE, BS, VD, NE) are structurally more expensive; rural cantons (AI, NW, OW, UR) stay below CHF 320. Ticino (CHF 425) sits high due to hospital cost base and aging demographics.',
   benefitsIntro:
-    'Table 4 compares the structure of mandatory social benefits: on paper Switzerland looks less generous because the 2nd pillar (LPP) is partly employee-funded, but it is a funded individual-account system and the accumulated capital is portable when leaving the country.',
+    "Table 4 compares social benefits. OASI contributions are not transferred to INPS: each country determines and pays its own pension. For occupational pensions, distinguish retirement benefits from an early cash withdrawal on departure before retirement.",
   costIntro:
     'Table 5 compares a realistic consumer basket Lugano vs Varese/Como. A cross-border worker keeping Italian residence combines CH salary with IT cost of living — the arithmetic that makes commuting economically worthwhile for many qualified roles.',
 
@@ -326,7 +326,7 @@ const EN: ComparisonsHubCopy = {
     {
       question: 'Can I recover my 2nd-pillar (LPP) in Italy?',
       answer:
-        'Yes, with restrictions. If you permanently leave Switzerland and don\'t resume CH employment, the "over-mandatory" portion is redeemable in cash (subject to 7-8% withholding tax). The mandatory portion stays in a vested-benefits account until AVS retirement age unless you buy a primary home or become disabled. This is where transcontinental tax planning delivers the most value.',
+        "Returning to Italy before retirement does not automatically make the entire occupational pension withdrawable. If compulsory Italian old-age, disability and survivors insurance applies, the mandatory pension portion remains vested in Switzerland. The extra-mandatory portion follows separate rules: the pension fund checks the payment conditions. This is not a general restriction on normal retirement benefits. [Source: OASI/DI, Leaving Switzerland](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'How do I compute the total tax burden of a 2026 new cross-border worker?',
@@ -426,7 +426,7 @@ const DE: ComparisonsHubCopy = {
   healthIntro:
     'Tabelle 3 listet alle 26 Schweizer Kantone alphabetisch mit der KVG-Medianprämie Erwachsene (26+) 2026 im Standardmodell (Franchise CHF 300).',
   benefitsIntro:
-    'Tabelle 4 vergleicht die Struktur der obligatorischen Sozialleistungen. Auf dem Papier wirkt die Schweiz weniger grosszügig, weil die 2. Säule (BVG) teils arbeitnehmerfinanziert ist, aber es handelt sich um ein kapitalgedecktes Individualkonto, das beim Verlassen des Landes portabel ist.',
+    "Tabelle 4 vergleicht Sozialleistungen. AHV-Beiträge werden nicht an die INPS übertragen: Jeder Staat bestimmt und zahlt seine eigene Rente. Bei der beruflichen Vorsorge sind Altersleistungen von einer vorzeitigen Barauszahlung wegen Wegzugs vor der Pensionierung zu unterscheiden.",
   costIntro:
     'Tabelle 5 vergleicht einen realistischen Warenkorb Lugano vs Varese/Como. Ein Grenzgänger mit italienischem Wohnsitz kombiniert den CH-Lohn mit den italienischen Lebenshaltungskosten — das ist die ökonomische Grundlage für viele qualifizierte Rollen.',
 
@@ -448,7 +448,7 @@ const DE: ComparisonsHubCopy = {
     {
       question: 'Kann ich mein BVG-Guthaben nach Italien mitnehmen?',
       answer:
-        'Ja, eingeschränkt. Der "überobligatorische" Anteil ist bei definitivem Wegzug bar beziehbar (Quellensteuer 7-8%). Der obligatorische Anteil bleibt bis zum AHV-Rentenalter auf einem Freizügigkeitskonto, ausser bei Eigenheimkauf oder Invalidität.',
+        "Die Rückkehr nach Italien vor der Pensionierung ermöglicht nicht automatisch den Bezug des gesamten BVG-Guthabens. Bei obligatorischer Versicherung für Alter, Invalidität und Hinterlassene in Italien bleibt der obligatorische Anteil in der Schweiz gebunden. Für den überobligatorischen Anteil gelten andere Regeln; die Pensionskasse prüft die Auszahlungsvoraussetzungen. Das ist kein allgemeines Verbot regulärer Altersleistungen. [Quelle: AHV/IV, Die Schweiz verlassen](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'Wie berechne ich die Gesamtsteuerlast eines neuen Grenzgängers 2026?',
@@ -548,7 +548,7 @@ const FR: ComparisonsHubCopy = {
   healthIntro:
     'Le Tableau 3 liste les 26 cantons suisses avec la prime LAMal mensuelle médiane adulte (26+) 2026 en modèle standard (franchise CHF 300).',
   benefitsIntro:
-    'Le Tableau 4 compare la structure des prestations sociales obligatoires : sur le papier la Suisse paraît moins généreuse car la 2e pilier (LPP) est partiellement à la charge du salarié, mais c\'est un système à capitalisation individuelle portable en sortie de pays.',
+    "Le Tableau 4 compare les prestations sociales. Les cotisations AVS ne sont pas transférées à l’INPS : chaque État détermine et verse sa propre pension. Pour le 2e pilier, il faut distinguer les prestations de retraite du retrait anticipé en espèces lié au départ avant la retraite.",
   costIntro:
     'Le Tableau 5 compare un panier réaliste Lugano vs Varese/Côme. Le frontalier qui garde sa résidence italienne combine le salaire CH avec le coût de la vie IT — l\'arithmétique qui rend la navette économiquement rentable pour de nombreux rôles qualifiés.',
 
@@ -570,7 +570,7 @@ const FR: ComparisonsHubCopy = {
     {
       question: 'Puis-je récupérer ma LPP en Italie ?',
       answer:
-        'Oui, sous conditions. En cas de départ définitif, la part "surobligatoire" peut être retirée en cash (impôt source 7-8%). La part obligatoire reste sur un compte de libre passage jusqu\'à l\'âge AVS, sauf achat de résidence ou invalidité.',
+        "Le retour en Italie avant la retraite ne permet pas automatiquement de retirer tout le 2e pilier. En cas d’assurance obligatoire en Italie pour la vieillesse, l’invalidité et les survivants, la part LPP obligatoire reste liée en Suisse. La part surobligatoire suit des règles distinctes : la caisse de pension vérifie les conditions du paiement. Ce n’est pas une interdiction générale des prestations normales de retraite. [Source : AVS/AI, Quitter la Suisse](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'Comment calculer la pression totale d\'un nouveau frontalier 2026 ?',
