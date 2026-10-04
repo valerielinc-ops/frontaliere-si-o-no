@@ -283,6 +283,62 @@ describe('owner queue', () => {
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toBeUndefined();
     expect(dispatch).not.toHaveBeenCalled();
   });
+
+  // Close-out of 2026-10-03: the runner stops a send the fact gate of the day no longer passes
+  // (fact_check_not_acknowledged) and stores what it found; the owner confirms it from the takeover.
+  it('retries a send the fact gate stopped with the owner’s confirmation, written as an approval writes it', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const { evaluateRedFlags } = await import('../functions/src/assistedApplicationFlow.js');
+    const order = store.db.collection('assisted_applications').doc(ORDER);
+    const stopped = { state: 'owner_takeover', round: 1, heldBy: ['fact_check_not_acknowledged'], answers: {} };
+    const failing = { ok: false, unsupported: [{ field: 'coverLetter', kind: 'number', token: '45', context: 'un team di 45 persone' }], advisories: [], basis: 'pdf_text' };
+    await order.collection('ai_drafts').doc('current').set({ ...readyDraft(), factCheck: failing });
+    const retry = (extra: Record<string, unknown> = {}) => handleAutomationAdminAction(
+      store.db, { action: 'automationRetrySubmit', orderId: ORDER, ...extra }, 'owner@example.com', { runEffect, nowMs: T0 },
+    );
+
+    // Without the confirmation nothing is written on the draft: the runner would stop the send again.
+    await order.collection('automation').doc('flow').set(stopped);
+    expect(await retry()).toEqual({ ok: true, state: 'submitting' });
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)?.factCheckAcknowledgedAt).toBeUndefined();
+    expect(evaluateRedFlags(store.read(`${ORDER_PATH}/ai_drafts/current`)).owner).toEqual(['fact_check']);
+
+    await order.collection('automation').doc('flow').set(stopped);
+    effects = [];
+    expect(await retry({ acknowledgeFactWarnings: true })).toEqual({ ok: true, state: 'submitting' });
+    // The confirmation names the warnings the owner saw, so a later one is not covered by it.
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ factCheckAcknowledgedAt: T0, factCheckAcknowledgedTokens: ['coverLetter:number:45'], acknowledgedBy: 'owner@example.com', factCheck: failing });
+    expect(evaluateRedFlags(store.read(`${ORDER_PATH}/ai_drafts/current`)).owner).toEqual([]);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'submitting', heldBy: [], dispatch: { mode: 'submit', reason: 'owner_retry' } });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+  });
+
+  it('drops the confirmation, whichever way it was given, when an edit brings in an unverified fact', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const { evaluateRedFlags } = await import('../functions/src/assistedApplicationFlow.js');
+    const order = store.db.collection('assisted_applications').doc(ORDER);
+    await order.collection('automation').doc('flow').set({ state: 'owner_review', round: 1, heldBy: [], answers: {} });
+    await order.collection('ai_drafts').doc('current').set({
+      ...readyDraft(),
+      language: 'it',
+      coverLetter: { salutation: 'Gentili signore, egregi signori,', paragraphs: ['lavoro in reparto dal 2018.'], closing: 'Cordiali saluti', text: '' },
+      applicationEmail: { to: 'hr@ospedale.example', subject: 'Candidatura', body: 'In allegato CV e lettera.' },
+      factSources: { text: 'Maria Rossi\nInfermiera di reparto, Ospedale Civico, 2018 – 2023. Reparto da 24 letti.', posting: 'Cerchiamo un’infermiera.', order: 'Infermiere\nOspedale\nMaria Rossi' },
+      factCheckAcknowledgedAt: T0 - 1,
+      acknowledgedFlags: { fact_check: T0 - 1, no_posting: T0 - 1 },
+    });
+    const edit = (emailBody: string) => handleAutomationAdminAction(
+      store.db, { action: 'automationEditDraft', orderId: ORDER, emailBody }, 'owner@example.com', { runEffect, nowMs: T0 },
+    );
+    // A text the sources back keeps the confirmation.
+    expect(await edit('In allegato CV e lettera: lavoro in un reparto da 24 letti.')).toMatchObject({ ok: true, factCheck: { ok: true } });
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ factCheckAcknowledgedAt: T0 - 1, acknowledgedFlags: { fact_check: T0 - 1 } });
+
+    expect(await edit('In allegato CV e lettera: ho guidato un team di 45 persone.')).toMatchObject({ ok: true, factCheck: { ok: false } });
+    const edited = store.read(`${ORDER_PATH}/ai_drafts/current`);
+    expect(edited).toMatchObject({ factCheckAcknowledgedAt: null, acknowledgedFlags: { fact_check: null, no_posting: T0 - 1 } });
+    expect(evaluateRedFlags(edited).owner).toEqual(['fact_check']);
+  });
 });
 
 describe('sweep', () => {
