@@ -54,6 +54,7 @@
  *   - SAINT_GOBAIN_WEBER_ISOVER_KEY / SAINT_GOBAIN_WEBER_ISOVER_COMPANY_NAME /
  *     SAINT_GOBAIN_WEBER_ISOVER_COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -82,7 +83,6 @@ const HQ = getCompanyDefaults(SAINT_GOBAIN_WEBER_ISOVER_KEY) || {
   postalCode: '5405',
   addressRegion: 'AG',
 };
-
 
 // Known jobs.ch company profile pages for the two Swiss Saint-Gobain
 // building-materials entities. Isover currently has 0 open positions — its
@@ -295,12 +295,6 @@ export async function fetchAllSaintGobainWeberIsoverJobs({ fetchPage = fetchHtml
     const workHours = posting.workHours || '';
     const employmentType = detectEmploymentType(title, workHours);
 
-    const postedDate = (() => {
-      const raw = posting.datePosted;
-      if (!raw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw);
-      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
-    })();
 
     let validThrough;
     if (posting.validThrough) {
@@ -345,7 +339,7 @@ export async function fetchAllSaintGobainWeberIsoverJobs({ fetchPage = fetchHtml
       sector: 'Edilizia / Materiali da Costruzione',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(posting.datePosted),
       ...(validThrough ? { validThrough } : {}),
       applyUrl: sourceUrl,
       requirements: [],

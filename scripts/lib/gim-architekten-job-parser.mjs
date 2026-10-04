@@ -46,6 +46,7 @@
  *   - GIM_ARCHITEKTEN_KEY / GIM_ARCHITEKTEN_COMPANY_NAME /
  *     GIM_ARCHITEKTEN_COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -74,7 +75,6 @@ const HQ = getCompanyDefaults(GIM_ARCHITEKTEN_KEY) || {
   postalCode: '3013',
   addressRegion: 'BE',
 };
-
 
 // Known jobs.ch company profile pages for GIM Architekten AG (single legal
 // entity; two still-live profile ids — see file header for detail).
@@ -274,12 +274,6 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
     const workHours = posting.workHours || '';
     const employmentType = detectEmploymentType(title, workHours);
 
-    const postedDate = (() => {
-      const raw = posting.datePosted;
-      if (!raw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw);
-      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
-    })();
 
     let validThrough;
     if (posting.validThrough) {
@@ -324,7 +318,7 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
       sector: 'Architettura / Edilizia',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(posting.datePosted),
       ...(validThrough ? { validThrough } : {}),
       applyUrl: sourceUrl,
       requirements: [],

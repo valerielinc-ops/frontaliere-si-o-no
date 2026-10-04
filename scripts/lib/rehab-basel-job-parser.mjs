@@ -9,6 +9,7 @@
  * Talentsoft (Cegid) ATS. Job entries are server-rendered as `<li class="ts-offer-list-item">`
  * with the title link, posted date, and reference number.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -119,7 +120,6 @@ export async function fetchAllRehabBaselJobs({ fetchPage = fetchHtml, delayMs = 
   console.log(`  ✓ ${items.length} Talentsoft offers parsed`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let skippedCivilService = 0;
   for (const it of items) {
@@ -146,7 +146,7 @@ export async function fetchAllRehabBaselJobs({ fetchPage = fetchHtml, delayMs = 
     } catch (err) {
       console.warn(`  ⚠️ detail fetch failed for "${title}": ${err?.message || err}`);
     }
-    const postedDate = parseSwissDate(it.dateText) || todayIso;
+    const publication = sourcePostingDateFields(parseSwissDate(it.dateText));
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${REHAB_BASEL_KEY} basel`);
     const urlHash = createHash('sha1').update(it.detailUrl).digest('hex').slice(0, 12);
@@ -185,7 +185,7 @@ export async function fetchAllRehabBaselJobs({ fetchPage = fetchHtml, delayMs = 
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: it.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
