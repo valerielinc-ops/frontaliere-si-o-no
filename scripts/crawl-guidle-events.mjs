@@ -153,7 +153,12 @@ const SOURCE = EVENT_SOURCES.guidle;
 const SITE_ORIGIN = 'https://www.guidle.com';
 const SITEMAP_INDEX_URL = `${SITE_ORIGIN}/sitemapindex.xml`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const UNDATED_FILM_CATALOG_PATH_RE = /(?:^|\/)kino-nach-film\/ohne-ortsangabe(?:\/|$)/i;
+// Guidle's "film by movie" catalog: a film index, not a dated event list.
+// Verified on the whole sitemap 2026-10-04: these two section slugs hold only
+// location-less entries (37.5k of 147.7k codes, under `ohne-ortsangabe`,
+// `sans-indication-de-lieu` and `senza-posizione`), sampled pages carry an
+// empty microdata startDate and no Event JSON-LD.
+const UNDATED_FILM_CATALOG_PATH_RE = /^\/(?:kino-nach-film|cinema-by-movie)\/(?:ohne-ortsangabe|sans-indication-de-lieu|senza-posizione)\//i;
 
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;

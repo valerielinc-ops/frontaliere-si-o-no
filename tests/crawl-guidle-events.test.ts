@@ -187,6 +187,20 @@ describe('isUndatedGuidleListing', () => {
     expect(isUndatedGuidleListing(UNDATED_LISTING_HTML, UNDATED_FILM_CATALOG_PATH)).toBe(true);
   });
 
+  it.each([
+    '/kino-nach-film/ohne-ortsangabe/film_A123456',
+    '/cinema-by-movie/ohne-ortsangabe/film_A123456',
+    '/cinema-by-movie/sans-indication-de-lieu/film_A123456',
+    '/kino-nach-film/senza-posizione/film_A123456',
+  ])('recognizes every verified segment of the film catalog (%s)', (pathSuffix) => {
+    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML, pathSuffix)).toBe(true);
+  });
+
+  it('does not excuse other film or location-less sections that were not verified', () => {
+    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML, '/kino/filmarchiv/film_A123456')).toBe(false);
+    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML, '/veranstaltungen/ohne-ortsangabe/event_A123456')).toBe(false);
+  });
+
   it('requires the positive film-catalog discriminator before excusing malformed markup', () => {
     const brokenNonCatalogEvent = '<script type="application/ld+json">{malformed Event</script>'
       + '<meta itemprop="startDate" content="">';
