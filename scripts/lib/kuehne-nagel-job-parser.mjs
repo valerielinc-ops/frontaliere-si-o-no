@@ -27,6 +27,7 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - KUEHNE_NAGEL_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
@@ -365,8 +366,7 @@ export async function fetchAllKuehneNagelJobs() {
     const apiCategory = Array.isArray(stub.multi_category) ? stub.multi_category[0] : (stub.category || '');
     const employmentLabel = `${stub.type || ''} ${stub.WorkType || ''}`;
     const employmentType = detectEmploymentType(employmentLabel);
-    const postedDate = (stub.postedDate && String(stub.postedDate).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(stub.postedDate);
 
     const isHqCity = /schindellegi/i.test(city);
     const postalCode = detail.postalCode || (isHqCity ? HQ.postalCode : '');
@@ -405,7 +405,7 @@ export async function fetchAllKuehneNagelJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: stub.reqId || stub.jobId || null,
       requirements: [],
