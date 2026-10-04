@@ -13,6 +13,8 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - slugify() / stripHtml()    — Re-exported from crawler-template.mjs
  */
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -219,13 +221,14 @@ export function parseElettraDetailDescription(html = '') {
   return '';
 }
 
-async function fetchDetailDescription(url) {
-  if (!url || url === CAREER_URL || !/\/fiammcomponents\/jobs\//.test(url)) return '';
+async function fetchDetail(url) {
+  if (!url || url === CAREER_URL || !/\/fiammcomponents\/jobs\//.test(url)) return { description: '', ...sourcePostingDateFields('') };
   try {
-    return parseElettraDetailDescription(await fetchHtml(url, { timeoutMs: 20000 }));
+    const html = await fetchHtml(url, { timeoutMs: 20000 });
+    return { description: parseElettraDetailDescription(html), ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')) };
   } catch (err) {
     console.warn(`  ⚠️ Elettra 1938 detail fetch failed for ${url}: ${err?.message || err}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -342,8 +345,8 @@ export async function fetchAllElettra1938Jobs() {
     const publicUrl = listing.url || CAREER_URL;
     // The card teaser is truncated ("…attività su linea di..."): read the
     // detail page and keep the teaser only when the detail yields nothing.
-    const detailDescription = await fetchDetailDescription(publicUrl);
-    const descriptionText = detailDescription || stripHtml(listing.description || '');
+    const detail = await fetchDetail(publicUrl);
+    const descriptionText = detail.description || stripHtml(listing.description || '');
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} elettra-1938 ch`);
@@ -380,7 +383,7 @@ export async function fetchAllElettra1938Jobs() {
       sector: 'Impiantistica elettrica / Automazione',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
