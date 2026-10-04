@@ -642,6 +642,21 @@ export function gitExistsHere(filePath) {
 export function createTwinLookup({ repo, cap = DEFAULT_TWIN_LOOKUP_CAP, api = ghApi }) {
   const cache = new Map();
   let calls = 0;
+  // Un 404 dice «non c'e'» solo se il gemello si legge con questo token: l'API
+  // risponde 404 anche a un token senza accesso. Una prova del ref per run,
+  // solo dopo il primo 404; se non risponde ogni 404 vale `null`.
+  let readable;
+  const twinReadable = () => {
+    if (readable === undefined) {
+      try {
+        api(['--silent', `repos/${repo}/commits/main`]);
+        readable = true;
+      } catch {
+        readable = false;
+      }
+    }
+    return readable;
+  };
   return (filePath) => {
     if (cache.has(filePath)) return cache.get(filePath);
     if (calls >= cap) return null;
@@ -652,7 +667,7 @@ export function createTwinLookup({ repo, cap = DEFAULT_TWIN_LOOKUP_CAP, api = gh
       result = true;
     } catch (error) {
       const detail = `${error?.stderr ?? ''}${error?.message ?? ''}`;
-      result = /HTTP 404|Not Found/i.test(detail) ? false : null;
+      result = /HTTP 404|Not Found/i.test(detail) && twinReadable() ? false : null;
     }
     cache.set(filePath, result);
     return result;
