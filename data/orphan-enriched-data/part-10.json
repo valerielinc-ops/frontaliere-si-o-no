@@ -3251,10 +3251,10 @@
       "locale": "de",
       "path": "/de/jobs-im-tessin/apotheker/",
       "observedPaths": {
-        "de": "/de/jobs-in-graubunden/apotheker",
-        "it": "/cerca-lavoro-grigioni/apotheker",
-        "fr": "/fr/trouver-emploi-grisons/apotheker",
-        "en": "/en/find-jobs-graubunden/apotheker"
+        "de": "/de/jobs-im-tessin/apotheker",
+        "fr": "/fr/trouver-emploi-tessin/apotheker",
+        "en": "/en/find-jobs-ticino/apotheker",
+        "it": "/cerca-lavoro-grigioni/apotheker"
       },
       "queries": [
         {
@@ -6771,10 +6771,10 @@
         "fr": "assistant-commercial-alimentaire-coop-genossenschaft-lotzwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil",
-        "en": "/en/find-jobs-zurich/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil",
+        "it": "/cerca-lavoro-san-gallo/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil",
+        "en": "/en/find-jobs-st-gallen/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil",
         "de": "/de/jobs-im-bern/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil",
-        "fr": "/fr/trouver-emploi-zurich/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil"
+        "fr": "/fr/trouver-emploi-saint-gall/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12761,10 +12761,10 @@
         "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen",
-        "en": "/en/find-jobs-lucerne/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen",
-        "de": "/de/jobs-in-luzern/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen",
-        "fr": "/fr/trouver-emploi-lucerne/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen"
+        "it": "/cerca-lavoro-obvaldo/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen",
+        "en": "/en/find-jobs-obwalden/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen",
+        "de": "/de/jobs-in-obwalden/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen",
+        "fr": "/fr/trouver-emploi-obwald/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12943,10 +12943,10 @@
       "locale": "de",
       "path": "/de/jobs-im-aargau/branchen/",
       "observedPaths": {
-        "de": "/de/jobs-im-tessin/branchen",
-        "fr": "/fr/trouver-emploi-tessin/branchen",
-        "it": "/cerca-lavoro-ticino/branchen",
-        "en": "/en/find-jobs-ticino/branchen"
+        "it": "/cerca-lavoro-argovia/branchen",
+        "de": "/de/jobs-im-aargau/branchen",
+        "fr": "/fr/trouver-emploi-argovie/branchen",
+        "en": "/en/find-jobs-aargau/branchen"
       },
       "queries": [
         {
@@ -12958,6 +12958,11 @@
           "query": "gibt es offene stellen im kanton neuenburg",
           "clicks": 0,
           "impressions": 5
+        },
+        {
+          "query": "stellen jura",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "rekrutierung glarus",
@@ -12976,11 +12981,6 @@
         },
         {
           "query": "mindestlohn schweiz aargau",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "stellen jura",
           "clicks": 0,
           "impressions": 1
         },
@@ -13050,7 +13050,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 41,
+      "totalImpressions": 44,
       "totalClicks": 0,
       "topQuery": "froneri jobs",
       "title": "Branchen",
@@ -13683,10 +13683,10 @@
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
-        "de": "/de/jobs-in-basel/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel"
+        "it": "/cerca-lavoro-zurigo/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-zurich/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
+        "de": "/de/jobs-in-zurich/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel",
+        "fr": "/fr/trouver-emploi-zurich/butcher-meat-specialist-meat-specialist-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -16179,9 +16179,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "chauffeur-cat-ce-coop-genossenschaft-bern",
-        "en": "chauffeur-cat-ce-coop-genossenschaft-bern",
-        "de": "chauffeur-cat-ce-coop-genossenschaft-bern",
-        "fr": "chauffeur-cat-ce-coop-genossenschaft-bern"
+        "en": "chauffeur-in-kat-ce-coop-bern-2zkfmv",
+        "de": "chauffeur-in-kat-ce-coop-genossenschaft-bern",
+        "fr": "chauffeur-in-kat-ce-coop-bern-2zkfmv"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/chauffeur-cat-ce-coop-genossenschaft-bern",
@@ -16195,6 +16195,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -21962,10 +21963,10 @@
         "fr": "data-center-technicien-montreux-on-site-reboot-monkey-montreux"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-glarona/data-center-technicien-montreux-on-site-reboot-monkey-montreux",
-        "en": "/en/find-jobs-glarus/data-center-technicien-montreux-on-site-reboot-monkey-montreux",
-        "de": "/de/jobs-in-glarus/data-center-technicien-montreux-on-site-reboot-monkey-montreux",
-        "fr": "/fr/trouver-emploi-glaris/data-center-technicien-montreux-on-site-reboot-monkey-montreux"
+        "it": "/cerca-lavoro-vaud/data-center-technicien-montreux-on-site-reboot-monkey-montreux",
+        "en": "/en/find-jobs-vaud/data-center-technicien-montreux-on-site-reboot-monkey-montreux",
+        "de": "/de/jobs-in-der-waadt/data-center-technicien-montreux-on-site-reboot-monkey-montreux",
+        "fr": "/fr/trouver-emploi-vaud/data-center-technicien-montreux-on-site-reboot-monkey-montreux"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -23757,10 +23758,10 @@
         "fr": "dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
-        "en": "/en/find-jobs-lucerne/dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+        "it": "/cerca-lavoro-soletta/dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+        "en": "/en/find-jobs-solothurn/dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
         "de": "/de/jobs-im-luzern/dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
-        "fr": "/fr/trouver-emploi-lucerne/dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
+        "fr": "/fr/trouver-emploi-soleure/dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -27527,9 +27528,7 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "en": "production-planning-expert-ordonnanceur-mikron",
-        "it": "esperto-di-pianificazione-della-produzione-ordonnanceur-mikron-group-boudry",
-        "de": "produktionsplanungsexperte-ordonnanceur-mikron-group-boudry",
-        "fr": "esperto-di-pianificazione-della-produzione-ordonnanceur-mikron-group-boudry"
+        "de": "produktionsplanungsexperte-ordonnanceur-mikron-group-boudry"
       },
       "localePaths": {
         "it": "/cerca-lavoro-neuchatel/esperto-di-pianificazione-della-produzione-ordonnanceur-mikron-group-boudry",
@@ -33495,9 +33494,14 @@
           "query": "hof weissbad jobs",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "hotel kommunikationsfachmann lohn",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 10,
+      "totalImpressions": 11,
       "totalClicks": 0,
       "topQuery": "hotellerie zürich",
       "title": "Hotellerie",
@@ -33545,10 +33549,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-zoug/hotellerie/",
       "observedPaths": {
+        "it": "/cerca-lavoro-zugo/hotellerie",
         "de": "/de/jobs-im-tessin/hotellerie",
         "fr": "/fr/trouver-emploi-tessin/hotellerie",
-        "it": "/cerca-lavoro-ticino/hotellerie",
-        "en": "/en/find-jobs-ticino/hotellerie"
+        "en": "/en/find-jobs-zug/hotellerie"
       },
       "queries": [
         {
@@ -33559,7 +33563,7 @@
         {
           "query": "entreprise suisse qui recrute frontaliers",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "job suisse frontalier",
@@ -33572,6 +33576,16 @@
           "impressions": 3
         },
         {
+          "query": "agence interim zoug",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "emploi hôtellerie suisse",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "est ce qu il y a des emplois disponibles à zoug",
           "clicks": 0,
           "impressions": 2
@@ -33582,17 +33596,27 @@
           "impressions": 2
         },
         {
-          "query": "agence interim zoug",
+          "query": "emploi frontalier",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "emploi hôtellerie suisse",
+          "query": "frontalier suisse",
           "clicks": 0,
           "impressions": 1
         },
         {
           "query": "offre d'emploi frontalier suisse",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offre emplois suisse frontalier",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "recherche emploi frontalier suisse",
           "clicks": 0,
           "impressions": 1
         },
@@ -33610,9 +33634,14 @@
           "query": "travail frontiere suisse",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "travailler frontiere suisse",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 26,
+      "totalImpressions": 34,
       "totalClicks": 1,
       "topQuery": "emploi suisse frontalier",
       "title": "Hotellerie",
@@ -33658,7 +33687,7 @@
     {
       "slug": "hotels",
       "locale": "en",
-      "path": "/en/find-jobs-ticino/hotels/",
+      "path": "/en/find-jobs-lucerne/hotels/",
       "observedPaths": {
         "en": "/en/find-jobs-ticino/hotels",
         "de": "/de/jobs-im-tessin/hotels",
@@ -33666,6 +33695,11 @@
         "it": "/cerca-lavoro-ticino/hotels"
       },
       "queries": [
+        {
+          "query": "i want a job in lucerne in hotel front office at 80 to 100 percent and i speak english and some german.",
+          "clicks": 0,
+          "impressions": 1
+        },
         {
           "query": "hotel career ticino",
           "clicks": 0,
@@ -33677,9 +33711,9 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 2,
+      "totalImpressions": 3,
       "totalClicks": 0,
-      "topQuery": "hotel career ticino",
+      "topQuery": "i want a job in lucerne in hotel front office at 80 to 100 percent and i speak english and some german.",
       "title": "Hotels",
       "titleByLocale": {
         "it": "",
@@ -33706,10 +33740,10 @@
         "fr": "hotels"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/hotels",
-        "en": "/en/find-jobs-ticino/hotels",
-        "de": "/de/jobs-im-tessin/hotels",
-        "fr": "/fr/trouver-emploi-tessin/hotels"
+        "it": "/cerca-lavoro-lucerna/hotels",
+        "en": "/en/find-jobs-lucerne/hotels",
+        "de": "/de/jobs-im-luzern/hotels",
+        "fr": "/fr/trouver-emploi-lucerne/hotels"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39352,10 +39386,10 @@
       "locale": "en",
       "path": "/en/find-jobs-basel/legal/",
       "observedPaths": {
+        "en": "/en/find-jobs-basel/legal",
         "de": "/de/jobs-im-tessin/legal",
         "fr": "/fr/trouver-emploi-tessin/legal",
-        "it": "/cerca-lavoro-ticino/legal",
-        "en": "/en/find-jobs-ticino/legal"
+        "it": "/cerca-lavoro-ticino/legal"
       },
       "queries": [
         {
@@ -42024,6 +42058,63 @@
       ]
     },
     {
+      "slug": "maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell",
+      "locale": "de",
+      "path": "/de/jobs-in-appenzell/maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell/",
+      "observedPaths": {
+        "de": "/de/jobs-in-appenzell/maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell/"
+      },
+      "queries": [
+        {
+          "query": "maler nachhaltig herisau",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "maler nachhaltig herisau",
+      "title": "Maler in fur neubau und renovationen fachkraft ch gmbh appenzell",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell",
+        "en": "maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell",
+        "de": "maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell",
+        "fr": "maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-appenzello/maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell",
+        "en": "/en/find-jobs-appenzell/maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell",
+        "de": "/de/jobs-im-appenzell/maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell",
+        "fr": "/fr/trouver-emploi-appenzell/maler-in-fur-neubau-und-renovationen-fachkraft-ch-gmbh-appenzell"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "manager-deals-tax-mergers-und-akquisitionen-pwc-switzerland-zurich",
       "locale": "en",
       "path": "/en/find-jobs-zurich/manager-deals-tax-mergers-und-akquisitionen-pwc-switzerland-zurich/",
@@ -42976,9 +43067,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "mecatronicien-ne-automobile-cfc-emil-frey-au-wadenswil",
-        "en": "mecatronicien-ne-automobile-cfc-emil-frey-au-wadenswil",
-        "de": "mecatronicien-ne-automobile-cfc-emil-frey-au-wadenswil",
+        "en": "efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil",
+        "de": "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
         "fr": "mecatronicien-ne-automobile-cfc-emil-frey-au-wadenswil"
       },
       "localePaths": {
@@ -42987,12 +43077,13 @@
         "de": "/de/jobs-im-tessin/mecatronicien-ne-automobile-cfc-emil-frey-au-wadenswil",
         "fr": "/fr/trouver-emploi-tessin/mecatronicien-ne-automobile-cfc-emil-frey-au-wadenswil"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.emilfrey.ch/automobil-mechatroniker-in-efz-de-j2501.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -45083,10 +45174,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-frauenfeld",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-frauenfeld",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-frauenfeld",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-frauenfeld",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-frauenfeld",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-frauenfeld"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-frauenfeld"
       },
       "localePaths": {
         "it": "/cerca-lavoro-turgovia/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-frauenfeld",
@@ -45100,6 +45191,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -76793,10 +76885,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-affoltern-am-albis",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-affoltern-am-albis",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-affoltern-am-albis",
+        "en": "seller-cash-register-services-coop-genossenschaft-affoltern-am-albis",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-affoltern-am-albis",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-affoltern-am-albis"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-affoltern-am-albis"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-affoltern-am-albis",
@@ -76810,6 +76902,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -76845,10 +76938,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-root",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-root",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-root",
+        "en": "seller-cash-register-services-coop-genossenschaft-root",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-root",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-root"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-root"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/verkaufer-in-kassen-services-coop-genossenschaft-root",
@@ -76862,6 +76955,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -77505,10 +77599,10 @@
         "fr": "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e",
-        "en": "/en/find-jobs-ticino/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e",
-        "de": "/de/jobs-im-tessin/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e",
-        "fr": "/fr/trouver-emploi-tessin/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e"
+        "it": "/cerca-lavoro-basilea/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e",
+        "en": "/en/find-jobs-basel/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e",
+        "de": "/de/jobs-in-basel/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e",
+        "fr": "/fr/trouver-emploi-bale/verkaufsberater-in-kosmetik-coop-genossenschaft-basel-730f3e"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79073,10 +79167,10 @@
         "fr": "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw",
-        "en": "/en/find-jobs-lucerne/wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw",
+        "it": "/cerca-lavoro-berna/wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw",
+        "en": "/en/find-jobs-bern/wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw",
         "de": "/de/jobs-im-luzern/wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw",
-        "fr": "/fr/trouver-emploi-lucerne/wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw"
+        "fr": "/fr/trouver-emploi-berne/wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-sursee-bt4fqw"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
