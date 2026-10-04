@@ -96,6 +96,13 @@ describe('monitor-translation-coverage — la regola MA3', () => {
     expect(verdict.ma3.fired).toBe(false);
   });
 
+  it('scatta per un calo reale appena superiore a 10 punti', () => {
+    const history = [1, 1, 1, 0.69988].map((r, i) => afterRow(i, r));
+    const verdict = evaluateCoverage(history);
+    expect(verdict.ma3.drop).toBeGreaterThan(0.1);
+    expect(verdict.ma3.fired).toBe(true);
+  });
+
   it('il massimo esce dalla finestra dopo 7 giorni', () => {
     // La MA3 del giorno 10 contiene ancora due punti a 0,9: il crollo resta
     // visibile finché quel punto è nella finestra, e sparisce dopo.

@@ -133,11 +133,12 @@ export function evaluateCoverage(history, {
     // Le righe che il confronto attraversa: dalla prima che entra nella MA3 del
     // massimo all'ultima. Un cambio di predicato lì dentro sposta la misura.
     const spanned = series.slice(Math.max(0, maxIndex - 2), lastIndex + 1);
+    const floatingPointTolerance = Number.EPSILON * 4 * Math.max(1, Math.abs(drop), Math.abs(dropThreshold));
     verdict.ma3 = {
-      // Confronto in punti interi di decimillesimi: 0,90 − 0,80 in virgola
-      // mobile vale 0,1000000000000001 e farebbe scattare un calo di 10 punti
-      // esatti, che la regola («oltre 10 punti») esclude.
-      fired: Math.round(drop * 1e4) > Math.round(dropThreshold * 1e4),
+      // Il margine evita che pochi ULP facciano scattare un calo esattamente
+      // sulla soglia, ma lascia visibili anche gli scarti reali più piccoli di
+      // un decimillesimo.
+      fired: drop > dropThreshold + floatingPointTolerance,
       current: last.ma3,
       max,
       maxAt: series[maxIndex].timestamp,
