@@ -59,3 +59,9 @@ export function sourceCompactOffsetPostingDateFields(raw, now = new Date()) {
   const value = typeof raw === 'string' ? raw.replace(/([+-]\d{2})(\d{2})$/, '$1:$2') : '';
   return sourcePostingDateFields(value, now);
 }
+
+/** Preserve the source timestamp while projecting the historical calendar-day alias. */
+export function withLegacyPostingDay(fields, now = new Date()) {
+  const publication = mergeSourcePostingDates({}, fields, now);
+  return { ...publication, postedDate: publication.datePosted.slice(0, 10) };
+}

@@ -33,7 +33,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -335,7 +335,7 @@ export function parseJobDetailHtml(html = '', url = '') {
     addressRegion: best.addressRegion || '',
     postalCode: best.postalCode || '',
     addressCountry: best.addressCountry || '',
-    ...successFactorsPostingDateFields(dateM?.[1] || ''),
+    ...withLegacyPostingDay(successFactorsPostingDateFields(dateM?.[1] || '')),
     descriptionHtml,
     url,
   };
@@ -440,7 +440,7 @@ export async function fetchAllBentelerJobs() {
       sector: 'Automotive / Industria siderurgica',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, detail),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

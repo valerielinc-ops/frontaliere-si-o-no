@@ -65,7 +65,7 @@
  * a verified canton representative as the last resort), and uses the source
  * locality for the required street field when the street itself is absent.
  */
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourceCompactOffsetPostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
@@ -263,7 +263,7 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const contract = normalizeContract(`${employmentTypeRaw} ${workHours}`, title, description);
   const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
 
-  const postingDates = sourcePostingDateFields(jsonLd?.datePosted);
+  const postingDates = sourceCompactOffsetPostingDateFields(jsonLd?.datePosted);
   // Validate the source locality before considering any safe fallback. Using
   // the fabricated city here would let an unknown/foreign source inherit the
   // fallback canton and pass the Swiss-location guard.
@@ -298,7 +298,7 @@ export function parseMigrolinoDetail(html = '', url = '') {
     sourceRegion,
     employmentType,
     contract,
-    ...postingDates,
+    ...withLegacyPostingDay(postingDates),
     occupationalCategory: normalizeSpace(jsonLd?.occupationalCategory || ''),
     hiringOrganizationName: normalizeSpace(jsonLd?.hiringOrganization?.name || MIGROLINO_COMPANY_NAME),
     url,
@@ -505,7 +505,7 @@ export async function fetchAllMigrolinoJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, parsed),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, parsed)),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

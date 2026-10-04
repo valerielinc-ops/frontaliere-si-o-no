@@ -24,7 +24,7 @@ for (const key of ['med', 'michaelpage', 'okjob', 'migrolino'] as const) describ
     io.launch.mockResolvedValue({ newContext: async () => ({ newPage: async () => page }), close });
     const jobs = await ({ med: fetchAllMedIpersonalJobs, michaelpage: fetchAllMichaelpageJobs, okjob: fetchAllOkjobJobs, migrolino: fetchAllMigrolinoJobs })[key]();
     expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({ url, datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
+    expect(jobs[0]).toMatchObject({ url, datePosted: expected, postedDate: key === 'migrolino' ? expected.slice(0, 10) : expected, postingDateSource: expected ? 'reported' : 'unknown' });
     if (key === 'migrolino') expect(close).toHaveBeenCalledOnce();
   });
 });
