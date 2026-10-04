@@ -16,9 +16,18 @@ const options = { locale: 'it', url: 'https://frontaliereticino.ch/jobs/example/
 const job = { company: 'Example SA', title: 'Infermiere', location: 'Lugano', postedDate: yesterday };
 
 describe('employer publication date provenance', () => {
-  it.each([undefined, 'unknown', 'existing', 'scraped'])('rejects %s provenance despite parseable dates', (postingDateSource) => {
+  it.each([undefined, 'unknown', 'existing', 'scraped'])('keeps %s out of reported publication dates', (postingDateSource) => {
     expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
-    if (postingDateSource !== undefined) expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
+    if (postingDateSource === 'unknown') {
+      const schema = buildJobPostingSchema({ ...job, postingDateSource }, options);
+      expect(schema?.datePosted).toBe(now.toISOString());
+    } else if (postingDateSource !== undefined) {
+      expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
+    }
+  });
+  it('uses a collection clock only as the schema fallback for unknown provenance', () => {
+    const schema = buildJobPostingSchema({ ...job, postingDateSource: 'unknown', crawledAt: yesterday }, options);
+    expect(schema?.datePosted).toBe(new Date(yesterday).toISOString());
   });
   it('preserves legacy behavior only during the measured migration', () => {
     expect(resolveReportedPostingDate(job, now)).toBeNull();
@@ -67,7 +76,7 @@ describe('employer publication date provenance', () => {
         firstSeenAt: now.toISOString(),
       }]));
       const snapshot = aggregateHealthFacilityJobs(root).get(facility.slug)!;
-      expect(snapshot.featured[0]?.datePosted).toBe(kind === 'reported' ? yesterday : null);
+      expect(snapshot.featured[0]?.datePosted).toBe(kind === 'reported' ? yesterday : kind === 'unknown' ? now.toISOString() : null);
       expect(snapshot.featured[0]?.postingDateSource).toBe(kind === 'legacy' ? undefined : kind === 'unknown' ? 'unknown' : 'reported');
       if (kind === 'invalid-reported' || kind === 'unknown') expect(snapshot.featured[0]?.postedDate).toBe('');
       for (const locale of ['it', 'en', 'de', 'fr'] as const) {
