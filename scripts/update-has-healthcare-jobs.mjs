@@ -21,6 +21,7 @@
 import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
+import { JSDOM } from 'jsdom';
 import {
   exitCrawlerOnError,
   fetchHtml,
@@ -264,40 +265,160 @@ export function classifyHasHealthcareDiscovery({
 // Job listing parsing
 // ─────────────────────────────────────────────────────────────
 
+const NON_JOB_NODE_IDS = new Set(['75', '76', '104']);
+
+function normalizeListingText(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function hasClassToken(element, token) {
+  return String(element?.getAttribute?.('class') || '')
+    .split(/\s+/)
+    .includes(token);
+}
+
+function detailNodeId(anchor) {
+  const rawHref = String(anchor?.getAttribute?.('href') || '').trim();
+  if (!rawHref) return null;
+
+  let url;
+  try {
+    url = new URL(rawHref, CAREERS_URL);
+  } catch {
+    return null;
+  }
+
+  if (!['e-lavoro.ch', 'www.e-lavoro.ch'].includes(url.hostname.toLowerCase())) {
+    return null;
+  }
+
+  const match = url.pathname.match(/^\/node\/(\d+)\/?$/i);
+  if (!match || NON_JOB_NODE_IDS.has(match[1])) return null;
+  return match[1];
+}
+
+function isListingActionLink(anchor) {
+  const text = normalizeListingText(anchor?.textContent);
+  return (
+    hasClassToken(anchor, 'main-list-job-button-view')
+    || /visualizza\s+annuncio/i.test(text)
+    || (hasClassToken(anchor, 'w-100') && hasClassToken(anchor, 'p-3'))
+  );
+}
+
+function isLikelyListingTitle(value) {
+  const text = normalizeListingText(value);
+  if (text.length < 3 || text.length > 160) return false;
+  if (/^(?:visualizza\s+annuncio|i nostri annunci|home|login|cookie policy|privacy policy)$/i.test(text)) {
+    return false;
+  }
+  if (/^(?:impiego\b|\d{1,3}%\b|\d{2}\.\d{2}\.\d{2,4}$)/i.test(text)) return false;
+  return true;
+}
+
+function hasListingTitleMarker(container) {
+  return [...container.querySelectorAll('*')].some((element) =>
+    hasClassToken(element, 'job-title-row')
+    || /(?:^|[-_])job[-_]?title(?:[-_]|$)/i.test(String(element.getAttribute('class') || '')),
+  );
+}
+
+function listingTitleFromContainer(container, actionLink) {
+  const descendants = [...container.querySelectorAll('*')]
+    .filter((element) => element !== actionLink && !actionLink?.contains(element));
+
+  const marked = descendants.filter((element) =>
+    hasClassToken(element, 'job-title-row')
+    || /(?:^|[-_])job[-_]?title(?:[-_]|$)/i.test(String(element.getAttribute('class') || '')),
+  );
+  for (const element of marked) {
+    const text = normalizeListingText(element.textContent);
+    if (isLikelyListingTitle(text)) return text;
+  }
+
+  for (const element of descendants.filter((candidate) => /^H[1-6]$/.test(candidate.tagName))) {
+    const text = normalizeListingText(element.textContent);
+    if (isLikelyListingTitle(text)) return text;
+  }
+
+  // The title is the first short leaf in a listing card once the known
+  // metadata/action labels are ignored. This fallback survives a vendor
+  // class rename while remaining bounded to the one-link card.
+  for (const element of descendants.filter((candidate) => candidate.children.length === 0)) {
+    const text = normalizeListingText(element.textContent);
+    if (isLikelyListingTitle(text)) return text;
+  }
+
+  return '';
+}
+
+function listingContainerFor(anchor, listingLinks) {
+  let current = anchor.parentElement;
+  let best = null;
+
+  for (let depth = 0; current && depth < 10; depth += 1, current = current.parentElement) {
+    const linksInContainer = listingLinks.filter((candidate) => current.contains(candidate));
+    if (linksInContainer.length !== 1) {
+      if (linksInContainer.length > 1 && best) break;
+      continue;
+    }
+
+    const title = listingTitleFromContainer(current, anchor);
+    if (!title) continue;
+    best = { container: current, title };
+    if (hasListingTitleMarker(current)) break;
+  }
+
+  return best || { container: anchor.parentElement, title: '' };
+}
+
+function listingPercentage(container) {
+  const marked = [...container.querySelectorAll('*')]
+    .find((element) => hasClassToken(element, 'main-list-job-percentage'));
+  const markedText = normalizeListingText(marked?.textContent);
+  if (markedText) return markedText;
+
+  const match = normalizeListingText(container.textContent).match(/\b\d{1,3}%\b/);
+  return match ? match[0] : '';
+}
+
+function listingDate(container) {
+  const time = [...container.querySelectorAll('time')]
+    .find((element) => hasClassToken(element, 'datetime') || element.hasAttribute('datetime'));
+  const displayed = normalizeListingText(time?.textContent).match(/\b\d{2}\.\d{2}\.\d{2,4}\b/);
+  if (displayed) return displayed[0];
+
+  const containerMatch = normalizeListingText(container.textContent).match(/\b\d{2}\.\d{2}\.\d{2,4}\b/);
+  return containerMatch ? containerMatch[0] : normalizeListingText(time?.getAttribute('datetime'));
+}
+
 export function parseListingPage(html) {
+  if (!html || typeof html !== 'string') return [];
+
+  const { document } = new JSDOM(html).window;
+  const detailLinks = [...document.querySelectorAll('a[href]')]
+    .filter((anchor) => detailNodeId(anchor));
+  const actionLinks = detailLinks.filter(isListingActionLink);
+  // Prefer the explicit “view posting” links so a card's title/category links
+  // cannot be mistaken for a second listing. If the portal renames that label,
+  // the same node-link and bounded-card title checks still provide a fallback.
+  const listingLinks = actionLinks.length > 0 ? actionLinks : detailLinks;
+
   const jobs = [];
-  // The Drupal listing has this structure per job card:
-  //   <span class="job-title-row">TITLE</span>  (inside a col div)
-  //   ... sector icon, date, percentage ...
-  //   <a href="/node/NNN" target="_self" class="w-100 p-3">  (sibling col div)
-  //     <span class="... main-list-job-button-view">Visualizza annuncio</span>
-  //   </a>
-  // Title and link are siblings, not nested — collect each separately and zip.
+  const seenNodeIds = new Set();
+  for (const link of listingLinks) {
+    const nodeId = detailNodeId(link);
+    if (!nodeId || seenNodeIds.has(nodeId)) continue;
 
-  const titles = [];
-  const links = [];
-  const percentages = [];
-  const dates = [];
+    const { container, title } = listingContainerFor(link, listingLinks);
+    if (!title) continue;
 
-  let m;
-  const titleRe = /<span class="job-title-row">(.*?)<\/span>/gi;
-  while ((m = titleRe.exec(html)) !== null) titles.push(m[1].trim());
-
-  const linkRe = /<a\s+href="(\/node\/\d+)"\s+target="_self"\s+class="w-100 p-3">/gi;
-  while ((m = linkRe.exec(html)) !== null) links.push(m[1].trim());
-
-  const pctRe = /<span class="rounded-pill main-list-job-percentage">(.*?)<\/span>/gi;
-  while ((m = pctRe.exec(html)) !== null) percentages.push(m[1].trim());
-
-  const dateRe = /<time[^>]*class="datetime">([\d.]+)<\/time>/gi;
-  while ((m = dateRe.exec(html)) !== null) dates.push(m[1].trim());
-
-  for (let i = 0; i < Math.min(titles.length, links.length); i++) {
+    seenNodeIds.add(nodeId);
     jobs.push({
-      title: titles[i],
-      detailUrl: `https://e-lavoro.ch${links[i]}`,
-      percentage: percentages[i] || '',
-      dateStr: dates[i] || '',
+      title,
+      detailUrl: `https://e-lavoro.ch/node/${nodeId}`,
+      percentage: listingPercentage(container),
+      dateStr: listingDate(container),
     });
   }
 
