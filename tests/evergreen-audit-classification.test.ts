@@ -315,6 +315,21 @@ describe('auditEvergreen with articleType and verifiedAt', () => {
     expect(r.invalidVerifiedAt).toEqual(['cambio-franco-euro']);
   });
 
+  it('rejects impossible ISO calendar dates instead of accepting Date normalization', () => {
+    const now = new Date('2026-10-02T00:00:00Z');
+    const oldDate = new Date(now);
+    oldDate.setUTCFullYear(oldDate.getUTCFullYear() - 1);
+    const r = auditEvergreen([{
+      id: 'invalid-verified-date',
+      category: 'pratico',
+      date: oldDate.toISOString().slice(0, 10),
+      verifiedAt: '2026-09-31',
+    }], now);
+
+    expect(r.staleCount).toBe(1);
+    expect(r.stale[0]?.freshnessSource).toBe('date');
+  });
+
   it('accounts for every article in an evergreen category exactly once', () => {
     const r = auditEvergreen(ARTICLES, NOW);
     expect(r.totalEvergreen + r.datedExcludedCount + r.newsExcludedCount).toBe(inEvergreenCategory);
