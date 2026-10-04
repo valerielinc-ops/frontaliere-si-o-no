@@ -306,9 +306,9 @@ function isListingActionLink(anchor) {
   );
 }
 
-function isLikelyListingTitle(value) {
+function isLikelyListingTitle(value, { allowLong = false } = {}) {
   const text = normalizeListingText(value);
-  if (text.length < 3 || text.length > 160) return false;
+  if (text.length < 3 || (!allowLong && text.length > 160)) return false;
   if (/^(?:visualizza\s+annuncio|i nostri annunci|home|login|cookie policy|privacy policy)$/i.test(text)) {
     return false;
   }
@@ -333,7 +333,7 @@ function listingTitleFromContainer(container, actionLink) {
   );
   for (const element of marked) {
     const text = normalizeListingText(element.textContent);
-    if (isLikelyListingTitle(text)) return text;
+    if (isLikelyListingTitle(text, { allowLong: true })) return text;
   }
 
   for (const element of descendants.filter((candidate) => /^H[1-6]$/.test(candidate.tagName))) {
@@ -366,7 +366,7 @@ function listingContainerFor(anchor, listingLinks) {
     const title = listingTitleFromContainer(current, anchor);
     if (!title) continue;
     best = { container: current, title };
-    if (hasListingTitleMarker(current)) break;
+    break;
   }
 
   return best || { container: anchor.parentElement, title: '' };

@@ -69,6 +69,48 @@ describe('HAS Healthcare crawler discovery', () => {
     ]);
   });
 
+  it('keeps a long title when it has the explicit job-title marker', () => {
+    const title = 'A'.repeat(161);
+    const html = `
+      <div class="job-card">
+        <span class="job-title-row">${title}</span>
+        <a href="/node/123" class="new-action-class">View job</a>
+      </div>
+    `;
+
+    expect(parseListingPage(html)).toEqual([
+      {
+        title,
+        detailUrl: 'https://e-lavoro.ch/node/123',
+        percentage: '',
+        dateStr: '',
+      },
+    ]);
+  });
+
+  it('keeps the leaf title when an unmarked card is inside a page with a heading', () => {
+    const html = `
+      <main>
+        <h1>Offerte di lavoro</h1>
+        <div class="listing-wrapper">
+          <div class="job-card">
+            <span>Senior Scientist</span>
+            <a href="/node/123" class="new-action-class">View job</a>
+          </div>
+        </div>
+      </main>
+    `;
+
+    expect(parseListingPage(html)).toEqual([
+      {
+        title: 'Senior Scientist',
+        detailUrl: 'https://e-lavoro.ch/node/123',
+        percentage: '',
+        dateStr: '',
+      },
+    ]);
+  });
+
   it('records a listing transport failure instead of an unexplained empty source', () => {
     expect(classifyHasHealthcareDiscovery({ listingFetchOutcome: 'connection_error' })).toEqual({
       lastFetchOutcome: 'connection_error',
