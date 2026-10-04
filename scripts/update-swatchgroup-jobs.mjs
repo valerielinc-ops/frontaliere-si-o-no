@@ -335,7 +335,10 @@ async function main() {
       updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
       removedJobs: crawlDiff.removedJobs.slice(0, 30),
       unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
-    });
+    // crawlDiff covers every Swatch brand at once: the writer re-derives this
+    // brand's total and partition from its own slice (kept as-is when the
+    // write guard refused it), so the summary describes one set (L3).
+    }, { publishedSliceKeys: [ck] });
   }
   // registerCrawlerSummaryGuard() above registers its exit-fallback under the
   // 'swatchgroup' key, but the per-brand loop only ever writes the *brand*
@@ -363,7 +366,8 @@ async function main() {
     updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
     removedJobs: crawlDiff.removedJobs.slice(0, 30),
     unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
-  });
+  // No slice is named 'swatchgroup': the aggregate describes the brand slices.
+  }, { publishedSliceKeys: companyKeys });
   if (_guardTrippedKeys.length > 0) {
     console.warn(`⚠️  Swatch Group crawler completed with ${_guardTrippedKeys.length}/${companyKeys.length} sub-brand write guard(s) tripped (${_guardTrippedKeys.join(', ')}) — not treated as a run failure; each affected sub-brand kept its prior slice and has its own parser-health issue.`);
   }
