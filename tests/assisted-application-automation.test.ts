@@ -285,7 +285,7 @@ describe('owner queue', () => {
   });
 
   // Close-out of 2026-10-03: the runner stops a send the fact gate of the day no longer passes
-  // (fact_check_not_acknowledged) and stores what it found; Valerie confirms it from the takeover.
+  // (fact_check_not_acknowledged) and stores what it found; the owner confirms it from the takeover.
   it('retries a send the fact gate stopped with the owner’s confirmation, written as an approval writes it', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     const { evaluateRedFlags } = await import('../functions/src/assistedApplicationFlow.js');
@@ -306,7 +306,8 @@ describe('owner queue', () => {
     await order.collection('automation').doc('flow').set(stopped);
     effects = [];
     expect(await retry({ acknowledgeFactWarnings: true })).toEqual({ ok: true, state: 'submitting' });
-    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ factCheckAcknowledgedAt: T0, acknowledgedBy: 'owner@example.com', factCheck: failing });
+    // The confirmation names the warnings the owner saw, so a later one is not covered by it.
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ factCheckAcknowledgedAt: T0, factCheckAcknowledgedTokens: ['number:45'], acknowledgedBy: 'owner@example.com', factCheck: failing });
     expect(evaluateRedFlags(store.read(`${ORDER_PATH}/ai_drafts/current`)).owner).toEqual([]);
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'submitting', heldBy: [], dispatch: { mode: 'submit', reason: 'owner_retry' } });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);

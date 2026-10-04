@@ -650,6 +650,21 @@ describe('submit mode', () => {
     }
     expect(await submit({ ...stored, acknowledgedFlags: { no_posting: 1 } })).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
     expect(sendCascade).toHaveBeenCalledTimes(2);
+
+    // Review of #11425: a confirmation covers the warnings the owner saw, never a new one the gate of the
+    // day finds. Confirmed for «Kubernetes» only (with its tokens, or an older tick on that stored result),
+    // the send with «45» stops before any e-mail, and the stored result asks for a new confirmation.
+    const confirmedForOther = { ...draft, factCheck: { ok: false, unsupported: [{ field: 'coverLetter', kind: 'tool', token: 'Kubernetes', context: '' }], advisories: [], basis: 'pdf_text' } };
+    for (const acknowledgement of [{ factCheckAcknowledgedAt: 1, factCheckAcknowledgedTokens: ['tool:Kubernetes'] }, { factCheckAcknowledgedAt: 1 }, { acknowledgedFlags: { fact_check: 1 } }]) {
+      const before = { ...confirmedForOther, ...acknowledgement };
+      const again: any = await submit(before);
+      expect(again).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+      expect(again.factCheck.unsupported).toEqual([expect.objectContaining({ kind: 'number', token: '45' })]);
+      const kept = takeFactCheck(again, before);
+      expect(kept?.factCheckAcknowledgedTokens ?? before.factCheckAcknowledgedTokens).toEqual(['tool:Kubernetes']);
+      expect(evaluateRedFlags({ ...before, ...kept }).owner).toEqual(['fact_check']);
+    }
+    expect(sendCascade).toHaveBeenCalledTimes(2);
   });
 
   // The e-mail leaves with the candidate's signature: the phone of the order, as the order writes it.

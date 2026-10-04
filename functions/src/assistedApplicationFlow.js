@@ -94,14 +94,27 @@ const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
 // portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
 
+/** The warnings of a fact-check result as the owner confirms them: kind and token, sorted. */
+export function factCheckTokens(factCheck) {
+  return [...new Set((factCheck?.unsupported || []).map((item) => `${item.kind}:${item.token}`))].sort();
+}
+
 /**
- * Whether the owner confirmed the fact gate's warnings: with the queue's own
- * tick, or by name among the acknowledged flags. One reader for the flow and
- * for the runner's gate at submit (scripts/assisted-application/lib/submit.mjs),
- * so an acknowledgement the flow accepts is never refused at submit.
+ * Whether the owner confirmed the fact gate's warnings of a result: with the
+ * queue's own tick, or by name among the acknowledged flags, and only for the
+ * warnings they saw. The tick stores them (factCheckAcknowledgedTokens); an
+ * older tick, stored without them, covers the result the draft held when it
+ * was given. The gate at submit runs with the code of the day and may find a
+ * warning the owner never saw: that result is not confirmed. One reader for
+ * the flow and for the runner's gate at submit
+ * (scripts/assisted-application/lib/submit.mjs).
+ * @param {object} draft the AI draft (ai_drafts/current)
+ * @param {object} [factCheck] the result to confirm; the draft's own by default
  */
-export function factCheckAcknowledged(draft) {
-  return Boolean(draft?.factCheckAcknowledgedAt || draft?.acknowledgedFlags?.fact_check);
+export function factCheckAcknowledged(draft, factCheck = draft?.factCheck) {
+  if (!draft?.factCheckAcknowledgedAt && !draft?.acknowledgedFlags?.fact_check) return false;
+  const confirmed = new Set(Array.isArray(draft.factCheckAcknowledgedTokens) ? draft.factCheckAcknowledgedTokens : factCheckTokens(draft.factCheck));
+  return factCheckTokens(factCheck).every((token) => confirmed.has(token));
 }
 
 /**

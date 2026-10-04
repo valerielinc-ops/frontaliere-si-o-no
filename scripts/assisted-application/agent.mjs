@@ -28,6 +28,7 @@ import { scheduleFollowups } from '../../functions/src/assistedApplicationFollow
 import { submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
+import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
@@ -51,6 +52,11 @@ function summary(line) {
 export function takeFactCheck(event, draft) {
   if (!event.factCheck) return null;
   const patch = { factCheck: { ...event.factCheck, basis: draft?.factCheck?.basis || null } };
+  // An older confirmation, stored without its warnings, covered the result the draft held: those warnings
+  // are kept, so the new result's are not taken as confirmed (factCheckAcknowledged).
+  if ((draft?.factCheckAcknowledgedAt || draft?.acknowledgedFlags?.fact_check) && !Array.isArray(draft?.factCheckAcknowledgedTokens)) {
+    patch.factCheckAcknowledgedTokens = factCheckTokens(draft?.factCheck);
+  }
   delete event.factCheck;
   return patch;
 }

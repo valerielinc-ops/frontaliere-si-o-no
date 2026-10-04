@@ -556,9 +556,12 @@ export default function AssistedApplicationAutomationPanel({
           {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && (
             <>
               {needsFactAck && (
-                <label className="flex w-full items-center gap-2 text-xs text-body">
-                  <input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> L’invio si è fermato sui fatti non trovati elencati sopra. Ho verificato: sono corretti (senza questa spunta l’invio non riparte)
-                </label>
+                <div className="w-full text-xs text-body">
+                  <p>L’invio si è fermato sui fatti non trovati elencati sopra: senza la spunta non riparte.</p>
+                  <label className="mt-1 flex items-center gap-2">
+                    <input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti
+                  </label>
+                </div>
               )}
               <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { void act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
                 {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico

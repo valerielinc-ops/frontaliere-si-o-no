@@ -636,7 +636,7 @@ function sentences(text) {
 // Elided articles and pronouns are tokens of their own ("l'esperienza", "dell'hotel", "j'aimerais"); a word
 // keeps its inner hyphen, slash, dot and apostrophe ("SAP-Kenntnisse", "S/4HANA", "hotel's"), and a hyphen
 // it ends on ("LQA- und Forbes-Standards"). A dash, a semicolon or a colon separates like a comma.
-const TOKEN_RE = /(?<![\p{L}\p{N}])(?:l|d|j|n|m|t|s|c|qu|dell|all|nell|sull|dall|coll|un|quest|quell|nessun|jusqu|lorsqu|puisqu|quoiqu)['’](?=\p{L})|[\p{L}\p{N}]+(?:[-'’/.][\p{L}\p{N}]+)*-?|[,;:–—]|[^\s\p{L}\p{N}]/giu;
+const TOKEN_RE = /(?<![\p{L}\p{N}])(?:l|d|j|n|m|t|s|c|qu|dell|all|nell|sull|dall|coll|un|quest|quell|nessun|jusqu|lorsqu|puisqu|quoiqu)['’](?=\p{L})|[\p{L}\p{N}]+(?:[-'’/.][\p{L}\p{N}]+)*-?|[,;:–—-]|[^\s\p{L}\p{N}]/giu;
 // Past these sizes a sentence gets no exemption: a gap is said in a short sentence.
 const MAX_TOKENS = 80;
 const MAX_CHARS = 1200;
@@ -660,7 +660,7 @@ function readSentence(text, start, end, claims) {
       const head = Math.max(0, tools[0].index - from);
       const tail = Math.min(raw.length, Math.max(...tools.map((claim) => claim.index + claim.length)) - from);
       norm = `${low.slice(0, head)}§${low.slice(tail)}`;
-    } else if (/^[,;:–—]$/.test(raw)) {
+    } else if (/^[,;:–—-]$/.test(raw)) {
       norm = ',';
     } else if (!/^[\p{L}\p{N}]/u.test(raw)) {
       norm = '¦';

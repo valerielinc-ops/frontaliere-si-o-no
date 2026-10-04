@@ -32,6 +32,7 @@ import {
   startAutomation,
 } from './assistedApplicationAutomation.js';
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
+import { factCheckTokens } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
@@ -242,7 +243,7 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
       // An edit is a new text: a previous acknowledgement does not cover it, whichever way it was
       // given (the gate at submit reads both, as the flow does: factCheckAcknowledged).
       factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
-      ...(factCheck.ok ? {} : { acknowledgedFlags: { fact_check: null } }),
+      ...(factCheck.ok ? {} : { acknowledgedFlags: { fact_check: null }, factCheckAcknowledgedTokens: null }),
       coverLetterPdfKey,
       ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
       editedAt: nowMs,
@@ -307,6 +308,10 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       // Any other owner flag (no posting text, unknown channel, a suspicious posting) is acknowledged by name.
       const flags = (Array.isArray(raw.acknowledgeFlags) ? raw.acknowledgeFlags : []).filter((flag) => OWNER_FLAGS.has(flag));
       if (flags.length) acknowledgements.acknowledgedFlags = Object.fromEntries(flags.map((flag) => [flag, nowMs]));
+      // The fact warnings are confirmed as the owner saw them: a warning found later is not covered.
+      if (raw.acknowledgeFactWarnings === true || flags.includes('fact_check')) {
+        acknowledgements.factCheckAcknowledgedTokens = factCheckTokens((await draftRefFor(db, orderId).get()).data()?.factCheck);
+      }
       if (Object.keys(acknowledgements).length) {
         await draftRefFor(db, orderId).set({ ...acknowledgements, acknowledgedBy: adminEmail }, { merge: true });
       }
@@ -323,7 +328,9 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       // A submit the fact gate stopped (fact_check_not_acknowledged) leaves again only with the
       // owner's confirmation of the warnings, written to the draft as on approval.
       if (raw.acknowledgeFactWarnings === true) {
-        await draftRefFor(db, orderId).set({ factCheckAcknowledgedAt: nowMs, acknowledgedBy: adminEmail }, { merge: true });
+        const draftRef = draftRefFor(db, orderId);
+        const factCheckAcknowledgedTokens = factCheckTokens((await draftRef.get()).data()?.factCheck);
+        await draftRef.set({ factCheckAcknowledgedAt: nowMs, factCheckAcknowledgedTokens, acknowledgedBy: adminEmail }, { merge: true });
       }
       return apply({ type: 'owner_retry_submit' });
     case 'automationHandoff':

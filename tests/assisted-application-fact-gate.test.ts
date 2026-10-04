@@ -509,6 +509,8 @@ describe('fact gate: a gap counts only where it is said honestly', () => {
       'Non ho esperienza con Kubernetes, ma sono pronto a colmare questa lacuna.',
       'Mit Kubernetes habe ich bisher noch nicht gearbeitet, bin aber bereit, mich schnell einzuarbeiten.',
       'Je ne maîtrise pas encore Kubernetes, mais je suis prêt à me former.',
+      // Review of #11425: an ASCII dash between words is a boundary, as the en and em dashes.
+      'I have not used Kubernetes - but I learn quickly.',
       'Although my background does not include Kubernetes, I am a quick learner.',
       'Kenntnisse in Kubernetes bringe ich noch nicht mit, eigne sie mir aber rasch an.',
       'Kubernetes is not a tool I have used so far, though I am a quick learner.',
@@ -629,6 +631,9 @@ describe('fact gate: contact data is not a figure of the candidate', () => {
       const sources = { ...NURSE_IT, text: `Maria Rossi\n${phone}\n2018 – 2023 Infermiera di reparto`, order: 'Infermiera\nOspedale Esempio\nMaria Rossi' };
       expect(verdict({ coverLetter: `Ho seguito ${figure} pazienti.` }, sources).unsupported, phone).toEqual([`number:${figure}`]);
     }
+    // Review of #11425: digits inside the candidate's e-mail address back no phone number either.
+    const mailOnly = { ...NURSE_IT, text: 'Maria Rossi\nmaria+41791234567@example.com\n2018 – 2023 Infermiera di reparto', order: 'Infermiera\nOspedale Esempio\nMaria Rossi' };
+    expect(verdict({ emailBody: 'Mi trovate al +41791234567.' }, mailOnly).unsupported).toEqual(['phone:+41791234567']);
     // A site written without a path.
     const site = { ...NURSE_IT, text: 'Maria Rossi\nSito: mariarossi4521.ch\n2018 – 2023 Infermiera di reparto', order: 'Infermiera\nOspedale Esempio\nMaria Rossi' };
     expect(verdict({ coverLetter: 'Ho seguito 4521 pazienti.' }, site).unsupported).toEqual(['number:4521']);

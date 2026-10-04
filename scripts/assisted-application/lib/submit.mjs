@@ -126,7 +126,8 @@ export async function submitApplication(ctx) {
   // The gate of the day may be stricter than the one the draft was written with. Its result travels
   // next to the failure: agent.mjs stores it with the draft, so the owner sees the tokens and can
   // confirm them (the stored result alone would show nothing to confirm); it never reaches the event.
-  if (!facts.ok && !factCheckAcknowledged(draft)) return { type: 'submit_failed', error: 'fact_check_not_acknowledged', factCheck: facts };
+  // The owner's confirmation counts only for the warnings they saw (factCheckAcknowledged): a new one stops the send.
+  if (!facts.ok && !factCheckAcknowledged(draft, facts)) return { type: 'submit_failed', error: 'fact_check_not_acknowledged', factCheck: facts };
 
   const channel = draft.channel || {};
   const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();
