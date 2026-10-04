@@ -23,6 +23,8 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -446,10 +448,12 @@ export async function fetchAllTschuggenJobs() {
     let descriptionText = '';
     let detailTitle = listing.title;
     let hotelName = '';
+    let postingDates = sourcePostingDateFields('');
 
     try {
       const detailHtml = await fetchPage(listing.detailUrl);
       const detail = parseTschuggenDetailPage(detailHtml, listing.title);
+      postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
       descriptionText = detail.description;
       if (detail.title) detailTitle = detail.title;
       if (detail.hotelName) hotelName = detail.hotelName;
@@ -516,7 +520,7 @@ export async function fetchAllTschuggenJobs() {
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...postingDates,
       applyUrl: listing.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
