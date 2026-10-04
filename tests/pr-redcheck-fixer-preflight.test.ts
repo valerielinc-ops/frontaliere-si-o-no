@@ -90,8 +90,8 @@ if [ "\${1:-}" = api ]; then
   case "$endpoint" in
     *"/pulls")
       if [ "\${FAIL_MODE:-}" = pulls ]; then exit 1; fi
-      # The real gh invocation applies --jq page by page to this response;
-      # emit its post-filtered lines here because this is a CLI double.
+      # The real gh invocation applies --jq to this filtered response; emit
+      # its post-filtered lines here because this is a CLI double.
       if [ -n "\${OPEN_PRS}" ]; then printf '%s\\n' "\${OPEN_PRS}"; fi
       ;;
     *"/pulls/42")
