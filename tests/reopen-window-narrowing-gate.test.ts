@@ -91,37 +91,57 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
 
 /**
  * Finestre più strette del default, ammesse UNA PER UNA con il motivo.
- * Chiave: `<path>:<linea>:<ore>` per i call site testuali, oppure
- * `<path>:<simbolo>:reopenWithinHours:<ore>` per un call site JS ancorato.
+ *
+ * Chiave: `<path> :: <ancora> :: <espressione>`, mai il numero di riga.
+ *  - `<ancora>` identifica il call site: `title:<titolo>` per un'invocazione
+ *    CLI del creator o per l'input `with:` della composite action (il titolo è
+ *    l'identità della issue che il call site conia), `fn:<funzione>` per una
+ *    proprietà JS (la funzione che la contiene), `step:<nome>` se manca il
+ *    titolo;
+ *  - `<espressione>` è il testo normalizzato del costrutto che restringe
+ *    (`--reopen-within-hours 6`, `reopen-within-hours: 6`,
+ *    `reopenWithinHours: 6`, `--no-reopen`).
+ *
+ * Perché non la riga: con `<path>:<riga>:<ore>` ogni modifica SOPRA una voce
+ * rompeva il gate due volte per la stessa riga di codice («restringimento non
+ * dichiarato a :930:6» + «voce orfana :922:6», PR 11300, run 37168090373) senza
+ * che il restringimento fosse cambiato. Con l'ancora, spostare il costrutto è
+ * neutro; cambiarne il valore, il titolo o la funzione produce una chiave
+ * nuova, e il restringimento va dichiarato di nuovo.
+ *
  * Aggiungerne una senza motivo è il punto: si scrive il motivo o si toglie la
  * finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
-  '.github/workflows/post-deploy-validate-dist.yml:1789:6':
-    'validatore post-deploy: il fallback verificato alla riga 1789 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
-  '.github/workflows/post-deploy-validate-live.yml:539:6':
+  '.github/workflows/post-deploy-validate-dist.yml :: title:Validation Failure (dist): post-deploy :: --reopen-within-hours 6':
+    'validatore post-deploy: il fallback verificato passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
+  '.github/workflows/post-deploy-validate-live.yml :: title:Validation Failure (live): post-deploy :: reopen-within-hours: 6':
     'codice verificato in post-deploy-validate-live.yml: lo step Report failure to GitHub Issues passa esplicitamente 6h; report-failure/action.yml ha default vuoto e il resolve gemello usa lo stesso titolo, quindi la finestra è intenzionale e limitata al ciclo corrente.',
-  '.github/workflows/deploy-publish.yml:1652:6':
-    'codice verificato in deploy-publish.yml: lo step Report failure to GitHub Issues (deploy) passa esplicitamente reopen-within-hours: 6 alla riga 1652; report-failure/action.yml ha default vuoto e il resolve gemello chiude lo stesso titolo, quindi la finestra è intenzionale e limitata al ciclo corrente.',
-  '.github/workflows/lighthouse-ci.yml:365:6':
+  '.github/workflows/deploy-publish.yml :: title:CI Failure (deploy): ${{ github.workflow }} :: reopen-within-hours: 6':
+    'codice verificato in deploy-publish.yml: lo step Report failure to GitHub Issues (deploy) passa esplicitamente reopen-within-hours: 6; report-failure/action.yml ha default vuoto e il resolve gemello chiude lo stesso titolo, quindi la finestra è intenzionale e limitata al ciclo corrente.',
+  '.github/workflows/lighthouse-ci.yml :: title:Lighthouse regression on production (${{ matrix.form_factor }}) :: --reopen-within-hours 6':
     'gira per PR: due run della stessa PR sono lo stesso incidente, due PR diverse no.',
-  '.github/workflows/cwv-field-criterion.yml:175:24':
+  '.github/workflows/cwv-field-criterion.yml :: title:CWV field criterion unreadable (#5001 gate blind) :: --reopen-within-hours 24':
     'cadenza giornaliera del criterio di campo: la finestra segue il cron.',
-  '.github/workflows/cwv-field-criterion.yml:202:168':
+  '.github/workflows/cwv-field-criterion.yml :: title:CWV field regression on a tracked page (#5001 watchlist) :: --reopen-within-hours 168':
     'la seconda soglia dello stesso workflow lavora su finestra settimanale: 168h = il suo periodo.',
-  '.github/workflows/cf-otto-route-monitor.yml:133:24':
+  '.github/workflows/cf-otto-route-monitor.yml :: title:OTTO/SearchAtlas Cloudflare routes re-appeared on production :: --reopen-within-hours 24':
     'monitor giornaliero delle route: finestra allineata al cron.',
-  '.github/workflows/job-description-locale-audit.yml:283:72':
+  '.github/workflows/job-description-locale-audit.yml :: title:Job description locale quality: daily snapshot :: --reopen-within-hours 72':
     'audit ogni 3 giorni: 72h = il suo periodo.',
-  '.github/workflows/job-title-locale-audit.yml:234:336':
+  '.github/workflows/job-title-locale-audit.yml :: title:Job title locale quality: weekly snapshot :: --reopen-within-hours 336':
     'audit quindicinale: 336h = il suo periodo.',
-  'scripts/ci/report-validate-dist-failure.mjs:930:6':
-    'ramo `reportValidateDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
-  'scripts/ci/review-gate.mjs:mintFollowup:reopenWithinHours:0':
+  'scripts/ci/report-validate-dist-failure.mjs :: fn:reportDist :: reopenWithinHours: 6':
+    'ramo `reportDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
+  'scripts/ci/review-gate.mjs :: fn:mintFollowup :: reopenWithinHours: 0':
     'follow-up di scope già drenata: una issue completata non deve riaprirsi e reinserire finding già risolti nel ciclo successivo.',
 };
 
-type Site = { file: string; line: number; hours: number | null; raw: string; symbol: string | null };
+/**
+ * `line` serve solo a dire DOVE guardare in un messaggio d'errore: la chiave
+ * della allowlist è `anchor` + `raw`, che non dipendono dalla posizione.
+ */
+type Site = { file: string; line: number; hours: number | null; raw: string; anchor: string | null };
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -163,19 +183,28 @@ function jsWindowAt(lines: string[], i: number): { hours: number | null; raw: st
   let block = '';
   for (let j = i; j < lines.length && j - i < 50; j++) {
     block += (j > i ? '\n' : '') + lines[j];
-    const match = block.match(/\breopenWithinHours\s*:\s*([^,]+)/s);
-    if (match) return { hours: numOrNull(match[1]), raw: lines[i].trim() };
+    // Il valore finisce alla prima `,`, `}` o fine riga, senza commenti in coda:
+    // altrimenti `{ reopenWithinHours: 6 }` darebbe `6 }`, `numOrNull` → null,
+    // e il restringimento sparirebbe dal gate in silenzio.
+    const match = block.match(/\breopenWithinHours\s*:\s*([^,}\n]+)/);
+    if (match) {
+      const value = match[1].replace(/\/\*.*?\*\/|\/\/.*$/g, '').trim();
+      return { hours: numOrNull(value), raw: normalizeExpr(`reopenWithinHours: ${value}`) };
+    }
     if (j > i && /^\s*[}\]]/.test(lines[j])) break;
   }
   return null;
 }
 
-function scan(): { creates: Site[]; windows: Site[] } {
+/**
+ * Scansiona sorgenti già letti. `scan()` la usa sul repo; i test dell'ancora la
+ * usano su una copia modificata di un file vero, così la prova passa per lo
+ * stesso scanner che giudica il repo e non per una sua imitazione.
+ */
+function scanSources(sources: Array<{ file: string; src: string }>): { creates: Site[]; windows: Site[] } {
   const creates: Site[] = [];
   const windows: Site[] = [];
-  for (const abs of FILES) {
-    const file = relative(ROOT, abs);
-    const src = readFileSync(abs, 'utf8');
+  for (const { file, src } of sources) {
     if (!src.includes('github-issue-creator') && !src.includes('createGithubIssue')
       && !src.includes('reopen-within-hours')) continue;
     const lines = src.split('\n');
@@ -185,10 +214,11 @@ function scan(): { creates: Site[]; windows: Site[] } {
       if (/(?:node|tsx)\s+\S*github-issue-creator\.mjs/.test(lines[i])) {
         const block = cliBlockAt(lines, i);
         if (/--resolve\b/.test(block)) continue;
-        creates.push({ file, line: i + 1, hours: null, raw: lines[i].trim(), symbol: null });
+        const anchor = cliTitleAnchor(block) ?? stepNameAnchor(lines, i);
+        creates.push({ file, line: i + 1, hours: null, raw: lines[i].trim(), anchor });
         const m = block.match(/--reopen-within-hours\s+"?([^\s"\\]+)"?/);
-        if (m) windows.push({ file, line: i + 1, hours: numOrNull(m[1]), raw: m[0], symbol: null });
-        else if (/--no-reopen\b/.test(block)) windows.push({ file, line: i + 1, hours: 0, raw: '--no-reopen', symbol: null });
+        if (m) windows.push({ file, line: i + 1, hours: numOrNull(m[1]), raw: normalizeExpr(m[0]), anchor });
+        else if (/--no-reopen\b/.test(block)) windows.push({ file, line: i + 1, hours: 0, raw: '--no-reopen', anchor });
         continue;
       }
       // Le righe di COMMENTO non sono call site. Senza questo salto il gate
@@ -199,20 +229,78 @@ function scan(): { creates: Site[]; windows: Site[] } {
       // (b) opzione passata come proprietà dai chiamanti JS
       if (/\breopenWithinHours\s*:/.test(lines[i])) {
         const js = jsWindowAt(lines, i);
+        const fn = enclosingFunctionName(lines, i);
         if (js) windows.push({
           file,
           line: i + 1,
           hours: js.hours,
           raw: js.raw,
-          symbol: enclosingFunctionName(lines, i),
+          anchor: fn ? `fn:${fn}` : null,
         });
       }
       // (c) input della composite action, e chi lo passa da un workflow
       const yml = lines[i].match(/^\s*reopen-within-hours:\s*'?([^'\s#]+)'?/);
-      if (yml) windows.push({ file, line: i + 1, hours: numOrNull(yml[1]), raw: lines[i].trim(), symbol: null });
+      if (yml) windows.push({
+        file,
+        line: i + 1,
+        hours: numOrNull(yml[1]),
+        raw: normalizeExpr(`reopen-within-hours: ${yml[1]}`),
+        anchor: yamlSiblingTitleAnchor(lines, i) ?? stepNameAnchor(lines, i),
+      });
     }
   }
   return { creates, windows };
+}
+
+function scan(): { creates: Site[]; windows: Site[] } {
+  return scanSources(FILES.map((abs) => ({ file: relative(ROOT, abs), src: readFileSync(abs, 'utf8') })));
+}
+
+/** Il testo del costrutto senza virgolette né spaziature: `"6"` e `6` sono lo stesso. */
+function normalizeExpr(raw: string): string {
+  return raw.replace(/['"]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function unquote(raw: string): string {
+  const t = raw.trim();
+  const q = t.match(/^(['"])(.*)\1$/s);
+  return q ? q[2] : t;
+}
+
+/** `--title "…"` del blocco CLI: è l'identità della issue che il call site conia. */
+function cliTitleAnchor(block: string): string | null {
+  const m = block.match(/--title\s+(?:"([^"]*)"|'([^']*)'|(\S+))/);
+  const title = m ? (m[1] ?? m[2] ?? m[3]) : null;
+  return title ? `title:${title.trim()}` : null;
+}
+
+/**
+ * `title:` fratello di `reopen-within-hours:` nello stesso blocco `with:` della
+ * composite action: stessa indentazione, cercato sopra e sotto finché il blocco
+ * non si chiude (riga meno indentata).
+ */
+function yamlSiblingTitleAnchor(lines: string[], i: number): string | null {
+  const indent = (l: string) => l.match(/^\s*/)![0].length;
+  const own = indent(lines[i]);
+  for (const step of [-1, 1]) {
+    for (let j = i + step; j >= 0 && j < lines.length; j += step) {
+      if (lines[j].trim() === '' || /^\s*#/.test(lines[j])) continue;
+      if (indent(lines[j]) < own) break;
+      if (indent(lines[j]) !== own) continue;
+      const m = lines[j].match(/^\s*title:\s*(.+?)\s*$/);
+      if (m) return `title:${unquote(m[1])}`;
+    }
+  }
+  return null;
+}
+
+/** Ripiego quando manca il titolo: il nome dello step che contiene la riga. */
+function stepNameAnchor(lines: string[], i: number): string | null {
+  for (let j = i; j >= 0; j--) {
+    const m = lines[j].match(/^\s*-\s+name:\s*(.+?)\s*$/);
+    if (m) return `step:${unquote(m[1])}`;
+  }
+  return null;
 }
 
 function numOrNull(raw: string): number | null {
@@ -221,8 +309,8 @@ function numOrNull(raw: string): number | null {
   return t !== '' && Number.isFinite(n) ? n : null;
 }
 
-// `review-gate.mjs` contiene una proprietà JS: il simbolo resta stabile anche
-// quando inserimenti sopra il call site spostano le righe del file.
+// Una proprietà JS si ancora alla funzione che la contiene: il nome resta
+// stabile quando inserimenti sopra il call site spostano le righe del file.
 function enclosingFunctionName(lines: string[], i: number): string | null {
   for (let j = i; j >= 0; j--) {
     const match = lines[j].match(/^\s*(?:export\s+)?(?:async\s+)?function\s+([A-Za-z_$][\w$]*)\s*\(/);
@@ -231,11 +319,35 @@ function enclosingFunctionName(lines: string[], i: number): string | null {
   return null;
 }
 
+/**
+ * Chiave stabile: file, ancora del call site, testo del costrutto. Nessun numero
+ * di riga. Un'ancora mancante resta `?`: due call site senza ancora nello stesso
+ * file con lo stesso costrutto collidono, e `un anchor stabile non accorpa due
+ * call site distinti` lo fa ROSSO invece di fonderli in silenzio.
+ */
 function siteKey(site: Site): string {
-  if (site.file === 'scripts/ci/review-gate.mjs') {
-    return `${site.file}:${site.symbol ?? 'unknown'}:reopenWithinHours:${site.hours}`;
-  }
-  return `${site.file}:${site.line}:${site.hours}`;
+  return `${site.file} :: ${site.anchor ?? '?'} :: ${site.raw}`;
+}
+
+function isNarrowing(w: Site): boolean {
+  return w.hours !== null && w.hours < DEFAULT_WINDOW_H;
+}
+
+/**
+ * Confronta i restringimenti trovati con la allowlist. Con `files` limita il
+ * confronto (anche delle voci orfane) a quei file: serve ai test che rianalizzano
+ * un solo file modificato.
+ */
+function auditAllowlist(found: Site[], files?: Set<string>): { undeclared: string[]; orphans: string[] } {
+  const narrowings = found.filter(isNarrowing);
+  const live = new Set(narrowings.map(siteKey));
+  const inScope = (key: string) => !files || files.has(key.split(' :: ')[0]);
+  return {
+    undeclared: narrowings
+      .filter((w) => !(siteKey(w) in NARROWING_ALLOWLIST))
+      .map((w) => `${siteKey(w)} (a ${w.file}:${w.line})`),
+    orphans: Object.keys(NARROWING_ALLOWLIST).filter((k) => inScope(k) && !live.has(k)),
+  };
 }
 
 const { creates, windows } = scan();
@@ -272,6 +384,13 @@ describe('lo scanner trova davvero i call site (anti-gate-vacuo)', () => {
       '};',
     ], 1);
     expect(parsed?.hours).toBe(6);
+  });
+
+  it('legge una proprietà JS inline o commentata senza inghiottire `}` o il commento', () => {
+    const inline = jsWindowAt(['createGithubIssue({ title, reopenWithinHours: 6 });'], 0);
+    expect(inline).toEqual({ hours: 6, raw: 'reopenWithinHours: 6' });
+    const commented = jsWindowAt(['  reopenWithinHours: 6 // ciclo corrente', '};'], 0);
+    expect(commented).toEqual({ hours: 6, raw: 'reopenWithinHours: 6' });
   });
 });
 
@@ -348,13 +467,21 @@ describe('report-workflow-failure passa al creator cio che l input dice', () => 
 });
 
 describe('ogni restringimento della finestra è dichiarato e motivato', () => {
-  const narrowings = windows.filter((w) => w.hours !== null && w.hours < DEFAULT_WINDOW_H);
+  const narrowings = windows.filter(isNarrowing);
 
   it('nessuna finestra più stretta del default fuori dall allowlist', () => {
-    const undeclared = narrowings
-      .map((w) => ({ key: siteKey(w), at: `${w.file}:${w.line}` }))
-      .filter((w) => !(w.key in NARROWING_ALLOWLIST));
-    expect(undeclared).toEqual([]);
+    expect(auditAllowlist(windows).undeclared).toEqual([]);
+  });
+
+  it('ogni restringimento ha un ancora: titolo, funzione o step', () => {
+    expect(narrowings.filter((w) => !w.anchor).map((w) => `${w.file}:${w.line}`)).toEqual([]);
+  });
+
+  it('nessuna voce dell allowlist è indicizzata per numero di riga', () => {
+    // La forma `<path>:<riga>:<ore>` è quella che andava rossa a ogni modifica
+    // sopra la voce: non deve rientrare per copia da una voce vecchia.
+    const lineKeyed = Object.keys(NARROWING_ALLOWLIST).filter((k) => /:\d+:\d+$/.test(k) || !k.includes(' :: '));
+    expect(lineKeyed).toEqual([]);
   });
 
   it('ogni voce dell allowlist porta un motivo, non un segnaposto', () => {
@@ -365,9 +492,7 @@ describe('ogni restringimento della finestra è dichiarato e motivato', () => {
   });
 
   it('nessuna voce orfana: l allowlist descrive call site vivi', () => {
-    const live = new Set(narrowings.map(siteKey));
-    const orphans = Object.keys(NARROWING_ALLOWLIST).filter((k) => !live.has(k));
-    expect(orphans).toEqual([]);
+    expect(auditAllowlist(windows).orphans).toEqual([]);
   });
 
   it('un anchor stabile non accorpa due call site distinti', () => {
@@ -385,3 +510,61 @@ describe('ogni restringimento della finestra è dichiarato e motivato', () => {
     expect(vd[0].hours).toBe(6);
   });
 });
+
+/**
+ * La misura della scheda NX-RW-1, come test: il gate segue il COSTRUTTO.
+ *
+ * Il difetto (PR 11300, run 37168090373): il commit 924d1a0737 ha aggiunto 8
+ * righe sopra `reopenWithinHours: 6` in `report-validate-dist-failure.mjs`, e
+ * con la chiave `<path>:<riga>:<ore>` il gate ha segnalato insieme «non
+ * dichiarato :930:6» e «orfana :922:6» per la stessa riga di codice.
+ *
+ * Ogni caso prende un file VERO, lo modifica in memoria e lo ripassa per lo
+ * stesso `scanSources` che giudica il repo. Un caso per forma di call site:
+ * proprietà JS, invocazione CLI del creator, input `with:` della composite.
+ */
+describe('la allowlist si ancora al costrutto, non alla riga', () => {
+  const CASES = [
+    { kind: 'proprietà JS', file: 'scripts/ci/report-validate-dist-failure.mjs' },
+    { kind: 'invocazione CLI', file: '.github/workflows/cwv-field-criterion.yml' },
+    { kind: 'input della composite action', file: '.github/workflows/deploy-publish.yml' },
+  ];
+
+  /** Il primo restringimento dichiarato del file, e la riga che porta il valore. */
+  function declaredSite(file: string): { site: Site; lines: string[]; valueLine: number } {
+    const site = windows.find((w) => w.file === file && isNarrowing(w));
+    if (!site) throw new Error(`nessun restringimento in ${file}: il caso non proverebbe niente`);
+    expect(siteKey(site) in NARROWING_ALLOWLIST, `${siteKey(site)} non è dichiarato`).toBe(true);
+    const lines = readFileSync(join(ROOT, file), 'utf8').split('\n');
+    // Per un'invocazione CLI `site.line` è la riga `node …`: il valore sta più
+    // sotto, dentro lo stesso blocco.
+    let valueLine = site.line - 1;
+    while (valueLine < lines.length && !/reopen-within-hours|reopenWithinHours/.test(lines[valueLine])) valueLine++;
+    if (valueLine >= lines.length) throw new Error(`valore della finestra non trovato in ${file}`);
+    return { site, lines, valueLine };
+  }
+
+  for (const { kind, file } of CASES) {
+    it(`${kind}: dieci righe vuote sopra il restringimento lasciano il gate verde`, () => {
+      const { site, lines } = declaredSite(file);
+      const shifted = [...lines.slice(0, site.line - 1), ...Array(10).fill(''), ...lines.slice(site.line - 1)];
+      const rescanned = scanSources([{ file, src: shifted.join('\n') }]).windows;
+      const moved = rescanned.find((w) => siteKey(w) === siteKey(site));
+      expect(moved?.line, 'lo scanner deve ritrovare il costrutto più in basso').toBe(site.line + 10);
+      expect(auditAllowlist(rescanned, new Set([file]))).toEqual({ undeclared: [], orphans: [] });
+    });
+
+    it(`${kind}: cambiare l espressione del restringimento rende il gate rosso`, () => {
+      const { site, lines, valueLine } = declaredSite(file);
+      const changed = [...lines];
+      const widened = String(site.hours! + 1);
+      changed[valueLine] = changed[valueLine].replace(new RegExp(`\\b${site.hours}\\b`), widened);
+      expect(changed[valueLine], 'la mutazione deve toccare il valore').not.toBe(lines[valueLine]);
+      const rescanned = scanSources([{ file, src: changed.join('\n') }]).windows;
+      const audit = auditAllowlist(rescanned, new Set([file]));
+      expect(audit.undeclared.some((u) => u.includes(`${widened}`) && u.startsWith(`${file} :: ${site.anchor}`))).toBe(true);
+      expect(audit.orphans).toContain(siteKey(site));
+    });
+  }
+});
+

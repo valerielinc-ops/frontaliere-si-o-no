@@ -195,7 +195,8 @@ export function mergeAppErrorRecency(entries, data, { today, recentDays = APP_ER
  * @param {object} opts.headers
  * @param {object} opts.baseRequest  porta `dateRanges`
  * @param {number} [opts.limit]
- * @returns {Promise<{ appErrors: Array<object>, recency: {status: string, days: number, since: string}|null }>}
+ * @returns {Promise<{ appErrors: Array<object>, recency: {status: string, days: number, since: string}|null, complete: boolean }>}
+ *   `complete`: la query principale ha risposto e non ha tagliato righe (l'elenco non e' un top-N parziale).
  */
 export async function fetchAppErrorsWithRecency({ fetchImpl, url, headers, baseRequest, limit = 30 }) {
   const mainQuery = async (eventName, defaultType) => {
@@ -215,21 +216,40 @@ export async function fetchAppErrorsWithRecency({ fetchImpl, url, headers, baseR
     });
     if (!res.ok) return null;
     const data = await res.json();
-    return (data.rows || []).map((r) => appErrorEntryFromRow(r, { defaultType }));
+    const rows = data.rows || [];
+    const total = data.rowCount == null ? NaN : Number(data.rowCount);
+    // Su dimensioni ad alta cardinalita' (`error_message`) GA4 puo' piegare la
+    // coda in una riga `(other)` e contarla in `rowCount` come una riga sola:
+    // una firma finita li' dentro sembrerebbe assente da un elenco completo.
+    const folded = rows.some((r) => (r.dimensionValues || []).some((d) => d?.value === '(other)'));
+    return {
+      entries: rows.map((r) => appErrorEntryFromRow(r, { defaultType })),
+      // Un top-N: l'elenco e' COMPLETO solo se GA4 non ha tagliato righe.
+      // `rowCount` e' il totale delle righe della query; GA4 lo omette quando
+      // non ce ne sono, e allora vale «meno righe del `limit`».
+      complete: !folded && (Number.isFinite(total) ? total <= rows.length : rows.length < limit),
+    };
   };
 
   let eventName = 'app_error';
   let defaultType = '';
-  let appErrors = (await mainQuery(eventName, defaultType)) || [];
+  const primary = await mainQuery(eventName, defaultType);
+  let used = primary;
+  let appErrors = primary?.entries || [];
   if (!appErrors.length) {
     const fallback = await mainQuery('exception', 'exception');
     if (fallback) {
-      appErrors = fallback;
+      used = fallback;
+      appErrors = fallback.entries;
       eventName = 'exception';
       defaultType = 'exception';
     }
   }
-  if (!appErrors.length) return { appErrors, recency: null };
+  // `complete` dice al chiuditore del feeder (scripts/app-error-issue-sync.mjs)
+  // se una firma ASSENTE dall'elenco e' davvero a zero nella finestra, o solo
+  // oltre il taglio del top-N. Una query `app_error` fallita non misura nulla.
+  const complete = primary !== null && used?.complete === true;
+  if (!appErrors.length) return { appErrors, recency: null, complete };
 
   let recencyData = null;
   try {
@@ -252,6 +272,7 @@ export async function fetchAppErrorsWithRecency({ fetchImpl, url, headers, baseR
   return {
     appErrors: merged.entries,
     recency: { status: merged.status, days: APP_ERROR_RECENT_DAYS, since: merged.cutoff },
+    complete,
   };
 }
 
