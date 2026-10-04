@@ -149,4 +149,15 @@ describe('automation e-mails', () => {
       detail: 'Unexpected token',
     });
   });
+
+  // Close-out of 2026-10-03: the runner checks the facts again right before sending; nothing left.
+  it('tells Valerie that a send the fact gate stopped did not leave, and how to release it', () => {
+    const stopped = describeTakeover({ reason: 'fact_check_not_acknowledged', stage: 'submit', attempts: 1 });
+    expect(stopped.reason).toBe('l’invio non è riuscito: nei testi restano fatti non verificati senza la tua conferma');
+    expect(stopped.hint).toContain('Non è partito nulla');
+    expect(stopped.hint).toContain('«Ho verificato»');
+    expect(stopped.hint).toContain('«Riprova l’invio automatico»');
+    expect(stopped.hint).not.toContain('prima di inviarla di nuovo');
+    expect(stopped.detail).toBe('');
+  });
 });

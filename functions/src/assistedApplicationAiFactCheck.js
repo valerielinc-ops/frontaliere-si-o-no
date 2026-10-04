@@ -32,14 +32,67 @@
  *     whole word: "machine learning" holds no "Chinese");
  *   - a tool the posting names, quoted as something still to learn ("motivated
  *     to learn the hotel's LQA and Forbes standards"), is no claim of having it.
+ *
+ * Repair of 2026-10-03/04 (close-out of the study): two of those exemptions let
+ * invented claims through, and one hole was there from the start:
+ *   - the gap: one learn verb in any tense, or one bare negation, in the
+ *     clause was enough ("I learned Kubernetes and AWS in my last job", "Ich
+ *     setze Kubernetes ohne Probleme produktiv ein", "J'ai pu apprendre
+ *     Kubernetes", "Non ho difficoltà a lavorare con SAP" passed). Lists of
+ *     cue words, or a template closed only around the tool, let through what
+ *     they do not foresee ("I wouldn't say I'm new to SAP", "I have no
+ *     experience with SAP, outside of a two-day workshop"), so the whole
+ *     sentence is closed now (lib/honestGap.js): it keeps its gaps only when
+ *     it splits into closed templates (a lack, a wish to learn, a pronoun that
+ *     learns the tool, a neutral clause); anything else in it, even a piece
+ *     about a tool the CV backs, makes every tool of it a claim, as before the
+ *     exemption. What passes is reported as a `gap` advisory, so the owner sees
+ *     it. Probed with the twelve probe sets of the close-out and the 442 claims
+ *     of two adversarial reviews: no claim passes; 11 of their 80 natural
+ *     honest gaps are false alarms the owner confirms, most of them a gap in a
+ *     sentence that says something else too (3 of the first 40, against 15 at
+ *     HEAD). The letter prompt asks for a gap in a short sentence of its own;
+ *   - the glued token: any capital after it was a boundary, so "JavaScript"
+ *     backed "Java" and "GoPro" backed "Go", in the tailored CV too
+ *     (backsClaim is shared). Now only a token with a digit, or one before a
+ *     level word ("ExcelAvanzato") that does not end a longer name with it
+ *     ("ReactNative");
+ *   - the digits of a phone number, an e-mail address or a link in the
+ *     candidate's texts and in the order line backed any equal figure ("un
+ *     team di 45 persone"), in the letter and in the tailored CV: contact
+ *     data is taken out before the candidate's numbers are read (phoneNumbers
+ *     reads the formats a CV writes, never a date, a year after the number
+ *     or a figure of nine digits), and is no figure in the checked text either
+ *     (the e-mail is signed with the candidate's phone and may quote the CV's
+ *     link without its scheme); the candidate's own number is no unknown phone
+ *     in another format ("079 …" in the CV, "+41 79 …" in the signature).
  */
 
+import { gapReader } from './lib/honestGap.js';
 import { mentionsVocabularyTool, vocabularyTools } from './lib/toolVocabulary.js';
 
 const NUMBER_RE = /\d(?:[\d'’.,  ]*\d)?/g;
-const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+// From the start of the address only: without the look-behind every character of a long word restarts it.
+const EMAIL_RE = /(?<![A-Za-z0-9._%+-])[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
 const URL_RE = /\b(?:https?:\/\/|www\.)[^\s<>()"']+/gi;
 const PHONE_RE = /(?:\+|00)\d[\d\s/.-]{7,}\d/g;
+// A link written without its scheme: with a path ("linkedin.com/in/…"), or a bare domain under a common
+// top-level domain ("mariarossi4521.ch").
+const BARE_URL_RE = /(?<![\p{L}\p{N}@.])(?:[a-z0-9-]+\.)+(?:[a-z]{2,}\/[^\s<>()"']*|(?:ch|li|it|de|at|fr|com|net|org|eu|io|info|biz|co|uk|me|dev|app)(?![\p{L}\p{N}]))/giu;
+// A run of digit groups as a phone number is written: groups split by one space of any width (never a
+// line break), a dot, or a hyphen or a slash with or without spaces ("091 / 123 45 67"); a prefix
+// ("+41", "0041", "(+41)") and a trunk zero in brackets ("(0)79") only at the start or after the prefix. A
+// label may be glued to it ("Tel.079 …"), a digit never. phoneNumbers reads which part of it is a number.
+const PHONE_SEPARATOR = String.raw`(?:[^\S\n]?[\/-][^\S\n]?|[^\S\n]|\.)`;
+const PHONE_RUN_RE = new RegExp(String.raw`(?<![\p{L}\p{N}])(?<!\p{N}[.,'’/-])(?:\(?(?:\+|00)\d{1,3}\)?|\(0\)[^\S\n]?\d|\(?\d)[\d()]*(?:${PHONE_SEPARATOR}\(?\d[\d()]*)*(?!\d)`, 'gu');
+const PHONE_GROUP_RE = new RegExp(String.raw`\(?(?:\+|00)?\d[\d()]*|\(0\)`, 'gu');
+// A date at the start of a run ("03.2005", "01.03.2021", "(03/2021"), or in it: never a phone number.
+const DATE_START_RE = /^\(?\d{1,2}[./-](?:\d{1,2}[./-])?(?:19|20)\d{2}(?!\d)/;
+const DATE_IN_RE = /(?<!\d)\d{1,2}[./](?:\d{1,2}[./])?(?:19|20)\d{2}(?!\d)/;
+const YEAR_GROUP_RE = /^(?:19|20)\d{2}$/;
+// The label a CV writes before a phone number: after it, a number of seven digits or more is one, even
+// without a trunk zero ("Tel. 234 56 78" in Liechtenstein).
+const PHONE_LABEL_RE = /(?:^|[^\p{L}])(?:tel|tél|telefon|telefono|téléphone|phone|mobile|mobil|natel|handy|cell|cellulare|portable|fax)\.?[^\S\n]*[:/]?[^\S\n]*$/iu;
 // The posting's reference the e-mail subject keeps ("réf. INF-2026-17",
 // assistedApplicationAiPrompts.js): its letters are the employer's, not a tool.
 const REFERENCE_RE = /\b(?:rif|ref|réf|riferimento|référence|reference|kennziffer|referenznummer|referenz|job[- ]?id|stellen-?id)\b\.?\s*[:#]?\s*[A-Z0-9/_.-]*\d[A-Z0-9/_.-]*/gi;
@@ -161,14 +214,30 @@ export function claimTokens(text) {
   return [...vocabulary, ...shaped].sort((left, right) => left.index - right.index);
 }
 
+// The word a CV's table writes next to a language or a tool: its level, in the four languages.
+const LEVEL_WORDS = 'Intermedio|Avanzato|Base|Elementare|Ottimo|Buono|Fluente|Madrelingua|Scolastico'
+  + '|Advanced|Intermediate|Basic|Beginner|Fluent|Native|Proficient'
+  + '|Gut|Sehr|Fliessend|Fließend|Fortgeschritten|Grundkenntnisse|Muttersprache|Verhandlungssicher'
+  + '|Courant|Avancé|Intermédiaire|Débutant|Bon|Maternelle|Notions';
+
 /**
  * A PDF text layer may glue a token to the word after it ("B1Intermedio:",
  * the column of a table): in the raw text the capital that starts that word
- * is a boundary. Never a lowercase run ("B1x") nor a digit ("B12").
+ * is a boundary. Only for a token that carries a digit (a level, "ISO 9001"),
+ * or before a level word ("ExcelAvanzato") that does not end a longer name
+ * with it ("ReactNative"): any capital would make the start of a longer name
+ * back the shorter one ("Java" in "JavaScript", "Go" in "GoPro"). Never a
+ * lowercase run ("B1x") nor a digit ("B12").
  */
 function gluedInRaw(raw, token) {
-  return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(String(token))}(?=\\p{Lu}\\p{Ll})`, 'u').test(String(raw || ''));
+  const source = String(raw || '');
+  const name = escapeRegExp(String(token));
+  if (/\p{N}/u.test(String(token))) return new RegExp(`(?<![\\p{L}\\p{N}])${name}(?=\\p{Lu}\\p{Ll})`, 'u').test(source);
+  // A level word that also ends a longer name is that name: "ReactNative" is React Native, not React.
+  const glued = new RegExp(`(?<![\\p{L}\\p{N}])${name}(${LEVEL_WORDS})(?![\\p{L}\\p{N}])`, 'gu');
+  return [...source.matchAll(glued)].some((match) => !namesOneTool(`${token} ${match[1]}`));
 }
+const namesOneTool = (phrase) => vocabularyTools(phrase).some((hit) => hit.index === 0 && hit.length === phrase.length);
 
 /** Whether the candidate's texts back a claim token (by its vocabulary aliases when it has a name). */
 export function backsClaim({ folded, raw }, claim) {
@@ -201,8 +270,119 @@ export function numbersOf(text) {
   return numbers;
 }
 
-const join = (texts) => (texts || []).filter(Boolean).map(String).join('\n');
+// Invisible characters (a soft hyphen, a zero-width space, a byte-order mark) and the rare apostrophes are
+// taken out of every text the gate reads, sources and generated texts alike: "SA\u00ADP" is SAP.
+const visible = (value) => String(value || '').replace(/\p{Cf}/gu, '').replace(/[ʼʻ´`＇]/g, "'");
+const join = (texts) => (texts || []).filter(Boolean).map(visible).join('\n');
 const wordsOf = (text) => new Set(foldText(text).split(/[^\p{L}\p{N}]+/u).filter(Boolean));
+
+/** Each line of a text with the offset it starts at. */
+function lineStarts(text) {
+  let offset = 0;
+  return String(text || '').split('\n').map((line) => {
+    const start = offset;
+    offset += line.length + 1;
+    return [line, start];
+  });
+}
+
+/**
+ * The phone numbers of one line, as a CV writes them: with a prefix ("+41 79 123 45 67", "0041 …",
+ * "+41 (0)79 …", "(+41) 79 …"), from the trunk zero ("079 123 45 67", "(091) 123 45 67", "(0)79 123 45 67",
+ * "0151 1234 5678", "06 12 34 56 78") or as a ten-digit Italian mobile ("333 1234567", "347.1234567"). A
+ * number ends where a Swiss number is whole (0xx xxx xx xx, +41 xx xxx xx xx), before a year that follows
+ * a long enough number ("091 123 45 67 2015 – 2017"), and before a group that would make it too long; a
+ * date is none ("03.2005 - 12.2009"), nor a figure with nine digits ("300.000.000", "CHF 320 000 000").
+ * @returns {Array<{index:number, length:number, key:string}>} key: the last nine digits, as index.phones keeps a number
+ */
+function phoneNumbers(line) {
+  const found = [];
+  for (const run of String(line || '').matchAll(PHONE_RUN_RE)) {
+    const groups = [...run[0].matchAll(PHONE_GROUP_RE)].map((match) => ({
+      text: match[0],
+      start: run.index + match.index,
+      end: run.index + match.index + match[0].length,
+    }));
+    const labelled = PHONE_LABEL_RE.test(String(line).slice(Math.max(0, run.index - 16), run.index));
+    let first = 0;
+    while (first < groups.length) {
+      const number = readPhone(groups, first, run[0].slice(groups[first].start - run.index), first === 0 && labelled);
+      if (!number) { first += 1; continue; }
+      found.push(number.phone);
+      first = number.next;
+    }
+  }
+  return found;
+}
+
+/** The phone number that starts at a group of a run, or null. */
+function readPhone(groups, first, rest, labelled) {
+  if (DATE_START_RE.test(rest)) return null;
+  const head = groups[first].text;
+  const international = /^\(?(?:\+|00)/.test(head);
+  const trunk = /^\(0\)/.test(head) || /^\(?0/.test(head);
+  const mobile = /^3\d{2}(?:\d{7})?$/.test(head);
+  // A Swiss mobile without its trunk zero ("79 123 45 67"): only in that exact shape.
+  const bare = /^7[5-9]$/.test(head) && groups.slice(first + 1, first + 4).map((group) => group.text.length).join() === '3,2,2'
+    && groups.slice(first + 1, first + 4).every((group) => /^\d+$/.test(group.text));
+  if (bare) {
+    const end = groups[first + 3].end;
+    return { phone: { index: groups[first].start, length: end - groups[first].start, key: digitsOnly(rest.slice(0, end - groups[first].start)) }, next: first + 4 };
+  }
+  if (!international && !trunk && !mobile && !labelled) return null;
+  // A prefix written together with the number ("+41791234567"): its country is not told apart.
+  const together = international && digitsOnly(head).replace(/^00/, '').length > 3;
+  const country = international && !together ? digitsOnly(head).replace(/^00/, '') : '';
+  let national = international && !together ? '' : digitsOnly(head).replace(/^00/, '');
+  const sizes = international ? [] : [national.length];
+  let last = first;
+  for (let position = first + 1; position < groups.length; position += 1) {
+    const digits = digitsOnly(groups[position].text.replace(/^\(0\)/, ''));
+    const swissWhole = (international ? country === '41' && national.length === 9 : /^0\d{2}$/.test(digitsOnly(head)) && sizes.join() === '3,3,2,2');
+    if (swissWhole) break;
+    if (mobile && national.length === 10) break;
+    if (national.length + digits.length > 12) break;
+    // A whole number of ten digits is not followed by a group of one or two: that is the next figure
+    // ("Tél. 06 12 34 56 78 15 ans", "Tel. 030 1234567 80%").
+    if (national.length >= 10 && digits.length <= 2) break;
+    if (national.length >= 7 && YEAR_GROUP_RE.test(digits)) break;
+    national += digits;
+    sizes.push(digits.length);
+    last = position;
+  }
+  const long = mobile ? national.length === 10 : national.length >= (international || (labelled && !trunk) ? 7 : 9);
+  if (!long) return null;
+  const start = groups[first].start;
+  const end = groups[last].end;
+  if (DATE_IN_RE.test(rest.slice(0, end - start))) return null;
+  return { phone: { index: start, length: end - start, key: `${country}${national}`.slice(-9) }, next: last + 1 };
+}
+
+/**
+ * A text without its contact data. The digits of a phone number, an e-mail
+ * address or a link are not a figure of the candidate: "un team di 45 persone"
+ * was backed by a phone number that holds 45. Dates and years stay: each line
+ * is read alone (a number never runs into the years of the next line), and a
+ * line break takes the place of what is taken out, so the numbers on either
+ * side stay two numbers.
+ * @returns {{text: string, phones: Set<string>, links: Set<string>}} phones: the numbers taken out, by
+ *   their last nine digits (a text may quote the candidate's own number, written as the CV writes it);
+ *   links: every link taken out, as normalizeUrl writes it (a text may quote bare the link the CV writes
+ *   with its scheme)
+ */
+function withoutContactData(text) {
+  const phones = new Set();
+  const links = new Set();
+  const link = (match) => { links.add(normalizeUrl(match)); return '\n'; };
+  const lines = String(text || '').split('\n').map((source) => {
+    const line = source.replace(EMAIL_RE, '\n').replace(URL_RE, link).replace(BARE_URL_RE, link);
+    return phoneNumbers(line).reverse().reduce((rest, phone) => {
+      phones.add(phone.key);
+      return `${rest.slice(0, phone.index)}\n${rest.slice(phone.index + phone.length)}`;
+    }, line);
+  });
+  return { text: lines.join('\n'), phones, links };
+}
 
 /**
  * Index of what the sources say, normalized once.
@@ -210,7 +390,7 @@ const wordsOf = (text) => new Set(foldText(text).split(/[^\p{L}\p{N}]+/u).filter
  * @param {{claimSources?: string[], numberSources?: string[], echoSources?: string[], entitySources?: string[]}} [options]
  *   claimSources: the texts that back a tool (the candidate's own); without them tools are not checked.
  *   numberSources: the texts a number of a claim field may come from (the candidate's own and the
- *     order line); without them any source backs a number, as before.
+ *     order line), their contact data aside; without them any source backs a number, as before.
  *   echoSources: the posting, for the advisory on capitalised words echoed from it.
  *   entitySources: the texts that may name an employer (candidate, order, posting); default: all sources.
  *   nameSources: names the text may quote whole, one per line (the company, the job title, the place):
@@ -221,8 +401,12 @@ export function buildFactIndex(sources, { claimSources, numberSources, echoSourc
   const text = join(sources);
   const emails = new Set([...text.matchAll(EMAIL_RE)].map((match) => match[0].toLowerCase()));
   const urls = new Set([...text.matchAll(URL_RE)].map((match) => normalizeUrl(match[0])));
-  const phones = new Set([...text.matchAll(PHONE_RE)].map((match) => digitsOnly(match[0]).slice(-9)));
+  // A phone of the sources, never the digits inside an e-mail address or a link, with or without its scheme
+  // ("maria+41791234567@…", "linkedin.com/in/+41791234567").
+  const phones = new Set([...text.replace(EMAIL_RE, ' ').replace(URL_RE, ' ').replace(BARE_URL_RE, ' ').matchAll(PHONE_RE)]
+    .map((match) => digitsOnly(match[0]).slice(-9)));
   const claimRaw = claimSources ? join(claimSources) : null;
+  const contacts = numberSources ? withoutContactData(join(numberSources)) : null;
   return {
     numbers: numbersOf(text),
     emails,
@@ -234,7 +418,10 @@ export function buildFactIndex(sources, { claimSources, numberSources, echoSourc
     claimWords: claimRaw === null ? null : wordsOf(`${claimRaw}\n${join(nameSources)}`),
     names: join(nameSources).split('\n').map((line) => line.trim()).filter((line) => line.length >= 3),
     namesText: foldText(join(nameSources)),
-    claimNumbers: numberSources ? numbersOf(join(numberSources)) : null,
+    claimNumbers: contacts ? numbersOf(contacts.text) : null,
+    // The candidate's own phone numbers that PHONE_RE does not read ("079 123 45 67"), and links.
+    contactPhones: contacts ? contacts.phones : null,
+    contactLinks: contacts ? contacts.links : null,
     echoWords: echoSources ? wordsOf(join(echoSources)) : null,
     entityText: ` ${foldText(join(entitySources || sources)).replace(/[^\p{L}\p{N}]+/gu, ' ')} `,
   };
@@ -265,14 +452,6 @@ const quotesRequirement = (text, index) => {
   return NEGATION_CUE.test(clause) && REQUIREMENT_CUE.test(clause);
 };
 
-// "I am motivated to learn the hotel's LQA and Forbes standards": a tool the
-// posting names, in a clause that says it is still to be learnt (or not had),
-// is the candidate being honest about a gap, not a claim of having it.
-const LEARN_CUE = /(imparar|apprender|acquisir|approfondir|formarmi|familiarizzar|\blernen|erlernen|anzueignen|aneignen|einarbeiten|einzuarbeiten|vertraut (?:zu )?machen|apprendre|me former|acquérir|me familiariser|\blearn|\bacquir|familiari[sz]e|get up to speed)/i;
-const quotesGap = (text, index) => {
-  const clause = clauseAround(text, index);
-  return LEARN_CUE.test(clause) || NEGATION_CUE.test(clause);
-};
 /** Every run of a token is a word of the posting ("LQA", "ISO 9001"). */
 const postingNames = (echoWords, token) => {
   const runs = foldText(token).split(/[^\p{L}\p{N}]+/u).filter(Boolean);
@@ -375,7 +554,7 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
   const inSet = (set, digits, parts) => set.has(digits) || (parts.length > 1 && parts.every((part) => set.has(part)));
 
   for (const [field, raw] of Object.entries(texts || {})) {
-    const text = String(raw || '');
+    const text = visible(raw);
     if (!text) continue;
     const claimField = !toolFields || toolFields.includes(field);
     const masked = [];
@@ -395,7 +574,9 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     }
     for (const match of text.matchAll(PHONE_RE)) {
       masked.push([match.index, match[0].length]);
-      if (!index.phones.has(digitsOnly(match[0]).slice(-9))) {
+      // The candidate's own number, written as the CV writes it or with the prefix ("079 …" and "+41 79 …").
+      const key = digitsOnly(match[0]).slice(-9);
+      if (!index.phones.has(key) && !index.contactPhones?.has(key)) {
         flag(field, 'phone', match[0].trim(), contextAround(text, match.index, match[0].length));
       }
     }
@@ -410,7 +591,16 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     const claims = checksClaims ? claimTokens(text).filter((claim) => !within(nameSpans, claim.index)) : [];
     // The digits of a tool's name ("ISO 13485", "Office 365") are judged with the tool, not as a figure.
     const toolSpans = claims.map((claim) => [claim.index, claim.length]);
-    for (const match of text.matchAll(NUMBER_RE)) {
+    // Nor are those of the candidate's own phone number or link, written as the sources write them
+    // (the signature of the e-mail): they back no figure there, and are none here. Struck out, so a
+    // figure next to them is still read alone.
+    const figures = [
+      ...lineStarts(text).flatMap(([line, offset]) => phoneNumbers(line).filter((phone) => index.contactPhones?.has(phone.key))
+        .map((phone) => ({ index: offset + phone.index, length: phone.length }))),
+      ...[...text.matchAll(BARE_URL_RE)].filter((match) => index.contactLinks?.has(normalizeUrl(match[0])))
+        .map((match) => ({ index: match.index, length: match[0].length })),
+    ].reduce((plain, { index: at, length }) => `${plain.slice(0, at)}${'#'.repeat(length)}${plain.slice(at + length)}`, text);
+    for (const match of figures.matchAll(NUMBER_RE)) {
       if (isMasked(match.index) || within(toolSpans, match.index)) continue;
       const token = match[0].trim().replace(/[.,]$/, '');
       const digits = digitsOnly(token);
@@ -423,10 +613,15 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     }
     if (!checksClaims) continue;
     const claimSide = { folded: index.claimText, raw: index.claimRaw };
+    const quotesGap = gapReader(text, claims);
     for (const claim of claims) {
       if (isMasked(claim.index) || backsClaim(claimSide, claim)) continue;
-      // Named by the posting and quoted as still to learn (or not had): the gap said honestly, no claim.
-      if (postingNames(index.echoWords, claim.token) && quotesGap(text, claim.index)) continue;
+      // Named by the posting and quoted as still to learn (or not had): the gap said honestly, no
+      // claim. Reported all the same, so the owner sees what was let through.
+      if (postingNames(index.echoWords, claim.token) && quotesGap(claim)) {
+        advise(field, 'gap', claim.token, contextAround(text, claim.index, claim.length));
+        continue;
+      }
       flag(field, 'tool', claim.token, contextAround(text, claim.index, claim.length));
     }
     // Employers: a name closed by a legal form, or introduced by presso/chez/at.

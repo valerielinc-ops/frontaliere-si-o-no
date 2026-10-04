@@ -28,6 +28,7 @@ import { scheduleFollowups } from '../../functions/src/assistedApplicationFollow
 import { submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
+import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
@@ -38,6 +39,26 @@ const DRAFT_STATES = new Set(['drafting', 'regenerating']);
 function summary(line) {
   console.log(`[assisted-application] ${line}`);
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${line}\n`);
+}
+
+/**
+ * A submit the fact gate stopped carries the gate's result of today
+ * (lib/submit.mjs). It is taken out of the event, whose tokens quote the
+ * candidate's texts, and returned as the draft keeps it: with the basis of the
+ * draft's own check. Stored, the owner's panel lists the tokens and the flow
+ * holds on them (evaluateRedFlags) until the owner confirms them.
+ * @returns {object|null} the patch for ai_drafts/current
+ */
+export function takeFactCheck(event, draft) {
+  if (!event.factCheck) return null;
+  const patch = { factCheck: { ...event.factCheck, basis: draft?.factCheck?.basis || null } };
+  // An older confirmation, stored without its warnings, covered the result the draft held: those warnings
+  // are kept, so the new result's are not taken as confirmed (factCheckAcknowledged).
+  if ((draft?.factCheckAcknowledgedAt || draft?.acknowledgedFlags?.fact_check) && !Array.isArray(draft?.factCheckAcknowledgedTokens)) {
+    patch.factCheckAcknowledgedTokens = factCheckTokens(draft?.factCheck);
+  }
+  delete event.factCheck;
+  return patch;
 }
 
 /** Error text safe for a public log: no addresses, no long free text. */
@@ -200,6 +221,10 @@ async function main() {
       }
       delete event.stopReport;
     }
+    // The fact gate's result of a stopped submit, next to the draft before the
+    // event moves the flow; never in the event or the log.
+    const factCheckPatch = takeFactCheck(event, previousDraft);
+    if (factCheckPatch && !dryRun) await orderRef.collection('ai_drafts').doc('current').set(factCheckPatch, { merge: true });
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
     if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
