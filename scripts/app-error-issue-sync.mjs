@@ -21,8 +21,9 @@
  * signature is measured below threshold in the last 7 days of two DIFFERENT
  * complete reports, with no recurrence in between, is closed with the
  * evidence. A signature that this feeder drops by rule (deny-list, message-less
- * bucket) is «not measured», never «clean»: a zero produced by a filter is
- * not a recovery.
+ * bucket) or that the client drops before GA4 (services/benignErrorPatterns.ts,
+ * mirrored in CLIENT_APP_ERROR_DROP_PATTERNS) is «not measured», never
+ * «clean»: a zero produced by a filter is not a recovery.
  *
  * Labeled `stability` + `app-error` — NOT `agent:fix`. AGENTS.md's
  * auto-route allowlist is `crawler`/`follow-up` only; a real user-facing
@@ -122,12 +123,60 @@ export function signatureFromIssueBody(body) {
   return null;
 }
 
-/** Tipo e messaggio (troncato a 60) ricavati dal titolo, per il solo controllo di deny-list. */
-function signatureFromTitle(title) {
-  const rest = String(title ?? '').slice(APP_ERROR_TITLE_PREFIX.length);
-  const cut = rest.indexOf(' — ');
-  if (cut < 0) return { type: '', message: rest.replace(/…$/, '') };
-  return { type: rest.slice(0, cut).replace(/…$/, ''), message: rest.slice(cut + 3).replace(/…$/, '') };
+/**
+ * I messaggi che il CLIENT non invia mai come `app_error`: copia di
+ * `UNIVERSAL_BENIGN_PATTERNS` + `APP_ERROR_ONLY_PATTERNS` di
+ * services/benignErrorPatterns.ts, nello stesso ordine (uno script .mjs non
+ * importa il .ts; la parita' la fissa tests/app-error-monitor-closer.test.ts).
+ * Serve al solo chiuditore: una firma che il client ha iniziato a scartare
+ * dopo il conio (7919, PR 8579) va a zero per regola, non per guarigione.
+ */
+export const CLIENT_APP_ERROR_DROP_PATTERNS = [
+  /ResizeObserver loop/i,
+  /^(?:Error: )?Script error\.?$/i,
+  /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
+  /Installations:.*Application offline\b/i,
+  /Remote Config:.*Original error:.*(Failed to fetch|Load failed|aborted|Database deleted|client is offline)/i,
+  /Firebase:.*auth\/network-request-failed/i,
+  /Connection to Indexed Database server lost/i,
+  /Failed to execute 'transaction' on 'IDBDatabase'/i,
+  /InvalidStateError.*IDBDatabase/i,
+  /Object store cannot be found in the database/i,
+  /UnknownError.*IDBDatabase/i,
+  /Database deleted by request of the user/i,
+  /^(?:TypeError: )?Load failed$/i,
+  /^(?:TypeError: )?Failed to fetch$/i,
+  /^(?:TypeError: )?NetworkError when attempting to fetch resource\.?$/i,
+  /AbortError: (?:The user aborted a request|The operation was aborted|signal is aborted|AbortError)/i,
+  /SecurityError.*Blocked a frame.*cross-origin/i,
+  /window\.ethereum|MetaMask/i,
+  /__firefox__/,
+  /__gCrWeb/,
+  /TrackerStorageType/,
+  /Invalid call to (?:runtime|tabs)\.sendMessage\(\)\. Tab not found\.?/i,
+  /\bstandardSelectors\b/,
+  /Unexpected token ['"]?\?['"]?/i,
+  /NotReadableError: The I\/O read operation failed/i,
+  /Failed to load Google Identity Services/i,
+  /Failed to get document because the client is offline/i,
+  /Importing a module script failed/i,
+  /\[exchangeRate\.twelveDataFetch\]/i,
+];
+
+/**
+ * Messaggi che il client scarta solo IN PARTE, per user agent o forma dello
+ * stack (`STACK_OVERFLOW_MESSAGE_PATTERN`, filtro di
+ * `isGoogleIosAppInjectedStackOverflow`, 8773): uno zero sulla firma puo'
+ * essere il filtro, quindi neanche questa e' una misura.
+ */
+export const CLIENT_APP_ERROR_PARTIAL_DROP_PATTERNS = [
+  /Maximum call stack size exceeded/i,
+];
+
+/** True se il client scarta (in tutto o in parte) il messaggio prima di GA4. */
+export function isClientDropped(message) {
+  const text = String(message ?? '');
+  return [...CLIENT_APP_ERROR_DROP_PATTERNS, ...CLIENT_APP_ERROR_PARTIAL_DROP_PATTERNS].some((re) => re.test(text));
 }
 
 /** `last7d` se il report lo ha misurato, altrimenti `null` (non uno zero). */
@@ -274,9 +323,12 @@ export function actionableEntries(appErrors) {
  *   - il report ha una data di generazione (`measure` = il giorno: due
  *     esecuzioni sullo stesso report non sono due conferme);
  *   - la firma non e' scartata per regola dal feeder (deny-list, messaggio
- *     vuoto): uno zero prodotto dal filtro non e' una guarigione;
+ *     vuoto) ne' dal client (`isClientDropped`): uno zero prodotto dal filtro
+ *     non e' una guarigione;
  *   - la firma si riconosce senza ambiguita' (MONITOR_KEY, righe del corpo,
- *     oppure un titolo che UNA sola firma del report produce);
+ *     oppure un titolo che UNA sola firma del report produce; un titolo che
+ *     nessuna riga produce non basta: il messaggio troncato a 60 caratteri non
+ *     si verifica contro le deny-list);
  *   - presente: ogni sua riga di produzione porta `last7d`;
  *     assente: l'elenco e' dichiarato completo (`appErrorsComplete`), non un
  *     top-N tagliato.
@@ -337,11 +389,19 @@ export function appErrorReconcile(report, { minCount = MIN_COUNT } = {}) {
         if (distinct.size > 1) {
           return incomplete(`titolo ambiguo: ${distinct.size} firme del ${reportRef} hanno questo titolo e la issue non porta MONITOR_KEY`);
         }
-        sig = distinct.size === 1 ? [...distinct.values()][0] : signatureFromTitle(title);
+        if (distinct.size === 0) {
+          // Il titolo tronca il messaggio a 60 caratteri: su quel moncone la
+          // deny-list e il filtro del client non si possono verificare.
+          return incomplete('firma non ricostruibile: solo il titolo troncato, nessun MONITOR_KEY ne\' righe Type/Message');
+        }
+        sig = [...distinct.values()][0];
       }
 
       if (!hasActionableErrorMessage(sig.message) || isIssueDenied(sig.message, sig.type)) {
         return incomplete('firma esclusa dal feeder per regola (deny-list o messaggio vuoto): non misurata, la chiusura la decide chi legge');
+      }
+      if (isClientDropped(sig.message)) {
+        return incomplete('firma scartata dal client per regola (services/benignErrorPatterns.ts): non misurata, la chiusura la decide chi legge');
       }
       if (hotTitles.has(title)) {
         return {

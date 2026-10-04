@@ -132,6 +132,13 @@ describe('fetchAppErrorsWithRecency — the three GA4 requests behind errorHealt
     expect(cut.complete).toBe(false);
   });
 
+  it('a row folded into GA4 `(other)` is not a complete list, even when rowCount matches', async () => {
+    const recencyRows = { rows: [row('TypeError', 'live', '/it/', 'frontaliereticino.ch', '2026-01-30', 6)] };
+    const rows = [mainRow('TypeError', 'live', 40), mainRow('(other)', '(other)', 12)];
+    const out = await run(fakeGa4([{ rows, rowCount: rows.length }, recencyRows]).fetchImpl);
+    expect(out.complete).toBe(false);
+  });
+
   it('a failed app_error query is not a complete list, even when the exception fallback answers', async () => {
     const out = await run(fakeGa4([{ ok: false }, { rows: [] }]).fetchImpl);
     expect(out.appErrors).toEqual([]);

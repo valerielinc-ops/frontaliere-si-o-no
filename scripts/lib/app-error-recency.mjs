@@ -218,12 +218,16 @@ export async function fetchAppErrorsWithRecency({ fetchImpl, url, headers, baseR
     const data = await res.json();
     const rows = data.rows || [];
     const total = data.rowCount == null ? NaN : Number(data.rowCount);
+    // Su dimensioni ad alta cardinalita' (`error_message`) GA4 puo' piegare la
+    // coda in una riga `(other)` e contarla in `rowCount` come una riga sola:
+    // una firma finita li' dentro sembrerebbe assente da un elenco completo.
+    const folded = rows.some((r) => (r.dimensionValues || []).some((d) => d?.value === '(other)'));
     return {
       entries: rows.map((r) => appErrorEntryFromRow(r, { defaultType })),
       // Un top-N: l'elenco e' COMPLETO solo se GA4 non ha tagliato righe.
       // `rowCount` e' il totale delle righe della query; GA4 lo omette quando
       // non ce ne sono, e allora vale «meno righe del `limit`».
-      complete: Number.isFinite(total) ? total <= rows.length : rows.length < limit,
+      complete: !folded && (Number.isFinite(total) ? total <= rows.length : rows.length < limit),
     };
   };
 

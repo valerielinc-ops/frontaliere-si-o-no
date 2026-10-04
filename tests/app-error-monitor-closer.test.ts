@@ -30,7 +30,11 @@ const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
 const { reconcileMonitorIssues } = await import('../scripts/lib/monitor-issue-reconcile.mjs');
 const {
   appErrorReconcile, buildIssueBody, signatureFromIssueBody, signatureOf, titleFor,
+  CLIENT_APP_ERROR_DROP_PATTERNS, CLIENT_APP_ERROR_PARTIAL_DROP_PATTERNS,
 } = appErrorSync;
+const {
+  UNIVERSAL_BENIGN_PATTERNS, APP_ERROR_ONLY_PATTERNS, STACK_OVERFLOW_MESSAGE_PATTERN,
+} = await import('../services/benignErrorPatterns');
 
 const DAY = 86_400_000;
 const daysAgo = (n: number) => new Date(Date.now() - n * DAY).toISOString().slice(0, 10);
@@ -176,6 +180,31 @@ describe('replay delle issue reali', () => {
   });
 });
 
+describe('firme scartate dal CLIENT prima di GA4 → non misurate', () => {
+  const asRegex = (p: RegExp) => `/${p.source}/${p.flags}`;
+
+  it('la copia nel feeder è identica, in ordine, a services/benignErrorPatterns.ts', () => {
+    expect(CLIENT_APP_ERROR_DROP_PATTERNS.map(asRegex))
+      .toEqual([...UNIVERSAL_BENIGN_PATTERNS, ...APP_ERROR_ONLY_PATTERNS].map(asRegex));
+    expect(CLIENT_APP_ERROR_PARTIAL_DROP_PATTERNS.map(asRegex)).toEqual([STACK_OVERFLOW_MESSAGE_PATTERN].map(asRegex));
+  });
+
+  const other = entry({ errorMessage: 'altro errore', count: 50, last7d: 1 });
+  it.each([
+    ['filtro totale (ResizeObserver)', 'ResizeObserver loop completed with undelivered notifications.'],
+    ['filtro per UA/stack (stack overflow delle app Google iOS)', 'RangeError: Maximum call stack size exceeded.'],
+  ])('%s: assente da un elenco completo → zero scritture, evidenza «scartata dal client»', async (_label, message) => {
+    const sig = entry({ errorType: 'unhandled_error', errorMessage: message, count: 30 });
+    const issue = { number: 51, title: titleFor(sig), body: buildIssueBody(sig, { errorRate: 0.3, healthStatus: 'ok' }) };
+    const gh = fakeGithub([issue]);
+    const out = await gh.run(reportOf(daysAgo(0), [other]));
+    await gh.run(reportOf(daysAgo(-7), [other]));
+    expect(gh.writes).toEqual([]);
+    expect(out.decisions[0].action).toBe('keep');
+    expect(out.decisions[0].reason).toContain('scartata dal client');
+  });
+});
+
 describe('misura incompleta → zero scritture', () => {
   const sig = entry({ errorMessage: 'sparita', count: 6 });
   const issue = { number: 21, title: titleFor(sig), body: buildIssueBody(sig, { errorRate: 0.3, healthStatus: 'ok' }) };
@@ -242,6 +271,15 @@ describe('titoli che condividono i primi 60 caratteri', () => {
     const v = verdictFor({ number: 33, title: titleFor(a), body: 'corpo riscritto a mano' });
     expect(v.complete).toBe(false);
     expect(v.evidence).toContain('titolo ambiguo');
+  });
+
+  it('senza marker né righe Type/Message e con un titolo che nessuna riga produce → complete:false', () => {
+    // Il moncone di 60 caratteri non si verifica contro le deny-list: la 7919
+    // ha un messaggio negato per intero ma non nel titolo troncato.
+    const title = 'App Error: unhandled_rejection — InvalidStateError: Object store cannot be found in the data…';
+    const v = appErrorReconcile(reportOf(daysAgo(0), [a])).verdictFor({ number: 34, title, body: 'corpo riscritto a mano' });
+    expect(v.complete).toBe(false);
+    expect(v.evidence).toContain('non ricostruibile');
   });
 
   it('MONITOR_KEY sopravvive a spazi, `|` e `-->` nel messaggio', () => {
