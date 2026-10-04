@@ -48,9 +48,9 @@ describe('SuccessFactors publication provenance', () => {
     expect(parseCsbSearchResults(row.replace('deadline', 'colDate'))[0]).toMatchObject({ postedDate: date, postingDateSource: 'reported' });
   });
 
-  it('restores the positional CSB publication date when the date cell is unlabelled', () => {
-    const row = `<tr><td><a href="/job/Engineer/123/">Engineer</a></td><td>Engineering</td><td>Lugano, TI, CH</td><td>${date}</td></tr>`;
-    expect(parseCsbSearchResults(row)[0]).toMatchObject({ postedDate: date, datePosted: date, postingDateSource: 'reported' });
+  it('does not attest an unlabelled CSB last-cell deadline as publication', () => {
+    const row = `<table><thead><tr><th>Title</th><th>Team</th><th>Location</th><th>Application deadline</th></tr></thead><tbody><tr><td><a href="/job/Engineer/123/">Engineer</a></td><td>Engineering</td><td>Lugano, TI, CH</td><td>${date}</td></tr></tbody></table>`;
+    expect(parseCsbSearchResults(row)[0]).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
   });
 
   it('carries the original JSON-LD date through the actual detail fetch and normalizer', async () => {
@@ -69,12 +69,12 @@ describe('SuccessFactors publication provenance', () => {
     expect(results[0]).toMatchObject({ postedAt: date, postedDate: date, datePosted: date, postingDateSource: 'reported' });
   });
 
-  it('restores the positional jobs2web publication date when the date cell is unlabelled', async () => {
-    vi.stubGlobal('fetch', vi.fn(async () => new Response(`<table><tr><td><a href="/job/Engineer/123/">Engineer</a></td><td>Engineering</td><td>Lugano</td><td>${date}</td></tr></table>`)));
+  it('does not attest an unlabelled jobs2web last-cell deadline as publication', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(`<table><thead><tr><th>Title</th><th>Team</th><th>Location</th><th>Application deadline</th></tr></thead><tr><td><a href="/job/Engineer/123/">Engineer</a></td><td>Engineering</td><td>Lugano</td><td>${date}</td></tr></table>`)));
     const results = [];
     for await (const item of fetchSuccessFactorsJobs('https://careers.oerlikon.com/search/', { minDelayMs: 0, maxPages: 1 })) results.push(item);
     expect(results).toHaveLength(1);
-    expect(results[0]).toMatchObject({ postedAt: date, postedDate: date, datePosted: date, postingDateSource: 'reported' });
+    expect(results[0]).toMatchObject({ postedAt: null, postedDate: '', datePosted: '', postingDateSource: 'unknown' });
   });
 
   it('preserves explicit OData postingStartDate at the source boundary', async () => {

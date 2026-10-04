@@ -947,13 +947,8 @@ function parseJobs2WebSearchRows(html = '', pageUrl = '') {
       : cells[0]?.text || '';
     if (!title || title.length < 3) continue;
     const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
-    const positionalDateCell = cells.length >= 3 ? cells.at(-1) : null;
-    const positionalDate = positionalDateCell && !/\bdeadline\b/i.test(positionalDateCell.className)
-      ? positionalDateCell.text
-      : '';
-    const publication = successFactorsPostingDateFields(
-      dateCell ? normalizeSpace(stripTags(dateCell[1])) : positionalDate,
-    );
+    // Cell position does not identify publication: it may contain an application deadline.
+    const publication = successFactorsPostingDateFields(dateCell ? normalizeSpace(stripTags(dateCell[1])) : '');
     rows.push({
       title,
       url,
