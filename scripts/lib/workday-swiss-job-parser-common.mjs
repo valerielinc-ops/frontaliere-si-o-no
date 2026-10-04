@@ -21,6 +21,7 @@
  * scripts/lib/vontobel-job-parser.mjs).
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isCantonOnlyLabel, isSwissLocationText } from './target-swiss-locations.mjs';
@@ -34,7 +35,7 @@ import {
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
   fetchWorkdaySidebarText,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   workdayPrimaryLocationState,
@@ -669,7 +670,7 @@ export function createWorkdaySwissParser(config) {
           title: id.title,
           locationRaw: posting.locationsText || id.location || '',
           url: id.applyUrl,
-          postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+          ...workdayPostingDateFields(posting),
           externalPath: id.externalPath,
           jobReqId: id.jobReqId,
           timeType: posting.timeType || '',
@@ -1074,7 +1075,7 @@ export function createWorkdaySwissParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+        ...mergeSourcePostingDates(listing, workdayPostingDateFields(detail)),
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

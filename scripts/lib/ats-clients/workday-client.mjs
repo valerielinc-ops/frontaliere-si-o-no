@@ -21,6 +21,7 @@
  *   - Tenant URL:       https://{tenant}.{datacenter}.myworkdayjobs.com/{lang}/{site}
  */
 
+import { sourcePostingDateFields } from '../source-posting-date.mjs';
 import { isSwissLocationText } from '../target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
@@ -694,10 +695,6 @@ export function formatWorkdaySidebarText(entries, stripHtml) {
 
 /* ── Date parsing ──────────────────────────────────────────────────────── */
 
-function dateOnlyIso(ms) {
-  return new Date(ms).toISOString().split('T')[0];
-}
-
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
@@ -815,57 +812,25 @@ export function getWorkdayLocationCandidates(info = {}, listingLocation = '') {
   return rawCandidates.map(normalizeWorkdayLocationCandidate).filter(Boolean);
 }
 
-/**
- * Parse Workday's `postedOn` field into an ISO `YYYY-MM-DD` string.
- *
- * Handles the relative phrases Workday emits across locales:
- *   - "Posted Today" / "Oggi" / "Aujourd'hui" → today
- *   - "Posted Yesterday" / "Ieri" / "Hier" → today − 1
- *   - "Posted N Days Ago" / "N+ Days Ago" / "N giorni fa" / "N jours" → today − N
- *   - "Posted N Weeks Ago" / "N settimane fa" / "N semaines" → today − 7N
- *   - Absolute ISO/Date strings (passed through if parsable)
- *
- * Falls back to today's date when no pattern matches and input is empty.
- * Returns `null` for unparseable non-empty strings so the caller can decide
- * whether to use a fallback.
- *
- * @param {string} postedOnRaw
- * @returns {string|null} `YYYY-MM-DD` ISO date, or null if unparseable.
+/** Only explicit source dates are precise enough to persist as publication dates.
+ * Relative listing labels (including today and 30+ days) carry no source timezone
+ * or exact instant, so they remain unknown until the detail supplies a date.
  */
-export function parseWorkdayPostedDate(postedOnRaw) {
-  const raw = normalizeSpace(postedOnRaw).toLowerCase();
-  if (!raw) return dateOnlyIso(Date.now());
+export function parseWorkdayPostedDate(postedOnRaw, now = new Date()) {
+  return sourcePostingDateFields(normalizeSpace(postedOnRaw), now).postedDate || null;
+}
 
-  if (raw.includes('today') || raw.includes('oggi') || raw.includes('aujourd') || raw.includes('heute')) {
-    return dateOnlyIso(Date.now());
+/** CXS detail startDate is the publication date exposed as datePosted by Workday's
+ * public JobPosting JSON-LD; it is distinct from an arbitrary top-level startDate.
+ * Prefer detail evidence over lossy relative listing labels.
+ */
+export function workdayPostingDateFields(posting, now = new Date()) {
+  const info = posting?.jobPostingInfo || {};
+  for (const value of [info.datePosted, info.startDate, posting?.datePosted, info.postedOn, posting?.postedOn]) {
+    const fields = sourcePostingDateFields(value, now);
+    if (fields.postingDateSource === 'reported') return fields;
   }
-  if (raw.includes('yesterday') || raw.includes('ieri') || raw.includes('hier') || raw.includes('gestern')) {
-    return dateOnlyIso(Date.now() - 86400000);
-  }
-
-  const days = Number(
-    raw.match(/(\d+)\+?\s*day/)?.[1] ||
-      raw.match(/(\d+)\+?\s*giorn/)?.[1] ||
-      raw.match(/(\d+)\+?\s*jour/)?.[1] ||
-      raw.match(/(\d+)\+?\s*tag/)?.[1] ||
-      0,
-  );
-  if (Number.isFinite(days) && days > 0) return dateOnlyIso(Date.now() - days * 86400000);
-
-  const weeks = Number(
-    raw.match(/(\d+)\+?\s*week/)?.[1] ||
-      raw.match(/(\d+)\+?\s*settiman/)?.[1] ||
-      raw.match(/(\d+)\+?\s*semain/)?.[1] ||
-      raw.match(/(\d+)\+?\s*woch/)?.[1] ||
-      0,
-  );
-  if (Number.isFinite(weeks) && weeks > 0) return dateOnlyIso(Date.now() - weeks * 7 * 86400000);
-
-  // Absolute date attempt (ISO / RFC2822 etc.)
-  const absolute = Date.parse(postedOnRaw);
-  if (Number.isFinite(absolute)) return dateOnlyIso(absolute);
-
-  return null;
+  return sourcePostingDateFields('', now);
 }
 
 /* ── Job identity normalization ────────────────────────────────────────── */
@@ -877,7 +842,10 @@ export function parseWorkdayPostedDate(postedOnRaw) {
  * @property {string} title Cleaned job title
  * @property {string} location First location segment (e.g. "Visp" from "Visp - VS, Switzerland")
  * @property {string} company Resolved company display name (from options.company)
- * @property {string|null} postedAt ISO `YYYY-MM-DD` or null
+ * @property {string|null} postedAt Explicit ISO source publication date or null
+ * @property {string} postingDateSource reported or unknown
+ * @property {string} datePosted Validated publication date or empty
+ * @property {string} postedDate Validated publication date or empty
  * @property {string} applyUrl Public-facing URL (Workday `en/{site}{externalPath}` format)
  * @property {string} externalPath Raw Workday externalPath (use to fetch detail)
  */
@@ -1009,9 +977,8 @@ export function extractWorkdayJobIdentity(posting, options = {}) {
     (Array.isArray(safe.bulletFields) ? safe.bulletFields[0] : '') ||
     '';
 
-  const postedRaw = safe.postedOn || safe?.jobPostingInfo?.postedOn || '';
-  const startDate = safe?.jobPostingInfo?.startDate || '';
-  const postedAt = postedRaw ? parseWorkdayPostedDate(postedRaw) : startDate || null;
+  const publication = workdayPostingDateFields(safe);
+  const postedAt = publication.postedDate || null;
 
   // Build the public apply URL.
   // CXS API base: https://{host}/wday/cxs/{tenant}/{site}
@@ -1037,6 +1004,7 @@ export function extractWorkdayJobIdentity(posting, options = {}) {
     location,
     company,
     postedAt,
+    ...publication,
     applyUrl,
     externalPath,
   };
