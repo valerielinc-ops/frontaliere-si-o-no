@@ -14,12 +14,14 @@ import {
   buildL7ExperimentLedger,
   buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
+  exportL1,
   exportL3,
   exportL4,
   exportL5,
   exportL7,
   fetchL5EventSessions,
   GoogleDataClient,
+  L1_GA4_EVENT_CONTRACT,
   L5_DECISION_EVENT_CONTRACT,
   l5GatedDateRange,
 } from '../scripts/ci/export-loop-outcomes.mjs';
@@ -85,6 +87,116 @@ describe('read-only loop outcome exporters', () => {
       usefulSessions: 18595,
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
+    });
+  });
+
+  describe('L1 useful sessions from GA4', () => {
+    const L1_POLICY = JSON.parse(fs.readFileSync(
+      path.resolve('data/loop-fleet/loop-registry.json'),
+      'utf8',
+    )).loops.find((loop: any) => loop.loopId === 'L1');
+
+    function l1Client({ useful, errors }: { useful: unknown; errors: unknown }) {
+      const calls: Array<{ url: string; body: any }> = [];
+      const client = {
+        request: async (url: string, init: RequestInit) => {
+          const body = JSON.parse(String(init.body));
+          calls.push({ url, body });
+          return body.dimensionFilter.filter.inListFilter ? errors : useful;
+        },
+      };
+      return { calls, client };
+    }
+
+    function inputPath() {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l1-export-test-'));
+      const input = path.join(dir, 'baseline.json');
+      fs.writeFileSync(input, JSON.stringify({ _meta: { issue: 4304 }, oldFact: true }));
+      return { dir, input };
+    }
+
+    it('counts useful and error sessions from two exact settled GA4 reports', async () => {
+      const { calls, client } = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '40' }, { value: '55' }] }] },
+      });
+      const { dir, input } = inputPath();
+      const outputPath = path.join(dir, 'l1.json');
+      const output = await exportL1({ inputPath: input, outputPath, now: NOW, client: client as any });
+
+      expect(output).toMatchObject({
+        oldFact: true,
+        usefulSessions: 1000,
+        errorFreeUsefulSessions: 960,
+        observedErrorEvents: 55,
+        telemetryWindow: { startDate: '2026-09-07', endDate: '2026-09-10', lagDays: 2, source: 'GA4 settled calendar dates' },
+        evidence: { errorSessions: 40, errorFreeIsLowerBound: true, sourceRefs: L1_POLICY.outcome.sourceRefs },
+        _meta: { issue: 4304, source: 'GA4 Data API, read-only live export' },
+      });
+      expect(output.evidence.method).toContain('lower bound');
+      expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(output);
+
+      expect(calls).toHaveLength(2);
+      for (const call of calls) {
+        expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+        expect(call.body.dateRanges).toEqual([{ startDate: '2026-09-07', endDate: '2026-09-10' }]);
+        // Native event names only: the property has no free EVENT-scoped slot.
+        expect(call.body.dimensions).toBeUndefined();
+        expect(JSON.stringify(call.body)).not.toContain('customEvent:');
+      }
+      const useful = calls.find((call) => call.body.dimensionFilter.filter.stringFilter);
+      const errors = calls.find((call) => call.body.dimensionFilter.filter.inListFilter);
+      expect(useful?.body).toMatchObject({
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'page_view', matchType: 'EXACT' } } },
+      });
+      expect(errors?.body).toMatchObject({
+        metrics: [{ name: 'sessions' }, { name: 'eventCount' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [...L1_GA4_EVENT_CONTRACT.errorEvents] } } },
+      });
+    });
+
+    it('never lets error sessions push the error-free lower bound below zero', async () => {
+      const { client } = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '30' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '45' }, { value: '90' }] }] },
+      });
+      const { dir, input } = inputPath();
+      const output = await exportL1({ inputPath: input, outputPath: path.join(dir, 'l1.json'), now: NOW, client: client as any });
+      expect(output).toMatchObject({ usefulSessions: 30, errorFreeUsefulSessions: 0, observedErrorEvents: 90 });
+    });
+
+    it('fails the export instead of publishing a thresholded or split GA4 total', async () => {
+      const { dir, input } = inputPath();
+      const exact = { rows: [{ metricValues: [{ value: '40' }, { value: '55' }] }] };
+      const thresholded = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }], metadata: { subjectToThresholding: true } },
+        errors: exact,
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'a.json'), now: NOW, client: thresholded.client as any }))
+        .rejects.toThrow('GA4 L1 report for page_view is incomplete or thresholded');
+      const split = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [exact.rows[0], exact.rows[0]] },
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'b.json'), now: NOW, client: split.client as any }))
+        .rejects.toThrow('GA4 L1 report for error events returned 2 rows');
+      // A row that carries fewer metrics than requested is malformed, not zero.
+      const truncated = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '40' }] }] },
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'c.json'), now: NOW, client: truncated.client as any }))
+        .rejects.toThrow('GA4 L1 report for error events returned 1 metric values, expected 2');
+      expect(fs.existsSync(path.join(dir, 'a.json'))).toBe(false);
+      expect(fs.existsSync(path.join(dir, 'b.json'))).toBe(false);
+      expect(fs.existsSync(path.join(dir, 'c.json'))).toBe(false);
+    });
+
+    it('labels the unavailable placeholder with the registry source, not PostHog', () => {
+      const placeholder = buildUnavailableL1TelemetryExport({ generatedAt: NOW.toISOString() });
+      expect(placeholder.export.sourceRefs).toEqual(L1_POLICY.outcome.sourceRefs);
+      expect(JSON.stringify(placeholder)).not.toMatch(/posthog/i);
     });
   });
 
