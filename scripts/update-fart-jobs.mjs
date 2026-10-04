@@ -18,6 +18,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import fs from 'node:fs';
@@ -318,7 +319,7 @@ async function fetchFartJobs() {
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'fart-crawler',
       sourceLang,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(),
       titleByLocale: { [sourceLang]: listing.title },
       descriptionByLocale: { [sourceLang]: description },
       slugByLocale: { [sourceLang]: slug },
@@ -419,6 +420,7 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,

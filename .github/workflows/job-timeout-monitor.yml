@@ -111,6 +111,24 @@ jobs:
           TIMEOUT_SCAN_ALLOW_TRUNCATED_CREATED_HORIZON: 'true'
         run: node scripts/ci/scan-job-timeouts.mjs
 
+      # La meta' di CHIUSURA delle issue che lo scan apre fuori da `main`
+      # (`CI Failure (<evento>): <workflow>`): il reconciler centrale le lascia
+      # stare per costruzione e senza questo passo restavano aperte finche' una
+      # persona non le chiudeva (issue 10809). Chiude quando le ultime tre run
+      # della stessa popolazione, create dopo l'apertura, sono senza timeout;
+      # fail-closed su tutto il resto. Non tocca `CI Failure (deploy|build):`.
+      # `continue-on-error`: un errore qui non deve far passare per rotto lo scan
+      # ne' aprire la issue di crash del monitor qui sotto. `!cancelled()` e non
+      # il `success()` implicito: la decisione legge le run da se', non dipende
+      # dall'esito dello scan, e uno scan che crolla per giorni non deve rendere
+      # di nuovo immortale la famiglia.
+      - name: Resolve recovered non-main timeout issues
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/scan-job-timeouts.mjs --resolve
+
       - name: Report unexpected scan failure to GitHub Issues
         if: failure()
         continue-on-error: true
