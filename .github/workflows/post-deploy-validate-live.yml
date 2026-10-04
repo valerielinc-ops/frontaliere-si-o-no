@@ -484,7 +484,7 @@ jobs:
       # quota-limited and ~30 min serial). Tied to failure() to stay within
       # the free-tier retention budget — plus a non-blocking CLS hard
       # regression, whose monitor issue points at this artifact.
-      - name: Upload audit reports on failure
+      - name: Upload audit reports (failure or CLS hard regression)
         if: failure() || (steps.cls-gate.outputs.hard_regressions || '0') != '0'
         continue-on-error: true
         uses: actions/upload-artifact@v7

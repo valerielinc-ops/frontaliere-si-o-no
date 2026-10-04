@@ -782,7 +782,8 @@ async function run() {
     runUrl: currentRunUrl(),
     buildSha: process.env.CLS_GATE_BUILD_SHA || null,
   });
-  // Annotations go to stderr under --json so stdout stays one JSON document.
+  // Under --json this script's own annotations go to stderr; with
+  // --report-issue the issue creator's log lines may still reach stdout.
   const note = JSON_OUT ? console.error : console.log;
   if (issue.action === 'report') {
     const ref = issue.issue?.url || (issue.issue?.number ? `#${issue.issue.number}` : CLS_REGRESSION_ISSUE_TITLE);

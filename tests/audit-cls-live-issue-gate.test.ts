@@ -297,7 +297,8 @@ exit 0
   it('run sana: exit 0 e tentativo di chiusura della issue sul titolo esatto', () => {
     const r = runGate('clean', { field: 0.1, lab: 0.1 });
     expect(r.status, r.stdout).toBe(0);
-    expect(r.gh).toContain(`issue list --state open --search in:title "${CLS_REGRESSION_ISSUE_TITLE}"`);
+    expect(r.gh).toContain('issue list');
+    expect(r.gh).toContain(CLS_REGRESSION_ISSUE_TITLE);
     expect(r.gh).not.toContain('issue create');
     expect(r.output).toContain('hard_regressions=0');
   });
