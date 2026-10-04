@@ -2,7 +2,7 @@
  * Profession landings (AE-3) — Vite build plugin, template B.
  *
  * Emits 40 static HTML pages (10 professions × 4 locales). The 2026-05 redesign
- * inverts the previous layout: live signal first (stat tiles + featured live
+ * inverts the previous layout: live signal first (stat tiles + live
  * jobs + employer grid), long-form SEO prose at the bottom under an
  * "Approfondisci" heading. Designed mobile-first per CLAUDE.md regola #17 —
  * 75 % of traffic is mobile and the meaty content (offerte, stipendio) must
@@ -18,7 +18,7 @@
  *   2. header (eyebrow · H1 · dense lede with 3 numbers)
  *   3. 3 stat tiles (open positions · median salary · fresh in 30 days)
  *   4. primary CTA → salary calculator (the killer-hook conversion path)
- *   5. featured live jobs (3 cards) + "see all" CTA
+ *   5. complete live jobs inventory (in-feed ads every 3 cards) + CTA
  *   6. employer grid (top 6, compact 2-col)
  *   7. ─── "Approfondisci" divider ───
  *   8. long-form prose H2 sections (existing 7 blocks)
@@ -229,7 +229,11 @@ function renderFeaturedJobs(
   snapshot: ProfessionJobsSnapshot,
   copy: CopyView,
 ): string {
-  const items = snapshot.featured.map((j) => ({
+  // The legacy snapshot used to expose only the three JSON-LD projections.
+  // Keep that fallback for test fixtures and older callers, while production
+  // aggregateProfessionJobs supplies the complete live inventory.
+  const visibleJobs = snapshot.jobs ?? snapshot.featured;
+  const items = visibleJobs.map((j) => ({
     job: {
       title: j.title,
       titleByLocale: j.titleByLocale,
@@ -254,6 +258,7 @@ function renderFeaturedJobs(
   const listHtml = renderJobCardListHtml(items, {
     locale,
     emptyStateHtml: emptyHtml,
+    interleaveInfeedAds: true,
   });
   // Link the "see all N offers" CTA to the profession's sector hub
   // (e.g. /cerca-lavoro-ticino/autisti/) so the visitor lands on a job-board
@@ -264,13 +269,13 @@ function renderFeaturedJobs(
   // (tests/no-internal-nofollow.test.tsx). Falls back to root when the
   // profession has no mapped sector.
   const ctaHref = buildProfessionAllJobsUrl(id, locale);
-  const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
+  const ctaLabel = visibleJobs.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
   return `<section class="s-KZc0LQ">
     <h2 class="s-8dKmAe">${esc(copy.featuredJobsTitle)}</h2>
     ${listHtml}
-    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
+    ${visibleJobs.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
@@ -526,9 +531,10 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  // ItemList of the featured live openings (each with an absolute URL) —
-  // richer than the previous curated-employer list and coherent with the
-  // visible "Offerte in evidenza" section. Omitted entirely when empty.
+  // ItemList of the leading live openings (each with an absolute URL) —
+  // richer than the previous curated-employer list. Keep this bounded
+  // projection separate from the complete HTML inventory to avoid inflating
+  // structured data with every card. Omitted entirely when empty.
   const featuredForLd = snapshot.featured.slice(0, 3);
   const itemListLd = featuredForLd.length > 0
     ? inlineScriptJson({
