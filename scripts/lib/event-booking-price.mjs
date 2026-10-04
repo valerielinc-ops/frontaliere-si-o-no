@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import { eventOfferPriceAmount, extractEventOfferMetadata, parseEventPriceText } from './event-metadata.mjs';
+import { parseJsonLdText } from './json-ld-text.mjs';
 
 const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com', 'www.ticketino.com', 'eventfrog.ch', 'www.petzi.ch']);
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
@@ -40,7 +41,7 @@ function eventNodes(doc) {
     if (value['@graph']) visit(value['@graph']);
   };
   for (const script of doc.querySelectorAll('script[type="application/ld+json"]')) {
-    try { visit(JSON.parse(script.textContent)); } catch { /* Ignore malformed blocks. */ }
+    try { visit(parseJsonLdText(script.textContent)); } catch { /* Ignore malformed blocks. */ }
   }
   return nodes;
 }

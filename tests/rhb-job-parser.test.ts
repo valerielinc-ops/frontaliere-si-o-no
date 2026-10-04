@@ -39,6 +39,21 @@ describe('rhb-job-parser', () => {
     ]);
   });
 
+  it('reads a JobPosting JSON-LD whose strings carry raw line breaks (invalid JSON pasted by the publisher)', () => {
+    const ld = JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Fachperson Fahrbahn | Rhätische Bahn',
+      description: 'Zeile eins@@Zeile zwei',
+      datePosted: '2026-03-07T00:06:28.973',
+    }).replace('@@', '\n');
+    expect(ld).toContain('Zeile eins\nZeile zwei');
+    const result = parseRhbJobDetail(
+      `<html><head><script type="application/ld+json">${ld}</script></head><body></body></html>`,
+      'https://www.rhb.ch/de/job/fachperson-fahrbahn_2026-1/',
+    );
+    expect(result.postedDate).toBe('2026-03-07');
+  });
+
   it('parses job detail data from JSON-LD and embedded Next payload', () => {
     const html = [
       '<html><head>',
