@@ -18,6 +18,7 @@
  *   - ARDENTIS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
@@ -200,14 +201,6 @@ export async function fetchAllArdentisJobs() {
       const jobSlug = slugify(`${title} ardentis ${city || 'romandie'}`);
       const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-      const releasedRaw = posting?.releasedDate || posting?.createdOn || '';
-      const postedDate = (() => {
-        if (!releasedRaw) return new Date().toISOString().slice(0, 10);
-        const d = new Date(releasedRaw);
-        if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-        return d.toISOString().slice(0, 10);
-      })();
-
       const postalCode = (posting?.location?.postalCode && String(posting.location.postalCode).trim()) || '';
 
       const job = {
@@ -247,7 +240,7 @@ export async function fetchAllArdentisJobs() {
         sector: 'Sanità / Studi dentistici',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...sourcePostingDateFields(posting?.releasedDate),
         applyUrl: srUrls.applyUrl || publicUrl,
         jobReqId: postingId || null,
         requirements: [],

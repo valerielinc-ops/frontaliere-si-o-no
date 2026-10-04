@@ -20,6 +20,7 @@
  *
  * Source: https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Jobs.php
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -44,9 +45,9 @@ export const WUERTH_INTERNATIONAL_COMPANY_DOMAIN = 'wurth-international.com';
  * Parse "DD.MM.YYYY" → "YYYY-MM-DD". Returns '' on failure.
  */
 export function parseDate(raw = '') {
-  const m = String(raw || '').trim().match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  const m = String(raw || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
   if (!m) return '';
-  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+  return sourcePostingDateFields(`${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`).datePosted;
 }
 
 /* ── Category detection ───────────────────────────────────── */
@@ -369,7 +370,7 @@ export async function fetchAllWuerthInternationalJobs() {
       const title = detail?.title || listing.title;
       const location = detail?.location || listing.location || 'Chur';
       const employmentTypeRaw = detail?.employmentType || 'FULL_TIME';
-      const postedDate = detail?.postedDate || new Date().toISOString().slice(0, 10);
+
 
       // Build description: the detail text only (see wuerthDescriptionFromDetail).
       const description = wuerthDescriptionFromDetail(detail);
@@ -404,7 +405,7 @@ export async function fetchAllWuerthInternationalJobs() {
         employmentType: employmentTypeRaw,
         experienceLevel: listing.entryLevel === 'Auszubildende' ? 'intern' : 'mid',
         featured: false,
-        postedDate,
+        ...sourcePostingDateFields(detail?.postedDate),
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Wuerth International Dedicated Parser (HTML)',
