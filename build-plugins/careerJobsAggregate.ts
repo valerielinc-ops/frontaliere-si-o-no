@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the 4 career-landing topic pages (template B).
  *
@@ -27,7 +29,7 @@ import {
   type CareerLocale,
 } from './careerLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
@@ -51,6 +53,9 @@ interface JobRecord {
   salaryMin?: number | null;
   salaryMax?: number | null;
   currency?: string;
+  salarySource?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   featured?: boolean;
@@ -74,6 +79,10 @@ export interface CareerFeaturedJob {
   readonly contract: string | null;
   readonly salaryMin: number | null;
   readonly salaryMax: number | null;
+  readonly salarySource?: string;
+  readonly currency?: string;
+  readonly postingDateSource?: string;
+  readonly datePosted?: string | null;
   readonly postedDate: string;
   readonly daysAgo: number;
   readonly slug: string;
@@ -95,6 +104,7 @@ export interface CareerJobsSnapshot {
   readonly fresh30Count: number;
   /** Median annual gross CHF salary from baseSalary midpoints — null when sparse. */
   readonly medianSalaryChf: number | null;
+  readonly reportedSalary?: ReportedSalarySummary;
   /** Top 3 freshest jobs (featured first), max 3. Empty when the topic isn't crawled. */
   readonly featured: readonly CareerFeaturedJob[];
   /** Top 6 employers — sourced live or from a curated registry. */
@@ -246,8 +256,8 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   // First PARSEABLE date, not first truthy: a malformed postedDate must not
   // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   // Type-safe slugByLocale: jobs.json keys are arbitrary 2-char strings, but at
   // build-time we only need the CareerLocale subset — drop anything else.
@@ -272,6 +282,10 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
     contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salarySource: job.salarySource,
+    currency: job.currency,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     daysAgo,
     slug: job.slug,
@@ -456,7 +470,8 @@ function buildPublicSectorSnapshot(
     competitionFetchedAt: concorsi?.fetchedAt ?? null,
     dataCollectedAt,
     fresh30Count: fresh30Count(matches, now),
-    medianSalaryChf: realSalaryMedianChf(matches),
+    // Public-sector tiles display vacancy counts, not a salary statistic.
+    medianSalaryChf: null,
     featured: pickFeatured(matches, now, 3),
     topEmployers: topEmployersFromJobs(matches, 6),
     topCities: topCitiesFromJobs(matches, 5),
@@ -482,7 +497,8 @@ function buildInternshipSnapshot(jobs: readonly JobRecord[], now: number): Caree
   return {
     liveCount: matches.length,
     fresh30Count: fresh30Count(matches, now),
-    medianSalaryChf: realSalaryMedianChf(matches),
+    medianSalaryChf: reportedSalarySummary(matches).medianChf,
+    reportedSalary: reportedSalarySummary(matches),
     featured: pickFeatured(matches, now, 3),
     // No employer grid for stage — the curated copy carries that signal.
     topEmployers: [],
@@ -505,7 +521,8 @@ function buildFrontaliereContractSnapshot(
   return {
     liveCount: jobs.length,
     fresh30Count: fresh30Count(jobs, now),
-    medianSalaryChf: realSalaryMedianChf(jobs),
+    medianSalaryChf: reportedSalarySummary(jobs).medianChf,
+    reportedSalary: reportedSalarySummary(jobs),
     featured: [],
     topEmployers: [],
     topCities: topCitiesFromJobs(jobs, 5),

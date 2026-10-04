@@ -166,11 +166,17 @@ jobs:
           git fetch --no-tags --depth=1 origin main
           MAIN_SHA="$(git rev-parse origin/main)"
           CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
-          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
           if [ "$CURRENT" != "true" ]; then
-            echo "::error::article chunk resync source advanced after the pre-publication freshness check: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
-            exit 1
+            echo "::notice::Refreshing stale article chunk resync from $SOURCE_SHA to current origin/main $MAIN_SHA before publication"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::article chunk resync refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
           fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
 
       # Publish the named-export registry and all of its translation/slug
       # companions in strict mode. The script validates the standalone ESM

@@ -766,6 +766,7 @@ const deCore: Record<string, string> = {
  'jobBoard.quickFilters.nurse': 'Krankenpfleger',
  'jobBoard.quickFilters.engineer': 'Ingenieur',
  'jobBoard.quickFilters.driver': 'Fahrer',
+ 'jobBoard.recommendations.heading': 'Stellen entdecken',
  'jobBoard.trending.heading': 'Beliebt in deiner Region',
  'jobBoard.trending.aria': 'Beliebte Jobs in deiner Region',
  'jobBoard.contract.all': 'Alle Verträge',

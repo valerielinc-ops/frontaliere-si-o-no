@@ -1,6 +1,6 @@
 {
   "crawlerKey": "beekeeper",
-  "assembledAt": "2026-10-03T09:34:56.236Z",
+  "assembledAt": "2026-10-03T21:33:19.053Z",
   "jobs": [
     {
       "id": "beekeeper-ad4c568442b2",
@@ -34,7 +34,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:34:52.697Z",
+      "crawledAt": "2026-10-03T21:33:13.608Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -112,7 +112,7 @@
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:34:52.696Z",
+      "crawledAt": "2026-10-03T21:33:13.605Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -144,8 +144,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:35:16.217Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-01T09:35:16.217Z"
     },
     {
       "id": "beekeeper-6bd5944da725",
@@ -212,7 +211,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

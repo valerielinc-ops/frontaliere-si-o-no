@@ -1,7 +1,7 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-10-03T09:34:58.026Z",
+  "generatedAt": "2026-10-03T21:33:22.295Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -14,12 +14,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2262,
-  "avgDurationMs": 2262,
+  "durationMs": 3094,
+  "avgDurationMs": 3094,
   "durationHistory": [
-    4492,
-    3202,
-    2262
+    3094
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:34:52.696Z",
+      "crawledAt": "2026-10-03T21:33:13.605Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -75,7 +73,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:34:52.697Z",
+      "crawledAt": "2026-10-03T21:33:13.608Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -117,7 +115,7 @@
       "url": "https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:35:16.221Z",
+      "crawledAt": "2026-10-01T21:28:36.909Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -138,8 +136,7 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -148,5 +145,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

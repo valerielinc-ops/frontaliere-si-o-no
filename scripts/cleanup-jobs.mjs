@@ -13,6 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { fileURLToPath } from 'node:url';
 import {
   validateJobUrls,
@@ -41,6 +42,7 @@ import {
   writeCrossCrawlerDedupProofFile,
   writeHousekeepingProofFile,
 } from './lib/crawler-slice-integrity.mjs';
+import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -483,9 +485,9 @@ async function main() {
     const slicePath = path.resolve(SLICE_FILE);
     // The caller is a shell glob over `data/jobs/by-crawler/*.json`
     // (cleanup-stale-jobs.yml), and that directory also holds crawler scratch
-    // companions that are NOT slices: `update-coop-jobs.mjs` parks its
-    // translation cache in `coop-ticino-locale-cache.json` (a bare array, by its
-    // own contract), and a housekeeping run killed mid-write leaves a
+    // companions that are NOT slices: `update-coop-jobs.mjs` used to park its
+    // translation cache in `coop-ticino-locale-cache.json` (a bare array, still
+    // tracked on main as `[]`), and a housekeeping run killed mid-write leaves a
     // `<key>.json.cleanup-tmp.json`. Without this guard the bare array fell
     // through `sliceJobs` below as if it were a job list: housekeeping pruned
     // the Coop cache down to `[]` on 2026-08-31, and the `crawlerKey` basename
@@ -1001,7 +1003,32 @@ async function main() {
   console.log(`✅ jobs.json aggiornati (data/ + public/data) e meta aggiornato${HOUSEKEEPING_SCOPE ? ` — scope ${HOUSEKEEPING_SCOPE}` : ''}`);
 }
 
-main().catch((err) => {
-  console.error('❌ Job housekeeping error:', err);
-  process.exitCode = 1;
-});
+main()
+  .then(() => {
+    // Dataset mode only, and after main() on EVERY exit path — including the
+    // early return when nothing was removed, which skips the final writes.
+    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
+    // build) and name, per crawler, the records the dist gate
+    // validate:translation-completeness would block. Report only: no record
+    // is removed and the exit code does not change (see the module header).
+    if (!SLICE_FILE) {
+      // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
+      const reparseStartedAt = performance.now();
+      try {
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+      } finally {
+        try {
+          // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
+          const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
+          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
+          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
+        } catch {
+          /* the probe must never change the outcome or the exit code */
+        }
+      }
+    }
+  })
+  .catch((err) => {
+    console.error('❌ Job housekeeping error:', err);
+    process.exitCode = 1;
+  });

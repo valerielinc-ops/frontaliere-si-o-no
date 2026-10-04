@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zuger-kantonsspital",
-  "assembledAt": "2026-10-03T09:28:58.589Z",
+  "assembledAt": "2026-10-03T21:28:15.085Z",
   "jobs": [
     {
       "id": "zuger-kantonsspital-0df8ce07a5e1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.zgks.ch/Endoskopieassistentin-60-100-mw-de-j889.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:43.704Z",
+      "crawledAt": "2026-10-03T21:28:09.584Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -57,8 +57,7 @@
         "logistics-80-100-m-f-zuger-kantonsspital-baar",
         "logistiker-80-100-m-w-zuger-kantonsspital-baar",
         "logistique-80-100-h-f-zuger-kantonsspital-baar",
-        "logistiker-80-100-m-w-d-zuger-kantonsspital-baar",
-        "assistente-endoscopia-60-100-m-f-zuger-kantonsspital-baar"
+        "logistiker-80-100-m-w-d-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,8 +66,7 @@
           "logistics-80-100-m-f-zuger-kantonsspital-baar",
           "logistiker-80-100-m-w-zuger-kantonsspital-baar",
           "logistique-80-100-h-f-zuger-kantonsspital-baar",
-          "logistiker-80-100-m-w-d-zuger-kantonsspital-baar",
-          "assistente-endoscopia-60-100-m-f-zuger-kantonsspital-baar"
+          "logistiker-80-100-m-w-d-zuger-kantonsspital-baar"
         ],
         "en": [
           "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar",
@@ -95,8 +93,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "zuger-kantonsspital-e44f48718958",
@@ -129,7 +126,7 @@
       "url": "https://jobs.zgks.ch/Fachperson-Gesundheit-Notfallzentrum-80-100--de-j888.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:43.227Z",
+      "crawledAt": "2026-10-03T21:28:09.148Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -148,13 +145,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar",
-        "specialist-health-emergency-center-80-100-zuger-kantonsspital-baar"
+        "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar",
-          "specialist-health-emergency-center-80-100-zuger-kantonsspital-baar"
+          "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar"
         ],
         "en": [
           "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar"
@@ -176,8 +171,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "zuger-kantonsspital-cfaf12defedd",
@@ -211,7 +205,7 @@
       "url": "https://jobs.zgks.ch/Ernaehrungsberaterin-therapeutin-100-mw-de-j891.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:42.592Z",
+      "crawledAt": "2026-10-03T21:28:08.607Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -230,13 +224,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ernahrungsberaterin-therapeutin-100-m-w-zuger-kantonsspital-baar",
-        "nutrizionista-terapeuta-100-m-f-zuger-kantonsspital-baar"
+        "ernahrungsberaterin-therapeutin-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberaterin-therapeutin-100-m-w-zuger-kantonsspital-baar",
-          "nutrizionista-terapeuta-100-m-f-zuger-kantonsspital-baar"
+          "ernahrungsberaterin-therapeutin-100-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "ernahrungsberaterin-therapeutin-100-m-w-zuger-kantonsspital-baar"
@@ -291,7 +283,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Chirurgie-80-100-mw-de-j892.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:42.064Z",
+      "crawledAt": "2026-10-03T21:28:08.163Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -322,8 +314,7 @@
         "technologie-chirurgicale-specialisee-hf-80-100-zuger-kantonsspital-baar",
         "tecnico-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
         "fachperson-fur-radiologie-hf-80-100-zuger-kantonsspital-baar",
-        "technicien-ne-en-radiologie-hf-80-100-zuger-kantonsspital-baar",
-        "chirurgia-hf-80-100-m-f-zuger-kantonsspital-baar"
+        "technicien-ne-en-radiologie-hf-80-100-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -339,8 +330,7 @@
           "technologie-chirurgicale-specialisee-hf-80-100-zuger-kantonsspital-baar",
           "tecnico-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
           "fachperson-fur-radiologie-hf-80-100-zuger-kantonsspital-baar",
-          "technicien-ne-en-radiologie-hf-80-100-zuger-kantonsspital-baar",
-          "chirurgia-hf-80-100-m-f-zuger-kantonsspital-baar"
+          "technicien-ne-en-radiologie-hf-80-100-zuger-kantonsspital-baar"
         ],
         "en": [
           "pflegefachperson-hf-chirurgie-80-100-m-w-zuger-kantonsspital-baar",
@@ -367,8 +357,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "zuger-kantonsspital-f0ce31a17e25",
@@ -402,7 +391,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-FH-Notfallzentrum-80-100-mw-de-j877.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:41.459Z",
+      "crawledAt": "2026-10-03T21:28:07.607Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -421,13 +410,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar",
-        "infermiera-hf-fh-emergency-center-80-100-m-f-zuger-kantonsspital-baar"
+        "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar",
-          "infermiera-hf-fh-emergency-center-80-100-m-f-zuger-kantonsspital-baar"
+          "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "pflegefachperson-hf-fh-notfallzentrum-80-100-m-w-zuger-kantonsspital-baar"
@@ -466,7 +453,7 @@
       "title": "Expertin Notfallpflege NDS HF 80 - 100 % (m/w)",
       "titleByLocale": {
         "it": "NDS HF 80 - 100% (m/f)",
-        "en": "Expert Emergency Care NDS HF 80 - 100% (m/f)",
+        "en": "Expertin Notfallpflege NDS HF 80 - 100 % (m/w)",
         "de": "Expertin Notfallpflege NDS HF 80 - 100 % (m/w)",
         "fr": "Expert Soins d'urgence NDS HF 80 - 100% (h/f)"
       },
@@ -482,7 +469,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Notfallpflege-NDS-HF-80-100-mw-de-j848.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:40.823Z",
+      "crawledAt": "2026-10-03T21:28:07.060Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -501,13 +488,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
-        "assistenza-di-emergenza-esperto-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
+        "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar",
-          "assistenza-di-emergenza-esperto-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
+          "expertin-notfallpflege-nds-hf-80-100-m-w-zuger-kantonsspital-baar"
         ]
       },
       "firstSeenAt": "2026-09-09T13:54:41.509Z",
@@ -523,7 +508,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zuger-kantonsspital-9aa520e2497a",
@@ -557,7 +543,7 @@
       "url": "https://jobs.zgks.ch/WMS-Praktikantin-mw-de-j893.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:40.193Z",
+      "crawledAt": "2026-10-03T21:28:06.503Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -576,13 +562,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wms-praktikantin-m-w-zuger-kantonsspital-baar",
-        "interno-wms-m-f-zuger-kantonsspital-baar"
+        "wms-praktikantin-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wms-praktikantin-m-w-zuger-kantonsspital-baar",
-          "interno-wms-m-f-zuger-kantonsspital-baar"
+          "wms-praktikantin-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "wms-praktikantin-m-w-zuger-kantonsspital-baar"
@@ -637,7 +621,7 @@
       "url": "https://jobs.zgks.ch/Med-Praxisassistentin-Pneumologie-80--de-j869.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:39.755Z",
+      "crawledAt": "2026-10-03T21:28:06.084Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -664,8 +648,7 @@
         "med-practical-assistant-pneumology-80-100-zuger-kantonsspital-baar",
         "med-praxisassistentin-pneumologie-80-100-zuger-kantonsspital-baar",
         "medicament-practice-assistant-pneumologie-80-100-zuger-kantonsspital-baar",
-        "med-praxisassistentin-pneumologie-80-zuger-kantonsspital-baar",
-        "med-assistente-di-pratica-pneumologia-80-zuger-kantonsspital-baar"
+        "med-praxisassistentin-pneumologie-80-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -677,8 +660,7 @@
           "med-practical-assistant-pneumology-80-100-zuger-kantonsspital-baar",
           "med-praxisassistentin-pneumologie-80-100-zuger-kantonsspital-baar",
           "medicament-practice-assistant-pneumologie-80-100-zuger-kantonsspital-baar",
-          "med-praxisassistentin-pneumologie-80-zuger-kantonsspital-baar",
-          "med-assistente-di-pratica-pneumologia-80-zuger-kantonsspital-baar"
+          "med-praxisassistentin-pneumologie-80-zuger-kantonsspital-baar"
         ],
         "en": [
           "medical-practice-assistant-pneumology-60-100-zuger-kantonsspital-baar",
@@ -705,8 +687,7 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "zuger-kantonsspital-bf4f3841a75c",
@@ -740,7 +721,7 @@
       "url": "https://jobs.zgks.ch/Gruppenleiterin-Hauswirtschaft-80-100-mw-de-j894.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:39.221Z",
+      "crawledAt": "2026-10-03T21:28:05.542Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -759,13 +740,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gruppenleiterin-hauswirtschaft-80-100-m-w-zuger-kantonsspital-baar",
-        "gestore-di-gruppo-assemblaggio-80-100-m-f-zuger-kantonsspital-baar"
+        "gruppenleiterin-hauswirtschaft-80-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiterin-hauswirtschaft-80-100-m-w-zuger-kantonsspital-baar",
-          "gestore-di-gruppo-assemblaggio-80-100-m-f-zuger-kantonsspital-baar"
+          "gruppenleiterin-hauswirtschaft-80-100-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "gruppenleiterin-hauswirtschaft-80-100-m-w-zuger-kantonsspital-baar"
@@ -820,7 +799,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-80-100--de-j895.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:38.790Z",
+      "crawledAt": "2026-10-03T21:28:05.108Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -840,14 +819,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-medizin-80-100-zuger-kantonsspital-baar",
-        "pflegefachperson-hf-chirurgie-80-100-zuger-kantonsspital-baar",
-        "infermiera-hf-chirurgia-80-100-zuger-kantonsspital-baar"
+        "pflegefachperson-hf-chirurgie-80-100-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-medizin-80-100-zuger-kantonsspital-baar",
-          "pflegefachperson-hf-chirurgie-80-100-zuger-kantonsspital-baar",
-          "infermiera-hf-chirurgia-80-100-zuger-kantonsspital-baar"
+          "pflegefachperson-hf-chirurgie-80-100-zuger-kantonsspital-baar"
         ],
         "en": [
           "pflegefachperson-hf-chirurgie-80-100-zuger-kantonsspital-baar"
@@ -869,8 +846,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "zuger-kantonsspital-b96f5a114328",
@@ -904,7 +880,7 @@
       "url": "https://jobs.zgks.ch/Mitarbeiterin-Notfallempfang-40-50-mw-de-j879.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:38.207Z",
+      "crawledAt": "2026-10-03T21:28:04.572Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -924,13 +900,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-notfallempfang-40-50-m-w-zuger-kantonsspital-baar",
-        "mitarbeiterin-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar",
-        "ricevimento-di-emergenza-del-dipendente-40-50-m-f-zuger-kantonsspital-baar"
+        "mitarbeiterin-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-notfallempfang-40-50-m-w-zuger-kantonsspital-baar",
-          "ricevimento-di-emergenza-del-dipendente-40-50-m-f-zuger-kantonsspital-baar"
+          "mitarbeiterin-notfallempfang-40-50-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "mitarbeiterin-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar"
@@ -988,7 +962,7 @@
       "url": "https://jobs.zgks.ch/Controllerin-80-100-mw-de-j896.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:37.638Z",
+      "crawledAt": "2026-10-03T21:28:04.002Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1007,13 +981,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "controllerin-80-100-m-w-zuger-kantonsspital-baar",
-        "controller-in-80-100-m-f-zuger-kantonsspital-baar"
+        "controllerin-80-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controllerin-80-100-m-w-zuger-kantonsspital-baar",
-          "controller-in-80-100-m-f-zuger-kantonsspital-baar"
+          "controllerin-80-100-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
           "controllerin-80-100-m-w-zuger-kantonsspital-baar"
@@ -1039,28 +1011,28 @@
     },
     {
       "id": "zuger-kantonsspital-8389675d21ed",
-      "slug": "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar",
+      "slug": "assistente-di-sterilizzazione-tecnico-80-100-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar",
-        "it": "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar",
-        "en": "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar",
-        "fr": "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar"
+        "it": "assistente-di-sterilizzazione-tecnico-80-100-m-f-zuger-kantonsspital-baar",
+        "en": "technical-sterilization-assistant-80-100-m-f-zuger-kantonsspital-baar",
+        "fr": "assistant-technique-de-sterilisation-80-100-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
       "companyDomain": "zgks.ch",
       "title": "Technische Sterilisationsassistentin 80 - 100 % (m/w)",
       "titleByLocale": {
-        "it": "Technische Sterilisationsassistentin 80 - 100 % (m/w)",
-        "en": "Technische Sterilisationsassistentin 80 - 100 % (m/w)",
+        "it": "Assistente di sterilizzazione tecnico 80 - 100% (m/f)",
+        "en": "Technical sterilization assistant 80 - 100% (m/f)",
         "de": "Technische Sterilisationsassistentin 80 - 100 % (m/w)",
-        "fr": "Technische Sterilisationsassistentin 80 - 100 % (m/w)"
+        "fr": "Assistant technique de stérilisation 80 - 100% (h/f)"
       },
       "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Zentralsterilisation suchen wir per 1. April 2027 oder nach Vereinbarung eine Technische Sterilisationsassistentin 80 - 100 % (m/w) Ihre Aufgaben\n• Reinigen von Instrumenten, Bedienen und Überwachen aller Maschinen und Geräte der ZSVA\n• Zusammenstellen und Verpacken von OP-Sieben\n• Kontrolle und Pflege der gereinigten Instrumente und Materialien\n• Bewirtschaften des Sterilgutlagers Ihr Profil\n• Weiterbildung als Technische Sterilisationsassistentin\n• Selbständige und genaue Arbeitsweise\n• Gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine interessante und abwechslungsreiche Tätigkeit in einem aufgestellten und offenen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T 041 399 43 02.",
       "descriptionByLocale": {
-        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Zentralsterilisation suchen wir per 1. April 2027 oder nach Vereinbarung eine Technische Sterilisationsassistentin 80 - 100 % (m/w) Ihre Aufgaben\n• Reinigen von Instrumenten, Bedienen und Überwachen aller Maschinen und Geräte der ZSVA\n• Zusammenstellen und Verpacken von OP-Sieben\n• Kontrolle und Pflege der gereinigten Instrumente und Materialien\n• Bewirtschaften des Sterilgutlagers Ihr Profil\n• Weiterbildung als Technische Sterilisationsassistentin\n• Selbständige und genaue Arbeitsweise\n• Gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine interessante und abwechslungsreiche Tätigkeit in einem aufgestellten und offenen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T 041 399 43 02.",
         "it": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Zentralsterilisation suchen wir per 1. April 2027 oder nach Vereinbarung eine Technische Sterilisationsassistentin 80 - 100 % (m/w) Ihre Aufgaben\n• Reinigen von Instrumenten, Bedienen und Überwachen aller Maschinen und Geräte der ZSVA\n• Zusammenstellen und Verpacken von OP-Sieben\n• Kontrolle und Pflege der gereinigten Instrumente und Materialien\n• Bewirtschaften des Sterilgutlagers Ihr Profil\n• Weiterbildung als Technische Sterilisationsassistentin\n• Selbständige und genaue Arbeitsweise\n• Gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine interessante und abwechslungsreiche Tätigkeit in einem aufgestellten und offenen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T 041 399 43 02.",
         "en": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Zentralsterilisation suchen wir per 1. April 2027 oder nach Vereinbarung eine Technische Sterilisationsassistentin 80 - 100 % (m/w) Ihre Aufgaben\n• Reinigen von Instrumenten, Bedienen und Überwachen aller Maschinen und Geräte der ZSVA\n• Zusammenstellen und Verpacken von OP-Sieben\n• Kontrolle und Pflege der gereinigten Instrumente und Materialien\n• Bewirtschaften des Sterilgutlagers Ihr Profil\n• Weiterbildung als Technische Sterilisationsassistentin\n• Selbständige und genaue Arbeitsweise\n• Gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine interessante und abwechslungsreiche Tätigkeit in einem aufgestellten und offenen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T 041 399 43 02.",
+        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Zentralsterilisation suchen wir per 1. April 2027 oder nach Vereinbarung eine Technische Sterilisationsassistentin 80 - 100 % (m/w) Ihre Aufgaben\n• Reinigen von Instrumenten, Bedienen und Überwachen aller Maschinen und Geräte der ZSVA\n• Zusammenstellen und Verpacken von OP-Sieben\n• Kontrolle und Pflege der gereinigten Instrumente und Materialien\n• Bewirtschaften des Sterilgutlagers Ihr Profil\n• Weiterbildung als Technische Sterilisationsassistentin\n• Selbständige und genaue Arbeitsweise\n• Gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine interessante und abwechslungsreiche Tätigkeit in einem aufgestellten und offenen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T 041 399 43 02.",
         "fr": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Zentralsterilisation suchen wir per 1. April 2027 oder nach Vereinbarung eine Technische Sterilisationsassistentin 80 - 100 % (m/w) Ihre Aufgaben\n• Reinigen von Instrumenten, Bedienen und Überwachen aller Maschinen und Geräte der ZSVA\n• Zusammenstellen und Verpacken von OP-Sieben\n• Kontrolle und Pflege der gereinigten Instrumente und Materialien\n• Bewirtschaften des Sterilgutlagers Ihr Profil\n• Weiterbildung als Technische Sterilisationsassistentin\n• Selbständige und genaue Arbeitsweise\n• Gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine interessante und abwechslungsreiche Tätigkeit in einem aufgestellten und offenen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T 041 399 43 02."
       },
       "location": "Baar",
@@ -1068,7 +1040,7 @@
       "url": "https://jobs.zgks.ch/Technische-Sterilisationsassistentin-80-100-mw-de-j899.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:37.213Z",
+      "crawledAt": "2026-10-03T21:28:03.545Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1085,26 +1057,24 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://jobs.zgks.ch/Technische-Sterilisationsassistentin-80-100-mw-de-j899.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar",
         "assistente-di-sterilizzazione-tecnico-80-100-m-f-zuger-kantonsspital-baar",
         "technical-sterilization-assistant-80-100-m-f-zuger-kantonsspital-baar",
-        "assistant-technique-de-sterilisation-80-100-h-f-zuger-kantonsspital-baar"
+        "assistant-technique-de-sterilisation-80-100-h-f-zuger-kantonsspital-baar",
+        "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
-          "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar",
-          "technical-sterilization-assistant-80-100-m-f-zuger-kantonsspital-baar"
+          "technical-sterilization-assistant-80-100-m-f-zuger-kantonsspital-baar",
+          "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar"
         ],
         "fr": [
-          "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar",
-          "assistant-technique-de-sterilisation-80-100-h-f-zuger-kantonsspital-baar"
+          "assistant-technique-de-sterilisation-80-100-h-f-zuger-kantonsspital-baar",
+          "technische-sterilisationsassistentin-80-100-m-w-zuger-kantonsspital-baar"
         ]
       },
       "firstSeenAt": "2026-10-03T09:28:37.213Z",
@@ -1125,12 +1095,12 @@
     },
     {
       "id": "zuger-kantonsspital-fa8010e3fd8e",
-      "slug": "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
+      "slug": "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
-        "it": "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
-        "en": "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
-        "fr": "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar"
+        "it": "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
+        "en": "radiology-specialist-hf-80-100-zuger-kantonsspital-baar",
+        "fr": "specialiste-de-radiologie-hf-80-100-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1138,15 +1108,15 @@
       "title": "Radiologiefachperson HF 80 - 100 %",
       "titleByLocale": {
         "de": "Radiologiefachperson HF 80 - 100 %",
-        "it": "Radiologiefachperson HF 80 - 100 %",
-        "en": "Radiologiefachperson HF 80 - 100 %",
-        "fr": "Radiologiefachperson HF 80 - 100 %"
+        "it": "Specialista di radiologia HF 80 - 100%",
+        "en": "Radiology specialist HF 80 - 100%",
+        "fr": "Spécialiste de radiologie HF 80 - 100%"
       },
       "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Radiologie-Teams suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Radiologiefachperson HF 80 – 100% Ihre Aufgaben\n• Durchführung radiologischer Untersuchungen mit modernsten MR- und CT-Scannern\n• Mitarbeit in der Angiografie, im konventionellen Röntgen, in der Mammografie sowie in der Sonografie\n• Mitverantwortung für die Untersuchungs-Qualität sowie Verantwortung für das Wohl unserer Patientinnen und Patienten\n• Arbeitseinsätze zur Kernarbeitszeit sowie an Nacht- und Wochenenddiensten – Flexibilität und Teamarbeit sind für uns eine Selbstverständlichkeit Ihr Profil\n• Abgeschlossene Ausbildung als Radiologiefachperson HF\n• Interesse und Freude an moderner Medizintechnologie\n• Engagement und Bereitschaft, als Allrounder/in tätig zu sein\n• Wiedereinsteiger/innen, Berufseinsteiger/innen sowie erfahrene Fachpersonen sind herzlich willkommen Unser Angebot\n• Moderne Radiologieabteilung mit hochentwickelter Infrastruktur\n• Arbeiten Sie mit innovativer Photon-Counting-Detector-Technologie\n• Einsatz von Siemens NAEOTOM Alpha.Pro und Siemens SOMATOM X.ceed für zukunftsweisende CT-Bildgebung\n• Breites Leistungsspektrum:\n• Magnetresonanztomografie (3.0T GE, 1.5T Siemens)\n• Interventionelle Radiologie inkl. Angiografie (Philips)\n• Digitale Röntgendiagnostik (DR)\n• Mammografie (inkl. CEM und VAB)\n• Sonografie Interessiert? Dann bewerben Sie sich jetzt und gestalten die Zukunft unserer Radiologie aktiv mit – wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Carina Bertschinger, Leiterin Radiologiefachpersonen, T 041 399 29 17.",
       "descriptionByLocale": {
-        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Radiologie-Teams suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Radiologiefachperson HF 80 – 100% Ihre Aufgaben\n• Durchführung radiologischer Untersuchungen mit modernsten MR- und CT-Scannern\n• Mitarbeit in der Angiografie, im konventionellen Röntgen, in der Mammografie sowie in der Sonografie\n• Mitverantwortung für die Untersuchungs-Qualität sowie Verantwortung für das Wohl unserer Patientinnen und Patienten\n• Arbeitseinsätze zur Kernarbeitszeit sowie an Nacht- und Wochenenddiensten – Flexibilität und Teamarbeit sind für uns eine Selbstverständlichkeit Ihr Profil\n• Abgeschlossene Ausbildung als Radiologiefachperson HF\n• Interesse und Freude an moderner Medizintechnologie\n• Engagement und Bereitschaft, als Allrounder/in tätig zu sein\n• Wiedereinsteiger/innen, Berufseinsteiger/innen sowie erfahrene Fachpersonen sind herzlich willkommen Unser Angebot\n• Moderne Radiologieabteilung mit hochentwickelter Infrastruktur\n• Arbeiten Sie mit innovativer Photon-Counting-Detector-Technologie\n• Einsatz von Siemens NAEOTOM Alpha.Pro und Siemens SOMATOM X.ceed für zukunftsweisende CT-Bildgebung\n• Breites Leistungsspektrum:\n• Magnetresonanztomografie (3.0T GE, 1.5T Siemens)\n• Interventionelle Radiologie inkl. Angiografie (Philips)\n• Digitale Röntgendiagnostik (DR)\n• Mammografie (inkl. CEM und VAB)\n• Sonografie Interessiert? Dann bewerben Sie sich jetzt und gestalten die Zukunft unserer Radiologie aktiv mit – wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Carina Bertschinger, Leiterin Radiologiefachpersonen, T 041 399 29 17.",
         "it": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Radiologie-Teams suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Radiologiefachperson HF 80 – 100% Ihre Aufgaben\n• Durchführung radiologischer Untersuchungen mit modernsten MR- und CT-Scannern\n• Mitarbeit in der Angiografie, im konventionellen Röntgen, in der Mammografie sowie in der Sonografie\n• Mitverantwortung für die Untersuchungs-Qualität sowie Verantwortung für das Wohl unserer Patientinnen und Patienten\n• Arbeitseinsätze zur Kernarbeitszeit sowie an Nacht- und Wochenenddiensten – Flexibilität und Teamarbeit sind für uns eine Selbstverständlichkeit Ihr Profil\n• Abgeschlossene Ausbildung als Radiologiefachperson HF\n• Interesse und Freude an moderner Medizintechnologie\n• Engagement und Bereitschaft, als Allrounder/in tätig zu sein\n• Wiedereinsteiger/innen, Berufseinsteiger/innen sowie erfahrene Fachpersonen sind herzlich willkommen Unser Angebot\n• Moderne Radiologieabteilung mit hochentwickelter Infrastruktur\n• Arbeiten Sie mit innovativer Photon-Counting-Detector-Technologie\n• Einsatz von Siemens NAEOTOM Alpha.Pro und Siemens SOMATOM X.ceed für zukunftsweisende CT-Bildgebung\n• Breites Leistungsspektrum:\n• Magnetresonanztomografie (3.0T GE, 1.5T Siemens)\n• Interventionelle Radiologie inkl. Angiografie (Philips)\n• Digitale Röntgendiagnostik (DR)\n• Mammografie (inkl. CEM und VAB)\n• Sonografie Interessiert? Dann bewerben Sie sich jetzt und gestalten die Zukunft unserer Radiologie aktiv mit – wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Carina Bertschinger, Leiterin Radiologiefachpersonen, T 041 399 29 17.",
         "en": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Radiologie-Teams suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Radiologiefachperson HF 80 – 100% Ihre Aufgaben\n• Durchführung radiologischer Untersuchungen mit modernsten MR- und CT-Scannern\n• Mitarbeit in der Angiografie, im konventionellen Röntgen, in der Mammografie sowie in der Sonografie\n• Mitverantwortung für die Untersuchungs-Qualität sowie Verantwortung für das Wohl unserer Patientinnen und Patienten\n• Arbeitseinsätze zur Kernarbeitszeit sowie an Nacht- und Wochenenddiensten – Flexibilität und Teamarbeit sind für uns eine Selbstverständlichkeit Ihr Profil\n• Abgeschlossene Ausbildung als Radiologiefachperson HF\n• Interesse und Freude an moderner Medizintechnologie\n• Engagement und Bereitschaft, als Allrounder/in tätig zu sein\n• Wiedereinsteiger/innen, Berufseinsteiger/innen sowie erfahrene Fachpersonen sind herzlich willkommen Unser Angebot\n• Moderne Radiologieabteilung mit hochentwickelter Infrastruktur\n• Arbeiten Sie mit innovativer Photon-Counting-Detector-Technologie\n• Einsatz von Siemens NAEOTOM Alpha.Pro und Siemens SOMATOM X.ceed für zukunftsweisende CT-Bildgebung\n• Breites Leistungsspektrum:\n• Magnetresonanztomografie (3.0T GE, 1.5T Siemens)\n• Interventionelle Radiologie inkl. Angiografie (Philips)\n• Digitale Röntgendiagnostik (DR)\n• Mammografie (inkl. CEM und VAB)\n• Sonografie Interessiert? Dann bewerben Sie sich jetzt und gestalten die Zukunft unserer Radiologie aktiv mit – wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Carina Bertschinger, Leiterin Radiologiefachpersonen, T 041 399 29 17.",
+        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Radiologie-Teams suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Radiologiefachperson HF 80 – 100% Ihre Aufgaben\n• Durchführung radiologischer Untersuchungen mit modernsten MR- und CT-Scannern\n• Mitarbeit in der Angiografie, im konventionellen Röntgen, in der Mammografie sowie in der Sonografie\n• Mitverantwortung für die Untersuchungs-Qualität sowie Verantwortung für das Wohl unserer Patientinnen und Patienten\n• Arbeitseinsätze zur Kernarbeitszeit sowie an Nacht- und Wochenenddiensten – Flexibilität und Teamarbeit sind für uns eine Selbstverständlichkeit Ihr Profil\n• Abgeschlossene Ausbildung als Radiologiefachperson HF\n• Interesse und Freude an moderner Medizintechnologie\n• Engagement und Bereitschaft, als Allrounder/in tätig zu sein\n• Wiedereinsteiger/innen, Berufseinsteiger/innen sowie erfahrene Fachpersonen sind herzlich willkommen Unser Angebot\n• Moderne Radiologieabteilung mit hochentwickelter Infrastruktur\n• Arbeiten Sie mit innovativer Photon-Counting-Detector-Technologie\n• Einsatz von Siemens NAEOTOM Alpha.Pro und Siemens SOMATOM X.ceed für zukunftsweisende CT-Bildgebung\n• Breites Leistungsspektrum:\n• Magnetresonanztomografie (3.0T GE, 1.5T Siemens)\n• Interventionelle Radiologie inkl. Angiografie (Philips)\n• Digitale Röntgendiagnostik (DR)\n• Mammografie (inkl. CEM und VAB)\n• Sonografie Interessiert? Dann bewerben Sie sich jetzt und gestalten die Zukunft unserer Radiologie aktiv mit – wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Carina Bertschinger, Leiterin Radiologiefachpersonen, T 041 399 29 17.",
         "fr": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Radiologie-Teams suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Radiologiefachperson HF 80 – 100% Ihre Aufgaben\n• Durchführung radiologischer Untersuchungen mit modernsten MR- und CT-Scannern\n• Mitarbeit in der Angiografie, im konventionellen Röntgen, in der Mammografie sowie in der Sonografie\n• Mitverantwortung für die Untersuchungs-Qualität sowie Verantwortung für das Wohl unserer Patientinnen und Patienten\n• Arbeitseinsätze zur Kernarbeitszeit sowie an Nacht- und Wochenenddiensten – Flexibilität und Teamarbeit sind für uns eine Selbstverständlichkeit Ihr Profil\n• Abgeschlossene Ausbildung als Radiologiefachperson HF\n• Interesse und Freude an moderner Medizintechnologie\n• Engagement und Bereitschaft, als Allrounder/in tätig zu sein\n• Wiedereinsteiger/innen, Berufseinsteiger/innen sowie erfahrene Fachpersonen sind herzlich willkommen Unser Angebot\n• Moderne Radiologieabteilung mit hochentwickelter Infrastruktur\n• Arbeiten Sie mit innovativer Photon-Counting-Detector-Technologie\n• Einsatz von Siemens NAEOTOM Alpha.Pro und Siemens SOMATOM X.ceed für zukunftsweisende CT-Bildgebung\n• Breites Leistungsspektrum:\n• Magnetresonanztomografie (3.0T GE, 1.5T Siemens)\n• Interventionelle Radiologie inkl. Angiografie (Philips)\n• Digitale Röntgendiagnostik (DR)\n• Mammografie (inkl. CEM und VAB)\n• Sonografie Interessiert? Dann bewerben Sie sich jetzt und gestalten die Zukunft unserer Radiologie aktiv mit – wir freuen uns auf Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Carina Bertschinger, Leiterin Radiologiefachpersonen, T 041 399 29 17."
       },
       "location": "Baar",
@@ -1154,7 +1124,7 @@
       "url": "https://jobs.zgks.ch/Radiologiefachperson-HF-80-100--de-j901.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:36.670Z",
+      "crawledAt": "2026-10-03T21:28:03.003Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1171,9 +1141,7 @@
       "postedDate": "2026-10-02",
       "applyUrl": "https://jobs.zgks.ch/Radiologiefachperson-HF-80-100--de-j901.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1189,34 +1157,34 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
-          "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar"
+          "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
+          "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar"
         ],
         "en": [
-          "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
-          "radiology-specialist-hf-80-100-zuger-kantonsspital-baar"
+          "radiology-specialist-hf-80-100-zuger-kantonsspital-baar",
+          "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar"
         ],
         "fr": [
-          "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
-          "specialiste-de-radiologie-hf-80-100-zuger-kantonsspital-baar"
+          "specialiste-de-radiologie-hf-80-100-zuger-kantonsspital-baar",
+          "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar"
         ]
       },
       "previousSlugs": [
-        "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar",
         "specialista-di-radiologia-hf-80-100-zuger-kantonsspital-baar",
         "radiology-specialist-hf-80-100-zuger-kantonsspital-baar",
-        "specialiste-de-radiologie-hf-80-100-zuger-kantonsspital-baar"
+        "specialiste-de-radiologie-hf-80-100-zuger-kantonsspital-baar",
+        "radiologiefachperson-hf-80-100-zuger-kantonsspital-baar"
       ],
       "needsRetranslation": true
     },
     {
       "id": "zuger-kantonsspital-fd59a9344c28",
-      "slug": "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
+      "slug": "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
-        "it": "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
-        "en": "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
-        "fr": "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar"
+        "it": "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
+        "en": "hospital-pharmacist-60-80-m-f-zuger-kantonsspital-baar",
+        "fr": "pharmacie-hospitalier-60-80-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1224,15 +1192,15 @@
       "title": "Spitalapothekerin 60 - 80 % (m/w)",
       "titleByLocale": {
         "de": "Spitalapothekerin 60 - 80 % (m/w)",
-        "it": "Spitalapothekerin 60 - 80 % (m/w)",
-        "en": "Spitalapothekerin 60 - 80 % (m/w)",
-        "fr": "Spitalapothekerin 60 - 80 % (m/w)"
+        "it": "Farmacista ospedaliero 60 - 80% (m/f)",
+        "en": "Hospital pharmacist 60 - 80% (m/f)",
+        "fr": "Pharmacie hospitalier 60 - 80% (h/f)"
       },
       "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 50'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Spitalpharmazie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Spitalapothekerin 60 - 80 % (m/w). Ihre Aufgaben\n• Gewährleistung einer modernen, ökonomischen und qualitativ hochstehenden Arzneimittelversorgung im Rahmen der gesetzlichen und betrieblichen Anforderungen\n• Arzneimittelinformation und fachgerechte Beratung von Ärzten, Patienten und Pflegefachpersonen\n• Je nach Interesse und Eignung Mitarbeit in verschiedenen Teilbereichen der Spitalpharmazie möglich (Spitalapotheke, Klinische Pharmazie, öffentliche Apotheke, zentrale Zytostatika-Herstellung)\n• Sicherstellung der Arzneimitteltherapiesicherheit während des gesamten Medikationsprozesses vom Spitaleintritt bis zum -austritt\n• Ausarbeitung und Pflege interner Richtlinien und Qualitätsstandards\n• Unterstützung von Projekten zur Weiterentwicklung des Bereichs der Spitalpharmazie Ihr Profil\n• Eidg. Diplom als Apotheker/in oder anerkanntes ausländisches Diplom\n• Berufserfahrung in einer Spitalapotheke und/oder öffentlichen Apotheke\n• Abgeschlossene Weiterbildung im Bereich Spitalpharmazie/Klinische Pharmazie von Vorteil\n• Freude an interdisziplinärer Zusammenarbeit mit allen Spitalbereichen\n• Fachkompetenz, Kommunikationsgeschick und sicheres Auftreten\n• Hohes Qualitäts- und Verantwortungsbewusstsein, Zuverlässigkeit, Teamfähigkeit und Belastbarkeit\n• Prozessorientiertes Denken, selbständige und strukturierte Arbeitsweise\n• Eigeninitiative, Flexibilität und Interesse an der Weiterentwicklung der Spitalpharmazie Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem professionellen, innovativem und interdisziplinären Arbeitsumfeld in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Bitte senden Sie Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Christoph Rosen, Leiter Spitalpharmazie, T +41 41 399 44 95.",
       "descriptionByLocale": {
-        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 50'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Spitalpharmazie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Spitalapothekerin 60 - 80 % (m/w). Ihre Aufgaben\n• Gewährleistung einer modernen, ökonomischen und qualitativ hochstehenden Arzneimittelversorgung im Rahmen der gesetzlichen und betrieblichen Anforderungen\n• Arzneimittelinformation und fachgerechte Beratung von Ärzten, Patienten und Pflegefachpersonen\n• Je nach Interesse und Eignung Mitarbeit in verschiedenen Teilbereichen der Spitalpharmazie möglich (Spitalapotheke, Klinische Pharmazie, öffentliche Apotheke, zentrale Zytostatika-Herstellung)\n• Sicherstellung der Arzneimitteltherapiesicherheit während des gesamten Medikationsprozesses vom Spitaleintritt bis zum -austritt\n• Ausarbeitung und Pflege interner Richtlinien und Qualitätsstandards\n• Unterstützung von Projekten zur Weiterentwicklung des Bereichs der Spitalpharmazie Ihr Profil\n• Eidg. Diplom als Apotheker/in oder anerkanntes ausländisches Diplom\n• Berufserfahrung in einer Spitalapotheke und/oder öffentlichen Apotheke\n• Abgeschlossene Weiterbildung im Bereich Spitalpharmazie/Klinische Pharmazie von Vorteil\n• Freude an interdisziplinärer Zusammenarbeit mit allen Spitalbereichen\n• Fachkompetenz, Kommunikationsgeschick und sicheres Auftreten\n• Hohes Qualitäts- und Verantwortungsbewusstsein, Zuverlässigkeit, Teamfähigkeit und Belastbarkeit\n• Prozessorientiertes Denken, selbständige und strukturierte Arbeitsweise\n• Eigeninitiative, Flexibilität und Interesse an der Weiterentwicklung der Spitalpharmazie Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem professionellen, innovativem und interdisziplinären Arbeitsumfeld in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Bitte senden Sie Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Christoph Rosen, Leiter Spitalpharmazie, T +41 41 399 44 95.",
         "it": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 50'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Spitalpharmazie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Spitalapothekerin 60 - 80 % (m/w). Ihre Aufgaben\n• Gewährleistung einer modernen, ökonomischen und qualitativ hochstehenden Arzneimittelversorgung im Rahmen der gesetzlichen und betrieblichen Anforderungen\n• Arzneimittelinformation und fachgerechte Beratung von Ärzten, Patienten und Pflegefachpersonen\n• Je nach Interesse und Eignung Mitarbeit in verschiedenen Teilbereichen der Spitalpharmazie möglich (Spitalapotheke, Klinische Pharmazie, öffentliche Apotheke, zentrale Zytostatika-Herstellung)\n• Sicherstellung der Arzneimitteltherapiesicherheit während des gesamten Medikationsprozesses vom Spitaleintritt bis zum -austritt\n• Ausarbeitung und Pflege interner Richtlinien und Qualitätsstandards\n• Unterstützung von Projekten zur Weiterentwicklung des Bereichs der Spitalpharmazie Ihr Profil\n• Eidg. Diplom als Apotheker/in oder anerkanntes ausländisches Diplom\n• Berufserfahrung in einer Spitalapotheke und/oder öffentlichen Apotheke\n• Abgeschlossene Weiterbildung im Bereich Spitalpharmazie/Klinische Pharmazie von Vorteil\n• Freude an interdisziplinärer Zusammenarbeit mit allen Spitalbereichen\n• Fachkompetenz, Kommunikationsgeschick und sicheres Auftreten\n• Hohes Qualitäts- und Verantwortungsbewusstsein, Zuverlässigkeit, Teamfähigkeit und Belastbarkeit\n• Prozessorientiertes Denken, selbständige und strukturierte Arbeitsweise\n• Eigeninitiative, Flexibilität und Interesse an der Weiterentwicklung der Spitalpharmazie Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem professionellen, innovativem und interdisziplinären Arbeitsumfeld in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Bitte senden Sie Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Christoph Rosen, Leiter Spitalpharmazie, T +41 41 399 44 95.",
         "en": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 50'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Spitalpharmazie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Spitalapothekerin 60 - 80 % (m/w). Ihre Aufgaben\n• Gewährleistung einer modernen, ökonomischen und qualitativ hochstehenden Arzneimittelversorgung im Rahmen der gesetzlichen und betrieblichen Anforderungen\n• Arzneimittelinformation und fachgerechte Beratung von Ärzten, Patienten und Pflegefachpersonen\n• Je nach Interesse und Eignung Mitarbeit in verschiedenen Teilbereichen der Spitalpharmazie möglich (Spitalapotheke, Klinische Pharmazie, öffentliche Apotheke, zentrale Zytostatika-Herstellung)\n• Sicherstellung der Arzneimitteltherapiesicherheit während des gesamten Medikationsprozesses vom Spitaleintritt bis zum -austritt\n• Ausarbeitung und Pflege interner Richtlinien und Qualitätsstandards\n• Unterstützung von Projekten zur Weiterentwicklung des Bereichs der Spitalpharmazie Ihr Profil\n• Eidg. Diplom als Apotheker/in oder anerkanntes ausländisches Diplom\n• Berufserfahrung in einer Spitalapotheke und/oder öffentlichen Apotheke\n• Abgeschlossene Weiterbildung im Bereich Spitalpharmazie/Klinische Pharmazie von Vorteil\n• Freude an interdisziplinärer Zusammenarbeit mit allen Spitalbereichen\n• Fachkompetenz, Kommunikationsgeschick und sicheres Auftreten\n• Hohes Qualitäts- und Verantwortungsbewusstsein, Zuverlässigkeit, Teamfähigkeit und Belastbarkeit\n• Prozessorientiertes Denken, selbständige und strukturierte Arbeitsweise\n• Eigeninitiative, Flexibilität und Interesse an der Weiterentwicklung der Spitalpharmazie Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem professionellen, innovativem und interdisziplinären Arbeitsumfeld in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Bitte senden Sie Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Christoph Rosen, Leiter Spitalpharmazie, T +41 41 399 44 95.",
+        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 50'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Spitalpharmazie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Spitalapothekerin 60 - 80 % (m/w). Ihre Aufgaben\n• Gewährleistung einer modernen, ökonomischen und qualitativ hochstehenden Arzneimittelversorgung im Rahmen der gesetzlichen und betrieblichen Anforderungen\n• Arzneimittelinformation und fachgerechte Beratung von Ärzten, Patienten und Pflegefachpersonen\n• Je nach Interesse und Eignung Mitarbeit in verschiedenen Teilbereichen der Spitalpharmazie möglich (Spitalapotheke, Klinische Pharmazie, öffentliche Apotheke, zentrale Zytostatika-Herstellung)\n• Sicherstellung der Arzneimitteltherapiesicherheit während des gesamten Medikationsprozesses vom Spitaleintritt bis zum -austritt\n• Ausarbeitung und Pflege interner Richtlinien und Qualitätsstandards\n• Unterstützung von Projekten zur Weiterentwicklung des Bereichs der Spitalpharmazie Ihr Profil\n• Eidg. Diplom als Apotheker/in oder anerkanntes ausländisches Diplom\n• Berufserfahrung in einer Spitalapotheke und/oder öffentlichen Apotheke\n• Abgeschlossene Weiterbildung im Bereich Spitalpharmazie/Klinische Pharmazie von Vorteil\n• Freude an interdisziplinärer Zusammenarbeit mit allen Spitalbereichen\n• Fachkompetenz, Kommunikationsgeschick und sicheres Auftreten\n• Hohes Qualitäts- und Verantwortungsbewusstsein, Zuverlässigkeit, Teamfähigkeit und Belastbarkeit\n• Prozessorientiertes Denken, selbständige und strukturierte Arbeitsweise\n• Eigeninitiative, Flexibilität und Interesse an der Weiterentwicklung der Spitalpharmazie Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem professionellen, innovativem und interdisziplinären Arbeitsumfeld in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Bitte senden Sie Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Christoph Rosen, Leiter Spitalpharmazie, T +41 41 399 44 95.",
         "fr": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 50'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Spitalpharmazie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Spitalapothekerin 60 - 80 % (m/w). Ihre Aufgaben\n• Gewährleistung einer modernen, ökonomischen und qualitativ hochstehenden Arzneimittelversorgung im Rahmen der gesetzlichen und betrieblichen Anforderungen\n• Arzneimittelinformation und fachgerechte Beratung von Ärzten, Patienten und Pflegefachpersonen\n• Je nach Interesse und Eignung Mitarbeit in verschiedenen Teilbereichen der Spitalpharmazie möglich (Spitalapotheke, Klinische Pharmazie, öffentliche Apotheke, zentrale Zytostatika-Herstellung)\n• Sicherstellung der Arzneimitteltherapiesicherheit während des gesamten Medikationsprozesses vom Spitaleintritt bis zum -austritt\n• Ausarbeitung und Pflege interner Richtlinien und Qualitätsstandards\n• Unterstützung von Projekten zur Weiterentwicklung des Bereichs der Spitalpharmazie Ihr Profil\n• Eidg. Diplom als Apotheker/in oder anerkanntes ausländisches Diplom\n• Berufserfahrung in einer Spitalapotheke und/oder öffentlichen Apotheke\n• Abgeschlossene Weiterbildung im Bereich Spitalpharmazie/Klinische Pharmazie von Vorteil\n• Freude an interdisziplinärer Zusammenarbeit mit allen Spitalbereichen\n• Fachkompetenz, Kommunikationsgeschick und sicheres Auftreten\n• Hohes Qualitäts- und Verantwortungsbewusstsein, Zuverlässigkeit, Teamfähigkeit und Belastbarkeit\n• Prozessorientiertes Denken, selbständige und strukturierte Arbeitsweise\n• Eigeninitiative, Flexibilität und Interesse an der Weiterentwicklung der Spitalpharmazie Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem professionellen, innovativem und interdisziplinären Arbeitsumfeld in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Bitte senden Sie Ihre elektronische Bewerbung (via Bewerber-Link) an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Christoph Rosen, Leiter Spitalpharmazie, T +41 41 399 44 95."
       },
       "location": "Baar",
@@ -1240,7 +1208,7 @@
       "url": "https://jobs.zgks.ch/Spitalapothekerin-60-80-mw-de-j900.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:28:36.093Z",
+      "crawledAt": "2026-10-03T21:28:02.445Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1257,9 +1225,7 @@
       "postedDate": "2026-10-02",
       "applyUrl": "https://jobs.zgks.ch/Spitalapothekerin-60-80-mw-de-j900.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -1276,23 +1242,23 @@
       "firstSeenAt": "2026-10-03T09:28:36.093Z",
       "previousSlugsByLocale": {
         "it": [
-          "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
-          "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar"
+          "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
+          "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
-          "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
-          "hospital-pharmacist-60-80-m-f-zuger-kantonsspital-baar"
+          "hospital-pharmacist-60-80-m-f-zuger-kantonsspital-baar",
+          "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar"
         ],
         "fr": [
-          "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
-          "pharmacie-hospitalier-60-80-h-f-zuger-kantonsspital-baar"
+          "pharmacie-hospitalier-60-80-h-f-zuger-kantonsspital-baar",
+          "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar"
         ]
       },
       "previousSlugs": [
-        "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
         "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
         "hospital-pharmacist-60-80-m-f-zuger-kantonsspital-baar",
-        "pharmacie-hospitalier-60-80-h-f-zuger-kantonsspital-baar"
+        "pharmacie-hospitalier-60-80-h-f-zuger-kantonsspital-baar",
+        "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar"
       ],
       "needsRetranslation": true
     }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "merian-iselin",
-  "assembledAt": "2026-10-03T09:10:13.698Z",
+  "assembledAt": "2026-10-03T21:12:17.590Z",
   "jobs": [
     {
       "id": "merian-iselin-52d03a167b2e",
@@ -34,7 +34,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/401228e0-5ee3-4c16-876c-f18973bd50d9",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:07.776Z",
+      "crawledAt": "2026-10-03T21:12:12.282Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/1fb69e6f-9fd3-4c61-aff7-2631130fa56e",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:07.332Z",
+      "crawledAt": "2026-10-03T21:12:11.884Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -163,8 +163,7 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "merian-iselin-6b3821b07ce3",
@@ -197,7 +196,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/bb76da43-bb2a-49ad-98d3-d1892c5010eb",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:06.882Z",
+      "crawledAt": "2026-10-03T21:12:11.355Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -242,8 +241,7 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "merian-iselin-b808dd48d40e",
@@ -277,7 +275,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/d687eceb-02eb-4a73-8ef5-7991e5ef399f",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:06.436Z",
+      "crawledAt": "2026-10-03T21:12:10.939Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -354,7 +352,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/076626d0-c516-4f18-8715-03d928335df6",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:05.974Z",
+      "crawledAt": "2026-10-03T21:12:10.416Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -439,7 +437,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/f2c3aeaa-ac29-475c-9c33-ee0c15a6f25a",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:05.529Z",
+      "crawledAt": "2026-10-03T21:12:09.888Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -516,7 +514,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/922775df-b7e7-4d4c-99b4-655da8b3dcb0",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:04.979Z",
+      "crawledAt": "2026-10-03T21:12:09.361Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -554,8 +552,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "merian-iselin-8f9a5d5cf452",
@@ -588,7 +585,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/9503fd02-2bbf-4807-83e1-427d5f7836e2",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:04.421Z",
+      "crawledAt": "2026-10-03T21:12:08.971Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -632,33 +629,32 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "merian-iselin-546cbd423d86",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-merian-iselin-klinik-basel",
       "slugByLocale": {
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-merian-iselin-klinik-basel",
+        "en": "dipl-professional-specialist-operational-engineering-hf-merian-iselin-klinik-basel",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-merian-iselin-klinik-basel"
       },
       "company": "Merian Iselin Klinik",
       "companyKey": "merian-iselin",
       "companyDomain": "merianiselin.ch",
       "title": "Dipl. Fachfrau / Fachmann Operationstechnik HF",
       "titleByLocale": {
+        "it": "Dipl. Ingegneria operativa professionale / specialistica HF",
+        "en": "Dipl. Professional / Specialist Operational Engineering HF",
         "de": "Dipl. Fachfrau / Fachmann Operationstechnik HF",
-        "it": "Dipl. Fachfrau / Fachmann Operationstechnik HF",
-        "en": "Dipl. Fachfrau / Fachmann Operationstechnik HF",
-        "fr": "Dipl. Fachfrau / Fachmann Operationstechnik HF"
+        "fr": "Dipl. Professional / Spécialiste Génie opérationnel HF"
       },
       "description": "Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\n\nDipl. Fachfrau / Fachmann Operationstechnik HF\nDie Merian Iselin Klinik ist eine hochmoderne Privatklinik mit öffentlichem Leistungsauftrag in Basel. Unsere Schwerpunkte liegen in den Fachbereichen Orthopädie, Chirurgie und Urologie. Bei uns finden Sie eine sinnhafte Tätigkeit in einem familiären Umfeld, in dem die Menschen im Zentrum stehen.\n\nIhre Hauptaufgaben\n• Sie arbeiten im Tagdienst von Montag bis Freitag in verschiedenen Operationssälen.\n• Sie sind mitverantwortlich für einen reibungslosen und fachgerechten Betriebsablauf sowie sicheres und ruhiges Instrumentieren und Zudienen.\n• Zudem sind Sie zuständig für die Operationsvorbereitungen und diverse Arbeiten im OP-Bereich.\n• Sie sind ein Teamplayer und fühlen sich in einem dynamischen Arbeitsumfeld wohl und schätzen die Zusammenarbeit mit unseren Belegärzten.\n• Pikettdienste leisten Sie im Turnus.\n\nIhr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als dipl. Operationsfachfrau/-mann HF und entsprechende Berufserfahrung, vorzugsweise in der Orthopädie.\n• Ein hohes Qualitäts- und Verantwortungsbewusstsein ist für Sie eine Selbstverständlichkeit.\n• Sie sind flexibel, kommunizieren offen und wertschätzend und sind ein Teamplayer mit einer positiven Grundhaltung.\nUnser Angebot\nWir bieten Ihnen eine abwechslungsreiche und herausfordernde Tätigkeit in einem lebhaften, familiären und spannenden Arbeitsumfeld, modernste Infrastruktur, Aus- und Weiterbildungsmöglichkeiten sowie attraktive Anstellungsbedingungen. Erfahren Sie mehr in unserem Youtube-Video .\nIhre direkte Ansprechperson\nSimone Laevemann, Leiterin Operationstechnik, Telefon +41 61 305 12 46 freut sich auf Ihren Anruf und steht Ihnen für allfällige Fragen über Ihr zukünftiges Tätigkeitsgebiet gerne zur Verfügung.\n\nKein CV zur Hand? Hier geht's zur Kurzbewerbung via Handy: Bewerbungslink\n\nAnstellungsart: Festanstellung\n\nBeschäftigungsgrad: 60-100%",
       "descriptionByLocale": {
-        "de": "Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\n\nDipl. Fachfrau / Fachmann Operationstechnik HF\nDie Merian Iselin Klinik ist eine hochmoderne Privatklinik mit öffentlichem Leistungsauftrag in Basel. Unsere Schwerpunkte liegen in den Fachbereichen Orthopädie, Chirurgie und Urologie. Bei uns finden Sie eine sinnhafte Tätigkeit in einem familiären Umfeld, in dem die Menschen im Zentrum stehen.\n\nIhre Hauptaufgaben\n• Sie arbeiten im Tagdienst von Montag bis Freitag in verschiedenen Operationssälen.\n• Sie sind mitverantwortlich für einen reibungslosen und fachgerechten Betriebsablauf sowie sicheres und ruhiges Instrumentieren und Zudienen.\n• Zudem sind Sie zuständig für die Operationsvorbereitungen und diverse Arbeiten im OP-Bereich.\n• Sie sind ein Teamplayer und fühlen sich in einem dynamischen Arbeitsumfeld wohl und schätzen die Zusammenarbeit mit unseren Belegärzten.\n• Pikettdienste leisten Sie im Turnus.\n\nIhr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als dipl. Operationsfachfrau/-mann HF und entsprechende Berufserfahrung, vorzugsweise in der Orthopädie.\n• Ein hohes Qualitäts- und Verantwortungsbewusstsein ist für Sie eine Selbstverständlichkeit.\n• Sie sind flexibel, kommunizieren offen und wertschätzend und sind ein Teamplayer mit einer positiven Grundhaltung.\nUnser Angebot\nWir bieten Ihnen eine abwechslungsreiche und herausfordernde Tätigkeit in einem lebhaften, familiären und spannenden Arbeitsumfeld, modernste Infrastruktur, Aus- und Weiterbildungsmöglichkeiten sowie attraktive Anstellungsbedingungen. Erfahren Sie mehr in unserem Youtube-Video .\nIhre direkte Ansprechperson\nSimone Laevemann, Leiterin Operationstechnik, Telefon +41 61 305 12 46 freut sich auf Ihren Anruf und steht Ihnen für allfällige Fragen über Ihr zukünftiges Tätigkeitsgebiet gerne zur Verfügung.\n\nKein CV zur Hand? Hier geht's zur Kurzbewerbung via Handy: Bewerbungslink\n\nAnstellungsart: Festanstellung\n\nBeschäftigungsgrad: 60-100%",
         "it": "Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\n\nDipl. Fachfrau / Fachmann Operationstechnik HF\nDie Merian Iselin Klinik ist eine hochmoderne Privatklinik mit öffentlichem Leistungsauftrag in Basel. Unsere Schwerpunkte liegen in den Fachbereichen Orthopädie, Chirurgie und Urologie. Bei uns finden Sie eine sinnhafte Tätigkeit in einem familiären Umfeld, in dem die Menschen im Zentrum stehen.\n\nIhre Hauptaufgaben\n• Sie arbeiten im Tagdienst von Montag bis Freitag in verschiedenen Operationssälen.\n• Sie sind mitverantwortlich für einen reibungslosen und fachgerechten Betriebsablauf sowie sicheres und ruhiges Instrumentieren und Zudienen.\n• Zudem sind Sie zuständig für die Operationsvorbereitungen und diverse Arbeiten im OP-Bereich.\n• Sie sind ein Teamplayer und fühlen sich in einem dynamischen Arbeitsumfeld wohl und schätzen die Zusammenarbeit mit unseren Belegärzten.\n• Pikettdienste leisten Sie im Turnus.\n\nIhr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als dipl. Operationsfachfrau/-mann HF und entsprechende Berufserfahrung, vorzugsweise in der Orthopädie.\n• Ein hohes Qualitäts- und Verantwortungsbewusstsein ist für Sie eine Selbstverständlichkeit.\n• Sie sind flexibel, kommunizieren offen und wertschätzend und sind ein Teamplayer mit einer positiven Grundhaltung.\nUnser Angebot\nWir bieten Ihnen eine abwechslungsreiche und herausfordernde Tätigkeit in einem lebhaften, familiären und spannenden Arbeitsumfeld, modernste Infrastruktur, Aus- und Weiterbildungsmöglichkeiten sowie attraktive Anstellungsbedingungen. Erfahren Sie mehr in unserem Youtube-Video .\nIhre direkte Ansprechperson\nSimone Laevemann, Leiterin Operationstechnik, Telefon +41 61 305 12 46 freut sich auf Ihren Anruf und steht Ihnen für allfällige Fragen über Ihr zukünftiges Tätigkeitsgebiet gerne zur Verfügung.\n\nKein CV zur Hand? Hier geht's zur Kurzbewerbung via Handy: Bewerbungslink\n\nAnstellungsart: Festanstellung\n\nBeschäftigungsgrad: 60-100%",
         "en": "Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\n\nDipl. Fachfrau / Fachmann Operationstechnik HF\nDie Merian Iselin Klinik ist eine hochmoderne Privatklinik mit öffentlichem Leistungsauftrag in Basel. Unsere Schwerpunkte liegen in den Fachbereichen Orthopädie, Chirurgie und Urologie. Bei uns finden Sie eine sinnhafte Tätigkeit in einem familiären Umfeld, in dem die Menschen im Zentrum stehen.\n\nIhre Hauptaufgaben\n• Sie arbeiten im Tagdienst von Montag bis Freitag in verschiedenen Operationssälen.\n• Sie sind mitverantwortlich für einen reibungslosen und fachgerechten Betriebsablauf sowie sicheres und ruhiges Instrumentieren und Zudienen.\n• Zudem sind Sie zuständig für die Operationsvorbereitungen und diverse Arbeiten im OP-Bereich.\n• Sie sind ein Teamplayer und fühlen sich in einem dynamischen Arbeitsumfeld wohl und schätzen die Zusammenarbeit mit unseren Belegärzten.\n• Pikettdienste leisten Sie im Turnus.\n\nIhr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als dipl. Operationsfachfrau/-mann HF und entsprechende Berufserfahrung, vorzugsweise in der Orthopädie.\n• Ein hohes Qualitäts- und Verantwortungsbewusstsein ist für Sie eine Selbstverständlichkeit.\n• Sie sind flexibel, kommunizieren offen und wertschätzend und sind ein Teamplayer mit einer positiven Grundhaltung.\nUnser Angebot\nWir bieten Ihnen eine abwechslungsreiche und herausfordernde Tätigkeit in einem lebhaften, familiären und spannenden Arbeitsumfeld, modernste Infrastruktur, Aus- und Weiterbildungsmöglichkeiten sowie attraktive Anstellungsbedingungen. Erfahren Sie mehr in unserem Youtube-Video .\nIhre direkte Ansprechperson\nSimone Laevemann, Leiterin Operationstechnik, Telefon +41 61 305 12 46 freut sich auf Ihren Anruf und steht Ihnen für allfällige Fragen über Ihr zukünftiges Tätigkeitsgebiet gerne zur Verfügung.\n\nKein CV zur Hand? Hier geht's zur Kurzbewerbung via Handy: Bewerbungslink\n\nAnstellungsart: Festanstellung\n\nBeschäftigungsgrad: 60-100%",
+        "de": "Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\n\nDipl. Fachfrau / Fachmann Operationstechnik HF\nDie Merian Iselin Klinik ist eine hochmoderne Privatklinik mit öffentlichem Leistungsauftrag in Basel. Unsere Schwerpunkte liegen in den Fachbereichen Orthopädie, Chirurgie und Urologie. Bei uns finden Sie eine sinnhafte Tätigkeit in einem familiären Umfeld, in dem die Menschen im Zentrum stehen.\n\nIhre Hauptaufgaben\n• Sie arbeiten im Tagdienst von Montag bis Freitag in verschiedenen Operationssälen.\n• Sie sind mitverantwortlich für einen reibungslosen und fachgerechten Betriebsablauf sowie sicheres und ruhiges Instrumentieren und Zudienen.\n• Zudem sind Sie zuständig für die Operationsvorbereitungen und diverse Arbeiten im OP-Bereich.\n• Sie sind ein Teamplayer und fühlen sich in einem dynamischen Arbeitsumfeld wohl und schätzen die Zusammenarbeit mit unseren Belegärzten.\n• Pikettdienste leisten Sie im Turnus.\n\nIhr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als dipl. Operationsfachfrau/-mann HF und entsprechende Berufserfahrung, vorzugsweise in der Orthopädie.\n• Ein hohes Qualitäts- und Verantwortungsbewusstsein ist für Sie eine Selbstverständlichkeit.\n• Sie sind flexibel, kommunizieren offen und wertschätzend und sind ein Teamplayer mit einer positiven Grundhaltung.\nUnser Angebot\nWir bieten Ihnen eine abwechslungsreiche und herausfordernde Tätigkeit in einem lebhaften, familiären und spannenden Arbeitsumfeld, modernste Infrastruktur, Aus- und Weiterbildungsmöglichkeiten sowie attraktive Anstellungsbedingungen. Erfahren Sie mehr in unserem Youtube-Video .\nIhre direkte Ansprechperson\nSimone Laevemann, Leiterin Operationstechnik, Telefon +41 61 305 12 46 freut sich auf Ihren Anruf und steht Ihnen für allfällige Fragen über Ihr zukünftiges Tätigkeitsgebiet gerne zur Verfügung.\n\nKein CV zur Hand? Hier geht's zur Kurzbewerbung via Handy: Bewerbungslink\n\nAnstellungsart: Festanstellung\n\nBeschäftigungsgrad: 60-100%",
         "fr": "Zur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\n\nDipl. Fachfrau / Fachmann Operationstechnik HF\nDie Merian Iselin Klinik ist eine hochmoderne Privatklinik mit öffentlichem Leistungsauftrag in Basel. Unsere Schwerpunkte liegen in den Fachbereichen Orthopädie, Chirurgie und Urologie. Bei uns finden Sie eine sinnhafte Tätigkeit in einem familiären Umfeld, in dem die Menschen im Zentrum stehen.\n\nIhre Hauptaufgaben\n• Sie arbeiten im Tagdienst von Montag bis Freitag in verschiedenen Operationssälen.\n• Sie sind mitverantwortlich für einen reibungslosen und fachgerechten Betriebsablauf sowie sicheres und ruhiges Instrumentieren und Zudienen.\n• Zudem sind Sie zuständig für die Operationsvorbereitungen und diverse Arbeiten im OP-Bereich.\n• Sie sind ein Teamplayer und fühlen sich in einem dynamischen Arbeitsumfeld wohl und schätzen die Zusammenarbeit mit unseren Belegärzten.\n• Pikettdienste leisten Sie im Turnus.\n\nIhr Profil\n• Sie verfügen über eine abgeschlossene Ausbildung als dipl. Operationsfachfrau/-mann HF und entsprechende Berufserfahrung, vorzugsweise in der Orthopädie.\n• Ein hohes Qualitäts- und Verantwortungsbewusstsein ist für Sie eine Selbstverständlichkeit.\n• Sie sind flexibel, kommunizieren offen und wertschätzend und sind ein Teamplayer mit einer positiven Grundhaltung.\nUnser Angebot\nWir bieten Ihnen eine abwechslungsreiche und herausfordernde Tätigkeit in einem lebhaften, familiären und spannenden Arbeitsumfeld, modernste Infrastruktur, Aus- und Weiterbildungsmöglichkeiten sowie attraktive Anstellungsbedingungen. Erfahren Sie mehr in unserem Youtube-Video .\nIhre direkte Ansprechperson\nSimone Laevemann, Leiterin Operationstechnik, Telefon +41 61 305 12 46 freut sich auf Ihren Anruf und steht Ihnen für allfällige Fragen über Ihr zukünftiges Tätigkeitsgebiet gerne zur Verfügung.\n\nKein CV zur Hand? Hier geht's zur Kurzbewerbung via Handy: Bewerbungslink\n\nAnstellungsart: Festanstellung\n\nBeschäftigungsgrad: 60-100%"
       },
       "needsRetranslation": true,
@@ -667,7 +663,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/3a875c27-3516-45c1-b7d4-07a26db0f188",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:03.490Z",
+      "crawledAt": "2026-10-03T21:12:08.444Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -683,9 +679,30 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/3a875c27-3516-45c1-b7d4-07a26db0f188",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "specialista-in-tecnica-chirurgica-hf-merian-iselin-klinik-basel",
+        "surgical-technique-specialist-hf-merian-iselin-klinik-basel",
+        "specialiste-des-techniques-chirurgicales-en-hf-merian-iselin-klinik-basel",
+        "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialista-in-tecnica-chirurgica-hf-merian-iselin-klinik-basel",
+          "surgical-technique-specialist-hf-merian-iselin-klinik-basel",
+          "specialiste-des-techniques-chirurgicales-en-hf-merian-iselin-klinik-basel",
+          "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
+        ],
+        "en": [
+          "surgical-technique-specialist-hf-merian-iselin-klinik-basel",
+          "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
+        ],
+        "fr": [
+          "specialiste-des-techniques-chirurgicales-en-hf-merian-iselin-klinik-basel",
+          "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
+        ]
       },
+      "firstSeenAt": "2026-06-12T22:48:54.481Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -698,36 +715,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-12T22:48:54.481Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "specialista-in-tecnica-chirurgica-hf-merian-iselin-klinik-basel",
-          "surgical-technique-specialist-hf-merian-iselin-klinik-basel",
-          "specialiste-des-techniques-chirurgicales-en-hf-merian-iselin-klinik-basel",
-          "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
-          "dipl-ingegneria-operativa-professionale-specialistica-hf-merian-iselin-klinik-basel"
-        ],
-        "en": [
-          "surgical-technique-specialist-hf-merian-iselin-klinik-basel",
-          "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
-          "dipl-professional-specialist-operational-engineering-hf-merian-iselin-klinik-basel"
-        ],
-        "fr": [
-          "specialiste-des-techniques-chirurgicales-en-hf-merian-iselin-klinik-basel",
-          "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
-          "dipl-professional-specialiste-genie-operationnel-hf-merian-iselin-klinik-basel"
-        ]
-      },
-      "previousSlugs": [
-        "specialista-in-tecnica-chirurgica-hf-merian-iselin-klinik-basel",
-        "surgical-technique-specialist-hf-merian-iselin-klinik-basel",
-        "specialiste-des-techniques-chirurgicales-en-hf-merian-iselin-klinik-basel",
-        "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
-        "dipl-ingegneria-operativa-professionale-specialistica-hf-merian-iselin-klinik-basel",
-        "dipl-professional-specialist-operational-engineering-hf-merian-iselin-klinik-basel",
-        "dipl-professional-specialiste-genie-operationnel-hf-merian-iselin-klinik-basel"
-      ]
+      }
     },
     {
       "id": "merian-iselin-cc2cda6d4b29",
@@ -761,7 +749,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/2f98e8dc-9151-42f8-b79a-bca81dbc41dd",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:02.979Z",
+      "crawledAt": "2026-10-03T21:12:08.055Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -824,7 +812,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/9470e4cc-9515-4bf0-b554-a4a99e888a7c",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:02.475Z",
+      "crawledAt": "2026-10-03T21:12:07.529Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -868,8 +856,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "merian-iselin-de3b3ca2ee7f",
@@ -902,7 +889,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/55a849fd-d747-4a03-affd-cbb0ab30b391",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:01.983Z",
+      "crawledAt": "2026-10-03T21:12:06.991Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -946,8 +933,7 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "merian-iselin-548e2f1723c6",
@@ -980,7 +966,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/4ab4126d-aebe-49b4-8032-a8f989c58e62",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:01.467Z",
+      "crawledAt": "2026-10-03T21:12:06.462Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1028,8 +1014,7 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "merian-iselin-fb9b397b7483",
@@ -1063,7 +1048,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/f15a8b86-a39f-4b17-b779-33de34c85a4b",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:01.016Z",
+      "crawledAt": "2026-10-03T21:12:05.934Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1153,7 +1138,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/1d212d57-8aa4-4ade-9772-1c955a86cf66",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:00.572Z",
+      "crawledAt": "2026-10-03T21:12:05.405Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1210,8 +1195,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

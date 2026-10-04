@@ -1,12 +1,12 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-10-03T09:21:43.338Z",
+  "assembledAt": "2026-10-03T21:23:47.972Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:21:38.872Z",
+      "crawledAt": "2026-10-03T21:23:44.043Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -54,15 +54,11 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen",
-        "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
-        "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
-          "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
-          "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -85,8 +81,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-dd3f1efb3f84",
@@ -120,7 +115,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:37.791Z",
+      "crawledAt": "2026-10-03T21:23:43.015Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -148,13 +143,11 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
-        "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
-          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
@@ -208,7 +201,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-03T09:21:36.654Z",
+      "crawledAt": "2026-10-03T21:23:41.985Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -230,13 +223,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
-        "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
-          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -287,7 +278,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:35.560Z",
+      "crawledAt": "2026-10-03T21:23:40.920Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -349,8 +340,7 @@
         "assistant-in-aemp-see-spital-horgen",
         "assistent-in-aemp-see-spital-ch",
         "assistant-en-aemp-see-spital-horgen",
-        "praxisassistent-in-policlinic-see-spital-ch",
-        "assistente-assistente-di-medicina-see-spital-horgen"
+        "praxisassistent-in-policlinic-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -368,8 +358,7 @@
           "assistant-in-aemp-see-spital-horgen",
           "assistent-in-aemp-see-spital-ch",
           "assistant-en-aemp-see-spital-horgen",
-          "praxisassistent-in-policlinic-see-spital-ch",
-          "assistente-assistente-di-medicina-see-spital-horgen"
+          "praxisassistent-in-policlinic-see-spital-ch"
         ],
         "en": [
           "practical-assistant-see-spital-horgen"
@@ -429,7 +418,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:34.412Z",
+      "crawledAt": "2026-10-03T21:23:39.851Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -484,8 +473,7 @@
         "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen",
         "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
         "dipl-carriere-mann-hf-gynecologie-see-spital-horgen",
-        "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen",
-        "dipl-infermiere-re-notturno-see-spital-horgen"
+        "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -500,8 +488,7 @@
           "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen",
           "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
           "dipl-carriere-mann-hf-gynecologie-see-spital-horgen",
-          "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen",
-          "dipl-infermiere-re-notturno-see-spital-horgen"
+          "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen"
         ],
         "en": [
           "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
@@ -564,7 +551,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:33.297Z",
+      "crawledAt": "2026-10-03T21:23:38.755Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -605,13 +592,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
-        "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
+        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
-          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -661,7 +646,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:21:32.186Z",
+      "crawledAt": "2026-10-03T21:23:37.704Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -712,13 +697,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
-        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
@@ -738,16 +721,17 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-74bfb782fc7e",
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
+        "en": "emergency-medical-technician-in-training-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -772,7 +756,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:31.074Z",
+      "crawledAt": "2026-10-03T21:23:36.641Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -823,23 +807,17 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "emergency-medical-technician-in-training-see-spital-horgen",
-        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
-        "sanitario-di-emergenza-in-formazione-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch",
-          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "emergency-medical-technician-in-training-see-spital-horgen",
           "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
         ],
         "fr": [
-          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
           "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
         ]
       },
@@ -891,7 +869,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:29.890Z",
+      "crawledAt": "2026-10-03T21:23:35.608Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -938,13 +916,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
-        "radiologo-a-formatore-a-hf-see-spital-horgen"
+        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
-          "radiologo-a-formatore-a-hf-see-spital-horgen"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -994,7 +970,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:21:28.705Z",
+      "crawledAt": "2026-10-03T21:23:34.546Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1036,14 +1012,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
-        "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
+        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
-          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
+          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1060,7 +1034,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-50f9b4fcb057",
@@ -1094,7 +1069,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:27.563Z",
+      "crawledAt": "2026-10-03T21:23:33.488Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1144,13 +1119,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-see-spital-ch",
-        "esperto-a-di-anestesia-see-spital-horgen"
+        "dipl-expert-in-anasthesiepflege-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch",
-          "esperto-a-di-anestesia-see-spital-horgen"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1201,7 +1174,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:26.431Z",
+      "crawledAt": "2026-10-03T21:23:32.353Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1252,18 +1225,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-        "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen",
-        "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
+        "dipl-pflegefachperson-hf-excellence-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 91500,
@@ -1313,7 +1282,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:25.306Z",
+      "crawledAt": "2026-10-03T21:23:31.282Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1363,14 +1332,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
-        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
-          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1421,7 +1388,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:24.178Z",
+      "crawledAt": "2026-10-03T21:23:30.236Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1471,13 +1438,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
-        "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
-          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1531,7 +1496,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:23.030Z",
+      "crawledAt": "2026-10-03T21:23:29.189Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1571,14 +1536,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sportarztin-arzt-see-spital-ch",
-        "sportarztin-arzt-policlinic-see-spital-ch",
-        "medico-dello-sport-see-spital-horgen"
+        "sportarztin-arzt-policlinic-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportarztin-arzt-see-spital-ch",
-          "sportarztin-arzt-policlinic-see-spital-ch",
-          "medico-dello-sport-see-spital-horgen"
+          "sportarztin-arzt-policlinic-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1628,7 +1591,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:21:21.912Z",
+      "crawledAt": "2026-10-03T21:23:28.172Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1672,14 +1635,12 @@
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
         "medico-di-medicina-interna-nefrologia-see-spital-horgen",
         "assistant-physician-nephrology-see-spital-horgen",
-        "assistant-en-medecine-interne-nephrologie-see-spital-horgen",
-        "infermiere-a-specializzato-a-see-spital-horgen"
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "medico-di-medicina-interna-nefrologia-see-spital-horgen",
-          "infermiere-a-specializzato-a-see-spital-horgen"
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
         ],
         "en": [
           "assistant-physician-nephrology-see-spital-horgen"
@@ -1705,7 +1666,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-ee0a2e2dc56b",
@@ -1739,7 +1701,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:20.789Z",
+      "crawledAt": "2026-10-03T21:23:27.108Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1788,13 +1750,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-operationstechnik-hf-see-spital-ch",
-        "studente-operatore-tecnico-see-spital-horgen"
+        "studierende-r-operationstechnik-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch",
-          "studente-operatore-tecnico-see-spital-horgen"
+          "studierende-r-operationstechnik-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1845,7 +1805,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:19.675Z",
+      "crawledAt": "2026-10-03T21:23:26.025Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1894,14 +1854,12 @@
         "healthcare-professional-efz-medicine-see-spital-horgen",
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "professionnel-de-sante-efz-medecine-see-spital-horgen",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
-        "fachinfermiere-efz-excellence-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
-          "fachinfermiere-efz-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1952,7 +1910,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:18.536Z",
+      "crawledAt": "2026-10-03T21:23:24.982Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2000,13 +1958,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
-        "studente-studente-di-infermieristica-hf-see-spital-horgen"
+        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
-          "studente-studente-di-infermieristica-hf-see-spital-horgen"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -2057,7 +2013,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:17.399Z",
+      "crawledAt": "2026-10-03T21:23:23.938Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2108,8 +2064,7 @@
         "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
         "dipl-care-professional-hf-oncology-see-spital-horgen",
         "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
-        "dipl-soins-professionnels-hf-oncologie-see-spital-horgen",
-        "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
+        "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2117,8 +2072,7 @@
           "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
           "dipl-care-professional-hf-oncology-see-spital-horgen",
           "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
-          "dipl-soins-professionnels-hf-oncologie-see-spital-horgen",
-          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
+          "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
         ],
         "en": [
           "dipl-care-professional-hf-oncology-see-spital-horgen"
@@ -2160,7 +2114,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Radiologiefachfrau*mann HF",
       "titleByLocale": {
-        "it": "Specialista in radiologia* HF",
+        "it": "Radiologiefachfrau*mann HF",
         "en": "Radiologist HF",
         "de": "Radiologiefachfrau*mann HF",
         "fr": "Radiologue HF"
@@ -2177,7 +2131,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:21:16.247Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-03T21:23:22.855Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2284,7 +2239,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:15.088Z",
+      "crawledAt": "2026-10-03T21:23:21.750Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2304,14 +2259,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarztin-arzt-onkologie-see-spital-ch",
-        "medico-senior-see-spital-horgen",
-        "oncologia-del-medico-senior-see-spital-horgen"
+        "medico-senior-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-arzt-onkologie-see-spital-ch",
-          "medico-senior-see-spital-horgen",
-          "oncologia-del-medico-senior-see-spital-horgen"
+          "medico-senior-see-spital-horgen"
         ],
         "en": [
           "oberarztin-arzt-onkologie-see-spital-ch"
@@ -2368,7 +2321,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:13.936Z",
+      "crawledAt": "2026-10-03T21:23:20.675Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2387,13 +2340,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-kochin-koch-efz-see-spital-ch",
-        "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
+        "lehrstelle-als-kochin-koch-efz-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kochin-koch-efz-see-spital-ch",
-          "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
+          "lehrstelle-als-kochin-koch-efz-see-spital-ch"
         ],
         "en": [
           "lehrstelle-als-kochin-koch-efz-see-spital-ch"
@@ -2450,7 +2401,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-03T09:21:12.809Z",
+      "crawledAt": "2026-10-03T21:23:19.591Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2469,13 +2420,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
-        "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
+        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
-          "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
+          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
         ],
         "en": [
           "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
@@ -2532,7 +2481,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:11.709Z",
+      "crawledAt": "2026-10-03T21:23:18.496Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2551,13 +2500,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
-        "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen"
+        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
-          "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen"
+          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
         ],
         "en": [
           "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
@@ -2613,7 +2560,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:21:10.588Z",
+      "crawledAt": "2026-10-03T21:23:17.462Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2632,13 +2579,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "assistenzarzt-arztin-geriatrie-see-spital-ch",
-        "assistente-medico-geriatrico-see-spital-horgen"
+        "assistenzarzt-arztin-geriatrie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-arztin-geriatrie-see-spital-ch",
-          "assistente-medico-geriatrico-see-spital-horgen"
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
         ],
         "en": [
           "assistenzarzt-arztin-geriatrie-see-spital-ch"
@@ -2661,15 +2606,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-981ac5a06760",
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "pflegeexpert-in-see-spital-horgen",
+        "en": "nursing-expert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2696,7 +2640,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:09.463Z",
+      "crawledAt": "2026-10-03T21:23:16.409Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2717,18 +2661,14 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
-        "nursing-expert-see-spital-horgen",
-        "esperto-di-cura-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpert-in-see-spital-ch",
-          "esperto-di-cura-see-spital-horgen"
+          "pflegeexpert-in-see-spital-ch"
         ],
         "en": [
           "care-expert-see-spital-horgen",
-          "nursing-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen"
         ],
         "fr": [
@@ -2783,7 +2723,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:08.385Z",
+      "crawledAt": "2026-10-03T21:23:15.307Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2803,14 +2743,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch",
-        "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen",
-        "pneumologia-del-medico-senior-condivisione-del-lavoro-e-modelli-di-peso-flessibile-possibile-see-spital-horgen"
+        "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch",
-          "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen",
-          "pneumologia-del-medico-senior-condivisione-del-lavoro-e-modelli-di-peso-flessibile-possibile-see-spital-horgen"
+          "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen"
         ],
         "en": [
           "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch"
@@ -2867,7 +2805,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:07.252Z",
+      "crawledAt": "2026-10-03T21:23:14.215Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2891,8 +2829,7 @@
         "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen",
         "apprenticeship-as-a-specialist-health-efz-see-spital-horgen",
         "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
-        "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen",
-        "salute-efz-interdisciplinare-see-spital-horgen"
+        "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2901,8 +2838,7 @@
           "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen",
           "apprenticeship-as-a-specialist-health-efz-see-spital-horgen",
           "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
-          "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen",
-          "salute-efz-interdisciplinare-see-spital-horgen"
+          "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch",
@@ -2964,7 +2900,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:06.132Z",
+      "crawledAt": "2026-10-03T21:23:13.165Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2983,13 +2919,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "stationssekretar-in-interdisziplinar-see-spital-ch",
-        "segretario-della-stazione-interdisciplinare-see-spital-horgen"
+        "stationssekretar-in-interdisziplinar-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationssekretar-in-interdisziplinar-see-spital-ch",
-          "segretario-della-stazione-interdisciplinare-see-spital-horgen"
+          "stationssekretar-in-interdisziplinar-see-spital-ch"
         ],
         "en": [
           "stationssekretar-in-interdisziplinar-see-spital-ch"
@@ -3046,7 +2980,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:05.024Z",
+      "crawledAt": "2026-10-03T21:23:12.057Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3065,13 +2999,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "oberarztin-arzt-innere-medizin-see-spital-ch",
-        "medicina-interna-del-medico-senior-see-spital-horgen"
+        "oberarztin-arzt-innere-medizin-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-innere-medizin-see-spital-ch",
-          "medicina-interna-del-medico-senior-see-spital-horgen"
+          "oberarztin-arzt-innere-medizin-see-spital-ch"
         ],
         "en": [
           "oberarztin-arzt-innere-medizin-see-spital-ch"
@@ -3128,7 +3060,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:03.887Z",
+      "crawledAt": "2026-10-03T21:23:10.969Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3148,14 +3080,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-gebaudemanagement-see-spital-ch",
-        "collaboratore-trice-in-gebaudemanagement-see-spital-horgen",
-        "dipendenti-nella-gestione-degli-edifici-see-spital-horgen"
+        "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gebaudemanagement-see-spital-ch",
-          "collaboratore-trice-in-gebaudemanagement-see-spital-horgen",
-          "dipendenti-nella-gestione-degli-edifici-see-spital-horgen"
+          "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
         ],
         "en": [
           "mitarbeiter-in-gebaudemanagement-see-spital-ch"
@@ -3212,7 +3142,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:02.790Z",
+      "crawledAt": "2026-10-03T21:23:09.944Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3231,13 +3161,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch",
-        "dipl-fisioterapista-sportiva-policlinic-see-spital-horgen"
+        "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch",
-          "dipl-fisioterapista-sportiva-policlinic-see-spital-horgen"
+          "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
         ],
         "en": [
           "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
@@ -3294,7 +3222,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:01.658Z",
+      "crawledAt": "2026-10-03T21:23:08.896Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3313,13 +3241,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "expert-in-intensivpflege-nds-hf-see-spital-ch",
-        "cura-intensiva-degli-esperti-nds-hf-see-spital-horgen"
+        "expert-in-intensivpflege-nds-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-intensivpflege-nds-hf-see-spital-ch",
-          "cura-intensiva-degli-esperti-nds-hf-see-spital-horgen"
+          "expert-in-intensivpflege-nds-hf-see-spital-ch"
         ],
         "en": [
           "expert-in-intensivpflege-nds-hf-see-spital-ch"
@@ -3376,7 +3302,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:21:00.546Z",
+      "crawledAt": "2026-10-03T21:23:07.815Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3395,13 +3321,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
-        "team-leader-acute-career-tertianum-see-spital-horgen"
+        "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
-          "team-leader-acute-career-tertianum-see-spital-horgen"
+          "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
         ],
         "en": [
           "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
@@ -3458,7 +3382,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:20:59.415Z",
+      "crawledAt": "2026-10-03T21:23:06.737Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3477,13 +3401,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "med-praxisassistent-in-frauenklinik-see-spital-ch",
-        "med-assistente-pratico-clinica-femminile-see-spital-horgen"
+        "med-praxisassistent-in-frauenklinik-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-frauenklinik-see-spital-ch",
-          "med-assistente-pratico-clinica-femminile-see-spital-horgen"
+          "med-praxisassistent-in-frauenklinik-see-spital-ch"
         ],
         "en": [
           "med-praxisassistent-in-frauenklinik-see-spital-ch"
@@ -3540,7 +3462,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:20:58.312Z",
+      "crawledAt": "2026-10-03T21:23:05.668Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3560,14 +3482,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-empfang-see-spital-ch",
-        "collaboratore-trice-in-empfang-see-spital-horgen",
-        "ricevimento-dei-dipendenti-see-spital-horgen"
+        "collaboratore-trice-in-empfang-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-see-spital-ch",
-          "collaboratore-trice-in-empfang-see-spital-horgen",
-          "ricevimento-dei-dipendenti-see-spital-horgen"
+          "collaboratore-trice-in-empfang-see-spital-horgen"
         ],
         "en": [
           "mitarbeiter-in-empfang-see-spital-ch"
@@ -3624,7 +3544,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-03T09:20:57.182Z",
+      "crawledAt": "2026-10-03T21:23:04.555Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3644,14 +3564,12 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "oberarztin-arzt-innere-medizin-befristet-see-spital-ch",
-        "oberarztin-arzt-innere-medizin-befristet-see-spital-horgen",
-        "medicina-interna-del-medico-senior-temporanea-see-spital-horgen"
+        "oberarztin-arzt-innere-medizin-befristet-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-arzt-innere-medizin-befristet-see-spital-ch",
-          "oberarztin-arzt-innere-medizin-befristet-see-spital-horgen",
-          "medicina-interna-del-medico-senior-temporanea-see-spital-horgen"
+          "oberarztin-arzt-innere-medizin-befristet-see-spital-horgen"
         ],
         "en": [
           "oberarztin-arzt-innere-medizin-befristet-see-spital-ch"
@@ -3680,9 +3598,9 @@
       "id": "see-spital-6d548c5e4f85",
       "slug": "controller-in-see-spital-ch",
       "slugByLocale": {
-        "de": "controller-in-see-spital-ch",
         "it": "controller-in-see-spital-ch",
         "en": "controller-in-see-spital-ch",
+        "de": "controller-in-see-spital-ch",
         "fr": "controller-in-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -3690,16 +3608,16 @@
       "companyDomain": "see-spital.ch",
       "title": "Controller*in",
       "titleByLocale": {
-        "de": "Controller*in",
-        "fr": "Controller*in",
         "it": "Controller*in",
-        "en": "Controller*in"
+        "en": "Controller*in",
+        "de": "Controller*in",
+        "fr": "Controller*in"
       },
       "description": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine*n Controller*in\n60-80%\n\nIhr Aufgabengebiet\n\n• Mitarbeit in einem kleinen engagierten Controlling-Team\n• Unterstützung bei vielfältigen betriebswirtschaftlichen Aufgaben\n• Unterstützung bei der Weiterentwicklung des Management-Informationssystems und des Monatsreportings\n• Aufbereitung der Kosten-, Deckungsbeitrags- und Leistungsrechnung sowie Ad-hoc-Auswertungen für ambulante und stationäre Leistungsbereiche\n• Unterstützung bei der Erstellung der jährlichen Statistiken für externe Stellen\n• Sicherstellung der Datenqualität im Controlling-Prozess\n\nIhr Profil\n\n• Abgeschlossene höhere betriebswirtschaftliche Ausbildung (FH oder Universität)\n• Berufserfahrung im Controlling, Erfahrung im Gesundheitswesen ist von Vorteil\n• Sehr gute Kenntnisse in Microsoft Excel\n• Verantwortungsbewusste, zuverlässige und lösungsorientierte Persönlichkeit\n• Kenntnisse der BI Software HCe sind von Vorteil\n• Systematische, sorgfältige und selbstständige Arbeitsweise\n• Ausgepräge analytische Fähigkeiten, schnelle Auffassungsgabe sowie hohe IT-Affinität\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
       "descriptionByLocale": {
-        "de": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine*n Controller*in\n60-80%\n\nIhr Aufgabengebiet\n\n• Mitarbeit in einem kleinen engagierten Controlling-Team\n• Unterstützung bei vielfältigen betriebswirtschaftlichen Aufgaben\n• Unterstützung bei der Weiterentwicklung des Management-Informationssystems und des Monatsreportings\n• Aufbereitung der Kosten-, Deckungsbeitrags- und Leistungsrechnung sowie Ad-hoc-Auswertungen für ambulante und stationäre Leistungsbereiche\n• Unterstützung bei der Erstellung der jährlichen Statistiken für externe Stellen\n• Sicherstellung der Datenqualität im Controlling-Prozess\n\nIhr Profil\n\n• Abgeschlossene höhere betriebswirtschaftliche Ausbildung (FH oder Universität)\n• Berufserfahrung im Controlling, Erfahrung im Gesundheitswesen ist von Vorteil\n• Sehr gute Kenntnisse in Microsoft Excel\n• Verantwortungsbewusste, zuverlässige und lösungsorientierte Persönlichkeit\n• Kenntnisse der BI Software HCe sind von Vorteil\n• Systematische, sorgfältige und selbstständige Arbeitsweise\n• Ausgepräge analytische Fähigkeiten, schnelle Auffassungsgabe sowie hohe IT-Affinität\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "it": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine*n Controller*in\n60-80%\n\nIhr Aufgabengebiet\n\n• Mitarbeit in einem kleinen engagierten Controlling-Team\n• Unterstützung bei vielfältigen betriebswirtschaftlichen Aufgaben\n• Unterstützung bei der Weiterentwicklung des Management-Informationssystems und des Monatsreportings\n• Aufbereitung der Kosten-, Deckungsbeitrags- und Leistungsrechnung sowie Ad-hoc-Auswertungen für ambulante und stationäre Leistungsbereiche\n• Unterstützung bei der Erstellung der jährlichen Statistiken für externe Stellen\n• Sicherstellung der Datenqualität im Controlling-Prozess\n\nIhr Profil\n\n• Abgeschlossene höhere betriebswirtschaftliche Ausbildung (FH oder Universität)\n• Berufserfahrung im Controlling, Erfahrung im Gesundheitswesen ist von Vorteil\n• Sehr gute Kenntnisse in Microsoft Excel\n• Verantwortungsbewusste, zuverlässige und lösungsorientierte Persönlichkeit\n• Kenntnisse der BI Software HCe sind von Vorteil\n• Systematische, sorgfältige und selbstständige Arbeitsweise\n• Ausgepräge analytische Fähigkeiten, schnelle Auffassungsgabe sowie hohe IT-Affinität\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "en": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine*n Controller*in\n60-80%\n\nIhr Aufgabengebiet\n\n• Mitarbeit in einem kleinen engagierten Controlling-Team\n• Unterstützung bei vielfältigen betriebswirtschaftlichen Aufgaben\n• Unterstützung bei der Weiterentwicklung des Management-Informationssystems und des Monatsreportings\n• Aufbereitung der Kosten-, Deckungsbeitrags- und Leistungsrechnung sowie Ad-hoc-Auswertungen für ambulante und stationäre Leistungsbereiche\n• Unterstützung bei der Erstellung der jährlichen Statistiken für externe Stellen\n• Sicherstellung der Datenqualität im Controlling-Prozess\n\nIhr Profil\n\n• Abgeschlossene höhere betriebswirtschaftliche Ausbildung (FH oder Universität)\n• Berufserfahrung im Controlling, Erfahrung im Gesundheitswesen ist von Vorteil\n• Sehr gute Kenntnisse in Microsoft Excel\n• Verantwortungsbewusste, zuverlässige und lösungsorientierte Persönlichkeit\n• Kenntnisse der BI Software HCe sind von Vorteil\n• Systematische, sorgfältige und selbstständige Arbeitsweise\n• Ausgepräge analytische Fähigkeiten, schnelle Auffassungsgabe sowie hohe IT-Affinität\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "de": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine*n Controller*in\n60-80%\n\nIhr Aufgabengebiet\n\n• Mitarbeit in einem kleinen engagierten Controlling-Team\n• Unterstützung bei vielfältigen betriebswirtschaftlichen Aufgaben\n• Unterstützung bei der Weiterentwicklung des Management-Informationssystems und des Monatsreportings\n• Aufbereitung der Kosten-, Deckungsbeitrags- und Leistungsrechnung sowie Ad-hoc-Auswertungen für ambulante und stationäre Leistungsbereiche\n• Unterstützung bei der Erstellung der jährlichen Statistiken für externe Stellen\n• Sicherstellung der Datenqualität im Controlling-Prozess\n\nIhr Profil\n\n• Abgeschlossene höhere betriebswirtschaftliche Ausbildung (FH oder Universität)\n• Berufserfahrung im Controlling, Erfahrung im Gesundheitswesen ist von Vorteil\n• Sehr gute Kenntnisse in Microsoft Excel\n• Verantwortungsbewusste, zuverlässige und lösungsorientierte Persönlichkeit\n• Kenntnisse der BI Software HCe sind von Vorteil\n• Systematische, sorgfältige und selbstständige Arbeitsweise\n• Ausgepräge analytische Fähigkeiten, schnelle Auffassungsgabe sowie hohe IT-Affinität\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "fr": "Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine*n Controller*in\n60-80%\n\nIhr Aufgabengebiet\n\n• Mitarbeit in einem kleinen engagierten Controlling-Team\n• Unterstützung bei vielfältigen betriebswirtschaftlichen Aufgaben\n• Unterstützung bei der Weiterentwicklung des Management-Informationssystems und des Monatsreportings\n• Aufbereitung der Kosten-, Deckungsbeitrags- und Leistungsrechnung sowie Ad-hoc-Auswertungen für ambulante und stationäre Leistungsbereiche\n• Unterstützung bei der Erstellung der jährlichen Statistiken für externe Stellen\n• Sicherstellung der Datenqualität im Controlling-Prozess\n\nIhr Profil\n\n• Abgeschlossene höhere betriebswirtschaftliche Ausbildung (FH oder Universität)\n• Berufserfahrung im Controlling, Erfahrung im Gesundheitswesen ist von Vorteil\n• Sehr gute Kenntnisse in Microsoft Excel\n• Verantwortungsbewusste, zuverlässige und lösungsorientierte Persönlichkeit\n• Kenntnisse der BI Software HCe sind von Vorteil\n• Systematische, sorgfältige und selbstständige Arbeitsweise\n• Ausgepräge analytische Fähigkeiten, schnelle Auffassungsgabe sowie hohe IT-Affinität\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant"
       },
       "location": "Horgen",
@@ -3708,7 +3626,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-03T09:20:56.042Z",
+      "crawledAt": "2026-10-03T21:23:03.473Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3723,11 +3641,10 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1304/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
+      "firstSeenAt": "2026-10-03T09:20:56.042Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3741,8 +3658,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-03T09:20:56.042Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-8cd4b9cadf02",
@@ -3823,7 +3739,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

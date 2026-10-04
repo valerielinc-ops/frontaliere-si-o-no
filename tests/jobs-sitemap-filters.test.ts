@@ -11,7 +11,6 @@
  * The predicates under test:
  *   1. thin-content filter   — IT description must have >= 50 words
  *   2. needsRetranslation    — skip jobs flagged as pending retranslation
- *   3. lastmod resolution    — job.crawledAt preferred, fallback to today
  *
  * Run: npx vitest run tests/jobs-sitemap-filters.test.ts
  */
@@ -25,7 +24,6 @@ interface SitemapJob {
   description?: string;
   descriptionByLocale?: Record<string, string>;
   needsRetranslation?: boolean;
-  crawledAt?: string;
 }
 
 // Mirrors build-plugins/jobsSeoPagesPlugin.ts (seo/sitemap-crawl-budget).
@@ -36,11 +34,6 @@ function isSitemapEligible(job: SitemapJob): boolean {
   return wordCount >= 50;
 }
 
-function resolveJobLastmod(job: SitemapJob, today: string): string {
-  return job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : today;
-}
-
-const TODAY = '2026-04-20';
 const LONG_DESC = Array.from({ length: 60 }, (_, i) => `word${i}`).join(' ');
 
 describe('sitemap-jobs.xml eligibility filter', () => {
@@ -99,25 +92,6 @@ describe('sitemap-jobs.xml eligibility filter', () => {
     const tagged = `<p><strong>Benefits</strong></p>${'<li>word</li>'.repeat(49)}<p>final</p>`;
     const job: SitemapJob = { description: tagged };
     expect(isSitemapEligible(job)).toBe(true);
-  });
-});
-
-describe('sitemap-jobs.xml <lastmod> resolution', () => {
-  it('uses ISO date from job.crawledAt when present', () => {
-    const job: SitemapJob = {
-      crawledAt: '2026-04-12T18:03:42.000Z',
-    };
-    expect(resolveJobLastmod(job, TODAY)).toBe('2026-04-12');
-  });
-
-  it('falls back to today when crawledAt is missing', () => {
-    const job: SitemapJob = {};
-    expect(resolveJobLastmod(job, TODAY)).toBe(TODAY);
-  });
-
-  it('falls back to today when crawledAt is an empty string', () => {
-    const job: SitemapJob = { crawledAt: '' };
-    expect(resolveJobLastmod(job, TODAY)).toBe(TODAY);
   });
 });
 

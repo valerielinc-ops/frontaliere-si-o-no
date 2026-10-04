@@ -204,8 +204,6 @@ ${sourcesHtml}
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -257,7 +255,6 @@ function buildSitemapXml(today: string): string {
     (loc) => `  <url>
     <loc>${BASE_URL}${buildFrontalierePillarPath(loc)}</loc>
 ${alternates.join('\n')}
-    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`,

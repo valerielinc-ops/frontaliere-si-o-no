@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-10-03T09:13:58.521Z",
+  "assembledAt": "2026-10-03T21:13:53.433Z",
   "jobs": [
     {
       "id": "anybotics-faf88312b698",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/8ba5fd36-edfb-4040-8369-fb16996d3c3e",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:52.847Z",
+      "crawledAt": "2026-10-03T21:13:47.736Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -62,8 +62,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-702b013708b6",
@@ -96,7 +95,7 @@
       "url": "https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:52.544Z",
+      "crawledAt": "2026-10-03T21:13:47.432Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -135,8 +134,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-472a1d92eda0",
@@ -169,7 +167,7 @@
       "url": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:52.242Z",
+      "crawledAt": "2026-10-03T21:13:47.130Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -244,7 +242,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:51.939Z",
+      "crawledAt": "2026-10-03T21:13:46.827Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -305,6 +303,83 @@
       "addressRegion": "ZH"
     },
     {
+      "id": "anybotics-7d87b673bfeb",
+      "slug": "software-ingegnere-tirocinante-industrialization-anybotics-zurich",
+      "slugByLocale": {
+        "it": "software-ingegnere-tirocinante-industrialization-anybotics-zurich",
+        "en": "software-engineer-intern-industrialization-anybotics-ch",
+        "de": "software-ingenieur-praktikant-industrialization-anybotics-zurich",
+        "fr": "software-ingenieur-stagiaire-industrialization-anybotics-zurich"
+      },
+      "company": "ANYbotics",
+      "companyKey": "anybotics",
+      "companyDomain": "anybotics.com",
+      "title": "Software Engineer Intern - Industrialization",
+      "titleByLocale": {
+        "it": "Software Ingegnere Tirocinante - Industrialization",
+        "en": "Software Engineer Intern - Industrialization",
+        "de": "Software Ingenieur Praktikant - Industrialization",
+        "fr": "Software Ingénieur Stagiaire - Industrialization"
+      },
+      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
+      "descriptionByLocale": {
+        "it": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
+        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
+        "de": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
+        "fr": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.lever.co/anybotics/d78ed750-b7fa-41a1-8691-0091b9df4169",
+      "source": "ANYbotics Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-03T21:13:46.524Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Robotica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-03",
+      "applyUrl": "https://jobs.lever.co/anybotics/d78ed750-b7fa-41a1-8691-0091b9df4169",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:13:51.637Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-intern-industrialization-anybotics-ch"
+        ],
+        "de": [
+          "software-engineer-intern-industrialization-anybotics-ch"
+        ],
+        "fr": [
+          "software-engineer-intern-industrialization-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-intern-industrialization-anybotics-ch"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
       "id": "anybotics-c31b9bb9e207",
       "slug": "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland",
       "slugByLocale": {
@@ -335,7 +410,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:51.335Z",
+      "crawledAt": "2026-10-03T21:13:46.221Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -413,7 +488,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:51.032Z",
+      "crawledAt": "2026-10-03T21:13:45.918Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -452,8 +527,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-0d831f9b484a",
@@ -486,7 +560,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:50.731Z",
+      "crawledAt": "2026-10-03T21:13:45.615Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -531,8 +605,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-c106fed9522b",
@@ -565,7 +638,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:50.429Z",
+      "crawledAt": "2026-10-03T21:13:45.313Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -648,7 +721,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:50.126Z",
+      "crawledAt": "2026-10-03T21:13:45.010Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -726,7 +799,7 @@
       "url": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:49.825Z",
+      "crawledAt": "2026-10-03T21:13:44.708Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -741,17 +814,17 @@
       "applyUrl": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:53:32.195Z",
+      "previousSlugs": [
+        "product-manager-physical-ai-anybotics-ch",
+        "product-manager-ia-fisica-anybotics-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-physical-ai-anybotics-ch",
           "product-manager-ia-fisica-anybotics-zurich"
         ]
       },
-      "previousSlugs": [
-        "product-manager-physical-ai-anybotics-ch",
-        "product-manager-ia-fisica-anybotics-zurich"
-      ],
+      "firstSeenAt": "2026-09-26T13:53:32.195Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -765,8 +838,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-262149a19b82",
@@ -799,7 +871,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:49.523Z",
+      "crawledAt": "2026-10-03T21:13:44.404Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -877,7 +949,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:49.221Z",
+      "crawledAt": "2026-10-03T21:13:44.101Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -959,7 +1031,7 @@
       "url": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:48.919Z",
+      "crawledAt": "2026-10-03T21:13:43.799Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -998,8 +1070,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-5839d064a74b",
@@ -1032,7 +1103,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:48.617Z",
+      "crawledAt": "2026-10-03T21:13:43.498Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1077,8 +1148,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-3f2f1510f128",
@@ -1111,7 +1181,7 @@
       "url": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:48.315Z",
+      "crawledAt": "2026-10-03T21:13:43.196Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1156,8 +1226,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "anybotics-a9bacb55e99e",
@@ -1190,7 +1259,7 @@
       "url": "https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:48.010Z",
+      "crawledAt": "2026-10-03T21:13:42.891Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1235,73 +1304,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
-    },
-    {
-      "id": "anybotics-7d87b673bfeb",
-      "slug": "software-engineer-intern-industrialization-anybotics-ch",
-      "slugByLocale": {
-        "en": "software-engineer-intern-industrialization-anybotics-ch",
-        "it": "software-engineer-intern-industrialization-anybotics-ch",
-        "de": "software-engineer-intern-industrialization-anybotics-ch",
-        "fr": "software-engineer-intern-industrialization-anybotics-ch"
-      },
-      "company": "ANYbotics",
-      "companyKey": "anybotics",
-      "companyDomain": "anybotics.com",
-      "title": "Software Engineer Intern - Industrialization",
-      "titleByLocale": {
-        "en": "Software Engineer Intern - Industrialization",
-        "it": "Software Ingegnere Tirocinante - Industrialization",
-        "de": "Software Ingenieur Praktikant - Industrialization",
-        "fr": "Software Ingénieur Stagiaire - Industrialization"
-      },
-      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
-      "descriptionByLocale": {
-        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
-        "it": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
-        "de": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich.",
-        "fr": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 190 people and work on cutting-edge robot technology. We are open to internships all year round and post regularly.\n\nWe’re always looking for passionate, curious, and motivated interns to join our mission.\n\nThis is your chance to collaborate with world-class experts, gain real-world experience, and make meaningful contributions in a fast-paced, interdisciplinary environment.\n\nThe Opportunity\n\nYou will join the Industrialization team, the group that turns ANYmal from something engineers can build into something a factory can build, test, and release at volume. Every robot that leaves our production line passes through the test systems this team owns. When those tests are effective, quality issues are caught in Zurich before reaching a customer's industrial site. That is the leverage of this role.Sitting directly at the intersection of software and hardware, you will write Python code to interface with physical devices, help define reliable pass/fail criteria for ANYmal subsystems, and deploy test routines to our manufacturing shopfloor. Working alongside Manufacturing Engineers, test technicians, and hardware design teams, you will gain hands-on experience bridging cutting-edge robotics design with scalable industrial production.\n\nThe Market & Our Technology\n\nANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Founded as an ETH Zurich spin-off, we build autonomous mobile robots (ANYmal) that solve complex inspection tasks in challenging industrial environments such as energy, chemical, and mining facilities. Join our highly talented and motivated team of more than 200 people in Zurich and work on cutting-edge robot technology that is transforming industrial operations globally.\n\nYour Impact\n\n• Develop, test, and help deploy Python-based automated test procedures for ANYmal hardware subsystems\n\n• Instrument and control hardware devices, sensors, and cameras directly through software interfaces\n\n• Collaborate with test technicians and manufacturing engineers to refine shopfloor testing workflows\n\n• Learn to write clean, resilient, and reproducible code using established software engineering best practices\n\n• Contribute directly to test documentation and technician procedures to ensure seamless shopfloor execution\n\nYour Profile\n\n• Ongoing or recently completed degree (BSc or MSc) in Mechatronics, Robotics, Computer Science, Electrical Engineering, Systems Engineering, or Mechanical Engineering\n\n• Solid Python programming foundation with experience building projects that interact with hardware, sensors, or external APIs\n\n• Practical hands-on experience with hardware interfaces through university labs, student projects, or personal builds\n\n• Structured approach to problem-solving and a keen interest in measurement fundamentals like tolerances and repeatability\n\n• Clear written and verbal communication skills, comfortable explaining technical concepts and drafting structured procedures\n\n• Proactive mindset with a desire to learn quickly, ask questions early, and work in a hands-on production environment\n\n• Based in or willing to relocate to Zurich, with a commitment to regular on-site presence near the hardware and shopfloor\n\nBonus Points\n\n• Experience with ROS or ROS2\n\n• Basic understanding of image processing or computer vision pipelines (OpenCV)\n\n• Exposure to sensor calibration techniques (IMU, camera intrinsics/extrinsics, depth, or thermal)\n\n• Familiarity with Docker or devcontainer environments\n\n• Background in student engineering teams such as Formula Student, Swissloop, or ARIS Rocketry, especially on testing or integration\n\nInternship Details:\n\nStart date: any time of the year and always on the 1st of the month\n\nDuration: 6 months\n\nWorkload: 100% (Full time, Onsite)\n\nWho can apply:\n\nEU applicants for internships\n\nThe internship can be voluntary\n\nA work permit is not required but the candidate needs a residence permit\n\nMust be enrolled in a University\n\nNon-EU applicants for internships:\n\nInternship must be mandatory (supported by a letter from a university)\n\nA work permit is required\n\nMust reside in CH\n\nInterested? Submit your application\n\nWe will contact you if your skills and experience are a good fit for the team and the role. Please note due to the high load of applications we will only contact those that are relevant. Thank you for your understanding.\n\nWhat We Offer:\n\n- Hands-on experience working on advanced locomotion software.\n\n- Mentorship from industry experts.\n\n- Opportunities to contribute to innovative projects.\n\n- A dynamic and collaborative work environment.\n\n- Potential for future full-time opportunities.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive and fun environment in the city of Zurich."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.lever.co/anybotics/d78ed750-b7fa-41a1-8691-0091b9df4169",
-      "source": "ANYbotics Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:51.637Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Robotica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-03",
-      "applyUrl": "https://jobs.lever.co/anybotics/d78ed750-b7fa-41a1-8691-0091b9df4169",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-03T09:13:51.637Z"
+      "addressRegion": "ZH"
     }
   ]
 }

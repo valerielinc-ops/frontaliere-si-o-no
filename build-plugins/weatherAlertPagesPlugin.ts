@@ -523,7 +523,6 @@ function jsonLd(locale: Locale, title: string, description: string, canonical: s
     name: title,
     description,
     url: canonical,
-    dateModified: generatedAt ?? new Date().toISOString(),
     isPartOf: {
       '@type': 'WebSite',
       name: 'Frontaliere Ticino',
@@ -554,13 +553,12 @@ function escapeHtml(s: string): string {
 function writeSitemap(rootDir: string, generatedAt?: string): void {
   const distDir = resolve(rootDir, 'dist');
   const sitemapFile = resolve(distDir, 'sitemap-weather-alerts.xml');
-  const ts = generatedAt ?? new Date().toISOString();
   const urls: string[] = [];
   for (const locale of LOCALES) {
     const localePath = locale === 'it' ? '' : `/${locale}`;
-    urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${HUB_SLUG[locale]}/</loc><lastmod>${ts}</lastmod></url>`);
+    urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${HUB_SLUG[locale]}/</loc></url>`);
     for (const cfg of WEATHER_ALERT_CONFIG) {
-      urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${ALERTS_PARENT_BY_LOCALE[locale]}/${cfg.slug[locale]}/</loc><lastmod>${ts}</lastmod></url>`);
+      urls.push(`<url><loc>https://frontaliereticino.ch${localePath}/${ALERTS_PARENT_BY_LOCALE[locale]}/${cfg.slug[locale]}/</loc></url>`);
     }
   }
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
