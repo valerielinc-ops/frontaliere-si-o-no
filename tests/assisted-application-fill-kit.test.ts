@@ -218,10 +218,14 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await submission().set({ r1: { state: 'sending', channel: 'portal', clickedAt: T0 - 60_000 } });
     await expect(call('automationFillKit')).rejects.toMatchObject({ code: 'submission_unconfirmed', status: 409 });
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
+    // The robot recorded what it was sending at its press (submit.mjs `sentAttempt`).
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ sentAttempt: { at: T0 - 60_000, channel: 'join', packaging: 'portal', files: [] } }, { merge: true });
     // She looked on the portal: nothing arrived. The round is released and the kit leaves.
     const { kit } = await call('automationFillKit', { confirmNotReceived: true }) as any;
     expect(kit.orderId).toBe(ORDER);
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'failed' } });
+    // What the robot tried did not arrive: it is no record of what she will send.
+    expect(store.read(`${PATH}/ai_drafts/current`)).toMatchObject({ sentAttempt: null });
     // A robot run that died before its click left nothing at the employer: no question asked.
     await submission().set({ r1: { state: 'sending', channel: 'portal', clickedAt: null } });
     expect((await call('automationFillKit') as any).kit.orderId).toBe(ORDER);
@@ -245,6 +249,19 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'owner_extension', by: 'owner@example.com' } });
     expect(effects).toEqual([{ type: 'mark_submitted', by: 'owner' }]);
     await expect(call('automationMarkSubmitted')).rejects.toMatchObject({ code: 'not_taken_over', status: 409 });
+  });
+
+  // Owner decision of 2026-10-04: a robot's send of uncertain outcome that Valerie confirms is what left.
+  it('turns the robot’s record of an uncertain send into the record of what left when Valerie marks it sent, and only that round’s', async () => {
+    const attempt = { at: T0 - 60_000, channel: 'lever', packaging: 'portal', reason: 'default', letterKey: null, files: [{ kind: 'cv', name: 'CV_Maria_Luisa_Rossi.pdf', key: KEY('ai-cv-r1-1.pdf') }] };
+    await seed({ ...takenOver, heldBy: ['portal_ambiguous'] }, { sentAttempt: attempt });
+    expect(await call('automationMarkSubmitted')).toEqual({ ok: true, state: 'submitted' });
+    expect(store.read(`${PATH}/ai_drafts/current`)).toMatchObject({ sent: { ...attempt, confirmedBy: 'owner', confirmedAt: T0 }, sentAttempt: null });
+    // A draft of another round than the flow's: its attempt is not this round's send.
+    await seed({ ...takenOver, round: 2, heldBy: ['portal_ambiguous'] }, { sentAttempt: attempt });
+    expect(await call('automationMarkSubmitted')).toEqual({ ok: true, state: 'submitted' });
+    expect(store.read(`${PATH}/ai_drafts/current`)).toMatchObject({ sentAttempt: attempt });
+    expect(store.read(`${PATH}/ai_drafts/current`).sent).toBeUndefined();
   });
 
   it('closes the flow also when Valerie marks it sent in the classic queue, and only a flow left to her', async () => {

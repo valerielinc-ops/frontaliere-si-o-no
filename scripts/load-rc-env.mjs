@@ -122,7 +122,8 @@ export const RC_TO_ENV = {
   ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
   // "legacy" switches the assisted application's PDFs back to the standard-font writer (default: typst).
   ASSISTED_APPLICATION_PDF_RENDERER: ['ASSISTED_APPLICATION_PDF_RENDERER'],
-  // "single" e-mails one PDF dossier to a qualified candidate's employer (default: separate files).
+  // Off on purpose: the verified sources do not support one PDF as the default (docs/assisted-application/decisioni.md §5); the posting's own instruction wins either way (lib/dossier.mjs).
+  // "single" merges letter, CV and documents for qualified and first-job e-mails (default: separate).
   ASSISTED_APPLICATION_DOSSIER_MODE: ['ASSISTED_APPLICATION_DOSSIER_MODE'],
   // "on" writes the adapted lines into the candidate's own DOCX as a third CV choice (default: off).
   ASSISTED_APPLICATION_DOCX_INPLACE: ['ASSISTED_APPLICATION_DOCX_INPLACE'],
