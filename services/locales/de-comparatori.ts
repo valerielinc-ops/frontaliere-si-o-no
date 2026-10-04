@@ -509,7 +509,7 @@ const deComparatori: Record<string, string> = {
  'banks.hype.con1': 'Abhebungslimit mit kostenlosem Plan',
  'banks.hype.con2': 'Kein CHF Multi-Währung',
  'banks.hype.con3': 'Erweiterte Funktionen nur mit Premium',
- 'health.title': 'LAMal-Prämien Grenzgänger 2026',
+ 'health.title': 'LAMal-Prämien Grenzgänger',
  'health.lamalSsn.incomeLabel': 'Netto-Jahreseinkommen (CHF)',
  'health.lamalSsn.ageLabel': 'Alter',
  'health.lamalSsn.franchiseLabel': 'LAMal-Franchise',
@@ -772,6 +772,17 @@ const deComparatori: Record<string, string> = {
  'comparatori.salaryCompare.intro.p1': 'Der Gehaltsvergleich berechnet das Nettoeinkommen eines Grenzgängers in der Schweiz im Vergleich zu einer gleichwertigen Stelle in Italien unter Berücksichtigung von Steuern, AHV-Beiträgen (5,3 %) und Lebenshaltungskosten. Über 79.000 Grenzgänger pendeln täglich in die Schweiz (BFS, Q4 2025).',
  'comparatori.mortgage.intro.p1': 'Der Hypothekenvergleich stellt Immobilienfinanzierungen in der Schweiz und Italien gegenüber. Schweizer Hypotheken bieten typischerweise variable (SARON-basierte) oder feste Zinssätze, die für Grenzgänger mit CHF-Einkommen oft günstiger sind.',
  'comparatori.bank.intro.p1': 'Der Bankenvergleich hilft Grenzgängern bei der Wahl zwischen Schweizer und italienischen Instituten, um CHF-EUR-Umrechnungskosten, Kontogebühren und die Verwaltung des Gehalts in Schweizer Franken zu optimieren.',
+ "health.residence.label": "Wohnsitzland",
+ "health.residence.italy": "Italien — Grenzgänger",
+ "health.residence.switzerland": "Schweiz — Wohnsitz",
+ "health.residence.italyIntro": "KVG-Prämien für Personen mit Wohnsitz in Italien, nach Alter und Unfalldeckung.",
+ "health.residence.swissIntro": "Vergleich für Personen mit Wohnsitz in der Schweiz, nach Wohnkanton und Wohngemeinde.",
+ "health.residence.italyRules": "Bei Wohnsitz in Italien gelten die Prämien des Wohnsitzlands und das Standardmodell: CHF300 Franchise für Erwachsene/junge Erwachsene, CHF0 für Kinder. HMO, Telmed und Wahlfranchisen sind nicht verfügbar. Ermässigungen ab dem dritten Kind werden nicht automatisch angewendet.",
+ "health.residence.region": "Prämienregion des Wohnorts",
+ "health.residence.swissUnavailable": "Schweizer Prämien für dieses Profil sind nicht verfügbar: Wohnort prüfen und Priminfo konsultieren.",
+ "health.residence.swissRules": "Veröffentlichte Schweizer Prämien nach Prämienregion, Alter, Franchise und Unfalldeckung. Je Versicherer und Kategorie wird der tiefste verfügbare Tarif angezeigt; Produkt und Bedingungen auf Priminfo prüfen.",
+ "health.residence.unavailable": "Italien-Prämien sind für das angegebene Jahr noch nicht verfügbar. Schweizer Kantonsprämien dienen nicht als Ersatz. Offizielle Tabelle:",
+ 'health.residence.premiumsAndDeductible': 'Jahresprämien + Franchise',
 };
 
 export default deComparatori;

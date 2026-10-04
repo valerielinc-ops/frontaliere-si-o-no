@@ -509,7 +509,7 @@ const frComparatori: Record<string, string> = {
  'banks.hype.con1': 'Limite de retrait avec plan gratuit',
  'banks.hype.con2': 'Pas de multi-devises CHF',
  'banks.hype.con3': 'Fonctionnalités avancées uniquement avec Premium',
- 'health.title': 'Primes LAMal Frontaliers 2026',
+ 'health.title': 'Primes LAMal Frontaliers',
  'health.lamalSsn.incomeLabel': 'Revenu annuel net (CHF)',
  'health.lamalSsn.ageLabel': '\u00c2ge',
  'health.lamalSsn.franchiseLabel': 'Franchise LAMal',
@@ -772,6 +772,17 @@ const frComparatori: Record<string, string> = {
  'comparatori.salaryCompare.intro.p1': 'Le comparateur de salaires permet de calculer le revenu net d\'un frontalier en Suisse par rapport à un poste équivalent en Italie, en tenant compte des impôts, des cotisations AVS (5,3 %) et du coût de la vie. Plus de 79 000 frontaliers se rendent chaque jour en Suisse (OFS, T4 2025).',
  'comparatori.mortgage.intro.p1': 'Le comparateur hypothécaire confronte les solutions de financement immobilier en Suisse et en Italie. Les hypothèques suisses offrent des taux généralement variables (SARON) ou fixes, souvent plus compétitifs pour les frontaliers percevant un salaire en CHF.',
  'comparatori.bank.intro.p1': 'Le comparateur bancaire aide les frontaliers à choisir entre établissements suisses et italiens pour optimiser les frais de conversion CHF-EUR, les commissions de compte et la gestion du salaire en francs suisses.',
+ "health.residence.label": "Pays de résidence",
+ "health.residence.italy": "Italie — frontalier",
+ "health.residence.switzerland": "Suisse — résident",
+ "health.residence.italyIntro": "Primes LAMal pour les résidents en Italie, selon l’âge et la couverture accidents.",
+ "health.residence.swissIntro": "Comparaison pour les résidents en Suisse, selon le canton et la commune de domicile.",
+ "health.residence.italyRules": "Pour les résidents en Italie, les primes du pays de domicile et le modèle standard s’appliquent : franchise CHF300 pour adultes/jeunes adultes, CHF0 pour enfants. HMO, Telmed et franchises à option ne sont pas disponibles. Les réductions dès le troisième enfant ne sont pas appliquées automatiquement.",
+ "health.residence.region": "Région de primes du domicile",
+ "health.residence.swissUnavailable": "Les primes suisses pour ce profil sont indisponibles : vérifier le domicile et consulter Priminfo.",
+ "health.residence.swissRules": "Primes suisses publiées par région de primes, âge, franchise et couverture accidents. Le tarif disponible le plus bas est affiché par assureur et catégorie ; vérifier le produit et les conditions sur Priminfo.",
+ "health.residence.unavailable": "Les primes Italie ne sont pas encore disponibles pour l’année indiquée. Les primes cantonales suisses ne servent pas de remplacement. Consultez le tableau officiel :",
+ 'health.residence.premiumsAndDeductible': 'Primes annuelles + franchise',
 };
 
 export default frComparatori;

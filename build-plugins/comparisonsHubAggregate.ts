@@ -8,6 +8,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { assertDomesticHealthQuotes } from '../scripts/lib/domestic-health-premiums.mjs';
+import type { DomesticHealthQuotes } from '../services/healthPremiumResidency';
 
 // ── Salary aggregation from data/jobs.json ──────────────────────
 
@@ -156,20 +158,9 @@ export function aggregateSalaryBySector(
 
 // ── Canton LAMal premium median aggregation ─────────────────────
 
-interface LamalRaw {
-  insurers?: Array<{
-    regions?: Array<{
-      canton?: string;
-      premium?: number | null;
-      ageBracket?: string;
-    }>;
-  }>;
-  // Schema varies across snapshots; loader degrades gracefully if the
-  // field layout isn't what we expect.
-  [k: string]: unknown;
-}
-
 export interface LamalCantonRow {
+  /** Actual year validated against the requested snapshot. */
+  year: number;
   /** Italian canton label (e.g. "Ticino"). */
   canton: string;
   /** BAG 2-letter canton code (e.g. "TI"). */
@@ -180,45 +171,30 @@ export interface LamalCantonRow {
   annualCHF: number;
 }
 
-/**
- * Compute a per-canton median monthly standard-premium (26+) from the BAG
- * LAMal dataset at `data/health-premiums/<year>.json`. If the file is
- * missing or the schema doesn't match, we return a curated fallback
- * covering the full 26 Swiss cantons derived from BAG public tables.
- *
- * The fallback is important because the function must never raise at
- * build time — any SEO page must render deterministically even when the
- * crawler data is stale or absent.
- */
+/** Median of observed insurer/region standard adult premiums, never a quoted Italy premium. */
 export function aggregateLamalCantonMedians(
   rootDir: string,
   year: number,
 ): readonly LamalCantonRow[] {
-  const p = path.join(rootDir, 'data', 'health-premiums', `${year}.json`);
-  let parsed: LamalRaw | null = null;
-  if (fs.existsSync(p)) {
-    try {
-      parsed = JSON.parse(fs.readFileSync(p, 'utf-8'));
-    } catch {
-      parsed = null;
-    }
+  const file = path.join(rootDir, 'data', 'health-premiums', `${year}.json`);
+  let quotes: DomesticHealthQuotes;
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    if (parsed?.year !== year || typeof parsed.sourceUrl !== 'string') return [];
+    quotes = assertDomesticHealthQuotes(parsed.quotes) as DomesticHealthQuotes;
+  } catch {
+    return [];
   }
-
-  // Build canton → [premium] map from the nested insurer/region array.
   const byCanton = new Map<string, number[]>();
-  if (parsed && Array.isArray(parsed.insurers)) {
-    for (const ins of parsed.insurers) {
-      if (!Array.isArray(ins.regions)) continue;
-      for (const r of ins.regions) {
-        if (!r.canton || typeof r.premium !== 'number' || !Number.isFinite(r.premium)) continue;
-        // Standard adult = AKL-ERW (26+). Ignore all other age brackets so the
-        // median is comparable across cantons.
-        if (r.ageBracket && !/26|erw|adult/i.test(r.ageBracket)) continue;
-        const key = r.canton.toUpperCase();
-        if (!byCanton.has(key)) byCanton.set(key, []);
-        byCanton.get(key)!.push(r.premium);
+  for (const [canton, regions] of Object.entries(quotes)) {
+    const values: number[] = [];
+    for (const insurers of Object.values(regions)) {
+      for (const profile of Object.values(insurers)) {
+        const premium = profile.ERW?.withoutAccident?.['300']?.standard;
+        if (typeof premium === 'number' && Number.isFinite(premium) && premium > 0) values.push(premium);
       }
     }
+    byCanton.set(canton, values);
   }
 
   // Mapping of BAG 2-letter code → localised IT canton label. We always
@@ -233,31 +209,16 @@ export function aggregateLamalCantonMedians(
     VS: 'Vallese', ZG: 'Zugo', ZH: 'Zurigo',
   };
 
-  // Curated BAG 2026 published medians for the full Swiss canton set (CHF
-  // per month, standard adult, average across ordinary insurers). Used as
-  // a deterministic fallback when the JSON feed is missing or incomplete
-  // so the hub always exceeds the 300-word threshold regardless of data
-  // state.
-  const BAG_FALLBACK: Record<string, number> = {
-    AG: 378, AI: 301, AR: 358, BE: 402, BL: 429, BS: 479, FR: 367, GE: 515,
-    GL: 349, GR: 329, JU: 423, LU: 336, NE: 479, NW: 301, OW: 312, SG: 350,
-    SH: 365, SO: 408, SZ: 319, TG: 352, TI: 425, UR: 322, VD: 470, VS: 382,
-    ZG: 325, ZH: 394,
-  };
-
   const rows: LamalCantonRow[] = [];
   for (const [code, label] of Object.entries(CANTON_LABEL_IT)) {
     const values = byCanton.get(code) ?? [];
-    let medianMonthly: number;
-    if (values.length >= 3) {
-      medianMonthly = median(values);
-    } else {
-      medianMonthly = BAG_FALLBACK[code] ?? 0;
-    }
+    if (values.length < 3) continue;
+    const medianMonthly = median(values);
     if (!medianMonthly || medianMonthly <= 0) continue;
     rows.push({
       canton: label,
       code,
+      year,
       medianMonthlyCHF: Math.round(medianMonthly),
       annualCHF: Math.round(medianMonthly * 12),
     });
