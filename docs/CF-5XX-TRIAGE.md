@@ -65,10 +65,12 @@ node scripts/ci/cf-5xx-snapshot.mjs --check-url 'cdn.frontaliereticino.ch/assets
 
 È il comando che `cf-5xx-issue-sync.mjs` allega come `COMANDO` nella scheda di ogni issue
 che conia, quindi l'esenzione permanente dal criterio di chiusura non serve più.
-Dal 2026-10-03 lo stesso passo del monitor è anche il **chiuditore**: a ogni run, in ogni ramo
+Lo stesso passo del monitor è anche il **chiuditore**: a ogni run, in ogni ramo
 che ha letto i dati di Cloudflare, `scripts/lib/monitor-issue-reconcile.mjs` rilegge le issue
 `cloudflare-5xx` aperte e chiude, con un commento di evidenza, quelle il cui URL (dalla riga
-`**URL:**` del corpo) passa questo comando **e** manca dal report del giorno. Storia corta,
+`**URL:**` del corpo) passa questo comando; come guardia in più, non deve comparire nemmeno fra i primi 50 path del
+report del giorno (che non è una prova di zero 5xx: lo snapshot di oggi non è ancora nella storia).
+Due issue aperte con lo stesso titolo = nessuna scrittura (la chiusura va per titolo). Storia corta,
 serie ferma, dettagli troncati o URL mai osservato = nessuna scrittura; un pin o un claim
 (`keep-open`, `agent:in-progress`, …) esclude la issue; `maybe-resolved` non è una prova. Prova a secco: `node scripts/cf-5xx-issue-sync.mjs --dry-run`.
 

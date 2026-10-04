@@ -156,7 +156,11 @@ function fakeIo(issues: Array<Record<string, unknown>>, { comments = [] as unkno
       listComments: () => comments,
       listEvents: () => [],
       comment: (n: number, body: string) => { writes.push(`comment #${n}: ${body.split('\n')[0]}`); return true; },
-      close: (title: string) => { writes.push(`close ${title}`); return { persisted: true }; },
+      // Come `resolveGithubIssue`: chiude il PRIMO candidato con quel titolo.
+      close: (title: string) => {
+        writes.push(`close ${title}`);
+        return { number: issues.find((i) => i.title === title)?.number, persisted: true };
+      },
       removeLabel: (n: number, label: string) => { writes.push(`unlabel #${n} ${label}`); return true; },
     },
   };
@@ -236,6 +240,44 @@ describe('reconcileMonitorIssues — le scritture', () => {
     });
     expect(writes).toEqual([`unlabel #1 ${MAYBE_RESOLVED_LABEL}`]);
     expect(out.decisions.map((d) => d.action)).toEqual(['keep']);
+  });
+
+  it('gemelle aperte con lo stesso titolo, una pinnata → zero chiusure (la chiusura per titolo è ambigua)', async () => {
+    const { io, writes } = fakeIo([
+      issue({ number: 1, labels: ['keep-open'] }),
+      issue({ number: 2 }),
+    ]);
+    const out = await reconcileMonitorIssues({
+      family: FAMILY, labels: ['fam'], titlePrefix: 'Fam:', io, log: quiet, confirmations: 1,
+      verdictFor: () => clean('m1'),
+    });
+    expect(writes).toEqual([]);
+    expect(out.closed).toEqual([]);
+    expect(out.decisions.map((d) => d.action)).toEqual(['keep', 'keep']);
+  });
+
+  it('la chiusura per titolo che colpisce un\'altra issue non conta come chiusa', async () => {
+    const lines: string[] = [];
+    const { io } = fakeIo([issue({ number: 2 })]);
+    io.close = () => ({ number: 1, persisted: true });
+    const out = await reconcileMonitorIssues({
+      family: FAMILY, labels: ['fam'], titlePrefix: 'Fam:', io, confirmations: 1,
+      verdictFor: () => clean('m1'), log: (l) => lines.push(l),
+    });
+    expect(out.closed).toEqual([]);
+    expect(out.failed).toEqual([2]);
+    expect(lines.join('\n')).toContain('ha chiuso #1');
+  });
+
+  it('riconferma di una issue `maybe-resolved` pinnata o reclamata → label lasciata', async () => {
+    const { io, writes } = fakeIo([issue({ labels: [MAYBE_RESOLVED_LABEL, 'agent:in-progress'] })]);
+    await reconcileMonitorIssues({
+      family: FAMILY, labels: ['fam'], titlePrefix: 'Fam:', io, log: quiet, confirmations: 1,
+      measuredTitles: new Set(['Fam: firma']),
+      reconfirmedTitles: new Set(['Fam: firma']),
+      verdictFor: () => clean('m1'),
+    });
+    expect(writes).toEqual([]);
   });
 
   it('ignora i titoli fuori dal prefisso della famiglia', async () => {

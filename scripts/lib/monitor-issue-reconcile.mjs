@@ -39,7 +39,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { commentOnGithubIssue, resolveGithubIssue } from './github-issue-creator.mjs';
+import { commentOnGithubIssue, isFailureReportingDisabled, resolveGithubIssue } from './github-issue-creator.mjs';
 
 /** Le label con cui un umano o un claim tengono una issue fuori da ogni chiusura automatica. */
 export const PIN_LABELS = Object.freeze([
@@ -254,6 +254,10 @@ export function ghReconcileIo() {
       return resolveGithubIssue(title, { ...ctx, exactTitle: true });
     },
     removeLabel(number, label) {
+      if (isFailureReportingDisabled()) {
+        console.log('[monitor-reconcile] ENABLE_FAILURE_REPORT=false, skipping label removal');
+        return false;
+      }
       try {
         execFileSync('gh', [
           'issue', 'edit', String(number), '--remove-label', label,
@@ -318,6 +322,13 @@ export async function reconcileMonitorIssues({
   const issues = listed
     .filter((i) => String(i?.title ?? '').startsWith(titlePrefix))
     .sort((a, b) => Number(a.number) - Number(b.number));
+  // La chiusura passa per TITOLO (`resolveGithubIssue`, che chiude il primo
+  // candidato della ricerca): con due gemelle aperte dallo stesso titolo — stato
+  // noto, `formatOpenTwinNote` le lascia aperte apposta — la decisione presa
+  // sul numero A potrebbe chiudere B, magari pinnata o reclamata. Nessuna
+  // scrittura su un titolo ambiguo.
+  const titleCount = new Map();
+  for (const i of issues) titleCount.set(String(i.title), (titleCount.get(String(i.title)) || 0) + 1);
 
   // Il tetto conta le chiusure DECISE, non quelle riuscite: in dry-run nessuna
   // riesce, e l'eccedenza deve comparire lo stesso.
@@ -325,12 +336,22 @@ export async function reconcileMonitorIssues({
   for (const issue of issues) {
     const title = String(issue.title);
     if (reconfirmedTitles.has(title) && labelNames(issue).includes(MAYBE_RESOLVED_LABEL)) {
-      if (dryRun) {
+      const pinned = skipReason(issue);
+      if (pinned) {
+        log(`${tag} #${issue.number}: \`${MAYBE_RESOLVED_LABEL}\` lasciata (${pinned})`);
+      } else if (dryRun) {
         log(`${tag} [dry-run] #${issue.number}: toglierei \`${MAYBE_RESOLVED_LABEL}\` (riconfermata sopra soglia)`);
       } else if (await io.removeLabel(issue.number, MAYBE_RESOLVED_LABEL)) {
         out.labelRemoved.push(issue.number);
         log(`${tag} #${issue.number}: tolta \`${MAYBE_RESOLVED_LABEL}\` — la misura sopra soglia la smentisce`);
       }
+    }
+
+    if (titleCount.get(title) > 1) {
+      const decision = { action: 'keep', reason: `gemelle aperte con lo stesso titolo (${titleCount.get(title)}): chiusura per titolo ambigua — nessuna scrittura` };
+      out.decisions.push({ number: issue.number, title, ...decision });
+      log(`${tag}${dryRun ? ' [dry-run]' : ''} #${issue.number} keep — ${decision.reason}`);
+      continue;
     }
 
     const measuredNow = measuredTitles.has(title);
@@ -388,8 +409,16 @@ export async function reconcileMonitorIssues({
     }
     try {
       const res = await io.close(title, { workflow, runUrl });
-      if (res && res.persisted !== false) out.closed.push(issue.number);
-      else out.failed.push(issue.number);
+      if (res && res.persisted !== false && Number(res.number) === Number(issue.number)) {
+        out.closed.push(issue.number);
+      } else if (res && res.persisted !== false) {
+        // Seconda guardia: una gemella senza la label di famiglia non è
+        // nell'elenco ma la ricerca per titolo la vede.
+        out.failed.push(issue.number);
+        log(`${tag} #${issue.number}: la chiusura per titolo ha chiuso #${res.number}, non la issue decisa — da verificare a mano`);
+      } else {
+        out.failed.push(issue.number);
+      }
     } catch (err) {
       out.failed.push(issue.number);
       log(`${tag} #${issue.number}: chiusura rifiutata — ${err?.message || err}`);
