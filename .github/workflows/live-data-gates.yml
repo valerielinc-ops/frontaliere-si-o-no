@@ -103,6 +103,7 @@ jobs:
       # la sfiori, e la suite intera a un worker non sta nel limite del job
       # (misurato: run 35481674287 cancellata a 6 ore).
       - name: vitest run (solo i test su dati vivi)
+        id: vitest
         env:
           NODE_OPTIONS: --max-old-space-size=8192
         run: |
@@ -117,7 +118,29 @@ jobs:
             exit 1
           fi
           # shellcheck disable=SC2046
-          npx vitest run $(cat live-data-files.txt) --reporter=default 2>&1 | tee live-data-vitest.log
+          # Il report json e' l'input del reporter per file qui sotto: dice
+          # QUALE file e' rosso e quale e' verde, cosa che il log testuale
+          # troncato nell'estratto della issue non permette di ricostruire.
+          npx vitest run $(cat live-data-files.txt) --reporter=default --reporter=json --outputFile.json=live-data-vitest.json 2>&1 | tee live-data-vitest.log
+
+      # Una issue per FILE di test rosso (titolo `Live-data test rosso: <path>`),
+      # chiusa alla prima run in cui QUEL file torna verde. Prima esisteva solo
+      # la issue di workflow qui sotto: tre rossi con tre riparazioni diverse
+      # finivano nello stesso thread e nessuno aveva un proprietario (issue 9453,
+      # run 37198123353). Gira sul rosso E sul verde, perche' e' il verde di un
+      # file a chiudere la sua issue: `!cancelled()` esplicito, altrimenti un
+      # `if:` senza funzione di stato sottintende `success()` e lo step
+      # salterebbe proprio sui rossi.
+      - name: Report live-data reds per test file
+        if: ${{ !cancelled() && (steps.vitest.outcome == 'success' || steps.vitest.outcome == 'failure') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: >-
+          node scripts/ci/report-live-data-test-files.mjs
+          --report live-data-vitest.json
+          --files live-data-files.txt
+          --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Report failure to GitHub Issues
         if: failure()
@@ -131,6 +154,11 @@ jobs:
           diag-file: live-data-vitest.log
           context: |
             Uno o più test su DATI VIVI sono rossi su `main`.
+
+            Questa issue è l'INDICE del workflow. Ogni file di test rosso ha
+            anche una issue propria, `Live-data test rosso: <path del test>`,
+            che si chiude da sola alla prima run in cui quel file torna verde:
+            la riparazione si segue lì, un file alla volta.
 
             Questi test NON girano nel job bloccante `vitest` delle PR: leggono
             file che la pipeline riscrive da sola (slice dei crawler, dataset
