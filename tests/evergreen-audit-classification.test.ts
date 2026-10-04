@@ -106,7 +106,8 @@ describe('auditEvergreen', () => {
 
   it('honours updatedAt over date, so a real refresh clears the flag', () => {
     // The pension article is 12 months old by `date` and 1 month old by
-    // `updatedAt`. That is the only legitimate way off this list.
+    // `updatedAt`. `updatedAt` (facts changed) or `verifiedAt` (facts
+    // re-checked) are the only legitimate ways off this list.
     const r = auditEvergreen(ARTICLES, NOW);
     expect(r.stale.map((a: { id: string }) => a.id)).not.toContain('riscatto-secondo-pilastro');
   });
@@ -345,6 +346,14 @@ describe('the audit issue carries counts, not a checklist to decompose', () => {
     expect(WORKFLOW).toContain('unclassified');
     expect(WORKFLOW).toContain('--label agent:no-age-out');
     expect(WORKFLOW).toContain('gh label create "agent:no-age-out"');
+  });
+
+  it('never overwrites the shared agent:no-age-out label metadata', () => {
+    // The label already exists and is read by the drainer, classify-issue and
+    // triage; `--force` would reset its color and description every month.
+    const createLine = WORKFLOW.split('\n').find((l) => l.includes('gh label create "agent:no-age-out"'));
+    expect(createLine).toBeDefined();
+    expect(createLine).not.toContain('--force');
   });
 
   it('no longer pastes every stale slug as a checklist', () => {
