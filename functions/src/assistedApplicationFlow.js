@@ -10,9 +10,10 @@
  *     employer's acknowledgement or reply on the alias)──► submitted
  *
  * Red flags stop the clocks, they never skip a step:
- *   - owner flags (invented facts in the texts, a knock-out requirement the
- *     CV lacks, no posting text, unknown channel) hold `owner_review` until
- *     Valerie acts;
+ *   - owner flags (invented facts in the texts, no posting text, unknown
+ *     channel, a suspicious posting) hold `owner_review` until Valerie acts;
+ *     a profile that is not a full match is no flag: the candidate is told
+ *     (assistedApplicationFitNotice.js);
  *   - candidate flags (a required answer only the candidate can give: work
  *     permit, salary expectation, availability, a portal screening question)
  *     hold `candidate_review` until the candidate answers.

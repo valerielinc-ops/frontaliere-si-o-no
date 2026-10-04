@@ -120,6 +120,14 @@ function takeoverStep(heldBy: string[]): NextStep {
       detail: 'Il modulo aperto non nomina l’azienda o il ruolo dell’annuncio. Se è quello giusto, «Riprova l’invio automatico» va avanti.',
     };
   }
+  // #11161: a WhatsApp application (PastaHR, Coop's apprenticeships) has no page to fix or to fill. A retry
+  // completes the order when the channel has a PastaHR https link; any other WhatsApp channel stops here again.
+  if (held === 'portal:whatsapp') {
+    return {
+      group: 'owner', code: 'whatsapp', label: 'Solo via WhatsApp',
+      detail: 'Il candidato deve completare la candidatura nella chat WhatsApp del datore, dal suo telefono. Se il canale ha un link PastaHR (https), «Riprova l’invio automatico» chiude l’ordine mandandogli per email il link e i passaggi; altrimenti «Affida al candidato».',
+    };
+  }
   if (held === 'portal_validation' || held.startsWith('portal:')) {
     return {
       group: 'fix', code: 'portal_page', label: 'Bloccata: pagina del portale',
@@ -180,7 +188,7 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
       };
     case 'owner_review':
       if (heldBy.length) {
-        return { group: 'owner', code: 'review_held', label: 'Bozza ferma: serve il tuo ok', detail: 'La bozza non passa al candidato finché non confermi gli avvisi qui sotto (fatti non verificati, requisito mancante, canale).' };
+        return { group: 'owner', code: 'review_held', label: 'Bozza ferma: serve il tuo ok', detail: 'La bozza non passa al candidato finché non confermi gli avvisi qui sotto (fatti non verificati, canale).' };
       }
       return {
         group: 'owner', code: 'review', label: 'Bozza da rivedere',

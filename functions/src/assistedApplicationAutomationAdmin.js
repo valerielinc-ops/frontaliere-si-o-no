@@ -55,7 +55,7 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationVerificationLink',
 ]);
 
-const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown', 'legitimacy']);
+const OWNER_FLAGS = new Set(['fact_check', 'no_posting', 'channel_unknown', 'legitimacy']);
 
 export class AutomationAdminError extends Error {
   constructor(code, status = 400) {
@@ -152,7 +152,6 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),
       factCheck: draft.factCheck || null,
       factCheckAcknowledgedAt: draft.factCheckAcknowledgedAt || null,
-      knockOutAcknowledgedAt: draft.knockOutAcknowledgedAt || null,
       editedAt: draft.editedAt || null,
       candidateEditedAt: draft.candidateEditedAt || null,
       cvTextMethod: draft.cvTextMethod || null,
@@ -301,7 +300,6 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationApprove': {
       const acknowledgements = {};
       if (raw.acknowledgeFactWarnings === true) acknowledgements.factCheckAcknowledgedAt = nowMs;
-      if (raw.acknowledgeKnockOut === true) acknowledgements.knockOutAcknowledgedAt = nowMs;
       // Any other owner flag (no posting text, unknown channel, a suspicious posting) is acknowledged by name.
       const flags = (Array.isArray(raw.acknowledgeFlags) ? raw.acknowledgeFlags : []).filter((flag) => OWNER_FLAGS.has(flag));
       if (flags.length) acknowledgements.acknowledgedFlags = Object.fromEntries(flags.map((flag) => [flag, nowMs]));
