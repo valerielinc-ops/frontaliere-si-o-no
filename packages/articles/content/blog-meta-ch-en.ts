@@ -7685,6 +7685,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-auto-zurigo-pagamento.title': 'Motor vehicle tax in Zurich: calculation and payment',
     'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'In the Canton of Zurich, the calculation, deadlines and payment of the motor vehicle tax follow cantonal rules; also check vehicle and address changes.',
     'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Cars and paperwork for vehicle tax at a Swiss cantonal office in Zurich.',
+    'blog.article.incentivi-energetici-zurigo-domanda.title': 'Energy incentives in Zurich: requirements and application',
+    'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zurich: energy incentives for buildings and systems. Requirements, amounts and deadlines are checked before the application, which must be submitted before the work begins.',
+    'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Energy incentives for renovating a building in the Canton of Zurich',
 };
 
 export default blogMetaChEn;

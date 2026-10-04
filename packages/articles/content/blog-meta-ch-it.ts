@@ -7685,6 +7685,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-auto-zurigo-pagamento.title': 'Imposta autoveicoli a Zurigo: calcolo e pagamento',
     'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Nel Cantone di Zurigo calcolo, scadenze e pagamento dell\'imposta sugli autoveicoli seguono regole cantonali; verifica anche cambio veicolo e indirizzo.',
     'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Imposta sugli autoveicoli: auto e documenti in un ufficio cantonale del Cantone di Zurigo.',
+    'blog.article.incentivi-energetici-zurigo-domanda.title': 'Incentivi energetici a Zurigo: requisiti e domanda',
+    'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zurigo: incentivi energetici per edifici e impianti. Requisiti, importi e termini si verificano prima della domanda, da presentare prima dei lavori.',
+    'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Incentivi energetici per il risanamento di un edificio nel Cantone di Zurigo',
 };
 
 export default blogMetaChIt;
