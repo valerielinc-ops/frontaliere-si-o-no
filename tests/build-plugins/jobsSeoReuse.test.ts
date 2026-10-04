@@ -1,3 +1,4 @@
+import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -137,6 +138,25 @@ async function createReuse(
 }
 
 describe('jobs SEO disk HTML reuse', () => {
+  it.each(['unknown', 'reported', undefined] as const)('refreshes mixed provenance %s through the cache contract', (postingDateSource) => {
+    const sourceDate = new Date(Date.now() - 3 * 86400000).toISOString();
+    const observedDate = new Date(Date.now() - 86400000).toISOString();
+    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old"}</script>';
+    const date = resolveRolloutPostingDate({ postingDateSource, datePosted: sourceDate }, () => observedDate);
+    const result = replaceActiveJobPostingDates(fragment, date, new Date(Date.now() + 86400000).toISOString());
+    if (postingDateSource === 'unknown') expect(result).toBe('');
+    else expect(result).toContain(postingDateSource === 'reported' ? sourceDate : observedDate);
+  });
+
+  it('removes cached JobPosting when publication provenance becomes unknown', () => {
+    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-01-01"}</script>';
+    expect(replaceActiveJobPostingDates(fragment, null, '2026-12-31')).toBe('');
+  });
+
+  it('forces a fresh render when a previously unknown job gains a reported date', () => {
+    expect(() => replaceActiveJobPostingDates('', '2026-01-01', '2026-12-31')).toThrow();
+  });
+
   it('accepts a cached JobPosting whose dates are already current', () => {
     const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
     const currentDatePosted = daysAgo(0);
