@@ -2339,7 +2339,7 @@
       "slug": "cook-cooker-plaun-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cook-cooker-plaun-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-plaun-weisse-arena-ch",
+        "en": "chef-plaun-weisse-arena-gruppe-laax",
         "de": "koch-kochin-plaun-weisse-arena-ch",
         "fr": "cuisiniere-cuisiniere-plaun-weisse-arena-gruppe-laax"
       },
@@ -2349,7 +2349,7 @@
       "title": "Koch/Köchin Plaun",
       "titleByLocale": {
         "it": "Cook/cooker plaun",
-        "en": "Koch/Köchin Plaun",
+        "en": "Chef Plaun",
         "de": "Koch/Köchin Plaun",
         "fr": "Cuisinière/cuisinière Plaun"
       },
@@ -2396,10 +2396,12 @@
         ],
         "fr": [
           "koch-kochin-plaun-weisse-arena-ch"
+        ],
+        "en": [
+          "koch-kochin-plaun-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:52.361Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",

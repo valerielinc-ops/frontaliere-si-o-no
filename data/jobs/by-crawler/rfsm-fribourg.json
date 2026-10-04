@@ -886,11 +886,11 @@
     },
     {
       "id": "rfsm-fribourg-96e698e1a373",
-      "slug": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
+      "slug": "infermiera-rfsm-marsens-unita-biancospino-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
-        "en": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
-        "de": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "it": "infermiera-rfsm-marsens-unita-biancospino-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "nurse-rfsm-marsens-aubepine-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "krankenschwester-rfsm-marsens-abteilung-wei-dorn-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "fr": "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
@@ -946,7 +946,22 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens"
+        ],
+        "en": [
+          "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens"
+        ],
+        "de": [
+          "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-fribourg-marsens",
+        "infirmier-ere-rfsm-marsens-unite-aubepine-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ]
     },
     {
       "id": "rfsm-fribourg-54c0206d0664",
