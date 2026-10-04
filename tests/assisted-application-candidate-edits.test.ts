@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
   candidateWithEdits,
+  factSourcesNow,
   fieldView,
   formAnswersWithEdits,
   planCandidateEdits,
 } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const LETTER = [
   'Gentili Signore e Signori,',
@@ -124,5 +126,74 @@ describe('candidate edits', () => {
     const rewritten = plan({ emailBody: 'Buongiorno, vi scrivo per il posto di infermiera in reparto.', fields: { firstName: 'Maria Luisa', phone: '+41 91 000 00 00' } }, email);
     expect(rewritten.errors).toEqual({});
     expect(rewritten.draftPatch.applicationEmail.body).toBe('Buongiorno, vi scrivo per il posto di infermiera in reparto.\n\nMaria Luisa Rossi\nmaria.rossi.k7p2@candidature.frontaliereticino.ch\n+41 91 000 00 00');
+  });
+});
+
+// Owner decisions of 2026-10-03 (P4): the Swiss status the candidate chose, the birth date and the nationality.
+describe('the candidate’s Swiss status and personal data', () => {
+  const [IT_SWISS, IT_C, IT_B, , IT_G, IT_NONE] = permitOptions('it');
+  const T0 = Date.UTC(2026, 9, 4, 10, 0, 0);
+  const asking = () => draft({ questions: [{ id: 'work_permit', question: 'Permesso?', type: 'choice', options: permitOptions('it'), required: false }] });
+  const status = (currentDraft: any, flow: any) => candidateWithEdits({ order, draft: currentDraft, flow }).profile.permitStatus;
+
+  it('takes the status the candidate chose: the question asked, else the field, else an older answer; never the CV’s words', () => {
+    expect(status(asking(), { answers: { work_permit: IT_B }, formOverrides: { workPermit: IT_C } })).toBe('permit_b');
+    expect(status(draft(), { answers: { work_permit: 'Non ancora' }, formOverrides: { workPermit: IT_C } })).toBe('permit_c');
+    expect(status(draft(), { answers: { work_permit: IT_G } })).toBe('permit_g');
+    // The CV says «G» (draft().profile.workPermit): it is printed as the CV's words, never a status.
+    expect(status(draft(), { answers: {} })).toBe('');
+    // Asked but not answered yet: the field.
+    expect(status(asking(), { answers: {}, formOverrides: { workPermit: IT_C } })).toBe('permit_c');
+  });
+
+  it('reads the legacy answers as their status; a permit to come stays as written and is no status', () => {
+    for (const [answer, code] of [['G', 'permit_g'], ['none', 'none'], ['Non ancora', 'none'], ['CH', 'swiss'], [permitOptions('de')[2], 'permit_b'], [IT_SWISS, 'swiss'], [IT_NONE, 'none']]) {
+      expect([answer, status(draft(), { answers: { work_permit: answer } })]).toEqual([answer, code]);
+    }
+    expect(status(draft(), { answers: { work_permit: 'Permesso B in rinnovo' } })).toBe('');
+    const fields = Object.fromEntries(formAnswersWithEdits({ order, draft: draft(), flow: { answers: { work_permit: 'Permesso B in rinnovo' } } }).map((field) => [field.key, field.value]));
+    expect(fields.workPermit).toBe('Permesso B in rinnovo');
+  });
+
+  it('brings an availability answered and the corrected birth date and nationality into the profile', () => {
+    const edited = candidateWithEdits({ order, draft: draft(), flow: { answers: { availability: '2027-01-01' }, formOverrides: { dateOfBirth: '12.03.1998', nationality: 'italiana' } } });
+    expect(edited.profile).toMatchObject({ availability: '2027-01-01', dateOfBirth: '12.03.1998', nationality: 'italiana' });
+  });
+
+  it('shows the fields the tailored CV prints, the permit as the six options with the CV’s own words kept first', () => {
+    const fields = formAnswersWithEdits({ order, draft: draft(), flow: {} });
+    expect(fields.map((field) => field.key)).toEqual(['firstName', 'lastName', 'email', 'phone', 'location', 'linkedin', 'dateOfBirth', 'nationality', 'workPermit', 'availability', 'salary', 'languages', 'motivationShort', 'whyCompany']);
+    const views = Object.fromEntries(fields.map((field) => [field.key, fieldView(field, { draft: draft(), locale: 'it' })]));
+    // The CV says «G»: shown and selected as written, never replaced by a status.
+    expect(views.workPermit).toMatchObject({ editable: true, inCv: true, value: 'G', options: ['G', ...permitOptions('it')] });
+    for (const key of ['firstName', 'lastName', 'phone', 'location', 'linkedin', 'languages', 'dateOfBirth', 'nationality', 'availability']) expect([key, views[key].inCv]).toEqual([key, true]);
+    for (const key of ['email', 'salary', 'motivationShort', 'whyCompany']) expect([key, views[key].inCv]).toEqual([key, false]);
+    expect(views.salary.options).toBeUndefined();
+    // A status chosen: the six options, the chosen one shown in the candidate's language, legacy values included.
+    const german = formAnswersWithEdits({ order: { ...order, locale: 'de' }, draft: draft(), flow: { answers: { work_permit: 'G' } } });
+    const permit = german.find((field) => field.key === 'workPermit')!;
+    expect(permit.value).toBe(permitOptions('de')[4]);
+    expect(fieldView(permit, { draft: draft(), locale: 'de' }).options).toEqual(permitOptions('de'));
+  });
+
+  it('checks a birth date and a permit status, never a value the candidate kept as it was', () => {
+    const edits = (fields: Record<string, string>, flow: any = {}) => planCandidateEdits({ fields }, { order, draft: draft(), flow, locale: 'it', nowMs: T0 });
+    for (const value of ['31.02.1998', '05.10.2026', '12-03-98']) {
+      expect([value, edits({ dateOfBirth: value }).errors]).toEqual([value, { dateOfBirth: 'Una data di nascita valida, per esempio 12.03.1998.' }]);
+    }
+    for (const value of ['12.03.1998', '1998-03-12']) expect([value, edits({ dateOfBirth: value }).overrides]).toEqual([value, { dateOfBirth: value }]);
+    expect(edits({ workPermit: 'qualcosa' }).errors).toEqual({ workPermit: 'Scegli una delle opzioni.' });
+    expect(edits({ workPermit: IT_B }).overrides).toEqual({ workPermit: IT_B });
+    // The CV's «G» and a legacy text kept as they were: no error, nothing written.
+    expect(edits({ workPermit: 'G' })).toMatchObject({ errors: {}, changed: [] });
+    const legacy = edits({ workPermit: 'Permesso B in rinnovo' }, { formOverrides: { workPermit: 'Permesso B in rinnovo' } });
+    expect(legacy).toMatchObject({ errors: {}, changed: [] });
+  });
+
+  it('judges the texts with the status of now, a draft written before the status as it was', () => {
+    const sources = { text: 'CV' };
+    expect(factSourcesNow({ order, draft: draft({ factSources: sources }), flow: { answers: { work_permit: IT_G } } })).toBe(sources);
+    const after = draft({ factSources: { text: 'CV', permitStatus: '' } });
+    expect(factSourcesNow({ order, draft: after, flow: { answers: { work_permit: IT_G } } })).toEqual({ text: 'CV', permitStatus: 'permit_g' });
   });
 });
