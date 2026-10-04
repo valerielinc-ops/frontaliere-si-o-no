@@ -81,9 +81,9 @@ export const DEFAULT_MAX_AGE_HOURS = 36;
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const VERDICTS = new Set(['supported', 'confirmed_defect', 'reopened']);
-const AUTOMATED_REVIEWER_TYPE = 'automated-source-check';
+export const AUTOMATED_REVIEWER_TYPE = 'automated-source-check';
 const REVIEWER_TYPES = new Set(['human', 'external-editorial', AUTOMATED_REVIEWER_TYPE]);
-const AUTOMATED_METHOD = 'figures-in-source+locale-numeric-parity';
+export const AUTOMATED_METHOD = 'figures-in-source+locale-numeric-parity';
 // Hosts that serve this project's own site, corpus or mirrors: a page there is
 // never an independent source. Each entry also covers its subdomains.
 const OWN_HOSTS = [
@@ -150,7 +150,12 @@ function modelLike(value) {
   return text(value) && /(?:^|[-_ ])(?:llm|model|ai)(?:$|[-_ ])/i.test(value);
 }
 
-function independentSourceUrlIssue(value) {
+/**
+ * Why a URL is not an independent third-party https source, or null.
+ * Exported so the L6 producer (`scripts/lib/l6-source-check.mjs`) applies the
+ * very rule that validates its rows instead of a copy that could drift.
+ */
+export function independentSourceUrlIssue(value) {
   if (!text(value)) return 'evidence.sourceUrl is missing';
   let url;
   try {
