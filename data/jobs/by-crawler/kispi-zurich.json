@@ -1752,7 +1752,7 @@
       "slug": "dipl-infermieristica-professionale-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "dipl-nursing-professional-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital-zurich-kispi",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich",
         "fr": "dipl-professionnel-de-soins-infirmiers-dipl-professionnel-de-soins-40-50-cercle-de-permanence-des-enfants-universitats"
       },
@@ -1797,7 +1797,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich",
-        "dipl-nursing-professional-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital-zurich-kispi"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1805,7 +1805,7 @@
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich",
-          "dipl-nursing-professional-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital-zurich-kispi"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich"
@@ -2928,9 +2928,6 @@
         "infermiere-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "vocational-nurse-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "infirmiere-professionnelle-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-ttsne6",
-        "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich",
         "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2942,15 +2939,12 @@
           "infirmiere-professionnelle-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
-          "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
           "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "de": [
-          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-ttsne6",
           "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
         ],
         "fr": [
-          "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich",
           "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
@@ -3255,7 +3249,6 @@
       "previousSlugs": [
         "apothekerin-w-m-80-kispi-zurich-zurich",
         "apothekerin-w-m-80-universitats-kinderspital-zurich-kispi-zurich",
-        "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
         "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
@@ -3264,7 +3257,6 @@
         ],
         "en": [
           "apothekerin-w-m-80-universitats-kinderspital-zurich-kispi-zurich",
-          "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
           "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
@@ -3759,9 +3751,9 @@
     },
     {
       "id": "kispi-zurich-ae0b2f3fc68d",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-universitats-kinderspital-zurich-kispi-zurich",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "dipl-nursing-professional-dipl-care-professional-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-ttsmp5",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-80-100-universitats-kinderspital-zurich-kispi"
@@ -3810,14 +3802,14 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
         "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
-        "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
-          "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich"

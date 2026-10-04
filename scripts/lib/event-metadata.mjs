@@ -1,4 +1,4 @@
-import { cleanEventText, parsePriceText } from './events-utils.mjs';
+import { cleanEventText, parsePriceText, withEventPriceSource } from './events-utils.mjs';
 
 /**
  * Small normalizers for optional schema.org Event metadata.
@@ -48,6 +48,41 @@ function selectedOffer(value, baseUrl) {
     return candidates.reduce((best, candidate) => (candidate.score > best.score ? candidate : best));
   }
   return priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
+}
+
+/**
+ * Price from the structured fields of a schema.org Event JSON-LD node:
+ * `isAccessibleForFree: true` first, otherwise the cheapest typed
+ * `offers[].price`. The result is stamped with `priceSource` and the field it
+ * came from, so `hasConfidentPrice()` can tell it apart from a parsed tariff
+ * text. Returns undefined when neither structured field carries a value.
+ */
+export function extractStructuredEventPrice(ld, baseUrl, priceSource) {
+  const offersRaw = ld?.offers;
+  const offers = offerEntries(offersRaw);
+  if (ld?.isAccessibleForFree === true) {
+    const zeroOffer = offers.find((offer) => eventOfferPriceAmount(offer?.price) === 0);
+    return withEventPriceSource({
+      amount: 0,
+      currency: zeroOffer?.priceCurrency || offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF',
+      isFree: true,
+      ...(zeroOffer ? extractEventOfferMetadata(zeroOffer, baseUrl) || {} : {}),
+    }, priceSource, 'isAccessibleForFree');
+  }
+  const priced = offers
+    .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer?.price) }))
+    .filter(({ amount }) => Number.isFinite(amount));
+  if (!priced.length) return undefined;
+  const cheapest = priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
+  const currency = typeof cheapest.offer?.priceCurrency === 'string'
+    ? cheapest.offer.priceCurrency
+    : offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF';
+  return withEventPriceSource({
+    amount: cheapest.amount,
+    currency,
+    isFree: cheapest.amount === 0,
+    ...(extractEventOfferMetadata(cheapest.offer, baseUrl) || {}),
+  }, priceSource, 'offers.price');
 }
 
 /** Parse a source Offer price without treating blank/null values as zero. */

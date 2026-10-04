@@ -14,7 +14,7 @@
 
 import { checkDraftFacts } from './assistedApplicationAiDraftCore.js';
 import { draftRefFor, flowRefFor, isAutomationEnabled, orderRefFor } from './assistedApplicationAutomation.js';
-import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow } from './assistedApplicationCandidateEdits.js';
 import { buildCandidateAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml, replySubject } from './assistedApplicationEmployerMail.js';
@@ -108,7 +108,8 @@ async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, 
   // The date and the day count the model was given are facts too. The
   // follow-up is a claim field (CLAIM_FIELDS): it leaves in the candidate's
   // name, so a figure only the posting gives is not the candidate's.
-  const facts = checkDraftFacts({ followup: body }, { ...draft.factSources, order: `${draft.factSources?.order || ''}\n${appliedOn}\n${days}` });
+  // With the candidate's permit status of now (decision 8).
+  const facts = checkDraftFacts({ followup: body }, { ...factSourcesNow({ order, draft, flow }), order: `${draft.factSources?.order || ''}\n${appliedOn}\n${days}` });
   const pending = { n, body, subject: replySubject(followup.subject), createdAt: nowMs, deadlineAt: nowMs + FOLLOWUP_REVIEW_MS, attempts: 0 };
   if (violations.length || !facts.ok) {
     // Not sendable as written: kept for the owner queue, never sent.
