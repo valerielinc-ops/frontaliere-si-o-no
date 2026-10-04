@@ -31,6 +31,8 @@ const parser = createJobupChFeedParser({
   defaultPostalCode: '1660',
   publicCareerUrl: POLE_SANTE_PAYS_ENHAUT_CAREER_URL,
   defaultSourceLang: 'fr',
+  // Feed puddate is not evidence of original publication.
+  publicationDateFromDetail: true,
 });
 
 export const fetchAllPoleSantePaysEnhautJobs = parser.fetchAllJobs;
