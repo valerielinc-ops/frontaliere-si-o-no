@@ -22,7 +22,7 @@
  *    source, and it must not freeze the baseline of the other twenty-five.
  *    The run still goes red; the fresh rows still land.
  */
-import { appendFileSync, existsSync, readFileSync } from "node:fs";
+import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import registry from "../../data/plate-auction-sources-registry.json" with { type: "json" };
 import { FETCHERS } from "./ingest.mjs";
@@ -33,15 +33,24 @@ const outputPath = resolve(
 const forbiddenStatuses = new Set(["unverified", "not-discovered", "degraded"]);
 const errors = [];
 const blockingErrors = [];
+/** Registry key -> the per-source health errors (`unhealthy`) of that source. */
+const degradedBySource = new Map();
+/** Registry keys named by ANY error, structural or not: never "healthy". */
+const sourcesWithErrors = new Set();
+/** Registry keys whose snapshot entry was actually examined below. */
+const checkedSources = new Set();
 
 /** Structural: the snapshot must not be published in this state. */
-const fatal = (message) => {
+const fatal = (message, key = null) => {
   errors.push(message);
   blockingErrors.push(message);
+  if (key) sourcesWithErrors.add(key);
 };
 /** Per-source health: fails the run without freezing everyone else's baseline. */
-const unhealthy = (message) => {
+const unhealthy = (key, message) => {
   errors.push(message);
+  sourcesWithErrors.add(key);
+  degradedBySource.set(key, [...(degradedBySource.get(key) ?? []), message]);
 };
 
 if (Object.keys(registry.sources).length !== 26) {
@@ -54,13 +63,13 @@ for (const [key, source] of Object.entries(registry.sources)) {
   // A forbidden status in the REGISTRY is a committed config mistake, not an
   // observation about today's upstream: nobody decided what this source is.
   if (forbiddenStatuses.has(source.status))
-    fatal(`${key}: unresolved registry status ${source.status}`);
+    fatal(`${key}: unresolved registry status ${source.status}`, key);
   if (source.status === "active" && typeof FETCHERS[key] !== "function")
-    fatal(`${key}: active source has no CI fetcher`);
+    fatal(`${key}: active source has no CI fetcher`, key);
 }
 for (const key of Object.keys(FETCHERS)) {
   if (registry.sources[key]?.status !== "active")
-    fatal(`${key}: CI fetcher is not backed by an active registry source`);
+    fatal(`${key}: CI fetcher is not backed by an active registry source`, key);
 }
 
 if (!existsSync(outputPath)) {
@@ -98,29 +107,31 @@ if (!existsSync(outputPath)) {
       const sourceRows = auctions.filter((row) => String(row.sourceKey || row.platePrefix || '').toLowerCase() === key);
       const actualRowCount = sourceRows.length;
       if (!actual) {
-        fatal(`${key}: snapshot source entry is missing`);
+        fatal(`${key}: snapshot source entry is missing`, key);
         continue;
       }
+      checkedSources.add(key);
       // A status mismatch in this direction (registry `active`, snapshot
       // `degraded`) is the fetch result for one source. The dangerous
       // direction — rows published for a source the registry does not call
       // active — is caught structurally below and by the row checks.
       if (actual.status !== source.status)
-        unhealthy(`${key}: snapshot status ${actual.status} does not match registry status ${source.status}`);
+        unhealthy(key, `${key}: snapshot status ${actual.status} does not match registry status ${source.status}`);
       if (forbiddenStatuses.has(actual.status))
-        unhealthy(`${key}: snapshot status ${actual.status}`);
+        unhealthy(key, `${key}: snapshot status ${actual.status}`);
       if (typeof actual.rowCount !== "number" || actual.rowCount !== actualRowCount)
-        fatal(`${key}: rowCount ${actual.rowCount} does not match ${actualRowCount} snapshot rows`);
+        fatal(`${key}: rowCount ${actual.rowCount} does not match ${actualRowCount} snapshot rows`, key);
       if (source.status === "active") {
         if (actual.status !== "active")
           unhealthy(
+            key,
             `${key}: active source was not fetched successfully (${actual.status})`,
           );
         if (
           typeof actual.lastFetchedAt !== "string" ||
           typeof actual.lastSuccessAt !== "string"
         )
-          unhealthy(`${key}: missing successful fetch timestamps`);
+          unhealthy(key, `${key}: missing successful fetch timestamps`);
         // FATAL, never a health note. Publishing zero rows for a source the
         // registry still calls `active` IS deleting its live listings — the
         // same damage as reclassifying a working catalogue, reached through
@@ -132,12 +143,12 @@ if (!existsSync(outputPath)) {
         // had carried rows and non-zero counts, so keeping it blocking costs
         // the baseline fix nothing.
         if (actualRowCount < 1)
-          fatal(`${key}: active source returned no rows`);
+          fatal(`${key}: active source returned no rows`, key);
       } else if (actualRowCount > 0) {
-        fatal(`${key}: non-active source has ${actualRowCount} snapshot rows`);
+        fatal(`${key}: non-active source has ${actualRowCount} snapshot rows`, key);
       }
       if (typeof actual.lastCheckedAt !== "string")
-        fatal(`${key}: missing lastCheckedAt`);
+        fatal(`${key}: missing lastCheckedAt`, key);
     }
 
     const expectedCounts = {
@@ -167,6 +178,12 @@ if (!existsSync(outputPath)) {
 }
 
 const blocking = blockingErrors.length > 0;
+const sourceRef = (key) => ({
+  key,
+  plateCode: String(registry.sources[key]?.plateCode || key).toUpperCase(),
+  canton: registry.sources[key]?.canton ?? null,
+  officialUrl: registry.sources[key]?.officialUrl ?? null,
+});
 const summary = {
   outputPath,
   cantons: Object.keys(registry.sources).length,
@@ -174,8 +191,33 @@ const summary = {
   blocking,
   blockingErrors,
   errors,
+  // Per-source view for refresh-plate-auctions.yml, which opens ONE issue per
+  // degraded source (`Plate auction source degraded: <plate code>`) and
+  // resolves it on the first run where that source is healthy again. Without
+  // it the only owner of this verdict was the generic `Workflow Failure:`
+  // thread, which names no source and therefore could never be closed.
+  degradedSources: [...degradedBySource.keys()].sort().map((key) => ({
+    ...sourceRef(key),
+    errors: degradedBySource.get(key),
+  })),
+  // A source is healthy only if its snapshot entry was examined and NO error —
+  // structural or not — names it. A structurally broken snapshot clears no one:
+  // the per-source view of an unusable file is not evidence of recovery.
+  healthySources: blocking
+    ? []
+    : [...checkedSources].filter((key) => !sourcesWithErrors.has(key)).sort().map(sourceRef),
 };
 console.log(JSON.stringify(summary, null, 2));
+// The workflow's per-source issue steps read the same summary from a file:
+// stdout is a log, and piping it through `tee` would need `pipefail` to keep
+// this script's exit code, which the default Actions shell does not set.
+if (process.env.PLATE_AUCTION_HEALTH_REPORT) {
+  writeFileSync(
+    resolve(process.env.PLATE_AUCTION_HEALTH_REPORT),
+    `${JSON.stringify(summary, null, 2)}\n`,
+    "utf8",
+  );
+}
 // The workflow reads this to decide whether the snapshot may be committed. It
 // is written before the exit code is set so a red run still publishes the
 // verdict, and the workflow requires a literal `false` — a missing output (this

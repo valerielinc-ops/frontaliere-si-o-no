@@ -75,6 +75,12 @@ const DEFAULT_GSC_STATE_MAX_AGE_DAYS = 10;
 export const DEFAULT_MAX_FETCHES = 640;
 export const DEFAULT_CYCLE_BUDGET_MS = 25 * 60 * 1000;
 export const SEO_CONCURRENCY_GROUP = 'seo-health-loop';
+/**
+ * Title of the issue that owns the workflow's actionable-finding verdict: the
+ * same literal is created and resolved below, and its prefix is the `owner` of
+ * the `VERDICT_STEPS` entry in scripts/ci/close-recovered-failure-issues.mjs.
+ */
+export const SEO_HEALTH_ISSUE_TITLE = 'SEO health loop: repeated production findings';
 const MAX_ISSUE_FINDINGS = 50;
 const MAX_HISTORY_LINES = 400;
 const OBSERVATION_ONLY_FINDING_CODES = new Set([
@@ -762,7 +768,7 @@ async function reportIssueIfNeeded(report) {
       );
       if (!canResolve) return { attempted: false, persisted: false };
       const result = resolveGithubIssue(
-        'SEO health loop: repeated production findings',
+        SEO_HEALTH_ISSUE_TITLE,
         {
           workflow: process.env.GITHUB_WORKFLOW || 'SEO closed-loop health and recovery',
           runUrl: process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
@@ -773,14 +779,14 @@ async function reportIssueIfNeeded(report) {
       return { attempted: true, persisted: Boolean(result), resolved: Boolean(result) };
     }
     const result = await createGithubIssue({
-      title: 'SEO health loop: repeated production findings',
+      title: SEO_HEALTH_ISSUE_TITLE,
       description: buildIssueBody(report),
       priority: 2,
       labels: ['seo', 'monitoring', 'automation'],
       workflow: process.env.GITHUB_WORKFLOW || 'SEO closed-loop health and recovery',
       dedupKey: 'SEO health loop:',
     });
-    return { attempted: true, persisted: Boolean(result?.persisted !== false) };
+    return { attempted: true, persisted: result?.persisted === true };
   } catch (error) {
     console.error(`[seo-health-loop] issue reporter failed: ${safeError(error)}`);
     return { attempted: true, persisted: false, error: safeError(error) };
@@ -1004,6 +1010,36 @@ export async function runSeoHealthLoop({
   return report;
 }
 
+/**
+ * The run's verdict for `.github/workflows/seo-health-loop.yml`.
+ *
+ *   - `ok`: no actionable finding (exit 0).
+ *   - `finding`: actionable findings AND their issue (`SEO health loop: repeated
+ *     production findings`) was written in this run. The workflow's verdict step
+ *     keeps the run red, and the generic `Workflow Failure:` reporter stays quiet:
+ *     the finding already has its owner.
+ *   - `error`: anything else that exits 1 — an actionable finding whose issue
+ *     could not be written, or a crash. The workflow reports it as a failure.
+ *
+ * @param {{ findings?: { actionable?: unknown[] }, issue?: { persisted?: boolean } }|null} report
+ * @returns {'ok'|'finding'|'error'}
+ */
+export function healthVerdict(report) {
+  if (!report || !Array.isArray(report.findings?.actionable)) return 'error';
+  if (report.findings.actionable.length === 0) return 'ok';
+  return report.issue?.persisted === true ? 'finding' : 'error';
+}
+
+function writeVerdictOutput(verdict) {
+  if (!process.env.GITHUB_OUTPUT) return;
+  try {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `verdict=${verdict}\n`, 'utf8');
+  } catch (error) {
+    // No output reads as "not a finding" in the workflow: a crash, reported as one.
+    console.error(`[seo-health-loop] could not write the verdict output: ${safeError(error)}`);
+  }
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   options.sample = finitePositive(options.sample, DEFAULT_SAMPLE);
@@ -1021,6 +1057,9 @@ async function main() {
   console.log(`  phases: ${Object.entries(report.phases).map(([name, phase]) => `${name}=${phase.status}`).join(', ')}`);
   console.log(`  findings: ${report.findings.observed.length} observed, ${report.findings.actionable.length} actionable after ${report.findings.threshold} runs`);
   console.log(`  report: ${report.reportPath}`);
+  const verdict = healthVerdict(report);
+  console.log(`  verdict: ${verdict}`);
+  writeVerdictOutput(verdict);
   if (report.findings.actionable.length) {
     for (const finding of report.findings.actionable.slice(0, 20)) console.log(`  ❌ ${finding.code} ${finding.url} (${finding.consecutiveRuns} run)`);
     process.exitCode = 1;
@@ -1031,6 +1070,7 @@ const invokedDirectly = process.argv[1] && import.meta.url === pathToFileURL(pro
 if (invokedDirectly) {
   main().catch((error) => {
     console.error(`[seo-health-loop] fatal: ${safeError(error)}`);
+    writeVerdictOutput('error');
     process.exitCode = 1;
   });
 }
