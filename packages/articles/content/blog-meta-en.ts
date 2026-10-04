@@ -12514,6 +12514,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vescovi-openjobmetis-della-valle.title': 'Cecco Vescovi: Della Valle is the key man for Openjobmetis',
     'blog.article.vescovi-openjobmetis-della-valle.excerpt': 'Cecco Vescovi, a guest on «Luci a Masnago», analyzed the defeat suffered by Openjobmetis Varese against Virtus Bologna, emphasizing the absences and Della Valle\'s key role.',
     'blog.article.vescovi-openjobmetis-della-valle.imageAlt': 'Basketball game action in an indoor sports arena, with players in motion and spectators in the stands.',
+    'blog.article.scontro-notturno-gallarate.title': 'Nighttime accident in Gallarate: three young people involved',
+    'blog.article.scontro-notturno-gallarate.excerpt': 'Accident in Gallarate, on Stelvio: three young people aged 18, 20 and 24 involved. Two were transported to the hospitals of Legnano and Gallarate.',
+    'blog.article.scontro-notturno-gallarate.imageAlt': 'Night crash in Gallarate involving three young people',
 };
 
 export default blogMetaEn;

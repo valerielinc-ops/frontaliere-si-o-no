@@ -12513,6 +12513,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vescovi-openjobmetis-della-valle.title': 'Cecco Vescovi: Della Valle, Schlüsselspieler von Openjobmetis',
     'blog.article.vescovi-openjobmetis-della-valle.excerpt': 'Cecco Vescovi, zu Gast bei «Luci a Masnago», analysierte die Niederlage von Openjobmetis Varese gegen Virtus Bologna und hob dabei die Ausfälle sowie die Schlüsselrolle von Della Valle hervor.',
     'blog.article.vescovi-openjobmetis-della-valle.imageAlt': 'Basketballspiel-Action in einer Sporthalle, mit Spielern in Bewegung und Zuschauern auf den Tribünen.',
+    'blog.article.scontro-notturno-gallarate.title': 'Nächtlicher Unfall in Gallarate: drei Jugendliche betroffen',
+    'blog.article.scontro-notturno-gallarate.excerpt': 'Unfall in Gallarate, Straße Stelvio: drei Jugendliche im Alter von 18, 20 und 24 Jahren betroffen. Zwei wurden in die Krankenhäuser von Legnano und Gallarate gebracht.',
+    'blog.article.scontro-notturno-gallarate.imageAlt': 'Nachtunfall in Gallarate mit drei jungen Menschen',
 };
 
 export default blogMetaDe;

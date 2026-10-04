@@ -12515,6 +12515,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vescovi-openjobmetis-della-valle.title': 'Cecco vescovi: della valle uomo chiave openjobmetis',
     'blog.article.vescovi-openjobmetis-della-valle.excerpt': 'Cecco Vescovi, ospite a «Luci a Masnago», ha analizzato la sconfitta della Openjobmetis Varese contro la Virtus Bologna, sottolineando le assenze e il ruolo chiave di Della Valle.',
     'blog.article.vescovi-openjobmetis-della-valle.imageAlt': 'Azione di gioco durante una partita di basket in un palazzetto dello sport, con giocatori in movimento e pubblico sugli spalti.',
+    'blog.article.scontro-notturno-gallarate.title': 'Incidente notturno a Gallarate: tre giovani coinvolti',
+    'blog.article.scontro-notturno-gallarate.excerpt': 'Incidente a Gallarate, via Stelvio: tre ragazzi di 18, 20 e 24 anni coinvolti. Due trasportati negli ospedali di Legnano e Gallarate.',
+    'blog.article.scontro-notturno-gallarate.imageAlt': 'Incidente notturno a Gallarate con tre giovani coinvolti',
 };
 
 export default blogMetaIt;
