@@ -76,7 +76,7 @@ import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
  *   - scripts/lib/sbb-job-parser.mjs              (SSR + JSON-LD)
  */
 
-import { sourcePostingDateFields, mergeSourcePostingDates, hasPostingDateProvenance } from '../source-posting-date.mjs';
+import { sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates, hasPostingDateProvenance } from '../source-posting-date.mjs';
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { parseDotNetJsonDate } from '../dotnet-json-date.mjs';
 import { stripScriptsAndStyles } from '../crawler-template.mjs';
@@ -308,6 +308,13 @@ export function buildSuccessFactorsApiUrl(tenant, kind, options = {}) {
  */
 export function parseSuccessFactorsPostedDate(rawDate, now = new Date()) {
   let value = typeof rawDate === 'string' ? rawDate.trim() : '';
+  // CSB microdata also emits Java-style timestamps, e.g. Belimo's
+  // "Tue Jun 23 00:00:00 UTC 2026". Reorder the explicit components;
+  // the shared RSS resolver validates calendar, time, offset and future.
+  const javaDate = /^[A-Za-z]{3} ([A-Za-z]{3}) (\d{1,2}) (\d{2}:\d{2}:\d{2}) (UTC|GMT|Z|[+-]\d{4}) (\d{4})$/.exec(value);
+  if (javaDate) {
+    return sourceRssPostingDateFields(`${javaDate[2]} ${javaDate[1]} ${javaDate[5]} ${javaDate[3]} ${javaDate[4]}`, now).postedDate || null;
+  }
   if (typeof rawDate === 'number' && Number.isFinite(rawDate)) {
     const date = new Date(rawDate < 1e12 ? rawDate * 1000 : rawDate);
     value = Number.isFinite(date.getTime()) ? date.toISOString() : '';
