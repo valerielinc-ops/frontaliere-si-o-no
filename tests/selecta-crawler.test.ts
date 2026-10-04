@@ -274,7 +274,7 @@ $(function () {
 </body></html>`;
   }
 
-  function mockFetch(jobs: Array<Record<string, unknown>>) {
+  function mockFetch(jobs: Array<Record<string, unknown>>, detail = detailHtml()) {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
       const href = String(url);
       if (href.includes('/Jobs')) {
@@ -287,7 +287,7 @@ $(function () {
       return {
         ok: true,
         status: 200,
-        text: async () => detailHtml(),
+        text: async () => detail,
       } as unknown as Response;
     });
   }
@@ -341,10 +341,18 @@ $(function () {
     for (const job of jobs) expect(job.description).not.toMatch(/— Selecta, /);
   });
 
-  it('parses the .NET /Date(epoch)/ wire format into an ISO date (not the ambiguous dd.mm.yyyy display string)', async () => {
+  it('does not promote OnlineDateCorrected when the original publication is absent', async () => {
     mockFetch([listing({ OnlineDateCorrected: '/Date(1783123200000)/' })]);
     const jobs = await fetchAllSelectaJobs();
-    expect(jobs[0].postedDate).toBe(new Date(1783123200000).toISOString().split('T')[0]);
+    expect(jobs[0]).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
+  });
+
+  it('uses original detail publication even when the listing was refreshed later', async () => {
+    // Same source disagreement observed for official job4614: listing Oct2, detail Jun25.
+    const detail = detailHtml().replace('</body>', '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-06-25"}</script></body>');
+    mockFetch([listing({ OnlineDateCorrected: '/Date(1790899200000)/', Date: '02.10.2026' })], detail);
+    const jobs = await fetchAllSelectaJobs();
+    expect(jobs[0]).toMatchObject({ postedDate: '2026-06-25', datePosted: '2026-06-25', postingDateSource: 'reported' });
   });
 
   it('resolves the HQ address only for the Steinhausen posting, not for other ZG postings in the same batch', async () => {
