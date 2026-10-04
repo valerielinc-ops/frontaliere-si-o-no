@@ -205,23 +205,23 @@ describe('Amstein + Walthert AG crawler parser', () => {
       delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
     });
 
-    it('returns [] (no throw) on total network failure', async () => {
+    // A fetch failure is not an empty listing: it propagates so the crawler
+    // pipeline records its cause (issue 11077 class).
+    it('propagates a total network failure instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => {
         throw new Error('ENOTFOUND amstein-walthert.ch');
       }) as any;
 
-      const jobs = await fetchAllAmsteinWalthertJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllAmsteinWalthertJobs()).rejects.toThrow(/ENOTFOUND/);
     });
 
-    it('returns [] (no throw) when the listing JSON endpoint errors', async () => {
+    it('propagates a listing JSON endpoint error instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => new Response('', { status: 503 })) as any;
 
-      const jobs = await fetchAllAmsteinWalthertJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllAmsteinWalthertJobs()).rejects.toThrow();
     });
 
-    it('returns [] (no throw) when the listing JSON is malformed', async () => {
+    it('propagates a malformed listing JSON instead of returning []', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         if (String(url).startsWith(JSON_ENDPOINT)) {
           return new Response('not json', { status: 200 });
@@ -229,8 +229,7 @@ describe('Amstein + Walthert AG crawler parser', () => {
         return new Response('', { status: 404 });
       }) as any;
 
-      const jobs = await fetchAllAmsteinWalthertJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllAmsteinWalthertJobs()).rejects.toThrow();
     });
 
     it('degrades gracefully (keeps the listing) when a single detail-page fetch fails', async () => {

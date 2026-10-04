@@ -3120,6 +3120,7 @@ async function searchGoogleCse(query, limit = 8) {
       .map((x) => tryUrl(x?.link || ''))
       .filter(Boolean);
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -3136,6 +3137,7 @@ async function searchDuckDuckGo(query, limit = 8) {
     const html = await res.text();
     return parseDuckDuckGoHtmlLinks(html).slice(0, Math.max(1, limit));
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -3161,6 +3163,7 @@ async function searchBingRss(query, limit = 8) {
     const xml = await res.text();
     return parseRssLinks(xml).slice(0, Math.max(1, limit));
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
 }
@@ -4155,6 +4158,7 @@ async function crawlGreenhouseJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4205,6 +4209,7 @@ async function crawlLeverJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4262,6 +4267,7 @@ async function crawlSmartRecruitersJobs(company, source) {
       headers: { Accept: 'application/json, text/plain, */*' },
     });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];
@@ -4422,6 +4428,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
   try {
     res = await fetchWithTimeout(apiUrl, { headers: { Accept: 'application/json, text/plain, */*' } });
   } catch {
+    // fetch-failure-empty-ok: multi-company aggregator: one source of one company must not abort the shared run; search engines are discovery hints, not listings
     return [];
   }
   if (!res.ok) return [];

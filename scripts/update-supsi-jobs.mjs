@@ -429,6 +429,7 @@ async function fetchSupsiJobDetailUrls() {
           userAgent,
         });
       } catch (err) {
+        // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
         console.warn(`  ⚠️ page ${page} fetch failed: ${err?.message || err}`);
         break;
       }

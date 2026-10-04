@@ -220,7 +220,10 @@ async function fetchJobListings() {
         await new Promise((r) => setTimeout(r, 300));
       } catch (err) {
         console.warn(`  ⚠️ Error fetching ${country} page ${page}: ${err.message}`);
-        break;
+        // A fetch failure is not the end of the listing: let the crawler pipeline
+        // classify it (connection-level soft exit or HTTP error) instead of
+        // publishing a partial or cause-less empty result.
+        throw err;
       } finally {
         clearTimeout(timer);
       }

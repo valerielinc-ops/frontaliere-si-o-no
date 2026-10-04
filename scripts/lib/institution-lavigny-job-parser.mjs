@@ -157,7 +157,10 @@ export async function fetchAllInstitutionLavignyJobs() {
     html = await fetchLavignyHtml(LISTING_URL, { timeoutMs: 40000 });
   } catch (err) {
     console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   const items = parseLavignyListing(html);
   console.log(`  ✓ ${items.length} offerte trovate`);

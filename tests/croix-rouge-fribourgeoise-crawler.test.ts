@@ -455,9 +455,9 @@ describe('fetchAllCroixRougeFribourgeoiseJobs (JobCloud Company Page listing + d
     expect(jobs).toHaveLength(1);
   });
 
-  it('returns [] (no throw) when the listing fetch itself fails', async () => {
+  it('propagates a listing fetch failure instead of returning [] (issue 11077)', async () => {
     vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 503, text: async () => '' } as unknown as Response);
-    await expect(fetchAllCroixRougeFribourgeoiseJobs()).resolves.toEqual([]);
+    await expect(fetchAllCroixRougeFribourgeoiseJobs()).rejects.toThrow();
   });
 
   it('leaves the description empty when the detail page has no source body', async () => {

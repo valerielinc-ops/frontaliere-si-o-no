@@ -536,6 +536,7 @@ export function createRexxSystemsParser(config) {
         detailDescription = detail.description;
         detailTitle = detail.title;
       } catch (err) {
+        // fetch-failure-empty-ok: per-entry detail fetch shared by every rexx tenant: the batch stays atomic fail-closed instead of turning one delisted detail into a Crawler Failure
         console.log(`     ⚠ detail fetch failed for j${entry.id}: ${err.message}`);
         return [];
       } finally {

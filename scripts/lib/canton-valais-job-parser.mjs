@@ -155,7 +155,10 @@ async function fetchOtbListings() {
     html = await fetchHtml(OTB_PORTLET_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`   ⚠️ Failed to fetch État du Valais job portlet: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   return parseOtbListings(html);
 }

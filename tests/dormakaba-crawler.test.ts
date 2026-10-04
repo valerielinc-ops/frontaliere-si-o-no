@@ -286,9 +286,8 @@ describe('fetchAllDormakabaJobs (recruiting-solutions.org search API)', () => {
     expect(jobs).toHaveLength(0);
   });
 
-  it('returns [] (no throw) when the API errors', async () => {
+  it('propagates an API error instead of returning [] (fetch failure is not an empty listing)', async () => {
     vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 503, json: async () => ({}) } as unknown as Response);
-    const jobs = await fetchAllDormakabaJobs();
-    expect(jobs).toEqual([]);
+    await expect(fetchAllDormakabaJobs()).rejects.toThrow();
   });
 });

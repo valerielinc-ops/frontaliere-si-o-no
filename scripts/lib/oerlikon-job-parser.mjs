@@ -173,8 +173,11 @@ async function listSwissJobs() {
     try {
       result = await fetchSearchPage(page);
     } catch (err) {
-      if (page === 0) console.warn(`⚠️ Failed to fetch Oerlikon search API: ${err.message}`);
-      break;
+      console.warn(`⚠️ Failed to fetch Oerlikon search API (page ${page}): ${err.message}`);
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     if (page === 0) expectedTotal = result.total;
     if (result.rows.length === 0) break;

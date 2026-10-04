@@ -311,7 +311,10 @@ export async function fetchHilconaJobUrls(timeoutMs = 15000) {
     return parseHilconaSitemapXml(xml);
   } catch (err) {
     console.warn(`⚠️ Failed to fetch Bell Food Group job sitemap: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   } finally {
     clearTimeout(timer);
   }

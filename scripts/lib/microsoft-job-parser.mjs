@@ -311,7 +311,10 @@ export async function fetchAllMicrosoftJobs() {
     positions = await fetchSwissPositions();
   } catch (err) {
     console.error(`❌ Eightfold PCS fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (positions.length === 0) {
     console.warn('⚠️ No Switzerland job listings returned.');

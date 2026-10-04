@@ -160,7 +160,7 @@ describe('Prada Group crawler — URL boundary', () => {
     }
   });
 
-  it('bounds persistent transient retries and still discards the partial snapshot', async () => {
+  it('bounds persistent transient retries and propagates the failure instead of a partial snapshot', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const fetchSpy = vi.spyOn(globalThis, 'fetch')
@@ -177,7 +177,7 @@ describe('Prada Group crawler — URL boundary', () => {
         text: async () => '',
       } as Response);
     try {
-      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      await expect(fetchPradaJobUrls()).rejects.toThrow(/HTTP 503/);
       expect(fetchSpy).toHaveBeenCalledTimes(4); // first query + 3 bounded attempts
     } finally {
       fetchSpy.mockRestore();
@@ -207,7 +207,7 @@ describe('Prada Group crawler — URL boundary', () => {
     }
   });
 
-  it('fails closed without retrying a structural redirect', async () => {
+  it('propagates a structural redirect without retrying it', async () => {
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
       ok: false,
@@ -216,7 +216,7 @@ describe('Prada Group crawler — URL boundary', () => {
       text: async () => '',
     } as Response);
     try {
-      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      await expect(fetchPradaJobUrls()).rejects.toThrow(/structural redirect/);
       expect(fetchSpy).toHaveBeenCalledTimes(1);
       expect(fetchSpy.mock.calls[0][1]).toMatchObject({ redirect: 'manual' });
     } finally {
@@ -228,7 +228,7 @@ describe('Prada Group crawler — URL boundary', () => {
   it.each([
     'https://attacker.example/search/?q=',
     'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/',
-  ])('fails closed without retrying an untrusted effective search URL: %s', async (effectiveUrl) => {
+  ])('propagates an untrusted effective search URL without retrying it: %s', async (effectiveUrl) => {
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
       ok: true,
@@ -237,7 +237,7 @@ describe('Prada Group crawler — URL boundary', () => {
       text: async () => LISTING_HTML_FIXTURE,
     } as Response);
     try {
-      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      await expect(fetchPradaJobUrls()).rejects.toThrow(/untrusted origin/);
       expect(fetchSpy).toHaveBeenCalledTimes(1);
     } finally {
       fetchSpy.mockRestore();
@@ -245,7 +245,7 @@ describe('Prada Group crawler — URL boundary', () => {
     }
   });
 
-  it('fails closed on a 200 response without the authoritative listing table', async () => {
+  it('propagates a 200 response without the authoritative listing table', async () => {
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
       ok: true,
@@ -254,7 +254,7 @@ describe('Prada Group crawler — URL boundary', () => {
       text: async () => '<html><body>Access denied</body></html>',
     } as Response);
     try {
-      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      await expect(fetchPradaJobUrls()).rejects.toThrow(/authoritative results table/);
       expect(fetchSpy).toHaveBeenCalledTimes(1);
     } finally {
       fetchSpy.mockRestore();

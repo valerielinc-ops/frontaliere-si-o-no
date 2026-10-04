@@ -336,7 +336,10 @@ export async function fetchAllDormakabaJobs() {
     records = await fetchSwissJobRecords();
   } catch (err) {
     console.error(`❌ Failed to fetch dormakaba jobs from CSB API: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   console.log(`  📋 Swiss job records returned: ${records.length}`);
 

@@ -167,7 +167,10 @@ export async function fetchAllArsanteJobs() {
       html = await fetchHtml(url);
     } catch (err) {
       console.warn(`  ⚠️ Listing page ${page} fetch failed: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     const rows = parseListing(html);
     console.log(`  ✓ page ${page}: ${rows.length} jobs`);

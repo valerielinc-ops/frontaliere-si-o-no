@@ -138,8 +138,11 @@ export async function fetchAllGallikerJobs() {
   try {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
-    console.warn(`⚠️ Galliker Refline listing fetch failed: ${err?.message || err}. Returning [].`);
-    return [];
+    console.warn(`⚠️ Galliker Refline listing fetch failed: ${err?.message || err}.`);
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const listings = parseReflineListing(listingHtml, { listingHost: REFLINE_HOST, tenant: REFLINE_TENANT });

@@ -288,7 +288,10 @@ export async function fetchAllAbraxasJobs() {
     listingHtml = await fetchHtml(CAREER_URL, { timeoutMs });
   } catch (err) {
     console.warn(`⚠️ Abraxas listing fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const listings = parseAbraxasListing(listingHtml);

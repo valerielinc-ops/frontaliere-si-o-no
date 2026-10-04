@@ -60,7 +60,10 @@ export async function fetchAllOphtalmiqueJobs() {
     rss = await fetchErecruitRss(RSS_URL);
   } catch (err) {
     console.warn(`  ⚠️ RSS feed fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   const items = parseErecruitRss(rss);
   console.log(`  ✓ ${items.length} annunci nel feed RSS`);

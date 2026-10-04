@@ -339,12 +339,11 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
-    it('returns an empty array when the listing fetch throws', async () => {
+    it('propagates a listing fetch failure instead of returning an empty array', async () => {
       const fetchMock = vi.fn(async () => { throw new Error('network unreachable'); });
       vi.stubGlobal('fetch', fetchMock);
 
-      const jobs = await fetchAllKuhnRikonJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllKuhnRikonJobs()).rejects.toThrow(/network unreachable/);
     });
 
     it('does not publish a title-only job when the detail-page fetch fails (issue 5253)', async () => {

@@ -127,6 +127,7 @@ async function fetchJobs(summaryCounts = null) {
   try {
     html = await fetchPage(CAREERS_URL, 25000);
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     if (summaryCounts) {
       summaryCounts.discovered = 0;
       summaryCounts.parsed = 0;

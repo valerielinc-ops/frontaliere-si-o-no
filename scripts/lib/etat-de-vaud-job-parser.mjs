@@ -298,7 +298,10 @@ export async function fetchAllEtatDeVaudJobs() {
     requisitions = await fetchAllRequisitions();
   } catch (err) {
     console.warn(`⚠️ Failed to fetch requisition list: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   if (!requisitions || requisitions.length === 0) {

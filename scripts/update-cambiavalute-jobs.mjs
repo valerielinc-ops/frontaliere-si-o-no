@@ -261,6 +261,7 @@ async function fetchListingPageWithRetry(url, timeoutMs, userAgent, attempts = 3
     try {
       return await fetchListingPage(url, timeoutMs, attemptUa);
     } catch (err) {
+      // fetch-failure-empty-ok: retry loop: after the last attempt the error is rethrown (combined with the Playwright fallback), nothing is read as empty
       lastError = err;
       if (attempt >= attempts) break;
       const delayMs = attempt * 1500;

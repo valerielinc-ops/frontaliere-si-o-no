@@ -77,7 +77,10 @@ export async function fetchAllNantJobs() {
     campaigns = await fetchBeehireCampaigns(BEEHIRE_SLUG);
   } catch (err) {
     console.warn(`  ⚠️ Beehire feed fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   console.log(`  ✓ ${campaigns.length} campaigns in Beehire feed`);
   if (!campaigns.length) return [];

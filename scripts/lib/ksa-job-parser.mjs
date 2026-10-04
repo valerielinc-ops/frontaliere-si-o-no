@@ -369,6 +369,7 @@ async function fetchProspectiveJobs() {
       all.push(...items);
       if (items.length < PROSPECTIVE_PAGE_SIZE) break;
     } catch (err) {
+      // fetch-failure-empty-ok: optional Prospective enrichment join: on failure the crawler falls back to the listing snippet, the listing itself still propagates
       console.warn(`  ⚠️ Prospective enrichment fetch failed at offset=${offset}: ${err?.message || err}`);
       break;
     }
@@ -427,7 +428,10 @@ export async function fetchAllKsaJobs() {
         pageHtml = await fetchPage(pageUrl, cookieJar);
       } catch (err) {
         console.warn(`  ⚠️ Page ${pageNum} fetch failed: ${err?.message}`);
-        break;
+        // A fetch failure is not the end of the listing: let the crawler pipeline
+        // classify it (connection-level soft exit or HTTP error) instead of
+        // publishing a partial or cause-less empty result.
+        throw err;
       }
       const pageListings = parseKsaListingPage(pageHtml);
       let added = 0;

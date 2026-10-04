@@ -93,7 +93,10 @@ export async function fetchAllSpitexZuerichJobs() {
     html = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ Spitex Zürich listing fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   const items = parseSpitexZuerichListing(html);
   console.log(`  ✓ ${items.length} jobs from softgarden onlyfy listing`);

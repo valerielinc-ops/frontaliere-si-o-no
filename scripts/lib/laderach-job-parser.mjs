@@ -243,11 +243,13 @@ export async function fetchLaderachJobUrls(timeoutMs = 15_000) {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });
-    if (!res.ok) return [];
+    if (!res.ok) {
+      const error = new Error(`HTTP ${res.status} for ${CAREERS_URL}`);
+      error.status = res.status;
+      throw error;
+    }
     const html = await res.text();
     return parseLaderachListingHtml(html);
-  } catch {
-    return [];
   } finally {
     clearTimeout(timeout);
   }

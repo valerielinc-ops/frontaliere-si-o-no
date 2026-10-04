@@ -273,8 +273,11 @@ async function fetchJobListings(options = {}) {
     try {
       html = await fetchPage(buildPageUrl(pageIdx));
     } catch (err) {
-      console.warn(`  ⚠️ Ricola: fetch failed on page ${pageIdx} (${err?.message || err}). Stopping pagination.`);
-      break;
+      console.warn(`  ⚠️ Ricola: fetch failed on page ${pageIdx} (${err?.message || err}).`);
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const rows = extractListingRows(html);

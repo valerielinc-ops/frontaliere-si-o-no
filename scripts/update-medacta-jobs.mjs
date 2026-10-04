@@ -831,6 +831,7 @@ async function fetchAlliboJobsForCategory(category) {
     }
     payload = await res.json();
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     console.warn(`     ⚠️ Allibo connector fetch failed for ${category}: ${err?.message || err}`);
     return [];
   }

@@ -298,22 +298,20 @@ describe('Stadtspital Zürich crawler parser', () => {
       expect(new Set(jobs.map((j: any) => j.slug)).size).toBe(jobs.length);
     });
 
-    it('returns [] (no throw) when the portal is unreachable', async () => {
+    it('propagates an unreachable portal instead of returning []', async () => {
       vi.stubGlobal('fetch', vi.fn(async () => {
         throw new Error('connect ETIMEDOUT');
       }));
-      const jobs = await fetchAllStadtspitalZuerichJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllStadtspitalZuerichJobs()).rejects.toThrow(/ETIMEDOUT/);
     });
 
-    it('returns [] (no throw) on HTTP error status', async () => {
+    it('propagates an HTTP error status instead of returning []', async () => {
       vi.stubGlobal('fetch', vi.fn(async () => ({
         ok: false,
         status: 503,
         text: async () => '',
       } as unknown as Response)));
-      const jobs = await fetchAllStadtspitalZuerichJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllStadtspitalZuerichJobs()).rejects.toThrow();
     });
   });
 

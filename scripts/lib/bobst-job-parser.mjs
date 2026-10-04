@@ -454,6 +454,7 @@ async function fetchJobListings(options = {}) {
     console.log(`   ✅ Bobst Umantis returned ${out.length} unique vacancies.`);
     return out;
   } catch (err) {
+    // fetch-failure-empty-ok: typed Playwright branches (anti-bot, navigation timeout, browser launch) are runner transients the pipeline does not soft-exit
     if (AntiBotBlockError && err instanceof AntiBotBlockError) {
       console.warn(
         `   ⚠️ Bobst: anti-bot block (status=${err.status}, title=${JSON.stringify(err.title || '')}). Returning [].`,

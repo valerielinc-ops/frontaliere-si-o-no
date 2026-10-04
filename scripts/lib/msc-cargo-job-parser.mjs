@@ -317,7 +317,10 @@ async function fetchAllRawJobs() {
       html = await fetchHtml(url, { timeoutMs: 25000 });
     } catch (err) {
       console.warn(`  Page ${page} fetch failed: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const block = extractPhenomEagerLoad(html);

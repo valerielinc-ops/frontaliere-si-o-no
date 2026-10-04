@@ -547,6 +547,7 @@ async function fetchListingRowsHttp() {
       },
     });
   } catch (err) {
+    // fetch-failure-empty-ok: HTTP fallback runs inside the Playwright session catch of fetchAllHeinekenChJobs, which would swallow a throw anyway
     console.warn(`⚠️ Heineken HTTP listing fallback failed: ${err?.message || err}`);
     return [];
   }
@@ -757,6 +758,7 @@ export async function fetchAllHeinekenChJobs() {
     console.log(`\n📋 Total unique Heineken Switzerland jobs discovered: ${deduped.length}`);
     return deduped;
   } catch (err) {
+    // fetch-failure-empty-ok: Playwright session catch that also covers browser launch, a runner transient the pipeline does not soft-exit
     console.error(`❌ Heineken Switzerland Playwright discovery failed: ${err?.message || err}`);
     return [];
   } finally {

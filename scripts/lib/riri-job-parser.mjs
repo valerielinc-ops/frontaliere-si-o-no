@@ -206,7 +206,10 @@ export async function fetchAllRiriJobs() {
     listings = await fetchJobListings();
   } catch (err) {
     console.warn(`  Failed to fetch ${FEED_URL}: ${err.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   console.log(`  Listings found (all Riri Group manufacturing sites): ${listings.length}`);
   if (!listings.length) return [];

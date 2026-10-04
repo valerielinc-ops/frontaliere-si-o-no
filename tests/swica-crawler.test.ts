@@ -210,13 +210,12 @@ describe('SWICA crawler parser', () => {
       };
     }
 
-    it('returns [] (no throw) when the listing fetch fails outright', async () => {
+    it('propagates a listing fetch that fails outright instead of returning []', async () => {
       vi.stubGlobal(
         'fetch',
         vi.fn().mockRejectedValue(new Error('getaddrinfo ENOTFOUND jobs.swica.ch')),
       );
-      const jobs = await fetchAllSwicaJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllSwicaJobs()).rejects.toThrow(/ENOTFOUND/);
     });
 
     it('returns [] when the listing page has no job links', async () => {

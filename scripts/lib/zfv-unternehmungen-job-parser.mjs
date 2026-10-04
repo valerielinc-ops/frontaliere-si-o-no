@@ -200,7 +200,10 @@ async function fetchAllListings() {
       html = await fetchHtml(url, { headers: { 'User-Agent': UA } });
     } catch (err) {
       console.warn(`  ⚠️ Listing fetch failed at start=${start}: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     const entries = parseRexxListing(html);
     let added = 0;

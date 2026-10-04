@@ -288,7 +288,10 @@ export async function fetchAllOnRunningJobs() {
     listings = await fetchJobListings();
   } catch (err) {
     console.error(`❌ Failed to fetch ${ON_RUNNING_COMPANY_NAME} jobs from Greenhouse: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings returned.');

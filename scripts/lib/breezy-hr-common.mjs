@@ -223,7 +223,10 @@ export function createBreezyHrParser(config) {
       listing = await fetchJsonWithTimeout(listingUrl);
     } catch (err) {
       console.warn(`⚠️ Listing fetch failed (${listingUrl}): ${err?.message || err}`);
-      return [];
+      // A fetch failure is not an empty listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a cause-less no-jobs-parsed abort.
+      throw err;
     }
     if (!Array.isArray(listing) || !listing.length) {
       console.warn(`⚠️ Empty / unexpected listing payload for ${companyName}`);

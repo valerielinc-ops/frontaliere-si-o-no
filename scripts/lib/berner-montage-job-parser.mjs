@@ -259,6 +259,7 @@ async function fetchJobListings() {
       });
     }
   } catch (err) {
+    // fetch-failure-empty-ok: WorkdayAuthError anti-bot branch: the pipeline soft-exits only connection-level/antiBotExhausted errors, so a throw would open a Crawler Failure on every blocked run
     if (err instanceof WorkdayAuthError) {
       console.error(`❌ Workday anti-bot block (${BERNER_MONTAGE_COMPANY_NAME}): ${err.message}`);
       return [];

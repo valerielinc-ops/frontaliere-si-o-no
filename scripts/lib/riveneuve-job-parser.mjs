@@ -141,7 +141,10 @@ export async function fetchAllRiveneuveJobs() {
     listingHtml = await fetchRiveneuveHtml(LISTING_URL);
   } catch (err) {
     console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   const entries = parseRiveneuveListing(listingHtml);
   console.log(`  ✓ ${entries.length} offerte trovate (incl. spontaneous filter)`);

@@ -441,8 +441,8 @@ $(function () {
     expect(jobs[0].description).toMatch(/^Selecta ist der führende Anbieter/);
   });
 
-  it('returns [] (no throw) when the listing fetch itself fails', async () => {
+  it('propagates a listing fetch failure instead of returning [] (fetch failure is not an empty listing)', async () => {
     vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 503, text: async () => '' } as unknown as Response);
-    await expect(fetchAllSelectaJobs()).resolves.toEqual([]);
+    await expect(fetchAllSelectaJobs()).rejects.toThrow();
   });
 });

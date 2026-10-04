@@ -354,7 +354,10 @@ export async function fetchAllSpitalThurgauJobs() {
     html = await fetchPage(LISTING_URL);
   } catch (err) {
     console.error(`❌ Failed to fetch /jobs/ page: ${err?.message}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const records = parseStgagEmbeddedJson(html);

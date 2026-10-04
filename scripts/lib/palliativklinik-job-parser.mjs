@@ -177,7 +177,10 @@ export async function fetchAllPalliativklinikJobs() {
     listingHtml = await fetchHtml(PALLIATIVKLINIK_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} PDF postings detected`);

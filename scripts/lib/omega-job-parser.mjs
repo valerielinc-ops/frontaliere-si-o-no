@@ -467,17 +467,13 @@ export async function fetchAllOmegaJobs() {
     try {
       html = await fetchPage(listUrl(page));
     } catch (err) {
-      if (page === 0) {
-        // Nothing collected yet — graceful early exit (prior data preserved).
-        console.error(`  ❌ Failed to fetch list page: ${err?.message || err}`);
-        console.warn('   The site may be blocking automated requests. Will retry next cycle.');
-        return [];
-      }
-      // Mid-crawl failure: publishing a PARTIAL list would expire the jobs on
-      // the unfetched pages, so bail out to the safe 0-job early exit instead.
+      // A fetch failure is not an empty listing, on the first page or mid-crawl
+      // (a PARTIAL list would expire the jobs on the unfetched pages): let the
+      // crawler pipeline classify it (connection-level soft exit or HTTP error)
+      // instead of publishing a cause-less no-jobs-parsed abort. The previous
+      // slice stays live either way.
       console.error(`  ❌ Failed to fetch list page ${page + 1}: ${err?.message || err}`);
-      console.warn('   Aborting with no jobs (prior data preserved) — will retry next cycle.');
-      return [];
+      throw err;
     }
 
     const { listings, cardCount } = parseListPage(html);

@@ -216,7 +216,10 @@ export async function fetchAllStadtspitalZuerichJobs() {
       html = await fetchPage(url);
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch listing page ${page} (startrow=${startrow}): ${err.message}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     const rows = parseListingTiles(html).filter((r) => !seenIds.has(r.jobId));
     console.log(`  📄 Page ${page} (startrow=${startrow}): ${rows.length} new job(s)`);

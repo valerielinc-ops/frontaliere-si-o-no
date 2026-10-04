@@ -530,7 +530,10 @@ async function fetchJobListings() {
       result = await fetchListingPage(pageUrl, page, { allowFallbackOnEmpty: seen.size === 0 });
     } catch (err) {
       console.warn(`   ⚠️ Listing page ${page} fetch failed: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     const { entries } = result;
     if (declaredTotal === null && result.declaredTotal !== null) declaredTotal = result.declaredTotal;
