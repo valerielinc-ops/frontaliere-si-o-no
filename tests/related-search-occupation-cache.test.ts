@@ -80,6 +80,19 @@ describe('build-scoped occupational terms', () => {
       .toEqual(['30', '20', '5', '10', '40', '50']);
   });
 
+  it('clears scratch scores without sorting when the floor leaves no OR levels', () => {
+    const index = new TokenIndex(Array.from({ length: 4 }, (_, i) => ({ id: String(i), title: 'Role' })));
+    index.seedPostings('it', [
+      { token: 'a', list: [3] },
+      { token: 'b', list: [1] },
+    ]);
+    const sort = vi.spyOn(Array.prototype, 'sort');
+
+    expect(index.matchingJobs('it', ['a', 'b'], 30, 2)).toEqual([]);
+    expect(sort).not.toHaveBeenCalled();
+    expect(Array.from(Reflect.get(index, 'scratchScores') as Uint8Array)).toEqual([0, 0, 0, 0]);
+  });
+
   it('prepares once per visited job/locale, skips empty roles, and clears with the index', () => {
     const prepare = vi.spyOn(relevance, 'prepareJobOccupationTerms');
     const index = new TokenIndex(jobs);

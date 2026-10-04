@@ -1372,7 +1372,12 @@ export class TokenIndex {
     // when that is cheaper than scanning every job; retain the dense scan for
     // genuinely dense merges. The score buckets and accept predicate are
     // unchanged, so this is an execution-plan fix, not a ranking change.
-    const scoreLevels = Math.max(1, fullScore - minScore);
+    const scoreLevels = fullScore - minScore;
+    if (scoreLevels <= 0) {
+      for (const idx of touched) scores[idx] = 0;
+      touched.length = 0;
+      return;
+    }
     const touchedSortCost = touched.length > 1 ? Math.ceil(Math.log2(touched.length)) : 0;
     const useTouchedOrder =
       touched.length * (scoreLevels + touchedSortCost) < scores.length * scoreLevels;
