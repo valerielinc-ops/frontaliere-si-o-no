@@ -27,6 +27,7 @@
  * GHOL operates in canton VD (Nyon, Rolle, Saint-Cergue). Default canton VD.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
   slugify,
@@ -216,8 +217,7 @@ function buildJob(campaign) {
   const urlHash = createHash('sha1').update(idForHash).digest('hex').slice(0, 12);
 
   const jobSlug = slugify(`${title} ${GHOL_COMPANY_NAME} ${city}`);
-  // Beehire campaigns don't expose a posted-date — use today.
-  const postedDate = new Date().toISOString().slice(0, 10);
+  // The public campaigns carry no publication field; collection is not publication.
 
   // The sourceLang sanity-check: if Beehire's language id doesn't match the
   // text, recompute via detectLang. Cheap insurance against mis-tagged feeds.
@@ -252,7 +252,7 @@ function buildJob(campaign) {
     experienceLevel: detectExperienceLevel(title),
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...sourcePostingDateFields(),
     url: publicUrl,
     applyUrl: publicUrl,
     source: 'GHOL Dedicated Parser (Beehire public API)',
