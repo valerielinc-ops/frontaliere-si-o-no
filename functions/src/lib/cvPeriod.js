@@ -1,6 +1,7 @@
 /**
  * Dates of a CV, read as the candidate wrote them and printed the Swiss way
- * (MM.YYYY, the official templates of the cantonal career services and SECO).
+ * (MM.YYYY for a period, dd.mm.yyyy for a date of the personal data, the
+ * official templates of the cantonal career services and SECO).
  * The model never writes a date: the profile keeps them as written, and this
  * module only re-formats what it can read for sure; anything else is printed
  * as written. The idea of reading periods in the CV's own language comes from
@@ -74,4 +75,48 @@ export function formatPeriod(start, end, language = 'it') {
   const parts = [from, to].filter(Boolean).map((endpoint) => formatEndpoint(endpoint, language));
   if (parts.length === 2 && parts[0] === parts[1]) return parts[0];
   return parts.join(' – ');
+}
+
+/**
+ * A full date read for sure: ISO, day first with dots, slashes or hyphens (as
+ * the portal filler and the extension read them), or the day, the month's
+ * name and the year in the four languages («14. März 2010», «1er mars 1998»).
+ * A real calendar date between 1900 and 2100, else null.
+ */
+function parseFullDate(raw) {
+  const text = fold(raw).replace(/\s+/g, ' ');
+  const real = (year, month, day) => {
+    const date = new Date(Date.UTC(year, month - 1, day));
+    return year >= 1900 && year <= 2100 && date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day
+      ? { year, month, day } : null;
+  };
+  let match = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(text);
+  if (match) return real(+match[1], +match[2], +match[3]);
+  match = /^(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[./-]\s*(\d{4})$/.exec(text);
+  if (match) return real(+match[3], +match[2], +match[1]);
+  match = /^(\d{1,2})(?:\.|er|°|º|st|nd|rd|th)?\s+([a-z]+)\.?\s+(\d{4})$/.exec(text);
+  if (match && MONTH_BY_NAME.has(match[2])) return real(+match[3], MONTH_BY_NAME.get(match[2]), +match[1]);
+  return null;
+}
+
+const pad = (value) => String(value).padStart(2, '0');
+
+/** A date as YYYY-MM-DD, the form the portals read, or '' when it cannot be read for sure. */
+export function isoDateOf(raw) {
+  const date = parseFullDate(raw);
+  return date ? `${date.year}-${pad(date.month)}-${pad(date.day)}` : '';
+}
+
+/**
+ * A date of the CV's personal data the Swiss way: dd.mm.yyyy in German,
+ * French and Italian, «12 March 1998» in English; anything else as written.
+ */
+export function formatCvDate(raw, language = 'it') {
+  const date = parseFullDate(raw);
+  if (!date) return String(raw ?? '').trim();
+  if (language === 'en') {
+    const month = MONTHS.en[date.month - 1];
+    return `${date.day} ${month[0].toUpperCase()}${month.slice(1)} ${date.year}`;
+  }
+  return `${pad(date.day)}.${pad(date.month)}.${date.year}`;
 }

@@ -118,6 +118,10 @@ export interface ReviewFormField {
   required?: boolean;
   /** Printed in the letter header (shown for e-mail applications too). */
   inLetter?: boolean;
+  /** Printed in the tailored CV: shown for e-mail applications too. */
+  inCv?: boolean;
+  /** A closed list (the permit status), in the candidate's language. */
+  options?: string[];
   validation?: ReviewQuestion['validation'];
 }
 
@@ -174,6 +178,8 @@ export interface ReviewPayload {
     inplace?: { url: string | null; patched: number; kept: number } | null;
     /** The candidate's line choices changed the Word file: it comes back when they match the checked layout. */
     inplaceNeedsPageCheck?: boolean;
+    /** The G permit is left out of the CV: the nationality given is not EU/EFTA. */
+    permitOmitted?: boolean;
   } | null;
   ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
   can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean; uploadPhoto?: boolean; reviewCvLines?: boolean };

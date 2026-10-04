@@ -210,6 +210,7 @@ export async function buildDraft(ctx) {
         applicationInstructions: requirements.applicationInstructions,
       },
       postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+      language,
     })),
     schema: DOCUMENTS_SCHEMA,
     timeoutMs: CODEX_TIMEOUT_MS,
@@ -245,6 +246,9 @@ export async function buildDraft(ctx) {
       ...(flow?.feedback || []).map((item) => String(item?.text || '')),
       ...Object.values(edited.overrides),
     ].join('\n'),
+    // The permit status the texts were written with (a code, '' when none): its presence marks a draft the gate
+    // judges on the Swiss permit, with the status of the day (factSourcesNow).
+    permitStatus: profile.permitStatus || '',
   };
   const letterBody = letterText(documents.coverLetter);
   const emailSubject = swissTypography(applicationEmailSubject(language, title, identity.name, documents.emailSubject, kind.type), language);
@@ -277,14 +281,14 @@ export async function buildDraft(ctx) {
   // The portal's own required questions, read ahead on a single-page form
   // (career-ops apply.md): the candidate answers them on the first review,
   // not in a second round at submit time. Questions already asked are kept.
-  const formAnswers = buildFormAnswers({ identity, profile, documents, answers });
+  const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale });
   if (ctx.readPortalQuestions && channel.applyUrl) {
     const portal = await ctx.readPortalQuestions({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
       language,
       candidateLocale: locale,
-      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } } }),
+      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language }),
       codex,
       log,
     });

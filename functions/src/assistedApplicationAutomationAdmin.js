@@ -17,7 +17,8 @@ import {
 import { randomUUID } from 'node:crypto';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
-import { formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
+import { factSourcesNow, formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
+import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { cvChoiceOf } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
@@ -209,7 +210,9 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const channel = emailTo && draft.channel?.type !== 'email'
     ? { ...draft.channel, type: 'email', label: 'E-mail', email: emailTo, setBy: 'owner' }
     : draft.channel;
-  const factCheck = checkDraftTexts({ coverLetter: text, emailSubject: applicationEmail.subject, emailBody: applicationEmail.body }, draft.factSources || {}, { language: draft.language });
+  // With the candidate's permit status of now (decision 8).
+  const factCheck = checkDraftTexts({ coverLetter: text, emailSubject: applicationEmail.subject, emailBody: applicationEmail.body },
+    factSourcesNow({ order, draft, flow: flowSnapshot.data() || {} }), { language: draft.language });
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
   let coverLetterRenderer = null;
@@ -336,13 +339,25 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationEditDraft':
       return editDraft(db, orderId, raw, adminEmail, { bucket: deps.bucket, nowMs });
     case 'automationSetAnswers': {
-      const flowSnapshot = await flowRefFor(db, orderId).get();
+      const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+        orderRefFor(db, orderId).get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
+      ]);
       if (!flowSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
       const answers = {};
       for (const [id, value] of Object.entries(raw.answers && typeof raw.answers === 'object' ? raw.answers : {})) {
         if (/^[a-z0-9_]{1,60}$/.test(id)) answers[id] = clean(value, 500);
       }
-      await flowRefFor(db, orderId).set({ answers: { ...(flowSnapshot.data()?.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
+      // An answer the tailored CV prints (the permit status, the availability): rebuilt and committed with the
+      // answers, before the event can dispatch the submission (decision 7), as the candidate's answers are.
+      try {
+        await saveAnswersWithCv({
+          db, bucket: deps.bucket, orderId, order: orderSnapshot.data() || {}, flow: flowSnapshot.data() || {},
+          draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs,
+        });
+      } catch (error) {
+        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status);
+        throw error;
+      }
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });
       return { ok: true, state: result.flow?.state || flowSnapshot.data()?.state };
     }

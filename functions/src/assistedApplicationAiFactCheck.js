@@ -66,9 +66,21 @@
  *     (the e-mail is signed with the candidate's phone and may quote the CV's
  *     link without its scheme); the candidate's own number is no unknown phone
  *     in another format ("079 …" in the CV, "+41 79 …" in the signature).
+ *
+ * The Swiss status, 2026-10-03/04 (owner decisions on the personal data): a
+ * Swiss permit named in a claim field (kind `permit`) is backed by the status
+ * the candidate chose (lib/permitStatus.js), or, when they chose none, by
+ * their own texts naming that permit; with «none» or «swiss» nothing backs a
+ * permit. A Swiss citizenship (kind `citizenship`) is backed by the status
+ * «swiss», or, when none is chosen, by their own texts. A permit or a
+ * citizenship to come is always flagged ("permesso G da richiedere", "Anspruch
+ * auf Bewilligung"). The posting's permit quoted as a requirement not held is
+ * the honest gap, a `gap` advisory as for a tool. Sources without the status
+ * (drafts written before it) are not judged on it.
  */
 
 import { gapReader } from './lib/honestGap.js';
+import { EXPECTATION_RE, HELD_PERMITS, citizenshipMentions, permitMentions } from './lib/permitStatus.js';
 import { mentionsVocabularyTool, vocabularyTools } from './lib/toolVocabulary.js';
 
 const NUMBER_RE = /\d(?:[\d'’.,  ]*\d)?/g;
@@ -658,4 +670,88 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     }
   }
   return { ok: unsupported.length === 0, unsupported, advisories };
+}
+
+/**
+ * Decision 8: a Swiss permit named in a claim field is the candidate's own.
+ * The status they chose backs that permit and a work permit in general; their
+ * own texts (CV, answers, edits) back a permit they name, also beside a held
+ * status; with «none» or «swiss» nothing backs a permit. A Swiss citizenship
+ * is gated the same way (decision of 2026-10-04): backed by the status
+ * «swiss», or by the candidate's own texts while no status is chosen. A permit
+ * to come is never written, backed or not (decision 1). The posting's permit
+ * quoted as a requirement not held is the honest gap: a `gap` advisory, as for
+ * a tool.
+ * @param {Record<string,string>} texts generated texts by field name
+ * @param {ReturnType<typeof buildFactIndex>} index with claimSources (the candidate's own texts)
+ * @param {{status?:string, fields?:string[]}} [options] status: the code the candidate chose, '' for none;
+ *   fields: the claim fields (default: all)
+ */
+export function checkPermitClaims(texts, index, { status = '', fields } = {}) {
+  const unsupported = [];
+  const advisories = [];
+  const seen = new Set();
+  const report = (list) => (field, kind, token, context) => {
+    const key = `${field}|${kind}|${token}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    list.push({ field, kind, token, context });
+  };
+  const flag = report(unsupported);
+  const advise = report(advisories);
+  // What the candidate's own texts state: a permit or a citizenship they name, never one they say they lack or
+  // expect (a CV line «Permesso G da richiedere» or «senza permesso B» backs nothing).
+  const own = visible(index?.claimRaw || '');
+  const stated = (mention) => {
+    const clause = clauseAround(own, mention.index);
+    return !EXPECTATION_RE.test(clause) && !NEGATION_CUE.test(clause);
+  };
+  const named = new Set(permitMentions(own).filter(stated).map((mention) => mention.code));
+  const swissNamed = citizenshipMentions(own).some(stated);
+  const backed = (code) => {
+    if (code === 'swiss') return status === 'swiss' || (!status && swissNamed);
+    if (status === 'none' || status === 'swiss') return false;
+    if (HELD_PERMITS.has(status)) return code === status || code === 'generic' || named.has(code);
+    // Nothing chosen: what the candidate's own texts name; a work permit in general when they name one held.
+    return code === 'generic' ? [...named].some((held) => HELD_PERMITS.has(held)) : named.has(code);
+  };
+  for (const [field, raw] of Object.entries(texts || {})) {
+    if (fields && !fields.includes(field)) continue;
+    const text = visible(raw);
+    if (!text) continue;
+    // An e-mail address, a link, the posting's reference or a name quoted whole (the company, the job title)
+    // is no claim.
+    const spans = [
+      ...[...text.matchAll(EMAIL_RE), ...text.matchAll(URL_RE), ...text.matchAll(REFERENCE_RE)].map((match) => [match.index, match[0].length]),
+      ...(index?.names || []).flatMap((name) => [...text.matchAll(nameRegExp(name))].map((match) => [match.index, match[0].length])),
+    ];
+    const quoted = (position) => spans.some(([start, length]) => position >= start && position < start + length);
+    for (const mention of [...permitMentions(text), ...citizenshipMentions(text)]) {
+      if (quoted(mention.index)) continue;
+      const kind = mention.code === 'swiss' ? 'citizenship' : 'permit';
+      const context = contextAround(text, mention.index, mention.length);
+      if (EXPECTATION_RE.test(clauseAround(text, mention.index))) {
+        flag(field, kind, mention.token, context);
+        continue;
+      }
+      if (backed(mention.code)) continue;
+      if (postingNames(index?.echoWords, mention.token) && quotesRequirement(text, mention.index)) {
+        advise(field, 'gap', mention.token, context);
+        continue;
+      }
+      flag(field, kind, mention.token, context);
+    }
+  }
+  return { ok: unsupported.length === 0, unsupported, advisories };
+}
+
+/** The fact gate's result with the permit check added; sources without a status are judged as they were. */
+export function withPermitClaims(facts, texts, index, { status, fields } = {}) {
+  if (typeof status !== 'string') return facts;
+  const permits = checkPermitClaims(texts, index, { status, fields });
+  return {
+    ok: facts.ok && permits.ok,
+    unsupported: [...facts.unsupported, ...permits.unsupported],
+    advisories: [...(facts.advisories || []), ...permits.advisories],
+  };
 }

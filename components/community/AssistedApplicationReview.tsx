@@ -113,6 +113,8 @@ function QuestionField({ question, value, onChange, disabled, error }: {
           aria-invalid={error ? true : undefined}
         />
       )}
+      {/* Only facts: the status held today, never a permit to come (the server's options say it). */}
+      {question.id === 'work_permit' && <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.permitRule')}</span>}
       {error && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{error}</span>}
     </label>
   );
@@ -157,7 +159,14 @@ function EditField({ field, value, onChange, disabled, error }: {
   return (
     <label className="block text-sm font-medium text-body">
       {label}{field.required && <span className="text-danger"> *</span>}
-      {TEXT_FIELDS.has(field.key) ? <textarea rows={3} {...common} /> : <input type={field.key === 'phone' ? 'tel' : 'text'} {...common} />}
+      {field.options?.length ? (
+        // A closed list (the permit status), as the server words it in the candidate's language.
+        <select value={value} onChange={(event) => onChange(event.target.value)} disabled={disabled} className={inputClass} aria-invalid={error ? true : undefined}>
+          <option value="">—</option>
+          {field.options.map((option) => <option key={option} value={option}>{option}</option>)}
+        </select>
+      ) : TEXT_FIELDS.has(field.key) ? <textarea rows={3} {...common} /> : <input type={field.key === 'phone' ? 'tel' : 'text'} {...common} />}
+      {field.key === 'workPermit' && <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.permitRule')}</span>}
       {error && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{error}</span>}
     </label>
   );
@@ -294,9 +303,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const removeDocument = (document: { id: string }, fileId: string) => run('document_remove', { documentId: document.id, fileId });
   const waiveDocument = (document: { id: string }, waive: boolean) => run('document_waive', { documentId: document.id, waive });
 
-  // Fields shown to the candidate: an e-mail application uses only the letter header.
+  // Fields shown to the candidate: an e-mail application uses the letter header and what the tailored CV prints.
   const shownFields = useMemo(
-    () => (data?.formAnswers || []).filter((field) => (data?.job.channel === 'email' ? field.inLetter : true)),
+    () => (data?.formAnswers || []).filter((field) => (data?.job.channel === 'email' ? field.inLetter || field.inCv : true)),
     [data],
   );
 
@@ -337,6 +346,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         if (field.required) errors[field.key] = t('jobBoard.assisted.review.fieldRequired');
         continue;
       }
+      // The server checks only what changed: a CV birth date «14. März 2010» or an older permit text never blocks a save.
+      if (value === String(field.value || '').trim()) continue;
       if (field.validation && value.length > field.validation.maxLength) {
         errors[field.key] = t('jobBoard.assisted.review.textTooLong');
         continue;
@@ -674,6 +685,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                   )}
                 </div>
                 <p className="text-subtle">{t('jobBoard.assisted.review.cvIntro')}</p>
+                {data.tailoredCv.permitOmitted && <p className="text-xs text-subtle">{t('jobBoard.assisted.review.cvPermitOmitted')}</p>}
                 {data.ats?.original && (
                   <p className="text-xs text-subtle">
                     {t('jobBoard.assisted.review.cvAts', {
@@ -690,6 +702,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     </label>
                   ))}
                 </fieldset>
+                {/* The personal data of this page are printed by the tailored CV only: the candidate's own file keeps its own. */}
+                <p className="text-xs text-subtle">{t(data.tailoredCv.inplace ? 'jobBoard.assisted.review.cvPersonalDataNoteInplace' : 'jobBoard.assisted.review.cvPersonalDataNote')}</p>
                 {data.tailoredCv.inplaceNeedsPageCheck && (
                   <p className="text-xs text-subtle">{t('jobBoard.assisted.review.cvInplaceNeedsCheck')}</p>
                 )}
