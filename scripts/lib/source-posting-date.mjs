@@ -2,7 +2,10 @@ import { compareValidatedPostingDates, resolveReportedPostingDate } from './job-
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
-/** Normalize only dates actually supplied by an employer; never use crawl time. */
+/**
+ * Normalize only dates actually supplied by an employer; never use crawl time.
+ * @returns {{ datePosted: string, postedDate: string, postingDateSource: 'reported' | 'unknown' }}
+ */
 export function sourcePostingDateFields(raw, now = new Date()) {
   let value = typeof raw === 'string' ? raw.trim() : '';
   const human = /^(\d{1,2}) ([A-Za-z]{3}|Sept) (\d{4})$/.exec(value);
