@@ -37,9 +37,8 @@ export function isReportSalaryJob(job: ReportJob): boolean {
 export function loadReportJobPanel(rootDir: string, year: number): ReportJob[] | null {
   try {
     const raw: unknown = JSON.parse(fs.readFileSync(path.join(rootDir, 'data/jobs.json'), 'utf8'));
-    if (!Array.isArray(raw)) return null;
-    return raw.filter(isReportJob)
-      .filter((job) => isReportYearJob(job, year));
+    if (!Array.isArray(raw) || !raw.every(isReportJob)) return null;
+    return raw.filter((job) => isReportYearJob(job, year));
   } catch {
     return null;
   }
