@@ -132,7 +132,7 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
   '.github/workflows/job-title-locale-audit.yml :: title:Job title locale quality: weekly snapshot :: --reopen-within-hours 336':
     'audit quindicinale: 336h = il suo periodo.',
   'scripts/ci/report-validate-dist-failure.mjs :: fn:reportDist :: reopenWithinHours: 6':
-    'ramo `reportValidateDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
+    'ramo `reportDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
   'scripts/ci/review-gate.mjs :: fn:mintFollowup :: reopenWithinHours: 0':
     'follow-up di scope già drenata: una issue completata non deve riaprirsi e reinserire finding già risolti nel ciclo successivo.',
 };
@@ -183,8 +183,14 @@ function jsWindowAt(lines: string[], i: number): { hours: number | null; raw: st
   let block = '';
   for (let j = i; j < lines.length && j - i < 50; j++) {
     block += (j > i ? '\n' : '') + lines[j];
-    const match = block.match(/\breopenWithinHours\s*:\s*([^,]+)/s);
-    if (match) return { hours: numOrNull(match[1]), raw: normalizeExpr(`reopenWithinHours: ${match[1]}`) };
+    // Il valore finisce alla prima `,`, `}` o fine riga, senza commenti in coda:
+    // altrimenti `{ reopenWithinHours: 6 }` darebbe `6 }`, `numOrNull` → null,
+    // e il restringimento sparirebbe dal gate in silenzio.
+    const match = block.match(/\breopenWithinHours\s*:\s*([^,}\n]+)/);
+    if (match) {
+      const value = match[1].replace(/\/\*.*?\*\/|\/\/.*$/g, '').trim();
+      return { hours: numOrNull(value), raw: normalizeExpr(`reopenWithinHours: ${value}`) };
+    }
     if (j > i && /^\s*[}\]]/.test(lines[j])) break;
   }
   return null;
@@ -378,6 +384,13 @@ describe('lo scanner trova davvero i call site (anti-gate-vacuo)', () => {
       '};',
     ], 1);
     expect(parsed?.hours).toBe(6);
+  });
+
+  it('legge una proprietà JS inline o commentata senza inghiottire `}` o il commento', () => {
+    const inline = jsWindowAt(['createGithubIssue({ title, reopenWithinHours: 6 });'], 0);
+    expect(inline).toEqual({ hours: 6, raw: 'reopenWithinHours: 6' });
+    const commented = jsWindowAt(['  reopenWithinHours: 6 // ciclo corrente', '};'], 0);
+    expect(commented).toEqual({ hours: 6, raw: 'reopenWithinHours: 6' });
   });
 });
 
