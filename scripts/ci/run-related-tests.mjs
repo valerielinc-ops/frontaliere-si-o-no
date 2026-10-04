@@ -17,8 +17,10 @@
  * read it by path instead of importing it. Test-tree lints (tests that scan
  * every test file instead of importing one) join the selection whenever the
  * diff touches a test file; source-tree lints (tests that scan `.github`,
- * `scripts` and `bin` by directory, or the whole tracked tree for
- * credential-shaped literals) join it whenever the diff touches their scope.
+ * `scripts` and `bin` by directory, the whole tracked tree for
+ * credential-shaped literals, or data files that no import connects to them,
+ * such as the loop-fleet ledger replay) join it whenever the diff touches
+ * their scope.
  * `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
@@ -124,6 +126,12 @@ const sourceTreeLintTests = new Map([
   // e' passato senza che il test girasse. Il perimetro e' l'elenco stesso, non
   // una regex che possa divergere da esso.
   ['tests/generate-crawler-group-workflows.test.ts', (file) => crawlerGenerationRuntimePaths.has(file)],
+  // Il ledger durevole dei loop e' riletto a runtime contro il registry
+  // corrente: un cambio di sourceRefs senza historicalSourceRefs lo rende
+  // illeggibile. Registry e ledger sono dati, nessun import li collega al test
+  // che li rilegge. Sulla PR 11001 un diff del solo registry e' passato verde e
+  // l'observer del lifecycle e' caduto al cron dopo (issue 11178).
+  ['tests/loop-fleet-registry-ledger-replay.test.ts', /^(?:data\/loop-fleet\/|scripts\/lib\/loop-fleet-contract\.mjs$)/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
