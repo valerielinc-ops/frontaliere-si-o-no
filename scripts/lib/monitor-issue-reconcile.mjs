@@ -32,14 +32,14 @@
  * criterio sostenuto (i 5xx: `checkUrlClean`, 7 snapshot completi e freschi):
  * chiusura alla prima misura pulita.
  *
- * La chiusura passa da `resolveGithubIssue(title, { exactTitle: true })` DOPO
- * un commento con l'evidenza (misura, comando, finestra). Tetto di
- * `MAX_CLOSES_PER_RUN` chiusure per run; l'eccedenza è stampata e rimandata.
- * Zero Claude: solo `gh` e gli export di github-issue-creator.mjs.
+ * La chiusura passa dal NUMERO riletto dell'issue DOPO un commento con
+ * l'evidenza (misura, comando, finestra). Tetto di `MAX_CLOSES_PER_RUN`
+ * chiusure per run; l'eccedenza è stampata e rimandata. Zero Claude: solo
+ * `gh` e gli export di github-issue-creator.mjs.
  */
 
 import { execFileSync } from 'node:child_process';
-import { commentOnGithubIssue, isFailureReportingDisabled, resolveGithubIssue } from './github-issue-creator.mjs';
+import { commentOnGithubIssue, isFailureReportingDisabled } from './github-issue-creator.mjs';
 
 /** Le label con cui un umano o un claim tengono una issue fuori da ogni chiusura automatica. */
 export const PIN_LABELS = Object.freeze([
@@ -219,6 +219,13 @@ function ghJsonLines(args) {
  */
 export function ghReconcileIo() {
   const base = 'repos/{owner}/{repo}/issues';
+  const readIssue = (number) => {
+    const items = ghJsonLines([
+      'api', `${base}/${number}`,
+      '--jq', '{number, title, state: (.state | ascii_upcase), labels: [.labels[].name]}',
+    ]);
+    return items && items[0] ? items[0] : null;
+  };
   return {
     listOpenIssues({ label }) {
       const items = ghJsonLines([
@@ -228,13 +235,7 @@ export function ghReconcileIo() {
       ]);
       return items;
     },
-    readIssue(number) {
-      const items = ghJsonLines([
-        'api', `${base}/${number}`,
-        '--jq', '{number, title, state: (.state | ascii_upcase), labels: [.labels[].name]}',
-      ]);
-      return items && items[0] ? items[0] : null;
-    },
+    readIssue,
     listComments(number) {
       return ghJsonLines([
         'api', '--paginate', `${base}/${number}/comments?per_page=100`,
@@ -250,8 +251,26 @@ export function ghReconcileIo() {
     comment(number, body) {
       return commentOnGithubIssue(number, body);
     },
-    close(title, ctx) {
-      return resolveGithubIssue(title, { ...ctx, exactTitle: true });
+    close(number) {
+      if (isFailureReportingDisabled()) {
+        console.log('[monitor-reconcile] ENABLE_FAILURE_REPORT=false, skipping close');
+        return null;
+      }
+      const issueNumber = Number(number);
+      if (!Number.isSafeInteger(issueNumber) || issueNumber <= 0) return null;
+      try {
+        execFileSync('gh', [
+          'issue', 'close', String(issueNumber), '--reason', 'completed',
+          ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
+        ], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+      } catch {
+        return { number: issueNumber, persisted: false };
+      }
+      const after = readIssue(issueNumber);
+      return {
+        number: issueNumber,
+        persisted: String(after?.state || '').toUpperCase() === 'CLOSED',
+      };
     },
     removeLabel(number, label) {
       if (isFailureReportingDisabled()) {
@@ -322,11 +341,10 @@ export async function reconcileMonitorIssues({
   const issues = listed
     .filter((i) => String(i?.title ?? '').startsWith(titlePrefix))
     .sort((a, b) => Number(a.number) - Number(b.number));
-  // La chiusura passa per TITOLO (`resolveGithubIssue`, che chiude il primo
-  // candidato della ricerca): con due gemelle aperte dallo stesso titolo — stato
-  // noto, `formatOpenTwinNote` le lascia aperte apposta — la decisione presa
-  // sul numero A potrebbe chiudere B, magari pinnata o reclamata. Nessuna
-  // scrittura su un titolo ambiguo.
+  // Con due gemelle aperte dallo stesso titolo — stato noto,
+  // `formatOpenTwinNote` le lascia aperte apposta — la decisione resta ambigua
+  // per la riconciliazione della famiglia. Nessuna scrittura su un titolo
+  // ambiguo; per i titoli unici la chiusura usa comunque il numero riletto.
   const titleCount = new Map();
   for (const i of issues) titleCount.set(String(i.title), (titleCount.get(String(i.title)) || 0) + 1);
 
@@ -397,25 +415,29 @@ export async function reconcileMonitorIssues({
       log(`${tag} #${issue.number}: stato cambiato prima della scrittura (${freshSkip}) — nessuna scrittura`);
       continue;
     }
-
-    if (decision.action === 'note-first-clean') {
-      if (await io.comment(issue.number, firstCleanComment({ family, verdict, now }))) out.noted.push(issue.number);
+    const freshNumber = Number(fresh.number);
+    if (!Number.isSafeInteger(freshNumber) || freshNumber !== Number(issue.number)) {
+      out.failed.push(issue.number);
+      log(`${tag} #${issue.number}: rilettura incoerente prima della scrittura — nessuna scrittura`);
       continue;
     }
-    if (!(await io.comment(issue.number, closeEvidenceComment({ family, verdict, reason: decision.reason })))) {
+
+    if (decision.action === 'note-first-clean') {
+      if (await io.comment(freshNumber, firstCleanComment({ family, verdict, now }))) out.noted.push(issue.number);
+      continue;
+    }
+    if (!(await io.comment(freshNumber, closeEvidenceComment({ family, verdict, reason: decision.reason })))) {
       out.failed.push(issue.number);
       log(`${tag} #${issue.number}: commento di evidenza non scritto — chiusura saltata`);
       continue;
     }
     try {
-      const res = await io.close(title, { workflow, runUrl });
-      if (res && res.persisted !== false && Number(res.number) === Number(issue.number)) {
+      const res = await io.close(freshNumber, { workflow, runUrl });
+      if (res && res.persisted !== false && Number(res.number) === freshNumber) {
         out.closed.push(issue.number);
       } else if (res && res.persisted !== false) {
-        // Seconda guardia: una gemella senza la label di famiglia non è
-        // nell'elenco ma la ricerca per titolo la vede.
         out.failed.push(issue.number);
-        log(`${tag} #${issue.number}: la chiusura per titolo ha chiuso #${res.number}, non la issue decisa — da verificare a mano`);
+        log(`${tag} #${issue.number}: la chiusura ha colpito #${res.number}, non la issue decisa — da verificare a mano`);
       } else {
         out.failed.push(issue.number);
       }

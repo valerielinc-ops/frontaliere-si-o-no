@@ -6,7 +6,7 @@ import {
   MAX_CLOSES_PER_RUN,
   MAYBE_RESOLVED_LABEL,
 } from '../scripts/lib/monitor-issue-reconcile.mjs';
-import { cf5xxVerdict, issueUrlFromBody } from '../scripts/cf-5xx-issue-sync.mjs';
+import { cf5xxReconcile, cf5xxVerdict, issueUrlFromBody } from '../scripts/cf-5xx-issue-sync.mjs';
 import { checkUrlClean } from '../scripts/ci/cf-5xx-snapshot.mjs';
 
 /**
@@ -156,10 +156,9 @@ function fakeIo(issues: Array<Record<string, unknown>>, { comments = [] as unkno
       listComments: () => comments,
       listEvents: () => [],
       comment: (n: number, body: string) => { writes.push(`comment #${n}: ${body.split('\n')[0]}`); return true; },
-      // Come `resolveGithubIssue`: chiude il PRIMO candidato con quel titolo.
-      close: (title: string) => {
-        writes.push(`close ${title}`);
-        return { number: issues.find((i) => i.title === title)?.number, persisted: true };
+      close: (number: number) => {
+        writes.push(`close #${number}`);
+        return { number, persisted: true };
       },
       removeLabel: (n: number, label: string) => { writes.push(`unlabel #${n} ${label}`); return true; },
     },
@@ -179,7 +178,7 @@ describe('reconcileMonitorIssues — le scritture', () => {
     expect(out.decisions.map((d) => d.action)).toEqual(['keep']);
   });
 
-  it('la chiusura arriva DOPO un commento con l\'evidenza, e per titolo esatto', async () => {
+  it('la chiusura arriva DOPO un commento con l\'evidenza, e per numero esatto', async () => {
     const { io, writes } = fakeIo([issue()]);
     await reconcileMonitorIssues({
       family: FAMILY, labels: ['fam'], titlePrefix: 'Fam:', io, log: quiet, confirmations: 1,
@@ -187,7 +186,7 @@ describe('reconcileMonitorIssues — le scritture', () => {
     });
     expect(writes).toEqual([
       expect.stringMatching(/^comment #1: ✅ Criterio della scheda soddisfatto/),
-      'close Fam: firma',
+      'close #1',
     ]);
   });
 
@@ -204,7 +203,7 @@ describe('reconcileMonitorIssues — le scritture', () => {
       family: FAMILY, labels: ['fam'], titlePrefix: 'Fam:', io: second.io, log: quiet,
       verdictFor: () => clean('m2'), now: T0 + 86_400_000,
     });
-    expect(second.writes.at(-1)).toBe('close Fam: firma');
+    expect(second.writes.at(-1)).toBe('close #1');
   });
 
   it('rilegge lo stato prima di scrivere: un claim arrivato durante la run vince', async () => {
@@ -256,7 +255,7 @@ describe('reconcileMonitorIssues — le scritture', () => {
     expect(out.decisions.map((d) => d.action)).toEqual(['keep', 'keep']);
   });
 
-  it('la chiusura per titolo che colpisce un\'altra issue non conta come chiusa', async () => {
+  it('una chiusura che colpisce un\'altra issue non conta come chiusa', async () => {
     const lines: string[] = [];
     const { io } = fakeIo([issue({ number: 2 })]);
     io.close = () => ({ number: 1, persisted: true });
@@ -266,7 +265,43 @@ describe('reconcileMonitorIssues — le scritture', () => {
     });
     expect(out.closed).toEqual([]);
     expect(out.failed).toEqual([2]);
-    expect(lines.join('\n')).toContain('ha chiuso #1');
+    expect(lines.join('\n')).toContain('la chiusura ha colpito #1');
+  });
+
+  it('chiude il numero riletto e lascia aperta una gemella senza label di famiglia', async () => {
+    const selected = issue({ number: 101, labels: ['cloudflare-5xx'] });
+    const unlabelledTwin = issue({ number: 202, labels: [] });
+    const writes: string[] = [];
+    const io = {
+      listOpenIssues: () => [selected],
+      readIssue: (number: number) => (number === 101 ? selected : null),
+      listComments: () => [],
+      listEvents: () => [],
+      comment: (number: number, body: string) => {
+        writes.push(`comment #${number}: ${body.split('\n')[0]}`);
+        return true;
+      },
+      close: (number: number) => {
+        writes.push(`close #${number}`);
+        if (number === 101) selected.state = 'CLOSED';
+        if (number === 202) unlabelledTwin.state = 'CLOSED';
+        return { number, persisted: true };
+      },
+      removeLabel: () => true,
+    };
+
+    const out = await reconcileMonitorIssues({
+      family: FAMILY, labels: ['cloudflare-5xx'], titlePrefix: 'Fam:', io, log: quiet, confirmations: 1,
+      verdictFor: () => clean('m1'),
+    });
+
+    expect(writes).toEqual([
+      expect.stringMatching(/^comment #101: ✅ Criterio della scheda soddisfatto/),
+      'close #101',
+    ]);
+    expect(out.closed).toEqual([101]);
+    expect(selected.state).toBe('CLOSED');
+    expect(unlabelledTwin.state).toBe('OPEN');
   });
 
   it('riconferma di una issue `maybe-resolved` pinnata o reclamata → label lasciata', async () => {
@@ -398,5 +433,26 @@ describe('cf5xxVerdict — il criterio della scheda, applicato dal monitor', () 
     const { verdict, action } = decide(series(7), 'nessuna riga url');
     expect(verdict.complete).toBe(false);
     expect(action).toBe('keep');
+  });
+
+  it('report corrente con `detail: null` → keep senza scritture', async () => {
+    const reconcile = cf5xxReconcile({ detail: null }, {
+      historyFile: '/definitely/not/read.jsonl',
+    });
+    const { io, writes } = fakeIo([issue({
+      number: 101,
+      title: `CF 5xx: ${URL_A}`,
+      labels: ['cloudflare-5xx'],
+      body: body(URL_A),
+    })]);
+    const out = await reconcileMonitorIssues({
+      ...reconcile,
+      io,
+      log: quiet,
+      verdictFor: reconcile.verdictFor,
+    });
+    expect(out.decisions).toEqual([expect.objectContaining({ action: 'keep' })]);
+    expect(out.decisions[0].reason).toContain('report corrente incompleto');
+    expect(writes).toEqual([]);
   });
 });

@@ -307,8 +307,24 @@ export function cf5xxVerdict(issue, { history, seenNow = new Map(), hours = HOUR
  * (7 snapshot completi e freschi): una seconda conferma sarebbe un'ottava.
  */
 export function cf5xxReconcile(data, { historyFile = HISTORY_FILE, hours = HOURS } = {}) {
+  const base = {
+    family: 'cf-5xx',
+    labels: [ISSUE_FAMILY_LABEL],
+    titlePrefix: ISSUE_TITLE_PREFIX,
+    confirmations: 1,
+  };
+  if (!Array.isArray(data?.detail)) {
+    return {
+      ...base,
+      verdictFor: () => ({
+        clean: false,
+        complete: false,
+        evidence: 'report corrente incompleto: `detail` assente o non è un array',
+      }),
+    };
+  }
   const seenNow = new Map();
-  for (const r of data?.detail || []) {
+  for (const r of data.detail) {
     const n = Number(r?.count) || 0;
     if (n <= 0 || !r?.url) continue;
     const k = historyUrlKey(r.url);
@@ -316,10 +332,7 @@ export function cf5xxReconcile(data, { historyFile = HISTORY_FILE, hours = HOURS
   }
   let history = null;
   return {
-    family: 'cf-5xx',
-    labels: [ISSUE_FAMILY_LABEL],
-    titlePrefix: ISSUE_TITLE_PREFIX,
-    confirmations: 1,
+    ...base,
     verdictFor: (issue) => {
       history ??= loadHistory(historyFile);
       return cf5xxVerdict(issue, { history, seenNow, hours });
