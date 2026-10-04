@@ -312,7 +312,7 @@ function isLikelyListingTitle(value) {
   if (/^(?:visualizza\s+annuncio|i nostri annunci|home|login|cookie policy|privacy policy)$/i.test(text)) {
     return false;
   }
-  if (/^(?:impiego\b|\d{1,3}%\b|\d{2}\.\d{2}\.\d{2,4}$)/i.test(text)) return false;
+  if (/^(?:impiego\b|\d{1,3}%|\d{2}\.\d{2}\.\d{2,4}$)/i.test(text)) return false;
   return true;
 }
 
@@ -378,7 +378,7 @@ function listingPercentage(container) {
   const markedText = normalizeListingText(marked?.textContent);
   if (markedText) return markedText;
 
-  const match = normalizeListingText(container.textContent).match(/\b\d{1,3}%\b/);
+  const match = normalizeListingText(container.textContent).match(/\b\d{1,3}%/);
   return match ? match[0] : '';
 }
 

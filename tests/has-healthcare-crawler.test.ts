@@ -28,6 +28,47 @@ describe('HAS Healthcare crawler discovery', () => {
     ]);
   });
 
+  it('survives portal attribute reordering, extra classes, absolute URLs and label drift', () => {
+    const html = `
+      <section class="job-card has-extra-layout-class">
+        <span class="job-title-row text-body">Production Manager</span>
+        <time data-source="published" class="datetime">21.11.25</time>
+        <span class="main-list-job-percentage rounded-pill">100% full time</span>
+        <a class="stretched-link view-posting" target="_self" href="https://www.e-lavoro.ch/node/264">
+          <span class="icon main-list-job-button-view">View posting</span>
+        </a>
+      </section>
+    `;
+
+    expect(parseListingPage(html)).toEqual([
+      {
+        title: 'Production Manager',
+        detailUrl: 'https://e-lavoro.ch/node/264',
+        percentage: '100% full time',
+        dateStr: '21.11.25',
+      },
+    ]);
+  });
+
+  it('falls back to a bounded node link when the portal renames the action classes', () => {
+    const html = `
+      <div class="job-card">
+        <span class="renamed-title-class">Assistente di Produzione</span>
+        <a href="/node/276" class="new-action-class">View job</a>
+      </div>
+      <footer><a href="/node/75">Login</a><a href="/node/76">Published Announcements</a></footer>
+    `;
+
+    expect(parseListingPage(html)).toEqual([
+      {
+        title: 'Assistente di Produzione',
+        detailUrl: 'https://e-lavoro.ch/node/276',
+        percentage: '',
+        dateStr: '',
+      },
+    ]);
+  });
+
   it('records a listing transport failure instead of an unexplained empty source', () => {
     expect(classifyHasHealthcareDiscovery({ listingFetchOutcome: 'connection_error' })).toEqual({
       lastFetchOutcome: 'connection_error',
