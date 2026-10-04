@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 import {
   isAuthoritativeEmptySnapshot,
   markAuthoritativeEmptySnapshot,
@@ -315,11 +316,8 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     // The allowlist silences a slug even after the source dies: it converts a
     // noisy defect into a silent one. The whole point of the proof above is to
     // make that shortcut unnecessary, so its absence is part of the contract.
-    const monitor = readRepoFile('scripts/check-crawler-health.mjs');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist, 'EMPTY_OK_CRAWLERS declaration not found in check-crawler-health.mjs').toBeTruthy();
     for (const slug of ['gim-architekten', 'recruitingapp-2563', 'fondation-domus']) {
-      expect(allowlist![1]).not.toContain(slug);
+      expect(EMPTY_OK_CRAWLERS.has(slug)).toBe(false);
     }
   });
 

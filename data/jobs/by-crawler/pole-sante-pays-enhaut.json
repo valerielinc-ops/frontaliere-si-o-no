@@ -115,13 +115,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir",
-        "tasso-di-attivita-da-40-a-60-dal-01-12-2026-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir",
-          "tasso-di-attivita-da-40-a-60-dal-01-12-2026-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir"
         ],
         "en": [
           "receptionniste-hospitalier-ere-taux-d-activite-40-a-60-des-le-01-12-2026-ou-a-convenir"
@@ -227,8 +225,7 @@
         "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -244,8 +241,7 @@
           "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
@@ -275,11 +271,11 @@
     },
     {
       "id": "pole-sante-pays-enhaut-0268855aac3d",
-      "slug": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
-        "it": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+        "it": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "nurse-cdi-80-to-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex",
         "fr": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
@@ -335,7 +331,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
     },
     {
       "id": "pole-sante-pays-enhaut-aeb730630e46",
@@ -387,14 +397,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
-        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
-          "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"
