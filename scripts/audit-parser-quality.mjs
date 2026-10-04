@@ -991,8 +991,19 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
   const visibleFields = [
     ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
     ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
+    ...(Array.isArray(detail?.headingIntroFields) ? detail.headingIntroFields : []),
     detail?.title,
   ].filter(Boolean);
+  // Un paese pubblicato non ha token di località da cercare nei campi
+  // visibili: lo nomina, come portata, solo un titolo della vacancy che
+  // dichiara il lavoro in tutta la Svizzera (vacancyNationwideScopeHeadings).
+  const publishedIsSwissCountry = SWISS_COUNTRY_LABELS.has(normalizePlace(publishedLocation));
+  const nationwideHeadings = publishedIsSwissCountry && Array.isArray(detail?.nationwideScopeHeadings)
+    ? detail.nationwideScopeHeadings
+    : [];
+  if (nationwideHeadings.length > 0) {
+    return !nationwideHeadings.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
+  }
   const visibleMatchesPublished = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, publishedLocation)
   ));
@@ -1059,6 +1070,68 @@ export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
       .filter((field) => field && field.length <= 60));
   }
   return fields;
+}
+
+/**
+ * Il blocco subito PRIMA dell'H1 della vacancy: sul template delle società
+ * affiliate di jobs.sbb.ch la riga sotto il titolo è vuota e il luogo di lavoro
+ * sta nella frase che lo precede («Steig ein bei uns – in Stansstad – per
+ * 1. Dezember 2026»), mentre il JSON-LD dichiara la sede SBB (Hilfikerstrasse
+ * 1, 3000 Bern) per ogni vacancy. Misurato il 2026-10-04 (issue 5253): era
+ * l'unico campo della pagina che nominava il luogo pubblicato, e senza leggerlo
+ * l'audit dava per contraddetta una località giusta. Stesse condizioni della
+ * riga sotto il titolo: solo accanto all'H1 che È il titolo della vacancy, e
+ * solo un blocco foglia (senza elementi annidati dello stesso tipo), così un
+ * contenitore di pagina o una tagline lontana non diventano un campo della
+ * vacancy. È prosa: vale per l'incoerenza interna della pagina
+ * (sourceHasInternalLocationConflict), non come corrispondenza esatta.
+ */
+export function vacancyHeadingIntroFields(html = '', vacancyTitle = '') {
+  const source = String(html || '');
+  const title = normalizePlace(vacancyTitle);
+  if (!title) return [];
+  const fields = [];
+  const headingRx = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(source))) {
+    const headingText = normalizePlace(heading[1]);
+    if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
+    const before = source.slice(Math.max(0, heading.index - 1500), heading.index);
+    const previous = /<(div|p|span)\b[^>]*>((?:(?!<\/?(?:div|p|span|h[1-6])\b)[\s\S]){1,600})<\/\1>\s*$/i.exec(before);
+    if (!previous) continue;
+    const text = plainText(previous[2]);
+    if (text) fields.push(text);
+  }
+  return fields;
+}
+
+/**
+ * Portata nazionale dichiarata dalla vacancy: «Jobs in der ganzen Schweiz»,
+ * «dans toute la Suisse», «in tutta la Svizzera», «throughout Switzerland».
+ * Un datore che lavora a domicilio dei clienti (premiumpflege24, issue 5253)
+ * pubblica il paese come località perché la pagina non ha un luogo di lavoro,
+ * e il suo JobPosting porta la sede (4553 Subingen, la stessa del footer).
+ * Si leggono solo i titoli h1-h3 FUORI da header, nav e footer: il logo, il
+ * menu e l'elenco delle aree servite in fondo alla pagina descrivono
+ * l'azienda, non la vacancy, e un paese pubblicato senza questa dichiarazione
+ * resta il ripiego generico che il controllo esiste a sollevare. «in der
+ * Schweiz» da solo non è una portata: lo dice ogni vacancy svizzera.
+ */
+const NATIONWIDE_SCOPE_RX = /\b(?:(?:in\s+der\s+)?(?:ganzen|gesamten)\s+Schweiz|schweizweit|(?:dans\s+)?toute\s+la\s+Suisse|(?:in\s+)?tutta\s+(?:la\s+)?Svizzera|(?:throughout|across|all\s+over)\s+Switzerland|Switzerland-wide)\b/i;
+
+export function vacancyNationwideScopeHeadings(html = '') {
+  const content = String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<(header|nav|footer)\b[\s\S]*?<\/\1>/gi, ' ');
+  const headings = [];
+  const headingRx = /<(h[1-3])\b[^>]*>([\s\S]{0,500}?)<\/\1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(content))) {
+    const text = plainText(heading[2]);
+    if (text && NATIONWIDE_SCOPE_RX.test(text)) headings.push(text);
+  }
+  return headings;
 }
 
 /**
@@ -1761,6 +1834,8 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       const recordUrl = item.job?.url || item.url;
       const detail = extractDetail(fetched.body, fetched.url || item.url, { recordUrl });
       detail.headingSublineFields = vacancyHeadingSublineFields(fetched.body, detail.title);
+      detail.headingIntroFields = vacancyHeadingIntroFields(fetched.body, detail.title);
+      detail.nationwideScopeHeadings = vacancyNationwideScopeHeadings(fetched.body);
       const locationObservation = observeLocation(
         fetched.body,
         fetched.url || item.url,
@@ -1813,6 +1888,8 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           detail.description = '';
           detail.location = '';
           detail.headingSublineFields = [];
+          detail.headingIntroFields = [];
+          detail.nationwideScopeHeadings = [];
           locationEvidence = 'generic';
         }
       }
