@@ -571,7 +571,10 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // Anche i JSON di primo livello che la chiusura del bootstrap importa.
     expect(selectionFor(['data/canton-url-slugs.json'])).toContain(functions);
     // Le sottocartelle di `data/` sono dati dei cron, non moduli importati.
-    expect(selectionFor(['data/jobs/by-crawler/future.json'])).not.toContain(functions);
+    // Path fittizio apposta: un letterale sotto una radice viva (per esempio i
+    // job dei crawler) farebbe scattare tests/live-data-test-guard.test.ts, che
+    // non distingue una stringa passata al selettore da una lettura.
+    expect(selectionFor(['data/example-subdir/future.json'])).not.toContain(functions);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(functions);
   }, 120_000);
 
