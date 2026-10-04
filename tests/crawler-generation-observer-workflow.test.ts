@@ -111,6 +111,15 @@ describe('portable crawler generation observer workflow', () => {
     ];
     for (const [jobId, expectedRef] of expectedRefs) {
       const steps: any[] = doc.jobs[jobId]?.steps ?? [];
+      // A second, differently named checkout of the site repo (e.g. `ref: main`
+      // into the same path) must not be able to bypass the pinned one.
+      const siteCheckouts = steps.filter(
+        (step) =>
+          typeof step.uses === 'string' &&
+          step.uses.startsWith('actions/checkout@') &&
+          step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no',
+      );
+      expect(siteCheckouts, `${jobId}: exactly one checkout of the site repository`).toHaveLength(1);
       const checkouts = steps.filter((step) => step.name === 'Checkout immutable site observer runtime');
       expect(checkouts, `${jobId}: exactly one named site-observer checkout`).toHaveLength(1);
       const [checkout] = checkouts;

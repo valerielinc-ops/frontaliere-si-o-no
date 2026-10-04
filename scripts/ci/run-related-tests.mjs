@@ -85,9 +85,10 @@ const sourceTreeLintTests = new Map([
   // `scripts/crawler-generation-observer.mjs`, ma nessun import lo lega ai
   // moduli della chiusura. Sulla PR 11262 un import nuovo in
   // `crawler-grace-policy.mjs` e' uscito dalla lista e main e' rimasto rosso
-  // in latenza. La chiusura vive in `scripts/` e `functions/`
-  // (githubApiHeaders.js): un import nuovo verso `data/` nasce comunque
-  // modificando uno di quei file. Il test costa meno di un secondo.
+  // in latenza. I moduli JS della chiusura vivono in `scripts/` e
+  // `functions/` (githubApiHeaders.js); l'unico file fuori
+  // (`data/canton-municipalities.json`) e' un JSON foglia e non puo'
+  // aggiungere import. Il test costa meno di un secondo.
   ['tests/crawler-generation-observer-workflow.test.ts', /^(?:scripts|functions)\//],
   // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
