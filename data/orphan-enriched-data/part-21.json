@@ -1730,16 +1730,15 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
-        "en": "agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
-        "de": "agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
+        "it": "agente-di-vendita-aarau-60-100-sunrise-communications-ag-aarau",
+        "de": "sales-agent-aarau-60-100-sunrise-aarau",
         "fr": "agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
-        "en": "/en/find-jobs-thurgau/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
-        "de": "/de/jobs-im-thurgau/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
-        "fr": "/fr/trouver-emploi-thurgovie/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau"
+        "it": "/cerca-lavoro-argovia/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
+        "en": "/en/find-jobs-aargau/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
+        "de": "/de/jobs-im-aargau/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau",
+        "fr": "/fr/trouver-emploi-argovie/agent-de-vente-aarau-60-100-sunrise-communications-ag-aarau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -1747,6 +1746,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -3406,9 +3406,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-chur-afry-chur",
-        "en": "apprenticeship-as-a-draftsman-in-the-field-of-engineering-construction-efz-chur-afry-chur",
+        "en": "apprenticeship-as-a-draftsman-with-a-specialty-in-engineering-construction-efz-chur-afry-chur",
         "de": "lehrstelle-als-zeichner-in-mit-fachrichtung-ingenieurbau-efz-chur-afry-chur",
-        "fr": "apprentissage-en-tant-que-rapporteur-pour-avis-dans-le-domaine-de-la-construction-d-ingenierie-efz-chur-afry-chur"
+        "fr": "apprentissage-en-tant-que-dessinateur-specialise-dans-la-construction-en-genie-efz-chur-afry-chur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-chur-afry-chur",
@@ -3416,7 +3416,7 @@
         "de": "/de/jobs-in-graubunden/lehrstelle-als-zeichner-in-mit-fachrichtung-ingenieurbau-efz-chur-afry-chur",
         "fr": "/fr/trouver-emploi-grisons/lehrstelle-als-zeichner-in-mit-fachrichtung-ingenieurbau-efz-chur-afry-chur"
       },
-      "sourceUrl": "https://afry.com/en/career/available-jobs/ref15263m-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-chur",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref15263m-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-chur",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -23724,9 +23724,9 @@
       "path": "/en/find-jobs-bern/education/",
       "observedPaths": {
         "en": "/en/find-jobs-ticino/education",
-        "it": "/cerca-lavoro-ticino/education",
-        "de": "/de/jobs-im-tessin/education",
-        "fr": "/fr/trouver-emploi-tessin/education"
+        "fr": "/fr/trouver-emploi-berne/education",
+        "it": "/cerca-lavoro-berna/education",
+        "de": "/de/jobs-im-bern/education"
       },
       "queries": [
         {
@@ -27207,10 +27207,10 @@
         "fr": "fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental",
-        "en": "/en/find-jobs-ticino/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental",
-        "de": "/de/jobs-im-tessin/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental",
-        "fr": "/fr/trouver-emploi-tessin/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental"
+        "it": "/cerca-lavoro-berna/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental",
+        "en": "/en/find-jobs-bern/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental",
+        "de": "/de/jobs-in-bern/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental",
+        "fr": "/fr/trouver-emploi-berne/fage-hauspflegerdans-40-90-spitex-region-emmental-langnau-im-emmental"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -30275,10 +30275,10 @@
         "fr": "gestionnaire-d-atelier-h-f-rolex-geneve"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/gestionnaire-d-atelier-h-f-rolex-geneve",
-        "en": "/en/find-jobs-vaud/gestionnaire-d-atelier-h-f-rolex-geneve",
+        "it": "/cerca-lavoro-ginevra/gestionnaire-d-atelier-h-f-rolex-geneve",
+        "en": "/en/find-jobs-geneva/gestionnaire-d-atelier-h-f-rolex-geneve",
         "de": "/de/jobs-im-waadt/gestionnaire-d-atelier-h-f-rolex-geneve",
-        "fr": "/fr/trouver-emploi-vaud/gestionnaire-d-atelier-h-f-rolex-geneve"
+        "fr": "/fr/trouver-emploi-geneve/gestionnaire-d-atelier-h-f-rolex-geneve"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -35919,10 +35919,10 @@
         "fr": "intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich",
-        "en": "/en/find-jobs-zurich/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich",
-        "de": "/de/jobs-in-zurich/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich",
-        "fr": "/fr/trouver-emploi-zurich/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich"
+        "it": "/cerca-lavoro-basilea/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich",
+        "en": "/en/find-jobs-basel/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich",
+        "de": "/de/jobs-in-basel/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich",
+        "fr": "/fr/trouver-emploi-bale/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich"
       },
       "sourceUrl": "https://jobs.pwc.ch/job-vacancies/intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027/b54608cd-f831-4240-832c-6116810e2199",
       "googleStatus": "unknown",
@@ -43625,10 +43625,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mohlin",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mohlin",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-mohlin",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-mohlin",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mohlin",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mohlin"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-mohlin"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mohlin",
@@ -43642,6 +43642,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -46736,9 +46737,9 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-berne/page-6/",
       "observedPaths": {
+        "de": "/de/jobs-im-appenzell/page-6",
+        "fr": "/fr/trouver-emploi-appenzell/page-6",
         "en": "/en/find-jobs-basel/page-6",
-        "fr": "/fr/trouver-emploi-bale/page-6",
-        "de": "/de/jobs-im-bern/page-6",
         "it": "/cerca-lavoro-basilea/page-6"
       },
       "queries": [
@@ -46753,12 +46754,17 @@
           "impressions": 1
         },
         {
+          "query": "où puis-je trouver le meilleur endroit pour postuler en ligne en suisse",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "san emploi",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 5,
+      "totalImpressions": 6,
       "totalClicks": 0,
       "topQuery": "psychologue italien en ligne langenthal",
       "title": "Page 6",
@@ -48023,7 +48029,7 @@
       "observedPaths": {
         "it": "/cerca-lavoro-vallese/pharmaceutique",
         "de": "/de/jobs-im-wallis/pharmaceutique",
-        "fr": "/fr/trouver-emploi-valais/pharmaceutique",
+        "fr": "/fr/trouver-emploi-bale/pharmaceutique",
         "en": "/en/find-jobs-valais/pharmaceutique"
       },
       "queries": [
@@ -48832,8 +48838,6 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "plastics-technologue-establishers-in-grunlingfarking-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group",
-        "en": "plastics-technologue-establishers-in-grunlingfarking-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group",
         "de": "kunststofftechnologe-einrichter-in-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erre-6oyzp7",
         "fr": "technologue-plastique-etablisseurs-en-grunlingfarking-sur-place-eta-sa-swatch-group-ticino"
       },
@@ -52319,24 +52323,24 @@
       },
       "queries": [
         {
-          "query": "projektmanager jobs basel",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
           "query": "gebäudeautomation obwalden",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 4
         },
         {
           "query": "gebäudeautomation sarnen",
           "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "projektmanager jobs basel",
+          "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 3,
+      "totalImpressions": 7,
       "totalClicks": 0,
-      "topQuery": "projektmanager jobs basel",
+      "topQuery": "gebäudeautomation obwalden",
       "title": "Projektmanager",
       "titleByLocale": {
         "it": "",
@@ -59162,10 +59166,10 @@
         "fr": "salute-specialistica-efz-spitex-regio-frick-frick"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/salute-specialistica-efz-spitex-regio-frick-frick",
-        "en": "/en/find-jobs-basel/salute-specialistica-efz-spitex-regio-frick-frick",
-        "de": "/de/jobs-in-basel/salute-specialistica-efz-spitex-regio-frick-frick",
-        "fr": "/fr/trouver-emploi-bale/salute-specialistica-efz-spitex-regio-frick-frick"
+        "it": "/cerca-lavoro-argovia/salute-specialistica-efz-spitex-regio-frick-frick",
+        "en": "/en/find-jobs-aargau/salute-specialistica-efz-spitex-regio-frick-frick",
+        "de": "/de/jobs-im-aargau/salute-specialistica-efz-spitex-regio-frick-frick",
+        "fr": "/fr/trouver-emploi-argovie/salute-specialistica-efz-spitex-regio-frick-frick"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66615,10 +66619,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "store-manager-regione-zurigo-80-100-sunrise-communications-ag-zurich",
-        "en": "store-manager-regione-zurigo-80-100-sunrise-communications-ag-zurich",
-        "de": "store-manager-regione-zurigo-80-100-sunrise-communications-ag-zurich",
-        "fr": "store-manager-regione-zurigo-80-100-sunrise-communications-ag-zurich"
+        "de": "store-manager-region-zurich-80-100-sunrise-zurich",
+        "fr": "responsable-de-magasin-region-zurich-80-100-sunrise-communications-ag-zurich",
+        "it": "store-manager-regione-zurigo-80-100-sunrise-communications-ag-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/store-manager-regione-zurigo-80-100-sunrise-communications-ag-zurich",
@@ -66632,6 +66635,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -67283,10 +67287,10 @@
         "fr": "stv-filialleiter-in-denner-frauenfeld"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zugo/stv-filialleiter-in-denner-frauenfeld",
-        "en": "/en/find-jobs-zug/stv-filialleiter-in-denner-frauenfeld",
-        "de": "/de/jobs-in-zug/stv-filialleiter-in-denner-frauenfeld",
-        "fr": "/fr/trouver-emploi-zoug/stv-filialleiter-in-denner-frauenfeld"
+        "it": "/cerca-lavoro-lucerna/stv-filialleiter-in-denner-frauenfeld",
+        "en": "/en/find-jobs-lucerne/stv-filialleiter-in-denner-frauenfeld",
+        "de": "/de/jobs-in-luzern/stv-filialleiter-in-denner-frauenfeld",
+        "fr": "/fr/trouver-emploi-lucerne/stv-filialleiter-in-denner-frauenfeld"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74493,9 +74497,9 @@
       "path": "/de/jobs-im-aargau/verkauf/",
       "observedPaths": {
         "it": "/cerca-lavoro-ticino/verkauf",
-        "de": "/de/jobs-im-tessin/verkauf",
-        "en": "/en/find-jobs-ticino/verkauf",
-        "fr": "/fr/trouver-emploi-tessin/verkauf"
+        "de": "/de/jobs-im-aargau/verkauf",
+        "fr": "/fr/trouver-emploi-argovie/verkauf",
+        "en": "/en/find-jobs-ticino/verkauf"
       },
       "queries": [
         {
@@ -74517,9 +74521,14 @@
           "query": "gemeinde weggis",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "fust herblingen",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 5,
+      "totalImpressions": 6,
       "totalClicks": 0,
       "topQuery": "verkäuferin aargau",
       "title": "Verkauf",
@@ -75846,10 +75855,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-biberist",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-biberist",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-biberist",
+        "en": "seller-fresh-products-coop-genossenschaft-biberist",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-biberist",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-biberist"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-biberist"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/verkaufer-in-frischprodukte-coop-genossenschaft-biberist",
@@ -75863,6 +75872,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -76174,10 +76184,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-grellingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
-        "en": "/en/find-jobs-basel/verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
-        "de": "/de/jobs-in-basel/verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-kassen-services-coop-genossenschaft-grellingen"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
+        "de": "/de/jobs-in-zurich/verkaufer-in-kassen-services-coop-genossenschaft-grellingen",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-grellingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76270,10 +76280,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-schenkon",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-schenkon",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-schenkon",
+        "en": "seller-cash-register-services-coop-genossenschaft-schenkon",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-schenkon",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-schenkon"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-schenkon"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/verkaufer-in-kassen-services-coop-genossenschaft-schenkon",
@@ -76287,6 +76297,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -78417,10 +78428,10 @@
       "locale": "en",
       "path": "/en/find-jobs-neuchatel/watchmaking/",
       "observedPaths": {
-        "en": "/en/find-jobs-ticino/watchmaking",
+        "fr": "/fr/trouver-emploi-neuchatel/watchmaking",
+        "en": "/en/find-jobs-neuchatel/watchmaking",
         "it": "/cerca-lavoro-ticino/watchmaking",
-        "de": "/de/jobs-im-tessin/watchmaking",
-        "fr": "/fr/trouver-emploi-tessin/watchmaking"
+        "de": "/de/jobs-im-neuenburg/watchmaking"
       },
       "queries": [
         {
@@ -78430,6 +78441,16 @@
         },
         {
           "query": "i need a temporary contract job in swiss watch assembly in neuchatel for 3 to 6 months.",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "ich suche im kanton neuenburg jobs in der uhrenindustrie",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "oui stp",
           "clicks": 0,
           "impressions": 1
         },
@@ -78449,7 +78470,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 11,
+      "totalImpressions": 17,
       "totalClicks": 0,
       "topQuery": "i need a temporary contract job in swiss watch assembly in neuchatel for 3 to 6 months.",
       "title": "Watchmaking",

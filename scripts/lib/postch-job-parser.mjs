@@ -31,6 +31,7 @@ import { decode as decodeHTML } from 'html-entities';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { parseJsonLdText } from './json-ld-text.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -76,7 +77,7 @@ function extractJsonLd(html = '') {
   let match;
   while ((match = re.exec(html)) !== null) {
     try {
-      const parsed = JSON.parse(match[1]);
+      const parsed = parseJsonLdText(match[1]);
       if (Array.isArray(parsed)) blocks.push(...parsed);
       else blocks.push(parsed);
     } catch { /* skip malformed JSON-LD */ }

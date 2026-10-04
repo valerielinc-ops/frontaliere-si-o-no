@@ -446,6 +446,7 @@ async function fetchJobs(counts) {
   try {
     listingHtml = await fetchPage(CAREERS_URL);
   } catch (error) {
+    // fetch-failure-empty-ok: the cause is not lost: lastFetchOutcome/abortKind are recorded in counts before the bespoke runner returns []
     const lastFetchOutcome = fetchOutcomeForError(error);
     Object.assign(counts, {
       discovered: 0,

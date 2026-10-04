@@ -161,12 +161,83 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   // rather than interpolating `${{ }}` into the script text — the form
   // scripts/ci/check-workflow-input-injection.mjs requires.
   'social-publish-readiness-watch.yml': ['$CH'], // one issue per social channel
+  // One issue per plate-auction source. `code` is the canton plate code of the
+  // degraded source (PR 11360), read from the closed set the refresh script
+  // covers, so the same source failing again resolves to the same title and
+  // lands on the existing issue; the reconcile step strips the same prefix to
+  // close each source's issue on its own. `plateCode` is the upper-cased key
+  // of a source in the plate-auction registry (scripts/plate-auctions/
+  // check-health.mjs), and the resolve step rebuilds this exact literal from
+  // it: a title that varied per run would leave the resolver nothing to match.
+  'refresh-plate-auctions.yml': ['${code}'], // one issue per plate-auction source
 };
+
+/**
+ * Per-entity discriminants for GENERATED workflow families, keyed by a file
+ * pattern instead of a name: listing each generated file by hand would go
+ * stale the moment the generator adds or renumbers a group.
+ *
+ * crawler-group-NN(-logic).yml: since PR 11397 the aggregate step files the
+ * per-crawler issue itself when the worker watchdog killed a crawler before
+ * its own reporter could run. `$slug` is the first argument of the shell
+ * function `aggregate_crawler_member` (body opens with `slug="$1"`), which the
+ * aggregate calls once per member with the member's slug as a single-quoted
+ * literal (`aggregate_crawler_member 'coop'`). So "Crawler Failure: Run $slug"
+ * is at runtime exactly the title the crawler's own reporter uses ("Crawler
+ * Failure: Run coop") and the `Run <slug>` key that
+ * scripts/ci/close-recovered-failure-issues.mjs extracts to close it on
+ * recovery: one issue per crawler, and a repeat lands on it as a recurrence.
+ * Without this entry the lint read the generated files as unstable and went
+ * red on every PR that selected it, in workflows that PR had not touched.
+ *
+ * Each family also names the BINDING that makes its token stable, and
+ * `every generated discriminant is bound to a literal member` re-reads it from
+ * the emitted files on every run: the allowlist is a claim about the code, so
+ * the code is checked instead of trusted. `slug="$(date +%s)"`, or a call that
+ * passes `"$RUN_ID"`, would make the title vary per run behind the allowlisted
+ * name, and that test goes red on it.
+ */
+const ENTITY_DISCRIMINANT_FAMILIES: ReadonlyArray<{
+  pattern: RegExp;
+  tokens: string[];
+  /** The only assignment of the token's variable the family may contain. */
+  binding: { variable: string; allowed: RegExp };
+  /** Every call feeding the binding must pass a literal. */
+  literalCalls: { call: RegExp; literal: RegExp };
+}> = [
+  {
+    pattern: /^crawler-group-\d+(?:-logic)?\.yml$/,
+    tokens: ['$slug'], // one issue per crawler
+    binding: { variable: 'slug', allowed: /^slug="\$1"$/ },
+    literalCalls: { call: /\baggregate_crawler_member(?!\(\))\s+(\S+)/g, literal: /^'[a-z0-9][a-z0-9-]*'$/ },
+  },
+];
+
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * A bare `$name` token must match the WHOLE variable name: with a plain
+ * substring replace, allowlisting `$slug` also stripped `$slug_started_at` and
+ * hid a variable that is not the discriminant at all.
+ */
+function discriminantPattern(token: string): RegExp {
+  const bare = /^\$[A-Za-z_][A-Za-z0-9_]*$/.test(token);
+  return new RegExp(escapeRegExp(token) + (bare ? '(?![A-Za-z0-9_])' : ''), 'g');
+}
+
+function entityDiscriminantsFor(file: string): string[] {
+  return [
+    ...(ENTITY_DISCRIMINANTS[file] ?? []),
+    ...ENTITY_DISCRIMINANT_FAMILIES.filter(({ pattern }) => pattern.test(file)).flatMap(({ tokens }) => tokens),
+  ];
+}
 
 function stripStableSubstitutions(s: string, file: string): string {
   let out = s;
   for (const re of STABLE_SUBSTITUTIONS) out = out.replace(re, 'X');
-  for (const token of ENTITY_DISCRIMINANTS[file] ?? []) out = out.split(token).join('X');
+  for (const token of entityDiscriminantsFor(file)) out = out.replace(discriminantPattern(token), 'X');
   return out;
 }
 
@@ -344,6 +415,74 @@ describe('monitor issues are deduped at the source (#5121)', () => {
       }
     }
     expect(stale).toEqual([]);
+  });
+
+  it('every per-entity discriminant family still matches workflows that use its token', () => {
+    // Same staleness rule as above for the pattern-keyed families: a family
+    // whose generator stopped emitting the title, or whose files were renamed,
+    // must fail here instead of silently allowlisting nothing. Not every
+    // member has to carry the title (a group whose crawlers have no worker
+    // watchdog emits no aggregate reporter), but at least one must.
+    const stale: string[] = [];
+    const files = fs.readdirSync(WORKFLOWS_DIR);
+    for (const { pattern, tokens } of ENTITY_DISCRIMINANT_FAMILIES) {
+      const members = files.filter((file) => pattern.test(file));
+      if (members.length === 0) {
+        stale.push(`${pattern}: no workflow matches the family any more`);
+        continue;
+      }
+      const titles = members.flatMap((file) => resolveTitles(fs.readFileSync(path.join(WORKFLOWS_DIR, file), 'utf-8')));
+      for (const token of tokens) {
+        if (!titles.some((title) => title.includes(token))) stale.push(`${pattern}: no member title uses ${token} any more`);
+      }
+    }
+    expect(stale).toEqual([]);
+  });
+
+  it('every generated discriminant is bound to a literal member', () => {
+    const violations: string[] = [];
+    for (const { pattern, binding, literalCalls } of ENTITY_DISCRIMINANT_FAMILIES) {
+      const assign = new RegExp(`(?:^|[\\s;(])(${escapeRegExp(binding.variable)}=\\S*)`, 'gm');
+      for (const file of workflowFiles()) {
+        const base = path.basename(file);
+        if (!pattern.test(base)) continue;
+        const source = fs.readFileSync(file, 'utf-8');
+        for (const m of source.matchAll(assign)) {
+          if (!binding.allowed.test(m[1])) violations.push(`${base}: ${m[1]}`);
+        }
+        for (const m of source.matchAll(literalCalls.call)) {
+          if (!literalCalls.literal.test(m[1])) violations.push(`${base}: ${m[0]}`);
+        }
+      }
+    }
+    expect(violations).toEqual([]);
+  });
+
+  it('an allowlisted discriminant does not hide a token that varies between runs', () => {
+    // Each allowlist entry strips ONE named token; everything else in the
+    // 60-char window is still judged. These are the shapes that mint a new
+    // issue per run, and they must stay red even inside an allowlisted file.
+    const group = 'crawler-group-01.yml';
+    expect(unstableTokenIn('Crawler Failure: Run $slug', group)).toBeNull();
+    expect(unstableTokenIn('Crawler Failure: Run $slug', 'crawler-group-01-logic.yml')).toBeNull();
+    expect(unstableTokenIn('Crawler Failure: Run $GITHUB_RUN_ID', group)).toBe('$GITHUB_RUN_ID');
+    expect(unstableTokenIn('Crawler Failure: Run $slug $(date +%F)', group)).toBe('$(date +%F)');
+    expect(unstableTokenIn('Crawler Failure: Run $slug #${{ github.run_number }}', group)).toBe(
+      '${{ github.run_number }}',
+    );
+    // Whole-name boundary: `$slug` does not cover a longer variable.
+    expect(unstableTokenIn('Crawler Failure: Run $slug_started_at', group)).toBe('$slug_started_at');
+    // The family is the generator's naming, not a loose prefix.
+    expect(unstableTokenIn('Crawler Failure: Run $slug', 'crawler-group-01-extra.yml')).toBe('$slug');
+    expect(unstableTokenIn('Crawler Failure: Run $slug', 'crawler-health-digest.yml')).toBe('$slug');
+
+    const plates = 'refresh-plate-auctions.yml';
+    expect(unstableTokenIn('Plate auction source degraded: ${code}', plates)).toBeNull();
+    expect(unstableTokenIn('Plate auction source degraded: ${code}', 'other-monitor.yml')).toBe('${code}');
+    expect(unstableTokenIn('Plate auction source degraded: ${count} sources', plates)).toBe('${count}');
+    expect(unstableTokenIn('Plate auction source degraded: ${code} at $(date -u +%FT%TZ)', plates)).toBe(
+      '$(date -u +%FT%TZ)',
+    );
   });
 
   it('no title built by a monitor SCRIPT varies between runs', () => {

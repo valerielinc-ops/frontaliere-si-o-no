@@ -86,6 +86,7 @@ import {
 } from './lib/events-utils.mjs';
 import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
+import { parseJsonLdText } from './lib/json-ld-text.mjs';
 import {
   extractDetailContactName,
   extractDetailTableValue,
@@ -598,7 +599,7 @@ export function extractEventJsonLd(html) {
   let match;
   while ((match = LD_JSON_RE.exec(html))) {
     try {
-      const parsed = JSON.parse(match[1].trim().replace(/^<!--\s*|\s*-->$/g, ''));
+      const parsed = parseJsonLdText(match[1]);
       const event = eventJsonLdCandidates(parsed).find((candidate) => isEventJsonLdType(candidate?.['@type']) && candidate.startDate);
       if (event) return event;
     } catch {

@@ -26,7 +26,7 @@
  * `--strict` restores a non-zero exit for a caller that wants a hard gate.
  *
  * USAGE
- *   node scripts/check-source-liveness.mjs            # probe + issue if dead
+ *   node scripts/check-source-liveness.mjs            # probe + issue if dead, close it if alive
  *   node scripts/check-source-liveness.mjs --json     # machine output
  *   node scripts/check-source-liveness.mjs --dry-run  # never opens an issue
  *   node scripts/check-source-liveness.mjs --strict   # exit 2 when dead
@@ -91,8 +91,8 @@ export function buildIssueBody(verdict) {
         '`source bin/rc-env.sh`.',
       ],
       osservatore: [
-        'Questa stessa guardia, rigirata dal cron che la porta. Non esiste un closer',
-        "automatico: il comando qui sopra e' il criterio con cui chiuderla — e chiuderla",
+        'Questa stessa guardia, rigirata dal cron che la porta: alla prima misura con `alive`',
+        "vero chiude lei la issue. A mano il comando qui sopra e' il criterio — e chiuderla",
         'senza averlo eseguito e\' esattamente lo sbaglio che questo corpo documenta sopra.',
       ],
       fallimento: `\`${ISSUE_TITLE}\``,
@@ -106,6 +106,7 @@ export async function main({
   argv = process.argv.slice(2),
   checkImpl = checkPostHogLiveness,
   createIssueImpl,
+  resolveIssueImpl,
   logger = console,
 } = {}) {
   const json = argv.includes('--json');
@@ -120,7 +121,20 @@ export async function main({
   if (json) logger.log(JSON.stringify(printable, null, 2));
   else logger.log(`[check-source-liveness] ${verdict.alive ? 'ALIVE' : 'NOT MEASURABLE'} — ${verdict.reason}`);
 
-  if (verdict.alive) return { verdict, issued: false };
+  if (verdict.alive) {
+    // The mirror of the open path below: a measured-alive source closes the
+    // outage issue this script opened. `alive` is true only on a real verdict
+    // (missing credentials and a failed probe both come back `alive: false`).
+    if (dryRun) return { verdict, issued: false, resolved: false };
+    const resolve =
+      resolveIssueImpl ??
+      (async (title, ctx) => {
+        const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+        return resolveGithubIssue(title, ctx);
+      });
+    await resolve(ISSUE_TITLE, { workflow: 'Source Liveness' });
+    return { verdict, issued: false, resolved: true };
+  }
 
   logger.log(`::error title=PostHog not measurable::${verdict.reason}`);
 
