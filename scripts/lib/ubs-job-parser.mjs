@@ -28,6 +28,7 @@
  *   - isTrustedDomain()  — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -161,18 +162,6 @@ function normalize(value = '') {
 function getField(questions = [], name = '') {
   const q = questions.find((q) => q.QuestionName === name);
   return q?.Value || '';
-}
-
-/**
- * Parse Taleo date format "DD-MMM-YYYY" → "YYYY-MM-DD".
- * e.g. "08-Apr-2026" → "2026-04-08"
- */
-function parseTaleoDate(raw = '') {
-  const s = String(raw || '').trim();
-  if (!s) return '';
-  const d = new Date(s);
-  if (isNaN(d.getTime())) return '';
-  return d.toISOString().slice(0, 10);
 }
 
 /**
@@ -595,7 +584,6 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   const department = normalizeSpace(getField(questions, 'department'));
   const categoryStr = normalizeSpace(getField(questions, 'formtext21'));
   const jobType = normalizeSpace(getField(questions, 'formtext22'));
-  const lastUpdated = getField(questions, 'lastupdated');
   const langCode = getField(questions, 'jobreqlanguage');
 
   if (!title || title.length < 3) return null;
@@ -629,7 +617,6 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
 
   const jobSlug = slugify(`${title} ubs ${city}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-  const postedDate = parseTaleoDate(lastUpdated) || new Date().toISOString().slice(0, 10);
 
   const job = {
     // ── Required fields ──
@@ -665,7 +652,8 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
     sector: 'Finanza / Banca',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    // Taleo exposes lastupdated, which is not evidence of first publication.
+    ...sourcePostingDateFields(''),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

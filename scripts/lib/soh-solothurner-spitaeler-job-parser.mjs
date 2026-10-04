@@ -27,6 +27,7 @@
  * As of May 2026 the listing exposes ~129 unique openings across all soH
  * sites (Solothurn, Olten, Dornach, Breitenbach, Niederbipp, …).
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -261,12 +262,7 @@ export function parseSohDetail(html) {
 
   const employmentTypeRaw = String(jp.employmentType || '').toUpperCase();
   const validThrough = jp.validThrough ? String(jp.validThrough) : '';
-  const postedRaw = jp.datePosted ? String(jp.datePosted) : '';
-  const postedDate = (() => {
-    if (!postedRaw) return '';
-    const d = new Date(postedRaw);
-    return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-  })();
+  const publication = sourcePostingDateFields(jp.datePosted);
 
   return {
     title,
@@ -277,7 +273,7 @@ export function parseSohDetail(html) {
     postalCode,
     country,
     employmentTypeRaw,
-    postedDate,
+    ...publication,
     validThrough,
     industry: jp.industry ? String(jp.industry) : '',
   };
@@ -299,7 +295,6 @@ export async function fetchAllSohJobs() {
   console.log(`  ✓ ${urls.length} unique offerings discovered`);
   if (!urls.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let failed = 0;
   for (let i = 0; i < urls.length; i += 1) {
@@ -331,7 +326,6 @@ export async function fetchAllSohJobs() {
     // pipeline's thin-source path.
     const description = detail.descriptionText || '';
 
-    const postedDate = detail.postedDate || todayIso;
     const urlHash = createHash('sha1').update(fullUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} ${SOH_KEY} ${city}`);
 
@@ -374,7 +368,7 @@ export async function fetchAllSohJobs() {
       sector: detail.industry && /gesundheit/i.test(detail.industry) ? 'Sanità / Ospedali' : 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: fullUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

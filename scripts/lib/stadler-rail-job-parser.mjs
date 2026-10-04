@@ -27,6 +27,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -272,7 +274,7 @@ export function parseDetailPage(html) {
   const postalCode = getMicrodataContent(html, 'postalCode');
   const addressCountry = getMicrodataContent(html, 'addressCountry') || 'CH';
   const rawDate = getMicrodataContent(html, 'datePosted');
-  const postedDate = parseDetailDate(rawDate);
+  const publication = successFactorsPostingDateFields(rawDate);
 
   // Description: itemprop="description" class="jobdescription"
   let descriptionHtml = '';
@@ -299,18 +301,8 @@ export function parseDetailPage(html) {
     addressRegion: rawRegion,
     postalCode,
     addressCountry: (addressCountry || 'CH').toUpperCase().slice(0, 2),
-    postedDate,
+    ...publication,
   };
-}
-
-/**
- * Parse the RMK microdata datePosted, e.g. "Wed Jun 10 02:00:00 UTC 2026".
- * Returns ISO `YYYY-MM-DD` or null.
- */
-function parseDetailDate(raw = '') {
-  if (!raw) return null;
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
 /* ── Fetch listings ───────────────────────────────────────── */
@@ -422,8 +414,6 @@ export async function fetchAllStadlerRailJobs() {
     const publicUrl = listing.url;
     const jobSlug = slugify(`${title} stadler-rail ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const postedDate =
-      detail?.postedDate || new Date().toISOString().slice(0, 10);
 
     const job = {
       // ── Required fields ──
@@ -457,7 +447,7 @@ export async function fetchAllStadlerRailJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
