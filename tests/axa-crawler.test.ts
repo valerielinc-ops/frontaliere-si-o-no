@@ -17,7 +17,9 @@
  * `/posizioni-aperte/{slug}/{uuid}`; the regenerated slug must encode that
  * identity so the slugs remain unique even when title + city are identical.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+
+afterEach(() => vi.useRealTimers());
 import {
   buildAxaRegeneratedSlug,
   buildAxaJob,
@@ -226,6 +228,21 @@ describe('AXA careers.axa.com (Jibe) source', () => {
       { data: { req_id: '99999', title: 'Claims Handler', language: 'en-us', city: 'DUBLIN', country_code: 'IE' } },
     ],
   };
+
+  it('validates the complete Jibe source timestamp through the builder', () => {
+    vi.useFakeTimers(); vi.setSystemTime(new Date('2026-10-03T12:00:00Z'));
+    const build = (posted_date: string) => {
+      const { rows } = parseAxaJibeListing({ totalCount: 1, jobs: [{ data: { ...listingJson.jobs[0].data, posted_date } }] });
+      expect(rows).toHaveLength(1);
+      return buildAxaJob({ ...rows[0], canton: rows[0].cantonHint });
+    };
+    expect(build('2026-09-24T06:32:00+0000')).toMatchObject({
+      postedDate: '2026-09-24T06:32:00+00:00', datePosted: '2026-09-24T06:32:00+00:00', postingDateSource: 'reported',
+    });
+    for (const value of ['2026-10-03T23:32:00+0000', '2026-02-30T06:32:00+0000', '2026-09-24T99:32:00+0000']) {
+      expect(build(value)).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
+    }
+  });
 
   it('keeps the Swiss postings with the city the page states and the geocoded canton', () => {
     const { total, rows } = parseAxaJibeListing(listingJson);

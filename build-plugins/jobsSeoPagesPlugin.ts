@@ -1,4 +1,5 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -5332,6 +5333,7 @@ ${companyFollowHtml}
      company: string;
      location: string;
      href: string;
+     postingDateSource?: string;
      datePosted?: string;
      titleByLocale?: Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
      companyKey?: string;
@@ -5364,6 +5366,7 @@ ${companyFollowHtml}
          featured: item.featured,
          logo: item.logo,
          addressLocality: item.addressLocality,
+         postingDateSource: item.postingDateSource,
          datePosted: item.datePosted,
          companyDomain: item.companyDomain,
          url: item.url,
@@ -8590,7 +8593,9 @@ ${staticAnalyticsHtml}
  const sFreshCount = sJobs.filter((j: any) => {
  // First PARSEABLE date, not first truthy: a malformed postedDate must not
  // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
- const t = firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
+ const t = hasPostingDateProvenance(j)
+ ? firstParsableMs(resolveReportedPostingDate(j))
+ : firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
  return t >= sectorFreshCutoff && t <= sectorFreshMax;
  }).length;
  const intro = (() => {

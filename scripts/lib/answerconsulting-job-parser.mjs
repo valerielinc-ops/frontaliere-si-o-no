@@ -39,6 +39,7 @@
  *   - isTrustedDomain()              — Validate URLs belong to this company
  *   - slugify() / stripHtml()        — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
@@ -78,12 +79,7 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-function toIsoDate(value) {
-  if (!value) return new Date().toISOString().split('T')[0];
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return new Date().toISOString().split('T')[0];
-  return d.toISOString().split('T')[0];
-}
+
 
 /* ── Company Matchers ─────────────────────────────────────── */
 
@@ -188,7 +184,7 @@ export function parseAnswerConsultingWidgetPayload(payload) {
       shortcode: raw.shortcode,
       employmentType: raw.employment_type || '',
       department: raw.department || '',
-      publishedDate: raw.published_on || raw.created_at || '',
+      publishedDate: raw.published_on || '',
     });
   }
   const listings = Array.from(byShortcode.values());
@@ -314,7 +310,7 @@ export async function fetchAllAnswerConsultingJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const department = Array.isArray(detail?.department) ? detail.department.join(' ') : (detail?.department || listing.department || '');
     const employmentType = normalizeAnswerConsultingEmploymentType(listing.employmentType, title);
-    const postedDate = toIsoDate(detail?.published || listing.publishedDate);
+    const publicationDate = sourcePostingDateFields(detail?.published || listing.publishedDate);
 
     const job = {
       // ── Required fields ──
@@ -349,7 +345,7 @@ export async function fetchAllAnswerConsultingJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publicationDate,
       applyUrl: publicUrl,
       jobReqId: listing.shortcode || null,
       requirements: [],

@@ -157,9 +157,8 @@ describe('convit-job-parser / parseConvitDetailPage', () => {
       expect(result.description).toContain('Biasca');
     });
 
-    it('datePosted falls back to today when no JSON-LD is present', () => {
-      // No JSON-LD in this fixture, so the parser uses today's date as fallback
-      expect(result.datePosted).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    it('leaves datePosted unknown when no source publication date is present', () => {
+      expect(result.datePosted).toBe('');
     });
   });
 

@@ -681,7 +681,7 @@ const deGuide: Record<string, string> = {
  'guide.unemployment.ch.frontalieriTitle': 'Hinweis für Grenzgänger',
  'guide.unemployment.ch.frontalieri1': 'Grenzgänger in vollständiger Arbeitslosigkeit erhalten Leistungen vom Wohnsitzland (Italien/INPS)',
  'guide.unemployment.ch.frontalieri2': 'Grenzgänger in teilweiser Arbeitslosigkeit (z.B. Kurzarbeit) behalten den Anspruch auf Schweizer Leistungen',
- 'guide.unemployment.ch.frontalieri3': 'Die in der Schweiz bezahlten Beiträge werden über das Formular PD U1 an die INPS übertragen',
+ 'guide.unemployment.ch.frontalieri3': "PD U1 bescheinigt Schweizer Versicherungs- und Beschäftigungszeiten für die Prüfung des Arbeitslosenantrags durch die INPS; die gezahlten Beiträge werden nicht übertragen",
  'guide.unemployment.ch.frontalieri4': 'Das Formular PD U1 vor der Rückkehr nach Italien bei der Schweizer Arbeitslosenkasse anfordern',
  'guide.unemployment.it.title': '🇮🇹 Italien - NASpI (Neue Sozialversicherung für Beschäftigung)',
  'guide.unemployment.it.whoTitle': 'Wer hat Anspruch',

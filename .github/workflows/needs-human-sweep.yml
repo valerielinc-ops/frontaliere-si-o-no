@@ -366,6 +366,7 @@ jobs:
 
             **Issue di failure: il verdetto è del closer, non tuo.** Per un titolo che corrisponde a `^(Workflow|Crawler|CI) Failure: ` non ricalcolare l'oracolo con `gh run list`: il job `failure_verdicts` ha già eseguito `scripts/ci/close-recovered-failure-issues.mjs --dry-run` (le run `skipped` scartate, i crawler letti nel corpus e sui branch shadow) e ha scritto `.sweep-input/failure-verdicts.json`, un array di `{ number, title, action, reason, runId, runRepo }`. Cerca la issue per `number` (`jq '.[] | select(.number == N)' .sweep-input/failure-verdicts.json`) e confronta solo `action`:
                - `close` → nessuna azione: la chiude il closer al suo prossimo giro orario.
+               - `close-not-planned` → nessuna azione: la chiude il closer al suo prossimo giro orario come `not planned`.
                - `chronic-escalate`, `chronic-hold`, `structural-hold`, `recurrence-hold` → classe D, citando nel commento `action` e `reason` del verdetto; nessun rientro al fixer senza un input nuovo.
                - `keep` → classe B o D come le altre issue; mai C.
                - File assente o illeggibile, oppure issue non elencata → la issue NON si tocca in questo giro (niente commento, niente label) e il digest lo dice. Una misura tua, un `maybe-resolved` o una decisione di sweep non sostituiscono il verdetto.

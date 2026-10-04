@@ -29,6 +29,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import {
@@ -379,7 +380,11 @@ export async function fetchAllMigrosHqJobs({
       sector: 'Retail',
       currency: 'CHF',
       featured: false,
-      postedDate: (listing.postedAt || new Date().toISOString()).slice(0, 10),
+      // Migros JSON-LD uses ISO basic offsets (+0200); preserve the instant
+      // while normalizing the offset separator for the shared date validator.
+      ...sourcePostingDateFields(typeof listing.postedAt === 'string'
+        ? listing.postedAt.replace(/([+-]\d{2})(\d{2})$/, '$1:$2')
+        : ''),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
