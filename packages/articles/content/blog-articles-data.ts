@@ -37648,6 +37648,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gordola-avviso-scomparsa-revocato',
+ category: 'novita',
+ date: '2026-10-04T21:37:47.283Z',
+ image: '/images/blog/gordola-avviso-scomparsa-revocato.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
