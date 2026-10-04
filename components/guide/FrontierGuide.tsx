@@ -1,3 +1,5 @@
+// locale-segment-ok: official external SECO Italian source, independent of app locale
+const U1_SECO_SOURCE = 'https://www.arbeit.swiss/it/persone-in-cerca-dimpiego/prestazioni-dellassicurazione';
 import React, { useState, useEffect, useMemo, useCallback, useRef, useDeferredValue, Suspense } from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
@@ -2797,7 +2799,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="text-sm text-subtle space-y-1.5">
  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri1')}</li>
  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri2')}</li>
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri3')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri3')} <a href={U1_SECO_SOURCE} className="underline" target="_blank" rel="noopener noreferrer">SECO — PD U1</a></li>
  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri4')}</li>
  </ul>
  </div>

@@ -47,7 +47,14 @@
  *      sue `Sources`) → `State: blocked` + `FU_ITEM_EVIDENCE` +
  *      `FU_ITEM_BLOCKED reason=awaiting-verification`;
  *   c. `already-fixed` senza prova o senza legame, per la seconda volta →
- *      `State: blocked` + `FU_ITEM_BLOCKED reason=already-fixed-unverified`.
+ *      `State: blocked` + `FU_ITEM_BLOCKED reason=already-fixed-unverified`;
+ *   d. un verdetto non ritentabile che riguarda l'item (`no-root-cause`,
+ *      `blocked-admin-settings`, `ITEM_BLOCKING_OUTCOMES`) senza PR consegnata
+ *      → `State: blocked` + `FU_ITEM_BLOCKED reason=<esito>`. Prima l'esito
+ *      lasciava solo il tentativo, e il prompt faceva differire all'agente
+ *      l'INTERA issue (`automation-deferred`): un item senza causa sospendeva il
+ *      bucket (9508, 9609). Ora il bucket resta in coda per l'item successivo;
+ *      i veti di `QUEUE_VETO_LABELS` non cambiano.
  * MAI `State: done`: la terna prova che la PR esiste, non che l'item sia
  * risolto. `done` e la chiusura restano al reconciler (token) o a una persona.
  * Lo step gira nel job del fixer, fuori dal mutex `followup-daily-<repo>`: la
@@ -89,6 +96,12 @@ export const QUEUE_LABEL = 'agent:fix-queued';
 // Gli stessi veti che impediscono al gate sul conio di riaccodare un bucket,
 // piu' il padre gia' decomposto (tracker, non lavoro del fixer).
 export const QUEUE_VETO_LABELS = Object.freeze(['needs-human', 'automation-deferred', 'fu-parked', 'decomposed:1']);
+// Verdetti del fixer che su un bucket riguardano SOLO l'item selezionato: lo
+// tolgono dalla selezione (`State: blocked`) invece di fermare l'intera issue.
+// Insieme chiuso, sottoinsieme di `ITEM_BLOCKED_REASONS`. Fuori, per scelta:
+// `blocked-workflows-scope` (lo step non gira), `skip-duplicate-diagnosis` e
+// `revenue-tracker-manual` (riguardano la issue), `already-fixed` (rami b/c).
+export const ITEM_BLOCKING_OUTCOMES = Object.freeze(['no-root-cause', 'blocked-admin-settings']);
 const FIXER_WORKFLOW_PATH = '.github/workflows/issue-fix.yml';
 const DAILY_TITLE_PREFIX_RE = /^follow-up\(daily:/iu;
 
@@ -360,7 +373,7 @@ export function selectableBucketItem(body, itemId) {
  *   verified: boolean, link: 'target-file'|'source-pr'|'none', priorAlreadyFixedAttempts: number}} input
  * @returns {{action: 'none', reason: string} |
  *   {action: 'attempt', reason: string, item: object} |
- *   {action: 'block', blockedReason: 'awaiting-verification'|'already-fixed-unverified',
+ *   {action: 'block', blockedReason: 'awaiting-verification'|'already-fixed-unverified'|'no-root-cause'|'blocked-admin-settings',
  *    item: object, nextBody: string, openRemaining: boolean}}
  */
 export function decideBucketItemRouting({
@@ -370,9 +383,17 @@ export function decideBucketItemRouting({
   if (!selected.item) return { action: 'none', reason: selected.reason };
   const { item } = selected;
   const id = item.id.toUpperCase();
-  if (outcome !== 'already-fixed') return { action: 'attempt', reason: `outcome=${outcome}`, item };
   let blockedReason = null;
-  if (verified && link !== 'none') blockedReason = 'awaiting-verification';
+  if (ITEM_BLOCKING_OUTCOMES.includes(outcome)) {
+    // Una PR consegnata (o una delivery illeggibile) smentisce il verdetto o non
+    // lo prova: si registra il tentativo, come prima.
+    if (deliveryStatus !== DELIVERY_STATUS.NONE) {
+      return { action: 'attempt', reason: `outcome=${outcome}, delivery=${deliveryStatus ?? 'unavailable'}`, item };
+    }
+    blockedReason = outcome;
+  } else if (outcome !== 'already-fixed') {
+    return { action: 'attempt', reason: `outcome=${outcome}`, item };
+  } else if (verified && link !== 'none') blockedReason = 'awaiting-verification';
   // Un PR consegnata in questa run smentisce il verdetto: non e' un giro a vuoto.
   else if (deliveryStatus === DELIVERY_STATUS.NONE && priorAlreadyFixedAttempts >= 1) blockedReason = 'already-fixed-unverified';
   if (!blockedReason) {
@@ -457,6 +478,17 @@ export function bucketItemCommentBody({
       '',
       `Stato dell'item → \`blocked\` (non \`done\`): esce dalla selezione del fixer, il bucket **non** si chiude. ${next}`,
       'Esce da qui quando il token di accettazione diventa vero (lo marca il reconciler) o quando una persona verifica e chiude con evidenza. Se il difetto c\'e\' ancora, riporta l\'item a `State: open`.',
+    ].filter((line) => line !== null).join('\n');
+  }
+  if (ITEM_BLOCKING_OUTCOMES.includes(blockedReason)) {
+    return [
+      attempt,
+      itemBlockedMarker({ item: itemId, reason: blockedReason }),
+      `🛑 **Item \`${itemId}\`: verdetto \`${blockedReason}\` del fixer, che vale per questo item e non per il bucket.**`,
+      '',
+      `Stato dell'item → \`blocked\` (non \`done\`): esce dalla selezione del fixer, il bucket **non** viene differito. ${next}`,
+      metric ? `METRICA dell'item, da rimisurare: ${metric}` : null,
+      'Per rimetterlo in lavoro serve un input nuovo (scheda, causa, osservabilità): riporta l\'item a `State: open`.',
     ].filter((line) => line !== null).join('\n');
   }
   return [

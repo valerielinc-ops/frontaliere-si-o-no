@@ -62,6 +62,9 @@ jobs:
 
           DATED=$(echo "$RESULT" | jq -r '.datedExcludedCount')
           echo "- **Dated announcements excluded**: $DATED"
+          NEWS=$(echo "$RESULT" | jq -r '.newsExcludedCount')
+          echo "- **Typed news excluded**: $NEWS"
+          echo "- **Stale by type**: $(echo "$RESULT" | jq -r '"evergreen \(.staleByType.evergreen), unclassified \(.staleByType.unclassified)"')"
           echo ""
 
           if [ "$STALE" -eq 0 ]; then
@@ -69,11 +72,25 @@ jobs:
           else
             echo "### Stale articles (oldest first):"
             echo ""
-            echo "$RESULT" | jq -r '.stale[] | "- \(.id) (\(.category)) — \(.ageMonths) months old"'
+            echo "$RESULT" | jq -r '.stale[] | "- \(.id) (\(.category)) — \(.ageMonths // "unknown") months old"'
           fi
 
           # Write article list to a temp file for issue body construction
           echo "$RESULT" > audit-result.json
+
+      # The complete stale list lives here (and in the log above), not in the
+      # issue body: a 200-line checklist in the tracker is what got decomposed
+      # into a chain of container issues nobody could work from the site.
+      - name: Upload full audit result
+        if: always()
+        # A secondary output must not skip the tracker update below.
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: evergreen-audit-result
+          path: audit-result.json
+          if-no-files-found: ignore
+          retention-days: 90
 
       # ONE issue, commented on each month — not one issue per month.
       #
@@ -91,10 +108,19 @@ jobs:
           TOTAL=$(jq -r '.totalEvergreen' audit-result.json)
           STALE=$(jq -r '.staleCount' audit-result.json)
           DATED=$(jq -r '.datedExcludedCount' audit-result.json)
-          CHECKLIST=$(jq -r '.stale[] | "- [ ] `\(.id)` (\(.category)) — \(.ageMonths) months old"' audit-result.json)
+          NEWS=$(jq -r '.newsExcludedCount' audit-result.json)
+          STALE_EVERGREEN=$(jq -r '.staleByType.evergreen' audit-result.json)
+          STALE_UNCLASSIFIED=$(jq -r '.staleByType.unclassified' audit-result.json)
+          INVALID_VERIFIED=$(jq -r '(.invalidVerifiedAt // []) | length' audit-result.json)
+          # Only the 15 oldest, typed evergreen before unclassified; the full
+          # list is the `evergreen-audit-result` artifact of the run below.
+          OLDEST=$(jq -r '(.stale // []) | sort_by((if .articleType == "evergreen" then 0 else 1 end), -(.ageMonths // 100000)) | .[:15][] | "- `\(.id)` (\(.category), \(.articleType // "unclassified")) — \(.ageMonths // "unknown") months old"' audit-result.json)
 
           gh label create "content" --color "0E8A16" --description "Content updates" --force 2>/dev/null || true
           gh label create "evergreen-refresh" --color "1D76DB" --description "Evergreen article refresh audit" --force 2>/dev/null || true
+          # No --force: the label is shared (followup-drainer, classify-issue, triage)
+          # and already exists; only create it, with the same metadata, on a fresh repo.
+          gh label create "agent:no-age-out" --color "0e8a16" --description "Issue-contatore/tracker permanente: mai eleggibile all'age-out del followup-drainer (#5615)" 2>/dev/null || true
 
           node scripts/lib/github-issue-creator.mjs \
             --title "Evergreen articles past the 6-month freshness window" \
@@ -102,9 +128,23 @@ jobs:
 
           **${STALE}** of **${TOTAL}** evergreen articles are past the window. **${DATED}** dated announcements were excluded — an article whose slug names one calendar day is about that day, and no refresh makes it evergreen (\`scripts/audit-evergreen-articles.mjs\`, \`isDatedAnnouncement\`).
 
-          ### Articles to refresh
+          | Count | Value |
+          |---|---|
+          | totalEvergreen | ${TOTAL} |
+          | staleCount | ${STALE} |
+          | staleByType.evergreen | ${STALE_EVERGREEN} |
+          | staleByType.unclassified | ${STALE_UNCLASSIFIED} |
+          | newsExcludedCount | ${NEWS} |
+          | datedExcludedCount | ${DATED} |
+          | invalidVerifiedAt (future, ignored) | ${INVALID_VERIFIED} |
 
-          ${CHECKLIST}
+          Unclassified articles (no \`articleType\` in the registry) stay in the stale count until they are typed with evidence: leaving them out would silence the alarm for the untyped stock.
+
+          ### Oldest 15 (typed evergreen first)
+
+          ${OLDEST}
+
+          The complete list is the \`evergreen-audit-result\` artifact (\`audit-result.json\`) of the run linked below.
 
           ### What a refresh is, and what it is not
 
@@ -112,12 +152,13 @@ jobs:
 
           Bumping \`updatedAt\` without changing a word is not a refresh — it is a freshness signal for content that did not get fresher, which is exactly what Google's guidance on deceptive dates penalises, and it costs the article the ranking the audit was trying to protect. If the numbers in an article are still the current ones, **leave the date alone**: an accurate old date beats a false new one.
 
-          There is no automated path today. \`scripts/create-article.mjs\` has neither a \`--refresh\` nor an \`--id\` flag — the instruction this issue used to carry named a command that does not exist, which is why it went unactioned. Refreshing means editing the article body in the corpus (\`nanakokyobashi-rgb/frontaliere-articles\`, \`content/blog-body/<locale>/<id>.ts\`, all four locales) and setting \`updatedAt\` in the registry in the same change.
+          Refreshing means editing the article body in the corpus (\`nanakokyobashi-rgb/frontaliere-articles\`, \`content/blog-body/<locale>/<id>.ts\`, all four locales). Facts changed: set \`updatedAt\` in the registry in the same change. Facts verified and unchanged: leave \`updatedAt\` alone and set \`verifiedAt\` plus an entry with sources in \`data/evergreen-verifications.json\`. Per-slug requests live in the corpus: https://github.com/nanakokyobashi-rgb/frontaliere-articles/issues?q=is%3Aissue+label%3Aevergreen-refresh
 
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --priority 4 \
             --label content \
             --label evergreen-refresh \
+            --label agent:no-age-out \
             --workflow "${{ github.workflow }}"
 
           echo "✅ Reported ${STALE} stale articles (${DATED} dated announcements excluded)"
