@@ -1,3 +1,4 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Ferrovia Retica (RhB) — job parser
@@ -153,15 +154,8 @@ export function parseListingPage(html) {
     const pctMatch = rawTitle.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || rawTitle.match(/\((\d{1,3})%\)/);
     const percentage = pctMatch ? (pctMatch[2] ? `${pctMatch[1]}-${pctMatch[2]}%` : `${pctMatch[1]}%`) : '';
 
-    // Extract date from nearby context (DD. Month YYYY pattern)
-    const dateMatch = html.slice(Math.max(0, match.index - 200), match.index + match[0].length + 200)
-      .match(/(\d{1,2})\.\s*(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s*(\d{4})/i);
-    let datePosted = '';
-    if (dateMatch) {
-      const months = { gennaio: '01', febbraio: '02', marzo: '03', aprile: '04', maggio: '05', giugno: '06', luglio: '07', agosto: '08', settembre: '09', ottobre: '10', novembre: '11', dicembre: '12', januar: '01', februar: '02', 'märz': '03', april: '04', mai: '05', juni: '06', juli: '07', august: '08', september: '09', oktober: '10', november: '11', dezember: '12' };
-      const m = months[dateMatch[2].toLowerCase()] || '01';
-      datePosted = `${dateMatch[3]}-${m}-${dateMatch[1].padStart(2, '0')}`;
-    }
+    // Nearby dates may describe a deadline or employment start, not publication.
+    const datePosted = '';
 
     jobs.push({ title: rawTitle, url: fullUrl, location, datePosted, percentage });
   }
@@ -394,7 +388,7 @@ export function buildJob(raw) {
     // ParsedJob contract: the source slot carries the crawled text. Without it
     // the merge kept the previous (stale or corrupt) source-locale copy forever.
     descriptionByLocale: description ? { [sourceLang]: description } : {},
-    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(raw.datePosted),
     source: 'company-website',
     sourceLang,
     slug: baseSlug,

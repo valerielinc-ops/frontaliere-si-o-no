@@ -54,7 +54,7 @@ import {
 import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
-import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
+import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
@@ -3110,9 +3110,9 @@ async function assembleJobs() {
 
   // Merge baseline + slice jobs
   // Deduplicate across them: slice jobs take precedence over baseline
-  const sliceIdentities = new Set(sliceJobs.map(assemblerIdentity));
-  const baselineFiltered = baseline.filter((job) => !sliceIdentities.has(assemblerIdentity(job)));
-  const merged = [...baselineFiltered, ...sliceJobs];
+  // Publication evidence is independent of slice precedence; a baseline
+  // clock must not survive through the later sort/slug collision winner.
+  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerIdentity);
 
   // Stable sort: newest postedDate first, then stable by identity string
   const sorted = merged.sort((a, b) => {
