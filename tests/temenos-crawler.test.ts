@@ -10,6 +10,7 @@ import {
 } from '../scripts/lib/temenos-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 const SWISS_ID = '187134fccb084a0ea9b4b95f23890dbe';
 
@@ -89,10 +90,7 @@ describe('Temenos crawler parser', () => {
     expect(parser).toContain("countryFacetParameter: 'locationMainGroup'");
     expect(parser).toContain('proveSwissAbsentFromLiveBoard: true');
 
-    const monitor = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'check-crawler-health.mjs'), 'utf8');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist).toBeTruthy();
-    expect(allowlist![1]).not.toMatch(/^\s*'temenos',/m);
+    expect(EMPTY_OK_CRAWLERS.has('temenos')).toBe(false);
   });
 
   // ── Constants ──

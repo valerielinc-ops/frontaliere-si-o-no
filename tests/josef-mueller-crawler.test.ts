@@ -14,6 +14,7 @@ import {
   parseJosefMuellerDetail,
   mapEmploymentType,
 } from '../scripts/lib/josef-mueller-job-parser.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 // Real jobs.ch company-profile vacancy-card markup (2026-07 fixture, class
 // names trimmed but href shape preserved exactly as observed live).
@@ -243,9 +244,7 @@ describe('Josef Müller Gemüse AG crawler parser', () => {
       expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
       expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
 
-      const monitor = fs.readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
-      const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-      expect(allowlist?.[1]).not.toContain("'josef-mueller'");
+      expect(EMPTY_OK_CRAWLERS.has('josef-mueller')).toBe(false);
     });
   });
 
