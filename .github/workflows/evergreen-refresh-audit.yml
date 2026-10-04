@@ -72,7 +72,7 @@ jobs:
           else
             echo "### Stale articles (oldest first):"
             echo ""
-            echo "$RESULT" | jq -r '.stale[] | "- \(.id) (\(.category)) — \(.ageMonths) months old"'
+            echo "$RESULT" | jq -r '.stale[] | "- \(.id) (\(.category)) — \(.ageMonths // "unknown") months old"'
           fi
 
           # Write article list to a temp file for issue body construction
@@ -83,6 +83,8 @@ jobs:
       # into a chain of container issues nobody could work from the site.
       - name: Upload full audit result
         if: always()
+        # A secondary output must not skip the tracker update below.
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: evergreen-audit-result
@@ -109,13 +111,16 @@ jobs:
           NEWS=$(jq -r '.newsExcludedCount' audit-result.json)
           STALE_EVERGREEN=$(jq -r '.staleByType.evergreen' audit-result.json)
           STALE_UNCLASSIFIED=$(jq -r '.staleByType.unclassified' audit-result.json)
+          INVALID_VERIFIED=$(jq -r '(.invalidVerifiedAt // []) | length' audit-result.json)
           # Only the 15 oldest, typed evergreen before unclassified; the full
           # list is the `evergreen-audit-result` artifact of the run below.
           OLDEST=$(jq -r '(.stale // []) | sort_by((if .articleType == "evergreen" then 0 else 1 end), -(.ageMonths // 100000)) | .[:15][] | "- `\(.id)` (\(.category), \(.articleType // "unclassified")) — \(.ageMonths // "unknown") months old"' audit-result.json)
 
           gh label create "content" --color "0E8A16" --description "Content updates" --force 2>/dev/null || true
           gh label create "evergreen-refresh" --color "1D76DB" --description "Evergreen article refresh audit" --force 2>/dev/null || true
-          gh label create "agent:no-age-out" --color "BFD4F2" --description "Permanent tracker" --force 2>/dev/null || true
+          # No --force: the label is shared (followup-drainer, classify-issue, triage)
+          # and already exists; only create it, with the same metadata, on a fresh repo.
+          gh label create "agent:no-age-out" --color "0e8a16" --description "Issue-contatore/tracker permanente: mai eleggibile all'age-out del followup-drainer (#5615)" 2>/dev/null || true
 
           node scripts/lib/github-issue-creator.mjs \
             --title "Evergreen articles past the 6-month freshness window" \
@@ -131,6 +136,7 @@ jobs:
           | staleByType.unclassified | ${STALE_UNCLASSIFIED} |
           | newsExcludedCount | ${NEWS} |
           | datedExcludedCount | ${DATED} |
+          | invalidVerifiedAt (future, ignored) | ${INVALID_VERIFIED} |
 
           Unclassified articles (no \`articleType\` in the registry) stay in the stale count until they are typed with evidence: leaving them out would silence the alarm for the untyped stock.
 
