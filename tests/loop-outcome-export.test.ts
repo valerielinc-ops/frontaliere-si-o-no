@@ -11,14 +11,11 @@ import {
   buildL3OutcomeExport,
   buildL4OutcomeLedger,
   buildL5DecisionMomentExport,
-  buildL7ExperimentLedger,
-  buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
   exportL1,
   exportL3,
   exportL4,
   exportL5,
-  exportL7,
   fetchL5EventSessions,
   GoogleDataClient,
   L1_GA4_EVENT_CONTRACT,
@@ -31,22 +28,6 @@ const ROOT = 'projects/test/databases/(default)/documents';
 // The fixtures use a fixed September window; the gate date is moved before it
 // so these cases exercise the counting, not the transition clamp.
 const L5_GATED_BEFORE_FIXTURES = { ...L5_DECISION_EVENT_CONTRACT, nextActionGateEffectiveFrom: '2026-09-01' };
-const L7_POLICY = JSON.parse(fs.readFileSync(
-  path.resolve('data/loop-fleet/loop-registry.json'),
-  'utf8',
-)).loops.find((loop: any) => loop.loopId === 'L7');
-
-function postHogClient() {
-  return {
-    remoteConfig: async () => ({
-      parameters: {
-        SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
-        SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: 'test-project' } },
-      },
-    }),
-  };
-}
-
 function row(path: string, data: Record<string, unknown>) {
   return { name: `${ROOT}/${path}`, data };
 }
@@ -758,147 +739,6 @@ describe('read-only loop outcome exporters', () => {
       client: clientReturning({ rows: [{ metricValues: [{ value: '1.5' }] }] }),
       ...range,
     })).rejects.toThrow('invalid sessions for decision_moment_next_action');
-  });
-
-  it('keeps the L7 ledger fail-closed when canonical experiment evidence is absent or unsafe', async () => {
-    expect(() => buildL7ExperimentLedgerQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
-    })).toThrow('L7 policy is required');
-
-    const query = buildL7ExperimentLedgerQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
-      policy: L7_POLICY,
-    });
-    expect(query).toContain("event IN ('experiment_assignment', 'experiment_exposure', 'experiment_outcome', 'experiment_guardrail')");
-    expect(query).toContain("properties.loop_id = 'L7'");
-    expect(query).toContain("properties.assignment_method = 'stable-sha256'");
-    expect(query).toContain('invalidAssignmentRecords');
-    expect(query).toContain('invalidOutcomeRecords');
-    expect(query).toContain('invalidExpiryRecords');
-    expect(query).toContain('completeAssignmentSessions');
-    expect(query).toContain('assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0');
-    expect(query).toContain('assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0');
-    expect(query).toContain('assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0');
-    expect(query).toContain('toDateTime(if(match(properties.expires_at');
-    expect(query).toContain('match(properties.expires_at');
-    expect(query).toContain('addHours(timestamp, 168)');
-
-    const twelveHourQuery = buildL7ExperimentLedgerQuery({
-      start: '2026-09-05T12:00:00.000Z',
-      end: NOW.toISOString(),
-      policy: { ...L7_POLICY, lifecycle: { ...L7_POLICY.lifecycle, candidateTtlHours: 12 } },
-    } as any);
-    expect(twelveHourQuery).toContain('addHours(timestamp, 12)');
-
-    const completeAggregate = {
-      sourceEventCount: 1200,
-      eligibleCohort: 250,
-      assignments: 250,
-      exposures: 250,
-      completeAssignmentSessions: 250,
-      primaryOutcomes: 40,
-      guardrailBreaches: 0,
-      persistentAssignments: 250,
-      contaminatedAssignments: 0,
-      assignmentContract: 250,
-      exposureContract: 250,
-      outcomeContract: 250,
-      guardrailContract: 250,
-      contaminationContract: 250,
-      expiryContract: 250,
-      firstSeenAt: '2026-09-05T12:00:00.000Z',
-      lastSeenAt: NOW.toISOString(),
-    };
-    const complete = buildL7ExperimentLedger({
-      aggregate: completeAggregate,
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(complete).toMatchObject({
-      loopId: 'L7',
-      status: 'observed',
-      independent: true,
-      sourceEventCount: 1200,
-      eligibleCohort: 250,
-      assignments: 250,
-      exposures: 250,
-      completeAssignmentSessions: 250,
-      primaryOutcomes: 40,
-      assignmentLedger: { persistent: true, method: 'stable-sha256', key: 'experiment-session-id' },
-      contaminationPolicy: { controlled: true },
-      evidence: { status: 'verified', sourceRefs: ['experiment-assignment-exposure-outcome'] },
-    });
-
-    const missing = buildL7ExperimentLedger({
-      aggregate: { sourceEventCount: 0 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(missing).toMatchObject({
-      status: 'missing',
-      independent: false,
-      eligibleCohort: null,
-      assignments: null,
-      primaryOutcomes: null,
-      evidence: { status: 'missing' },
-      reason: 'no canonical L7 experiment ledger events were observed; allocation remains disabled',
-    });
-
-    const breached = buildL7ExperimentLedger({
-      aggregate: { ...completeAggregate, guardrailBreaches: 1 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(breached).toMatchObject({ status: 'unverified', independent: false, evidence: { status: 'unverified' } });
-
-    const maskedInvalidRecord = buildL7ExperimentLedger({
-      aggregate: { ...completeAggregate, exposureContract: 249 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(maskedInvalidRecord).toMatchObject({ status: 'unverified', independent: false });
-
-    const disjointContracts = buildL7ExperimentLedger({
-      aggregate: {
-        ...completeAggregate,
-        completeAssignmentSessions: 249,
-        exposureContract: 250,
-        outcomeContract: 250,
-        guardrailContract: 250,
-      },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(disjointContracts).toMatchObject({ status: 'unverified', independent: false });
-
-    const expiredAssignment = buildL7ExperimentLedger({
-      aggregate: { ...completeAggregate, expiryContract: 249 },
-      generatedAt: NOW,
-      telemetryWindow: { start: '2026-09-05T12:00:00.000Z', end: NOW.toISOString() },
-      policy: L7_POLICY,
-    } as any);
-    expect(expiredAssignment).toMatchObject({ status: 'unverified', independent: false });
-
-    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-export-test-'));
-    const output = await (exportL7 as any)({
-      now: NOW,
-      outputPath: path.join(outputDir, 'outcomes.json'),
-      client: postHogClient() as any,
-      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
-      posthogRunner: async () => ({
-        columns: Object.keys(completeAggregate),
-        results: [Object.values(completeAggregate)],
-      }),
-    });
-    expect(output).toMatchObject({ loopId: 'L7', status: 'observed', independent: true });
-    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
   });
 
   it('projects the affirmative consent field used by the live backfill predicate', async () => {

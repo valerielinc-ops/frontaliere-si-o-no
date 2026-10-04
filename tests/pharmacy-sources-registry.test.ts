@@ -269,4 +269,48 @@ describe('audit verdict', () => {
       expect(validatePharmacySourceEntry(key, entry)).toEqual([]);
     }
   });
+
+  /**
+   * Non-active cantons whose source could not be read on audit day. A network
+   * error or a bot challenge is not a verdict, so they stay without `audit`
+   * (#8705 keeps them open). The retry is tracked by item FU-2026-09-15-009 of
+   * #8705 and by the PR body line `blocked: <canton> irraggiungibile`; the
+   * data-health monitor keeps listing them under `unaudited` until then.
+   * Remove a key in the same change that records its audit; no other
+   * exclusion is allowed.
+   */
+  const UNREACHABLE_ON_AUDIT: Record<string, string> = {
+    'basel-landschaft': 'baselland.ch answers HTTP 403 with a Cloudflare challenge (2026-10-04)',
+    schaffhausen: 'sh.ch answers HTTP 503 on the whole domain, home page included (2026-10-04)',
+  };
+
+  it('every non-active canton carries a valid audit verdict that is not in the future', () => {
+    const now = Date.now();
+    const sources = registry.sources as Record<string, Record<string, unknown>>;
+    const problems: string[] = [];
+    for (const [key, entry] of Object.entries(sources)) {
+      if (entry.status === 'active') continue;
+      if (key in UNREACHABLE_ON_AUDIT) continue;
+      const audit = entry.audit as { auditedAt?: unknown } | undefined;
+      if (audit === undefined) {
+        problems.push(`${key}: non-active canton without an audit verdict in the registry`);
+        continue;
+      }
+      problems.push(...validatePharmacySourceEntry(key, entry));
+      if (typeof audit.auditedAt === 'string' && Date.parse(audit.auditedAt) > now) {
+        problems.push(`${key}: audit.auditedAt ${audit.auditedAt} is in the future`);
+      }
+    }
+    expect(problems).toEqual([]);
+  });
+
+  it('keeps the unreachable-on-audit exclusions current', () => {
+    const sources = registry.sources as Record<string, Record<string, unknown>>;
+    for (const key of Object.keys(UNREACHABLE_ON_AUDIT)) {
+      const entry = sources[key];
+      expect(entry, `${key}: excluded key is not in the registry`).toBeDefined();
+      expect(entry.status, `${key}: an active canton needs no exclusion`).not.toBe('active');
+      expect(entry.audit, `${key}: audited now, drop it from UNREACHABLE_ON_AUDIT`).toBeUndefined();
+    }
+  });
 });

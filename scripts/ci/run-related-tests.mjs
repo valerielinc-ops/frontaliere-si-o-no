@@ -132,6 +132,30 @@ const sourceTreeLintTests = new Map([
   // che li rilegge. Sulla PR 11001 un diff del solo registry e' passato verde e
   // l'observer del lifecycle e' caduto al cron dopo (issue 11178).
   ['tests/loop-fleet-registry-ledger-replay.test.ts', /^(?:data\/loop-fleet\/|scripts\/lib\/loop-fleet-contract\.mjs$)/],
+  // Il gate di famiglia j2w scopre i parser leggendo da disco ogni `.mjs` sotto
+  // `scripts/lib/`, ricorsivo: un modulo nuovo non e' importato dal test e il
+  // grafo inverso non lo collega. La PR 11308 ha aggiunto un registro che
+  // il predicato eleggeva ed e' passata verde; il rosso e' emerso sulla 11346,
+  // che toccava per caso un import del test. Il perimetro e' quello dello scan.
+  ['tests/successfactors-parser-quality.test.ts', /^scripts\/lib\/.+\.mjs$/],
+  // Stessa forma, altri gate che eleggono la loro popolazione leggendo
+  // `scripts/lib/` da disco: ognuno col perimetro del proprio scan.
+  ['tests/successfactors-jobs2web-widget-guard.test.ts', /^scripts\/lib\/[^/]+\.mjs$/],
+  ['tests/prospective-ch-shared-parser-contract.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/crawler-brand-domain-pairing.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/listing-url-fallback-audit.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  // Legge sia i parser sia gli `update-*-jobs.mjs` al primo livello di scripts/.
+  ['tests/bespoke-crawler-slug-boundary.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/[^/]+-job-parser\.mjs)$/],
+  // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
+  ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
+  ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
+  // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
+  // estensioni; costano pochi secondi.
+  ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
+  ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
+  ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

@@ -388,8 +388,24 @@ const J2W_LOCATION_CELL = /colLocation|jobLocation/;
  */
 const J2W_LISTING_ROW = /jobTitle-link|data-row|tbody\s*>?\s*tr/;
 
+/**
+ * The source without its comments. A parser cites the selectors in code (string,
+ * regex, JSDOM selector); a module that only documents them in a comment — the
+ * empty-ok registry recording what a tenant's markup looks like — reads no row.
+ * Only comments that open a line are dropped: a `/*` or `//` after code may sit
+ * inside a string or a regex (`'**\/*.mjs'`, `https://…`), and cutting there
+ * would hide real code. Every miss of this rule keeps text, so it can only
+ * elect a module too many, never hide a parser from the gate.
+ */
+const withoutLineComments = (source: string) => source
+  .replace(/^[ \t]*\/\*[\s\S]*?\*\//gm, '')
+  .replace(/^[ \t]*\/\/.*$/gm, '');
+
 /** Whether a module source reads a location out of a j2w listing row. */
-const isJ2wListingSource = (source: string) => J2W_LOCATION_CELL.test(source) && J2W_LISTING_ROW.test(source);
+const isJ2wListingSource = (source: string) => {
+  const code = withoutLineComments(source);
+  return J2W_LOCATION_CELL.test(code) && J2W_LISTING_ROW.test(code);
+};
 
 const mjsFilesUnder = (dir: string, prefix = ''): string[] => fs.readdirSync(dir, { withFileTypes: true })
   .flatMap((entry) => (entry.isDirectory()
@@ -416,9 +432,6 @@ const discoverJ2wListingModules = (root = path.resolve(process.cwd(), 'scripts',
  * discovered, is what makes a new omission reviewable instead of silent.
  */
 const J2W_LISTING_MODULES_WITHOUT_LOCATION: Record<string, string> = {
-  // Tile listing (`li.job-tile`), and `parseListingTiles()` emits no location
-  // field at all: the marker has nowhere to leak into.
-  'stadt-zuerich-job-parser.mjs': 'listing tiles carry no location field',
   // Not a j2w tenant: its own `#joboffers` table on amag.ch, rows keyed by
   // `#jobTitel`/`#jobStandort` and `-j{id}.html` hrefs. The `jobLocation` token
   // is the JSON-LD field of the detail page, not a listing cell.
@@ -537,5 +550,43 @@ describe('SuccessFactors j2w multi-office listing row', () => {
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('does not elect a module that cites the selectors only in comments', () => {
+    // The shape of `crawler-empty-ok-registry.mjs` (PR 11308): a registry that
+    // documents a tenant's markup in prose and parses no row. Electing it sent
+    // main red on every PR that touched an import of this test.
+    const documentsOnly = [
+      '/**',
+      ' * The tenant still renders `tbody > tr` rows with a `.jobLocation` cell.',
+      ' */',
+      "  // selectors (`data-row`, `jobTitle-link`, `colLocation`) are unchanged",
+      "export const EMPTY_OK = new Set(['some-tenant']);",
+    ].join('\n');
+    const parsesTheRow = [
+      documentsOnly,
+      "const row = /<tr[^>]*data-row[^>]*>[\\s\\S]*?class=\"jobLocation\"/;",
+    ].join('\n');
+
+    expect(isJ2wListingSource(documentsOnly)).toBe(false);
+    expect(isJ2wListingSource(parsesTheRow)).toBe(true);
+
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'j2w-discovery-'));
+    try {
+      fs.writeFileSync(path.join(root, 'documents-only.mjs'), documentsOnly);
+      fs.writeFileSync(path.join(root, 'parses-the-row.mjs'), parsesTheRow);
+
+      expect(discoverJ2wListingModules(root)).not.toContain('documents-only.mjs');
+      expect(discoverJ2wListingModules(root)).toContain('parses-the-row.mjs');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a selector that follows `//` inside a string', () => {
+    // Only comments that open a line are dropped: a URL in code is not one.
+    const urlThenSelector = "const base = 'https://jobs.example.ch/search/'; const sel = 'tbody > tr .colLocation';";
+
+    expect(isJ2wListingSource(urlThenSelector)).toBe(true);
   });
 });

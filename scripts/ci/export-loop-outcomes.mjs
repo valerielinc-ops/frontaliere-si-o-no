@@ -11,19 +11,16 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { runHogQL } from '../lib/posthog-client.mjs';
 import {
   DEFAULT_GA4_PROPERTY_ID,
   GA4_READONLY_SCOPE,
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
-import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
 export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const DEFAULT_L4_WINDOW_HOURS = 30;
-export const DEFAULT_L7_WINDOW_DAYS = 7;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
 
 /**
@@ -61,12 +58,6 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
 });
 
 const DAY_MS = 86_400_000;
-const L7_EVENT_NAMES = Object.freeze([
-  'experiment_assignment',
-  'experiment_exposure',
-  'experiment_outcome',
-  'experiment_guardrail',
-]);
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -332,27 +323,6 @@ function firestoreTimestampFilter(fieldPath, iso, op = 'GREATER_THAN_OR_EQUAL') 
   return { fieldFilter: { field: { fieldPath }, op, value: { timestampValue: iso } } };
 }
 
-function readRemoteConfigValue(template, name) {
-  const value = template?.parameters?.[name]?.defaultValue?.value
-    ?? template?.parameters?.[name]?.defaultValue
-    ?? template?.parameters?.[name]?.value;
-  return text(value) ? value : null;
-}
-
-export async function resolvePostHogConfig(client) {
-  let template = null;
-  const read = async (envName, remoteName) => {
-    if (text(process.env[envName])) return process.env[envName];
-    template ||= await client.remoteConfig();
-    return readRemoteConfigValue(template, remoteName);
-  };
-  const apiKey = await read('POSTHOG_PERSONAL_API_KEY', 'SERVER_POSTHOG_PERSONAL_API_KEY');
-  const projectId = await read('POSTHOG_PROJECT_ID', 'SERVER_POSTHOG_PROJECT_ID');
-  const host = await read('POSTHOG_HOST', 'SERVER_POSTHOG_HOST') || 'https://eu.posthog.com';
-  if (!apiKey || !projectId) throw new Error('PostHog credentials are missing from env and Remote Config');
-  return { apiKey, projectId, host };
-}
-
 export function completeUtcWindow(now, days) {
   if (!Number.isInteger(days) || days < 1 || days > 31) {
     throw new Error('days must be an integer between 1 and 31');
@@ -381,30 +351,10 @@ export function postHogRow(response, name) {
   return row?.[name] ?? null;
 }
 
-export function nonNegativeInteger(value, label) {
-  const parsed = typeof value === 'number' ? value : Number(value);
-  if (!Number.isInteger(parsed) || parsed < 0) throw new Error(`PostHog returned invalid ${label}`);
-  return parsed;
-}
-
 function isoDate(value, label) {
   const date = value instanceof Date ? value : new Date(value);
   if (!Number.isFinite(date.getTime())) throw new Error(label + ' must be a valid date');
   return date.toISOString();
-}
-
-function quoteHogQLString(value) {
-  return "'" + String(value).replaceAll("\\", "\\\\").replaceAll("'", "\\'") + "'";
-}
-
-function postHogAggregate(response, label) {
-  const columns = Array.isArray(response?.columns) ? response.columns : [];
-  const row = response?.results?.[0];
-  if (Array.isArray(row)) {
-    return Object.fromEntries(columns.map((column, index) => [column, row[index]]));
-  }
-  if (isObject(row)) return row;
-  throw new Error('PostHog returned no ' + label + ' aggregate row');
 }
 
 function writeJsonFile(outputPath, value) {
@@ -510,328 +460,6 @@ export async function exportL5({
     generatedAt: now,
     telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
     eventContract,
-  });
-  writeJsonFile(outputPath, outcome);
-  return outcome;
-}
-
-function normalizeL7Policy(policy) {
-  if (!isObject(policy)) throw new Error('L7 policy is required and must come from the loop fleet registry');
-  const outcome = isObject(policy.outcome) ? policy.outcome : null;
-  const allocation = isObject(policy.allocationPolicy) ? policy.allocationPolicy : null;
-  const contamination = isObject(allocation?.contaminationPolicy) ? allocation.contaminationPolicy : null;
-  const lifecycle = isObject(policy.lifecycle) ? policy.lifecycle : null;
-  if (!text(outcome?.outcomeId)) throw new Error('L7 policy outcome.outcomeId is required');
-  if (!text(policy.primaryMetric)) throw new Error('L7 policy primaryMetric is required');
-  if (!Number.isInteger(policy.minimumSample) || policy.minimumSample < 1) {
-    throw new Error('L7 policy minimumSample must be a positive integer');
-  }
-  if (!Array.isArray(policy.guardrails) || policy.guardrails.length === 0 || policy.guardrails.some((guardrail) => !text(guardrail))) {
-    throw new Error('L7 policy guardrails must be a non-empty array of text');
-  }
-  if (!Array.isArray(outcome?.sourceRefs) || outcome.sourceRefs.length === 0 || outcome.sourceRefs.some((sourceRef) => !text(sourceRef))) {
-    throw new Error('L7 policy outcome.sourceRefs must be a non-empty array of text');
-  }
-  if (!Number.isFinite(lifecycle?.candidateTtlHours) || lifecycle.candidateTtlHours <= 0) {
-    throw new Error('L7 policy lifecycle.candidateTtlHours must be positive');
-  }
-  if (!text(allocation?.assignmentMethod)) throw new Error('L7 policy allocationPolicy.assignmentMethod is required');
-  if (!text(allocation?.assignmentKey)) throw new Error('L7 policy allocationPolicy.assignmentKey is required');
-  if (!text(contamination?.key)) throw new Error('L7 policy allocationPolicy.contaminationPolicy.key is required');
-  const sourceRefs = outcome.sourceRefs.map((sourceRef) => sourceRef.trim());
-  return {
-    outcomeId: outcome.outcomeId.trim(),
-    primaryMetric: policy.primaryMetric.trim(),
-    minimumSample: policy.minimumSample,
-    guardrails: policy.guardrails.map((guardrail) => guardrail.trim()),
-    candidateTtlHours: lifecycle.candidateTtlHours,
-    sourceRefs,
-    assignmentMethod: allocation.assignmentMethod.trim(),
-    assignmentKey: allocation.assignmentKey.trim(),
-    contaminationKey: contamination.key.trim(),
-  };
-}
-
-function readL7Policy(registryPath) {
-  const { policy } = loadLoopPolicy(registryPath, 'L7');
-  return policy;
-}
-
-export function buildL7ExperimentLedgerQuery({ start, end, policy } = {}) {
-  if (!text(start) || !text(end)) throw new Error('L7 experiment query requires start and end');
-  const normalizedPolicy = normalizeL7Policy(policy);
-  const assignmentEvent = quoteHogQLString('experiment_assignment');
-  const exposureEvent = quoteHogQLString('experiment_exposure');
-  const outcomeEvent = quoteHogQLString('experiment_outcome');
-  const guardrailEvent = quoteHogQLString('experiment_guardrail');
-  const assignmentValidity = [
-    'properties.assignment_method = ' + quoteHogQLString(normalizedPolicy.assignmentMethod),
-    'properties.assignment_key = ' + quoteHogQLString(normalizedPolicy.assignmentKey),
-    'properties.persistent = true',
-  ].join(' AND ');
-  const exposureValidity = 'properties.variant IS NOT NULL';
-  const outcomeValidity = [
-    'properties.outcome_id = ' + quoteHogQLString(normalizedPolicy.outcomeId),
-    'properties.primary_metric = ' + quoteHogQLString(normalizedPolicy.primaryMetric),
-  ].join(' AND ');
-  const guardrailValidity = [
-    'properties.guardrail_checked = true',
-    '(properties.breach = true OR properties.breach = false)',
-  ].join(' AND ');
-  const contaminationValidity = [
-    'properties.contamination_checked = true',
-    '(properties.contaminated = true OR properties.contaminated = false)',
-  ].join(' AND ');
-  // HogQL exposes `toDateTime` but not the safe `*OrNull` variants.  Route
-  // malformed timestamp shapes to the epoch; a calendar value that still
-  // cannot be parsed aborts the export instead of being marked verified.
-  const expiryPattern = quoteHogQLString('^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?Z$');
-  const expiryDate = 'toDateTime(if(match(properties.expires_at, ' + expiryPattern + ') = 1, properties.expires_at, ' + quoteHogQLString('1970-01-01T00:00:00Z') + '))';
-  const expiryValidity = [
-    'match(properties.expires_at, ' + expiryPattern + ') = 1',
-    expiryDate + ' > timestamp',
-    expiryDate + ' <= addHours(timestamp, ' + normalizedPolicy.candidateTtlHours + ')',
-  ].join(' AND ');
-  const completeAssignmentSessionPredicate = [
-    'assignmentRecords > 0',
-    'invalidEligibilityRecords = 0',
-    'invalidAssignmentRecords = 0',
-    'persistentAssignmentRecords = assignmentRecords',
-    'invalidContaminationRecords = 0',
-    'invalidExpiryRecords = 0',
-    'exposureRecords > 0',
-    'invalidExposureRecords = 0',
-    'outcomeRecords > 0',
-    'invalidOutcomeRecords = 0',
-    'guardrailRecords > 0',
-    'invalidGuardrailRecords = 0',
-    'guardrailBreachRecords = 0',
-  ].join(' AND ');
-  return [
-    'SELECT',
-    '  sum(eventCount) AS sourceEventCount,',
-    '  countIf(assignmentRecords > 0 AND invalidEligibilityRecords = 0) AS eligibleCohort,',
-    '  countIf(assignmentRecords > 0) AS assignments,',
-    '  countIf(' + completeAssignmentSessionPredicate + ') AS completeAssignmentSessions,',
-    '  countIf(validExposureRecords > 0) AS exposures,',
-    '  countIf(validOutcomeRecords > 0) AS primaryOutcomes,',
-    '  sum(guardrailBreachRecords) AS guardrailBreaches,',
-    '  countIf(assignmentRecords > 0 AND persistentAssignmentRecords = assignmentRecords) AS persistentAssignments,',
-    '  sum(contaminatedAssignments) AS contaminatedAssignments,',
-    '  countIf(assignmentRecords > 0 AND invalidAssignmentRecords = 0) AS assignmentContract,',
-    '  countIf(assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0) AS exposureContract,',
-    '  countIf(assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0) AS outcomeContract,',
-    '  countIf(assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0) AS guardrailContract,',
-    '  countIf(assignmentRecords > 0 AND invalidContaminationRecords = 0) AS contaminationContract,',
-    '  countIf(assignmentRecords > 0 AND invalidExpiryRecords = 0) AS expiryContract,',
-    '  min(firstSeenAt) AS firstSeenAt,',
-    '  max(lastSeenAt) AS lastSeenAt',
-    'FROM (',
-    '  SELECT $session_id,',
-    '    count() AS eventCount,',
-    '    sum(if(event = ' + assignmentEvent + ', 1, 0)) AS assignmentRecords,',
-    '    sum(if(event = ' + assignmentEvent + ', if(properties.eligible = true, 0, 1), 0)) AS invalidEligibilityRecords,',
-    '    sum(if(event = ' + exposureEvent + ', 1, 0)) AS exposureRecords,',
-    '    sum(if(event = ' + exposureEvent + ' AND ' + exposureValidity + ', 1, 0)) AS validExposureRecords,',
-    '    sum(if(event = ' + outcomeEvent + ', 1, 0)) AS outcomeRecords,',
-    '    sum(if(event = ' + outcomeEvent + ' AND ' + outcomeValidity + ', 1, 0)) AS validOutcomeRecords,',
-    '    sum(if(event = ' + guardrailEvent + ', 1, 0)) AS guardrailRecords,',
-    '    sum(if(event = ' + guardrailEvent + ' AND properties.breach = true, 1, 0)) AS guardrailBreachRecords,',
-    '    sum(if(event = ' + assignmentEvent + ' AND properties.persistent = true, 1, 0)) AS persistentAssignmentRecords,',
-    '    sum(if(event = ' + assignmentEvent + ' AND properties.contaminated = true, 1, 0)) AS contaminatedAssignments,',
-    '    sum(if(event = ' + assignmentEvent + ', if(' + assignmentValidity + ', 0, 1), 0)) AS invalidAssignmentRecords,',
-    '    sum(if(event = ' + exposureEvent + ', if(' + exposureValidity + ', 0, 1), 0)) AS invalidExposureRecords,',
-    '    sum(if(event = ' + outcomeEvent + ', if(' + outcomeValidity + ', 0, 1), 0)) AS invalidOutcomeRecords,',
-    '    sum(if(event = ' + guardrailEvent + ', if(' + guardrailValidity + ', 0, 1), 0)) AS invalidGuardrailRecords,',
-    '    sum(if(event = ' + assignmentEvent + ', if(' + contaminationValidity + ', 0, 1), 0)) AS invalidContaminationRecords,',
-    '    sum(if(event = ' + assignmentEvent + ', if(' + expiryValidity + ', 0, 1), 0)) AS invalidExpiryRecords,',
-    '    min(timestamp) AS firstSeenAt,',
-    '    max(timestamp) AS lastSeenAt',
-    '  FROM events',
-    '  WHERE event IN (' + L7_EVENT_NAMES.map(quoteHogQLString).join(', ') + ')',
-    '    AND properties.loop_id = ' + quoteHogQLString('L7'),
-    '    AND timestamp >= ' + quoteHogQLString(start) + ' AND timestamp < ' + quoteHogQLString(end),
-    '  GROUP BY $session_id',
-    ')',
-  ].join('\n');
-}
-
-function l7MetricValues(aggregate, sourceObserved) {
-  const names = [
-    'eligibleCohort',
-    'assignments',
-    'exposures',
-    'primaryOutcomes',
-    'guardrailBreaches',
-    'persistentAssignments',
-    'contaminatedAssignments',
-  ];
-  if (!sourceObserved) return Object.fromEntries(names.map((name) => [name, null]));
-  return Object.fromEntries(names.map((name) => [
-    name,
-    nonNegativeInteger(aggregate[name] ?? 0, name),
-  ]));
-}
-
-function l7DurationDays(aggregate, sourceObserved) {
-  if (!sourceObserved) return null;
-  if (number(aggregate.durationDays) && aggregate.durationDays > 0) return Number(aggregate.durationDays);
-  const firstSeen = new Date(aggregate.firstSeenAt);
-  const lastSeen = new Date(aggregate.lastSeenAt);
-  if (!Number.isFinite(firstSeen.getTime()) || !Number.isFinite(lastSeen.getTime())) return null;
-  const days = (lastSeen.getTime() - firstSeen.getTime()) / DAY_MS;
-  return days > 0 ? Number(days.toFixed(3)) : null;
-}
-
-export function buildL7ExperimentLedger({
-  aggregate = {},
-  generatedAt,
-  telemetryWindow,
-  policy = {},
-} = {}) {
-  const normalizedPolicy = normalizeL7Policy(policy);
-  const generated = isoDate(generatedAt, 'L7 generatedAt');
-  const sourceEventCount = nonNegativeInteger(aggregate.sourceEventCount ?? 0, 'sourceEventCount');
-  const sourceObserved = sourceEventCount > 0;
-  const values = l7MetricValues(aggregate, sourceObserved);
-  const durationDays = l7DurationDays(aggregate, sourceObserved);
-  const assignments = values.assignments;
-  const exposures = values.exposures;
-  const eligibleCohort = values.eligibleCohort;
-  const completeAssignmentSessions = nonNegativeInteger(
-    aggregate.completeAssignmentSessions ?? 0,
-    'completeAssignmentSessions',
-  );
-  const contracts = {
-    assignment: nonNegativeInteger(aggregate.assignmentContract ?? 0, 'assignmentContract'),
-    exposure: nonNegativeInteger(aggregate.exposureContract ?? 0, 'exposureContract'),
-    outcome: nonNegativeInteger(aggregate.outcomeContract ?? 0, 'outcomeContract'),
-    guardrail: nonNegativeInteger(aggregate.guardrailContract ?? 0, 'guardrailContract'),
-    contamination: nonNegativeInteger(aggregate.contaminationContract ?? 0, 'contaminationContract'),
-    expiry: nonNegativeInteger(aggregate.expiryContract ?? 0, 'expiryContract'),
-  };
-  const contractsComplete = sourceObserved
-    && assignments !== null
-    && assignments > 0
-    && eligibleCohort >= normalizedPolicy.minimumSample
-    && assignments >= normalizedPolicy.minimumSample
-    && eligibleCohort === assignments
-    && exposures !== null
-    && exposures > 0
-    && exposures >= normalizedPolicy.minimumSample
-    && values.primaryOutcomes !== null
-    && values.primaryOutcomes > 0
-    && values.primaryOutcomes <= exposures
-    && values.guardrailBreaches === 0
-    && values.persistentAssignments === assignments
-    && values.contaminatedAssignments === 0
-    && completeAssignmentSessions >= assignments
-    && durationDays !== null
-    && contracts.assignment >= assignments
-    && contracts.exposure >= assignments
-    && contracts.outcome >= assignments
-    && contracts.guardrail >= assignments
-    && contracts.contamination >= assignments
-    && contracts.expiry >= assignments;
-  const preRegistration = {
-    outcomeId: normalizedPolicy.outcomeId,
-    primaryMetric: normalizedPolicy.primaryMetric,
-    minimumSample: normalizedPolicy.minimumSample,
-    guardrails: normalizedPolicy.guardrails,
-    expiresAt: new Date(new Date(generated).getTime() + normalizedPolicy.candidateTtlHours * 3_600_000).toISOString(),
-  };
-  const assignmentLedger = {
-    persistent: contractsComplete,
-    method: normalizedPolicy.assignmentMethod,
-    key: normalizedPolicy.assignmentKey,
-  };
-  const contaminationPolicy = {
-    controlled: contractsComplete,
-    key: normalizedPolicy.contaminationKey,
-  };
-  return {
-    schemaVersion: 1,
-    loopId: 'L7',
-    generatedAt: generated,
-    independent: contractsComplete,
-    status: contractsComplete ? 'observed' : (sourceObserved ? 'unverified' : 'missing'),
-    sourceEventCount,
-    eligibleCohort: values.eligibleCohort,
-    assignments: values.assignments,
-    exposures: values.exposures,
-    completeAssignmentSessions,
-    primaryOutcomes: values.primaryOutcomes,
-    guardrailBreaches: values.guardrailBreaches,
-    persistentAssignments: values.persistentAssignments,
-    contaminatedAssignments: values.contaminatedAssignments,
-    durationDays,
-    metrics: values,
-    preRegistration,
-    assignmentLedger,
-    contaminationPolicy,
-    contracts,
-    telemetryWindow,
-    scope: {
-      assignment: 'experiment_assignment with explicit loop_id, stable method/key, persistence and expiry',
-      exposure: 'experiment_exposure with explicit loop_id and variant',
-      outcome: 'experiment_outcome with registered outcome id and primary metric',
-      guardrails: 'experiment_guardrail with guardrail_checked and breach fields',
-      joinKey: '$session_id, which is the registered experiment-session-id',
-    },
-    evidence: {
-      source: 'posthog-experiment-ledger-export',
-      sourceRefs: normalizedPolicy.sourceRefs,
-      status: contractsComplete ? 'verified' : (sourceObserved ? 'unverified' : 'missing'),
-      sourceEventCount,
-      telemetryWindow,
-      eventContract: {
-        events: [...L7_EVENT_NAMES],
-        requiredProperties: [
-          'loop_id',
-          'assignment_method',
-          'assignment_key',
-          'persistent',
-          'expires_at',
-          'contamination_checked',
-          'contaminated',
-          'guardrail_checked',
-          'breach',
-        ],
-      },
-    },
-    reason: contractsComplete
-      ? 'explicit PostHog experiment ledger satisfies the registered assignment, exposure, outcome and guardrail contract'
-      : (sourceObserved
-        ? 'PostHog contains experiment events, but the registered ledger contract is incomplete; allocation remains disabled'
-        : 'no canonical L7 experiment ledger events were observed; allocation remains disabled'),
-    _meta: {
-      generatedAt: generated,
-      source: 'PostHog HogQL, read-only live export',
-      purpose: 'Independent assignment, exposure, outcome and guardrail evidence for Loop L7',
-      telemetryWindow,
-    },
-  };
-}
-
-export async function exportL7({
-  registryPath = 'data/loop-fleet/loop-registry.json',
-  outputPath,
-  now = new Date(),
-  days = DEFAULT_L7_WINDOW_DAYS,
-  client = null,
-  posthogRunner = runHogQL,
-} = {}) {
-  const firestore = client || new GoogleDataClient();
-  const window = rollingWindow(now, Number(days) * 24);
-  const resolvedPolicy = readL7Policy(registryPath);
-  const config = await resolvePostHogConfig(firestore);
-  const response = await posthogRunner(buildL7ExperimentLedgerQuery({ ...window, policy: resolvedPolicy }), config);
-  const aggregate = postHogAggregate(response, 'L7 experiment ledger');
-  const outcome = buildL7ExperimentLedger({
-    aggregate,
-    generatedAt: now,
-    telemetryWindow: window,
-    policy: resolvedPolicy,
   });
   writeJsonFile(outputPath, outcome);
   return outcome;
@@ -1788,8 +1416,8 @@ function valueAfter(argv, name, fallback = null) {
 export async function main({ argv = process.argv.slice(2) } = {}) {
   const loop = valueAfter(argv, '--loop');
   const outputPath = valueAfter(argv, '--out');
-  if (!['L1', 'L3', 'L4', 'L5', 'L7', 'L9'].includes(loop)) {
-    throw new Error('--loop must be L1, L3, L4, L5, L7 or L9');
+  if (!['L1', 'L3', 'L4', 'L5', 'L9'].includes(loop)) {
+    throw new Error('--loop must be L1, L3, L4, L5 or L9');
   }
   if (!outputPath) throw new Error('--out is required');
   const now = new Date();
@@ -1865,14 +1493,6 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       now,
       days: Number(valueAfter(argv, '--days', DEFAULT_L5_WINDOW_DAYS)),
       propertyId: valueAfter(argv, '--property', null),
-    });
-  }
-  if (loop === 'L7') {
-    return exportL7({
-      registryPath: valueAfter(argv, '--registry', 'data/loop-fleet/loop-registry.json'),
-      outputPath,
-      now,
-      days: valueAfter(argv, '--days', DEFAULT_L7_WINDOW_DAYS),
     });
   }
   return exportL9({

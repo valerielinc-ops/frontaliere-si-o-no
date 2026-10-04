@@ -276,11 +276,25 @@ const MULTI_ALIASES_BY_FIRST_STEM = new Map();
 /** Distinct single-word alias stems, sorted, for the prefix-tolerance branch. */
 const SINGLE_ALIAS_STEMS_SORTED = [];
 
+// These short/generic surfaces are useful when classifying search demand, but
+// they are not precise enough to title a keyword landing. In particular,
+// "Guardia notturna ..." is not necessarily a security-agent job,
+// "ICT Security Officer" is an IT role, and a bare Nachtwachter surface is
+// too broad for a profession page. Keep them in matchProfession() so the
+// demand signal does not change; exclude them only from title membership.
+const TITLE_MATCH_EXCLUDED_ALIASES = new Set([
+  'guardia',
+  'security officer',
+  'security guard',
+  'nachtwachter',
+  'nachtwachterin',
+]);
+
 {
   let order = 0;
   for (const entry of PROFESSION_TAXONOMY) {
     for (const alias of entry.aliases) {
-      const record = { id: entry.id, aliasLength: alias.length, order: order++ };
+      const record = { id: entry.id, alias, aliasLength: alias.length, order: order++ };
       if (alias.includes(' ')) {
         // A multi-word alias matches only when EVERY one of its word stems is
         // present, so bucketing it under the first word's stem can never lose
@@ -315,8 +329,10 @@ function lowerBoundStem(target) {
 }
 
 /**
- * Match a free-text string (search term or job title) against the taxonomy.
- * Returns the matched profession id or null. Longest alias wins.
+ * Match a free-text search string against the taxonomy.
+ * Returns the matched profession id or null. Longest alias wins. Job-title
+ * membership uses matchProfessionTitle() below, which intentionally has a
+ * stricter contract.
  *
  * Tie-break (equal-length candidate aliases, e.g. "zimmermann"/"carpenter"
  * legitimately listed under both `falegname` and `carpentiere`): the FIRST
@@ -331,7 +347,7 @@ function lowerBoundStem(target) {
  * that replays the pre-index scan. Don't relax the tie-break without updating
  * that test's KNOWN_AMBIGUOUS_ALIASES expectations.
  */
-export function matchProfession(text) {
+function matchProfessionFromIndex(text, { allowTypingPrefix = true, excludedAliases = null } = {}) {
   const norm = normalizeText(text);
   if (!norm) return null;
   const tokens = norm.split(' ').filter((t) => t.length >= 2);
@@ -342,6 +358,7 @@ export function matchProfession(text) {
   let best = null;
   /** Longest alias wins; equal length keeps the first-declared (see doc above). */
   const consider = (record) => {
+    if (excludedAliases?.has(record.alias)) return;
     if (!best
       || record.aliasLength > best.aliasLength
       || (record.aliasLength === best.aliasLength && record.order < best.order)) {
@@ -358,15 +375,12 @@ export function matchProfession(text) {
     }
   }
 
-  // Single-word aliases match on stem equality, plus a typing-prefix tolerance
-  // for tokens of >=5 chars (on-site search logs partial terms while the user
-  // types; "inf"/"infe" stay noise). `aliasStem.startsWith(tokenStem)` is true
-  // when the two are equal, so for a >=5-char token the prefix range below
-  // already subsumes the equality case and only shorter tokens need the
-  // exact-stem lookup.
+  // Single-word aliases match on stem equality. The search matcher also has a
+  // typing-prefix tolerance for tokens of >=5 chars (on-site search logs
+  // partial terms while the user types; "inf"/"infe" stay noise).
   for (let i = 0; i < tokens.length; i++) {
     const tokenStem = stems[i];
-    if (tokens[i].length >= 5) {
+    if (allowTypingPrefix && tokens[i].length >= 5) {
       for (let j = lowerBoundStem(tokenStem); j < SINGLE_ALIAS_STEMS_SORTED.length; j++) {
         const aliasStem = SINGLE_ALIAS_STEMS_SORTED[j];
         if (!aliasStem.startsWith(tokenStem)) break;
@@ -379,6 +393,27 @@ export function matchProfession(text) {
   }
 
   return best ? best.id : null;
+}
+
+/**
+ * Match a job title for keyword-page membership.
+ *
+ * Unlike matchProfession(), this deliberately does not accept typing
+ * prefixes. Landing pages need a precise title predicate: a partial token in
+ * an unrelated title must not turn into an indexed profession page listing.
+ * A small set of generic security surfaces is also demand-only because those
+ * titles are routinely used for neighbouring roles.
+ */
+export function matchProfessionTitle(text) {
+  return matchProfessionFromIndex(text, {
+    allowTypingPrefix: false,
+    excludedAliases: TITLE_MATCH_EXCLUDED_ALIASES,
+  });
+}
+
+/** Search/query matcher: preserves the existing prefix-tolerant behaviour. */
+export function matchProfession(text) {
+  return matchProfessionFromIndex(text);
 }
 
 /**

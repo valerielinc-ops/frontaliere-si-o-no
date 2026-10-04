@@ -9,7 +9,7 @@
  */
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import {
@@ -20,6 +20,12 @@ import {
   SIBLING_GATE_PAYLOAD_ENV,
 } from '../scripts/ci/sibling-check-gate.mjs';
 import { resolveGatedHeadRef } from '../scripts/ci/lib/hook-target-cwd.mjs';
+import {
+  checkerCandidates,
+  materializeChecker,
+  readRevisionChecker,
+  relativeImports,
+} from '../scripts/ci/lib/sibling-checker-revision.mjs';
 import { describePrBodySource, localDiffPaths } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
@@ -405,8 +411,8 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
     it('il gate non accusa piu\' i gemelli del lavoro altrui', () => {
       const res = runGate('gh pr create --head feature-x --title x --body "y"');
       expect(res.status).toBe(EXIT_BLOCK);
-      expect(res.stdout).toContain('scripts/beta.mjs');
-      expect(res.stdout).not.toContain('scripts/foreign-twin.mjs');
+      expect(res.stderr).toContain('scripts/beta.mjs');
+      expect(res.stderr).not.toContain('scripts/foreign-twin.mjs');
     });
 
     it('da Codex il cd nella stessa chiamata porta il gate nel worktree e segue il suo HEAD', () => {
@@ -607,9 +613,9 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
 
     it('il gate etichetta i candidati e spiega cosa significa [debole]', () => {
       const res = runGate('gh pr create --head feature-x --title x --body "y"');
-      expect(res.stdout).toMatch(/\[forte\] scripts\/beta\.mjs/);
-      expect(res.stdout).toMatch(/\[debole\] scripts\/gamma\.mjs/);
-      expect(res.stdout).toMatch(/evidenza limitata/);
+      expect(res.stderr).toMatch(/\[forte\] scripts\/beta\.mjs/);
+      expect(res.stderr).toMatch(/\[debole\] scripts\/gamma\.mjs/);
+      expect(res.stderr).toMatch(/evidenza limitata/);
     });
 
     it('un candidato debole BLOCCA ancora: è un ordinamento, non un filtro', () => {
@@ -622,8 +628,8 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       );
       const res = runGate(`gh pr create --head feature-x --title x --body-file ${bodyPath}`);
       expect(res.status).toBe(EXIT_BLOCK);
-      expect(res.stdout).toContain('scripts/gamma.mjs');
-      expect(res.stdout).not.toContain('scripts/beta.mjs');
+      expect(res.stderr).toContain('scripts/gamma.mjs');
+      expect(res.stderr).not.toContain('scripts/beta.mjs');
     });
 
     it('tutti dichiarati uno per riga → il gate passa', () => {
@@ -638,6 +644,223 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       const res = runGate(`gh pr create --head feature-x --title x --body-file ${bodyPath}`);
       expect(res.status).toBe(0);
     });
+  });
+});
+
+describe('sibling-check-gate — il verdetto viene dal checker della revisione giudicata (2026-10-04)', () => {
+  // Incidente: l'hook girava dal checkout principale, fermo sul branch di
+  // un'altra sessione con un checker di settimane prima. Quel checker vedeva
+  // candidati che il checker del branch proposto non vedeva, e il gate
+  // bloccava senza nemmeno elencarli. Qui il gate gira da questo repo: il suo
+  // checker LOCALE (quello vero) troverebbe beta/gamma per un branch che
+  // tocca alpha, e fa la parte del checker "vecchio" del checkout principale.
+  // La revisione giudicata porta invece un checker finto, "nuovo", il cui
+  // verdetto e' scritto in un modulo importato: il risultato deve dipendere
+  // solo da quello.
+  const dirs: string[] = [];
+  let repo = '';
+  const CHECKER = 'scripts/ci/check-sibling-patterns.mjs';
+  const VERDICT = 'scripts/ci/lib/fake-verdict.mjs';
+
+  const git = (...args: string[]) =>
+    execFileSync('git', args, { cwd: repo, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  const write = (rel: string, body: string) => {
+    mkdirSync(dirname(join(repo, rel)), { recursive: true });
+    writeFileSync(join(repo, rel), body, 'utf8');
+  };
+  const verdict = (candidates: unknown[]) => `export const candidates = ${JSON.stringify(candidates)};\n`;
+
+  beforeAll(() => {
+    repo = mkdtempSync(join(tmpdir(), 'sibling-gate-judged-'));
+    dirs.push(repo);
+    git('init', '-q', '-b', 'main');
+    git('config', 'user.email', 'test@example.com');
+    git('config', 'user.name', 'test');
+    write('scripts/alpha.mjs', 'export function sharedComputeHelper() { return 1; }\nconst rawDescription = "a";\nexport { rawDescription };\n');
+    write('scripts/beta.mjs', 'import { sharedComputeHelper } from "./alpha.mjs";\nconst rawDescription = sharedComputeHelper();\n');
+    write('scripts/gamma.mjs', 'const rawDescription = "shared-policy-value";\nexport default rawDescription;\n');
+    write(
+      CHECKER,
+      "import { candidates } from './lib/fake-verdict.mjs';\n" +
+        "const head = process.argv[process.argv.indexOf('--head') + 1];\n" +
+        "console.log(JSON.stringify({ base: 'origin/main', head, changedFiles: 1, changedCode: ['scripts/alpha.mjs'], candidates }));\n",
+    );
+    write(VERDICT, verdict([]));
+    git('add', '-A');
+    git('commit', '-q', '-m', 'base');
+    git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+
+    const touchAlpha = () =>
+      write('scripts/alpha.mjs', 'export function sharedComputeHelper() { return 42; }\nconst rawDescription = "shared-policy-value";\nexport { rawDescription };\n');
+
+    git('checkout', '-q', '-b', 'clean-verdict');
+    touchAlpha();
+    git('add', '-A');
+    git('commit', '-q', '-m', 'feature con zero candidati per il checker nuovo');
+
+    git('checkout', '-q', 'main');
+    git('checkout', '-q', '-b', 'real-candidate');
+    touchAlpha();
+    write(VERDICT, verdict([{ file: 'scripts/beta.mjs', tokens: ['sharedComputeHelper'], strength: 'forte' }]));
+    git('add', '-A');
+    git('commit', '-q', '-m', 'feature con un candidato vero');
+
+    git('checkout', '-q', 'main');
+    git('checkout', '-q', '-b', 'broken-checker');
+    touchAlpha();
+    write(CHECKER, "process.stderr.write('checker rotto\\n');\nprocess.exit(3);\n");
+    git('add', '-A');
+    git('commit', '-q', '-m', 'feature che rompe il checker');
+    git('checkout', '-q', 'main');
+  });
+  afterAll(() => {
+    while (dirs.length) rmSync(dirs.pop()!, { recursive: true, force: true });
+  });
+
+  const runGate = (command: string) =>
+    spawnSync('node', [GATE], {
+      input: JSON.stringify({ tool_input: { command }, cwd: repo }),
+      encoding: 'utf8',
+      cwd: repo,
+    });
+
+  it('relativeImports trova import statici, dinamici e side-effect, non i pacchetti', () => {
+    const source = [
+      "import { a } from './lib/a.mjs';",
+      "import './side.mjs';",
+      "const b = await import('../b.mjs');",
+      "export { c } from \"./c.mjs\";",
+      "import ts from 'typescript';",
+    ].join('\n');
+    expect(relativeImports(source).sort()).toEqual(['../b.mjs', './c.mjs', './lib/a.mjs', './side.mjs']);
+  });
+
+  it('readRevisionChecker legge dal ref la chiusura degli import, non il disco', () => {
+    write(VERDICT, verdict([{ file: 'sporco-locale.mjs', tokens: [], strength: 'debole' }]));
+    try {
+      const snapshot = readRevisionChecker(repo, 'real-candidate', CHECKER)!;
+      expect(snapshot.files.map((f) => f.path).sort()).toEqual([VERDICT, CHECKER].sort());
+      const verdictFile = snapshot.files.find((f) => f.path === VERDICT)!;
+      expect(verdictFile.content).toContain('scripts/beta.mjs');
+      expect(verdictFile.content).not.toContain('sporco-locale.mjs');
+    } finally {
+      git('checkout', '-q', '--', VERDICT);
+    }
+    expect(readRevisionChecker(repo, 'ref-che-non-esiste', CHECKER)).toBeUndefined();
+  });
+
+  it('cache del checker svuotata a meta\' da un pulitore di tmp → si ripara, non ripiega per sempre', () => {
+    // Revisione: un pulitore di $TMPDIR cancella file singoli per eta'; il
+    // marker `.complete`, solo letto con uno stat, sparisce per primo. Prima
+    // della correzione: (a) senza marker il rename finiva in ENOTEMPTY, (b) col
+    // marker ma senza il file d'ingresso veniva servito un path inesistente.
+    const cacheRoot = mkdtempSync(join(tmpdir(), 'sibling-gate-checker-cache-'));
+    dirs.push(cacheRoot);
+    const snapshot = readRevisionChecker(repo, 'real-candidate', CHECKER)!;
+    const runChecker = (script: string) =>
+      JSON.parse(execFileSync('node', [script, '--json', '--head', 'real-candidate'], { encoding: 'utf8', cwd: repo }));
+    const first = materializeChecker(snapshot, { cacheRoot });
+    const keyDir = first.slice(0, -(CHECKER.length + 1));
+    expect(runChecker(first).candidates[0].file).toBe('scripts/beta.mjs');
+
+    // (a) marker cancellato, directory non vuota.
+    rmSync(join(keyDir, '.complete'));
+    const afterMarkerLoss = materializeChecker(snapshot, { cacheRoot });
+    expect(afterMarkerLoss).toBe(first);
+    expect(existsSync(join(keyDir, '.complete'))).toBe(true);
+    expect(runChecker(afterMarkerLoss).candidates[0].file).toBe('scripts/beta.mjs');
+
+    // (b) marker presente, file della chiusura cancellati.
+    rmSync(join(keyDir, CHECKER));
+    rmSync(join(keyDir, VERDICT));
+    const afterFileLoss = materializeChecker(snapshot, { cacheRoot });
+    expect(existsSync(afterFileLoss)).toBe(true);
+    expect(runChecker(afterFileLoss).candidates[0].file).toBe('scripts/beta.mjs');
+  });
+
+  it('checker presente nella revisione ma blob illeggibile → errore dichiarato, non un ripiego muto', () => {
+    const broken = mkdtempSync(join(tmpdir(), 'sibling-gate-judged-missing-blob-'));
+    dirs.push(broken);
+    const g = (...args: string[]) =>
+      execFileSync('git', args, { cwd: broken, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    g('init', '-q', '-b', 'main');
+    g('config', 'user.email', 'test@example.com');
+    g('config', 'user.name', 'test');
+    mkdirSync(join(broken, 'scripts/ci'), { recursive: true });
+    writeFileSync(join(broken, CHECKER), "console.log('{}');\n", 'utf8');
+    g('add', '-A');
+    g('commit', '-q', '-m', 'base');
+    // Il blob sparisce dal database degli oggetti (come in un clone parziale
+    // senza rete): l'albero lo nomina ancora, `cat-file` fallisce.
+    const blob = g('rev-parse', `HEAD:${CHECKER}`);
+    rmSync(join(broken, '.git', 'objects', blob.slice(0, 2), blob.slice(2)), { force: true });
+    expect(() => readRevisionChecker(broken, 'main', CHECKER)).toThrow(/non leggibile in main/);
+    const { sources, errors } = checkerCandidates({
+      cwd: broken,
+      headRef: 'main',
+      entry: CHECKER,
+      localCheckScript: join(broken, CHECKER),
+      localRepo: broken,
+      baseRef: 'main',
+    });
+    expect(sources.map((s) => s.kind)).toEqual(['local']);
+    expect(errors.join('\n')).toMatch(/revisione giudicata main: lettura fallita/);
+  });
+
+  it('0 candidati per il checker della revisione giudicata → passa, anche se il checker locale ne vedrebbe', () => {
+    const res = runGate('gh pr create --head clean-verdict --title x --body "y"');
+    expect(res.status).toBe(0);
+    expect(res.stderr).not.toContain('scripts/gamma.mjs');
+  });
+
+  it('un candidato vero blocca e viene ELENCATO nel canale che arriva all\'agente (stderr)', () => {
+    const res = runGate('gh pr create --head real-candidate --title x --body "y"');
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/\[forte\] scripts\/beta\.mjs/);
+    expect(res.stderr).toContain('costrutti condivisi: sharedComputeHelper');
+    // gamma lo vedrebbe solo il checker locale: non entra nel verdetto.
+    expect(res.stderr).not.toContain('scripts/gamma.mjs');
+  });
+
+  it('un checker diverso da origin/main e\' dichiarato nel messaggio con gli hash dei blob', () => {
+    const res = runGate('gh pr create --head real-candidate --title x --body "y"');
+    const used = git('rev-parse', `real-candidate:${VERDICT}`).slice(0, 10);
+    const base = git('rev-parse', `origin/main:${VERDICT}`).slice(0, 10);
+    expect(res.stderr).toMatch(/revisione giudicata real-candidate/);
+    expect(res.stderr).toContain(`${VERDICT}: blob ${used} (usato) vs ${base} (origin/main)`);
+  });
+
+  it('checker della revisione giudicata rotto → ripiega su origin/main e lo dice, non sul checker locale', () => {
+    const res = runGate('gh pr create --head broken-checker --title x --body "y"');
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/checker scartati prima di origin\/main @ [0-9a-f]{10}: revisione giudicata broken-checker .*checker rotto/);
+    expect(res.stderr).not.toContain('scripts/gamma.mjs');
+  });
+
+  it('nessuna revisione contiene il checker → usa quello locale e lo dichiara', () => {
+    const bare = mkdtempSync(join(tmpdir(), 'sibling-gate-judged-nochecker-'));
+    dirs.push(bare);
+    const g = (...args: string[]) => execFileSync('git', args, { cwd: bare, stdio: 'ignore' });
+    g('init', '-q', '-b', 'main');
+    g('config', 'user.email', 'test@example.com');
+    g('config', 'user.name', 'test');
+    mkdirSync(join(bare, 'scripts'), { recursive: true });
+    writeFileSync(join(bare, 'scripts/alpha.mjs'), 'export function sharedComputeHelper() { return 1; }\n');
+    writeFileSync(join(bare, 'scripts/beta.mjs'), 'import { sharedComputeHelper } from "./alpha.mjs";\nexport const v = sharedComputeHelper();\n');
+    g('add', '-A');
+    g('commit', '-q', '-m', 'base');
+    g('update-ref', 'refs/remotes/origin/main', 'HEAD');
+    g('checkout', '-q', '-b', 'feat');
+    writeFileSync(join(bare, 'scripts/alpha.mjs'), 'export function sharedComputeHelper() { return 2; }\n');
+    g('commit', '-q', '-am', 'feat');
+    const res = spawnSync('node', [GATE], {
+      input: JSON.stringify({ tool_input: { command: 'gh pr create --head feat --title x --body "y"' }, cwd: bare }),
+      encoding: 'utf8',
+      cwd: bare,
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toContain('scripts/beta.mjs');
+    expect(res.stderr).toMatch(/checker usato: working tree locale .*NON una revisione/);
   });
 });
 
