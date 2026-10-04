@@ -670,6 +670,12 @@ describe('extractEventJsonLd', () => {
     expect(ld?.name).toBe('Test');
   });
 
+  it('reads an Event block whose strings carry raw line breaks (invalid JSON pasted by the publisher)', () => {
+    const html = '<script type="application/ld+json">{"@type":"Event","name":"Test","description":"Zeile 1\nZeile 2","startDate":"2026-07-04T19:00:00+02:00"}</script>';
+    expect(html).toContain('Zeile 1\nZeile 2');
+    expect(extractEventJsonLd(html)?.description).toBe('Zeile 1\nZeile 2');
+  });
+
   it('returns null when there is no matching block or malformed JSON', () => {
     expect(extractEventJsonLd('')).toBeNull();
     expect(extractEventJsonLd('<html></html>')).toBeNull();

@@ -488,7 +488,10 @@ export async function fetchAlpiqListingPages(maxPages = 10, timeoutMs = 15000) {
       }
     } catch (err) {
       console.warn(`\u26a0\ufe0f Failed to fetch Alpiq page ${page}: ${err.message}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     } finally {
       clearTimeout(timer);
     }

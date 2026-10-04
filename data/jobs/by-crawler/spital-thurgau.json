@@ -4819,8 +4819,6 @@
         "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r13v9m",
-        "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen-76008b",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
       ],
       "previousSlugsByLocale": {
@@ -4830,7 +4828,6 @@
           "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
         ],
         "en": [
@@ -14379,12 +14376,12 @@
     },
     {
       "id": "spital-thurgau-ebda32360c14",
-      "slug": "arztsekretar-in-urologie-stgag-ch",
+      "slug": "segretario-medico-urologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "arztsekretar-in-urologie-stgag-ch",
-        "en": "arztsekretar-in-urologie-stgag-ch",
+        "it": "segretario-medico-urologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "medical-secretary-urology-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "arztsekretar-in-urologie-stgag-ch",
-        "fr": "arztsekretar-in-urologie-stgag-ch"
+        "fr": "secretaire-medical-a-l-urologie-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14443,7 +14440,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-urologie-stgag-ch"
+        ],
+        "en": [
+          "arztsekretar-in-urologie-stgag-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-urologie-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-urologie-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-9638dd9e47e8",

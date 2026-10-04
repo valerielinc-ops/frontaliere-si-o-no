@@ -307,7 +307,11 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
         const { done, value } = await reader.read();
         throwIfAborted();
         if (done) break;
-        const chunk = Buffer.from(value);
+        // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+        // shares the producer's memory, which a reader may reuse.
+        const chunk = Buffer.from(value instanceof ArrayBuffer
+          ? value.slice(0)
+          : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength));
         bytes += chunk.length;
         if (bytes > maxBytes) {
           await reader.cancel();

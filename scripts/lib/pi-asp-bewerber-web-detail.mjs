@@ -196,6 +196,7 @@ export async function renderPiAspDetailDescriptions(urls, options = {}) {
           );
         }
       } catch (err) {
+        // fetch-failure-empty-ok: per-URL detail queue: a persistent AntiBotBlockError stops hammering the ATS, it is not a listing fetch
         if (err instanceof AntiBotBlockError) {
           // Persistent block — stop hammering the ATS with the remaining URLs.
           console.warn(`  ⚠️ [${label}] anti-bot block on detail render, aborting details: ${err.message}`);

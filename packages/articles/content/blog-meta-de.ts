@@ -12536,6 +12536,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.urto-spartitraffico-camorino.title': 'Unfall in Camorino, Frau auf dem Weg zur A2 verletzt',
     'blog.article.urto-spartitraffico-camorino.excerpt': 'Nachdem das Auto in einer Kurve die Kontrolle verloren hatte, prallte es gegen einen Verkehrsteiler und überschlug sich. Die Auffahrt Richtung Süden auf die A2 blieb über eine Stunde lang gesperrt.',
     'blog.article.urto-spartitraffico-camorino.imageAlt': 'Autobahnanschluss Camorino zur A2 mit Verkehrsteiler, Unfallort.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Gesundheitsabgabe für Grenzgänger im Tessin: Start im September?',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'Neue Gesundheitsabgabe für Grenzgänger: Einführung bis September geplant, doch es fehlen noch die Ausführungsverordnungen, und Zahlungen wurden noch nicht eingezogen.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Grenzgänger pendeln zwischen Italien und der Schweiz im Tessin',
 };
 
 export default blogMetaDe;

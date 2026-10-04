@@ -19,6 +19,7 @@ import {
   isTrustedDomain as isEhnvTrusted,
   fetchAllEhnvJobs,
 } from '../../scripts/lib/ehnv-job-parser.mjs';
+import { isRetryBudgetExhausted } from '../../scripts/lib/transient-fetch.mjs';
 
 describe('eHnv (Johdi Suite) — exported constants', () => {
   it('has the expected key, name and domain', () => {
@@ -203,9 +204,11 @@ describe('fetchAllEhnvJobs', () => {
 
   // Regression: #1305/#1395/#2029/#3791/#3797 — the jobup.ch mask feed (and,
   // before this fix, an anti-bot/error page) returned HTML instead of JSON.
-  // `fetchAllEhnvJobs` must degrade to an empty array (existing slice is kept
-  // by the pipeline), never throw and crash the crawler run.
-  it('returns an empty array (does not throw) when the listing endpoint responds with an HTML block page', async () => {
+  // The run must not crash, but a block page is not an empty listing either
+  // (issue 11077 class): the error propagates tagged as retry-exhausted, which
+  // the crawler pipeline turns into a soft exit (existing slice kept) with
+  // `exhausted_retry` as the recorded cause instead of a cause-less zero.
+  it('propagates an HTML block page as a retry-exhausted failure instead of an empty listing', async () => {
     vi.stubGlobal(
       'fetch',
       vi.fn(async () => ({
@@ -216,8 +219,10 @@ describe('fetchAllEhnvJobs', () => {
         },
       })),
     );
-    const jobs = await fetchAllEhnvJobs();
-    expect(jobs).toEqual([]);
+    const failure = await fetchAllEhnvJobs().then(() => null, (err: unknown) => err);
+    expect(failure).toBeInstanceOf(Error);
+    expect((failure as Error).message).toMatch(/Invalid JSON/);
+    expect(isRetryBudgetExhausted(failure)).toBe(true);
   });
 
   it('returns an empty array when the listing payload is empty/unexpected', async () => {

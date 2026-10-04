@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 
-const { formatPeriod, parseEndpoint } = await import('../functions/src/lib/cvPeriod.js');
+const { formatCvDate, formatPeriod, isoDateOf, parseEndpoint } = await import('../functions/src/lib/cvPeriod.js');
 const { apprenticeHeadline, apprenticeTrade, candidateType, draftCandidateType } = await import('../functions/src/assistedApplicationCandidateType.js');
 const { buildCvDocument } = await import('../functions/src/assistedApplicationCvDocument.js');
 const { checkTailoredCvFacts, headlineGrounded, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
@@ -220,7 +220,8 @@ describe('tailored CV by type', () => {
     expect(checkTailoredCvFacts(cv, { cvText: APPRENTICE_CV, profile: APPRENTICE, answers: {} }).ok).toBe(true);
     const document = buildCvDocument(cv, { identity, profile: APPRENTICE, language: 'de', type: 'apprentice', sector: 'it' });
     expect(document.sections.map((section: any) => section.kind)).toEqual(['school', 'trial', 'jobs', 'tests', 'skills', 'languages', 'interests', 'references']);
-    expect(document.personal).toEqual([['Geburtsdatum', '14. März 2010'], ['Nationalität', 'Schweiz / Kroatien']]);
+    // The CV's own birth date, read for sure, printed the Swiss way (decision 5).
+    expect(document.personal).toEqual([['Geburtsdatum', '14.03.2010'], ['Nationalität', 'Schweiz und Kroatien (EU)']]);
     expect(document.contact[0]).toBe('Musterweg 12, 8400 Winterthur');
     const text = tailoredCvPlainText(cv, { identity, profile: APPRENTICE });
     for (const expected of ['PERSÖNLICHE ANGABEN', 'SCHNUPPERLEHREN', 'NEBENJOBS', 'EIGNUNGSTESTS', 'FREIZEIT UND ENGAGEMENT', 'REFERENZEN', '04.2026', '2025 – heute', 'Multicheck ICT: März 2026, Schulisches Potenzial 78 %', 'Herr Peter Muster']) {
@@ -251,6 +252,48 @@ describe('tailored CV by type', () => {
     expect(kinds.indexOf('recognitions')).toBe(kinds.indexOf('education') + 1);
     expect(document.personal).toContainEqual(['Permis de travail', 'Permis G (frontalière)']);
     expect(document.sections.find((section: any) => section.kind === 'experience').items[0].date).toBe("09.2019 – aujourd'hui");
+  });
+});
+
+// Owner decisions of 2026-10-03 (P4): the personal data are the candidate's own statements, printed from the catalogue.
+describe('personal data the candidate gave', () => {
+  const cv = sanitizeTailoredCv({ summary: 'Infermiera di reparto.', experience: [], competencies: [], skills: [] }, { profile: sanitizeProfile({}), cvText: 'Infermiera', language: 'it' });
+  const personal = (profile: Record<string, any>, language: string) => buildCvDocument({ ...cv, language }, { identity, profile, language }).personal;
+
+  it('prints the status, the nationality and the birth date the candidate gave, in the CV’s language', () => {
+    const given = { permitStatus: 'permit_b', nationality: 'italiana', dateOfBirth: '1998-03-12' };
+    expect(personal(given, 'de')).toEqual([['Geburtsdatum', '12.03.1998'], ['Nationalität', 'Italien (EU)'], ['Arbeitsbewilligung', 'Aufenthaltsbewilligung B']]);
+    expect(personal(given, 'fr')).toEqual([['Date de naissance', '12.03.1998'], ['Nationalité', 'italienne (UE)'], ['Permis de travail', 'autorisation de séjour (permis B)']]);
+    expect(personal(given, 'it')).toEqual([['Data di nascita', '12.03.1998'], ['Nazionalità', 'italiana (UE)'], ['Permesso di lavoro', 'permesso di dimora (B)']]);
+    expect(personal(given, 'en')).toEqual([['Date of birth', '12 March 1998'], ['Nationality', 'Italian (EU)'], ['Work permit', 'residence permit B']]);
+    // An availability given as a date is printed the same way.
+    expect(personal({ availability: '2027-01-01' }, 'de')).toEqual([['Verfügbarkeit', '01.01.2027']]);
+  });
+
+  it('prints the permit G only next to an EU/EFTA nationality, and never a «no permit» or a permit to come', () => {
+    expect(personal({ permitStatus: 'permit_g', nationality: 'italiana' }, 'de')).toContainEqual(['Arbeitsbewilligung', 'Grenzgängerbewilligung G']);
+    expect(personal({ permitStatus: 'permit_g', nationality: 'albanese' }, 'de')).toEqual([['Nationalität', 'albanese']]);
+    // «none» wins over the CV's own words; nothing chosen prints them, never one that speaks of a permit to come.
+    expect(personal({ permitStatus: 'none', workPermit: 'Permesso G' }, 'it')).toEqual([]);
+    expect(personal({ permitStatus: '', workPermit: 'Permesso G' }, 'it')).toEqual([['Permesso di lavoro', 'Permesso G']]);
+    expect(personal({ permitStatus: '', workPermit: 'Permesso G da richiedere' }, 'it')).toEqual([]);
+    // Swiss: the nationality says it, no permit line; beside another nationality, Swiss first.
+    expect(personal({ permitStatus: 'swiss', nationality: '' }, 'de')).toEqual([['Nationalität', 'Schweiz']]);
+    expect(personal({ permitStatus: 'swiss', nationality: 'italiana' }, 'it')).toEqual([['Nazionalità', 'svizzera e italiana (UE)']]);
+  });
+
+  it('reads a full date for sure and prints it the Swiss way, anything else as written', () => {
+    expect(formatCvDate('14. März 2010', 'de')).toBe('14.03.2010');
+    expect(formatCvDate('1er mars 1998', 'fr')).toBe('01.03.1998');
+    expect(formatCvDate('1° marzo 1998', 'it')).toBe('01.03.1998');
+    expect(formatCvDate('12/03/1998', 'it')).toBe('12.03.1998');
+    expect(formatCvDate('2027-01-01', 'de')).toBe('01.01.2027');
+    expect(formatCvDate('2027-01-01', 'en')).toBe('1 January 2027');
+    for (const text of ['31.02.1998', '1998', 'March 12, 1998', 'Préavis de 2 mois', 'sofort']) {
+      expect([text, formatCvDate(text, 'de'), isoDateOf(text)]).toEqual([text, text, '']);
+    }
+    expect(isoDateOf('14. März 2010')).toBe('2010-03-14');
+    expect(isoDateOf('12.03.1998')).toBe('1998-03-12');
   });
 });
 

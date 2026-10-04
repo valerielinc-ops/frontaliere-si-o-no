@@ -7709,7 +7709,7 @@
         "it": "apprendista-ristorazione-professionale-uomo-tertianum-pfaffikon",
         "en": "apprentice-restoration-professional-man-tertianum-pfaffikon",
         "de": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "fr": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        "fr": "apprenti-e-specialiste-en-restauration-tertianum-pfaffikon"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -7768,7 +7768,8 @@
         ],
         "fr": [
           "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon",
-          "apprentissage-restauration-professionnelle-tertianum-pfaffikon"
+          "apprentissage-restauration-professionnelle-tertianum-pfaffikon",
+          "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:48.899Z",
@@ -8857,7 +8858,7 @@
       "slug": "cuoco-cuoca-tertianum-bern",
       "slugByLocale": {
         "it": "cuoco-cuoca-tertianum-bern",
-        "en": "kochin-koch-tertianum-bern",
+        "en": "chef-tertianum-bern",
         "de": "kochin-koch-tertianum-bern",
         "fr": "cuisinier-cuisiniere-tertianum-bern"
       },
@@ -8955,7 +8956,8 @@
           "cuisson-cuisson-50-70-tertianum-bern"
         ],
         "en": [
-          "cook-tertianum-bern"
+          "cook-tertianum-bern",
+          "kochin-koch-tertianum-bern"
         ],
         "de": [
           "kochin-koch-50-70-tertianum-bern"
@@ -18669,9 +18671,9 @@
     },
     {
       "id": "tertianum-57f61878cf77",
-      "slug": "pflegefachfrau-mann-tertianum-uster",
+      "slug": "infermiera-tertianum-uster",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-uster",
+        "it": "infermiera-tertianum-uster",
         "en": "nursing-professional-tertianum-uster",
         "de": "pflegefachfrau-mann-tertianum-uster",
         "fr": "professionnels-des-soins-infirmiers-tertianum-uster"
@@ -18716,11 +18718,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermieristica-professionale-tertianum-uster"
+        "infermieristica-professionale-tertianum-uster",
+        "pflegefachfrau-mann-tertianum-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermieristica-professionale-tertianum-uster"
+          "infermieristica-professionale-tertianum-uster",
+          "pflegefachfrau-mann-tertianum-uster"
         ]
       },
       "firstSeenAt": "2026-09-04T13:49:28.804Z",

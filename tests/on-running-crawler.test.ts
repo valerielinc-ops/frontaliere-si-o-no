@@ -350,9 +350,8 @@ describe('fetchAllOnRunningJobs (Greenhouse board "onrunning")', () => {
     expect(jobs).toHaveLength(1);
   });
 
-  it('returns [] (no throw) when the API errors', async () => {
+  it('propagates an API error instead of returning [] (fetch failure is not an empty listing)', async () => {
     vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 503, json: async () => ({}) } as unknown as Response);
-    const jobs = await fetchAllOnRunningJobs();
-    expect(jobs).toEqual([]);
+    await expect(fetchAllOnRunningJobs()).rejects.toThrow();
   });
 });

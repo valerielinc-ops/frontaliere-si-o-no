@@ -20028,9 +20028,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen-68xv5o",
-          "vendeur-m-f-j-20-80-1-wettingen-lidl-svizzera-wettingen",
-          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen",
           "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-baden-dattwil-lmwduj",
           "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
@@ -20047,7 +20044,10 @@
           "venditore-con-responsabilita-a-turni-m-f-d-60-80-lucerna-lidl-svizzera-luzern",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg",
           "seller-with-shift-responsibility-m-w-d-60-802-chur-lidl-svizzera-chur",
-          "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-chur-lidl-svizzera-chur"
+          "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-chur-lidl-svizzera-chur",
+          "seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
+          "vendeur-vendeuse-avec-responsabilite-de-quart-h-f-60-80-lidl-svizzera-st-moritz",
+          "vendeur-vendeuse-avec-responsabilite-de-quart-m-f-d-60-80-lidl-svizzera-st-moritz"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-4011gn",
@@ -20080,10 +20080,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen",
-        "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-chur-lidl-svizzera-chur",
-        "vendeur-vendeuse-avec-responsabilite-de-quart-h-f-60-80-lidl-svizzera-st-moritz",
-        "vendeur-vendeuse-avec-responsabilite-de-quart-m-f-d-60-80-lidl-svizzera-st-moritz",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-bremgarten",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bioggio",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-cadenazzo",
@@ -20159,7 +20155,11 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf",
         "venditore-con-responsabilita-a-turni-m-f-d-60-80-lucerna-lidl-svizzera-luzern",
         "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
-        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern"
+        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-2lmnrg",
+        "seller-with-shift-responsibility-m-w-d-60-802-chur-lidl-svizzera-chur",
+        "seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-4011gn"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

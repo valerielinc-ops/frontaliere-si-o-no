@@ -85,7 +85,7 @@ function validateConfig(config, issues) {
   return true;
 }
 
-function validateSnoozes(snoozes, { now, candidates, issues, candidateActionClass = null }) {
+function validateSnoozes(snoozes, { now, candidates, issues, candidateActionClass = null, snoozeThreshold = null }) {
   if (!snoozes || typeof snoozes !== 'object' || Array.isArray(snoozes)) {
     issues.push('alert snoozes is not a JSON object');
     return false;
@@ -103,9 +103,19 @@ function validateSnoozes(snoozes, { now, candidates, issues, candidateActionClas
     const consecutiveDays = entry?.consecutiveDays;
     if (!integer(consecutiveDays)) rowIssues.push('consecutiveDays is missing or invalid');
     const lastSeen = finiteDate(entry?.lastSeen);
-    const snoozedUntil = finiteDate(entry?.snoozedUntil);
+    // Writer contract (scripts/lib/alerts/snoozer.mjs updateSnoozeState): an
+    // alert counted for fewer days than the threshold is stored with an
+    // explicit `snoozedUntil: null`, meaning "not snoozed". Only a present
+    // value must be a date; an absent key is still a malformed row, and null
+    // on a row that already reached the threshold contradicts the writer.
+    const notSnoozed = entry?.snoozedUntil === null;
+    const snoozedUntil = notSnoozed ? null : finiteDate(entry?.snoozedUntil);
     if (!lastSeen) rowIssues.push('lastSeen is missing or invalid');
-    if (!snoozedUntil) rowIssues.push('snoozedUntil is missing or invalid');
+    if (!notSnoozed && !snoozedUntil) rowIssues.push('snoozedUntil is missing or invalid');
+    if (notSnoozed && integer(consecutiveDays) && finiteNumber(snoozeThreshold)
+        && consecutiveDays >= snoozeThreshold) {
+      rowIssues.push('snoozedUntil is null although consecutiveDays reached the snooze threshold');
+    }
     if (lastSeen && snoozedUntil && snoozedUntil.getTime() < lastSeen.getTime()) {
       rowIssues.push('snoozedUntil precedes lastSeen');
     }
@@ -233,7 +243,13 @@ export function validateAlertReturn({ config, snoozes, outcomes = null }, {
   const warnings = [];
   const candidates = [];
   validateConfig(config, issues);
-  validateSnoozes(snoozes, { now, candidates, issues, candidateActionClass });
+  validateSnoozes(snoozes, {
+    now,
+    candidates,
+    issues,
+    candidateActionClass,
+    snoozeThreshold: config?.snooze_after_consecutive_days ?? null,
+  });
   const outcomeVerdict = validateOutcomes(outcomes, {
     now,
     maxAgeHours,

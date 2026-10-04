@@ -5143,12 +5143,12 @@
     },
     {
       "id": "puk-zuerich-7520fabeb690",
-      "slug": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich",
+      "slug": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich",
+        "it": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "training-for-dipl-nurse-hf-dipl-nursing-professional-hf-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich",
-        "fr": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich"
+        "fr": "formation-pour-l-infirmiere-diplomee-hf-dipl-soins-infirmiers-professionnels-hf-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5200,12 +5200,20 @@
         ],
         "it": [
           "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich",
-          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+          "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
+          "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "en": [
+          "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich",
-        "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf"
+        "ausbildung-zur-dipl-pflegefachfrau-zum-dipl-pflegefachmann-hf-spezialisierung-auf",
+        "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:44:23.152Z",
       "salaryMin": 91500,
@@ -5394,12 +5402,12 @@
     },
     {
       "id": "puk-zuerich-d7f19f668dc2",
-      "slug": "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich",
+      "slug": "assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich",
+        "it": "assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "assistant-doctor-inpatient-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich",
-        "fr": "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich"
+        "fr": "medecin-assistant-inpatient-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5448,11 +5456,19 @@
         "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich",
         "medico-assistente-assistente-stazionario-psychiatrische-universitatsklinik-zurich-zurich",
         "resident-physician-inpatient-psychiatrische-universitatsklinik-zurich-zurich",
-        "medical-interne-hopital-psychiatrische-universitatsklinik-zurich-zurich"
+        "medical-interne-hopital-psychiatrische-universitatsklinik-zurich-zurich",
+        "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich"
+          "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich",
+          "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-stationar-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:22.195Z",
@@ -5472,12 +5488,12 @@
     },
     {
       "id": "puk-zuerich-c19129873389",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
+      "slug": "assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
+        "it": "assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "assistant-doctor-assistant-doctor-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        "fr": "assistant-medecin-assistant-medecin-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5527,11 +5543,19 @@
         "medico-specializzando-psychiatrische-universitatsklinik-zurich-zurich",
         "resident-physician-psychiatrische-universitatsklinik-zurich-zurich",
         "medical-interne-psychiatrische-universitatsklinik-zurich-zurich",
-        "assistenzarztin-assistenzarzt-puk-zuerich-zurich-2"
+        "assistenzarztin-assistenzarzt-puk-zuerich-zurich-2",
+        "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+          "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+          "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:21.719Z",

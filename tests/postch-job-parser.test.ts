@@ -225,6 +225,24 @@ describe('keyPostTitleBySourceLocale', () => {
   });
 });
 
+describe('Post.ch JobPosting JSON-LD with raw control characters', () => {
+  it('reads the block instead of dropping it as malformed', () => {
+    const ld = JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Fachspezialist:in Logistik',
+      description: 'Zeile eins@@Zeile zwei',
+      datePosted: '2026-09-29',
+    }).replace('@@', '\n');
+    expect(ld).toContain('Zeile eins\nZeile zwei');
+    const parsed = parsePostJobDetail(
+      `<html><head><script type="application/ld+json">${ld}</script></head><body></body></html>`,
+      'https://job.post.ch/default/job/post/70000-de_DE',
+    );
+    expect(parsed.title).toBe('Fachspezialist:in Logistik');
+    expect(parsed.datePosted).toBe('2026-09-29');
+  });
+});
+
 describe('Post-platform 50-word source-body floor', () => {
   // Live body of job.post.ch/…/74695-de_DE (2026-09-29), cut to N words.
   const BODY = 'Du möchtest Planung, Daten und fachliche Koordination miteinander verbinden und die Weiterentwicklung unserer Personalplanung aktiv mitgestalten? Dann bist du bei uns richtig. Mit dir schaffen wir die Grundlage für eine vorausschauende und verlässliche Personalplanung. Als fachliche Ansprechperson bringst du das Team zusammen, verantwortest den Aufbau und die laufende Weiterentwicklung des Fachbereichs Personalplanung. Aus Mengen-, Leistungs- und Planstunden leitest du zusammen mit unseren Betrieben belastbare Personalbedarfe ab.';

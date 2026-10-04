@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { JPEG_2X2 } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: vi.fn(async () => ''),
@@ -7,6 +8,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 }));
 
 const { handleAssistedApplicationReview, minDateFor } = await import('../functions/src/assistedApplicationReview.js');
+const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { MAX_FIT_GAPS, fitNoticeOf, fitNoticeWording } = await import('../functions/src/assistedApplicationFitNotice.js');
@@ -256,6 +258,16 @@ describe('candidate review API', () => {
       expect(store.read(`${BASE}/automation/flow`).documents.reports.files.at(-1).clientCheck).toEqual({ verdict: 'unreadable', matched: '' });
     });
 
+    // A cut JPG would print half grey inside the grouped PDF of the documents (lib/dossier.mjs).
+    it('refuses a JPG cut on the way, as the photo is, and says so in the four languages', async () => {
+      expect(await upload('reports', JPEG_2X2.subarray(0, JPEG_2X2.length - 2), { fileName: 'scan.jpg' })).toMatchObject({ status: 400, body: { error: 'file_unreadable' } });
+      expect(saved.size).toBe(0);
+      expect(store.read(`${BASE}/automation/flow`).documents?.reports?.files ?? []).toEqual([]);
+      expect(await upload('reports', JPEG_2X2, { fileName: 'scan.jpg' })).toMatchObject({ status: 200 });
+      expect([...saved.keys()][0]).toMatch(/\.jpg$/);
+      for (const strings of [itCore, enCore, deCore, frCore]) expect(String(strings['jobBoard.assisted.review.error.file_unreadable'] || '').trim()).not.toBe('');
+    });
+
     it('removes a file, and a document waived is taken back by a file given', async () => {
       await upload('reports', PDF);
       const fileId = store.read(`${BASE}/automation/flow`).documents.reports.files[0].key.split('/').pop();
@@ -401,5 +413,53 @@ describe('candidate review API', () => {
     const confirmed = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'confirm_submitted' } }, deps());
     expect(confirmed).toMatchObject({ status: 200, body: { state: 'submitted' } });
     expect(effects.at(-1)).toEqual({ type: 'mark_submitted', by: 'candidate' });
+  });
+});
+
+// Owner decisions of 2026-10-03 (P4): the Swiss status on the review page, legacy values kept.
+describe('the candidate’s Swiss status on the review page', () => {
+  const labels = permitOptions('it');
+  const permitQuestion = { id: 'work_permit', question: 'Hai la cittadinanza svizzera o un permesso svizzero valido oggi?', why: '', type: 'choice', options: labels, required: true };
+  const notice = { id: 'notice', question: 'Preavviso?', why: '', type: 'text', options: [], required: false };
+  const orderRef = () => store.db.collection('assisted_applications').doc(ORDER);
+  const seed = async (draftExtra: Record<string, any>, flowPatch: Record<string, any> = {}) => {
+    await orderRef().collection('ai_drafts').doc('current').set(draft(draftExtra));
+    await orderRef().collection('automation').doc('flow').set(flowPatch, { merge: true });
+  };
+  const view = async () => (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body;
+  const answer = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
+
+  it('shows a stored answer that is no option as the last option, and takes it back unchanged', async () => {
+    await seed({ questions: [permitQuestion, notice] }, { answers: { work_permit: 'Permesso B in rinnovo' } });
+    const body = await view();
+    expect(body.questions[0].options).toEqual([...labels, 'Permesso B in rinnovo']);
+    expect(body.answers.work_permit).toBe('Permesso B in rinnovo');
+    expect(await answer({ work_permit: 'Permesso B in rinnovo', notice: '3 mesi' })).toMatchObject({ status: 200 });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ work_permit: 'Permesso B in rinnovo', notice: '3 mesi' });
+    // Any other text is still no option.
+    expect(await answer({ work_permit: 'Permesso B scaduto' })).toMatchObject({ status: 400, body: { fields: { work_permit: 'Scegli una delle opzioni.' } } });
+  });
+
+  it('shows a legacy answer as the option that names the same status', async () => {
+    await seed({ questions: [permitQuestion] }, { answers: { work_permit: 'G' } });
+    const body = await view();
+    expect(body.questions[0].options).toEqual(labels);
+    expect(body.answers.work_permit).toBe(labels[4]);
+  });
+
+  it('shows an e-mail application the fields its tailored CV prints, the permit as a closed list', async () => {
+    await seed({ questions: [], channel: { type: 'email', label: 'E-mail', email: 'hr@clinica.ch' }, applicationEmail: { to: 'hr@clinica.ch', subject: 'x', body: 'y' } });
+    const fields = Object.fromEntries((await view()).formAnswers.map((field: any) => [field.key, field]));
+    for (const key of ['dateOfBirth', 'nationality', 'workPermit', 'availability', 'languages', 'linkedin']) expect([key, fields[key].inCv]).toEqual([key, true]);
+    expect(fields.workPermit).toMatchObject({ editable: true, options: labels });
+    expect(fields.salary.inCv).toBe(false);
+  });
+
+  it('says when the permit G is left out of the tailored CV', async () => {
+    const tailored = { tailoredCv: { status: 'ready', pdfKey: `assisted-application-uploads/${ORDER}/ai-cv-r1-1.pdf`, language: 'it' }, questions: [] };
+    await seed({ ...tailored, profile: { ...draft().profile, nationality: 'albanese' } }, { answers: { work_permit: labels[4] } });
+    expect((await view()).tailoredCv.permitOmitted).toBe(true);
+    await seed({ ...tailored, profile: { ...draft().profile, nationality: 'italiana' } });
+    expect((await view()).tailoredCv.permitOmitted).toBe(false);
   });
 });
