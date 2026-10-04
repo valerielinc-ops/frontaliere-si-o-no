@@ -1,3 +1,4 @@
+import { METHODOLOGY_COPY, METHODOLOGY_PATHS } from '../editorialMethodology';
 // Page-level structured data translations for CollectionPage, ItemList, WebPage,
 // AboutPage and ContactPage schemas rendered on localized pages.
 //
@@ -408,6 +409,15 @@ export function translateWebPage(obj: Record<string, any>, locale: Lang): void {
  * Translate an AboutPage JSON-LD object in place.
  */
 export function translateAboutPage(obj: Record<string, any>, locale: Lang): void {
+ if (Object.values(METHODOLOGY_COPY).some(copy => copy.title === obj.name) || (typeof obj.url === 'string' && Object.values(METHODOLOGY_PATHS).some(path => obj.url === `https://frontaliereticino.ch${path}`))) {
+ const copy = METHODOLOGY_COPY[locale];
+ obj.name = copy.title;
+ obj.description = copy.description;
+ obj.url = `https://frontaliereticino.ch${METHODOLOGY_PATHS[locale]}`;
+ obj.inLanguage = locale;
+ if (obj.about?.['@type'] === 'CreativeWork') obj.about.name = copy.title;
+ return;
+ }
  applyBasic(obj, ABOUT_PAGE_TRANSLATIONS, locale);
 }
 
