@@ -42,7 +42,11 @@ describe('health coverage facts in served FAQ and landing copy', () => {
     const answers = locale === 'it'
       ? faqAnswers(metadata).filter(({ name }) => coverageQuestions.includes(name)).map(({ text }) => text)
       : coverageQuestions.map(question => FAQ_TRANSLATIONS[question][locale].a);
-    expect(answers).toHaveLength(5);
+    expect(answers).toHaveLength(coverageQuestions.length);
+    if (locale === 'it') {
+      const selected = faqAnswers(metadata).filter(({ name }) => coverageQuestions.includes(name));
+      expect(new Set(selected.map(({ name }) => name))).toEqual(new Set(coverageQuestions));
+    }
     for (const answer of answers) {
       for (const condition of conditions) expect(answer).toMatch(condition);
       expect(answer).toContain('european-health-insurance-card_en');
