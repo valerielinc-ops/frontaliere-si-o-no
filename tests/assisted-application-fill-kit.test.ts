@@ -84,6 +84,21 @@ describe('fill kit', () => {
   });
 });
 
+// P4 (owner decisions of 2026-10-03): the status the candidate chose, as the portal planner's sentence, and the birth
+// date in the form the extension reads.
+describe('fill kit: the candidate’s Swiss status and birth date', () => {
+  it('types the status as its sentence and the birth date as a numeric date', () => {
+    const kit = buildFillKit({
+      orderId: ORDER, order, draft: { ...draft, profile: { ...draft.profile, dateOfBirth: '14. März 2010', workPermit: 'Permesso G da richiedere' } },
+      flow: { ...takenOver, answers: { ...takenOver.answers, work_permit: 'G' } },
+    });
+    expect(kit.profile).toMatchObject({ workPermit: 'Ich arbeite heute in der Schweiz mit gültiger Grenzgängerbewilligung G.', dateOfBirth: '2010-03-14' });
+    // Nothing chosen: the CV's own words, never a permit to come.
+    const silent = buildFillKit({ orderId: ORDER, order, draft: { ...draft, profile: { ...draft.profile, workPermit: 'Permesso G da richiedere' } }, flow: takenOver });
+    expect(silent.profile.workPermit).toBe('');
+  });
+});
+
 describe('owner queue: fill kit and «Segna come inviata»', () => {
   let store: ReturnType<typeof createMemoryFirestore>;
   let effects: any[];
