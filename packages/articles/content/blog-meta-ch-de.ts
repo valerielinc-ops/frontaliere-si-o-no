@@ -7682,6 +7682,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assistenza-sociale-zurigo-domanda.title': 'Sozialhilfe im Kanton Zürich: Anforderungen und Nachfrage',
     'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Im Kanton Zürich geht der Antrag von einer Bedürfnisvoraussetzung aus: Zuständiges Amt, Dokumente, Leistungen und Mitwirkungspflichten.',
     'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Schweizer Gemeindestelle für einen Antrag auf Sozialhilfe',
+    'blog.article.imposta-auto-zurigo-pagamento.title': 'Motorfahrzeugsteuer in Zürich: Berechnung und Zahlung',
+    'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Im Kanton Zürich richten sich Berechnung, Fälligkeiten und Zahlung der Motorfahrzeugsteuer nach kantonalen Regeln; prüfen Sie auch den Fahrzeug- und Adresswechsel.',
+    'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Autos und Unterlagen zur Motorfahrzeugsteuer in einem kantonalen Amt in Zürich.',
 };
 
 export default blogMetaChDe;

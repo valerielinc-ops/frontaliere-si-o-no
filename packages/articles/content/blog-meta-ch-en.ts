@@ -7682,6 +7682,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assistenza-sociale-zurigo-domanda.title': 'Social assistance in the Canton of Zurich: requirements and application',
     'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'In the Canton of Zurich, the application starts from a condition of need: competent office, documents, benefits and cooperation obligations.',
     'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Swiss municipal office for a social assistance application',
+    'blog.article.imposta-auto-zurigo-pagamento.title': 'Motor vehicle tax in Zurich: calculation and payment',
+    'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'In the Canton of Zurich, the calculation, deadlines and payment of the motor vehicle tax follow cantonal rules; also check vehicle and address changes.',
+    'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Cars and paperwork for vehicle tax at a Swiss cantonal office in Zurich.',
 };
 
 export default blogMetaChEn;
