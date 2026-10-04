@@ -1,5 +1,6 @@
 import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
 import { buildCorrezioniSeo } from './seo/seo-correzioni';
+import { METHODOLOGY_COPY } from './editorialMethodology';
 import { localizeArticlePageIdentity } from './seo/article-page-identity';
 /**
  * SEO Service - Dynamic Meta Tags Management
@@ -1362,6 +1363,10 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  if (section === 'correzioni') {
  const page = buildCorrezioniSeo(locale);
  return { title: page.title, description: page.description, keywords: metadata.keywords };
+ }
+ if (section === 'metodologia') {
+ const copy = METHODOLOGY_COPY[locale];
+ return { title: buildTitleWithBrand(copy.title), description: copy.description, keywords: getLocalizedSeoKeywords(copy.title, locale, metadata.keywords) };
  }
  if (locale === 'it') {
  return {
