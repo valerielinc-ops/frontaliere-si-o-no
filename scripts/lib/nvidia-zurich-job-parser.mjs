@@ -32,6 +32,7 @@
  *   - isTrustedDomain()          — Validate URLs belong to NVIDIA / Workday tenant
  *   - NVIDIA_ZURICH_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -40,7 +41,7 @@ import {
   fetchWorkdayJobs,
   fetchWorkdayJobDescriptionText,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   getWorkdayLocationCandidates,
@@ -247,7 +248,7 @@ async function fetchJobListings() {
       out.push({
         title: id.title,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
       });
@@ -363,7 +364,7 @@ export async function fetchAllNvidiaZurichJobs() {
       sector: 'Tecnologia / Semiconduttori',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
