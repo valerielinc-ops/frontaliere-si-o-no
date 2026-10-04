@@ -132,11 +132,17 @@ describe('parseListingPage', () => {
         <p>Kettering | United Kingdom</p>
         <a href="/careers/jobs/job-detail/area-sales-manager-uk">Details</a>
       </div>
+      <div class="job-listing-item">
+        <h3>Mechanical Design Engineer</h3>
+        <p>R&amp;D | Sant'Antonino | Switzerland</p>
+        <a href="/careers/jobs/job-detail/mechanical-design-ch">Details</a>
+      </div>
     `);
 
     expect(jobs.map((job) => job.location)).toEqual([
       'Aussendienst | Germany',
       'Kettering | United Kingdom',
+      "R&D | Sant'Antonino | Switzerland",
     ]);
   });
 
