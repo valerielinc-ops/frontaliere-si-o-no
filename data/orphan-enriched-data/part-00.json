@@ -1791,10 +1791,10 @@
         {
           "query": "italienische ärzte zürich",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 3
         }
       ],
-      "totalImpressions": 1,
+      "totalImpressions": 3,
       "totalClicks": 0,
       "topQuery": "italienische ärzte zürich",
       "title": "Aerzte",
@@ -5590,6 +5590,7 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-uri/apprentissages/",
       "observedPaths": {
+        "de": "/de/jobs-im-uri/apprentissages",
         "fr": "/fr/trouver-emploi-uri/apprentissages",
         "en": "/en/find-jobs-uri/apprentissages",
         "it": "/cerca-lavoro-uri/apprentissages"
@@ -19687,10 +19688,10 @@
         "fr": "data-center-technicien-ch-zug-on-site-reboot-monkey-zug"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/data-center-technicien-ch-zug-on-site-reboot-monkey-zug",
-        "en": "/en/find-jobs-st-gallen/data-center-technicien-ch-zug-on-site-reboot-monkey-zug",
-        "de": "/de/jobs-in-st-gallen/data-center-technicien-ch-zug-on-site-reboot-monkey-zug",
-        "fr": "/fr/trouver-emploi-saint-gall/data-center-technicien-ch-zug-on-site-reboot-monkey-zug"
+        "it": "/cerca-lavoro-zugo/data-center-technicien-ch-zug-on-site-reboot-monkey-zug",
+        "en": "/en/find-jobs-zug/data-center-technicien-ch-zug-on-site-reboot-monkey-zug",
+        "de": "/de/jobs-in-zug/data-center-technicien-ch-zug-on-site-reboot-monkey-zug",
+        "fr": "/fr/trouver-emploi-zoug/data-center-technicien-ch-zug-on-site-reboot-monkey-zug"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24803,6 +24804,63 @@
       ]
     },
     {
+      "slug": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach",
+      "locale": "de",
+      "path": "/de/jobs-in-luzern/elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach/",
+      "observedPaths": {
+        "de": "/de/jobs-in-luzern/elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach/"
+      },
+      "queries": [
+        {
+          "query": "jobs escholzmatt",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "jobs escholzmatt",
+      "title": "Elektroinstallateur region escholzmatt ipersonal ag escholzmatt marbach",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach",
+        "en": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach",
+        "de": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach",
+        "fr": "elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach",
+        "en": "/en/find-jobs-lucerne/elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach",
+        "de": "/de/jobs-im-luzern/elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach",
+        "fr": "/fr/trouver-emploi-lucerne/elektroinstallateur-region-escholzmatt-ipersonal-ag-escholzmatt-marbach"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "elektronik-telekommunikationsingenieur-w-m-d-80-100-bellinzona-afry-bellinzona",
       "locale": "en",
       "path": "/en/find-jobs-ticino/elektronik-telekommunikationsingenieur-w-m-d-80-100-bellinzona-afry-bellinzona",
@@ -25380,10 +25438,10 @@
         "fr": "employees-in-buildings-confederazione-svizzera-thun"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/employees-in-buildings-confederazione-svizzera-thun",
-        "en": "/en/find-jobs-ticino/employees-in-buildings-confederazione-svizzera-thun",
-        "de": "/de/jobs-im-tessin/employees-in-buildings-confederazione-svizzera-thun",
-        "fr": "/fr/trouver-emploi-tessin/employees-in-buildings-confederazione-svizzera-thun"
+        "it": "/cerca-lavoro-berna/employees-in-buildings-confederazione-svizzera-thun",
+        "en": "/en/find-jobs-bern/employees-in-buildings-confederazione-svizzera-thun",
+        "de": "/de/jobs-in-bern/employees-in-buildings-confederazione-svizzera-thun",
+        "fr": "/fr/trouver-emploi-berne/employees-in-buildings-confederazione-svizzera-thun"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -32034,7 +32092,7 @@
         {
           "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
           "clicks": 0,
-          "impressions": 89
+          "impressions": 91
         },
         {
           "query": "i want care assistant jobs in switzerland in nursing homes around bern with german level b1 and weekend shifts and employers that help with integration.",
@@ -32117,7 +32175,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 163,
+      "totalImpressions": 165,
       "totalClicks": 0,
       "topQuery": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
       "title": "Healthcare assistants",
@@ -32330,8 +32388,8 @@
       "observedPaths": {
         "it": "/cerca-lavoro-ticino/hotel-alberghi",
         "de": "/de/jobs-im-tessin/hotel-alberghi",
-        "fr": "/fr/trouver-emploi-tessin/hotel-alberghi",
-        "en": "/en/find-jobs-ticino/hotel-alberghi"
+        "en": "/en/find-jobs-appenzell/hotel-alberghi",
+        "fr": "/fr/trouver-emploi-tessin/hotel-alberghi"
       },
       "queries": [
         {
@@ -32343,6 +32401,11 @@
           "query": "turismo",
           "clicks": 0,
           "impressions": 15
+        },
+        {
+          "query": "lavori in svizzera per italiani",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "trovami annunci",
@@ -32375,7 +32438,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 60,
+      "totalImpressions": 63,
       "totalClicks": 0,
       "topQuery": "lavoro hoteis ticino",
       "title": "Hotel alberghi",
@@ -42507,10 +42570,10 @@
       "locale": "it",
       "path": "/cerca-lavoro-basilea/medici/",
       "observedPaths": {
+        "fr": "/fr/trouver-emploi-bale/medici",
         "it": "/cerca-lavoro-appenzello/medici",
         "en": "/en/find-jobs-ticino/medici",
-        "de": "/de/jobs-im-tessin/medici",
-        "fr": "/fr/trouver-emploi-tessin/medici"
+        "de": "/de/jobs-im-tessin/medici"
       },
       "queries": [
         {
@@ -42599,6 +42662,11 @@
           "impressions": 1
         },
         {
+          "query": "short list avvocati",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "endoscopia",
           "clicks": 0,
           "impressions": 1
@@ -42607,14 +42675,9 @@
           "query": "offerte",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "ordine dei medici offerte di lavoro",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 58,
+      "totalImpressions": 59,
       "totalClicks": 0,
       "topQuery": "ordine dei medici ticino offerte lavoro",
       "title": "Medici",
@@ -47793,6 +47856,63 @@
       ]
     },
     {
+      "slug": "page-10",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-schaffhouse/page-10/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-schaffhouse/page-10/"
+      },
+      "queries": [
+        {
+          "query": "agence de recrutement schaffhouse",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "agence de recrutement schaffhouse",
+      "title": "Page 10",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "page-10",
+        "en": "page-10",
+        "de": "page-10",
+        "fr": "page-10"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-sciaffusa/page-10",
+        "en": "/en/find-jobs-schaffhausen/page-10",
+        "de": "/de/jobs-im-schaffhausen/page-10",
+        "fr": "/fr/trouver-emploi-schaffhouse/page-10"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "part-time-branch-sales-assistant-m-f-lidl-svizzera-arbedo-castione",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/part-time-branch-sales-assistant-m-f-lidl-svizzera-arbedo-castione",
@@ -48007,6 +48127,46 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "payroll-personalwesen-administration-spezialist-m-w-d-yellowshark-ag-hagendorf",
+      "locale": "de",
+      "path": "/de/jobs-in-solothurn/payroll-personalwesen-administration-spezialist-m-w-d-yellowshark-ag-hagendorf",
+      "observedPaths": {
+        "de": "/de/jobs-in-solothurn/payroll-personalwesen-administration-spezialist-m-w-d-yellowshark-ag-hagendorf"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Payroll personalwesen administration spezialist yellowshark ag hagendorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -48547,14 +48707,14 @@
           "impressions": 10
         },
         {
-          "query": "pflegepersonal",
+          "query": "altenpfleger jobs lugano",
           "clicks": 0,
           "impressions": 9
         },
         {
-          "query": "altenpfleger jobs lugano",
+          "query": "pflegepersonal",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 9
         },
         {
           "query": "pflegejobs in waadt",
@@ -48577,6 +48737,11 @@
           "impressions": 5
         },
         {
+          "query": "alltagsbegleiter jobs lugano",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "pflegejobs im wallis",
           "clicks": 0,
           "impressions": 4
@@ -48585,11 +48750,6 @@
           "query": "pflege jobs spital schwyz",
           "clicks": 0,
           "impressions": 4
-        },
-        {
-          "query": "alltagsbegleiter jobs lugano",
-          "clicks": 0,
-          "impressions": 3
         },
         {
           "query": "altenpflegerin nach mailand",
@@ -48612,7 +48772,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 163,
+      "totalImpressions": 165,
       "totalClicks": 0,
       "topQuery": "pflege jobs in uri",
       "title": "Pflegepersonal",
@@ -49291,10 +49451,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
+        "it": "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona",
         "en": "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
-        "de": "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
-        "fr": "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona"
+        "de": "physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona",
+        "fr": "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
@@ -49302,12 +49462,13 @@
         "de": "/de/jobs-im-tessin/physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
         "fr": "/fr/trouver-emploi-tessin/physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=37-fisioterapisti-ergoterapisti-pregassona&language=it",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -77503,10 +77664,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf",
-        "en": "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf",
+        "it": "bevande-alimentari-sabati-coop-genossenschaft-bassersdorf",
+        "en": "seller-food-drinks-saturdays-coop-genossenschaft-bassersdorf",
         "de": "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf",
-        "fr": "verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf"
+        "fr": "produits-alimentaires-vendus-samedi-coop-genossenschaft-bassersdorf"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-food-getranke-samstags-coop-genossenschaft-bassersdorf",
@@ -77520,6 +77681,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -78471,10 +78633,10 @@
         "fr": "vendeur-vendeuse-denner-nyon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/verkaufer-verkaufer-denner-nyon",
-        "en": "/en/find-jobs-vaud/verkaufer-verkaufer-denner-nyon",
-        "de": "/de/jobs-in-der-waadt/verkaufer-verkaufer-denner-nyon",
-        "fr": "/fr/trouver-emploi-vaud/verkaufer-verkaufer-denner-nyon"
+        "it": "/cerca-lavoro-ginevra/verkaufer-verkaufer-denner-nyon",
+        "en": "/en/find-jobs-geneva/verkaufer-verkaufer-denner-nyon",
+        "de": "/de/jobs-in-genf/verkaufer-verkaufer-denner-nyon",
+        "fr": "/fr/trouver-emploi-geneve/verkaufer-verkaufer-denner-nyon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

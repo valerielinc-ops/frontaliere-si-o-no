@@ -965,10 +965,10 @@
         "fr": "addetto-a-alle-vendite-food-coop-genossenschaft-kerns"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-kerns",
-        "en": "/en/find-jobs-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-kerns",
+        "it": "/cerca-lavoro-berna/addetto-a-alle-vendite-food-coop-genossenschaft-kerns",
+        "en": "/en/find-jobs-bern/addetto-a-alle-vendite-food-coop-genossenschaft-kerns",
         "de": "/de/jobs-im-st-gallen/addetto-a-alle-vendite-food-coop-genossenschaft-kerns",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-kerns"
+        "fr": "/fr/trouver-emploi-berne/addetto-a-alle-vendite-food-coop-genossenschaft-kerns"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -1016,10 +1016,10 @@
         "fr": "addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim",
-        "en": "/en/find-jobs-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim",
+        "it": "/cerca-lavoro-berna/addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim",
+        "en": "/en/find-jobs-bern/addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim",
         "de": "/de/jobs-im-basel/addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim"
+        "fr": "/fr/trouver-emploi-berne/addetto-a-alle-vendite-food-coop-genossenschaft-schleitheim"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -4939,6 +4939,26 @@
           "impressions": 5
         },
         {
+          "query": "architetti ticino",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "architetto ticino",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offerte di lavoro architetto ticino",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "lavoro architetto svizzera",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "lavoro in svizzera architetto",
           "clicks": 0,
           "impressions": 3
@@ -4950,6 +4970,11 @@
         },
         {
           "query": "short list avvocati 2026",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "architetti canton ticino",
           "clicks": 0,
           "impressions": 3
         },
@@ -4969,37 +4994,12 @@
           "impressions": 2
         },
         {
-          "query": "lavoro architetto svizzera",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
           "query": "offerte di lavoro architetto svizzera",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "architetti canton ticino",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "architetti svizzera italiana",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "architetti ticino",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "architetto in ticino",
           "clicks": 0,
           "impressions": 2
         }
       ],
-      "totalImpressions": 125,
+      "totalImpressions": 151,
       "totalClicks": 1,
       "topQuery": "lavoro architetto ticino",
       "title": "Architetti",
@@ -9342,15 +9342,20 @@
       "path": "/cerca-lavoro-appenzello/autisti/",
       "observedPaths": {
         "it": "/cerca-lavoro-vaud/autisti",
+        "de": "/de/jobs-im-appenzell/autisti",
         "en": "/en/find-jobs-ticino/autisti",
-        "fr": "/fr/trouver-emploi-grisons/autisti",
-        "de": "/de/jobs-im-tessin/autisti"
+        "fr": "/fr/trouver-emploi-appenzell/autisti"
       },
       "queries": [
         {
           "query": "autista moritz",
           "clicks": 0,
-          "impressions": 32
+          "impressions": 33
+        },
+        {
+          "query": "short list avvocati",
+          "clicks": 0,
+          "impressions": 6
         },
         {
           "query": "offerte di lavoro ticino",
@@ -9363,14 +9368,14 @@
           "impressions": 5
         },
         {
-          "query": "short list avvocati",
+          "query": "ditte di trasporti in svizzera che cercano autisti",
           "clicks": 0,
           "impressions": 5
         },
         {
-          "query": "ditte di trasporti in svizzera che cercano autisti",
+          "query": "lavoro autista svizzera canton ticino",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "offerte lavoro svizzera per italiani",
@@ -9379,11 +9384,6 @@
         },
         {
           "query": "offerte di lavoro per autisti in svizzera",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "lavoro autista svizzera canton ticino",
           "clicks": 0,
           "impressions": 4
         },
@@ -9403,12 +9403,22 @@
           "impressions": 3
         },
         {
+          "query": "autista",
+          "clicks": 1,
+          "impressions": 2
+        },
+        {
           "query": "offerte di lavoro: autista bus svizzera canton ticino",
           "clicks": 1,
           "impressions": 2
         },
         {
           "query": "lavori in svizzera per italiani",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "autista della flotta grigia",
           "clicks": 0,
           "impressions": 2
         },
@@ -9436,20 +9446,10 @@
           "query": "offerte di lavoro autista ticino",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "si",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "vallese",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 147,
-      "totalClicks": 9,
+      "totalImpressions": 160,
+      "totalClicks": 10,
       "topQuery": "autista moritz",
       "title": "Autisti",
       "titleByLocale": {
@@ -10669,9 +10669,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis",
-        "en": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis",
-        "de": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-affoltern-am-albis",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-affoltern-am-albis",
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis"
       },
       "localePaths": {
@@ -10686,6 +10686,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -12601,6 +12602,64 @@
       ]
     },
     {
+      "slug": "carrozziere-lattoniere-afc-emil-frey-noranco",
+      "locale": "de",
+      "path": "/de/jobs-im-tessin/carrozziere-lattoniere-afc-emil-frey-noranco/",
+      "observedPaths": {
+        "de": "/de/jobs-im-tessin/carrozziere-lattoniere-afc-emil-frey-noranco/"
+      },
+      "queries": [
+        {
+          "query": "emil frey tessin",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "emil frey tessin",
+      "title": "Carrozziere lattoniere emil frey",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Noranco",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "carrozziere-lattoniere-afc-emil-frey-noranco",
+        "en": "carrozziere-lattoniere-afc-emil-frey-noranco",
+        "de": "carrozziere-lattoniere-afc-emil-frey-noranco",
+        "fr": "carrozziere-lattoniere-afc-emil-frey-noranco"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/carrozziere-lattoniere-afc-emil-frey-noranco",
+        "en": "/en/find-jobs-ticino/carrozziere-lattoniere-afc-emil-frey-noranco",
+        "de": "/de/jobs-im-tessin/carrozziere-lattoniere-afc-emil-frey-noranco",
+        "fr": "/fr/trouver-emploi-tessin/carrozziere-lattoniere-afc-emil-frey-noranco"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "case-handler-reception-logistics-confederazione-svizzera-bern",
       "locale": "en",
       "path": "/en/find-jobs-thurgau/case-handler-reception-logistics-confederazione-svizzera-bern",
@@ -14499,12 +14558,17 @@
         {
           "query": "chemiker jobs lugano",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 7
         },
         {
           "query": "chemiker jobs genf",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 7
+        },
+        {
+          "query": "chemiker jobs lugano",
+          "clicks": 0,
+          "impressions": 2
         },
         {
           "query": "offene stelle",
@@ -14517,7 +14581,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 27,
+      "totalImpressions": 33,
       "totalClicks": 1,
       "topQuery": "chemiker zürich",
       "title": "Chemie",
@@ -26325,12 +26389,12 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 243
+          "impressions": 249
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 178
+          "impressions": 181
         },
         {
           "query": "politica sanitaria canton ticino anziani",
@@ -26423,7 +26487,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 493,
+      "totalImpressions": 503,
       "totalClicks": 6,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
@@ -28173,6 +28237,48 @@
       "source": [
         "gsc",
         "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+        "de": "/de/jobs-in-bern/fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-thun"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Fachspezialist in hr klinik schonberg ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Thun",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "slug-parsing"
       ]
     },
@@ -40336,22 +40442,22 @@
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
-          "impressions": 40
+          "impressions": 41
         },
         {
           "query": "offerte lavoro logistica ticino",
           "clicks": 4,
-          "impressions": 31
+          "impressions": 32
         },
         {
           "query": "impiegato in logistica offerte di lavoro ticino",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 23
         },
         {
           "query": "offerte di lavoro impiegato in logistica ticino",
           "clicks": 3,
-          "impressions": 18
+          "impressions": 20
         },
         {
           "query": "logistica ticino lavoro",
@@ -40369,14 +40475,14 @@
           "impressions": 14
         },
         {
+          "query": "site:frontaliereticino.ch",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
           "query": "offerte lavoro svizzera per italiani",
           "clicks": 0,
           "impressions": 13
-        },
-        {
-          "query": "site:frontaliereticino.ch",
-          "clicks": 0,
-          "impressions": 12
         },
         {
           "query": "lavoro frontaliere svizzera",
@@ -40386,12 +40492,17 @@
         {
           "query": "logistica ticino",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "lavoro logistica ticino",
           "clicks": 0,
           "impressions": 7
+        },
+        {
+          "query": "impiegato in logistica ticino",
+          "clicks": 1,
+          "impressions": 6
         },
         {
           "query": "posti vacanti ticino",
@@ -40414,11 +40525,6 @@
           "impressions": 5
         },
         {
-          "query": "impiegato in logistica ticino",
-          "clicks": 1,
-          "impressions": 4
-        },
-        {
           "query": "logistica svizzera",
           "clicks": 0,
           "impressions": 4
@@ -40434,7 +40540,7 @@
           "impressions": 3
         }
       ],
-      "totalImpressions": 320,
+      "totalImpressions": 335,
       "totalClicks": 12,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Logistica",
@@ -48130,9 +48236,9 @@
       "path": "/fr/trouver-emploi-berne/page-12/",
       "observedPaths": {
         "it": "/cerca-lavoro-friburgo/page-12",
-        "en": "/en/find-jobs-fribourg/page-12",
-        "de": "/de/jobs-im-freiburg/page-12",
-        "fr": "/fr/trouver-emploi-fribourg/page-12"
+        "en": "/en/find-jobs-aargau/page-12",
+        "fr": "/fr/trouver-emploi-berne/page-12",
+        "de": "/de/jobs-im-aargau/page-12"
       },
       "queries": [
         {
@@ -48840,9 +48946,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten",
-        "en": "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten",
-        "de": "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten",
+        "en": "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
+        "de": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
         "fr": "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten"
       },
       "localePaths": {
@@ -48851,12 +48956,13 @@
         "de": "/de/jobs-im-basel/personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten",
         "fr": "/fr/trouver-emploi-zurich/personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://app.reflinejobs.io/1531/0216/pub/501/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -72789,6 +72895,11 @@
           "impressions": 2
         },
         {
+          "query": "stellen uhrenindustrie",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "rekrutierung uhrenindustrie",
           "clicks": 0,
           "impressions": 1
@@ -72807,9 +72918,14 @@
           "query": "rekrutierung uhrenindustrie",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "jobs bildung",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 8,
+      "totalImpressions": 11,
       "totalClicks": 0,
       "topQuery": "stellenangebot uhrenindustrie",
       "title": "Uhrenindustrie",
@@ -77669,10 +77785,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-samstags-coop-genossenschaft-winterthur",
-        "en": "verkaufer-in-food-samstags-coop-genossenschaft-winterthur",
+        "it": "seller-food-sabati-coop-genossenschaft-winterthur",
+        "en": "seller-food-saturdays-coop-genossenschaft-winterthur",
         "de": "verkaufer-in-food-samstags-coop-genossenschaft-winterthur",
-        "fr": "verkaufer-in-food-samstags-coop-genossenschaft-winterthur"
+        "fr": "produits-alimentaires-vendus-samedi-coop-genossenschaft-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-food-samstags-coop-genossenschaft-winterthur",
@@ -77686,6 +77802,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -77778,10 +77895,10 @@
         "fr": "verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel",
+        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel",
         "de": "/de/jobs-im-zug/verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel"
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-brot-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78145,10 +78262,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-andermatt"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
-        "en": "/en/find-jobs-basel/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
-        "de": "/de/jobs-in-basel/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-kassen-services-coop-genossenschaft-andermatt"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
+        "de": "/de/jobs-in-zurich/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-andermatt"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78196,10 +78313,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-arlesheim"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
-        "en": "/en/find-jobs-basel/verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
         "de": "/de/jobs-im-st-gallen/verkaufer-in-kassen-services-coop-genossenschaft-arlesheim",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-kassen-services-coop-genossenschaft-arlesheim"
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-arlesheim"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

@@ -3965,6 +3965,7 @@
       "observedPaths": {
         "it": "/cerca-lavoro-friburgo/apprenticeships",
         "en": "/en/find-jobs-fribourg/apprenticeships",
+        "de": "/de/jobs-im-freiburg/apprenticeships",
         "fr": "/fr/trouver-emploi-fribourg/apprenticeships"
       },
       "queries": [
@@ -6072,9 +6073,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "assistant-d-etudes-medicales-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "assistant-d-etudes-medicales-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "assistant-d-etudes-medicales-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "it": "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefprk",
+        "en": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "assistant-d-etudes-medicales-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "localePaths": {
@@ -6089,6 +6090,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -8983,10 +8985,10 @@
         "fr": "associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
-        "en": "/en/find-jobs-st-gallen/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
-        "de": "/de/jobs-in-st-gallen/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
-        "fr": "/fr/trouver-emploi-saint-gall/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
+        "it": "/cerca-lavoro-berna/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
+        "en": "/en/find-jobs-bern/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
+        "de": "/de/jobs-in-bern/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
+        "fr": "/fr/trouver-emploi-berne/associate-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -9260,10 +9262,10 @@
         "it": "audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva",
-        "en": "/en/find-jobs-zurich/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva",
-        "de": "/de/jobs-in-zurich/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva",
-        "fr": "/fr/trouver-emploi-zurich/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva"
+        "it": "/cerca-lavoro-ginevra/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva",
+        "en": "/en/find-jobs-geneva/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva",
+        "de": "/de/jobs-in-genf/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva",
+        "fr": "/fr/trouver-emploi-geneve/audit-senior-manager-trade-industries-services-us-gaap-pwc-geneva"
       },
       "sourceUrl": "https://jobs.pwc.ch/job-vacancies/audit-senior-manager-trade-industries-services-us-gaap/d8145329-721d-4820-b92b-3f515270cc9d",
       "googleStatus": "unknown",
@@ -10196,17 +10198,22 @@
         {
           "query": "nebenjobs bellinzona",
           "clicks": 0,
-          "impressions": 25
+          "impressions": 26
         },
         {
           "query": "werkstudentenjob bellinzona",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 9
         },
         {
           "query": "lehrstellen bellinzona",
           "clicks": 0,
           "impressions": 5
+        },
+        {
+          "query": "praktikum bellinzona",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "cerco lavoro bellinzona",
@@ -10215,11 +10222,6 @@
         },
         {
           "query": "posti vacanti bellinzona",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "praktikum bellinzona",
           "clicks": 0,
           "impressions": 2
         },
@@ -10239,7 +10241,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 118,
+      "totalImpressions": 121,
       "totalClicks": 0,
       "topQuery": "jobs bellinzona",
       "title": "bellinzona",
@@ -10490,7 +10492,7 @@
         {
           "query": "offerte di lavoro bellinzona",
           "clicks": 2,
-          "impressions": 31
+          "impressions": 33
         },
         {
           "query": "offerte lavoro bellinzona",
@@ -10588,7 +10590,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 196,
+      "totalImpressions": 198,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -10678,10 +10680,10 @@
       "locale": "de",
       "path": "/de/jobs-im-aargau/beratung/",
       "observedPaths": {
-        "it": "/cerca-lavoro-vaud/beratung",
+        "en": "/en/find-jobs-aargau/beratung",
         "de": "/de/jobs-in-der-waadt/beratung",
-        "en": "/en/find-jobs-vaud/beratung",
-        "fr": "/fr/trouver-emploi-vaud/beratung"
+        "it": "/cerca-lavoro-vaud/beratung",
+        "fr": "/fr/trouver-emploi-argovie/beratung"
       },
       "queries": [
         {
@@ -25447,6 +25449,11 @@
       },
       "queries": [
         {
+          "query": "elektriker obwalden",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
           "query": "elektriker jobs lugano",
           "clicks": 0,
           "impressions": 3
@@ -25462,12 +25469,12 @@
           "impressions": 2
         },
         {
-          "query": "elektriker obwalden",
+          "query": "elektriker jobs lugano",
           "clicks": 0,
-          "impressions": 2
+          "impressions": 1
         },
         {
-          "query": "elektriker jobs lugano",
+          "query": "elektriker nidwalden",
           "clicks": 0,
           "impressions": 1
         },
@@ -25477,9 +25484,9 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 11,
+      "totalImpressions": 19,
       "totalClicks": 0,
-      "topQuery": "elektriker jobs lugano",
+      "topQuery": "elektriker obwalden",
       "title": "Elektriker",
       "titleByLocale": {
         "it": "",
@@ -35700,9 +35707,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim",
-        "en": "lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim",
-        "de": "lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim",
-        "fr": "lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim"
+        "en": "warehouse-staff-employees-with-stv-function-coop-genossenschaft-schafisheim",
+        "de": "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim",
+        "fr": "employes-avec-fonction-stv-coop-genossenschaft-schafisheim"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim",
@@ -35716,6 +35723,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -40892,6 +40900,11 @@
           "impressions": 1
         },
         {
+          "query": "cerco lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "jobs mendrisio",
           "clicks": 0,
           "impressions": 1
@@ -40932,7 +40945,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 105,
+      "totalImpressions": 106,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -41036,22 +41049,22 @@
         {
           "query": "lavoro mendrisio",
           "clicks": 0,
-          "impressions": 38
+          "impressions": 39
         },
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 32
+          "impressions": 34
+        },
+        {
+          "query": "aziende mendrisio che assumono",
+          "clicks": 1,
+          "impressions": 14
         },
         {
           "query": "offerte di lavoro mendrisio",
           "clicks": 0,
-          "impressions": 12
-        },
-        {
-          "query": "aziende mendrisio che assumono",
-          "clicks": 0,
-          "impressions": 11
+          "impressions": 13
         },
         {
           "query": "offerte lavoro mendrisio",
@@ -41060,6 +41073,11 @@
         },
         {
           "query": "cerco lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "mendrisio lavoro",
           "clicks": 0,
           "impressions": 6
         },
@@ -41079,17 +41097,17 @@
           "impressions": 5
         },
         {
-          "query": "mendrisio lavoro",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
           "query": "offerte lavoro svizzera mendrisio",
           "clicks": 0,
           "impressions": 5
         },
         {
           "query": "lavoro svizzera mendrisio",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offerte di lavoro mendrisiotto",
           "clicks": 0,
           "impressions": 4
         },
@@ -41124,18 +41142,13 @@
           "impressions": 3
         },
         {
-          "query": "offerte di lavoro mendrisiotto",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
           "query": "offerte lavoro mendrisiotto",
           "clicks": 0,
           "impressions": 3
         }
       ],
-      "totalImpressions": 208,
-      "totalClicks": 3,
+      "totalImpressions": 218,
+      "totalClicks": 4,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
       "titleByLocale": {
@@ -41546,10 +41559,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-domat-ems",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-domat-ems",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-domat-ems",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-domat-ems",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-domat-ems",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-domat-ems"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-domat-ems"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-domat-ems",
@@ -41563,6 +41576,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -41703,10 +41717,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-zurich-ee05a0",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-zurich-ee05a0",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-zurich-ee05a0"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
@@ -41720,6 +41734,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -44514,7 +44529,7 @@
         "de": "/de/jobs-im-tessin/page-2",
         "fr": "/fr/trouver-emploi-tessin/page-2",
         "it": "/cerca-lavoro-ticino/page-2",
-        "en": "/en/find-jobs-ticino/page-2"
+        "en": "/en/find-jobs-bern/page-2"
       },
       "queries": [
         {
@@ -46809,10 +46824,10 @@
         "fr": "prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5",
-        "en": "/en/find-jobs-ticino/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5",
-        "de": "/de/jobs-im-tessin/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5",
-        "fr": "/fr/trouver-emploi-tessin/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5"
+        "it": "/cerca-lavoro-berna/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5",
+        "en": "/en/find-jobs-bern/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5",
+        "de": "/de/jobs-in-bern/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5",
+        "fr": "/fr/trouver-emploi-berne/prevoyeur-de-commandes-coop-genossenschaft-bern-ff3ce5"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54839,10 +54854,10 @@
         "fr": "sales-assistant-food-fresh-products-coop-genossenschaft-sins"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-assistant-food-fresh-products-coop-genossenschaft-sins",
-        "en": "/en/find-jobs-ticino/sales-assistant-food-fresh-products-coop-genossenschaft-sins",
-        "de": "/de/jobs-im-tessin/sales-assistant-food-fresh-products-coop-genossenschaft-sins",
-        "fr": "/fr/trouver-emploi-tessin/sales-assistant-food-fresh-products-coop-genossenschaft-sins"
+        "it": "/cerca-lavoro-argovia/sales-assistant-food-fresh-products-coop-genossenschaft-sins",
+        "en": "/en/find-jobs-aargau/sales-assistant-food-fresh-products-coop-genossenschaft-sins",
+        "de": "/de/jobs-im-aargau/sales-assistant-food-fresh-products-coop-genossenschaft-sins",
+        "fr": "/fr/trouver-emploi-argovie/sales-assistant-food-fresh-products-coop-genossenschaft-sins"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -68853,8 +68868,6 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "social-worker-social-worker-fh-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "social-worker-social-worker-fh-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
         "fr": "travailleur-social-travailleur-social-fh-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -73662,10 +73675,10 @@
         "fr": "verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89",
-        "en": "/en/find-jobs-ticino/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89",
-        "de": "/de/jobs-im-tessin/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89"
+        "it": "/cerca-lavoro-san-gallo/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89",
+        "en": "/en/find-jobs-st-gallen/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89",
+        "de": "/de/jobs-in-st-gallen/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89",
+        "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-food-coop-genossenschaft-altstatten-0ifd89"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73813,10 +73826,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-brugg",
-        "en": "verkaufer-in-food-coop-genossenschaft-brugg",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-brugg",
+        "en": "seller-food-coop-genossenschaft-brugg",
         "de": "verkaufer-in-food-coop-genossenschaft-brugg",
-        "fr": "verkaufer-in-food-coop-genossenschaft-brugg"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-brugg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/verkaufer-in-food-coop-genossenschaft-brugg",
@@ -73830,6 +73843,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -73928,10 +73942,10 @@
         "fr": "verkaufer-in-food-coop-genossenschaft-liestal-47abfb"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-in-food-coop-genossenschaft-liestal-47abfb",
-        "en": "/en/find-jobs-ticino/verkaufer-in-food-coop-genossenschaft-liestal-47abfb",
-        "de": "/de/jobs-im-tessin/verkaufer-in-food-coop-genossenschaft-liestal-47abfb",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-in-food-coop-genossenschaft-liestal-47abfb"
+        "it": "/cerca-lavoro-basilea/verkaufer-in-food-coop-genossenschaft-liestal-47abfb",
+        "en": "/en/find-jobs-basel/verkaufer-in-food-coop-genossenschaft-liestal-47abfb",
+        "de": "/de/jobs-in-basel/verkaufer-in-food-coop-genossenschaft-liestal-47abfb",
+        "fr": "/fr/trouver-emploi-bale/verkaufer-in-food-coop-genossenschaft-liestal-47abfb"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74346,10 +74360,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
-        "en": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
+        "it": "vendita-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
+        "en": "seller-fresh-products-fruits-vegetables-coop-genossenschaft-klosters-serneus",
         "de": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
-        "fr": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus"
+        "fr": "vendeur-de-produits-frais-fruits-et-legumes-coop-genossenschaft-klosters-serneus"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
@@ -74363,6 +74377,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -74553,10 +74568,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-mohlin",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-mohlin",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-mohlin",
+        "en": "seller-cash-register-services-coop-genossenschaft-mohlin",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-mohlin",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-mohlin"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-mohlin"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/verkaufer-in-kassen-services-coop-genossenschaft-mohlin",
@@ -74570,6 +74585,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

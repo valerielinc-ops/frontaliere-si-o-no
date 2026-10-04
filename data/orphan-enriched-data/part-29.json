@@ -2613,6 +2613,11 @@
           "impressions": 1
         },
         {
+          "query": "short list avvocati",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "apprendistati ticino",
           "clicks": 0,
           "impressions": 1
@@ -2628,7 +2633,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 12,
+      "totalImpressions": 13,
       "totalClicks": 1,
       "topQuery": "apprendistato in svizzera",
       "title": "Apprendistato",
@@ -10558,9 +10563,9 @@
       "path": "/cerca-lavoro-ticino/avvocati-legale/",
       "observedPaths": {
         "it": "/cerca-lavoro-ginevra/avvocati-legale",
-        "en": "/en/find-jobs-geneva/avvocati-legale",
-        "fr": "/fr/trouver-emploi-geneve/avvocati-legale",
-        "de": "/de/jobs-im-genf/avvocati-legale"
+        "de": "/de/jobs-im-tessin/avvocati-legale",
+        "fr": "/fr/trouver-emploi-tessin/avvocati-legale",
+        "en": "/en/find-jobs-geneva/avvocati-legale"
       },
       "queries": [
         {
@@ -10649,7 +10654,7 @@
           "impressions": 1
         },
         {
-          "query": "short list avvocati",
+          "query": "gestione paghe ginevra",
           "clicks": 0,
           "impressions": 1
         },
@@ -10659,12 +10664,12 @@
           "impressions": 1
         },
         {
-          "query": "avvocati ticino",
+          "query": "short list avvocati",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 63,
+      "totalImpressions": 64,
       "totalClicks": 1,
       "topQuery": "offerte lavoro svizzera per italiani",
       "title": "Avvocati legale",
@@ -11698,10 +11703,10 @@
         "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h",
-        "en": "/en/find-jobs-lucerne/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h",
+        "it": "/cerca-lavoro-obvaldo/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h",
+        "en": "/en/find-jobs-obwalden/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h",
         "de": "/de/jobs-im-luzern/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h",
-        "fr": "/fr/trouver-emploi-lucerne/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h"
+        "fr": "/fr/trouver-emploi-obwald/boucher-specialiste-de-la-viande-coop-genossenschaft-sarnen-j7lr1h"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13769,10 +13774,10 @@
         "fr": "career-start-in-audit-financial-services-liechtenstein-pwc-ruggell"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell",
-        "en": "/en/find-jobs-zurich/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell",
-        "de": "/de/jobs-in-zurich/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell",
-        "fr": "/fr/trouver-emploi-zurich/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell"
+        "it": "/cerca-lavoro-ginevra/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell",
+        "en": "/en/find-jobs-geneva/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell",
+        "de": "/de/jobs-in-genf/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell",
+        "fr": "/fr/trouver-emploi-geneve/career-start-in-audit-financial-services-liechtenstein-pwc-ruggell"
       },
       "sourceUrl": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-financial-services-liechtenstein/6ca864a7-70ea-4342-b3bb-c69906f5285f",
       "googleStatus": "unknown",
@@ -25855,7 +25860,7 @@
       "path": "/en/find-jobs-solothurn/educators/",
       "observedPaths": {
         "it": "/cerca-lavoro-soletta/educators",
-        "de": "/de/jobs-im-tessin/educators",
+        "de": "/de/jobs-im-solothurn/educators",
         "fr": "/fr/trouver-emploi-tessin/educators",
         "en": "/en/find-jobs-solothurn/educators"
       },
@@ -32696,6 +32701,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "hautemorges",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-vaud/hautemorges/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-vaud/hautemorges/"
+      },
+      "queries": [
+        {
+          "query": "porte d'entrée hautemorges",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "porte d'entrée hautemorges",
+      "title": "Haute",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Morges",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "hautemorges",
+        "en": "hautemorges",
+        "de": "hautemorges",
+        "fr": "hautemorges"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/hautemorges",
+        "en": "/en/find-jobs-vaud/hautemorges",
+        "de": "/de/jobs-im-waadt/hautemorges",
+        "fr": "/fr/trouver-emploi-vaud/hautemorges"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -43218,10 +43281,10 @@
         "fr": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
-        "en": "/en/find-jobs-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
+        "it": "/cerca-lavoro-sciaffusa/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
+        "en": "/en/find-jobs-schaffhausen/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
         "de": "/de/jobs-im-genf/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
-        "fr": "/fr/trouver-emploi-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein"
+        "fr": "/fr/trouver-emploi-schaffhouse/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -56128,10 +56191,10 @@
       "locale": "it",
       "path": "/cerca-lavoro-grigioni/risorse-umane/",
       "observedPaths": {
+        "de": "/de/jobs-im-graubunden/risorse-umane",
         "it": "/cerca-lavoro-zugo/risorse-umane",
-        "de": "/de/jobs-im-schwyz/risorse-umane",
-        "en": "/en/find-jobs-schwyz/risorse-umane",
-        "fr": "/fr/trouver-emploi-schwytz/risorse-umane"
+        "en": "/en/find-jobs-graubunden/risorse-umane",
+        "fr": "/fr/trouver-emploi-grisons/risorse-umane"
       },
       "queries": [
         {
@@ -61490,10 +61553,10 @@
         "it": "ingegnere-del-software-senior-chiasso"
       },
       "localePaths": {
-        "en": "/en/find-jobs-ticino/senior-frontend-software-engineer-chiasso",
-        "it": "/cerca-lavoro-ticino/senior-frontend-software-engineer-chiasso",
-        "de": "/de/jobs-im-tessin/senior-frontend-software-engineer-chiasso",
-        "fr": "/fr/trouver-emploi-tessin/senior-frontend-software-engineer-chiasso"
+        "en": "/en/find-jobs-zurich/senior-frontend-software-engineer-chiasso",
+        "it": "/cerca-lavoro-zurigo/senior-frontend-software-engineer-chiasso",
+        "de": "/de/jobs-in-zurich/senior-frontend-software-engineer-chiasso",
+        "fr": "/fr/trouver-emploi-zurich/senior-frontend-software-engineer-chiasso"
       },
       "sourceUrl": "https://corporate.lastminute.com/careers/jobs/job?id=744000115616338&jobname=senior+frontend+software+engineer",
       "googleStatus": "unknown",
@@ -74145,10 +74208,10 @@
         "fr": "vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins",
-        "en": "/en/find-jobs-zurich/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins",
-        "de": "/de/jobs-in-zurich/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins"
+        "it": "/cerca-lavoro-argovia/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins",
+        "en": "/en/find-jobs-aargau/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins",
+        "de": "/de/jobs-im-aargau/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins",
+        "fr": "/fr/trouver-emploi-argovie/vendeur-vendeuse-de-produits-alimentaires-produits-frais-coop-genossenschaft-sins"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77764,10 +77827,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-mannedorf",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-mannedorf",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-mannedorf",
+        "en": "seller-fresh-products-coop-genossenschaft-mannedorf",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-mannedorf",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-mannedorf"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-mannedorf"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-mannedorf",
@@ -77781,6 +77844,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

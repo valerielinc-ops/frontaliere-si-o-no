@@ -1046,10 +1046,10 @@
         "it": "addetto-a-alle-vendite-food-coop-genossenschaft-munsingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen",
-        "en": "/en/find-jobs-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen",
-        "de": "/de/jobs-in-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen"
+        "it": "/cerca-lavoro-berna/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen",
+        "en": "/en/find-jobs-bern/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen",
+        "de": "/de/jobs-in-bern/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen",
+        "fr": "/fr/trouver-emploi-berne/addetto-a-alle-vendite-food-coop-genossenschaft-munsingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -2329,7 +2329,6 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "en": "it-business-analyst-healthcare-swiss-medical-network",
         "it": "analista-di-business-it-sanita-swiss-medical-network-echandens",
         "de": "it-business-analyst-gesundheitswesen-swiss-medical-network-echandens",
         "fr": "it-business-analyst-healthcare-swiss-medical-network"
@@ -2561,6 +2560,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen/"
+      },
+      "queries": [
+        {
+          "query": "bearnet",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "bearnet",
+      "title": "Apn nurse practitioner bear net ostermundigen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen",
+        "en": "apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen",
+        "de": "apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen",
+        "fr": "apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen",
+        "en": "/en/find-jobs-bern/apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen",
+        "de": "/de/jobs-im-bern/apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen",
+        "fr": "/fr/trouver-emploi-berne/apn-nurse-practitioner-bear-net-60-100-swiss-medical-network-ostermundigen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -4952,10 +5009,10 @@
         "fr": "assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci",
-        "en": "/en/find-jobs-zurich/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci",
-        "de": "/de/jobs-in-zurich/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci",
-        "fr": "/fr/trouver-emploi-zurich/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci"
+        "it": "/cerca-lavoro-san-gallo/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci",
+        "en": "/en/find-jobs-st-gallen/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci",
+        "de": "/de/jobs-in-st-gallen/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci",
+        "fr": "/fr/trouver-emploi-saint-gall/assistant-commercial-alimentaire-coop-genossenschaft-lotzwil-xznjci"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -9619,7 +9676,7 @@
         {
           "query": "baukonstrukteur jobs lugano",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "i am looking for construction jobs in ticino as a laborer.",
@@ -9642,7 +9699,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 24,
+      "totalImpressions": 25,
       "totalClicks": 0,
       "topQuery": "ich suche bei implenia eine stelle auf dem bau in zürich oder aargau mit festanstellung und sauberer stundenabrechnung und start bald",
       "title": "Bau",
@@ -15469,10 +15526,10 @@
         "fr": "commissioner-coop-genossenschaft-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/commissioner-coop-genossenschaft-bern",
-        "en": "/en/find-jobs-ticino/commissioner-coop-genossenschaft-bern",
-        "de": "/de/jobs-im-tessin/commissioner-coop-genossenschaft-bern",
-        "fr": "/fr/trouver-emploi-tessin/commissioner-coop-genossenschaft-bern"
+        "it": "/cerca-lavoro-berna/commissioner-coop-genossenschaft-bern",
+        "en": "/en/find-jobs-bern/commissioner-coop-genossenschaft-bern",
+        "de": "/de/jobs-in-bern/commissioner-coop-genossenschaft-bern",
+        "fr": "/fr/trouver-emploi-berne/commissioner-coop-genossenschaft-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -17360,9 +17417,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "consulente-di-vendita-cosmetici-coop-genossenschaft-zug",
-        "en": "consulente-di-vendita-cosmetici-coop-genossenschaft-zug",
-        "de": "consulente-di-vendita-cosmetici-coop-genossenschaft-zug",
-        "fr": "consulente-di-vendita-cosmetici-coop-genossenschaft-zug"
+        "en": "sales-consultant-cosmetics-coop-genossenschaft-zug",
+        "de": "verkaufsberater-in-kosmetik-coop-genossenschaft-zug",
+        "fr": "consultant-en-produits-cosmetiques-coop-genossenschaft-zug"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zugo/consulente-di-vendita-cosmetici-coop-genossenschaft-zug",
@@ -17376,6 +17433,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -19914,10 +19972,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-neuchatel/developpeurs/",
       "observedPaths": {
+        "fr": "/fr/trouver-emploi-neuchatel/developpeurs",
+        "en": "/en/find-jobs-neuchatel/developpeurs",
         "de": "/de/jobs-im-tessin/developpeurs",
-        "fr": "/fr/trouver-emploi-tessin/developpeurs",
-        "it": "/cerca-lavoro-ticino/developpeurs",
-        "en": "/en/find-jobs-ticino/developpeurs"
+        "it": "/cerca-lavoro-ticino/developpeurs"
       },
       "queries": [
         {
@@ -28180,10 +28238,10 @@
         "fr": "fresh-produce-sales-associate-coop-genossenschaft-richterswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/fresh-produce-sales-associate-coop-genossenschaft-richterswil",
-        "en": "/en/find-jobs-aargau/fresh-produce-sales-associate-coop-genossenschaft-richterswil",
-        "de": "/de/jobs-im-aargau/fresh-produce-sales-associate-coop-genossenschaft-richterswil",
-        "fr": "/fr/trouver-emploi-argovie/fresh-produce-sales-associate-coop-genossenschaft-richterswil"
+        "it": "/cerca-lavoro-basilea/fresh-produce-sales-associate-coop-genossenschaft-richterswil",
+        "en": "/en/find-jobs-basel/fresh-produce-sales-associate-coop-genossenschaft-richterswil",
+        "de": "/de/jobs-in-basel/fresh-produce-sales-associate-coop-genossenschaft-richterswil",
+        "fr": "/fr/trouver-emploi-bale/fresh-produce-sales-associate-coop-genossenschaft-richterswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28643,7 +28701,7 @@
         {
           "query": "gastronom jobs lugano",
           "clicks": 0,
-          "impressions": 13
+          "impressions": 15
         },
         {
           "query": "arbeiten in der schweiz gastronomie",
@@ -28696,7 +28754,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 54,
+      "totalImpressions": 56,
       "totalClicks": 0,
       "topQuery": "ich suche jobs in der italienischen schweiz im service oder an der bar",
       "title": "Gastronomie",
@@ -34160,10 +34218,10 @@
         "fr": "installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano",
-        "en": "/en/find-jobs-ticino/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano",
-        "de": "/de/jobs-im-tessin/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano",
-        "fr": "/fr/trouver-emploi-tessin/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano"
+        "it": "/cerca-lavoro-argovia/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano",
+        "en": "/en/find-jobs-aargau/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano",
+        "de": "/de/jobs-im-aargau/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano",
+        "fr": "/fr/trouver-emploi-argovie/installatore-trice-elettrico-a-in-per-solaranlagenmontage-fachkraft-ch-gmbh-lugano"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -36889,10 +36947,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim",
-        "en": "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim",
+        "it": "lagermitarbeiter-in-leergutzentrale-con-stv-funktion-coop-genossenschaft-schafisheim",
+        "en": "warehouse-staff-employees-with-stv-function-coop-genossenschaft-schafisheim",
         "de": "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim",
-        "fr": "lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim"
+        "fr": "employes-avec-fonction-stv-coop-genossenschaft-schafisheim"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/lagermitarbeiter-in-leergutzentrale-mit-stv-funktion-coop-genossenschaft-schafisheim",
@@ -36906,6 +36964,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -39072,6 +39131,11 @@
           "impressions": 9
         },
         {
+          "query": "suchen sie eine neue herausforderung in der logistik in der ostschweiz",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "logistik jobs lugano",
           "clicks": 0,
           "impressions": 3
@@ -39105,14 +39169,9 @@
           "query": "manpower schweiz stundenlohn logistik 25 chf",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "suchen sie eine neue herausforderung in der logistik in der ostschweiz",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 21,
+      "totalImpressions": 24,
       "totalClicks": 0,
       "topQuery": "manpower schweiz logistik stundenlohn 25 chf",
       "title": "Logistik",
@@ -40120,6 +40179,120 @@
         "en": "/en/find-jobs-st-gallen/maisons-retraite-saint-gall",
         "de": "/de/jobs-im-st-gallen/maisons-retraite-saint-gall",
         "fr": "/fr/trouver-emploi-saint-gall/maisons-retraite-saint-gall"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau",
+      "locale": "de",
+      "path": "/de/jobs-in-appenzell/maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau/",
+      "observedPaths": {
+        "de": "/de/jobs-in-appenzell/maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau/"
+      },
+      "queries": [
+        {
+          "query": "maler ausserrhoden",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "maler ausserrhoden",
+      "title": "Maler in fur lackier und spritzarbeiten fachkraft ch gmbh herisau",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau",
+        "en": "maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau",
+        "de": "maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau",
+        "fr": "maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-appenzello/maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau",
+        "en": "/en/find-jobs-appenzell/maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau",
+        "de": "/de/jobs-im-appenzell/maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau",
+        "fr": "/fr/trouver-emploi-appenzell/maler-in-fur-lackier-und-spritzarbeiten-fachkraft-ch-gmbh-herisau"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon",
+      "locale": "de",
+      "path": "/de/jobs-im-thurgau/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon/",
+      "observedPaths": {
+        "de": "/de/jobs-im-thurgau/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon/"
+      },
+      "queries": [
+        {
+          "query": "offene stellen arbon",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "offene stellen arbon",
+      "title": "Maler in fur renovations und neubauprojekte fachkraft ch gmbh arbon",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon",
+        "en": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon",
+        "de": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon",
+        "fr": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon",
+        "en": "/en/find-jobs-thurgau/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon",
+        "de": "/de/jobs-im-thurgau/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon",
+        "fr": "/fr/trouver-emploi-thurgovie/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-arbon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42255,10 +42428,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "it": "assistente-di-studio-medico-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefprk",
         "en": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "assistant-d-etudes-medicales-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/medical-study-assistant-100-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -42272,6 +42445,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -43306,10 +43480,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel",
+        "it": "speciale-dei-pasti-coop-genossenschaft-schaffhausen",
+        "en": "meat-specialist-coop-genossenschaft-schaffhausen",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel"
+        "fr": "specialiste-de-la-viande-coop-genossenschaft-schaffhausen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-sciaffusa/metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel",
@@ -43323,6 +43497,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -44677,7 +44852,7 @@
         {
           "query": "nursing jobs",
           "clicks": 0,
-          "impressions": 971
+          "impressions": 978
         },
         {
           "query": "kantonsspital aarau ksa",
@@ -44695,12 +44870,12 @@
           "impressions": 26
         },
         {
-          "query": "i am looking for nurse jobs in bern with 80 to 100 percent workload.",
+          "query": "i am searching for a permanent contract nursing job in german speaking switzerland with full time employment and support for recognition of my foreign diploma and i want to know which cantons are most open.",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 23
         },
         {
-          "query": "i am searching for a permanent contract nursing job in german speaking switzerland with full time employment and support for recognition of my foreign diploma and i want to know which cantons are most open.",
+          "query": "i am looking for nurse jobs in bern with 80 to 100 percent workload.",
           "clicks": 0,
           "impressions": 21
         },
@@ -44775,7 +44950,7 @@
           "impressions": 4
         }
       ],
-      "totalImpressions": 1375,
+      "totalImpressions": 1390,
       "totalClicks": 3,
       "topQuery": "nursing jobs",
       "title": "Nurses",
@@ -50367,10 +50542,10 @@
         "fr": "professionnels-de-la-sante-efz-spitex-regio-frick-frick"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/professionista-della-salute-efz-spitex-regio-frick-frick",
-        "en": "/en/find-jobs-basel/professionista-della-salute-efz-spitex-regio-frick-frick",
-        "de": "/de/jobs-in-basel/professionista-della-salute-efz-spitex-regio-frick-frick",
-        "fr": "/fr/trouver-emploi-bale/professionista-della-salute-efz-spitex-regio-frick-frick"
+        "it": "/cerca-lavoro-argovia/professionista-della-salute-efz-spitex-regio-frick-frick",
+        "en": "/en/find-jobs-aargau/professionista-della-salute-efz-spitex-regio-frick-frick",
+        "de": "/de/jobs-im-aargau/professionista-della-salute-efz-spitex-regio-frick-frick",
+        "fr": "/fr/trouver-emploi-argovie/professionista-della-salute-efz-spitex-regio-frick-frick"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -52180,10 +52355,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-schaffhausen",
-        "en": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-schaffhausen",
+        "it": "rayon-conduttore-cibo-di-base-coop-genossenschaft-schaffhausen",
+        "en": "rayon-conductor-staple-food-coop-genossenschaft-schaffhausen",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-schaffhausen",
-        "fr": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-schaffhausen"
+        "fr": "produits-de-base-du-conducteur-de-rayonne-coop-genossenschaft-schaffhausen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-sciaffusa/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-schaffhausen",
@@ -52197,6 +52372,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -59937,10 +60113,10 @@
         "fr": "seller-fresh-products-coop-genossenschaft-basel-196202"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/seller-fresh-products-coop-genossenschaft-basel-196202",
-        "en": "/en/find-jobs-basel/seller-fresh-products-coop-genossenschaft-basel-196202",
+        "it": "/cerca-lavoro-berna/seller-fresh-products-coop-genossenschaft-basel-196202",
+        "en": "/en/find-jobs-bern/seller-fresh-products-coop-genossenschaft-basel-196202",
         "de": "/de/jobs-im-basel/seller-fresh-products-coop-genossenschaft-basel-196202",
-        "fr": "/fr/trouver-emploi-bale/seller-fresh-products-coop-genossenschaft-basel-196202"
+        "fr": "/fr/trouver-emploi-berne/seller-fresh-products-coop-genossenschaft-basel-196202"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -61704,10 +61880,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "senior-java-entwickler-in-m-w-d-coopers-luzern",
-        "en": "senior-java-entwickler-in-m-w-d-coopers-luzern",
-        "de": "senior-java-entwickler-in-m-w-d-coopers-luzern",
-        "fr": "senior-java-entwickler-in-m-w-d-coopers-luzern"
+        "en": "senior-java-developer-m-f-d-coopers-group-ag-luzern",
+        "de": "senior-java-entwickler-in-m-w-d-coopers-luzern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/senior-java-entwickler-in-m-w-d-coopers-luzern",
@@ -61715,12 +61889,13 @@
         "de": "/de/jobs-in-luzern/senior-java-entwickler-in-m-w-d-coopers-luzern",
         "fr": "/fr/trouver-emploi-lucerne/senior-java-entwickler-in-m-w-d-coopers-luzern"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.coopers.ch/en/jobs/detail.php?refcode=1r4i0v",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -63263,9 +63438,9 @@
       "path": "/cerca-lavoro-vaud/sicurezza/",
       "observedPaths": {
         "it": "/cerca-lavoro-ticino/sicurezza",
-        "de": "/de/jobs-im-tessin/sicurezza",
-        "fr": "/fr/trouver-emploi-tessin/sicurezza",
-        "en": "/en/find-jobs-ticino/sicurezza"
+        "en": "/en/find-jobs-vaud/sicurezza",
+        "fr": "/fr/trouver-emploi-vaud/sicurezza",
+        "de": "/de/jobs-im-tessin/sicurezza"
       },
       "queries": [
         {
@@ -78284,10 +78459,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-freienbach",
-        "en": "verkaufer-in-food-coop-genossenschaft-freienbach",
-        "de": "verkaufer-in-food-coop-genossenschaft-freienbach",
-        "fr": "verkaufer-in-food-coop-genossenschaft-freienbach"
+        "de": "verkaufer-in-food-coop-genossenschaft-freienbach"
       },
       "localePaths": {
         "it": "/cerca-lavoro-svitto/verkaufer-in-food-coop-genossenschaft-freienbach",
@@ -78301,6 +78473,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -78705,10 +78878,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-fruchte-und-gemuse-coop-genossenschaft-schonenwerd",
-        "en": "verkaufer-in-food-fruchte-und-gemuse-coop-genossenschaft-schonenwerd",
+        "it": "verkaufer-in-food-fruchte-e-gemuse-coop-genossenschaft-schonenwerd",
+        "en": "seller-food-fruits-and-vegetables-coop-genossenschaft-schonenwerd",
         "de": "verkaufer-in-food-fruchte-und-gemuse-coop-genossenschaft-schonenwerd",
-        "fr": "verkaufer-in-food-fruchte-und-gemuse-coop-genossenschaft-schonenwerd"
+        "fr": "produits-alimentaires-vendus-fruits-et-legumes-coop-genossenschaft-schonenwerd"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/verkaufer-in-food-fruchte-und-gemuse-coop-genossenschaft-schonenwerd",
@@ -78722,6 +78895,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -78756,10 +78930,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-getranke-coop-genossenschaft-basel",
-        "en": "verkaufer-in-food-getranke-coop-genossenschaft-basel",
+        "it": "seller-food-bevande-coop-genossenschaft-basel-6eeadb",
+        "en": "seller-food-drinks-coop-genossenschaft-basel-6eeadb",
         "de": "verkaufer-in-food-getranke-coop-genossenschaft-basel",
-        "fr": "verkaufer-in-food-getranke-coop-genossenschaft-basel"
+        "fr": "vente-de-nourriture-boissons-coop-genossenschaft-basel"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/verkaufer-in-food-getranke-coop-genossenschaft-basel",
@@ -78773,6 +78947,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -79036,10 +79211,10 @@
         "fr": "verkaufer-in-frischprodukte-coop-zurich-5-2"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-zurich-5-2",
-        "en": "/en/find-jobs-zurich/verkaufer-in-frischprodukte-coop-zurich-5-2",
-        "de": "/de/jobs-in-zurich/verkaufer-in-frischprodukte-coop-zurich-5-2",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-frischprodukte-coop-zurich-5-2"
+        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-coop-zurich-5-2",
+        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-coop-zurich-5-2",
+        "de": "/de/jobs-in-bern/verkaufer-in-frischprodukte-coop-zurich-5-2",
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-coop-zurich-5-2"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79138,10 +79313,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-cham"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-kassen-services-coop-genossenschaft-cham",
-        "en": "/en/find-jobs-basel/verkaufer-in-kassen-services-coop-genossenschaft-cham",
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-cham",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-cham",
         "de": "/de/jobs-im-bern/verkaufer-in-kassen-services-coop-genossenschaft-cham",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-kassen-services-coop-genossenschaft-cham"
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-cham"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79183,16 +79358,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-horgen",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-horgen",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-horgen",
+        "en": "seller-cash-register-services-coop-genossenschaft-horgen",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-horgen",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-horgen"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-horgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-kassen-services-coop-genossenschaft-horgen",
-        "en": "/en/find-jobs-bern/verkaufer-in-kassen-services-coop-genossenschaft-horgen",
-        "de": "/de/jobs-in-bern/verkaufer-in-kassen-services-coop-genossenschaft-horgen",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-kassen-services-coop-genossenschaft-horgen"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-horgen",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-horgen",
+        "de": "/de/jobs-in-zurich/verkaufer-in-kassen-services-coop-genossenschaft-horgen",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-horgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79200,6 +79375,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

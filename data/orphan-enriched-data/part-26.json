@@ -572,9 +572,9 @@
       "path": "/en/find-jobs-appenzell/accountants/",
       "observedPaths": {
         "de": "/de/jobs-im-tessin/accountants",
+        "en": "/en/find-jobs-appenzell/accountants",
         "fr": "/fr/trouver-emploi-tessin/accountants",
-        "it": "/cerca-lavoro-ticino/accountants",
-        "en": "/en/find-jobs-ticino/accountants"
+        "it": "/cerca-lavoro-ticino/accountants"
       },
       "queries": [
         {
@@ -20019,10 +20019,10 @@
       "locale": "it",
       "path": "/cerca-lavoro-ginevra/contabili/",
       "observedPaths": {
+        "de": "/de/jobs-im-genf/contabili",
         "it": "/cerca-lavoro-ticino/contabili",
-        "de": "/de/jobs-im-tessin/contabili",
-        "fr": "/fr/trouver-emploi-tessin/contabili",
-        "en": "/en/find-jobs-ticino/contabili"
+        "en": "/en/find-jobs-geneva/contabili",
+        "fr": "/fr/trouver-emploi-tessin/contabili"
       },
       "queries": [
         {
@@ -26863,10 +26863,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil",
         "en": "efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil",
-        "de": "efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil",
-        "fr": "efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil"
+        "de": "automobil-mechatroniker-in-efz-emil-frey-au-wadenswil",
+        "fr": "mecatronicien-ne-automobile-cfc-emil-frey-au-wadenswil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil",
@@ -26874,12 +26873,13 @@
         "de": "/de/jobs-in-bern/efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil",
         "fr": "/fr/trouver-emploi-berne/efz-as-automotive-mechatronics-technician-emil-frey-au-wadenswil"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.emilfrey.ch/automobil-mechatroniker-in-efz-de-j2501.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -34278,10 +34278,10 @@
         "fr": "home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau",
-        "en": "/en/find-jobs-aargau/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau",
-        "de": "/de/jobs-im-aargau/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau",
-        "fr": "/fr/trouver-emploi-argovie/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau"
+        "it": "/cerca-lavoro-san-gallo/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau",
+        "en": "/en/find-jobs-st-gallen/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau",
+        "de": "/de/jobs-in-st-gallen/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau",
+        "fr": "/fr/trouver-emploi-saint-gall/home-consegna-fitter-negli-elettrodomestici-fust-lenzburg-aargau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -36871,10 +36871,10 @@
         "fr": "ingegnere-cqv-m-f-d-coopers-group-ag-wallis"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/ingegnere-cqv-m-f-d-coopers-group-ag-wallis",
-        "en": "/en/find-jobs-ticino/ingegnere-cqv-m-f-d-coopers-group-ag-wallis",
-        "de": "/de/jobs-im-tessin/ingegnere-cqv-m-f-d-coopers-group-ag-wallis",
-        "fr": "/fr/trouver-emploi-tessin/ingegnere-cqv-m-f-d-coopers-group-ag-wallis"
+        "it": "/cerca-lavoro-vallese/ingegnere-cqv-m-f-d-coopers-group-ag-wallis",
+        "en": "/en/find-jobs-valais/ingegnere-cqv-m-f-d-coopers-group-ag-wallis",
+        "de": "/de/jobs-im-wallis/ingegnere-cqv-m-f-d-coopers-group-ag-wallis",
+        "fr": "/fr/trouver-emploi-valais/ingegnere-cqv-m-f-d-coopers-group-ag-wallis"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -40360,8 +40360,6 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "plastics-technologue-establishers-in-grunlingfarking-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group",
-        "en": "plastics-technologue-establishers-in-grunlingfarking-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group",
         "de": "kunststofftechnologe-einrichter-in-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erre-6oyzp7",
         "fr": "technologue-plastique-etablisseurs-en-grunlingfarking-sur-place-eta-sa-swatch-group-ticino"
       },
@@ -41779,6 +41777,64 @@
       ]
     },
     {
+      "slug": "leiter-in-radiologie-swiss-medical-network-ostermundigen",
+      "locale": "de",
+      "path": "/de/jobs-in-bern/leiter-in-radiologie-swiss-medical-network-ostermundigen/",
+      "observedPaths": {
+        "de": "/de/jobs-in-bern/leiter-in-radiologie-swiss-medical-network-ostermundigen/"
+      },
+      "queries": [
+        {
+          "query": "stellenangebote facharzt radiologie",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "stellenangebote facharzt radiologie",
+      "title": "Leiter in radiologie ostermundigen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "leiter-in-radiologie-swiss-medical-network-ostermundigen",
+        "en": "leiter-in-radiologie-swiss-medical-network-ostermundigen",
+        "de": "leiter-in-radiologie-swiss-medical-network-ostermundigen",
+        "fr": "leiter-in-radiologie-swiss-medical-network-ostermundigen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/leiter-in-radiologie-swiss-medical-network-ostermundigen",
+        "en": "/en/find-jobs-bern/leiter-in-radiologie-swiss-medical-network-ostermundigen",
+        "de": "/de/jobs-im-bern/leiter-in-radiologie-swiss-medical-network-ostermundigen",
+        "fr": "/fr/trouver-emploi-berne/leiter-in-radiologie-swiss-medical-network-ostermundigen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "leiter-industrie-immobilienentwicklung-m-w-d-coopers-group-ag-basel-stadt",
       "locale": "en",
       "path": "/en/find-jobs-ticino/leiter-industrie-immobilienentwicklung-m-w-d-coopers-group-ag-basel-stadt",
@@ -42040,10 +42096,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "lernender-detailhandel-m-w-d-aldi-suisse-grenchen",
-        "en": "lernender-detailhandel-m-w-d-aldi-suisse-grenchen",
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-grenchen",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-grenchen",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse-grenchen",
-        "fr": "lernender-detailhandel-m-w-d-aldi-suisse-grenchen"
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-grenchen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/lernender-detailhandel-m-w-d-aldi-suisse-grenchen",
@@ -42057,6 +42113,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -44571,6 +44628,64 @@
       ]
     },
     {
+      "slug": "med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz",
+      "locale": "en",
+      "path": "/en/find-jobs-graubunden/med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz/",
+      "observedPaths": {
+        "en": "/en/find-jobs-graubunden/med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz/"
+      },
+      "queries": [
+        {
+          "query": "offene stellen surselva",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offene stellen surselva",
+      "title": "Med practice coordinator mpk regionalspital surselva",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Ilanz",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz",
+        "en": "med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz",
+        "de": "med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz",
+        "fr": "med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz",
+        "en": "/en/find-jobs-graubunden/med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz",
+        "de": "/de/jobs-im-graubunden/med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz",
+        "fr": "/fr/trouver-emploi-grisons/med-practice-coordinator-mpk-60-100-regionalspital-surselva-ilanz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-surses",
       "locale": "de",
       "path": "/de/jobs-in-graubunden/med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-surses/",
@@ -45393,10 +45508,10 @@
         "fr": "medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen",
-        "en": "/en/find-jobs-bern/medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen",
+        "it": "/cerca-lavoro-soletta/medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen",
+        "en": "/en/find-jobs-solothurn/medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen",
         "de": "/de/jobs-im-neuenburg/medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen",
-        "fr": "/fr/trouver-emploi-berne/medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen"
+        "fr": "/fr/trouver-emploi-soleure/medizinische-r-praxisassistent-in-swiss-medical-network-ostermundigen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47481,10 +47596,10 @@
         "fr": "mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
-        "en": "/en/find-jobs-ticino/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
-        "de": "/de/jobs-im-tessin/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
-        "fr": "/fr/trouver-emploi-tessin/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn"
+        "it": "/cerca-lavoro-soletta/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "/en/find-jobs-solothurn/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
+        "de": "/de/jobs-in-solothurn/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "/fr/trouver-emploi-soleure/mpa-plastic-surgery-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47812,10 +47927,10 @@
         "fr": "oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-",
-        "en": "/en/find-jobs-ticino/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-",
-        "de": "/de/jobs-im-tessin/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-",
-        "fr": "/fr/trouver-emploi-tessin/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-"
+        "it": "/cerca-lavoro-zurigo/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-",
+        "en": "/en/find-jobs-zurich/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-",
+        "de": "/de/jobs-in-zurich/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-",
+        "fr": "/fr/trouver-emploi-zurich/oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80-"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50192,6 +50307,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans",
+      "locale": "de",
+      "path": "/de/jobs-in-nidwalden/polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans/",
+      "observedPaths": {
+        "de": "/de/jobs-in-nidwalden/polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans/"
+      },
+      "queries": [
+        {
+          "query": "anlagenmontage",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "anlagenmontage",
+      "title": "Polymechaniker in montage fur anlagenmontage fachkraft ch gmbh stans",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans",
+        "en": "polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans",
+        "de": "polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans",
+        "fr": "polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-nidvaldo/polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans",
+        "en": "/en/find-jobs-nidwalden/polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans",
+        "de": "/de/jobs-im-nidwalden/polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans",
+        "fr": "/fr/trouver-emploi-nidwald/polymechaniker-in-montage-fur-anlagenmontage-fachkraft-ch-gmbh-stans"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -66696,10 +66868,10 @@
         "fr": "specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon",
-        "en": "/en/find-jobs-basel/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon",
+        "it": "/cerca-lavoro-zurigo/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon",
+        "en": "/en/find-jobs-zurich/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon",
         "de": "/de/jobs-im-zug/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon",
-        "fr": "/fr/trouver-emploi-bale/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon"
+        "fr": "/fr/trouver-emploi-zurich/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietlikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -70866,6 +71038,64 @@
       ]
     },
     {
+      "slug": "technical-program-manager-anybotics-zurich",
+      "locale": "en",
+      "path": "/en/find-jobs-zurich/technical-program-manager-anybotics-zurich/",
+      "observedPaths": {
+        "en": "/en/find-jobs-zurich/technical-program-manager-anybotics-zurich/"
+      },
+      "queries": [
+        {
+          "query": "anybotics zurich",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "anybotics zurich",
+      "title": "Technical program manager anybotics",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "technical-program-manager-anybotics-zurich",
+        "en": "technical-program-manager-anybotics-zurich",
+        "de": "technical-program-manager-anybotics-zurich",
+        "fr": "technical-program-manager-anybotics-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/technical-program-manager-anybotics-zurich",
+        "en": "/en/find-jobs-zurich/technical-program-manager-anybotics-zurich",
+        "de": "/de/jobs-im-zurich/technical-program-manager-anybotics-zurich",
+        "fr": "/fr/trouver-emploi-zurich/technical-program-manager-anybotics-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "technicien-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona-uilnbn",
       "locale": "de",
       "path": "/de/jobs-im-tessin/technicien-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona-uilnbn",
@@ -74618,10 +74848,10 @@
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-basel-196202"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/vendeur-de-produits-frais-coop-genossenschaft-basel-196202",
-        "en": "/en/find-jobs-basel/vendeur-de-produits-frais-coop-genossenschaft-basel-196202",
-        "de": "/de/jobs-in-basel/vendeur-de-produits-frais-coop-genossenschaft-basel-196202",
-        "fr": "/fr/trouver-emploi-bale/vendeur-de-produits-frais-coop-genossenschaft-basel-196202"
+        "it": "/cerca-lavoro-berna/vendeur-de-produits-frais-coop-genossenschaft-basel-196202",
+        "en": "/en/find-jobs-bern/vendeur-de-produits-frais-coop-genossenschaft-basel-196202",
+        "de": "/de/jobs-in-bern/vendeur-de-produits-frais-coop-genossenschaft-basel-196202",
+        "fr": "/fr/trouver-emploi-berne/vendeur-de-produits-frais-coop-genossenschaft-basel-196202"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74777,9 +75007,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-denner-winterthur",
-        "en": "vendeur-denner-winterthur",
-        "de": "vendeur-denner-winterthur",
+        "it": "venditore-denner-winterthur",
+        "en": "shop-assistant-denner-winterthur",
+        "de": "verkaufer-in-denner-o0skmk",
         "fr": "vendeur-denner-winterthur"
       },
       "localePaths": {
@@ -74794,6 +75024,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -75611,10 +75842,10 @@
         "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil",
-        "en": "/en/find-jobs-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil",
-        "de": "/de/jobs-in-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil"
+        "it": "/cerca-lavoro-san-gallo/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil",
+        "en": "/en/find-jobs-st-gallen/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil",
+        "de": "/de/jobs-in-st-gallen/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil",
+        "fr": "/fr/trouver-emploi-saint-gall/vendeur-vendeuse-alimentaire-coop-genossenschaft-lotzwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78442,10 +78673,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern",
-        "en": "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-wohlen-bei-bern",
+        "en": "seller-food-coop-genossenschaft-wohlen-bei-bern",
         "de": "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern",
-        "fr": "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-wohlen-bei-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern",
@@ -78459,6 +78690,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -78653,10 +78885,10 @@
         "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
-        "de": "/de/jobs-in-basel/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-frischprodukte-coop-genossenschaft-basel"
+        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
+        "de": "/de/jobs-in-bern/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78705,10 +78937,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-schotz",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-schotz",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-schotz",
+        "en": "seller-fresh-products-coop-genossenschaft-schotz",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-schotz",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-schotz"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-schotz"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/verkaufer-in-frischprodukte-coop-genossenschaft-schotz",
@@ -78722,6 +78954,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

@@ -10035,17 +10035,17 @@
         {
           "query": "bcg offre orari flessibili ai profili esperti della finanza in svizzera?",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 24
         },
         {
           "query": "posti vacanti banca ticino",
           "clicks": 1,
-          "impressions": 10
+          "impressions": 11
         },
         {
           "query": "lavoro banca ticino",
           "clicks": 0,
-          "impressions": 7
+          "impressions": 8
         },
         {
           "query": "offerte di lavoro banca svizzera italiana",
@@ -10123,17 +10123,17 @@
           "impressions": 1
         },
         {
-          "query": "banca",
+          "query": "b2",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "cambiavalute ch",
+          "query": "banca",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 106,
+      "totalImpressions": 112,
       "totalClicks": 5,
       "topQuery": "bcg offre orari flessibili ai profili esperti della finanza in svizzera?",
       "title": "Banca finanza",
@@ -26854,10 +26854,10 @@
       "locale": "it",
       "path": "/cerca-lavoro-grigioni/elettricisti/",
       "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/elettricisti",
+        "fr": "/fr/trouver-emploi-grisons/elettricisti",
         "de": "/de/jobs-im-tessin/elettricisti",
-        "fr": "/fr/trouver-emploi-tessin/elettricisti",
-        "en": "/en/find-jobs-ticino/elettricisti",
-        "it": "/cerca-lavoro-ticino/elettricisti"
+        "en": "/en/find-jobs-ticino/elettricisti"
       },
       "queries": [
         {
@@ -26886,6 +26886,11 @@
           "impressions": 1
         },
         {
+          "query": "short list avvocati 2026",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "elettricista ticino offerte lavoro",
           "clicks": 0,
           "impressions": 1
@@ -26906,7 +26911,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 10,
+      "totalImpressions": 11,
       "totalClicks": 3,
       "topQuery": "svizzera elettricista",
       "title": "Elettricisti",
@@ -28055,10 +28060,10 @@
         "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "en": "/en/find-jobs-bern/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "it": "/cerca-lavoro-basilea/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "en": "/en/find-jobs-basel/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
         "de": "/de/jobs-im-bern/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "fr": "/fr/trouver-emploi-berne/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
+        "fr": "/fr/trouver-emploi-bale/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -33884,7 +33889,7 @@
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
@@ -35458,10 +35463,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "it": "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
         "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "de": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "fr": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
+        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
+        "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
@@ -35469,12 +35474,13 @@
         "de": "/de/jobs-im-aargau/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
         "fr": "/fr/trouver-emploi-argovie/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-fr",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -35516,10 +35522,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "it": "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
         "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "de": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "fr": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
+        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
+        "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
@@ -35527,12 +35533,13 @@
         "de": "/de/jobs-im-aargau/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
         "fr": "/fr/trouver-emploi-argovie/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-fr",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -42152,6 +42159,122 @@
       ]
     },
     {
+      "slug": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+      "locale": "de",
+      "path": "/de/jobs-in-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier/",
+      "observedPaths": {
+        "de": "/de/jobs-in-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier/"
+      },
+      "queries": [
+        {
+          "query": "specialiste de la main",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "specialiste de la main",
+      "title": "Medecin specialiste en chirurgie de la main saint imier",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "en": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "de": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "fr": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "en": "/en/find-jobs-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "de": "/de/jobs-im-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "fr": "/fr/trouver-emploi-berne/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier/"
+      },
+      "queries": [
+        {
+          "query": "specialiste de la main",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "specialiste de la main",
+      "title": "Medecin specialiste en chirurgie de la main saint imier",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "en": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "de": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "fr": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "en": "/en/find-jobs-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "de": "/de/jobs-im-bern/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier",
+        "fr": "/fr/trouver-emploi-berne/medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network-saint-imier"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "medecin-specialiste-en-urologie-80-100-permette-di-combinare-efficacemente-approccio-local",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/medecin-specialiste-en-urologie-80-100-permette-di-combinare-efficacemente-approccio-local/",
@@ -42769,6 +42892,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden/"
+      },
+      "queries": [
+        {
+          "query": "glasdächer luzern",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "glasdächer luzern",
+      "title": "Metallbauer in hilfsarbeiter in fur glasdacher und wintergarten stellenpartner ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Baden",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden",
+        "en": "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden",
+        "de": "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden",
+        "fr": "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden",
+        "en": "/en/find-jobs-aargau/metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden",
+        "de": "/de/jobs-im-aargau/metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden",
+        "fr": "/fr/trouver-emploi-argovie/metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-stellenpartner-ag-baden"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -44633,10 +44814,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "nurse-recovery-room-kantonsspital-winterthur-ksw-winterthur",
+        "it": "infermiera-infermiere-sala-risveglio-kantonsspital-winterthur-ksw-winterthur",
         "en": "nurse-recovery-room-kantonsspital-winterthur-ksw-winterthur",
-        "de": "nurse-recovery-room-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "nurse-recovery-room-kantonsspital-winterthur-ksw-winterthur"
+        "de": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
+        "fr": "infirmiere-infirmier-salle-de-reveil-kantonsspital-winterthur-ksw-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/nurse-recovery-room-kantonsspital-winterthur-ksw-winterthur",
@@ -44650,6 +44831,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -46813,7 +46995,7 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-grisons/page-5/",
       "observedPaths": {
-        "it": "/cerca-lavoro-ticino/page-5",
+        "it": "/cerca-lavoro-san-gallo/page-5",
         "en": "/en/find-jobs-vaud/page-5",
         "de": "/de/jobs-im-tessin/page-5",
         "fr": "/fr/trouver-emploi-tessin/page-5"
@@ -48163,17 +48345,22 @@
           "impressions": 4
         },
         {
+          "query": "jobs kanton schwyz",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "pharma jobs",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "pharmareferent jobs lugano",
           "clicks": 0,
           "impressions": 2
         },
         {
-          "query": "jobs kanton schwyz",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "pharma jobs",
+          "query": "offene stellen kanton schwyz",
           "clicks": 0,
           "impressions": 2
         },
@@ -48208,12 +48395,27 @@
           "impressions": 1
         },
         {
+          "query": "kanton schwyz offene stellen",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offene stelle schwyz",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "pharma job",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "teilzeitstellen kanton schwyz",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 23,
+      "totalImpressions": 30,
       "totalClicks": 0,
       "topQuery": "pharma karriere zulassung",
       "title": "Pharma",
@@ -48273,6 +48475,11 @@
           "impressions": 2
         },
         {
+          "query": "2",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
           "query": "are they hard to find?",
           "clicks": 0,
           "impressions": 1
@@ -48289,6 +48496,16 @@
         },
         {
           "query": "in ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "mi trovi delle offerte",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "sintetica sa mendrisio",
           "clicks": 0,
           "impressions": 1
         },
@@ -48318,8 +48535,8 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 11,
-      "totalClicks": 0,
+      "totalImpressions": 14,
+      "totalClicks": 1,
       "topQuery": "si",
       "title": "Pharmaceutical",
       "titleByLocale": {
@@ -49057,6 +49274,64 @@
         "en": "/en/find-jobs-ticino/podologist-coop-genossenschaft-basel-0hn8wo",
         "de": "/de/jobs-im-tessin/podologist-coop-genossenschaft-basel-0hn8wo",
         "fr": "/fr/trouver-emploi-tessin/podologist-coop-genossenschaft-basel-0hn8wo"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "polymecanic-team-leader-mikron-group-boudry",
+      "locale": "de",
+      "path": "/de/jobs-in-neuenburg/polymecanic-team-leader-mikron-group-boudry/",
+      "observedPaths": {
+        "de": "/de/jobs-in-neuenburg/polymecanic-team-leader-mikron-group-boudry/"
+      },
+      "queries": [
+        {
+          "query": "mikron boudry emploi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "mikron boudry emploi",
+      "title": "Polymecanic team leader boudry",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Mikron Group",
+      "companyKey": "mikron-group",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "polymecanic-team-leader-mikron-group-boudry",
+        "en": "polymecanic-team-leader-mikron-group-boudry",
+        "de": "polymecanic-team-leader-mikron-group-boudry",
+        "fr": "polymecanic-team-leader-mikron-group-boudry"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/polymecanic-team-leader-mikron-group-boudry",
+        "en": "/en/find-jobs-neuchatel/polymecanic-team-leader-mikron-group-boudry",
+        "de": "/de/jobs-im-neuenburg/polymecanic-team-leader-mikron-group-boudry",
+        "fr": "/fr/trouver-emploi-neuchatel/polymecanic-team-leader-mikron-group-boudry"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50571,10 +50846,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "product-owner-sap-sd-order-to-cash-w-m-d-80-100-coop-genossenschaft-basel",
+        "de": "product-owner-sap-sd-order-to-cash-m-w-d-80-100-coop-basel-stadt-qxbp6v",
+        "it": "proprietario-del-prodotto-sap-sd-order-to-cash-m-f-d-80-100-coop-genossenschaft-basel",
         "en": "product-owner-sap-sd-order-to-cash-w-m-d-80-100-coop-genossenschaft-basel",
-        "de": "product-owner-sap-sd-order-to-cash-w-m-d-80-100-coop-genossenschaft-basel",
-        "fr": "product-owner-sap-sd-order-to-cash-w-m-d-80-100-coop-genossenschaft-basel"
+        "fr": "proprietaire-produit-sap-sd-m-w-d-order-to-cash-80-100-coop-basel-qxbp6v"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/product-owner-sap-sd-order-to-cash-w-m-d-80-100-coop-genossenschaft-basel",
@@ -50588,6 +50863,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -51065,10 +51341,10 @@
         "fr": "professionnels-de-la-sante-efz-spitex-regio-frick-frick"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/professionnels-de-la-sante-efz-spitex-regio-frick-frick",
-        "en": "/en/find-jobs-basel/professionnels-de-la-sante-efz-spitex-regio-frick-frick",
-        "de": "/de/jobs-in-basel/professionnels-de-la-sante-efz-spitex-regio-frick-frick",
-        "fr": "/fr/trouver-emploi-bale/professionnels-de-la-sante-efz-spitex-regio-frick-frick"
+        "it": "/cerca-lavoro-argovia/professionnels-de-la-sante-efz-spitex-regio-frick-frick",
+        "en": "/en/find-jobs-aargau/professionnels-de-la-sante-efz-spitex-regio-frick-frick",
+        "de": "/de/jobs-im-aargau/professionnels-de-la-sante-efz-spitex-regio-frick-frick",
+        "fr": "/fr/trouver-emploi-argovie/professionnels-de-la-sante-efz-spitex-regio-frick-frick"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -58610,10 +58886,10 @@
         "fr": "room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
-        "en": "/en/find-jobs-ticino/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "/de/jobs-im-tessin/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
-        "fr": "/fr/trouver-emploi-tessin/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina"
+        "it": "/cerca-lavoro-grigioni/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
+        "en": "/en/find-jobs-graubunden/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "/de/jobs-in-graubunden/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
+        "fr": "/fr/trouver-emploi-grisons/room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -64944,6 +65220,63 @@
       ]
     },
     {
+      "slug": "sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn",
+      "locale": "de",
+      "path": "/de/jobs-im-thurgau/sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn/",
+      "observedPaths": {
+        "de": "/de/jobs-im-thurgau/sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn/"
+      },
+      "queries": [
+        {
+          "query": "jobs romanshorn",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "jobs romanshorn",
+      "title": "Sozialarbeiter in fh spital thurgau stgag romanshorn",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn",
+        "en": "sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn",
+        "de": "sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn",
+        "fr": "sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn",
+        "en": "/en/find-jobs-thurgau/sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn",
+        "de": "/de/jobs-im-thurgau/sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn",
+        "fr": "/fr/trouver-emploi-thurgovie/sozialarbeiter-in-fh-spital-thurgau-stgag-romanshorn"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "speciale-dei-pasti-coop-genossenschaft-thalwil",
       "locale": "it",
       "path": "/cerca-lavoro-lucerna/speciale-dei-pasti-coop-genossenschaft-thalwil",
@@ -65356,10 +65689,10 @@
         "fr": "specialista-della-salute-efz-spitex-regio-frick-frick"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/specialista-della-salute-efz-spitex-regio-frick-frick",
-        "en": "/en/find-jobs-basel/specialista-della-salute-efz-spitex-regio-frick-frick",
-        "de": "/de/jobs-in-basel/specialista-della-salute-efz-spitex-regio-frick-frick",
-        "fr": "/fr/trouver-emploi-bale/specialista-della-salute-efz-spitex-regio-frick-frick"
+        "it": "/cerca-lavoro-argovia/specialista-della-salute-efz-spitex-regio-frick-frick",
+        "en": "/en/find-jobs-aargau/specialista-della-salute-efz-spitex-regio-frick-frick",
+        "de": "/de/jobs-im-aargau/specialista-della-salute-efz-spitex-regio-frick-frick",
+        "fr": "/fr/trouver-emploi-argovie/specialista-della-salute-efz-spitex-regio-frick-frick"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66665,9 +66998,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "specialiste-en-radiologie-hf-radiographie-classique-universitatsspital-basel-basel",
-        "en": "specialiste-en-radiologie-hf-radiographie-classique-universitatsspital-basel-basel",
-        "de": "specialiste-en-radiologie-hf-radiographie-classique-universitatsspital-basel-basel",
+        "de": "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch",
+        "it": "specialista-di-radiologia-hf-raggio-convenzionale-universitatsspital-basel-basel",
+        "en": "radiology-specialist-hf-conventional-x-ray-universitatsspital-basel-basel",
         "fr": "specialiste-en-radiologie-hf-radiographie-classique-universitatsspital-basel-basel"
       },
       "localePaths": {
@@ -66682,6 +67015,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -69147,16 +69481,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-brugg-be",
+        "it": "vice-direttoredifiliale-denner-brugg-be",
         "en": "stv-filialleiter-in-denner-brugg-be",
-        "de": "stv-filialleiter-in-denner-brugg-be",
-        "fr": "stv-filialleiter-in-denner-brugg-be"
+        "de": "stv-filialleiter-in-denner-aztzmm",
+        "fr": "directeur-trice-adjoint-e-de-succursale-denner-brugg-be"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/stv-filialleiter-in-denner-brugg-be",
-        "en": "/en/find-jobs-aargau/stv-filialleiter-in-denner-brugg-be",
-        "de": "/de/jobs-im-aargau/stv-filialleiter-in-denner-brugg-be",
-        "fr": "/fr/trouver-emploi-argovie/stv-filialleiter-in-denner-brugg-be"
+        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-brugg-be",
+        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-brugg-be",
+        "de": "/de/jobs-in-zurich/stv-filialleiter-in-denner-brugg-be",
+        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-brugg-be"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69164,6 +69498,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -73562,10 +73897,10 @@
         "fr": "technicien-ne-specialise-e-en-vitrerie-automobile-m-f-pemsa-biel-bienne"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-neuchatel/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-pemsa-biel-bienne",
-        "en": "/en/find-jobs-neuchatel/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-pemsa-biel-bienne",
+        "it": "/cerca-lavoro-berna/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-pemsa-biel-bienne",
+        "en": "/en/find-jobs-bern/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-pemsa-biel-bienne",
         "de": "/de/jobs-im-waadt/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-pemsa-biel-bienne",
-        "fr": "/fr/trouver-emploi-neuchatel/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-pemsa-biel-bienne"
+        "fr": "/fr/trouver-emploi-berne/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-pemsa-biel-bienne"
       },
       "sourceUrl": "https://www.pemsa.ch/it/job/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-2683430",
       "googleStatus": "unknown",
@@ -77530,10 +77865,10 @@
         "fr": "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil",
-        "en": "/en/find-jobs-aargau/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil",
+        "it": "/cerca-lavoro-basilea/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil",
+        "en": "/en/find-jobs-basel/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil",
         "de": "/de/jobs-im-zurich/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil",
-        "fr": "/fr/trouver-emploi-argovie/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil"
+        "fr": "/fr/trouver-emploi-bale/vendeur-vendeuse-de-produits-frais-coop-genossenschaft-richterswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79851,10 +80186,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen",
-        "en": "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen",
+        "it": "fiori-del-fornitore-chioschi-coop-genossenschaft-egerkingen",
+        "en": "vendor-flowers-kiosks-coop-genossenschaft-egerkingen",
         "de": "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen",
-        "fr": "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen"
+        "fr": "fleurs-kiosques-du-fournisseur-coop-genossenschaft-egerkingen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen",
@@ -79868,6 +80203,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -80007,10 +80343,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-arlesheim",
-        "en": "verkaufer-in-food-coop-genossenschaft-arlesheim",
-        "de": "verkaufer-in-food-coop-genossenschaft-arlesheim",
-        "fr": "verkaufer-in-food-coop-genossenschaft-arlesheim"
+        "de": "verkaufer-in-food-coop-genossenschaft-arlesheim"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/verkaufer-in-food-coop-genossenschaft-arlesheim",
@@ -80024,6 +80357,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -81384,10 +81718,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar",
-        "en": "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar",
+        "it": "vendita-cassetti-servizi-assistenza-agli-studenti-coop-genossenschaft-baar",
+        "en": "seller-cash-registers-services-student-assistance-coop-genossenschaft-baar",
         "de": "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar",
-        "fr": "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar"
+        "fr": "caisses-enregistreuses-services-aide-aux-etudiants-coop-genossenschaft-baar"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zugo/verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-baar",
@@ -81401,6 +81735,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

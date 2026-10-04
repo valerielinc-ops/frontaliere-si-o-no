@@ -1018,10 +1018,10 @@
         "it": "addetto-a-alle-vendite-food-coop-genossenschaft-menzingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen",
-        "en": "/en/find-jobs-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen",
-        "de": "/de/jobs-in-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen"
+        "it": "/cerca-lavoro-berna/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen",
+        "en": "/en/find-jobs-bern/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen",
+        "de": "/de/jobs-in-bern/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen",
+        "fr": "/fr/trouver-emploi-berne/addetto-a-alle-vendite-food-coop-genossenschaft-menzingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -1173,10 +1173,10 @@
         "fr": "addetto-a-vendite-food-coop-genossenschaft-zernez"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-vendite-food-coop-genossenschaft-zernez",
-        "en": "/en/find-jobs-zurich/addetto-a-vendite-food-coop-genossenschaft-zernez",
-        "de": "/de/jobs-in-zurich/addetto-a-vendite-food-coop-genossenschaft-zernez",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-vendite-food-coop-genossenschaft-zernez"
+        "it": "/cerca-lavoro-berna/addetto-a-vendite-food-coop-genossenschaft-zernez",
+        "en": "/en/find-jobs-bern/addetto-a-vendite-food-coop-genossenschaft-zernez",
+        "de": "/de/jobs-in-bern/addetto-a-vendite-food-coop-genossenschaft-zernez",
+        "fr": "/fr/trouver-emploi-berne/addetto-a-vendite-food-coop-genossenschaft-zernez"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13930,7 +13930,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-zurich/chimie/",
       "observedPaths": {
-        "fr": "/fr/trouver-emploi-zurich/chimie/"
+        "en": "/en/find-jobs-zurich/chimie",
+        "fr": "/fr/trouver-emploi-zurich/chimie",
+        "it": "/cerca-lavoro-zurigo/chimie",
+        "de": "/de/jobs-im-zurich/chimie"
       },
       "queries": [
         {
@@ -14004,6 +14007,11 @@
           "impressions": 3
         },
         {
+          "query": "can you list cleaning jobs in zurich with stable hours?",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "volver a buscar",
           "clicks": 1,
           "impressions": 1
@@ -14019,7 +14027,17 @@
           "impressions": 1
         },
         {
+          "query": "i need cleaning jobs in geneva with early morning shifts and quick hiring",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cleaning jobs near me",
           "clicks": 0,
           "impressions": 1
         },
@@ -14074,27 +14092,12 @@
           "impressions": 1
         },
         {
-          "query": "swissnet ag",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "tem vaga",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "za čiščenje",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "我找工作",
+          "query": "site:frontaliereticino.ch",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 25,
+      "totalImpressions": 29,
       "totalClicks": 1,
       "topQuery": "show me bern jobs in cleaning or facility services with early morning hours and reliable monthly pay.",
       "title": "Cleaning",
@@ -16602,10 +16605,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "kundenberater-in-80-100-in-chur-concordia-chur",
         "it": "consulente-clienti-80-100-a-coira-concordia-chur",
-        "en": "consulente-clienti-80-100-a-coira-concordia-chur",
-        "de": "consulente-clienti-80-100-a-coira-concordia-chur",
-        "fr": "consulente-clienti-80-100-a-coira-concordia-chur"
+        "en": "customer-advisor-80-100-in-chur-concordia-chur",
+        "fr": "conseiller-client-80-100-a-chour-concordia-chur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/consulente-clienti-80-100-a-coira-concordia-chur",
@@ -16619,6 +16622,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -24408,12 +24412,22 @@
           "impressions": 2
         },
         {
+          "query": "ich suche in schaffhausen jobs im verkauf mit fixen arbeitszeiten",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "aldi jobs genf",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "verkaufsfachmann schwyz",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 22,
+      "totalImpressions": 25,
       "totalClicks": 0,
       "topQuery": "handel jobs sankt gallen",
       "title": "Einzelhandel",
@@ -26967,24 +26981,24 @@
       },
       "queries": [
         {
+          "query": "offerte di lavoro canton ticino per frontalieri",
+          "clicks": 0,
+          "impressions": 37
+        },
+        {
           "query": "farmacista ticino lavoro",
           "clicks": 3,
           "impressions": 33
         },
         {
           "query": "offerte lavoro farmacista ticino",
-          "clicks": 1,
-          "impressions": 27
+          "clicks": 2,
+          "impressions": 32
         },
         {
           "query": "farmacista ticino",
           "clicks": 1,
-          "impressions": 23
-        },
-        {
-          "query": "offerte di lavoro canton ticino per frontalieri",
-          "clicks": 0,
-          "impressions": 14
+          "impressions": 25
         },
         {
           "query": "farmacisti ticino",
@@ -27002,14 +27016,14 @@
           "impressions": 9
         },
         {
-          "query": "farmacista lugano",
-          "clicks": 0,
+          "query": "farmacista lavoro",
+          "clicks": 1,
           "impressions": 8
         },
         {
-          "query": "farmacista lavoro",
-          "clicks": 1,
-          "impressions": 7
+          "query": "farmacista lugano",
+          "clicks": 0,
+          "impressions": 8
         },
         {
           "query": "farmacista in svizzera",
@@ -27067,9 +27081,9 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 264,
-      "totalClicks": 9,
-      "topQuery": "farmacista ticino lavoro",
+      "totalImpressions": 306,
+      "totalClicks": 10,
+      "topQuery": "offerte di lavoro canton ticino per frontalieri",
       "title": "Farmacisti",
       "titleByLocale": {
         "it": "",
@@ -27494,22 +27508,27 @@
         {
           "query": "offerte di lavoro fisioterapista svizzera canton ticino",
           "clicks": 6,
-          "impressions": 53
+          "impressions": 56
         },
         {
           "query": "lavoro fisioterapista ticino",
           "clicks": 1,
-          "impressions": 29
+          "impressions": 31
         },
         {
           "query": "ricerca lavoro fisioterapia mendrisio",
           "clicks": 2,
-          "impressions": 24
+          "impressions": 25
         },
         {
           "query": "ricerca lavoro fisioterapia ticino",
           "clicks": 0,
-          "impressions": 24
+          "impressions": 25
+        },
+        {
+          "query": "offerte lavoro fisioterapista svizzera italiana",
+          "clicks": 5,
+          "impressions": 21
         },
         {
           "query": "ricerca lavoro fisioterapia chiasso",
@@ -27517,14 +27536,9 @@
           "impressions": 21
         },
         {
-          "query": "offerte lavoro fisioterapista svizzera italiana",
-          "clicks": 5,
-          "impressions": 20
-        },
-        {
           "query": "site:frontaliereticino.ch",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 18
         },
         {
           "query": "fisioterapista ticino",
@@ -27542,14 +27556,19 @@
           "impressions": 6
         },
         {
+          "query": "offerte di lavoro fisioterapista ticino",
+          "clicks": 1,
+          "impressions": 4
+        },
+        {
           "query": "fisioterapista in svizzera",
           "clicks": 0,
           "impressions": 4
         },
         {
-          "query": "offerte di lavoro fisioterapista ticino",
-          "clicks": 1,
-          "impressions": 3
+          "query": "lavoro fisioterapista svizzera",
+          "clicks": 0,
+          "impressions": 4
         },
         {
           "query": "lavorare come fisioterapista in svizzera",
@@ -27558,11 +27577,6 @@
         },
         {
           "query": "lavorare in svizzera come fisioterapista",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "lavoro fisioterapista svizzera",
           "clicks": 0,
           "impressions": 3
         },
@@ -27577,6 +27591,11 @@
           "impressions": 2
         },
         {
+          "query": "offerte lavoro a ginevra per italiani",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "cercasi fisioterapista lugano",
           "clicks": 0,
           "impressions": 2
@@ -27585,14 +27604,9 @@
           "query": "cerco lavoro fisioterapista",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "fisioterapista cercasi",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 274,
+      "totalImpressions": 291,
       "totalClicks": 20,
       "topQuery": "offerte di lavoro fisioterapista svizzera canton ticino",
       "title": "Fisioterapisti",
@@ -27871,9 +27885,9 @@
       "locale": "en",
       "path": "/en/find-jobs-st-gallen/food-industry/",
       "observedPaths": {
-        "it": "/cerca-lavoro-ticino/food-industry",
-        "en": "/en/find-jobs-ticino/food-industry",
-        "de": "/de/jobs-im-tessin/food-industry",
+        "en": "/en/find-jobs-st-gallen/food-industry",
+        "it": "/cerca-lavoro-san-gallo/food-industry",
+        "de": "/de/jobs-im-st-gallen/food-industry",
         "fr": "/fr/trouver-emploi-tessin/food-industry"
       },
       "queries": [
@@ -41302,10 +41316,10 @@
         "fr": "manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
-        "en": "/en/find-jobs-vaud/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
-        "de": "/de/jobs-in-der-waadt/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
-        "fr": "/fr/trouver-emploi-vaud/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres"
+        "it": "/cerca-lavoro-ginevra/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
+        "en": "/en/find-jobs-geneva/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
+        "de": "/de/jobs-in-genf/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres",
+        "fr": "/fr/trouver-emploi-geneve/manor-collaborateur-trice-vente-bijouterie-montres-30-lausanne-collaborateurtrice-vente-bijouteriemontres"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42788,8 +42802,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "en": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network",
-        "it": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network"
+        "it": "assistente-dottore-in-psichiatria-bilingue-tedesco-francese-swiss-medical-network-biel",
+        "en": "assistant-doctor-in-bilingual-psychiatry-german-french-swiss-medical-network-biel",
+        "de": "assistenzarzt-in-bilingualer-psychiatrie-deutsch-franzosisch-swiss-medical-network-biel",
+        "fr": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network",
@@ -45375,10 +45391,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "mpa-plastische-chirurgie-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "en": "mpa-plastische-chirurgie-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "chirurgia-di-plastica-mpa-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "mpa-plastic-surgery-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "mpa-plastische-chirurgie-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "mpa-plastische-chirurgie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "fr": "mpa-chirurgie-plastique-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/mpa-plastische-chirurgie-w-m-d-soh-solothurner-spitaeler-solothurn",
@@ -45392,6 +45408,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -47930,12 +47947,32 @@
           "impressions": 2
         },
         {
+          "query": "je cherche en suisse un poste en usinage cnc avec heidenhain ou fanuc",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "agence de recrutement aarau",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "agence interim argovie",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "où puis-je trouver le meilleur endroit pour postuler en ligne en suisse",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "travailler à zurich",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 3,
+      "totalImpressions": 8,
       "totalClicks": 0,
       "topQuery": "psychologue italien en ligne canton argovie",
       "title": "Page 16",
@@ -51758,10 +51795,10 @@
         "fr": "prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b",
-        "en": "/en/find-jobs-ticino/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b",
-        "de": "/de/jobs-im-tessin/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b",
-        "fr": "/fr/trouver-emploi-tessin/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b"
+        "it": "/cerca-lavoro-berna/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b",
+        "en": "/en/find-jobs-bern/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b",
+        "de": "/de/jobs-in-bern/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b",
+        "fr": "/fr/trouver-emploi-berne/prevoyeur-de-commandes-coop-genossenschaft-bern-0m0m5b"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -61777,10 +61814,10 @@
         "fr": "seller-in-food-coop-genossenschaft-lotzwil-xznjci"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/seller-in-food-coop-genossenschaft-lotzwil-xznjci",
-        "en": "/en/find-jobs-zurich/seller-in-food-coop-genossenschaft-lotzwil-xznjci",
+        "it": "/cerca-lavoro-san-gallo/seller-in-food-coop-genossenschaft-lotzwil-xznjci",
+        "en": "/en/find-jobs-st-gallen/seller-in-food-coop-genossenschaft-lotzwil-xznjci",
         "de": "/de/jobs-im-solothurn/seller-in-food-coop-genossenschaft-lotzwil-xznjci",
-        "fr": "/fr/trouver-emploi-zurich/seller-in-food-coop-genossenschaft-lotzwil-xznjci"
+        "fr": "/fr/trouver-emploi-saint-gall/seller-in-food-coop-genossenschaft-lotzwil-xznjci"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65574,6 +65611,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
         "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen",
         "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
@@ -65584,7 +65622,7 @@
         "de": "/de/jobs-im-solothurn/specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen",
         "fr": "/fr/trouver-emploi-soleure/specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen"
       },
-      "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -72719,10 +72757,7 @@
       "locale": "en",
       "path": "/en/find-jobs-aargau/transport/",
       "observedPaths": {
-        "en": "/en/find-jobs-basel/transport",
-        "de": "/de/jobs-in-basel/transport",
-        "fr": "/fr/trouver-emploi-bale/transport",
-        "it": "/cerca-lavoro-basilea/transport"
+        "en": "/en/find-jobs-aargau/transport/"
       },
       "queries": [
         {
@@ -72760,10 +72795,10 @@
         "fr": "transport"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/transport",
-        "en": "/en/find-jobs-aargau/transport",
-        "de": "/de/jobs-im-aargau/transport",
-        "fr": "/fr/trouver-emploi-argovie/transport"
+        "it": "/cerca-lavoro-giura/transport",
+        "en": "/en/find-jobs-jura/transport",
+        "de": "/de/jobs-im-jura/transport",
+        "fr": "/fr/trouver-emploi-jura/transport"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72777,11 +72812,19 @@
     {
       "slug": "transport",
       "locale": "fr",
-      "path": "/fr/trouver-emploi-valais/transport/",
+      "path": "/fr/trouver-emploi-jura/transport/",
       "observedPaths": {
-        "fr": "/fr/trouver-emploi-valais/transport/"
+        "en": "/en/find-jobs-basel/transport",
+        "de": "/de/jobs-in-basel/transport",
+        "fr": "/fr/trouver-emploi-bale/transport",
+        "it": "/cerca-lavoro-vallese/transport"
       },
       "queries": [
+        {
+          "query": "agence de recrutement administration delemont",
+          "clicks": 0,
+          "impressions": 1
+        },
         {
           "query": "agence interim brigue",
           "clicks": 0,
@@ -72793,9 +72836,9 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 2,
+      "totalImpressions": 3,
       "totalClicks": 0,
-      "topQuery": "agence interim brigue",
+      "topQuery": "agence de recrutement administration delemont",
       "title": "Transport",
       "titleByLocale": {
         "it": "",
@@ -72822,10 +72865,10 @@
         "fr": "transport"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/transport",
-        "en": "/en/find-jobs-aargau/transport",
-        "de": "/de/jobs-im-aargau/transport",
-        "fr": "/fr/trouver-emploi-argovie/transport"
+        "it": "/cerca-lavoro-giura/transport",
+        "en": "/en/find-jobs-jura/transport",
+        "de": "/de/jobs-im-jura/transport",
+        "fr": "/fr/trouver-emploi-jura/transport"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75712,10 +75755,10 @@
         "fr": "vendeur-produits-frais-coop-genossenschaft-basel-196202"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/vendeur-produits-frais-coop-genossenschaft-basel-196202",
-        "en": "/en/find-jobs-basel/vendeur-produits-frais-coop-genossenschaft-basel-196202",
+        "it": "/cerca-lavoro-berna/vendeur-produits-frais-coop-genossenschaft-basel-196202",
+        "en": "/en/find-jobs-bern/vendeur-produits-frais-coop-genossenschaft-basel-196202",
         "de": "/de/jobs-im-zurich/vendeur-produits-frais-coop-genossenschaft-basel-196202",
-        "fr": "/fr/trouver-emploi-bale/vendeur-produits-frais-coop-genossenschaft-basel-196202"
+        "fr": "/fr/trouver-emploi-berne/vendeur-produits-frais-coop-genossenschaft-basel-196202"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76908,10 +76951,10 @@
       "locale": "it",
       "path": "/cerca-lavoro-ginevra/vendite/",
       "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/vendite",
         "en": "/en/find-jobs-ticino/vendite",
-        "it": "/cerca-lavoro-ticino/vendite",
-        "de": "/de/jobs-im-tessin/vendite",
-        "fr": "/fr/trouver-emploi-tessin/vendite"
+        "it": "/cerca-lavoro-ginevra/vendite",
+        "de": "/de/jobs-im-genf/vendite"
       },
       "queries": [
         {
@@ -76985,6 +77028,11 @@
           "impressions": 1
         },
         {
+          "query": "short list avvocati",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "40 anni single e senza figli",
           "clicks": 0,
           "impressions": 1
@@ -77005,7 +77053,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 23,
+      "totalImpressions": 24,
       "totalClicks": 0,
       "topQuery": "frontalieri",
       "title": "Vendite",
@@ -77326,10 +77374,10 @@
         "it": "venditore-di-prodotti-freschi-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/venditore-di-prodotti-freschi-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/venditore-di-prodotti-freschi-coop-genossenschaft-basel",
+        "it": "/cerca-lavoro-berna/venditore-di-prodotti-freschi-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-bern/venditore-di-prodotti-freschi-coop-genossenschaft-basel",
         "de": "/de/jobs-im-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/venditore-di-prodotti-freschi-coop-genossenschaft-basel"
+        "fr": "/fr/trouver-emploi-berne/venditore-di-prodotti-freschi-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77379,10 +77427,10 @@
         "fr": "venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf",
-        "en": "/en/find-jobs-aargau/venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf",
+        "it": "/cerca-lavoro-basilea/venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf",
+        "en": "/en/find-jobs-basel/venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf",
         "de": "/de/jobs-im-bern/venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf",
-        "fr": "/fr/trouver-emploi-argovie/venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf"
+        "fr": "/fr/trouver-emploi-bale/venditore-di-prodotti-freschi-coop-genossenschaft-bubendorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77791,10 +77839,10 @@
         "fr": "venditore-kassen-services-coop-genossenschaft-horgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-kassen-services-coop-genossenschaft-horgen",
-        "en": "/en/find-jobs-aargau/venditore-kassen-services-coop-genossenschaft-horgen",
+        "it": "/cerca-lavoro-zurigo/venditore-kassen-services-coop-genossenschaft-horgen",
+        "en": "/en/find-jobs-zurich/venditore-kassen-services-coop-genossenschaft-horgen",
         "de": "/de/jobs-im-nidwalden/venditore-kassen-services-coop-genossenschaft-horgen",
-        "fr": "/fr/trouver-emploi-argovie/venditore-kassen-services-coop-genossenschaft-horgen"
+        "fr": "/fr/trouver-emploi-zurich/venditore-kassen-services-coop-genossenschaft-horgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78062,10 +78110,10 @@
         "fr": "venditore-non-alimentare-coop-genossenschaft-unterentfelden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-non-alimentare-coop-genossenschaft-unterentfelden",
-        "en": "/en/find-jobs-aargau/venditore-non-alimentare-coop-genossenschaft-unterentfelden",
+        "it": "/cerca-lavoro-zurigo/venditore-non-alimentare-coop-genossenschaft-unterentfelden",
+        "en": "/en/find-jobs-zurich/venditore-non-alimentare-coop-genossenschaft-unterentfelden",
         "de": "/de/jobs-im-graubunden/venditore-non-alimentare-coop-genossenschaft-unterentfelden",
-        "fr": "/fr/trouver-emploi-argovie/venditore-non-alimentare-coop-genossenschaft-unterentfelden"
+        "fr": "/fr/trouver-emploi-zurich/venditore-non-alimentare-coop-genossenschaft-unterentfelden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78921,10 +78969,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-luzern",
-        "en": "verkaufer-in-food-coop-genossenschaft-luzern",
-        "de": "verkaufer-in-food-coop-genossenschaft-luzern",
-        "fr": "verkaufer-in-food-coop-genossenschaft-luzern"
+        "de": "verkaufer-in-food-coop-genossenschaft-luzern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/verkaufer-in-food-coop-genossenschaft-luzern",
@@ -78938,6 +78983,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -79293,10 +79339,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-frischprodukte-coop-genossenschaft-wurenlingen",
-        "en": "verkaufer-in-food-frischprodukte-coop-genossenschaft-wurenlingen",
+        "it": "vendita-prodotti-alimentari-fresh-coop-genossenschaft-wurenlingen",
+        "en": "seller-food-fresh-products-coop-genossenschaft-wurenlingen",
         "de": "verkaufer-in-food-frischprodukte-coop-genossenschaft-wurenlingen",
-        "fr": "verkaufer-in-food-frischprodukte-coop-genossenschaft-wurenlingen"
+        "fr": "vendeur-alimentation-produits-frais-coop-genossenschaft-wurenlingen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/verkaufer-in-food-frischprodukte-coop-genossenschaft-wurenlingen",
@@ -79310,6 +79356,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

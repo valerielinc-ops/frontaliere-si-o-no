@@ -3869,10 +3869,10 @@
         "fr": "apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern",
-        "en": "/en/find-jobs-zurich/apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern",
+        "it": "/cerca-lavoro-svitto/apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern",
+        "en": "/en/find-jobs-schwyz/apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern",
         "de": "/de/jobs-im-bern/apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern",
-        "fr": "/fr/trouver-emploi-zurich/apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern"
+        "fr": "/fr/trouver-emploi-schwytz/apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -5743,7 +5743,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-vaud/architectes/",
       "observedPaths": {
-        "fr": "/fr/trouver-emploi-vaud/architectes/"
+        "en": "/en/find-jobs-vaud/architectes",
+        "de": "/de/jobs-im-waadt/architectes",
+        "fr": "/fr/trouver-emploi-vaud/architectes",
+        "it": "/cerca-lavoro-vaud/architectes"
       },
       "queries": [
         {
@@ -23648,10 +23651,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "disponent-in-post",
-        "en": "disponent-in-post",
-        "de": "disponent-in-die-schweizerische-post-ostermundigen",
-        "fr": "disponent-in-post"
+        "de": "disponent-in-die-schweizerische-post-ostermundigen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/disponent-in-post",
@@ -27878,10 +27878,10 @@
         "fr": "food-sales-associate-coop-genossenschaft-lotzwil-xznjci"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/food-sales-associate-coop-genossenschaft-lotzwil-xznjci",
-        "en": "/en/find-jobs-zurich/food-sales-associate-coop-genossenschaft-lotzwil-xznjci",
+        "it": "/cerca-lavoro-san-gallo/food-sales-associate-coop-genossenschaft-lotzwil-xznjci",
+        "en": "/en/find-jobs-st-gallen/food-sales-associate-coop-genossenschaft-lotzwil-xznjci",
         "de": "/de/jobs-im-zurich/food-sales-associate-coop-genossenschaft-lotzwil-xznjci",
-        "fr": "/fr/trouver-emploi-zurich/food-sales-associate-coop-genossenschaft-lotzwil-xznjci"
+        "fr": "/fr/trouver-emploi-saint-gall/food-sales-associate-coop-genossenschaft-lotzwil-xznjci"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -30082,9 +30082,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "gestionnaire-des-services-publics-roche-basel",
-        "en": "gestionnaire-des-services-publics-roche-basel",
-        "de": "gestionnaire-des-services-publics-roche-basel",
+        "it": "responsabile-dei-servizi-pubblici-roche-basel",
+        "en": "utilities-manager-roche-basel",
+        "de": "utilities-manager-roche-ch",
         "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "localePaths": {
@@ -30099,6 +30099,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -34919,6 +34920,46 @@
       ]
     },
     {
+      "slug": "it-digital-system-engineer-m-w-100-yellowshark-ag-st-gallen",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/it-digital-system-engineer-m-w-100-yellowshark-ag-st-gallen",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/it-digital-system-engineer-m-w-100-yellowshark-ag-st-gallen"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "It digital system engineer yellowshark ag st gallen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
+      ]
+    },
+    {
       "slug": "it-support-specialiste-tissot-ltd-0200-english-search-it-support-specialist-the-company-la-croix-du-drapeau-7ubfbl",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/it-support-specialiste-tissot-ltd-0200-english-search-it-support-specialist-the-company-la-croix-du-drapeau-7ubfbl/",
@@ -39473,10 +39514,10 @@
         "it": "macellaio-specialista-della-carne-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/macellaio-specialista-della-carne-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/macellaio-specialista-della-carne-coop-genossenschaft-basel",
+        "it": "/cerca-lavoro-zurigo/macellaio-specialista-della-carne-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-zurich/macellaio-specialista-della-carne-coop-genossenschaft-basel",
         "de": "/de/jobs-im-basel/macellaio-specialista-della-carne-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/macellaio-specialista-della-carne-coop-genossenschaft-basel"
+        "fr": "/fr/trouver-emploi-zurich/macellaio-specialista-della-carne-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39737,6 +39778,63 @@
         "en": "/en/find-jobs-graubunden/maisons-retraite-grisons",
         "de": "/de/jobs-im-graubunden/maisons-retraite-grisons",
         "fr": "/fr/trouver-emploi-grisons/maisons-retraite-grisons"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon/"
+      },
+      "queries": [
+        {
+          "query": "maler jobs zürich",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "maler jobs zürich",
+      "title": "Maler in fur renovations und neubauprojekte fachkraft ch gmbh dietikon",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon",
+        "en": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon",
+        "de": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon",
+        "fr": "maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon",
+        "en": "/en/find-jobs-zurich/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon",
+        "de": "/de/jobs-im-zurich/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon",
+        "fr": "/fr/trouver-emploi-zurich/maler-in-fur-renovations-und-neubauprojekte-fachkraft-ch-gmbh-dietikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -57772,6 +57870,63 @@
       ]
     },
     {
+      "slug": "saignelegier",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-jura/saignelegier/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-jura/saignelegier/"
+      },
+      "queries": [
+        {
+          "query": "emploi saignelegier",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "emploi saignelegier",
+      "title": "Saignelegier",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "saignelegier",
+        "en": "saignelegier",
+        "de": "saignelegier",
+        "fr": "saignelegier"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-giura/saignelegier",
+        "en": "/en/find-jobs-jura/saignelegier",
+        "de": "/de/jobs-im-jura/saignelegier",
+        "fr": "/fr/trouver-emploi-jura/saignelegier"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "saint-barthelemy",
       "locale": "en",
       "path": "/en/find-jobs-vaud/saint-barthelemy/",
@@ -60247,14 +60402,14 @@
       },
       "queries": [
         {
+          "query": "klempner thurgau",
+          "clicks": 0,
+          "impressions": 18
+        },
+        {
           "query": "klempner ausschreibung",
           "clicks": 0,
           "impressions": 16
-        },
-        {
-          "query": "klempner thurgau",
-          "clicks": 0,
-          "impressions": 15
         },
         {
           "query": "klempner jobs",
@@ -60317,9 +60472,9 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 56,
+      "totalImpressions": 59,
       "totalClicks": 0,
-      "topQuery": "klempner ausschreibung",
+      "topQuery": "klempner thurgau",
       "title": "Sanitaer",
       "titleByLocale": {
         "it": "",
@@ -61623,10 +61778,10 @@
         "fr": "vendeur-vendeuse-denner-nyon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/seller-seller-denner-nyon",
-        "en": "/en/find-jobs-vaud/seller-seller-denner-nyon",
-        "de": "/de/jobs-in-der-waadt/seller-seller-denner-nyon",
-        "fr": "/fr/trouver-emploi-vaud/seller-seller-denner-nyon"
+        "it": "/cerca-lavoro-ginevra/seller-seller-denner-nyon",
+        "en": "/en/find-jobs-geneva/seller-seller-denner-nyon",
+        "de": "/de/jobs-in-genf/seller-seller-denner-nyon",
+        "fr": "/fr/trouver-emploi-geneve/seller-seller-denner-nyon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65600,10 +65755,10 @@
         "fr": "specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon",
-        "en": "/en/find-jobs-basel/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon",
+        "it": "/cerca-lavoro-zurigo/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon",
+        "en": "/en/find-jobs-zurich/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon",
         "de": "/de/jobs-im-zurich/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon",
-        "fr": "/fr/trouver-emploi-bale/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon"
+        "fr": "/fr/trouver-emploi-zurich/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-jumbo-dietikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69291,9 +69446,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "team-leader-bsa-80-100-zurigo-afry-zurich",
-        "en": "team-leader-bsa-80-100-zurigo-afry-zurich",
-        "de": "team-leader-bsa-80-100-zurigo-afry-zurich",
-        "fr": "team-leader-bsa-80-100-zurigo-afry-zurich"
+        "en": "team-leader-bsa-80-100-zurich-afry-zurich",
+        "de": "teamleiter-in-bsa-80-100-zurich-afry-zurich",
+        "fr": "chef-d-equipe-bsa-80-100-zurich-afry-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/team-leader-bsa-80-100-zurigo-afry-zurich",
@@ -69301,12 +69456,13 @@
         "de": "/de/jobs-im-zurich/team-leader-bsa-80-100-zurigo-afry-zurich",
         "fr": "/fr/trouver-emploi-zurich/team-leader-bsa-80-100-zurigo-afry-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref14462g-teamleiterin-bsa-80-100-zurich",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -71698,21 +71854,21 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-appenzell/tous/",
       "observedPaths": {
-        "fr": "/fr/trouver-emploi-suisse/tous",
-        "de": "/de/jobs-im-aargau/tous",
-        "en": "/en/find-jobs-aargau/tous",
-        "it": "/cerca-lavoro-ticino/tous"
+        "de": "/de/jobs-im-appenzell/tous",
+        "en": "/en/find-jobs-ticino/tous",
+        "fr": "/fr/trouver-emploi-appenzell/tous",
+        "it": "/cerca-lavoro-appenzello/tous"
       },
       "queries": [
         {
           "query": "emploi thurgovie",
           "clicks": 0,
-          "impressions": 45
+          "impressions": 47
         },
         {
           "query": "emploi uri",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 21
         },
         {
           "query": "emploi thurgovie",
@@ -71722,7 +71878,7 @@
         {
           "query": "agence interim uri",
           "clicks": 0,
-          "impressions": 14
+          "impressions": 17
         },
         {
           "query": "offre d'emploi zoug",
@@ -71805,7 +71961,7 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 354,
+      "totalImpressions": 364,
       "totalClicks": 0,
       "topQuery": "emploi thurgovie",
       "title": "Tous",
@@ -73266,10 +73422,10 @@
         "fr": "vendeur-aliment-coop-genossenschaft-lotzwil-xznjci"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci",
-        "en": "/en/find-jobs-zurich/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci",
-        "de": "/de/jobs-in-zurich/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci"
+        "it": "/cerca-lavoro-san-gallo/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci",
+        "en": "/en/find-jobs-st-gallen/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci",
+        "de": "/de/jobs-in-st-gallen/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci",
+        "fr": "/fr/trouver-emploi-saint-gall/vendeur-aliment-coop-genossenschaft-lotzwil-xznjci"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73429,10 +73585,10 @@
         "fr": "vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel",
+        "it": "/cerca-lavoro-berna/vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-bern/vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel",
         "de": "/de/jobs-im-basel/vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel"
+        "fr": "/fr/trouver-emploi-berne/vendeur-conseiller-en-produits-frais-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73866,9 +74022,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-de-produits-frais-coop-genossenschaft-bachenbulach",
-        "en": "vendeur-de-produits-frais-coop-genossenschaft-bachenbulach",
-        "de": "vendeur-de-produits-frais-coop-genossenschaft-bachenbulach",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-bachenbulach",
+        "en": "seller-fresh-products-coop-genossenschaft-bachenbulach",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-bachenbulach",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-bachenbulach"
       },
       "localePaths": {
@@ -73883,6 +74039,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -73974,9 +74131,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-de-produits-frais-coop-genossenschaft-sennwald",
-        "en": "vendeur-de-produits-frais-coop-genossenschaft-sennwald",
-        "de": "vendeur-de-produits-frais-coop-genossenschaft-sennwald",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-sennwald",
+        "en": "seller-fresh-products-coop-genossenschaft-sennwald",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-sennwald",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-sennwald"
       },
       "localePaths": {
@@ -73991,6 +74148,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -74137,9 +74295,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-denner-biel-bienne",
-        "en": "vendeur-denner-biel-bienne",
-        "de": "vendeur-denner-biel-bienne",
+        "it": "venditore-denner-biel-bienne",
+        "en": "shop-assistant-denner-biel-bienne",
+        "de": "verkaufer-in-denner",
         "fr": "vendeur-denner-biel-bienne"
       },
       "localePaths": {
@@ -74154,6 +74312,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -75507,10 +75666,10 @@
         "fr": "vendeur-vendeuse-denner-sierre"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/vendeur-vendeuse-denner-sierre",
-        "en": "/en/find-jobs-vaud/vendeur-vendeuse-denner-sierre",
-        "de": "/de/jobs-in-der-waadt/vendeur-vendeuse-denner-sierre",
-        "fr": "/fr/trouver-emploi-vaud/vendeur-vendeuse-denner-sierre"
+        "it": "/cerca-lavoro-ginevra/vendeur-vendeuse-denner-sierre",
+        "en": "/en/find-jobs-geneva/vendeur-vendeuse-denner-sierre",
+        "de": "/de/jobs-in-genf/vendeur-vendeuse-denner-sierre",
+        "fr": "/fr/trouver-emploi-geneve/vendeur-vendeuse-denner-sierre"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77801,10 +77960,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-kriens",
-        "en": "verkaufer-in-food-coop-genossenschaft-kriens",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-kriens",
+        "en": "seller-food-coop-genossenschaft-kriens",
         "de": "verkaufer-in-food-coop-genossenschaft-kriens",
-        "fr": "verkaufer-in-food-coop-genossenschaft-kriens"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-kriens"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/verkaufer-in-food-coop-genossenschaft-kriens",
@@ -77818,6 +77977,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -78639,10 +78799,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur",
-        "en": "verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur",
+        "it": "saldi-carne-fresca-coop-genossenschaft-winterthur",
+        "en": "seller-fresh-meat-coop-genossenschaft-winterthur",
         "de": "verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur",
-        "fr": "verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur"
+        "fr": "vendeur-de-viande-fraiche-coop-genossenschaft-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-fleisch-coop-genossenschaft-winterthur",
@@ -78656,6 +78816,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

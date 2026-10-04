@@ -1258,10 +1258,10 @@
         "fr": "addetto-a-vendite-food-coop-genossenschaft-schiers"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-vendite-food-coop-genossenschaft-schiers",
-        "en": "/en/find-jobs-zurich/addetto-a-vendite-food-coop-genossenschaft-schiers",
-        "de": "/de/jobs-in-zurich/addetto-a-vendite-food-coop-genossenschaft-schiers",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-vendite-food-coop-genossenschaft-schiers"
+        "it": "/cerca-lavoro-berna/addetto-a-vendite-food-coop-genossenschaft-schiers",
+        "en": "/en/find-jobs-bern/addetto-a-vendite-food-coop-genossenschaft-schiers",
+        "de": "/de/jobs-in-bern/addetto-a-vendite-food-coop-genossenschaft-schiers",
+        "fr": "/fr/trouver-emploi-berne/addetto-a-vendite-food-coop-genossenschaft-schiers"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -1364,10 +1364,10 @@
         "it": "addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen",
-        "en": "/en/find-jobs-bern/addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen",
+        "it": "/cerca-lavoro-zurigo/addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen",
+        "en": "/en/find-jobs-zurich/addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen",
         "de": "/de/jobs-im-zurich/addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen",
-        "fr": "/fr/trouver-emploi-berne/addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen"
+        "fr": "/fr/trouver-emploi-zurich/addetto-alle-vendite-alimentari-coop-genossenschaft-tauffelen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -2456,16 +2456,16 @@
       "locale": "it",
       "path": "/cerca-lavoro-soletta/alimentare/",
       "observedPaths": {
-        "en": "/en/find-jobs-ticino/alimentare",
-        "it": "/cerca-lavoro-ticino/alimentare",
-        "de": "/de/jobs-im-tessin/alimentare",
-        "fr": "/fr/trouver-emploi-tessin/alimentare"
+        "it": "/cerca-lavoro-soletta/alimentare",
+        "en": "/en/find-jobs-solothurn/alimentare",
+        "de": "/de/jobs-im-solothurn/alimentare",
+        "fr": "/fr/trouver-emploi-soleure/alimentare"
       },
       "queries": [
         {
           "query": "offerte lavoro settore alimentare svizzera",
           "clicks": 1,
-          "impressions": 14
+          "impressions": 15
         },
         {
           "query": "aziende alimentari ticino lavoro",
@@ -2558,7 +2558,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 46,
+      "totalImpressions": 47,
       "totalClicks": 2,
       "topQuery": "offerte lavoro settore alimentare svizzera",
       "title": "Alimentare",
@@ -11410,7 +11410,7 @@
     {
       "slug": "batiment",
       "locale": "fr",
-      "path": "/fr/trouver-emploi-grisons/batiment/",
+      "path": "/fr/trouver-emploi-geneve/batiment/",
       "observedPaths": {
         "fr": "/fr/trouver-emploi-grisons/batiment",
         "en": "/en/find-jobs-graubunden/batiment",
@@ -11418,6 +11418,11 @@
         "it": "/cerca-lavoro-grigioni/batiment"
       },
       "queries": [
+        {
+          "query": "droit de travail genève construction",
+          "clicks": 0,
+          "impressions": 1
+        },
         {
           "query": "agence interim grisons",
           "clicks": 0,
@@ -11429,9 +11434,9 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 2,
+      "totalImpressions": 3,
       "totalClicks": 0,
-      "topQuery": "agence interim grisons",
+      "topQuery": "droit de travail genève construction",
       "title": "Baent",
       "titleByLocale": {
         "it": "",
@@ -11458,10 +11463,10 @@
         "fr": "batiment"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/batiment",
-        "en": "/en/find-jobs-graubunden/batiment",
-        "de": "/de/jobs-im-graubunden/batiment",
-        "fr": "/fr/trouver-emploi-grisons/batiment"
+        "it": "/cerca-lavoro-ginevra/batiment",
+        "en": "/en/find-jobs-geneva/batiment",
+        "de": "/de/jobs-im-genf/batiment",
+        "fr": "/fr/trouver-emploi-geneve/batiment"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -16232,9 +16237,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "chef-du-departement-planification-totale-80-100-zurich-afry-zurich",
-        "en": "chef-du-departement-planification-totale-80-100-zurich-afry-zurich",
-        "de": "chef-du-departement-planification-totale-80-100-zurich-afry-zurich",
+        "it": "capo-dipartimento-total-planning-80-100-zurigo-afry-zurich",
+        "en": "head-of-department-total-planning-80-100-zurich-afry-zurich",
+        "de": "leiter-in-abteilung-gesamtplanung-80-100-zurich-afry-zurich",
         "fr": "chef-du-departement-planification-totale-80-100-zurich-afry-zurich"
       },
       "localePaths": {
@@ -16243,12 +16248,13 @@
         "de": "/de/jobs-im-zurich/chef-du-departement-planification-totale-80-100-zurich-afry-zurich",
         "fr": "/fr/trouver-emploi-zurich/chef-du-departement-planification-totale-80-100-zurich-afry-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref13487c-leiterin-abteilung-gesamtplanung-80-100-zurich",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -17986,7 +17992,7 @@
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "offerte di lavoro ticino vendita",
@@ -18064,27 +18070,27 @@
           "impressions": 1
         },
         {
+          "query": "lavoro supermercati svizzera italiana",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "short list avvocati",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "accordo italia svizzera frontalieri",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "annunci gratuiti ticino",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "commessa in svizzera",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "como",
+          "query": "aldi castione orari",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 47,
+      "totalImpressions": 54,
       "totalClicks": 2,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Commercio dettaglio",
@@ -45111,10 +45117,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "medical-practice-assistant-mpa-universitatsspital-basel-basel",
+        "it": "assistente-di-studio-medico-mpa-universitatsspital-basel-basel",
         "en": "medical-practice-assistant-mpa-universitatsspital-basel-basel",
-        "de": "medical-practice-assistant-mpa-universitatsspital-basel-basel",
-        "fr": "medical-practice-assistant-mpa-universitatsspital-basel-basel"
+        "de": "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
+        "fr": "assistant-e-medical-e-mpa-universitatsspital-basel-basel"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/medical-practice-assistant-mpa-universitatsspital-basel-basel",
@@ -45128,6 +45134,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -46939,10 +46946,10 @@
         "fr": "mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
-        "en": "/en/find-jobs-st-gallen/mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
+        "it": "/cerca-lavoro-berna/mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
+        "en": "/en/find-jobs-bern/mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
         "de": "/de/jobs-im-nidwalden/mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
-        "fr": "/fr/trouver-emploi-saint-gall/mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
+        "fr": "/fr/trouver-emploi-berne/mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47430,10 +47437,10 @@
         "fr": "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r",
-        "en": "/en/find-jobs-ticino/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r",
-        "de": "/de/jobs-im-tessin/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r",
-        "fr": "/fr/trouver-emploi-tessin/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r"
+        "it": "/cerca-lavoro-berna/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r",
+        "en": "/en/find-jobs-bern/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r",
+        "de": "/de/jobs-in-bern/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r",
+        "fr": "/fr/trouver-emploi-berne/monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf-bern-9zwm4r"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -48099,6 +48106,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "netzelektriker-in-alle-bkw-wangen-an-der-aare",
+      "locale": "de",
+      "path": "/de/jobs-in-bern/netzelektriker-in-alle-bkw-wangen-an-der-aare/",
+      "observedPaths": {
+        "de": "/de/jobs-in-bern/netzelektriker-in-alle-bkw-wangen-an-der-aare/"
+      },
+      "queries": [
+        {
+          "query": "jobs wangen an der aare",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "jobs wangen an der aare",
+      "title": "Netzelektriker in alle bkw wangen an der aare",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "netzelektriker-in-alle-bkw-wangen-an-der-aare",
+        "en": "netzelektriker-in-alle-bkw-wangen-an-der-aare",
+        "de": "netzelektriker-in-alle-bkw-wangen-an-der-aare",
+        "fr": "netzelektriker-in-alle-bkw-wangen-an-der-aare"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/netzelektriker-in-alle-bkw-wangen-an-der-aare",
+        "en": "/en/find-jobs-bern/netzelektriker-in-alle-bkw-wangen-an-der-aare",
+        "de": "/de/jobs-im-bern/netzelektriker-in-alle-bkw-wangen-an-der-aare",
+        "fr": "/fr/trouver-emploi-berne/netzelektriker-in-alle-bkw-wangen-an-der-aare"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -52591,6 +52655,64 @@
       ]
     },
     {
+      "slug": "praktikant-in-kita-spital-thurgau-stgag-frauenfeld",
+      "locale": "de",
+      "path": "/de/jobs-im-thurgau/praktikant-in-kita-spital-thurgau-stgag-frauenfeld/",
+      "observedPaths": {
+        "de": "/de/jobs-im-thurgau/praktikant-in-kita-spital-thurgau-stgag-frauenfeld/"
+      },
+      "queries": [
+        {
+          "query": "praktikum im spital",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "praktikum im spital",
+      "title": "Praktikant in kita spital thurgau stgag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Frauenfeld",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "praktikant-in-kita-spital-thurgau-stgag-frauenfeld",
+        "en": "praktikant-in-kita-spital-thurgau-stgag-frauenfeld",
+        "de": "praktikant-in-kita-spital-thurgau-stgag-frauenfeld",
+        "fr": "praktikant-in-kita-spital-thurgau-stgag-frauenfeld"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/praktikant-in-kita-spital-thurgau-stgag-frauenfeld",
+        "en": "/en/find-jobs-thurgau/praktikant-in-kita-spital-thurgau-stgag-frauenfeld",
+        "de": "/de/jobs-im-thurgau/praktikant-in-kita-spital-thurgau-stgag-frauenfeld",
+        "fr": "/fr/trouver-emploi-thurgovie/praktikant-in-kita-spital-thurgau-stgag-frauenfeld"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "praktikum-data-science-emea-praktikantenprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
       "locale": "de",
       "path": "/de/jobs-im-tessin/praktikum-data-science-emea-praktikantenprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
@@ -56762,10 +56884,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "rayonleiter-in-brot-backwaren-molkerei-coop-genossenschaft-murgenthal",
-        "en": "rayonleiter-in-brot-backwaren-molkerei-coop-genossenschaft-murgenthal",
+        "it": "pane-conduttore-rayon-prodotti-per-panificio-latticini-coop-genossenschaft-murgenthal",
+        "en": "rayon-conductor-bread-bakery-products-dairy-coop-genossenschaft-murgenthal",
         "de": "rayonleiter-in-brot-backwaren-molkerei-coop-genossenschaft-murgenthal",
-        "fr": "rayonleiter-in-brot-backwaren-molkerei-coop-genossenschaft-murgenthal"
+        "fr": "pain-de-chef-de-rayonne-produits-de-boulangerie-produits-laitiers-coop-genossenschaft-murgenthal"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/rayonleiter-in-brot-backwaren-molkerei-coop-genossenschaft-murgenthal",
@@ -56779,6 +56901,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -57378,10 +57501,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "regulatory-affairs-intern-roche-ch-2",
-        "en": "regulatory-affairs-intern-roche-ch",
-        "de": "regulatory-affairs-intern-roche-ch-2",
-        "fr": "regulatory-affairs-intern-roche-ch-2"
+        "en": "regulatory-affairs-intern-roche-ch"
       },
       "localePaths": {
         "it": "/cerca-lavoro-friburgo/regulatory-affairs-intern-roche-ch",
@@ -60902,7 +61022,7 @@
         {
           "query": "i have b2b sales experience and i need sales representative jobs in switzerland in geneva or lausanne with french required and base salary plus commission and a company car.",
           "clicks": 0,
-          "impressions": 35
+          "impressions": 37
         },
         {
           "query": "more",
@@ -60910,7 +61030,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 125,
+      "totalImpressions": 127,
       "totalClicks": 0,
       "topQuery": "sales positions in the canton of vaud",
       "title": "Sales",
@@ -79540,10 +79660,10 @@
         "fr": "vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins"
+        "it": "/cerca-lavoro-argovia/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins",
+        "en": "/en/find-jobs-aargau/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins",
+        "de": "/de/jobs-im-aargau/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins",
+        "fr": "/fr/trouver-emploi-argovie/vendeur-vendeuse-alimentaire-produits-frais-coop-genossenschaft-sins"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82822,10 +82942,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-uznach",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-uznach",
+        "en": "seller-cash-register-services-coop-genossenschaft-uznach",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-uznach"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-uznach"
       },
       "localePaths": {
         "it": "/cerca-lavoro-san-gallo/verkaufer-in-kassen-services-coop-genossenschaft-uznach",
@@ -82839,6 +82959,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
