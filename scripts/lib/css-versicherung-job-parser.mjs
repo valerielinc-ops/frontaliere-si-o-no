@@ -45,6 +45,7 @@
  *   - isTrustedDomain()             — Validate URLs belong to this company
  *   - slugify() / stripHtml()       — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -314,12 +315,7 @@ export async function fetchAllCssVersicherungJobs() {
     const jobSlug = slugify(`${title} css versicherung ${city}`);
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const parsed = new Date(String(jsonLd.datePosted || ''));
-      return Number.isNaN(parsed.getTime())
-        ? new Date().toISOString().slice(0, 10)
-        : parsed.toISOString().slice(0, 10);
-    })();
+    const publication = sourcePostingDateFields(jsonLd.datePosted);
 
     const job = {
       id: `${CSS_VERSICHERUNG_KEY}-${urlHash}`,
@@ -352,7 +348,7 @@ export async function fetchAllCssVersicherungJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
