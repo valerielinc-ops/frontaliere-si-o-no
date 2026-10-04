@@ -22,6 +22,7 @@ import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
+import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -122,7 +123,11 @@ export async function submitApplication(ctx) {
     emailSubject: draft.applicationEmail?.subject,
     emailBody: draft.applicationEmail?.body,
   }, draft.factSources || {}, { language: draft.language });
-  if (!facts.ok && !draft.factCheckAcknowledgedAt) return { type: 'submit_failed', error: 'fact_check_not_acknowledged' };
+  // The gate of the day may be stricter than the one the draft was written with. Its result travels
+  // next to the failure: agent.mjs stores it with the draft, so the owner sees the tokens and can
+  // confirm them (the stored result alone would show nothing to confirm); it never reaches the event.
+  // The owner's confirmation counts only for the warnings they saw (factCheckAcknowledged): a new one stops the send.
+  if (!facts.ok && !factCheckAcknowledged(draft, facts)) return { type: 'submit_failed', error: 'fact_check_not_acknowledged', factCheck: facts };
 
   const channel = draft.channel || {};
   const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();

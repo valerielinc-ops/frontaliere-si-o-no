@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 
 const { formatPeriod, parseEndpoint } = await import('../functions/src/lib/cvPeriod.js');
-const { apprenticeHeadline, candidateType } = await import('../functions/src/assistedApplicationCandidateType.js');
+const { apprenticeHeadline, apprenticeTrade, candidateType, draftCandidateType } = await import('../functions/src/assistedApplicationCandidateType.js');
 const { buildCvDocument } = await import('../functions/src/assistedApplicationCvDocument.js');
 const { checkTailoredCvFacts, headlineGrounded, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { sanitizeProfile } = await import('../functions/src/assistedApplicationAiDraftCore.js');
@@ -56,9 +56,157 @@ describe('type of application', () => {
     expect(candidateType({ postingTitle: 'Informatiker EFZ Systemtechnik 100%', profile: { experience: [{ role: 'Informatiker', kind: 'job' }] } }).type).toBe('qualified');
   });
 
+  // Verification of 2026-10-03: the apprentice CV and letter (a 14-16 year old) went to any posting that mentions apprentices.
+  it('reads an apprenticeship only when the posting offers one', () => {
+    const noJob = { experience: [{ role: 'Zeitungsverträger', kind: 'side_job' }] };
+    const withJob = { experience: [{ role: 'Assistentin', kind: 'job' }] };
+    const type = (postingTitle: string, profile: any, postingText = '') => candidateType({ postingTitle, postingText, profile }).type;
+    // The verifier's three probes.
+    expect(type('Sachbearbeiter/in 80%', noJob, 'Aufgaben: Administration und Betreuung der Lernenden.')).toBe('first_job');
+    expect(type('Trainee Position Marketing', withJob)).toBe('qualified');
+    expect(type('Stage / tirocinio formativo marketing', withJob)).toBe('qualified');
+    // An internship, a traineeship, a job that trains apprentices, a training already done.
+    expect(type('Praktikum Marketing', noJob, 'Wir bilden auch Lernende aus.')).toBe('first_job');
+    expect(type('Tirocinio extracurriculare amministrazione', noJob)).toBe('first_job');
+    expect(type('Berufsbildner/in für Lernende 80%', withJob)).toBe('qualified');
+    expect(type('Responsable de l’apprentissage', withJob)).toBe('qualified');
+    expect(type('Kauffrau/Kaufmann EFZ 80%', noJob, 'Sie haben eine abgeschlossene Lehre als Kauffrau/Kaufmann EFZ.')).toBe('first_job');
+    // Apprenticeship titles in the four languages.
+    for (const title of ['Lehrstelle 2027: Informatiker/in EFZ', 'Kauffrau/Kaufmann EFZ (Lehrstelle 2027)', 'Lernende Fachfrau/Fachmann Gesundheit EFZ', 'Lehre als Koch/Köchin EFZ',
+      'Apprenti-e employé-e de commerce CFC', 'Apprentissage d’opérateur·trice en informatique CFC', 'Apprendista impiegato/a di commercio AFC',
+      'Posto di tirocinio come impiegato/a di commercio AFC', 'Tirocinio impiegato/a di commercio AFC', 'Apprenticeship Commercial Employee EFZ']) {
+      expect(type(title, noJob)).toBe('apprentice');
+    }
+    // A diploma in the title, the place offered in the text, no job yet.
+    expect(type('Kauffrau/Kaufmann EFZ', noJob, 'Wir bieten per August 2027 eine Lehrstelle an.')).toBe('apprentice');
+    expect(type('Kauffrau/Kaufmann EFZ', withJob, 'Wir bieten per August 2027 eine Lehrstelle an.')).toBe('qualified');
+    expect(type('Impiegato/a di commercio AFC', noJob, 'Offriamo un posto di tirocinio dal 2027.')).toBe('apprentice');
+  });
+
+  it('takes the trade out of an apprenticeship title, or nothing when only the apprenticeship is left', () => {
+    expect(apprenticeTrade('Lehrstelle 2027: Informatiker/in EFZ')).toBe('Informatiker/in EFZ');
+    expect(apprenticeTrade('Kauffrau/Kaufmann EFZ (Lehrstelle 2027)')).toBe('Kauffrau/Kaufmann EFZ');
+    expect(apprenticeTrade('Detailhandelsfachfrau/-mann EFZ – Lehrstelle 2027')).toBe('Detailhandelsfachfrau/-mann EFZ');
+    expect(apprenticeTrade('Lernende/r Kauffrau/Kaufmann EFZ – Lehrbeginn August 2027')).toBe('Kauffrau/Kaufmann EFZ');
+    expect(apprenticeTrade('Lernender/Lernende Polymechaniker/in EFZ')).toBe('Polymechaniker/in EFZ');
+    expect(apprenticeTrade('Apprenti-e employé-e de commerce CFC')).toBe('employé-e de commerce CFC');
+    expect(apprenticeTrade('Apprentissage d’opérateur·trice en informatique CFC')).toBe('opérateur·trice en informatique CFC');
+    expect(apprenticeTrade('Apprendista impiegato/a di commercio AFC')).toBe('impiegato/a di commercio AFC');
+    expect(apprenticeTrade('Posto di tirocinio come impiegato/a di commercio AFC')).toBe('impiegato/a di commercio AFC');
+    // Nothing left, a phrase, or a title that does not say it is an apprenticeship.
+    expect(apprenticeTrade('Lehrstellen 2027')).toBe('');
+    expect(apprenticeTrade('Lehrstelle in der Pflege')).toBe('');
+    expect(apprenticeTrade('Kauffrau/Kaufmann EFZ')).toBe('');
+    // The headline reads the same trade (the old prefix stripper left «2027:» and the brackets in).
+    expect(apprenticeHeadline('Lehrstelle 2027: Informatiker/in EFZ', 'de')).toBe('Berufswunsch: Informatiker/in EFZ');
+    expect(apprenticeHeadline('Kauffrau/Kaufmann EFZ (Lehrstelle 2027)', 'de')).toBe('Berufswunsch: Kauffrau/Kaufmann EFZ');
+  });
+
   it('writes the apprentice’s trade as a goal, never as a role', () => {
     expect(apprenticeHeadline('Lernende/r Informatiker/in EFZ Applikationsentwicklung', 'de')).toBe('Berufswunsch: Informatiker/in EFZ Applikationsentwicklung');
     expect(apprenticeHeadline('Apprenti·e employé·e de commerce CFC', 'fr')).toBe('Objectif professionnel : employé·e de commerce CFC');
+  });
+
+  // Review of 2026-10-03: a company's yearly apprentices typed an adult as an apprentice, a real offer in the
+  // text did not count, an Italian internship and a French training company were misread.
+  it('counts in the text one place offered, or the training offered, never what a company does every year', () => {
+    const noJob = { experience: [{ role: 'Praktikum', kind: 'internship' }] };
+    const type = (postingTitle: string, postingText = '') => candidateType({ postingTitle, postingText, profile: noJob }).type;
+    expect(type('Kauffrau/Kaufmann EFZ 80%', 'Als Ausbildungsbetrieb bieten wir jedes Jahr zwölf Lehrstellen an.')).toBe('first_job');
+    expect(type('Impiegato/a di commercio AFC 100%', 'La nostra azienda offre ogni anno posti di tirocinio.')).toBe('first_job');
+    expect(type('Employé·e de commerce CFC 80%', 'Nous formons des apprenti·e·s chaque année.')).toBe('first_job');
+    expect(type('Employé·e de commerce CFC 80%', 'Nos apprenti·es et apprenti(e)s sont encadré·es.')).toBe('first_job');
+    expect(type('Employé·e de commerce CFC', 'Nous cherchons un·e apprenti·e motivé·e.')).toBe('apprentice');
+    // The training offered (Berufslehre, tirocinio, apprentissage), not the one a candidate has done.
+    expect(type('Impiegato/a di commercio AFC', 'Offriamo un tirocinio triennale a partire da agosto 2027.')).toBe('apprentice');
+    expect(type('Kauffrau/Kaufmann EFZ', 'Wir bieten dir eine spannende dreijährige Berufslehre ab August 2027.')).toBe('apprentice');
+    expect(type('Employé·e de commerce CFC', 'Nous proposons un apprentissage dès août 2027.')).toBe('apprentice');
+    expect(type('Impiegato/a di commercio AFC 100%', 'Requisiti: tirocinio di commercio concluso e tre anni di esperienza.')).toBe('first_job');
+    expect(type('Kauffrau/Kaufmann EFZ 80%', 'Wir bieten eine vielseitige Stelle für Personen mit abgeschlossener Berufslehre.')).toBe('first_job');
+    expect(type('Employé·e de commerce CFC 80%', 'Nous offrons chaque année des places d’apprentissage.')).toBe('first_job');
+  });
+
+  // Re-check of 2026-10-04: an offer verb anywhere before the training word typed an adult posting as an
+  // apprenticeship, and so did a title that asks for a training already done.
+  it('counts a training in the text only as the object of an offer verb, never one done or asked for', () => {
+    const noJob = { experience: [{ role: 'Schnupperlehre', kind: 'trial_apprenticeship' }] };
+    const type = (postingTitle: string, postingText: string) => candidateType({ postingTitle, postingText, profile: noJob }).type;
+    expect(type('Kauffrau/Kaufmann EFZ 80%', 'Wir bieten Absolventinnen und Absolventen einer kaufmännischen Berufslehre den idealen Berufseinstieg.')).toBe('first_job');
+    expect(type('Kauffrau/Kaufmann EFZ 80%', 'Wir bieten Ihnen eine unbefristete Stelle im Anschluss an Ihre Berufslehre.')).toBe('first_job');
+    expect(type('Employé·e de commerce CFC 80%', 'Nous offrons un premier emploi idéal à la fin de votre apprentissage.')).toBe('first_job');
+    expect(type('Employé·e de commerce CFC 80%', 'Nous offrons un poste fixe aux jeunes ayant terminé leur apprentissage.')).toBe('first_job');
+    expect(type('Impiegato/a di commercio AFC 100%', 'Offriamo un impiego fisso a chi ha appena finito il tirocinio.')).toBe('first_job');
+    expect(type('Commercial Employee EFZ 100%', 'We offer a permanent position upon completion of your apprenticeship.')).toBe('first_job');
+    expect(type('Kauffrau/Kaufmann EFZ 80%', 'Wir bieten nach abgeschlossener Berufslehre eine Festanstellung.')).toBe('first_job');
+    // The verb, at most a pronoun, an article and adjectives, then the training.
+    expect(type('Kauffrau/Kaufmann EFZ', 'Gerne bieten wir dir eine dreijährige Berufslehre an.')).toBe('apprentice');
+    expect(type('Impiegato/a di commercio AFC', 'Offriamo l’apprendistato completo in azienda.')).toBe('apprentice');
+    expect(type('Commercial Employee EFZ', 'We offer you a three-year apprenticeship.')).toBe('apprentice');
+  });
+
+  // Second re-check of 2026-10-04: the object rule missed the apprenticeships offered after a time phrase or to
+  // a beneficiary.
+  it('counts the training offered after a time phrase or to a beneficiary, still never one done', () => {
+    const noJob = { experience: [{ role: 'Schnupperlehre', kind: 'trial_apprenticeship' }] };
+    const type = (postingTitle: string, postingText: string) => candidateType({ postingTitle, postingText, profile: noJob }).type;
+    expect(type('Kauffrau/Kaufmann EFZ', 'Wir bieten ab August 2027 eine dreijährige Berufslehre.')).toBe('apprentice');
+    expect(type('Kauffrau/Kaufmann EFZ', 'Wir bieten Schulabgängern eine Berufslehre.')).toBe('apprentice');
+    expect(type('Commercial Employee EFZ', 'We offer young people an apprenticeship.')).toBe('apprentice');
+    expect(type('Impiegato/a di commercio AFC', 'Offriamo ai giovani un apprendistato.')).toBe('apprentice');
+    expect(type('Employé·e de commerce CFC', 'Nous offrons aux jeunes un apprentissage.')).toBe('apprentice');
+    expect(type('Kauffrau/Kaufmann EFZ', 'Wir bieten motivierten Jugendlichen per 1. August eine Lehre als Kauffrau.')).toBe('apprentice');
+    expect(type('Kauffrau/Kaufmann EFZ', 'Wir bieten ab sofort jungen Menschen eine Berufslehre.')).toBe('apprentice');
+    expect(type('Impiegato/a di commercio AFC', 'Offriamo dal 1° settembre a giovani motivati un tirocinio triennale.')).toBe('apprentice');
+    expect(type('Impiegato/a di commercio AFC', 'Offriamo da agosto 2027 un apprendistato.')).toBe('apprentice');
+    expect(type('Employé·e de commerce CFC', 'Nous proposons dès novembre 2027 un apprentissage.')).toBe('apprentice');
+    expect(type('Employé·e de commerce CFC', 'Nous proposons, dès août 2027, à des jeunes un apprentissage.')).toBe('apprentice');
+    expect(type('Employé·e de commerce CFC', 'Nous offrons à partir d’août 2027 un apprentissage.')).toBe('apprentice');
+    expect(type('Commercial Employee EFZ', 'We offer, starting in August, a motivated young person an apprenticeship.')).toBe('apprentice');
+    expect(type('Commercial Employee EFZ', 'We offer school leavers from August 2027 an apprenticeship.')).toBe('apprentice');
+    // Still never a training done or asked for, nor the one a noun names («Absolventen einer Berufslehre»).
+    expect(type('Kauffrau/Kaufmann EFZ 80%', 'Wir bieten Absolventen einer Berufslehre ab sofort eine Festanstellung.')).toBe('first_job');
+    expect(type('Kauffrau/Kaufmann EFZ 80%', 'Wir bieten jungen Menschen nach abgeschlossener Berufslehre eine Festanstellung.')).toBe('first_job');
+    expect(type('Employé·e de commerce CFC 80%', 'Nous offrons aux jeunes ayant terminé leur apprentissage un poste fixe.')).toBe('first_job');
+    expect(type('Commercial Employee EFZ 100%', 'We offer young people who completed an apprenticeship a permanent position.')).toBe('first_job');
+  });
+
+  it('reads a training the title asks for as done, never as the apprenticeship offered', () => {
+    const withJob = { experience: [{ role: 'Logistiker EFZ', kind: 'job' }] };
+    const type = (postingTitle: string) => candidateType({ postingTitle, profile: withJob }).type;
+    expect(type('Mitarbeiter/in Logistik (abgeschlossene Lehre als Logistiker/in EFZ)')).toBe('qualified');
+    expect(type('Sachbearbeiter/in mit abgeschlossener Berufslehre')).toBe('qualified');
+    expect(type('Collaborateur·trice administratif·ve (CFC obtenu par apprentissage)')).toBe('qualified');
+    expect(type('Magazziniere/a con apprendistato concluso')).toBe('qualified');
+    expect(type('Impiegato/a di commercio AFC con tirocinio concluso')).toBe('qualified');
+    expect(type('Commercial Employee with completed apprenticeship')).toBe('qualified');
+    // «mit», «avec» after the training is what the apprenticeship comes with.
+    expect(type('Berufslehre als Kauffrau/Kaufmann EFZ mit Berufsmaturität')).toBe('apprentice');
+    expect(type('Apprentissage d’employé·e de commerce CFC avec maturité professionnelle')).toBe('apprentice');
+  });
+
+  it('reads an Italian internship in every spelling, and a training company in the title as no trainer', () => {
+    const noJob = { experience: [{ role: 'Praktikum', kind: 'internship' }] };
+    const type = (postingTitle: string) => candidateType({ postingTitle, profile: noJob }).type;
+    expect(type('Posto di tirocinio non curriculare marketing')).toBe('first_job');
+    expect(type('Posto di tirocinio extra-curriculare amministrazione')).toBe('first_job');
+    expect(type('Apprenti·e employé·e de commerce – entreprise formatrice')).toBe('apprentice');
+    expect(type('Formateur/trice d’apprenti·e·s')).toBe('first_job');
+  });
+
+  it('keeps the commercial profile in the trade: «Profil E» is no conjunction', () => {
+    expect(apprenticeTrade('Lernende/r Kauffrau/Kaufmann EFZ, Profil E')).toBe('Kauffrau/Kaufmann EFZ, Profil E');
+    expect(apprenticeHeadline('Lernende/r Kauffrau/Kaufmann EFZ, Profil E', 'de')).toBe('Berufswunsch: Kauffrau/Kaufmann EFZ, Profil E');
+    expect(apprenticeHeadline('Lehrstelle Kauffrau/Kaufmann EFZ Profil E', 'de')).toBe('Berufswunsch: Kauffrau/Kaufmann EFZ Profil E');
+    expect(apprenticeHeadline('Apprendista impiegato/a di commercio AFC, profilo E', 'it')).toBe('Obiettivo professionale: impiegato/a di commercio AFC, profilo E');
+    // A phrase cut at the conjunction is still no trade.
+    expect(apprenticeTrade('Apprendista impiegato/a di commercio e')).toBe('');
+  });
+
+  it('reads the type a draft was written for in one place', () => {
+    expect(draftCandidateType({ candidateType: { type: 'apprentice', sector: 'it' } })).toBe('apprentice');
+    expect(draftCandidateType({ candidateType: 'first_job' })).toBe('first_job');
+    expect(draftCandidateType({})).toBe('');
+    expect(draftCandidateType(null)).toBe('');
   });
 });
 

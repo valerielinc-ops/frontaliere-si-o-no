@@ -95,6 +95,32 @@ const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
 
 /**
+ * The warnings of a fact-check result as the owner confirms them: field, kind and token, sorted. The field
+ * belongs to the warning: «SAP» confirmed in the letter is not «SAP» in the e-mail the owner never read.
+ */
+export function factCheckTokens(factCheck) {
+  return [...new Set((factCheck?.unsupported || []).map((item) => `${item.field}:${item.kind}:${item.token}`))].sort();
+}
+
+/**
+ * Whether the owner confirmed the fact gate's warnings of a result: with the
+ * queue's own tick, or by name among the acknowledged flags, and only for the
+ * warnings they saw. The tick stores them (factCheckAcknowledgedTokens); an
+ * older tick, stored without them, covers the result the draft held when it
+ * was given. The gate at submit runs with the code of the day and may find a
+ * warning the owner never saw: that result is not confirmed. One reader for
+ * the flow and for the runner's gate at submit
+ * (scripts/assisted-application/lib/submit.mjs).
+ * @param {object} draft the AI draft (ai_drafts/current)
+ * @param {object} [factCheck] the result to confirm; the draft's own by default
+ */
+export function factCheckAcknowledged(draft, factCheck = draft?.factCheck) {
+  if (!draft?.factCheckAcknowledgedAt && !draft?.acknowledgedFlags?.fact_check) return false;
+  const confirmed = new Set(Array.isArray(draft.factCheckAcknowledgedTokens) ? draft.factCheckAcknowledgedTokens : factCheckTokens(draft.factCheck));
+  return factCheckTokens(factCheck).every((token) => confirmed.has(token));
+}
+
+/**
  * @param {object} draft the AI draft (ai_drafts/current)
  * @param {Record<string,string>} answers candidate answers by question id
  */
@@ -103,7 +129,7 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   // A flag the owner explicitly acknowledged in the queue no longer holds.
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
   const unsupported = draft?.factCheck?.unsupported || [];
-  if (unsupported.length > 0 && !draft?.factCheckAcknowledgedAt && !acknowledged('fact_check')) owner.push('fact_check');
+  if (unsupported.length > 0 && !factCheckAcknowledged(draft)) owner.push('fact_check');
   // A profile that is not a full match no longer stops here (owner decision
   // 2026-10-03, was `knock_out`): the draft goes on and the candidate reads,
   // above the questions, which requirements the CV does not show
