@@ -14,12 +14,14 @@ import {
   buildL7ExperimentLedger,
   buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
+  exportL1,
   exportL3,
   exportL4,
   exportL5,
   exportL7,
   fetchL5EventSessions,
   GoogleDataClient,
+  L1_GA4_EVENT_CONTRACT,
   L5_DECISION_EVENT_CONTRACT,
   l5GatedDateRange,
 } from '../scripts/ci/export-loop-outcomes.mjs';
@@ -85,6 +87,116 @@ describe('read-only loop outcome exporters', () => {
       usefulSessions: 18595,
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
+    });
+  });
+
+  describe('L1 useful sessions from GA4', () => {
+    const L1_POLICY = JSON.parse(fs.readFileSync(
+      path.resolve('data/loop-fleet/loop-registry.json'),
+      'utf8',
+    )).loops.find((loop: any) => loop.loopId === 'L1');
+
+    function l1Client({ useful, errors }: { useful: unknown; errors: unknown }) {
+      const calls: Array<{ url: string; body: any }> = [];
+      const client = {
+        request: async (url: string, init: RequestInit) => {
+          const body = JSON.parse(String(init.body));
+          calls.push({ url, body });
+          return body.dimensionFilter.filter.inListFilter ? errors : useful;
+        },
+      };
+      return { calls, client };
+    }
+
+    function inputPath() {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l1-export-test-'));
+      const input = path.join(dir, 'baseline.json');
+      fs.writeFileSync(input, JSON.stringify({ _meta: { issue: 4304 }, oldFact: true }));
+      return { dir, input };
+    }
+
+    it('counts useful and error sessions from two exact settled GA4 reports', async () => {
+      const { calls, client } = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '40' }, { value: '55' }] }] },
+      });
+      const { dir, input } = inputPath();
+      const outputPath = path.join(dir, 'l1.json');
+      const output = await exportL1({ inputPath: input, outputPath, now: NOW, client: client as any });
+
+      expect(output).toMatchObject({
+        oldFact: true,
+        usefulSessions: 1000,
+        errorFreeUsefulSessions: 960,
+        observedErrorEvents: 55,
+        telemetryWindow: { startDate: '2026-09-07', endDate: '2026-09-10', lagDays: 2, source: 'GA4 settled calendar dates' },
+        evidence: { errorSessions: 40, errorFreeIsLowerBound: true, sourceRefs: L1_POLICY.outcome.sourceRefs },
+        _meta: { issue: 4304, source: 'GA4 Data API, read-only live export' },
+      });
+      expect(output.evidence.method).toContain('lower bound');
+      expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toEqual(output);
+
+      expect(calls).toHaveLength(2);
+      for (const call of calls) {
+        expect(call.url).toBe('https://analyticsdata.googleapis.com/v1beta/properties/524485296:runReport');
+        expect(call.body.dateRanges).toEqual([{ startDate: '2026-09-07', endDate: '2026-09-10' }]);
+        // Native event names only: the property has no free EVENT-scoped slot.
+        expect(call.body.dimensions).toBeUndefined();
+        expect(JSON.stringify(call.body)).not.toContain('customEvent:');
+      }
+      const useful = calls.find((call) => call.body.dimensionFilter.filter.stringFilter);
+      const errors = calls.find((call) => call.body.dimensionFilter.filter.inListFilter);
+      expect(useful?.body).toMatchObject({
+        metrics: [{ name: 'sessions' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'page_view', matchType: 'EXACT' } } },
+      });
+      expect(errors?.body).toMatchObject({
+        metrics: [{ name: 'sessions' }, { name: 'eventCount' }],
+        dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [...L1_GA4_EVENT_CONTRACT.errorEvents] } } },
+      });
+    });
+
+    it('never lets error sessions push the error-free lower bound below zero', async () => {
+      const { client } = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '30' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '45' }, { value: '90' }] }] },
+      });
+      const { dir, input } = inputPath();
+      const output = await exportL1({ inputPath: input, outputPath: path.join(dir, 'l1.json'), now: NOW, client: client as any });
+      expect(output).toMatchObject({ usefulSessions: 30, errorFreeUsefulSessions: 0, observedErrorEvents: 90 });
+    });
+
+    it('fails the export instead of publishing a thresholded or split GA4 total', async () => {
+      const { dir, input } = inputPath();
+      const exact = { rows: [{ metricValues: [{ value: '40' }, { value: '55' }] }] };
+      const thresholded = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }], metadata: { subjectToThresholding: true } },
+        errors: exact,
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'a.json'), now: NOW, client: thresholded.client as any }))
+        .rejects.toThrow('GA4 L1 report for page_view is incomplete or thresholded');
+      const split = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [exact.rows[0], exact.rows[0]] },
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'b.json'), now: NOW, client: split.client as any }))
+        .rejects.toThrow('GA4 L1 report for error events returned 2 rows');
+      // A row that carries fewer metrics than requested is malformed, not zero.
+      const truncated = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '40' }] }] },
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'c.json'), now: NOW, client: truncated.client as any }))
+        .rejects.toThrow('GA4 L1 report for error events returned 1 metric values, expected 2');
+      expect(fs.existsSync(path.join(dir, 'a.json'))).toBe(false);
+      expect(fs.existsSync(path.join(dir, 'b.json'))).toBe(false);
+      expect(fs.existsSync(path.join(dir, 'c.json'))).toBe(false);
+    });
+
+    it('labels the unavailable placeholder with the registry source, not PostHog', () => {
+      const placeholder = buildUnavailableL1TelemetryExport({ generatedAt: NOW.toISOString() });
+      expect(placeholder.export.sourceRefs).toEqual(L1_POLICY.outcome.sourceRefs);
+      expect(JSON.stringify(placeholder)).not.toMatch(/posthog/i);
     });
   });
 
@@ -375,6 +487,158 @@ describe('read-only loop outcome exporters', () => {
           noConsentedAlert: 0,
         },
       },
+    });
+  });
+
+  describe('L4 delivery evidence join (#8409)', () => {
+    const USER = 'job_alert_subscribers/user@example.test';
+    const consented = { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) };
+    const delivery = (id: string, data: Record<string, unknown>) => row(`${USER}/campaign_deliveries/${id}`, {
+      campaign_id: 'a1',
+      scheduled_for: null,
+      send_time_source: 'global',
+      ...data,
+    });
+    const event = (id: string, data: Record<string, unknown>) => row(`${USER}/events/${id}`, data);
+    const ledger = (deliveryRows: unknown[], eventRows: unknown[], alertRows = [row(`${USER}/alerts/a1`, { active: true })]) => buildL4OutcomeLedger({
+      now: NOW,
+      alertRows,
+      jobAlertRoots: [row(USER, {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows,
+      eventRows,
+      predicates: consented,
+    });
+
+    it('joins a Maileroo delivered event by recipient window when the provider id differs', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toEqual({
+        deliveredAt: 0, messageId: 0, recipientWindow: 1, impliedByEngagement: 0, none: 0,
+      });
+      expect(output.export.deliveredByProvider).toEqual({ maileroo: 1 });
+      expect(output.export.deliveryRowsByProvider).toEqual({ maileroo: 1 });
+      expect(output.export.deliveryEvidenceJoin).toBe('joined');
+    });
+
+    it('counts an id-joined Mailjet open as delivery even without a delivered event', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'mj-1', provider: 'mailjet', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [
+          event('e1', { event_type: 'send', message_id: 'mj-1', provider: 'mailjet', occurred_at: '2026-09-12T09:00:05.000Z' }),
+          event('e2', { event_type: 'open', message_id: 'mj-1', provider: 'mailjet', occurred_at: '2026-09-12T09:30:00.000Z' }),
+        ],
+      );
+      expect(output).toMatchObject({ deliveredAlerts: 1, openedAlerts: 1, clickedAlerts: 0 });
+      expect(output.export.deliveryEvidenceByJoin.impliedByEngagement).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin.none).toBe(0);
+    });
+
+    it('lets one window event support a single delivery of the same recipient', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/a1`, { active: true }), row(`${USER}/alerts/a2`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          delivery('d2', { campaign_id: 'a2', message_id: 'ref-2', provider: 'maileroo', sent_at: '2026-09-12T09:05:00.000Z' }),
+          delivery('d1', { campaign_id: 'a1', message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' }),
+        ],
+        eventRows: [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        predicates: consented,
+      });
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toMatchObject({ recipientWindow: 1, none: 1 });
+    });
+
+    it('rejects window events past 72 hours or from another provider', () => {
+      const late = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-09T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T10:00:00.000Z' })],
+      );
+      const otherProvider = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'mailgun', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      const early = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T08:58:00.000Z' })],
+      );
+      for (const output of [late, otherProvider, early]) {
+        expect(output.deliveredAlerts).toBe(0);
+        expect(output.export.deliveryEvidenceByJoin.none).toBe(1);
+      }
+    });
+
+    it('falls back to the server timestamp when occurred_at is unparseable', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '', timestamp: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin.recipientWindow).toBe(1);
+    });
+
+    it('keeps events id-joined to operator or unattributed rows out of the window join', () => {
+      for (const owner of [
+        delivery('op', { is_operator_verification: true, message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+        delivery('ux', { campaign_id: 'gone', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+      ]) {
+        const output = ledger(
+          [owner, delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+          [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        );
+        expect(output.deliveredAlerts).toBe(0);
+        expect(output.export.deliveryEvidenceByJoin).toMatchObject({ recipientWindow: 0, none: 1 });
+      }
+    });
+
+    it('does not reuse an event already joined by message id to another delivery', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/a1`, { active: true }), row(`${USER}/alerts/a2`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          delivery('d1', { campaign_id: 'a1', message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' }),
+          delivery('d2', { campaign_id: 'a2', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T09:05:00.000Z' }),
+        ],
+        eventRows: [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        predicates: consented,
+      });
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin).toMatchObject({ messageId: 1, recipientWindow: 0, none: 1 });
+    });
+
+    it('flags an empty delivery-evidence join when sends exist but none is proven', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [],
+      );
+      expect(output.deliveredAlerts).toBe(0);
+      expect(output.export.deliveryRows).toBe(1);
+      expect(output.export.deliveryEvidenceJoin).toBe('empty');
+      expect(ledger([], []).export.deliveryEvidenceJoin).toBe('no-deliveries');
+    });
+
+    it('keeps an unknown campaign id unattributed and the consent gates closed', () => {
+      const foreignId = 'x'.repeat(42);
+      const output = ledger(
+        [delivery('d1', { campaign_id: foreignId, message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'ref-1', provider: 'maileroo', occurred_at: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(0);
+      expect(output.export).toMatchObject({
+        consentChecked: false,
+        deduplicationChecked: false,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { noConsentedAlert: 1 },
+        unattributedDeliveryShapes: { [String(foreignId.length)]: 1 },
+      });
+      expect(JSON.stringify(output.export)).not.toContain(foreignId);
     });
   });
 

@@ -36,6 +36,20 @@ function regionFromUrl(input: string | URL | Request) {
 }
 
 describe('VTG authoritative regional discovery', () => {
+  it('carries source publication provenance through discovery and leaves missing dates unknown', async () => {
+    const reported = new Date(Date.now() - 5 * 86400000).toISOString();
+    for (const raw of [reported, '', 'invalid', new Date(Date.now() + 5 * 86400000).toISOString()]) {
+      const fetchImpl = async () => new Response(JSON.stringify({
+        total: 1, jobs: [{ ...job(IDS[0]), start_date: raw }],
+      }), { status: 200 });
+      const result = await fetchVtgJobUrls({ fetchImpl, timeoutMs: 1000 });
+      const meta = result.seedMetaByUrl[result.urls[0]];
+      expect(meta).toMatchObject(raw === reported
+        ? { datePosted: reported, postedDate: reported, postingDateSource: 'reported' }
+        : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+    }
+  });
+
   it('requires all regions and accounts for expected cross-region identities', async () => {
     const byRegion: Record<string, object[]> = {
       '1083341': [job(IDS[0], 'Bellinzona')],

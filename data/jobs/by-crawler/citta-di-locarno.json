@@ -49,8 +49,6 @@
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
       "crawledAt": "2026-10-03T21:17:56.816Z",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-03T09:11:56.937Z",
       "salaryMin": 34700,
       "salaryMax": 52500,
       "salarySource": "estimated",
@@ -63,7 +61,8 @@
           "maxValue": 52500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:11:56.937Z"
     }
   ]
 }

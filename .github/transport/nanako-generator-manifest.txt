@@ -128,6 +128,16 @@ scripts/lib/int-from-env.mjs
 # corpus already carries its generator-side twin, so the transport must carry
 # the site source at the same relative path.
 scripts/lib/sanitize-body-braces.mjs
+# Added 2026-10-04, stessa classe di unescape-ts-string.mjs sopra. La #10973
+# ha fatto importare `../scripts/lib/borderWaitSections.mjs` a
+# `build-plugins/borderWaitData.ts`, che e' in questo manifest (sezione
+# "Dependencies OUTSIDE scripts/") ed e' eseguito sul corpus: lo raggiungono
+# generate-border-wait-ranking-article.mjs e border-wait-ranking-content.mjs,
+# lanciati con tsx dal cron settimanale generate-border-wait-ranking-weekly.yml.
+# E' un `import` di primo livello: senza questa riga il prossimo transport
+# rompe quel run con ERR_MODULE_NOT_FOUND prima di main(). Il file e' puro e
+# non importa nulla.
+scripts/lib/borderWaitSections.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------
 #
