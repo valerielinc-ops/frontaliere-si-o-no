@@ -119,6 +119,7 @@ jobs:
             /scripts/lib/crawler-generation-token.mjs
             /scripts/lib/crawler-location-config.mjs
             /scripts/lib/crawler-slice-integrity.mjs
+            /scripts/lib/detail-failure-reuse-policy.mjs
             /scripts/lib/github-actions-read-client.mjs
             /scripts/lib/job-match-key.mjs
             /scripts/lib/job-url-key.mjs
@@ -451,6 +452,7 @@ jobs:
             /scripts/lib/crawler-generation-token.mjs
             /scripts/lib/crawler-location-config.mjs
             /scripts/lib/crawler-slice-integrity.mjs
+            /scripts/lib/detail-failure-reuse-policy.mjs
             /scripts/lib/github-actions-read-client.mjs
             /scripts/lib/job-match-key.mjs
             /scripts/lib/job-url-key.mjs
@@ -573,6 +575,7 @@ jobs:
             /scripts/lib/crawler-generation-token.mjs
             /scripts/lib/crawler-location-config.mjs
             /scripts/lib/crawler-slice-integrity.mjs
+            /scripts/lib/detail-failure-reuse-policy.mjs
             /scripts/lib/github-actions-read-client.mjs
             /scripts/lib/job-match-key.mjs
             /scripts/lib/job-url-key.mjs

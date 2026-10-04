@@ -276,7 +276,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  ]},
  { heading: 'FASE 2: Assicurazione Sanitaria (entro 3 mesi)', items: [
  'SCELTA CRUCIALE: LAMal svizzera oppure SSN italiano (diritto di opzione)',
- 'La scelta e\' IRREVERSIBILE per tutta la durata del rapporto di lavoro attuale',
+ 'Per restare al SSN serve una domanda formale di esenzione dalla LAMal entro 3 mesi; poi la scelta non si cambia liberamente',
  'Se scegli LAMal svizzera:',
  ' - Confronta almeno 5 casse malati (i premi variano fino al 40%)',
  ' - Scegli il modello: Telmed (miglior rapporto qualita\'/prezzo, sconto 10-12%)',
@@ -333,8 +333,8 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Come frontaliere hai 3 MESI dall\'inizio lavoro per scegliere',
  'Opzione 1 - LAMal svizzera: paghi un premio mensile, copertura completa in CH',
  'Opzione 2 - SSN italiano: mantieni il servizio sanitario nazionale, limiti in CH',
- 'ATTENZIONE: la scelta e\' IRREVERSIBILE per tutto il rapporto di lavoro attuale',
- 'Se cambi datore, puoi cambiare scelta (nuovo diritto di opzione)',
+ 'ATTENZIONE: per restare al SSN serve una domanda formale di esenzione dalla LAMal entro 3 mesi; poi la scelta non si cambia liberamente',
+ 'Un cambio di datore non riapre da solo l\'opzione: verifica con l\'autorità del Cantone di lavoro',
  'Se non comunichi nulla entro 3 mesi: vieni assegnato d\'ufficio alla LAMal',
  ]},
  { heading: 'Quando Conviene la LAMal', items: [
@@ -496,7 +496,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Usa il calcolatore su frontaliereticino.ch per una stima precisa della tua situazione',
  ]},
  { heading: 'Assicurazione Sanitaria', items: [
- 'Diritto di opzione: LAMal svizzera OPPURE SSN italiano (scelta irreversibile)',
+ 'Diritto di opzione: per scegliere la copertura italiana, chiedi formalmente l’esenzione dalla LAMal all’autorità del Cantone di lavoro entro 3 mesi dall’inizio del contratto; l’iscrizione al SSN da sola non vale come opzione',
  'Hai 3 mesi dall\'inizio lavoro per decidere',
  'LAMal: premio mensile CHF 280-350, copertura completa in CH',
  'Modello Telmed: miglior rapporto qualita\'/prezzo per frontalieri (sconto 10-12%)',

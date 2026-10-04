@@ -543,6 +543,11 @@ describe('employer insights refresh rollback', () => {
     expect(live.timezone).toBe('Europe/Zurich');
   });
 
+  it('lets only the live evidence probe read the current GA4 date', () => {
+    expect(BUILDER_SOURCE).toMatch(/queryGa4EmissionEvidence\(d18EvidenceWindow, \{[\s\S]*includeCurrentDate: true/);
+    expect(BUILDER_SOURCE).toContain('const endDate = includeCurrentDate');
+  });
+
   it('runs the now-supported GA4 identity feed on the periodic trigger', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(/on:\s*[\s\S]*schedule:\s*[\s\S]*cron:\s*'15 5 \* \* \*'/);
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(/ga4\) ;;/);

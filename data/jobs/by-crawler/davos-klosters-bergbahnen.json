@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-10-03T21:25:21.969Z",
+  "assembledAt": "2026-10-04T09:25:13.394Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-ce7e03bfcefe",
@@ -39,11 +39,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Kosmetiker-in-Hotel-Mountain-Plaza_j_3887486",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:17.920Z",
+      "crawledAt": "2026-10-04T09:25:07.710Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:25:10.218Z",
       "salaryMin": 62000,
@@ -64,20 +66,20 @@
     },
     {
       "id": "davos-klosters-bergbahnen-2429818f1d17",
-      "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+      "slug": "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
-        "en": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "it": "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+        "en": "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
         "de": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
-        "fr": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        "fr": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
       "companyDomain": "davosklosters.ch",
       "title": "Hausabwart PP Parsenn Aush. TD Parsenn",
       "titleByLocale": {
-        "it": "Hausabwart PP Parsenn Aush. TD Parsenn",
-        "en": "Hausabwart PP Parsenn Aush. TD Parsenn",
+        "it": "Housekeeper PP Parsenn Aush. TD Parsenne",
+        "en": "Housekeeper PP Parsenn Aush. TD Parsenne",
         "de": "Hausabwart PP Parsenn Aush. TD Parsenn",
         "fr": "Hausabwart PP Parsenn Aush. TD Parsenn"
       },
@@ -99,11 +101,32 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3942409",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:17.469Z",
+      "crawledAt": "2026-10-04T09:25:07.370Z",
+      "previousSlugs": [
+        "la-femme-de-menage-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+        "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "la-femme-de-menage-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+          "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+          "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos"
+        ],
+        "fr": [
+          "la-femme-de-menage-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+          "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:25:09.791Z",
       "salaryMin": 62000,
@@ -159,11 +182,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:17.249Z",
+      "crawledAt": "2026-10-04T09:25:07.201Z",
       "firstSeenAt": "2026-09-23T23:49:03.575Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -218,11 +243,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:17.026Z",
+      "crawledAt": "2026-10-04T09:25:07.028Z",
       "previousSlugs": [
         "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-davos",
         "capopartita-mountain-plaza-hotel-davos-klosters-bergbahnen-ag-davos"
@@ -288,11 +315,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:16.805Z",
+      "crawledAt": "2026-10-04T09:25:06.857Z",
       "previousSlugs": [
         "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
         "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
@@ -309,8 +338,8 @@
           "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -364,11 +393,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:16.584Z",
+      "crawledAt": "2026-10-04T09:25:06.685Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
         "azienda-carpenter-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos",
@@ -454,11 +485,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:16.362Z",
+      "crawledAt": "2026-10-04T09:25:06.513Z",
       "previousSlugs": [
         "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
         "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos"
@@ -524,11 +557,13 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:16.140Z",
+      "crawledAt": "2026-10-04T09:25:06.342Z",
       "previousSlugs": [
         "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
         "neve-e-impianti-ferroviari-davos-klosters-bergbahnen-ag-davos"
@@ -545,8 +580,8 @@
           "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:53:17.644Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -562,75 +597,6 @@
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "addressRegion": "GR"
-    },
-    {
-      "id": "davos-klosters-bergbahnen-6f08343cd9a8",
-      "slug": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
-      "slugByLocale": {
-        "it": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
-        "en": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
-        "de": "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
-        "fr": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos"
-      },
-      "company": "Davos Klosters Bergbahnen AG",
-      "companyKey": "davos-klosters-bergbahnen-ag",
-      "companyDomain": "davosklosters.ch",
-      "title": "Mitarbeiter:in Booking Office Mountain Hotels",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Booking Office Mountain Hotels",
-        "en": "Associate Booking Office Mountain Hotels",
-        "de": "Mitarbeiter:in Booking Office Mountain Hotels",
-        "fr": "Collaborateur/trice Booking Office Mountain Hotels"
-      },
-      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG über 23 Hotels und Resorts von der\neinfachen Gruppenunterkunft bis zum gehobenen Vier-Sterne-Superior.\nZur Unterstützung des Teams im Booking Office der Mountain Hotels suchen wir für\ndie kommende Wintersaison 2026/27 eine Person als:\nMitarbeiter:in Booking Office 100%\nDeine Aufgaben\n• Erstellen von Offerten für individuelle Gäste und Gruppen für alle Mountain Hotels\n• Führen von Beratungs- und Buchungsgesprächen per Telefon und Mail\n• Vorbereitung der Reservierungen mit Kontrolle und Zahlungsverbuchungen\n• Check-In Prozess an der Rezeption für Gäste der Gruppenhäuser und Berghostels\n• Ausstellen von Skipässen für die Mountain Hotels Gäste\n• Gästebetreuung und Information über die Hotels und anderen Angebote der Bergbahnen\nDein Profil\n• Ausbildung: Du hast eine abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Sprache: Du verfügst über gute deutsche Sprachkenntnisse in Schrift und Sprache\nsowie englische Sprachkenntnisse in mündlicher Form\n• Einsatz: Du bist ein unverzichtbares Bindeglied zwischen den Teams im Booking Office und\nden Hotels behältst in hektischen Situationen den Überblick. Einsätze teilweise auch am\nWochenende sind für dich in Ordnung.\nWir bieten\n• Internationales und dynamisches Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-      "descriptionByLocale": {
-        "it": "Le montagne di Davos Klosters sono cinque stazioni di montagna e sci nel Bundner Alpen. Oltre al\nDavos Klosters Bergbahnen AG opera oltre 23 hotel e resort\nalloggio di gruppo facile al superiore di quattro stelle.\nPer sostenere il team dell'Ufficio Prenotazioni di Mountain Hotels stiamo cercando\nla prossima stagione invernale 2026/27 una persona come:\nDipendenti: in Prenotazione 100%\nI tuoi compiti\n• Creare offerte per singoli ospiti e gruppi per tutti gli hotel di montagna\n• Condurre riunioni di consulenza e prenotazione per telefono e posta\n• Preparazione delle prenotazioni con voce di controllo e pagamento\n• Check-in presso la reception per gli ospiti delle case di gruppo e ostelli in montagna\n• Emissione skipass per gli ospiti Mountain Hotels\n• Sostegno e informazioni sugli alberghi e altre offerte di treni di montagna\nIl tuo profilo\n• Istruzione: Hai completato un'istruzione commerciale o equivalente\n• Metodo di lavoro: Hai una rapida ammissione, come lavorare indipendentemente, sono\nAffidabile e flessibile\n• Giocatore di squadra: Ti piace lavorare in una squadra e sono anche pronti in altri compiti\nAiuto\n• Lingua: hai buone competenze linguistiche in tedesco per iscritto e lingua\nInglese competenze linguistiche in forma orale\n• Assegnazione: Sei un collegamento indispensabile tra le squadre dell'ufficio prenotazioni e\nGli hotel tengono una panoramica in situazioni frenetiche. Parzialmente anche su\nI fine settimana vanno bene per te.\nOffriamo\n• Team internazionale e dinamico con un'atmosfera di lavoro positiva\n• Mappa stagionale delle ferrovie di montagna Davos Klosters\n• Posizionamento di appartamenti o camere del personale\n• Sala fitness per condizioni speciali\n• Vantaggi interessanti per le offerte e i servizi interni\nSe siete interessati, non vediamo l'ora di ricevere i documenti della domanda.",
-        "en": "The Davos Klosters Mountains are five mountain and ski resorts in the Bundner Alpen. In addition to the\nDavos Klosters Bergbahnen AG operates over 23 hotels and resorts from the\neasy group accommodation to the upscale four-star superior.\nTo support the team in the Booking Office of Mountain Hotels we are looking for\nthe upcoming winter season 2026/27 one person as:\nEmployees: in Booking Office 100%\nYour tasks\n• Creating offers for individual guests and groups for all Mountain Hotels\n• Conducting consulting and booking meetings by telephone and mail\n• Preparation of reservations with control and payment entries\n• Check-in process at the reception for guests of the group houses and mountain hostels\n• Issuing ski passes for Mountain Hotels guests\n• Guest support and information about hotels and other offers of mountain railways\nYour profile\n• Education: You have completed a commercial or equivalent education\n• Working method: You have a quick apprehension, like to work independently, are\nReliable and flexible\n• Team player: You like working in a team and are also ready in other tasks\nHelping\n• Language: You have good German language skills in writing and language\nEnglish language skills in oral form\n• Assignment: You are an indispensable link between the teams in the booking office and\nThe hotels keep an overview in hectic situations. Partially also on\nWeekends are fine for you.\nWe offer\n• International and dynamic team with a positive working atmosphere\n• Seasonal map of Davos Klosters mountain railways\n• Placement of staff apartments or rooms\n• Fitness room for special conditions\n• Attractive benefits for internal offers and services\nIf you are interested, we look forward to receiving the application documents.",
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG über 23 Hotels und Resorts von der\neinfachen Gruppenunterkunft bis zum gehobenen Vier-Sterne-Superior.\nZur Unterstützung des Teams im Booking Office der Mountain Hotels suchen wir für\ndie kommende Wintersaison 2026/27 eine Person als:\nMitarbeiter:in Booking Office 100%\nDeine Aufgaben\n• Erstellen von Offerten für individuelle Gäste und Gruppen für alle Mountain Hotels\n• Führen von Beratungs- und Buchungsgesprächen per Telefon und Mail\n• Vorbereitung der Reservierungen mit Kontrolle und Zahlungsverbuchungen\n• Check-In Prozess an der Rezeption für Gäste der Gruppenhäuser und Berghostels\n• Ausstellen von Skipässen für die Mountain Hotels Gäste\n• Gästebetreuung und Information über die Hotels und anderen Angebote der Bergbahnen\nDein Profil\n• Ausbildung: Du hast eine abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Sprache: Du verfügst über gute deutsche Sprachkenntnisse in Schrift und Sprache\nsowie englische Sprachkenntnisse in mündlicher Form\n• Einsatz: Du bist ein unverzichtbares Bindeglied zwischen den Teams im Booking Office und\nden Hotels behältst in hektischen Situationen den Überblick. Einsätze teilweise auch am\nWochenende sind für dich in Ordnung.\nWir bieten\n• Internationales und dynamisches Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Les monts Davos Klosters sont cinq stations de montagne et de ski dans le Bundner Alpen. En plus de\nDavos Klosters Bergbahnen AG exploite plus de 23 hôtels et stations\nun hébergement de groupe facile pour le supérieur quatre étoiles haut de gamme.\nPour soutenir l'équipe dans le bureau de réservation des hôtels de montagne que nous recherchons\nla prochaine saison d'hiver 2026/27 une personne comme:\nEmployés: en bureau de réservation 100%\nVos tâches\n• Créer des offres pour les clients individuels et les groupes pour tous les hôtels de montagne\n• Organisation de réunions de consultation et de réservation par téléphone et par courrier\n• Préparation des réservations avec les entrées de contrôle et de paiement\n• Processus d'enregistrement à la réception pour les invités des maisons de groupe et des auberges de montagne\n• Délivrance de cartes de ski pour les clients de Mountain Hotels\n• Soutien aux clients et informations sur les hôtels et autres offres de chemins de fer de montagne\nVotre profil\n• Éducation: Vous avez terminé une formation commerciale ou équivalente\n• Méthode de travail: Vous avez une appréhension rapide, comme travailler indépendamment, sont\nFiabilité et flexibilité\n• Joueur d'équipe: Vous aimez travailler en équipe et êtes également prêt dans d'autres tâches\nAide\n• Langue: Vous avez de bonnes compétences linguistiques en allemand en écriture et en langue\nConnaissance de l'anglais sous forme orale\n• Affectation: Vous êtes un lien indispensable entre les équipes du bureau de réservation et\nLes hôtels gardent une vue d'ensemble dans des situations agitées. En partie également sur\nLes week-ends vont bien pour vous.\nNous offrons\n• Équipe internationale et dynamique avec une atmosphère de travail positive\n• Carte saisonnière des chemins de fer de montagne de Davos Klosters\n• Placement des appartements ou chambres du personnel\n• Salle de fitness pour conditions spéciales\n• Avantages attrayants pour les offres et services internes\nSi vous êtes intéressé, nous espérons recevoir les documents de demande."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressCountry": "CH",
-      "category": "tourism",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-28",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
-      "source": "Davos Klosters Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:37.198Z",
-      "previousSlugs": [
-        "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:20:55.886Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }

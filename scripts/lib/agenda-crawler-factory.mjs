@@ -177,6 +177,7 @@ export function createAgendaCrawler(config) {
     let pagesFail = 0;
     let emptyStreak = 0;
     let maxSeenDate = '';
+    const detailFailureIds = [];
 
     for (let i = 0; i < iterations; i += 1) {
       const html = await fetchHtml(baseUrl(i));
@@ -235,7 +236,10 @@ export function createAgendaCrawler(config) {
         );
         process.exitCode = 1;
       }
-      return { events: [], pagesOk, pagesFail, written: false };
+      return {
+        events: [], pagesOk, pagesFail, written: false,
+        detailFailureIds, detailAttemptCount: 0,
+      };
     }
 
     const enrichedEvents = [];
@@ -243,9 +247,19 @@ export function createAgendaCrawler(config) {
       let enriched = event;
       if (enrichEvent) {
         try {
-          enriched = { ...event, ...await enrichEvent(event, fetchHtml) };
+          const detailResult = await enrichEvent(event, fetchHtml);
+          if (!detailResult
+            || typeof detailResult !== 'object'
+            || detailResult.detailFetchFailed === true) {
+            detailFailureIds.push(event.id);
+          }
+          enriched = {
+            ...event,
+            ...(detailResult && typeof detailResult === 'object' ? detailResult : {}),
+          };
         } catch (err) {
           console.warn(`[${sourceKey}] detail enrichment failed for ${event.id}: ${err?.message || err}`);
+          detailFailureIds.push(event.id);
         }
         await sleep(politeDelayMs);
       }
@@ -257,7 +271,14 @@ export function createAgendaCrawler(config) {
 
     if (dryRun) {
       console.log(`[${sourceKey}] dry-run — slice not written`);
-      return { events: sorted, pagesOk, pagesFail, written: false };
+      return {
+        events: sorted,
+        pagesOk,
+        pagesFail,
+        written: false,
+        detailFailureIds,
+        detailAttemptCount: events.length,
+      };
     }
 
     const slicePath = path.join(sliceDir, `${source.key}.json`);
@@ -269,9 +290,18 @@ export function createAgendaCrawler(config) {
       freshEvents: sorted,
       goneIds: [],
       crawledAt,
+      detailFailureIds,
+      detailAttemptCount: events.length,
     });
     console.log(`[${sourceKey}] merged ${sorted.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
-    return { events: sorted, pagesOk, pagesFail, written: true };
+    return {
+      events: sorted,
+      pagesOk,
+      pagesFail,
+      written: true,
+      detailFailureIds,
+      detailAttemptCount: events.length,
+    };
   }
 
   return { fetchHtml, crawl };

@@ -300,13 +300,46 @@ function leadingIndentWidth(line) {
   return [...prefix].reduce((width, character) => width + (character === '\t' ? 4 : 1), 0);
 }
 
-function topLevelDecisionBullets(rawContent) {
+/**
+ * Il testo di `## Non implementato` come lo legge il contratto: dall'header
+ * (`##` o `###`) al primo heading successivo di qualunque livello. `null` se
+ * la sezione manca.
+ *
+ * @param {string} body
+ * @returns {string|null}
+ */
+export function nonImplementedSection(body = '') {
+  return extractSection(String(body ?? ''), NON_IMPL_ANY_RE);
+}
+
+/**
+ * Le voci di primo livello della sezione, con le loro continuazioni.
+ *
+ * È LA regola di raggruppamento del contratto: un bullet annidato (indentato
+ * più del livello radice della sezione) e ogni riga non vuota che non è un
+ * bullet si accodano alla voce che le precede, anche dopo una riga vuota. Chi
+ * classifica le voci a valle (`scripts/ci/followup-candidate-bullets.mjs`) la
+ * importa invece di riscriverla: con due raggruppamenti diversi `- residuo`
+ * seguito da `per scelta` sulla riga sotto era una deroga completa qui e un
+ * residuo candidato là (review della PR corpus 2080).
+ *
+ * Le righe non vuote che precedono il primo bullet non appartengono a nessuna
+ * voce e il contratto le ignora; con `includePreamble` tornano, ciascuna a sé,
+ * con `preamble: true` e `index: 0`.
+ *
+ * @param {string} rawContent testo della sezione (dopo l'header, prima del successivo)
+ * @param {{includePreamble?: boolean}} [options]
+ * @returns {Array<{index: number, text: string, preamble?: true}>} `text` porta
+ *   ancora il marker della voce (`- `), le continuazioni unite da uno spazio
+ */
+export function topLevelBullets(rawContent, { includePreamble = false } = {}) {
   const clean = stripNonContent(rawContent ?? '');
   const lines = clean.split('\n');
   const bulletLines = lines.filter((line) => /^[ \t]*[-*+][ \t]+\S/.test(line));
   const rootIndent = bulletLines.length > 0
     ? Math.min(...bulletLines.map(leadingIndentWidth))
     : 0;
+  const preamble = [];
   const bullets = [];
   let current = null;
   for (const line of lines) {
@@ -323,17 +356,19 @@ function topLevelDecisionBullets(rawContent) {
       }
     } else if (current && line.trim()) {
       current.text += ` ${line.trim()}`;
+    } else if (!current && line.trim() && includePreamble) {
+      preamble.push({ index: 0, text: line.trim(), preamble: true });
     }
   }
   if (current) bullets.push(current);
-  return bullets;
+  return [...preamble, ...bullets];
 }
 
 /** Decision bullets that lack one or both concrete audit fields. */
 export function decisionDeferralFindings(body = '') {
-  const content = extractSection(String(body ?? ''), NON_IMPL_ANY_RE);
+  const content = nonImplementedSection(body);
   if (content === null) return [];
-  return topLevelDecisionBullets(content)
+  return topLevelBullets(content)
     .filter((bullet) => isDecisionDeferral(bullet.text))
     .map((bullet) => ({ ...bullet, specificity: decisionDeferralSpecificity(bullet.text) }))
     .filter((bullet) => !bullet.specificity.specific);

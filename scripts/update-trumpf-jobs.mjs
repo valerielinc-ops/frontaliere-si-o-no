@@ -12,6 +12,7 @@
  *   4. Build standardized job objects + translate.
  *   5. Merge into data/jobs.json.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -132,10 +133,6 @@ function jobMatchKey(job) {
 
 function isSwissLocation(locationText = '') {
   return isTargetSwissLocation(String(locationText || ''));
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -263,7 +260,7 @@ function buildJobFromListing(listing) {
     sector: 'Tecnologia Industriale & Laser',
     source: 'trumpf-dedicated-crawler',
     sourceLang: 'de',
-    postedDate: todayIso(),
+    ...sourcePostingDateFields(''),
     validThrough: '',
     employmentType: 'full_time',
     contractType: 'permanent',
@@ -289,13 +286,7 @@ function enrichJobFromDetail(job, detail) {
   const sourceLang = detectLang(job.title + ' ' + description) || 'de';
   const empType = mapEmploymentType(info.timeType || '', job.title);
 
-  let postedDate = todayIso();
-  if (info.startDate) {
-    try {
-      const d = new Date(info.startDate);
-      if (!isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-    } catch { /* keep default */ }
-  }
+  const postedDate = info.startDate || '';
 
   // Clean company name from org (e.g., "223 TCH - TRUMPF Schweiz AG" → "TRUMPF Schweiz AG")
   let companyName = COMPANY_NAME;
@@ -308,7 +299,7 @@ function enrichJobFromDetail(job, detail) {
     ...job,
     description,
     sourceLang,
-    postedDate,
+    ...sourcePostingDateFields(postedDate),
     employmentType: empType,
     contractType: empType === 'apprenticeship' ? 'apprendistato' : 'permanent',
     company: companyName,
@@ -340,6 +331,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

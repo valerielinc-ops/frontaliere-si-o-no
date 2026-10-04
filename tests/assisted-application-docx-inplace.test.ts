@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import mammoth from 'mammoth';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
@@ -13,6 +13,7 @@ const { sanitizeTailoredCv } = await import('../functions/src/assistedApplicatio
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { inPlaceCvRecord } = await import('../scripts/assisted-application/lib/docx-inplace.mjs');
+const { ensurePackages, readCvText } = await import('../scripts/assisted-application/lib/cv-text.mjs');
 const { chooseCv } = await import('../scripts/assisted-application/lib/submit.mjs');
 
 // An invented candidate (study 2026-10-02), as in the line-by-line review test.
@@ -292,6 +293,96 @@ describe('in-place DOCX in the runner', () => {
     // The checked file is the one the Cloud Functions may offer again.
     expect(record.verifiedKey).toBe(record.docxKey);
     expect(shrank.files.has(record.docxKey)).toBe(true);
+  });
+});
+
+describe('the programs that parse a candidate’s file never see the job’s secrets', () => {
+  const ALLOWED = ['HOME', 'LANG', 'LC_ALL', 'PATH', 'TMPDIR'];
+  const SECRET_VALUE = 'rc-secret-value-for-the-test';
+  type Spawn = { command: string, args: string[], options: Record<string, any> | undefined };
+
+  beforeEach(() => {
+    // As the job has them: every Remote Config secret, the service account's path.
+    vi.stubEnv('FAKE_REMOTE_CONFIG_SECRET', SECRET_VALUE);
+    vi.stubEnv('GOOGLE_APPLICATION_CREDENTIALS', '/tmp/firebase-sa.json');
+  });
+  afterEach(() => vi.unstubAllEnvs());
+
+  /** The environment a program was given: only the allowed keys, its home and temp the conversion's own folder. */
+  function expectMinimalEnv(spawn: Spawn, dir: string) {
+    const env = spawn.options?.env;
+    expect(env, spawn.command).toBeTruthy();
+    expect(Object.keys(env).sort()).toEqual(ALLOWED);
+    expect(env).toMatchObject({ HOME: dir, TMPDIR: dir, LANG: 'C.UTF-8', LC_ALL: 'C.UTF-8', PATH: process.env.PATH });
+    expect(JSON.stringify(env)).not.toContain(SECRET_VALUE);
+    expect(env).not.toHaveProperty('GOOGLE_APPLICATION_CREDENTIALS');
+  }
+
+  it('LibreOffice: a minimal environment and a throwaway profile in the conversion’s folder', async () => {
+    const { PDFDocument } = await import('pdf-lib');
+    const fs = await import('node:fs/promises');
+    const page = await PDFDocument.create();
+    page.addPage();
+    const onePage = Buffer.from(await page.save());
+    const spawns: Spawn[] = [];
+    const run = vi.fn(async (command: string, args: string[], options?: Record<string, any>) => {
+      spawns.push({ command, args, options });
+      if (command === 'bash') return { stdout: '/usr/bin/soffice' };
+      if (command !== 'soffice') throw new Error(`unexpected ${command}`);
+      const outdir = args[args.indexOf('--outdir') + 1];
+      const to = args[args.indexOf('--convert-to') + 1];
+      await fs.writeFile(`${outdir}/cv.${to}`, to === 'pdf' ? onePage : makeDocx());
+      return { stdout: '' };
+    });
+    // A DOC: converted to DOCX, then both files counted. Three conversions.
+    const record = await inPlaceCvRecord({ cv: tailored(), profile, identity: { name: 'Marco Bianchi' }, bucket: fakeBucket(), orderId: 'order_X', round: 1, nowMs: 1, run, mode: 'on', cvBuffer: Buffer.from('a Word 97 file'), cvType: 'doc', cvKey: 'cv.doc' });
+    expect(record).toMatchObject({ status: 'ready', baseType: 'doc' });
+    const conversions = spawns.filter((spawn) => spawn.command === 'soffice');
+    expect(conversions).toHaveLength(3);
+    for (const spawn of conversions) {
+      const dir = spawn.args[spawn.args.indexOf('--outdir') + 1];
+      expectMinimalEnv(spawn, dir);
+      expect(spawn.args[0]).toBe(`-env:UserInstallation=file://${dir}/profile`);
+    }
+    // The check whether LibreOffice is there keeps the job's environment: it reads no candidate file.
+    expect(spawns.filter((spawn) => spawn.command === 'bash').every((spawn) => !spawn.options?.env)).toBe(true);
+  });
+
+  it('antiword, pdftoppm and tesseract: the same minimal environment', async () => {
+    const fs = await import('node:fs/promises');
+    const path = await import('node:path');
+    const { jsPDF } = await import('jspdf');
+    const spawns: Spawn[] = [];
+    const run = vi.fn(async (command: string, args: string[], options?: Record<string, any>) => {
+      spawns.push({ command, args, options });
+      if (command === 'bash') return { stdout: `/usr/bin/${args[1].split(' ').pop()}` };
+      if (command === 'antiword') return { stdout: 'Marco Bianchi, sviluppatore full-stack a Como.' };
+      if (command === 'pdftoppm') {
+        await fs.writeFile(`${args.at(-1)}-1.png`, Buffer.from('a page'));
+        return { stdout: '' };
+      }
+      if (command === 'tesseract') return { stdout: `Marco Bianchi ${'sviluppatore full-stack con esperienza su applicazioni web. '.repeat(5)}` };
+      throw new Error(`unexpected ${command}`);
+    });
+    expect(await readCvText(Buffer.from('a Word 97 file'), 'doc', { run })).toMatchObject({ method: 'antiword' });
+    // A scanned PDF: no text layer, so the pages are read with OCR.
+    const scan = Buffer.from(new jsPDF().output('arraybuffer'));
+    expect(await readCvText(scan, 'pdf', { run })).toMatchObject({ method: 'ocr' });
+    const parsers = spawns.filter((spawn) => ['antiword', 'pdftoppm', 'tesseract'].includes(spawn.command));
+    expect(parsers.map((spawn) => spawn.command)).toEqual(['antiword', 'pdftoppm', 'tesseract']);
+    for (const spawn of parsers) {
+      const file = spawn.command === 'pdftoppm' ? spawn.args.at(-2)! : spawn.command === 'tesseract' ? spawn.args[0] : spawn.args.at(-1)!;
+      expectMinimalEnv(spawn, path.dirname(file));
+    }
+  });
+
+  it('keeps the job’s environment where it parses no candidate file: the package installation', async () => {
+    const run = vi.fn(async (command: string) => {
+      if (command === 'bash') throw new Error('not installed');
+      return { stdout: '' };
+    });
+    await ensurePackages(['antiword'], ['antiword'], run);
+    expect(run).toHaveBeenLastCalledWith('sudo', ['apt-get', 'install', '-y', '-qq', '--no-install-recommends', 'antiword'], { timeout: 240_000 });
   });
 });
 

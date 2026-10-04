@@ -693,3 +693,99 @@ describe('blocchi scaduti — la forma reale di nanako#471', () => {
     expect(noteMarker({ refs: [] }, [])).toBeNull();
   });
 });
+
+import { noteGate } from '../scripts/ci/needs-human-prepass.mjs';
+
+describe('noteGate — idempotenza della nota per copertura dei riferimenti', () => {
+  const S = 'valerielinc-ops/frontaliere-si-o-no';
+  const marker = (...refs: number[]) => `<!-- PREPASS_NOTE: b=${refs.map((n) => `${S}#${n}`).join(',')} -->`;
+  const comment = (m: string) => ({ body: `⏱️ **Blocco scaduto.** …\n\n${m}` });
+
+  // I marker reali delle note «Blocco scaduto» su #8441, in ordine (24-09 → 02-10).
+  const ISSUE_8441 = [
+    marker(1084, 1125),
+    marker(1084, 1125, 1195),
+    marker(1084, 1125, 1195, 1470, 1478, 1484, 1487, 831, 8391),
+    marker(1125, 1484, 1487, 831, 8437, 8448),
+    marker(1487),
+    marker(1125, 1484, 1487, 831),
+    marker(1487, 831),
+    marker(1125, 1487, 831),
+    marker(1125, 1484, 1487, 831, 8412, 8437, 8448),
+  ];
+
+  it('rigiocando la sequenza di #8441 posta solo le note con almeno un riferimento nuovo', () => {
+    const keysOf = (m: string) => /b=([^ ]+)/.exec(m)![1].split(',');
+    // Atteso derivato dalla regola, non scritto a mano: una nota è nuova se
+    // porta una chiave che nessuna nota PRECEDENTEMENTE POSTATA ha già detto.
+    const said = new Set<string>();
+    const expected: number[] = [];
+    ISSUE_8441.forEach((m, i) => {
+      if (keysOf(m).some((k) => !said.has(k))) {
+        expected.push(i);
+        keysOf(m).forEach((k) => said.add(k));
+      }
+    });
+
+    const posted: number[] = [];
+    const comments: Array<{ body: string }> = [];
+    ISSUE_8441.forEach((m, i) => {
+      const g = noteGate({ marker: m, comments, commentsRead: true });
+      if (g.post) { posted.push(i); comments.push(comment(m)); } else expect(g.code).toBe('already');
+    });
+
+    expect(posted).toEqual(expected);
+    // Il confronto per identità di stringa le postava tutte: la regola deve
+    // tacere sui sottoinsiemi (26-09, 27-09 ×2, 28-09) e riaprire per #8412.
+    expect(posted.length).toBeLessThan(ISSUE_8441.length);
+    expect(posted).toContain(ISSUE_8441.length - 1);
+  });
+
+  it('marker identico già presente → already', () => {
+    const m = marker(1487, 831);
+    expect(noteGate({ marker: m, comments: [comment(m)], commentsRead: true }))
+      .toMatchObject({ post: false, code: 'already' });
+  });
+
+  it('sottoinsieme di un marker precedente → already', () => {
+    expect(noteGate({ marker: marker(1487), comments: [comment(marker(1487, 831))], commentsRead: true }))
+      .toMatchObject({ post: false, code: 'already' });
+  });
+
+  it('coperto dall\'unione di più note precedenti → already', () => {
+    const comments = [comment(marker(1487)), comment(marker(831))];
+    expect(noteGate({ marker: marker(1487, 831), comments, commentsRead: true }).code).toBe('already');
+  });
+
+  it('una chiave nuova → ok, e una volta sola', () => {
+    const comments = [comment(marker(1487, 831))];
+    const first = noteGate({ marker: marker(1487, 831, 8412), comments, commentsRead: true });
+    expect(first).toMatchObject({ post: true, code: 'ok' });
+    comments.push(comment(marker(1487, 831, 8412)));
+    expect(noteGate({ marker: marker(8412), comments, commentsRead: true }).code).toBe('already');
+  });
+
+  it('r= e b= si confrontano separatamente: la stessa cifra in un altro tipo non copre', () => {
+    const comments = [{ body: '<!-- PREPASS_NOTE: r=5995 -->' }];
+    expect(noteGate({ marker: '<!-- PREPASS_NOTE: r=5995 b=x#1 -->', comments, commentsRead: true }).code).toBe('ok');
+    expect(noteGate({ marker: '<!-- PREPASS_NOTE: b=5995 -->', comments, commentsRead: true }).code).toBe('ok');
+    expect(noteGate({ marker: '<!-- PREPASS_NOTE: r=5995 -->', comments, commentsRead: true }).code).toBe('already');
+  });
+
+  it('commentsRead: false → unread, nessun post (anche con array vuoto)', () => {
+    expect(noteGate({ marker: marker(8412), comments: [], commentsRead: false }))
+      .toMatchObject({ post: false, code: 'unread' });
+  });
+
+  it('nessun marker → no-marker; issue letta e senza note → ok', () => {
+    expect(noteGate({ marker: null, comments: [], commentsRead: true }).code).toBe('no-marker');
+    expect(noteGate({ marker: marker(8412), comments: [], commentsRead: true }).code).toBe('ok');
+  });
+
+  it('il marker prodotto da prepassDecision passa dal gate', () => {
+    const stale = [{ key: `${S}#1487`, link: `${S}#1487`, state: 'MERGED', at: '2026-09-20' }];
+    const d = prepassDecision({ title: 'gemello sito ai-models.mjs non portato', staleBlocks: stale });
+    expect(noteGate({ marker: d.marker, comments: [comment(marker(1487, 831))], commentsRead: true }).code)
+      .toBe('already');
+  });
+});

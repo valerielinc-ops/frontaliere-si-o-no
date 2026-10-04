@@ -1,7 +1,7 @@
 {
   "key": "ophtalmique",
   "label": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
-  "generatedAt": "2026-10-03T21:22:06.320Z",
+  "generatedAt": "2026-10-04T09:26:41.137Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,10 +14,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6519,
-  "avgDurationMs": 6519,
+  "durationMs": 7101,
+  "avgDurationMs": 7101,
   "durationHistory": [
-    6519
+    7101
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1916",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:57.216Z",
+      "crawledAt": "2026-10-04T09:26:29.892Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -51,17 +51,17 @@
       "applyUrl": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1916",
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "firstSeenAt": "2026-10-03T09:23:58.995Z",
-      "_qualityScore": 76,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
     {
       "id": "ophtalmique-67c0cc3a6982",
-      "slug": "gestionnaire-administratif-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+      "slug": "gestionnaire-administratif-ophtalmique-lausanne",
       "company": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
       "companyKey": "ophtalmique",
       "companyDomain": "ophtalmique.ch",
@@ -72,7 +72,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1922",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:57.583Z",
+      "crawledAt": "2026-10-04T09:26:30.258Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -89,11 +89,11 @@
       "applyUrl": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1922",
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "firstSeenAt": "2026-10-03T09:23:59.418Z",
-      "_qualityScore": 76,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -110,7 +110,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1920",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:57.957Z",
+      "crawledAt": "2026-10-04T09:26:30.631Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -127,11 +127,11 @@
       "applyUrl": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1920",
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "firstSeenAt": "2026-10-03T09:23:59.840Z",
-      "_qualityScore": 76,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -148,7 +148,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1913",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:56.849Z",
+      "crawledAt": "2026-10-04T09:26:29.526Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:56.381Z",
+      "crawledAt": "2026-10-04T09:26:29.061Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -214,5 +214,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

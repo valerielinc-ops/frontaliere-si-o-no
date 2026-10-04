@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the cost-of-living city landings (AE-4 template B).
  *
@@ -32,7 +34,7 @@ import {
   type ColCityId,
   type ColLocale,
 } from './costOfLivingLandingsData';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
@@ -56,6 +58,9 @@ interface JobRecord {
   salaryMin?: number | null;
   salaryMax?: number | null;
   currency?: string;
+  salarySource?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   featured?: boolean;
@@ -77,6 +82,10 @@ export interface CityFeaturedJob {
   readonly contract: string | null;
   readonly salaryMin: number | null;
   readonly salaryMax: number | null;
+  readonly salarySource?: string;
+  readonly currency?: string;
+  readonly postingDateSource?: string;
+  readonly datePosted?: string | null;
   readonly postedDate: string;
   readonly daysAgo: number;
   readonly slug: string;
@@ -99,6 +108,7 @@ export interface CityJobsSnapshot {
   readonly fresh30Count: number;
   /** Median annual gross CHF salary computed from baseSalary midpoints. */
   readonly medianSalaryChf: number | null;
+  readonly reportedSalary?: ReportedSalarySummary;
   /** Top 3 freshest (preferring `featured: true`) matching jobs. */
   readonly featured: readonly CityFeaturedJob[];
   /** Top 6 employers in the city by job count. */
@@ -201,8 +211,8 @@ function toFeatured(
   if (!job.id || !job.title || !job.slug) return null;
   // First PARSEABLE date, not first truthy: a malformed postedDate must not
   // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
     id: job.id,
@@ -217,6 +227,10 @@ function toFeatured(
     contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salarySource: job.salarySource,
+    currency: job.currency,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     daysAgo,
     slug: job.slug,
@@ -227,13 +241,13 @@ function toFeatured(
   };
 }
 
-function sortByFreshness(records: readonly JobRecord[]): JobRecord[] {
+function sortByFreshness(records: readonly JobRecord[], now: number): JobRecord[] {
   return [...records].sort((a, b) => {
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(a.postedDate, a.firstSeenAt);
-    const bTs = firstParsableMs(b.postedDate, b.firstSeenAt);
+    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
+    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
     return bTs - aTs;
   });
 }
@@ -251,11 +265,11 @@ function buildSnapshotForCity(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
     if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
-  const medianSalary = realSalaryMedianChf(matches);
+  const medianSalary = reportedSalarySummary(matches).medianChf;
 
   const employerCounts = new Map<string, number>();
   for (const job of matches) {
@@ -273,7 +287,7 @@ function buildSnapshotForCity(
   // (Ticino) — this protects small cities (Chiasso, Locarno) on weeks when
   // `data/jobs.json` thins out, so the page never collapses to the empty
   // state if there's at least one TI opening anywhere.
-  const sortedStrict = sortByFreshness(matches);
+  const sortedStrict = sortByFreshness(matches, now);
   const featured: CityFeaturedJob[] = [];
   const usedIds = new Set<string>();
   for (const job of sortedStrict) {
@@ -292,7 +306,7 @@ function buildSnapshotForCity(
         cantonPool.push(job);
       }
     }
-    const sortedCanton = sortByFreshness(cantonPool);
+    const sortedCanton = sortByFreshness(cantonPool, now);
     for (const job of sortedCanton) {
       if (featured.length >= FEATURED_TARGET) break;
       if (!job.id || usedIds.has(job.id)) continue;
@@ -307,6 +321,7 @@ function buildSnapshotForCity(
     liveCount: matches.length,
     fresh30Count: fresh30,
     medianSalaryChf: medianSalary,
+    reportedSalary: reportedSalarySummary(matches),
     featured,
     topEmployers,
   };

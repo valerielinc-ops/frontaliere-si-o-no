@@ -65,5 +65,9 @@ describe('health option guidance', () => {
     const component = readFileSync('components/comparators/HealthInsurance.tsx', 'utf8');
     expect(component).toContain("t('health.warningText')");
     expect(component).not.toContain('<strong>irrevocabile</strong>');
+    const leadMagnet = readFileSync('components/shared/LeadMagnetCTA.tsx', 'utf8');
+    expect(leadMagnet).toContain('chiedi formalmente l’esenzione dalla LAMal');
+    expect(leadMagnet).toContain('all’autorità del Cantone di lavoro entro 3 mesi');
+    expect(leadMagnet).not.toMatch(/scelta irreversibile/i);
   });
 });

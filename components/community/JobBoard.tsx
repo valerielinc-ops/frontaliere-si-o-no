@@ -1,3 +1,5 @@
+import { hasPostingDateProvenance } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
 import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
@@ -18,7 +20,7 @@ import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
-import { firstParsableDateStr, firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
+import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
@@ -173,10 +175,10 @@ import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
-import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
-import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
+import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -450,6 +452,8 @@ export interface JobListing {
  addressLocality?: string;
  addressCountry?: string;
  featured: boolean;
+ postingDateSource?: string;
+ datePosted?: string;
  postedDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
@@ -793,10 +797,11 @@ export function normalizeIncomingJob(raw: any): JobListing {
  ? raw.requirements.map((item: unknown) => String(item || '').trim()).filter(Boolean)
  : [],
  featured: Boolean(raw?.featured),
- // A recrawl must never make an undated listing look newly published. Prefer
- // the source publication date, then the first discovery timestamp; crawledAt
- // is only a last-resort fallback because it changes on every recrawl.
- postedDate: firstParsableDateStr(raw?.postedDate, raw?.firstSeenAt, raw?.crawledAt) || new Date().toISOString().slice(0, 10),
+ // Only verified employer publication dates populate these aliases.
+ // Observation timestamps remain separate and cannot establish publication.
+ postingDateSource: raw?.postingDateSource,
+ datePosted: resolveReportedPostingDate(raw || {}) || undefined,
+ postedDate: resolveReportedPostingDate(raw || {}) || '',
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
  companyDomain: rawCompanyDomain || undefined,
@@ -872,7 +877,8 @@ export function formatSalary(
  const range = max ? `${job.currency} ${min}k – ${max}k` : `${job.currency} ${min}k+`;
  // Estimated bands are declared as such, same convention as the SSG job
  // cards (`SALARY_ESTIMATE_SUFFIX` in build-plugins/shared/jobCardHtml.ts).
- return job.salarySource === 'estimated' ? `${range} ${SALARY_ESTIMATE_SUFFIX[locale]}` : range;
+ const suffix = salaryProvenanceSuffix(job.salarySource, locale);
+ return suffix ? `${range} ${suffix}` : range;
 }
 
 function contractTranslationKey(job: Pick<JobListing, 'contract' | 'title' | 'description'>): string {
@@ -2062,7 +2068,7 @@ const DATE_RANGE_MS: Record<DateRange, number> = {
   '90d': 90 * 24 * 60 * 60 * 1000,
 };
 
-type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt'>;
+type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt' | 'datePosted' | 'postingDateSource'>;
 
 type CachedJobDates = {
  postedAt: number;
@@ -2079,7 +2085,9 @@ function cachedJobDates(job: JobDateFields): CachedJobDates {
  const cached = jobDateCache.get(objectJob);
  if (cached) return cached;
  const parsed: CachedJobDates = {
-  postedAt: firstParsableMs(job.postedDate, job.firstSeenAt),
+  postedAt: hasPostingDateProvenance(job)
+   ? firstParsableMs(resolveReportedPostingDate(job))
+   : firstParsableMs(job.postedDate, job.firstSeenAt),
   firstSeenAt: firstParsableMs(job.firstSeenAt, job.postedDate),
  };
  jobDateCache.set(objectJob, parsed);
@@ -5800,6 +5808,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  location: job.location,
  canton: job.canton,
  contract: job.contract,
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
  postedDate: job.postedDate,
  crawledAt: job.crawledAt,
  salaryMin: job.salaryMin,
@@ -5946,6 +5956,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressCountry: job.addressCountry,
  postalCode,
  streetAddress: sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '',
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
  postedDate: job.postedDate,
  crawledAt: job.crawledAt,
  contract: job.contract,
@@ -5968,7 +5980,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (e.g., slim index loaded first without description), preserve the
  // static HTML's JobPosting injected by the build plugin. The full data
  // will load shortly and re-trigger this effect with a valid schema.
- if (selectedJob && jobPostings.length === 0) {
+ if (selectedJob && jobPostings.length === 0 && resolveReportedPostingDate(selectedJob)) {
  return;
  }
 
@@ -5999,7 +6011,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (hasJobPosting(data)) el.remove();
  } catch { /* non-JSON or malformed — leave it */ }
  });
- document.head.appendChild(script);
+ if (jobPostings.length > 0) document.head.appendChild(script);
 
  return () => {
  const el = document.getElementById('jobposting-structured-data');
@@ -6094,6 +6106,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t]);
 
  const daysSincePosted = (dateStr: string) => {
+ if (!dateStr || !Number.isFinite(Date.parse(dateStr))) return ({
+ it: 'Data di pubblicazione non verificata', en: 'Publication date unverified',
+ de: 'Veröffentlichungsdatum ungeprüft', fr: 'Date de publication non vérifiée',
+ })[locale];
  const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
  if (diff === 0) return t('jobBoard.today');
  if (diff === 1) return t('jobBoard.yesterday');
@@ -9905,6 +9921,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressCountry: selectedJob.addressCountry,
  postalCode: selectedJob.postalCode,
  streetAddress: selectedJob.streetAddress,
+ postingDateSource: selectedJob.postingDateSource,
+ datePosted: selectedJob.datePosted,
  postedDate: selectedJob.postedDate,
  crawledAt: selectedJob.crawledAt,
  contract: selectedJob.contract,
@@ -9921,11 +9939,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
- const faqSchema = buildJobPostingSchema(faqJobInput, {
- locale,
- url: detailPageUrl,
- baseUrl: PUBLIC_SITE_URL,
- });
+ const faqSchema = buildJobPostingFacts(faqJobInput, locale);
  const jobFaqPairs: JobFaqPair[] = buildJobPostingFaqPairs(faqSchema, {
  locale,
  jobUrl: resolveJobApplicationUrl(selectedJob, detailPageUrl),

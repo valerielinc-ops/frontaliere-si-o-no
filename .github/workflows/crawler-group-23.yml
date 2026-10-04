@@ -184,6 +184,7 @@ jobs:
           started_path="$state_dir/albergo-gardenia.started"
           watchdog_path="$state_dir/albergo-gardenia.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/albergo-gardenia.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -191,6 +192,13 @@ jobs:
           # ---- albergo-gardenia: run crawler (verbatim from original workflow) ----
           node scripts/update-albergo-gardenia-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::albergo-gardenia: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- albergo-gardenia: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -245,6 +253,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/albergo-gardenia.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/albergo-gardenia.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/albergo-gardenia.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/albergo-gardenia.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -360,6 +369,7 @@ jobs:
           started_path="$state_dir/artificialy.started"
           watchdog_path="$state_dir/artificialy.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/artificialy.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -367,6 +377,13 @@ jobs:
           # ---- artificialy: run crawler (verbatim from original workflow) ----
           node scripts/update-artificialy-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::artificialy: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- artificialy: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -421,6 +438,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/artificialy.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/artificialy.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/artificialy.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/artificialy.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -539,6 +557,7 @@ jobs:
           started_path="$state_dir/csd-engineers.started"
           watchdog_path="$state_dir/csd-engineers.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/csd-engineers.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -546,6 +565,13 @@ jobs:
           # ---- csd-engineers: run crawler (verbatim from original workflow) ----
           node scripts/update-csd-engineers-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::csd-engineers: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- csd-engineers: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -600,6 +626,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/csd-engineers.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/csd-engineers.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/csd-engineers.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/csd-engineers.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -718,6 +745,7 @@ jobs:
           started_path="$state_dir/fust.started"
           watchdog_path="$state_dir/fust.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/fust.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -725,6 +753,13 @@ jobs:
           # ---- fust: run crawler (verbatim from original workflow) ----
           npm run jobs:update:fust
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::fust: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- fust: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -779,6 +814,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/fust.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/fust.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/fust.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/fust.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -897,6 +933,7 @@ jobs:
           started_path="$state_dir/hugo-boss.started"
           watchdog_path="$state_dir/hugo-boss.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/hugo-boss.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -904,6 +941,13 @@ jobs:
           # ---- hugo-boss: run crawler (verbatim from original workflow) ----
           npm run jobs:update:hugo-boss
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::hugo-boss: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- hugo-boss: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -958,6 +1002,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/hugo-boss.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/hugo-boss.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/hugo-boss.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/hugo-boss.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1076,6 +1121,7 @@ jobs:
           started_path="$state_dir/lidl.started"
           watchdog_path="$state_dir/lidl.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/lidl-svizzera.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1083,6 +1129,13 @@ jobs:
           # ---- lidl: run crawler (verbatim from original workflow) ----
           npm run jobs:update:lidl
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::lidl: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- lidl: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1137,6 +1190,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/lidl.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/lidl.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/lidl.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/lidl-svizzera.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1255,6 +1309,7 @@ jobs:
           started_path="$state_dir/migros-hq.started"
           watchdog_path="$state_dir/migros-hq.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/migros-hq.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1262,6 +1317,13 @@ jobs:
           # ---- migros-hq: run crawler (verbatim from original workflow) ----
           node scripts/update-migros-hq-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::migros-hq: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- migros-hq: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1316,6 +1378,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/migros-hq.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/migros-hq.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/migros-hq.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/migros-hq.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1434,6 +1497,7 @@ jobs:
           started_path="$state_dir/nestle.started"
           watchdog_path="$state_dir/nestle.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/nestle.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1441,6 +1505,13 @@ jobs:
           # ---- nestle: run crawler (verbatim from original workflow) ----
           node scripts/update-nestle-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::nestle: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- nestle: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1495,6 +1566,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/nestle.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/nestle.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/nestle.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/nestle.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1613,6 +1685,7 @@ jobs:
           started_path="$state_dir/postch.started"
           watchdog_path="$state_dir/postch.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/posta-svizzera-centro-regionale.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1620,6 +1693,13 @@ jobs:
           # ---- postch: run crawler (verbatim from original workflow) ----
           npm run jobs:update:postch
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::postch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- postch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1674,6 +1754,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/postch.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/postch.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/postch.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/posta-svizzera-centro-regionale.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1792,6 +1873,7 @@ jobs:
           started_path="$state_dir/brefispersonal.started"
           watchdog_path="$state_dir/brefispersonal.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/brefispersonal.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1799,6 +1881,13 @@ jobs:
           # ---- brefispersonal: run crawler (verbatim from original workflow) ----
           node scripts/update-brefispersonal-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::brefispersonal: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- brefispersonal: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1853,6 +1942,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/brefispersonal.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/brefispersonal.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/brefispersonal.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/brefispersonal.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1971,6 +2061,7 @@ jobs:
           started_path="$state_dir/ecam.started"
           watchdog_path="$state_dir/ecam.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/ecam.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1978,6 +2069,13 @@ jobs:
           # ---- ecam: run crawler (verbatim from original workflow) ----
           node scripts/update-ecam-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::ecam: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- ecam: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2032,6 +2130,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/ecam.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/ecam.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/ecam.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/ecam.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2150,6 +2249,7 @@ jobs:
           started_path="$state_dir/christinavassalli.started"
           watchdog_path="$state_dir/christinavassalli.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/christinavassalli.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2157,6 +2257,13 @@ jobs:
           # ---- christinavassalli: run crawler (verbatim from original workflow) ----
           node scripts/update-christinavassalli-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::christinavassalli: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- christinavassalli: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2211,6 +2318,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/christinavassalli.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/christinavassalli.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/christinavassalli.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/christinavassalli.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2329,6 +2437,7 @@ jobs:
           started_path="$state_dir/premiumpflege24.started"
           watchdog_path="$state_dir/premiumpflege24.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/premiumpflege24.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2336,6 +2445,13 @@ jobs:
           # ---- premiumpflege24: run crawler (verbatim from original workflow) ----
           node scripts/update-premiumpflege24-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::premiumpflege24: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- premiumpflege24: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2390,6 +2506,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/premiumpflege24.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/premiumpflege24.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/premiumpflege24.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/premiumpflege24.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2508,6 +2625,7 @@ jobs:
           started_path="$state_dir/mcdonald-s-switzerland.started"
           watchdog_path="$state_dir/mcdonald-s-switzerland.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/mcdonald-s-switzerland.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2515,6 +2633,13 @@ jobs:
           # ---- mcdonald-s-switzerland: run crawler (verbatim from original workflow) ----
           npm run jobs:update:mcdonalds
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::mcdonald-s-switzerland: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- mcdonald-s-switzerland: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2569,6 +2694,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/mcdonald-s-switzerland.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/mcdonald-s-switzerland.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/mcdonald-s-switzerland.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/mcdonald-s-switzerland.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2687,6 +2813,7 @@ jobs:
           started_path="$state_dir/fachkraft.started"
           watchdog_path="$state_dir/fachkraft.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/fachkraft.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2699,6 +2826,13 @@ jobs:
           # ---- fachkraft: run crawler (bounded work phase) ----
           node scripts/update-fachkraft-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''\'\'''\''%s\n'\''\'\'''\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::fachkraft: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- fachkraft: Housekeeping — remove expired job listings (scoped) (only if crawler succeeded) ----
@@ -2741,6 +2875,15 @@ jobs:
           fi
           exit 0'\''
           target_exit=$?
+          if [ "$target_exit" -eq 124 ] && [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ] && [ ! -e "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}" ]; then
+            if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+              crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+              if ! { printf '\''%s\n'\'' "$target_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+                rm -f "$crawl_exit_tmp" 2>/dev/null
+                echo "::warning::fachkraft: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+              fi
+            fi
+          fi
           if [ "$target_exit" -eq 124 ]; then
             echo "::error::fachkraft: target exceeded 150 minute wall timeout"
             if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ fachkraft: target timed out after 150 minutes" >> "$GITHUB_STEP_SUMMARY"; fi
@@ -2780,6 +2923,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/fachkraft.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/fachkraft.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/fachkraft.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/fachkraft.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2898,6 +3042,7 @@ jobs:
           started_path="$state_dir/postfinance.started"
           watchdog_path="$state_dir/postfinance.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/postfinance.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2905,6 +3050,13 @@ jobs:
           # ---- postfinance: run crawler (verbatim from original workflow) ----
           npm run jobs:update:postfinance
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::postfinance: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- postfinance: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2959,6 +3111,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/postfinance.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/postfinance.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/postfinance.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/postfinance.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3077,6 +3230,7 @@ jobs:
           started_path="$state_dir/tsmg.started"
           watchdog_path="$state_dir/tsmg.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/tsmg.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3084,6 +3238,13 @@ jobs:
           # ---- tsmg: run crawler (verbatim from original workflow) ----
           npm run jobs:update:tsmg
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::tsmg: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- tsmg: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3138,6 +3299,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/tsmg.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/tsmg.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/tsmg.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/tsmg.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3256,6 +3418,7 @@ jobs:
           started_path="$state_dir/capri-holdings.started"
           watchdog_path="$state_dir/capri-holdings.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/capri-holdings.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3263,6 +3426,13 @@ jobs:
           # ---- capri-holdings: run crawler (verbatim from original workflow) ----
           npm run jobs:update:capri-holdings
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::capri-holdings: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- capri-holdings: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3317,6 +3487,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/capri-holdings.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/capri-holdings.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/capri-holdings.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/capri-holdings.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3435,6 +3606,7 @@ jobs:
           started_path="$state_dir/anicura.started"
           watchdog_path="$state_dir/anicura.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/anicura.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3442,6 +3614,13 @@ jobs:
           # ---- anicura: run crawler (verbatim from original workflow) ----
           node scripts/update-anicura-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::anicura: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- anicura: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3496,6 +3675,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/anicura.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/anicura.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/anicura.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/anicura.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3614,6 +3794,7 @@ jobs:
           started_path="$state_dir/fisba.started"
           watchdog_path="$state_dir/fisba.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/fisba.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3621,6 +3802,13 @@ jobs:
           # ---- fisba: run crawler (verbatim from original workflow) ----
           node scripts/update-fisba-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::fisba: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- fisba: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3675,6 +3863,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/fisba.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/fisba.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/fisba.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/fisba.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3793,6 +3982,7 @@ jobs:
           started_path="$state_dir/postauto.started"
           watchdog_path="$state_dir/postauto.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/postauto.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3800,6 +3990,13 @@ jobs:
           # ---- postauto: run crawler (verbatim from original workflow) ----
           node scripts/update-postauto-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::postauto: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- postauto: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3854,6 +4051,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/postauto.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/postauto.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/postauto.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/postauto.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3972,6 +4170,7 @@ jobs:
           started_path="$state_dir/pantr-ch.started"
           watchdog_path="$state_dir/pantr-ch.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/pantr-ch.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3979,6 +4178,13 @@ jobs:
           # ---- pantr-ch: run crawler (verbatim from original workflow) ----
           node scripts/update-pantr-ch-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::pantr-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- pantr-ch: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4033,6 +4239,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/pantr-ch.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/pantr-ch.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/pantr-ch.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/pantr-ch.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4151,6 +4358,7 @@ jobs:
           started_path="$state_dir/confederazione.started"
           watchdog_path="$state_dir/confederazione.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/confederazione-ticino.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4158,6 +4366,13 @@ jobs:
           # ---- confederazione: run crawler (verbatim from original workflow) ----
           npm run jobs:update:confederazione
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::confederazione: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- confederazione: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4212,6 +4427,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-23/confederazione.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-23/confederazione.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-23/confederazione.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-23/confederazione-ticino.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5582,880 +5798,70 @@ jobs:
           systemic_count=0
           printf '%s\n' '### Crawler group 23 outcome' >> "$summary_file"
           printf '%s\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"
-          status_file="$state_dir/albergo-gardenia.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::albergo-gardenia: no terminal status was published"
-            printf '%s\n' '| albergo-gardenia | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::albergo-gardenia: invalid terminal status: $status"
-              printf '%s\n' '| albergo-gardenia | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::albergo-gardenia: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| albergo-gardenia | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::albergo-gardenia: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| albergo-gardenia | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| albergo-gardenia | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
+          aggregate_crawler_member() {
+            slug="$1"
+            status_file="$state_dir/$slug.status"
+            if [ ! -s "$status_file" ]; then
+              echo "::warning::$slug: no terminal status was published"
+              printf '%s\n' "| $slug | missing status |" >> "$summary_file"
+              missing_count=$((missing_count + 1))
             else
-              echo "::error::albergo-gardenia: crawler exited with status $status"
-              printf '| albergo-gardenia | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+                echo "::error::$slug: invalid terminal status: $status"
+                printf '%s\n' "| $slug | invalid status |" >> "$summary_file"
+                failure_count=$((failure_count + 1))
+              elif [ "$status" -eq 124 ]; then
+                echo "::error::$slug: target timeout recorded as an actionable failure (exit 124)"
+                printf '%s\n' "| $slug | target timeout (124) |" >> "$summary_file"
+                failure_count=$((failure_count + 1))
+              elif [ "$status" -eq 143 ]; then
+                echo "::warning::$slug: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+                printf '%s\n' "| $slug | systemic runner shutdown (143) |" >> "$summary_file"
+                systemic_count=$((systemic_count + 1))
+              elif [ "$status" -eq 0 ]; then
+                printf '%s\n' "| $slug | success |" >> "$summary_file"
+                success_count=$((success_count + 1))
+              else
+                echo "::error::$slug: crawler exited with status $status"
+                printf '| %s | failed (%s) |\n' "$slug" "$status" >> "$summary_file"
+                failure_count=$((failure_count + 1))
+              fi
             fi
-          fi
-          watchdog_file="$state_dir/albergo-gardenia.watchdog"
-          watchdog_status="$(cat "$state_dir/albergo-gardenia.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::albergo-gardenia: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run albergo-gardenia' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run albergo-gardenia'; then
-              echo "::warning::albergo-gardenia: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            watchdog_file="$state_dir/$slug.watchdog"
+            watchdog_status="$(cat "$state_dir/$slug.status" 2>/dev/null || true)"
+            if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+              watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+              echo "::error::$slug: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+              watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --priority 2 --label Bug --workflow "Run $slug"; then
+                echo "::warning::$slug: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+              fi
             fi
-          fi
-          status_file="$state_dir/artificialy.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::artificialy: no terminal status was published"
-            printf '%s\n' '| artificialy | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::artificialy: invalid terminal status: $status"
-              printf '%s\n' '| artificialy | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::artificialy: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| artificialy | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::artificialy: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| artificialy | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| artificialy | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::artificialy: crawler exited with status $status"
-              printf '| artificialy | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/artificialy.watchdog"
-          watchdog_status="$(cat "$state_dir/artificialy.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::artificialy: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run artificialy' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run artificialy'; then
-              echo "::warning::artificialy: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/csd-engineers.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::csd-engineers: no terminal status was published"
-            printf '%s\n' '| csd-engineers | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::csd-engineers: invalid terminal status: $status"
-              printf '%s\n' '| csd-engineers | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::csd-engineers: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| csd-engineers | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::csd-engineers: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| csd-engineers | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| csd-engineers | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::csd-engineers: crawler exited with status $status"
-              printf '| csd-engineers | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/csd-engineers.watchdog"
-          watchdog_status="$(cat "$state_dir/csd-engineers.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::csd-engineers: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run csd-engineers' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run csd-engineers'; then
-              echo "::warning::csd-engineers: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/fust.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::fust: no terminal status was published"
-            printf '%s\n' '| fust | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::fust: invalid terminal status: $status"
-              printf '%s\n' '| fust | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::fust: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| fust | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::fust: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| fust | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| fust | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::fust: crawler exited with status $status"
-              printf '| fust | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/fust.watchdog"
-          watchdog_status="$(cat "$state_dir/fust.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::fust: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run fust' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run fust'; then
-              echo "::warning::fust: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/hugo-boss.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::hugo-boss: no terminal status was published"
-            printf '%s\n' '| hugo-boss | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::hugo-boss: invalid terminal status: $status"
-              printf '%s\n' '| hugo-boss | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::hugo-boss: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| hugo-boss | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::hugo-boss: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| hugo-boss | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| hugo-boss | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::hugo-boss: crawler exited with status $status"
-              printf '| hugo-boss | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/hugo-boss.watchdog"
-          watchdog_status="$(cat "$state_dir/hugo-boss.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::hugo-boss: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run hugo-boss' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run hugo-boss'; then
-              echo "::warning::hugo-boss: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/lidl.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::lidl: no terminal status was published"
-            printf '%s\n' '| lidl | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::lidl: invalid terminal status: $status"
-              printf '%s\n' '| lidl | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::lidl: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| lidl | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::lidl: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| lidl | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| lidl | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::lidl: crawler exited with status $status"
-              printf '| lidl | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/lidl.watchdog"
-          watchdog_status="$(cat "$state_dir/lidl.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::lidl: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run lidl' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run lidl'; then
-              echo "::warning::lidl: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/migros-hq.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::migros-hq: no terminal status was published"
-            printf '%s\n' '| migros-hq | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::migros-hq: invalid terminal status: $status"
-              printf '%s\n' '| migros-hq | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::migros-hq: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| migros-hq | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::migros-hq: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| migros-hq | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| migros-hq | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::migros-hq: crawler exited with status $status"
-              printf '| migros-hq | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/migros-hq.watchdog"
-          watchdog_status="$(cat "$state_dir/migros-hq.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::migros-hq: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run migros-hq' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run migros-hq'; then
-              echo "::warning::migros-hq: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/nestle.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::nestle: no terminal status was published"
-            printf '%s\n' '| nestle | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::nestle: invalid terminal status: $status"
-              printf '%s\n' '| nestle | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::nestle: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| nestle | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::nestle: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| nestle | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| nestle | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::nestle: crawler exited with status $status"
-              printf '| nestle | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/nestle.watchdog"
-          watchdog_status="$(cat "$state_dir/nestle.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::nestle: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run nestle' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run nestle'; then
-              echo "::warning::nestle: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/postch.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::postch: no terminal status was published"
-            printf '%s\n' '| postch | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::postch: invalid terminal status: $status"
-              printf '%s\n' '| postch | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::postch: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| postch | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::postch: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| postch | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| postch | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::postch: crawler exited with status $status"
-              printf '| postch | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/postch.watchdog"
-          watchdog_status="$(cat "$state_dir/postch.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::postch: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run postch' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run postch'; then
-              echo "::warning::postch: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/brefispersonal.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::brefispersonal: no terminal status was published"
-            printf '%s\n' '| brefispersonal | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::brefispersonal: invalid terminal status: $status"
-              printf '%s\n' '| brefispersonal | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::brefispersonal: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| brefispersonal | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::brefispersonal: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| brefispersonal | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| brefispersonal | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::brefispersonal: crawler exited with status $status"
-              printf '| brefispersonal | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/brefispersonal.watchdog"
-          watchdog_status="$(cat "$state_dir/brefispersonal.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::brefispersonal: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run brefispersonal' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run brefispersonal'; then
-              echo "::warning::brefispersonal: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/ecam.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::ecam: no terminal status was published"
-            printf '%s\n' '| ecam | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::ecam: invalid terminal status: $status"
-              printf '%s\n' '| ecam | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::ecam: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| ecam | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::ecam: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| ecam | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| ecam | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::ecam: crawler exited with status $status"
-              printf '| ecam | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/ecam.watchdog"
-          watchdog_status="$(cat "$state_dir/ecam.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::ecam: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run ecam' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run ecam'; then
-              echo "::warning::ecam: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/christinavassalli.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::christinavassalli: no terminal status was published"
-            printf '%s\n' '| christinavassalli | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::christinavassalli: invalid terminal status: $status"
-              printf '%s\n' '| christinavassalli | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::christinavassalli: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| christinavassalli | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::christinavassalli: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| christinavassalli | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| christinavassalli | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::christinavassalli: crawler exited with status $status"
-              printf '| christinavassalli | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/christinavassalli.watchdog"
-          watchdog_status="$(cat "$state_dir/christinavassalli.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::christinavassalli: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run christinavassalli' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run christinavassalli'; then
-              echo "::warning::christinavassalli: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/premiumpflege24.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::premiumpflege24: no terminal status was published"
-            printf '%s\n' '| premiumpflege24 | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::premiumpflege24: invalid terminal status: $status"
-              printf '%s\n' '| premiumpflege24 | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::premiumpflege24: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| premiumpflege24 | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::premiumpflege24: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| premiumpflege24 | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| premiumpflege24 | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::premiumpflege24: crawler exited with status $status"
-              printf '| premiumpflege24 | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/premiumpflege24.watchdog"
-          watchdog_status="$(cat "$state_dir/premiumpflege24.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::premiumpflege24: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run premiumpflege24' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run premiumpflege24'; then
-              echo "::warning::premiumpflege24: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/mcdonald-s-switzerland.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::mcdonald-s-switzerland: no terminal status was published"
-            printf '%s\n' '| mcdonald-s-switzerland | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::mcdonald-s-switzerland: invalid terminal status: $status"
-              printf '%s\n' '| mcdonald-s-switzerland | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::mcdonald-s-switzerland: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| mcdonald-s-switzerland | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::mcdonald-s-switzerland: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| mcdonald-s-switzerland | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| mcdonald-s-switzerland | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::mcdonald-s-switzerland: crawler exited with status $status"
-              printf '| mcdonald-s-switzerland | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/mcdonald-s-switzerland.watchdog"
-          watchdog_status="$(cat "$state_dir/mcdonald-s-switzerland.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::mcdonald-s-switzerland: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run mcdonald-s-switzerland' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run mcdonald-s-switzerland'; then
-              echo "::warning::mcdonald-s-switzerland: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/fachkraft.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::fachkraft: no terminal status was published"
-            printf '%s\n' '| fachkraft | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::fachkraft: invalid terminal status: $status"
-              printf '%s\n' '| fachkraft | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::fachkraft: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| fachkraft | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::fachkraft: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| fachkraft | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| fachkraft | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::fachkraft: crawler exited with status $status"
-              printf '| fachkraft | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/fachkraft.watchdog"
-          watchdog_status="$(cat "$state_dir/fachkraft.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::fachkraft: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run fachkraft' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run fachkraft'; then
-              echo "::warning::fachkraft: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/postfinance.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::postfinance: no terminal status was published"
-            printf '%s\n' '| postfinance | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::postfinance: invalid terminal status: $status"
-              printf '%s\n' '| postfinance | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::postfinance: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| postfinance | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::postfinance: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| postfinance | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| postfinance | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::postfinance: crawler exited with status $status"
-              printf '| postfinance | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/postfinance.watchdog"
-          watchdog_status="$(cat "$state_dir/postfinance.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::postfinance: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run postfinance' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run postfinance'; then
-              echo "::warning::postfinance: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/tsmg.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::tsmg: no terminal status was published"
-            printf '%s\n' '| tsmg | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::tsmg: invalid terminal status: $status"
-              printf '%s\n' '| tsmg | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::tsmg: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| tsmg | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::tsmg: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| tsmg | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| tsmg | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::tsmg: crawler exited with status $status"
-              printf '| tsmg | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/tsmg.watchdog"
-          watchdog_status="$(cat "$state_dir/tsmg.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::tsmg: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run tsmg' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run tsmg'; then
-              echo "::warning::tsmg: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/capri-holdings.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::capri-holdings: no terminal status was published"
-            printf '%s\n' '| capri-holdings | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::capri-holdings: invalid terminal status: $status"
-              printf '%s\n' '| capri-holdings | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::capri-holdings: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| capri-holdings | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::capri-holdings: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| capri-holdings | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| capri-holdings | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::capri-holdings: crawler exited with status $status"
-              printf '| capri-holdings | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/capri-holdings.watchdog"
-          watchdog_status="$(cat "$state_dir/capri-holdings.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::capri-holdings: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run capri-holdings' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run capri-holdings'; then
-              echo "::warning::capri-holdings: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/anicura.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::anicura: no terminal status was published"
-            printf '%s\n' '| anicura | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::anicura: invalid terminal status: $status"
-              printf '%s\n' '| anicura | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::anicura: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| anicura | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::anicura: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| anicura | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| anicura | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::anicura: crawler exited with status $status"
-              printf '| anicura | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/anicura.watchdog"
-          watchdog_status="$(cat "$state_dir/anicura.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::anicura: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run anicura' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run anicura'; then
-              echo "::warning::anicura: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/fisba.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::fisba: no terminal status was published"
-            printf '%s\n' '| fisba | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::fisba: invalid terminal status: $status"
-              printf '%s\n' '| fisba | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::fisba: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| fisba | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::fisba: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| fisba | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| fisba | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::fisba: crawler exited with status $status"
-              printf '| fisba | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/fisba.watchdog"
-          watchdog_status="$(cat "$state_dir/fisba.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::fisba: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run fisba' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run fisba'; then
-              echo "::warning::fisba: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/postauto.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::postauto: no terminal status was published"
-            printf '%s\n' '| postauto | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::postauto: invalid terminal status: $status"
-              printf '%s\n' '| postauto | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::postauto: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| postauto | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::postauto: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| postauto | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| postauto | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::postauto: crawler exited with status $status"
-              printf '| postauto | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/postauto.watchdog"
-          watchdog_status="$(cat "$state_dir/postauto.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::postauto: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run postauto' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run postauto'; then
-              echo "::warning::postauto: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/pantr-ch.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::pantr-ch: no terminal status was published"
-            printf '%s\n' '| pantr-ch | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::pantr-ch: invalid terminal status: $status"
-              printf '%s\n' '| pantr-ch | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::pantr-ch: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| pantr-ch | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::pantr-ch: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| pantr-ch | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| pantr-ch | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::pantr-ch: crawler exited with status $status"
-              printf '| pantr-ch | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/pantr-ch.watchdog"
-          watchdog_status="$(cat "$state_dir/pantr-ch.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::pantr-ch: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run pantr-ch' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run pantr-ch'; then
-              echo "::warning::pantr-ch: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
-          status_file="$state_dir/confederazione.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::confederazione: no terminal status was published"
-            printf '%s\n' '| confederazione | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::confederazione: invalid terminal status: $status"
-              printf '%s\n' '| confederazione | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 124 ]; then
-              echo "::error::confederazione: target timeout recorded as an actionable failure (exit 124)"
-              printf '%s\n' '| confederazione | target timeout (124) |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::confederazione: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| confederazione | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| confederazione | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::confederazione: crawler exited with status $status"
-              printf '| confederazione | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
-          watchdog_file="$state_dir/confederazione.watchdog"
-          watchdog_status="$(cat "$state_dir/confederazione.status" 2>/dev/null || true)"
-          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
-            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
-            echo "::error::confederazione: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
-            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run confederazione' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run confederazione'; then
-              echo "::warning::confederazione: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
-            fi
-          fi
+          }
+          aggregate_crawler_member 'albergo-gardenia'
+          aggregate_crawler_member 'artificialy'
+          aggregate_crawler_member 'csd-engineers'
+          aggregate_crawler_member 'fust'
+          aggregate_crawler_member 'hugo-boss'
+          aggregate_crawler_member 'lidl'
+          aggregate_crawler_member 'migros-hq'
+          aggregate_crawler_member 'nestle'
+          aggregate_crawler_member 'postch'
+          aggregate_crawler_member 'brefispersonal'
+          aggregate_crawler_member 'ecam'
+          aggregate_crawler_member 'christinavassalli'
+          aggregate_crawler_member 'premiumpflege24'
+          aggregate_crawler_member 'mcdonald-s-switzerland'
+          aggregate_crawler_member 'fachkraft'
+          aggregate_crawler_member 'postfinance'
+          aggregate_crawler_member 'tsmg'
+          aggregate_crawler_member 'capri-holdings'
+          aggregate_crawler_member 'anicura'
+          aggregate_crawler_member 'fisba'
+          aggregate_crawler_member 'postauto'
+          aggregate_crawler_member 'pantr-ch'
+          aggregate_crawler_member 'confederazione'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure

@@ -181,7 +181,7 @@ describe('Helsana crawler parser', () => {
 
     it('still extracts datePosted via the content attribute (no regression)', () => {
       const detail = parseCsbDetailPage(microdataOnlyHtml);
-      expect(detail.postedDate).toBe('2026-07-03');
+      expect(detail).toMatchObject({ postedDate: '2026-07-03T02:00:00Z', datePosted: '2026-07-03T02:00:00Z', postingDateSource: 'reported' });
     });
   });
 });

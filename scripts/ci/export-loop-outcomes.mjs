@@ -11,19 +11,16 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { runHogQL } from '../lib/posthog-client.mjs';
 import {
   DEFAULT_GA4_PROPERTY_ID,
   GA4_READONLY_SCOPE,
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
-import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
 export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const DEFAULT_L4_WINDOW_HOURS = 30;
-export const DEFAULT_L7_WINDOW_DAYS = 7;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
 
 /**
@@ -61,12 +58,6 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
 });
 
 const DAY_MS = 86_400_000;
-const L7_EVENT_NAMES = Object.freeze([
-  'experiment_assignment',
-  'experiment_exposure',
-  'experiment_outcome',
-  'experiment_guardrail',
-]);
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -332,27 +323,6 @@ function firestoreTimestampFilter(fieldPath, iso, op = 'GREATER_THAN_OR_EQUAL') 
   return { fieldFilter: { field: { fieldPath }, op, value: { timestampValue: iso } } };
 }
 
-function readRemoteConfigValue(template, name) {
-  const value = template?.parameters?.[name]?.defaultValue?.value
-    ?? template?.parameters?.[name]?.defaultValue
-    ?? template?.parameters?.[name]?.value;
-  return text(value) ? value : null;
-}
-
-export async function resolvePostHogConfig(client) {
-  let template = null;
-  const read = async (envName, remoteName) => {
-    if (text(process.env[envName])) return process.env[envName];
-    template ||= await client.remoteConfig();
-    return readRemoteConfigValue(template, remoteName);
-  };
-  const apiKey = await read('POSTHOG_PERSONAL_API_KEY', 'SERVER_POSTHOG_PERSONAL_API_KEY');
-  const projectId = await read('POSTHOG_PROJECT_ID', 'SERVER_POSTHOG_PROJECT_ID');
-  const host = await read('POSTHOG_HOST', 'SERVER_POSTHOG_HOST') || 'https://eu.posthog.com';
-  if (!apiKey || !projectId) throw new Error('PostHog credentials are missing from env and Remote Config');
-  return { apiKey, projectId, host };
-}
-
 export function completeUtcWindow(now, days) {
   if (!Number.isInteger(days) || days < 1 || days > 31) {
     throw new Error('days must be an integer between 1 and 31');
@@ -381,30 +351,10 @@ export function postHogRow(response, name) {
   return row?.[name] ?? null;
 }
 
-export function nonNegativeInteger(value, label) {
-  const parsed = typeof value === 'number' ? value : Number(value);
-  if (!Number.isInteger(parsed) || parsed < 0) throw new Error(`PostHog returned invalid ${label}`);
-  return parsed;
-}
-
 function isoDate(value, label) {
   const date = value instanceof Date ? value : new Date(value);
   if (!Number.isFinite(date.getTime())) throw new Error(label + ' must be a valid date');
   return date.toISOString();
-}
-
-function quoteHogQLString(value) {
-  return "'" + String(value).replaceAll("\\", "\\\\").replaceAll("'", "\\'") + "'";
-}
-
-function postHogAggregate(response, label) {
-  const columns = Array.isArray(response?.columns) ? response.columns : [];
-  const row = response?.results?.[0];
-  if (Array.isArray(row)) {
-    return Object.fromEntries(columns.map((column, index) => [column, row[index]]));
-  }
-  if (isObject(row)) return row;
-  throw new Error('PostHog returned no ' + label + ' aggregate row');
 }
 
 function writeJsonFile(outputPath, value) {
@@ -515,332 +465,34 @@ export async function exportL5({
   return outcome;
 }
 
-function normalizeL7Policy(policy) {
-  if (!isObject(policy)) throw new Error('L7 policy is required and must come from the loop fleet registry');
-  const outcome = isObject(policy.outcome) ? policy.outcome : null;
-  const allocation = isObject(policy.allocationPolicy) ? policy.allocationPolicy : null;
-  const contamination = isObject(allocation?.contaminationPolicy) ? allocation.contaminationPolicy : null;
-  const lifecycle = isObject(policy.lifecycle) ? policy.lifecycle : null;
-  if (!text(outcome?.outcomeId)) throw new Error('L7 policy outcome.outcomeId is required');
-  if (!text(policy.primaryMetric)) throw new Error('L7 policy primaryMetric is required');
-  if (!Number.isInteger(policy.minimumSample) || policy.minimumSample < 1) {
-    throw new Error('L7 policy minimumSample must be a positive integer');
-  }
-  if (!Array.isArray(policy.guardrails) || policy.guardrails.length === 0 || policy.guardrails.some((guardrail) => !text(guardrail))) {
-    throw new Error('L7 policy guardrails must be a non-empty array of text');
-  }
-  if (!Array.isArray(outcome?.sourceRefs) || outcome.sourceRefs.length === 0 || outcome.sourceRefs.some((sourceRef) => !text(sourceRef))) {
-    throw new Error('L7 policy outcome.sourceRefs must be a non-empty array of text');
-  }
-  if (!Number.isFinite(lifecycle?.candidateTtlHours) || lifecycle.candidateTtlHours <= 0) {
-    throw new Error('L7 policy lifecycle.candidateTtlHours must be positive');
-  }
-  if (!text(allocation?.assignmentMethod)) throw new Error('L7 policy allocationPolicy.assignmentMethod is required');
-  if (!text(allocation?.assignmentKey)) throw new Error('L7 policy allocationPolicy.assignmentKey is required');
-  if (!text(contamination?.key)) throw new Error('L7 policy allocationPolicy.contaminationPolicy.key is required');
-  const sourceRefs = outcome.sourceRefs.map((sourceRef) => sourceRef.trim());
-  return {
-    outcomeId: outcome.outcomeId.trim(),
-    primaryMetric: policy.primaryMetric.trim(),
-    minimumSample: policy.minimumSample,
-    guardrails: policy.guardrails.map((guardrail) => guardrail.trim()),
-    candidateTtlHours: lifecycle.candidateTtlHours,
-    sourceRefs,
-    assignmentMethod: allocation.assignmentMethod.trim(),
-    assignmentKey: allocation.assignmentKey.trim(),
-    contaminationKey: contamination.key.trim(),
-  };
-}
-
-function readL7Policy(registryPath) {
-  const { policy } = loadLoopPolicy(registryPath, 'L7');
-  return policy;
-}
-
-export function buildL7ExperimentLedgerQuery({ start, end, policy } = {}) {
-  if (!text(start) || !text(end)) throw new Error('L7 experiment query requires start and end');
-  const normalizedPolicy = normalizeL7Policy(policy);
-  const assignmentEvent = quoteHogQLString('experiment_assignment');
-  const exposureEvent = quoteHogQLString('experiment_exposure');
-  const outcomeEvent = quoteHogQLString('experiment_outcome');
-  const guardrailEvent = quoteHogQLString('experiment_guardrail');
-  const assignmentValidity = [
-    'properties.assignment_method = ' + quoteHogQLString(normalizedPolicy.assignmentMethod),
-    'properties.assignment_key = ' + quoteHogQLString(normalizedPolicy.assignmentKey),
-    'properties.persistent = true',
-  ].join(' AND ');
-  const exposureValidity = 'properties.variant IS NOT NULL';
-  const outcomeValidity = [
-    'properties.outcome_id = ' + quoteHogQLString(normalizedPolicy.outcomeId),
-    'properties.primary_metric = ' + quoteHogQLString(normalizedPolicy.primaryMetric),
-  ].join(' AND ');
-  const guardrailValidity = [
-    'properties.guardrail_checked = true',
-    '(properties.breach = true OR properties.breach = false)',
-  ].join(' AND ');
-  const contaminationValidity = [
-    'properties.contamination_checked = true',
-    '(properties.contaminated = true OR properties.contaminated = false)',
-  ].join(' AND ');
-  // HogQL exposes `toDateTime` but not the safe `*OrNull` variants.  Route
-  // malformed timestamp shapes to the epoch; a calendar value that still
-  // cannot be parsed aborts the export instead of being marked verified.
-  const expiryPattern = quoteHogQLString('^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?Z$');
-  const expiryDate = 'toDateTime(if(match(properties.expires_at, ' + expiryPattern + ') = 1, properties.expires_at, ' + quoteHogQLString('1970-01-01T00:00:00Z') + '))';
-  const expiryValidity = [
-    'match(properties.expires_at, ' + expiryPattern + ') = 1',
-    expiryDate + ' > timestamp',
-    expiryDate + ' <= addHours(timestamp, ' + normalizedPolicy.candidateTtlHours + ')',
-  ].join(' AND ');
-  const completeAssignmentSessionPredicate = [
-    'assignmentRecords > 0',
-    'invalidEligibilityRecords = 0',
-    'invalidAssignmentRecords = 0',
-    'persistentAssignmentRecords = assignmentRecords',
-    'invalidContaminationRecords = 0',
-    'invalidExpiryRecords = 0',
-    'exposureRecords > 0',
-    'invalidExposureRecords = 0',
-    'outcomeRecords > 0',
-    'invalidOutcomeRecords = 0',
-    'guardrailRecords > 0',
-    'invalidGuardrailRecords = 0',
-    'guardrailBreachRecords = 0',
-  ].join(' AND ');
-  return [
-    'SELECT',
-    '  sum(eventCount) AS sourceEventCount,',
-    '  countIf(assignmentRecords > 0 AND invalidEligibilityRecords = 0) AS eligibleCohort,',
-    '  countIf(assignmentRecords > 0) AS assignments,',
-    '  countIf(' + completeAssignmentSessionPredicate + ') AS completeAssignmentSessions,',
-    '  countIf(validExposureRecords > 0) AS exposures,',
-    '  countIf(validOutcomeRecords > 0) AS primaryOutcomes,',
-    '  sum(guardrailBreachRecords) AS guardrailBreaches,',
-    '  countIf(assignmentRecords > 0 AND persistentAssignmentRecords = assignmentRecords) AS persistentAssignments,',
-    '  sum(contaminatedAssignments) AS contaminatedAssignments,',
-    '  countIf(assignmentRecords > 0 AND invalidAssignmentRecords = 0) AS assignmentContract,',
-    '  countIf(assignmentRecords > 0 AND exposureRecords > 0 AND invalidExposureRecords = 0) AS exposureContract,',
-    '  countIf(assignmentRecords > 0 AND outcomeRecords > 0 AND invalidOutcomeRecords = 0) AS outcomeContract,',
-    '  countIf(assignmentRecords > 0 AND guardrailRecords > 0 AND invalidGuardrailRecords = 0) AS guardrailContract,',
-    '  countIf(assignmentRecords > 0 AND invalidContaminationRecords = 0) AS contaminationContract,',
-    '  countIf(assignmentRecords > 0 AND invalidExpiryRecords = 0) AS expiryContract,',
-    '  min(firstSeenAt) AS firstSeenAt,',
-    '  max(lastSeenAt) AS lastSeenAt',
-    'FROM (',
-    '  SELECT $session_id,',
-    '    count() AS eventCount,',
-    '    sum(if(event = ' + assignmentEvent + ', 1, 0)) AS assignmentRecords,',
-    '    sum(if(event = ' + assignmentEvent + ', if(properties.eligible = true, 0, 1), 0)) AS invalidEligibilityRecords,',
-    '    sum(if(event = ' + exposureEvent + ', 1, 0)) AS exposureRecords,',
-    '    sum(if(event = ' + exposureEvent + ' AND ' + exposureValidity + ', 1, 0)) AS validExposureRecords,',
-    '    sum(if(event = ' + outcomeEvent + ', 1, 0)) AS outcomeRecords,',
-    '    sum(if(event = ' + outcomeEvent + ' AND ' + outcomeValidity + ', 1, 0)) AS validOutcomeRecords,',
-    '    sum(if(event = ' + guardrailEvent + ', 1, 0)) AS guardrailRecords,',
-    '    sum(if(event = ' + guardrailEvent + ' AND properties.breach = true, 1, 0)) AS guardrailBreachRecords,',
-    '    sum(if(event = ' + assignmentEvent + ' AND properties.persistent = true, 1, 0)) AS persistentAssignmentRecords,',
-    '    sum(if(event = ' + assignmentEvent + ' AND properties.contaminated = true, 1, 0)) AS contaminatedAssignments,',
-    '    sum(if(event = ' + assignmentEvent + ', if(' + assignmentValidity + ', 0, 1), 0)) AS invalidAssignmentRecords,',
-    '    sum(if(event = ' + exposureEvent + ', if(' + exposureValidity + ', 0, 1), 0)) AS invalidExposureRecords,',
-    '    sum(if(event = ' + outcomeEvent + ', if(' + outcomeValidity + ', 0, 1), 0)) AS invalidOutcomeRecords,',
-    '    sum(if(event = ' + guardrailEvent + ', if(' + guardrailValidity + ', 0, 1), 0)) AS invalidGuardrailRecords,',
-    '    sum(if(event = ' + assignmentEvent + ', if(' + contaminationValidity + ', 0, 1), 0)) AS invalidContaminationRecords,',
-    '    sum(if(event = ' + assignmentEvent + ', if(' + expiryValidity + ', 0, 1), 0)) AS invalidExpiryRecords,',
-    '    min(timestamp) AS firstSeenAt,',
-    '    max(timestamp) AS lastSeenAt',
-    '  FROM events',
-    '  WHERE event IN (' + L7_EVENT_NAMES.map(quoteHogQLString).join(', ') + ')',
-    '    AND properties.loop_id = ' + quoteHogQLString('L7'),
-    '    AND timestamp >= ' + quoteHogQLString(start) + ' AND timestamp < ' + quoteHogQLString(end),
-    '  GROUP BY $session_id',
-    ')',
-  ].join('\n');
-}
-
-function l7MetricValues(aggregate, sourceObserved) {
-  const names = [
-    'eligibleCohort',
-    'assignments',
-    'exposures',
-    'primaryOutcomes',
-    'guardrailBreaches',
-    'persistentAssignments',
-    'contaminatedAssignments',
-  ];
-  if (!sourceObserved) return Object.fromEntries(names.map((name) => [name, null]));
-  return Object.fromEntries(names.map((name) => [
-    name,
-    nonNegativeInteger(aggregate[name] ?? 0, name),
-  ]));
-}
-
-function l7DurationDays(aggregate, sourceObserved) {
-  if (!sourceObserved) return null;
-  if (number(aggregate.durationDays) && aggregate.durationDays > 0) return Number(aggregate.durationDays);
-  const firstSeen = new Date(aggregate.firstSeenAt);
-  const lastSeen = new Date(aggregate.lastSeenAt);
-  if (!Number.isFinite(firstSeen.getTime()) || !Number.isFinite(lastSeen.getTime())) return null;
-  const days = (lastSeen.getTime() - firstSeen.getTime()) / DAY_MS;
-  return days > 0 ? Number(days.toFixed(3)) : null;
-}
-
-export function buildL7ExperimentLedger({
-  aggregate = {},
-  generatedAt,
-  telemetryWindow,
-  policy = {},
-} = {}) {
-  const normalizedPolicy = normalizeL7Policy(policy);
-  const generated = isoDate(generatedAt, 'L7 generatedAt');
-  const sourceEventCount = nonNegativeInteger(aggregate.sourceEventCount ?? 0, 'sourceEventCount');
-  const sourceObserved = sourceEventCount > 0;
-  const values = l7MetricValues(aggregate, sourceObserved);
-  const durationDays = l7DurationDays(aggregate, sourceObserved);
-  const assignments = values.assignments;
-  const exposures = values.exposures;
-  const eligibleCohort = values.eligibleCohort;
-  const completeAssignmentSessions = nonNegativeInteger(
-    aggregate.completeAssignmentSessions ?? 0,
-    'completeAssignmentSessions',
-  );
-  const contracts = {
-    assignment: nonNegativeInteger(aggregate.assignmentContract ?? 0, 'assignmentContract'),
-    exposure: nonNegativeInteger(aggregate.exposureContract ?? 0, 'exposureContract'),
-    outcome: nonNegativeInteger(aggregate.outcomeContract ?? 0, 'outcomeContract'),
-    guardrail: nonNegativeInteger(aggregate.guardrailContract ?? 0, 'guardrailContract'),
-    contamination: nonNegativeInteger(aggregate.contaminationContract ?? 0, 'contaminationContract'),
-    expiry: nonNegativeInteger(aggregate.expiryContract ?? 0, 'expiryContract'),
-  };
-  const contractsComplete = sourceObserved
-    && assignments !== null
-    && assignments > 0
-    && eligibleCohort >= normalizedPolicy.minimumSample
-    && assignments >= normalizedPolicy.minimumSample
-    && eligibleCohort === assignments
-    && exposures !== null
-    && exposures > 0
-    && exposures >= normalizedPolicy.minimumSample
-    && values.primaryOutcomes !== null
-    && values.primaryOutcomes > 0
-    && values.primaryOutcomes <= exposures
-    && values.guardrailBreaches === 0
-    && values.persistentAssignments === assignments
-    && values.contaminatedAssignments === 0
-    && completeAssignmentSessions >= assignments
-    && durationDays !== null
-    && contracts.assignment >= assignments
-    && contracts.exposure >= assignments
-    && contracts.outcome >= assignments
-    && contracts.guardrail >= assignments
-    && contracts.contamination >= assignments
-    && contracts.expiry >= assignments;
-  const preRegistration = {
-    outcomeId: normalizedPolicy.outcomeId,
-    primaryMetric: normalizedPolicy.primaryMetric,
-    minimumSample: normalizedPolicy.minimumSample,
-    guardrails: normalizedPolicy.guardrails,
-    expiresAt: new Date(new Date(generated).getTime() + normalizedPolicy.candidateTtlHours * 3_600_000).toISOString(),
-  };
-  const assignmentLedger = {
-    persistent: contractsComplete,
-    method: normalizedPolicy.assignmentMethod,
-    key: normalizedPolicy.assignmentKey,
-  };
-  const contaminationPolicy = {
-    controlled: contractsComplete,
-    key: normalizedPolicy.contaminationKey,
-  };
-  return {
-    schemaVersion: 1,
-    loopId: 'L7',
-    generatedAt: generated,
-    independent: contractsComplete,
-    status: contractsComplete ? 'observed' : (sourceObserved ? 'unverified' : 'missing'),
-    sourceEventCount,
-    eligibleCohort: values.eligibleCohort,
-    assignments: values.assignments,
-    exposures: values.exposures,
-    completeAssignmentSessions,
-    primaryOutcomes: values.primaryOutcomes,
-    guardrailBreaches: values.guardrailBreaches,
-    persistentAssignments: values.persistentAssignments,
-    contaminatedAssignments: values.contaminatedAssignments,
-    durationDays,
-    metrics: values,
-    preRegistration,
-    assignmentLedger,
-    contaminationPolicy,
-    contracts,
-    telemetryWindow,
-    scope: {
-      assignment: 'experiment_assignment with explicit loop_id, stable method/key, persistence and expiry',
-      exposure: 'experiment_exposure with explicit loop_id and variant',
-      outcome: 'experiment_outcome with registered outcome id and primary metric',
-      guardrails: 'experiment_guardrail with guardrail_checked and breach fields',
-      joinKey: '$session_id, which is the registered experiment-session-id',
-    },
-    evidence: {
-      source: 'posthog-experiment-ledger-export',
-      sourceRefs: normalizedPolicy.sourceRefs,
-      status: contractsComplete ? 'verified' : (sourceObserved ? 'unverified' : 'missing'),
-      sourceEventCount,
-      telemetryWindow,
-      eventContract: {
-        events: [...L7_EVENT_NAMES],
-        requiredProperties: [
-          'loop_id',
-          'assignment_method',
-          'assignment_key',
-          'persistent',
-          'expires_at',
-          'contamination_checked',
-          'contaminated',
-          'guardrail_checked',
-          'breach',
-        ],
-      },
-    },
-    reason: contractsComplete
-      ? 'explicit PostHog experiment ledger satisfies the registered assignment, exposure, outcome and guardrail contract'
-      : (sourceObserved
-        ? 'PostHog contains experiment events, but the registered ledger contract is incomplete; allocation remains disabled'
-        : 'no canonical L7 experiment ledger events were observed; allocation remains disabled'),
-    _meta: {
-      generatedAt: generated,
-      source: 'PostHog HogQL, read-only live export',
-      purpose: 'Independent assignment, exposure, outcome and guardrail evidence for Loop L7',
-      telemetryWindow,
-    },
-  };
-}
-
-export async function exportL7({
-  registryPath = 'data/loop-fleet/loop-registry.json',
-  outputPath,
-  now = new Date(),
-  days = DEFAULT_L7_WINDOW_DAYS,
-  client = null,
-  posthogRunner = runHogQL,
-} = {}) {
-  const firestore = client || new GoogleDataClient();
-  const window = rollingWindow(now, Number(days) * 24);
-  const resolvedPolicy = readL7Policy(registryPath);
-  const config = await resolvePostHogConfig(firestore);
-  const response = await posthogRunner(buildL7ExperimentLedgerQuery({ ...window, policy: resolvedPolicy }), config);
-  const aggregate = postHogAggregate(response, 'L7 experiment ledger');
-  const outcome = buildL7ExperimentLedger({
-    aggregate,
-    generatedAt: now,
-    telemetryWindow: window,
-    policy: resolvedPolicy,
-  });
-  writeJsonFile(outputPath, outcome);
-  return outcome;
-}
+/**
+ * L1 reads GA4 because PostHog product events are hard-stopped
+ * (`POSTHOG_EVENT_SAMPLE_RATE = 0` in `services/posthogQuota.ts`): a HogQL
+ * count of `$pageview` there succeeds and returns zero, which looks like a
+ * real measurement. Every name below is a native GA4 event name, so the report
+ * needs no custom dimension (the property's EVENT-scoped slots are full).
+ *
+ * `errorFreeUsefulSessions` is a declared LOWER BOUND: GA4 cannot intersect
+ * two event filters on the same session without a session-key dimension, so
+ * the export subtracts every session holding an error event from the useful
+ * sessions. A session with an error but no `page_view` lowers the bound; it
+ * can never raise it.
+ */
+export const L1_GA4_EVENT_CONTRACT = Object.freeze({
+  usefulSessionEvent: 'page_view',
+  errorEvents: Object.freeze(['app_error', 'exception', 'error_page_view']),
+  sessionMetric: 'sessions',
+  errorEventMetric: 'eventCount',
+  method: 'errorFreeUsefulSessions = max(0, sessions with page_view - sessions with any error event); '
+    + 'a lower bound, because an error session without page_view is subtracted too',
+  source: 'GA4 Data API',
+});
 
 export function buildL1TelemetryExport(input, {
   usefulSessions,
   errorFreeUsefulSessions,
   observedErrorEvents,
+  errorSessions = null,
   generatedAt,
   telemetryWindow,
 } = {}) {
@@ -852,10 +504,23 @@ export function buildL1TelemetryExport(input, {
     errorFreeUsefulSessions,
     observedErrorEvents,
     telemetryWindow,
+    evidence: {
+      source: 'GA4 Data API exact event-session export',
+      sourceRefs: ['ga4-error-telemetry'],
+      sessionMetric: L1_GA4_EVENT_CONTRACT.sessionMetric,
+      eventFilters: {
+        usefulSessions: L1_GA4_EVENT_CONTRACT.usefulSessionEvent,
+        errorSessions: [...L1_GA4_EVENT_CONTRACT.errorEvents],
+      },
+      errorSessions,
+      method: L1_GA4_EVENT_CONTRACT.method,
+      errorFreeIsLowerBound: true,
+      settledWindow: true,
+    },
     _meta: {
       ...meta,
       generatedAt,
-      source: 'PostHog HogQL, read-only live export',
+      source: 'GA4 Data API, read-only live export',
       purpose: 'Fresh useful-session/error-free-useful-session evidence for Loop L1',
       telemetryWindow,
     },
@@ -879,50 +544,84 @@ export function buildUnavailableL1TelemetryExport({
     independent: false,
     export: {
       schemaVersion: 1,
-      sourceRefs: ['posthog-error-telemetry'],
+      sourceRefs: ['ga4-error-telemetry'],
       readOnly: true,
       unavailable: true,
       mutationsPerformed: false,
     },
     _meta: {
       generatedAt,
-      source: 'PostHog HogQL, read-only live export unavailable',
+      source: 'GA4 Data API, read-only live export unavailable',
       purpose: 'Explicit fail-closed placeholder for Loop L1',
       reason,
     },
   };
 }
 
-export async function exportL1({ inputPath, outputPath, now = new Date(), days = DEFAULT_L1_WINDOW_DAYS, client = null, posthogRunner = runHogQL } = {}) {
-  const firestore = client || new GoogleDataClient();
-  const window = completeUtcWindow(now, days);
-  const config = await resolvePostHogConfig(firestore);
-  const sessionQuery = `
-    SELECT count() AS usefulSessions, countIf(errorEvents = 0) AS errorFreeUsefulSessions
-    FROM (
-      SELECT $session_id,
-        countIf(event IN ('$pageview', 'pageview')) AS pageViews,
-        countIf(event IN ('app_error', 'exception', 'error_page_view')) AS errorEvents
-      FROM events
-      WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
-      GROUP BY $session_id
-      HAVING pageViews > 0
-    )`;
-  const errorQuery = `
-    SELECT count() AS observedErrorEvents
-    FROM events
-    WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
-      AND event IN ('app_error', 'exception', 'error_page_view')`;
-  const [sessionResponse, errorResponse] = await Promise.all([
-    posthogRunner(sessionQuery, config),
-    posthogRunner(errorQuery, config),
+function l1ErrorSessionsBody({ startDate, endDate, errorEvents = L1_GA4_EVENT_CONTRACT.errorEvents }) {
+  return {
+    dateRanges: [{ startDate, endDate }],
+    metrics: [{ name: L1_GA4_EVENT_CONTRACT.sessionMetric }, { name: L1_GA4_EVENT_CONTRACT.errorEventMetric }],
+    dimensionFilter: {
+      filter: {
+        fieldName: 'eventName',
+        inListFilter: { values: [...errorEvents], caseSensitive: true },
+      },
+    },
+    limit: 1,
+  };
+}
+
+/**
+ * Read the two L1 totals from one settled GA4 window: sessions holding a
+ * `page_view`, and sessions/events holding any error event. Both reports go
+ * through the exact-total reader, so a thresholded, sampled or multi-row
+ * report fails the export instead of becoming a measured rate.
+ */
+export async function fetchL1SessionCounts({ client, startDate, endDate, propertyId } = {}) {
+  if (!text(startDate) || !text(endDate)) {
+    throw new Error('L1 GA4 report requires startDate and endDate');
+  }
+  const report = (body) => client.request(
+    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    },
+  );
+  const [usefulReport, errorReport] = await Promise.all([
+    report(ga4EventSessionsBody({ eventName: L1_GA4_EVENT_CONTRACT.usefulSessionEvent, startDate, endDate })),
+    report(l1ErrorSessionsBody({ startDate, endDate })),
   ]);
+  const [usefulValue] = exactGa4TotalMetricValues(usefulReport, 'GA4 L1 report for page_view', 1);
+  const [errorSessionsValue, errorEventsValue] = exactGa4TotalMetricValues(errorReport, 'GA4 L1 report for error events', 2);
+  const usefulSessions = nonNegativeCount(usefulValue, 'sessions for page_view');
+  const errorSessions = nonNegativeCount(errorSessionsValue, 'sessions for error events');
+  const observedErrorEvents = nonNegativeCount(errorEventsValue, 'eventCount for error events');
+  return {
+    usefulSessions,
+    errorSessions,
+    observedErrorEvents,
+    errorFreeUsefulSessions: Math.max(0, usefulSessions - errorSessions),
+  };
+}
+
+/**
+ * Export L1's useful-session outcome from GA4 without writing GA4, Firestore
+ * or published data. Same settled two-day window as L3 and L5.
+ */
+export async function exportL1({ inputPath, outputPath, now = new Date(), days = DEFAULT_L1_WINDOW_DAYS, propertyId = null, client = null } = {}) {
+  const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
+  const range = ga4DateRange(days, 2, now);
+  const counts = await fetchL1SessionCounts({ client: analytics, ...range, propertyId });
   const telemetry = buildL1TelemetryExport(JSON.parse(fs.readFileSync(path.resolve(inputPath), 'utf8')), {
-    usefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'usefulSessions'), 'usefulSessions'),
-    errorFreeUsefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'errorFreeUsefulSessions'), 'errorFreeUsefulSessions'),
-    observedErrorEvents: nonNegativeInteger(postHogRow(errorResponse, 'observedErrorEvents'), 'observedErrorEvents'),
+    usefulSessions: counts.usefulSessions,
+    errorFreeUsefulSessions: counts.errorFreeUsefulSessions,
+    observedErrorEvents: counts.observedErrorEvents,
+    errorSessions: counts.errorSessions,
     generatedAt: now.toISOString(),
-    telemetryWindow: window,
+    telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
   });
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(telemetry, null, 2)}\n`);
@@ -1016,21 +715,35 @@ export async function fetchL5EventSessions({ client, eventName, startDate, endDa
       body: JSON.stringify(ga4EventSessionsBody({ eventName, startDate, endDate })),
     },
   );
+  const [value] = exactGa4TotalMetricValues(report, `GA4 L5 report for ${eventName}`, 1);
+  return nonNegativeCount(value, `sessions for ${eventName}`);
+}
+
+/**
+ * Return the metric values of a dimensionless GA4 total, refusing any report
+ * that is thresholded, sampled, folded into "(other)" or split into rows:
+ * loop monitors publish these numbers as independent measurements.
+ */
+function exactGa4TotalMetricValues(report, label, metricCount) {
   const metadata = report?.metadata || {};
   if (
     metadata.subjectToThresholding
     || metadata.dataLossFromOtherRow
     || (Array.isArray(metadata.samplingMetadatas) && metadata.samplingMetadatas.length > 0)
   ) {
-    throw new Error(`GA4 L5 report for ${eventName} is incomplete or thresholded`);
+    throw new Error(`${label} is incomplete or thresholded`);
   }
   const rows = Array.isArray(report?.rows) ? report.rows : [];
   if (rows.length > 1) {
-    throw new Error(`GA4 L5 report for ${eventName} returned ${rows.length} rows for a dimensionless total`);
+    throw new Error(`${label} returned ${rows.length} rows for a dimensionless total`);
   }
   // GA4 omits the row entirely when the event never occurred in the window.
-  const value = rows[0]?.metricValues?.[0]?.value ?? 0;
-  return nonNegativeCount(value, `sessions for ${eventName}`);
+  if (rows.length === 0) return Array.from({ length: metricCount }, () => 0);
+  const metricValues = Array.isArray(rows[0]?.metricValues) ? rows[0].metricValues : [];
+  if (metricValues.length !== metricCount) {
+    throw new Error(`${label} returned ${metricValues.length} metric values, expected ${metricCount}`);
+  }
+  return metricValues.map((metric) => metric?.value ?? 0);
 }
 
 export function buildL3OutcomeExport({
@@ -1143,20 +856,82 @@ export async function fetchL5DecisionMomentCounts({
   return { eligibleDecisionSessions, nextUsefulActions };
 }
 
+// Event types that prove a message reached the inbox, grouped by what they
+// prove. An open or a click cannot happen on an undelivered message.
+const L4_EVIDENCE_CLASS = Object.freeze({
+  delivered: 'delivered',
+  open: 'open',
+  opened: 'open',
+  click: 'click',
+  clicked: 'click',
+});
+// Recipient-window join bounds (#8409): the webhook may store a provider id
+// that differs from the reference saved at send time, so an event of the same
+// recipient and provider is accepted shortly after the send.
+const L4_RECIPIENT_WINDOW_BEFORE_MS = 60_000;
+const L4_RECIPIENT_WINDOW_AFTER_MS = 72 * 3_600_000;
+
+function normalizedProvider(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
 function eventSet(rows) {
-  const result = new Map();
+  const byMessage = new Map();
+  const byRecipient = new Map();
   for (const row of rows) {
     const data = documentData(row);
     const child = childRow(row, 'job_alert_subscribers', 'events');
     if (!child) continue;
+    const email = child.parentId.toLowerCase();
     const messageId = String(first(data, ['message_id', 'messageId']) || '').trim();
     const type = String(first(data, ['event_type', 'eventType']) || '').trim().toLowerCase();
-    if (!messageId || !type) continue;
-    const key = `${child.parentId}\u0000${messageId}`;
-    if (!result.has(key)) result.set(key, new Set());
-    result.get(key).add(type);
+    if (!type) continue;
+    if (messageId) {
+      const key = `${email}\u0000${messageId}`;
+      if (!byMessage.has(key)) byMessage.set(key, new Set());
+      byMessage.get(key).add(type);
+    }
+    const evidenceClass = L4_EVIDENCE_CLASS[type];
+    // Fall through to the next field when one is present but unparseable,
+    // so an empty occurred_at still uses the server timestamp.
+    const occurredAtMs = toMillis(data.occurred_at) ?? toMillis(data.occurredAt) ?? toMillis(data.timestamp);
+    if (!evidenceClass || occurredAtMs == null) continue;
+    if (!byRecipient.has(email)) byRecipient.set(email, []);
+    byRecipient.get(email).push({
+      messageKey: messageId ? `${email}\u0000${messageId}` : null,
+      evidenceClass,
+      provider: normalizedProvider(data.provider),
+      occurredAtMs,
+      consumed: false,
+    });
   }
-  return result;
+  for (const list of byRecipient.values()) list.sort((a, b) => a.occurredAtMs - b.occurredAtMs);
+  return { byMessage, byRecipient };
+}
+
+/**
+ * Claim, for one delivery, the earliest unconsumed event of each evidence
+ * class sent to the same recipient by the same provider inside the window.
+ * Events already joined by message id to some delivery are never reused, and
+ * a claimed event cannot support a second delivery.
+ */
+function claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys }) {
+  const claimed = new Set();
+  const list = events.byRecipient.get(email) || [];
+  for (const event of list) {
+    if (event.occurredAtMs > sentAt + L4_RECIPIENT_WINDOW_AFTER_MS) break;
+    if (event.consumed || claimed.has(event.evidenceClass)) continue;
+    if (event.occurredAtMs < sentAt - L4_RECIPIENT_WINDOW_BEFORE_MS) continue;
+    if (event.messageKey && idJoinedKeys.has(event.messageKey)) continue;
+    if (provider && event.provider && provider !== event.provider) continue;
+    event.consumed = true;
+    claimed.add(event.evidenceClass);
+  }
+  return claimed;
+}
+
+function incrementCount(counts, key) {
+  counts[key] = (counts[key] || 0) + 1;
 }
 
 function hasNonEmptyLinks(value) {
@@ -1253,43 +1028,96 @@ export function buildL4OutcomeLedger({
     noConsentedAlert: 0,
   };
   let quietHoursEvidenceComplete = true;
+  let deliveryRowCount = 0;
+  const deliveryRowsByProvider = {};
+  const deliveredByProvider = {};
+  const unattributedDeliveryShapes = {};
+  const deliveryEvidenceByJoin = {
+    deliveredAt: 0,
+    messageId: 0,
+    recipientWindow: 0,
+    impliedByEngagement: 0,
+    none: 0,
+  };
+  const attributed = [];
+  // Message keys of every delivery row, operator-verification and unattributed
+  // rows included: their id-joined events must not be claimed by the
+  // recipient-window join of an attributed delivery.
+  const deliveryMessageKeys = new Set();
 
   for (const row of deliveryRows) {
     const child = childRow(row, 'job_alert_subscribers', 'campaign_deliveries');
     if (!child) continue;
     const data = documentData(row);
+    const rowMessageId = String(first(data, ['message_id', 'messageId']) || '').trim();
+    const messageKey = rowMessageId ? `${child.parentId.toLowerCase()}\u0000${rowMessageId}` : null;
+    if (messageKey) deliveryMessageKeys.add(messageKey);
     const scheduleFieldPresent = Object.prototype.hasOwnProperty.call(data, 'scheduled_for')
       || Object.prototype.hasOwnProperty.call(data, 'scheduledFor');
     const scheduleSourcePresent = Object.prototype.hasOwnProperty.call(data, 'send_time_source')
       || Object.prototype.hasOwnProperty.call(data, 'sendTimeSource');
     if (!scheduleFieldPresent || !scheduleSourcePresent) quietHoursEvidenceComplete = false;
     if (data.is_operator_verification === true || data.isOperatorVerification === true) continue;
+    const provider = normalizedProvider(data.provider);
+    deliveryRowCount += 1;
+    incrementCount(deliveryRowsByProvider, provider || 'unknown');
     const email = child.parentId.toLowerCase();
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
     const key = buildAlertKey(email, alertId);
     if (!alertId || sentAt == null || !consentedAlerts.has(key)) {
       unattributedDeliveries += 1;
+      // Shape only (id length), never the id itself: enough to tell an alert
+      // id from an id of another nature without exporting identifiers.
+      incrementCount(unattributedDeliveryShapes, String(alertId.length));
       if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
       else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
       else unattributedDeliveryReasons.noConsentedAlert += 1;
       continue;
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
-    const messageId = String(first(data, ['message_id', 'messageId']) || '').trim();
-    const eventTypes = messageId ? (events.get(`${email}\u0000${messageId}`) || new Set()) : new Set();
-    const deliveredEvidence = toMillis(first(data, ['delivered_at', 'deliveredAt'])) != null || eventTypes.has('delivered');
-    const clickedEvidence = toMillis(first(data, ['clicked_at', 'clickedAt'])) != null
-      || hasNonEmptyLinks(first(data, ['clicked_links', 'clickedLinks']))
-      || eventTypes.has('click') || eventTypes.has('clicked');
-    const openedEvidence = toMillis(first(data, ['opened_at', 'openedAt'])) != null
-      || eventTypes.has('open') || eventTypes.has('opened') || clickedEvidence;
-    if (deliveredEvidence) delivered.add(deliveryId);
-    if (deliveredEvidence && openedEvidence) opened.add(deliveryId);
-    if (deliveredEvidence && clickedEvidence) clicked.add(deliveryId);
+    attributed.push({ deliveryId, data, email, alertId, sentAt, provider, messageKey });
 
     const group = `${email}\u0000${alertId}\u0000${sendDay(sentAt)}`;
     dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
+  }
+
+  // Events joined by message id belong to their delivery row (attributed or
+  // not) and are never offered to the recipient-window join of another one.
+  const idJoinedKeys = new Set([...deliveryMessageKeys]
+    .filter((messageKey) => events.byMessage.has(messageKey)));
+  // Oldest send first, so each window event is claimed by the earliest
+  // delivery it can belong to.
+  attributed.sort((a, b) => a.sentAt - b.sentAt || (a.deliveryId < b.deliveryId ? -1 : a.deliveryId > b.deliveryId ? 1 : 0));
+
+  for (const { deliveryId, data, email, sentAt, provider, messageKey } of attributed) {
+    const eventTypes = messageKey ? (events.byMessage.get(messageKey) || new Set()) : new Set();
+    const windowClasses = eventTypes.size === 0
+      ? claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys })
+      : new Set();
+    const deliveredAtEvidence = toMillis(first(data, ['delivered_at', 'deliveredAt'])) != null;
+    const clickedEvidence = toMillis(first(data, ['clicked_at', 'clickedAt'])) != null
+      || hasNonEmptyLinks(first(data, ['clicked_links', 'clickedLinks']))
+      || eventTypes.has('click') || eventTypes.has('clicked')
+      || windowClasses.has('click');
+    const openedEvidence = toMillis(first(data, ['opened_at', 'openedAt'])) != null
+      || eventTypes.has('open') || eventTypes.has('opened') || windowClasses.has('open')
+      || clickedEvidence;
+    // An open or a click implies the message was delivered.
+    const deliveredEvidence = deliveredAtEvidence || eventTypes.has('delivered')
+      || windowClasses.size > 0 || openedEvidence;
+    let join = 'none';
+    if (deliveredAtEvidence) join = 'deliveredAt';
+    else if (eventTypes.has('delivered')) join = 'messageId';
+    else if (windowClasses.size > 0) join = 'recipientWindow';
+    else if (openedEvidence) join = 'impliedByEngagement';
+    deliveryEvidenceByJoin[join] += 1;
+    if (deliveredEvidence && !delivered.has(deliveryId)) {
+      delivered.add(deliveryId);
+      incrementCount(deliveredByProvider, provider || 'unknown');
+    }
+    if (deliveredEvidence && openedEvidence) opened.add(deliveryId);
+    if (deliveredEvidence && clickedEvidence) clicked.add(deliveryId);
 
     const visit = readVisit(jobs.get(email));
     const classified = classifyVisit(visit);
@@ -1334,6 +1162,12 @@ export function buildL4OutcomeLedger({
       externalDeliveryUntouched: true,
       unattributedDeliveries,
       unattributedDeliveryReasons,
+      unattributedDeliveryShapes,
+      deliveryRows: deliveryRowCount,
+      deliveryRowsByProvider,
+      deliveredByProvider,
+      deliveryEvidenceByJoin,
+      deliveryEvidenceJoin: deliveryRowCount === 0 ? 'no-deliveries' : (delivered.size === 0 ? 'empty' : 'joined'),
       consentClassifier: 'functions/src/jobAlertBackfillCore.js',
       returnClassifier: 'functions/src/lib/returnVisit.js',
       deduplicationKey: 'recipient + alert id + UTC send day',
@@ -1361,13 +1195,13 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
       collectionId: 'campaign_deliveries',
       allDescendants: true,
       where: firestoreTimestampFilter('sent_at', window.start),
-      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks'],
+      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks', 'provider'],
     }),
     firestore.runQuery({
       collectionId: 'events',
       allDescendants: true,
       where: firestoreTimestampFilter('timestamp', window.start),
-      fieldPaths: ['event_type', 'eventType', 'message_id', 'messageId', 'timestamp', 'occurred_at', 'occurredAt'],
+      fieldPaths: ['event_type', 'eventType', 'message_id', 'messageId', 'timestamp', 'occurred_at', 'occurredAt', 'provider'],
     }),
   ]);
   const consent = predicates || await Promise.all([
@@ -1396,6 +1230,14 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
     predicates: consent,
   });
   outcome.export.configSource = configPath || 'data/alert-config.json';
+  if (outcome.export.deliveryEvidenceJoin === 'empty') {
+    // Aggregates only: the reason must be readable in the run log.
+    console.warn(`L4: join consegna-evento vuoto, deliveredAlerts a zero con invii ${JSON.stringify({
+      deliveryRows: outcome.export.deliveryRows,
+      deliveryRowsByProvider: outcome.export.deliveryRowsByProvider,
+      deliveryEvidenceByJoin: outcome.export.deliveryEvidenceByJoin,
+    })}`);
+  }
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
   return outcome;
@@ -1574,8 +1416,8 @@ function valueAfter(argv, name, fallback = null) {
 export async function main({ argv = process.argv.slice(2) } = {}) {
   const loop = valueAfter(argv, '--loop');
   const outputPath = valueAfter(argv, '--out');
-  if (!['L1', 'L3', 'L4', 'L5', 'L7', 'L9'].includes(loop)) {
-    throw new Error('--loop must be L1, L3, L4, L5, L7 or L9');
+  if (!['L1', 'L3', 'L4', 'L5', 'L9'].includes(loop)) {
+    throw new Error('--loop must be L1, L3, L4, L5 or L9');
   }
   if (!outputPath) throw new Error('--out is required');
   const now = new Date();
@@ -1590,7 +1432,15 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
       return outcome;
     }
-    return exportL1({ inputPath, outputPath, now });
+    const days = Number(valueAfter(argv, '--days', DEFAULT_L1_WINDOW_DAYS));
+    if (!Number.isInteger(days) || days < 1) throw new Error('--days must be a positive integer');
+    return exportL1({
+      inputPath,
+      outputPath,
+      now,
+      days,
+      propertyId: valueAfter(argv, '--property', null),
+    });
   }
   if (loop === 'L3') {
     const days = Number(valueAfter(argv, '--days', DEFAULT_L3_WINDOW_DAYS));
@@ -1643,14 +1493,6 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       now,
       days: Number(valueAfter(argv, '--days', DEFAULT_L5_WINDOW_DAYS)),
       propertyId: valueAfter(argv, '--property', null),
-    });
-  }
-  if (loop === 'L7') {
-    return exportL7({
-      registryPath: valueAfter(argv, '--registry', 'data/loop-fleet/loop-registry.json'),
-      outputPath,
-      now,
-      days: valueAfter(argv, '--days', DEFAULT_L7_WINDOW_DAYS),
     });
   }
   return exportL9({

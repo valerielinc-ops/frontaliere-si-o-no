@@ -186,3 +186,14 @@ describe('mergeJobLists', () => {
     expect(job.needsRetranslation).toBeUndefined();
   });
 });
+
+
+describe('Kronenhof publication and employment start are separate', () => {
+  it('keeps a future contract start without publishing it as datePosted', () => {
+    const start = new Date(Date.now() + 40 * 86400000).toISOString();
+    const publication = new Date(Date.now() - 4 * 86400000).toISOString();
+    const raw = { id: 999, title: 'Chef de Rang', location: 'Grand Hotel Kronenhof', contract_starts_at: start };
+    expect(buildJob(raw, 'Source body')).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown', jobStartDate: start });
+    expect(buildJob(raw, 'Source body', publication)).toMatchObject({ datePosted: publication, postedDate: publication, postingDateSource: 'reported', jobStartDate: start });
+  });
+});

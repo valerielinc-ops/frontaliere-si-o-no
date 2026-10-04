@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { jsPDF } from 'jspdf';
+import { PNG_1X1 as PNG, pdfPaintsImage } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 
@@ -97,10 +98,30 @@ describe('tailored CV PDFs pass the ATS checks (Typst, embedded font)', () => {
     expect(failures.some((failure: string) => failure.startsWith('dateColumn'))).toBe(true);
   }, 60_000);
 
+  it('says whether the PDF carries the photo, and drops a photo Typst cannot read instead of its own layout', async () => {
+    const { document } = documentOf(CASES[1]);
+    expect(await renderCvPdf(document)).toMatchObject({ renderer: 'typst', photo: false });
+    const printed = await renderCvPdf({ ...document, photo: PNG, photoType: 'png' });
+    expect(printed).toMatchObject({ renderer: 'typst', photo: true });
+    expect(await pdfPaintsImage(printed.pdf)).toBe(true);
+    // An unreadable image costs the image only: compiled once more without it, the embedded font kept.
+    const logged: string[] = [];
+    const unreadable = await renderCvPdf({ ...document, photo: Buffer.from('not an image'), photoType: 'png' }, { log: (...args: unknown[]) => { logged.push(args.join(' ')); } });
+    expect(unreadable).toMatchObject({ renderer: 'typst', photo: false });
+    expect(logged).toHaveLength(1);
+    expect(await pdfPaintsImage(unreadable.pdf)).toBe(false);
+    expect((await checkPdfForAts(unreadable.pdf, { name: CASES[1].identity.name, facts: CASES[1].facts, headings: CASES[1].headings })).failures).toEqual([]);
+    // The standard-font writer prints no photo, and says so.
+    const legacy = await renderCvPdf({ ...document, photo: PNG, photoType: 'png' }, { mode: 'legacy' });
+    expect(legacy).toMatchObject({ renderer: 'legacy', photo: false });
+    expect(await pdfPaintsImage(legacy.pdf)).toBe(false);
+  }, 60_000);
+
   it('falls back to the standard-font writer when Typst fails, and obeys the Remote Config switch', async () => {
     const { document } = documentOf(CASES[1]);
-    const broken = await renderCvPdf({ ...document, photo: Buffer.from('not an image'), photoType: 'png' }, { log: () => {} });
-    expect(broken.renderer).toBe('legacy');
+    // A document Typst cannot compile, with or without the photo.
+    const broken = await renderCvPdf({ ...document, language: 'not a language', photo: PNG, photoType: 'png' }, { log: () => {} });
+    expect(broken).toMatchObject({ renderer: 'legacy', photo: false });
     expect(broken.pdf.subarray(0, 5).toString()).toBe('%PDF-');
     expect(await pdfRendererMode({ env: { ASSISTED_APPLICATION_PDF_RENDERER: 'legacy' } })).toBe('legacy');
     expect(await pdfRendererMode({ env: {} })).toBe('typst');

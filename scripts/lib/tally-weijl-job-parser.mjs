@@ -10,6 +10,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -189,10 +191,9 @@ async function fetchJobListings() {
           const city = locParts[0] || '';
           const state = locParts[1] || '';
 
-          // Extract date from data-time span or visible text
-          const dateAttrMatch = cardHtml.match(/title="Apply by:\s*([^"]+)"/i) ||
-            cardHtml.match(/data-time="[^"]*"[^>]*>\s*(\w+\.\s*\d+,\s*\d{4})/i);
-          const postedDateRaw = dateAttrMatch ? dateAttrMatch[1].trim() : '';
+          // An explicitly labelled application deadline is not the publication date.
+          const dateAttrMatch = cardHtml.match(/title="Apply by:\s*([^"]+)"/i);
+          const deadlineRaw = dateAttrMatch ? dateAttrMatch[1].trim() : '';
 
           // Extract employment type
           const typeMatch = cardHtml.match(/meta-job-type[^"]*"[^>]*>([^<]+)/i) ||
@@ -205,7 +206,7 @@ async function fetchJobListings() {
             state,
             country,
             url: `${TRAKSTAR_BASE}${jobPath}`,
-            postedDate: postedDateRaw,
+            validThrough: deadlineRaw,
             employmentType: /part.?time/i.test(empType) ? 'PART_TIME' : 'FULL_TIME',
           });
           foundOnPage++;
@@ -264,7 +265,7 @@ async function fetchJobDetail(jobUrl) {
       html.match(/<div[^>]*class="jobdesciption"[^>]*>([\s\S]*?)<\/div>/i) ||
       html.match(/<div[^>]*class="[^"]*description[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
 
-    return descMatch ? stripHtml(descMatch[1]).trim() : null;
+    return { description: descMatch ? stripHtml(descMatch[1]).trim() : '', datePosted: extractJobPostingField(html, 'datePosted') };
   } catch {
     return null;
   } finally {
@@ -284,7 +285,9 @@ function parseTrakstarDate(raw = '') {
   if (!m) return '';
   const mon = months[m[1].toLowerCase().slice(0, 3)] || '';
   if (!mon) return '';
-  return `${m[3]}-${mon}-${m[2].padStart(2, '0')}`;
+  const iso = `${m[3]}-${mon}-${m[2].padStart(2, '0')}`;
+  const date = new Date(`${iso}T00:00:00Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === iso ? iso : '';
 }
 
 /**
@@ -319,15 +322,14 @@ export async function fetchAllTallyWeijlJobs() {
     const publicUrl = listing.url;
 
     // Fetch detail page for description
-    const detailDesc = await fetchJobDetail(publicUrl);
-    const descriptionText = detailDesc || `${title} — ${TALLY_WEIJL_COMPANY_NAME}, ${city}`;
+    const detail = await fetchJobDetail(publicUrl);
+    const descriptionText = detail?.description || `${title} — ${TALLY_WEIJL_COMPANY_NAME}, ${city}`;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} tally-weijl ${city || 'ch'}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = parseTrakstarDate(listing.postedDate) ||
-      new Date().toISOString().split('T')[0];
+    const validThrough = parseTrakstarDate(listing.validThrough);
 
     const job = {
       // ── Required fields ──
@@ -359,7 +361,8 @@ export async function fetchAllTallyWeijlJobs() {
       sector: 'Moda / Abbigliamento',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(detail?.datePosted),
+      validThrough,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

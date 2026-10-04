@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { resolveReportedPostingDate } from './lib/job-posting-date.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const ROOT = process.cwd();
@@ -246,6 +247,8 @@ function main() {
     localeChecks: 0,
     filesMissing: 0,
     jobPostingMissing: 0,
+    publicationDateUnverified: 0,
+    eligibleLocaleChecks: 0,
     parseErrors: 0,
     errors: 0,
     warnings: 0,
@@ -280,6 +283,17 @@ function main() {
         continue;
       }
       const jobPosting = getJobPosting(blocks);
+      const reportedDate = resolveReportedPostingDate(job);
+      if (!reportedDate) {
+        report.publicationDateUnverified += 1;
+        if (jobPosting) {
+          report.errors += 1;
+          report.details.push({ slug: job.slug, locale: loc.code, level: 'error', issue: 'jobposting_without_reported_publication_date' });
+        }
+        continue;
+      }
+      report.eligibleLocaleChecks += 1;
+
       if (!jobPosting) {
         report.jobPostingMissing += 1;
         report.errors += 1;
@@ -287,6 +301,10 @@ function main() {
         continue;
       }
 
+      if (jobPosting.datePosted !== reportedDate) {
+        report.errors += 1;
+        report.details.push({ slug: job.slug, locale: loc.code, level: 'error', issue: 'datePosted:source_mismatch' });
+      }
       const { errors, warnings } = validateJobPosting(jobPosting, html, job, loc.code);
       for (const e of errors) {
         report.errors += 1;
@@ -310,7 +328,9 @@ function main() {
   console.log(`Locale checks: ${report.localeChecks} (it/en/de/fr)`);
   console.log(`Errors: ${report.errors} | Warnings: ${report.warnings}`);
   console.log(`Missing files: ${report.filesMissing}`);
-  console.log(`Missing JobPosting: ${report.jobPostingMissing}`);
+  console.log(`Eligible locale checks: ${report.eligibleLocaleChecks}`);
+  console.log(`Publication date unverified (JobPosting must be absent): ${report.publicationDateUnverified}`);
+  console.log(`Missing eligible JobPosting: ${report.jobPostingMissing}`);
   console.log(`JSON-LD parse errors: ${report.parseErrors}`);
 
   const topIssues = Object.entries(grouped)

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pole-sante-pays-enhaut",
-  "assembledAt": "2026-10-03T21:12:02.284Z",
+  "assembledAt": "2026-10-04T09:14:06.576Z",
   "jobs": [
     {
       "id": "pole-sante-pays-enhaut-40b5a3b22f8a",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7e7196d4-d20c-4a17-ba10-0c48e91112c4/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:11:57.455Z",
+      "crawledAt": "2026-10-04T09:14:01.379Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/51957b24-8098-406d-afbf-42f279cbeda8/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:11:56.639Z",
+      "crawledAt": "2026-10-04T09:14:00.843Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -178,7 +178,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:11:55.807Z",
+      "crawledAt": "2026-10-04T09:13:59.858Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -277,11 +277,11 @@
     },
     {
       "id": "pole-sante-pays-enhaut-0268855aac3d",
-      "slug": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
-        "it": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+        "it": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "nurse-cdi-80-to-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex",
         "fr": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
@@ -289,8 +289,8 @@
       "companyDomain": "pspe.ch",
       "title": "Infirmier·ère (CDI - 80 à 100%)",
       "titleByLocale": {
-        "it": "Infirmier·ère (CDI - 80 à 100%)",
-        "en": "Infirmier·ère (CDI - 80 à 100%)",
+        "it": "Infermiera (CDI - 80 al 100%)",
+        "en": "Nurse (CDI - 80 to 100%)",
         "de": "Infirmier·ère (CDI - 80 à 100%)",
         "fr": "Infirmier·ère (CDI - 80 à 100%)"
       },
@@ -307,7 +307,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/011a0a3e-7de1-4c25-b065-fcf96d3fc418/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:11:54.979Z",
+      "crawledAt": "2026-10-04T09:13:59.255Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -324,6 +324,22 @@
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/011a0a3e-7de1-4c25-b065-fcf96d3fc418/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+        "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+          "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
       "firstSeenAt": "2026-10-03T09:12:43.483Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -371,7 +387,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/28f59e0a-32d2-41eb-8be6-3fffe35c49f6/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:11:54.059Z",
+      "crawledAt": "2026-10-04T09:13:58.663Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",

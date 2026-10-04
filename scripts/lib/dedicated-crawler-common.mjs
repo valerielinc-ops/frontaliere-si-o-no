@@ -1,3 +1,4 @@
+import { hasPostingDateProvenance, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
@@ -1534,7 +1535,15 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
 
-    if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+    // A 1-2 char `job.title` never overwrites a usable title already in the
+    // source slot: otherwise every pass resets the slot to the short value and
+    // the fallback below re-fills it from whichever slot comes first, so the
+    // hardening is not idempotent (tests/job-locale-slot-gate-contract.test.ts).
+    if (
+      baseTitle &&
+      normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+      (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+    ) {
       job.titleByLocale[titleSourceLang] = baseTitle;
       jobChanged = true;
     }
@@ -1667,10 +1676,25 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             job.needsRetranslation = true;
             jobChanged = true;
           }
-        } else if (placeholder && DEFAULT_LOCALES.includes(titleSourceLang)) {
-          job.titleByLocale[locale] = placeholder;
-          job.needsRetranslation = true;
-          jobChanged = true;
+        } else if (DEFAULT_LOCALES.includes(titleSourceLang)) {
+          // With no `job.title` and no description there is nothing to detect
+          // from: titleSourceLang falls back to 'it' and its slot can be empty
+          // while the record's only title sits in another published slot
+          // (e.g. `titleByLocale: { de }`). Copy that title instead of leaving
+          // the slot blocking the publish gate; the record stays flagged.
+          // Prefer the first USABLE candidate: a 1-2 char `job.title` or source
+          // slot must not shadow a usable title in another published slot. The
+          // short placeholder is copied only when nothing usable exists (the
+          // record then stays blocking, as before).
+          const sourceCopy = [
+            placeholder,
+            ...DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()),
+          ].find(hasUsableTitle) || placeholder;
+          if (sourceCopy) {
+            job.titleByLocale[locale] = sourceCopy;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          }
         }
       }
       {
@@ -3569,7 +3593,13 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
       if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
 
-      if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+      // Same guard as hardenJobLocaleFields: a 1-2 char `job.title` never
+      // overwrites a usable title already in the source slot.
+      if (
+        baseTitle &&
+        normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+        (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+      ) {
         job.titleByLocale[titleSourceLang] = baseTitle;
       }
       const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();
@@ -7882,8 +7912,12 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         fresh[key] = old[key];
       }
     };
-    preserveOlder('postedDate');
-    preserveOlder('datePosted');
+    if (hasPostingDateProvenance(old) || hasPostingDateProvenance(fresh)) {
+      Object.assign(fresh, mergeSourcePostingDates(old, fresh));
+    } else {
+      preserveOlder('postedDate');
+      preserveOlder('datePosted');
+    }
 
     return markIncompleteLocaleText(fresh, fresh.sourceLang || srcLang || null);
   });
@@ -8465,6 +8499,9 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
   // `datePosted`. Same older-wins rule as mergeAndDeduplicate's merge below.
   const mergedPostedDate = pickMergedPostedDate(a, b);
   if (mergedPostedDate) chosen.postedDate = mergedPostedDate;
+  if (hasPostingDateProvenance(a) || hasPostingDateProvenance(b)) {
+    Object.assign(chosen, mergeSourcePostingDates(a, b));
+  }
   // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt below):
   // the two colliding records are the SAME posting, so whichever side loses
   // preferJob() must not take the fresher "seen live" proof down with it —
@@ -8562,6 +8599,9 @@ export function isForeignAtsUrlLocation(rawUrl = '') {
 // `next` only wins when it is actually older (it probably learned to read the
 // real posting timestamp from the page).
 export function pickMergedPostedDate(prev = {}, next = {}) {
+  if (hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)) {
+    return mergeSourcePostingDates(prev, next).postedDate;
+  }
   const prevVal = prev.postedDate || prev.datePosted || '';
   const nextVal = next.postedDate || next.datePosted || '';
   if (!prevVal) return nextVal;
@@ -8746,7 +8786,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       ...prev,
       ...next,
       id: prev.id || next.id,
-      postedDate: pickMergedPostedDate(prev, next) || nowIsoDate,
+      ...(hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)
+        ? mergeSourcePostingDates(prev, next)
+        : { postedDate: pickMergedPostedDate(prev, next) || nowIsoDate }),
       // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt):
       // `next` was scraped THIS run (stamped nowIsoTs above), which proves
       // the posting is still up. The old `prev.crawledAt || …` order froze
@@ -8878,6 +8920,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // postedDate would silently win — force the merged date onto whichever
     // side was picked.
     chosen.postedDate = best.postedDate;
+    if (hasPostingDateProvenance(best)) Object.assign(chosen, mergeSourcePostingDates({}, best));
     // Same bare-preferJob() discard pattern for crawledAt: `best.crawledAt`
     // already holds the newest-wins last-seen-live timestamp; if preferJob
     // returned `prev` wholesale (e.g. higher quality score), prev's stale

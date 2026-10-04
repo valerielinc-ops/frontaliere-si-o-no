@@ -3,6 +3,7 @@
  * Dedicated Hilcona AG (Bell Food Group) crawler runner.
  * Source: https://career.bellfoodgroup.com/en
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -153,7 +154,7 @@ async function main() {
       postalCode,
       category: 'manufacturing', contract: detail?.contractType || 'full-time',
       employmentType: inferEmploymentType(raw.title, description, detail?.pensum),
-      currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
+      currency: 'CHF', featured: false, ...sourcePostingDateFields(),
       url: raw.url, source: 'Hilcona Dedicated Parser', crawledAt: new Date().toISOString(),
       sourceLang,
     });

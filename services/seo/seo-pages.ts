@@ -7,6 +7,7 @@
 
 import type { SEOMetadata } from '../seoService';
 import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
+import { authorSeoPageEntries } from './authorProfileMetadata';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -154,7 +155,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Conviene lavorare come vecchio o nuovo frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dal salario, stato civile, figli e comune di residenza. Il vecchio regime è generalmente più vantaggioso per salari medio-alti (>CHF 60.000). Il nuovo regime può convenire con salari più bassi grazie alla franchigia €10.000. Usa il simulatore gratuito su frontaliereticino.ch per calcolare il tuo caso specifico." } },
  { "@type": "Question", "name": "Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "L'imposta alla fonte in Ticino si calcola sul salario lordo annuo con aliquote progressive: 0% sotto CHF 18.000, dal 4% al 24% per redditi superiori, variando in base a stato civile (tabelle A singolo, B sposato mono-reddito, C sposato doppio reddito, H genitore solo) e numero di figli. Ogni figlio riduce l'aliquota di circa 1-2 punti percentuali." } },
  { "@type": "Question", "name": "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere single senza figli con CHF 80.000 lordi/anno guadagna circa CHF 4.900-5.100/mese netti con il vecchio accordo (solo imposta alla fonte), oppure circa CHF 4.400-4.600/mese netti con il nuovo accordo (imposta alla fonte ridotta + IRPEF italiana con franchigia €10.000 e credito d'imposta). I contributi sociali svizzeri (AVS 5,3%, AC 1,1%, LAA, LPP) vengono detratti dal lordo." } },
- { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I premi LAMal per frontalieri in Canton Ticino variano da CHF 270 a CHF 560/mese a seconda dell'assicuratore, modello (Standard, Telmed, HMO) e franchigia (CHF 300-2.500). Le opzioni più economiche sono Assura e Agrisano con modello Telmed e franchigia CHF 2.500, a circa CHF 270-300/mese. Il comparatore su frontaliereticino.ch confronta 14 assicuratori in 7 cantoni. Come consiglia Laura Mantovani, broker assicurativo LAMal: «Confrontare almeno 3-4 offerte prima di scegliere può far risparmiare oltre CHF 2.000 all'anno»." } },
+ { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
  { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Il sistema distingue previdenza statale AVS, professionale LPP e individuale volontaria. Requisiti e prestazioni vanno verificati presso gli enti competenti. Il terzo pilastro non comporta una deduzione automatica per tutti i frontalieri. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
@@ -368,15 +369,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogDescription: 'Cos\'è LAMal e come scegliere franchigia e modello assicurativo.',
  canonicalPath: '/glossario-frontaliere/lamal/',
  structuredData: [
- { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LAMal', description: 'LAMal: assicurazione malattia obbligatoria svizzera. Copre cure mediche, ospedaliere e farmaci. I frontalieri scelgono franchigia e modello.', url: `${BASE_URL}/glossario-frontaliere/lamal/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
+ { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LAMal', description: 'LAMal: assicurazione malattia obbligatoria svizzera. Copre cure mediche, ospedaliere e farmaci. Per residenti in Italia si applicano premi per Paese di domicilio, modello standard e franchigia ordinaria.', url: `${BASE_URL}/glossario-frontaliere/lamal/`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` } },
  {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
  { '@type': 'Question', name: "Cos'è la LAMal e perché riguarda i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "LAMal (Loi fédérale sur l'Assurance Maladie) è l'assicurazione sanitaria obbligatoria svizzera. Copre cure mediche, ospedaliere e farmaci. I frontalieri con permesso G devono assicurarsi entro 3 mesi dall'inizio del lavoro in Svizzera: possono scegliere LAMal svizzera oppure esercitare il diritto di opzione (opting-out) per il Servizio Sanitario Nazionale italiano." } },
- { '@type': 'Question', name: "Quanto costa la LAMal per un frontaliere in Ticino nel 2026?", acceptedAnswer: { '@type': 'Answer', text: "I premi 2026 in Canton Ticino variano da CHF 270 a CHF 560/mese per adulti, a seconda di cassa malati, modello (Standard, HMO, Telmed, medico di famiglia) e franchigia (CHF 300–2.500). Le opzioni più economiche sono Assura e Agrisano con modello Telmed e franchigia massima, tra CHF 270–300/mese. Sul comparatore frontaliereticino.ch si confrontano 14 casse malati in 7 cantoni." } },
+ { '@type': 'Question', name: "Quanto costa la LAMal per un frontaliere in Ticino nel 2026?", acceptedAnswer: { '@type': 'Answer', text: "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
  { '@type': 'Question', name: "Cos'è il diritto di opzione e quando conviene?", acceptedAnswer: { '@type': 'Answer', text: "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
- { '@type': 'Question', name: "Come si sceglie la franchigia LAMal più conveniente?", acceptedAnswer: { '@type': 'Answer', text: "La franchigia è la soglia annua sotto cui il paziente paga integralmente le cure. Le opzioni 2026 sono CHF 300, 500, 1.000, 1.500, 2.000 e 2.500. Franchigia alta = premio più basso ma rischio di spese vive maggiori. Regola pratica: chi prevede poche visite mediche conviene CHF 2.500 (risparmio premi fino a CHF 1.540/anno); chi ha patologie croniche o bambini conviene CHF 300." } },
+ { '@type': 'Question', name: "Come si sceglie la franchigia LAMal più conveniente?", acceptedAnswer: { '@type': 'Answer', text: "La scelta dipende dal Paese di residenza. Per chi risiede in Italia la franchigia LAMal è quella ordinaria: CHF 300 per adulti e giovani adulti, CHF 0 per bambini. Non sono disponibili franchigie opzionali né modelli HMO o Telmed. Chi risiede in Svizzera può invece confrontare le franchigie opzionali offerte, considerando insieme premio e spese sanitarie a proprio carico. Fonte: https://www.bag.admin.ch/it/assicurazione-malattie-forme-particolari-dassicurazione" } },
  { '@type': 'Question', name: "Qual è la differenza tra LAMal e LAMal complementare?", acceptedAnswer: { '@type': 'Answer', text: "La LAMal di base (obbligatoria) copre cure ambulatoriali, ospedaliere in reparto comune cantonale, farmaci LS e maternità. La LAMal complementare (LCA, facoltativa) aggiunge reparto semi-privato o privato in ospedale, medicine alternative, occhiali, dentista. I premi complementari variano da CHF 30 a CHF 400/mese e richiedono questionario sanitario di adesione." } },
  { '@type': 'Question', name: "Posso cambiare cassa malati LAMal ogni anno?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La LAMal di base si può disdire entro il 30 novembre per cambiare cassa dal 1° gennaio successivo. La disdetta va inviata con raccomandata. Il cambio non comporta esami sanitari (franchise dei premi) perché la LAMal di base è obbligatoria e non discriminante. La LAMal complementare invece può rifiutare l'adesione in base allo stato di salute." } }
  ],
@@ -400,9 +401,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  mainEntity: [
  { '@type': 'Question', name: "Cos'è la CMU e quando si applica ai frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "La CMU (Couverture Maladie Universelle, oggi PUMa — Protection Universelle Maladie) è il sistema sanitario pubblico francese. Si applica ai frontalieri residenti in Francia che lavorano in Svizzera e scelgono il diritto di opzione: invece di pagare la LAMal svizzera si iscrivono al sistema francese con un contributo proporzionale al reddito (circa 8% del reddito netto imponibile)." } },
  { '@type': 'Question', name: "La CMU riguarda anche i frontalieri italiani?", acceptedAnswer: { '@type': 'Answer', text: "No. La CMU è esclusivamente francese. I frontalieri italiani residenti in Italia hanno un'alternativa differente: il diritto di opzione verso il SSN (Servizio Sanitario Nazionale) italiano. La differenza con la Francia è che in Italia il SSN è finanziato tramite fiscalità generale e non richiede un contributo aggiuntivo dedicato." } },
- { '@type': 'Question', name: "Meglio LAMal o SSN per un frontaliere italiano?", acceptedAnswer: { '@type': 'Answer', text: "Dipende dal profilo familiare. LAMal: miglior qualità media, scelta libera di medici e ospedali in Svizzera, costo CHF 270–560/mese per persona. SSN italiano: gratuito o con ticket modesti, ma liste d'attesa più lunghe e copertura solo in Italia (niente cure in Svizzera se non urgenze). Per single sani con reddito alto conviene spesso LAMal; per famiglie numerose conviene SSN." } },
+ { '@type': 'Question', name: "Meglio LAMal o SSN per un frontaliere italiano?", acceptedAnswer: { '@type': 'Answer', text: "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en" } },
  { '@type': 'Question', name: "Come si attiva il diritto di opzione verso il SSN?", acceptedAnswer: { '@type': 'Answer', text: "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
- { '@type': 'Question', name: "Se scelgo il SSN posso farmi curare in Svizzera?", acceptedAnswer: { '@type': 'Answer', text: "Solo per urgenze durante l'orario di lavoro o emergenze in transito. Per cure programmate (visite specialistiche, ricoveri elettivi) bisogna tornare in Italia. Se serve copertura ampia in Svizzera, meglio LAMal o un'assicurazione complementare privata. Alcuni datori di lavoro offrono LAMal convenzionata a prezzi scontati come benefit." } },
+ { '@type': 'Question', name: "Se scelgo il SSN posso farmi curare in Svizzera?", acceptedAnswer: { '@type': 'Answer', text: "Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en" } },
  { '@type': 'Question', name: "Cosa succede se non scelgo entro 3 mesi?", acceptedAnswer: { '@type': 'Answer', text: "Se il frontaliere non esercita il diritto di opzione entro 3 mesi dall'inizio del lavoro, viene iscritto d'ufficio alla LAMal svizzera con una cassa malati a sorte scelta dal Cantone. La scelta LAMal di default può essere costosa: è fortemente consigliato confrontare le casse e scegliere attivamente prima della scadenza dei 3 mesi." } }
  ],
  speakable: SPEAKABLE_SECTION,
@@ -665,10 +666,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  guide: {
  title: 'Guida frontaliere Svizzera 2026: permesso G, tasse e dogana',
  h1: 'Frontalieri Svizzera — guida completa 2026 a permesso G, tasse, dogana e primo giorno',
- description: 'Guida frontalieri Svizzera 2026: permesso G, Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
+ description: 'Guida frontalieri Svizzera 2026: permesso G, tasse, LAMal, dogana, auto e primo giorno. Requisiti, costi e strumenti pratici.',
  keywords: 'frontalieri svizzera, guida frontaliere svizzera, permesso g come ottenerlo, nuovo accordo frontalieri 2026, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera, lamal frontalieri',
  ogTitle: 'Guida frontaliere Svizzera 2026 — permesso G, tasse e dogana',
- ogDescription: 'La guida più completa per frontalieri in Svizzera: permesso G (20 km, 5 anni), Nuovo Accordo fiscale 2026, LAMal, dogana, primo giorno, trasferimento auto. 78.000 frontalieri/giorno.',
+ ogDescription: 'Guida frontalieri Svizzera 2026: permesso G, tasse, LAMal, dogana e auto. Requisiti, costi e checklist pratiche per iniziare.',
  canonicalPath: '/guida-frontaliere/',
  structuredData: [
  {
@@ -1241,7 +1242,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Conviene vivere in Svizzera o in Italia come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dalle priorità: vivere in Svizzera (Permesso B) offre zero pendolarismo, servizi svizzeri e nessuna doppia tassazione, ma costi di vita 40-60% più alti. Vivere in Italia (Permesso G) riduce i costi fissi del 30-45%, mantiene il sistema sanitario SSN e permette di accedere a scuole pubbliche italiane, ma aggiunge 1-2 ore di pendolarismo giornaliero e la complessità fiscale del Nuovo Accordo 2026." } },
  { "@type": "Question", "name": "Quali sono i migliori comuni italiani per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I comuni più scelti dai frontalieri sono quelli entro 20 km dal confine svizzero nelle province di Como, Varese e Verbano-Cusio-Ossola. Comuni come Cantù, Olgiate Comasco, Luino, Lavena Ponte Tresa e Ponte Tresa offrono buoni collegamenti, costi contenuti e servizi per famiglie. La classifica varia in base al valico di riferimento e al luogo di lavoro in Ticino." } },
  { "@type": "Question", "name": "Quanto costa il pendolarismo da frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il costo medio del pendolarismo varia da CHF 200-400/mese in auto (carburante + autostrada + parcheggio) a CHF 100-250/mese con trasporto pubblico (abbonamento TILO/FerrovieNord). Il tempo medio di percorrenza è 45-90 minuti per tratta, con picchi nelle ore di punta ai valichi principali (Chiasso, Stabio, Gaggiolo)." } },
- { "@type": "Question", "name": "Come funziona l'assicurazione sanitaria per i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I frontalieri con Permesso G hanno il diritto d'opzione: possono scegliere la LAMal svizzera (premi da CHF 300-500/mese) o il SSN italiano (contributi INPS molto inferiori). La scelta va fatta entro 3 mesi dall'inizio del lavoro e non può essere modificata liberamente; occorre verificare eventuali nuovi eventi con il Cantone di lavoro. Il SSN è più conveniente ma copre solo in Italia; la LAMal copre in tutta la Svizzera." } }
+ { "@type": "Question", "name": "Come funziona l'assicurazione sanitaria per i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Il SSN è finanziato dalla fiscalità e da trasferimenti pubblici: non è un premio assicurativo confrontabile con “contributi INPS inferiori”. Ticket ed eventuali contributi sanitari dipendono dal regime applicabile, da verificare con l’ASL. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en" } }
  ]
  }
  ]
@@ -1357,10 +1358,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  health: {
  title: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
- description: 'Premi LAMal frontalieri Ticino 2026: da CHF 200/mese (Assura Telmed) a CHF 600/mese. Diritto d\'opzione LAMal vs SSN entro 3 mesi. Confronta 14 casse malati.',
+ description: 'Premi LAMal per residenti in Italia e Svizzera: scegli il Paese di domicilio. Confronta i dati UFSP per età e copertura infortuni.',
  keywords: 'premi lamal frontaliere 2026, casse malati frontaliere ticino, assicurazione sanitaria ticino, premi assicurazione frontalieri, helsana css confronto, swica visana sanitas, franchigia assicurazione svizzera, cassa malati frontalieri, premi lamal ticino',
  ogTitle: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
- ogDescription: 'Premi LAMal frontalieri Ticino 2026: da CHF 200/mese (Assura Telmed) a CHF 600/mese. Scegli tra LAMal e SSN entro 3 mesi dall\'assunzione — confronta 14 casse malati con franchigie da CHF 300 a 2.500.',
+ ogDescription: 'Confronta separatamente i premi UFSP per residenti in Italia e in Svizzera. Il domicilio determina tariffe e modelli disponibili.',
  canonicalPath: '/compara-servizi/confronta-casse-malati/',
  structuredData: [
  {
@@ -1379,10 +1380,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "FAQPage",
  "mainEntity": [
  { "@type": "Question", "name": "I frontalieri devono avere l'assicurazione sanitaria svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, i frontalieri hanno l'obbligo di assicurazione sanitaria LAMal in Svizzera entro 3 mesi dall'inizio del lavoro. In alternativa, possono esercitare il diritto di opzione per restare coperti dal SSN italiano." } },
- { "@type": "Question", "name": "Quanto costa l'assicurazione LAMal per un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I premi mensili in Canton Ticino variano da circa CHF 200 (Assura/Agrisano con modello Telmed e franchigia CHF 2,500) a circa CHF 600 (modello standard con franchigia bassa)." } },
- { "@type": "Question", "name": "Qual è la cassa malati più economica per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Assura e Agrisano offrono generalmente i premi più bassi in Canton Ticino. Con modello Telmed e franchigia CHF 2,500, i premi partono da circa CHF 200/mese per adulti." } },
+ { "@type": "Question", "name": "Quanto costa l'assicurazione LAMal per un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
+ { "@type": "Question", "name": "Qual è la cassa malati più economica per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" } },
  { "@type": "Question", "name": "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
- { "@type": "Question", "name": "Cosa copre l'assicurazione LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal copre cure mediche, ospedaliere e farmaceutiche in Svizzera. Per cure in Italia, serve la carta europea di assicurazione malattia (CEAM). La franchigia annua va da CHF 300 a CHF 2,500." } },
+ { "@type": "Question", "name": "Cosa copre l'assicurazione LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal copre cure mediche, ospedaliere e farmaceutiche in Svizzera. Per cure in Italia, serve la carta europea di assicurazione malattia (CEAM). Per residenti in Italia si applica la franchigia ordinaria CHF300 per adulti e giovani adulti, CHF0 per bambini. Le franchigie opzionali non sono disponibili." } },
  { "@type": "Question", "name": "La LAMal è davvero obbligatoria per tutti i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. Fonte: UFSP, https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera" } },
  { "@type": "Question", "name": "Come cambiare cassa malati frontaliere senza penali?", "acceptedAnswer": { "@type": "Answer", "text": "La disdetta dell'assicurazione base LAMal si può presentare due volte l'anno: entro il 30 novembre con effetto 1° gennaio (modifica franchigia o cambio cassa), o entro il 31 marzo con effetto 1° luglio (solo se il premio aumenta). La comunicazione va inviata per raccomandata con ricevuta di ritorno alla vecchia cassa e occorre aver già sottoscritto con la nuova: la mancanza di copertura anche di un solo giorno è sanzionata. Le assicurazioni complementari hanno disdetta libera con preavviso di 3 mesi al 31/12." } },
  { "@type": "Question", "name": "LAMal o SSN: cosa conviene per la famiglia del frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Per famiglie con bambini il SSN italiano è quasi sempre più conveniente: il diritto di opzione copre anche coniuge e figli a carico senza premio aggiuntivo, mentre con LAMal ogni familiare paga il proprio premio (CHF 270–560/mese adulti, CHF 100–150 bambini). Risparmio annuo tipico per famiglia di 4: CHF 8.000–12.000. Il contro è che le cure in Svizzera con SSN richiedono CEAM e pagamento anticipato (poi rimborsato), mentre con LAMal si va direttamente in ospedale CH. Usa il comparatore LAMal vs SSN per stimare il tuo caso." } }
@@ -2156,11 +2157,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  border: {
- title: 'Traffico Dogana Chiasso 2026: Tempi Attesa Brogeda',
+ title: 'Traffico Dogana Chiasso 2026: Attese e Brogeda Live',
  description: 'Traffico dogana Chiasso 2026: tempi attesa live Brogeda A2, Chiasso Strada e Ponte Chiasso, webcam BAZG e valichi alternativi Gaggiolo e Ponte Tresa.',
  keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera, coda brogeda',
  ogTitle: 'Traffico Dogana Chiasso Brogeda | Tempi di Attesa e Code',
- ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa, code, orari apertura e percorsi alternativi per frontalieri.',
+ ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa live, webcam e valichi alternativi per evitare le code.',
  canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/',
  structuredData: [
  {
@@ -2374,10 +2375,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  unemployment: {
  title: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1 2026',
- description: 'Disoccupazione frontalieri Svizzera: quando serve il PD U1, come chiedere la NASpI in Italia, importi 2026 e passaggi dopo il licenziamento.',
+ description: 'Disoccupazione frontalieri: cosa fare dopo il licenziamento in Svizzera, PD U1, NASpI in Italia, importi 2026 e tempi.',
  keywords: 'disoccupazione frontalieri, naspi frontalieri svizzera, disoccupazione svizzera ALV, PD U1 formulario, indennità disoccupazione frontaliere, naspi italia procedura, assicurazione disoccupazione svizzera, URC ticino, cassa disoccupazione',
  ogTitle: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1',
- ogDescription: 'Cosa fare dopo il licenziamento in Svizzera: PD U1, NASpI Italia, importi 2026 e tempi pratici.',
+ ogDescription: 'Licenziamento in Svizzera? PD U1, NASpI Italia, importi e passaggi pratici per i frontalieri.',
  canonicalPath: '/guida-frontaliere/disoccupazione-transfrontaliera/',
  structuredData: [
  {
@@ -2738,11 +2739,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'border-map': {
- title: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino',
- description: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.',
+ title: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live',
+ description: 'Mappa interattiva confine Svizzera-Italia: valichi del Ticino, tempi di attesa live, webcam e comuni italiani entro 20 km.',
  keywords: 'mappa valichi ticino, mappa dogane svizzera italia, valichi confine ticino, chiasso brogeda mappa, gaggiolo ponte tresa mappa, webcam valichi confine, tempi attesa dogane ticino, comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
- ogTitle: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino',
- ogDescription: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.',
+ ogTitle: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live',
+ ogDescription: 'Mappa interattiva del confine Svizzera-Italia: valichi, tempi live, webcam e comuni di frontiera.',
  canonicalPath: '/guida-frontaliere/mappa-confine/',
  h1: 'Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF',
  structuredData: [
@@ -2950,11 +2951,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  carTransfer: {
- title: 'Trasferire Auto in Svizzera 2026: Dogana, Targhe e Costi',
- description: 'Trasferire l\'auto in Svizzera 2026: sdoganamento BAZG, collaudo MFK, targhe svizzere, cambio patente e assicurazione RC obbligatoria. Passaggi e costi reali.',
+ title: 'Importare Auto in Svizzera 2026: Dogana, Targhe e Costi',
+ description: 'Importare un\'auto in Svizzera 2026: dogana BAZG, collaudo MFK, targhe, patente e RC. Passaggi e costi reali.',
  keywords: 'trasferire auto svizzera, immatricolare auto ticino, targhe svizzere, cambio patente svizzera, dogana veicolo, MFK collaudo, assicurazione auto svizzera, PRA radiazione',
- ogTitle: 'Trasferire Auto in Svizzera | Guida Completa',
- ogDescription: '🚗 Come immatricolare la tua auto in Svizzera: dogana, targhe TI, cambio patente, assicurazione RC e costi.',
+ ogTitle: 'Importare Auto in Svizzera | Guida Completa',
+ ogDescription: 'Come importare l\'auto in Svizzera: dogana, targhe, patente, assicurazione RC e costi.',
  canonicalPath: '/guida-frontaliere/trasferire-auto-svizzera/',
  structuredData: [
  {
@@ -3367,7 +3368,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Meglio scegliere LAMal svizzera o SSN italiano come assicurazione?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Dipende dalla situazione personale. La LAMal costa circa CHF 400-600/mese ma copre cure in Svizzera senza lunghe attese. Il SSN italiano è gratuito (o quasi) ma non copre le cure urgenti in Svizzera. Il diritto d'opzione va esercitato entro 3 mesi dall'inizio del lavoro e la scelta non può essere modificata liberamente; verifica eventuali nuovi eventi con il Cantone di lavoro."
+ "text": "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en"
  }
  },
  {
@@ -3721,7 +3722,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cos'è la LAMal e come funziona per i frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La LAMal è l'assicurazione malattia obbligatoria svizzera. I frontalieri possono scegliere tra LAMal (copertura svizzera) e il SSN italiano. Con la LAMal si ha accesso al sistema sanitario svizzero con franchigie e modelli assicurativi (base, HMO, telmed). La scelta va fatta entro 3 mesi dall'inizio del lavoro. Come spiega Laura Mantovani, broker assicurativo LAMal: «Per chi ha famiglia in Italia, il SSN è spesso più conveniente, mentre la LAMal offre un accesso più rapido alle cure in Svizzera»."
+ "text": "Per i residenti in Italia assicurati LAMal si applicano premi del Paese di domicilio, modello standard e franchigia ordinaria; HMO, Telmed e franchigie opzionali non sono disponibili. Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://www.bag.admin.ch/it/cure-allestero-per-gli-assicurati-che-vivono-allestero"
  }
  },
  {
@@ -6478,7 +6479,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto costa l'assicurazione sanitaria LAMal per i frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I premi LAMal per frontalieri in Canton Ticino variano da 270 a 560 CHF/mese nel 2026, in base all'assicuratore e al modello scelto. Le opzioni piu economiche sono Assura e Agrisano con modello Telmed (circa 270-300 CHF/mese). I frontalieri hanno 3 mesi dall'inizio del lavoro per scegliere tra LAMal svizzera e SSN italiano (diritto d’opzione soggetto a verifica cantonale)."
+ "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  }
  },
  {
@@ -6836,18 +6837,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'correzioni': {
  title: 'Correzioni — Politica di rettifica e registro pubblico | Frontaliere Ticino',
- description: 'Politica di correzione di Frontaliere Ticino: SLA 48 ore, tipologie accettate (errore fattuale, refuso, chiarimento) e registro pubblico cronologico delle rettifiche.',
+ description: 'Come segnalare un errore a Frontaliere Ticino e consultare le rettifiche presenti nel registro pubblico.',
  keywords: 'correzioni frontaliere ticino, errata corrige, rettifica articolo, policy correzione, trasparenza editoriale',
  ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
- ogDescription: 'Come segnaliamo e registriamo le correzioni: SLA 48 ore, tipologie accettate, registro pubblico cronologico.',
+ ogDescription: 'Come segnalare un errore e consultare le rettifiche presenti nel registro pubblico.',
  canonicalPath: '/correzioni/',
- // staticPagesPlugin.ts text-parses this literal at build time (regex +
- // JSON.parse, not a real JS import) — cannot reference buildCorrezioniSeo()
- // here. That builder (services/seo/seo-correzioni.ts) mirrors this exact
- // shape for the client-rendered copy in Correzioni.tsx and additionally
- // computes `lastReviewed` from the real corrections log, which this static
- // literal deliberately omits (no safe way to keep it fresh without either
- // a stale hand-bumped date or the BUILD_DATE_ISO false-freshness bug).
+ // Italian metadata is parsed from this registry. Non-Italian static pages
+ // and the React page use buildCorrezioniSeo(locale), sharing localized copy.
+ // This literal omits lastReviewed; the builder adds only a recorded log date.
  structuredData: [
  {
  "@context": "https://schema.org",
@@ -6868,10 +6865,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'metodologia': {
  title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
- description: "Pipeline editoriale Frontaliere Ticino: bozze IA, revisione redazionale, fonti primarie (AFC, UST, AdE), politica di aggiornamento e correzioni.",
+ description: "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
  keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
  ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
- ogDescription: 'Come usiamo IA generativa, fonti primarie e revisione redazionale per garantire accuratezza e trasparenza.',
+ ogDescription: 'Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.',
  canonicalPath: '/metodologia/',
  // SearchAtlas "missing schema markup" (2026-06-15): this editorial-process
  // page is an About page (mirrors the /about/ alias which already uses
@@ -6885,7 +6882,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "AboutPage",
  "name": "Metodologia editoriale — Come scriviamo gli articoli",
  "url": `${BASE_URL}/metodologia/`,
- "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
+ "description": "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
  "lastReviewed": "2026-10-03T00:00:00+02:00",
  "inLanguage": "it",
  "isPartOf": { "@id": `${BASE_URL}/#website` },
@@ -7025,12 +7022,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ───────────────────────────────────────────────────────────────
 
  'tassa-salute-frontalieri': {
- title: 'Tassa Salute Frontalieri 2026: Regole e Importi',
+ title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
  h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
- description: 'Contributo SSN frontalieri: soggetti previsti dalla legge, quota sul salario netto, diritto di opzione e provvedimenti regionali per il 2026.',
+ description: 'Tassa salute frontalieri 2026: chi paga il contributo SSN, come si calcola il 3–6% sul salario netto e perché importi e scadenze dipendono dalla Regione.',
  keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
- ogDescription: 'Contributo sanitario italiano: regole nazionali, vecchi frontalieri e opzione SSN, importi e applicazione territoriale.',
+ ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',
  canonicalPath: '/guida-frontaliere/tassa-salute-frontalieri/',
  structuredData: [
  {
@@ -7104,12 +7101,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'lamal-frontalieri': {
- title: 'LAMal frontalieri 2026: premi e diritto d\'opzione',
+ title: 'LAMal Frontalieri 2026: Premi, Costi e Diritto d\'Opzione',
  h1: 'LAMal frontalieri 2026 — diritto d\'opzione, premi, casse malati, come scegliere',
- description: 'LAMal frontalieri 2026: diritto d\'opzione tra assicurazione svizzera e SSN italiano, premi delle 14 casse malati Ticino, franchigie, rimborsi e scadenze.',
+ description: 'LAMal frontalieri 2026: premi, costo mensile e diritto d\'opzione tra assicurazione svizzera e SSN. Confronto casse malati e scadenze.',
  keywords: 'lamal frontalieri, assicurazione malattia frontalieri, casse malati frontalieri, diritto di opzione lamal, premi lamal ticino, franchigia lamal, SSN o lamal frontalieri',
- ogTitle: 'LAMal Frontalieri 2026 — Guida Completa Diritto d\'Opzione',
- ogDescription: '🏥 Guida pillar alla LAMal per frontalieri: diritto d\'opzione, confronto casse malati Ticino, premi 2026, franchigie e come scegliere tra LAMal e SSN.',
+ ogTitle: 'LAMal Frontalieri 2026 — Premi e Diritto d\'Opzione',
+ ogDescription: 'LAMal frontalieri 2026: premi, diritto d\'opzione e confronto con il SSN italiano.',
  canonicalPath: '/guida-frontaliere/lamal-frontalieri/',
  structuredData: [
  {
@@ -7142,7 +7139,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto costa la LAMal a un frontaliere nel 2026?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il premio LAMal per frontalieri residenti in Italia e attivi nel Canton Ticino nel 2026 va da circa CHF 280 a CHF 650 al mese per adulto, a seconda della cassa malati scelta, della franchigia (da CHF 300 a CHF 2.500) e del modello assicurativo (standard, medico di famiglia, telemedicina, HMO). Le 14 casse malati autorizzate per i frontalieri Ticino comprendono Helsana, Swica, CSS, Sanitas, KPT, Visana, Sympany, Atupri, ÖKK, Concordia, Sodalis, EGK, SLKK e Rhenusana."
+ "text": "Per i frontalieri residenti in Italia valgono i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella ufficiale UFSP 2026 per l’Italia riporta 14 assicuratori e premi distinti per età e infortuni. Per adulti da 26 anni, senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20; la franchigia ordinaria è CHF 300 (CHF 0 per bambini). Non si possono scegliere franchigie opzionali o modelli HMO/Telmed. Fonte: https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf"
  }
  },
  {
@@ -7150,7 +7147,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Meglio scegliere LAMal o SSN italiano come frontaliere?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Dipende dall'uso che si fa del sistema sanitario. LAMal: premi CHF 280-650/mese ma accesso rapido a strutture svizzere, copertura su medico di famiglia, farmacia, ospedale pubblico e privato. SSN italiano: sostanzialmente gratuito, liste di attesa più lunghe, copertura limitata in Svizzera (solo cure urgenti). Chi lavora oltre 20 km dal confine, ha famiglia con figli in età scolare o condizioni croniche di salute beneficia tipicamente di più dalla LAMal; chi ha buona salute e usa poco il sistema tende a scegliere SSN."
+ "text": "Il diritto di opzione dipende da cittadinanza e domicilio. Chi ne beneficia e sceglie il SSN deve chiedere formalmente l’esenzione alla competente autorità del Cantone di lavoro entro tre mesi dall’inizio del contratto; la sola iscrizione al SSN non basta. La scelta non si modifica liberamente: eventuali nuovi eventi vanno verificati con il Cantone. Durante un soggiorno temporaneo in Svizzera, chi ha diritto a usare la TEAM può ricevere cure medicalmente necessarie nel sistema pubblico, tenendo conto della natura delle cure e della durata del soggiorno, alle condizioni e ai costi previsti per gli assicurati locali. Non si tratta soltanto di emergenze e non è garantita la gratuità. La TEAM non copre viaggi effettuati per ricevere cure programmate, cure private o rimpatrio; le cure programmate e la copertura nel Paese di residenza seguono procedure distinte da verificare prima con ASL e assicuratore. L’ammissibilità dipende anche da affiliazione e cittadinanza: non basta presumere che ogni tessera sia utilizzabile in Svizzera. Gli assicurati LAMal domiciliati in Italia ricevono dalla cassa malati il modulo S1, da registrare presso l’istituzione sanitaria competente in Italia, per accedere alle prestazioni secondo le regole del Paese di domicilio. https://employment-social-affairs.ec.europa.eu/policies-and-activities/moving-working-europe/eu-social-security-coordination/european-health-insurance-card_en"
  }
  },
  {
@@ -7735,166 +7732,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
   // ─── Author profile pages (Google News A1 — E-E-A-T) ─────────────────────
-  // Each /autori/{slug}/ page renders the AutorePage component, with inline
-  // Person JSON-LD generated at runtime by services/seo/seo-authors.ts. The
-  // duplicate JSON-LD here lets the staticPagesPlugin embed the same schema
-  // into the build-time HTML so crawlers see it without executing JS.
-  // NOTE: blank line above is REQUIRED — see staticPagesPlugin parser regex.
-
-  'autore-marco-ferrari': {
-    title: 'Marco Ferrari — Esperto fiscalità frontaliera | Frontaliere Ticino',
-    description: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri.",
-    keywords: 'marco ferrari, autore, fiscalità frontaliera, 730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026',
-    ogTitle: 'Marco Ferrari — Esperto fiscalità frontaliera',
-    ogDescription: 'Profilo dell\'autore Marco Ferrari su Frontaliere Ticino: 730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026.',
-    canonicalPath: '/autori/marco-ferrari/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Marco Ferrari — Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/marco-ferrari/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/marco-ferrari/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/marco-ferrari/#person`,
-        "name": "Marco Ferrari",
-        "image": `${BASE_URL}/images/authors/marco-ferrari.jpg`,
-        "jobTitle": "Esperto fiscalità frontaliera",
-        "description": "Specialista in fiscalità transfrontaliera Italia-Svizzera, dichiarazione 730/Redditi PF, imposta alla fonte ticinese e nuovo accordo 2026.",
-        "url": `${BASE_URL}/autori/marco-ferrari/`,
-        "sameAs": ["https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/"],
-        "knowsAbout": [
-          "fiscalità frontaliera",
-          "730",
-          "dichiarazione redditi",
-          "imposta alla fonte",
-          "accordo Italia-Svizzera 2026"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
-
-  'autore-samuele-valente': {
-    title: 'Samuele Valente — Fiscalità transfrontaliera | Frontaliere Ticino',
-    description: "Samuele Valente è un professionista esperto di fiscalità internazionale e transfrontaliera tra Italia e Svizzera, autore ospite di Frontaliere Ticino.",
-    keywords: 'samuele valente, autore, fiscalità transfrontaliera, accordo Italia-Svizzera, interpelli agenzia delle entrate, residenza fiscale, frontalieri',
-    ogTitle: 'Samuele Valente — Fiscalità transfrontaliera Italia-Svizzera',
-    ogDescription: "Profilo dell'autore ospite Samuele Valente su Frontaliere Ticino: prassi dell'Agenzia delle Entrate, accordo Italia-Svizzera e fiscalità dei frontalieri.",
-    canonicalPath: '/autori/samuele-valente/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Samuele Valente — Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/samuele-valente/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/samuele-valente/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/samuele-valente/#person`,
-        "name": "Samuele Valente",
-        "image": `${BASE_URL}/images/authors/samuele-valente.webp`,
-        "jobTitle": "Autore ospite — fiscalità transfrontaliera",
-        "description": "Esperto di fiscalità internazionale e transfrontaliera Italia-Svizzera: prassi dell'Agenzia delle Entrate, accordo sui frontalieri e residenza fiscale.",
-        "url": `${BASE_URL}/autori/samuele-valente/`,
-        "sameAs": ["https://www.linkedin.com/in/samuele-valente-9b8a4335b/"],
-        "knowsAbout": [
-          "fiscalità transfrontaliera",
-          "accordo Italia-Svizzera",
-          "interpelli Agenzia delle Entrate",
-          "residenza fiscale",
-          "frontalieri"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
-
-  'autore-laura-bianchi': {
-    title: 'Laura Bianchi — Specialista previdenza svizzera | Frontaliere Ticino',
-    description: "Laura Bianchi è specialista in previdenza sociale svizzera (AVS, LPP, LAMal) applicata ai lavoratori frontalieri italiani in Canton Ticino.",
-    keywords: 'laura bianchi, autore, previdenza svizzera, AVS, LPP, LAMal, pensioni frontaliere, terzo pilastro',
-    ogTitle: 'Laura Bianchi — Specialista previdenza svizzera',
-    ogDescription: 'Profilo dell\'autrice Laura Bianchi su Frontaliere Ticino: AVS, LPP, LAMal, pensioni e assicurazioni sociali svizzere.',
-    canonicalPath: '/autori/laura-bianchi/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Laura Bianchi — Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/laura-bianchi/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/laura-bianchi/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/laura-bianchi/#person`,
-        "name": "Laura Bianchi",
-        "image": `${BASE_URL}/images/authors/laura-bianchi.jpg`,
-        "jobTitle": "Specialista previdenza svizzera",
-        "description": "Specialista in previdenza sociale svizzera applicata ai frontalieri: AVS, LPP, LAMal, terzo pilastro 3a/3b.",
-        "url": `${BASE_URL}/autori/laura-bianchi/`,
-        "sameAs": ["https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/"],
-        "knowsAbout": [
-          "AVS",
-          "LPP",
-          "LAMal",
-          "pensioni",
-          "assicurazioni sociali svizzere"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
-
-  'autore-redazione': {
-    title: 'Redazione Frontaliere Ticino — Team editoriale | Frontaliere Ticino',
-    description: "La Redazione di Frontaliere Ticino: team editoriale dedicato a lavoro frontaliere, salari, trasporti transfrontalieri e dogana.",
-    keywords: 'redazione frontaliere ticino, team editoriale, lavoro frontaliere, salari ticino, trasporti transfrontalieri, dogana',
-    ogTitle: 'Redazione Frontaliere Ticino — Team editoriale',
-    ogDescription: 'La Redazione editoriale di Frontaliere Ticino: lavoro, salari, trasporti e dogana per i frontalieri italiani in Canton Ticino.',
-    canonicalPath: '/autori/redazione/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Redazione Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/redazione/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/redazione/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/redazione/#person`,
-        "name": "Redazione Frontaliere Ticino",
-        "image": `${BASE_URL}/images/authors/redazione.jpg`,
-        "jobTitle": "Team editoriale",
-        "description": "Team editoriale di Frontaliere Ticino: copertura quotidiana di lavoro, salari, trasporti transfrontalieri e dogana per i frontalieri italiani in Ticino.",
-        "url": `${BASE_URL}/autori/redazione/`,
-        "sameAs": ["https://www.linkedin.com/company/frontaliere-ticino/"],
-        "knowsAbout": [
-          "lavoro frontaliere",
-          "salari",
-          "trasporti transfrontalieri",
-          "dogana"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
+  // Derived from the registry (data/authors.ts), never copied by hand: the
+  // copies that lived here kept the superseded expertise text after the
+  // registry was corrected (PR 11327). The SPA, the static build
+  // (build-plugins/shared/authorEditorial.ts) and llms.txt all read the same
+  // resolver, services/seo/authorProfileMetadata.ts. Guard:
+  // tests/author-metadata-single-source.test.ts.
+  ...authorSeoPageEntries(),
 
 };
 
