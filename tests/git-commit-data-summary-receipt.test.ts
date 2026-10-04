@@ -21,6 +21,9 @@
 //     commit path turned these three into e7d7f8760f3 byte for byte: newCount
 //     0 with 2 newJobs, removedCount 0 with 8 removedJobs, the same ids both
 //     new and updated.
+// Their absolute 2026-10 dates are deliberate and clock-independent: the
+// selector only compares the two generatedAt values with each other, and
+// nothing on the summary commit path compares them with the current clock.
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
