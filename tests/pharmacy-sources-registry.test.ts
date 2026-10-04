@@ -273,8 +273,11 @@ describe('audit verdict', () => {
   /**
    * Non-active cantons whose source could not be read on audit day. A network
    * error or a bot challenge is not a verdict, so they stay without `audit`
-   * (#8705 keeps them open). Remove a key in the same change that records its
-   * audit; no other exclusion is allowed.
+   * (#8705 keeps them open). The retry is tracked by item FU-2026-09-15-009 of
+   * #8705 and by the PR body line `blocked: <canton> irraggiungibile`; the
+   * data-health monitor keeps listing them under `unaudited` until then.
+   * Remove a key in the same change that records its audit; no other
+   * exclusion is allowed.
    */
   const UNREACHABLE_ON_AUDIT: Record<string, string> = {
     'basel-landschaft': 'baselland.ch answers HTTP 403 with a Cloudflare challenge (2026-10-04)',
