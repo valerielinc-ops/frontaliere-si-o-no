@@ -12498,6 +12498,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.workshop-difesa-bullismo.title': 'Travedona Monate : self-défense et harcèlement scolaire',
     'blog.article.workshop-difesa-bullismo.excerpt': 'Samedi 10 octobre, de 9:00 à 13:30, atelier gratuit de self-défense à Travedona Monate axé sur le harcèlement scolaire.',
     'blog.article.workshop-difesa-bullismo.imageAlt': 'Atelier gratuit d\'autodéfense dans le gymnase de l\'école secondaire de Travedona Monate',
+    'blog.article.nuovo-teatro-mutuo-2026.title': 'Varese approuve un emprunt de 10,8 millions pour le nouveau théâtre',
+    'blog.article.nuovo-teatro-mutuo-2026.excerpt': 'Le Conseil municipal a approuvé la modification budgétaire qui porte l\'investissement à environ 22 millions, avec un emprunt auprès de Cassa Depositi e Prestiti de 10,8 millions.',
+    'blog.article.nuovo-teatro-mutuo-2026.imageAlt': 'Rendering du nouveau théâtre de Varese avec les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

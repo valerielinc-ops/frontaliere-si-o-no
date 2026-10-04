@@ -12496,6 +12496,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.workshop-difesa-bullismo.title': 'Travedona Monate: self-defense and bullying',
     'blog.article.workshop-difesa-bullismo.excerpt': 'Saturday, October 10, from 9:00 to 13:30, free self-defense workshop in Travedona Monate with a focus on bullying.',
     'blog.article.workshop-difesa-bullismo.imageAlt': 'Free self-defense workshop in the middle school gym in Travedona Monate',
+    'blog.article.nuovo-teatro-mutuo-2026.title': 'Varese approves 10,8 million loan for the new theater',
+    'blog.article.nuovo-teatro-mutuo-2026.excerpt': 'The City Council approved the budget adjustment that brings the investment to approximately 22 million, with a loan from Cassa Depositi e Prestiti of 10,8 million.',
+    'blog.article.nuovo-teatro-mutuo-2026.imageAlt': 'Rendering of the new Varese theatre with mountains in the background',
 };
 
 export default blogMetaEn;
