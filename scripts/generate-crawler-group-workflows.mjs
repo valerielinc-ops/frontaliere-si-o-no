@@ -106,6 +106,7 @@ import {
   registeredCorpusSitePaths,
 } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from './lib/crawler-generation-runtime-paths.mjs';
+import { memberCrawlExitFileName } from './crawler-group-generation-finalizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -728,6 +729,33 @@ const RUNNER_SHUTDOWN_EXIT = 143;
 // timeout, not the generic status 1 that used to erase the distinction in the
 // durable crawler status and aggregate summary.
 const TARGET_TIMEOUT_EXIT = 124;
+// CR-04b — the exit of the CRAWL alone, for the delivery verdict. The worker
+// records `<slug>.status` = exit of the whole member body, which is 1 both for
+// a failed crawl and for a crawl that succeeded but whose commit descriptor
+// failed (and 43 for the shared precondition): nothing told the two apart, so
+// the finalizer (readMemberCrawlOutcomes in
+// scripts/crawler-group-generation-finalizer.mjs) could not separate
+// «crawl failed» from «crawl fine, delivery lost». The worker exports the
+// target path (keyed by the roster crawler id, memberCrawlExitFileName) and
+// the body writes `crawler_exit` there atomically right after capturing it.
+// Unset variable (body run by hand, test fixture without an id) = no file,
+// which the reader treats as `unknown` (fail closed). A failed write never
+// changes the body's exit: `crawler_exit` is already captured and nothing
+// below reads `$?` from this block.
+const MEMBER_CRAWL_EXIT_FILE_ENV = 'CRAWLER_MEMBER_CRAWL_EXIT_FILE';
+function recordMemberCrawlExitLines(slug, exitExpression) {
+  const target = `\${${MEMBER_CRAWL_EXIT_FILE_ENV}}`;
+  return [
+    // `:-`: the body runs under `set -u`, where an unset variable is fatal.
+    `if [ -n "\${${MEMBER_CRAWL_EXIT_FILE_ENV}:-}" ]; then`,
+    `  crawl_exit_tmp="${target}.tmp.$$"`,
+    `  if ! { printf '%s\\n' "${exitExpression}" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${target}"; } 2>/dev/null; then`,
+    '    rm -f "$crawl_exit_tmp" 2>/dev/null',
+    `    echo "::warning::${slug}: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"`,
+    '  fi',
+    'fi',
+  ];
+}
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
 // reports EXCEPT the four systemic classes, which are not per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
@@ -841,6 +869,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
   work.push(crawler.runStep.run.trimEnd());
   work.push('crawler_exit=$?');
+  work.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
   work.push('git_commit_exit=0');
   work.push('');
 
@@ -882,6 +911,13 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
   );
   outer.push('target_exit=$?');
+  // The deadline killed the work phase before it recorded the crawl exit:
+  // the crawl itself never finished, so it counts as a failed crawl (124).
+  // A file already present means the crawl had finished (0 = crawl fine, the
+  // commit is what overran): keep it, that is a delivery loss, not a crawl one.
+  outer.push(`if [ "$target_exit" -eq ${TARGET_TIMEOUT_EXIT} ] && [ -n "\${${MEMBER_CRAWL_EXIT_FILE_ENV}:-}" ] && [ ! -e "\${${MEMBER_CRAWL_EXIT_FILE_ENV}}" ]; then`);
+  outer.push(...recordMemberCrawlExitLines(crawler.slug, '$target_exit').map((line) => `  ${line}`));
+  outer.push('fi');
   outer.push('if [ "$target_exit" -eq 124 ]; then');
   outer.push(`  echo "::error::${crawler.slug}: target exceeded ${timeoutMinutes} minute wall timeout"`);
   outer.push(`  if [ -n "${'$'}{GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ ${crawler.slug}: target timed out after ${timeoutMinutes} minutes" >> "$GITHUB_STEP_SUMMARY"; fi`);
@@ -982,6 +1018,7 @@ export function buildCrawlerShellBody(crawler) {
   lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
   lines.push(crawler.runStep.run.trimEnd());
   lines.push(`crawler_exit=$?`);
+  lines.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
   // Default to 0 (no commit attempted / not yet run): if the crawl step
   // fails, the commit step below is skipped entirely (matching original
   // per-crawler behavior), so there is no commit failure to report in that
@@ -1135,12 +1172,21 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   const nn = String(groupIndex).padStart(2, '0');
   const slug = crawler.slug;
   const body = buildCrawlerShellBody(crawler);
+  // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
+  // receipts carry), not by the slug: for the step-id overrides the two differ
+  // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
+  const crawlExitFileName = memberCrawlExitFileName(
+    buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE,
+  );
   const worker = [
     'set +e',
     `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
     `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    crawlExitFileName === null
+      ? `unset ${MEMBER_CRAWL_EXIT_FILE_ENV}`
+      : `export ${MEMBER_CRAWL_EXIT_FILE_ENV}="$RUNNER_TEMP/crawler-generation/group-${nn}/${crawlExitFileName}"`,
     ': > "$started_file"',
     'bash "$script_path"',
     'crawler_exit=$?',
@@ -1240,6 +1286,8 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `started_path="$state_dir/${slug}.started"`,
     `watchdog_path="$state_dir/${slug}.watchdog"`,
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
+    // A leftover crawl-exit would be positive proof this launch never gave.
+    ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
     '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
     '# shellcheck disable=SC2016,SC1003',

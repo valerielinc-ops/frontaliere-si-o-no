@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
@@ -751,6 +752,125 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
   });
 
+  // ── OSSERVATORE CR-04b: l'exit del SOLO crawl ─────────────────────────────
+  //
+  // Se scatta: «Gruppo crawler: l'exit del solo crawl non viene più scritto —
+  // il gate di consegna torna cieco fra crawl fallito e consegna fallita».
+  // L'exit del corpo (`.status`) è 1 sia per un crawl fallito sia per un crawl
+  // riuscito il cui descrittore di commit è fallito: solo `.crawl-exit` li
+  // distingue per readMemberCrawlOutcomes nel finalizer.
+  describe('member crawl exit signal (CR-04b)', () => {
+    function runBodyWithCrawlExitFile(body: string, crawlExitFile: string | null) {
+      const env: NodeJS.ProcessEnv = { ...process.env };
+      delete env.CRAWLER_MEMBER_CRAWL_EXIT_FILE;
+      if (crawlExitFile !== null) env.CRAWLER_MEMBER_CRAWL_EXIT_FILE = crawlExitFile;
+      try {
+        const stdout = execFileSync('bash', ['-c', body], { encoding: 'utf8', env });
+        return { exitCode: 0, stdout };
+      } catch (err: any) {
+        return { exitCode: err.status ?? 1, stdout: err.stdout ?? '' };
+      }
+    }
+    const readCrawlExit = (file: string) => fs.readFileSync(file, 'utf8');
+
+    it('crawl exits 2 -> crawl-exit records 2, body exits 1', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ runCommand: "bash -c 'exit 2'", commitCommand: writeFixtureCommitScript(0) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('2\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('crawl succeeds, deferred commit exits 1 -> crawl-exit records 0 while the body stays red', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(1) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('crawl succeeds, shared precondition exits 43 -> crawl-exit records 0, body keeps 43', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(43) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(43);
+    });
+
+    it('timed variant: the inner work phase records the crawl exit too', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = {
+        ...crawlerFixture({ commitCommand: writeFixtureCommitScript(1) }),
+        targetTimeoutMinutes: 30,
+      };
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('timed variant: a crawl killed by the target deadline records 124', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = {
+        ...crawlerFixture({ commitCommand: writeFixtureCommitScript(0) }),
+        targetTimeoutMinutes: 30,
+      };
+      process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('124\n');
+      expect(exitCode).toBe(124);
+    });
+
+    it('timed variant: a deadline after a finished crawl keeps the recorded crawl exit', () => {
+      // The crawl finished (0) and only the commit overran: that is a lost
+      // delivery, not a failed crawl, so the outer fallback must not turn it
+      // into 124. Modelled by a file the work phase already wrote.
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      fs.writeFileSync(crawlExitFile, '0\n');
+      const crawler = { ...crawlerFixture(), targetTimeoutMinutes: 30 };
+      process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(124);
+    });
+
+    it.each([
+      ['untimed', {}],
+      ['timed', { targetTimeoutMinutes: 30 }],
+    ])('%s body run by hand (variable unset) writes nothing and keeps its exit', (_label, extra) => {
+      const crawler = { ...crawlerFixture({ commitCommand: writeFixtureCommitScript(1) }), ...extra };
+      const before = fs.readdirSync(tmpDir).sort();
+
+      const { exitCode, stdout } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), null);
+
+      expect(exitCode).toBe(1);
+      expect(fs.readdirSync(tmpDir).sort()).toEqual(before);
+      expect(stdout).not.toContain('could not record the crawl exit');
+    });
+
+    it('an unwritable target warns but never changes the body exit', () => {
+      const crawlExitFile = path.join(tmpDir, 'missing-dir', 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(0) });
+
+      const { exitCode, stdout } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(exitCode).toBe(0);
+      expect(stdout).toContain('could not record the crawl exit');
+      expect(fs.existsSync(crawlExitFile)).toBe(false);
+    });
+  });
+
   it('rejects an invalid target timeout instead of silently falling back to the group limit', () => {
     const crawler = {
       ...crawlerFixture(),
@@ -920,6 +1040,100 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
     expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 320 })).toBe(330);
     expect(crawlerWorkerWatchdogMinutes({ durationMs: 60 * 60 * 1000 })).toBe(180);
     expect(crawlerWorkerWatchdogMinutes({ durationMs: 0 })).toBe(330);
+  });
+});
+
+describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader)', () => {
+  // Real launcher -> worker -> body chain, read back by the finalizer's own
+  // reader. flock/setsid/timeout are shimmed so this runs on macOS too: the
+  // semaphore and the watchdog are not what is under test, the file key and
+  // its contents are.
+  function launchMember(runCommand: string, commitExit: number) {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-crawl-exit-'));
+    const bin = path.join(temp, 'bin');
+    fs.mkdirSync(bin);
+    fs.writeFileSync(path.join(bin, 'flock'), [
+      '#!/usr/bin/env bash',
+      'while [[ "${1:-}" == -* ]]; do shift; done',
+      'shift',
+      'if [ "${1:-}" = "-c" ]; then exec bash -c "$2"; fi',
+      'exec "$@"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    fs.writeFileSync(path.join(bin, 'setsid'), '#!/usr/bin/env bash\nexec "$@"\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(bin, 'timeout'), [
+      '#!/usr/bin/env bash',
+      'while [[ "${1:-}" == --* ]]; do shift; done',
+      'shift',
+      'exec "$@"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    const lib = path.join(temp, 'lib');
+    fs.mkdirSync(lib);
+    fs.writeFileSync(path.join(lib, 'git-commit-data.sh'), `#!/usr/bin/env bash\nexit ${commitExit}\n`, { mode: 0o755 });
+    // Slug and roster id differ on purpose (the group-07 `guess` /
+    // `guess-europe` shape): the file must be keyed by the roster id.
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'acme',
+      durationMs: 60_000,
+      runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'acme-europe' }, run: runCommand },
+      postSteps: [
+        { name: 'Commit and push', env: {}, run: `bash ${lib}/git-commit-data.sh` },
+      ],
+    } as any, 15);
+    execFileSync('bash', ['-e', '-c', body], {
+      env: { ...process.env, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
+      encoding: 'utf8',
+    });
+    const stateDir = memberCrawlStateDir(temp, '15');
+    const statusFile = path.join(stateDir, 'acme.status');
+    const deadline = Date.now() + 20_000;
+    while (!fs.existsSync(statusFile) && Date.now() < deadline) execFileSync('sleep', ['0.1']);
+    return { temp, stateDir, statusFile };
+  }
+
+  it('failed crawl: status 1, crawl-exit keyed by the roster id, reader says crawl_failed', () => {
+    const { temp, stateDir, statusFile } = launchMember("bash -c 'exit 2'", 0);
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(fs.readFileSync(path.join(stateDir, 'acme-europe.crawl-exit'), 'utf8')).toBe('2\n');
+      expect(fs.existsSync(path.join(stateDir, 'acme.crawl-exit'))).toBe(false);
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_failed' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('crawl fine, commit descriptor failed: status 1 but reader says crawl_ok (delivery loss stays visible)', () => {
+    const { temp, stateDir, statusFile } = launchMember('true', 1);
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_ok' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('every committed corpus group exports one crawl-exit file per expected roster crawler', () => {
+    const corpusDir = path.resolve(import.meta.dirname, '../.github/corpus-workflows');
+    const files = fs.readdirSync(corpusDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file));
+    expect(files.length).toBeGreaterThan(0);
+    for (const file of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(corpusDir, file), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      const finalizer = job.steps.find((step: any) => step.id === 'crawler-generation-finalizer');
+      expect(finalizer, file).toBeDefined();
+      const group = finalizer.env.CRAWLER_GENERATION_GROUP;
+      const expected = JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)
+        .map((entry: any) => entry.crawlerId).sort();
+      const exported = crawlerLaunchSteps(job.steps).map((step: any) => {
+        const match = String(step.run).match(
+          new RegExp(`export CRAWLER_MEMBER_CRAWL_EXIT_FILE="\\$RUNNER_TEMP/crawler-generation/group-${group}/([^"/]+)\\.crawl-exit"`),
+        );
+        return match?.[1] ?? null;
+      }).sort();
+      expect(exported, file).toEqual(expected);
+    }
   });
 });
 
