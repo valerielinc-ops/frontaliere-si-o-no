@@ -146,6 +146,12 @@ const sourceTreeLintTests = new Map([
   ['tests/listing-url-fallback-audit.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
   // Legge sia i parser sia gli `update-*-jobs.mjs` al primo livello di scripts/.
   ['tests/bespoke-crawler-slug-boundary.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/[^/]+-job-parser\.mjs)$/],
+  // Il ratchet a due lati dei runner senza contatori conta gli
+  // `update-*-jobs.mjs` leggendoli da disco (piu' il template, letto per
+  // testo): il diff che strumenta, aggiunge o toglie un runner non tocca nessun
+  // import del test. Senza questa voce il budget restava stantio sulla PR che
+  // cambia il conteggio e il rosso `RATCHET STALE` cadeva sulla PR successiva.
+  ['tests/crawler-zero-path-contract.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/crawler-template\.mjs)$/],
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
@@ -156,6 +162,11 @@ const sourceTreeLintTests = new Map([
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
   ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
+  // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
+  // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
+  // path, non un import; il test verifica che la chiusura dei job ci stia.
+  ['tests/seo/bing-seo-loop-sparse-closure.test.ts', /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\/|^\.github\/workflows\/bing-seo-loop\.yml$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

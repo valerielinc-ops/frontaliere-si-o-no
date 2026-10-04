@@ -1,6 +1,10 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterAll, describe, expect, it } from 'vitest';
+import YAML from 'yaml';
+import { ARTICLES_DATA_PATH } from '../scripts/ci/produce-l6-source-verdicts.mjs';
 
 const workflowDir = path.resolve('.github/workflows');
 const loopWorkflows = [
@@ -44,6 +48,117 @@ function relativeImportClosure(entry: string, { dynamic = false } = {}): Set<str
     }
   }
   return seen;
+}
+
+type WorkflowStep = {
+  name?: string;
+  id?: string;
+  if?: string;
+  uses?: string;
+  run?: string;
+  env?: Record<string, string>;
+  with?: Record<string, unknown>;
+  'continue-on-error'?: boolean;
+};
+
+function workflowJobs(name: string): Array<[string, WorkflowStep[]]> {
+  const workflow = YAML.parse(fs.readFileSync(path.join(workflowDir, name), 'utf8'));
+  return Object.entries(workflow.jobs as Record<string, { steps?: WorkflowStep[] }>)
+    .map(([job, definition]) => [job, definition.steps ?? []]);
+}
+
+/**
+ * Whether a non-cone sparse-checkout pattern list keeps `file`: gitignore
+ * syntax, every pattern here is anchored with a leading `/`, a trailing `/`
+ * means a directory, `*` stays inside one path segment, the last matching
+ * pattern wins (so `!/data/` then `/data/loop-fleet/` re-includes).
+ */
+function sparseKeeps(patterns: string[], file: string): boolean {
+  let kept = false;
+  for (const raw of patterns) {
+    const negated = raw.startsWith('!');
+    const pattern = (negated ? raw.slice(1) : raw).replace(/^\//u, '');
+    const directory = pattern.endsWith('/');
+    const body = pattern.replace(/\/$/u, '').split('*')
+      .map((part) => part.replace(/[.+?^${}()|[\]\\]/gu, '\\$&'))
+      .join('[^/]*');
+    if (new RegExp(directory ? `^${body}/` : `^${body}(?:/|$)`, 'u').test(file)) kept = !negated;
+  }
+  return kept;
+}
+
+/** Sparse patterns of the job's checkout plus the literal paths its steps add later. */
+function sparsePatterns(steps: WorkflowStep[]): string[] | null {
+  const checkout = steps.find((step) => String(step.uses ?? '').startsWith('actions/checkout@'));
+  const declared = checkout?.with?.['sparse-checkout'];
+  if (typeof declared !== 'string') return null;
+  const added = steps.flatMap((step) => [...String(step.run ?? '').matchAll(/git sparse-checkout add ([^\n<|;&]+)/gu)]
+    .flatMap((match) => match[1].trim().split(/\s+/u))
+    .filter((arg) => arg && !arg.startsWith('-') && !arg.startsWith('$') && !arg.startsWith('"')));
+  return [...declared.split('\n'), ...added].map((line) => line.trim()).filter(Boolean);
+}
+
+// Repo-relative file arguments (`data/x.json`, `scripts/ci/y.mjs`) of a run script.
+const REPO_PATH_ARGUMENT = /(?<![\w$/.-])((?:data|scripts|packages|functions|services)\/[\w./-]+\.\w+)/gu;
+
+const L6_WORKFLOW = 'loop-l6-content-factuality.yml';
+const L6_PRODUCER = 'scripts/ci/produce-l6-source-verdicts.mjs';
+const L6_EXPORTER = 'scripts/ci/export-l6-factuality-outcomes.mjs';
+
+function l6Steps(): WorkflowStep[] {
+  const audit = workflowJobs(L6_WORKFLOW).find(([job]) => job === 'audit');
+  expect(audit, `${L6_WORKFLOW} audit job`).toBeDefined();
+  return audit?.[1] ?? [];
+}
+
+const tempDirs: string[] = [];
+afterAll(() => {
+  for (const dir of tempDirs) fs.rmSync(dir, { recursive: true, force: true });
+});
+
+/**
+ * Executes the L6 export step's own script, as Actions does (`bash -e`), with
+ * a stub `node` that records its arguments, and returns the `--ledger` the
+ * exporter received plus the contents of that file.
+ */
+function runL6ExportStep({ committed, produced }: { committed?: string; produced?: string }) {
+  const step = l6Steps().find((candidate) => String(candidate.run ?? '').includes(`node ${L6_EXPORTER} --json`));
+  expect(step?.run, 'L6 export step').toBeTruthy();
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'l6-export-step-'));
+  tempDirs.push(dir);
+  const bin = path.join(dir, 'bin');
+  const work = path.join(dir, 'work');
+  const runnerTemp = path.join(dir, 'runner-temp');
+  const calls = path.join(dir, 'node-calls.txt');
+  fs.mkdirSync(bin);
+  fs.mkdirSync(path.join(work, 'data'), { recursive: true });
+  fs.mkdirSync(path.join(runnerTemp, 'loop-fleet-l6'), { recursive: true });
+  fs.writeFileSync(path.join(bin, 'node'), '#!/usr/bin/env bash\nprintf \'%s\\n\' "$*" >> "$NODE_CALLS"\n', { mode: 0o755 });
+  if (committed !== undefined) fs.writeFileSync(path.join(work, 'data/editorial-factuality-verdicts.jsonl'), committed);
+  const producedPath = path.join(runnerTemp, 'loop-fleet-l6/editorial-factuality-verdicts.jsonl');
+  if (produced !== undefined) fs.writeFileSync(producedPath, produced);
+  execFileSync('bash', ['--noprofile', '--norc', '-e', '-c', step?.run ?? 'false'], {
+    cwd: work,
+    stdio: 'pipe',
+    env: {
+      PATH: `${bin}${path.delimiter}${process.env.PATH ?? ''}`,
+      HOME: dir,
+      RUNNER_TEMP: runnerTemp,
+      GITHUB_STEP_SUMMARY: path.join(dir, 'summary.md'),
+      WORKFLOW_EVENT: 'schedule',
+      OUTCOME_PATH: path.join(runnerTemp, 'loop-fleet-l6/content-factuality-outcomes.json'),
+      NODE_CALLS: calls,
+    },
+  });
+  const exportCall = fs.readFileSync(calls, 'utf8').split('\n').find((line) => line.startsWith(`${L6_EXPORTER} --json`)) ?? '';
+  const args = exportCall.split(/\s+/u);
+  const ledger = args[args.indexOf('--ledger') + 1] ?? '';
+  const ledgerFile = path.resolve(work, ledger);
+  return {
+    ledger,
+    producedPath,
+    ledgerText: fs.existsSync(ledgerFile) ? fs.readFileSync(ledgerFile, 'utf8') : null,
+  };
 }
 
 describe('loop fleet workflow contract', () => {
@@ -495,5 +610,93 @@ describe('loop fleet workflow contract', () => {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       expect(source, name).toContain('/scripts/lib/canonical-json-digest.mjs');
     }
+  });
+
+  it('keeps every script a loop runs, its import closure and its file arguments in the sparse checkout', () => {
+    // Derived per step from the scripts each run invokes, not from a hand-kept
+    // list: a loop whose producer (or one of its imports) is outside the
+    // checkout dies with ERR_MODULE_NOT_FOUND only on the runner (#11037,
+    // #11106, #11108 and L6's producer).
+    // Failure title: "Workflow L6: produttore di verdetti non cablato o fuori sparse-checkout".
+    let checkedJobs = 0;
+    for (const name of numberedLoopWorkflows()) {
+      for (const [job, steps] of workflowJobs(name)) {
+        const patterns = sparsePatterns(steps);
+        if (!patterns) continue;
+        checkedJobs += 1;
+        for (const step of steps) {
+          const run = String(step.run ?? '');
+          const required = new Set<string>();
+          for (const match of run.matchAll(/\bnode\s+(scripts\/[\w./-]+\.mjs)/gu)) {
+            for (const file of relativeImportClosure(match[1])) required.add(file);
+          }
+          for (const match of run.matchAll(REPO_PATH_ARGUMENT)) required.add(match[1]);
+          for (const file of required) {
+            expect(sparseKeeps(patterns, file), `${name} ${job} "${step.name}" needs ${file}`).toBe(true);
+          }
+        }
+      }
+    }
+    expect(checkedJobs).toBeGreaterThan(0);
+  });
+
+  it('runs the L6 verdict producer before the export, outside pull_request, on the bodies it selected', () => {
+    const steps = l6Steps();
+    const producerIndex = steps.findIndex((step) => /--out\b/u.test(String(step.run ?? '')) && String(step.run).includes(`node ${L6_PRODUCER}`));
+    const exportIndex = steps.findIndex((step) => String(step.run ?? '').includes(`node ${L6_EXPORTER} --json`));
+    expect(producerIndex, 'L6 producer step').toBeGreaterThanOrEqual(0);
+    expect(exportIndex, 'L6 export step').toBeGreaterThan(producerIndex);
+
+    const producer = steps[producerIndex];
+    expect(producer.if).toMatch(/github\.event_name\s*!=\s*'pull_request'/u);
+    expect(producer.if).not.toMatch(/always\(\)/u);
+    // The export stays fail-closed on its own: a producer failure must not stop the run.
+    expect(producer['continue-on-error']).toBe(true);
+
+    const run = String(producer.run);
+    const select = run.indexOf(`node ${L6_PRODUCER} --select`);
+    const materialise = run.indexOf('git sparse-checkout add --stdin');
+    const produce = run.search(new RegExp(`node ${L6_PRODUCER.replace(/[.]/gu, '\\.')} (?!--select)`, 'u'));
+    expect(select, 'producer --select').toBeGreaterThanOrEqual(0);
+    expect(materialise, 'bodies materialised after --select').toBeGreaterThan(select);
+    expect(produce, 'verdicts produced after the bodies are on disk').toBeGreaterThan(materialise);
+    expect(run).toContain('--summary "$REPORT_DIR/producer-summary.json"');
+    expect(producer.env?.REPORT_DIR).toBe('${{ runner.temp }}/loop-fleet-l6');
+
+    // The article list the producer reads is not an import: check it by its own constant.
+    const patterns = sparsePatterns(steps) ?? [];
+    expect(sparseKeeps(patterns, ARTICLES_DATA_PATH.split(path.sep).join('/')), ARTICLES_DATA_PATH).toBe(true);
+    // The bodies are materialised per run, never the whole corpus.
+    expect(sparseKeeps(patterns, 'packages/articles/content/blog-body/it/any-article.ts')).toBe(false);
+
+    const warning = steps.find((step) => String(step.if ?? '').includes(`steps.${producer.id}.outcome == 'failure'`));
+    expect(warning?.run, 'warning when the producer fails').toContain('::warning::');
+  });
+
+  it('exports the run ledger the L6 producer wrote, and the committed ledger otherwise', () => {
+    const automated = (articleId: string, locale: string) => JSON.stringify({ articleId, locale, reviewerType: 'automated-source-check' });
+
+    const producedOnly = runL6ExportStep({ produced: `${automated('a', 'it')}\n` });
+    expect(producedOnly.ledger).toBe(producedOnly.producedPath);
+
+    const nothing = runL6ExportStep({});
+    expect(nothing.ledger).toBe('data/editorial-factuality-verdicts.jsonl');
+
+    const committedOnly = runL6ExportStep({ committed: `${JSON.stringify({ articleId: 'h', locale: 'it', reviewerType: 'human' })}\n` });
+    expect(committedOnly.ledger).toBe('data/editorial-factuality-verdicts.jsonl');
+
+    // Both: human rows first, then only the automated rows whose identity is new.
+    const human = JSON.stringify({ articleId: ' a ', locale: 'it', reviewerType: 'human' });
+    const both = runL6ExportStep({
+      committed: `${human}\nnot json\n`,
+      produced: `${automated('a', 'it')}\n${automated('a', 'en')}\n`,
+    });
+    expect(both.ledger).not.toBe('data/editorial-factuality-verdicts.jsonl');
+    expect(both.ledger).not.toBe(both.producedPath);
+    const rows = (both.ledgerText ?? '').split('\n').filter(Boolean);
+    expect(rows[0]).toBe(human);
+    expect(rows).toContain('not json');
+    expect(rows).toContain(automated('a', 'en'));
+    expect(rows).not.toContain(automated('a', 'it'));
   });
 });

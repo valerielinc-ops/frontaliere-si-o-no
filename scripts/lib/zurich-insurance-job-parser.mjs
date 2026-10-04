@@ -21,6 +21,7 @@ import {
   inferAnyCanton,
   isTargetSwissLocation,
 } from './target-swiss-locations.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
 import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
@@ -133,9 +134,11 @@ function experienceLevelFor(title = '') {
   return 'mid';
 }
 
-function postedDateFrom(rawDate = '', fallbackDate) {
-  const parsed = new Date(String(rawDate || '').trim());
-  return Number.isNaN(parsed.getTime()) ? fallbackDate : parsed.toISOString().slice(0, 10);
+function postingDateFieldsFrom(rawDate = '', now) {
+  const raw = String(rawDate || '').trim();
+  // Official Date Posted column uses English month-first dates (e.g. Sep 28, 2026).
+  const human = /^(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (\d{1,2}), (\d{4})$/i.exec(raw);
+  return sourcePostingDateFields(human ? `${human[2]} ${human[1].slice(0, 3)} ${human[3]}` : raw, now);
 }
 
 function searchUrlFor(startRow = 0, cacheBuster = '') {
@@ -450,7 +453,6 @@ export async function prepareZurichInsuranceCrawler({
     /** @type {Array<{ url: string, title: string, location: string }>} */
     const unresolved = [];
     const crawlNow = now();
-    const crawlDate = crawlNow.toISOString().slice(0, 10);
     const crawledAt = crawlNow.toISOString();
 
     for (const listing of listings) {
@@ -503,8 +505,7 @@ export async function prepareZurichInsuranceCrawler({
         source: SOURCE,
         sourceLang,
         crawledAt,
-        postedDate: postedDateFrom(listing.rawDate, crawlDate),
-        datePosted: postedDateFrom(listing.rawDate, crawlDate),
+        ...postingDateFieldsFrom(listing.rawDate, crawlNow),
         addressLocality: location,
         addressRegion: canton,
         addressCountry: 'CH',

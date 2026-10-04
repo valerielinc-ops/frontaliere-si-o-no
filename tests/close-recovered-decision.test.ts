@@ -426,3 +426,112 @@ describe('main() usa la decisione esportata, e solo quella', () => {
     expect(unconfirmed.result.stderr).toContain('#9243 close (not planned) not confirmed');
   });
 });
+
+/**
+ * LC-24c — il closer chiude il NUMERO su cui ha deciso, non un titolo.
+ *
+ * Prima `main()` decideva su `it.number` e poi chiudeva con `resolveGithubIssue(it.title)`,
+ * che ricerca per PREFISSO di titolo e chiude la più recente fra le aperte. Con
+ * `Workflow Failure: X` (verde) e `Workflow Failure: X Preview` (ancora rossa) entrambe
+ * aperte, il verde di X chiudeva la issue di `X Preview`.
+ *
+ * Se questa suite diventa rossa il titolo del guasto è:
+ * «Closer CI: chiude per prefisso di titolo un'issue diversa da quella decisa».
+ */
+describe('LC-24c: il closer chiude la issue decisa, per numero', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'lc24c-closer-'));
+  afterAll(() => fs.rmSync(tmp, { recursive: true, force: true }));
+
+  const RECOVERED = { number: 101, title: 'Workflow Failure: LC24c Deploy' };
+  const STILL_RED = { number: 202, title: 'Workflow Failure: LC24c Deploy Preview' };
+
+  /** Una passata reale di `main()` con un `gh` finto che ricorda le chiusure. */
+  function runPass(name: string, viewOverride: Record<number, Record<string, unknown>> = {}) {
+    const now = Date.now();
+    const liveRun = (id: number, conclusion: string, msAgo: number) => ({
+      databaseId: id, status: 'completed', conclusion, createdAt: at(msAgo, now), headBranch: 'main',
+    });
+    const dir = fs.mkdtempSync(path.join(tmp, `${name}-`));
+    const issues = [RECOVERED, STILL_RED].map((i) => ({
+      ...i, url: `https://example.test/issues/${i.number}`, state: 'OPEN', createdAt: at(2 * HOUR, now), labels: [],
+    }));
+    const fixture = {
+      issues,
+      runs: {
+        'LC24c Deploy': [liveRun(11, 'success', HOUR)],
+        'LC24c Deploy Preview': [liveRun(21, 'failure', HOUR)],
+      },
+      viewOverride,
+    };
+    const fixturePath = path.join(dir, 'fixture.json');
+    const callsPath = path.join(dir, 'calls.log');
+    const closedPath = path.join(dir, 'closed.log');
+    fs.writeFileSync(fixturePath, JSON.stringify(fixture));
+    const bin = path.join(dir, 'bin');
+    fs.mkdirSync(bin);
+    fs.writeFileSync(path.join(bin, 'gh'), [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      "fs.appendFileSync(process.env.LC24C_CALLS, args.join(' ') + '\\n');",
+      "const fixture = JSON.parse(fs.readFileSync(process.env.LC24C_FIXTURE, 'utf8'));",
+      "const closed = fs.existsSync(process.env.LC24C_CLOSED) ? fs.readFileSync(process.env.LC24C_CLOSED, 'utf8').split('\\n').filter(Boolean).map(Number) : [];",
+      "const key = args.slice(0, 2).join(' ');",
+      "const open = fixture.issues.filter((i) => !closed.includes(i.number));",
+      "if (key === 'issue list') process.stdout.write(JSON.stringify(open));",
+      "else if (key === 'run list') process.stdout.write(JSON.stringify(fixture.runs[args[args.indexOf('-w') + 1]] || []));",
+      "else if (args[0] === 'api' && /\\/comments$/.test(args[1])) process.stdout.write('[]');",
+      "else if (key === 'issue view') {",
+      '  const n = Number(args[2]);',
+      '  const issue = fixture.issues.find((i) => i.number === n);',
+      "  if (!issue) process.exit(1);",
+      "  process.stdout.write(JSON.stringify({ ...issue, state: closed.includes(n) ? 'CLOSED' : 'OPEN', ...(fixture.viewOverride[n] || {}) }));",
+      '}',
+      "else if (key === 'issue comment') process.stdout.write('');",
+      "else if (key === 'issue close') fs.appendFileSync(process.env.LC24C_CLOSED, args[2] + '\\n');",
+      'else process.exit(1);',
+      '',
+    ].join('\n'), { mode: 0o755 });
+
+    const env: Record<string, string | undefined> = {
+      ...process.env,
+      PATH: `${bin}${path.delimiter}${process.env.PATH}`,
+      GH_REPO: 'owner/site',
+      LC24C_FIXTURE: fixturePath,
+      LC24C_CALLS: callsPath,
+      LC24C_CLOSED: closedPath,
+    };
+    for (const key of Object.keys(env)) {
+      if (key.startsWith('CLOSE_RECOVERED_') || key.startsWith('CRAWLER_RUN_') || key === 'GITHUB_PAT_NANAKO'
+        || key === 'ENABLE_FAILURE_REPORT' || key === 'TRUSTED_GH_BIN') delete env[key];
+    }
+    const result = spawnSync(process.execPath, [SCRIPT], { env, encoding: 'utf8' });
+    expect(result.status, result.stderr).toBe(0);
+    const calls = fs.readFileSync(callsPath, 'utf8').trim().split('\n');
+    const closedNumbers = fs.existsSync(closedPath)
+      ? fs.readFileSync(closedPath, 'utf8').split('\n').filter(Boolean).map(Number)
+      : [];
+    return { result, calls, closedNumbers };
+  }
+
+  it('due issue aperte con lo stesso prefisso: si chiude solo quella rientrata', () => {
+    const { result, calls, closedNumbers } = runPass('prefix-twin');
+    expect(closedNumbers).toEqual([RECOVERED.number]);
+    // Nessuna scrittura sulla gemella ancora rossa: né commento né chiusura.
+    expect(calls.filter((c) => new RegExp(`^issue (comment|close) ${STILL_RED.number}\\b`).test(c))).toEqual([]);
+    expect(result.stdout).toContain(`#${RECOVERED.number} CLOSED — recovered via run 11`);
+    expect(result.stdout).toContain(`#${STILL_RED.number} still red`);
+  });
+
+  it('rinominata o già chiusa dopo la decisione: nessuna scrittura, e lo si registra', () => {
+    for (const [name, override, why] of [
+      ['retitled', { title: `${RECOVERED.title} (rinominata)` }, 'title-changed'],
+      ['closed', { state: 'CLOSED' }, 'not-open'],
+    ] as const) {
+      const { result, calls, closedNumbers } = runPass(name, { [RECOVERED.number]: override });
+      expect(closedNumbers, name).toEqual([]);
+      expect(calls.filter((c) => /^issue (comment|close) /.test(c)), name).toEqual([]);
+      expect(result.stdout, name).toContain(`#${RECOVERED.number} NOT CLOSED (${why})`);
+    }
+  });
+});

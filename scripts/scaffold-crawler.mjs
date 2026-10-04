@@ -780,15 +780,18 @@ const workdayParserContent = `#!/usr/bin/env node
  * whole Workday contract; do not copy its loop into this file.
  *
  * TODO before the first run:
- *   - countryFacetParameter: the tenant's country facet key. POST {}/jobs with
- *     \`appliedFacets: {}\` and read \`facets[].facetParameter\`: \`locationCountry\`
- *     on most tenants, \`Country\` / \`Location_Country\` on others (a wrong key
- *     answers HTTP 400 and the run falls back to the whole global board).
  *   - defaultCanton / defaultCity: the HQ, required by the factory but never
  *     used to place a req.
- *   - proveSwissAbsentFromLiveBoard: switch it on, with the runner's
- *     \`authoritativeEmptySnapshotValidator\` + \`authoritativeSnapshotScope:
- *     'empty-only'\`, once the facet key is verified (see imerys / kone).
+ *
+ * Left to the factory on purpose:
+ *   - countryFacetParameter: when the tenant rejects the default
+ *     \`locationCountry\` with HTTP 400, the factory reads the board's facets and
+ *     picks the country facet itself (\`discoverWorkdayCountryFacet\`). Declare it
+ *     only if the run log says "no single country facet on the Workday board"
+ *     and you verified the right key by hand.
+ *   - proveSwissAbsentFromLiveBoard: on by default, and the standard crawler
+ *     template honours the stamped zero without runner wiring. Pass \`false\`
+ *     only with a comment saying why.
  */
 import { createWorkdaySwissParser } from './workday-swiss-job-parser-common.mjs';
 
@@ -811,7 +814,6 @@ const parser = createWorkdaySwissParser({
   defaultCanton: 'TODO',
   defaultCity: 'TODO',
   defaultSourceLang: '${sourceLang}',
-  countryFacetParameter: 'locationCountry', // TODO: verify on the tenant
 });
 
 function normalize(value = '') {

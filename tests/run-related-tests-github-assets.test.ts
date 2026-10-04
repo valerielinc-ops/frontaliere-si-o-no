@@ -436,6 +436,19 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['data/loop-fleet/ledger/lifecycle-events.jsonl'])).toContain(replay);
     expect(selectionFor(['scripts/lib/loop-fleet-contract.mjs'])).toContain(replay);
     expect(selectionFor(['data/crawler-group-assignments.json'])).not.toContain(replay);
+
+    // PR 10941: l'import nuovo era in `scripts/lib/jobBoardSections.mjs`, fuori
+    // dall'allow-list sparse dei job `tree-*` di bing-seo-loop.yml. Un file
+    // sotto ciascuna radice del perimetro (le stesse di SELECTION_ROOTS nel
+    // test, che verifica che la chiusura dei job ci stia dentro).
+    const bingSparse = 'tests/seo/bing-seo-loop-sparse-closure.test.ts';
+    expect(selectionFor(['scripts/lib/jobBoardSections.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['scripts/seo/bing-site-explorer-crawl.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['scripts/load-rc-env.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['build-plugins/shared/cantonResolvers.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['packages/articles/engine/shared/htmlMarkup.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['.github/workflows/bing-seo-loop.yml'])).toContain(bingSparse);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(bingSparse);
   }, 120_000);
 
   it('un modulo della chiusura del finalizer crawler seleziona il test del generatore', () => {
@@ -475,6 +488,12 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(flat).toContain('tests/slug-write-encapsulation.test.ts');
     // Gli scan che leggono anche fuori da scripts/lib.
     expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    // Il ratchet a due lati dei runner senza contatori deve girare sulla PR
+    // che cambia il conteggio, non su quella dopo.
+    const zeroPath = 'tests/crawler-zero-path-contract.test.ts';
+    expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain(zeroPath);
+    expect(selectionFor(['scripts/lib/crawler-template.mjs'])).toContain(zeroPath);
+    expect(selectionFor(['scripts/lib/future-j2w-tenant-job-parser.mjs'])).not.toContain(zeroPath);
     expect(selectionFor(['scripts/publish-article-fast.mjs'])).toContain('tests/sanitize-control-chars.test.ts');
     // Lo scan j2w e' ricorsivo: un parser in una sottocartella non sfugge.
     expect(selectionFor(['scripts/lib/tenants/future-job-parser.mjs'])).toContain(j2wFamily);
