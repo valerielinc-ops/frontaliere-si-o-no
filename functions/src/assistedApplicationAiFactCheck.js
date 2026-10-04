@@ -396,8 +396,11 @@ function withoutContactData(text) {
  *   nameSources: names the text may quote whole, one per line (the company, the job title, the place):
  *     inside such a name a tool is not a claim ("Kubernetes Engineer" in "come Kubernetes Engineer"),
  *     but a name never backs a claim made outside it ("uso Kubernetes" stays the candidate's claim).
+ *   quotedNameSources: names the text may quote whole and nothing more, one per line: their words back
+ *     no job title (an apprenticeship's subject, «Candidatura per un posto di tirocinio come …»: its
+ *     «tirocinio» is not a title the candidate held).
  */
-export function buildFactIndex(sources, { claimSources, numberSources, echoSources, entitySources, nameSources } = {}) {
+export function buildFactIndex(sources, { claimSources, numberSources, echoSources, entitySources, nameSources, quotedNameSources } = {}) {
   const text = join(sources);
   const emails = new Set([...text.matchAll(EMAIL_RE)].map((match) => match[0].toLowerCase()));
   const urls = new Set([...text.matchAll(URL_RE)].map((match) => normalizeUrl(match[0])));
@@ -416,7 +419,7 @@ export function buildFactIndex(sources, { claimSources, numberSources, echoSourc
     claimText: claimRaw === null ? null : foldText(claimRaw),
     claimRaw,
     claimWords: claimRaw === null ? null : wordsOf(`${claimRaw}\n${join(nameSources)}`),
-    names: join(nameSources).split('\n').map((line) => line.trim()).filter((line) => line.length >= 3),
+    names: [...join(nameSources).split('\n'), ...join(quotedNameSources).split('\n')].map((line) => line.trim()).filter((line) => line.length >= 3),
     namesText: foldText(join(nameSources)),
     claimNumbers: contacts ? numbersOf(contacts.text) : null,
     // The candidate's own phone numbers that PHONE_RE does not read ("079 123 45 67"), and links.
