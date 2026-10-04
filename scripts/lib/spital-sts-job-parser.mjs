@@ -31,6 +31,7 @@
  *   - SPITAL_STS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
@@ -229,9 +230,6 @@ function pickPostalCode(city) {
   return '3600'; // Thun default
 }
 
-function parsePostedDate() {
-  return new Date().toISOString().slice(0, 10);
-}
 
 /* ── Main entry ────────────────────────────────────────────── */
 
@@ -323,7 +321,8 @@ export async function fetchAllSpitalStsJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(),
+      // This adapter extracts no attested original publication date.
+      ...sourcePostingDateFields(),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
