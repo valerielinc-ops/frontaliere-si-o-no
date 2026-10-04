@@ -7682,6 +7682,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assistenza-sociale-zurigo-domanda.title': 'Assistenza sociale nel canton Zurigo: requisiti e domanda',
     'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Nel canton Zurigo la domanda parte da una condizione di bisogno: ufficio competente, documenti, prestazioni e obblighi di collaborazione.',
     'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Ufficio comunale svizzero per una domanda di assistenza sociale',
+    'blog.article.imposta-auto-zurigo-pagamento.title': 'Imposta autoveicoli a Zurigo: calcolo e pagamento',
+    'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Nel Cantone di Zurigo calcolo, scadenze e pagamento dell\'imposta sugli autoveicoli seguono regole cantonali; verifica anche cambio veicolo e indirizzo.',
+    'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Imposta sugli autoveicoli: auto e documenti in un ufficio cantonale del Cantone di Zurigo.',
 };
 
 export default blogMetaChIt;
