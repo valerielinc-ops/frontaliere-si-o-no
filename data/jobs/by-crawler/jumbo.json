@@ -14937,7 +14937,7 @@
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-reinach",
         "it": "vendita-cassa-servizi-jumbo-reinach",
-        "en": "verkaufer-in-kassen-services-jumbo-reinach",
+        "en": "sales-assistant-cash-registers-services-jumbo-reinach",
         "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-reinach"
       },
       "company": "JUMBO",
@@ -15025,7 +15025,8 @@
           "verkaufer-in-kassen-services-jumbo-reinach"
         ],
         "en": [
-          "seller-in-cash-registers-services-jumbo-argovia"
+          "seller-in-cash-registers-services-jumbo-argovia",
+          "verkaufer-in-kassen-services-jumbo-reinach"
         ],
         "fr": [
           "caisse-enregistreuse-services-du-vendeur-jumbo-argovia",
@@ -15049,12 +15050,12 @@
     },
     {
       "id": "jumbo-0ec59790-b39",
-      "slug": "verkaufsberater-in-deco-jumbo-unterentfelden",
+      "slug": "consulente-di-vendita-deco-jumbo-unterentfelden",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-unterentfelden",
-        "it": "verkaufsberater-in-deco-jumbo-unterentfelden",
-        "en": "verkaufsberater-in-deco-jumbo-unterentfelden",
-        "fr": "verkaufsberater-in-deco-jumbo-unterentfelden"
+        "it": "consulente-di-vendita-deco-jumbo-unterentfelden",
+        "en": "sales-consultant-deco-jumbo-unterentfelden",
+        "fr": "consultant-en-ventes-deco-jumbo-unterentfelden"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -15125,16 +15126,30 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-unterentfelden"
+        ],
+        "en": [
+          "verkaufsberater-in-deco-jumbo-unterentfelden"
+        ],
+        "fr": [
+          "verkaufsberater-in-deco-jumbo-unterentfelden"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-unterentfelden"
+      ]
     },
     {
       "id": "jumbo-f35f3922-6c0",
-      "slug": "lagerist-in-jumbo-wurenlingen",
+      "slug": "addetto-al-magazzino-jumbo-wurenlingen",
       "slugByLocale": {
         "de": "lagerist-in-jumbo-wurenlingen",
-        "it": "lagerist-in-jumbo-wurenlingen",
-        "en": "lagerist-in-jumbo-wurenlingen",
-        "fr": "lagerist-in-jumbo-wurenlingen"
+        "it": "addetto-al-magazzino-jumbo-wurenlingen",
+        "en": "warehouseman-jumbo-wurenlingen",
+        "fr": "employe-d-entrepot-jumbo-wurenlingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -15195,20 +15210,24 @@
         "operatore-di-magazzino-jumbo-wurenlingen",
         "warehouse-operator-jumbo-wurenlingen",
         "operateur-d-entrepot-jumbo-wurenlingen",
-        "lageriste-in-jumbo-wurenlingen"
+        "lageriste-in-jumbo-wurenlingen",
+        "lagerist-in-jumbo-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operatore-di-magazzino-jumbo-wurenlingen",
           "warehouse-operator-jumbo-wurenlingen",
           "operateur-d-entrepot-jumbo-wurenlingen",
-          "lageriste-in-jumbo-wurenlingen"
+          "lageriste-in-jumbo-wurenlingen",
+          "lagerist-in-jumbo-wurenlingen"
         ],
         "en": [
-          "warehouse-operator-jumbo-wurenlingen"
+          "warehouse-operator-jumbo-wurenlingen",
+          "lagerist-in-jumbo-wurenlingen"
         ],
         "fr": [
-          "operateur-d-entrepot-jumbo-wurenlingen"
+          "operateur-d-entrepot-jumbo-wurenlingen",
+          "lagerist-in-jumbo-wurenlingen"
         ]
       },
       "firstSeenAt": "2026-08-28T05:20:57.995Z",
@@ -15922,12 +15941,12 @@
     },
     {
       "id": "jumbo-0a9379e0-fc2",
-      "slug": "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
+      "slug": "consulente-di-vendita-piante-da-giardino-jumbo-hinwil",
       "slugByLocale": {
         "de": "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
-        "it": "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
-        "en": "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
-        "fr": "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
+        "it": "consulente-di-vendita-piante-da-giardino-jumbo-hinwil",
+        "en": "sales-consultant-garden-plants-jumbo-hinwil",
+        "fr": "consultant-en-vente-pour-les-plantes-de-jardin-jumbo-hinwil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -15997,16 +16016,30 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
+        ],
+        "en": [
+          "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
+        ],
+        "fr": [
+          "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
+      ]
     },
     {
       "id": "jumbo-0892bcc7-d2b",
-      "slug": "verkaufer-in-kassen-services-jumbo-glarus",
+      "slug": "casse-servizi-per-assistenti-vendite-jumbo-glarus",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-glarus",
-        "it": "verkaufer-in-kassen-services-jumbo-glarus",
-        "en": "verkaufer-in-kassen-services-jumbo-glarus",
-        "fr": "verkaufer-in-kassen-services-jumbo-glarus"
+        "it": "casse-servizi-per-assistenti-vendite-jumbo-glarus",
+        "en": "sales-assistant-cash-registers-services-jumbo-glarus",
+        "fr": "caisses-services-d-assistant-commercial-jumbo-glarus"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16076,16 +16109,30 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-glarus"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-glarus"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-glarus"
+      ]
     },
     {
       "id": "jumbo-4d0b648c-8bf",
-      "slug": "verkaufsberater-in-garden-jumbo-schattdorf",
+      "slug": "consulente-di-vendita-garden-jumbo-schattdorf",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-schattdorf",
-        "it": "verkaufsberater-in-garden-jumbo-schattdorf",
-        "en": "verkaufsberater-in-garden-jumbo-schattdorf",
-        "fr": "verkaufsberater-in-garden-jumbo-schattdorf"
+        "it": "consulente-di-vendita-garden-jumbo-schattdorf",
+        "en": "sales-consultant-garden-jumbo-schattdorf",
+        "fr": "jardin-de-consultants-en-vente-jumbo-schattdorf"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16156,7 +16203,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-schattdorf"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-schattdorf"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-schattdorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-schattdorf"
+      ]
     },
     {
       "id": "jumbo-76ddab2c-a99",

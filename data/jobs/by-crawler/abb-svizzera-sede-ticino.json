@@ -759,7 +759,7 @@
       "slugByLocale": {
         "it": "service-capo-squadra-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv",
         "en": "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv",
-        "de": "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv",
+        "de": "serviceteamleiter-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
         "fr": "service-capo-squadra-f-m-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
       },
       "requirementsByLocale": {},
@@ -770,6 +770,9 @@
           "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
         ],
         "fr": [
+          "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv"
+        ],
+        "de": [
           "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv"
         ]
       },
@@ -998,14 +1001,10 @@
       "previousSlugsByLocale": {
         "it": [
           "applikationsentwickler-digitalisierung-produktion-80-100-abb-svizzera-sede-ticino-schaffhausen"
-        ],
-        "de": [
-          "anwendungsentwickler-digitalisierung-produktion-80-100-abb-svizzera-sede-ticino-schaffhausen-e9hp9p"
         ]
       },
       "previousSlugs": [
-        "applikationsentwickler-digitalisierung-produktion-80-100-abb-svizzera-sede-ticino-schaffhausen",
-        "anwendungsentwickler-digitalisierung-produktion-80-100-abb-svizzera-sede-ticino-schaffhausen-e9hp9p"
+        "applikationsentwickler-digitalisierung-produktion-80-100-abb-svizzera-sede-ticino-schaffhausen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
