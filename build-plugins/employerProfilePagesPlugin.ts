@@ -883,7 +883,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
 
           // End-of-content multiplex — gated on `indexable`, so below-floor /
           // thin profiles (noindex) never carry a manual slot (MFA-safety).
-          const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable })}`;
+          const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyHtml })}`;
 
           // Budget-aware cascade — see employerTitleCandidates() and the
           // search-intent block comment at the top of this file for the GSC
