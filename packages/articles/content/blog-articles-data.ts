@@ -37385,6 +37385,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'mastini-varese-pergine-hockey',
+ category: 'novita',
+ date: '2026-10-04T01:23:33.000Z',
+ image: '/images/blog/mastini-varese-pergine-hockey.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

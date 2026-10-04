@@ -12466,6 +12466,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondo-13esima-avs-giovani.title': 'AVS Fund in Ticino: the 13th payment for young people',
     'blog.article.fondo-13esima-avs-giovani.excerpt': 'A Fund was presented in Ticino: those who will be able and willing to waive the 13th AVS payment will support projects dedicated to the younger generations for the benefit of the community.',
     'blog.article.fondo-13esima-avs-giovani.imageAlt': 'Pensioners and young people at a meeting about the AVS fund in Ticino',
+    'blog.article.mastini-varese-pergine-hockey.title': 'Varese-pergine mastiffs: challenge to the acinque ice arena',
+    'blog.article.mastini-varese-pergine-hockey.excerpt': 'Saturday at 18.30 the Mastiffs host the Pergine. Varese, Pergine and Feltre look for points in the ranking at level 3 on the fourth day of IHL.',
+    'blog.article.mastini-varese-pergine-hockey.imageAlt': 'Ice hockey match of Mastini Varese at the Acinque Ice Arena.',
 };
 
 export default blogMetaEn;

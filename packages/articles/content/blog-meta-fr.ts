@@ -12468,6 +12468,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fondo-13esima-avs-giovani.title': 'Fonds AVS au Tessin : la 13e pour les jeunes',
     'blog.article.fondo-13esima-avs-giovani.excerpt': 'Au Tessin, un Fonds a été présenté : toute personne qui pourra et voudra renoncer à la 13e AVS soutiendra des projets dédiés aux nouvelles générations en faveur de la collectivité.',
     'blog.article.fondo-13esima-avs-giovani.imageAlt': 'Retraités et jeunes lors d\'une rencontre sur le fonds AVS au Tessin',
+    'blog.article.mastini-varese-pergine-hockey.title': 'Mastiffs varois-pergine : défi à l\'acinque ice arena',
+    'blog.article.mastini-varese-pergine-hockey.excerpt': 'Samedi à 18h30, les Mâtins accueillent la Vierge. Varese, Pergine et Feltre cherchent des points au classement à la cote 3 lors de la quatrième journée d\'IHL.',
+    'blog.article.mastini-varese-pergine-hockey.imageAlt': 'Match de hockey sur glace des Mastini Varese à l\'Acinque Ice Arena.',
 };
 
 export default blogMetaFr;
