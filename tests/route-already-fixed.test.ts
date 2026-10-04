@@ -6,7 +6,9 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { parseFollowupItems, selectFirstOpenItem } from '../scripts/ci/followup-resolution-match.mjs';
 import { ITEM_BLOCKED_REASONS, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
+import { bucketVerdictCoverage, isTrustedMarkerAuthor } from '../scripts/ci/followup-drainer.mjs';
 import {
+  ITEM_BLOCKING_OUTCOMES,
   bucketLabelEditArgs,
   decideAlreadyFixedRouting,
   decideBucketItemRouting,
@@ -486,11 +488,109 @@ describe('CLI end-to-end (gh finto)', () => {
       expect(edits(calls)).toEqual([]);
     });
 
-    it('un esito diverso da already-fixed lascia solo il tentativo', () => {
-      const body = bucketBody(item(FIRST, 'open'));
-      const { calls } = runCli([comment('<!-- FIX_OUTCOME: no-root-cause -->')], undefined, body, { title: title(1), itemId: FIRST });
-      expect(edits(calls)).toEqual([]);
-      expect(postedComments(calls)[0]).toContain(`<!-- FU_ITEM_ATTEMPT: item=${FIRST} outcome=no-root-cause run=36030725501 -->`);
+    it.each(['overlap-skip', 'skip-duplicate-diagnosis', 'revenue-tracker-manual', 'pr-created'])(
+      'un esito fuori da ITEM_BLOCKING_OUTCOMES (%s) lascia solo il tentativo', (outcome) => {
+        const body = bucketBody(item(FIRST, 'open'));
+        const { calls } = runCli([comment(`<!-- FIX_OUTCOME: ${outcome} -->`)], undefined, body, { title: title(1), itemId: FIRST });
+        expect(edits(calls)).toEqual([]);
+        expect(postedComments(calls)[0]).toContain(`<!-- FU_ITEM_ATTEMPT: item=${FIRST} outcome=${outcome} run=36030725501 -->`);
+        expect(postedComments(calls)[0]).not.toContain('FU_ITEM_BLOCKED');
+      },
+    );
+
+    // FU-09b. Titolo di fallimento se questi casi tornano rossi: «Follow-up: un
+    // item senza causa sospende l'intero bucket giornaliero». Forma di 9609: il
+    // fixer conclude `no-root-cause` su UN item e prima l'intero bucket finiva
+    // `automation-deferred`, con gli item successivi mai raggiunti.
+    describe('verdetto non ritentabile sull item (no-root-cause, blocked-admin-settings)', () => {
+      it('ITEM_BLOCKING_OUTCOMES è un sottoinsieme dei motivi del marker FU_ITEM_BLOCKED', () => {
+        expect(ITEM_BLOCKING_OUTCOMES).toEqual(['no-root-cause', 'blocked-admin-settings']);
+        for (const outcome of ITEM_BLOCKING_OUTCOMES) expect(ITEM_BLOCKED_REASONS).toContain(outcome);
+      });
+
+      it.each(ITEM_BLOCKING_OUTCOMES)('%s sul primo item → primo `blocked`, marker, coda conservata, selettore sul secondo', (outcome) => {
+        const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+        const { stdout, calls } = runCli([comment(`<!-- FIX_OUTCOME: ${outcome} -->\nRoot cause non determinata.`)], undefined, body, {
+          title: title(2), labels: ['follow-up', 'agent:fix', 'agent:fix-queued'], itemId: FIRST,
+        });
+        expect(stdout).toContain('routed=true');
+        const next = writtenBody(calls) as string;
+        expect(stateOf(next, FIRST)).toBe('blocked');
+        expect(stateOf(next, SECOND)).toBe('open');
+        expect(selectFirstOpenItem(next)?.id).toBe(SECOND);
+        expect(doneCount(next)).toBe(0);
+        // La coda resta: si toglie solo il trigger `agent:fix` della run finita.
+        expect(labelArgs(calls)).toEqual(['--remove-label', 'agent:fix']);
+        const posted = postedComments(calls);
+        expect(posted).toHaveLength(1);
+        expect(parseItemMarkers(trusted(posted[0]), { isTrusted: isTrustedAuthor })).toEqual([
+          { type: 'attempt', item: FIRST, outcome, run: 36030725501, createdAt: null },
+          { type: 'blocked', item: FIRST, reason: outcome, createdAt: null },
+        ]);
+        expect(posted[0]).toContain('il bucket **non** viene differito');
+        expect(outcomeOf(posted[0])).toBeNull();
+        expect(calls.some((a) => a[0] === 'issue' && a[1] === 'close')).toBe(false);
+      });
+
+      it('senza coda e senza veti la coda viene riaggiunta', () => {
+        const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+        const { calls } = runCli([comment('<!-- FIX_OUTCOME: no-root-cause -->')], undefined, body, {
+          title: title(2), labels: ['follow-up', 'agent:fix'], itemId: FIRST,
+        });
+        expect(stateOf(writtenBody(calls) as string, FIRST)).toBe('blocked');
+        expect(labelArgs(calls)).toEqual(['--remove-label', 'agent:fix', '--add-label', 'agent:fix-queued']);
+      });
+
+      it('i veti non si allentano: `automation-deferred` già presente toglie la coda come prima', () => {
+        const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+        const { calls } = runCli([comment('<!-- FIX_OUTCOME: no-root-cause -->')], undefined, body, {
+          title: title(2), labels: ['follow-up', 'agent:fix', 'agent:fix-queued', 'automation-deferred'], itemId: FIRST,
+        });
+        expect(stateOf(writtenBody(calls) as string, FIRST)).toBe('blocked');
+        const args = labelArgs(calls);
+        expect(args).toEqual(['--remove-label', 'agent:fix', '--remove-label', 'agent:fix-queued']);
+        expect(args).not.toContain('automation-deferred');
+      });
+
+      it.each([
+        ['PR consegnata in questa run', { status: 'verified-delivery', reason: null, prNumber: 9999 }],
+        ['delivery illeggibile', { status: 'boh' }],
+      ])('fail-closed: %s → solo il tentativo, item invariato', (_name, delivery) => {
+        const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+        const { stdout, calls } = runCli([comment('<!-- FIX_OUTCOME: no-root-cause -->')], delivery, body, {
+          title: title(2), labels: QUEUED, itemId: FIRST,
+        });
+        expect(stdout).toContain('routed=false');
+        expect(edits(calls)).toEqual([]);
+        const posted = postedComments(calls);
+        expect(posted).toHaveLength(1);
+        expect(posted[0]).toContain(`<!-- FU_ITEM_ATTEMPT: item=${FIRST} outcome=no-root-cause run=36030725501 -->`);
+        expect(posted[0]).not.toContain('FU_ITEM_BLOCKED');
+      });
+
+      it('issue non bucket: `no-root-cause` non muta niente (comportamento invariato)', () => {
+        const { stdout, calls } = runCli([comment('<!-- FIX_OUTCOME: no-root-cause -->')]);
+        expect(stdout).toContain('routed=false');
+        expect(calls.filter((a) => a[0] === 'issue' && (a[1] === 'edit' || a[1] === 'comment'))).toEqual([]);
+      });
+
+      it('il drainer legge il marker: il verdetto del bucket risulta coperto e non ferma la issue', () => {
+        const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+        const { calls } = runCli([comment('<!-- FIX_OUTCOME: no-root-cause -->')], undefined, body, {
+          title: title(2), labels: QUEUED, itemId: FIRST,
+        });
+        const next = writtenBody(calls) as string;
+        const thread = [
+          comment('<!-- FIX_OUTCOME: no-root-cause -->', '2026-09-30T11:52:16Z', 'frontaliere-automation', 'NONE'),
+          comment(postedComments(calls)[0], '2026-09-30T11:58:02Z', 'github-actions', 'NONE'),
+        ];
+        const options = { isDailyBucket: true, hasOpenItem: selectFirstOpenItem(next) !== null, isTrusted: isTrustedMarkerAuthor };
+        expect(bucketVerdictCoverage(thread, options)).toEqual({
+          outcome: 'no-root-cause', covered: true, marker: { type: 'blocked', item: FIRST },
+        });
+        // Senza il marker dell'item il verdetto vale per l'intera issue: è il prima.
+        expect(bucketVerdictCoverage(thread.slice(0, 1), options).covered).toBe(false);
+      });
     });
 
     it.each([
@@ -611,6 +711,25 @@ describe('cablaggio in issue-fix.yml', () => {
   it('lo step riceve l item selezionato del bucket giornaliero', () => {
     const step = workflow.slice(stepStart, classify);
     expect(step).toContain('DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}');
+  });
+
+  it('no-root-cause: la issue singola si differisce, il daily bucket no (FU-09b)', () => {
+    const line = workflow.split('\n').find((l) => l.includes('Se la root cause non è determinabile con confidenza')) ?? '';
+    const single = line.indexOf('Issue non daily:');
+    const bucket = line.indexOf('Daily bucket:');
+    expect(single).toBeGreaterThan(-1);
+    expect(bucket).toBeGreaterThan(single);
+    // La regola delle issue singole resta intera.
+    const singleRule = line.slice(single, bucket);
+    expect(singleRule).toContain('<!-- AUTOMATION_DEFERRED: technical -->');
+    expect(singleRule).toContain('applica `automation-deferred`');
+    expect(singleRule).toContain('rimuovi il routing `agent:fix*`');
+    // Il marker del verdetto vale per entrambe, prima della biforcazione.
+    expect(line.slice(0, single)).toContain('<!-- FIX_OUTCOME: no-root-cause -->');
+    const bucketRule = line.slice(bucket);
+    expect(bucketRule).toMatch(/solo per l'item/u);
+    expect(bucketRule).toMatch(/niente deferral, routing intatto/u);
+    expect(bucketRule).not.toContain('automation-deferred');
   });
 
   it('il prompt chiede il marker FIX_EVIDENCE con già-risolto', () => {

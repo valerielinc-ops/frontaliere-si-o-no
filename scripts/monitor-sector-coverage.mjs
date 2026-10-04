@@ -296,35 +296,212 @@ function writeGapArtifact(artifact) {
   }
 }
 
+// --- STATO A INSIEME DI ID PER LE FAMIGLIE A E B (issue 5429, issue 9938) ----
+// Le famiglie A (settori TI) e B (professioni TI legacy) chiamavano createIssue
+// a ogni post-deploy senza condizioni: github-issue-creator.mjs trasforma ogni
+// chiamata su una issue aperta in un commento «Recurrence», e la issue 5429 ne
+// ha accumulati 184, 174 dei quali con lo stesso insieme di ruoli del commento
+// precedente. Stesso rimedio della famiglia C qui sopra, in forma generica:
+// lo stato viaggia come marker HTML nel commento, e si commenta solo quando
+// l'insieme cambia — oppure come BATTITO quando l'ultimo commento con lo stato
+// ha piu' di RECURRENCE_HEARTBEAT_DAYS giorni. Il battito serve perche' quando
+// il gap si azzera il ramo esce senza scrivere niente (non puo' registrare la
+// risoluzione): se poi il gap ricompare identico, senza il battito resterebbe
+// muto per sempre.
+//
+// Stesso BIAS della famiglia C: stato illeggibile, issue chiusa o assente,
+// data del commento non interpretabile → nessuna soppressione.
+export const TI_SECTOR_ISSUE_TITLE = 'TI sector coverage: settori a 0 match reali';
+export const TI_SECTOR_STATE_MARKER = 'COVERAGE_TI_SECTOR_STATE_V1';
+export const TI_LEGACY_ISSUE_TITLE = 'TI profession coverage (legacy): ruoli a 0 match reali';
+export const TI_LEGACY_STATE_MARKER = 'COVERAGE_TI_LEGACY_STATE_V1';
+export const RECURRENCE_HEARTBEAT_DAYS = 7;
+const DAY_MS = 86_400_000;
+
+const markerRegex = (marker) =>
+  new RegExp(`<!--\\s*${String(marker).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\\s*([\\s\\S]*?)\\s*-->`, 'g');
+
+const isStringArray = (v) => Array.isArray(v) && v.every((x) => typeof x === 'string');
+
+/** Stato `{ ids: [...] }` valido: forma minima di ogni stato a insieme di id. Pura. */
+export function isIdSetState(state) {
+  return !!state && typeof state === 'object' && isStringArray(state.ids);
+}
+
+/** Stato della famiglia B: gli id piu' la ripartizione grace window / noindex. Pura. */
+export function isTiLegacyState(state) {
+  return isIdSetState(state) && isStringArray(state.indexedViaGrace) && isStringArray(state.bridgedNoindex);
+}
+
+/** Marker HTML machine-readable da appendere al corpo del commento. Pura. */
+export function serializeStateMarker(marker, state) {
+  return `<!-- ${marker}: ${JSON.stringify(state)} -->`;
+}
+
 /**
- * Stato del giro precedente, letto dall'issue canonica (body + tutti i commenti).
- * null su QUALUNQUE incertezza → il chiamante commenta la baseline.
+ * ULTIMO marker `marker` presente nel testo, o null se assente, JSON corrotto
+ * o forma rifiutata da `isValid`. Come parseGapState: un ultimo marker
+ * invalido NON ricade su uno piu' vecchio (sarebbe uno stato superato). Pura.
+ * @param {string} marker
+ * @param {string} text
+ * @param {(state: unknown) => boolean} [isValid]
  */
-function readPreviousGapState() {
+export function parseStateMarker(marker, text, isValid = isIdSetState) {
+  let last = null;
+  for (const m of String(text || '').matchAll(markerRegex(marker))) last = m[1];
+  if (last === null) return null;
+  try {
+    const parsed = JSON.parse(last);
+    return isValid(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+/** `{ ids }` deduplicato e ordinato → confronto stabile. Pura. */
+export function buildIdSetState(ids) {
+  return { ids: [...new Set(ids)].sort() };
+}
+
+const sameMembers = (a, b) => {
+  const left = [...new Set(Array.isArray(a) ? a : [])].sort();
+  const right = [...new Set(Array.isArray(b) ? b : [])].sort();
+  return left.length === right.length && left.every((x, i) => x === right[i]);
+};
+
+/**
+ * Delta fra due stati a insieme di id. `opened`/`closed` riguardano `ids`;
+ * `regrouped` elenca le ALTRE liste dello stato (per B: grace/noindex) la cui
+ * composizione e' cambiata a parita' di id — un ruolo che esce dalla grace
+ * window e passa a noindex e' un cambio vero. `prev` null → `changed: true`,
+ * anche con insieme vuoto: su incertezza non si sopprime. Pura.
+ */
+export function diffIdSets(prev, next) {
+  const nextIds = [...new Set(next.ids)].sort();
+  if (!prev) return { opened: nextIds, closed: [], regrouped: [], changed: true };
+  const prevSet = new Set(prev.ids);
+  const nextSet = new Set(nextIds);
+  const opened = nextIds.filter((x) => !prevSet.has(x));
+  const closed = [...prevSet].filter((x) => !nextSet.has(x)).sort();
+  const listKeys = new Set(
+    [...Object.keys(prev), ...Object.keys(next)].filter(
+      (k) => k !== 'ids' && (Array.isArray(prev[k]) || Array.isArray(next[k])),
+    ),
+  );
+  const regrouped = [...listKeys].filter((k) => !sameMembers(prev[k], next[k])).sort();
+  return { opened, closed, regrouped, changed: opened.length + closed.length + regrouped.length > 0 };
+}
+
+/**
+ * Decisione di soppressione del commento di ricorrenza. true SOLO se esiste
+ * uno stato precedente leggibile, con data interpretabile, identico a `next`
+ * e scritto da meno di `maxAgeDays` giorni. Ogni altro caso → false (si
+ * commenta). Pura.
+ * @param {{previous: {state: object, createdAt: string|null} | null, next: object, now: number|Date, maxAgeDays?: number}} input
+ */
+export function shouldSuppressRecurrence({ previous, next, now, maxAgeDays = RECURRENCE_HEARTBEAT_DAYS }) {
+  if (!previous || !previous.state) return false;
+  const writtenAt = Date.parse(previous.createdAt ?? '');
+  const nowMs = now instanceof Date ? now.getTime() : Number(now);
+  if (!Number.isFinite(writtenAt) || !Number.isFinite(nowMs)) return false;
+  if (nowMs - writtenAt >= maxAgeDays * DAY_MS) return false; // battito
+  return !diffIdSets(previous.state, next).changed;
+}
+
+/**
+ * Stato piu' recente dentro una issue gia' letta (`gh issue view --json
+ * body,createdAt,comments`), con la data del testo che lo conteneva: il body
+ * vale la `createdAt` della issue, ogni commento la propria. Si guarda il
+ * testo PIU' RECENTE che porta il marker e, dentro quello, l'ultimo marker.
+ * Pura.
+ * @returns {{state: object, createdAt: string|null} | null}
+ */
+export function latestStateEntry(issue, marker, isValid = isIdSetState) {
+  const pieces = [
+    { text: issue?.body || '', createdAt: issue?.createdAt ?? null },
+    ...(issue?.comments || []).map((c) => ({ text: c?.body || '', createdAt: c?.createdAt ?? null })),
+  ];
+  for (let i = pieces.length - 1; i >= 0; i -= 1) {
+    if (!markerRegex(marker).test(pieces[i].text)) continue;
+    const state = parseStateMarker(marker, pieces[i].text, isValid);
+    return state ? { state, createdAt: pieces[i].createdAt } : null;
+  }
+  return null;
+}
+
+/**
+ * Sezione `### Delta` del commento per le famiglie A e B. Ogni blocco termina
+ * col proprio separatore (stessa regressione di renderDeltaSection). Gli id
+ * restano nudi, senza path: chi conta i path nella issue vede solo l'insieme
+ * corrente. Pura.
+ * @param {{opened: string[], closed: string[], regrouped: string[]}} delta
+ * @param {{baseline: boolean, noun: string, maxAgeDays?: number}} ctx
+ */
+export function renderIdSetDeltaSection(delta, { baseline, noun, maxAgeDays = RECURRENCE_HEARTBEAT_DAYS }) {
+  const ids = (items) => items.map((id) => `- \`${id}\``).join('\n');
+  const blocks = [];
+  if (baseline) {
+    blocks.push(
+      `Nessuno stato precedente leggibile: questa è la rilevazione di riferimento. I giri successivi commentano solo quando l'insieme cambia, oppure come battito dopo ${maxAgeDays} giorni.`,
+    );
+  } else {
+    if (delta.opened.length > 0) blocks.push(`**${delta.opened.length} ${noun} entrati:**\n\n${ids(delta.opened)}`);
+    if (delta.closed.length > 0) blocks.push(`**${delta.closed.length} ${noun} usciti:**\n\n${ids(delta.closed)}`);
+    if (delta.opened.length === 0 && delta.closed.length === 0) {
+      blocks.push(
+        delta.regrouped.length > 0
+          ? `**Stessi ${noun}, ripartizione cambiata** (${delta.regrouped.map((k) => `\`${k}\``).join(', ')}): vedi gli elenchi sopra.`
+          : `**Insieme invariato.** Commento di battito: l'ultimo stato registrato ha almeno ${maxAgeDays} giorni.`,
+      );
+    } else if (delta.regrouped.length > 0) {
+      blocks.push(`Ripartizione cambiata anche in: ${delta.regrouped.map((k) => `\`${k}\``).join(', ')}.`);
+    }
+  }
+  return `### Delta\n\n${blocks.join('\n\n')}\n`;
+}
+
+/**
+ * Stato del giro precedente, letto dalla issue APERTA con il titolo dato
+ * (body + tutti i commenti), con la data del testo che lo conteneva. Una issue
+ * chiusa vale «nessuno stato». null su QUALUNQUE incertezza, e senza
+ * GITHUB_REPOSITORY (esecuzione locale) non chiama nemmeno `gh`.
+ * @param {{title: string, marker: string, isValid: (state: unknown) => boolean}} input
+ * @returns {{state: object, createdAt: string|null} | null}
+ */
+function readPreviousState({ title, marker, isValid }) {
   const repo = process.env.GITHUB_REPOSITORY;
   if (!repo) return null;
   try {
     const listed = execFileSync(
       'gh',
-      ['issue', 'list', '--repo', repo, '--state', 'open', '--search', `in:title "${GAP_ISSUE_TITLE}"`,
+      ['issue', 'list', '--repo', repo, '--state', 'open', '--search', `in:title "${title}"`,
         '--json', 'number,title', '--limit', '20'],
       { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
     );
-    const prefix = GAP_ISSUE_TITLE.slice(0, 60);
+    const prefix = title.slice(0, 60);
     const match = JSON.parse(listed || '[]').find((i) => String(i.title || '').startsWith(prefix));
     if (!match) return null;
     const viewed = execFileSync(
       'gh',
-      ['issue', 'view', String(match.number), '--repo', repo, '--json', 'body,comments'],
+      ['issue', 'view', String(match.number), '--repo', repo, '--json', 'body,createdAt,comments'],
       { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
     );
-    const issue = JSON.parse(viewed || '{}');
-    const haystack = [issue.body || '', ...(issue.comments || []).map((c) => c.body || '')].join('\n');
-    return parseGapState(haystack);
+    return latestStateEntry(JSON.parse(viewed || '{}'), marker, isValid);
   } catch (e) {
     log('⚠️', `lettura stato precedente fallita → commento la baseline: ${String(e).slice(0, 120)}`);
     return null;
   }
+}
+
+/** Famiglia C: stesso lettore, stato senza data (la famiglia C non ha battito). */
+function readPreviousGapState() {
+  return (
+    readPreviousState({
+      title: GAP_ISSUE_TITLE,
+      marker: GAP_STATE_MARKER,
+      isValid: (s) => !!s && Array.isArray(s.nationalZero) && Array.isArray(s.pairs),
+    })?.state ?? null
+  );
 }
 
 function createIssue({ title, description, labels }) {
@@ -375,6 +552,22 @@ async function checkTiSectorHubs({ resolveJobCanton, jobs }) {
 
   log('⚠️', `${actionableZeroSectors.length} unclassified TI sector(s) with 0 real job matches: ${actionableZeroSectors.join(', ')}`);
 
+  // Gli strutturali non entrano nello stato: non sono azionabili.
+  const state = buildIdSetState(actionableZeroSectors);
+  const previous = readPreviousState({
+    title: TI_SECTOR_ISSUE_TITLE,
+    marker: TI_SECTOR_STATE_MARKER,
+    isValid: isIdSetState,
+  });
+  if (shouldSuppressRecurrence({ previous, next: state, now: Date.now() })) {
+    log('🔁', `Gap set TI settori invariato (${state.ids.length} settori) — nessun commento su "${TI_SECTOR_ISSUE_TITLE}".`);
+    return;
+  }
+  const deltaSection = renderIdSetDeltaSection(diffIdSets(previous?.state ?? null, state), {
+    baseline: !previous,
+    noun: 'settori',
+  });
+
   const description = `## Sector TI 0 match reali
 
 Le seguenti pagine \`/cerca-lavoro-ticino/{settore}/\` non hanno **nessuna offerta reale** per il canton Ticino in questo deploy. La pagina resta live/indicizzata (decisione owner 2026-07-16: nessuna soglia minima per i settori TI), ma il gap non classificato va investigato:
@@ -394,6 +587,7 @@ ${structuralZeroSectors.map((s) => `- \`${TI_SECTOR_HUB_PATH}${s}/\` — ${STRUC
 **Run:** ${runUrl()}
 **Totale job TI (raw, canton==TI):** ${tiJobs.length}
 
+${deltaSection}
 ${buildScheda({
   causa: [
     `(ipotesi, da confermare.) ${actionableZeroSectors.length} settore/i TI non ha/hanno nessun match`,
@@ -416,10 +610,12 @@ ${buildScheda({
     'qui sopra è il criterio con cui chiuderla.',
   ],
   fallimento: '`TI sector coverage: settori a 0 match reali`',
-})}`;
+})}
+
+${serializeStateMarker(TI_SECTOR_STATE_MARKER, state)}`;
 
   createIssue({
-    title: 'TI sector coverage: settori a 0 match reali',
+    title: TI_SECTOR_ISSUE_TITLE,
     description,
     labels: ['bug', 'funnel-seo'],
   });
@@ -470,6 +666,25 @@ async function checkTiLegacyProfessions(stagingRoot) {
       `(${indexedViaGrace.length} indexed via grace, ${bridgedNoindex.length} bridged noindex): ${zeroIds.join(', ')}`,
   );
 
+  const state = {
+    ...buildIdSetState(zeroIds),
+    indexedViaGrace: [...indexedViaGrace].sort(),
+    bridgedNoindex: [...bridgedNoindex].sort(),
+  };
+  const previous = readPreviousState({
+    title: TI_LEGACY_ISSUE_TITLE,
+    marker: TI_LEGACY_STATE_MARKER,
+    isValid: isTiLegacyState,
+  });
+  if (shouldSuppressRecurrence({ previous, next: state, now: Date.now() })) {
+    log('🔁', `Gap set TI legacy invariato (${state.ids.length} ruoli) — nessun commento su #5429.`);
+    return;
+  }
+  const deltaSection = renderIdSetDeltaSection(diffIdSets(previous?.state ?? null, state), {
+    baseline: !previous,
+    noun: 'ruoli',
+  });
+
   const description = `## Professioni TI (legacy) a 0 match reali
 
 Le seguenti pagine \`/lavoro-ticino-{ruolo}/\` non hanno **nessuna offerta reale** in questo deploy. Dal fix #5322/#5323 questa famiglia condivide il floor MIN_JOBS + bridge noindex (con grace window di ${PROFESSION_FLOOR_GRACE_DAYS}gg su annunci scaduti) della famiglia per-cantone (\`professionJobsFloor.ts\`) — un 0-match non è più automaticamente una pagina indicizzata thin come i sector-hub (#4824).
@@ -485,6 +700,7 @@ ${bridgedNoindex.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
 
 **Run:** ${runUrl()}
 
+${deltaSection}
 ${buildScheda({
   causa: [
     `(ipotesi, da confermare.) ${zeroIds.length} ruolo/i TI legacy è/sono a 0 offerte live nel`,
@@ -507,10 +723,12 @@ ${buildScheda({
     'qui sopra è il criterio con cui chiuderla.',
   ],
   fallimento: '`TI profession coverage (legacy): ruoli a 0 match reali`',
-})}`;
+})}
+
+${serializeStateMarker(TI_LEGACY_STATE_MARKER, state)}`;
 
   createIssue({
-    title: 'TI profession coverage (legacy): ruoli a 0 match reali',
+    title: TI_LEGACY_ISSUE_TITLE,
     description,
     labels: ['bug', 'funnel-seo'],
   });

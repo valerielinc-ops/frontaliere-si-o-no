@@ -276,7 +276,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  ]},
  { heading: 'FASE 2: Assicurazione Sanitaria (entro 3 mesi)', items: [
  'SCELTA CRUCIALE: LAMal svizzera oppure SSN italiano (diritto di opzione)',
- 'La scelta e\' IRREVERSIBILE per tutta la durata del rapporto di lavoro attuale',
+ 'Per restare al SSN serve una domanda formale di esenzione dalla LAMal entro 3 mesi; poi la scelta non si cambia liberamente',
  'Se scegli LAMal svizzera:',
  ' - Confronta almeno 5 casse malati (i premi variano fino al 40%)',
  ' - Scegli il modello: Telmed (miglior rapporto qualita\'/prezzo, sconto 10-12%)',
@@ -333,8 +333,8 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Come frontaliere hai 3 MESI dall\'inizio lavoro per scegliere',
  'Opzione 1 - LAMal svizzera: paghi un premio mensile, copertura completa in CH',
  'Opzione 2 - SSN italiano: mantieni il servizio sanitario nazionale, limiti in CH',
- 'ATTENZIONE: la scelta e\' IRREVERSIBILE per tutto il rapporto di lavoro attuale',
- 'Se cambi datore, puoi cambiare scelta (nuovo diritto di opzione)',
+ 'ATTENZIONE: per restare al SSN serve una domanda formale di esenzione dalla LAMal entro 3 mesi; poi la scelta non si cambia liberamente',
+ 'Un cambio di datore non riapre da solo l\'opzione: verifica con l\'autorità del Cantone di lavoro',
  'Se non comunichi nulla entro 3 mesi: vieni assegnato d\'ufficio alla LAMal',
  ]},
  { heading: 'Quando Conviene la LAMal', items: [

@@ -99,6 +99,25 @@ describe('salaryLandingShell · resolver', () => {
     }
   });
 
+  it('LAMal/SSN FAQ of the permit G vs B landing cites the federal source and the three-month deadline', () => {
+    const cases: Array<{ path: string; locale: SalaryLocale; deadline: RegExp }> = [
+      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', locale: 'it', deadline: /tre mesi/ },
+      { path: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', locale: 'en', deadline: /three months/ },
+      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', locale: 'de', deadline: /drei Monaten/ },
+      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', locale: 'fr', deadline: /trois mois/ },
+    ];
+    for (const c of cases) {
+      const r = _internal.resolveScenarioData(c.path);
+      expect(r.locale, `wrong locale for ${c.path}`).toBe(c.locale);
+      const healthFaqs = (r.data.faqs ?? []).filter((faq) => /LAMal/.test(faq.q) && /\bSSN\b/.test(faq.q));
+      expect(healthFaqs.length, `no LAMal/SSN FAQ on ${c.path}`).toBeGreaterThan(0);
+      for (const faq of healthFaqs) {
+        expect(faq.a, `federal source missing on ${c.path}`).toContain('bag.admin.ch');
+        expect(faq.a, `three-month deadline missing on ${c.path}`).toMatch(c.deadline);
+      }
+    }
+  });
+
   it('falls back to a localised generic default for unknown calcola-stipendio paths', () => {
     const r = _internal.resolveScenarioData('/calcola-stipendio/nonexistent');
     expect(r.locale).toBe('it');

@@ -14,6 +14,7 @@
  *   6. Runs base crawler for AI localization (localize-existing-only)
  *   7. Validates locale coverage
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -253,7 +254,7 @@ export async function fetchJobs() {
       category: 'finance',
       contract: 'full-time',
       currency: 'CHF',
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(''),
       source: 'bps-suisse-careers-crawler',
       crawledAt: new Date().toISOString(),
       _targetScope: { canton: HQ.canton, location },
@@ -296,7 +297,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      postedDate: job.postedDate || prev.postedDate,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

@@ -317,9 +317,7 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
     : (extractDescriptionFromDom(document) || jsonLdDesc);
 
   // Date posted
-  const datePosted = jsonLd?.datePosted
-    ? String(jsonLd.datePosted).slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
+  const datePosted = typeof jsonLd?.datePosted === 'string' ? jsonLd.datePosted : '';
 
   return { title, location, description, datePosted };
 }

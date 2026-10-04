@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
 export type JobLandingLocale = 'it' | 'en' | 'de' | 'fr';
 export type JobLandingTypeKey = 'apprenticeship' | 'internship' | 'partTime';
 export type JobLandingSectorKey = 'health' | 'finance' | 'tech' | 'engineering' | 'admin' | 'hospitality' | 'sales';
@@ -282,6 +284,7 @@ export type LandingJobLink = {
  company: string;
  location: string;
  href: string;
+ postingDateSource?: string;
  datePosted?: string;
  titleByLocale?: Partial<Record<JobLandingLocale, string>>;
  companyKey?: string;
@@ -1328,7 +1331,11 @@ function parseDate(value: string): Date | null {
  return Number.isNaN(parsed.getTime()) ? null : parsed;
 }
 
-function getJobFreshnessDate(job: JobLike): Date | null {
+function getJobFreshnessDate(job: JobLike, now?: Date): Date | null {
+ if (hasPostingDateProvenance(job)) {
+  const reported = resolveReportedPostingDate(job, now);
+  return reported ? new Date(reported) : null;
+ }
  return parseDate(job.postedDate) || parseDate(job.datePosted) || parseDate(job.crawledAt) || parseDate(job.updatedAt);
 }
 
@@ -1389,8 +1396,8 @@ function buildJobHref(baseUrl: string, localePrefix: string, sectionSlug: string
 
 function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
  return [...jobs].sort((a, b) => {
- const aTime = getJobFreshnessDate(a)?.getTime() || 0;
- const bTime = getJobFreshnessDate(b)?.getTime() || 0;
+ const aTime = getJobFreshnessDate(a, now)?.getTime() || 0;
+ const bTime = getJobFreshnessDate(b, now)?.getTime() || 0;
  if (bTime !== aTime) return bTime - aTime;
  return normalizeSpace(a.title).localeCompare(normalizeSpace(b.title), 'it', { sensitivity: 'base' });
  });
@@ -1432,9 +1439,10 @@ function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, opti
   const titleByLocaleTyped = Object.fromEntries(
    Object.entries(rawTitleByLocale).filter(([, v]) => typeof v === 'string'),
   ) as Partial<Record<JobLandingLocale, string>>;
-  const posted = getJobFreshnessDate(job as JobLike);
+  const posted = getJobFreshnessDate(job as JobLike, now);
   const datePosted = posted
    ? posted.toISOString()
+   : hasPostingDateProvenance(job) ? undefined
    : typeof j.postedDate === 'string'
     ? j.postedDate
     : typeof j.datePosted === 'string'
@@ -1447,6 +1455,7 @@ function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, opti
    company: normalizeSpace(typeof j.company === 'string' ? j.company : ''),
    location: normalizeSpace(typeof j.location === 'string' ? j.location : ''),
    href: buildJobHref(options.baseUrl, options.localePrefix, options.sectionSlug, options.localizedSlug(job, locale)),
+   postingDateSource: job.postingDateSource,
    datePosted,
    titleByLocale: titleByLocaleTyped,
    companyKey: typeof j.companyKey === 'string' ? j.companyKey : undefined,
@@ -1818,7 +1827,7 @@ export function buildJobOfficialGazetteLandingModel(options: {
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
  const landingHref = ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${JOB_OFFICIAL_GAZETTE_LANDING_SLUGS[locale]}`.replace(/\/+/g, '/')}`);
  const officialJobs = options.jobs.filter((job) => isOfficialGazetteJob(job));
- const latestJobs = officialJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = officialJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const allJobsHref = ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}`.replace(/\/+/g, '/')}`);
  const feedJobs = toLinkedJobs(officialJobs, now, locale, { ...options, baseUrl }, 18);
  const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
@@ -1959,7 +1968,7 @@ export function buildJobNursesHubLandingModel(options: {
  ? [...options.partition.nursing]
  : options.jobs.filter((job) => isNursingHubJob(job));
  const matches: JobLike[] = nursingPool.filter((job) => isCantonScoped(job, cantonCode));
- const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const feedJobs = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
  const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
  return {
@@ -2015,7 +2024,7 @@ export function buildJobCareVariantLandingModel(options: {
  ? [...options.partition.byCluster[clusterKey]]
  : options.jobs.filter((job) => isNursingHubJob(job) && def.matcher(job));
  const matches: JobLike[] = matchesPool.filter((job) => isCantonScoped(job, cantonCode));
- const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const label = careClusterLabel(clusterKey, cantonCode, locale);
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
  // Lowercased label for mid-sentence interpolation, with the canton display
@@ -2104,8 +2113,8 @@ export function buildJobTodayLandingModel(options: {
  // (mostly TI). Restrict to the canton — `isCantonScoped` routes through
  // resolveJobCanton, so BASILEA matches BS+BL and APPENZELLO matches AI+AR.
  const cantonJobs = options.jobs.filter((job) => isCantonScoped(job, cantonCode));
- const recent24h = cantonJobs.filter((job) => isInLast24Hours(getJobFreshnessDate(job), now));
- const recent3d = cantonJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const recent24h = cantonJobs.filter((job) => isInLast24Hours(getJobFreshnessDate(job, now), now));
+ const recent3d = cantonJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const partTime = cantonJobs.filter((job) => isPartTime(job));
  const citySourceJobs = cantonJobs;
  // Two URL schemes coexist:
@@ -2189,7 +2198,7 @@ export function buildJobLocationLandingModel(options: {
  const locationJobs: JobLike[] = partitionLocationJobs
  ? [...partitionLocationJobs]
  : options.jobs.filter((job) => matchesLocation(job, location));
- const latestJobs = locationJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = locationJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const feedJobsLocCity = toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 25);
  const latestJobsLocCity = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobsLocCity);
  return {
@@ -2245,7 +2254,7 @@ export function buildJobLocationTypeLandingModel(options: {
  const matches: JobLike[] = partitionMatches
  ? [...partitionMatches]
  : options.jobs.filter((job) => matchesLocation(job, location) && typeDef.matcher(job));
- const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const siblingTypeLinks = buildLocationTypeLinks({ ...options, location, now, baseUrl, partition: options.partition }).filter((link) => link.key !== typeKey);
  const feedJobsLocType = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 30);
  const latestJobsLocType = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 15), feedJobsLocType);
@@ -2296,7 +2305,7 @@ export function buildJobLocationSectorLandingModel(options: {
  const matches: JobLike[] = partitionMatches
  ? [...partitionMatches]
  : options.jobs.filter((job) => matchesLocation(job, location) && sectorDef.matcher(job));
- const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const siblingSectorLinks = buildLocationSectorLinks({ ...options, location, now, baseUrl, partition: options.partition }).filter((link) => link.key !== sectorKey);
  const feedJobsLocSector = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 30);
  const latestJobsLocSector = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 15), feedJobsLocSector);
@@ -2408,7 +2417,7 @@ export function buildJobSectorRegionLandingModel(options: {
  const cantonSlug = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
  const slug = `${SEARCH_ROUTE_PREFIX[locale]}-${sectorSlug}-${cantonSlug}`;
  const matches = options.jobs.filter((job) => sectorDef.matcher(job));
- const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
  const siblingSectorLinks = (Object.keys(JOB_SECTOR_DEFS) as JobLandingSectorKey[])
  .filter((k) => k !== sectorKey)
  .map((k) => {
@@ -2587,7 +2596,7 @@ export function buildJobPartTimeLandingModel(options: {
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
  const matches = options.jobs.filter((job) => isCantonScoped(job, cantonCode) && isPartTime(job));
- const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job, now), now));
 
  // Build city breakdown for part-time jobs
  const cityCountMap = new Map<string, number>();

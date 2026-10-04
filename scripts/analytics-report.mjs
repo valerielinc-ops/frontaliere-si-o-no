@@ -1973,6 +1973,9 @@ async function reportGA4(token) {
       baseRequest,
     });
     errorHealth.appErrors = appErrorsResult.appErrors;
+    // Il chiuditore del feeder app-error legge «assente» come «zero» solo se
+    // l'elenco non e' un top-N tagliato.
+    errorHealth.appErrorsComplete = appErrorsResult.complete === true;
     if (appErrorsResult.recency) {
       errorHealth.appErrorsRecency = appErrorsResult.recency;
       if (appErrorsResult.recency.status === 'unavailable') {

@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveJobCanton } from './shared/cantonSection';
 import type { JobLandingLocale, LandingJobLink } from './jobEditorialLanding';
 
@@ -166,7 +168,11 @@ function parseDate(value: unknown): Date | null {
   return Number.isNaN(parsed.getTime()) ? null : parsed;
 }
 
-function freshnessDate(job: JobLike): Date | null {
+function freshnessDate(job: JobLike, now?: Date): Date | null {
+ if (hasPostingDateProvenance(job)) {
+  const reported = resolveReportedPostingDate(job, now);
+  return reported ? new Date(reported) : null;
+ }
   return parseDate(job.postedDate) || parseDate(job.datePosted) || parseDate(job.crawledAt) || parseDate(job.updatedAt);
 }
 
@@ -189,10 +195,10 @@ function buildJobHref(
   return ensureTrailingSlash(`${baseUrl.replace(/\/+$/, '')}${`${localePrefix}/${sectionSlug}/${jobSlug}`.replace(/\/+/g, '/')}`);
 }
 
-function sortByFreshness(jobs: JobLike[]): JobLike[] {
+function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
   return [...jobs].sort((a, b) => {
-    const aTime = freshnessDate(a)?.getTime() || 0;
-    const bTime = freshnessDate(b)?.getTime() || 0;
+    const aTime = freshnessDate(a, now)?.getTime() || 0;
+    const bTime = freshnessDate(b, now)?.getTime() || 0;
     if (bTime !== aTime) return bTime - aTime;
     return normalizeSpace(a.title).localeCompare(normalizeSpace(b.title), 'it', { sensitivity: 'base' });
   });
@@ -203,15 +209,17 @@ function toLinkedJobs(
   locale: JobLandingLocale,
   options: { baseUrl: string; localePrefix: string; sectionSlug: string; localizedSlug: (job: JobLike, locale: JobLandingLocale) => string },
   max: number,
+  now: Date,
 ): LandingJobLink[] {
-  return sortByFreshness(jobs).slice(0, max).map((job) => {
+  return sortByFreshness(jobs, now).slice(0, max).map((job) => {
     const localizedTitles = job.titleByLocale as Record<string, unknown> | undefined;
     return {
       title: normalizeSpace(localizedTitles && typeof localizedTitles[locale] === 'string' ? localizedTitles[locale] : job.title || 'Offerta lavoro'),
       company: normalizeSpace(job.company),
       location: normalizeSpace(job.location),
       href: buildJobHref(options.baseUrl, options.localePrefix, options.sectionSlug, options.localizedSlug(job, locale)),
-      datePosted: freshnessDate(job)?.toISOString(),
+      postingDateSource: job.postingDateSource,
+      datePosted: freshnessDate(job, now)?.toISOString(),
       titleByLocale: Object.fromEntries(Object.entries(localizedTitles || {}).filter(([, value]) => typeof value === 'string')) as Partial<Record<JobLandingLocale, string>>,
       companyKey: typeof job.companyKey === 'string' ? job.companyKey : undefined,
       canton: typeof job.canton === 'string' ? job.canton : undefined,
@@ -278,9 +286,9 @@ export function buildJobIntentLandingModel(options: {
   const copy = INTENT_COPY[options.intentKey][options.locale];
   const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
   const matches = options.jobs.filter((job) => resolveJobCanton(job) === canton && matchesJobIntent(job, options.intentKey));
-  const latest = matches.filter((job) => isInLast3Days(freshnessDate(job), now));
-  const feed = toLinkedJobs(matches, options.locale, options, 18);
-  const latestJobs = dedupeLatest(toLinkedJobs(latest, options.locale, options, 12), feed);
+  const latest = matches.filter((job) => isInLast3Days(freshnessDate(job, now), now));
+  const feed = toLinkedJobs(matches, options.locale, options, 18, now);
+  const latestJobs = dedupeLatest(toLinkedJobs(latest, options.locale, options, 12, now), feed);
   const relatedLinks = JOB_INTENT_KEYS
     .filter((key) => key !== options.intentKey)
     .map((key) => {

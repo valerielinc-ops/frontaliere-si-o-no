@@ -53,7 +53,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { firstLocationSegment, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
@@ -469,7 +469,7 @@ export async function fetchBraccoJobs() {
       ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
       category: detectCategory(title),
-      datePosted: info.startDate || new Date().toISOString().split('T')[0],
+      ...workdayPostingDateFields(detail),
       source: 'bracco-workday-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(title),

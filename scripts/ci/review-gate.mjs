@@ -25,6 +25,7 @@ import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
 import {
   contributionFingerprint,
+  findingAcceptanceClauses,
   isCarryForwardReview,
   verifyCarryForwardReview,
 } from './lib/review-carry-forward.mjs';
@@ -762,17 +763,19 @@ function ledgerOnlyClause(clause) {
  * meta-finding («il finding storico X resta open senza anchor») si sono
  * rialzati da soli per 55 review, portando il ledger a 111 voci aperte, mentre
  * il codice aveva già quattro `## LGTM`. Su 120 PR mergiate prima: zero 🔴
- * senza file, quindi zero casi toccati. Ogni clausola vale fino a fine riga,
- * così un rilievo vero che cita un meta-finding resta bloccante. Un 🔴
- * ancorato a `PR body:L<n>` resta sulle regole del body
- * (`isContractDomainBodyFinding`) e sulla sua conferma esatta.
+ * senza file, quindi zero casi toccati. Ogni clausola vale fino alla
+ * clausola successiva o alla fine del finding (`findingAcceptanceClauses`):
+ * troncata al primo a capo, un comando sulla riga di continuazione non veniva
+ * letto e il 🔴 vero era declassato (review 11321). Formato non riconosciuto o
+ * clausola troncata: resta bloccante. Un 🔴 ancorato a `PR body:L<n>` resta
+ * sulle regole del body (`isContractDomainBodyFinding`) e sulla sua conferma
+ * esatta.
  */
 export function isLedgerAcceptanceFinding(finding) {
   if ((finding?.citations || []).length > 0) return false;
   if (prBodyAnchor(finding?.line) !== null || prBodyAnchor(finding?.text) !== null) return false;
-  const clauses = [...String(finding?.text || '').matchAll(/(?:Accettazione|Acceptance)\s*:\s*([^\n]*)/giu)]
-    .map((match) => match[1]);
-  return clauses.length > 0 && clauses.every(ledgerOnlyClause);
+  const clauses = findingAcceptanceClauses(finding?.text);
+  return clauses !== null && clauses.length > 0 && clauses.every(ledgerOnlyClause);
 }
 
 export function unanchoredConfirmationTarget(finding) {

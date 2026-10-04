@@ -17,6 +17,7 @@
  *   5. Run scoped localization for the Debiopharm company key
  *   6. Validate locale coverage in strict mode
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -114,10 +115,7 @@ function readJson(filePath, fallback) {
 
 function toIsoDate(value = '') {
   const raw = String(value || '').trim();
-  if (!raw) return new Date().toISOString().slice(0, 10);
-  const parsed = new Date(raw);
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
+  return sourcePostingDateFields(raw).postedDate;
 }
 
 function inferCategory({ title = '', department = [] } = {}) {
@@ -314,7 +312,7 @@ export function buildDebiopharmJob(listing, detail) {
     sector: 'Pharma & Biotech',
     source: 'debiopharm-dedicated-crawler',
     sourceLang,
-    postedDate: publishedDate,
+    ...sourcePostingDateFields(publishedDate),
     validThrough: '',
     description: parsed.description,
     titleByLocale: { [sourceLang]: title },
@@ -364,6 +362,7 @@ async function mergeJobs(discoveredJobs) {
       const job = {
         ...existingJob,
         ...discovered,
+        ...mergeSourcePostingDates(existingJob, discovered),
         // Fresh text wins in the SOURCE slot only; translations are kept.
         titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
@@ -415,7 +414,7 @@ function updateAdapterConfig(discoveredJobs) {
         location: job.location,
         canton: inferAnyCanton(job.location) || '',
         company: COMPANY_NAME,
-        postedDate: job.postedDate || '',
+        ...mergeSourcePostingDates({}, job),
       },
     ])
   );

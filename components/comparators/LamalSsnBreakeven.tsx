@@ -4,8 +4,8 @@
  * Replaces the static "LAMal svizzera vs SSN italiano" prose with a
  * personalised numeric verdict:
  *   - inputs: net yearly income (CHF), age, LAMal franchise
- *   - LAMal side: cheapest real premium from data/health-premiums.json
- *     (standard model, no accident cover) via the parent comparator
+ *   - LAMal side: cheapest real premium from data/health-premiums-eu/{year}.json
+ *     (standard model, no accident cover) for Italian residents via the parent comparator
  *   - SSN side: the contribution for eligible frontier workers,
  *     3–6% of net income depending on the region (L. 213/2023)
  *   - CTA: email capture → PDF report via the sendCalculatorReport Cloud
@@ -38,6 +38,9 @@ type BreakevenAgeGroup = '0-18' | '19-25' | '26+';
 export interface CheapestPremium {
  premium: number;
  insurerName: string;
+ premiumYear?: number;
+ residenceCountry?: string;
+ premiumSourceUrl?: string;
 }
 
 interface LamalSsnBreakevenProps {
@@ -48,7 +51,7 @@ interface LamalSsnBreakevenProps {
  /**
   * Cheapest monthly LAMal premium (standard model, no accident) for the
   * given franchise + age group, computed by the parent from the loaded
-  * UFSP dataset. Null while data is loading or unavailable.
+  * country-of-residence UFSP dataset. Null while data is loading or unavailable.
   */
  computeCheapestPremium: (franchise: number, ageGroup: BreakevenAgeGroup) => CheapestPremium | null;
 }
@@ -130,6 +133,9 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  lamalMonthlyCHF: cheapest.premium,
  lamalAnnualCHF: result.lamalAnnual,
  cheapestInsurer: cheapest.insurerName,
+ premiumYear: cheapest.premiumYear,
+ residenceCountry: cheapest.residenceCountry,
+ premiumSourceUrl: cheapest.premiumSourceUrl,
  ssnMinCHF: result.ssnMin,
  ssnMaxCHF: result.ssnMax,
  breakevenPct: result.breakevenPct,

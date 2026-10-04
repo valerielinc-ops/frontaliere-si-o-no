@@ -447,6 +447,9 @@ describe('warnStreaks — counts CONSECUTIVE prior reports', () => {
 });
 
 describe('mergedPrStats — review identity and list completeness', () => {
+  const SITE = 'valerielinc-ops/frontaliere-si-o-no';
+  const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
+
   it('counts both human-style and bot-suffixed automation logins', () => {
     const reviews = [
       { author: { login: 'claude' } },
@@ -456,7 +459,64 @@ describe('mergedPrStats — review identity and list completeness', () => {
       { author: { login: 'someone-else' } },
     ];
 
-    expect(botReviewCount({ reviews })).toBe(4);
+    expect(botReviewCount({ reviews }, SITE)).toBe(4);
+  });
+
+  // Il revisore pubblica con un'identità diversa per repo: nel corpus è il
+  // GITHUB_TOKEN del workflow (`github-actions`), nel sito `frontaliere-automation`.
+  // Con un login fisso il report del corpus leggeva 0 review su ogni PR.
+  const reviewerBody = `<!-- REVIEW_INPUT_REVISION: body:${'ab'.repeat(32)} -->\n\n## Scope\n\n## LGTM\n\n<!-- CODEX_FALLBACK_REVIEW -->`;
+
+  it('nel corpus conta la review di github-actions che porta il marcatore del revisore', () => {
+    const pr = { reviews: [
+      { author: { login: 'github-actions' }, body: reviewerBody },
+      { author: { login: 'github-actions[bot]' }, body: reviewerBody },
+    ] };
+    expect(botReviewCount(pr, CORPUS)).toBe(2);
+  });
+
+  it('nel corpus una review di github-actions senza marcatore non è del revisore', () => {
+    const pr = { reviews: [
+      { author: { login: 'github-actions' }, body: 'Approvato dal workflow di enroll.' },
+      { author: { login: 'github-actions' } },
+      { author: { login: 'github-actions' }, body: `Diagnostica: il revisore scrive ${reviewerBody.split('\n')[0]} in testa.` },
+      { author: { login: 'github-actions' }, body: '<!-- REVIEW_INPUT_REVISION: body:ff501f0b -->' },
+      { author: { login: 'frontaliere-automation' }, body: reviewerBody },
+    ] };
+    expect(botReviewCount(pr, CORPUS)).toBe(0);
+  });
+
+  it('nel sito conta frontaliere-automation e non github-actions, anche col marcatore', () => {
+    const pr = { reviews: [
+      { author: { login: 'frontaliere-automation' }, body: 'review senza marcatore' },
+      { author: { login: 'github-actions' }, body: reviewerBody },
+    ] };
+    expect(botReviewCount(pr, SITE)).toBe(1);
+  });
+
+  it('mergedPrStats interroga il repo misurato e applica il suo revisore', () => {
+    const calls: string[][] = [];
+    const prs = [
+      { number: 1, reviews: [{ author: { login: 'github-actions' }, body: reviewerBody }] },
+      { number: 2, reviews: [
+        { author: { login: 'github-actions' }, body: reviewerBody },
+        { author: { login: 'github-actions' }, body: reviewerBody },
+      ] },
+      { number: 3, reviews: [{ author: { login: 'github-actions' }, body: 'altro workflow' }] },
+    ];
+    const stats = mergedPrStats('2026-09-12', (args: string[]) => {
+      calls.push(args);
+      return prs;
+    }, { repo: CORPUS });
+
+    expect(calls[0][calls[0].indexOf('--repo') + 1]).toBe(CORPUS);
+    expect(stats).toMatchObject({
+      measured: true,
+      merged: prs.length,
+      singleReview: 1,
+      zeroReview: 1,
+      totalReviews: 3,
+    });
   });
 
   it('raises an observable truncation flag when the GitHub list reaches its limit', () => {

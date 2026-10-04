@@ -21,6 +21,7 @@
  *   4. Builds job objects and merges them into jobs.json.
  *   5. Translates and validates locale coverage.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -55,6 +56,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { decodeColinCieEntities, parseColinCieJobDescription } from './lib/colin-cie-job-parser.mjs';
+import { extractJobPostingField } from './lib/jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -210,14 +212,10 @@ function parseListingPage(html) {
     const detailPath = urlMatch[1];
     const detailUrl = detailPath.startsWith('http') ? detailPath : BASE_URL + detailPath;
 
-    // Date
+    // The unlabelled newsDate does not establish employer publication semantics.
+    // Retain the visible value separately; publication requires detail evidence.
     const dateMatch = cardHtml.match(/<span\s+class='newsDate'>\s*(\d{2}\.\d{2}\.\d{4})\s*<\/span>/i);
     const dateStr = dateMatch ? dateMatch[1] : '';
-    let postedDate = '';
-    if (dateStr) {
-      const [d, m, y] = dateStr.split('.');
-      postedDate = `${y}-${m}-${d}`;
-    }
 
     // Tags (category, country, city)
     const tagRegex = /<span\s+class='jobTag'>(.*?)<\/span>/gi;
@@ -231,21 +229,21 @@ function parseListingPage(html) {
     const country = tags[1] || '';
     const city = tags[2] || '';
 
-    jobs.push({ postId, title, detailUrl, postedDate, category, country, city });
+    jobs.push({ postId, title, detailUrl, sourceListingDate: dateStr, ...sourcePostingDateFields(''), category, country, city });
   }
   return jobs;
 }
 
 /**
- * Fetch a detail page and extract the job description (see
- * `parseColinCieJobDescription` for the sections it reads).
+ * Fetch a detail page and extract its description and explicit publication evidence.
  */
-async function fetchJobDescription(url) {
+async function fetchJobDetail(url) {
   try {
-    return parseColinCieJobDescription(await fetchPage(url));
+    const html = await fetchPage(url);
+    return { description: parseColinCieJobDescription(html), ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')) };
   } catch (err) {
     console.warn(`  ⚠️  Could not fetch detail page ${url}: ${err.message}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -285,7 +283,8 @@ function buildJob(row, description) {
     sector: 'Finanza / Wealth Management',
     source: 'colin-cie-dedicated-crawler',
     sourceLang: 'de',
-    postedDate: row.postedDate || new Date().toISOString().slice(0, 10),
+    ...mergeSourcePostingDates({}, row),
+    crawledAt: new Date().toISOString(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -318,6 +317,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -345,7 +345,7 @@ function mergeJobs(discoveredJobs) {
 function updateAdapterConfig(jobs) {
   const seedMetaByUrl = {};
   for (const job of jobs) {
-    seedMetaByUrl[job.url] = { location: job.location, canton: job.canton, company: COMPANY_NAME };
+    seedMetaByUrl[job.url] = { location: job.location, canton: job.canton, company: COMPANY_NAME, ...mergeSourcePostingDates({}, job) };
   }
   writeJson(ADAPTER_PATH, {
     companyKey: COMPANY_KEY,
@@ -405,8 +405,8 @@ async function main() {
   const jobs = [];
   for (const listing of listings) {
     console.log(`  🔗 ${listing.detailUrl}`);
-    const description = await fetchJobDescription(listing.detailUrl);
-    jobs.push(buildJob(listing, description));
+    const detail = await fetchJobDetail(listing.detailUrl);
+    jobs.push(buildJob({ ...listing, ...detail }, detail.description));
     // Small delay between requests
     await new Promise((r) => setTimeout(r, 500));
   }

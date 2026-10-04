@@ -12,7 +12,11 @@ import {
   classifyDiscoveredUrl,
   folderFor,
   probeWithRetries,
+  writeJsonStreaming,
 } from './bing-site-explorer-crawl.mjs';
+
+// Re-exported so callers of the report module keep a single import.
+export { writeJsonStreaming };
 
 const ACTIONABLE_CODES = new Set([
   'fetch-error', 'http-error', 'redirect', 'noindex-in-sitemap',
@@ -63,11 +67,6 @@ function mergeCounters(target, source) {
 }
 
 function ensureParent(filePath) { mkdirSync(dirname(resolve(filePath)), { recursive: true }); }
-
-function writeJson(filePath, value) {
-  ensureParent(filePath);
-  writeFileSync(resolve(filePath), `${JSON.stringify(value, null, 2)}\n`);
-}
 
 export function readPartitionReports(reportsDir, prefix = 'partition-') {
   return readdirSync(resolve(reportsDir))
@@ -429,7 +428,9 @@ async function main() {
     supplementalCoverageErrors: supplementalCoverageError ? [supplementalCoverageError] : [],
   });
   if (transientRescue) summary.transientRescue = transientRescue;
-  writeJson(output, summary);
+  // The issue body is the small, human-facing output: write it before the
+  // large summary so a failure while serializing the artifact JSON can never
+  // leave the backlog issue without a description.
   if (issueBodyPath && (summary.actionableCount > 0 || !summary.coverageOk)) {
     const server = process.env.GITHUB_SERVER_URL || 'https://github.com';
     const repo = process.env.GITHUB_REPOSITORY || '';
@@ -438,6 +439,7 @@ async function main() {
     ensureParent(issueBodyPath);
     writeFileSync(resolve(issueBodyPath), `${buildIssueBody(summary, { artifactUrl })}\n`);
   }
+  writeJsonStreaming(output, summary);
   console.log(JSON.stringify({
     manifestCount: summary.manifestCount,
     checkedCount: summary.checkedCount,

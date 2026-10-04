@@ -16,6 +16,7 @@
  * The API returns full job data including multi-locale translations (it, en, de),
  * descriptions, requirements, locations, and employment details.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -112,10 +113,7 @@ function slugify(value = '') {
 
 function toIsoDate(raw = '') {
   const value = String(raw || '').trim();
-  if (!value) return new Date().toISOString().slice(0, 10);
-  const date = new Date(value);
-  if (!Number.isNaN(date.getTime())) return date.toISOString().slice(0, 10);
-  return new Date().toISOString().slice(0, 10);
+  return sourcePostingDateFields(value).postedDate;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -301,7 +299,7 @@ export function parseCornerOffer(offer) {
     contract: inferContract(offer),
     currency: 'CHF',
     featured: false,
-    postedDate: toIsoDate(offer.published_at || offer.created_at),
+    ...sourcePostingDateFields(toIsoDate(offer.published_at)),
     url: careersUrl,
     source: 'Corner Dedicated Parser (Recruitee API)',
     sourceLang,

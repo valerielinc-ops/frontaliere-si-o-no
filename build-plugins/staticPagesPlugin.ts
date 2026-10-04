@@ -8,6 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
+import { renderAuthorEditorial, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { localizeArticlePageIdentity } from '../services/seo/article-page-identity';
 import { editorialModifiedDate } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
@@ -33,6 +34,9 @@ import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
+import { renderCorrectionsEditorial } from './shared/correctionsEditorial';
+import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
+import type { CorrectionsLocale } from '../services/editorialCorrections';
 import { routeAwarePreloadChunksFor } from './staticPagePreloadMap';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
@@ -2971,6 +2975,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const pathSegs = ['en', 'de', 'fr'].includes(segs[0]) ? segs.slice(1) : segs;
  const sourcePath = italianPath ?? locPath;
  const sourceCanonicalPath = withTrailingSlash(sourcePath);
+ if (sourceCanonicalPath === '/correzioni/') {
+ const page = buildCorrezioniSeo(locale as CorrectionsLocale);
+ return { title: page.title, desc: page.description, ogT: page.title, ogD: page.description, sd: JSON.stringify([page.jsonLd]) };
+ }
 
  // ── Salary-landing net-comparison pages (4 scenarios × 3 non-IT locales) ──
  // services/seo/seo-landing.ts only ships IT copy for these 4 keys; without
@@ -3208,7 +3216,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
- let seo = seoMap.get(seoKey(url.path));
+ let seo: SeoEntry | undefined = resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
  if (!seo) {
  // Derive a basic page from URL path so every sitemap URL gets a static HTML file
  const pathLabel = url.path.split('/').filter(Boolean).pop() || url.path;
@@ -3440,7 +3448,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // If the entry has an 'it' key, use it instead of the inline chain below.
  const sectionKey = SECTION_EDITORIAL_KEYS
  .find(prefix => italianPath.startsWith(prefix));
- if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
+ const authorEditorial = renderAuthorEditorial(sourcePathForContent, locale as 'it' | 'en' | 'de' | 'fr');
+ if (authorEditorial) {
+ editorialBlocks.push(...authorEditorial);
+ } else if (italianPath.replace(/\/+$/, '') === '/correzioni') {
+ editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
+ } else if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
  // SECTION_EDITORIAL short-circuits the `else if` chain that would
  // otherwise hit the section-index navigators (line 2141 etc.). When
@@ -3762,8 +3775,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  // Block 5: Assicurazione Sanitaria
  `<h2>Assicurazione sanitaria: LAMal, diritto d'opzione e CMB</h2>`,
- `I frontalieri che iniziano a lavorare in Svizzera hanno l'obbligo di assicurarsi contro le malattie. Grazie all'Accordo sulla Libera Circolazione delle Persone, i frontalieri residenti in Italia godono del "diritto d'opzione": possono scegliere tra l'assicurazione sanitaria svizzera obbligatoria (LAMal) e il Servizio Sanitario Nazionale italiano (SSN). La copertura italiana richiede una domanda formale di esenzione dalla LAMal al Cantone di lavoro entro 3 mesi dall'inizio dell'attività lavorativa; l'iscrizione al SSN da sola non vale come opzione. Il cambio non è libero: in caso di nuova condizione, come la nascita di un figlio per chi era assicurato LAMal, la possibilità di una nuova opzione va verificata con il Cantone di lavoro e l'ASL italiana.`,
- `Chi opta per la LAMal paga un premio mensile che nel Canton Ticino varia da CHF 270 a CHF 560/mese nel 2026, a seconda dell'assicuratore, del modello assicurativo (Standard, Telmed/telefono, HMO/medico di base) e della franchigia scelta (da CHF 300 a CHF 2.500/anno). Le opzioni più economiche sono tipicamente Assura e Agrisano con modello Telmed e franchigia massima di CHF 2.500, con premi intorno a CHF 270-300/mese. La LAMal garantisce l'accesso completo al sistema sanitario svizzero senza liste d'attesa significative, il che è un vantaggio per chi lavora in Ticino e può aver bisogno di cure urgenti durante l'orario di lavoro.`,
+ `I cittadini UE residenti in Italia che hanno diritto di opzione possono chiedere l’esenzione dalla LAMal all’autorità competente del Cantone di lavoro entro tre mesi dall’inizio dell’attività. La domanda deve essere formale: la sola iscrizione al SSN non basta. La scelta non si modifica liberamente. Per chi era assicurato LAMal, la nascita di un figlio può consentire un nuovo esercizio entro tre mesi, secondo la situazione familiare: verificare prima con il Cantone e l’ASL. <a href="https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera">Fonte UFSP</a>.`,
+ `Per i frontalieri residenti in Italia si applicano i premi LAMal del Paese di domicilio, non quelli del Cantone di lavoro. La tabella UFSP 2026 per l’Italia comprende 14 assicuratori: per adulti da 26 anni senza infortuni, i premi mensili vanno da CHF 279 a CHF 487.20. La franchigia ordinaria è CHF 300 per adulti e giovani adulti, CHF 0 per bambini; non sono disponibili franchigie opzionali né modelli HMO o Telmed. Confrontare il premio per età e copertura infortuni. <a href="https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf">Premi ufficiali Italia 2026</a>; <a href="https://www.bag.admin.ch/it/assicurazione-malattie-forme-particolari-dassicurazione">UFSP: limiti alle forme particolari per residenti all’estero</a>.`,
  `Chi opta per il SSN italiano non paga un premio separato (il costo è coperto dalla fiscalità generale), ma non ha copertura automatica per le cure mediche in Svizzera, salvo emergenze coperte dalla Tessera Sanitaria Europea (TSE/TEAM). Per integrare la copertura, molti frontalieri che scelgono il SSN sottoscrivono un'assicurazione complementare privata (CMB, Cassa Malati dei Frontalieri, o polizze integrative) con costi mensili variabili da EUR 50 a EUR 150. La scelta tra LAMal e SSN dipende da fattori personali: età, stato di salute, composizione familiare e preferenza sulla qualità e velocità delle cure. Fonte: UFSP (Ufficio federale della sanità pubblica), LAMal art. 3.`,
 
  // Block 6: Costo della Vita e Pendolarismo
@@ -4834,72 +4847,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `</ul>`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
- } else if (canonicalPath.startsWith('/autori/') && canonicalPath !== '/autori/' && canonicalPath !== '/autori') {
- // Author profile pages (Google News A1) — render bio + expertise + links
- // back to chi-siamo and other author pages so the static HTML has rich
- // crawl-discoverable text and the page is reachable from the site graph.
- const authorSlug = canonicalPath.replace(/^\/autori\//, '').replace(/\/$/, '');
- const authorMeta: Record<string, { name: string; role: string; bio: string; expertise: string[]; linkedin: string }> = {
- 'marco-ferrari': {
- name: 'Marco Ferrari',
- role: 'Esperto fiscalità frontaliera',
- bio: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica del nuovo accordo Italia-Svizzera del 2026 sui frontalieri.",
- expertise: ['fiscalità frontaliera', '730', 'dichiarazione redditi', 'imposta alla fonte', 'accordo Italia-Svizzera 2026'],
- linkedin: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
- },
- 'laura-bianchi': {
- name: 'Laura Bianchi',
- role: 'Specialista previdenza svizzera',
- bio: "Laura Bianchi è specialista in previdenza sociale svizzera applicata ai lavoratori frontalieri italiani in Canton Ticino. Si occupa di AVS (1° pilastro), LPP (2° pilastro), assicurazione contro gli infortuni LAINF e copertura sanitaria LAMal, includendo l'opzione del diritto di scelta verso la cassa malati italiana per i frontalieri.",
- expertise: ['AVS', 'LPP', 'LAMal', 'pensioni', 'assicurazioni sociali svizzere'],
- linkedin: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
- },
- 'redazione': {
- name: 'Redazione Frontaliere Ticino',
- role: 'Team editoriale',
- bio: "La Redazione di Frontaliere Ticino è il team editoriale dedicato alla copertura quotidiana dei temi rilevanti per i lavoratori frontalieri italiani in Canton Ticino. Cura aggiornamenti su mercato del lavoro ticinese, livelli salariali per settore, contratti collettivi nazionali (CCNL) svizzeri, mobilità transfrontaliera e politiche doganali ai principali valichi.",
- expertise: ['lavoro frontaliere', 'salari', 'trasporti transfrontalieri', 'dogana'],
- linkedin: 'https://www.linkedin.com/company/frontaliere-ticino/',
- },
- 'samuele-valente': {
- name: 'Samuele Valente',
- role: 'Autore ospite — fiscalità transfrontaliera',
- bio: "Samuele Valente è un professionista esperto di fiscalità internazionale e transfrontaliera tra Italia e Svizzera. Collabora con Frontaliere Ticino come autore ospite, proponendo analisi e commenti sulla prassi dell'Agenzia delle Entrate e sull'applicazione del nuovo Accordo tra Italia e Svizzera sui lavoratori frontalieri, entrato in vigore dal 1° gennaio 2024. Nei suoi contributi approfondisce in particolare le risposte a interpello, i requisiti dell'area di frontiera, la nozione di residenza fiscale e i meccanismi di imposizione concorrente che riguardano i frontalieri del Canton Ticino e delle regioni italiane di confine.",
- expertise: ['fiscalità transfrontaliera', 'accordo Italia-Svizzera', 'interpelli Agenzia delle Entrate', 'residenza fiscale', 'frontalieri'],
- linkedin: 'https://www.linkedin.com/in/samuele-valente-9b8a4335b/',
- },
- };
- const meta = authorMeta[authorSlug];
- if (meta) {
- const tagsHtml = meta.expertise.map((t) => `<li class="s-S0sOCN">${t}</li>`).join('');
- const otherAuthorsHtml = Object.entries(authorMeta)
- .filter(([s]) => s !== authorSlug)
- .map(([s, m]) => `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/${s}/" rel="author">${m.name}</a> — ${m.role}.</li>`)
- .join('');
- editorialBlocks.push(
- `<h2 class="s-o3IET6">${meta.name} — ${meta.role}</h2>`,
- `<p class="s-F2hp6o">${meta.bio}</p>`,
- `<h2 class="s-o3IET6">Aree di competenza</h2>`,
- `<ul class="s-QkRjp8">${tagsHtml}</ul>`,
- `<h2 class="s-o3IET6">Profilo pubblico e contatti</h2>`,
- `<p class="s-F2hp6o">Profilo pubblico LinkedIn: <a class="s-OsohZU" href="${meta.linkedin}" rel="noopener me" target="_blank">${meta.linkedin}</a>. Per scrivere alla redazione: <a class="s-OsohZU" href="mailto:redazione@frontaliereticino.ch">redazione@frontaliereticino.ch</a>.</p>`,
- `<h2 class="s-o3IET6">Altre firme di Frontaliere Ticino</h2>`,
- `<ul class="s-QkRjp8">${otherAuthorsHtml}</ul>`,
- `<p class="s-tTvoK-">Riferimenti: <a class="s-OsohZU" href="/chi-siamo/">Chi Siamo</a> · <a class="s-OsohZU" href="/correzioni/">Correzioni</a></p>`,
- );
- }
- } else if (canonicalPath === '/correzioni' || canonicalPath === '/correzioni/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Correzioni — Politica di rettifica e registro pubblico</h2>`,
- `La trasparenza editoriale è uno dei pilastri di Frontaliere Ticino. Quando un dato numerico, una citazione o un'affermazione pubblicata sulla piattaforma si rivela errata, la correggiamo entro 48 ore dalla segnalazione e ne registriamo la traccia in questa pagina, con data, articolo interessato, tipologia (errore fattuale, refuso, chiarimento) e una descrizione sintetica della modifica. Questo registro pubblico serve sia ai lettori — che possono verificare in qualsiasi momento la nostra storia editoriale — sia ai motori di ricerca che valutano l'affidabilità dei contenuti YMYL (your money your life) nei domini fiscale e previdenziale.`,
- `<h2 class="s-o3IET6">Come segnalare un errore</h2>`,
- `Per segnalare un errore scrivi a <a class="s-OsohZU" href="mailto:redazione@frontaliereticino.ch?subject=Segnalazione%20correzione">redazione@frontaliereticino.ch</a> indicando l'URL della pagina o il titolo dell'articolo, la frase o il dato contestato (citato verbatim) e una fonte ufficiale che dimostri l'errore (link a ESTV, Agenzia delle Entrate, BFS, INPS, gazzetta ufficiale o altra amministrazione competente). Risponderemo entro 48 ore lavorative: se la segnalazione è fondata l'articolo viene aggiornato immediatamente, l'entry viene registrata qui sotto in ordine cronologico inverso e — se la correzione è sostanziale — aggiungiamo una nota visibile in cima all'articolo originale.`,
- `<h2 class="s-o3IET6">Tipologie di correzione accettate</h2>`,
- `Accettiamo tre tipologie di rettifica: <strong>errore fattuale</strong> (dato numerico, citazione o affermazione errata che modifica la sostanza dell'articolo — per esempio un'aliquota fiscale, un parametro contributivo o una scadenza), <strong>refuso</strong> (errore di battitura, ortografico o di formattazione che non modifica il significato del testo) e <strong>chiarimento</strong> (aggiunta di contesto o precisazione che migliora la comprensione senza correggere un errore). Ogni segnalazione fondata viene registrata indipendentemente dalla tipologia, perché anche un refuso può cambiare il senso percepito di una frase.`,
- `<h2 class="s-o3IET6">Indipendenza editoriale</h2>`,
- `Frontaliere Ticino è una piattaforma indipendente: non riceviamo compensi da banche, casse malati o datori di lavoro citati negli articoli. Le correzioni vengono effettuate solo sulla base di prove verificabili. La storia delle modifiche è sempre tracciata in questa pagina pubblica, sincronizzata con il file <code>data/corrections-log.json</code> versionato nel repository pubblico del progetto.`,
- `<p class="s-tTvoK-">Riferimenti: <a class="s-OsohZU" href="/chi-siamo/">Chi Siamo</a> · <a class="s-OsohZU" href="/privacy/">Privacy</a></p>`,
- );
  } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
@@ -5916,7 +5863,7 @@ ${hrefTags}
  // variants, so always regenerate so JSON-LD reflects current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
- const locSeo = seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
+ const locSeo: SeoEntry = resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
 
  // Dynamic override for per-locale job-board landings (en/de/fr): inject
  // live active-job count + fire emoji so each locale ships a unique title

@@ -62,10 +62,29 @@ const ROOT = path.join(__dirname, '..');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-baseline.json');
 
-export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
+/**
+ * The modules the source-detail pass calls to read a page. Their static
+ * relative-import closure IS the extractor: a test requires
+ * SOURCE_DETAIL_EXTRACTOR_VERSION_FILES to equal the union of those closures,
+ * so a module one of them starts importing cannot change the reading while
+ * leaving the fingerprint (and old evidence) valid.
+ */
+export const SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS = Object.freeze([
+  // extractJsonLd / selectDetailStructuredRecords / extractDetailFields.
   'scripts/lib/prospector/extract.mjs',
   // Reads the vacancy PDF a detail page links or embeds (fetchVacancyPdfText).
   'scripts/lib/pdf-job-content.mjs',
+]);
+
+// The union of the import closures of SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS,
+// held to exactly that set by a test in tests/scripts/audit-parser-quality.test.ts.
+export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
+  'scripts/lib/prospector/extract.mjs',
+  'scripts/lib/pdf-job-content.mjs',
+  'scripts/lib/source-body-floor.mjs',
+  'scripts/lib/source-body-failure.mjs',
+  'scripts/lib/transient-fetch.mjs',
+  'scripts/lib/jina-proxy.mjs',
   'scripts/lib/prospector/registrable.mjs',
   'scripts/lib/prospector/entities.mjs',
   'scripts/lib/decode-html-entities.mjs',
@@ -75,6 +94,9 @@ export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/crawler-location-config.mjs',
   'scripts/lib/prospector/country-inventory.mjs',
   'scripts/lib/prospector/subdivision-inventory.mjs',
+  'scripts/lib/job-url-host.mjs',
+  'scripts/lib/job-posting-date.mjs',
+  'scripts/lib/source-posting-date.mjs',
   'data/canton-municipalities.json',
 ]);
 export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([

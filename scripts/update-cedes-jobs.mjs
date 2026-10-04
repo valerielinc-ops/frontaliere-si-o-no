@@ -5,6 +5,7 @@
  * CEDES currently publishes openings for its Landquart (GR) site only;
  * Landquart/7302 are intentional mono-site fallbacks, not a regional filter.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -131,7 +132,7 @@ async function main() {
       postalCode: HQ.postalCode, addressCountry: 'CH',
       category: 'technology', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
-      currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
+      currency: 'CHF', featured: false, ...sourcePostingDateFields(''),
       url: raw.url, source: 'CEDES Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     });
     if (meetsSourceBodyFloor(description)) console.log(`  ✅ ${raw.title} — ${raw.location}`);

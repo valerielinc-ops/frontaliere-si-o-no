@@ -1074,25 +1074,22 @@ jobs:
       # senza questo, il referto letto da "Read build memory report" e'
       # ephemeral (/tmp, sparisce a fine job) e non esiste storia su cui
       # calibrare il detector automatico dei revert-trigger a tempo (oggi
-      # manuali, vedi "Grow swap" sopra) — vedi follow-up #6174 item 1. Riusa
-      # lo STESSO pattern gia' in produzione per data/dist-size-history.jsonl
-      # (append JSONL + merge=union in .gitattributes + retry-con-rebase):
-      # coi 4 leg del matrix che scrivono in concorrenza, un push diretto
-      # senza rebase-retry wedgerebbe come gia' successo prima che quel
-      # pattern esistesse.
+      # manuali, vedi "Grow swap" sopra) — vedi follow-up #6174 item 1.
       #
-      # Deliberatamente DOPO "Push generated assets to CDN (early…)" sopra,
-      # non subito dopo "Read build memory report": il gate #2569 sull'IT leg
-      # ha gia' margine zero (de leg atteso 2714s su budget 2700s, run
-      # 31076991699, un run RIUSCITO — vedi commento sopra). Uno step con
-      # fino a 5 retry a backoff 5/10/15/25/40s (~95s worst-case) PRIMA della
-      # CDN push avrebbe eroso quel margine; qui non ritarda piu' nulla che
-      # gli altri leg stiano aspettando.
+      # La riga va solo in STAGING ($HISTORY_STAGE_DIR): nessun git dentro la
+      # gamba. Fino a #9247 ogni gamba committava e pushava qui (tre
+      # produttori x quattro gambe = dodici push concorrenti su main per
+      # run); il push respinto rebasava il checkout grande nel percorso
+      # critico: 37,8 min sulla gamba it della run 37107091990, con quattro
+      # righe perse dietro il continue-on-error. Le righe salgono come
+      # artifact ("Upload build-history rows") e il job build-history-commit
+      # fa UN commit per run dopo tutte le gambe.
       - name: Append build memory history row
         if: always()
         continue-on-error: true
         shell: bash
         env:
+          HISTORY_STAGE_DIR: ${{ runner.temp }}/build-history-rows
           ROW_LOCALE: ${{ matrix.locale }}
           ROW_RUN_ID: ${{ github.run_id }}
           ROW_SHA: ${{ github.sha }}
@@ -1109,10 +1106,9 @@ jobs:
             echo "[build-history] nessun referto memguard (host-kill o guard mai armato), niente da appendere"
             exit 0
           fi
-          # Append + commit + push-con-rebase stanno in uno script condiviso
-          # da quando "Append post-build phase timings row" (in fondo al job,
-          # #7301) e' diventato il secondo produttore di righe; il manifest
-          # shadow e' il terzo. Il retry ha un solo posto in cui cambiare.
+          # Lo staging sta in uno script condiviso dai tre produttori di righe
+          # (memoria, "Append post-build phase timings row" #7301, manifest
+          # shadow): la validazione della riga ha un solo posto in cui cambiare.
           node -e '
             const num = (v) => (v === undefined || v === "" ? null : Number(v));
             const row = {
@@ -1130,7 +1126,6 @@ jobs:
             };
             process.stdout.write(JSON.stringify(row));
           ' | HISTORY_LABEL=build-history \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} leg run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
 
       # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
@@ -2182,10 +2177,9 @@ jobs:
       # soggetta a retention e ai run cancellati, quindi nessuna ottimizzazione
       # del leg IT ha una misura prima/dopo verificabile dal repo.
       #
-      # ULTIMO step del job, non subito dopo il tar: e' strumentazione, e uno
-      # step con fino a ~95s di backoff non deve mai stare sul percorso critico
-      # del publish (stessa ragione per cui la riga di memoria sta dopo la CDN
-      # push, vedi il commento di quello step).
+      # In fondo al job, non subito dopo il tar: e' strumentazione. Come la
+      # riga di memoria, va solo in staging; il commit lo fa
+      # build-history-commit, fuori dal percorso critico della gamba (#9247).
       #
       # Riga SEPARATA nello stesso JSONL, non uno schema unico: le due righe
       # hanno produttori e momenti diversi, e le 294 righe gia' committate non
@@ -2197,6 +2191,7 @@ jobs:
         continue-on-error: true
         shell: bash
         env:
+          HISTORY_STAGE_DIR: ${{ runner.temp }}/build-history-rows
           ROW_LOCALE: ${{ matrix.locale }}
           ROW_RUN_ID: ${{ github.run_id }}
           ROW_SHA: ${{ github.sha }}
@@ -2241,7 +2236,6 @@ jobs:
               ...postBuild,
             }));
           ' | HISTORY_LABEL=build-history-profile \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} build profile run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
 
       - name: Append incremental manifest history row
@@ -2249,6 +2243,7 @@ jobs:
         continue-on-error: true
         shell: bash
         env:
+          HISTORY_STAGE_DIR: ${{ runner.temp }}/build-history-rows
           ROW_LOCALE: ${{ matrix.locale }}
           ROW_RUN_ID: ${{ github.run_id }}
           ROW_SHA: ${{ github.sha }}
@@ -2326,8 +2321,22 @@ jobs:
               file_size_bytes: fs.statSync(currentPath).size,
             }));
           ' | HISTORY_LABEL=build-history-manifest \
-              HISTORY_COMMIT_MSG="chore(build-history): append ${ROW_LOCALE} incremental manifest run ${ROW_RUN_ID}" \
               bash scripts/lib/append-build-history-row.sh
+
+      # Le righe in staging dei tre produttori sopra lasciano la gamba come
+      # artifact; le committa UNA volta per run il job build-history-commit
+      # (#9247). Il nome porta run_attempt: il rerun di una gamba non collide
+      # con l'artifact del tentativo precedente, e le righe gia' committate
+      # le scarta il dedup del job di commit.
+      - name: Upload build-history rows
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-history-rows-${{ matrix.locale }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/build-history-rows/
+          if-no-files-found: ignore
+          retention-days: 3
 
       - name: Check jobs SEO HTML cache contents
         if: success() && env.JOBS_SEO_REUSE == '1'
@@ -2395,6 +2404,102 @@ jobs:
         with:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
+
+  # ───────────────────────────────────────────────────────────────────────
+  # build-history-commit: l'UNICO scrittore di
+  # data/build-history/memory-peaks.jsonl per run (#9247).
+  #
+  # Le gambe di build-locale mettono le righe in staging e le caricano come
+  # artifact build-history-rows-<locale>-<attempt>; questo job, dopo TUTTE le
+  # gambe, fa un solo commit e un solo push. Prima erano dodici push per run
+  # dentro le gambe, in gara fra loro: fino a 37,8 min di rebase sul percorso
+  # critico (run 37107091990) e righe perse in silenzio.
+  #
+  # Telemetria, mai un gate: continue-on-error, nessun job lo mette in
+  # `needs` (non entra nel percorso di publish), timeout corto. Una run
+  # cancellata a meta' committa le righe che ha; il log del commit elenca le
+  # righe per file, quindi una gamba mancante si vede.
+  # ───────────────────────────────────────────────────────────────────────
+  build-history-commit:
+    needs: [build-locale]
+    # always(): anche con gambe fallite o una run cancellata ci sono righe da
+    # salvare. Ma se build-locale e' stato saltato (run non ammessa, prep
+    # fallito) non esiste nessuna riga: niente runner ne' segreti caricati.
+    if: ${{ always() && needs.build-locale.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 10
+    permissions:
+      # Il push usa GITHUB_PAT/APP_TOKEN da Remote Config
+      # (configure-main-push-auth.sh): il GITHUB_TOKEN serve solo a leggere
+      # il repo e gli artifact della run.
+      contents: read
+      actions: read
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+      - name: Checkout build-history writer
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /.gitattributes
+            /data/build-history/
+            /scripts/lib/
+            /scripts/ci/assert-accumulator-write.mjs
+            /scripts/load-rc-env.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # Nessun npm ci: load-rc-env.mjs ripiega sul percorso REST senza
+      # dipendenze (#4837) e carica GITHUB_PAT per il push su main.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — Remote Config secrets will not be loaded."
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # Senza merge-multiple: ogni artifact nella sua sottocartella, cosi' i
+      # file omonimi di due tentativi della stessa gamba non si sovrascrivono.
+      # continue-on-error: se nessuna gamba ha caricato righe (prep rossa, run
+      # cancellata presto) lo step di commit lo dichiara da se'.
+      - name: Download build-history rows
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: build-history-rows-*
+          path: ${{ runner.temp }}/build-history-rows
+
+      - name: Commit build-history rows (one commit per run)
+        env:
+          HISTORY_ROWS_DIR: ${{ runner.temp }}/build-history-rows
+          HISTORY_COMMIT_MSG: 'chore(build-history): append rows run ${{ github.run_id }}'
+        run: bash scripts/lib/commit-build-history-rows.sh
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant

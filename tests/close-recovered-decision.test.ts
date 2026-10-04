@@ -328,4 +328,101 @@ describe('main() usa la decisione esportata, e solo quella', () => {
     const commentReads = calls.filter((c) => /\/comments /.test(`${c} `)).map((c) => Number(/issues\/(\d+)\/comments/.exec(c)?.[1]));
     expect(commentReads.sort()).toEqual(failureIssues.filter((i) => i.action === 'close').map((i) => i.number).sort());
   });
+
+  // LC-03 attraverso main(): la run che decide è sempre passata, calcolata dallo storico.
+  // Con una verde precedente all'apertura in fondo allo storico, il thread `CI Failure:`
+  // del monitor rosso per il solo verdetto si chiude `not planned`; il gemello
+  // `Workflow Failure:` sullo stesso storico resta aperto. Job REALI della run 37121059160.
+  it('LC-03: il thread di solo verdetto del monitor si chiude `not planned` passando da main()', () => {
+    const now = Date.now();
+    const verdictJobs = JSON.parse(fs.readFileSync(
+      path.join(ROOT, 'tests', 'fixtures', 'verdict-step-registry', 'run-37121059160-jobs.json'), 'utf8',
+    ));
+    const liveRun = (id: number, conclusion: string, msAgo: number) => ({
+      databaseId: id, status: 'completed', conclusion, createdAt: at(msAgo, now), headBranch: 'main',
+    });
+    const fixture = {
+      issues: [
+        { number: 9243, title: 'CI Failure: crawler-health-monitor', createdAt: at(2 * HOUR, now), labels: [] },
+        { number: 9244, title: 'Workflow Failure: crawler-health-monitor', createdAt: at(2 * HOUR, now), labels: [] },
+      ],
+      runs: {
+        'crawler-health-monitor': [
+          liveRun(701, 'failure', 10 * 60 * 1000),
+          liveRun(702, 'failure', 40 * 60 * 1000),
+          liveRun(700, 'success', 3 * HOUR),
+        ],
+      },
+      jobs: { 701: verdictJobs, 702: verdictJobs },
+    };
+    const dir = fs.mkdtempSync(path.join(tmp, 'lc03-'));
+    const fixturePath = path.join(dir, 'fixture.json');
+    const callsPath = path.join(dir, 'calls.log');
+    fs.writeFileSync(fixturePath, JSON.stringify(fixture));
+    const bin = path.join(dir, 'bin');
+    fs.mkdirSync(bin);
+    fs.writeFileSync(path.join(bin, 'gh'), [
+      '#!/usr/bin/env node',
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      "fs.appendFileSync(process.env.LC20_CALLS, args.join(' ') + '\\n');",
+      "const fixture = JSON.parse(fs.readFileSync(process.env.LC20_FIXTURE, 'utf8'));",
+      "const key = args.slice(0, 2).join(' ');",
+      'const jobs = args[0] === \'api\' ? /\\/actions\\/runs\\/(\\d+)\\/jobs/.exec(args[1]) : null;',
+      "if (key === 'issue list') process.stdout.write(JSON.stringify(fixture.issues));",
+      "else if (key === 'run list') process.stdout.write(JSON.stringify(fixture.runs[args[args.indexOf('-w') + 1]] || []));",
+      'else if (jobs && fixture.jobs[jobs[1]]) process.stdout.write(JSON.stringify(fixture.jobs[jobs[1]]));',
+      "else if (key === 'issue close') process.stdout.write('');",
+      // Il `gh` che esce 0 senza chiudere: la post-condizione deve accorgersene.
+      "else if (key === 'issue view') process.stdout.write(JSON.stringify({ state: 'OPEN' }));",
+      'else process.exit(1);',
+      '',
+    ].join('\n'), { mode: 0o755 });
+
+    const baseEnv: Record<string, string | undefined> = {
+      ...process.env,
+      PATH: `${bin}${path.delimiter}${process.env.PATH}`,
+      GH_REPO: 'owner/site',
+      LC20_FIXTURE: fixturePath,
+      LC20_CALLS: callsPath,
+    };
+    for (const name of Object.keys(baseEnv)) {
+      if (name.startsWith('CLOSE_RECOVERED_') || name.startsWith('CRAWLER_RUN_') || name === 'GITHUB_PAT_NANAKO' || name === 'ENABLE_FAILURE_REPORT') delete baseEnv[name];
+    }
+    const runPass = (args: string[], env: Record<string, string | undefined> = {}) => {
+      fs.rmSync(callsPath, { force: true });
+      const out = path.join(dir, `verdicts-${args.join('')}-${Object.keys(env).join('')}.json`);
+      const result = spawnSync(process.execPath, [SCRIPT, ...args, '--verdicts-out', out], {
+        env: { ...baseEnv, ...env }, encoding: 'utf8',
+      });
+      expect(result.status, result.stderr).toBe(0);
+      return {
+        result,
+        verdicts: JSON.parse(fs.readFileSync(out, 'utf8')),
+        calls: fs.readFileSync(callsPath, 'utf8').trim().split('\n'),
+      };
+    };
+
+    const dry = runPass(['--dry-run']);
+    const byNumber = Object.fromEntries(dry.verdicts.map((v: { number: number }) => [v.number, v]));
+    expect(byNumber[9243].action).toBe('close-not-planned');
+    expect(byNumber[9243].reason).toBe('verdict-only-thread');
+    expect(byNumber[9243].runId).toBe(701);
+    expect(byNumber[9244].action).toBe('keep');
+    expect(byNumber[9244].reason).toBe('green-predates-issue');
+    expect(dry.result.stdout).toContain('#9243 WOULD CLOSE (not planned)');
+    expect(dry.calls.filter((c) => /^issue (edit|close|comment|reopen)|^label /.test(c))).toEqual([]);
+    // Memo per passata: due issue sullo stesso storico, una lettura dei job per run.
+    const jobReads = dry.calls.filter((c) => /\/actions\/runs\/\d+\/jobs/.test(c));
+    expect(jobReads.length).toBe(new Set(jobReads).size);
+
+    // Interruttore ENABLE_FAILURE_REPORT=false: nessuna chiusura, come sugli altri rami.
+    const off = runPass([], { ENABLE_FAILURE_REPORT: 'false' });
+    expect(off.calls.filter((c) => /^issue close/.test(c))).toEqual([]);
+
+    // `gh issue close` esce 0 ma la issue resta OPEN: non è contata come chiusa.
+    const unconfirmed = runPass([]);
+    expect(unconfirmed.calls.some((c) => /^issue close 9243 --reason not planned/.test(c))).toBe(true);
+    expect(unconfirmed.result.stderr).toContain('#9243 close (not planned) not confirmed');
+  });
 });

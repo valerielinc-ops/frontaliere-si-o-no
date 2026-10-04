@@ -23,6 +23,7 @@ import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import fs from 'node:fs';
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -258,7 +259,9 @@ export async function fetchBancaSempioneJobs() {
     const url = wpJob.link || '';
     const contentHtml = wpJob.content?.rendered || '';
     const contentText = decodeHtmlEntities(stripHtml(contentHtml));
-    const postedDate = wpJob.date || '';
+    // WordPress date_gmt is the original publication instant in GMT, not modified_gmt.
+    const publishedGmt = String(wpJob.date_gmt || '').trim();
+    const postedDate = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(publishedGmt) ? `${publishedGmt}Z` : publishedGmt;
 
     if (!title || !url) continue;
 
@@ -307,7 +310,7 @@ export async function fetchBancaSempioneJobs() {
       // Source-locale slot: without it mergePreserveLocaleData keeps the
       // stored (truncated) source text over the fresh one.
       descriptionByLocale: { [sourceLang]: description },
-      postedDate: postedDate ? new Date(postedDate).toISOString().slice(0, 10) : '',
+      ...sourcePostingDateFields(postedDate),
       source: 'company-website',
       slug: baseSlug,
       slugByLocale: {

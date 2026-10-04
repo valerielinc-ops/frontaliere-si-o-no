@@ -24,6 +24,7 @@ export const ITEM_EVIDENCE_MARKER = 'FU_ITEM_EVIDENCE';
 export const ITEM_ATTEMPT_MARKER = 'FU_ITEM_ATTEMPT';
 export const ITEM_BLOCKED_MARKER = 'FU_ITEM_BLOCKED';
 export const ITEM_BORN_SATISFIED_MARKER = 'FU_ITEM_BORN_SATISFIED';
+export const ITEM_UNBLOCKED_MARKER = 'FU_ITEM_UNBLOCKED';
 
 /** Forza del legame fra la PR di evidenza e l'item. */
 export const ITEM_EVIDENCE_LINKS = Object.freeze(['target-file', 'source-pr', 'none']);
@@ -47,6 +48,7 @@ const MARKER_TYPES = Object.freeze({
   [ITEM_ATTEMPT_MARKER]: 'attempt',
   [ITEM_BLOCKED_MARKER]: 'blocked',
   [ITEM_BORN_SATISFIED_MARKER]: 'born-satisfied',
+  [ITEM_UNBLOCKED_MARKER]: 'unblocked',
 });
 const MARKER_RE = new RegExp(`<!--\\s*(${Object.keys(MARKER_TYPES).join('|')}):([^>]*?)-->`, 'gu');
 const OUTCOME_RE = /^[a-z][a-z0-9-]{0,63}$/u;
@@ -106,6 +108,19 @@ export function itemBornSatisfiedMarker({ item }) {
   return `<!-- ${ITEM_BORN_SATISFIED_MARKER}: item=${itemIdOrThrow(item)} -->`;
 }
 
+/**
+ * `<!-- FU_ITEM_UNBLOCKED: item=FU-… commit=<sha> -->`: l'item `blocked` e'
+ * rientrato in `open` per un commit nuovo sul suo `Target file`. Il rientro e'
+ * UNO per item: la presenza del marker (autore fidato) lo esclude per sempre.
+ * In lettura `commit` e' facoltativo: anche un marker scritto a mano senza
+ * commit vale come «gia' rientrato».
+ */
+export function itemUnblockedMarker({ item, commit }) {
+  const id = itemIdOrThrow(item);
+  if (!SHA_RE.test(String(commit ?? ''))) throw new TypeError(`commit-invalido:${String(commit)}`);
+  return `<!-- ${ITEM_UNBLOCKED_MARKER}: item=${id} commit=${commit} -->`;
+}
+
 const FIELD_PARSERS = Object.freeze({
   item: (value) => (FOLLOWUP_ITEM_ID_SINGLE_RE.test(value.toUpperCase()) ? value.toUpperCase() : undefined),
   pr: (value) => positiveInteger(value) ?? undefined,
@@ -120,12 +135,14 @@ const REQUIRED_FIELDS = Object.freeze({
   attempt: ['item', 'outcome'],
   blocked: ['item', 'reason'],
   'born-satisfied': ['item'],
+  unblocked: ['item'],
 });
 const ALLOWED_FIELDS = Object.freeze({
   evidence: ['item', 'pr', 'commit', 'run', 'link'],
   attempt: ['item', 'outcome', 'run'],
   blocked: ['item', 'reason'],
   'born-satisfied': ['item'],
+  unblocked: ['item', 'commit'],
 });
 
 /** Un marker con chiavi ignote, duplicate o valori malformati non e' un marker. */
@@ -150,7 +167,7 @@ function parseMarkerFields(type, raw) {
  *
  * @param {Array<{body?: string, createdAt?: string}>} comments
  * @param {{isTrusted?: (comment: object) => boolean}} [options]
- * @returns {Array<{type: 'evidence'|'attempt'|'blocked'|'born-satisfied', item: string,
+ * @returns {Array<{type: 'evidence'|'attempt'|'blocked'|'born-satisfied'|'unblocked', item: string,
  *   pr?: number, commit?: string, run?: number, link?: string, outcome?: string,
  *   reason?: string, createdAt: string|null}>}
  */
@@ -203,6 +220,19 @@ export function itemLinkFiles(item) {
   if (target) files.add(target);
   for (const match of stripFencedBlocks(item?.text ?? '').matchAll(TEST_FILE_RE)) files.add(normalizeRepoPath(match[1]));
   return [...files];
+}
+
+/**
+ * Il `Target file` dell'item come path relativo al repository (senza backtick,
+ * `./` o suffisso di riga), o stringa vuota se manca o non e' un path
+ * relativo semplice (niente spazi, niente `..`, niente path assoluto).
+ * @param {{targetFile?: string}} item
+ * @returns {string}
+ */
+export function itemTargetPath(item) {
+  const target = normalizeRepoPath(item?.targetFile);
+  if (!/^[\w.@+-][\w.@+/-]*$/u.test(target) || target.split('/').some((part) => part === '..' || part === '.' || part === '')) return '';
+  return target;
 }
 
 /**

@@ -43,6 +43,8 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { buildDomesticHealthQuotes, assertDomesticHealthQuotes } from './lib/domestic-health-premiums.mjs';
+import { BAG_AGE_CLASSES as AGE_CLASS_MAP, BAG_ACCIDENT_COVER, BAG_MODELS as TARIFF_TYPE_MAP, bagFranchiseAmount, bagSwissRegion, isOrdinaryBagChildTier } from './lib/health-premium-codes.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -82,7 +84,7 @@ function buildHistoricalArchiveUrl(year) {
 const REGIONS_XLSX_URL = 'https://www.priminfo.admin.ch/downloads/praemienregionen.xlsx';
 
 // ── Insurer ID → name/website mapping (from BAG official list 2026) ──
-const INSURER_DIRECTORY = {
+export const INSURER_DIRECTORY = {
   8: { name: 'CSS', website: 'https://www.css.ch' },
   32: { name: 'Aquilana', website: 'https://www.aquilana.ch' },
   134: { name: 'Einsiedler', website: 'https://www.einsiedler-krankenkasse.ch' },
@@ -119,40 +121,6 @@ const INSURER_DIRECTORY = {
   1568: { name: 'Sana24', website: 'https://www.sana24.ch' },
 };
 
-// Tariff type mapping
-const TARIFF_TYPE_MAP = {
-  'TAR-BASE': 'standard',
-  'TAR-HAM': 'hausarzt',
-  'TAR-HMO': 'hmo',
-  'TAR-DIV': 'telmed', // alternative models (telmed, pharmacy, etc.)
-};
-
-// ── BAG risk / age-class mapping ──
-// The BAG Praemien_CH.csv "Altersklasse" column uses three codes:
-//   - AKL-KIN: Kinder (age 0-18)
-//   - AKL-JUG: Junge Erwachsene (age 19-25)
-//   - AKL-ERW: Erwachsene (age 26+)
-// Under LAMal art. 61 al. 3, children and young-adult premiums are
-// insurer-specific (subject to statutory caps); capturing AKL-KIN / AKL-JUG
-// alongside AKL-ERW lets downstream consumers show the real per-insurer
-// values instead of deriving them via a flat multiplier.
-const AGE_CLASS_MAP = {
-  'AKL-KIN': 'KIN',
-  'AKL-JUG': 'JUG',
-  'AKL-ERW': 'ERW',
-};
-
-// Base franchise per age class. BAG publishes premiums with every deductible
-// the insurer offers for each risk class; we store only the lowest statutory
-// deductible, which is FRA-0 for children and FRA-300 for young adults +
-// adults. Consumers that need higher deductibles should use the live BAG
-// open-data portal or the comparator.
-const BASE_FRANCHISE_BY_AGE_CLASS = {
-  KIN: 'FRA-0',
-  JUG: 'FRA-300',
-  ERW: 'FRA-300',
-};
-
 // Cantons with commune-level detail
 const COMMUNE_DETAIL_CANTONS = ['TI', 'GR', 'VS'];
 
@@ -185,7 +153,7 @@ export const PREMIUM_CSV_REQUIRED_HEADERS = [
   'Geschäftsjahr',
 ];
 
-export function validatePremiumsCsvShape(text, separator) {
+export function validatePremiumsCsvShape(text, separator, requiredHeaders = PREMIUM_CSV_REQUIRED_HEADERS) {
   const lines = String(text ?? '').split(/\r?\n/);
   const headerLineIndex = lines.findIndex((line) => line.trim().length > 0);
   if (headerLineIndex === -1) throw new Error('BAG premiums CSV response is empty');
@@ -194,16 +162,16 @@ export function validatePremiumsCsvShape(text, separator) {
   // Auto-detect separator: 2026 CSV uses comma, 2025 archive uses semicolon.
   const resolvedSeparator = separator || ((headerLine.match(/,/g) || []).length >= (headerLine.match(/;/g) || []).length ? ',' : ';');
   const headers = headerLine.split(resolvedSeparator).map((header) => header.trim().replace(/^"|"$/g, ''));
-  const missingHeaders = PREMIUM_CSV_REQUIRED_HEADERS.filter((required) => !headers.includes(required));
+  const missingHeaders = requiredHeaders.filter((required) => !headers.includes(required));
   if (missingHeaders.length) {
     throw new Error(`BAG premiums CSV has unexpected shape: missing required columns: ${missingHeaders.join(', ')}`);
   }
   return { separator: resolvedSeparator, headers, headerLineIndex };
 }
 
-export function parseCSV(text, separator) {
+export function parseCSV(text, separator, requiredHeaders = PREMIUM_CSV_REQUIRED_HEADERS) {
   const source = String(text ?? '');
-  const { separator: resolvedSeparator, headers, headerLineIndex } = validatePremiumsCsvShape(source, separator);
+  const { separator: resolvedSeparator, headers, headerLineIndex } = validatePremiumsCsvShape(source, separator, requiredHeaders);
   const lines = source.split(/\r?\n/);
   const rows = [];
   for (let i = headerLineIndex + 1; i < lines.length; i++) {
@@ -296,13 +264,29 @@ class NoArchiveError extends Error {
   }
 }
 
-async function fetchPremiumsCsv(targetYear) {
-  // Current year or unspecified → direct CSV.
-  if (!targetYear || targetYear === CURRENT_YEAR) {
-    const res = await download(PREMIUMS_CURRENT_URL, `Prämien_CH.csv (current year ${CURRENT_YEAR})`);
+export function premiumCsvYears(text, requiredHeaders = PREMIUM_CSV_REQUIRED_HEADERS) {
+  const shape = validatePremiumsCsvShape(text, undefined, requiredHeaders);
+  const yearIndex = shape.headers.indexOf('Geschäftsjahr');
+  return [...new Set(text.split(/\r?\n/).slice(shape.headerLineIndex + 1)
+    .filter(line => line.trim())
+    .map(line => Number(line.split(shape.separator)[yearIndex]?.trim().replace(/^"|"$/g, ''))))];
+}
+
+export async function fetchPremiumsCsv(targetYear = CURRENT_YEAR, territory = 'CH') {
+  if (!['CH', 'EU'].includes(territory)) throw new Error('Unsupported premium territory');
+  targetYear ??= CURRENT_YEAR;
+  const requiredHeaders = territory === 'EU'
+    ? PREMIUM_CSV_REQUIRED_HEADERS.map(header => header === 'Kanton' ? 'Land' : header)
+    : PREMIUM_CSV_REQUIRED_HEADERS;
+  const currentUrl = territory === 'CH' ? PREMIUMS_CURRENT_URL
+    : 'https://opendata.bagnet.ch/?r=/download&path=L1ByYWVtaWVuL1Byw6RtaWVuX0VVLmNzdg%3D%3D';
+  // Autumn publication already contains next year's premiums. Inspect the data
+  // year rather than assigning the calendar year to a differently dated CSV.
+  if (targetYear >= CURRENT_YEAR) {
+    const res = await download(currentUrl, `Prämien_${territory}.csv`);
     const csvText = await res.text();
-    validatePremiumsCsvShape(csvText);
-    return { csvText, sourceUrl: PREMIUMS_CURRENT_URL };
+    const years = premiumCsvYears(csvText, requiredHeaders);
+    if (years.length === 1 && years[0] === targetYear) return { csvText, sourceUrl: currentUrl, regionsUrl: REGIONS_XLSX_URL };
   }
   // Historical year → Archiv_Praemien_{year}.zip → extract Prämien_CH.csv.
   // Retry transient blips (network/timeout/429/5xx) via the shared helper;
@@ -358,15 +342,13 @@ async function fetchPremiumsCsv(targetYear) {
     const name = e.entryName;
     // Skip half-year partials (filename contains "von" or "bis").
     if (/_von_|_bis_/i.test(name)) return false;
-    // Skip non-CH territories (Prämien_EU.csv, Prämien_CHEU.csv).
-    if (/Pr.?mien_(EU|CHEU)\.csv$/i.test(name)) return false;
-    // Match Prämien_CH.csv with any single character where the umlaut sits.
-    return /(?:^|\/)Pr.?mien_CH\.csv$/i.test(name);
+    // Match only the requested territory, excluding the combined CHEU file.
+    return new RegExp(`(?:^|/)Pr.?mien_${territory}\\.csv$`, 'i').test(name);
   });
   if (!csvEntry) {
     throw new NoArchiveError(
       targetYear,
-      `no Prämien_CH.csv inside archive (entries: ${entries.map((e) => e.entryName).join(', ')})`,
+      `no Prämien_${territory}.csv inside archive (entries: ${entries.map((e) => e.entryName).join(', ')})`,
     );
   }
   // Decode the CSV. Historical BAG archives (observed on 2025) ship in
@@ -380,8 +362,15 @@ async function fetchPremiumsCsv(targetYear) {
   const csvText = looksUtf8
     ? rawBuf.toString('utf-8')
     : new TextDecoder('windows-1252').decode(rawBuf);
-  validatePremiumsCsvShape(csvText);
-  return { csvText, sourceUrl: `${archiveUrl}#${csvEntry.entryName}` };
+  const years = premiumCsvYears(csvText, requiredHeaders);
+  if (years.length !== 1 || years[0] !== targetYear) {
+    throw new Error(`Premium archive year mismatch: expected ${targetYear}, received ${years.join(', ')}`);
+  }
+  return {
+    csvText,
+    sourceUrl: `${archiveUrl}#${csvEntry.entryName}`,
+    regionsUrl: `https://www.priminfo.admin.ch/downloads/praemienregionen_${targetYear}.xlsx`,
+  };
 }
 
 // ── Main ──
@@ -392,10 +381,12 @@ async function main() {
   // 1. Download premiums CSV (direct for current year, ZIP archive for past).
   let premiumsText;
   let resolvedCsvUrl;
+  let resolvedRegionsUrl;
   try {
     const downloaded = await fetchPremiumsCsv(TARGET_YEAR);
     premiumsText = downloaded.csvText;
     resolvedCsvUrl = downloaded.sourceUrl;
+    resolvedRegionsUrl = downloaded.regionsUrl;
   } catch (err) {
     if (err instanceof NoArchiveError) {
       console.error(`❌ ${err.message}`);
@@ -407,7 +398,7 @@ async function main() {
   console.log(`   ✅ Loaded premiums CSV from ${resolvedCsvUrl} (${(premiumsText.length / 1024 / 1024).toFixed(1)} MB)`);
 
   // 2. Download regions XLSX
-  const regionsRes = await download(REGIONS_XLSX_URL, 'praemienregionen.xlsx');
+  const regionsRes = await download(resolvedRegionsUrl, 'praemienregionen.xlsx');
   const regionsBuffer = Buffer.from(await regionsRes.arrayBuffer());
   console.log(`   ✅ Downloaded regions XLSX (${(regionsBuffer.length / 1024).toFixed(0)} KB)\n`);
 
@@ -422,8 +413,9 @@ async function main() {
   // age class and keep the statutory base franchise per class.
   const relevantPremiums = allPremiums.filter(row =>
     AGE_CLASS_MAP[row['Altersklasse']] &&
-    row['Unfalleinschluss'] === 'OHN-UNF' &&
-    row['Hoheitsgebiet'] === 'CH'
+    isOrdinaryBagChildTier(row) &&
+    BAG_ACCIDENT_COVER[row['Unfalleinschluss']] === 'withoutAccident' &&
+    ['CH', 'P_OKPCH'].includes(row['Hoheitsgebiet'])
   );
   const countByClass = { KIN: 0, JUG: 0, ERW: 0 };
   for (const row of relevantPremiums) {
@@ -497,16 +489,16 @@ async function main() {
 
   for (const row of relevantPremiums) {
     const canton = row['Kanton'];
-    const regionStr = row['Region']; // e.g. "PR-REG CH1"
+    const regionStr = bagSwissRegion(row['Region']);
     const insurerId = parseInt(row['Versicherer'], 10);
     const tariffType = TARIFF_TYPE_MAP[row['Tariftyp']];
     const ageClass = AGE_CLASS_MAP[row['Altersklasse']];
-    const franchise = row['Franchise'];
+    const franchise = bagFranchiseAmount(row['Franchise']);
     const premium = parseFloat(row['Prämie']);
 
-    if (!tariffType || !ageClass || isNaN(premium)) continue;
+    if (!tariffType || !ageClass || !regionStr || isNaN(premium)) continue;
     // Keep only the statutory base franchise for each risk class.
-    if (franchise !== BASE_FRANCHISE_BY_AGE_CLASS[ageClass]) continue;
+    if (franchise !== (ageClass === 'KIN' ? 0 : 300)) continue;
 
     if (!premiumIndex[canton]) premiumIndex[canton] = {};
     if (!premiumIndex[canton][regionStr]) premiumIndex[canton][regionStr] = {};
@@ -533,6 +525,8 @@ async function main() {
   const output = {
     fetchedAt: new Date().toISOString(),
     year: parseInt(relevantPremiums[0]?.['Geschäftsjahr'] || new Date().getFullYear(), 10),
+    sourceUrl: resolvedCsvUrl,
+    quotes: buildDomesticHealthQuotes(allPremiums),
     insurers: [],
     communes: communesByCanton,
     premiums: {},
@@ -767,7 +761,7 @@ export function assertHealthPremiumsOutput({ relevantPremiums, output, communeRa
   return output;
 }
 
-const PREMIUM_MODEL_KEYS = new Set(['standard', 'hausarzt', 'hmo', 'telmed']);
+const PREMIUM_MODEL_KEYS = new Set(Object.values(TARIFF_TYPE_MAP));
 const PREMIUM_AGE_CLASSES = new Set(['KIN', 'JUG', 'ERW']);
 
 function isPlainObject(value) {
@@ -855,6 +849,8 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
   if (!isPlainObject(snapshot)) {
     throw new Error('Refusing to write health-premiums snapshot: top-level value is not an object');
   }
+
+  if (snapshot.quotes !== undefined) assertDomesticHealthQuotes(snapshot.quotes);
 
   const year = snapshot.year;
   if (!Number.isInteger(year) || year < 2000 || year > 9999) {

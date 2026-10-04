@@ -3542,6 +3542,41 @@ function renderItalianCityFrontalierExtra(args: {
   </section>`;
 }
 
+/**
+ * Pre-suffix `<title>` for an Italian fuel page whose H1 embeds a free-length
+ * name (comune, station): the H1 cut on a word boundary to `budget` chars,
+ * with the dangling clause tail peeled, then " (date)" only when it still
+ * fits. Only the `<title>` uses this — the visible H1 stays whole.
+ *
+ * `wholeClauses`: when the cut lands inside the clause after the last " — "
+ * that fits, keep only the text before that dash. The city H1 is
+ * "{keyword} — {qualifier}", and a half qualifier ("— stazioni più",
+ * "— stations les moins") reads worse in the SERP than none; the peel cannot
+ * catch it because "più"/"moins" are content words.
+ */
+function fitHeadingToTitleBudget(
+  h1: string,
+  dateStamp: string,
+  budget = 60,
+  wholeClauses = false,
+): string {
+  const trimmedH1 = h1.length <= budget
+    ? h1
+    : (() => {
+        if (wholeClauses) {
+          const dash = h1.lastIndexOf(' — ', budget);
+          if (dash > 0) return peelDanglingClauseTail(h1.slice(0, dash));
+        }
+        const slice = h1.slice(0, budget);
+        const lastSpace = slice.lastIndexOf(' ');
+        const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
+        // Shared peel — a word-boundary cut still stops mid-clause.
+        return peelDanglingClauseTail(base);
+      })();
+  const dated = `${trimmedH1} (${dateStamp})`;
+  return dated.length <= budget ? dated : trimmedH1;
+}
+
 function renderItalianCityPage(opts: {
   entry: ItalianCityEntry;
   locale: FuelDailyLocale;
@@ -3761,13 +3796,12 @@ function renderItalianCityPage(opts: {
     })),
   });
 
-  // Phase 3A — clamp combined title to 60 chars; drop brand first, then
-  // dated suffix if even with the date alone the budget overflows.
-  const titleWithDate60 = (() => {
-    const dated = `${h1} (${dateStamp})`;
-    return dated.length <= 60 ? dated : h1;
-  })();
-  const title = clampSiteSuffix(titleWithDate60, 'Frontaliere Ticino');
+  // Phase 3A — the pre-suffix title is the H1 cut to 60 chars at the
+  // " — qualifier" boundary (long comuni such as "Bardello con Malgesso e
+  // Bregano" used to ship the full 67-79 char H1), plus the dated badge when
+  // it still fits. clampSiteSuffix never truncates its base, so the cut must
+  // happen here.
+  const title = clampSiteSuffix(fitHeadingToTitleBudget(h1, dateStamp, 60, true), 'Frontaliere Ticino', 66);
   // Differentiate H1 ↔ <title> after brand drop. See station-detail branch.
   h1 = differentiateH1FromTitle(h1, title, locale);
   // Pre-cut removed: clampMetaDescription (160) runs downstream and is
@@ -4772,18 +4806,7 @@ function renderItalianStationPage(opts: {
   // Phase 3A — total <title> ≤60 char (Semrush W2): trim H1 to fit, then
   // optionally append the dated badge + brand suffix as long as room remains.
   const titleBudget = 60;
-  const trimmedH1 = h1.length <= titleBudget
-    ? h1
-    : (() => {
-        const slice = h1.slice(0, titleBudget);
-        const lastSpace = slice.lastIndexOf(' ');
-        const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
-        // Shared peel — a word-boundary cut still stops mid-clause.
-        return peelDanglingClauseTail(base);
-      })();
-  const dated = `${trimmedH1} (${dateStamp})`;
-  const withDate = dated.length <= titleBudget ? dated : trimmedH1;
-  const title = clampSiteSuffix(withDate, 'Frontaliere Ticino', titleBudget);
+  const title = clampSiteSuffix(fitHeadingToTitleBudget(h1, dateStamp, titleBudget), 'Frontaliere Ticino', titleBudget);
   // When buildTitleWithBrand drops the brand suffix (headline + brand > 66
   // chars), the rendered <title> collapses to the H1 string verbatim. The
   // helper appends a locale-aware narrative tag so the

@@ -15,6 +15,7 @@
  *   4. Merge into data/jobs.json preserving prior locale data
  *   5. Validate URLs (HEAD), fill non-source locales, run locale gate
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -191,7 +192,7 @@ function buildJob({ title, city, canton, postalCode, pdfUrl, pdfText, filename }
     contractType: 'full-time',
     source: `${COMPANY_KEY}-dedicated-crawler`,
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(''),
     validThrough: '',
     needsRetranslation: true,
     description,
@@ -268,7 +269,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

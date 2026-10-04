@@ -548,6 +548,12 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // Traccia del 2026-10-03 con `VITEST_SKIP_LIVE_DATA=true`: zero accessi a
   // `services/locales/blog-*` e a `packages/articles/content/`.
   { file: "tests/i18n-completeness.test.ts", roots: ["services/locales/"], since: "2026-10-03", evidence: "trace", runtime: true, movedFromFullExclusion: true },
+  // ─── 2026-10-04. Il produttore dei verdetti L6 legge l'elenco articoli con
+  // una regex: il corpus E' il soggetto del solo caso vivo (la regex legge
+  // tante voci quante un conteggio indipendente di `blog-articles-data.ts`,
+  // nessun conteggio letterale). Tutti gli altri casi usano fixture e restano
+  // nel gate delle PR.
+  { file: "tests/loop-l6-source-verdict-producer.test.ts", roots: ["packages/articles/content/"], since: "2026-10-04", evidence: "review", runtime: true },
 ]);
 
 /**

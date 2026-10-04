@@ -11,6 +11,7 @@
  * 6. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -263,7 +264,7 @@ async function enrichWithDetails(listings) {
       }
     } catch (err) {
       console.log(`  ⚠️ Detail fetch failed for ${item.code}: ${err.message}`);
-      enriched.push({ ...item, location: '', description: '', datePosted: new Date().toISOString().slice(0, 10) });
+      enriched.push({ ...item, location: '', description: '', ...sourcePostingDateFields('') });
     }
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
@@ -320,7 +321,7 @@ function buildConvitJob(row) {
     sector: 'Finanza & Previdenza',
     source: 'convit-dedicated-crawler',
     sourceLang,
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.datePosted),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -356,6 +357,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -384,7 +386,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

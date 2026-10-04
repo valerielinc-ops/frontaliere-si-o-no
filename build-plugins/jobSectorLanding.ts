@@ -1,3 +1,5 @@
+import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Sector-based job hub definitions for high-intent GSC verticals.
  *
@@ -315,6 +317,7 @@ export interface SectorCountableJob {
   descriptionByLocale?: Partial<Record<JobBoardLocale, string>>;
   titleByLocale?: Partial<Record<JobBoardLocale, string>>;
   company?: string;
+  postingDateSource?: string;
   datePosted?: string;
   postedDate?: string;
   slug?: string;
@@ -881,8 +884,8 @@ export function filterSectorJobs(
   matches.sort((a, b) => {
     // First PARSEABLE date, not first truthy: a malformed datePosted must not
     // collapse to 0 and sink a still-fresh job below the slice(maxJobs) cut.
-    const at = firstParsableMs(a.datePosted, a.postedDate);
-    const bt = firstParsableMs(b.datePosted, b.postedDate);
+    const at = hasPostingDateProvenance(a) ? firstParsableMs(resolveReportedPostingDate(a)) : firstParsableMs(a.datePosted, a.postedDate);
+    const bt = hasPostingDateProvenance(b) ? firstParsableMs(resolveReportedPostingDate(b)) : firstParsableMs(b.datePosted, b.postedDate);
     return bt - at;
   });
   return matches.slice(0, maxJobs);
