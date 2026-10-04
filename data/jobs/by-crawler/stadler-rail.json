@@ -4162,7 +4162,7 @@
       "id": "stadler-rail-d8c44e4aefd7",
       "slug": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
+        "it": "project-manager-in-electric-stadler-rail-bussnang",
         "en": "project-manager-in-electric-stadler-rail-bussnang",
         "de": "teilprojektleiter-in-elektro-stadler-rail-ch",
         "fr": "gestionnaire-de-projet-en-electric-stadler-rail-bussnang"
@@ -4495,9 +4495,9 @@
       "slug": "reclutamento-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "reclutamento-stadler-rail-wallisellen",
-        "en": "testing-commissioning-engineer-stadler-rail-wallisellen",
+        "en": "recruiting-stadler-rail-wallisellen",
         "de": "testing-commissioning-ingenieur-stadler-rail-wallisellen",
-        "fr": "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+        "fr": "recrutement-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -4546,16 +4546,20 @@
           "testing-commissioning-engineer-stadler-rail-ch"
         ],
         "en": [
-          "recruiting-stadler-rail-wallisellen"
+          "recruiting-stadler-rail-wallisellen",
+          "testing-commissioning-engineer-stadler-rail-wallisellen"
         ],
         "fr": [
-          "recrutement-stadler-rail-wallisellen"
+          "recrutement-stadler-rail-wallisellen",
+          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
         ]
       },
       "previousSlugs": [
         "testing-commissioning-engineer-stadler-rail-ch",
         "recruiting-stadler-rail-wallisellen",
-        "recrutement-stadler-rail-wallisellen"
+        "recrutement-stadler-rail-wallisellen",
+        "testing-commissioning-ingenieur-stadler-rail-wallisellen",
+        "testing-commissioning-engineer-stadler-rail-wallisellen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
@@ -5904,7 +5908,7 @@
       "id": "stadler-rail-46a5813ca2ad",
       "slug": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
+        "it": "elettricista-in-completamento-stadler-rail-bussnang",
         "en": "electrician-in-completion-stadler-rail-bussnang",
         "de": "elektriker-in-fertigstellung-stadler-rail-ch",
         "fr": "electricien-en-achevement-stadler-rail-bussnang"
@@ -6694,10 +6698,10 @@
       "id": "stadler-rail-8aa4f06b29fb",
       "slug": "lackierer-in-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "lackierer-in-stadler-rail-bussnang",
-        "en": "painter-stadler-rail-bussnang",
+        "it": "verniciatore-in-stadler-rail-bussnang",
+        "en": "painters-in-stadler-rail-bussnang",
         "de": "lackierer-in-stadler-rail-ch",
-        "fr": "peintre-stadler-rail-bussnang"
+        "fr": "peintres-en-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -6742,7 +6746,9 @@
         "lackierer-in-stadler-rail-ch",
         "verniciatore-in-stadler-rail-bussnang",
         "painters-in-stadler-rail-bussnang",
-        "peintres-en-stadler-rail-bussnang"
+        "peintres-en-stadler-rail-bussnang",
+        "painter-stadler-rail-bussnang",
+        "peintre-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6750,10 +6756,10 @@
           "verniciatore-in-stadler-rail-bussnang"
         ],
         "en": [
-          "painters-in-stadler-rail-bussnang"
+          "painter-stadler-rail-bussnang"
         ],
         "fr": [
-          "peintres-en-stadler-rail-bussnang"
+          "peintre-stadler-rail-bussnang"
         ]
       },
       "needsRetranslation": true,
@@ -8512,7 +8518,7 @@
       "slug": "responsabile-contratti-procurement-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "responsabile-contratti-procurement-stadler-rail-bussnang",
-        "en": "contract-manager-procurement-stadler-rail-bussnang",
+        "en": "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
         "de": "contract-manager-procurement-stadler-rail-ch",
         "fr": "gestion-des-marches-stadler-rail-bussnang"
       },
@@ -8568,7 +8574,8 @@
         ],
         "en": [
           "contract-manager-procurement-stadler-rail-ch",
-          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
+          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
+          "contract-manager-procurement-stadler-rail-bussnang"
         ],
         "fr": [
           "contract-manager-procurement-stadler-rail-bussnang"
@@ -8667,12 +8674,12 @@
     },
     {
       "id": "stadler-rail-5f1792eb5dae",
-      "slug": "schleifer-cnc-fertigung-stadler-rail-ch",
+      "slug": "levigatrice-produzione-cnc-stadler-rail-steinach",
       "slugByLocale": {
-        "it": "schleifer-cnc-fertigung-stadler-rail-ch",
-        "en": "schleifer-cnc-fertigung-stadler-rail-ch",
+        "it": "levigatrice-produzione-cnc-stadler-rail-steinach",
+        "en": "grinders-cnc-production-stadler-rail-steinach",
         "de": "schleifer-cnc-fertigung-stadler-rail-ch",
-        "fr": "schleifer-cnc-fertigung-stadler-rail-ch"
+        "fr": "ponceuse-fabrication-cnc-stadler-rail-steinach"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -8729,7 +8736,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schleifer-cnc-fertigung-stadler-rail-ch"
+        ],
+        "en": [
+          "schleifer-cnc-fertigung-stadler-rail-ch"
+        ],
+        "fr": [
+          "schleifer-cnc-fertigung-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schleifer-cnc-fertigung-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-443d5c41d46e",
@@ -10340,7 +10361,7 @@
         "it": "hr-business-partner-in-stadler-rail-ch",
         "en": "hr-business-partner-in-stadler-rail-ch",
         "de": "hr-business-partner-in-stadler-rail-ch",
-        "fr": "hr-business-partner-stadler-rail-wallisellen"
+        "fr": "partenaire-d-affaires-rh-in-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -10391,7 +10412,8 @@
         "hr-business-partner-stadler-rail-ch",
         "partenaire-d-affaires-rh-stadler-rail-winterthur",
         "hr-business-partner-stadler-rail-winterthur",
-        "partenaire-d-affaires-rh-in-stadler-rail-wallisellen"
+        "partenaire-d-affaires-rh-in-stadler-rail-wallisellen",
+        "hr-business-partner-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10411,7 +10433,8 @@
         ],
         "fr": [
           "partenaire-principal-de-l-entreprise-des-rh-stadler-rail-winterthur",
-          "partenaire-d-affaires-rh-in-stadler-rail-wallisellen"
+          "partenaire-d-affaires-rh-in-stadler-rail-wallisellen",
+          "hr-business-partner-stadler-rail-wallisellen"
         ]
       },
       "needsRetranslation": true,
@@ -10964,9 +10987,9 @@
       "slug": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
-        "en": "material-dispatcher-stadler-rail-st-margrethen",
+        "en": "disposal-of-materials-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
-        "fr": "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+        "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -11015,7 +11038,9 @@
         "materiale-di-spedizione-in-stadler-rail-st-margrethen",
         "material-dispatch-in-stadler-rail-st-margrethen",
         "disposal-of-materials-stadler-rail-st-margrethen",
-        "expedition-du-materiel-en-stadler-rail-st-margrethen"
+        "expedition-du-materiel-en-stadler-rail-st-margrethen",
+        "material-dispatcher-stadler-rail-st-margrethen",
+        "detecteur-de-materiau-en-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11026,11 +11051,13 @@
         "en": [
           "materialdisponent-in-stadler-rail-st-margrethen",
           "material-dispatch-in-stadler-rail-st-margrethen",
-          "disposal-of-materials-stadler-rail-st-margrethen"
+          "disposal-of-materials-stadler-rail-st-margrethen",
+          "material-dispatcher-stadler-rail-st-margrethen"
         ],
         "fr": [
           "materialdisponent-in-stadler-rail-st-margrethen",
-          "expedition-du-materiel-en-stadler-rail-st-margrethen"
+          "expedition-du-materiel-en-stadler-rail-st-margrethen",
+          "detecteur-de-materiau-en-stadler-rail-st-margrethen"
         ]
       },
       "firstSeenAt": "2026-09-01T14:23:53.477Z",

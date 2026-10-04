@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ipersonal-f9c55397eed8",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz",
+      "slug": "dipl-responsabile-specialistico-ndk-medipersonal-immensee-schwyz",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz"
+        "it": "dipl-responsabile-specialistico-ndk-medipersonal-immensee-schwyz",
+        "en": "dipl-specialist-supervisor-ndk-medipersonal-immensee-schwyz",
+        "fr": "dipl-superviseur-specialise-ndk-medipersonal-immensee-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -60,16 +60,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:12.519Z"
+      "firstSeenAt": "2026-10-04T09:12:12.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-immensee-schwyz"
+      ]
     },
     {
       "id": "ipersonal-6611a9a897eb",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern",
+      "slug": "dipl-responsabile-specialistico-ndk-medipersonal-laupen-bern",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern"
+        "it": "dipl-responsabile-specialistico-ndk-medipersonal-laupen-bern",
+        "en": "dipl-specialist-supervisor-ndk-medipersonal-laupen-bern",
+        "fr": "dipl-superviseur-specialise-ndk-medipersonal-laupen-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -121,16 +135,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:12.218Z"
+      "firstSeenAt": "2026-10-04T09:12:12.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-laupen-bern"
+      ]
     },
     {
       "id": "ipersonal-5ec48fac413a",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-berneck-st-gallen",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen"
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-berneck-st-gallen",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-berneck-st-gallen",
+        "fr": "dipl-professionnel-specialiste-genie-operationnel-hf-medipersonal-berneck-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -182,16 +210,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:11.915Z"
+      "firstSeenAt": "2026-10-04T09:12:11.915Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-berneck-st-gallen"
+      ]
     },
     {
       "id": "ipersonal-7e534166f2d7",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-wiedlisbach-bern",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern"
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-wiedlisbach-bern",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-wiedlisbach-bern",
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-wiedlisbach-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -243,16 +285,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:11.613Z"
+      "firstSeenAt": "2026-10-04T09:12:11.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-wiedlisbach-bern"
+      ]
     },
     {
       "id": "ipersonal-d65ca45026d1",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-feuerthalen-zurich",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich"
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-feuerthalen-zurich",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-feuerthalen-zurich",
+        "fr": "dipl-professionnel-specialiste-genie-operationnel-hf-medipersonal-feuerthalen-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -304,16 +360,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:11.312Z"
+      "firstSeenAt": "2026-10-04T09:12:11.312Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feuerthalen-zurich"
+      ]
     },
     {
       "id": "ipersonal-25cadfaa54be",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-utzenstorf-bern",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern"
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-utzenstorf-bern",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-utzenstorf-bern",
+        "fr": "dipl-professionnel-specialiste-genie-operationnel-hf-medipersonal-utzenstorf-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -365,16 +435,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:11.011Z"
+      "firstSeenAt": "2026-10-04T09:12:11.011Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-utzenstorf-bern"
+      ]
     },
     {
       "id": "ipersonal-3f705be67081",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-diepoldsau-st-gallen",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen"
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-diepoldsau-st-gallen",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-diepoldsau-st-gallen",
+        "fr": "dipl-professionnel-specialiste-genie-operationnel-hf-medipersonal-diepoldsau-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -426,16 +510,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:10.710Z"
+      "firstSeenAt": "2026-10-04T09:12:10.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-diepoldsau-st-gallen"
+      ]
     },
     {
       "id": "ipersonal-52d2d5b4818f",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-lungern-obwalden",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden"
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-lungern-obwalden",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-lungern-obwalden",
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-lungern-obwalden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -487,16 +585,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:10.408Z"
+      "firstSeenAt": "2026-10-04T09:12:10.408Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lungern-obwalden"
+      ]
     },
     {
       "id": "ipersonal-fec79f026415",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-reiden-luzern",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern"
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-reiden-luzern",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-reiden-luzern",
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-reiden-luzern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -548,16 +660,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:10.107Z"
+      "firstSeenAt": "2026-10-04T09:12:10.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-reiden-luzern"
+      ]
     },
     {
       "id": "ipersonal-1a7f1f1535f9",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden",
+      "slug": "dipl-responsabile-specialistico-ndk-medipersonal-buhler-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden"
+        "it": "dipl-responsabile-specialistico-ndk-medipersonal-buhler-appenzell-ausserrhoden",
+        "en": "dipl-specialist-supervisor-ndk-medipersonal-buhler-appenzell-ausserrhoden",
+        "fr": "dipl-superviseur-specialise-ndk-medipersonal-buhler-appenzell-ausserrhoden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -609,16 +735,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:09.806Z"
+      "firstSeenAt": "2026-10-04T09:12:09.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-buhler-appenzell-ausserrhoden"
+      ]
     },
     {
       "id": "ipersonal-9b0e89903095",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz",
+      "slug": "dipl-responsabile-specialistico-ndk-medipersonal-unteriberg-schwyz",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz"
+        "it": "dipl-responsabile-specialistico-ndk-medipersonal-unteriberg-schwyz",
+        "en": "dipl-specialist-supervisor-ndk-medipersonal-unteriberg-schwyz",
+        "fr": "dipl-superviseur-specialise-ndk-medipersonal-unteriberg-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -670,16 +810,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:09.505Z"
+      "firstSeenAt": "2026-10-04T09:12:09.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-unteriberg-schwyz"
+      ]
     },
     {
       "id": "ipersonal-cecde0d3714e",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus",
+      "slug": "dipl-responsabile-specialistico-ndk-medipersonal-nafels-glarus",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus"
+        "it": "dipl-responsabile-specialistico-ndk-medipersonal-nafels-glarus",
+        "en": "dipl-specialist-supervisor-ndk-medipersonal-nafels-glarus",
+        "fr": "dipl-superviseur-specialise-ndk-medipersonal-nafels-glarus"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -730,16 +884,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:09.203Z"
+      "firstSeenAt": "2026-10-04T09:12:09.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-nafels-glarus"
+      ]
     },
     {
       "id": "ipersonal-1e77171b06ff",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-eiken-aargau",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau"
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-eiken-aargau",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-eiken-aargau",
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-eiken-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -791,16 +959,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:08.902Z"
+      "firstSeenAt": "2026-10-04T09:12:08.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-eiken-aargau"
+      ]
     },
     {
       "id": "ipersonal-640bf5273e71",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-seedorf-bern",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern"
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-seedorf-bern",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-seedorf-bern",
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-seedorf-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -852,16 +1034,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:08.599Z"
+      "firstSeenAt": "2026-10-04T09:12:08.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-seedorf-bern"
+      ]
     },
     {
       "id": "ipersonal-119be48dbc14",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz",
+      "slug": "dipl-responsabile-specialistico-ndk-medipersonal-steinen-schwyz",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz"
+        "it": "dipl-responsabile-specialistico-ndk-medipersonal-steinen-schwyz",
+        "en": "dipl-specialist-supervisor-ndk-medipersonal-steinen-schwyz",
+        "fr": "dipl-superviseur-specialise-ndk-medipersonal-steinen-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -913,7 +1109,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:12:08.297Z"
+      "firstSeenAt": "2026-10-04T09:12:08.297Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-steinen-schwyz"
+      ]
     }
   ]
 }

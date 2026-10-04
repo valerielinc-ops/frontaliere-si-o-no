@@ -12089,7 +12089,7 @@
       "slugByLocale": {
         "it": "allocazione-60-manor-ag-basel",
         "en": "allocator-60-manor-ag-basel",
-        "de": "allocator-60-manor-ag-basel",
+        "de": "allokator-60-manor-ag-basel",
         "fr": "manor-allocator-60-basel"
       },
       "titleByLocale": {
@@ -12102,14 +12102,16 @@
       "id": "manor-47756f142ab8",
       "previousSlugs": [
         "manor-allocator-60-basel",
-        "allokator-60-manor-ag-basel"
+        "allokator-60-manor-ag-basel",
+        "allocator-60-manor-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-allocator-60-basel"
         ],
         "de": [
-          "allokator-60-manor-ag-basel"
+          "allokator-60-manor-ag-basel",
+          "allocator-60-manor-ag-basel"
         ]
       },
       "needsRetranslation": true,
@@ -12498,9 +12500,9 @@
       "slug": "manor-mitarbeiter-in-supermarkt-60-sargans-mitarbeiterin-supermarkt-60",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-supermarkt-60-sargans-mitarbeiterin-supermarkt-60",
-        "en": "mitarbeiter-in-supermarkt-60-manor-ag-sargans",
+        "en": "supermarket-employee-60-manor-ag-sargans",
         "de": "manor-mitarbeiter-in-supermarkt-60-sargans-mitarbeiterin-supermarkt-60",
-        "fr": "mitarbeiter-en-supermarkt-60-manor-ag-sargans"
+        "fr": "employe-e-supermarche-60-manor-ag-sargans"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Supermarkt 60%",
@@ -12515,7 +12517,8 @@
         "mitarbeiter-in-supermarkt-60-manor-ag-sargans",
         "supermarket-employee-60-manor-ag-sargans",
         "employe-e-supermarche-60-manor-ag-sargans",
-        "collaboratore-trice-in-supermarkt-60-manor-ag-sargans"
+        "collaboratore-trice-in-supermarkt-60-manor-ag-sargans",
+        "mitarbeiter-en-supermarkt-60-manor-ag-sargans"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12523,11 +12526,13 @@
           "collaboratore-trice-in-supermarkt-60-manor-ag-sargans"
         ],
         "en": [
-          "supermarket-employee-60-manor-ag-sargans"
+          "supermarket-employee-60-manor-ag-sargans",
+          "mitarbeiter-in-supermarkt-60-manor-ag-sargans"
         ],
         "fr": [
           "mitarbeiter-in-supermarkt-60-manor-ag-sargans",
-          "employe-e-supermarche-60-manor-ag-sargans"
+          "employe-e-supermarche-60-manor-ag-sargans",
+          "mitarbeiter-en-supermarkt-60-manor-ag-sargans"
         ]
       },
       "needsRetranslation": true,
@@ -15565,7 +15570,7 @@
       "slug": "manor-mitarbeiter-in-in-logistik-weihnachtsaushilfe-e-comm-20-hochdorf-mitarbeiterin-in-logistik",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-in-logistik-weihnachtsaushilfe-e-comm-20-hochdorf-mitarbeiterin-in-logistik",
-        "en": "mitarbeiter-in-logistic-weihnachtsaus-ilfe-e-comm-20-manor-ag-hochdorf",
+        "en": "logistics-staff-member-christmas-helper-e-commerce-20-manor-ag-hochdorf",
         "de": "mitarbeiter-in-in-logistik-weihnachtsaushilfe-e-comm-20-manor-ag-hochdorf",
         "fr": "mitarbeiter-in-dans-logistik-weihnachtsaushilfe-e-comm-20-manor-ag-hochdorf"
       },
@@ -15581,7 +15586,8 @@
         "manor-mitarbeiter-in-in-logistik-weihnachtsaushilfe-e-comm-20-hochdorf",
         "mitarbeiter-in-logistik-weihnachtsaushilfe-e-comm-20-manor-ag-hochdorf",
         "in-logistik-weihnachtsaus-ilfe-e-comm-20-manor-ag-hochdorf",
-        "logistics-staff-member-christmas-helper-e-commerce-20-manor-ag-hochdorf"
+        "logistics-staff-member-christmas-helper-e-commerce-20-manor-ag-hochdorf",
+        "mitarbeiter-in-logistic-weihnachtsaus-ilfe-e-comm-20-manor-ag-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15589,7 +15595,8 @@
         ],
         "en": [
           "mitarbeiter-in-logistik-weihnachtsaushilfe-e-comm-20-manor-ag-hochdorf",
-          "logistics-staff-member-christmas-helper-e-commerce-20-manor-ag-hochdorf"
+          "logistics-staff-member-christmas-helper-e-commerce-20-manor-ag-hochdorf",
+          "mitarbeiter-in-logistic-weihnachtsaus-ilfe-e-comm-20-manor-ag-hochdorf"
         ],
         "de": [
           "in-logistik-weihnachtsaus-ilfe-e-comm-20-manor-ag-hochdorf"
@@ -15711,7 +15718,7 @@
       "slug": "manor-mitarbeiter-in-kasse-50-liestal-mitarbeiterin-kasse-50",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-kasse-50-liestal-mitarbeiterin-kasse-50",
-        "en": "employeecash-register-50-manor-ag-liestal",
+        "en": "cashier-50-manor-ag-liestal",
         "de": "manor-mitarbeiter-in-kasse-50-liestal-mitarbeiterin-kasse-50",
         "fr": "mitarbeiter-dans-kasse-50-manor-ag-liestal"
       },
@@ -15727,7 +15734,8 @@
         "manor-mitarbeiter-in-kasse-50-liestal",
         "mitarbeiter-in-kasse-50-manor-ag-liestal",
         "cashier-50-manor-ag-liestal",
-        "collaboratore-trice-in-kasse-50-manor-ag-liestal"
+        "collaboratore-trice-in-kasse-50-manor-ag-liestal",
+        "employeecash-register-50-manor-ag-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15736,7 +15744,7 @@
         ],
         "en": [
           "mitarbeiter-in-kasse-50-manor-ag-liestal",
-          "cashier-50-manor-ag-liestal"
+          "employeecash-register-50-manor-ag-liestal"
         ]
       },
       "needsRetranslation": true,
@@ -15788,9 +15796,9 @@
       "slug": "manor-mitarbeiter-in-kundendienst-20-basel-mitarbeiterin-kundendienst-20",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-kundendienst-20-basel-mitarbeiterin-kundendienst-20",
-        "en": "mitarbeiter-in-kundenfissic-20-manor-ag-basel",
+        "en": "customer-service-representative-20-manor-ag-basel",
         "de": "mitarbeiter-in-kundendienst-20-manor-ag-basel",
-        "fr": "mitarbeiter-a-kundendienst-20-manor-ag-basel"
+        "fr": "agent-de-service-a-la-clientele-20-manor-ag-basel"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kundendienst 20%",
@@ -15806,7 +15814,9 @@
         "in-der-kundenfissischen-20-manor-ag-basel",
         "mitarbeiter-im-kundendienst20-manor-ag-basel",
         "customer-service-representative-20-manor-ag-basel",
-        "agent-de-service-a-la-clientele-20-manor-ag-basel"
+        "agent-de-service-a-la-clientele-20-manor-ag-basel",
+        "mitarbeiter-in-kundenfissic-20-manor-ag-basel",
+        "mitarbeiter-a-kundendienst-20-manor-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15814,7 +15824,8 @@
         ],
         "en": [
           "mitarbeiter-in-kundendienst-20-manor-ag-basel",
-          "customer-service-representative-20-manor-ag-basel"
+          "customer-service-representative-20-manor-ag-basel",
+          "mitarbeiter-in-kundenfissic-20-manor-ag-basel"
         ],
         "de": [
           "in-der-kundenfissischen-20-manor-ag-basel",
@@ -15822,7 +15833,8 @@
         ],
         "fr": [
           "mitarbeiter-in-kundendienst-20-manor-ag-basel",
-          "agent-de-service-a-la-clientele-20-manor-ag-basel"
+          "agent-de-service-a-la-clientele-20-manor-ag-basel",
+          "mitarbeiter-a-kundendienst-20-manor-ag-basel"
         ]
       },
       "needsRetranslation": true,

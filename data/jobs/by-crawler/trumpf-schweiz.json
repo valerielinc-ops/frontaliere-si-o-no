@@ -1043,9 +1043,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-2027-logistiker-in-cfc-trumpf-schweiz-ag-grusch",
-        "en": "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch",
+        "en": "apprenticeship-2027-logistician-efz-trumpf-schweiz-ag-grusch",
         "de": "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch",
-        "fr": "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch"
+        "fr": "place-d-apprentissage-2027-logisticien-ne-cfc-trumpf-schweiz-ag-grusch"
       },
       "crawledAt": "2026-10-04T09:22:11.497Z",
       "id": "trumpf-schweiz-3db9093e29f6",
@@ -1061,10 +1061,12 @@
           "lehrstelle-2027-logistiker-in-efz-trumpf-r00039707"
         ],
         "en": [
-          "apprenticeship-2027-logistician-efz-trumpf-schweiz-ag-grusch"
+          "apprenticeship-2027-logistician-efz-trumpf-schweiz-ag-grusch",
+          "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch"
         ],
         "fr": [
-          "apprentissage-2027-logisticien-efz-trumpf-schweiz-ag-grusch"
+          "apprentissage-2027-logisticien-efz-trumpf-schweiz-ag-grusch",
+          "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch"
         ]
       },
       "previousSlugs": [
@@ -1074,7 +1076,8 @@
         "apprenticeship-2027-logistician-efz-trumpf-schweiz-ag-grusch",
         "apprentissage-2027-logisticien-efz-trumpf-schweiz-ag-grusch",
         "apprendistato-2027-logistiker-in-cfc-trumpf-schweiz-ag-grusch-frefwt",
-        "lehrstelle-2027-logistiker-in-efz-trumpf-r00039707"
+        "lehrstelle-2027-logistiker-in-efz-trumpf-r00039707",
+        "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,

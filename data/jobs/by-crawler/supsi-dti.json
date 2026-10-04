@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "assistente-risorse-umane-supsi-dti-manno",
+        "en": "human-resource-assistant-supsi-dti-manno",
         "de": "assistente-risorse-umane-supsi-dti-manno",
-        "fr": "assistente-risorse-umane-supsi-dti-manno"
+        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -112,22 +112,16 @@
           "assistente-risorse-umane-supsi-manno"
         ],
         "en": [
-          "human-resource-assistant-supsi-dti-manno",
           "human-resources-assistant-supsi-dti-manno"
         ],
         "de": [
           "personalassistent-supsi-dti-manno"
-        ],
-        "fr": [
-          "assistant-aux-ressources-humaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "human-resource-assistant-supsi-dti-manno",
         "assistente-risorse-umane-supsi-manno",
         "human-resources-assistant-supsi-dti-manno",
-        "personalassistent-supsi-dti-manno",
-        "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "personalassistent-supsi-dti-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -180,9 +174,9 @@
       },
       "slugByLocale": {
         "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalista-risorse-umane-supsi-dti-lugano",
+        "en": "generalist-human-resources-supsi-dti-lugano",
         "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generalista-risorse-umane-supsi-dti-lugano"
+        "fr": "generaliste-ressources-humaines-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -243,18 +237,10 @@
       "previousSlugsByLocale": {
         "it": [
           "generalista-risorse-umane-supsi-lugano"
-        ],
-        "en": [
-          "generalist-human-resources-supsi-dti-lugano"
-        ],
-        "fr": [
-          "generaliste-ressources-humaines-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
-        "generalista-risorse-umane-supsi-lugano",
-        "generalist-human-resources-supsi-dti-lugano",
-        "generaliste-ressources-humaines-supsi-dti-lugano"
+        "generalista-risorse-umane-supsi-lugano"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -443,7 +429,7 @@
         "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
         "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
         "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
+        "fr": "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -535,14 +521,10 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
-        ],
-        "fr": [
-          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
-        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
+        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
       ],
       "needsRetranslation": true,
       "datePosted": "",

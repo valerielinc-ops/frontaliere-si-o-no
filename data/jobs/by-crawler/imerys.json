@@ -74,7 +74,7 @@
         "it": "risorse-umane-direttore-igc-h-f-imerys-bironico",
         "en": "hr-director-igc-h-f-imerys-ch",
         "de": "personalwesen-direktor-igc-h-f-imerys-bironico",
-        "fr": "hr-director-igc-m-w-d-imerys-bironico"
+        "fr": "directeur-rh-igc-h-f-imerys-bironico"
       },
       "company": "Imerys",
       "companyKey": "imerys",
@@ -121,19 +121,19 @@
         "hr-director-igc-h-f-imerys-ch",
         "hr-director-igc-h-f-imerys-bironico",
         "directeur-des-rh-cig-h-f-imerys-bironico",
-        "risorse-umane-direttore-igc-h-f-imerys-bironico"
+        "hr-director-igc-m-w-d-imerys-bironico"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-director-igc-h-f-imerys-ch",
-          "risorse-umane-direttore-igc-h-f-imerys-bironico"
+          "hr-director-igc-h-f-imerys-ch"
         ],
         "de": [
           "hr-director-igc-h-f-imerys-ch"
         ],
         "fr": [
           "hr-director-igc-h-f-imerys-bironico",
-          "directeur-des-rh-cig-h-f-imerys-bironico"
+          "directeur-des-rh-cig-h-f-imerys-bironico",
+          "hr-director-igc-m-w-d-imerys-bironico"
         ]
       },
       "firstSeenAt": "2026-10-03T21:22:43.626Z",
@@ -202,13 +202,11 @@
       "requirementsByLocale": {},
       "jobReqId": "REQ - 11963",
       "previousSlugs": [
-        "communication-manager-imerys-ch",
-        "responsabile-della-comunicazione-imerys-bironico"
+        "communication-manager-imerys-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "communication-manager-imerys-ch",
-          "responsabile-della-comunicazione-imerys-bironico"
+          "communication-manager-imerys-ch"
         ],
         "de": [
           "communication-manager-imerys-ch"

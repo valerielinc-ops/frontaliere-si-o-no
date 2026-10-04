@@ -10462,7 +10462,7 @@
     },
     {
       "id": "company-2cwt1s",
-      "slug": "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
+      "slug": "assistente-cibo-chiosco-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Kiosk)",
       "location": "Bern",
@@ -10502,10 +10502,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
+        "it": "assistente-cibo-chiosco-coop-genossenschaft-bern",
         "en": "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
         "de": "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
-        "fr": "verkaufer-in-food-kiosk-coop-genossenschaft-bern"
+        "fr": "assistant-alimentaire-kiosque-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {
         "de": [
@@ -10532,7 +10532,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-kiosk-coop-bern-2cwt1s",
-          "verkaufer-in-food-kiosk-coop-bern"
+          "verkaufer-in-food-kiosk-coop-bern",
+          "verkaufer-in-food-kiosk-coop-genossenschaft-bern"
         ],
         "en": [
           "verkaufer-in-food-kiosk-coop-bern-2cwt1s"
@@ -10541,12 +10542,14 @@
           "verkaufer-in-food-kiosk-coop-bern-2cwt1s"
         ],
         "fr": [
-          "verkaufer-in-food-kiosk-coop-bern-2cwt1s"
+          "verkaufer-in-food-kiosk-coop-bern-2cwt1s",
+          "verkaufer-in-food-kiosk-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-kiosk-coop-bern-2cwt1s",
-        "verkaufer-in-food-kiosk-coop-bern"
+        "verkaufer-in-food-kiosk-coop-bern",
+        "verkaufer-in-food-kiosk-coop-genossenschaft-bern"
       ],
       "postalCode": "3027",
       "streetAddress": "Kasparstrasse 7+9",
