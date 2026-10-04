@@ -1,3 +1,4 @@
+import { SECTOR_HUB_SLUG } from '../../build-plugins/jobSectorLanding';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -27,6 +28,7 @@ const jobs = Array.from({ length: 8 }, (_, i) => ({
   location: i < 6 ? 'Zürich' : 'Lugano', addressLocality: i < 6 ? 'Zürich' : 'Lugano',
   description, descriptionByLocale: Object.fromEntries(locales.map((locale) => [locale, description])),
   postingDateSource: i === 1 ? undefined : 'reported', datePosted: daysAgo(2), postedDate: daysAgo(2), crawledAt: daysAgo(1),
+  tags: i === 4 ? ['infermiere'] : [],
   employmentType: 'FULL_TIME', contract: 'full-time', salaryMin: 70000, salaryMax: 90000,
   url: `https://example.test/careers/${i}/`,
 }));
@@ -78,7 +80,7 @@ beforeAll(async () => {
     { ...jobs[0], id: 'missing-title', slug: 'missing-title', title: '' },
     { ...jobs[0], id: 'foreign-location', slug: 'foreign-location', location: 'London', addressLocality: 'London' },
   ];
-  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, { ...jobs[0], id: 'active-unverified', slug: 'active-unverified', postingDateSource: 'unknown' }, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
+  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, { ...jobs[0], id: 'active-unverified', slug: 'active-unverified', postingDateSource: 'unknown', tags: ['infermiere'] }, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
   // The archive emitter consumes its historical snapshot, independently of
   // current listing counts: ZH has one archive page and SG has two.
   fs.mkdirSync(path.join(root, 'data/jobs-snapshots-history'));
@@ -235,6 +237,17 @@ describe('job-board emitted output', () => {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}${jobs[1].slug}/`);
       const posting = structured(document).find((entry) => entry['@type'] === 'JobPosting');
       expect(posting?.datePosted).toBe(new Date(jobs[1].postedDate).toISOString());
+    }
+  });
+
+  it('does not promote collection timestamps into the canton sector fresh-publication tile', () => {
+    const labels = { it: 'Nuove · 7gg', en: 'New · 7d', de: 'Neu · 7T', fr: 'Récent · 7j' };
+    for (const locale of locales) {
+      const document = htmlDoc(`${hubPath(locale, 'ZH')}${SECTOR_HUB_SLUG[locale].infermieri}/`);
+      const label = [...document.querySelectorAll('*')].find((el) => el.children.length === 0 && el.textContent?.trim() === labels[locale]);
+      expect(label).toBeTruthy();
+      expect(label!.parentElement?.textContent).toContain('+1');
+      expect(document.querySelectorAll('[data-posted]')).toHaveLength(1);
     }
   });
 

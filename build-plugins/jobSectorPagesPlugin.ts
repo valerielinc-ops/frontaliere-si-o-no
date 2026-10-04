@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Vite build plugin that emits static HTML for the 3 sector-based job hubs
  * (Infermieri / Case Anziani / Educatori) in all 4 locales — 12 pages total.
@@ -323,7 +325,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
       company: String(job.company || '').replace(/\s+/g, ' ').trim(),
       location: String(job.location || '').replace(/\s+/g, ' ').trim(),
       href,
-      datePosted: job.datePosted || job.postedDate || undefined,
+      datePosted: resolveRolloutPostingDate(job, () => job.datePosted || job.postedDate || null) || undefined,
     };
   });
 
@@ -669,7 +671,9 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           const freshCount = allMatching.filter((j) => {
             // First PARSEABLE date, not first truthy: a malformed postedDate must
             // not collapse the timestamp to 0 and undercount the fresh tile.
-            const t = firstParsableMs(j.datePosted, j.postedDate);
+            const t = hasPostingDateProvenance(j)
+              ? firstParsableMs(resolveReportedPostingDate(j))
+              : firstParsableMs(j.datePosted, j.postedDate);
             return t >= freshCutoff && t <= freshMax;
           }).length;
 
