@@ -27,8 +27,8 @@ const jobs = Array.from({ length: 36 }, (_, i) => ({
   postingDateSource: i < 15 ? 'unknown' : i < 30 ? 'reported' : undefined,
   // Five explicitly reported future dates must not become eligible by falling
   // back to the valid observation or by choosing a date-only build bound.
-  datePosted: i >= 15 && i < 20 ? future : yesterday,
-  postedDate: i >= 15 && i < 20 ? future : yesterday,
+  datePosted: i >= 15 && i < 20 ? future : i >= 30 ? new Date(Date.now() - 3600000).toISOString() : yesterday,
+  postedDate: i >= 15 && i < 20 ? future : i >= 30 ? new Date(Date.now() - 3600000).toISOString() : yesterday,
   firstSeenAt: yesterday,
 }));
 
@@ -57,7 +57,7 @@ describe('publication provenance through remaining listing consumers', () => {
       ];
       for (const snapshot of snapshots) {
         expect(snapshot.liveCount).toBe(36);
-        expect(snapshot.fresh30Count).toBe(16);
+        expect(snapshot.fresh30Count).toBe(10);
         expect(snapshot.featured.slice(0, 3).map((job) => job.id)).toEqual(['date-sibling-20', 'date-sibling-21', 'date-sibling-22']);
       }
     } finally {
@@ -74,10 +74,10 @@ describe('publication provenance through remaining listing consumers', () => {
     const stats = buildCompanyCityStats({ city: 'lugano', companySlug: 'example-sa', employerKey: 'example-sa', locale, jobs, limitJobs: 100 });
     expect(stats).not.toBeNull();
     expect(stats!.activeJobs).toHaveLength(36);
-    expect(stats!.activeJobs.filter((job) => job.postedDate)).toHaveLength(16);
+    expect(stats!.activeJobs.filter((job) => job.postedDate)).toHaveLength(10);
     const html = renderCompanyCityPage({ locale, city: 'lugano', companySlug: 'example-sa', variant: 'current', weekNum: 1, year: new Date().getUTCFullYear(), stats: stats!, hasHistoricalDelta: false, canonicalPath: '/aziende-che-assumono/lugano/example-sa/settimana-corrente/', today: new Date(), indexable: true });
     const document = new JSDOM(html).window.document;
-    expect(document.querySelectorAll('[data-posted]')).toHaveLength(16);
+    expect(document.querySelectorAll('[data-posted]')).toHaveLength(10);
     for (const badge of document.querySelectorAll('[data-posted]')) expect(badge.getAttribute('data-posted')).toBe(yesterday.slice(0, 10));
   });
 
@@ -91,7 +91,7 @@ describe('publication provenance through remaining listing consumers', () => {
     }
   });
 
-  it('counts only eligible explicit dates plus transitional legacy in emitted sector freshness tiles', async () => {
+  it('counts only verified publication dates in emitted sector freshness tiles', async () => {
     const root = temporaryRoot();
     try {
       const hook = jobSectorPagesPlugin(root).closeBundle;
@@ -103,7 +103,7 @@ describe('publication provenance through remaining listing consumers', () => {
         const document = new JSDOM(html).window.document;
         const label = [...document.querySelectorAll('*')].find((el) => el.children.length === 0 && el.textContent?.trim() === labels[locale]);
         expect(label).toBeTruthy();
-        expect(label!.parentElement?.textContent).toContain('+16');
+        expect(label!.parentElement?.textContent).toContain('+10');
       }
     } finally { rmSync(root, { recursive: true, force: true }); }
   });
@@ -119,7 +119,7 @@ describe('publication provenance through remaining listing consumers', () => {
       const dir = join(root, 'data/jobs-snapshots-history');
       const snapshot = JSON.parse(readFileSync(join(dir, readdirSync(dir)[0]), 'utf8'));
       expect(snapshot.jobs).toHaveLength(36);
-      expect(snapshot.jobs.filter((job: { postedAt?: string }) => job.postedAt)).toHaveLength(16);
+      expect(snapshot.jobs.filter((job: { postedAt?: string }) => job.postedAt)).toHaveLength(10);
       expect(snapshot.jobs.filter((job: { postingDateSource?: string }) => job.postingDateSource === 'unknown')).toHaveLength(15);
       expect(snapshot.jobs[35]).not.toHaveProperty('postingDateSource');
     } finally { rmSync(root, { recursive: true, force: true }); }

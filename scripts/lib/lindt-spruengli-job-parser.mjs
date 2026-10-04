@@ -60,6 +60,7 @@
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -68,7 +69,7 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   getWorkdayLocationCandidates,
@@ -301,7 +302,7 @@ async function fetchJobListings() {
         title: id.title,
         locationRaw: posting.locationsText || id.location || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -409,7 +410,6 @@ export async function fetchAllLindtSpruengliJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     // The CXS listing row carries no `timeType`; the detail does.
     const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
-    const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -444,7 +444,7 @@ export async function fetchAllLindtSpruengliJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],
