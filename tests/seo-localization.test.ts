@@ -34,6 +34,18 @@ describe('SEO localization', () => {
     expect(jsonLd).toContain('"inLanguage":"de"');
   });
 
+  it('keeps the localized Guide head specific to the page intent', async () => {
+    await loadAllLocaleChunks('en');
+    setLocale('en');
+    window.history.replaceState({}, '', '/en/cross-border-guide/unemployment-benefits/');
+    await updateMetaTags('unemployment');
+
+    expect(document.title).toBe('Unemployment: Switzerland and Italy | Frontaliere Ticino');
+    const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+    expect(description).toContain('PD U1');
+    expect(description).not.toContain('free tools and expert guides');
+  });
+
   it.each(['unknown', 'reported', undefined] as const)('resolves localized runtime SEO with publication provenance %s', async (postingDateSource) => {
     const suffix = postingDateSource || 'legacy';
     const publicationDate = new Date(Date.now() - 86400000).toISOString().slice(0, 10);

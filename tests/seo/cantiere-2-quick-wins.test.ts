@@ -3,7 +3,15 @@ import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 import pages from '../../services/seo/seo-pages';
-import { META_DESCRIPTION_MAX_CHARS, TITLE_MAX_CHARS } from '../../build-plugins/shared/titleSuffix';
+import {
+  buildTitleWithBrand,
+  META_DESCRIPTION_MAX_CHARS,
+  TITLE_MAX_CHARS,
+} from '../../build-plugins/shared/titleSuffix';
+import {
+  GUIDE_LOCALE_SEO_SOURCE_PATHS,
+  resolveGuideLocaleSeoByPath,
+} from '../../build-plugins/shared/guideLocaleSeo';
 
 const SEO_SOURCE = readFileSync(
   path.resolve(__dirname, '../../services/seo/seo-pages.ts'),
@@ -49,6 +57,29 @@ describe('cantiere 2 — SEO metadata quick wins', () => {
         META_DESCRIPTION_MAX_CHARS,
       );
     }
+  });
+
+  it('keeps every localized guide sibling intent-specific in static metadata', () => {
+    expect(GUIDE_LOCALE_SEO_SOURCE_PATHS).toHaveLength(9);
+
+    for (const locale of ['en', 'de', 'fr']) {
+      for (const sourcePath of GUIDE_LOCALE_SEO_SOURCE_PATHS) {
+        const metadata = resolveGuideLocaleSeoByPath(sourcePath, locale);
+        expect(metadata, `${locale} ${sourcePath}: missing localized metadata`).toBeTruthy();
+        expect(metadata!.title.length, `${locale} ${sourcePath}: title`).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+        expect(buildTitleWithBrand(metadata!.title).length, `${locale} ${sourcePath}: branded title`)
+          .toBeLessThanOrEqual(TITLE_MAX_CHARS);
+        expect(metadata!.description.length, `${locale} ${sourcePath}: description`)
+          .toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+        expect(metadata!.description.length, `${locale} ${sourcePath}: thin description`)
+          .toBeGreaterThan(50);
+      }
+    }
+
+    expect(resolveGuideLocaleSeoByPath('/guida-frontaliere/disoccupazione-transfrontaliera/', 'en'))
+      .toMatchObject({ title: 'Unemployment: Switzerland and Italy' });
+    expect(resolveGuideLocaleSeoByPath('/guida-frontaliere/trasferire-auto-svizzera/', 'en'))
+      .toMatchObject({ title: 'Transfer Your Car to Switzerland' });
   });
 
   it('keeps calculator metadata grammatical and within the description budget', () => {
