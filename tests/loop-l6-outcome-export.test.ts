@@ -88,28 +88,32 @@ describe('L6 automated-source-check verdict contract', () => {
   });
 
   it.each([
-    ['own site as source', { sourceUrl: 'https://www.frontaliereticino.ch/fonte/', sourceRefs: ['https://www.frontaliereticino.ch/fonte/'] }, /evidence\.sourceUrl/],
-    ['apex own site as source', { sourceUrl: 'https://frontaliereticino.ch/fonte/', sourceRefs: ['https://frontaliereticino.ch/fonte/'] }, /evidence\.sourceUrl/],
-    ['IPv4 literal host', { sourceUrl: 'https://203.0.113.7/fonte', sourceRefs: ['https://203.0.113.7/fonte'] }, /evidence\.sourceUrl/],
-    ['IPv6 literal host', { sourceUrl: 'https://[2001:db8::1]/fonte', sourceRefs: ['https://[2001:db8::1]/fonte'] }, /evidence\.sourceUrl/],
-    ['localhost', { sourceUrl: 'https://localhost/fonte', sourceRefs: ['https://localhost/fonte'] }, /evidence\.sourceUrl/],
-    ['plain http', { sourceUrl: 'http://www.ti.ch/fonte/', sourceRefs: ['http://www.ti.ch/fonte/'] }, /evidence\.sourceUrl/],
-    ['unparsable URL', { sourceUrl: 'not a url', sourceRefs: ['not a url'] }, /evidence\.sourceUrl/],
-    ['declared refs differ from the downloaded URL', { sourceRefs: ['https://www.admin.ch/altra-fonte/'] }, /evidence\.sourceRefs/],
-    ['an extra undownloaded ref', { sourceRefs: [SOURCE_URL, 'https://www.admin.ch/altra-fonte/'] }, /evidence\.sourceRefs/],
+    ['own site as source', { sourceUrl: 'https://www.frontaliereticino.ch/fonte/', sourceRefs: ['https://www.frontaliereticino.ch/fonte/'] }, /evidence\.sourceUrl must not be this site/],
+    ['apex own site as source', { sourceUrl: 'https://frontaliereticino.ch/fonte/', sourceRefs: ['https://frontaliereticino.ch/fonte/'] }, /evidence\.sourceUrl must not be this site/],
+    ['own Firebase mirror as source', { sourceUrl: 'https://frontaliere-ticino.web.app/fonte/', sourceRefs: ['https://frontaliere-ticino.web.app/fonte/'] }, /evidence\.sourceUrl must not be this site/],
+    ['own GitHub Pages corpus as source', { sourceUrl: 'https://nanakokyobashi-rgb.github.io/frontaliere-articles/x.json', sourceRefs: ['https://nanakokyobashi-rgb.github.io/frontaliere-articles/x.json'] }, /evidence\.sourceUrl must not be this site/],
+    ['IPv4 literal host', { sourceUrl: 'https://203.0.113.7/fonte', sourceRefs: ['https://203.0.113.7/fonte'] }, /evidence\.sourceUrl must not be an IP literal/],
+    ['IPv6 literal host', { sourceUrl: 'https://[2001:db8::1]/fonte', sourceRefs: ['https://[2001:db8::1]/fonte'] }, /evidence\.sourceUrl must not be an IP literal/],
+    ['localhost', { sourceUrl: 'https://localhost/fonte', sourceRefs: ['https://localhost/fonte'] }, /evidence\.sourceUrl must not be localhost/],
+    ['plain http', { sourceUrl: 'http://www.ti.ch/fonte/', sourceRefs: ['http://www.ti.ch/fonte/'] }, /evidence\.sourceUrl must use https/],
+    ['unparsable URL', { sourceUrl: 'not a url', sourceRefs: ['not a url'] }, /evidence\.sourceUrl is not a valid URL/],
+    ['declared refs differ from the downloaded URL', { sourceRefs: ['https://www.admin.ch/altra-fonte/'] }, /evidence\.sourceRefs must contain exactly evidence\.sourceUrl/],
+    ['an extra undownloaded ref', { sourceRefs: [SOURCE_URL, 'https://www.admin.ch/altra-fonte/'] }, /evidence\.sourceRefs must contain exactly evidence\.sourceUrl/],
+    ['non-text entries among the refs', { sourceRefs: [SOURCE_URL, 42, ''] }, /evidence\.sourceRefs must contain exactly evidence\.sourceUrl/],
+    ['a conflicting single sourceRef', { sourceRef: 'https://www.admin.ch/altra-fonte/' }, /evidence\.sourceRefs must contain exactly evidence\.sourceUrl/],
     ['HTTP 404', { sourceHttpStatus: 404 }, /evidence\.sourceHttpStatus must be 200 for automated-source-check/],
-    ['source fetched 40h ago', { sourceFetchedAt: '2026-09-13T20:00:00.000Z' }, /evidence\.sourceFetchedAt/],
-    ['source fetched after the review', { sourceFetchedAt: '2026-09-15T10:30:00.000Z' }, /evidence\.sourceFetchedAt/],
-    ['source fetched in the future', { sourceFetchedAt: '2026-09-15T13:00:00.000Z' }, /evidence\.sourceFetchedAt/],
-    ['sha256 of 63 characters', { sourceSha256: 'a'.repeat(63) }, /evidence\.sourceSha256/],
-    ['uppercase sha256', { sourceSha256: 'A'.repeat(64) }, /evidence\.sourceSha256/],
-    ['zero figures checked', { figuresChecked: 0, figuresMatched: 0 }, /evidence\.figuresChecked/],
-    ['more figures matched than checked', { figuresMatched: 5 }, /evidence\.figuresMatched/],
-    ['fractional figures matched', { figuresMatched: 3.5 }, /evidence\.figuresMatched/],
-    ['model-based method', { method: 'llm-check' }, /evidence\.method/],
-    ['unknown deterministic method', { method: 'figures-in-source' }, /evidence\.method/],
-    ['external source not verified', { externalSourceVerified: false }, /evidence\.externalSourceVerified/],
-    ['locale not verified', { localeVerified: false }, /evidence\.localeVerified/],
+    ['source fetched 40h ago', { sourceFetchedAt: '2026-09-13T20:00:00.000Z' }, /evidence\.sourceFetchedAt is older than 36h/],
+    ['source fetched after the review', { sourceFetchedAt: '2026-09-15T10:30:00.000Z' }, /evidence\.sourceFetchedAt is later than reviewedAt/],
+    ['date-only fetch time', { sourceFetchedAt: '2026-09-15' }, /evidence\.sourceFetchedAt is missing or not a full ISO timestamp/],
+    ['sha256 of 63 characters', { sourceSha256: 'a'.repeat(63) }, /evidence\.sourceSha256 must be 64 lowercase hex characters/],
+    ['uppercase sha256', { sourceSha256: 'A'.repeat(64) }, /evidence\.sourceSha256 must be 64 lowercase hex characters/],
+    ['zero figures checked', { figuresChecked: 0, figuresMatched: 0 }, /evidence\.figuresChecked must be an integer >= 1/],
+    ['more figures matched than checked', { figuresMatched: 5 }, /evidence\.figuresMatched must be an integer between 0/],
+    ['fractional figures matched', { figuresMatched: 3.5 }, /evidence\.figuresMatched must be an integer between 0/],
+    ['model-based method', { method: 'llm-check' }, /evidence\.method must be figures-in-source\+locale-numeric-parity/],
+    ['unknown deterministic method', { method: 'figures-in-source' }, /evidence\.method must be figures-in-source\+locale-numeric-parity/],
+    ['external source not verified', { externalSourceVerified: false }, /evidence\.externalSourceVerified must be true/],
+    ['locale not verified', { localeVerified: false }, /evidence\.localeVerified must be true/],
   ])('rejects an automated row with %s', (_label, evidenceOverrides, reason) => {
     const verdict = singleRow(automatedReview({}, evidenceOverrides));
     expect(verdict.snapshot.reviewedArticles).toBe(0);
@@ -117,12 +121,20 @@ describe('L6 automated-source-check verdict contract', () => {
     expect(verdict.invalidRecords[0]?.reason).toMatch(reason);
   });
 
+  it('rejects an automated source fetched in the future even when the review is equally late', () => {
+    const late = '2026-09-15T13:00:00.000Z';
+    const verdict = singleRow(automatedReview({ reviewedAt: late }, { sourceFetchedAt: late }));
+    expect(verdict.snapshot.reviewedArticles).toBe(0);
+    expect(verdict.invalidRecords[0]?.reason).toMatch(/evidence\.sourceFetchedAt is in the future/);
+    expect(verdict.invalidRecords[0]?.reason).not.toMatch(/later than reviewedAt/);
+  });
+
   it.each(['sourceSha256', 'sourceUrl', 'sourceHttpStatus', 'sourceFetchedAt', 'method', 'figuresChecked', 'figuresMatched'])(
     'rejects an automated row without evidence.%s',
     (field) => {
       const verdict = singleRow(automatedEvidenceWithout(field));
       expect(verdict.snapshot.reviewedArticles).toBe(0);
-      expect(verdict.invalidRecords[0]?.reason).toMatch(new RegExp(`evidence\\.${field}`));
+      expect(verdict.invalidRecords[0]?.reason).toMatch(new RegExp(`evidence\\.${field} (?:is|must)`));
     },
   );
 
@@ -165,6 +177,8 @@ describe('L6 automated-source-check verdict contract', () => {
     expect(verdict.invalidRecords).toEqual([]);
     const outcome = buildL6FactualityOutcome({ verdict, policy: POLICY, now: NOW });
     expect(outcome.evidence.reviewerTypes).toEqual(['human', 'external-editorial', 'automated-source-check']);
+    expect(outcome.export).toMatchObject({ modelVerdictsRejected: true, generatorIsNotOracle: true });
+    expect(outcome.export).not.toHaveProperty('humanVerdictRequired');
   });
 });
 

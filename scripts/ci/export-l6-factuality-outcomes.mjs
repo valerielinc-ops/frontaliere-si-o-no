@@ -58,9 +58,9 @@
  * An automated row only attests the figures it compared: it never claims
  * that the article is correct beyond them, and it always states how many
  * figures it checked. Its source must be an https URL on a third-party host
- * (not this site, not an IP literal, not localhost), every declared source ref
- * must be that downloaded URL, and the download must be fresh and precede the
- * review. `supported` requires every checked figure to match;
+ * (not this site or its own mirrors, not an IP literal, not localhost), every
+ * declared source ref must be that downloaded URL, and the download must carry
+ * a full ISO timestamp, be fresh and precede the review. `supported` requires every checked figure to match;
  * `confirmed_defect` requires at least one missing figure, listed; an
  * automated check never emits `reopened`.
  *
@@ -84,8 +84,17 @@ const VERDICTS = new Set(['supported', 'confirmed_defect', 'reopened']);
 const AUTOMATED_REVIEWER_TYPE = 'automated-source-check';
 const REVIEWER_TYPES = new Set(['human', 'external-editorial', AUTOMATED_REVIEWER_TYPE]);
 const AUTOMATED_METHOD = 'figures-in-source+locale-numeric-parity';
-const OWN_HOST = 'frontaliereticino.ch';
+// Hosts that serve this project's own site, corpus or mirrors: a page there is
+// never an independent source. Each entry also covers its subdomains.
+const OWN_HOSTS = [
+  'frontaliereticino.ch',
+  'frontaliere-ticino.web.app',
+  'frontaliere-ticino.firebaseapp.com',
+  'nanakokyobashi-rgb.github.io',
+  'valerielinc-ops.github.io',
+];
 const CLOCK_SKEW_MS = 5 * 60_000;
+const ISO_TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -151,8 +160,8 @@ function independentSourceUrlIssue(value) {
   }
   if (url.protocol !== 'https:') return 'evidence.sourceUrl must use https';
   const host = url.hostname.toLowerCase().replace(/\.$/, '');
-  if (host === OWN_HOST || host.endsWith(`.${OWN_HOST}`)) {
-    return 'evidence.sourceUrl must not be this site (an own page is not an independent source)';
+  if (OWN_HOSTS.some((own) => host === own || host.endsWith(`.${own}`))) {
+    return 'evidence.sourceUrl must not be this site or one of its mirrors (an own page is not an independent source)';
   }
   if (host === 'localhost' || host.endsWith('.localhost')) return 'evidence.sourceUrl must not be localhost';
   if (host.startsWith('[') || /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host)) {
@@ -173,14 +182,27 @@ function automatedSourceCheckIssues(record, evidence, reviewedAt, { now, maxAgeH
   }
   const urlIssue = independentSourceUrlIssue(evidence.sourceUrl);
   if (urlIssue) issues.push(urlIssue);
-  const refs = sourceRefsForRow(evidence);
-  if (text(evidence.sourceUrl) && (refs.length === 0 || refs.some((ref) => ref !== evidence.sourceUrl.trim()))) {
-    issues.push('evidence.sourceRefs must contain exactly evidence.sourceUrl (the declared source is the downloaded one)');
+  if (text(evidence.sourceUrl)) {
+    // Checked on the raw fields, not on sourceRefsForRow(): that helper drops
+    // non-text entries and ignores sourceRef when sourceRefs exists, so junk
+    // or a second declared source would slip through.
+    const url = evidence.sourceUrl.trim();
+    const refs = evidence.sourceRefs;
+    const refsExact = Array.isArray(refs)
+      ? refs.length > 0 && refs.every((ref) => typeof ref === 'string' && ref.trim() === url)
+      : typeof evidence.sourceRef === 'string' && evidence.sourceRef.trim() === url;
+    const singleRefCoherent = evidence.sourceRef === undefined
+      || (typeof evidence.sourceRef === 'string' && evidence.sourceRef.trim() === url);
+    if (!refsExact || !singleRefCoherent) {
+      issues.push('evidence.sourceRefs must contain exactly evidence.sourceUrl (the declared source is the downloaded one)');
+    }
   }
   if (evidence.sourceHttpStatus !== 200) issues.push(`evidence.sourceHttpStatus must be 200 for ${AUTOMATED_REVIEWER_TYPE}`);
-  const fetchedAt = finiteDate(evidence.sourceFetchedAt);
+  const fetchedAt = typeof evidence.sourceFetchedAt === 'string' && ISO_TIMESTAMP.test(evidence.sourceFetchedAt)
+    ? finiteDate(evidence.sourceFetchedAt)
+    : null;
   if (!fetchedAt) {
-    issues.push('evidence.sourceFetchedAt is missing or invalid');
+    issues.push('evidence.sourceFetchedAt is missing or not a full ISO timestamp');
   } else {
     if (fetchedAt.getTime() > now.getTime() + CLOCK_SKEW_MS) issues.push('evidence.sourceFetchedAt is in the future');
     if (hoursBetween(now, fetchedAt) > maxAgeHours) issues.push(`evidence.sourceFetchedAt is older than ${maxAgeHours}h`);
@@ -358,7 +380,7 @@ export function buildL6FactualityOutcome({ verdict, policy, now = new Date(), le
       readOnly: true,
       generatorIsNotOracle: true,
       publishedContentUntouched: true,
-      humanVerdictRequired: true,
+      modelVerdictsRejected: true,
       invalidRecordCount: verdict?.invalidRecords?.length || 0,
       mutationsPerformed: false,
     },
