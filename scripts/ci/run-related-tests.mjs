@@ -203,6 +203,17 @@ const sourceTreeLintTests = new Map([
   // sorgenti giudicati sono letti da disco: dopo la PR 11327 la bio corretta nel
   // registro e' rimasta vecchia nelle copie a mano senza che nulla fallisse.
   ['tests/author-metadata-single-source.test.ts', /^(?:data\/[^/]+\.(?:[cm]?[jt]sx?|json)|services\/seo\/seo-pages\.ts|build-plugins\/staticPagesPlugin\.ts|build-plugins\/shared\/authorEditorial\.ts|scripts\/lib\/llms-txt-generator\.mjs|services\/seo\/authorProfileMetadata\.ts)$/], // Scope producers: build-plugins/shared/authorEditorial.ts, scripts/lib/llms-txt-generator.mjs, services/seo/authorProfileMetadata.ts.
+  // Profili sparse dei workflow contro il codice che i job caricano. Il test
+  // legge da disco i YAML, le action locali, gli script npm di package.json e
+  // la chiusura degli import di ogni job: nessun import lo lega a quei file.
+  // Era in `alwaysExcludedTests`, quindi non girava MAI, ne' sulle PR ne'
+  // nella suite piena: il 2026-10-04 su main 6 job escludevano bucket che il
+  // loro codice nomina (34 problemi) e 12 workflow erano in ritardo sul
+  // generatore. Solo uno era nato da un YAML: gli altri da codice della
+  // chiusura (`portal.mjs`, `ai-models.mjs`, `cf-5xx-issue-sync.mjs`,
+  // `decompose-route-check.mjs`), quindi il perimetro e' il codice che un job
+  // puo' caricare, non solo `.github/`. Il test costa ~35 s.
+  ['tests/checkout-sparse-profiles.test.ts', /^(?:\.github\/(?:workflows|actions)\/|package\.json$|(?:scripts|functions|services|build-plugins|infra|server|packages\/articles)\/.+\.(?:[cm]?[jt]sx?|sh|json)$|[^/]+\.(?:[cm]?[jt]sx?)$)/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
@@ -260,8 +271,12 @@ const relatedAssetFileScopes = new Map([
 // firestore-rules-consent-write needs a running Firestore emulator (Java 21+,
 // wired via `npm run test:firestore-rules`) — plain `vitest run` fails fast
 // with ECONNREFUSED, so it stays out of the blocking related-tests gate (#6377).
+// `tests/checkout-sparse-profiles.test.ts` non sta piu' qui: il profilo del job
+// `vitest` di tests.yml materializza ogni file che `verifyCheckoutProfiles()`
+// apre (misurato il 2026-10-04: 3136 file tracciati letti, 3136 dentro le
+// regole sparse, `git sparse-checkout check-rules`), quindi in CI il verdetto
+// e' quello di un checkout pieno. E' fra i lint dell'albero dei sorgenti sopra.
 const alwaysExcludedTests = new Set([
-  'tests/checkout-sparse-profiles.test.ts',
   'tests/faq-readability-gate.test.ts',
   'tests/firestore-rules-consent-write.test.ts',
 ]);

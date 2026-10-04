@@ -32,7 +32,8 @@ jobs:
             !/data/jobs/
             !/data/translation-cache/
             !/packages/articles/content/
-            !/docs/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
