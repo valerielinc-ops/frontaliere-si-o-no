@@ -1,4 +1,5 @@
 import { decode as decodeHTML } from 'html-entities';
+import { JSDOM } from 'jsdom';
 /**
  * Città di Bellinzona — job listing parser
  *
@@ -116,6 +117,27 @@ export function parseBellinzonaDate(dateStr = '') {
   return iso;
 }
 
+function publicationDateFromContext(html) {
+  const dom = new JSDOM(html);
+  try {
+    // The official page labels the first cell "Pubbl." and puts the complete
+    // source value in the next cell. Never salvage a numeric date prefix.
+    const values = [];
+    for (const row of dom.window.document.querySelectorAll('tr')) {
+      const cells = [...row.children].filter((cell) => cell.tagName === 'TD');
+      if (cells.length === 2 && /^Pubbl\.?$/i.test(normalizeSpace(cells[0].textContent))) {
+        values.push(normalizeSpace(cells[1].textContent));
+      }
+    }
+    if (values.length) return values.length === 1 ? parseBellinzonaDate(values[0]) : '';
+    const lines = stripHtml(html).split('\n');
+    const labelled = lines.map((line) => line.match(/^\s*Pubbl\.?\s+(.+)$/i)).filter(Boolean);
+    return labelled.length === 1 ? parseBellinzonaDate(labelled[0][1]) : '';
+  } finally {
+    dom.window.close();
+  }
+}
+
 /**
  * Parse the Bellinzona assunzioni page HTML.
  * Returns array of job objects.
@@ -150,8 +172,7 @@ export function parseBellinzonaListingHtml(html) {
     const contextBlock = html.slice(endIndex, Math.min(nextStart, endIndex + 2000));
 
     // Extract publication date
-    const pubDateMatch = contextBlock.match(/Pubbl\.?\s*(\d{1,2}\.\d{1,2}\.(?:\d{4}|\d{2}))(?![\d.])/i);
-    const datePosted = pubDateMatch ? parseBellinzonaDate(pubDateMatch[1]) : '';
+    const datePosted = publicationDateFromContext(contextBlock);
 
     // Extract deadline
     const deadlineMatch = contextBlock.match(/Termine\s+(\d{1,2}\.\d{1,2}\.(?:\d{4}|\d{2}))(?![\d.])/i);
