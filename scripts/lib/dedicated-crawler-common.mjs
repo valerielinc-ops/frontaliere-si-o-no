@@ -1535,7 +1535,15 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
 
-    if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+    // A 1-2 char `job.title` never overwrites a usable title already in the
+    // source slot: otherwise every pass resets the slot to the short value and
+    // the fallback below re-fills it from whichever slot comes first, so the
+    // hardening is not idempotent (tests/job-locale-slot-gate-contract.test.ts).
+    if (
+      baseTitle &&
+      normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+      (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+    ) {
       job.titleByLocale[titleSourceLang] = baseTitle;
       jobChanged = true;
     }
@@ -1674,9 +1682,14 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           // while the record's only title sits in another published slot
           // (e.g. `titleByLocale: { de }`). Copy that title instead of leaving
           // the slot blocking the publish gate; the record stays flagged.
-          const sourceCopy = placeholder ||
-            DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()).find(hasUsableTitle) ||
-            '';
+          // Prefer the first USABLE candidate: a 1-2 char `job.title` or source
+          // slot must not shadow a usable title in another published slot. The
+          // short placeholder is copied only when nothing usable exists (the
+          // record then stays blocking, as before).
+          const sourceCopy = [
+            placeholder,
+            ...DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()),
+          ].find(hasUsableTitle) || placeholder;
           if (sourceCopy) {
             job.titleByLocale[locale] = sourceCopy;
             job.needsRetranslation = true;
@@ -3580,7 +3593,13 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
       if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
 
-      if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+      // Same guard as hardenJobLocaleFields: a 1-2 char `job.title` never
+      // overwrites a usable title already in the source slot.
+      if (
+        baseTitle &&
+        normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+        (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+      ) {
         job.titleByLocale[titleSourceLang] = baseTitle;
       }
       const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();

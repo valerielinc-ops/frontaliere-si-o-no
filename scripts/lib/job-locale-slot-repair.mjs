@@ -11,7 +11,8 @@
  * boilerplate, and flags the record for the translation queue. The page stays.
  *
  * It used to be inline code in the `main` of cleanup-jobs.mjs, impossible to
- * test on its own. Extracted unchanged so that
+ * test on its own. Extracted with the same repair logic (the only difference:
+ * it no longer mutates in place, see Pure below) so that
  * tests/job-locale-slot-gate-contract.test.ts can bind the two stages to the
  * gate predicate: hardening + this repair must leave `collectBlockingIssues`
  * empty for every slot combination except a record with no title anywhere.

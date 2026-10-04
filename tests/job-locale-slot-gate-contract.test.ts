@@ -72,6 +72,7 @@ type TitleShape =
   | 'slots-2'
   | 'slots-3'
   | 'slots-3-without-job-title'
+  | 'short-title-usable-elsewhere'
   | 'fallback-applied';
 const TITLE_SHAPES: TitleShape[] = [
   'source-slot-only',
@@ -80,6 +81,7 @@ const TITLE_SHAPES: TitleShape[] = [
   'slots-2',
   'slots-3',
   'slots-3-without-job-title',
+  'short-title-usable-elsewhere',
   'fallback-applied',
 ];
 
@@ -110,6 +112,15 @@ function titleFields(lang: SourceLang, shape: TitleShape): Job {
       return { title, titleByLocale: slotsFrom(3) };
     case 'slots-3-without-job-title':
       return { titleByLocale: slotsFrom(3) };
+    case 'short-title-usable-elsewhere':
+      // A 1-2 char job.title (and source slot, when published) must not shadow
+      // the usable title sitting in another slot.
+      return {
+        title: 'AB',
+        titleByLocale: lang === 'rm'
+          ? { rm: title }
+          : { [lang]: 'AB', [otherPublished[0]]: title },
+      };
     case 'fallback-applied':
       return {
         title,
@@ -214,9 +225,9 @@ describe('job locale hardening ↔ translation-completeness gate contract', () =
     fs.writeFileSync(jobsPath, `${JSON.stringify(input, null, 2)}\n`, 'utf-8');
     const out = hardenAndRepair(jobsPath);
 
-    const bySlugIn = new Map(input.map((job) => [job.id, job]));
+    const byIdIn = new Map(input.map((job) => [job.id, job]));
     const repairedWithoutFlag = out
-      .filter((job) => collectBlockingIssues([bySlugIn.get(job.id)]).length > 0)
+      .filter((job) => collectBlockingIssues([byIdIn.get(job.id)]).length > 0)
       .filter((job) => job.needsRetranslation !== true)
       .map((job) => job.id);
     expect(repairedWithoutFlag).toEqual([]);
