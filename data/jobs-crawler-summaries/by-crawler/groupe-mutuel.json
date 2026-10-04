@@ -1,16 +1,16 @@
 {
   "key": "groupe-mutuel",
   "label": "Groupe Mutuel",
-  "generatedAt": "2026-10-04T09:16:53.088Z",
+  "generatedAt": "2026-10-04T21:14:00.579Z",
   "total": 30,
   "newCount": 0,
   "updatedCount": 30,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4216,
-  "avgDurationMs": 4216,
+  "durationMs": 5408,
+  "avgDurationMs": 5408,
   "durationHistory": [
-    4216
+    5408
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -23,7 +23,7 @@
       "location": "Crissier",
       "canton": "VD",
       "country": "CH",
-      "slug": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel",
+      "slug": "consigliere-di-pianificazione-m-f-80-100-groupe-mutuel-crissier",
       "category": "insurance",
       "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
@@ -41,12 +41,18 @@
       "id": "groupe-mutuel-7ec000b8e178",
       "firstSeenAt": "2026-09-30T21:13:42.224Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -77,12 +83,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:20:20.573Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -113,12 +125,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:20:20.573Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -130,7 +148,7 @@
       "location": "Lausanne",
       "canton": "VD",
       "country": "CH",
-      "slug": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
+      "slug": "apprendista-agente-relazione-clienti-m-f-100-groupe-mutuel-lausanne",
       "category": "general",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
@@ -149,12 +167,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -185,12 +209,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:43:22.731Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -221,12 +251,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:25:30.851Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -254,15 +290,21 @@
       },
       "jobReqId": "4370",
       "id": "groupe-mutuel-4a5a7f5c6b11",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:39:13.149Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -290,15 +332,21 @@
       },
       "jobReqId": "4373",
       "id": "groupe-mutuel-1af35fc9058a",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 62000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -326,15 +374,21 @@
       },
       "jobReqId": "4372",
       "id": "groupe-mutuel-c2a3704aef81",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 62000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Wil",
+      "addressRegion": "SG",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -364,12 +418,18 @@
       "id": "groupe-mutuel-5f62e3078e11",
       "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -399,12 +459,18 @@
       "id": "groupe-mutuel-be494013d591",
       "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 65000,
+      "salaryMax": 108500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Delémont",
+      "addressRegion": "JU",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -435,12 +501,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -468,15 +540,21 @@
       },
       "jobReqId": "4352",
       "id": "groupe-mutuel-a9f1a2cdb918",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:05:25.107Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 67000,
+      "salaryMax": 111000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -504,15 +582,21 @@
       },
       "jobReqId": "4348",
       "id": "groupe-mutuel-e37ade3b9f16",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:03:46.777Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Olten",
+      "addressRegion": "SO",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -543,12 +627,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T23:08:41.806Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -579,12 +669,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T19:54:30.926Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -615,12 +711,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -651,12 +753,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -687,12 +795,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -723,12 +837,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -758,12 +878,18 @@
       "id": "groupe-mutuel-e27c6cbd250d",
       "firstSeenAt": "2026-07-22T22:46:53.567Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Yverdon-les-Bains",
+      "addressRegion": "VD",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -793,12 +919,18 @@
       "id": "groupe-mutuel-304fc68db623",
       "firstSeenAt": "2026-08-06T12:15:49.733Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Monthey",
+      "addressRegion": "VS",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -829,12 +961,18 @@
       "firstSeenAt": "2026-07-23T12:03:45.120Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 79,
+      "salaryMin": 79000,
+      "salaryMax": 131000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -865,12 +1003,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T11:31:17.691Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -900,12 +1044,18 @@
       "id": "groupe-mutuel-fa0cd0482fb7",
       "firstSeenAt": "2026-07-10T13:11:58.722Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Sargans",
+      "addressRegion": "SG",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -935,12 +1085,18 @@
       "id": "groupe-mutuel-3625d41d1eae",
       "firstSeenAt": "2026-07-10T10:52:25.056Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -970,12 +1126,18 @@
       "id": "groupe-mutuel-f1a70c521438",
       "firstSeenAt": "2026-06-17T12:58:41.171Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 65000,
+      "salaryMax": 108500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -1006,12 +1168,18 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T14:43:17.699Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -1041,12 +1209,18 @@
       "id": "groupe-mutuel-5dd175c9d179",
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "crawledAt": "",
-      "_qualityScore": 79,
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -1077,58 +1251,22 @@
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 79,
+      "salaryMin": 79000,
+      "salaryMax": 131000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4375?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4375?c=groupemutuel&lang=fr-FR",
-      "title": "Indexateur (h/f) 80-100% - temporaire 3 mois",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "slug": "indice-m-f-80-100-temporaneo-3-mesi-groupe-mutuel-lausanne",
-      "category": "general",
-      "datePosted": "2026-09-23",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "jobReqId": "4375",
-      "id": "groupe-mutuel-201deea87452",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:39:13.149Z",
-      "crawledAt": "",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 21,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }
