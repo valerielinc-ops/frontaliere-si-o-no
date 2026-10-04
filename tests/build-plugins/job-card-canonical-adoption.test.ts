@@ -55,6 +55,34 @@ describe('professionLandingsPlugin uses canonical job cards', () => {
       expect(html, `missing canonical marker ${m}`).toMatch(m);
     }
   });
+
+  it('renders the complete profession inventory with in-feed ads between cards', async () => {
+    const mod: any = await import('../../build-plugins/professionLandingsPlugin');
+    const jobs = Array.from({ length: 7 }, (_, index) => ({
+      ...FIXTURE_JOB,
+      id: `job-${index + 1}`,
+      slug: `job-${index + 1}`,
+      title: `Engineer opening ${index + 1}`,
+    }));
+    const html = mod.renderProfessionFeaturedJobsForTest('ingegnere', 'en', {
+      ...EMPTY_SNAPSHOT_BASE,
+      liveCount: jobs.length,
+      featured: jobs.slice(0, 3),
+      jobs,
+    });
+
+    expect(html.match(/<article class="jc-card/g)).toHaveLength(7);
+    // The shared list renderer inserts units after positions 3 and 6, but
+    // never after the final card because the page has an end multiplex slot.
+    expect(html.match(/class="adsbygoogle"/g)).toHaveLength(2);
+    const firstAd = html.indexOf('class="adsbygoogle"');
+    const secondAd = html.indexOf('class="adsbygoogle"', firstAd + 1);
+    expect(firstAd).toBeGreaterThan(html.indexOf('Engineer opening 3'));
+    expect(firstAd).toBeLessThan(html.indexOf('Engineer opening 4'));
+    expect(secondAd).toBeGreaterThan(html.indexOf('Engineer opening 6'));
+    expect(secondAd).toBeLessThan(html.indexOf('Engineer opening 7'));
+    expect(html).toContain('Engineer opening 7');
+  });
 });
 
 describe('careerLandingsPlugin uses canonical job cards', () => {
