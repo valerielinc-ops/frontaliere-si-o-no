@@ -99,7 +99,7 @@ describe('Bing full-tree report artifact writer', () => {
     const chunks: number[] = [];
     writeJsonStreaming(file, summary, { chunkChars, onChunk: (length: number) => chunks.push(length) });
     const written = readFileSync(file, 'utf8');
-    const longestLine = Math.max(...written.split('\n').map((line) => line.length));
+    const longestLine = written.split('\n').reduce((max, line) => Math.max(max, line.length), 0);
     expect(chunks.length).toBeGreaterThan(1);
     expect(chunks.reduce((sum, length) => sum + length, 0)).toBe(written.length);
     // "+ 2" covers the separator (",\n") that precedes each line.
