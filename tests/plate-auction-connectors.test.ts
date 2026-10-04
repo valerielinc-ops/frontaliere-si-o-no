@@ -73,6 +73,7 @@ const CARD_SAMPLE = `
 
 const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ecari-auction-sample.html'), 'utf8');
 const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
+const EXPANDED_CARD_EMPTY_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-empty-sample.html'), 'utf8');
 // NW/OW between two rounds: eCari's own empty state in every tab.
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction.html'), 'utf8');
 // Stesso stato vuoto in fr_ch (FR, VS) e it_CH (TI), catturato il 2026-09-25.
@@ -292,6 +293,22 @@ describe('expanded plate-auction connectors', () => {
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }
+  });
+
+  it('recognizes the complete card-platform shell after a round closes', () => {
+    const rows = parseExpandedCard('vd', EXPANDED_CARD_EMPTY_SAMPLE, { fetchedAt: '2026-10-04T21:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+  });
+
+  it('does not turn a changed card link into an empty catalogue', () => {
+    const parserDrift = EXPANDED_CARD_EMPTY_SAMPLE.replace(
+      '<div class="auction-grid"><div class="auctions"></div></div>',
+      '<div class="auction-grid"><div class="auctions"><a href="/de/auction/1768" class="auction-card">VD 691</a></div></div>',
+    );
+    const rows = parseExpandedCard('vd', parserDrift);
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
   });
 
   it('parses the four newly covered official fixed-price catalogues without auction fields', () => {
