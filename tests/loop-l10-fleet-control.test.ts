@@ -435,6 +435,16 @@ describe('L10 Engineering Learning / Fleet Control', () => {
       expect(verdict.snapshot.health).toMatchObject({ operationalMetricsLegacyRuns: 0, invalidRowCount: 1 });
     });
 
+    it('controlla comunque i valori delle colonne che una riga legacy porta', () => {
+      const legacyBypass = canonicalHealthRowAt('2026-09-14T12:00:00.000Z', 'run-legacy-bypass', { gateBypass: true });
+      const legacyNegative = canonicalHealthRowAt('2026-09-14T13:00:00.000Z', 'run-legacy-negative', { durationSeconds: -1 });
+      const verdict = validateAfterCutoff(legacyBypass, legacyNegative, ...currentRows());
+      expect(verdict.issues.join(' ')).toContain('canonicalHealth[0]: gateBypass must remain false');
+      expect(verdict.issues.join(' ')).toContain('canonicalHealth[1]: durationSeconds is not a non-negative number');
+      expect(verdict.issues.join(' ')).not.toContain('omits operational fields');
+      expect(verdict.snapshot.health).toMatchObject({ operationalMetricsLegacyRuns: 0, invalidRowCount: 2 });
+    });
+
     it('non tratta come legacy una riga con recordedAt non valido', () => {
       const undated = canonicalHealthRowAt('not-a-date', 'run-undated');
       const verdict = validateAfterCutoff(undated, ...currentRows());

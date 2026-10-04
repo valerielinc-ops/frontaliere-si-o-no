@@ -376,12 +376,11 @@ function validateCanonicalHealthHistory(history, {
       rowPredatesOperationalFields = !Object.hasOwn(row, 'operationalMetricsComplete')
         && stamp !== null
         && stamp.getTime() < OPERATIONAL_FIELDS_REQUIRED_FROM_MS;
-      const requiredOperationalFields = rowPredatesOperationalFields
-        ? []
-        : ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass'];
-
-      for (const field of requiredOperationalFields) {
+      // A legacy row is exempt only from the *absence* of a column: a column
+      // it does carry is still value-checked (gateBypass must stay false).
+      for (const field of ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass']) {
         if (!Object.hasOwn(row, field)) {
+          if (rowPredatesOperationalFields) continue;
           missingOperationalFields.add(field);
           operationalMetricsComplete = false;
           rowOperationalMetricsComplete = false;
