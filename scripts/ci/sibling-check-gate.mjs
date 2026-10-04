@@ -47,7 +47,7 @@
 import { execFileSync } from 'node:child_process';
 import { readHookStdin } from './lib/hook-stdin.mjs';
 import { fileURLToPath } from 'node:url';
-import { basename, resolve } from 'node:path';
+import { basename, relative, resolve, sep } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
 import { commandVariables, findPrBodyWriteCommand } from './lib/hook-command-parser.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
@@ -56,6 +56,7 @@ import {
   unresolvedBaseOverrideActive,
 } from './lib/resolve-merge-base.mjs';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
+import { checkerCandidates, describeCheckerDivergence } from './lib/sibling-checker-revision.mjs';
 import {
   resolveHookRepository,
   describeHookTargetCwdFailure,
@@ -71,6 +72,14 @@ import {
 
 /** Transport used by the gh shim when managed Node cannot pipe child stdin. */
 export const SIBLING_GATE_PAYLOAD_ENV = 'SIBLING_GATE_PAYLOAD';
+
+/**
+ * Wall-clock spent on checkers after which no further fallback is tried. The
+ * root hook-dispatch kills a hook at 60 s (non-blocking exit), and each
+ * fallback is a full sweep: a fallback started past this point would most
+ * likely be killed mid-run, so the gate declares the skip instead.
+ */
+export const CHECKER_FALLBACK_BUDGET_MS = 25_000;
 
 /**
  * Resolve the local checker for the repository that the PR command targets.
@@ -151,6 +160,43 @@ export const DECLARATION_HOWTO =
   'Una riga che nomina un ALTRO path con lo stesso basename non copre il candidato.\n' +
   'Formule valide: «falso positivo» / «false positive» / «solo lessicalmente simile\n' +
   'ma semanticamente diverso» / «not the same bug class». Un rinvio a follow-up NO.';
+
+/**
+ * The whole blocking message for uncovered candidates: which checker judged,
+ * every candidate with its constructs, then the verdict and how to declare.
+ * One string on one stream, so no layer between this gate and the agent can
+ * keep the verdict and drop the list it refers to.
+ *
+ * @param {{file:string, tokens?:string[], strength?:string}[]} genuineCandidates
+ * @param {string} [checkerBlock] note on the checker revision, if any
+ * @returns {string}
+ */
+export function formatCandidateBlock(genuineCandidates, checkerBlock = '') {
+  const lines = [
+    `\n⚠ ${genuineCandidates.length} file gemello/i NON toccato/i condivide/ono costrutti modificati da questo branch:\n`,
+  ];
+  for (const c of genuineCandidates) {
+    lines.push(`  ${c.strength ? `[${c.strength}] ` : ''}${c.file}`);
+    if (c.tokens?.length) lines.push(`      costrutti condivisi: ${c.tokens.join(', ')}`);
+  }
+  const weak = genuineCandidates.filter((c) => c.strength === 'debole').length;
+  if (weak) {
+    lines.push(
+      `\n[debole] = evidenza limitata, senza un binding condiviso risolto o una classe del registro (${weak}/${genuineCandidates.length} qui).\n` +
+        'Leggi i costrutti riportati: può essere una chiamata AST, un literal o una espressione rimossa.\n' +
+        'Il livello non identifica il costrutto e non prova un bug; verifica il contesto.',
+    );
+  }
+  return (
+    checkerBlock +
+    `${lines.join('\n')}\n` +
+    '\n\u{1F6AB} sibling-check-gate: PR bloccata — file gemello/i non coperti trovati.\n' +
+    'Ispeziona i candidati sopra e includi il fix nella STESSA PR (AGENTS.md #6),\n' +
+    'oppure dichiarali falsi positivi.\n\n' +
+    DECLARATION_HOWTO +
+    '\n\n'
+  );
+}
 
 /**
  * True when the tool call really RUNS `gh pr create`.
@@ -283,31 +329,78 @@ async function main() {
   // module docstring): a commit-to-commit diff, identical from any directory of
   // the repo, blind to other sessions' uncommitted files. `cwd: targetCwd` now
   // only picks WHICH REPO to run git in.
+  //
+  // WHICH checker runs is pinned to a revision too (2026-10-04): the one
+  // committed in the judged ref, else origin/main's — never the copy that
+  // happens to sit next to this gate, which is the shared main checkout's
+  // working tree whenever the root hook falls back to it. See
+  // lib/sibling-checker-revision.mjs for the incident. The local copy is only
+  // the last resort, for a ref and a base that both lack the checker.
   const head = resolveGatedHeadRef(command, targetCwd, gateTarget.repo);
-  let jsonOutput;
-  try {
-    jsonOutput = execFileSync('node', [gateTarget.checkScript, '--json', '--head', head.ref], {
-      encoding: 'utf8',
-      maxBuffer: 8 * 1024 * 1024,
-      // Managed Node can report EPERM when a child is given a stdin pipe. The
-      // checker does not read stdin, so keep it detached and capture both
-      // streams; this preserves the verdict instead of silently treating a
-      // valid run as an infrastructure failure.
-      stdio: ['ignore', 'pipe', 'pipe'],
-      cwd: head.cwd,
-    });
-  } catch {
-    process.exit(0); // check script error → fail-safe
-  }
-
+  const checkerEntry = relative(gateTarget.repo, gateTarget.checkScript).split(sep).join('/');
+  const { sources: checkerSources, base: baseChecker, errors: checkerErrors } = checkerCandidates({
+    cwd: head.cwd,
+    headRef: head.ref,
+    entry: checkerEntry,
+    localCheckScript: gateTarget.checkScript,
+    localRepo: gateTarget.repo,
+  });
+  let usedChecker;
   let candidates;
   let result;
-  try {
-    result = JSON.parse(jsonOutput);
-    candidates = Array.isArray(result?.candidates) ? result.candidates : [];
-  } catch {
-    process.exit(0); // JSON parse error → fail-safe
+  const checkerStartedAt = Date.now();
+  for (const [index, source] of checkerSources.entries()) {
+    // Each fallback is a full sweep. The root hook-dispatch kills a hook after
+    // 60 s, and a killed hook does not block: past the budget, stop and say so
+    // instead of letting a late fallback run into the timeout unannounced.
+    if (index > 0 && Date.now() - checkerStartedAt > CHECKER_FALLBACK_BUDGET_MS) {
+      checkerErrors.push(
+        `ripiego su ${source.label} NON tentato: ${Math.round((Date.now() - checkerStartedAt) / 1000)} s già spesi ` +
+          `(budget ${CHECKER_FALLBACK_BUDGET_MS / 1000} s, timeout dell'hook 60 s)`,
+      );
+      break;
+    }
+    try {
+      const jsonOutput = execFileSync('node', [source.script, '--json', '--head', head.ref], {
+        encoding: 'utf8',
+        maxBuffer: 8 * 1024 * 1024,
+        // Managed Node can report EPERM when a child is given a stdin pipe. The
+        // checker does not read stdin, so keep it detached and capture both
+        // streams; this preserves the verdict instead of silently treating a
+        // valid run as an infrastructure failure.
+        stdio: ['ignore', 'pipe', 'pipe'],
+        cwd: head.cwd,
+        // The checker caches results per head in tmpdir, keyed on its cache
+        // version and the refs, not on its own code. Every source can carry a
+        // different checker revision, so no invocation may reuse a verdict
+        // produced by another revision.
+        env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
+      });
+      result = JSON.parse(jsonOutput);
+      candidates = Array.isArray(result?.candidates) ? result.candidates : [];
+      usedChecker = source;
+      break;
+    } catch (error) {
+      const reason = String(error?.stderr || error?.message || error).trim().split('\n')[0];
+      checkerErrors.push(`${source.label}: ${reason}`);
+    }
   }
+  if (!usedChecker) {
+    // Every checker failed → fail-safe, as before; but say why on stderr.
+    process.stderr.write(
+      `\n\u{2139}\u{FE0F}  sibling-check-gate: nessun checker ha prodotto un verdetto, sweep sibling NON eseguito: ${checkerErrors.join('; ')}\n`,
+    );
+    process.exit(0);
+  }
+  if (usedChecker.kind === 'local' && checkerErrors.length) {
+    usedChecker.fallbackReason = checkerErrors.join('; ');
+  }
+  const checkerNotes = [describeCheckerDivergence(usedChecker, baseChecker, { entry: checkerEntry })];
+  if (checkerErrors.length && usedChecker.kind !== 'local') {
+    checkerNotes.push(`checker scartati prima di ${usedChecker.label}: ${checkerErrors.join('; ')}`);
+  }
+  const checkerNote = checkerNotes.filter(Boolean).join('\n');
+  const checkerBlock = checkerNote ? `\n\u{2139}\u{FE0F}  sibling-check-gate: ${checkerNote}\n` : '';
 
   // Issue #5195, second half. check-sibling-patterns.mjs emits
   // `skipped: true` when it could not compute a merge-base — a deliberate
@@ -319,6 +412,7 @@ async function main() {
   if (result?.skipped) {
     const override = unresolvedBaseOverrideActive();
     process.stderr.write(
+      checkerBlock +
       `\n🚫 sibling-check-gate: sweep sibling NON ESEGUITO (${result.reason ?? 'sconosciuto'}).\n` +
         'Nessun file gemello è stato verificato: questo NON equivale a "nessun candidato".\n' +
         (override
@@ -337,6 +431,7 @@ async function main() {
   // lascerebbe passare senza aver guardato niente. Blocca e dice come uscirne.
   if (result?.changedFiles === 0) {
     process.stderr.write(
+      checkerBlock +
       '\n\u{1F6AB} sibling-check-gate: BRANCH NON IDENTIFICATO — nessuna verifica sibling eseguita.\n' +
         `Ref analizzato: ${head.ref} (${head.source === 'cwd-head' ? 'HEAD della directory tracciata' : 'da --head'})` +
         `${head.cwd ? ` in ${head.cwd}` : ''}\n` +
@@ -357,6 +452,8 @@ async function main() {
   }
 
   if (candidates.length === 0) {
+    // Non bloccante: la divergenza resta visibile a chi legge l'output dell'hook.
+    if (checkerBlock) process.stderr.write(checkerBlock);
     process.exit(0); // no sibling candidates → allow PR creation
   }
 
@@ -382,6 +479,7 @@ async function main() {
 
   if (genuineCandidates.length === 0) {
     // All candidates declared false positives in ## Non implementato → allow.
+    if (checkerBlock) process.stderr.write(checkerBlock);
     process.exit(0);
   }
 
@@ -406,31 +504,13 @@ async function main() {
 
   // Print the actual constructs: strength ranks evidence, but does not
   // identify its kind or prove that two files share a bug.
-  process.stdout.write(
-    `\n⚠ ${genuineCandidates.length} file gemello/i NON toccato/i condivide/ono costrutti modificati da questo branch:\n\n`,
-  );
-  for (const c of genuineCandidates) {
-    process.stdout.write(`  ${c.strength ? `[${c.strength}] ` : ''}${c.file}\n`);
-    if (c.tokens?.length) {
-      process.stdout.write(`      costrutti condivisi: ${c.tokens.join(', ')}\n`);
-    }
-  }
-  const weak = genuineCandidates.filter((c) => c.strength === 'debole').length;
-  if (weak) {
-    process.stdout.write(
-      `\n[debole] = evidenza limitata, senza un binding condiviso risolto o una classe del registro (${weak}/${genuineCandidates.length} qui).\n` +
-        'Leggi i costrutti riportati: può essere una chiamata AST, un literal o una espressione rimossa.\n' +
-        'Il livello non identifica il costrutto e non prova un bug; verifica il contesto.\n',
-    );
-  }
-
-  process.stderr.write(
-    '\n\u{1F6AB} sibling-check-gate: PR bloccata — file gemello/i non coperti trovati.\n' +
-      'Ispeziona i candidati sopra e includi il fix nella STESSA PR (AGENTS.md #6),\n' +
-      'oppure dichiarali falsi positivi.\n\n' +
-      DECLARATION_HOWTO +
-      '\n\n',
-  );
+  //
+  // The list goes to STDERR, in the same message as the verdict (2026-10-04).
+  // On exit 2 Claude Code hands the agent stderr only, and the root
+  // hook-dispatch drops a blocking hook's stdout: a list on stdout produced
+  // "PR bloccata — ispeziona i candidati sopra" with nothing above it, a block
+  // that could be neither fixed nor declared.
+  process.stderr.write(formatCandidateBlock(genuineCandidates, checkerBlock));
   process.exit(EXIT_BLOCK);
 }
 
