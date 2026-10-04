@@ -549,6 +549,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
   }, 120_000);
 
+  it('un closer nuovo sotto scripts/ o functions/ seleziona il ratchet sulle chiusure per titolo', () => {
+    // Il 2026-10-04 tre closer (PR 11317, 11358, 11355) decidevano su un numero
+    // e chiudevano per titolo. Il ratchet legge i sorgenti da disco: un closer
+    // nuovo non lo importa, e il path qui non esiste apposta.
+    const ratchet = 'tests/resolve-issue-by-title-ratchet.test.ts';
+    expect(selectionFor(['scripts/ci/future-issue-closer.mjs'])).toContain(ratchet);
+    expect(selectionFor(['functions/src/futureIssueCloser.js'])).toContain(ratchet);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(ratchet);
+  }, 120_000);
+
   it('un dato importato dal bootstrap della shell seleziona i pin del SiteShellContract', () => {
     // PR 11327: la bio di marco-ferrari in `data/authors.ts` e' cambiata,
     // `data/` e' fuori dal grafo e il diff ha selezionato zero test; il golden
