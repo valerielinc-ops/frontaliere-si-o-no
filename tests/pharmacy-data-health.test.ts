@@ -320,6 +320,74 @@ describe('buildReport', () => {
     expect(report.fetchErrors[0]).toMatchObject({ key: 'ticino', count: 1 });
   });
 
+  describe('audit verdicts (#8705)', () => {
+    const audited = (status: string, verdict: string, auditedDaysAgo: number) => ({
+      canton: 'Vaud',
+      status,
+      sourceType: 'association',
+      fetchFrequency: 'P1D',
+      audit: {
+        verdict,
+        auditedAt: iso(auditedDaysAgo),
+        reason: 'Lettura della pagina della fonte.',
+        evidenceUrl: 'https://garde.svph.ch/',
+      },
+    });
+    const withVaud = (vaud: Record<string, unknown>) => ({
+      sources: { ...registry.sources, vaud, bern: { canton: 'Berna', status: 'unverified' } },
+    });
+    const build = (vaud: Record<string, unknown>) =>
+      buildReport({ registry: withVaud(vaud), datasets: { ticino: anagrafica(), vaud: anagrafica() }, knownCantonCount: 26, nowMs: NOW });
+
+    it('lists non-active entries without an audit as unaudited and counts the verdicts', () => {
+      const coverage = evaluateCoverage(withVaud(audited('unverified', 'partial-or-proximity', 5)), {}, {}, 26);
+      expect(coverage.unaudited).toEqual(['bern']);
+      expect(coverage.auditVerdicts).toEqual({ 'complete-feed': 0, 'partial-or-proximity': 1, 'no-machine-readable': 0 });
+      expect(coverage.entries.find((e) => e.key === 'vaud')).toMatchObject({ audit: 'partial-or-proximity' });
+      expect(coverage.entries.find((e) => e.key === 'bern')).toMatchObject({ audit: null });
+    });
+
+    it('keeps an unaudited source out of the problems', () => {
+      expect(build(audited('unverified', 'no-machine-readable', 5)).problems).toEqual([]);
+    });
+
+    it('asks for onboarding when a complete feed has no connector, not when it is active', () => {
+      const pending = build(audited('unverified', 'complete-feed', 5));
+      expect(pending.problems.join('\n')).toContain('fonte vaud ha un feed completo verificato il');
+      expect(pending.problems.join('\n')).toContain('onboarding da aprire');
+      expect(build(audited('active', 'complete-feed', 5)).problems).toEqual([]);
+    });
+
+    it('flags an audit older than 90 days, not one inside the window', () => {
+      expect(build(audited('unverified', 'partial-or-proximity', 91)).problems.join('\n')).toContain('audit vaud scaduto');
+      expect(build(audited('unverified', 'partial-or-proximity', 89)).problems).toEqual([]);
+    });
+
+    it('prints the unaudited count and the verdict counts on the dashboard', () => {
+      const lines = formatReport(build(audited('unverified', 'partial-or-proximity', 5))).join('\n');
+      expect(lines).toContain('Cantoni non attivi senza verdetto di audit: 1');
+      expect(lines).toContain('Verdetti di audit: complete-feed=0 partial-or-proximity=1 no-machine-readable=0');
+    });
+
+    it('flags an audit dated more than a day in the future', () => {
+      expect(build(audited('unverified', 'partial-or-proximity', -30)).problems.join('\n')).toContain('audit vaud nel futuro');
+      expect(build(audited('unverified', 'partial-or-proximity', 0)).problems).toEqual([]);
+    });
+
+    it('does not count an out-of-list verdict as an audit', () => {
+      const coverage = evaluateCoverage(withVaud(audited('unverified', 'looks-fine', 5)), {}, {}, 26);
+      expect(coverage.unaudited).toEqual(['bern', 'vaud']);
+      expect(Object.keys(coverage.auditVerdicts)).toEqual(['complete-feed', 'partial-or-proximity', 'no-machine-readable']);
+    });
+
+    // giudica il registry reale con l'orologio vero (audit oltre 90 giorni): rosso possibile senza cambi di codice
+    it.skipIf(SKIP_LIVE_DATA)('raises no audit problem on the real registry', () => {
+      const report = buildReport({ registry: liveSourceRegistry, knownCantonCount: 26, nowMs: Date.now() });
+      expect(report.problems.filter((p) => p.startsWith('audit ') || p.includes('onboarding da aprire'))).toEqual([]);
+      expect(report.dashboard.join('\n')).toContain(`senza verdetto di audit: ${report.coverage.unaudited.length}`);
+    });
+  });
+
   it('formats a dashboard that names every dimension', () => {
     const lines = formatReport(
       buildReport({ registry, datasets: { ticino: anagrafica() }, knownCantonCount: 26, nowMs: NOW }),

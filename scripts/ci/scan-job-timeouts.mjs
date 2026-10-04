@@ -176,6 +176,9 @@ export function assertRunAgeHorizon({
 // search e' sotto il limite, poi si paginano tutte le sue pagine.
 const RUN_SEARCH_RESULT_CAP = 1000;
 const RUN_SEARCH_MAX_SPLIT_DEPTH = 20;
+// This file is transported as a byte-identical twin. Keep this signature
+// self-contained: importing the shared module would require a matching corpus
+// manifest entry, while the twin must remain runnable with its declared graph.
 const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum number of minutes)/i;
 // A job that has only just failed can be read back mid-finalisation, with a step
 // still momentarily `in_progress` — indistinguishable from a host-kill. Ignore

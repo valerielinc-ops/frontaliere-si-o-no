@@ -15,6 +15,7 @@ import {
   normalizeSpace,
 } from '@/scripts/lib/cerbios-pharma-job-parser.mjs';
 import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 // ─── Fixture: e-lavoro.ch listing with jobs ────────────────
 const LISTING_WITH_JOBS = `
@@ -169,10 +170,7 @@ describe('authoritative empty snapshot wiring', () => {
     expect(runner).toContain('skipShrinkGuard: true');
     expect(runner).toContain('archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY)');
 
-    const monitor = fs.readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist).toBeTruthy();
-    expect(allowlist![1]).not.toContain("'cerbios-pharma'");
+    expect(EMPTY_OK_CRAWLERS.has('cerbios-pharma')).toBe(false);
   });
 });
 
