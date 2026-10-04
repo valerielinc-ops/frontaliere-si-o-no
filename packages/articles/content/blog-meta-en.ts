@@ -12528,6 +12528,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-04.imageAlt': 'The day\'s numbers for cross-border commuters – October 4, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-10-04.seoDescription': 'Cross-border brief, October 4, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-10-04.ogDescription': 'The numbers for October 4, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.sindacati-miazzina-diritti-9-ottobre.title': 'Miazzina, unions on 9 October: \'We ask for respect\'',
+    'blog.article.sindacati-miazzina-diritti-9-ottobre.excerpt': 'Trade-union mobilization on 9 October at 14 at Eremo di Miazzina, organized by Cgil Novara Vco, Cisl Piemonte Orientale and Uil Novara Vco on work, care and support for families.',
+    'blog.article.sindacati-miazzina-diritti-9-ottobre.imageAlt': 'Trade union demonstration at the Hermitage of Miazzina with banners asking for respect for workers, people under care, and families.',
 };
 
 export default blogMetaEn;
