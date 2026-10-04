@@ -256,6 +256,22 @@ describe('cf-5xx-issue-sync.mjs — #5231 / #5232 must not be filed', () => {
   });
 });
 
+describe('la fase «riconcilia» gira anche quando non c\'è niente da coniare', () => {
+  it('nessun path sopra soglia → la riconciliazione gira comunque', async () => {
+    // Prima: `return` secco su «nothing to sync». È proprio il giorno in cui
+    // le issue guarite andrebbero chiuse, e nessuno le guardava.
+    mockReport({ detail: [], detailByHour: [], detailByHourComplete: true });
+
+    await cfSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+    const listed = ghCalls().filter(
+      (a) => a[0] === 'api' && a.some((x) => x.includes('issues?state=open&labels=cloudflare-5xx')),
+    );
+    expect(listed.length).toBeGreaterThan(0);
+  });
+});
+
 describe('the gate cannot be disarmed silently', () => {
   it('asks cf-status-report for the hourly rows', async () => {
     mockReport({ detail: REAL_TOTALS, detailByHour: REAL_BURSTS, detailByHourComplete: true });

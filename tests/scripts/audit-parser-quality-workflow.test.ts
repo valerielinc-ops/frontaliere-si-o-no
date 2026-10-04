@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 
 const workflow = fs.readFileSync(
   path.resolve(process.cwd(), '.github/workflows/audit-parser-quality.yml'),
@@ -26,6 +27,13 @@ describe('Audit Parser Quality workflow observability', () => {
   });
 
   it('reports a timeout cancellation instead of silently skipping the failure reporter', () => {
-    expect(workflow).toMatch(/name: Report failure to GitHub Issues[\s\S]*?if: failure\(\) \|\| cancelled\(\)/);
+    // The cancelled() branch stays (a timeout is a cancellation). The guard
+    // that filters out a supersession by a newer run (issue 5253) is checked
+    // structurally by tests/cancel-superseded-reporter-contract.test.ts.
+    const doc = YAML.parse(workflow);
+    const reporter = doc.jobs.audit.steps.find((s: { name?: string }) => s.name === 'Report failure to GitHub Issues');
+    expect(reporter, 'Report failure to GitHub Issues step').toBeDefined();
+    expect(String(reporter.if)).toMatch(/\bfailure\(\)/);
+    expect(String(reporter.if)).toMatch(/\bcancelled\(\)/);
   });
 });
