@@ -1180,7 +1180,26 @@ export function verdictStepEntryForWorkflowName(workflowName) {
 const VERDICT_RUN_JOB_CONCLUSIONS = new Set(['success', 'skipped', 'failure']);
 
 /**
+ * Esiti di step classificabili. Qualunque altro valore — assente, `null`, `cancelled`,
+ * `neutral`, uno step ancora in corso — rende lo step incompleto e la run non
+ * classificabile come di solo verdetto.
+ */
+const VERDICT_RUN_STEP_CONCLUSIONS = new Set(['success', 'skipped', 'failure']);
+
+/** Un record step completo: oggetto, nome non vuoto, esito classificabile, concluso. */
+function isCompleteStep(step) {
+  return Boolean(step) && typeof step === 'object'
+    && typeof step.name === 'string' && step.name.trim() !== ''
+    && VERDICT_RUN_STEP_CONCLUSIONS.has(step.conclusion)
+    && (step.status === undefined || step.status === 'completed');
+}
+
+/**
  * Vero solo se la run è rossa per il SOLO step-verdetto registrato per `workflowPath`.
+ *
+ * «Solo verdetto» va DIMOSTRATO sul payload: ogni dato mancante, incompleto o non
+ * classificabile (job non concluso, step senza nome o senza esito, conteggi che non
+ * tornano) vale «non solo verdetto», cioè la run resta un guasto segnalabile.
  *
  * @param {string} workflowPath
  * @param {{ total_count?: number, jobs?: Array<{ conclusion?: string,
@@ -1198,16 +1217,16 @@ export function isVerdictOnlyFailure(workflowPath, jobs) {
   let failedJobs = 0;
   for (const job of jobs.jobs) {
     if (!VERDICT_RUN_JOB_CONCLUSIONS.has(job?.conclusion)) return false;
+    if (job.status !== undefined && job.status !== 'completed') return false;
     // Un job `skipped` non ha eseguito step: niente da leggere, niente da nascondere.
     if (job.conclusion === 'skipped' && !Array.isArray(job.steps)) continue;
     // Gli step si leggono in OGNI job, anche `success`: uno step `continue-on-error`
     // fallito lascia verde il job ma è un guasto vero, e accanto al verdetto non deve
     // far passare la run per «solo verdetto». Step illeggibili → non si sa (fail-closed).
     if (!Array.isArray(job.steps)) return false;
-    // Un record step senza conclusion è una risposta parziale, non uno step verde:
-    // ignorarlo qui permetterebbe a un guasto non classificabile di passare accanto al
-    // verdetto. La classificazione è fail-closed prima di filtrare i fallimenti.
-    if (job.steps.some((step) => typeof step?.conclusion !== 'string')) return false;
+    // Un record step incompleto si rifiuta PRIMA di classificare: filtrando solo le
+    // `failure` uno step senza esito sparirebbe, e con lui il guasto che poteva essere.
+    if (!job.steps.every(isCompleteStep)) return false;
     const failedSteps = job.steps.filter((s) => s.conclusion === 'failure');
     if (job.conclusion === 'failure') {
       failedJobs++;
@@ -1273,21 +1292,22 @@ const CI_FAILURE_TITLE_RE = /^CI Failure: (.+)$/;
  * Il thread `CI Failure: <workflow registrato>` racconta solo il verdetto?
  *
  * Vero quando la run più recente dello storico (tolte le `skipped`) è di solo verdetto ed
- * è successiva all'apertura della issue, E OGNI rossa successiva all'apertura è marcata
- * `verdictOnly: true` da `markVerdictOnlyRuns`: il workflow ha eseguito tutti i suoi step
- * e il solo rosso è il segnale che la famiglia `owner` porta già.
+ * è successiva all'apertura della issue, E OGNI rossa ancora presente nello storico —
+ * prima o dopo l'apertura — è marcata `verdictOnly: true` da `markVerdictOnlyRuns`: il
+ * workflow ha eseguito tutti i suoi step e il solo rosso è il segnale che la famiglia
+ * `owner` porta già.
  *
- * Fail-safe sulla FINESTRA letta (le `VERDICT_JOBS_READ_LIMIT` `failure` più recenti):
- * una failure già esaminata e non di solo verdetto (`verdictOnly: false`) resta un
- * blocco anche quando precede l'apertura della issue — può essere proprio la failure
- * reale che ha generato il thread. Una rossa successiva all'apertura vale come guasto
- * anche quando è oltre la finestra e nessuno ne ha letto i job (campo assente).
- * Altrimenti un guasto vero dopo l'apertura, invecchiato fuori finestra, lascerebbe
- * chiudere il thread `not planned` alla run-verdetto successiva senza che nessuno ne
- * abbia mai verificato i job. Il prezzo: un thread come la issue 9243, che contiene la
- * run 36717595714 del 2026-09-30 (guasto vero in «Commit updated health state»), resta
- * aperto finché quella rossa non esce dallo storico letto (`RUN_HISTORY_LIMIT` run nella
- * finestra `--created`) o non lo chiude un verde vero.
+ * «Solo verdetto» va dimostrato, non presunto. Una rossa vale come guasto sia quando è
+ * stata esaminata e non è di solo verdetto (`verdictOnly: false`: anche la failure reale
+ * che ha aperto il thread, precedente a `createdAt`), sia quando è oltre la FINESTRA letta
+ * (le `VERDICT_JOBS_READ_LIMIT` `failure` più recenti) e nessuno ne ha letto i job (campo
+ * assente). Altrimenti un guasto vero ancora nello storico lascerebbe chiudere il thread
+ * `not planned` alla run-verdetto successiva. Il prezzo, dichiarato: la regola chiude
+ * solo quando tutte le rosse dello storico letto (`RUN_HISTORY_LIMIT` run nella finestra
+ * `--created`) sono state lette e provate di solo verdetto; un thread come la issue 9243,
+ * che contiene la run 36717595714 del 2026-09-30 (guasto vero in «Commit updated health
+ * state»), resta aperto finché quella rossa non esce dallo storico o non lo chiude un
+ * verde vero (ramo `recovered`).
  *
  * Un `Workflow Failure:` sullo stesso workflow NON rientra: è il crash vero, e la regola
  * non lo tocca.
@@ -1306,17 +1326,11 @@ export function decideVerdictOnlyThread({ issue, history } = {}) {
   const opened = Date.parse(issue?.createdAt ?? '');
   const created = Date.parse(head.createdAt ?? '');
   if (!Number.isFinite(opened) || !Number.isFinite(created) || created < opened) return { ...none, entry };
-  // Una failure già esaminata e reale (`verdictOnly: false`) tiene aperto il thread
-  // anche se precede l'apertura: può essere la failure che ha generato la issue. Una
-  // rossa senza classificazione tiene aperto il thread quando è successiva all'apertura
-  // (o ha una data illeggibile); una rossa vecchia senza prova non è invece attribuita a
-  // questo thread. Solo `success`/`skipped` non sono rosse.
-  const unprovenRed = history.some((r) => {
-    if (NOT_RED_CONCLUSIONS.has(r?.conclusion)) return false;
-    if (r?.verdictOnly === true) return false;
-    if (r?.verdictOnly === false) return true;
-    return !(Date.parse(r?.createdAt ?? '') < opened);
-  });
+  // Una rossa ancora nello storico che non sia PROVATA di solo verdetto tiene aperto il
+  // thread, PRIMA o dopo l'apertura: esaminata e mista (`verdictOnly: false`, anche la
+  // failure reale che ha aperto il thread) oppure oltre la finestra letta (campo assente).
+  // Solo `success`/`skipped` non sono rosse; ogni altro esito, anche assente, lo è.
+  const unprovenRed = history.some((r) => r?.verdictOnly !== true && !NOT_RED_CONCLUSIONS.has(r?.conclusion));
   if (unprovenRed) return { ...none, entry };
   return { close: true, entry, run: head };
 }
@@ -1931,8 +1945,8 @@ export function decideFailureIssueClose({ issue, run, history, comments, labels,
     // Regola LC-03: tolte le run di solo verdetto, un monitor registrato che è rosso
     // soltanto per il proprio verdetto non avrebbe mai più un verde successivo alla issue
     // («predates issue — keep open» per sempre). Se la testa dello storico è di solo
-    // verdetto e ogni rossa dopo l'apertura è PROVATA di solo verdetto (una rossa oltre la
-    // finestra letta conta come guasto, fail-safe), il thread
+    // verdetto e ogni rossa ancora nello storico è PROVATA di solo verdetto (una rossa mista
+    // o oltre la finestra letta conta come guasto, fail-safe), il thread
     // `CI Failure:` non descrive un guasto: si chiude `not planned`.
     // Non è una deroga agli hold: quelli proteggono un GUASTO che ritorna, e si
     // applicano solo dopo un verde vero (ramo `recovered`, che resta prioritario).

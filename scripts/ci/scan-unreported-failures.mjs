@@ -843,6 +843,16 @@ export function workflowScheduleFromSource(source) {
  * proprio quando l'API è in difficoltà. Chi chiama si ferma.
  */
 export function openFailureIssueWorkflows() {
+  const issues = readOpenIssues();
+  return issues === null ? null : latestIssuePerWorkflow(issues);
+}
+
+/**
+ * Le issue aperte (`number,title,updatedAt,body`), o `null` se il listing è illeggibile
+ * o troncato al cap. Una sola lettura serve sia alla mappa delle canoniche sia alla prova
+ * di persistenza dell'owner di uno step-verdetto (`ownerSignalPersisted`).
+ */
+export function readOpenIssues() {
   const raw = gh(
     ['issue', 'list', '--state', 'open', '--limit', String(OPEN_ISSUE_LISTING_CAP),
       // `updatedAt` arriva qui e non costa una chiamata in più: è il dato con cui
@@ -874,7 +884,34 @@ export function openFailureIssueWorkflows() {
     );
     return null;
   }
-  return latestIssuePerWorkflow(issues);
+  return issues;
+}
+
+/**
+ * Il verdetto ha DAVVERO scritto la sua famiglia per questa run?
+ *
+ * I nomi degli step dicono che la run è rossa per il solo verdetto, non che il segnale
+ * sia arrivato da qualche parte: `github-issue-creator.mjs` è best-effort ed esce 0 anche
+ * quando GitHub rifiuta la scrittura, quindi lo step che apre le issue della famiglia
+ * resta verde anche quando non ha scritto niente. Senza una prova, saltare la run
+ * trasformerebbe un guasto vero in un silenzio.
+ *
+ * Prova: una issue APERTA il cui titolo comincia con `entry.owner` e il cui `updatedAt`
+ * non precede l'inizio della run — creata, riaperta o commentata (`🔁`) da questa run o
+ * dopo. Dati mancanti o date illeggibili → `false`, cioè la run resta segnalabile.
+ *
+ * @param {{ owner?: string }|null} entry la voce di `VERDICT_STEPS`
+ * @param {Array<{ title?: string, updatedAt?: string }>|null} openIssues
+ * @param {{ created_at?: string }} run
+ */
+export function ownerSignalPersisted(entry, openIssues, run) {
+  const owner = typeof entry?.owner === 'string' ? entry.owner : '';
+  if (!owner.trim() || !Array.isArray(openIssues)) return false;
+  const startedAt = Date.parse(run?.created_at ?? '');
+  if (!Number.isFinite(startedAt)) return false;
+  return openIssues.some((issue) => typeof issue?.title === 'string'
+    && issue.title.startsWith(owner)
+    && Date.parse(issue.updatedAt ?? '') >= startedAt);
 }
 
 /**
@@ -978,11 +1015,7 @@ export function latestIssuePerWorkflow(issues) {
     const workflowName = workflowNameFromIssue(issue);
     if (!workflowName) continue;
 
-    const candidate = {
-      number: issue.number,
-      title: issue.title ?? null,
-      updatedAt: issue.updatedAt ?? null,
-    };
+    const candidate = { number: issue.number, updatedAt: issue.updatedAt ?? null };
     const previous = byWorkflow.get(workflowName);
     if (!previous) {
       byWorkflow.set(workflowName, candidate);
@@ -1000,21 +1033,6 @@ export function latestIssuePerWorkflow(issues) {
     }
   }
   return byWorkflow;
-}
-
-/**
- * Prova che il reporter owner del verdetto abbia lasciato una issue aperta.
- *
- * `VERDICT_STEPS.owner` è un prefisso di titolo, non il nome del workflow: una
- * `CI Failure:` centrale aperta non dimostra che il reporter `[crawler-health]`
- * abbia persistito il segnale. Il listing aperto è già stato letto fail-closed
- * prima della scansione; se la voce non c'è o il titolo non ha il prefisso owner,
- * il verdetto resta reportable.
- */
-export function isVerdictOwnerPersisted(openIssues, workflowName, ownerPrefix) {
-  const issue = openIssues?.get(workflowName);
-  const prefix = String(ownerPrefix ?? '');
-  return Boolean(issue && prefix && String(issue.title ?? '').startsWith(prefix));
 }
 
 /**
@@ -1177,7 +1195,8 @@ export async function scanFailures() {
   const since = new Date(Date.now() - LOOKBACK_MINUTES * 60_000).toISOString();
   const horizon = new Date(Date.now() - RUN_QUERY_HORIZON_MINUTES * 60_000).toISOString();
 
-  const openIssues = openFailureIssueWorkflows();
+  const openIssueList = readOpenIssues();
+  const openIssues = openIssueList === null ? null : latestIssuePerWorkflow(openIssueList);
   if (openIssues === null) {
     // Fail-CLOSED: senza sapere che cosa è già aperto, aprire significa
     // duplicare. Un rosso vero rientra alla passata dopo; un duplicato no.
@@ -1222,17 +1241,16 @@ export async function scanFailures() {
     // non è un fallimento non segnalato: né issue nuova né ricorrenza. Si decide run
     // per run e PRIMA del raggruppamento, così una run mista più vecchia nella stessa
     // finestra resta segnalabile. Job illeggibili → non è di solo verdetto (fail-closed).
+    // E il verdetto deve aver DAVVERO scritto la sua famiglia (`ownerSignalPersisted`):
+    // i nomi degli step da soli non provano che il segnale sia arrivato.
     const verdictEntry = VERDICT_STEPS[wf?.path || ''];
-    const jobs = verdictEntry ? readRunJobs(run.id).jobs : null;
-    if (verdictEntry && isVerdictOnlyFailure(wf.path, jobs)) {
-      if (!isVerdictOwnerPersisted(openIssues, workflowName, verdictEntry.owner)) {
-        console.warn(
-          `[scan-unreported-failures] ${workflowName}: run ${run.id} è di solo verdetto, ma il reporter owner `
-            + `«${verdictEntry.owner}» non risulta persistito → resta reportable come «CI Failure: ${workflowName}».`,
-        );
-        reportable.push({ ...run, workflowName });
-        continue;
-      }
+    const verdictOnly = Boolean(verdictEntry) && isVerdictOnlyFailure(wf.path, readRunJobs(run.id).jobs);
+    if (verdictOnly && !ownerSignalPersisted(verdictEntry, openIssueList, run)) {
+      console.warn(
+        `::warning::[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto, `
+          + `ma nessuna issue «${verdictEntry.owner}…» aperta risulta aggiornata dalla run → resta segnalabile.`,
+      );
+    } else if (verdictOnly) {
       console.log(
         `[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto `
           + `«${verdictEntry.verdict}» → segnale già portato dalle issue «${verdictEntry.owner}…», nessuna segnalazione.`,

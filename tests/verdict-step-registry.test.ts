@@ -42,7 +42,7 @@ const {
   verdictOnlyThreadNote,
   verdictStepEntryForWorkflowName,
 } = await import('../scripts/ci/close-recovered-failure-issues.mjs');
-const { scanFailures } = await import('../scripts/ci/scan-unreported-failures.mjs');
+const { scanFailures, ownerSignalPersisted } = await import('../scripts/ci/scan-unreported-failures.mjs');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOWS_DIR = path.join(ROOT, '.github', 'workflows');
@@ -120,19 +120,27 @@ describe('isVerdictOnlyFailure — fixture reali del monitor', () => {
     expect(isVerdictOnlyFailure(MONITOR_PATH, unattributed)).toBe(false);
   });
 
-  it('uno step senza `conclusion` rende il payload parziale e non classificabile', () => {
+  it('step incompleti (senza conclusion, senza nome, esito non concluso) → false prima di classificare', () => {
     const partial = {
       total_count: 1,
-      jobs: [{
-        name: 'check',
-        conclusion: 'failure',
-        steps: [
-          { name: 'Fail if any crawler stale', conclusion: 'failure' },
-          { name: 'Unreadable step' },
-        ],
-      }],
-    } as unknown as Jobs;
+      jobs: [{ conclusion: 'failure', steps: [{ name: 'Fail if any crawler stale', conclusion: 'failure' }, { name: 'Second step' }] }],
+    };
     expect(isVerdictOnlyFailure(MONITOR_PATH, partial)).toBe(false);
+    for (const bad of [
+      { name: 'Second step', conclusion: null },
+      { name: 'Second step', conclusion: 'cancelled' },
+      { name: 'Second step', conclusion: 'success', status: 'in_progress' },
+      { conclusion: 'success' },
+      null,
+    ]) {
+      const jobs = structuredClone(VERDICT_ONLY);
+      (jobs.jobs[0].steps as unknown[]).push(bad);
+      expect(isVerdictOnlyFailure(MONITOR_PATH, jobs)).toBe(false);
+    }
+    // Un job non concluso non si classifica.
+    const running = structuredClone(VERDICT_ONLY);
+    (running.jobs[0] as Job & { status?: string }).status = 'in_progress';
+    expect(isVerdictOnlyFailure(MONITOR_PATH, running)).toBe(false);
   });
 
   it('un workflow fuori registro non è mai di solo verdetto', () => {
@@ -300,34 +308,41 @@ describe('decideFailureIssueClose — regola verdict-only-thread', () => {
     ];
     const unclassifiedAfter = [...verdicts, { createdAt: '2026-10-01T01:00:00Z' }];
     expect(decideVerdictOnlyThread({ issue: thread, history: unclassifiedAfter }).close).toBe(false);
-    // Caso legittimo: tutte le rosse dopo l'apertura sono lette e di solo verdetto, la
-    // rossa non letta è PRIMA dell'apertura e non è classificata, le verdi non contano → chiude.
+    // Caso legittimo: tutte le rosse dello storico sono lette e di solo verdetto, le
+    // verdi e le `skipped` non contano → chiude.
     const legit = [
       ...verdicts,
       { conclusion: 'success', createdAt: '2026-10-01T02:00:00Z' },
       { conclusion: 'skipped', createdAt: '2026-10-01T01:30:00Z' },
-      { conclusion: 'failure', createdAt: '2026-09-30T00:00:00Z' },
+      { conclusion: 'success', createdAt: '2026-09-30T00:00:00Z' },
     ];
     expect(decideVerdictOnlyThread({ issue: thread, history: legit }).close).toBe(true);
+    // Una rossa non letta PRIMA dell'apertura è ancora nello storico e non è provata
+    // di solo verdetto: blocca anche lei.
+    const unclassifiedBefore = [...legit, { conclusion: 'failure', createdAt: '2026-09-29T00:00:00Z' }];
+    expect(decideVerdictOnlyThread({ issue: thread, history: unclassifiedBefore }).close).toBe(false);
   });
 
-  it('un guasto vero LETTO tiene aperto il thread anche quando precede l\'apertura', () => {
+  it('decideVerdictOnlyThread: la failure reale che ha aperto il thread, prima di createdAt, blocca la chiusura', () => {
+    const result = decideVerdictOnlyThread({
+      issue: { title: CI, createdAt: '2026-10-01T01:00:00Z' },
+      history: [
+        { verdictOnly: true, conclusion: 'failure', createdAt: '2026-10-02T00:00:00Z' },
+        { verdictOnly: false, conclusion: 'failure', createdAt: '2026-10-01T00:00:00Z' },
+      ],
+    });
+    expect(result.close).toBe(false);
+  });
+
+  it('un guasto vero LETTO tiene aperto il thread, prima o dopo l\'apertura', () => {
     const realAfter = [verdictRun(0.2), verdictRun(1.2), run('failure', 2.2, { verdictOnly: false }), verdictRun(3.2)];
     const kept = decide({ issue: issue(CI, 14), history: realAfter, comments: null });
     expect(kept.action).toBe('keep');
     expect(kept.reason).toBe('still-red');
 
+    // Il guasto che ha aperto il thread è ancora nello storico: il thread lo racconta.
     const realBefore = [verdictRun(0.2), verdictRun(1.2), run('failure', 20, { verdictOnly: false })];
     expect(decide({ issue: issue(CI, 14), history: realBefore, comments: null }).action).toBe('keep');
-  });
-
-  it('una failure reale prima dell\'apertura blocca la chiusura not-planned', () => {
-    const thread = { title: CI, createdAt: '2026-10-01T01:00:00Z' };
-    const history = [
-      { conclusion: 'failure', verdictOnly: true, createdAt: '2026-10-02T00:00:00Z' },
-      { conclusion: 'failure', verdictOnly: false, createdAt: '2026-10-01T00:00:00Z' },
-    ];
-    expect(decideVerdictOnlyThread({ issue: thread, history }).close).toBe(false);
   });
 
   // La forma della chiamata di `main()`: la run che decide è SEMPRE passata, calcolata
@@ -344,9 +359,10 @@ describe('decideFailureIssueClose — regola verdict-only-thread', () => {
     expect(decidingRun({ run: null, history: oldGreen })).not.toBeNull();
     expect(asMain(oldGreen).action).toBe('close-not-planned');
 
-    // Una rossa non letta PRIMA dell'apertura non è un'osservazione di questo thread.
+    // Una rossa non letta nello storico, anche prima dell'apertura, non è provata di solo
+    // verdetto: tiene aperto il thread (fail-safe).
     const unreadRed = [...tenVerdicts(), run('failure', 20)];
-    expect(asMain(unreadRed).action).toBe('close-not-planned');
+    expect(asMain(unreadRed).action).toBe('keep');
   });
 
   it('percorso crawler-step (senza storico): la regola non si applica', () => {
@@ -410,16 +426,24 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
   const issueCalls = (sub: string) => execFileSync.mock.calls
     .filter((c) => c[0] === 'gh' && (c[1] as string[])[0] === 'issue' && (c[1] as string[])[1] === sub);
 
-  function mockGithub({ jobs, openIssue }: { jobs: Jobs; openIssue: boolean }) {
+  // La prova che il verdetto ha davvero scritto la sua famiglia: una issue `[crawler-health] `
+  // aperta e aggiornata dopo l'inizio della run.
+  const OWNER_WRITTEN = { number: 9300, title: '[crawler-health] coop: crawler unhealthy', updatedAt: '2026-10-03T11:58:00Z', body: '' };
+  function mockGithub({ jobs, openIssue, ownerIssues = [OWNER_WRITTEN] }: {
+    jobs: Jobs; openIssue: boolean; ownerIssues?: Array<Record<string, unknown>>;
+  }) {
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'issue' && args[1] === 'list') {
-        if (args[3] !== 'open' || !openIssue) return '[]';
-        return JSON.stringify([{
-          number: 9243,
-          title: '[crawler-health] stale-example: crawler unhealthy',
-          updatedAt: '2026-10-01T00:00:00Z',
-          body: `**Workflow:** ${MONITOR_NAME}`,
-        }]);
+        if (args[3] !== 'open') return '[]';
+        return JSON.stringify([
+          ...ownerIssues,
+          ...(openIssue ? [{
+            number: 9243,
+            title: `CI Failure: ${MONITOR_NAME}`,
+            updatedAt: '2026-10-01T00:00:00Z',
+            body: '',
+          }] : []),
+        ]);
       }
       if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ body: '', comments: [] });
       if (args[0] === 'api') {
@@ -467,12 +491,10 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
     expect(issueCalls('comment').map((c) => (c[1] as string[])[2])).toEqual(['9243']);
   });
 
-  it('owner non persistito: la run di solo verdetto resta reportable come «CI Failure:», quella mista sì', async () => {
+  it('nessun thread: la run di solo verdetto non apre «CI Failure:», quella mista sì', async () => {
     mockGithub({ jobs: VERDICT_ONLY, openIssue: false });
     await scanFailures();
-    const verdictCreate = issueCalls('create').map((c) => (c[1] as string[]));
-    expect(verdictCreate.length).toBe(1);
-    expect(verdictCreate[0][verdictCreate[0].indexOf('--title') + 1]).toBe(`CI Failure: ${MONITOR_NAME}`);
+    expect(issueCalls('create')).toEqual([]);
 
     execFileSync.mockReset();
     mockGithub({ jobs: REAL_FAILURE, openIssue: false });
@@ -480,6 +502,33 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
     const created = issueCalls('create').map((c) => (c[1] as string[]));
     expect(created.length).toBe(1);
     expect(created[0][created[0].indexOf('--title') + 1]).toBe(`CI Failure: ${MONITOR_NAME}`);
+  });
+
+  it('owner non persistito: la run di solo verdetto resta segnalabile e apre «CI Failure:»', async () => {
+    // Nessuna issue della famiglia, oppure solo issue ferme da prima della run: il
+    // reporter owner (o GitHub) può aver fallito in silenzio, il verdetto da solo non prova niente.
+    const stale = { ...OWNER_WRITTEN, updatedAt: '2026-10-02T00:00:00Z' };
+    const unreadable = { ...OWNER_WRITTEN, updatedAt: 'not-a-date' };
+    for (const ownerIssues of [[], [stale], [unreadable]]) {
+      execFileSync.mockReset();
+      mockGithub({ jobs: VERDICT_ONLY, openIssue: false, ownerIssues });
+      await scanFailures();
+      const created = issueCalls('create').map((c) => (c[1] as string[]));
+      expect(created.length).toBe(1);
+      expect(created[0][created[0].indexOf('--title') + 1]).toBe(`CI Failure: ${MONITOR_NAME}`);
+    }
+  });
+
+  it('ownerSignalPersisted: solo una issue della famiglia aggiornata dall\'inizio della run è una prova', () => {
+    const entry = VERDICT_STEPS[MONITOR_PATH];
+    const run = { created_at: RED_RUN.created_at };
+    expect(ownerSignalPersisted(entry, [OWNER_WRITTEN], run)).toBe(true);
+    expect(ownerSignalPersisted(entry, [], run)).toBe(false);
+    expect(ownerSignalPersisted(entry, null, run)).toBe(false);
+    expect(ownerSignalPersisted(entry, [{ ...OWNER_WRITTEN, updatedAt: '2026-10-03T11:00:00Z' }], run)).toBe(false);
+    expect(ownerSignalPersisted(entry, [{ ...OWNER_WRITTEN, title: 'CI Failure: crawler-health-monitor' }], run)).toBe(false);
+    expect(ownerSignalPersisted(entry, [OWNER_WRITTEN], { created_at: '' })).toBe(false);
+    expect(ownerSignalPersisted(null, [OWNER_WRITTEN], run)).toBe(false);
   });
 });
 
