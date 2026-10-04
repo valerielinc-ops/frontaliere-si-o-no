@@ -19,6 +19,7 @@
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
@@ -377,7 +378,8 @@ export async function fetchAllFluryStiftungJobs({
       sector: 'Sanità / Assistenza',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      // PDF attachment and collection dates are not publication evidence.
+      ...sourcePostingDateFields(''),
       applyUrl: pdfUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
