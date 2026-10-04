@@ -432,9 +432,6 @@ const discoverJ2wListingModules = (root = path.resolve(process.cwd(), 'scripts',
  * discovered, is what makes a new omission reviewable instead of silent.
  */
 const J2W_LISTING_MODULES_WITHOUT_LOCATION: Record<string, string> = {
-  // Health-monitor registry: selector tokens occur only in comments documenting
-  // an empty-source investigation; this module exports sets, not a row parser.
-  'crawler-empty-ok-registry.mjs': 'health registry comments mention selectors; no listing parser',
   // Not a j2w tenant: its own `#joboffers` table on amag.ch, rows keyed by
   // `#jobTitel`/`#jobStandort` and `-j{id}.html` hrefs. The `jobLocation` token
   // is the JSON-LD field of the detail page, not a listing cell.
