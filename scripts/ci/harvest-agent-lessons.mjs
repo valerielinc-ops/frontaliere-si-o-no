@@ -224,8 +224,22 @@ const ADSENSE_BOT_GATE_RE = new RegExp(
 // authentication or capability evidence.
 const WORKFLOW_SCOPE_CREDS_RE = /workflows? scope|github_pat|github[_ .-]?token|gh[_ .-]?token|\bpat\b|app[_ .-]?token|persist-credentials|branch protection|token\s+(?:scope|permission|capabilit)|(?:\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b[\s\S]{0,100}\b(?:credential|credentials|secret|token)\b|\b(?:credential|credentials|secret|token)\b[\s\S]{0,100}\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b)/i;
 
+// `structured-data` is a lexicon, and the same words name two classes with two
+// different structural fixes (issue 9108, reopened 2026-10-04 with 11 findings
+// after the cutoff): the site EMITTERS that write JSON-LD (build-plugins,
+// services/seo: #11328, #10992, #10753, #11021) and the crawler PARSERS that
+// READ a source's JSON-LD/JobPosting or fill the fields it is built from
+// (scripts/update-*-jobs.mjs, scripts/lib/*-job-parser.mjs: #11406, #11303,
+// #11297, #11281, #11206, #11126). One bucket summed them, so an emitter gate
+// could never bring the count down and the escalation re-fired on parser work.
+// Split by WHERE the finding is located, threshold unchanged: a finding whose
+// located paths are ALL crawler parsers counts in `structured-data-parser`;
+// anything else (emitter paths, mixed, or no path) stays `structured-data`.
+const STRUCTURED_DATA_RE = /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i;
+
 const TAXONOMY = [
-  { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
+  { key: 'structured-data-parser', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'jobposting'] },
+  { key: 'structured-data', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
   { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'] },
   // AdSense findings need a structural subtype before the generic topic bucket.
@@ -608,6 +622,32 @@ export function isGenuineCanonicalSitemapFinding(text) {
   return CANONICAL_SEO_DEFECT_RE.test(s);
 }
 
+// Crawler-side code: the per-source crawlers and the parsers/feeds/ATS clients
+// they share. Anchored on the repo-relative path, so a site emitter
+// (`build-plugins/jobsSeoPagesPlugin.ts`, `services/seo/*`) never matches.
+const CRAWLER_PARSER_PATH_RE = /^scripts\/(?:update-[\w-]+-jobs\.mjs|lib\/(?:ats-clients\/[\w./-]+|[\w-]*(?:parser|crawler|feed)[\w-]*\.mjs|federal-job-[\w-]+\.mjs))$/;
+const LOCATED_PATH_RE = /(?:^|[\s`(,;'"])((?:[\w.-]+\/)+[\w.-]+\.(?:mjs|cjs|js|tsx?|json|ya?ml))(?=[:\s`),;'"]|$)/g;
+
+/**
+ * The repo paths a review line is LOCATED at: the ones before its severity
+ * marker (`path:Lnn[, path:Lnn…]: 🔴 Important: …`). Paths named in the
+ * finding's prose are not its location.
+ * @param {string} text
+ * @returns {string[]}
+ */
+export function findingLocationPaths(text) {
+  const s = String(text || '');
+  const severity = /🔴|🟡|❓/u.exec(s);
+  const lead = severity ? s.slice(0, severity.index) : '';
+  return [...lead.matchAll(LOCATED_PATH_RE)].map((m) => m[1]);
+}
+
+/** True when every located path of the finding is crawler parser code. */
+export function isCrawlerParserFinding(text) {
+  const paths = findingLocationPaths(text);
+  return paths.length > 0 && paths.every((p) => CRAWLER_PARSER_PATH_RE.test(p));
+}
+
 export function bucketFinding(text) {
   // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
   // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
@@ -617,6 +657,7 @@ export function bucketFinding(text) {
   const scannable = stripNegatedImpactClauses(text);
   for (const t of TAXONOMY) {
     if (!t.re.test(scannable)) continue;
+    if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
     // A review line starts with one or more file locations before its severity
     // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
     // provide the workflow/auth context for an unrelated finding.
