@@ -12,7 +12,7 @@ import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
-import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
+import { evaluateRedFlags, factCheckAcknowledged } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
@@ -655,15 +655,19 @@ describe('submit mode', () => {
     // day finds. Confirmed for «Kubernetes» only (with its tokens, or an older tick on that stored result),
     // the send with «45» stops before any e-mail, and the stored result asks for a new confirmation.
     const confirmedForOther = { ...draft, factCheck: { ok: false, unsupported: [{ field: 'coverLetter', kind: 'tool', token: 'Kubernetes', context: '' }], advisories: [], basis: 'pdf_text' } };
-    for (const acknowledgement of [{ factCheckAcknowledgedAt: 1, factCheckAcknowledgedTokens: ['tool:Kubernetes'] }, { factCheckAcknowledgedAt: 1 }, { acknowledgedFlags: { fact_check: 1 } }]) {
+    for (const acknowledgement of [{ factCheckAcknowledgedAt: 1, factCheckAcknowledgedTokens: ['coverLetter:tool:Kubernetes'] }, { factCheckAcknowledgedAt: 1 }, { acknowledgedFlags: { fact_check: 1 } }]) {
       const before = { ...confirmedForOther, ...acknowledgement };
       const again: any = await submit(before);
       expect(again).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
       expect(again.factCheck.unsupported).toEqual([expect.objectContaining({ kind: 'number', token: '45' })]);
       const kept = takeFactCheck(again, before);
-      expect(kept?.factCheckAcknowledgedTokens ?? before.factCheckAcknowledgedTokens).toEqual(['tool:Kubernetes']);
+      expect(kept?.factCheckAcknowledgedTokens ?? before.factCheckAcknowledgedTokens).toEqual(['coverLetter:tool:Kubernetes']);
       expect(evaluateRedFlags({ ...before, ...kept }).owner).toEqual(['fact_check']);
     }
+    // The field belongs to the warning: «45» confirmed in the e-mail is not «45» in the letter.
+    const confirmedElsewhere = { ...stored, factCheckAcknowledgedAt: 1, factCheckAcknowledgedTokens: ['emailBody:number:45'] };
+    expect(factCheckAcknowledged(confirmedElsewhere)).toBe(false);
+    expect(await submit(confirmedElsewhere)).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
     expect(sendCascade).toHaveBeenCalledTimes(2);
   });
 

@@ -634,6 +634,10 @@ describe('fact gate: contact data is not a figure of the candidate', () => {
     // Review of #11425: digits inside the candidate's e-mail address back no phone number either.
     const mailOnly = { ...NURSE_IT, text: 'Maria Rossi\nmaria+41791234567@example.com\n2018 – 2023 Infermiera di reparto', order: 'Infermiera\nOspedale Esempio\nMaria Rossi' };
     expect(verdict({ emailBody: 'Mi trovate al +41791234567.' }, mailOnly).unsupported).toEqual(['phone:+41791234567']);
+    // Nor inside a link written without its scheme.
+    const linkOnly = { ...mailOnly, text: 'Maria Rossi\nlinkedin.com/in/+41791234567\n2018 – 2023 Infermiera di reparto' };
+    expect(verdict({ emailBody: 'Mi trovate al +41791234567.' }, linkOnly).unsupported).toEqual(['phone:+41791234567']);
+    expect(buildFactIndex([linkOnly.text], { numberSources: [linkOnly.text] }).phones.has('791234567')).toBe(false);
     // A site written without a path.
     const site = { ...NURSE_IT, text: 'Maria Rossi\nSito: mariarossi4521.ch\n2018 – 2023 Infermiera di reparto', order: 'Infermiera\nOspedale Esempio\nMaria Rossi' };
     expect(verdict({ coverLetter: 'Ho seguito 4521 pazienti.' }, site).unsupported).toEqual(['number:4521']);

@@ -94,9 +94,12 @@ const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
 // portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
 
-/** The warnings of a fact-check result as the owner confirms them: kind and token, sorted. */
+/**
+ * The warnings of a fact-check result as the owner confirms them: field, kind and token, sorted. The field
+ * belongs to the warning: «SAP» confirmed in the letter is not «SAP» in the e-mail the owner never read.
+ */
 export function factCheckTokens(factCheck) {
-  return [...new Set((factCheck?.unsupported || []).map((item) => `${item.kind}:${item.token}`))].sort();
+  return [...new Set((factCheck?.unsupported || []).map((item) => `${item.field}:${item.kind}:${item.token}`))].sort();
 }
 
 /**

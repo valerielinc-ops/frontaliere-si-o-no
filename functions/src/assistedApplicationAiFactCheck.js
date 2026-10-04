@@ -401,8 +401,10 @@ export function buildFactIndex(sources, { claimSources, numberSources, echoSourc
   const text = join(sources);
   const emails = new Set([...text.matchAll(EMAIL_RE)].map((match) => match[0].toLowerCase()));
   const urls = new Set([...text.matchAll(URL_RE)].map((match) => normalizeUrl(match[0])));
-  // A phone of the sources, never the digits inside an e-mail address or a link ("maria+41791234567@…").
-  const phones = new Set([...text.replace(EMAIL_RE, ' ').replace(URL_RE, ' ').matchAll(PHONE_RE)].map((match) => digitsOnly(match[0]).slice(-9)));
+  // A phone of the sources, never the digits inside an e-mail address or a link, with or without its scheme
+  // ("maria+41791234567@…", "linkedin.com/in/+41791234567").
+  const phones = new Set([...text.replace(EMAIL_RE, ' ').replace(URL_RE, ' ').replace(BARE_URL_RE, ' ').matchAll(PHONE_RE)]
+    .map((match) => digitsOnly(match[0]).slice(-9)));
   const claimRaw = claimSources ? join(claimSources) : null;
   const contacts = numberSources ? withoutContactData(join(numberSources)) : null;
   return {

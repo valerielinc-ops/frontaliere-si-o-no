@@ -557,9 +557,9 @@ export default function AssistedApplicationAutomationPanel({
             <>
               {needsFactAck && (
                 <div className="w-full text-xs text-body">
-                  <p>L’invio si è fermato sui fatti non trovati elencati sopra: senza la spunta non riparte.</p>
+                  <p id={`fact-retry-${order.orderId}`}>L’invio si è fermato sui fatti non trovati elencati sopra: senza la spunta non riparte.</p>
                   <label className="mt-1 flex items-center gap-2">
-                    <input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti
+                    <input type="checkbox" aria-describedby={`fact-retry-${order.orderId}`} checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti
                   </label>
                 </div>
               )}

@@ -307,7 +307,7 @@ describe('owner queue', () => {
     effects = [];
     expect(await retry({ acknowledgeFactWarnings: true })).toEqual({ ok: true, state: 'submitting' });
     // The confirmation names the warnings the owner saw, so a later one is not covered by it.
-    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ factCheckAcknowledgedAt: T0, factCheckAcknowledgedTokens: ['number:45'], acknowledgedBy: 'owner@example.com', factCheck: failing });
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ factCheckAcknowledgedAt: T0, factCheckAcknowledgedTokens: ['coverLetter:number:45'], acknowledgedBy: 'owner@example.com', factCheck: failing });
     expect(evaluateRedFlags(store.read(`${ORDER_PATH}/ai_drafts/current`)).owner).toEqual([]);
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'submitting', heldBy: [], dispatch: { mode: 'submit', reason: 'owner_retry' } });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
