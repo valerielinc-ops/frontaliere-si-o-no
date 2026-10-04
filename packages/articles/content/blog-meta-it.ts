@@ -12541,6 +12541,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Tassa salute frontalieri Ticino: via a settembre?',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'Nuova tassa sanitaria per frontalieri: avvio previsto entro settembre, ma mancano decreti attuativi e pagamenti non ancora riscossi.',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Lavoratori frontalieri in transito tra Italia e Svizzera nel Canton Ticino',
+    'blog.article.stra-woman-varese-2026.title': 'StraWoman Varese 2026: quasi 4mila ai Giardini Estensi',
+    'blog.article.stra-woman-varese-2026.excerpt': 'Quasi 4mila partecipanti hanno corso o camminato 5 km nei Giardini Estensi per la sedicesima StraWoman Varese, parte delle 21 tappe da marzo a novembre, promuovendo sport, prevenzione senologica e solidarietà.',
+    'blog.article.stra-woman-varese-2026.imageAlt': 'Donne partecipanti alla StraWoman Varese 2026 nei Giardini Estensi, corsa non competitiva di 5 km per prevenzione e solidarietà.',
 };
 
 export default blogMetaIt;
