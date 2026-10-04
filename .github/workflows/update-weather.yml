@@ -40,7 +40,6 @@ jobs:
             !/data/translation-cache/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -105,7 +104,7 @@ jobs:
 
       - name: Open PR with snapshot
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           body="$RUNNER_TEMP/weather-refresh-pr-body.md"
           run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

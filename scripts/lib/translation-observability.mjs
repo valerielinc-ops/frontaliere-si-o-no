@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { digestDocument } from './canonical-json-digest.mjs';
 import { buildAssembledJobIdentity } from './job-identity.mjs';
-import { isIncomplete, summarizeJobs, finalizeEntry } from '../log-translation-stats.mjs';
+import { isIncomplete, summarizeJobs, finalizeEntry, predicateVersionOrNull } from '../log-translation-stats.mjs';
 import { detectLanguageWithConfidence } from './detect-language.mjs';
 import { titleLooksUntranslated } from './job-locale-utils.mjs';
 import { measureDescriptionLocales, measureTitleLocales } from './job-locale-population.mjs';
@@ -82,6 +82,10 @@ function canonicalMetrics(jobs, now) {
     verifiedTranslated: summarized.verifiedTranslated,
     suppressed: summarized.suppressed,
     missingByLocale: summarized.missingByLocale,
+    // Same fingerprint as data/translation-stats-history.json: `incomplete`
+    // here is counted by the same `isIncomplete()`, so a predicate change moves
+    // this series too and must be told apart from a data change.
+    predicateVersion: predicateVersionOrNull(),
   };
 }
 

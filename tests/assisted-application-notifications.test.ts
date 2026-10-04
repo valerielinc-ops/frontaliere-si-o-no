@@ -28,6 +28,8 @@ function docRef(id: string) {
     async set(data: Doc, options?: { merge?: boolean }) {
       store[id] = options?.merge ? deepMerge(store[id] || {}, data) : data;
     },
+    // The order's subcollections (the automated flow), keyed "order-1/automation/flow".
+    collection: (name: string) => ({ doc: (sub: string) => docRef(`${id}/${name}/${sub}`) }),
   };
 }
 
@@ -77,9 +79,11 @@ const {
   handleAssistedApplicationOrderWritten,
   runAssistedApplicationNotificationSweep,
   sendPaidOrderNotifications,
+  submittedReviewUrl,
   NOTIFICATION_KEYS,
 } = await import('../functions/src/assistedApplicationNotifications.js');
 const { renderBrandedEmail } = await import('../functions/src/assistedApplicationEmailLayout.js');
+const { verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 
 const NOW = Date.parse('2026-09-30T10:00:00Z');
 const HOUR = 60 * 60 * 1000;
@@ -454,5 +458,112 @@ describe('follow-up emails', () => {
     const summary = await runAssistedApplicationNotificationSweep({ db, nowMs: NOW });
     expect(summary.reminders).toBe(0);
     expect(sendEmailCascade).not.toHaveBeenCalled();
+  });
+});
+
+// Close-out P8 (owner decisions of 2026-10-03): the «inviata» e-mail of an automated order links the page
+// where the candidate keeps the documents, until the retention purge deletes them; in a WhatsApp
+// application the candidate sends the CV they choose there.
+describe('the «inviata» e-mail and the candidate’s documents', () => {
+  const DAY = 24 * HOUR;
+  const SECRET = 's'.repeat(40);
+  const REVIEW_URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_review=ar1.order-1.1.tz5ch8.0123456789abcdef0123456789abcdef';
+  const LINK = 'https://prod.pastahr.com/api/v1/redirect/COFU2003?remote_job_id=167757';
+  const PAGES: Record<string, string> = { it: '/cerca-lavoro-ticino/', fr: '/fr/trouver-emploi-tessin/', de: '/de/jobs-im-tessin/', en: '/en/find-jobs-ticino/' };
+  const CTA: Record<string, string> = { it: 'I tuoi documenti', fr: 'Vos documents', de: 'Deine Unterlagen', en: 'Your documents' };
+  // Step 3 of the WhatsApp steps: the CV the candidate gave, or the one they choose on the page it links.
+  const CV_STEP: Record<string, [string, string]> = {
+    it: ['se ti chiede il CV, invia lo stesso che hai dato a me;', 'se ti chiede il CV, invia quello che scegli tra i tuoi documenti nella pagina della tua candidatura;'],
+    fr: ["s'il demande votre CV, envoyez celui que vous m'avez transmis ;", "s'il demande votre CV, envoyez celui que vous choisissez parmi vos documents sur la page de votre candidature ;"],
+    de: ['fragt er nach dem Lebenslauf, schick denselben, den du mir gegeben hast;', 'fragt er nach dem Lebenslauf, schick den, den du unter deinen Unterlagen auf der Seite deiner Bewerbung auswählst;'],
+    en: ['if it asks for your CV, send the one you gave me;', 'if it asks for your CV, send the one you choose from your documents on your application page;'],
+  };
+  const submitted = (extra: Doc = {}) => paidOrder({ submissionStatus: 'submitted', submittedAt: new Date('2026-10-01T09:00:00Z'), ...extra });
+  const whatsapp = (extra: Doc = {}) => submitted({ submissionChannel: 'whatsapp', whatsappApplyUrl: LINK, ...extra });
+  const steps = (text: string) => text.split('\n').filter((line) => /^\d\. /.test(line));
+
+  it('adds one button to the review page; the WhatsApp variant adds one sentence and sends the candidate to the CV they choose there', () => {
+    const plain = buildCustomerEmail('submitted', submitted(), 'order-1', { nowMs: NOW });
+    expect(plain.html).not.toContain('assisted_application_review');
+    const linked = buildCustomerEmail('submitted', submitted(), 'order-1', { nowMs: NOW, reviewUrl: REVIEW_URL });
+    expect(linked.html.match(/assisted_application_review=/g)).toHaveLength(1);
+    expect(linked.text).toContain(`I tuoi documenti: ${REVIEW_URL}`);
+    expect(linked.subject).toBe(plain.subject);
+    // Only the block is added.
+    expect(linked.text.replace(`\n\nNella pagina della tua candidatura trovi i documenti preparati e inviati: puoi scaricarli e conservarli.\nI tuoi documenti: ${REVIEW_URL}`, '')).toBe(plain.text);
+
+    const without = buildCustomerEmail('submitted', whatsapp(), 'order-1', { nowMs: NOW });
+    const withPage = buildCustomerEmail('submitted', whatsapp(), 'order-1', { nowMs: NOW, reviewUrl: REVIEW_URL });
+    expect(withPage.subject).toBe(without.subject);
+    expect(withPage.html.match(/assisted_application_review=/g)).toHaveLength(1);
+    expect(without.text).toContain(CV_STEP.it[0]);
+    expect(withPage.text).not.toContain(CV_STEP.it[0]);
+    // The third step changes, the other three stay as they are, and one sentence with its button is added.
+    expect(steps(withPage.text)).toHaveLength(4);
+    expect(steps(withPage.text).filter((step, index) => step !== steps(without.text)[index])).toEqual([steps(without.text)[2].replace(CV_STEP.it[0], CV_STEP.it[1])]);
+    expect(withPage.text.replace(CV_STEP.it[1], CV_STEP.it[0])
+      .replace(`\n\nLa lettera e il CV per questa candidatura sono nella pagina della tua candidatura, tra i tuoi documenti.\nI tuoi documenti: ${REVIEW_URL}`, '')).toBe(without.text);
+
+    for (const [locale, page] of Object.entries(PAGES)) {
+      const localized = { orderPageUrl: `https://frontaliereticino.ch${page}?assisted_application_order_id=order-1` };
+      const email = buildCustomerEmail('submitted', submitted(localized), 'order-1', { nowMs: NOW, reviewUrl: REVIEW_URL });
+      expect([locale, email.text.includes(`${CTA[locale]}: ${REVIEW_URL}`)]).toEqual([locale, true]);
+      const chat = buildCustomerEmail('submitted', whatsapp(localized), 'order-1', { nowMs: NOW, reviewUrl: REVIEW_URL });
+      expect(chat.text).toContain(`${CTA[locale]}: ${REVIEW_URL}`);
+      expect(steps(chat.text)[2]).toContain(CV_STEP[locale][1]);
+      expect(chat.text).not.toContain(CV_STEP[locale][0]);
+      // Without the page the step keeps the CV the candidate gave: it never points to a page the e-mail does not link.
+      const unlinked = buildCustomerEmail('submitted', whatsapp(localized), 'order-1', { nowMs: NOW });
+      expect(steps(unlinked.text)[2]).toContain(CV_STEP[locale][0]);
+      expect(unlinked.text).not.toContain(CTA[locale]);
+      for (const html of [email.html, chat.html]) expect(html).not.toMatch(/undefined|\[object/);
+    }
+  });
+
+  it('links the review page of an automated order marked submitted until the purge; a failed mint never stops the e-mail', async () => {
+    const cvUploadedAt = new Date(NOW - 10 * DAY);
+    const before = submitted({ submissionStatus: 'in_progress', automationState: 'submitted' });
+    const send = async (order: Doc, reviewSecret: () => Promise<string>) => {
+      sendEmailCascade.mockClear();
+      store['order-1'] = order;
+      await handleAssistedApplicationOrderWritten(before, store['order-1'], 'order-1', { db, nowMs: NOW, reviewSecret });
+      return payloads()[0];
+    };
+    store['order-1/automation/flow'] = { state: 'submitted', round: 2 };
+    const reviewSecret = vi.fn(async () => SECRET);
+    const customer = await send(submitted({ automationState: 'submitted', cvUploadedAt }), reviewSecret);
+    const token = /assisted_application_review=([^\s&"]+)/.exec(customer.text)?.[1];
+    // Until the purge deletes the documents (the CV upload plus 90 days), not the 30 days of a review link.
+    expect(verifyReviewToken({ secret: SECRET, token, nowMs: NOW }))
+      .toMatchObject({ ok: true, orderId: 'order-1', round: 2, kind: 'review', expiresAt: Math.floor((cvUploadedAt.getTime() + 90 * DAY) / 1000) * 1000 });
+    expect(verifyReviewToken({ secret: SECRET, token, nowMs: NOW + 79 * DAY }).ok).toBe(true);
+    expect(verifyReviewToken({ secret: SECRET, token, nowMs: NOW + 81 * DAY })).toMatchObject({ ok: false, error: 'expired' });
+
+    // The secret cannot be read: the e-mail still leaves, without the link.
+    const failing = vi.fn(async () => { throw new Error('review_secret_missing'); });
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const unlinked = await send(submitted({ automationState: 'submitted', cvUploadedAt }), failing);
+    warn.mockRestore();
+    expect(unlinked.subject).toBe('Ho inviato la tua candidatura a Clinica Esempio');
+    expect(unlinked.text).not.toContain('assisted_application_review');
+    // A concierge order (no automated flow): no link, and the secret is never read.
+    const concierge = vi.fn(async () => SECRET);
+    expect((await send(submitted({ cvUploadedAt }), concierge)).text).not.toContain('assisted_application_review');
+    expect(concierge).not.toHaveBeenCalled();
+  });
+
+  it('mints the link only for a flow that left, and only while the documents are kept', async () => {
+    const getSecret = async () => SECRET;
+    store['order-1/automation/flow'] = { state: 'submitting', round: 1 };
+    expect(await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW) }, nowMs: NOW, getSecret })).toBe('');
+    store['order-1/automation/flow'] = { state: 'submitted', round: 1 };
+    // Already due for the purge: no link to documents about to go.
+    expect(await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW - 91 * DAY) }, nowMs: NOW, getSecret })).toBe('');
+    // A refund anchors the purge.
+    const refunded = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW - 80 * DAY), refundedAt: new Date(NOW) }, nowMs: NOW, getSecret });
+    expect(verifyReviewToken({ secret: SECRET, token: new URL(refunded).searchParams.get('assisted_application_review'), nowMs: NOW })).toMatchObject({ ok: true, expiresAt: NOW + 90 * DAY });
+    // An order the purge never reaches (the talent pool) keeps the usual 30 days.
+    const kept = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW), talentPoolConsent: true }, nowMs: NOW, getSecret });
+    expect(verifyReviewToken({ secret: SECRET, token: new URL(kept).searchParams.get('assisted_application_review'), nowMs: NOW })).toMatchObject({ ok: true, expiresAt: NOW + 30 * DAY });
   });
 });

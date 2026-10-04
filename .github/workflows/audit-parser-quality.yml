@@ -110,11 +110,18 @@ jobs:
       - name: Install audit dependencies
         run: npm ci
 
+      # Issue 5253: the reporter below runs inside this job and cannot download
+      # its log, so without a diag file the issue said only "nessun estratto
+      # disponibile" (runs 37192114497, 37193497505, 37213030719) and the reason
+      # — which crawlers are CRITICAL, or the unexplained fetch-failure rate —
+      # stayed in the run log. `--diag-file` writes it; the reporter's
+      # `diag-file` input must name the SAME path
+      # (tests/scripts/audit-parser-quality-workflow.test.ts).
       - name: Run parser quality audit (strict)
         id: parser-audit
         run: |
-          rm -f data/parser-quality-report.json
-          node scripts/audit-parser-quality.mjs --strict --check-source-details
+          rm -f data/parser-quality-report.json "$RUNNER_TEMP/parser-quality-strict-diag.txt"
+          node scripts/audit-parser-quality.mjs --strict --check-source-details --diag-file="$RUNNER_TEMP/parser-quality-strict-diag.txt"
 
       - name: Upload parser quality report
         if: always() && steps.parser-audit.outcome != 'skipped'
@@ -166,3 +173,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           priority: '2'
           labels: Bug
+          diag-file: ${{ runner.temp }}/parser-quality-strict-diag.txt

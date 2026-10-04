@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { LEGACY_CRAWLER_RESIDUE_PATHS } from '../scripts/cleanup-legacy-crawler-residues.mjs';
 
 const cleanupWorkflow = readFileSync(
   new URL('../.github/workflows/cleanup-stale-jobs.yml', import.meta.url),
@@ -24,6 +25,20 @@ describe('scheduled data workflow contracts (#8500, #8485)', () => {
     expect(cleanupWorkflow.slice(checkpoint, sliceCleanup)).toContain(
       'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json',
     );
+  });
+
+  it('#9142 publishes every path the legacy residue purge may delete', () => {
+    // --extra-only names its complete ownership surface: a residue the purge
+    // deletes but the checkpoint does not name is removed on the runner and
+    // never reaches main (the active-side Coop sentinel stayed after #11295).
+    const checkpoint = cleanupWorkflow.slice(
+      cleanupWorkflow.indexOf('- name: Commit legacy crawler residue cleanup'),
+      cleanupWorkflow.indexOf('- name: Cleanup each per-crawler slice'),
+    );
+    const commitLine = checkpoint.split('\n').find((line) => line.includes('git-commit-data.sh --extra-only')) ?? '';
+    const namedPaths = commitLine.split(/\s+/).filter((token) => token.startsWith('data/'));
+    expect(LEGACY_CRAWLER_RESIDUE_PATHS.length).toBeGreaterThan(0);
+    expect([...namedPaths].sort()).toEqual([...LEGACY_CRAWLER_RESIDUE_PATHS].sort());
   });
 
   it('#8500 delegates URL validation and fails closed per slice', () => {

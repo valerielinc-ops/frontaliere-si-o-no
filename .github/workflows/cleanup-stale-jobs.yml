@@ -75,7 +75,9 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       # #9142: remove the one expired archive emitted when the Coop translation
-      # cache was mistaken for a crawler slice. The command is an explicit
+      # cache was mistaken for a crawler slice, and the active-side `[]`
+      # sentinel left behind once PR 11295 retired that cache (deleted only
+      # while it is still an empty array). The command is an explicit
       # allowlist with validation, so normal crawler-owned archives remain
       # untouched and the absent/already-clean case is idempotent.
       - name: Remove legacy crawler scratch archives
@@ -84,9 +86,12 @@ jobs:
       # The full slice pass has repeatedly reached the job timeout after this
       # deletion but before Phase 1. Push the allowlisted one-shot cleanup now,
       # so a later timeout cannot resurrect the retired archive on main.
+      # The paths must equal LEGACY_CRAWLER_RESIDUE_PATHS in the purge script
+      # (tests/data-workflow-contracts.test.ts): --extra-only publishes only
+      # the deletions it names.
       - name: Commit legacy crawler residue cleanup
         id: legacy_residue_commit
-        run: bash scripts/lib/git-commit-data.sh --extra-only "🧹 Housekeeping — purge retired Coop scratch archive" data/jobs/expired/by-crawler/coop-ticino-locale-cache.json
+        run: bash scripts/lib/git-commit-data.sh --extra-only "🧹 Housekeeping — purge retired Coop scratch residues" data/jobs/expired/by-crawler/coop-ticino-locale-cache.json data/jobs/by-crawler/coop-ticino-locale-cache.json
 
       - name: Cleanup each per-crawler slice
         env:

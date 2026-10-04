@@ -20,7 +20,7 @@ import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { factSourcesNow, formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
 import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { cvChoiceOf } from './assistedApplicationDocxInPlace.js';
+import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
@@ -230,6 +230,8 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get()]);
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
+  // Sent: the letter that left is the candidate's to keep, a later edit would only change their Word copy (P8).
+  if (flowSnapshot.data()?.state === 'submitted') throw new AutomationAdminError('draft_submitted', 409);
   const order = orderSnapshot.data() || {};
   const letterRaw = cleanBlock(raw.coverLetterText, 8000);
   const emailSubject = clean(raw.emailSubject, 300);
@@ -524,16 +526,12 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     await draftRefFor(db, orderId).set({ sentAttempt: null }, { merge: true });
   }
   const sign = (key) => (key && deps.signUrl && isAssistedApplicationCvKey(orderId, key) ? deps.signUrl(key).catch(() => null) : null);
-  const choice = cvChoiceOf(draft, flow);
-  const ready = draft.tailoredCv?.status === 'ready';
-  const inPlace = ready && choice === 'inplace';
-  const tailored = ready && draft.tailoredCv.pdfKey && choice !== 'original';
-  const originalKey = String(order.cvStorageKey || '');
+  // The CV the runner would send (cvToSend, as chooseCv): the original named by the type of its bytes.
+  const cv = cvToSend(draft, flow, order);
   const [cvUrl, letterUrl] = await Promise.all([
-    inPlace ? sign(draft.tailoredCv.inplace.docxKey) : tailored ? sign(draft.tailoredCv.pdfKey) : deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null,
+    cv.cv === 'original' ? (deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null) : sign(cv.key),
     sign(draft.coverLetterPdfKey),
   ]);
-  const extension = inPlace ? 'docx' : tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
   // The requested documents the candidate gave, each file a signed link too.
   const extra = await Promise.all(extraDocumentsToSend(draft, flow, orderId).map(async (document) => ({
     ...document,
@@ -544,6 +542,6 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     order,
     draft,
     flow,
-    documents: { cv: cvUrl ? { url: cvUrl, extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
+    documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
 }

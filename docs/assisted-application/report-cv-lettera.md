@@ -426,9 +426,9 @@ Prova con LibreOffice 26.8 sui DOCX sintetici:
 | D2 | Solo le competenze cambiano; profilo con grassetto in linea, data nella riga e righe troppo lunghe restano come nel CV |
 | D3 | Ricaduta sul template (casella di testo) |
 
-### Chiusura dei punti aperti (3 ottobre 2026)
+### Chiusura dei punti aperti (3–4 ottobre 2026)
 
-Le decisioni sui punti del §7 e sugli interruttori sono in [`decisioni.md`](decisioni.md), con le fonti verificate in [`fonti/`](fonti/). PR mergiate finora in `frontaliere-si-o-no`:
+Le decisioni sui punti del §7 e sugli interruttori sono in [`decisioni.md`](decisioni.md), con le fonti verificate in [`fonti/`](fonti/). PR mergiate in `frontaliere-si-o-no`:
 
 | PR | Cosa |
 |---|---|
@@ -437,8 +437,25 @@ Le decisioni sui punti del §7 e sugli interruttori sono in [`decisioni.md`](dec
 | #11242 | Gli interruttori Remote Config restano leggibili nei log; strumento `rc-switches.mjs`; parametri creati in produzione (typst, separate, off) |
 | #11254 | Licenza «tutti i diritti riservati», Termini allineati, note complete sul materiale di terzi |
 | #11260 | Autoverifica di Typst nelle Cloud Functions visibile al proprietario (esito in produzione: ok) |
+| #11259 | La foto tolta non resta nel CV che parte; i convertitori non vedono i segreti del job |
+| #11413 | Lo studio, le fonti verificate e il registro delle decisioni in questa cartella |
+| #11425 | Gate dei fatti: una lacuna onesta solo in una frase chiusa; i contatti del CV non sostengono più cifre; la conferma del proprietario vale per i segnali che ha visto |
+| #11450 | Lettera ed e-mail con le formule delle fonti svizzere verificate, nelle quattro lingue |
+| #11463 | Coda, suggerimenti e avvisi del proprietario allineati a WhatsApp e al profilo «poor» |
+| #11488 | Permesso, nazionalità e data di nascita come li indica il candidato, mai un permesso «da richiedere»; CV rifatto a ogni correzione |
+| #11505 | Confezione dell'invio secondo le fonti (lettera e CV separati per difetto) e registro dei file partiti, anche per un invio incerto |
+| #11539 | Dopo l'invio i documenti partiti restano al candidato nella pagina della candidatura, con una copia Word di lettera e CV; su WhatsApp sceglie il candidato quale CV mandare; il link dell'e-mail dura fino alla cancellazione |
 
-Gli altri pacchetti (gate dei fatti, formule della lettera, integrità lato candidato, dati personali e permesso, invio e registro, documenti al candidato, coda del proprietario, crediti delle immagini di terzi) seguono con le loro PR.
+Crediti delle copertine prese da Wikimedia Commons ([`decisioni.md`](decisioni.md) §15), nei due repository:
+
+| PR | Repository | Cosa |
+|---|---|---|
+| #11430 | sito | Il motore legge i record di credito: ImageObject con autore e licenza, credito in fondo all'articolo |
+| nanakokyobashi-rgb/frontaliere-articles#2110 | corpus | Il generatore registra autore e licenza alla scelta della copertina; file dei crediti per la SPA; gate sui contenuti |
+| nanakokyobashi-rgb/frontaliere-articles#2120 | corpus | 1 470 record, 1 643 dati strutturati senza la rivendicazione del sito, 9 copertine sostituite |
+| #11507 | sito | Credito nella SPA e nelle 44 pagine scritte a mano; re-render completo delle pagine del motore |
+| nanakokyobashi-rgb/frontaliere-articles#2129 | corpus | Rivalidazione mensile in sola lettura (prova a secco: 0 problemi) |
+| nanakokyobashi-rgb/frontaliere-articles#2133 | corpus | 55 copertine con ritratti, insegne o funzionari sostituite da foto Commons senza persone |
 
 ## Appendice: riproducibilità e limiti
 

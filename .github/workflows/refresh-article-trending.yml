@@ -95,7 +95,7 @@ jobs:
 
       - name: Open PR with trending snapshot
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           body="$RUNNER_TEMP/article-trending-refresh-pr-body.md"
           cat > "$body" <<EOF

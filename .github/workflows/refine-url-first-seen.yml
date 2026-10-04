@@ -48,7 +48,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -153,7 +152,7 @@ jobs:
           # RC, NOT an Actions secret — `secrets.GH_PAT` does not exist). Used
           # for BOTH the branch push and `gh pr create`: a PR created with
           # secrets.GITHUB_TOKEN is blocked by anti-recursion (issue #1114).
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           if git diff --quiet data/url-first-seen.json; then
             echo "No diff in data/url-first-seen.json — nothing to PR."

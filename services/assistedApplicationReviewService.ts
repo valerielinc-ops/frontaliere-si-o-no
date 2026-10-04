@@ -125,6 +125,28 @@ export interface ReviewFormField {
   validation?: ReviewQuestion['validation'];
 }
 
+/** An editable Word copy the server builds on request (functions/src/assistedApplicationReview.js buildWordCopy): never the file that leaves. */
+export type ReviewWordFile = 'letter.docx' | 'cv.docx';
+
+/** A file the candidate keeps after the sending (keptDocumentsOf). */
+export interface ReviewKeptDocument {
+  kind: 'letter' | 'cvTailored' | 'cvOriginal' | 'cvInplace' | 'dossier' | 'documents' | 'document';
+  /** As it left, e.g. CV_Maria_Rossi.pdf. */
+  name: string;
+  url: string;
+  /** The Word copies offered beside it. */
+  word: ReviewWordFile[];
+  /** A WhatsApp application: the CV highlighted among those the candidate chooses from (never stored as a choice). */
+  suggested?: boolean;
+}
+
+export interface ReviewKeptDocuments {
+  /** sent: the files the runner recorded; prepared: an older order, a WhatsApp application. */
+  source: 'sent' | 'prepared';
+  whatsapp: boolean;
+  files: ReviewKeptDocument[];
+}
+
 export interface ReviewPayload {
   ok: true;
   stale: boolean;
@@ -181,6 +203,10 @@ export interface ReviewPayload {
     /** The G permit is left out of the CV: the nationality given is not EU/EFTA. */
     permitOmitted?: boolean;
   } | null;
+  /** The editable Word copies the server can build now: never sent, never a CV choice. */
+  word?: { letter: boolean; cv: boolean };
+  /** After the sending: the files that left, or the letter and the CV prepared (older order, WhatsApp). */
+  keptDocuments?: ReviewKeptDocuments | null;
   ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
   can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean; uploadPhoto?: boolean; reviewCvLines?: boolean };
 }
@@ -219,6 +245,14 @@ export async function fetchReview(token: string): Promise<ReviewPayload | Follow
   const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
   url.searchParams.set('t', token);
   return parse(await fetch(url.toString(), { method: 'GET' })) as Promise<ReviewPayload | FollowupPayload>;
+}
+
+/** The download link of a Word copy: the page's token, the file the server builds. */
+export function reviewWordUrl(token: string, file: ReviewWordFile): string {
+  const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
+  url.searchParams.set('t', token);
+  url.searchParams.set('file', file);
+  return url.toString();
 }
 
 export async function sendReviewAction(

@@ -13,7 +13,7 @@
  * portal asks). The documents travel as signed links the extension downloads.
  */
 
-import { LETTER_FILE_LABEL, safeFileStem } from './assistedApplicationAiDraftCore.js';
+import { LETTER_FILE_LABEL, applicationFileName } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
 import { isoDateOf } from './lib/cvPeriod.js';
@@ -46,8 +46,6 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     })
     .slice(0, 60);
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field?.key, field?.value]));
-  // The file names the runner gives them (lib/submit.mjs).
-  const stem = safeFileStem(identity.name);
   const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
   return {
     version: 1,
@@ -87,8 +85,9 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
       whyCompany: text(motivation.whyCompany, 2000),
     },
     documents: {
-      cv: documents.cv?.url ? { url: documents.cv.url, fileName: `CV_${stem}.${documents.cv.extension || 'pdf'}` } : null,
-      coverLetter: documents.coverLetter?.url ? { url: documents.coverLetter.url, fileName: `${safeFileStem(LETTER_FILE_LABEL[language])}_${stem}.pdf` } : null,
+      // The file names the runner gives them (lib/submit.mjs, applicationFileName).
+      cv: documents.cv?.url ? { url: documents.cv.url, fileName: applicationFileName('cv', { name: identity.name, language, extension: documents.cv.extension || 'pdf' }) } : null,
+      coverLetter: documents.coverLetter?.url ? { url: documents.coverLetter.url, fileName: applicationFileName('letter', { name: identity.name, language, extension: 'pdf' }) } : null,
       // The requested documents (school reports, test results…) the candidate gave, by form slot.
       extra: (documents.extra || []).map((document) => {
         const files = (document.files || []).filter((file) => file?.url);

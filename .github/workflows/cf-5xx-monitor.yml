@@ -67,7 +67,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
@@ -131,7 +130,7 @@ jobs:
       - name: Open PR with snapshot
         if: always()
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           body="$RUNNER_TEMP/cf-5xx-refresh-pr-body.md"

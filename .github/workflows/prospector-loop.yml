@@ -238,7 +238,7 @@ jobs:
           # promozione tocca `.github/workflows/**` e vuole lo scope `workflows`
           # del token App. Il commit data-only di stato, dopo la creazione della
           # PR, passa invece dal retry helper condiviso che ripristina il PAT.
-          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           # L'IDENTITA' con cui questo step pusha, dichiarata accanto al token
           # che la porta. `prospect-promote.mjs` legge la capacita' `workflows`
           # SOLO dalla sorgente di questa identita' (`app` → APP_TOKEN_WORKFLOWS),
@@ -253,6 +253,9 @@ jobs:
           # giorno il push passa al PAT, si cambiano INSIEME il token del remote
           # e questo valore (`pat`), che e' il punto di averne uno solo.
           WORKFLOWS_PUSH_IDENTITY: app
+          # `restorePromotionAppRemote()` legge APP_TOKEN dall'ambiente: stessa
+          # capacita' verificata del GH_TOKEN qui sopra.
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}
           # Il cron non passa mai questo input, quindi resta 2: la leva e'

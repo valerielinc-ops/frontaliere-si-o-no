@@ -41,6 +41,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchSmartRecruitersJobs } from './ats-clients/smartrecruiters-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -178,7 +179,7 @@ function resolveAddress(rawLoc = {}) {
  * Fetch Switzerland-only EPI Genève postings from the SmartRecruiters
  * API (tenant "EtablissementsPublicsPourLIntegration", country=ch).
  * Returns an array of raw listing objects {title, location, url,
- * postedAt, description, jobReqId, rawLocation}.
+ * datePosted, postedDate, postingDateSource, description, jobReqId, rawLocation}.
  */
 async function fetchJobListings() {
   console.log(`  Fetching SmartRecruiters tenant "${SR_TENANT}" (country=ch)`);
@@ -197,7 +198,7 @@ async function fetchJobListings() {
         title: job.title,
         location: job.location,
         url: job.applyUrl,
-        postedAt: job.postedAt,
+        ...mergeSourcePostingDates({}, job),
         description: job.descriptionHtml || '',
         jobReqId: job.jobReqId || raw.id || '',
         rawLocation: raw.location || {},
@@ -255,8 +256,6 @@ export async function fetchAllEpiGeneveJobs() {
     const jobSlug = slugify(`${title} epi geneve ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentLabel || title);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -291,7 +290,7 @@ export async function fetchAllEpiGeneveJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],

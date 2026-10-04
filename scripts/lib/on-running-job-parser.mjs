@@ -53,6 +53,7 @@ import { detectLang, normalizeContract } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchGreenhouseJobs } from './ats-clients/greenhouse-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -266,7 +267,7 @@ async function fetchJobListings() {
       title: j.title,
       location: j.location,
       url: j.applyUrl,
-      postedAt: j.postedAt,
+      ...mergeSourcePostingDates({}, j),
       description: j.descriptionHtml || '',
       jobReqId: j.jobReqId,
     }));
@@ -323,8 +324,6 @@ export async function fetchAllOnRunningJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const contract = normalizeContract('', title, description);
     const employmentType = mapContractToEmploymentType(contract);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -359,7 +358,7 @@ export async function fetchAllOnRunningJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],

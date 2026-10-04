@@ -4,12 +4,16 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import { purgeLegacyCrawlerResidues } from '../scripts/cleanup-legacy-crawler-residues.mjs';
+import {
+  LEGACY_CRAWLER_RESIDUE_PATHS,
+  purgeLegacyCrawlerResidues,
+} from '../scripts/cleanup-legacy-crawler-residues.mjs';
 
 const WORKTREE_ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(WORKTREE_ROOT, 'scripts/lib/git-commit-data.sh');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const ARCHIVE_PATH = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
+const SENTINEL_PATH = 'data/jobs/by-crawler/coop-ticino-locale-cache.json';
 
 function git(cwd: string, ...args: string[]): string {
   return execFileSync('git', args, { cwd, encoding: 'utf8' }).trim();
@@ -34,10 +38,10 @@ function initHarness() {
   return { originDir, proofDir, repoDir };
 }
 
-function runExtraOnly(repoDir: string, proofDir: string) {
+function runExtraOnly(repoDir: string, proofDir: string, paths: readonly string[] = [ARCHIVE_PATH]) {
   return spawnSync(
     BASH_BIN,
-    [SCRIPT_PATH, '--extra-only', 'purge retired archive', ARCHIVE_PATH],
+    [SCRIPT_PATH, '--extra-only', 'purge retired archive', ...paths],
     {
       cwd: repoDir,
       encoding: 'utf8',
@@ -129,6 +133,51 @@ describe('git-commit-data.sh --extra-only explicit deletions', () => {
       rmSync(proofDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(otherDir, { recursive: true, force: true });
+    }
+  });
+
+  // #9142 residue 3: the state of main after #11295 — the expired archive is
+  // already gone and only the 3-byte active-side `[]` sentinel is left. The
+  // weekly step names both paths; the sentinel deletion must reach main
+  // without a housekeeping proof (it is below the accumulator floor).
+  it('publishes the ownerless active-side sentinel deletion with the workflow path list', () => {
+    const originDir = mkdtempSync(join(tmpdir(), 'gcd-sentinel-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'gcd-sentinel-repo-'));
+    const proofDir = mkdtempSync(join(tmpdir(), 'gcd-sentinel-proofs-'));
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      git(repoDir, 'config', 'user.email', 'test@example.com');
+      git(repoDir, 'config', 'user.name', 'Test');
+      mkdirSync(dirname(join(repoDir, SENTINEL_PATH)), { recursive: true });
+      writeFileSync(join(repoDir, SENTINEL_PATH), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/coop-ticino.json'), '[]\n');
+      git(repoDir, 'add', 'data');
+      git(repoDir, 'commit', '-q', '-m', 'seed sentinel');
+      git(repoDir, 'push', '-q', 'origin', 'HEAD:main');
+
+      const report = purgeLegacyCrawlerResidues({
+        expiredDir: join(repoDir, 'data/jobs/expired/by-crawler'),
+        activeDir: join(repoDir, 'data/jobs/by-crawler'),
+        apply: true,
+        proofDir,
+        cwd: repoDir,
+        baseSha: git(repoDir, 'rev-parse', 'HEAD'),
+        env: { GITHUB_RUN_ID: 'delete-run', GITHUB_RUN_ATTEMPT: '1' },
+      });
+      expect(report.filesRemoved).toEqual([join(repoDir, SENTINEL_PATH)]);
+
+      const result = runExtraOnly(repoDir, proofDir, LEGACY_CRAWLER_RESIDUE_PATHS);
+      const log = `${result.stdout}${result.stderr}`;
+
+      expect(result.status, log).toBe(0);
+      expect(spawnSync('git', ['cat-file', '-e', `main:${SENTINEL_PATH}`], { cwd: originDir }).status)
+        .not.toBe(0);
+      expect(git(originDir, 'show', 'main:data/jobs/by-crawler/coop-ticino.json')).toBe('[]');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(proofDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
     }
   });
 });

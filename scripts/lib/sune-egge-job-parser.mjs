@@ -27,6 +27,7 @@
  * `https://www.swsieber.ch/jobs/`).
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { withRenderedPersonioPage } from './ats-clients/personio-client.mjs';
@@ -137,7 +138,6 @@ function buildParsedJob(rec) {
   // pipeline's thin-source path).
   const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
-  const postedDate = new Date().toISOString().slice(0, 10);
   const employmentBasis = `${title} ${rec.schedule || ''} ${rec.employment_type || ''}`;
 
   return {
@@ -169,7 +169,7 @@ function buildParsedJob(rec) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...mergeSourcePostingDates({}, rec),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

@@ -25,6 +25,11 @@ export const ITEM_ATTEMPT_MARKER = 'FU_ITEM_ATTEMPT';
 export const ITEM_BLOCKED_MARKER = 'FU_ITEM_BLOCKED';
 export const ITEM_BORN_SATISFIED_MARKER = 'FU_ITEM_BORN_SATISFIED';
 export const ITEM_UNBLOCKED_MARKER = 'FU_ITEM_UNBLOCKED';
+// Un automatismo ha tolto `maybe-resolved` da un bucket perche' ha di nuovo
+// item `open`: azzera i flag del reconciler precedenti, quindi NON vale come
+// obiezione umana (`hasLiveReconcileFlag` in reconcile-followups.mjs). Conta
+// solo da autore fidato. Lo scrivono il reconciler e route-already-fixed.mjs.
+export const MAYBE_RESOLVED_RELEASE_MARKER = '<!-- FU_MAYBE_RESOLVED_RELEASED -->';
 
 /** Forza del legame fra la PR di evidenza e l'item. */
 export const ITEM_EVIDENCE_LINKS = Object.freeze(['target-file', 'source-pr', 'none']);

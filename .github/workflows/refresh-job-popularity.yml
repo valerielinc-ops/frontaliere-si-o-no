@@ -101,7 +101,7 @@ jobs:
 
       - name: Open PR with popularity snapshot
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           # `-A`, non un add semplice: scripts/fetch-job-popularity.mjs CANCELLA
           # il metadato quando cade nel fallback, e un add semplice non stagia

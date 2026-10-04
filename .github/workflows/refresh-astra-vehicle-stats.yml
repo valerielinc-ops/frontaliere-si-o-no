@@ -36,7 +36,6 @@ jobs:
             !/data/jobs-ai-cache.json
             !/data/evidence-index.json
             !/data/jobs-snapshots-history/
-            !/docs/
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

@@ -312,6 +312,12 @@ const SOURCE_DETAIL_SAMPLE_SIZE = 2;
 const crawlerFlag = args.find((a) => a.startsWith('--crawler='));
 const onlyCrawler = crawlerFlag ? crawlerFlag.split('=')[1] : null;
 const rebaseline = args.includes('--rebaseline');
+// Issue 5253: a strict failure must reach the failure issue with its REASON.
+// The reporter (.github/actions/report-failure) runs in-job and cannot read
+// the log of the job it belongs to, so the only way to get an excerpt is a
+// file written here. See formatStrictFailureDiagnostic().
+const diagFileFlag = args.find((a) => a.startsWith('--diag-file='));
+const diagFilePath = diagFileFlag ? diagFileFlag.slice('--diag-file='.length) : null;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function stripHtml(html) {
@@ -985,8 +991,19 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
   const visibleFields = [
     ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
     ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
+    ...(Array.isArray(detail?.headingIntroFields) ? detail.headingIntroFields : []),
     detail?.title,
   ].filter(Boolean);
+  // Un paese pubblicato non ha token di località da cercare nei campi
+  // visibili: lo nomina, come portata, solo un titolo della vacancy che
+  // dichiara il lavoro in tutta la Svizzera (vacancyNationwideScopeHeadings).
+  const publishedIsSwissCountry = SWISS_COUNTRY_LABELS.has(normalizePlace(publishedLocation));
+  const nationwideHeadings = publishedIsSwissCountry && Array.isArray(detail?.nationwideScopeHeadings)
+    ? detail.nationwideScopeHeadings
+    : [];
+  if (nationwideHeadings.length > 0) {
+    return !nationwideHeadings.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
+  }
   const visibleMatchesPublished = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, publishedLocation)
   ));
@@ -1053,6 +1070,68 @@ export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
       .filter((field) => field && field.length <= 60));
   }
   return fields;
+}
+
+/**
+ * Il blocco subito PRIMA dell'H1 della vacancy: sul template delle società
+ * affiliate di jobs.sbb.ch la riga sotto il titolo è vuota e il luogo di lavoro
+ * sta nella frase che lo precede («Steig ein bei uns – in Stansstad – per
+ * 1. Dezember 2026»), mentre il JSON-LD dichiara la sede SBB (Hilfikerstrasse
+ * 1, 3000 Bern) per ogni vacancy. Misurato il 2026-10-04 (issue 5253): era
+ * l'unico campo della pagina che nominava il luogo pubblicato, e senza leggerlo
+ * l'audit dava per contraddetta una località giusta. Stesse condizioni della
+ * riga sotto il titolo: solo accanto all'H1 che È il titolo della vacancy, e
+ * solo un blocco foglia (senza elementi annidati dello stesso tipo), così un
+ * contenitore di pagina o una tagline lontana non diventano un campo della
+ * vacancy. È prosa: vale per l'incoerenza interna della pagina
+ * (sourceHasInternalLocationConflict), non come corrispondenza esatta.
+ */
+export function vacancyHeadingIntroFields(html = '', vacancyTitle = '') {
+  const source = String(html || '');
+  const title = normalizePlace(vacancyTitle);
+  if (!title) return [];
+  const fields = [];
+  const headingRx = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(source))) {
+    const headingText = normalizePlace(heading[1]);
+    if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
+    const before = source.slice(Math.max(0, heading.index - 1500), heading.index);
+    const previous = /<(div|p|span)\b[^>]*>((?:(?!<\/?(?:div|p|span|h[1-6])\b)[\s\S]){1,600})<\/\1>\s*$/i.exec(before);
+    if (!previous) continue;
+    const text = plainText(previous[2]);
+    if (text) fields.push(text);
+  }
+  return fields;
+}
+
+/**
+ * Portata nazionale dichiarata dalla vacancy: «Jobs in der ganzen Schweiz»,
+ * «dans toute la Suisse», «in tutta la Svizzera», «throughout Switzerland».
+ * Un datore che lavora a domicilio dei clienti (premiumpflege24, issue 5253)
+ * pubblica il paese come località perché la pagina non ha un luogo di lavoro,
+ * e il suo JobPosting porta la sede (4553 Subingen, la stessa del footer).
+ * Si leggono solo i titoli h1-h3 FUORI da header, nav e footer: il logo, il
+ * menu e l'elenco delle aree servite in fondo alla pagina descrivono
+ * l'azienda, non la vacancy, e un paese pubblicato senza questa dichiarazione
+ * resta il ripiego generico che il controllo esiste a sollevare. «in der
+ * Schweiz» da solo non è una portata: lo dice ogni vacancy svizzera.
+ */
+const NATIONWIDE_SCOPE_RX = /\b(?:(?:in\s+der\s+)?(?:ganzen|gesamten)\s+Schweiz|schweizweit|(?:dans\s+)?toute\s+la\s+Suisse|(?:in\s+)?tutta\s+(?:la\s+)?Svizzera|(?:throughout|across|all\s+over)\s+Switzerland|Switzerland-wide)\b/i;
+
+export function vacancyNationwideScopeHeadings(html = '') {
+  const content = String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<(header|nav|footer)\b[\s\S]*?<\/\1>/gi, ' ');
+  const headings = [];
+  const headingRx = /<(h[1-3])\b[^>]*>([\s\S]{0,500}?)<\/\1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(content))) {
+    const text = plainText(heading[2]);
+    if (text && NATIONWIDE_SCOPE_RX.test(text)) headings.push(text);
+  }
+  return headings;
 }
 
 /**
@@ -1755,6 +1834,8 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       const recordUrl = item.job?.url || item.url;
       const detail = extractDetail(fetched.body, fetched.url || item.url, { recordUrl });
       detail.headingSublineFields = vacancyHeadingSublineFields(fetched.body, detail.title);
+      detail.headingIntroFields = vacancyHeadingIntroFields(fetched.body, detail.title);
+      detail.nationwideScopeHeadings = vacancyNationwideScopeHeadings(fetched.body);
       const locationObservation = observeLocation(
         fetched.body,
         fetched.url || item.url,
@@ -1807,6 +1888,8 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
           detail.description = '';
           detail.location = '';
           detail.headingSublineFields = [];
+          detail.headingIntroFields = [];
+          detail.nationwideScopeHeadings = [];
           locationEvidence = 'generic';
         }
       }
@@ -3341,7 +3424,76 @@ async function main() {
     sourceDetailChecksEnabled: checkSourceDetails,
     sourceDetailSummary,
     sourceDetailEvidence,
+    diagPath: diagFilePath,
   });
+}
+
+// The failure reporter keeps the LAST 40 non-empty lines of a diag file
+// (scripts/ci/report-workflow-failure.mjs MAX_EXCERPT_LINES). The diagnostic
+// stays well under that so the verdict line, written last, is never cut.
+const STRICT_DIAG_MAX_LINES = 36;
+const STRICT_DIAG_MAX_LINES_PER_CRAWLER = 6;
+const STRICT_DIAG_MAX_DETAILS = 2;
+const STRICT_DIAG_MAX_LINE = 300;
+
+function clipDiagLine(value) {
+  const text = String(value ?? '');
+  const indent = text.match(/^ */)[0];
+  const line = indent + text.slice(indent.length).replace(/\s+/g, ' ').trim();
+  return line.length > STRICT_DIAG_MAX_LINE ? `${line.slice(0, STRICT_DIAG_MAX_LINE - 1)}…` : line;
+}
+
+/**
+ * Compact, bounded text naming WHY `--strict` failed: every CRITICAL crawler
+ * with its blocking (non-informational) findings, the first concrete source
+ * details and the suggested action, the unexplained fetch-failure rate when
+ * that is a reason, and the verdict line last. Pure: testable without I/O.
+ */
+export function formatStrictFailureDiagnostic(report, failures, sourceDetailSummary = null) {
+  const tail = [];
+  if (sourceDetailSummary && sourceDetailSummary.unexplainedFetchFailureRatePct > SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT) {
+    const causes = Object.entries(sourceDetailSummary.fetchFailureCauses || {})
+      .sort((a, b) => b[1] - a[1])
+      .map(([cause, count]) => `${cause} ${count}`)
+      .join(', ');
+    tail.push(clipDiagLine(
+      `Source detail fetches: ${sourceDetailSummary.unexplainedFetchFailures}/${sourceDetailSummary.requested} unexplained `
+      + `(${sourceDetailSummary.unexplainedFetchFailureRatePct} %, ceiling ${SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT} %)`
+      + `${causes ? ` — causes: ${causes}` : ''}`,
+    ));
+  }
+  tail.push(clipDiagLine(`❌ --strict: ${failures.join('; ')}. Failing.`));
+
+  const lines = [];
+  const critical = Object.entries(report)
+    .filter(([, entry]) => entry?.severity === 'CRITICAL')
+    .sort((a, b) => (b[1].total || 0) - (a[1].total || 0) || a[0].localeCompare(b[0]));
+  if (critical.length > 0) {
+    lines.push(`CRITICAL crawlers (${critical.length}):`);
+    // Header, the optional "+N more" line and the tail are reserved up front.
+    const budget = STRICT_DIAG_MAX_LINES - 2 - tail.length;
+    let shown = 0;
+    for (const [key, entry] of critical) {
+      const block = [clipDiagLine(`- ${key} (${entry.total ?? '?'} jobs)`)];
+      const blocking = (entry.issues || []).filter((issue) => !issue.informational && !issue.hidden && issue.message);
+      for (const issue of blocking) {
+        block.push(clipDiagLine(`  ${issue.message}`));
+        for (const detail of (issue.details || []).slice(0, STRICT_DIAG_MAX_DETAILS)) {
+          block.push(clipDiagLine(`    ${detail}`));
+        }
+      }
+      if (entry.action) block.push(clipDiagLine(`  ACTION: ${entry.action}`));
+      const kept = block.slice(0, STRICT_DIAG_MAX_LINES_PER_CRAWLER);
+      if (lines.length - 1 + kept.length > budget) break;
+      lines.push(...kept);
+      shown += 1;
+    }
+    if (shown < critical.length) {
+      lines.push(`- +${critical.length - shown} more CRITICAL crawler(s): see the parser-quality-report artifact`);
+    }
+  }
+  lines.push(...tail);
+  return `${lines.join('\n')}\n`;
 }
 
 /**
@@ -3357,6 +3509,7 @@ export function finishAudit(report, {
   sourceDetailChecksEnabled = false,
   sourceDetailSummary = null,
   sourceDetailEvidence = null,
+  diagPath = null,
 } = {}) {
   printReport(report);
   const summary = {
@@ -3391,6 +3544,16 @@ export function finishAudit(report, {
   }
   if (strict && failures.length > 0) {
     console.error(`\n❌ --strict: ${failures.join('; ')}. Failing.`);
+    if (diagPath) {
+      // Best effort: a diag write error must not turn a clear strict verdict
+      // into a crash, and the JSON report is already on disk.
+      try {
+        fs.mkdirSync(path.dirname(diagPath), { recursive: true });
+        fs.writeFileSync(diagPath, formatStrictFailureDiagnostic(report, failures, sourceDetailSummary));
+      } catch (err) {
+        console.error(`⚠️ could not write strict diagnostic to ${diagPath}: ${err.message}`);
+      }
+    }
     return 1;
   }
   return 0;
@@ -3475,6 +3638,14 @@ const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolv
 if (isMain) {
   main().catch((err) => {
     console.error('Audit failed:', err);
+    // A crash before the strict verdict must reach the failure issue too:
+    // without this the reporter would again say "no excerpt available".
+    if (diagFilePath) {
+      try {
+        fs.mkdirSync(path.dirname(diagFilePath), { recursive: true });
+        fs.writeFileSync(diagFilePath, `Audit failed before the strict verdict:\n${String(err?.stack || err).split('\n').slice(0, 20).join('\n')}\n`);
+      } catch { /* the stderr line above is the fallback */ }
+    }
     process.exit(1);
   });
 }

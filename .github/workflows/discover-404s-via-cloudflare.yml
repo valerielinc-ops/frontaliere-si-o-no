@@ -126,7 +126,7 @@ jobs:
         env:
           # Prefer the long-lived PAT for the publisher; an App token is the
           # fallback identity when Remote Config did not provide the PAT.
-          GH_TOKEN: ${{ env.GITHUB_PAT || env.APP_TOKEN }}
+          GH_TOKEN: ${{ env.GITHUB_PAT || env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
         run: |
           body="$RUNNER_TEMP/discover-404s-cloudflare-pr-body.md"
           {
