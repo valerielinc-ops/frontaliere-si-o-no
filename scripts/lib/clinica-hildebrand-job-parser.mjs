@@ -23,6 +23,7 @@
  * concorsi the moment they are uploaded.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -196,7 +197,6 @@ export async function fetchAllClinicaHildebrandJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const listing of listings) {
@@ -255,7 +255,9 @@ export async function fetchAllClinicaHildebrandJobs() {
       sector: 'Sanità / Riabilitazione',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The PDF/attachment offers no verified publication field. File dates,
+      // deadlines and employment start do not establish publication.
+      ...sourcePostingDateFields(''),
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });
