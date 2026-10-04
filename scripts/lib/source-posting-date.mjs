@@ -50,3 +50,9 @@ export function sourceRssPostingDateFields(raw = '', now = new Date()) {
   const zone = /^[+-]/.test(rss[5]) ? `${rss[5].slice(0, 3)}:${rss[5].slice(3)}` : 'Z';
   return sourcePostingDateFields(day ? `${day}T${rss[4]}${zone}` : '', now);
 }
+
+/** Normalize basic ISO offsets only on an explicit source publication field; preserve the full timestamp. */
+export function sourceCompactOffsetPostingDateFields(raw, now = new Date()) {
+  const value = typeof raw === 'string' ? raw.replace(/([+-]\d{2})(\d{2})$/, '$1:$2') : '';
+  return sourcePostingDateFields(value, now);
+}
