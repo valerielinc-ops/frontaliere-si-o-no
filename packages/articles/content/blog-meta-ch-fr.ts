@@ -7694,6 +7694,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.axa-ue-svizzera-posizione.title': 'Accords bilatéraux avec l\'UE, le CEO d\'AXA : « importants, non décisifs »',
     'blog.article.axa-ue-svizzera-posizione.excerpt': 'Thomas Buberl, CEO d\'AXA, considère les accords bilatéraux avec l\'UE importants mais non décisifs pour la position de la Suisse en Europe.',
     'blog.article.axa-ue-svizzera-posizione.imageAlt': 'Vue sur Lugano et le paysage suisse par une journée lumineuse.',
+    'blog.article.rita-fuhrer-consiglio-federale.title': 'Aucune femme nécessaire au Conseil fédéral',
+    'blog.article.rita-fuhrer-consiglio-federale.excerpt': 'Rita Fuhrer : « Cette époque est révolue : il faut simplement que ce soit la personne la plus apte »',
+    'blog.article.rita-fuhrer-consiglio-federale.imageAlt': 'Rita Fuhrer, ancienne conseillère d\'État de Zurich, commente la succession au Conseil fédéral',
 };
 
 export default blogMetaChFr;
