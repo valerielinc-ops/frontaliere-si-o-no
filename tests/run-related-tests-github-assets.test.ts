@@ -549,6 +549,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
   }, 120_000);
 
+  it('un closer nuovo sotto scripts/ o functions/ seleziona il ratchet sulle chiusure per titolo', () => {
+    // Il 2026-10-04 tre closer (PR 11317, 11358, 11355) decidevano su un numero
+    // e chiudevano per titolo. Il ratchet legge i sorgenti da disco: un closer
+    // nuovo non lo importa, e il path qui non esiste apposta.
+    const ratchet = 'tests/resolve-issue-by-title-ratchet.test.ts';
+    expect(selectionFor(['scripts/ci/future-issue-closer.mjs'])).toContain(ratchet);
+    expect(selectionFor(['functions/src/futureIssueCloser.js'])).toContain(ratchet);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(ratchet);
+  }, 120_000);
+
   it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
     // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
     // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.
