@@ -6,10 +6,45 @@ import {
   isCompleteSmartRecruitersSourceRead,
   provesSmartRecruitersFilteredEmpty,
   smartRecruitersPostingUrls,
+  normalizeSmartRecruitersJob,
 } from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.useRealTimers();
+});
+
+describe('SmartRecruiters publication provenance', () => {
+  it('does not promote creation, impossible dates or a future timestamp into publication', () => {
+    const year = new Date().getUTCFullYear();
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(`${year}-06-15T12:00:00Z`));
+    for (const releasedDate of [undefined, '', 'invalid', `${year}-02-30T10:00:00Z`, `${year}-06-15T23:00:00Z`]) {
+      expect(normalizeSmartRecruitersJob({ id: 'fixture', name: 'Engineer', releasedDate, createdOn: `${year}-01-01T00:00:00Z` })).toMatchObject({
+        datePosted: '', postedDate: '', postedAt: null, postingDateSource: 'unknown',
+      });
+    }
+  });
+  it('preserves a valid release offset and its evidence in all aliases', () => {
+    const releasedDate = new Date(Date.now() - 3 * 86400000).toISOString().replace('Z', '+00:00');
+    const raw = { id: 'fixture', name: 'Engineer', releasedDate, createdOn: 'not-publication' };
+    expect(normalizeSmartRecruitersJob(raw)).toMatchObject({
+      datePosted: releasedDate, postedDate: releasedDate, postedAt: releasedDate, postingDateSource: 'reported', rawPosting: raw,
+    });
+  });
+  it('carries release evidence through the real listing and partial-detail generator', async () => {
+    const releasedDate = new Date(Date.now() - 4 * 86400000).toISOString();
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const list = new URL(String(input)).searchParams.has('limit');
+      return new Response(JSON.stringify(list
+        ? { totalFound: 1, content: [{ id: 'fixture', name: 'Engineer', releasedDate, createdOn: 'ignored' }] }
+        : { id: 'fixture', jobAd: { sections: { jobDescription: { text: 'Source description' } } } }), { status: 200 });
+    }));
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Fixture', { fetchDetail: true, minDelayMs: 0, detailDelayMs: 0 })) rows.push(row);
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({ datePosted: releasedDate, postedDate: releasedDate, postedAt: releasedDate, postingDateSource: 'reported' });
+  });
 });
 
 describe('SmartRecruiters strict source pagination', () => {
