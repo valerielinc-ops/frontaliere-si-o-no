@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   EDMOND_DE_ROTHSCHILD_KEY,
   EDMOND_DE_ROTHSCHILD_COMPANY_NAME,
+  fetchAllEdmondDeRothschildJobs,
   isEdmondDeRothschildJob,
   isTrustedDomain,
 } from '../scripts/lib/edmond-de-rothschild-job-parser.mjs';
@@ -157,5 +158,92 @@ describe('Edmond de Rothschild crawler parser', () => {
         expect(Boolean(job.postalCode)).toBe(Boolean(job.streetAddress));
       }
     });
+  });
+});
+
+describe('fetchAllEdmondDeRothschildJobs — Oracle detail acceptance', () => {
+  const officialDescription = [
+    'Edmond de Rothschild is seeking a Compliance Officer to support the Swiss private banking business in Geneva.',
+    'The role monitors regulatory obligations, advises relationship managers, reviews client files, coordinates internal controls, and documents risk decisions.',
+    'Candidates should bring relevant compliance experience, strong analytical skills, careful judgment, and fluent French and English communication.',
+    'The position works closely with legal and operations colleagues.',
+  ].join(' ');
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('fetches Oracle details, publishes only a source-backed Swiss vacancy, and rejects thin or foreign listings', async () => {
+    const requestedUrls: string[] = [];
+
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      requestedUrls.push(url);
+
+      if (url.includes('/recruitingCEJobRequisitionDetails/9001')) {
+        return new Response(JSON.stringify({
+          ExternalDescriptionStr: `<div>${officialDescription}</div>`,
+        }), { status: 200 });
+      }
+
+      if (url.includes('/recruitingCEJobRequisitionDetails/9002')) {
+        return new Response(JSON.stringify({}), { status: 200 });
+      }
+
+      if (url.includes('/recruitingCEJobRequisitions?')) {
+        return new Response(JSON.stringify({
+          items: [{
+            TotalJobsCount: 3,
+            requisitionList: [
+              {
+                Id: '9001',
+                Title: 'Compliance Officer',
+                PrimaryLocation: 'Geneva, Switzerland',
+                PrimaryLocationCountry: 'CH',
+                ShortDescriptionStr: 'Short listing text.',
+              },
+              {
+                Id: '9002',
+                Title: 'Private Banker',
+                PrimaryLocation: 'Geneva, Switzerland',
+                PrimaryLocationCountry: 'CH',
+                ShortDescriptionStr: 'Apply online.',
+              },
+              {
+                Id: '9003',
+                Title: 'Private Banker France',
+                PrimaryLocation: 'Paris, France',
+                PrimaryLocationCountry: 'FR',
+                ShortDescriptionStr: officialDescription,
+              },
+            ],
+          }],
+        }), { status: 200 });
+      }
+
+      return new Response('', { status: 404 });
+    }));
+
+    const jobs = await fetchAllEdmondDeRothschildJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      jobReqId: '9001',
+      title: 'Compliance Officer',
+      companyKey: EDMOND_DE_ROTHSCHILD_KEY,
+      country: 'CH',
+      addressCountry: 'CH',
+      postalCode: '1204',
+      streetAddress: 'Rue de Hesse 18',
+    });
+    expect(jobs[0].description).toBe(officialDescription);
+    expect(jobs[0].description).not.toContain('Key details');
+    expect(jobs[0].description.trim().split(/\s+/)).toHaveLength(61);
+
+    const detailUrls = requestedUrls.filter((url) => url.includes('/recruitingCEJobRequisitionDetails/'));
+    expect(detailUrls).toHaveLength(2);
+    expect(detailUrls[0]).toContain('/9001');
+    expect(detailUrls[1]).toContain('/9002');
+    expect(detailUrls.join('\n')).not.toContain('/9003');
   });
 });
