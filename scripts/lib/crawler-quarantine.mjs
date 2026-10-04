@@ -155,6 +155,9 @@ export function validateQuarantineRegistry(doc, { groupCount } = {}) {
       }
       if (!isIsoTimestamp(entry?.retiredAt)) problems.push(`${where}.retiredAt must be an ISO timestamp`);
       if (!isIssueNumber(entry?.issue)) problems.push(`${where}: a retirement must name the issue that announces it`);
+      if (entry?.reviewAfter !== undefined && !isIsoTimestamp(entry.reviewAfter)) {
+        problems.push(`${where}.reviewAfter must be an ISO date`);
+      }
     }
   }
   if (problems.length > 0) {
@@ -167,6 +170,31 @@ export function validateQuarantineRegistry(doc, { groupCount } = {}) {
 export function loadQuarantineRegistry(filePath, { groupCount } = {}) {
   if (!filePath || !fs.existsSync(filePath)) return null;
   return validateQuarantineRegistry(JSON.parse(fs.readFileSync(filePath, 'utf8')), { groupCount });
+}
+
+/**
+ * Ritiri temporanei arrivati alla data di riesame. Un ritiro con
+ * `reviewAfter` (decisione del proprietario, es. bally il 2026-10-03: «ritiro
+ * temporaneo, riesame tra 3 mesi») non torna da solo nel gruppo: alla data
+ * scripts/crawler-quarantine-review.mjs apre una issue di riesame, e chi la
+ * chiude riattiva il crawler (togliendo la voce) o sposta la data.
+ * @param {{ retired?: Record<string, { reviewAfter?: string, retiredAt: string, issue: number, reason?: string }> }} registry
+ * @param {string} now ISO timestamp
+ * @returns {Array<{ slug: string, reviewAfter: string, retiredAt: string, issue: number, reason: string }>}
+ */
+export function dueRetirementReviews(registry, now) {
+  const nowMs = Date.parse(now);
+  if (!Number.isFinite(nowMs)) throw new Error(`invalid now: ${now}`);
+  return Object.entries(registry?.retired ?? {})
+    .filter(([, entry]) => typeof entry?.reviewAfter === 'string' && Date.parse(entry.reviewAfter) <= nowMs)
+    .map(([slug, entry]) => ({
+      slug,
+      reviewAfter: entry.reviewAfter,
+      retiredAt: entry.retiredAt,
+      issue: entry.issue,
+      reason: String(entry.reason ?? ''),
+    }))
+    .sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 export function quarantineRegistryDoc(registry) {
