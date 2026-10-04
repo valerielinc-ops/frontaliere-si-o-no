@@ -14,7 +14,8 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
@@ -250,7 +251,7 @@ async function enrichFromDetail(listing, timeoutMs) {
     return {
       locality: locality || '',
       country: country || '',
-      postedDate: datePosted ? parseSuccessFactorsPostedDate(datePosted) : null,
+      ...successFactorsPostingDateFields(datePosted),
       descriptionHtml,
     };
   } catch (err) {
@@ -362,9 +363,6 @@ export async function fetchAllRolexJobs() {
     }
     const description = descriptionText;
 
-    const postedDate = (detail && detail.postedDate)
-      || new Date().toISOString().split('T')[0];
-
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} rolex ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -403,7 +401,7 @@ export async function fetchAllRolexJobs() {
       sector: 'Luxury / Watchmaking (Manufacturing)',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
