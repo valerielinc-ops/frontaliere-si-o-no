@@ -417,7 +417,7 @@ export function buildHeinekenChJob({ row, detail, detailUrl }) {
     employmentType,
     experienceLevel: detectExperienceLevel(title),
     featured: false,
-    ...sourcePostingDateFields(''),
+    ...sourcePostingDateFields(row?.postedDate),
     url: canonicalUrl,
     applyUrl: detail?.applyUrl || detailUrl,
     source: 'Heineken Switzerland Dedicated Parser (Playwright)',

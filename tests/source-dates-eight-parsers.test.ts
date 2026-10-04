@@ -80,6 +80,15 @@ describe('remaining employer producer publication contracts', () => {
     expect(job).not.toBeNull();
     expect(job).toMatchObject(unknown);
   });
+  it('Heineken preserves a publication date parsed from the listing row', () => {
+    const reported = sourcePostingDateFields('2026-09-01');
+    const job = buildHeinekenChJob({
+      row: { title: 'Engineer', href: '/job/heineken-switzerland/switzerland/engineer', postedDate: '2026-09-01' },
+      detail: { title: 'Engineer', location: 'Chur', description },
+      detailUrl: 'https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/engineer',
+    });
+    expect(job).toMatchObject(reported);
+  });
   it.each(['23.09.2026', '', '30.02.2026', '04.10.2026'])('REHAB validates the original listing date %j', async (raw) => {
     const listing = readFileSync('tests/fixtures/rehab-basel/listing-297.html', 'utf8').replace('23.09.2026', raw);
     const detail = readFileSync('tests/fixtures/rehab-basel/detail-297.html', 'utf8');
