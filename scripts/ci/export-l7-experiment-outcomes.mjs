@@ -121,6 +121,42 @@ export function readActiveExperiments(filePath = DEFAULT_ACTIVE_EXPERIMENTS_PATH
   return parseActiveExperiments(JSON.parse(fs.readFileSync(path.resolve(filePath), 'utf8')), filePath);
 }
 
+function sameValues(actual, expected) {
+  return Array.isArray(actual)
+    && actual.length === expected.length
+    && actual.every((value, index) => value === expected[index]);
+}
+
+/**
+ * Validate that the declared experiments can be measured by the current L7
+ * reader. The reader is hard-coded to one event contract, so anything else
+ * must fail before credentials or telemetry are touched.
+ */
+export function validateL7ReaderDeclaration(experiments, label = DEFAULT_ACTIVE_EXPERIMENTS_PATH) {
+  if (experiments.length === 0) return experiments;
+  if (experiments.length !== 1) {
+    throw new Error(`${label} declares ${experiments.length} experiments, but the L7 reader maps exactly one`);
+  }
+  const [experiment] = experiments;
+  const mismatches = [];
+  for (const field of ['experimentId', 'exposureEvent', 'outcomeEvent']) {
+    if (experiment[field] !== L7_EXPERIMENT_EVENT_CONTRACT[field]) {
+      mismatches.push(`${field}=${JSON.stringify(experiment[field])}`);
+    }
+  }
+  if (!sameValues(experiment.variants, L7_EXPERIMENT_EVENT_CONTRACT.variants)) {
+    mismatches.push(`variants=${JSON.stringify(experiment.variants)}`);
+  }
+  if (mismatches.length) {
+    throw new Error(`${label} experiments[0] does not match the L7 reader contract: ${mismatches.join(', ')}`);
+  }
+  return experiments;
+}
+
+export function readL7ActiveExperiments(filePath = DEFAULT_ACTIVE_EXPERIMENTS_PATH) {
+  return validateL7ReaderDeclaration(readActiveExperiments(filePath), filePath);
+}
+
 /**
  * Explicit "nothing to measure" export. `independent` holds because the
  * declaration file is maintained apart from the candidate generator and is
@@ -491,7 +527,7 @@ export async function exportL7({
 } = {}) {
   if (!text(outputPath)) throw new Error('--out is required');
   const policy = readL7Policy(registryPath);
-  const experiments = readActiveExperiments(activeExperimentsPath);
+  const experiments = readL7ActiveExperiments(activeExperimentsPath);
   let outcome;
   if (experiments.length === 0) {
     outcome = buildIdleL7ExperimentOutcome({ policy, now, activeExperimentsPath });

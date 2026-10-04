@@ -16,6 +16,7 @@ import {
   loadLoopPolicyForRun,
 } from '../lib/loop-fleet-contract.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
+import { readL7ActiveExperiments } from './export-l7-experiment-outcomes.mjs';
 
 export const LOOP_ID = 'L7';
 const ISSUE_TITLE = 'L7 Experiment Allocator: outcome or guardrail ledger is not trustworthy';
@@ -561,15 +562,12 @@ function readJson(filePath, label) {
 }
 
 /**
- * Count the experiments declared active. A missing or malformed declaration
- * throws, so an idle export is never accepted without its source of truth.
+ * Count the experiments declared active. The same strict reader-contract
+ * validation used by the exporter runs here, so a missing or malformed
+ * declaration is never accepted as an idle source of truth.
  */
 export function readDeclaredActiveExperimentCount(filePath = DEFAULT_ACTIVE_EXPERIMENTS_PATH) {
-  const declaration = readJson(filePath, 'active experiments declaration');
-  if (!object(declaration) || !Array.isArray(declaration.experiments)) {
-    throw new Error(`${filePath} must list { experiments: [] }`);
-  }
-  return declaration.experiments.length;
+  return readL7ActiveExperiments(filePath).length;
 }
 
 function readOptionalJson(filePath) {

@@ -548,7 +548,17 @@ describe('L7 Experiment Allocator', () => {
     it('rejects an idle export that contradicts the active-experiments declaration', async () => {
       const files = tempFiles(registry(), idleExport());
       const declarationPath = path.join(path.dirname(files.outcomePath), 'active-experiments.json');
-      fs.writeFileSync(declarationPath, JSON.stringify({ schemaVersion: 1, experiments: [{ experimentId: 'x' }] }));
+      fs.writeFileSync(declarationPath, JSON.stringify({
+        schemaVersion: 1,
+        experiments: [{
+          experimentId: 'g4-affiliate-contextual',
+          exposureEvent: 'affiliate_experiment_exposure',
+          outcomeEvent: 'affiliate_click',
+          variants: ['control', 'benefit'],
+          rcParam: 'AFFILIATE_G4_VARIANT',
+          startedAt: NOW.toISOString(),
+        }],
+      }));
       let issues = 0;
       const result = await runL7({
         now: NOW,
@@ -573,6 +583,26 @@ describe('L7 Experiment Allocator', () => {
         logger: { log() {} },
       });
       expect(missing.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
+    });
+
+    it('rejects a malformed idle declaration without resolving the issue', async () => {
+      const files = tempFiles(registry(), idleExport());
+      const declarationPath = path.join(path.dirname(files.outcomePath), 'active-experiments.json');
+      fs.writeFileSync(declarationPath, JSON.stringify({ schemaVersion: 2, experiments: [] }));
+      let resolved = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        activeExperimentsPath: declarationPath,
+        reportDir: files.reportDir,
+        issue: true,
+        createIssueImpl: async () => ({ persisted: true }),
+        resolveIssueImpl: async () => { resolved += 1; return null; },
+        logger: { log() {} },
+      });
+      expect(result.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
+      expect(resolved).toBe(0);
     });
 
     it('still fails on candidate defects while idle', () => {

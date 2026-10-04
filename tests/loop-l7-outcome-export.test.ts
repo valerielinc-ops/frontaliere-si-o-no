@@ -10,6 +10,7 @@ import {
   fetchL7ExperimentCounts,
   L7_EXPERIMENT_EVENT_CONTRACT,
   parseActiveExperiments,
+  readL7ActiveExperiments,
   readActiveExperiments,
 } from '../scripts/ci/export-l7-experiment-outcomes.mjs';
 
@@ -255,6 +256,40 @@ describe('L7 declared idle state', () => {
     expect(outcome).toMatchObject({ activeExperiments: 1, status: 'observed', assignments: 240 });
   });
 
+  it.each([
+    ['a different experiment id', { ...REGISTERED_EXPERIMENT, experimentId: 'other' }],
+    ['a different exposure event', { ...REGISTERED_EXPERIMENT, exposureEvent: 'other_exposure' }],
+  ])('rejects %s before querying the hard-coded reader', async (_description, experiment) => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-invalid-mapping-'));
+    let posthogCalls = 0;
+    await expect(exportL7({
+      outputPath: path.join(directory, 'outcome.json'),
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      now: NOW,
+      config: { apiKey: 'test', projectId: 'test' },
+      posthogRunner: async () => { posthogCalls += 1; return RESPONSE; },
+      activeExperimentsPath: activeExperimentsFile(directory, [experiment]),
+    })).rejects.toThrow(/L7 reader contract/);
+    expect(posthogCalls).toBe(0);
+  });
+
+  it('rejects multiple active experiments before querying the hard-coded reader', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-multiple-mappings-'));
+    let posthogCalls = 0;
+    await expect(exportL7({
+      outputPath: path.join(directory, 'outcome.json'),
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+      now: NOW,
+      config: { apiKey: 'test', projectId: 'test' },
+      posthogRunner: async () => { posthogCalls += 1; return RESPONSE; },
+      activeExperimentsPath: activeExperimentsFile(directory, [
+        REGISTERED_EXPERIMENT,
+        { ...REGISTERED_EXPERIMENT, experimentId: 'other' },
+      ]),
+    })).rejects.toThrow(/exactly one/);
+    expect(posthogCalls).toBe(0);
+  });
+
   it('never reads a missing or malformed declaration as idle', () => {
     expect(() => parseActiveExperiments({ experiments: [] })).toThrow('schemaVersion: 1');
     expect(() => parseActiveExperiments({ schemaVersion: 1 })).toThrow('schemaVersion: 1');
@@ -264,6 +299,9 @@ describe('L7 declared idle state', () => {
       .toThrow('at least two variants');
     expect(() => parseActiveExperiments({ schemaVersion: 1, experiments: [REGISTERED_EXPERIMENT, REGISTERED_EXPERIMENT] }))
       .toThrow('duplicated');
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l7-invalid-declaration-'));
+    expect(() => readL7ActiveExperiments(activeExperimentsFile(directory, [{ ...REGISTERED_EXPERIMENT, experimentId: 'other' }])))
+      .toThrow('L7 reader contract');
     expect(() => readActiveExperiments(path.join(os.tmpdir(), 'loop-l7-no-such-file.json'))).toThrow();
   });
 });
@@ -394,4 +432,3 @@ describe('active experiments match the client emitters', () => {
     })).toEqual([]);
   });
 });
-
