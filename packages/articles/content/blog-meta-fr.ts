@@ -12486,6 +12486,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-luino-46enne-violenza-familiare.title': 'Luino : un homme de 46 ans arrêté pour violences et mauvais traitements',
     'blog.article.arresto-luino-46enne-violenza-familiare.excerpt': 'Les carabiniers de Luino mettent à exécution une mesure de placement en détention provisoire sur ordre du juge des enquêtes préliminaires de Varese. Une arbalète a été trouvée au domicile.',
     'blog.article.arresto-luino-46enne-violenza-familiare.imageAlt': 'Arbalète saisie par les Carabinieri à Luino lors d\'une opération pour violences conjugales',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.title': 'A2 Coldrerio: mort du Suisse de 73 ans blessé',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.excerpt': 'Le Suisse de 73 ans résidant dans le canton de Zurich est décédé à l\'hôpital après l\'accident survenu sur l\'A2 à Coldrerio. Il était le passager de la voiture conduite par une femme de 68 ans.',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.imageAlt': 'A2 à Coldrerio, sur la chaussée nord-sud',
 };
 
 export default blogMetaFr;

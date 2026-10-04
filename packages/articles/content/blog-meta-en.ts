@@ -12484,6 +12484,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-luino-46enne-violenza-familiare.title': 'Luino: 46-year-old arrested for violence and abuse',
     'blog.article.arresto-luino-46enne-violenza-familiare.excerpt': 'Carabinieri of Luino carry out a pre-trial detention order in prison by order of the GIP of Varese. A crossbow was found at home.',
     'blog.article.arresto-luino-46enne-violenza-familiare.imageAlt': 'Crossbow seized by Carabinieri in Luino during a domestic violence operation',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.title': 'A2 in Coldrerio, the 73-year-old injured in the accident has died',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.excerpt': 'The 73-year-old Swiss man residing in the canton of Zurich died in hospital after the accident on the A2 in Coldrerio. He was the passenger in the car driven by a 68-year-old woman.',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.imageAlt': 'A2 near Coldrerio on the north-south carriageway',
 };
 
 export default blogMetaEn;

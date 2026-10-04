@@ -12485,6 +12485,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-luino-46enne-violenza-familiare.title': 'Luino: arrestato 46enne per violenze e maltrattamenti',
     'blog.article.arresto-luino-46enne-violenza-familiare.excerpt': 'Carabinieri di Luino eseguono misura cautelare in carcere su ordine del GIP di Varese. Trovata balestra in casa.',
     'blog.article.arresto-luino-46enne-violenza-familiare.imageAlt': 'Balestra a fucile sequestrata dai Carabinieri a Luino durante un\'operazione per violenze in famiglia',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.title': 'A2 a Coldrerio, morto il 73enne ferito nell\'incidente',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.excerpt': 'Il 73enne svizzero residente nel canton Zurigo è morto in ospedale dopo l\'incidente sulla A2 a Coldrerio. Era il passeggero dell\'auto guidata da una 68enne.',
+    'blog.article.decesso-coldrerio-corsia-nord-sud.imageAlt': 'A2 a Coldrerio, sulla carreggiata nord-sud',
 };
 
 export default blogMetaIt;
