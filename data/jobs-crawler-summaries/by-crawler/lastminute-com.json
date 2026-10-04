@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-04T09:24:37.277Z",
+  "generatedAt": "2026-10-04T21:25:21.313Z",
   "total": 6,
-  "newCount": 6,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8283,
-  "avgDurationMs": 8283,
+  "durationMs": 8854,
+  "avgDurationMs": 8854,
   "durationHistory": [
-    8283
+    8854
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Pricing & Revenue Specialist - Hotel",
       "slug": "pricing-revenue-specialist-hotel-chiasso",
@@ -43,6 +44,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "firstSeenAt": "2026-09-30T21:23:06.463Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,6 +83,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:49:43.585Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -119,6 +122,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:49:43.585Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -157,6 +161,7 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:49:43.585Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -195,6 +200,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "firstSeenAt": "2026-09-19T07:39:25.798Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -233,6 +239,7 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "firstSeenAt": "2026-09-19T07:39:25.798Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -242,8 +249,7 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

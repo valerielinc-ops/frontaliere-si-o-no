@@ -1,19 +1,21 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-10-04T09:21:31.906Z",
+  "generatedAt": "2026-10-04T21:22:41.999Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 28139,
-  "avgDurationMs": 28139,
+  "unchangedCount": 1,
+  "durationMs": 30170,
+  "avgDurationMs": 30170,
   "durationHistory": [
-    28139
+    30170
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Client Advisor - Giorgio Armani St. Moritz (Seasonal)",
       "slug": "client-advisor-giorgio-armani-st-moritz-seasonal-giorgio-armani-s-p-a-st-moritz-seasonal",
@@ -44,6 +46,7 @@
       "firstSeenAt": "2026-09-19T22:57:38.732Z",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -53,7 +56,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

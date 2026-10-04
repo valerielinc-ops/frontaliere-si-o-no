@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hoval",
-  "assembledAt": "2026-10-04T09:11:47.159Z",
+  "assembledAt": "2026-10-04T21:20:42.859Z",
   "jobs": [
     {
       "title": "Business Application Spezialist/in (m/w/d)",
@@ -356,8 +356,7 @@
       "salarySource": "reported",
       "retranslationAttempts": 0,
       "datePosted": "",
-      "postingDateSource": "unknown",
-      "needsRetranslation": true
+      "postingDateSource": "unknown"
     },
     {
       "title": "Servicetechniker/in Wärmepumpen - Region Zug (m/w/d) | Auch Quereinsteiger willkommen",
@@ -473,7 +472,7 @@
         "it": "servizio-tecnico-pompe-di-calore-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "en": "service-technician-heat-pumps-ag-bl-bs-so-m-f-d-hoval-harkingen",
         "de": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
-        "fr": "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen"
+        "fr": "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
       },
       "id": "hoval-e59261301c25",
       "previousSlugsByLocale": {
@@ -482,6 +481,7 @@
           "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
         ],
         "fr": [
+          "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen",
           "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
         ],
         "en": [
@@ -490,7 +490,8 @@
       },
       "previousSlugs": [
         "tecnico-a-di-servizio-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
-        "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen"
+        "servicetechniker-in-warmepumpen-ag-bl-bs-so-m-w-d-hoval-harkingen",
+        "thermopompes-de-technicien-de-service-ag-bl-bs-so-h-f-d-hoval-harkingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -725,7 +726,8 @@
       },
       "previousSlugs": [
         "technicien-ne-de-service-gaz-mazout-region-vaud-m-f-d-hoval-crissier"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Technicien/ne de service PAC - Région Vaud (m/f/d)",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-10-04T09:11:56.686Z",
+  "assembledAt": "2026-10-04T21:13:41.000Z",
   "jobs": [
     {
       "id": "schulthess-klinik-93d8ce3bb1fc",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/48e0236d-d7b2-4e77-8c30-db26b0ddf6b0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:50.757Z",
+      "crawledAt": "2026-10-04T21:13:34.051Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,12 +54,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-lengghalde-2",
-        "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich"
+        "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich",
+        "hf-fh-professionale-nel-campo-della-cura-intermedia-imc-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-lengghalde-2",
-          "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich"
+          "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-zurich",
+          "hf-fh-professionale-nel-campo-della-cura-intermedia-imc-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "pflegefachperson-hf-fh-im-bereich-intermediate-care-imc-schulthess-klinik-lengghalde-2"
@@ -118,7 +120,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/5436004d-b4fd-4783-a9f4-3412327ae7cb",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:50.755Z",
+      "crawledAt": "2026-10-04T21:13:34.047Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,11 +139,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-of-research-schulthess-klinik-zurich"
+        "director-of-research-schulthess-klinik-zurich",
+        "direttore-of-ricerca-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-research-schulthess-klinik-zurich"
+          "director-of-research-schulthess-klinik-zurich",
+          "direttore-of-ricerca-schulthess-klinik-zurich"
         ],
         "de": [
           "director-of-research-schulthess-klinik-zurich"
@@ -197,7 +201,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/815a04d2-89e2-4018-9b7c-1cc368677341",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:50.751Z",
+      "crawledAt": "2026-10-04T21:13:34.042Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -218,13 +222,15 @@
       "previousSlugs": [
         "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
         "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
-        "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-zurich"
+        "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-zurich",
+        "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich-086957"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
           "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
-          "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-zurich"
+          "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-zurich",
+          "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich-086957"
         ],
         "en": [
           "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
@@ -283,7 +289,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/d4e72e6d-3527-417c-a433-f6b297abf3b9",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:50.746Z",
+      "crawledAt": "2026-10-04T21:13:34.038Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -302,11 +308,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+        "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
+        "infermiera-con-una-prospettiva-di-sviluppo-per-la-responsabilita-professionale-sulla-stazione-di-letto-schulthess-klinik"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+          "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
+          "infermiera-con-una-prospettiva-di-sviluppo-per-la-responsabilita-professionale-sulla-stazione-di-letto-schulthess-klinik"
         ],
         "en": [
           "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
@@ -362,7 +370,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/7ca302b9-6563-4230-b545-33faeeb48848",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:50.742Z",
+      "crawledAt": "2026-10-04T21:13:34.034Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -411,9 +419,9 @@
     },
     {
       "id": "schulthess-klinik-a0f86a090119",
-      "slug": "assistente-medico-in-reumatologia-e-riabilitazione-schulthess-klinik-zurich",
+      "slug": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
       "slugByLocale": {
-        "it": "assistente-medico-in-reumatologia-e-riabilitazione-schulthess-klinik-zurich",
+        "it": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
         "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
         "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
         "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
@@ -423,7 +431,7 @@
       "companyDomain": "schulthess-klinik.ch",
       "title": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
       "titleByLocale": {
-        "it": "Assistente Medico in Reumatologia e Riabilitazione",
+        "it": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
         "en": "Med. practice assistant / Med. Practice assistant Rheumatology & Rehabilitation",
         "de": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
         "fr": "Med. assistant de pratique / Med. assistant de pratique Rheumatology & Rehabilitation"
@@ -440,7 +448,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/94604294-e3a6-46d1-8b85-9004375c688a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:50.737Z",
+      "crawledAt": "2026-10-04T21:13:34.029Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -463,8 +471,9 @@
         "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
         "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
         "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
-        "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich"
+        "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
+        "assistente-medico-in-reumatologia-e-riabilitazione-schulthess-klinik-zurich",
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -472,8 +481,9 @@
           "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
           "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
           "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
-          "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich"
+          "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
+          "assistente-medico-in-reumatologia-e-riabilitazione-schulthess-klinik-zurich",
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
         ],
         "en": [
           "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
@@ -529,7 +539,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:50.700Z",
+      "crawledAt": "2026-10-04T21:13:33.990Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -548,11 +558,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+        "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
+        "senior-cloud-system-ingegnere-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
+          "senior-cloud-system-ingegnere-schulthess-klinik-zurich"
         ],
         "fr": [
           "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
