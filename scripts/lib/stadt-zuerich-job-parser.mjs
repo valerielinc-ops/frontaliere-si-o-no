@@ -54,6 +54,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
@@ -335,10 +337,10 @@ export function parseOfficialAdPage(html = '') {
  *
  * @param {Set<string>} wantedRefs Referenz-Nr. of the tiles to fill
  * @param {number} delayMs pause between two ad pages
- * @param {{ unit?: RegExp }} [options]
+ * @param {{ unit?: RegExp, publicationByRef?: Map<string, ReturnType<typeof sourcePostingDateFields>> }} [options]
  * @returns {Promise<Map<string, string>>}
  */
-export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit } = {}) {
+export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit, publicationByRef } = {}) {
   const byRef = new Map();
   let index;
   try {
@@ -362,8 +364,12 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit } = {}) {
   for (const href of hrefs) {
     if (wantedRefs.size && [...wantedRefs].every((ref) => byRef.has(ref))) break;
     try {
-      const parsed = parseOfficialAdPage(await fetchPage(`${OFFICIAL_HOST}${href}`));
-      if (parsed && !byRef.has(parsed.ref)) byRef.set(parsed.ref, parsed.description);
+      const html = await fetchPage(`${OFFICIAL_HOST}${href}`);
+      const parsed = parseOfficialAdPage(html);
+      if (parsed && !byRef.has(parsed.ref)) {
+        byRef.set(parsed.ref, parsed.description);
+        publicationByRef?.set(parsed.ref, sourcePostingDateFields(extractJobPostingLd(html)?.datePosted));
+      }
     } catch (err) {
       console.warn(`  ⚠️ Official ad page failed: ${href} — ${err?.message || err}`);
     }
