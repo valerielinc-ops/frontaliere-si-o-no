@@ -708,3 +708,43 @@ describe('codexPromptEchoMarker — eco del prompt del tier Codex', () => {
     expect(ft.codexPromptEchoMarker('x System instructions: y', 'z')).toBe('System instructions:');
   });
 });
+
+describe('titoli di template nel prompt del tier Codex', () => {
+  // Lotto 1 della bonifica Codex del corpus (nanakokyobashi-rgb/
+  // frontaliere-articles#2121, 20 coppie de): con la sola regola «tieni il
+  // Markdown dei titoli» Codex rendeva `## Fatti chiave` come `## Eckdaten` e
+  // `## In breve` come `## Kurz zusammengefasst`, e la guardia dei Fatti chiave
+  // riconosce solo il titolo canonico. I valori attesi sono scritti qui a mano
+  // apposta: la tabella del modulo si genera da ai-search-template.mjs, e un
+  // cambio di quel modulo deve passare da questo test.
+  const EXPECTED: Record<string, [string, string]> = {
+    it: ['## In breve', '## Fatti chiave'],
+    en: ['## TL;DR', '## Key facts'],
+    de: ['## Auf einen Blick', '## Wichtige Fakten'],
+    fr: ['## En bref', '## Faits clés'],
+  };
+  const systemOf = (messages: Array<{ role: string; content: string }>) => messages.find((m) => m.role === 'system')!.content;
+
+  it('la tabella coincide con ai-search-template.mjs per ogni lingua del tier', async () => {
+    const template = await import('../scripts/lib/ai-search-template.mjs');
+    expect(Object.keys(ft.CODEX_TEMPLATE_HEADINGS).sort()).toEqual(['de', 'en', 'fr', 'it']);
+    for (const [lang, headings] of Object.entries(ft.CODEX_TEMPLATE_HEADINGS)) {
+      expect(headings, lang).toEqual([template.getTldrHeading(lang), template.getKeyFactsHeading(lang)]);
+      expect(headings, lang).toEqual(EXPECTED[lang]);
+    }
+  });
+
+  it.each(['en', 'de', 'fr'])('richiesta singola e a gruppi it→%s portano il titolo canonico della lingua di arrivo', (target) => {
+    const [tldr, keyFacts] = EXPECTED[target];
+    const rule = `write the heading line "## In breve" as "${tldr}" and "## Fatti chiave" as "${keyFacts}", exactly, never with a synonym.`;
+    const single = systemOf(ft.codexTranslatePromptsForTests.single('## In breve\n- uno\n\n## Fatti chiave\n- Termine: valore', 'it', target));
+    const batch = systemOf(ft.codexTranslatePromptsForTests.batch(['## In breve\n- uno', '## Fatti chiave\n- Termine: valore'], 'it', target));
+    expect(single).toContain(rule);
+    expect(batch).toContain(rule);
+  });
+
+  it('nessuna regola per una lingua senza template', () => {
+    expect(systemOf(ft.codexTranslatePromptsForTests.single('testo', 'it', 'es'))).not.toContain('Template headings');
+    expect(systemOf(ft.codexTranslatePromptsForTests.batch(['a', 'b'], 'it', 'es'))).not.toContain('Template headings');
+  });
+});
