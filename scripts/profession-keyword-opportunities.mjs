@@ -53,6 +53,7 @@ import {
   keywordLandingPath,
   professionKeywordLandingPath,
 } from './lib/keyword-page-paths.mjs';
+import { countProfessionPageJobs } from './lib/keyword-page-match.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
 import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
 import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
@@ -298,15 +299,22 @@ for (const { term, count } of onsiteTerms || []) {
 // Aggregate signal B per profession (+ canton split = the locality
 // dimension on the supply side, feeds profession × canton pairs).
 //
-// Two distinct counts per profession:
-//  - count: loose multi-lingual alias match on the title — the DEMAND-side
-//    market size, used for ranking/score only.
-//  - feedFilterCount: literal `feedFilter` substring on the same haystack
-//    jobsSeoPagesPlugin filters with (title/description/company/location/
-//    titleByLocale). This is what the emitted page would actually show, so
-//    it — not the loose count — gates doubleValidated: the loose matcher
-//    counts DE/FR/EN ads a `filterKeywords: [feedFilter]` page can never
-//    surface (e.g. "filialleiter" for responsabile-negozio).
+// Counts per profession:
+//  - count: loose multi-lingual alias match on the source title — the
+//    DEMAND-side market size, used for ranking/score.
+//  - feedFilterJobCount (computed in the ranking loop below): the ads the
+//    Italian keyword page will ACTUALLY list. A profession-gap page now
+//    filters with the taxonomy matcher on each locale's own title
+//    (`professionMatch: true`, scripts/lib/keyword-page-match.mjs), and this
+//    number comes from the SAME function the page uses, never a second copy
+//    of the rule. Before #7915 the page filtered with the single Italian
+//    `feedFilter` substring, which missed the German ads ("Kosmetikerin" for
+//    estetista: 0 of 18) and swallowed unrelated ones ("sicurezza": 493 for
+//    36 security guards), so `isPromotable` rejected rows for a gap the
+//    generator itself had created.
+//  - literalCount: the old literal `feedFilter` substring count on
+//    title/description/company/location/titleByLocale. Informational only
+//    (report column), still the listing rule of the pre-#7915 pages.
 const jobsByProfession = new Map();
 const pluginHaystack = (job) => [
   String(job.title || ''),
@@ -322,13 +330,13 @@ for (const job of jobs) {
     const loose = entry.id === id;
     const literal = haystack.includes(entry.feedFilter);
     if (!loose && !literal) continue;
-    const agg = jobsByProfession.get(entry.id) || { count: 0, feedFilterCount: 0, cantons: new Map() };
+    const agg = jobsByProfession.get(entry.id) || { count: 0, literalCount: 0, cantons: new Map() };
     if (loose) {
       agg.count += 1;
       const canton = typeof job.canton === 'string' && job.canton ? job.canton.toUpperCase() : '??';
       agg.cantons.set(canton, (agg.cantons.get(canton) || 0) + 1);
     }
-    if (literal) agg.feedFilterCount += 1;
+    if (literal) agg.literalCount += 1;
     jobsByProfession.set(entry.id, agg);
   }
 }
@@ -343,7 +351,8 @@ for (const entry of PROFESSION_TAXONOMY) {
   const onsite = onsiteByProfession.get(entry.id) || 0;
   const jobAgg = jobsByProfession.get(entry.id);
   const jobCount = jobAgg ? jobAgg.count : 0;
-  const feedFilterJobCount = jobAgg ? jobAgg.feedFilterCount : 0;
+  const feedFilterJobCount = countProfessionPageJobs(jobs, entry.id, 'it');
+  const literalFilterJobCount = jobAgg ? jobAgg.literalCount : 0;
   const gsc = gscByProfession.get(entry.id);
   if (onsite === 0 && jobCount === 0 && feedFilterJobCount === 0 && !gsc) continue;
   const row = {
@@ -352,10 +361,13 @@ for (const entry of PROFESSION_TAXONOMY) {
     feedFilter: entry.feedFilter,
     onsiteCount: onsite,
     jobCount,
-    // Jobs a fed keyword page would ACTUALLY list (literal feedFilter
-    // substring, same semantics as jobsSeoPagesPlugin). Gates the feed:
+    // Jobs a fed keyword page would ACTUALLY list in Italian — the page's own
+    // matcher (countProfessionPageJobs), not a re-derivation. Gates the feed:
     // below the plugin's ≥3 threshold the page would silently never emit.
     feedFilterJobCount,
+    // Informational: what the single `feedFilter` substring would match. Not
+    // a gate — profession-gap pages no longer list by it.
+    literalFilterJobCount,
     cantons: jobAgg
       ? Object.fromEntries([...jobAgg.cantons.entries()].sort((a, b) => b[1] - a[1]))
       : {},
@@ -441,10 +453,10 @@ md.push('**Promuovibile ✅** = `refresh-keyword-config` genera la pagina al pro
 md.push('');
 md.push(`Le pagine keyword vivono sotto \`${keywordLandingPath('<slug>')}\` — lo slug **non è** un path, e provarlo nudo dà 404. La colonna **Pagina** riporta l'URL che verrà creato; nella tabella "Già coperte" la copertura \`keyword page\` è già l'URL live.`);
 md.push('');
-md.push(`Due qualificazioni, una sola conseguenza. **Domanda**: ≥${DOUBLE_VALIDATED_MIN_ONSITE} ricerche on-site *e* ≥${DOUBLE_VALIDATED_MIN_JOBS} annunci — c'è chi cerca e c'è cosa mostrargli. **Offerta**: ≥${SUPPLY_VALIDATED_MIN_JOBS} annunci *e* ≥${SUPPLY_VALIDATED_MIN_FILTER_JOBS} match filtro — per le professioni che leggono 0 on-site perché il sito non ha ancora una pagina da cui farsi cercare. In entrambi i casi il filtro letterale deve restare specifico quanto la professione, o la pagina elencherebbe lavori diversi da quello nel suo H1.`);
+md.push(`Due qualificazioni, una sola conseguenza. **Domanda**: ≥${DOUBLE_VALIDATED_MIN_ONSITE} ricerche on-site *e* ≥${DOUBLE_VALIDATED_MIN_JOBS} annunci — c'è chi cerca e c'è cosa mostrargli. **Offerta**: ≥${SUPPLY_VALIDATED_MIN_JOBS} annunci *e* ≥${SUPPLY_VALIDATED_MIN_FILTER_JOBS} match filtro — per le professioni che leggono 0 on-site perché il sito non ha ancora una pagina da cui farsi cercare. In entrambi i casi l'elenco della pagina deve restare specifico quanto la professione, o la pagina elencherebbe lavori diversi da quello nel suo H1. **Match filtro** = annunci che la pagina italiana elencherà davvero (stesso matcher della tassonomia che usa la pagina); **Letterali** = annunci che contengono la sottostringa \`feedFilter\`, solo informativo.`);
 md.push('');
-md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Cantoni top | GSC impr. | Score | Promuovibile | Pagina |');
-md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |');
+md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Letterali | Cantoni top | GSC impr. | Score | Promuovibile | Pagina |');
+md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |');
 opportunities.slice(0, 20).forEach((o, i) => {
   const cantonTop = Object.entries(o.cantons).slice(0, 3).map(([c, n]) => `${c}:${n}`).join(' ') || '—';
   // Say WHY when the answer is no — a bare dash is what made this report
@@ -452,14 +464,14 @@ opportunities.slice(0, 20).forEach((o, i) => {
   const why = o.promotable
     ? (o.doubleValidated ? '✅ domanda' : '✅ offerta')
     : !o.preciseFilter
-      ? `— filtro largo (${o.feedFilterJobCount} letterali vs ${o.jobCount} professione)`
+      ? `— filtro largo (${o.feedFilterJobCount} in pagina vs ${o.jobCount} professione; ${o.literalFilterJobCount ?? '—'} letterali)`
       : o.jobCount < DOUBLE_VALIDATED_MIN_JOBS
         ? '— nessun annuncio da mostrare'
         : '— sotto entrambe le soglie';
   const page = o.plannedPath ? `\`${o.plannedPath}\`` : '—';
-  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${why} | ${page} |`);
+  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${o.literalFilterJobCount ?? '—'} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${why} | ${page} |`);
 });
-if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | | |');
+if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | | | |');
 md.push('');
 md.push(`<details><summary>Già coperte (${coveredRows.length}) — escluse dal ranking</summary>`);
 md.push('');
