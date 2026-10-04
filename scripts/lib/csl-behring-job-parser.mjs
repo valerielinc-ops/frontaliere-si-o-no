@@ -29,6 +29,7 @@
  *   - isTrustedDomain()        — Validate URLs belong to CSL / Workday tenant
  *   - CSL_BEHRING_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -37,7 +38,7 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   workdayPrimaryLocationState,
@@ -245,7 +246,7 @@ async function fetchJobListings() {
         title: id.title,
         locationRaw: posting.locationsText || id.location || '',
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -406,7 +407,7 @@ export async function fetchAllCslBehringJobs() {
       sector: 'Biotech / Farmaceutico',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: info })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

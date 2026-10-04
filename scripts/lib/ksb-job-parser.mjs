@@ -24,6 +24,7 @@
  *   - isTrustedDomain() — Validate URLs belong to KSB / Workday tenant
  *   - KSB_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -32,7 +33,7 @@ import {
   fetchWorkdayJobs,
   fetchWorkdayJobDetailParts,
   fetchWorkdaySidebarText,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
@@ -149,7 +150,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
         timeType: posting.timeType || '',
@@ -267,7 +268,7 @@ export async function fetchAllKsbJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
