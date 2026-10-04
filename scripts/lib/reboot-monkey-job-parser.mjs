@@ -18,6 +18,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -275,9 +276,8 @@ export async function fetchAllRebootMonkeyJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} reboot-monkey ${city || 'ch'}`);
 
-    const postedDate = listing.created_at
-      ? listing.created_at.slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    // API creation is not evidence of the vacancy's public release.
+    const publication = sourcePostingDateFields();
 
     const apiEmploymentType = listing.employment_type || '';
 
@@ -311,7 +311,7 @@ export async function fetchAllRebootMonkeyJobs() {
       sector: 'Tecnologia / Data Center',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: listing.careers_apply_url || publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },

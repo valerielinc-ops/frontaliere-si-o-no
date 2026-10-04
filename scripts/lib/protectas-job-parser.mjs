@@ -7,6 +7,8 @@
  * Protectas also publishes cyber/security-technology roles; importing those
  * into the same source would make the physical-security landing ambiguous.
  */
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, fetchJson, slugify, stripHtml } from './crawler-template.mjs';
@@ -610,6 +612,43 @@ function isSwissLocation(location) {
   return !country || SWISS_COUNTRIES.has(country) || country === 'ch';
 }
 
+/** Publication belongs to one identified vacancy, not an adjacent schema record. */
+function extractProtectasPublication(html, detailUrl, semanticTitle) {
+  if (!detailUrl) return sourcePostingDateCandidatesFields([]);
+  const sameTitle = (value) => normalizeSpace(decodeHtml(stripHtml(value || ''))).toLowerCase() === normalizeSpace(semanticTitle).toLowerCase();
+  const sameUrl = (value) => {
+    try { return new URL(value, detailUrl).href === new URL(detailUrl).href; } catch { return false; }
+  };
+  const postings = extractJobPostingsLd(html);
+  const matching = semanticTitle ? postings.filter((posting) => {
+    const identities = [posting.url, posting.sameAs].flat(Infinity).filter((value) => value != null && value !== '');
+    return sameTitle(posting.title) && (identities.length ? identities.every(sameUrl) : postings.length === 1);
+  }) : [];
+
+  // Microdata may provide a valid fallback independently of malformed JSON-LD.
+  // Only the sole JobPosting scope containing the page heading is eligible.
+  const tags = scanHtmlTags(html);
+  const scopes = tags.map((tag, index) => ({ tag, index })).filter(({ tag }) => !tag.closing && readAttr(tag.raw, 'itemtype').split(/\s+/).some((type) => /\/JobPosting$/.test(type)));
+  let microDate = '';
+  if (semanticTitle && scopes.length === 1) {
+    const scope = extractElementInnerHtml(html, tags, scopes[0].index);
+    const heading = stripHtml(scope.match(/<h1\b[^>]*>[\s\S]*?<\/h1>/i)?.[0] || '');
+    const scopeTags = scanHtmlTags(scope);
+    const nestedEntities = scopeTags.flatMap((tag, index) => !tag.closing && /\bitemscope(?:\s|=|>)/i.test(tag.raw)
+      ? [{ start: tag.index, end: tag.end + extractElementInnerHtml(scope, scopeTags, index).length }] : []);
+    const ownTags = scopeTags.filter((tag) => !tag.closing && !nestedEntities.some((entity) => tag.index >= entity.start && tag.index < entity.end));
+    const identityTags = ownTags.filter((tag) => readAttr(tag.raw, 'itemprop').split(/\s+/).some((prop) => prop === 'url' || prop === 'sameAs'));
+    const itemId = decodeHtml(readAttr(scopes[0].tag.raw, 'itemid'));
+    const identities = [...(itemId ? [itemId] : []), ...identityTags.map((tag) => decodeHtml(readAttr(tag.raw, ['href', 'content', 'value'])))];
+    const dates = ownTags.filter((tag) => readAttr(tag.raw, 'itemprop').split(/\s+/).includes('datePosted'));
+    if (heading && sameTitle(heading) && identities.every((value) => value && sameUrl(value)) && dates.length === 1) {
+      microDate = decodeHtml(readAttr(dates[0].raw, ['content', 'value', 'datetime']))
+        || stripHtml(extractElementInnerHtml(scope, scopeTags, scopeTags.indexOf(dates[0])));
+    }
+  }
+  return sourcePostingDateCandidatesFields([matching.length === 1 ? matching[0].datePosted : '', microDate]);
+}
+
 /** Parse and validate one official Protectas vacancy detail page. */
 export function parseProtectasJobDetail(html = '', detailUrl = '') {
   const jsonLd = parseProtectasJobPostingJsonLd(html);
@@ -642,6 +681,7 @@ export function parseProtectasJobDetail(html = '', detailUrl = '') {
   const locationLabel = [location.locality, location.region].filter(Boolean).join(', ')
     || [location.postalCode, location.country].filter(Boolean).join(' ');
   const requirements = extractRequirements(jsonLd || {});
+  const publication = extractProtectasPublication(html, publicUrl === detailUrl ? detailUrl : '', semanticTitle);
   return {
     title,
     description,
@@ -654,7 +694,8 @@ export function parseProtectasJobDetail(html = '', detailUrl = '') {
     addressCountry: location.country || 'CH',
     postalCode: location.postalCode,
     streetAddress: location.streetAddress,
-    postedAt: normalizeSpace(jsonLd?.datePosted || extractItemPropText(html, 'datePosted')).slice(0, 10),
+    ...publication,
+    postedAt: publication.postedDate,
     validThrough: normalizeSpace(jsonLd?.validThrough || extractItemPropText(html, 'validThrough')).slice(0, 10),
     employmentType: detectEmploymentType(
       jsonLd?.employmentType || extractItemPropText(html, 'employmentType') || `${title} ${description}`,
@@ -680,7 +721,7 @@ function toParsedJob(detail) {
   const jobSlug = slugify(`${detail.title} ${detail.location} protectas ch`);
   const urlHash = createHash('sha1').update(detail.publicUrl).digest('hex').slice(0, 12);
   const description = detail.description;
-  const postedDate = detail.postedAt || new Date().toISOString().slice(0, 10);
+  const publication = mergeSourcePostingDates({}, detail);
 
   return {
     id: `protectas-${urlHash}`,
@@ -714,7 +755,7 @@ function toParsedJob(detail) {
     sector: 'Sicurezza fisica',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...publication,
     ...(detail.validThrough ? { validThrough: detail.validThrough } : {}),
     applyUrl: detail.publicUrl,
     requirements: detail.requirements,
