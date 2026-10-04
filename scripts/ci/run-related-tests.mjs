@@ -146,6 +146,12 @@ const sourceTreeLintTests = new Map([
   ['tests/listing-url-fallback-audit.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
   // Legge sia i parser sia gli `update-*-jobs.mjs` al primo livello di scripts/.
   ['tests/bespoke-crawler-slug-boundary.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/[^/]+-job-parser\.mjs)$/],
+  // Il ratchet a due lati dei runner senza contatori conta gli
+  // `update-*-jobs.mjs` leggendoli da disco (piu' il template, letto per
+  // testo): il diff che strumenta, aggiunge o toglie un runner non tocca nessun
+  // import del test. Senza questa voce il budget restava stantio sulla PR che
+  // cambia il conteggio e il rosso `RATCHET STALE` cadeva sulla PR successiva.
+  ['tests/crawler-zero-path-contract.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/crawler-template\.mjs)$/],
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],

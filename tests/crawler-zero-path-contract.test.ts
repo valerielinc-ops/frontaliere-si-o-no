@@ -71,7 +71,8 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // pass in silence (the class behind the anonymous interroll receipt).
     expect(
       offenders.length,
-      `RATCHET STALE: a runner was instrumented. Lower TWO_ARGUMENT_GUARD_BUDGET to ${offenders.length} in this same PR.`,
+      `RATCHET STALE: the count fell below the budget (a runner was instrumented or removed). `
+        + `Lower TWO_ARGUMENT_GUARD_BUDGET to ${offenders.length} in this same PR. Offenders: ${offenders.join(', ')}`,
     ).toBeGreaterThanOrEqual(TWO_ARGUMENT_GUARD_BUDGET);
   });
 
@@ -96,7 +97,8 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     ).toBeLessThanOrEqual(NO_ABORT_KIND_BUDGET);
     expect(
       offenders.length,
-      `RATCHET STALE: a runner now names its bail-out. Lower NO_ABORT_KIND_BUDGET to ${offenders.length} in this same PR.`,
+      `RATCHET STALE: the count fell below the budget (a runner now names its bail-out or was removed). `
+        + `Lower NO_ABORT_KIND_BUDGET to ${offenders.length} in this same PR. Offenders: ${offenders.join(', ')}`,
     ).toBeGreaterThanOrEqual(NO_ABORT_KIND_BUDGET);
   });
 });
