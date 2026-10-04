@@ -745,6 +745,44 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(names[finalize + 1]).toBe('Upload thinking A/B rows');
   });
 
+  it('un path .github costruito a segmenti seleziona il lettore, un commento no', () => {
+    // Fixture costruita qui con un runner variante: nessun path sotto radici
+    // vive di dati. `path.join(ROOT, '.github', 'workflows')` non contiene il
+    // letterale `.github/workflows`, ma e' la stessa dipendenza.
+    const dir = createRunnerVariant(fs.readFileSync(RUNNER, 'utf8'));
+    try {
+      const files: Record<string, string> = {
+        '.github/workflows/fixture-new.yml': 'name: fixture\n',
+        'tests/segmented-reader.test.ts':
+          "import path from 'node:path';\nexport const d = path.join(ROOT, '.github', 'workflows');\n",
+        'tests/segmented-file-reader.test.ts':
+          "export const f = path.resolve(__dirname, '..', '.github', 'workflows', 'fixture-new.yml');\n",
+        'tests/commented-reader.test.ts':
+          "// path.join(ROOT, '.github', 'workflows')\n/* path.join(ROOT, '.github', 'workflows') */\nexport {};\n",
+        'tests/other-segments.test.ts': "export const f = path.join(ROOT, '.github', 'actions');\n",
+      };
+      for (const [file, content] of Object.entries(files)) {
+        fs.mkdirSync(path.dirname(path.join(dir, file)), { recursive: true });
+        fs.writeFileSync(path.join(dir, file), content);
+      }
+      execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: dir });
+      execFileSync('git', ['config', 'user.email', 'test@example.invalid'], { cwd: dir });
+      execFileSync('git', ['config', 'user.name', 'related-selection-test'], { cwd: dir });
+      execFileSync('git', ['add', '.'], { cwd: dir });
+      execFileSync('git', ['commit', '-qm', 'segmented fixture'], { cwd: dir });
+      const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }).trim();
+      execFileSync('git', ['update-ref', 'refs/remotes/origin/main', base], { cwd: dir });
+
+      const { stdout } = runSelectionInFixture(dir, dir, ['.github/workflows/fixture-new.yml'], 'segmented');
+      expect(stdout).toContain('tests/segmented-reader.test.ts');
+      expect(stdout).toContain('tests/segmented-file-reader.test.ts');
+      expect(stdout).not.toContain('tests/commented-reader.test.ts');
+      expect(stdout).not.toContain('tests/other-segments.test.ts');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
   it('una cache costruita su un altro insieme di asset non viene riusata', () => {
     // Il caso reale: si AGGIUNGE un workflow. I sorgenti che lo nominano per
     // directory non cambiano firma, quindi senza l'insieme degli asset nella
