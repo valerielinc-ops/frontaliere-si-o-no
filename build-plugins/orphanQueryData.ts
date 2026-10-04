@@ -297,7 +297,7 @@ function matchesClusterFacts(
 interface JobMatchEntry {
   /** normalizeTokens(location) + normalizeTokens(addressLocality), de-duped. */
   locTokens?: string[];
-  /** firstParsableMs(postedDate, datePosted) — the sort key, locale-invariant. */
+  /** Verified publication timestamp (or zero), locale-invariant. */
   postedMs: number;
   activeByLocale: Partial<Record<OrphanLandingLocale, boolean>>;
   titleTokensByLocale: Partial<Record<OrphanLandingLocale, string[]>>;
@@ -397,15 +397,9 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
     matched.push(i);
   }
 
-  // First *parsable* date (not first truthy): a malformed `postedDate`
-  // ("30/05/26") is truthy and sorts lexically above ISO strings, floating a
-  // stale job to the top of the slice and pushing a fresh one out of the
-  // indexed list. See firstParsableMs.
-  //
-  // `postedMs` is precomputed per job, so the comparator sees exactly the
-  // values the old inline `firstParsableMs(...)` calls returned. Array#sort is
-  // stable (V8 TimSort) and the input is in the same order as before, so equal
-  // timestamps keep the same relative order the old `matches.sort` produced.
+  // Only verified publication dates enter the precomputed sort key. Unknown,
+  // unmarked and invalid dates use zero and retain input order under stable sort.
+  // Sort before applying the limit so verified recent jobs are not displaced.
   matched.sort((a, b) => index.entries[b].postedMs - index.entries[a].postedMs);
 
   const out: T[] = [];
