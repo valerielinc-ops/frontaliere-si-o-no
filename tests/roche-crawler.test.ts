@@ -86,6 +86,25 @@ describe('Roche crawler parser', () => {
     expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
   });
 
+  it('skips a Swiss vacancy whose detail has no body and never emits a Key details stub', async () => {
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      yield {
+        title: 'Clinical Research Associate',
+        location: 'Basel',
+        externalPath: '/job/Basel/Clinical-Research-Associate_JR3',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Clinical-Research-Associate_JR3',
+        jobReqId: 'JR3',
+      };
+    });
+    mocks.fetchWorkdayJobDetailParts.mockResolvedValueOnce({ text: '', info: {} });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs).toEqual([]);
+    expect(JSON.stringify(jobs)).not.toContain('Key details');
+    expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
+  });
+
   // Issue 9842: an empty listing location is an `N Locations` roll-up. The
   // Basel HQ used to fill it, publishing reqs worked in Warsaw (56 slice rows),
   // Shanghai or Madrid as `Basel/BS`. Only the req's own primary may place it.
