@@ -723,13 +723,28 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     || firstEventImageUrlFromHtml(detailHtml, detailUrl || SITE_ORIGIN);
   // A structured JSON-LD price wins over any tariff text, whichever locale
   // variant published it; text is kept only when no structured value exists.
+  const detailOfferMetadata = extractEventOfferMetadata(detailLd?.offers, detailUrl || SITE_ORIGIN);
   const priceCandidates = [
-    extractPrice(detailLd, detailHtml, detailUrl),
-    detailPrice,
-    ...LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)),
+    // extractPrice() and detailPrice already carry the Offer metadata from the
+    // page that produced their value. Keep that pairing intact when a later
+    // locale supplies the structured price.
+    { price: extractPrice(detailLd, detailHtml, detailUrl) },
+    { price: detailPrice },
+    // Indexed/text prices have no Offer of their own, so retain the primary
+    // page's unpriced booking metadata only for those fallback candidates.
+    ...LOCALES.map((locale) => ({
+      price: extractIndexedEventPrice(perLocaleHits[locale]?.content),
+      offerMetadata: detailOfferMetadata,
+    })),
   ];
-  const price = priceCandidates.find(hasConfidentPrice) || priceCandidates.find(hasParsedPrice);
-  const offerMetadata = extractEventOfferMetadata(detailLd?.offers, detailUrl || SITE_ORIGIN);
+  const selectedPriceCandidate = priceCandidates.find(({ price: candidate }) => hasConfidentPrice(candidate))
+    || priceCandidates.find(({ price: candidate }) => hasParsedPrice(candidate));
+  const selectedPrice = selectedPriceCandidate?.price;
+  const selectedOfferMetadata = selectedPriceCandidate?.offerMetadata
+    || (!selectedPriceCandidate ? detailOfferMetadata : undefined);
+  const price = selectedPrice || selectedOfferMetadata
+    ? { ...selectedOfferMetadata, ...selectedPrice }
+    : undefined;
 
   return {
     event: fillEventPeopleDefaults({
@@ -748,7 +763,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: price || offerMetadata ? { ...offerMetadata, ...price } : undefined,
+      price,
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,

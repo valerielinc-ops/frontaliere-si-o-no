@@ -979,6 +979,29 @@ describe('mapEventRecord', () => {
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');
   });
 
+  it('keeps secondary-locale structured Offer metadata atomic with its price', () => {
+    const secondaryPrice = {
+      amount: 35,
+      currency: 'CHF',
+      isFree: false,
+      priceSource: 'myswitzerland',
+      priceField: 'offers.price',
+      url: 'https://secondary.example/tickets',
+    };
+    const mapped = mapEventRecord('mixed-offer123', { it: hitIt }, {
+      detailUrl: 'https://primary.example/event',
+      detailLd: {
+        offers: {
+          url: 'https://primary.example/tickets',
+          availability: 'https://schema.org/SoldOut',
+          validFrom: '2026-01-01T00:00:00Z',
+        },
+      },
+      detailPrice: secondaryPrice,
+    });
+    expect(mapped?.event.price).toEqual(secondaryPrice);
+  });
+
   it('keeps source organizer/performer and falls back to detail-page image/price metadata', () => {
     const mapped = mapEventRecord(
       'metadata123',
