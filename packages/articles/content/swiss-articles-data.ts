@@ -23076,6 +23076,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-auto-zurigo-pagamento',
+    category: 'fiscale',
+    date: '2026-10-04T15:14:54.836Z',
+    image: '/images/blog/imposta-auto-zurigo-pagamento.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
