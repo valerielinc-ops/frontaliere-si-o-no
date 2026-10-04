@@ -132,6 +132,19 @@ const sourceTreeLintTests = new Map([
   // che li rilegge. Sulla PR 11001 un diff del solo registry e' passato verde e
   // l'observer del lifecycle e' caduto al cron dopo (issue 11178).
   ['tests/loop-fleet-registry-ledger-replay.test.ts', /^(?:data\/loop-fleet\/|scripts\/lib\/loop-fleet-contract\.mjs$)/],
+  // Il gate di famiglia j2w scopre i parser leggendo da disco ogni `.mjs` sotto
+  // `scripts/lib/`, ricorsivo: un modulo nuovo non e' importato dal test e il
+  // grafo inverso non lo collega. La PR 11308 ha aggiunto un registro che
+  // il predicato eleggeva ed e' passata verde; il rosso e' emerso sulla 11346,
+  // che toccava per caso un import del test. Il perimetro e' quello dello scan.
+  ['tests/successfactors-parser-quality.test.ts', /^scripts\/lib\/.+\.mjs$/],
+  // Stessa forma, altri gate che eleggono la loro popolazione leggendo
+  // `scripts/lib/` da disco: ognuno col perimetro del proprio scan.
+  ['tests/successfactors-jobs2web-widget-guard.test.ts', /^scripts\/lib\/[^/]+\.mjs$/],
+  ['tests/prospective-ch-shared-parser-contract.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/sanitize-control-chars.test.ts', /^scripts\/lib\/.+\.(?:mjs|cjs|js)$/],
+  ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
+  ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
