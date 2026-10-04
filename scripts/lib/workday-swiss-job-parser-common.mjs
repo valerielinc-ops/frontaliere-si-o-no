@@ -130,6 +130,7 @@ export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swi
 export const WORKDAY_COUNTRY_FACET_PARAMETERS = Object.freeze([
   'locationCountry', // the default, accepted 2026-10-04 by Georg Fischer, Medtronic, Siemens Healthineers, Sulzer, Trafigura
   'Country', // Imerys, KONE
+  'Location', // Vontobel
   'Location_Country', // Ferring (no Swiss value: the zero is proven on it)
   'alocationCountry', // Galderma
 ]);

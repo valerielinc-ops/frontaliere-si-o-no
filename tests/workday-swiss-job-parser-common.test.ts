@@ -1541,6 +1541,12 @@ describe('discoverWorkdayCountryFacet', () => {
     expect(discoverWorkdayCountryFacet({ total: 9, postingCount: 9, facets: [] }, { rejectedParameter: 'locationCountry' })).toBeNull();
   });
 
+  it('uses a known Location facet when its board has no Swiss value', () => {
+    expect(discoverWorkdayCountryFacet({ facets: [
+      { facetParameter: 'Location', values: [leaf('DE', 'Germany')] },
+    ] }, { rejectedParameter: 'locationCountry' })).toEqual({ facetParameter: 'Location', reason: 'known-name' });
+  });
+
   it('keeps facet groups out of the closed list of country-facet names', () => {
     expect(WORKDAY_COUNTRY_FACET_PARAMETERS).not.toContain('locationMainGroup');
     expect(WORKDAY_COUNTRY_FACET_PARAMETERS).toContain('locationCountry');
