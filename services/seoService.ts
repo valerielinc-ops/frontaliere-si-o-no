@@ -1,3 +1,4 @@
+import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
 import { buildCorrezioniSeo } from './seo/seo-correzioni';
 import { localizeArticlePageIdentity } from './seo/article-page-identity';
 /**
@@ -974,7 +975,8 @@ let _landingChunkCache: Record<string, SEOMetadata> | null = null;
 async function loadPagesSeoChunk(): Promise<Record<string, SEOMetadata>> {
  if (_pagesChunkCache) return _pagesChunkCache;
  const { default: entries } = await retryImport(() => import('./seo/seo-pages'), 'pages');
- _pagesChunkCache = withSpeakable(entries);
+ _pagesChunkCache = withSpeakable(Object.fromEntries(Object.entries(entries).map(([key, entry]) =>
+   [key, resolveAuthorProfileMetadata(key, 'it') ?? entry])));
  return _pagesChunkCache;
 }
 
@@ -1750,7 +1752,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  loadSerpExperimentState();
  const sectionKey = section.startsWith('jobboard-') ? 'jobboard' : section;
 
- const metadata = pharmacyMetadata ?? await getSeoEntry(sectionKey);
+ const authorMetadata = resolveAuthorProfileMetadata(sectionKey, pathLocale);
+ const metadata: SEOMetadata = pharmacyMetadata ?? authorMetadata ?? await getSeoEntry(sectionKey);
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  if (getLocale() !== pathLocale) {
   setLocale(pathLocale);
@@ -1830,7 +1833,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  const localizedSeoContent = pharmacyMetadata
  ? pharmacyMetadata
- : glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
+ : authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',
@@ -2089,7 +2092,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (hasLocalizedExcerpt && typeof clone.description === 'string') clone.description = metaDescription;
  if (hasLocalizedImageAlt && clone.image && typeof clone.image === 'object') clone.image.caption = localizedImageAlt;
  }
- if (!isBlogArticle && !isEditorialEntity) {
+ if (!isBlogArticle && !isEditorialEntity && !authorMetadata) {
  if (typeof clone.name === 'string') clone.name = metaOgTitle.replace(' | Frontaliere Ticino', '');
  if (typeof clone.headline === 'string') clone.headline = metaOgTitle;
  if (typeof clone.description === 'string') clone.description = metaDescription;

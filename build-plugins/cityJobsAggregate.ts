@@ -241,13 +241,13 @@ function toFeatured(
   };
 }
 
-function sortByFreshness(records: readonly JobRecord[]): JobRecord[] {
+function sortByFreshness(records: readonly JobRecord[], now: number): JobRecord[] {
   return [...records].sort((a, b) => {
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(a.postedDate, a.firstSeenAt);
-    const bTs = firstParsableMs(b.postedDate, b.firstSeenAt);
+    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
+    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
     return bTs - aTs;
   });
 }
@@ -265,7 +265,7 @@ function buildSnapshotForCity(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
     if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
@@ -287,7 +287,7 @@ function buildSnapshotForCity(
   // (Ticino) — this protects small cities (Chiasso, Locarno) on weeks when
   // `data/jobs.json` thins out, so the page never collapses to the empty
   // state if there's at least one TI opening anywhere.
-  const sortedStrict = sortByFreshness(matches);
+  const sortedStrict = sortByFreshness(matches, now);
   const featured: CityFeaturedJob[] = [];
   const usedIds = new Set<string>();
   for (const job of sortedStrict) {
@@ -306,7 +306,7 @@ function buildSnapshotForCity(
         cantonPool.push(job);
       }
     }
-    const sortedCanton = sortByFreshness(cantonPool);
+    const sortedCanton = sortByFreshness(cantonPool, now);
     for (const job of sortedCanton) {
       if (featured.length >= FEATURED_TARGET) break;
       if (!job.id || usedIds.has(job.id)) continue;

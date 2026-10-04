@@ -18,6 +18,7 @@
  *   5. Runs base crawler for AI localization (4 locales)
  *   6. Post-processes and validates locale coverage
  */
+import { workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -669,7 +670,7 @@ export async function fetchCapriHoldingsJobs() {
       ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
       category: detectCategory(title),
-      datePosted: info.startDate || new Date().toISOString().split('T')[0],
+      ...workdayPostingDateFields(detail),
       source: 'capri-holdings-workday-crawler',
       employmentType: detectEmploymentType(info.timeType || ''),
       experienceLevel: detectExperienceLevel(title),
