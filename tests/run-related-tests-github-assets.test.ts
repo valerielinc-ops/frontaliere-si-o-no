@@ -133,6 +133,7 @@ function createRunnerVariant(source: string) {
     'corpus-wide-tests.mjs',
     'dataset-dependent-tests.mjs',
     'scan-site-hardcoded-secrets.mjs',
+    'corpus-ahead-check.mjs',
   ]) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci', file), path.join(ciDir, file));
   }
@@ -415,6 +416,26 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // `build-plugins/` non e' nella lista ne' nella chiusura: non lo seleziona.
     expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(housekeeping);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(housekeeping);
+
+    // PR 10973 -> 11299: `build-plugins/borderWaitData.ts` e' nel manifest del
+    // transport e ha preso un import non consegnato. Il test di chiusura legge
+    // il manifest da disco, quindi solo il perimetro del manifest lo seleziona.
+    const closure = 'tests/mirror-transport-import-closure.test.ts';
+    expect(selectionFor(['build-plugins/borderWaitData.ts'])).toContain(closure);
+    expect(selectionFor(['.github/transport/nanako-generator-manifest.txt'])).toContain(closure);
+    // Glob `scripts/lib/discovery/**` espanso contro l'albero, come nel guard.
+    expect(selectionFor(['scripts/lib/discovery/discoveryScore.mjs'])).toContain(closure);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(closure);
+
+    // PR 11001 -> issue 11178: un diff del solo registry dei loop ha cambiato
+    // i sourceRefs di L5 e reso illeggibile il ledger durevole. Registry e
+    // ledger sono dati: solo il perimetro `data/loop-fleet/` (piu' il
+    // validatore) seleziona il replay che li rilegge.
+    const replay = 'tests/loop-fleet-registry-ledger-replay.test.ts';
+    expect(selectionFor(['data/loop-fleet/loop-registry.json'])).toContain(replay);
+    expect(selectionFor(['data/loop-fleet/ledger/lifecycle-events.jsonl'])).toContain(replay);
+    expect(selectionFor(['scripts/lib/loop-fleet-contract.mjs'])).toContain(replay);
+    expect(selectionFor(['data/crawler-group-assignments.json'])).not.toContain(replay);
   }, 120_000);
 
   it('un modulo della chiusura del finalizer crawler seleziona il test del generatore', () => {
@@ -432,6 +453,35 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(generatorTest);
   }, 120_000);
 
+  it('un modulo nuovo sotto scripts/lib seleziona i gate che eleggono la famiglia da disco', () => {
+    // PR 11308: `scripts/lib/crawler-empty-ok-registry.mjs`, nuovo, era eletto
+    // dal gate di famiglia j2w, che legge `scripts/lib/` per directory e non
+    // importa il modulo. Il diff non lo selezionava e il rosso e' emerso sulla
+    // 11346, che toccava per caso un import del test. Il path qui non esiste:
+    // e' proprio il modulo che nessun grafo conosce ancora.
+    const j2wFamily = 'tests/successfactors-parser-quality.test.ts';
+    const flat = selectionFor(['scripts/lib/future-j2w-tenant-job-parser.mjs']);
+    expect(flat).toContain(j2wFamily);
+    expect(flat).toContain('tests/successfactors-jobs2web-widget-guard.test.ts');
+    expect(flat).toContain('tests/prospective-ch-shared-parser-contract.test.ts');
+    expect(flat).toContain('tests/sanitize-control-chars.test.ts');
+    expect(flat).toContain('tests/score-ledger-persistence.test.ts');
+    expect(flat).toContain('tests/crawler-brand-domain-pairing.test.ts');
+    expect(flat).toContain('tests/listing-url-fallback-audit.test.ts');
+    expect(flat).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    expect(flat).toContain('tests/undici-dispatcher-fetch-pairing.test.ts');
+    expect(flat).toContain('tests/is-invoked-directly.test.ts');
+    expect(flat).toContain('tests/translation-protected-tokens.test.ts');
+    expect(flat).toContain('tests/slug-write-encapsulation.test.ts');
+    // Gli scan che leggono anche fuori da scripts/lib.
+    expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    expect(selectionFor(['scripts/publish-article-fast.mjs'])).toContain('tests/sanitize-control-chars.test.ts');
+    // Lo scan j2w e' ricorsivo: un parser in una sottocartella non sfugge.
+    expect(selectionFor(['scripts/lib/tenants/future-job-parser.mjs'])).toContain(j2wFamily);
+    expect(selectionFor(['scripts/lib/future-driver.sh'])).toContain('tests/bounded-parallel.test.ts');
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(j2wFamily);
+  }, 120_000);
+
   it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
     // PR 10336: una chiave Google Maps di terzi dentro una fixture HTML di
     // `tests/fixtures/`. Il gate la riconosceva, ma un `.html` non è né un
@@ -444,6 +494,17 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // che lo scanner esclude non paga la scansione dell'albero.
     expect(selectionFor(['public/x.svg'])).toEqual([]);
     expect(selectionFor(['package-lock.json'])).toEqual([]);
+  }, 120_000);
+
+  it('un modulo della chiusura dell\'observer crawler seleziona il test del suo workflow', () => {
+    // PR 11262: un import nuovo in crawler-grace-policy.mjs e' uscito dalla
+    // lista sparse dell'observer delle generazioni crawler, ma il test che la
+    // confronta con la chiusura reale non e' girato e main e' rimasto rosso.
+    const observerWorkflow = 'tests/crawler-generation-observer-workflow.test.ts';
+    expect(selectionFor(['scripts/lib/crawler-grace-policy.mjs'])).toContain(observerWorkflow);
+    expect(selectionFor(['functions/src/githubApiHeaders.js'])).toContain(observerWorkflow);
+    expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(observerWorkflow);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
   }, 120_000);
 
   it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {

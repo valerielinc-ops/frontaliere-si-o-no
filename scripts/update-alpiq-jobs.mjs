@@ -6,6 +6,7 @@
  * Alpiq is a major Swiss energy company with hydropower operations in Switzerland.
  * This crawler fetches all pages of listings and filters for Swiss jobs only.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -197,7 +198,7 @@ async function main() {
       addressCountry: 'CH',
       employmentType: inferEmploymentType(raw.title, raw.description || '', raw.percentage || ''),
       category: 'energy', contract: raw.contractType === 'Temporary' ? 'temporary' : 'full-time',
-      currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
+      currency: 'CHF', featured: false, ...sourcePostingDateFields(''),
       url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     };
   });

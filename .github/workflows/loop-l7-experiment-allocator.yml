@@ -8,6 +8,7 @@ on:
     paths:
       - 'data/experimental-candidates.json'
       - 'data/experiment-outcomes.json'
+      - 'data/experiments/active-experiments.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-l7-experiment-outcomes.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
@@ -26,6 +27,7 @@ on:
     paths:
       - 'data/experimental-candidates.json'
       - 'data/experiment-outcomes.json'
+      - 'data/experiments/active-experiments.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-l7-experiment-outcomes.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
@@ -68,6 +70,7 @@ jobs:
           sparse-checkout: |
             /data/experimental-candidates.json
             /data/experiment-outcomes.json
+            /data/experiments/active-experiments.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/export-l7-experiment-outcomes.mjs
             /scripts/ci/export-loop-outcomes.mjs

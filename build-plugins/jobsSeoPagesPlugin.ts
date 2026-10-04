@@ -1,4 +1,5 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -35,6 +36,7 @@ import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventor
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
+import { keywordPageMatcher } from '../scripts/lib/keyword-page-match.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { hostFromUrl } from './shared/hostFromUrl';
@@ -5331,6 +5333,7 @@ ${companyFollowHtml}
      company: string;
      location: string;
      href: string;
+     postingDateSource?: string;
      datePosted?: string;
      titleByLocale?: Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
      companyKey?: string;
@@ -5363,6 +5366,7 @@ ${companyFollowHtml}
          featured: item.featured,
          logo: item.logo,
          addressLocality: item.addressLocality,
+         postingDateSource: item.postingDateSource,
          datePosted: item.datePosted,
          companyDomain: item.companyDomain,
          url: item.url,
@@ -8589,7 +8593,9 @@ ${staticAnalyticsHtml}
  const sFreshCount = sJobs.filter((j: any) => {
  // First PARSEABLE date, not first truthy: a malformed postedDate must not
  // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
- const t = firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
+ const t = hasPostingDateProvenance(j)
+ ? firstParsableMs(resolveReportedPostingDate(j))
+ : firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
  return t >= sectorFreshCutoff && t <= sectorFreshMax;
  }).length;
  const intro = (() => {
@@ -9490,21 +9496,18 @@ ${staticAnalyticsHtml}
  for (const kwPage of kwPages) {
  const kwSlug = String(kwPage.slug || '').trim();
  const kwFilterWords: string[] = Array.isArray(kwPage.filterKeywords) ? kwPage.filterKeywords : [];
- if (!kwSlug || kwFilterWords.length === 0) continue;
+ if (!kwSlug || (kwFilterWords.length === 0 && kwPage.professionMatch !== true)) continue;
  const itCopy = kwPage.copy?.it;
  if (!itCopy) continue;
  // Match jobs where ALL filter keywords appear in title/description/company/location,
  // scoped to THIS locale's own translation — never blended across all 4 locales.
  // A mistranslated title in one locale must not leak a job into (or out of)
  // another locale's keyword-landing membership (#4715).
- const kwMatchesLocale = (j: any, locale: string): boolean => {
- const haystack = [
- String(j?.titleByLocale?.[locale] || j.title || ''),
- String(j?.descriptionByLocale?.[locale] || j.description || ''),
- String(j.company || ''), String(j.location || ''),
- ].join(' ').toLowerCase();
- return kwFilterWords.every((kw: string) => haystack.includes(kw));
- };
+ // Profession pages (`professionMatch: true` + `professionId`) match with the
+ // taxonomy matcher on this locale's title instead — the SAME function the
+ // weekly digest counts promotion with (scripts/lib/keyword-page-match.mjs,
+ // #7915), so the page lists exactly the ads the digest promised.
+ const kwMatchesLocale = keywordPageMatcher(kwPage);
  // ── Cross-locale eligibility, decided BEFORE any locale is written ──
  //
  // The floor below is evaluated against THIS locale's own translations

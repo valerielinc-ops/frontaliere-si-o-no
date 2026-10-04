@@ -43,6 +43,7 @@
  * The detail pages are fully SSR with schema.org/JobPosting JSON-LD,
  * so the base crawler's extractJsonLdBlocks() parses them correctly.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -319,12 +320,6 @@ function cantonLabel(canton = '') {
   return canton || '';
 }
 
-function dateOnly(raw = '') {
-  const dt = new Date(raw || Date.now());
-  if (Number.isNaN(dt.getTime())) return new Date().toISOString().slice(0, 10);
-  return dt.toISOString().slice(0, 10);
-}
-
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const attrCanton = resolveCoopCantonCode(attr30, '', fallbackCanton);
@@ -351,9 +346,7 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
     ...(sourceReference ? { sourceReference } : {}),
-    ...(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt
-      ? { postedDate: dateOnly(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt) }
-      : {}),
+    ...sourcePostingDateFields(job?.datePosted || job?.publishedAt || job?.published_at || job?.date),
   };
 }
 

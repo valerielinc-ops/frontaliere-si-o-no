@@ -32,6 +32,7 @@
  * 6. Merges into data/jobs.json
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
@@ -249,7 +250,11 @@ function parseApiJob(j = {}) {
     description,
     applyUrl: szas.sza_apply_link || '',
     directLink: links.directlink || '',
-    startDate: j.start_date || '',
+    // Federal Prospective medium1000624 start_date is the publication instant:
+    // jobs.admin.ch detail c927355d-e225-479e-9c1b-fa450252ff02 declares
+    // JSON-LD datePosted2026-10-02 alongside API2026-10-01T22:00:00Z;
+    // the employment starts in March2027. Preserve the complete source instant.
+    ...sourcePostingDateFields(j.start_date),
     endDate: j.end_date || '',
     language: j.language || 'it',
     fieldOfActivity: szas.sza_field_of_activity || (attrs.taetigkeitsbereich || [])[0] || '',
@@ -532,7 +537,7 @@ function buildJob(row) {
     sector: 'Pubblica amministrazione',
     source: 'confederazione-dedicated-crawler',
     sourceLang,
-    postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
+    ...mergeSourcePostingDates({}, row),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: empType,
     contractType: empType,
@@ -692,6 +697,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prevTitles, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prevDescs, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prevSlugs, job.slugByLocale, 3),
@@ -725,7 +731,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

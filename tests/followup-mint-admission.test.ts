@@ -10,15 +10,21 @@
  * Il modulo usa lo stesso oracolo della chiusura (`detectAlreadyResolved`) e,
  * per ora, MISURA soltanto: l'item resta ammesso.
  */
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   DEMOTE_BORN_SATISFIED,
   MINT_OBSERVATIONS,
   acceptanceAlreadySatisfied,
   acceptanceIsDeclaration,
+  closedStateBullet,
   contentsApiIo,
   isSchedaOnlyItem,
   mintAdmission,
+  originalTextOf,
+  rewriteTargetFileField,
+  targetResolves,
 } from '../scripts/ci/lib/followup-mint-admission.mjs';
 import { parseFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
 
@@ -199,5 +205,207 @@ describe('contentsApiIo — il main del repository del bucket, non il disco', ()
       return fail('HTTP 404')();
     } });
     expect(mintAdmission(item, api)).toEqual(mintAdmission(item, fakeIo({ [TARGET]: content })));
+  });
+});
+
+// Titolo di fallimento: «Conio follow-up: item con bersaglio inesistente o da
+// bullet già chiuso». Sul bucket 10433, 36 item su 60 venivano da bullet che
+// `isCandidateItem()` dichiara chiusi («falso positivo», `per scelta`…); nei
+// bucket del 21-22-09 e 02-10, 4 `Target file` coniati nel bucket del sito
+// esistevano solo nel corpus, e `host/batchWrite.ts` sul sito si chiama
+// `build-plugins/batchWrite.ts`.
+describe('ammissione al conio — bullet già chiusi e bersagli', () => {
+  const FIXTURE = JSON.parse(readFileSync(
+    fileURLToPath(new URL('./fixtures/followup-mint/closed-bullets-10258-10289.json', import.meta.url)), 'utf-8',
+  )) as { closed: Array<{ pr: number; bullet: string }>; admitted: Array<{ pr: number; bullet: string }> };
+
+  const minted = (original: string, { target = TARGET, extra = [] as string[] } = {}) => parsed([
+    `### FU-${DAY}-003 — Item coniato da un bullet`,
+    '- State: open',
+    '- Sources: PR #10289; PR body `## Non implementato (ancora)`',
+    `- Target file: \`${target}\``,
+    '- Original text:',
+    `  > ${original}`,
+    `- Suggested action: aggiungi \`firstGuard()\` in \`${target}\``,
+    '- Acceptance token: `firstGuard()`',
+    ...extra,
+    '',
+  ].join('\n'));
+
+  it('le righe reali delle PR 10258 e 10289 → zero item ammessi, anche con l\'io che non risponde', () => {
+    expect(FIXTURE.closed.length).toBeGreaterThan(0);
+    const unknownIo = { status: () => 'unknown', fileExists: () => false, readFile: () => null };
+    for (const { bullet } of FIXTURE.closed) {
+      const item = minted(bullet);
+      expect(originalTextOf(item.text)).toBe(bullet);
+      expect(closedStateBullet(item)).toBe(true);
+      const verdict = mintAdmission(item, unknownIo);
+      expect(verdict.admit).toBe(false);
+      expect(verdict.demotion?.code).toBe(MINT_OBSERVATIONS.closedState);
+    }
+    // Controllo positivo: il bullet `blocked:` con causa tecnica resta lavoro.
+    for (const { bullet } of FIXTURE.admitted) {
+      expect(mintAdmission(minted(bullet), fakeIo({})).admit).toBe(true);
+    }
+  });
+
+  it('«non è un falso positivo, va sistemato» resta ammesso', () => {
+    const item = minted(`\`${TARGET}\` — non è un falso positivo, va sistemato: il controllo manca.`);
+    expect(closedStateBullet(item)).toBe(false);
+    expect(mintAdmission(item, fakeIo({})).admit).toBe(true);
+  });
+
+  it('un match lessicale hard-exclude («post-deploy», «deferred», «missing test») non è un bullet chiuso', () => {
+    for (const original of [
+      '🟡 the deferred import in scripts/x.mjs swallows errors',
+      'post-deploy: anche fixX() in scripts/x.mjs va corretto',
+      'missing test: il test tests/a.test.ts usa una data assoluta, da correggere',
+    ]) {
+      const item = minted(original);
+      expect(closedStateBullet(item)).toBe(false);
+      expect(mintAdmission(item, fakeIo({})).admit).toBe(true);
+    }
+  });
+
+  it('Original text in linea e in un fence si legge come quello citato', () => {
+    const closed = 'scripts/x.mjs — falso positivo: legge solo. **Motivo:** non tocca X. **Prossimo passo:** nessuna modifica.';
+    expect(originalTextOf(`- Original text: > ${closed}\n- Suggested action: x`)).toBe(closed);
+    expect(originalTextOf(`- Original text:\n\`\`\`\n${closed}\n- State: done\n\`\`\`\n- Suggested action: x`))
+      .toBe(`${closed} - State: done`);
+    expect(originalTextOf('- Suggested action: x')).toBe('');
+  });
+
+  const SITE = 'site' as const;
+  const manifest = [
+    { path: 'host/batchWrite.ts', sitePath: 'build-plugins/batchWrite.ts', mode: 'identical' },
+    { path: 'scripts/lib/corpus-floors.mjs', mode: 'corpus-only' },
+    { path: '.github/workflows/crawler-group-01.yml', sitePath: '.github/corpus-workflows/crawler-group-01.yml', mode: 'identical' },
+    { path: 'scripts/ci/shared.mjs', mode: 'identical' },
+  ];
+  const context = (here: Record<string, string>, twin: Record<string, string> = {}, files: unknown = manifest) => ({
+    side: SITE, manifestFiles: files, twinIo: fakeIo(twin), io: fakeIo(here),
+  });
+  const admit = (target: string, ctx: ReturnType<typeof context>, extra: string[] = []) => {
+    const { io, ...target_ } = ctx;
+    return mintAdmission(itemFor(target, extra), io, { target: target_ });
+  };
+  const itemFor = (target: string, extra: string[] = []) => parsed([
+    `### FU-${DAY}-004 — Bersaglio`,
+    '- State: open',
+    '- Sources: PR #9508',
+    `- Target file: \`${target}\``,
+    `- Suggested action: aggiungi \`firstGuard()\` in \`${target}\``,
+    '- Acceptance token: `firstGuard()`',
+    ...extra,
+    '',
+  ].join('\n'));
+
+  it('host/batchWrite.ts nel bucket del sito → riscritto a build-plugins/batchWrite.ts, ammesso, nessun «va coniato»', () => {
+    const verdict = admit('host/batchWrite.ts', context({ 'build-plugins/batchWrite.ts': 'export {}\n' }, { 'host/batchWrite.ts': 'x' }));
+    expect(verdict.admit).toBe(true);
+    expect(verdict.demotion).toBeUndefined();
+    expect(verdict.observed).toContain(MINT_OBSERVATIONS.targetRewritten);
+    expect(verdict.item?.text).toContain('- Target file: `build-plugins/batchWrite.ts`');
+    expect(verdict.item?.raw).toContain('- Target file: `build-plugins/batchWrite.ts`');
+    expect(verdict.item?.text).toContain('- Suggested action: aggiungi `firstGuard()` in `host/batchWrite.ts`');
+  });
+
+  it('engine/shared/x.mjs con packages/articles/engine/shared/x.mjs presente → riscritto', () => {
+    const verdict = admit('engine/shared/x.mjs', context({ 'packages/articles/engine/shared/x.mjs': 'x' }));
+    expect(verdict.admit).toBe(true);
+    expect(verdict.item?.text).toContain('- Target file: `packages/articles/engine/shared/x.mjs`');
+  });
+
+  it('file corpus-only nel bucket del sito → target-file-missing + target-in-twin, con la riga per il commento', () => {
+    const verdict = admit('scripts/lib/corpus-floors.mjs', context({}, { 'scripts/lib/corpus-floors.mjs': 'x' }));
+    expect(verdict.admit).toBe(false);
+    expect(verdict.demotion?.code).toBe(MINT_OBSERVATIONS.targetMissing);
+    expect(verdict.observed).toEqual([MINT_OBSERVATIONS.targetInTwin, MINT_OBSERVATIONS.targetMissing]);
+    expect(verdict.demotion?.detail).toContain('secondo il manifest va coniato in corpus come `scripts/lib/corpus-floors.mjs`');
+  });
+
+  it('manifest illeggibile → nessuna demozione per il bersaglio, admission-unknown', () => {
+    const verdict = admit('scripts/lib/corpus-floors.mjs', context({}, { 'scripts/lib/corpus-floors.mjs': 'x' }, null));
+    expect(verdict.admit).toBe(true);
+    expect(verdict.observed).toContain(MINT_OBSERVATIONS.unknown);
+    const lazy = admit('scripts/lib/corpus-floors.mjs', context({}, {}, () => null));
+    expect(lazy.admit).toBe(true);
+    expect(lazy.observed).toContain(MINT_OBSERVATIONS.unknown);
+  });
+
+  it('un workflow assente non viene mai riscritto verso .github/corpus-workflows', () => {
+    const renamed = admit('.github/workflows/crawler-group-01.yml',
+      context({ '.github/corpus-workflows/crawler-group-01.yml': 'on: push\n' }));
+    expect(renamed.admit).toBe(false);
+    expect(renamed.demotion?.code).toBe(MINT_OBSERVATIONS.targetMissing);
+    expect(renamed.item).toBeUndefined();
+    const nowhere = admit('.github/workflows/x.yml', context({}));
+    expect(nowhere.demotion?.code).toBe(MINT_OBSERVATIONS.targetMissing);
+    expect(nowhere.observed).not.toContain(MINT_OBSERVATIONS.targetInTwin);
+  });
+
+  it('file assente ovunque ma nominato dalla scheda COMANDO come referente futuro → ammesso', () => {
+    const verdict = admit('tests/new-guard.test.ts', context({}),
+      ['- METRICA: prima=0 atteso=1 | COMANDO: npx vitest run tests/new-guard.test.ts']);
+    expect(verdict.admit).toBe(true);
+    expect(admit('tests/new-guard.test.ts', context({})).admit).toBe(false);
+  });
+
+  it('COMANDO con ./ o ancora di riga nomina comunque il referente futuro', () => {
+    expect(admit('tests/new-guard.test.ts', context({}),
+      ['- METRICA: prima=0 atteso=1 | COMANDO: `npx vitest run ./tests/new-guard.test.ts`']).admit).toBe(true);
+  });
+
+  it('segnaposto senza path (n/a) e port corpus-only-pending verso il sito → nessuna demozione', () => {
+    expect(admit('n/a', context({})).admit).toBe(true);
+    const pending = [{ path: 'scripts/lib/ported.mjs', mode: 'corpus-only-pending' }];
+    const verdict = admit('scripts/lib/ported.mjs', context({}, { 'scripts/lib/ported.mjs': 'x' }, pending));
+    expect(verdict.admit).toBe(true);
+    expect(verdict.demotion).toBeUndefined();
+  });
+
+  it('il campo Target file indentato viene riscritto davvero, non solo annunciato', () => {
+    const item = parsed([
+      `### FU-${DAY}-005 — Bersaglio indentato`,
+      '- State: open',
+      '- Sources: PR #9508',
+      '  - Target file: `host/batchWrite.ts`',
+      '- Suggested action: aggiungi `firstGuard()` in `host/batchWrite.ts`',
+      '- Acceptance token: `firstGuard()`',
+      '',
+    ].join('\n'));
+    const { io, ...target } = context({ 'build-plugins/batchWrite.ts': 'x' });
+    const verdict = mintAdmission(item, io, { target });
+    expect(verdict.observed).toContain(MINT_OBSERVATIONS.targetRewritten);
+    expect(verdict.item?.text).toContain('  - Target file: `build-plugins/batchWrite.ts`');
+    expect(verdict.item?.text).not.toContain('Target file: `host/batchWrite.ts`');
+  });
+
+  it('bucket del corpus su un file identical → nessuna demozione, target-identical-in-corpus', () => {
+    const verdict = mintAdmission(itemFor('scripts/ci/shared.mjs'), fakeIo({ 'scripts/ci/shared.mjs': 'x' }),
+      { target: { side: 'corpus', manifestFiles: manifest, twinIo: fakeIo({}) } });
+    expect(verdict.admit).toBe(true);
+    expect(verdict.observed).toContain(MINT_OBSERVATIONS.targetIdenticalInCorpus);
+  });
+
+  it('la riscrittura tocca solo il campo vivo, non le copie citate o in un fence', () => {
+    const text = [
+      '- Target file: `host/batchWrite.ts`',
+      '- Original text:',
+      '  > - Target file: `host/batchWrite.ts`',
+      '```',
+      '- Target file: `host/batchWrite.ts`',
+      '```',
+    ].join('\n');
+    expect(rewriteTargetFileField(text, 'build-plugins/batchWrite.ts').split('\n')).toEqual([
+      '- Target file: `build-plugins/batchWrite.ts`',
+      ...text.split('\n').slice(1),
+    ]);
+  });
+
+  it('bersaglio presente nel bucket del sito → ok, senza leggere il manifest', () => {
+    expect(targetResolves(itemFor('scripts/example.mjs'), fakeIo({ 'scripts/example.mjs': 'x' }), {
+      side: SITE, manifestFiles: () => { throw new Error('non deve leggere'); },
+    })).toEqual({ status: 'ok', target: 'scripts/example.mjs' });
   });
 });
