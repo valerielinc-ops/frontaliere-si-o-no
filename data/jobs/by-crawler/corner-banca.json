@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-10-03T21:28:10.175Z",
+  "assembledAt": "2026-10-04T09:35:07.579Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
+        "fr": "apprentissage-spontane-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -51,26 +51,33 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-10-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T21:28:05.996Z",
+      "crawledAt": "2026-10-04T09:35:02.142Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "apprentissage-spontane-corner-banca-switzerland"
       ],
       "previousSlugsByLocale": {
         "de": [
           "initiativbewerbung-lehre-corner-banca-switzerland",
+          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
           "spontaner-ausbildungseinsatz-corner-banca-switzerland"
         ],
         "fr": [
+          "unsolicited-application-apprenticeship-corner-banca-switzerland",
           "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -156,21 +163,25 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.995Z",
+      "crawledAt": "2026-10-04T09:35:02.140Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
-        "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen"
+        "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen",
+        "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
           "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
-          "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen"
+          "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen",
+          "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen"
         ],
         "de": [
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
@@ -197,6 +208,123 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068"
+    },
+    {
+      "id": "corner-banca-414e92898c99",
+      "slug": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
+        "en": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
+        "de": "fallmanager-fur-rechtssammlung-ref-1095-corner-banca-wallisellen",
+        "fr": "responsable-affaire-recouvrement-juridique-ref-1095-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Legal Collection case Manager  - ref. 1095",
+      "titleByLocale": {
+        "it": "Legal Collection case Manager - ref. 1095",
+        "en": "Legal Collection case Manager  - ref. 1095",
+        "de": "Fallmanager für Rechtssammlung - Ref. 1095",
+        "fr": "Legal Collection case Manager - ref. 1095"
+      },
+      "description": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un Legal Collections Specialist motivato e orientato ai dettagli per unirsi al nostro team. Sarai responsabile della gestione del recupero legale dei debiti\n\ne del supporto alle strategie di recupero all'interno del quadro della Legge svizzera sull'esecuzione dei debiti e fallimenti (SchKG) e delle normative sui prodotti finanziari e sul credito al consumo applicabili.\n\nQuesto ruolo richiede una stretta collaborazione con gli stakeholder interni, i partner legali esterni e i debitori per massimizzare i risultati del recupero mantenendo un approccio professionale e orientato al cliente.\n\nCosa Offriamo\n\n• Posizione fissa in un ambiente lavorativo dinamico e internazionale.\n\n• Salario competitivo e pacchetto di benefit.\n\n• Sede situata a Wallisellen (Zurigo), con possibilità di lavoro parzialmente remoto (smart working).\n\n• Programma completo di inserimento e formazione durante i primi tre mesi presso il nostro ufficio di Lugano.\n\n• Opportunità di crescita professionale e sviluppo all'interno di un'organizzazione in espansione.\n\nResponsabilità Chiave\n\n• Gestire un portafoglio di conti in ritardo e avviare, monitorare e seguire le procedure di recupero legale dei debiti.\n\n• Preparare, revisionare e elaborare documentazione legale, mantenere registri precisi dei casi e monitorare i procedimenti legali in corso per garantire un follow-up tempestivo.\n\n• Interagire con i debitori, i rappresentanti legali, le agenzie di recupero crediti, i tribunali e le autorità pubbliche, e negoziare piani di pagamento e accordi transattivi quando appropriato.\n\n• Valutare i casi di recupero, raccomandare azioni legali appropriate e sostenere il raggiungimento degli obiettivi di recupero.\n\n• Collaborare con i dipartimenti interni, inclusa l'Assistenza Clienti, e contribuire al miglioramento continuo dei processi di recupero e delle strategie di recupero.\n\n• Almeno 3 anni di solida esperienza nella gestione del recupero crediti nel sistema giudiziario svizzero (recupero legale) è richiesta.\n\n• Una solida comprensione delle procedure di esecuzione dei debiti e insolvenza svizzere, insieme alla familiarità con i prodotti finanziari e le normative sul credito al consumo, sarebbe un vantaggio.\n\n• Fluente in francese (livello C1, scritto e parlato) e buone competenze in italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n\n• Mentalità orientata agli obiettivi, capacità organizzative e capacità di risolvere problemi.\n\n• La capacità di lavorare in modo indipendente è essenziale, mantenendo allo stesso tempo un forte spirito di squadra e un'eccellente comunicazione con i colleghi della sede centrale mentre si lavora da un'ufficio distaccato.\n\n• Grande attenzione ai dettagli e impegno per la precisione.\n\n• Competenza in Microsoft Office e sistemi di gestione dei casi.\n\n• Diploma commerciale o qualifica equivalente (ad esempio, laurea in legge svizzera, scienze politiche o campo correlato).",
+        "en": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+        "de": "Wir suchen ein motiviertes und detailliertes, motiviertes und detailliertes RSI-orientiertes Team. Sie sind für die Abwicklung der legalen Schuldenerholung verantwortlich.\n\nund Unterstützung für Sanierungsstrategien im Rahmen des Schweizer Schulden- und Konkursgesetzes (SchKG) sowie der geltenden Finanzprodukt- und Verbraucherkreditvorschriften.\n\nDiese Rolle erfordert eine enge Zusammenarbeit mit internen Festplatten, externen Rechtspartnern und Schuldnern, um die Erholungsergebnisse zu maximieren und gleichzeitig einen professionellen und kundenorientierten Ansatz zu verfolgen.\n\nWas wir anbieten\n\n• Fester Arbeitsplatz in einem dynamischen und internationalen Arbeitsumfeld.\n\n• Leistungsfähiges Gehalt und ein Paket von Leistungen.\n\n• Hauptsitz in Wallisellen (Zürich), mit teilweise abgelegenen Arbeitsmöglichkeiten (smart 3.000).\n\n• Vollständiges Ein- und Weiterbildungsprogramm in den ersten drei Monaten in unserem Büro in Lugano.\n\n• Möglichkeiten für berufliches Wachstum und Entwicklung innerhalb einer expandierenden Organisation.\n\nSchlüsselverantwortung\n\n• Verwaltung eines Portfolios von verspäteten Konten und Start, Überwachung und folgen Sie den Verfahren für die rechtliche Schuldeneintreibung.\n\n• Vorbereitung, Deaktivierung und Prozess der rechtlichen Dokumentation, genaue Fallaufzeichnungen und Überwachung laufender Gerichtsverfahren, um eine zeitnahe Weiterverfolgung zu gewährleisten.\n\n• Interagieren Sie mit Schuldnern, gesetzlichen Vertretern, Schuldeneintreibungsstellen, Gerichten und Behörden und verhandeln Sie gegebenenfalls Zahlungspläne und transaktive Vereinbarungen.\n\n• Assess-Einziehungsfälle, empfehlen geeignete rechtliche Maßnahmen und unterstützen die Erreichung der Ziele der Wiedereinziehung.\n\n• Zusammenarbeit mit den internen Abteilungen, einschließlich Customer Care, und Beitrag zur kontinuierlichen Verbesserung der Wiederherstellungsprozesse und Strategien.\n\n• Mindestens 3 Jahre solide Erfahrung in der Verwaltung der Schuldeneintreibung im Schweizer Justizsystem (Rechtseinziehung) erforderlich ist.\n\n• Ein solides Verständnis der Schweizer Schuldenerlass- und Insolvenzverfahren sowie die Kenntnis von Finanzprodukten und Verbraucherkreditvorschriften wäre ein Vorteil.\n\n• Fließend in Französisch (Stufe C1, geschrieben und gesprochen) und gute Kenntnisse in Italienisch (Stufe B2, geschrieben und gesprochen).\n\n• Mentalität, die auf Ziele, organisatorische Fähigkeiten und die Fähigkeit zur Problemlösung ausgerichtet ist.\n\n• Die Fähigkeit, unabhängig zu arbeiten, ist unerlässlich, während sie einen starken Teamgeist und eine ausgezeichnete Kommunikation mit Kollegen am Hauptsitz während der Arbeit von einem freistehenden Büro.\n\n• Große Liebe zum Detail und Engagement für Präzision.\n\n• Expertise in Microsoft Office und Case Management Systemen.\n\n• Betriebsdiplom oder gleichwertige Qualifikation (z.B. Studium des Schweizer Rechts, Politikwissenschaft oder verwandtes Gebiet).",
+        "fr": "Nous recherchons une équipe motivée et détaillée, motivée et détaillée, orientée RSI. Vous serez responsable de la gestion du recouvrement légal des créances\n\net soutien aux stratégies de redressement dans le cadre de la loi suisse sur la dette et la faillite (SchKG) et des règlements applicables en matière de produits financiers et de crédit à la consommation.\n\nCe rôle exige une coopération étroite avec les DDH internes, les partenaires juridiques externes et les débiteurs afin de maximiser les résultats de la récupération tout en maintenant une approche professionnelle et axée sur le client.\n\nCe que nous offrons\n\n• Position fixe dans un environnement de travail dynamique et international.\n\n• Salaire compétitif et un ensemble d'avantages.\n\n• Siège social à Wallisellen (Zürich), avec des possibilités de travail partiellement éloignées (smart 3000).\n\n• Programme complet d'insertion et de formation au cours des trois premiers mois à notre bureau de Lugano.\n\n• Des possibilités de développement professionnel au sein d'une organisation en expansion.\n\nResponsabilité principale\n\n• Gérer un portefeuille de comptes en retard et commencer, suivre et suivre les procédures de recouvrement légal des créances.\n\n• Préparer, désactiver et traiter les documents juridiques, tenir des dossiers exacts et surveiller les procédures judiciaires en cours afin d'assurer un suivi rapide.\n\n• Interagir avec les débiteurs, les représentants légaux, les organismes de recouvrement des créances, les tribunaux et les autorités publiques, et négocier des plans de paiement et des accords transactifs le cas échéant.\n\n• Évaluer les cas de recouvrement, recommander des mesures juridiques appropriées et appuyer la réalisation des objectifs de recouvrement.\n\n• Collaborer avec les services internes, y compris le Service clientèle, et contribuer à l'amélioration continue des processus de récupération et des stratégies de récupération.\n\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement de créances dans le système judiciaire suisse (recouvrement judiciaire) sont nécessaires.\n\n• Une bonne compréhension des procédures suisses d'exécution des créances et d'insolvabilité, ainsi que la connaissance des produits financiers et des règles relatives au crédit à la consommation, seraient un avantage.\n\n• La connaissance de l'allemand est considérée comme un avantage.\n\n• La mentalité est orientée vers les objectifs, les capacités organisationnelles et la capacité de résoudre les problèmes.\n\n• La capacité de travailler de façon indépendante est essentielle tout en maintenant un esprit d'équipe solide et une excellente communication avec les collègues du siège tout en travaillant dans un bureau détaché.\n\n• Une grande attention aux détails et à l'engagement de précision.\n\n• Expertise en Microsoft Office et systèmes de gestion de cas.\n\n• Diplôme d'entreprise ou diplôme équivalent (par exemple diplôme de droit suisse, sciences politiques ou domaine connexe)."
+      },
+      "requirements": [
+        "Almeno 3 anni di solida esperienza nella gestione del recupero crediti nel sistema giudiziario svizzero (recupero legale) è richiesta.",
+        "Una solida comprensione delle procedure di esecuzione dei debiti e insolvenza svizzere, insieme alla familiarità con i prodotti finanziari e le normative sul credito al consumo, sarebbe un vantaggio.",
+        "Fluente in francese (livello C1, scritto e parlato) e buone competenze in italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.",
+        "Mentalità orientata agli obiettivi, capacità organizzative e capacità di risolvere problemi.",
+        "La capacità di lavorare in modo indipendente è essenziale, mantenendo allo stesso tempo un forte spirito di squadra e un'eccellente comunicazione con i colleghi della sede centrale mentre si lavora da un'ufficio distaccato.",
+        "Grande attenzione ai dettagli e impegno per la precisione.",
+        "Competenza in Microsoft Office e sistemi di gestione dei casi.",
+        "Diploma commerciale o qualifica equivalente (ad esempio, laurea in legge svizzera, scienze politiche o campo correlato)."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Strong goal-oriented mindset, organizational abilities, and problem-solving skills.",
+          "High attention to detail and commitment to accuracy.",
+          "Proficiency in Microsoft Office and case management systems.",
+          "Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+          "Mentalità orientata agli obiettivi, capacità organizzative e capacità di risolvere problemi.",
+          "Grande attenzione ai dettagli e impegno per la precisione.",
+          "Competenza in Microsoft Office e sistemi di gestione dei casi.",
+          "Diploma commerciale o qualifica equivalente (ad esempio, laurea in legge svizzera, scienze politiche o campo correlato)."
+        ],
+        "en": [
+          "Strong goal-oriented mindset, organizational abilities, and problem-solving skills.",
+          "High attention to detail and commitment to accuracy.",
+          "Proficiency in Microsoft Office and case management systems.",
+          "Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field)."
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-04T09:35:02.138Z",
+      "previousSlugs": [
+        "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
+        "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
+        "legal-collection-case-manager-corner-banca-wallisellen",
+        "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
+        "responsabile-del-caso-di-raccolta-legale-rif-1095-corner-banca-wallisellen",
+        "spezialist-in-fur-rechtliche-kreditbeschaffung-ref-1095-corner-banca-wallisellen",
+        "total-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
+          "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
+          "legal-collection-case-manager-corner-banca-wallisellen",
+          "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
+          "responsabile-del-caso-di-raccolta-legale-rif-1095-corner-banca-wallisellen"
+        ],
+        "en": [
+          "legal-collection-case-manager-corner-banca-wallisellen",
+          "total-corner-banca-wallisellen"
+        ],
+        "de": [
+          "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
+          "spezialist-in-fur-rechtliche-kreditbeschaffung-ref-1095-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.233Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095"
     },
     {
       "id": "corner-banca-0b72c7144b4f",
@@ -261,22 +389,27 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.994Z",
+      "crawledAt": "2026-10-04T09:35:02.136Z",
       "previousSlugs": [
         "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
-        "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
+        "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+        "bancario-di-sicurezza-senior-grc-governance-risk-compliance-rif-1109-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
-          "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
+          "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+          "bancario-di-sicurezza-senior-grc-governance-risk-compliance-rif-1109-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.229Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "salarySource": "estimated",
@@ -295,121 +428,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109"
-    },
-    {
-      "id": "corner-banca-414e92898c99",
-      "slug": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
-        "en": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
-        "de": "fallmanager-fur-rechtssammlung-ref-1095-corner-banca-wallisellen",
-        "fr": "responsable-affaire-recouvrement-juridique-ref-1095-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Legal Collection case Manager  - ref. 1095",
-      "titleByLocale": {
-        "it": "Legal Collection case Manager - rif. 1095",
-        "en": "Legal Collection case Manager  - ref. 1095",
-        "de": "Fallmanager für Rechtssammlung - Ref. 1095",
-        "fr": "Legal Collection Case Manager - réf. 1095"
-      },
-      "description": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un Legal Collections Specialist motivato e orientato ai dettagli per unirsi al nostro team. Sarai responsabile della gestione del recupero legale dei debiti\n\ne del supporto alle strategie di recupero all'interno del quadro della Legge svizzera sull'esecuzione dei debiti e fallimenti (SchKG) e delle normative sui prodotti finanziari e sul credito al consumo applicabili.\n\nQuesto ruolo richiede una stretta collaborazione con gli stakeholder interni, i partner legali esterni e i debitori per massimizzare i risultati del recupero mantenendo un approccio professionale e orientato al cliente.\n\nCosa Offriamo\n\n• Posizione fissa in un ambiente lavorativo dinamico e internazionale.\n\n• Salario competitivo e pacchetto di benefit.\n\n• Sede situata a Wallisellen (Zurigo), con possibilità di lavoro parzialmente remoto (smart working).\n\n• Programma completo di inserimento e formazione durante i primi tre mesi presso il nostro ufficio di Lugano.\n\n• Opportunità di crescita professionale e sviluppo all'interno di un'organizzazione in espansione.\n\nResponsabilità Chiave\n\n• Gestire un portafoglio di conti in ritardo e avviare, monitorare e seguire le procedure di recupero legale dei debiti.\n\n• Preparare, revisionare e elaborare documentazione legale, mantenere registri precisi dei casi e monitorare i procedimenti legali in corso per garantire un follow-up tempestivo.\n\n• Interagire con i debitori, i rappresentanti legali, le agenzie di recupero crediti, i tribunali e le autorità pubbliche, e negoziare piani di pagamento e accordi transattivi quando appropriato.\n\n• Valutare i casi di recupero, raccomandare azioni legali appropriate e sostenere il raggiungimento degli obiettivi di recupero.\n\n• Collaborare con i dipartimenti interni, inclusa l'Assistenza Clienti, e contribuire al miglioramento continuo dei processi di recupero e delle strategie di recupero.\n\n• Almeno 3 anni di solida esperienza nella gestione del recupero crediti nel sistema giudiziario svizzero (recupero legale) è richiesta.\n\n• Una solida comprensione delle procedure di esecuzione dei debiti e insolvenza svizzere, insieme alla familiarità con i prodotti finanziari e le normative sul credito al consumo, sarebbe un vantaggio.\n\n• Fluente in francese (livello C1, scritto e parlato) e buone competenze in italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n\n• Mentalità orientata agli obiettivi, capacità organizzative e capacità di risolvere problemi.\n\n• La capacità di lavorare in modo indipendente è essenziale, mantenendo allo stesso tempo un forte spirito di squadra e un'eccellente comunicazione con i colleghi della sede centrale mentre si lavora da un'ufficio distaccato.\n\n• Grande attenzione ai dettagli e impegno per la precisione.\n\n• Competenza in Microsoft Office e sistemi di gestione dei casi.\n\n• Diploma commerciale o qualifica equivalente (ad esempio, laurea in legge svizzera, scienze politiche o campo correlato).",
-        "en": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
-        "de": "Wir suchen ein motiviertes und detailliertes, motiviertes und detailliertes RSI-orientiertes Team. Sie sind für die Abwicklung der legalen Schuldenerholung verantwortlich.\n\nund Unterstützung für Sanierungsstrategien im Rahmen des Schweizer Schulden- und Konkursgesetzes (SchKG) sowie der geltenden Finanzprodukt- und Verbraucherkreditvorschriften.\n\nDiese Rolle erfordert eine enge Zusammenarbeit mit internen Festplatten, externen Rechtspartnern und Schuldnern, um die Erholungsergebnisse zu maximieren und gleichzeitig einen professionellen und kundenorientierten Ansatz zu verfolgen.\n\nWas wir anbieten\n\n• Fester Arbeitsplatz in einem dynamischen und internationalen Arbeitsumfeld.\n\n• Leistungsfähiges Gehalt und ein Paket von Leistungen.\n\n• Hauptsitz in Wallisellen (Zürich), mit teilweise abgelegenen Arbeitsmöglichkeiten (smart 3.000).\n\n• Vollständiges Ein- und Weiterbildungsprogramm in den ersten drei Monaten in unserem Büro in Lugano.\n\n• Möglichkeiten für berufliches Wachstum und Entwicklung innerhalb einer expandierenden Organisation.\n\nSchlüsselverantwortung\n\n• Verwaltung eines Portfolios von verspäteten Konten und Start, Überwachung und folgen Sie den Verfahren für die rechtliche Schuldeneintreibung.\n\n• Vorbereitung, Deaktivierung und Prozess der rechtlichen Dokumentation, genaue Fallaufzeichnungen und Überwachung laufender Gerichtsverfahren, um eine zeitnahe Weiterverfolgung zu gewährleisten.\n\n• Interagieren Sie mit Schuldnern, gesetzlichen Vertretern, Schuldeneintreibungsstellen, Gerichten und Behörden und verhandeln Sie gegebenenfalls Zahlungspläne und transaktive Vereinbarungen.\n\n• Assess-Einziehungsfälle, empfehlen geeignete rechtliche Maßnahmen und unterstützen die Erreichung der Ziele der Wiedereinziehung.\n\n• Zusammenarbeit mit den internen Abteilungen, einschließlich Customer Care, und Beitrag zur kontinuierlichen Verbesserung der Wiederherstellungsprozesse und Strategien.\n\n• Mindestens 3 Jahre solide Erfahrung in der Verwaltung der Schuldeneintreibung im Schweizer Justizsystem (Rechtseinziehung) erforderlich ist.\n\n• Ein solides Verständnis der Schweizer Schuldenerlass- und Insolvenzverfahren sowie die Kenntnis von Finanzprodukten und Verbraucherkreditvorschriften wäre ein Vorteil.\n\n• Fließend in Französisch (Stufe C1, geschrieben und gesprochen) und gute Kenntnisse in Italienisch (Stufe B2, geschrieben und gesprochen).\n\n• Mentalität, die auf Ziele, organisatorische Fähigkeiten und die Fähigkeit zur Problemlösung ausgerichtet ist.\n\n• Die Fähigkeit, unabhängig zu arbeiten, ist unerlässlich, während sie einen starken Teamgeist und eine ausgezeichnete Kommunikation mit Kollegen am Hauptsitz während der Arbeit von einem freistehenden Büro.\n\n• Große Liebe zum Detail und Engagement für Präzision.\n\n• Expertise in Microsoft Office und Case Management Systemen.\n\n• Betriebsdiplom oder gleichwertige Qualifikation (z.B. Studium des Schweizer Rechts, Politikwissenschaft oder verwandtes Gebiet).",
-        "fr": "Nous recherchons une équipe motivée et détaillée, motivée et détaillée, orientée RSI. Vous serez responsable de la gestion du recouvrement légal des créances\n\net soutien aux stratégies de redressement dans le cadre de la loi suisse sur la dette et la faillite (SchKG) et des règlements applicables en matière de produits financiers et de crédit à la consommation.\n\nCe rôle exige une coopération étroite avec les DDH internes, les partenaires juridiques externes et les débiteurs afin de maximiser les résultats de la récupération tout en maintenant une approche professionnelle et axée sur le client.\n\nCe que nous offrons\n\n• Position fixe dans un environnement de travail dynamique et international.\n\n• Salaire compétitif et un ensemble d'avantages.\n\n• Siège social à Wallisellen (Zürich), avec des possibilités de travail partiellement éloignées (smart 3000).\n\n• Programme complet d'insertion et de formation au cours des trois premiers mois à notre bureau de Lugano.\n\n• Des possibilités de développement professionnel au sein d'une organisation en expansion.\n\nResponsabilité principale\n\n• Gérer un portefeuille de comptes en retard et commencer, suivre et suivre les procédures de recouvrement légal des créances.\n\n• Préparer, désactiver et traiter les documents juridiques, tenir des dossiers exacts et surveiller les procédures judiciaires en cours afin d'assurer un suivi rapide.\n\n• Interagir avec les débiteurs, les représentants légaux, les organismes de recouvrement des créances, les tribunaux et les autorités publiques, et négocier des plans de paiement et des accords transactifs le cas échéant.\n\n• Évaluer les cas de recouvrement, recommander des mesures juridiques appropriées et appuyer la réalisation des objectifs de recouvrement.\n\n• Collaborer avec les services internes, y compris le Service clientèle, et contribuer à l'amélioration continue des processus de récupération et des stratégies de récupération.\n\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement de créances dans le système judiciaire suisse (recouvrement judiciaire) sont nécessaires.\n\n• Une bonne compréhension des procédures suisses d'exécution des créances et d'insolvabilité, ainsi que la connaissance des produits financiers et des règles relatives au crédit à la consommation, seraient un avantage.\n\n• La connaissance de l'allemand est considérée comme un avantage.\n\n• La mentalité est orientée vers les objectifs, les capacités organisationnelles et la capacité de résoudre les problèmes.\n\n• La capacité de travailler de façon indépendante est essentielle tout en maintenant un esprit d'équipe solide et une excellente communication avec les collègues du siège tout en travaillant dans un bureau détaché.\n\n• Une grande attention aux détails et à l'engagement de précision.\n\n• Expertise en Microsoft Office et systèmes de gestion de cas.\n\n• Diplôme d'entreprise ou diplôme équivalent (par exemple diplôme de droit suisse, sciences politiques ou domaine connexe)."
-      },
-      "requirements": [
-        "Almeno 3 anni di solida esperienza nella gestione del recupero crediti nel sistema giudiziario svizzero (recupero legale) è richiesta.",
-        "Una solida comprensione delle procedure di esecuzione dei debiti e insolvenza svizzere, insieme alla familiarità con i prodotti finanziari e le normative sul credito al consumo, sarebbe un vantaggio.",
-        "Fluente in francese (livello C1, scritto e parlato) e buone competenze in italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.",
-        "Mentalità orientata agli obiettivi, capacità organizzative e capacità di risolvere problemi.",
-        "La capacità di lavorare in modo indipendente è essenziale, mantenendo allo stesso tempo un forte spirito di squadra e un'eccellente comunicazione con i colleghi della sede centrale mentre si lavora da un'ufficio distaccato.",
-        "Grande attenzione ai dettagli e impegno per la precisione.",
-        "Competenza in Microsoft Office e sistemi di gestione dei casi.",
-        "Diploma commerciale o qualifica equivalente (ad esempio, laurea in legge svizzera, scienze politiche o campo correlato)."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Strong goal-oriented mindset, organizational abilities, and problem-solving skills.",
-          "High attention to detail and commitment to accuracy.",
-          "Proficiency in Microsoft Office and case management systems.",
-          "Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
-          "Mentalità orientata agli obiettivi, capacità organizzative e capacità di risolvere problemi.",
-          "Grande attenzione ai dettagli e impegno per la precisione.",
-          "Competenza in Microsoft Office e sistemi di gestione dei casi.",
-          "Diploma commerciale o qualifica equivalente (ad esempio, laurea in legge svizzera, scienze politiche o campo correlato)."
-        ],
-        "en": [
-          "Strong goal-oriented mindset, organizational abilities, and problem-solving skills.",
-          "High attention to detail and commitment to accuracy.",
-          "Proficiency in Microsoft Office and case management systems.",
-          "Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field)."
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.994Z",
-      "previousSlugs": [
-        "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
-        "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
-        "legal-collection-case-manager-corner-banca-wallisellen",
-        "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
-        "responsabile-del-caso-di-raccolta-legale-rif-1095-corner-banca-wallisellen",
-        "spezialist-in-fur-rechtliche-kreditbeschaffung-ref-1095-corner-banca-wallisellen",
-        "total-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
-          "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
-          "legal-collection-case-manager-corner-banca-wallisellen",
-          "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
-          "responsabile-del-caso-di-raccolta-legale-rif-1095-corner-banca-wallisellen"
-        ],
-        "en": [
-          "legal-collection-case-manager-corner-banca-wallisellen",
-          "total-corner-banca-wallisellen"
-        ],
-        "de": [
-          "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
-          "spezialist-in-fur-rechtliche-kreditbeschaffung-ref-1095-corner-banca-wallisellen"
-        ],
-        "fr": [
-          "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:12:28.233Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095"
     },
     {
       "id": "corner-banca-5c5ec31e11d9",
@@ -476,11 +494,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.993Z",
+      "crawledAt": "2026-10-04T09:35:02.135Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
@@ -492,6 +512,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -510,103 +531,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116"
-    },
-    {
-      "id": "corner-banca-b9c65289862a",
-      "slug": "consulente-fiscale-private-banking-ref-1117-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "consulente-fiscale-private-banking-ref-1117-corner-banca-lugano",
-        "en": "tax-consultant-private-banking-ref-1117-corner-banca-lugano",
-        "de": "tax-consultant-private-banking-ref-1117-corner-banca-lugano",
-        "fr": "conseiller-fiscal-banque-privee-ref-1117-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
-      "titleByLocale": {
-        "it": "Consulente Fiscale (Private Banking) - rif. 1117",
-        "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
-        "de": "Steuerberater (Private Banking) – Ref. 1117",
-        "fr": "Conseiller fiscal (Banque privée) - réf. 1117"
-      },
-      "description": "We are seeking an experienced Tax Advisor to join our Private Banking Division. The successful candidate will serve as the technical point of contact for private and commercial clients residing in Switzerland and beyond, working closely with client advisors and the Swiss pension specialist to provide integrated, high-level wealth management advice.\n\nThe ideal candidate possesses in-depth knowledge of Swiss taxation and a strong aptitude for direct client consulting (“face-to-face”), combining technical expertise with interpersonal skills.\n\n• Education: Bachelor’s degree in Economics, Law, or an equivalent degree. A Master’s degree in Taxation (or an equivalent qualification as a Tax Expert) is preferred.\n\n• Experience: Proven prior experience in the tax field, preferably at banks, trust companies, or tax consulting firms with exposure to private and commercial clients.\n\n• Technical Skills: In-depth and up-to-date knowledge of the Swiss tax system (direct taxes, inheritance, gifts, withholding tax, etc.) and the principles of international tax law.\n\n• Languages: Excellent command of at least two national languages (preferably Italian/German) and English (written and spoken).\n\nSoft Skills:\n\n• Excellent communication skills and a knack for building client relationships.\n\n• Strong aptitude for teamwork and sharing expertise.\n\n• Independence, results-oriented mindset, and the utmost discretion.\n\n• Ability to synthesize information and translate complex technical concepts into solutions that clients can understand.\n\n• Resident in Ticino or willing to relocate\n\nKey Responsibilities\n\n• Client Consulting: Support clients on tax matters related to investments, wealth and estate planning, and corporate issues;\n\n• Interdisciplinary Collaboration: Work within the Tax and Pension Advisory Team in synergy with the colleague dedicated to pension advisory services to meet clients’ needs and requests, while also supporting Relationship Managers in analyzing and developing the client portfolio;\n\n• Support operational services (PBBS) in managing and resolving issues related to Swiss and foreign tax certifications, liaising with the Federal Tax Administration (FTA) as needed;\n\n• Manage, analyze, and validate, in consultation with the PBBS and in accordance with respective areas of expertise, tax certificates, ensuring their accuracy and regulatory compliance;\n\n• Provide support to the Investment Strategy Team regarding the tax treatment of financial products, with particular focus on clients residing in Switzerland and, to a lesser extent, clients residing in markets relevant to the Bank;\n\n• External network management: coordinate with external law and tax firms to handle complex cases, estate planning matters, and asset protection, and to refer clients to external specialists when necessary.\n\n• Continuous professional development: constantly monitor developments in Swiss and international tax regulations, ensuring that the bank and colleagues remain up to date on relevant issues.\n\n• Operational autonomy: Manage requests and projects independently, ensuring a high standard of service and confidentiality.\n\n• Bank Support: Requests for initial support may be submitted as needed regarding Swiss tax matters related to the application of withholding tax, VAT, and transaction stamp tax (non-exhaustive list) for the Corporate Center (Finance) and Markets Back Office services.",
-      "descriptionByLocale": {
-        "it": "Cerchiamo un Consulente Fiscale esperto da inserire nella Divisione Private Banking. La figura sarà il punto di riferimento tecnico per la clientela privata e commerciale residente in Svizzera, ma non solo, lavorando in stretta sinergia con i consulenti alla clientela e lo specialista previdenziale svizzero, per offrire una consulenza patrimoniale integrata e di alto profilo.\n\nIl candidato ideale possiede una profonda conoscenza della fiscalità svizzera e una spiccata attitudine alla consulenza diretta (\"in salotto\"), combinando competenza tecnica e capacità relazionali.\n\n• Formazione: Laurea in Economia, Giurisprudenza o titolo equipollente. È preferibile il possesso di un Master in Fiscalità (o titolo equivalente di Esperto Fiscale).\n\n• Esperienza: comprovata esperienza pregressa in ambito fiscale, preferibilmente presso banche, fiduciarie o studi di consulenza fiscale con esposizione a clientela privata e commerciale.\n\n• Competenze Tecniche: conoscenza approfondita e aggiornata del sistema fiscale svizzero (imposte dirette, successioni, donazioni, imposta preventiva, ecc.) e principi di diritto fiscale internazionale.\n\n• Lingue: Ottima padronanza di almeno due lingue nazionali (preferenza italiano/tedesco) e dell'inglese (scritto e parlato).\n\n• Soft Skills:\n\n• eccellenti capacità comunicative e attitudine alla relazione con il cliente.\n\n• spiccata predisposizione al lavoro di squadra e alla condivisione delle competenze.\n\n• autonomia, orientamento ai risultati e massima discrezione.\n\n• capacità di sintesi e di traduzione di concetti tecnici complessi in soluzioni comprensibili per il cliente.\n\n• Residenza in Ticino o volontà di trasferimento\n\nResponsabilità principali\n• Consulenza ai clienti: supportare i clienti nelle tematiche fiscali legate agli investimenti, alla pianificazione patrimoniale e successoria ed alle tematiche societarie;\n\n• Collaborazione interdisciplinare: lavorare all’interno del Team di Consulenza fiscale e previdenziale in sinergia con il collega dedicato alla consulenza previdenziale per soddisfare esigenze e richieste dei clienti da un lato e supportare i Relationship Manager nell’analisi e nello sviluppo del book di clienti;\n\n• Supportare i servizi operativi (PBBS) nella gestione e risoluzione di problematiche relative alle attestazioni fiscali svizzere ed estere, interfacciandosi quando necessario con l’Amministrazione federale delle contribuzioni (AFC);\n\n• Gestire, analizzare e validare, d’intesa con il PBBS ed in linea con le rispettive competenze, gli attestati fiscali, garantendone correttezza e conformità normativa;\n\n• Fornire supporto al Team Strategia di Investimento nell’ambito della fiscalità dei prodotti finanziari con particolare riferimento alla clientela residente in Svizzera ed in via residuale a clientela residente in mercati rilevanti per la Banca;\n\n• Gestione network esterno: coordinarsi con studi legali e fiscali esterni per la gestione di casi complessi, tematiche di pianificazione successoria, protezione patrimoniale e per indirizzare il cliente qualora fossero necessarie consulenze specialistiche esterne al perimetro bancario.\n\n• Aggiornamento continuo: monitorare costantemente l’evoluzione della normativa fiscale svizzera e internazionale, garantendo l'aggiornamento costante della banca e dei colleghi sui temi rilevanti.\n\n• Autonomia operativa: gestire richieste e progetti in modo autonomo, garantendo un elevato standard di servizio e riservatezza.\n\n• Supporto alla Banca: puntualmente potranno essere formulate richieste di primo supporto per tematiche fiscali svizzere inerenti all’applicazione di imposte preventiva, IVA, Tassa di bollo di negoziazione (lista non esaustiva) per i servizi di Corporate Center (Finanze) e Back-office mercati.",
-        "en": "We are seeking an experienced Tax Advisor to join our Private Banking Division. The successful candidate will serve as the technical point of contact for private and commercial clients residing in Switzerland and beyond, working closely with client advisors and the Swiss pension specialist to provide integrated, high-level wealth management advice.\n\nThe ideal candidate possesses in-depth knowledge of Swiss taxation and a strong aptitude for direct client consulting (“face-to-face”), combining technical expertise with interpersonal skills.\n\n• Education: Bachelor’s degree in Economics, Law, or an equivalent degree. A Master’s degree in Taxation (or an equivalent qualification as a Tax Expert) is preferred.\n\n• Experience: Proven prior experience in the tax field, preferably at banks, trust companies, or tax consulting firms with exposure to private and commercial clients.\n\n• Technical Skills: In-depth and up-to-date knowledge of the Swiss tax system (direct taxes, inheritance, gifts, withholding tax, etc.) and the principles of international tax law.\n\n• Languages: Excellent command of at least two national languages (preferably Italian/German) and English (written and spoken).\n\nSoft Skills:\n\n• Excellent communication skills and a knack for building client relationships.\n\n• Strong aptitude for teamwork and sharing expertise.\n\n• Independence, results-oriented mindset, and the utmost discretion.\n\n• Ability to synthesize information and translate complex technical concepts into solutions that clients can understand.\n\n• Resident in Ticino or willing to relocate\n\nKey Responsibilities\n\n• Client Consulting: Support clients on tax matters related to investments, wealth and estate planning, and corporate issues;\n\n• Interdisciplinary Collaboration: Work within the Tax and Pension Advisory Team in synergy with the colleague dedicated to pension advisory services to meet clients’ needs and requests, while also supporting Relationship Managers in analyzing and developing the client portfolio;\n\n• Support operational services (PBBS) in managing and resolving issues related to Swiss and foreign tax certifications, liaising with the Federal Tax Administration (FTA) as needed;\n\n• Manage, analyze, and validate, in consultation with the PBBS and in accordance with respective areas of expertise, tax certificates, ensuring their accuracy and regulatory compliance;\n\n• Provide support to the Investment Strategy Team regarding the tax treatment of financial products, with particular focus on clients residing in Switzerland and, to a lesser extent, clients residing in markets relevant to the Bank;\n\n• External network management: coordinate with external law and tax firms to handle complex cases, estate planning matters, and asset protection, and to refer clients to external specialists when necessary.\n\n• Continuous professional development: constantly monitor developments in Swiss and international tax regulations, ensuring that the bank and colleagues remain up to date on relevant issues.\n\n• Operational autonomy: Manage requests and projects independently, ensuring a high standard of service and confidentiality.\n\n• Bank Support: Requests for initial support may be submitted as needed regarding Swiss tax matters related to the application of withholding tax, VAT, and transaction stamp tax (non-exhaustive list) for the Corporate Center (Finance) and Markets Back Office services.",
-        "de": "Wir suchen einen erfahrenen Steuerberater, um unserer Private Banking Division beizutreten. Der erfolgreiche Kandidat wird als technischer Ansprechpartner für private und gewerbliche Kunden mit Wohnsitz in der Schweiz und darüber hinaus dienen und eng mit Kundenberatern und dem Schweizer Pensionsspezialisten zusammenarbeiten, um eine integrierte, hochrangige Vermögensverwaltung zu bieten.\n\nDer ideale Kandidat verfügt über fundierte Kenntnisse der Schweizer Besteuerung und eine starke Eignung für direkte Kundenberatung („Face-to-Face), die technische Expertise mit zwischenmenschlichen Fähigkeiten kombiniert.\n\n• Ausbildung: Bachelor-Abschluss in Wirtschaft, Recht oder einem gleichwertigen Abschluss. Ein Master-Abschluss in Taxation (oder eine gleichwertige Qualifikation als Steuerexperte) wird bevorzugt.\n\n• Erfahrung: Nachgewiesene Vorkenntnisse im Steuerbereich, vorzugsweise bei Banken, Treuhandgesellschaften oder Steuerberatungsunternehmen mit Exposition gegenüber privaten und gewerblichen Kunden.\n\n• Technische Fähigkeiten: Tiefe und aktuelle Kenntnisse des Schweizer Steuersystems (Direktsteuern, Erbschaft, Schenkungen, Quellensteuer usw.) und der Grundsätze des internationalen Steuerrechts.\n\n• Sprachen: Ausgezeichnete Beherrschung von mindestens zwei Landessprachen (vorzugsweise Italienisch / Deutsch) und Englisch (schriftlich und gesprochen).\n\nSoft Skills:\n\n• Hervorragende Kommunikationsfähigkeiten und ein Talent für den Aufbau von Kundenbeziehungen.\n\n• Starke Eignung für Teamarbeit und Austausch von Fachwissen.\n\n• Unabhängigkeit, ergebnisorientierte Denkweise und höchste Diskretion.\n\n• Fähigkeit, Informationen zu synthetisieren und komplexe technische Konzepte in Lösungen zu übersetzen, die Kunden verstehen können.\n\n• Wohnen im Tessin oder bereit zu verlagern\n\nWichtigste Zuständigkeiten\n\n• Kundenberatung: Unterstützung von Kunden in Steuerangelegenheiten im Zusammenhang mit Investitionen, Vermögens- und Nachlassplanung und Unternehmensfragen;\n\n• Interdisziplinäre Zusammenarbeit: Arbeit im Steuer- und Rentenberatungsteam in Synergie mit dem Kollegen, der sich der Rentenberatung widmet, um die Bedürfnisse und Wünsche der Kunden zu erfüllen, und unterstützt auch Relationship Manager bei der Analyse und Entwicklung des Kundenportfolios;\n\n• Unterstützung der operativen Dienstleistungen (PBBS) bei der Verwaltung und Lösung von Problemen im Zusammenhang mit schweizerischen und ausländischen Steuerbescheinigungen, bei Bedarf in Verbindung mit der Bundessteuerverwaltung (FTA);\n\n• Verwalten, analysieren und validieren Sie in Absprache mit der PBBS und in Übereinstimmung mit den jeweiligen Fachgebieten Steuerbescheinigungen, um deren Genauigkeit und Einhaltung zu gewährleisten.\n\n• Unterstützung des Anlagestrategieteams bei der steuerlichen Behandlung von Finanzprodukten, mit besonderem Schwerpunkt auf in der Schweiz ansässigen Kunden und in geringerem Umfang auf Kunden, die in für die Bank relevanten Märkten ansässig sind;\n\n• Externes Netzwerkmanagement: Abstimmung mit externen Rechts- und Steuergesellschaften, um komplexe Fälle, Nachlassplanungsfragen und Vermögensschutz zu bearbeiten und Kunden bei Bedarf an externe Spezialisten zu verweisen.\n\n• Kontinuierliche berufliche Weiterentwicklung: Beobachten Sie die Entwicklungen in den schweizerischen und internationalen Steuervorschriften ständig und sorgen Sie dafür, dass Bank und Kollegen in relevanten Fragen auf dem Laufenden bleiben.\n\n• Operationelle Autonomie: Verwalten Sie Anfragen und Projekte unabhängig und gewährleisten Sie einen hohen Servicestandard und Vertraulichkeit.\n\n• Banksupport: Anträge auf Erstunterstützung können bei Bedarf in schweizerischen Steuerangelegenheiten im Zusammenhang mit der Erhebung von Quellensteuer, Mehrwertsteuer und Transaktionsstempelsteuer (nicht erschöpfende Liste) für das Corporate Center (Finanzen) und das Markets Back Office gestellt werden.",
-        "fr": "Nous cherchons un conseiller fiscal expérimenté pour rejoindre notre Division des services bancaires privés. Le candidat retenu servira de point de contact technique pour les clients privés et commerciaux résidant en Suisse et au-delà, travaillant en étroite collaboration avec les conseillers clients et le spécialiste suisse des pensions pour fournir des conseils intégrés et de haut niveau en gestion de patrimoine.\n\nLe candidat idéal possède une connaissance approfondie de la fiscalité suisse et une forte aptitude à consulter directement ses clients (=face à face=), combinant expertise technique et aptitudes interpersonnelles.\n\n• Études: Baccalauréat en économie, en droit ou un diplôme équivalent. Une maîtrise en fiscalité (ou une qualification équivalente en tant qu'expert fiscal) est préférée.\n\n• Expérience : Expérience éprouvée dans le domaine fiscal, de préférence dans les banques, les sociétés de fiducie ou les sociétés de conseil fiscal exposées à des clients privés et commerciaux.\n\n• Compétences techniques: Connaissance approfondie et à jour du système fiscal suisse (impôts directs, succession, dons, retenue à la source, etc.) et des principes du droit fiscal international.\n\n• Langues: Excellente maîtrise d'au moins deux langues nationales (de préférence l'italien/l'allemand) et l'anglais (écrit et parlé).\n\nCompétences souples :\n\n• Excellentes compétences en communication et un knack pour établir des relations avec les clients.\n\n• Forte aptitude au travail d'équipe et au partage de l'expertise.\n\n• L'indépendance, l'état d'esprit axé sur les résultats et la plus grande discrétion.\n\n• Capacité de synthétiser l'information et de traduire des concepts techniques complexes en solutions que les clients peuvent comprendre.\n\n• Résident au Tessin ou désireux de déménager\n\nPrincipales responsabilités\n\n• Consultation auprès des clients : Appuyer les clients sur les questions fiscales liées aux investissements, à la planification du patrimoine et de l'actif et aux questions d'entreprise;\n\n• Collaboration interdisciplinaire : Travailler au sein de l'équipe consultative des impôts et des pensions en synergie avec le collègue qui se consacre aux services consultatifs en matière de pensions pour répondre aux besoins et aux demandes des clients, tout en aidant les gestionnaires de relations à analyser et à développer le portefeuille des clients;\n\n• Soutenir les services opérationnels (PBBS) dans la gestion et la résolution des problèmes liés aux certifications fiscales suisses et étrangères, en liaison avec l'administration fiscale fédérale (AFT) au besoin;\n\n• Gérer, analyser et valider, en consultation avec le PBBS et conformément aux domaines d'expertise respectifs, les certificats fiscaux, en assurant leur exactitude et leur conformité réglementaire;\n\n• Fournir un appui à l'équipe chargée de la stratégie d'investissement en ce qui concerne le traitement fiscal des produits financiers, en accordant une attention particulière aux clients résidant en Suisse et, dans une moindre mesure, aux clients résidant sur des marchés pertinents pour la Banque;\n\n• Gestion de réseau externe: coordination avec les cabinets de droit externe et les cabinets fiscaux pour traiter les affaires complexes, les questions de planification successorale et la protection des actifs, et pour orienter les clients vers des spécialistes externes au besoin.\n\n• Développement professionnel continu : suivre en permanence l'évolution de la réglementation fiscale suisse et internationale, en veillant à ce que la banque et ses collègues restent au courant des questions pertinentes.\n\n• L'autonomie opérationnelle : gérer les demandes et les projets de manière indépendante, en assurant un niveau élevé de service et de confidentialité.\n\n• Soutien bancaire: les demandes de soutien initial peuvent être présentées au besoin en ce qui concerne les questions fiscales suisses liées à l'application de la retenue à la source, de la TVA et de la taxe sur le timbre transactionnel (liste non exhaustive) pour les services du Corporate Center (Finances) et du Markets Back Office."
-      },
-      "requirements": [
-        "Formazione: Laurea in Economia, Giurisprudenza o titolo equipollente. È preferibile il possesso di un Master in Fiscalità (o titolo equivalente di Esperto Fiscale).",
-        "Esperienza: comprovata esperienza pregressa in ambito fiscale, preferibilmente presso banche, fiduciarie o studi di consulenza fiscale con esposizione a clientela privata e commerciale.",
-        "Competenze Tecniche: conoscenza approfondita e aggiornata del sistema fiscale svizzero (imposte dirette, successioni, donazioni, imposta preventiva, ecc.) e principi di diritto fiscale internazionale.",
-        "Lingue: Ottima padronanza di almeno due lingue nazionali (preferenza italiano/tedesco) e dell'inglese (scritto e parlato).",
-        "Soft Skills:\n\n• eccellenti capacità comunicative e attitudine alla relazione con il cliente.",
-        "spiccata predisposizione al lavoro di squadra e alla condivisione delle competenze.",
-        "autonomia, orientamento ai risultati e massima discrezione.",
-        "capacità di sintesi e di traduzione di concetti tecnici complessi in soluzioni comprensibili per il cliente.",
-        "Residenza in Ticino o volontà di trasferimento",
-        "Consulenza ai clienti: supportare i clienti nelle tematiche fiscali legate agli investimenti, alla pianificazione patrimoniale e successoria ed alle tematiche societarie;",
-        "Collaborazione interdisciplinare: lavorare all’interno del Team di Consulenza fiscale e previdenziale in sinergia con il collega dedicato alla consulenza previdenziale per soddisfare esigenze e richieste dei clienti da un lato e supportare i Relationship Manager nell’analisi e nello sviluppo del book di clienti;",
-        "Supportare i servizi operativi (PBBS) nella gestione e risoluzione di problematiche relative alle attestazioni fiscali svizzere ed estere, interfacciandosi quando necessario con l’Amministrazione federale delle contribuzioni (AFC);",
-        "Gestire, analizzare e validare, d’intesa con il PBBS ed in linea con le rispettive competenze, gli attestati fiscali, garantendone correttezza e conformità normativa;",
-        "Fornire supporto al Team Strategia di Investimento nell’ambito della fiscalità dei prodotti finanziari con particolare riferimento alla clientela residente in Svizzera ed in via residuale a clientela residente in mercati rilevanti per la Banca;",
-        "Gestione network esterno: coordinarsi con studi legali e fiscali esterni per la gestione di casi complessi, tematiche di pianificazione successoria, protezione patrimoniale e per indirizzare il cliente qualora fossero necessarie consulenze specialistiche esterne al perimetro bancario.",
-        "Aggiornamento continuo: monitorare costantemente l’evoluzione della normativa fiscale svizzera e internazionale, garantendo l'aggiornamento costante della banca e dei colleghi sui temi rilevanti.",
-        "Autonomia operativa: gestire richieste e progetti in modo autonomo, garantendo un elevato standard di servizio e riservatezza.",
-        "Supporto alla Banca: puntualmente potranno essere formulate richieste di primo supporto per tematiche fiscali svizzere inerenti all’applicazione di imposte preventiva, IVA, Tassa di bollo di negoziazione (lista non esaustiva) per i servizi di Corporate Center (Finanze) e Back-office mercati."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Soft Skills: • eccellenti capacità comunicative e attitudine alla relazione con il cliente.",
-          "spiccata predisposizione al lavoro di squadra e alla condivisione delle competenze.",
-          "autonomia, orientamento ai risultati e massima discrezione.",
-          "capacità di sintesi e di traduzione di concetti tecnici complessi in soluzioni comprensibili per il cliente.",
-          "Residenza in Ticino o volontà di trasferimento"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.992Z",
-      "previousSlugs": [
-        "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-04T11:44:57.049Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117"
     },
     {
       "id": "corner-banca-72b82d085ee9",
@@ -682,12 +606,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.992Z",
+      "crawledAt": "2026-10-04T09:35:02.133Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -708,10 +635,109 @@
       "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114"
     },
     {
+      "id": "corner-banca-b9c65289862a",
+      "slug": "consulente-fiscale-private-banking-ref-1117-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "consulente-fiscale-private-banking-ref-1117-corner-banca-lugano",
+        "en": "tax-consultant-private-banking-ref-1117-corner-banca-lugano",
+        "de": "tax-consultant-private-banking-ref-1117-corner-banca-lugano",
+        "fr": "conseiller-fiscal-banque-privee-ref-1117-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
+      "titleByLocale": {
+        "it": "Consulente Fiscale (Private Banking) - ref. 1117",
+        "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
+        "de": "Steuerberater (Private Banking) – Ref. 1117",
+        "fr": "Conseiller fiscal (Banque privée) - réf. 1117"
+      },
+      "description": "We are seeking an experienced Tax Advisor to join our Private Banking Division. The successful candidate will serve as the technical point of contact for private and commercial clients residing in Switzerland and beyond, working closely with client advisors and the Swiss pension specialist to provide integrated, high-level wealth management advice.\n\nThe ideal candidate possesses in-depth knowledge of Swiss taxation and a strong aptitude for direct client consulting (“face-to-face”), combining technical expertise with interpersonal skills.\n\n• Education: Bachelor’s degree in Economics, Law, or an equivalent degree. A Master’s degree in Taxation (or an equivalent qualification as a Tax Expert) is preferred.\n\n• Experience: Proven prior experience in the tax field, preferably at banks, trust companies, or tax consulting firms with exposure to private and commercial clients.\n\n• Technical Skills: In-depth and up-to-date knowledge of the Swiss tax system (direct taxes, inheritance, gifts, withholding tax, etc.) and the principles of international tax law.\n\n• Languages: Excellent command of at least two national languages (preferably Italian/German) and English (written and spoken).\n\nSoft Skills:\n\n• Excellent communication skills and a knack for building client relationships.\n\n• Strong aptitude for teamwork and sharing expertise.\n\n• Independence, results-oriented mindset, and the utmost discretion.\n\n• Ability to synthesize information and translate complex technical concepts into solutions that clients can understand.\n\n• Resident in Ticino or willing to relocate\n\nKey Responsibilities\n\n• Client Consulting: Support clients on tax matters related to investments, wealth and estate planning, and corporate issues;\n\n• Interdisciplinary Collaboration: Work within the Tax and Pension Advisory Team in synergy with the colleague dedicated to pension advisory services to meet clients’ needs and requests, while also supporting Relationship Managers in analyzing and developing the client portfolio;\n\n• Support operational services (PBBS) in managing and resolving issues related to Swiss and foreign tax certifications, liaising with the Federal Tax Administration (FTA) as needed;\n\n• Manage, analyze, and validate, in consultation with the PBBS and in accordance with respective areas of expertise, tax certificates, ensuring their accuracy and regulatory compliance;\n\n• Provide support to the Investment Strategy Team regarding the tax treatment of financial products, with particular focus on clients residing in Switzerland and, to a lesser extent, clients residing in markets relevant to the Bank;\n\n• External network management: coordinate with external law and tax firms to handle complex cases, estate planning matters, and asset protection, and to refer clients to external specialists when necessary.\n\n• Continuous professional development: constantly monitor developments in Swiss and international tax regulations, ensuring that the bank and colleagues remain up to date on relevant issues.\n\n• Operational autonomy: Manage requests and projects independently, ensuring a high standard of service and confidentiality.\n\n• Bank Support: Requests for initial support may be submitted as needed regarding Swiss tax matters related to the application of withholding tax, VAT, and transaction stamp tax (non-exhaustive list) for the Corporate Center (Finance) and Markets Back Office services.",
+      "descriptionByLocale": {
+        "it": "Cerchiamo un Consulente Fiscale esperto da inserire nella Divisione Private Banking. La figura sarà il punto di riferimento tecnico per la clientela privata e commerciale residente in Svizzera, ma non solo, lavorando in stretta sinergia con i consulenti alla clientela e lo specialista previdenziale svizzero, per offrire una consulenza patrimoniale integrata e di alto profilo.\n\nIl candidato ideale possiede una profonda conoscenza della fiscalità svizzera e una spiccata attitudine alla consulenza diretta (\"in salotto\"), combinando competenza tecnica e capacità relazionali.\n\n• Formazione: Laurea in Economia, Giurisprudenza o titolo equipollente. È preferibile il possesso di un Master in Fiscalità (o titolo equivalente di Esperto Fiscale).\n\n• Esperienza: comprovata esperienza pregressa in ambito fiscale, preferibilmente presso banche, fiduciarie o studi di consulenza fiscale con esposizione a clientela privata e commerciale.\n\n• Competenze Tecniche: conoscenza approfondita e aggiornata del sistema fiscale svizzero (imposte dirette, successioni, donazioni, imposta preventiva, ecc.) e principi di diritto fiscale internazionale.\n\n• Lingue: Ottima padronanza di almeno due lingue nazionali (preferenza italiano/tedesco) e dell'inglese (scritto e parlato).\n\n• Soft Skills:\n\n• eccellenti capacità comunicative e attitudine alla relazione con il cliente.\n\n• spiccata predisposizione al lavoro di squadra e alla condivisione delle competenze.\n\n• autonomia, orientamento ai risultati e massima discrezione.\n\n• capacità di sintesi e di traduzione di concetti tecnici complessi in soluzioni comprensibili per il cliente.\n\n• Residenza in Ticino o volontà di trasferimento\n\nResponsabilità principali\n• Consulenza ai clienti: supportare i clienti nelle tematiche fiscali legate agli investimenti, alla pianificazione patrimoniale e successoria ed alle tematiche societarie;\n\n• Collaborazione interdisciplinare: lavorare all’interno del Team di Consulenza fiscale e previdenziale in sinergia con il collega dedicato alla consulenza previdenziale per soddisfare esigenze e richieste dei clienti da un lato e supportare i Relationship Manager nell’analisi e nello sviluppo del book di clienti;\n\n• Supportare i servizi operativi (PBBS) nella gestione e risoluzione di problematiche relative alle attestazioni fiscali svizzere ed estere, interfacciandosi quando necessario con l’Amministrazione federale delle contribuzioni (AFC);\n\n• Gestire, analizzare e validare, d’intesa con il PBBS ed in linea con le rispettive competenze, gli attestati fiscali, garantendone correttezza e conformità normativa;\n\n• Fornire supporto al Team Strategia di Investimento nell’ambito della fiscalità dei prodotti finanziari con particolare riferimento alla clientela residente in Svizzera ed in via residuale a clientela residente in mercati rilevanti per la Banca;\n\n• Gestione network esterno: coordinarsi con studi legali e fiscali esterni per la gestione di casi complessi, tematiche di pianificazione successoria, protezione patrimoniale e per indirizzare il cliente qualora fossero necessarie consulenze specialistiche esterne al perimetro bancario.\n\n• Aggiornamento continuo: monitorare costantemente l’evoluzione della normativa fiscale svizzera e internazionale, garantendo l'aggiornamento costante della banca e dei colleghi sui temi rilevanti.\n\n• Autonomia operativa: gestire richieste e progetti in modo autonomo, garantendo un elevato standard di servizio e riservatezza.\n\n• Supporto alla Banca: puntualmente potranno essere formulate richieste di primo supporto per tematiche fiscali svizzere inerenti all’applicazione di imposte preventiva, IVA, Tassa di bollo di negoziazione (lista non esaustiva) per i servizi di Corporate Center (Finanze) e Back-office mercati.",
+        "en": "We are seeking an experienced Tax Advisor to join our Private Banking Division. The successful candidate will serve as the technical point of contact for private and commercial clients residing in Switzerland and beyond, working closely with client advisors and the Swiss pension specialist to provide integrated, high-level wealth management advice.\n\nThe ideal candidate possesses in-depth knowledge of Swiss taxation and a strong aptitude for direct client consulting (“face-to-face”), combining technical expertise with interpersonal skills.\n\n• Education: Bachelor’s degree in Economics, Law, or an equivalent degree. A Master’s degree in Taxation (or an equivalent qualification as a Tax Expert) is preferred.\n\n• Experience: Proven prior experience in the tax field, preferably at banks, trust companies, or tax consulting firms with exposure to private and commercial clients.\n\n• Technical Skills: In-depth and up-to-date knowledge of the Swiss tax system (direct taxes, inheritance, gifts, withholding tax, etc.) and the principles of international tax law.\n\n• Languages: Excellent command of at least two national languages (preferably Italian/German) and English (written and spoken).\n\nSoft Skills:\n\n• Excellent communication skills and a knack for building client relationships.\n\n• Strong aptitude for teamwork and sharing expertise.\n\n• Independence, results-oriented mindset, and the utmost discretion.\n\n• Ability to synthesize information and translate complex technical concepts into solutions that clients can understand.\n\n• Resident in Ticino or willing to relocate\n\nKey Responsibilities\n\n• Client Consulting: Support clients on tax matters related to investments, wealth and estate planning, and corporate issues;\n\n• Interdisciplinary Collaboration: Work within the Tax and Pension Advisory Team in synergy with the colleague dedicated to pension advisory services to meet clients’ needs and requests, while also supporting Relationship Managers in analyzing and developing the client portfolio;\n\n• Support operational services (PBBS) in managing and resolving issues related to Swiss and foreign tax certifications, liaising with the Federal Tax Administration (FTA) as needed;\n\n• Manage, analyze, and validate, in consultation with the PBBS and in accordance with respective areas of expertise, tax certificates, ensuring their accuracy and regulatory compliance;\n\n• Provide support to the Investment Strategy Team regarding the tax treatment of financial products, with particular focus on clients residing in Switzerland and, to a lesser extent, clients residing in markets relevant to the Bank;\n\n• External network management: coordinate with external law and tax firms to handle complex cases, estate planning matters, and asset protection, and to refer clients to external specialists when necessary.\n\n• Continuous professional development: constantly monitor developments in Swiss and international tax regulations, ensuring that the bank and colleagues remain up to date on relevant issues.\n\n• Operational autonomy: Manage requests and projects independently, ensuring a high standard of service and confidentiality.\n\n• Bank Support: Requests for initial support may be submitted as needed regarding Swiss tax matters related to the application of withholding tax, VAT, and transaction stamp tax (non-exhaustive list) for the Corporate Center (Finance) and Markets Back Office services.",
+        "de": "Wir suchen einen erfahrenen Steuerberater, um unserer Private Banking Division beizutreten. Der erfolgreiche Kandidat wird als technischer Ansprechpartner für private und gewerbliche Kunden mit Wohnsitz in der Schweiz und darüber hinaus dienen und eng mit Kundenberatern und dem Schweizer Pensionsspezialisten zusammenarbeiten, um eine integrierte, hochrangige Vermögensverwaltung zu bieten.\n\nDer ideale Kandidat verfügt über fundierte Kenntnisse der Schweizer Besteuerung und eine starke Eignung für direkte Kundenberatung („Face-to-Face), die technische Expertise mit zwischenmenschlichen Fähigkeiten kombiniert.\n\n• Ausbildung: Bachelor-Abschluss in Wirtschaft, Recht oder einem gleichwertigen Abschluss. Ein Master-Abschluss in Taxation (oder eine gleichwertige Qualifikation als Steuerexperte) wird bevorzugt.\n\n• Erfahrung: Nachgewiesene Vorkenntnisse im Steuerbereich, vorzugsweise bei Banken, Treuhandgesellschaften oder Steuerberatungsunternehmen mit Exposition gegenüber privaten und gewerblichen Kunden.\n\n• Technische Fähigkeiten: Tiefe und aktuelle Kenntnisse des Schweizer Steuersystems (Direktsteuern, Erbschaft, Schenkungen, Quellensteuer usw.) und der Grundsätze des internationalen Steuerrechts.\n\n• Sprachen: Ausgezeichnete Beherrschung von mindestens zwei Landessprachen (vorzugsweise Italienisch / Deutsch) und Englisch (schriftlich und gesprochen).\n\nSoft Skills:\n\n• Hervorragende Kommunikationsfähigkeiten und ein Talent für den Aufbau von Kundenbeziehungen.\n\n• Starke Eignung für Teamarbeit und Austausch von Fachwissen.\n\n• Unabhängigkeit, ergebnisorientierte Denkweise und höchste Diskretion.\n\n• Fähigkeit, Informationen zu synthetisieren und komplexe technische Konzepte in Lösungen zu übersetzen, die Kunden verstehen können.\n\n• Wohnen im Tessin oder bereit zu verlagern\n\nWichtigste Zuständigkeiten\n\n• Kundenberatung: Unterstützung von Kunden in Steuerangelegenheiten im Zusammenhang mit Investitionen, Vermögens- und Nachlassplanung und Unternehmensfragen;\n\n• Interdisziplinäre Zusammenarbeit: Arbeit im Steuer- und Rentenberatungsteam in Synergie mit dem Kollegen, der sich der Rentenberatung widmet, um die Bedürfnisse und Wünsche der Kunden zu erfüllen, und unterstützt auch Relationship Manager bei der Analyse und Entwicklung des Kundenportfolios;\n\n• Unterstützung der operativen Dienstleistungen (PBBS) bei der Verwaltung und Lösung von Problemen im Zusammenhang mit schweizerischen und ausländischen Steuerbescheinigungen, bei Bedarf in Verbindung mit der Bundessteuerverwaltung (FTA);\n\n• Verwalten, analysieren und validieren Sie in Absprache mit der PBBS und in Übereinstimmung mit den jeweiligen Fachgebieten Steuerbescheinigungen, um deren Genauigkeit und Einhaltung zu gewährleisten.\n\n• Unterstützung des Anlagestrategieteams bei der steuerlichen Behandlung von Finanzprodukten, mit besonderem Schwerpunkt auf in der Schweiz ansässigen Kunden und in geringerem Umfang auf Kunden, die in für die Bank relevanten Märkten ansässig sind;\n\n• Externes Netzwerkmanagement: Abstimmung mit externen Rechts- und Steuergesellschaften, um komplexe Fälle, Nachlassplanungsfragen und Vermögensschutz zu bearbeiten und Kunden bei Bedarf an externe Spezialisten zu verweisen.\n\n• Kontinuierliche berufliche Weiterentwicklung: Beobachten Sie die Entwicklungen in den schweizerischen und internationalen Steuervorschriften ständig und sorgen Sie dafür, dass Bank und Kollegen in relevanten Fragen auf dem Laufenden bleiben.\n\n• Operationelle Autonomie: Verwalten Sie Anfragen und Projekte unabhängig und gewährleisten Sie einen hohen Servicestandard und Vertraulichkeit.\n\n• Banksupport: Anträge auf Erstunterstützung können bei Bedarf in schweizerischen Steuerangelegenheiten im Zusammenhang mit der Erhebung von Quellensteuer, Mehrwertsteuer und Transaktionsstempelsteuer (nicht erschöpfende Liste) für das Corporate Center (Finanzen) und das Markets Back Office gestellt werden.",
+        "fr": "Nous cherchons un conseiller fiscal expérimenté pour rejoindre notre Division des services bancaires privés. Le candidat retenu servira de point de contact technique pour les clients privés et commerciaux résidant en Suisse et au-delà, travaillant en étroite collaboration avec les conseillers clients et le spécialiste suisse des pensions pour fournir des conseils intégrés et de haut niveau en gestion de patrimoine.\n\nLe candidat idéal possède une connaissance approfondie de la fiscalité suisse et une forte aptitude à consulter directement ses clients (=face à face=), combinant expertise technique et aptitudes interpersonnelles.\n\n• Études: Baccalauréat en économie, en droit ou un diplôme équivalent. Une maîtrise en fiscalité (ou une qualification équivalente en tant qu'expert fiscal) est préférée.\n\n• Expérience : Expérience éprouvée dans le domaine fiscal, de préférence dans les banques, les sociétés de fiducie ou les sociétés de conseil fiscal exposées à des clients privés et commerciaux.\n\n• Compétences techniques: Connaissance approfondie et à jour du système fiscal suisse (impôts directs, succession, dons, retenue à la source, etc.) et des principes du droit fiscal international.\n\n• Langues: Excellente maîtrise d'au moins deux langues nationales (de préférence l'italien/l'allemand) et l'anglais (écrit et parlé).\n\nCompétences souples :\n\n• Excellentes compétences en communication et un knack pour établir des relations avec les clients.\n\n• Forte aptitude au travail d'équipe et au partage de l'expertise.\n\n• L'indépendance, l'état d'esprit axé sur les résultats et la plus grande discrétion.\n\n• Capacité de synthétiser l'information et de traduire des concepts techniques complexes en solutions que les clients peuvent comprendre.\n\n• Résident au Tessin ou désireux de déménager\n\nPrincipales responsabilités\n\n• Consultation auprès des clients : Appuyer les clients sur les questions fiscales liées aux investissements, à la planification du patrimoine et de l'actif et aux questions d'entreprise;\n\n• Collaboration interdisciplinaire : Travailler au sein de l'équipe consultative des impôts et des pensions en synergie avec le collègue qui se consacre aux services consultatifs en matière de pensions pour répondre aux besoins et aux demandes des clients, tout en aidant les gestionnaires de relations à analyser et à développer le portefeuille des clients;\n\n• Soutenir les services opérationnels (PBBS) dans la gestion et la résolution des problèmes liés aux certifications fiscales suisses et étrangères, en liaison avec l'administration fiscale fédérale (AFT) au besoin;\n\n• Gérer, analyser et valider, en consultation avec le PBBS et conformément aux domaines d'expertise respectifs, les certificats fiscaux, en assurant leur exactitude et leur conformité réglementaire;\n\n• Fournir un appui à l'équipe chargée de la stratégie d'investissement en ce qui concerne le traitement fiscal des produits financiers, en accordant une attention particulière aux clients résidant en Suisse et, dans une moindre mesure, aux clients résidant sur des marchés pertinents pour la Banque;\n\n• Gestion de réseau externe: coordination avec les cabinets de droit externe et les cabinets fiscaux pour traiter les affaires complexes, les questions de planification successorale et la protection des actifs, et pour orienter les clients vers des spécialistes externes au besoin.\n\n• Développement professionnel continu : suivre en permanence l'évolution de la réglementation fiscale suisse et internationale, en veillant à ce que la banque et ses collègues restent au courant des questions pertinentes.\n\n• L'autonomie opérationnelle : gérer les demandes et les projets de manière indépendante, en assurant un niveau élevé de service et de confidentialité.\n\n• Soutien bancaire: les demandes de soutien initial peuvent être présentées au besoin en ce qui concerne les questions fiscales suisses liées à l'application de la retenue à la source, de la TVA et de la taxe sur le timbre transactionnel (liste non exhaustive) pour les services du Corporate Center (Finances) et du Markets Back Office."
+      },
+      "requirements": [
+        "Formazione: Laurea in Economia, Giurisprudenza o titolo equipollente. È preferibile il possesso di un Master in Fiscalità (o titolo equivalente di Esperto Fiscale).",
+        "Esperienza: comprovata esperienza pregressa in ambito fiscale, preferibilmente presso banche, fiduciarie o studi di consulenza fiscale con esposizione a clientela privata e commerciale.",
+        "Competenze Tecniche: conoscenza approfondita e aggiornata del sistema fiscale svizzero (imposte dirette, successioni, donazioni, imposta preventiva, ecc.) e principi di diritto fiscale internazionale.",
+        "Lingue: Ottima padronanza di almeno due lingue nazionali (preferenza italiano/tedesco) e dell'inglese (scritto e parlato).",
+        "Soft Skills:\n\n• eccellenti capacità comunicative e attitudine alla relazione con il cliente.",
+        "spiccata predisposizione al lavoro di squadra e alla condivisione delle competenze.",
+        "autonomia, orientamento ai risultati e massima discrezione.",
+        "capacità di sintesi e di traduzione di concetti tecnici complessi in soluzioni comprensibili per il cliente.",
+        "Residenza in Ticino o volontà di trasferimento",
+        "Consulenza ai clienti: supportare i clienti nelle tematiche fiscali legate agli investimenti, alla pianificazione patrimoniale e successoria ed alle tematiche societarie;",
+        "Collaborazione interdisciplinare: lavorare all’interno del Team di Consulenza fiscale e previdenziale in sinergia con il collega dedicato alla consulenza previdenziale per soddisfare esigenze e richieste dei clienti da un lato e supportare i Relationship Manager nell’analisi e nello sviluppo del book di clienti;",
+        "Supportare i servizi operativi (PBBS) nella gestione e risoluzione di problematiche relative alle attestazioni fiscali svizzere ed estere, interfacciandosi quando necessario con l’Amministrazione federale delle contribuzioni (AFC);",
+        "Gestire, analizzare e validare, d’intesa con il PBBS ed in linea con le rispettive competenze, gli attestati fiscali, garantendone correttezza e conformità normativa;",
+        "Fornire supporto al Team Strategia di Investimento nell’ambito della fiscalità dei prodotti finanziari con particolare riferimento alla clientela residente in Svizzera ed in via residuale a clientela residente in mercati rilevanti per la Banca;",
+        "Gestione network esterno: coordinarsi con studi legali e fiscali esterni per la gestione di casi complessi, tematiche di pianificazione successoria, protezione patrimoniale e per indirizzare il cliente qualora fossero necessarie consulenze specialistiche esterne al perimetro bancario.",
+        "Aggiornamento continuo: monitorare costantemente l’evoluzione della normativa fiscale svizzera e internazionale, garantendo l'aggiornamento costante della banca e dei colleghi sui temi rilevanti.",
+        "Autonomia operativa: gestire richieste e progetti in modo autonomo, garantendo un elevato standard di servizio e riservatezza.",
+        "Supporto alla Banca: puntualmente potranno essere formulate richieste di primo supporto per tematiche fiscali svizzere inerenti all’applicazione di imposte preventiva, IVA, Tassa di bollo di negoziazione (lista non esaustiva) per i servizi di Corporate Center (Finanze) e Back-office mercati."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Soft Skills: • eccellenti capacità comunicative e attitudine alla relazione con il cliente.",
+          "spiccata predisposizione al lavoro di squadra e alla condivisione delle competenze.",
+          "autonomia, orientamento ai risultati e massima discrezione.",
+          "capacità di sintesi e di traduzione di concetti tecnici complessi in soluzioni comprensibili per il cliente.",
+          "Residenza in Ticino o volontà di trasferimento"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-04T09:35:02.132Z",
+      "previousSlugs": [
+        "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T11:44:57.049Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117"
+    },
+    {
       "id": "corner-banca-333d7573e186",
       "slug": "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
       "slugByLocale": {
-        "it": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "it": "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
         "en": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
         "de": "kundenbindung-wachstum-ref-1118-corner-banca-lugano",
         "fr": "conservation-et-croissance-du-client-ref-1118-corner-banca-lugano"
@@ -756,12 +782,25 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.991Z",
+      "crawledAt": "2026-10-04T09:35:02.131Z",
+      "previousSlugs": [
+        "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
+        ]
+      },
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -779,17 +818,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
-      "previousSlugsByLocale": {
-        "it": [
-          "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
-      ]
+      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118"
     },
     {
       "id": "corner-banca-e13869b20e59",
@@ -859,12 +888,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.990Z",
+      "crawledAt": "2026-10-04T09:35:02.130Z",
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -933,12 +965,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.989Z",
+      "crawledAt": "2026-10-04T09:35:02.128Z",
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1016,11 +1051,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.988Z",
+      "crawledAt": "2026-10-04T09:35:02.127Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:44.967Z",
       "salaryMin": 33200,
@@ -1054,7 +1091,7 @@
       "companyDomain": "corner.ch",
       "title": "Collaboratore Ufficio Contenzioso - ref. 1131",
       "titleByLocale": {
-        "it": "Collaboratore Ufficio Contenzioso - rif. 1131",
+        "it": "Collaboratore Ufficio Contenzioso - ref. 1131",
         "en": "Litigation Department Officer - ref. 1131",
         "de": "Litigation Department Officer - ref. 1131",
         "fr": "Litigation Department Officer - ref. 1131"
@@ -1084,12 +1121,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:05.987Z",
+      "crawledAt": "2026-10-04T09:35:02.125Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:01.819Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1107,8 +1147,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
-      "firstSeenAt": "2026-10-03T09:31:01.819Z"
+      "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131"
     }
   ]
 }
