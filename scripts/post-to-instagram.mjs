@@ -77,6 +77,7 @@ import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
 import {
   buildQueueEntry,
   deliverSocialPost,
+  dequeuePosts,
   enqueuePost,
   queuePathFor,
   resolveSocialRobotMode,
@@ -147,6 +148,8 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
         buildQueueEntry({ channel: 'instagram', kind, day, caption, imageUrls: urls, ledgerEntries }),
       );
     },
+    // The API covered this kind: an older queued post of it must not reach the robot.
+    dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind }),
   });
 }
 

@@ -87,9 +87,15 @@ export function fileJournalStore(dir) {
 /** Outcomes after which the button was pressed: they count and they block the id. */
 const PRESSED = new Set(['published', 'unconfirmed']);
 
+/**
+ * Presses of `channel` on the local day of `now`. A press whose time cannot be
+ * read counts as today's (fail closed: it uses up the cap instead of making
+ * localDay throw and abort the whole robot run).
+ */
 export function pressedToday(journal, channel, now, timeZone = ROBOT_TIME_ZONE) {
   const today = localDay(now, timeZone);
-  return journal.attempts.filter((a) => a.channel === channel && PRESSED.has(a.outcome) && localDay(a.at, timeZone) === today).length;
+  const sameDay = (at) => (Number.isFinite(new Date(at ?? '').getTime()) ? localDay(at, timeZone) === today : true);
+  return journal.attempts.filter((a) => a.channel === channel && PRESSED.has(a.outcome) && sameDay(a.at)).length;
 }
 
 /**

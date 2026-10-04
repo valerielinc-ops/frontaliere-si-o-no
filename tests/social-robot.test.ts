@@ -17,8 +17,11 @@ import {
   buildQueueEntry,
   confirmQueueEntry,
   deliverSocialPost,
+  dequeuePosts,
   enqueuePost,
+  ledgerPathFor,
   loadQueue,
+  queuePathFor,
   resolveSocialRobotMode,
   selectNextPending,
   socialPublishRoute,
@@ -94,26 +97,69 @@ describe('deliverSocialPost', () => {
   it('records an API publish and queues nothing', async () => {
     const recordPublished = vi.fn();
     const enqueue = vi.fn();
-    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: true }), recordPublished, enqueue, log: quiet });
+    const dequeue = vi.fn();
+    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: true }), recordPublished, enqueue, dequeue, log: quiet });
     expect(out).toBe('api');
     expect(recordPublished).toHaveBeenCalledOnce();
+    expect(dequeue).toHaveBeenCalledOnce();
     expect(enqueue).not.toHaveBeenCalled();
   });
 
   it('queues a post the API failed to publish, and never records it', async () => {
     const recordPublished = vi.fn();
     const enqueue = vi.fn();
-    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: false, reason: '400' }), recordPublished, enqueue, log: quiet });
+    const dequeue = vi.fn();
+    const out = await deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish: async () => ({ ok: false, reason: '400' }), recordPublished, enqueue, dequeue, log: quiet });
     expect(out).toBe('queued');
     expect(recordPublished).not.toHaveBeenCalled();
+    expect(dequeue).not.toHaveBeenCalled();
     expect(enqueue).toHaveBeenCalledOnce();
   });
 
   it('never calls the API in live mode', async () => {
     const publish = vi.fn();
-    const out = await deliverSocialPost({ route: socialPublishRoute({ mode: 'live', apiReady: true }), label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), log: quiet });
+    const out = await deliverSocialPost({ route: socialPublishRoute({ mode: 'live', apiReady: true }), label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), dequeue: vi.fn(), log: quiet });
     expect(out).toBe('queued');
     expect(publish).not.toHaveBeenCalled();
+  });
+
+  it('drops the pending post of that channel and kind once the API published, so the robot never replays it', async () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const queuePath = queuePathFor(root, 'instagram');
+    const ledgerPath = ledgerPathFor(root, 'instagram');
+    // A token-less run of yesterday queued article-2026-10-03 for the robot.
+    const stale = entry('article', '2026-10-03');
+    const job = entry('job', '2026-10-03');
+    const tiktok = entry('article', '2026-10-03', { channel: 'tiktok' });
+    fs.writeFileSync(queuePath, JSON.stringify({ schemaVersion: 1, pending: [stale, job, tiktok] }));
+    const out = await deliverSocialPost({
+      route: socialPublishRoute({ mode: 'dry', apiReady: true }),
+      label: 'Instagram',
+      publish: async () => ({ ok: true }),
+      // Today's API post carries a different article key than the queued one.
+      recordPublished: () => fs.writeFileSync(ledgerPath, JSON.stringify({ schemaVersion: 1, posted: [{ id: 'article-slug-b', kind: 'article', day: '2026-10-04' }] })),
+      enqueue: () => { throw new Error('an API publish must not queue'); },
+      dequeue: () => dequeuePosts(queuePath, { channel: 'instagram', kind: 'article' }),
+      log: quiet,
+    });
+    expect(out).toBe('api');
+    const left = loadQueue(queuePath).pending;
+    expect(left.some((e: { channel: string; kind: string }) => e.channel === 'instagram' && e.kind === 'article')).toBe(false);
+    expect(left.map((e: { id: string; channel: string }) => `${e.channel}/${e.id}`).sort()).toEqual(['instagram/job-2026-10-03', 'tiktok/article-2026-10-03']);
+  });
+
+  it('refuses to run without a dequeue step, before anything is published', async () => {
+    const publish = vi.fn(async () => ({ ok: true }));
+    await expect(deliverSocialPost({ route: { api: true, enqueue: true }, label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), log: quiet } as never)).rejects.toThrow(/dequeue/);
+    expect(publish).not.toHaveBeenCalled();
+  });
+
+  it('both posters remove the queued post of the kind they published through the API', () => {
+    for (const [file, channel] of [['scripts/post-to-instagram.mjs', 'instagram'], ['scripts/post-to-tiktok.mjs', 'tiktok']]) {
+      const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      expect(src).toMatch(new RegExp(`dequeue: \\(\\) => dequeuePosts\\(QUEUE_PATH, \\{ channel: '${channel}', kind \\}\\)`));
+    }
   });
 });
 
@@ -181,6 +227,20 @@ describe('confirmation → ledger', () => {
     expect(() => confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: [] }, queueId: 'job-2026-10-03', confirmedAt: '2026-10-04T10:00:00Z' })).toThrow(/no ledger entries/);
   });
 
+  it('records the entries the robot actually published even when a same-day re-run replaced the queue entry under the same id', () => {
+    const replacement = { ...entry('article', '2026-10-04'), ledgerEntries: [{ id: 'new', kind: 'article' }] };
+    const res = confirmQueueEntry({
+      queue: { pending: [replacement] },
+      ledger: { posted: [] },
+      queueId: replacement.id,
+      confirmedAt: '2026-10-04T01:00:00Z',
+      fallbackLedgerEntries: [{ id: 'old', kind: 'article' }],
+    });
+    expect(res.source).toBe('confirmation');
+    expect(res.ledgerEntries.map((e: { id: string }) => e.id)).toEqual(['old']);
+    expect(res.queue.pending).toEqual([]);
+  });
+
   it('confirm.mjs writes queue and ledger files and validates its inputs', () => {
     const root = tempDir();
     fs.mkdirSync(path.join(root, 'data'));
@@ -210,6 +270,16 @@ describe('cadence', () => {
     expect(localDay('2026-10-03T22:30:00Z')).toBe('2026-10-04');
     expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
     expect(pressedToday(journal, 'tiktok', NOW)).toBe(1);
+  });
+
+  it('counts a press with an unreadable time as today instead of aborting the robot', () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: 'not-a-date', queueId: 'a' },
+      { channel: 'instagram', outcome: 'unconfirmed', queueId: 'b' } as never,
+      { channel: 'instagram', outcome: 'dry-run', at: 'garbage', queueId: 'c' },
+    );
+    expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
   });
 });
 

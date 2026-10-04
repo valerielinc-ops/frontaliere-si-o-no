@@ -15,7 +15,9 @@
  *   - dry run on both: reaches the publish button, screenshot, NOTHING sent;
  *   - publish on both: pressed once, confirmation seen, caption and slides
  *     received by the fake platform;
- *   - a press with no confirmation: `confirmation-missing`, pressed = true;
+ *   - a press with no confirmation: `confirmation-missing`, pressed = true —
+ *     on TikTok also with the persistent "Manage your posts" navigation on the
+ *     page, which is not a confirmation; the success toast is;
  *   - a challenge (Instagram) or a captcha (TikTok) right after the press:
  *     keeps its class, pressed = true — the post may be online;
  *   - login wall, challenge, a video-only upload field: classified, nothing sent;
@@ -65,8 +67,15 @@ $('share').onclick = async () => {
 
 const instagramLogin = () => page('Login • Instagram', '<form><input name="username" aria-label="Username"><input name="password" type="password" aria-label="Password"><button>Accedi</button></form>');
 
-function tiktokPage({ accept = 'image/*,video/*', captcha = false, captchaAfterPost = false } = {}) {
+function tiktokPage({ accept = 'image/*,video/*', captcha = false, captchaAfterPost = false, afterPost = 'redirect' } = {}) {
+  const after = {
+    redirect: "location.href = '/tiktokstudio/content';",
+    // The POST answers 200 and the page stays where it is: no toast, no redirect.
+    stay: '',
+    toast: "document.body.insertAdjacentHTML('beforeend', '<div class=\"TUXTopToast\" role=\"alert\"><span>Your post has been published</span></div>');",
+  }[afterPost];
   return page('TikTok Studio', `
+<nav><a href="/tiktokstudio/content">Manage your posts</a><a href="/tiktokstudio/upload">Upload</a></nav>
 <main>
   ${captcha ? '<div id="captcha-verify-container"><p>Drag the slider to fit the puzzle</p></div>' : ''}
   <div id="upload"><input id="file" type="file" accept="${accept}" multiple><p>Select files to upload</p></div>
@@ -86,7 +95,7 @@ $('post').onclick = async () => {
   await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
   ${captchaAfterPost
     ? "document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id=\"captcha-verify-container\"><p>Drag the slider to fit the puzzle</p></div>');"
-    : "location.href = '/tiktokstudio/content';"}
+    : after}
 };`);
 }
 
@@ -120,6 +129,8 @@ function fakePlatforms() {
       case '/tt-captcha/tiktokstudio/upload': return send(200, tiktokPage({ captcha: true }));
       case '/tt-video-only/tiktokstudio/upload': return send(200, tiktokPage({ accept: 'video/*' }));
       case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
+      case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
+      case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
       case '/tiktokstudio/content': return send(200, page('Manage posts', '<h1>Manage your posts</h1>'));
       default: return send(404, 'not found', 'text/plain');
     }
@@ -204,6 +215,12 @@ async function main() {
     r = await run('tiktok', `${base}/tt-captcha-after-post/tiktokstudio/upload`, { dryRun: false, label: 'tt-captcha-after' });
     check(state.ttPosts.length === 2, 'the post reached the platform before the captcha');
     check(r.error?.errorClass === 'challenge' && r.error.pressed === true, `a captcha after the press stays a challenge, pressed (${r.error?.errorClass}, pressed=${r.error?.pressed})`);
+    r = await run('tiktok', `${base}/tt-silent/tiktokstudio/upload`, { dryRun: false, label: 'tt-silent' });
+    check(state.ttPosts.length === 3, 'the silent page sent the post (200, no redirect)');
+    check(r.result?.status !== 'published' && r.error?.errorClass === 'confirmation-missing' && r.error.pressed === true,
+      `the persistent "Manage your posts" navigation is no confirmation: confirmation-missing, pressed (${r.result?.status || r.error?.errorClass}, pressed=${r.error?.pressed})`);
+    r = await run('tiktok', `${base}/tt-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-toast' });
+    check(r.result?.status === 'published' && /has been published/i.test(r.result.evidence), `the success toast confirms without a redirect (${r.result?.evidence || r.error?.message})`);
 
     console.log('runRobot, persistent profile');
     const entry = buildQueueEntry({

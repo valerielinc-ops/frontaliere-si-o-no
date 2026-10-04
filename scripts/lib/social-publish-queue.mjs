@@ -80,17 +80,26 @@ export function socialPublishRoute({ mode, apiReady }) {
  * The last step of a poster, shared by both channels and every carousel kind:
  * API first when the route allows it, the queue when the API did not publish.
  *
+ * `dequeue` is mandatory and runs after every successful API publish: it must
+ * drop the pending queue entry of the same channel and kind (dequeuePosts), or
+ * a post queued by an earlier token-less run stays there for the robot to
+ * press after the API already covered the slot.
+ *
  * @param {{ route: { api: boolean, enqueue: boolean }, label: string,
  *   publish: () => Promise<{ ok: boolean, reason?: string }>,
  *   recordPublished: (res: object) => void, enqueue: () => void,
- *   log?: Pick<Console, 'log'|'error'> }} opts
+ *   dequeue: () => void, log?: Pick<Console, 'log'|'error'> }} opts
  * @returns {Promise<'api'|'queued'|'api-failed'|'skipped'>}
  */
-export async function deliverSocialPost({ route, label, publish, recordPublished, enqueue, log = console }) {
+export async function deliverSocialPost({ route, label, publish, recordPublished, enqueue, dequeue, log = console }) {
+  if (typeof dequeue !== 'function') {
+    throw new TypeError(`${label}: deliverSocialPost needs a dequeue step for the API path`);
+  }
   if (route.api) {
     const res = await publish();
     if (res?.ok) {
       recordPublished(res);
+      dequeue();
       return 'api';
     }
     log.error(`⚠️  ${label} publish failed: ${res?.reason || 'unknown reason'}`);
@@ -222,6 +231,27 @@ export function enqueuePost(filePath, entry, now = Date.now()) {
   return next;
 }
 
+/**
+ * Drop every pending entry of `channel` and `kind` — what a successful API
+ * publish of that kind supersedes, whatever day it was queued for.
+ */
+export function dropPending(queue, { channel, kind }) {
+  return {
+    schemaVersion: QUEUE_SCHEMA_VERSION,
+    pending: parseQueue(queue).pending.filter((e) => !(e.channel === channel && e.kind === kind)),
+  };
+}
+
+/** Read the queue file, drop the channel/kind entries, write it back if it changed. */
+export function dequeuePosts(filePath, { channel, kind }) {
+  assertChannel(channel);
+  if (!existsSync(filePath)) return emptyQueue();
+  const current = loadQueue(filePath);
+  const next = dropPending(current, { channel, kind });
+  if (next.pending.length !== current.pending.length) saveQueue(filePath, next);
+  return next;
+}
+
 /** The dedup key of a ledger entry: `<kind>:<id>`, what the posters skip for 30 days. */
 export function ledgerKey(e) {
   return `${e?.kind ?? ''}:${e?.id ?? ''}`;
@@ -265,10 +295,12 @@ export function selectNextPending(queue, { channel, now = Date.now(), ledger = n
 /**
  * Move a confirmed post from the queue into the ledger.
  *
- * Returns the queue without the entry and the ledger entries to append. When
- * the queue no longer holds the entry (a newer ranking replaced it after the
- * robot published), the ledger entries sent along with the confirmation are
- * used instead. A second confirmation of the same id adds nothing.
+ * Returns the queue without the entry and the ledger entries to append. The
+ * ledger entries sent along with the confirmation, when there are any, are
+ * authoritative: they are what the robot actually published, while the queue
+ * entry under the same id may be a same-day re-run's replacement with other
+ * items. The queue entry's own entries are used only when the confirmation
+ * carries none. A second confirmation of the same id adds nothing.
  *
  * @param {{ queue: object, ledger: object, queueId: string, confirmedAt: string,
  *   evidence?: string, fallbackLedgerEntries?: object[] }} opts
@@ -280,7 +312,8 @@ export function confirmQueueEntry({ queue, ledger, queueId, confirmedAt, evidenc
   if (isConfirmedInLedger(ledger, queueId)) {
     return { queue: remaining, ledgerEntries: [], alreadyConfirmed: true, source: 'ledger' };
   }
-  const base = entry?.ledgerEntries?.length ? entry.ledgerEntries : fallbackLedgerEntries;
+  const sent = Array.isArray(fallbackLedgerEntries) && fallbackLedgerEntries.length > 0;
+  const base = sent ? fallbackLedgerEntries : entry?.ledgerEntries;
   if (!Array.isArray(base) || base.length === 0) {
     throw new Error(`no ledger entries for ${queueId}: not in the queue and none sent with the confirmation`);
   }
@@ -292,5 +325,5 @@ export function confirmQueueEntry({ queue, ledger, queueId, confirmedAt, evidenc
     via: ROBOT_LEDGER_VIA,
     ...(evidence ? { robotEvidence: String(evidence).slice(0, 200) } : {}),
   }));
-  return { queue: remaining, ledgerEntries, alreadyConfirmed: false, source: entry ? 'queue' : 'confirmation' };
+  return { queue: remaining, ledgerEntries, alreadyConfirmed: false, source: sent ? 'confirmation' : 'queue' };
 }

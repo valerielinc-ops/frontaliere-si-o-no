@@ -43,12 +43,22 @@ export const RX = Object.freeze({
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
   ttPostNow: ANY_OF('Post now', 'Pubblica ora', 'Jetzt posten', 'Publier maintenant'),
-  ttConfirm: /your (?:video|post|photos?) (?:has|have) been (?:uploaded|posted|published)|(?:video|post) published|il tuo (?:video|post) è stato pubblicato|manage your posts|gestisci i tuoi post|dein beitrag wurde veröffentlicht|votre publication a été publiée/i,
+  // Success wording only, matched ONLY inside TT_SUCCESS_TOAST: TikTok Studio
+  // keeps "Manage your posts" in its navigation on every page, so neither that
+  // phrase nor a page-wide text search can prove a press was published.
+  ttConfirm: /your (?:video|post|photos?) (?:has|have) been (?:uploaded|posted|published)|(?:video|post) published|il tuo (?:video|post) è stato pubblicato|dein beitrag wurde veröffentlicht|votre publication a été publiée/i,
   ttConfirmUrl: /\/tiktokstudio\/content|\/creator-center\/content/,
   igChallengeText: /confirm it'?s you|help us confirm|suspicious login|conferma che sei tu|conferma la tua identità|attività sospetta|bestätige, dass du es bist|confirmez qu'il s'agit bien de vous/i,
   ttChallengeText: /verify to continue|drag the slider|trascina il cursore|verifica per continuare|schieberegler|faites glisser/i,
   ttLoginText: /log in to tiktok|accedi a tiktok|bei tiktok anmelden|se connecter à tiktok/i,
 });
+
+/**
+ * The containers TikTok shows its post-publish success message in (a top
+ * toast / live region). The confirmation text counts only inside one of
+ * these, never anywhere on the page.
+ */
+export const TT_SUCCESS_TOAST = '[role="alert"], [role="status"], [aria-live="polite"], [aria-live="assertive"], [class*="toast" i], [data-e2e*="toast"]';
 
 export class RobotError extends Error {
   /**
@@ -386,7 +396,7 @@ export async function tiktokFlow({ page, files, caption, dryRun, human, snap, st
         await snap('confirmed');
         return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}` };
       }
-      const text = await findFirst([page.getByText(RX.ttConfirm)], { timeout: 1_000 });
+      const text = await findFirst([page.locator(TT_SUCCESS_TOAST).filter({ hasText: RX.ttConfirm })], { timeout: 1_000 });
       if (text) {
         const evidence = normalize(await text.innerText().catch(() => 'confirmation visible'));
         await snap('confirmed');

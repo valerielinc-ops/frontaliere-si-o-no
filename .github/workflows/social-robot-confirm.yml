@@ -33,7 +33,7 @@ on:
         default: ''
         type: string
       ledger_entries:
-        description: 'JSON ledger entries, used only when the queue no longer holds the entry'
+        description: 'JSON ledger entries the robot published; when present they win over the queue entry of the same id'
         required: false
         default: ''
         type: string
