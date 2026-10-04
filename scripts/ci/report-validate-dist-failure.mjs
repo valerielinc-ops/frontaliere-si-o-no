@@ -899,6 +899,14 @@ export function reportDist({ dryRun }) {
     payloads = buildIssuePayloads({ ...payloadInput, freshness });
   }
   const resolvable = gatesToResolve([...passedGates], failedGateNames);
+  // Il fallback legacy è volutamente lossy: con troppi gate rossi (o senza
+  // gate riconosciuti) `payloads` non contiene i titoli per-gate. Lo sblocco
+  // delle ricorrenze deve comunque valutare ogni gate ancora rosso, oltre al
+  // titolo legacy quando è l'unico payload disponibile.
+  const failingTitles = [...new Set([
+    ...payloads.map((p) => p.title),
+    ...failedGateNames.map(titleForGate),
+  ])];
 
   if (dryRun) {
     process.stdout.write(JSON.stringify({ payloads, resolvable: resolvable.map(titleForGate), freshness }, null, 2) + '\n');
@@ -925,7 +933,7 @@ export function reportDist({ dryRun }) {
     })),
     Promise.resolve(),
   )
-    .then(() => releaseParkedRecurrences({ repo, runId, deployRef, failingTitles: payloads.map((p) => p.title) }))
+    .then(() => releaseParkedRecurrences({ repo, runId, deployRef, failingTitles }))
     .then(() => resolvePassedGates(repo, runId, resolvable));
 }
 

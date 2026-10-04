@@ -737,6 +737,45 @@ describe('freschezza della build validata (LC-09)', () => {
       expect(writes.some((a) => a.includes('fu-parked') || a.includes('fu-data-pending') || a.includes('agent:triaged'))).toBe(false);
     });
 
+    it('fallback legacy → sblocca la issue per-gate ancora rossa se la build contiene il main', async () => {
+      const targetGate = 'gate:legacy-fallback-target';
+      const allGates = [targetGate, ...Array.from(
+        { length: MAX_PER_GATE_ISSUES },
+        (_, i) => `gate:legacy-fallback-${i}`,
+      )];
+      const legacyLog = allGates
+        .map((gate) => `2026-10-03T13:30:00.0000000Z ❌ FAIL  ${gate}  12.00 rc=1`)
+        .join('\n') + '\n';
+      const legacyJobs: Route = (a) => (a[0] === 'api' && /\/actions\/runs\/37120000000\/jobs/.test(a[1])
+        ? JSON.stringify({ jobs: [{ id: 2, name: 'validate-dist / validate-dist-postbuild', conclusion: 'failure', html_url: 'u', steps: [] }] })
+        : undefined);
+      const legacyLogRoute: Route = (a) => (a[0] === 'api' && /\/actions\/jobs\/2\/logs$/.test(a[1]) ? legacyLog : undefined);
+      const compareCurrentBuild: Route = (a) => {
+        if (a[0] !== 'api') return undefined;
+        if (a[1].includes(`/compare/${NEWER_REF}...${MAIN_SHA}`)) {
+          return JSON.stringify({ status: 'ahead', ahead_by: 14 });
+        }
+        if (a[1].includes(`/compare/${MAIN_SHA}...${NEWER_REF}`)) {
+          return JSON.stringify({ status: 'ahead', behind_by: 0 });
+        }
+        return undefined;
+      };
+      const parkedBody = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }))[0].body;
+      const parkedGateIssue: Route = (a) => (a[0] === 'issue' && a[1] === 'list' && a.includes('fu-parked')
+        ? JSON.stringify([{ number: 11119, title: titleForGate(targetGate), body: parkedBody }])
+        : undefined);
+      process.env.INPUT_DEPLOY_REF = NEWER_REF;
+      routeGh(legacyJobs, legacyLogRoute, mainHead, compareCurrentBuild, deployRun, deployRuns(REAL_ROWS), openIssues([]), parkedGateIssue, created);
+
+      await reportDist({ dryRun: false });
+
+      const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
+      expect(create[create.indexOf('--title') + 1]).toBe(LEGACY_TITLE);
+      const edit = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'edit' && a[2] === '11119');
+      expect(edit).toEqual(expect.arrayContaining(['--remove-label', 'fu-parked', 'fu-data-pending']));
+      expect(ghCalls().some((a) => a[0] === 'issue' && a[1] === 'comment' && a[2] === '11119')).toBe(true);
+    });
+
     it('misure fallite → issue nuova creata e instradata come prima', async () => {
       routeGh(jobs, log, openIssues([]), created); // commits/main, compare, runs: tutte ''
       await reportDist({ dryRun: false });
