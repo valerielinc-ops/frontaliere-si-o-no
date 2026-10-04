@@ -16,6 +16,14 @@
  * family files ONE canonical issue instead of one per truncated URL — see
  * ./lib/app-error-recency.mjs.
  *
+ * Closes, too (`appErrorReconcile`, the «riconcilia» phase of
+ * ./lib/monitor-issue-reconcile.mjs): an open `App Error:` issue whose
+ * signature is measured below threshold in the last 7 days of two DIFFERENT
+ * complete reports, with no recurrence in between, is closed with the
+ * evidence. A signature that this feeder drops by rule (deny-list, message-less
+ * bucket) is «not measured», never «clean»: a zero produced by a filter is
+ * not a recovery.
+ *
  * Labeled `stability` + `app-error` — NOT `agent:fix`. AGENTS.md's
  * auto-route allowlist is `crawler`/`follow-up` only; a real user-facing
  * error needs human triage before an autonomous fixer touches it.
@@ -40,9 +48,86 @@ const REPORT_PATH = process.env.ANALYTICS_REPORT_PATH || 'reports/analytics-late
 const MIN_COUNT = intFromEnv('APP_ERROR_MIN_COUNT', 5);
 const MAX_ISSUES = intFromEnv('APP_ERROR_MAX_ISSUES', 5);
 
+/** Famiglia, label e prefisso con cui la fase «riconcilia» trova le issue di questo feeder. */
+export const APP_ERROR_FAMILY = 'app-error';
+export const APP_ERROR_LABEL = 'app-error';
+export const APP_ERROR_TITLE_PREFIX = 'App Error: ';
+const RECONCILE_COMMAND = 'node scripts/app-error-issue-sync.mjs --dry-run';
+
 export function truncate(value, n) {
   const str = String(value ?? '').replace(/\s+/g, ' ').trim();
   return str.length > n ? `${str.slice(0, n - 1)}…` : str;
+}
+
+/**
+ * Il titolo della issue: lo stesso per coniare e per riconoscere una issue
+ * aperta. GA4 tronca il messaggio a 100 caratteri e qui lo si taglia a 60,
+ * quindi due firme diverse possono avere lo stesso titolo: per riconoscerle
+ * vale prima `MONITOR_KEY` (vedi `monitorKeyMarker`).
+ */
+export function titleFor(e) {
+  const type = truncate(sanitizeTrackedDiagnosticValue(e.errorType) || 'error', 20);
+  const msg = truncate(sanitizeTrackedDiagnosticValue(e.errorMessage), 60);
+  return `${APP_ERROR_TITLE_PREFIX}${type} — ${msg}`;
+}
+
+const normalizeField = (value) => String(sanitizeTrackedDiagnosticValue(String(value ?? '')) ?? '')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+/** La firma di una voce: tipo + messaggio (troncato da GA4), senza pagina ne' host. */
+export function signatureOf(e) {
+  return { type: normalizeField(e?.errorType), message: normalizeField(e?.errorMessage) };
+}
+
+const sameSignature = (a, b) => a.type === b.type && a.message === b.message;
+const signatureString = (s) => `${encodeURIComponent(s.type)}|${encodeURIComponent(s.message)}`;
+
+/**
+ * Il marker che lega la issue alla sua firma senza passare dal titolo
+ * troncato. I due campi sono `encodeURIComponent`: niente spazi ne' `-->`
+ * dentro il commento HTML.
+ */
+export function monitorKeyMarker(e) {
+  return `<!-- MONITOR_KEY: family=${APP_ERROR_FAMILY} key=${signatureString(signatureOf(e))} -->`;
+}
+
+const MONITOR_KEY_RE = new RegExp(`<!--\\s*MONITOR_KEY:\\s*family=${APP_ERROR_FAMILY}\\s+key=([^\\s|]*)\\|(\\S*)\\s*-->`);
+
+/**
+ * La firma che una issue dichiara, o `null`.
+ *   1. `MONITOR_KEY` nel corpo (issue coniate da qui in poi);
+ *   2. le righe `**Type:**` e `**Message:**` che il corpo porta da sempre
+ *      (issue coniate prima del marker: 8612, 9465);
+ * Senza nessuna delle due resta il titolo, che il chiamante usa solo se non
+ * e' ambiguo.
+ */
+export function signatureFromIssueBody(body) {
+  const text = String(body ?? '');
+  const marker = text.match(MONITOR_KEY_RE);
+  if (marker) {
+    try {
+      return {
+        type: decodeURIComponent(marker[1]),
+        message: decodeURIComponent(marker[2]),
+        source: 'MONITOR_KEY',
+      };
+    } catch { /* marker deformato: si ricade sulle righe del corpo */ }
+  }
+  const type = text.match(/^\*\*Type:\*\*[ \t]*(.*)$/m);
+  const message = text.match(/^\*\*Message:\*\*[ \t]*(.*)$/m);
+  if (type && message) {
+    return { type: normalizeField(type[1]), message: normalizeField(message[1]), source: 'corpo (Type/Message)' };
+  }
+  return null;
+}
+
+/** Tipo e messaggio (troncato a 60) ricavati dal titolo, per il solo controllo di deny-list. */
+function signatureFromTitle(title) {
+  const rest = String(title ?? '').slice(APP_ERROR_TITLE_PREFIX.length);
+  const cut = rest.indexOf(' — ');
+  if (cut < 0) return { type: '', message: rest.replace(/…$/, '') };
+  return { type: rest.slice(0, cut).replace(/…$/, ''), message: rest.slice(cut + 3).replace(/…$/, '') };
 }
 
 /** `last7d` se il report lo ha misurato, altrimenti `null` (non uno zero). */
@@ -123,38 +208,31 @@ export function buildIssueBody(e, { errorRate, healthStatus, stack } = {}) {
         : `prima=${recent} hit negli ultimi ${APP_ERROR_RECENT_DAYS} giorni (${e.count} nella finestra del report) atteso=<${MIN_COUNT} (sotto la soglia del feeder)`,
       comando: 'node scripts/app-error-issue-sync.mjs --dry-run',
       note: [
-        'Il comando rilegge `reports/analytics-latest.json` e stampa le issue che coniera',
-        "senza coniarle: la issue si chiude quando questa firma non compare piu' nell'output.",
-        'Il report va rigenerato prima (`node scripts/analytics-report.mjs --save`, vuole le',
-        'credenziali GA4), altrimenti si rimisura la stessa finestra di prima.',
+        'Il comando rilegge `reports/analytics-latest.json`, stampa le issue che coniera',
+        'senza coniarle e, per ogni issue aperta della famiglia, la decisione di chiusura con',
+        'la misura. Il report va rigenerato prima (`node scripts/analytics-report.mjs --save`,',
+        'vuole le credenziali GA4), altrimenti si rimisura la stessa finestra di prima.',
       ],
       osservatore: [
         '`.github/workflows/analytics.yml`, che ogni settimana rigira questo feeder e',
         'ricommenta sulla issue canonica finche\' la firma resta sopra soglia NEGLI ULTIMI',
-        `${APP_ERROR_RECENT_DAYS} GIORNI (non nella finestra intera: un picco vecchio non riconferma). Non esiste un`,
-        'closer automatico: il comando qui sopra e\' il criterio con cui chiuderla.',
+        `${APP_ERROR_RECENT_DAYS} GIORNI (non nella finestra intera: un picco vecchio non riconferma). Lo stesso`,
+        'feeder la chiude: primo report pulito e completo → commento con la misura; secondo',
+        'report pulito di un altro giorno, senza riconferme in mezzo → chiusura con l\'evidenza.',
       ],
-      fallimento: `\`App Error: ${truncate(sanitizeTrackedDiagnosticValue(e.errorType) || 'error', 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.errorMessage), 60)}\``,
+      fallimento: `\`${titleFor(e)}\``,
     }));
+    lines.push('', monitorKeyMarker(e));
     return lines.join('\n');
 }
 
-export async function main() {
-  let report;
-  try {
-    report = JSON.parse(readFileSync(REPORT_PATH, 'utf8'));
-  } catch (e) {
-    console.log(`[app-error-issue-sync] no report at ${REPORT_PATH} (${e.message}) — skip`);
-    return;
-  }
-
-  const eh = report?.ga4?.errorHealth;
-  if (!eh || !eh.totalErrors) {
-    console.log('[app-error-issue-sync] no errorHealth / zero errors in report — nothing to sync');
-    return;
-  }
-
-  const actionable = (eh.appErrors || [])
+/**
+ * Le voci che il feeder considera: host di produzione, messaggio azionabile,
+ * nessuna deny-list. La stessa regola vale per coniare e per misurare le issue
+ * aperte (`appErrorReconcile`): una firma scartata qui non e' misurata.
+ */
+export function actionableEntries(appErrors) {
+  return (appErrors || [])
     // Host filter, not a signature filter: `analytics-report.mjs` already asks
     // GA4 for the production host only, this is the same rule applied to
     // whatever the report carries (dev server on `127.0.0.1`, the Firebase
@@ -183,6 +261,164 @@ export async function main() {
     // stack is outside our code. A generic message can still be actionable
     // when its type is first-party, so the type must be passed explicitly.
     .filter((e) => !isIssueDenied(e.errorMessage, e.errorType));
+}
+
+/**
+ * La configurazione della fase «riconcilia» (scripts/lib/monitor-issue-reconcile.mjs)
+ * per il report letto. `verdictFor(issue)` misura la firma della issue su
+ * QUESTO report; la regola a due conferme (`confirmations: 2`) la applica il
+ * modulo condiviso.
+ *
+ * `complete` (la misura vale come prova) solo se:
+ *   - il report esiste e `errorHealth.appErrors` e' un array;
+ *   - il report ha una data di generazione (`measure` = il giorno: due
+ *     esecuzioni sullo stesso report non sono due conferme);
+ *   - la firma non e' scartata per regola dal feeder (deny-list, messaggio
+ *     vuoto): uno zero prodotto dal filtro non e' una guarigione;
+ *   - la firma si riconosce senza ambiguita' (MONITOR_KEY, righe del corpo,
+ *     oppure un titolo che UNA sola firma del report produce);
+ *   - presente: ogni sua riga di produzione porta `last7d`;
+ *     assente: l'elenco e' dichiarato completo (`appErrorsComplete`), non un
+ *     top-N tagliato.
+ * `clean` = somma `last7d` della firma sotto soglia, oppure firma assente da
+ * un elenco completo. Un titolo che il report misura sopra soglia (anche fuori
+ * dalle prime `MAX_ISSUES`) non e' mai pulito.
+ *
+ * @param {object|null} report  il JSON di `reports/analytics-latest.json`.
+ * @param {{minCount?: number}} [opts]
+ */
+export function appErrorReconcile(report, { minCount = MIN_COUNT } = {}) {
+  const base = {
+    family: APP_ERROR_FAMILY,
+    labels: [APP_ERROR_LABEL],
+    titlePrefix: APP_ERROR_TITLE_PREFIX,
+    confirmations: 2,
+  };
+  const incomplete = (evidence) => ({ clean: false, complete: false, evidence, command: RECONCILE_COMMAND });
+
+  const eh = report?.ga4?.errorHealth;
+  if (!Array.isArray(eh?.appErrors)) {
+    return { ...base, verdictFor: () => incomplete('report senza `errorHealth.appErrors` (array): misura assente') };
+  }
+  const generated = String(report?.generated ?? '');
+  const day = /^\d{4}-\d{2}-\d{2}/.test(generated) ? generated.slice(0, 10) : '';
+  if (!day) {
+    return { ...base, verdictFor: () => incomplete('report senza data di generazione: due esecuzioni non si distinguono') };
+  }
+  const listComplete = eh.appErrorsComplete === true;
+
+  // Le stesse regole del conio: host di produzione, messaggio azionabile,
+  // nessuna deny-list. Le righe grezze servono alle issue coniate per firma
+  // (8612, 9465), la famiglia chunk-load alla sua issue canonica.
+  const actionable = actionableEntries(eh.appErrors);
+  const grouped = groupChunkLoadFamily(actionable);
+  const units = [...actionable, ...grouped.filter((e) => e.family === CHUNK_LOAD_FAMILY)];
+  const hotTitles = new Set(grouped.filter((e) => isRecentEnough(e, minCount)).map(titleFor));
+
+  const measured = {
+    measure: `report-${day}`,
+    measuredAt: generated,
+    command: RECONCILE_COMMAND,
+  };
+  const reportRef = `report del ${day}`;
+
+  return {
+    ...base,
+    verdictFor: (issue) => {
+      const title = String(issue?.title ?? '');
+      const declared = signatureFromIssueBody(issue?.body);
+      let sig = declared;
+      let matches;
+      if (declared) {
+        matches = units.filter((u) => sameSignature(signatureOf(u), declared));
+      } else {
+        matches = units.filter((u) => titleFor(u) === title);
+        const distinct = new Map(matches.map((u) => [signatureString(signatureOf(u)), signatureOf(u)]));
+        if (distinct.size > 1) {
+          return incomplete(`titolo ambiguo: ${distinct.size} firme del ${reportRef} hanno questo titolo e la issue non porta MONITOR_KEY`);
+        }
+        sig = distinct.size === 1 ? [...distinct.values()][0] : signatureFromTitle(title);
+      }
+
+      if (!hasActionableErrorMessage(sig.message) || isIssueDenied(sig.message, sig.type)) {
+        return incomplete('firma esclusa dal feeder per regola (deny-list o messaggio vuoto): non misurata, la chiusura la decide chi legge');
+      }
+      if (hotTitles.has(title)) {
+        return {
+          ...measured,
+          clean: false,
+          complete: true,
+          evidence: `una firma con questo titolo e' sopra soglia negli ultimi ${APP_ERROR_RECENT_DAYS} giorni nel ${reportRef}`,
+        };
+      }
+
+      if (!matches.length) {
+        if (!listComplete) {
+          return incomplete(`firma assente dal ${reportRef}, ma l'elenco e' un top-N senza \`appErrorsComplete\`: non misurata`);
+        }
+        return {
+          ...measured,
+          clean: true,
+          complete: true,
+          evidence: `firma assente dall'elenco completo del ${reportRef} (${eh.appErrors.length} righe): 0 hit di produzione nella finestra`,
+        };
+      }
+      if (matches.some((m) => !Number.isFinite(m.last7d))) {
+        return incomplete(`la firma e' nel ${reportRef} senza \`last7d\`: ultimi ${APP_ERROR_RECENT_DAYS} giorni non misurati`);
+      }
+      const last7d = matches.reduce((sum, m) => sum + m.last7d, 0);
+      const count = matches.reduce((sum, m) => sum + (m.count || 0), 0);
+      const lastSeen = matches.reduce((acc, m) => (m.lastSeen && (!acc || m.lastSeen > acc) ? m.lastSeen : acc), null);
+      const clean = last7d < minCount;
+      return {
+        ...measured,
+        clean,
+        complete: true,
+        evidence: `${last7d} hit negli ultimi ${APP_ERROR_RECENT_DAYS} giorni (soglia ${minCount}), ${count} nella finestra del report, `
+          + `ultima volta ${lastSeen || 'prima del giorno piu\' vecchio letto'} — ${reportRef}`
+          + (listComplete ? '' : ' (elenco top-N: righe della stessa firma oltre il taglio non contate)'),
+      };
+    },
+  };
+}
+
+export async function main() {
+  let report;
+  try {
+    report = JSON.parse(readFileSync(REPORT_PATH, 'utf8'));
+  } catch (e) {
+    console.log(`[app-error-issue-sync] no report at ${REPORT_PATH} (${e.message}) — skip`);
+    return;
+  }
+
+  const eh = report?.ga4?.errorHealth;
+  if (!eh || !eh.totalErrors) {
+    console.log('[app-error-issue-sync] no errorHealth / zero errors in report — nothing to sync');
+    return;
+  }
+
+  // Da qui in poi il report porta una misura: ogni ramo, anche quello che non
+  // conia niente, passa dalla fase «riconcilia». «Nessuna firma sopra soglia»
+  // e' proprio il caso in cui le issue guarite si chiudono; con un `return`
+  // secco non si chiuderebbero mai (8773, 7919: chiuse a mano il 2026-10-03).
+  const stackByMessage = new Map((eh.topStacks || []).map((s) => [s.message, s.stack]));
+  const syncOptions = {
+    dryRun: process.argv.includes('--dry-run'),
+    maxIssues: MAX_ISSUES,
+    labels: ['stability', APP_ERROR_LABEL],
+    source: 'Weekly Analytics Report — GA4 app_error',
+    priorityFor: (e) => ((eh.errorRate >= 1.0 || relevantCount(e) >= MIN_COUNT * 10) ? 2 : 3),
+    titleFor,
+    bodyFor: (e) => buildIssueBody(e, {
+      errorRate: eh.errorRate,
+      healthStatus: eh.healthStatus,
+      stack: stackByMessage.get(e.errorMessage) ?? stackByMessage.get(e.members?.[0]?.errorMessage),
+    }),
+    reconcile: appErrorReconcile(report),
+  };
+  const reconcileOnly = () => syncErrorIssues({ ...syncOptions, entries: [] });
+
+  const actionable = actionableEntries(eh.appErrors);
 
   // One canonical issue for the chunk-load family, BEFORE the thresholds: the
   // unit that crosses a threshold is the class, not each URL GA4 happened to
@@ -214,6 +450,7 @@ export async function main() {
     console.log(
       `[app-error-issue-sync] no app_error above MIN_COUNT=${MIN_COUNT} in the last ${APP_ERROR_RECENT_DAYS} days — nothing to sync`,
     );
+    await reconcileOnly();
     return;
   }
 
@@ -234,29 +471,11 @@ export async function main() {
   }
   if (!live.length) {
     console.log('[app-error-issue-sync] every candidate is stale page_404 telemetry — nothing to sync');
+    await reconcileOnly();
     return;
   }
 
-  const stackByMessage = new Map((eh.topStacks || []).map((s) => [s.message, s.stack]));
-
-  return syncErrorIssues({
-    entries: live,
-    dryRun: process.argv.includes('--dry-run'),
-    maxIssues: MAX_ISSUES,
-    labels: ['stability', 'app-error'],
-    source: 'Weekly Analytics Report — GA4 app_error',
-    priorityFor: (e) => ((eh.errorRate >= 1.0 || relevantCount(e) >= MIN_COUNT * 10) ? 2 : 3),
-    titleFor: (e) => {
-      const type = truncate(sanitizeTrackedDiagnosticValue(e.errorType) || 'error', 20);
-      const msg = truncate(sanitizeTrackedDiagnosticValue(e.errorMessage), 60);
-      return `App Error: ${type} — ${msg}`;
-    },
-    bodyFor: (e) => buildIssueBody(e, {
-      errorRate: eh.errorRate,
-      healthStatus: eh.healthStatus,
-      stack: stackByMessage.get(e.errorMessage) ?? stackByMessage.get(e.members?.[0]?.errorMessage),
-    }),
-  });
+  return syncErrorIssues({ ...syncOptions, entries: live });
 }
 
 // Run only when invoked directly (not when imported by the test suite), so

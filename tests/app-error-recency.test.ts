@@ -118,8 +118,24 @@ describe('fetchAppErrorsWithRecency — the three GA4 requests behind errorHealt
   it('no entries at all: no recency request, no recency block', async () => {
     const { bodies, fetchImpl } = fakeGa4([{ rows: [] }, { rows: [] }]);
     const out = await run(fetchImpl);
-    expect(out).toEqual({ appErrors: [], recency: null });
+    expect(out).toEqual({ appErrors: [], recency: null, complete: true });
     expect(bodies).toHaveLength(['app_error', 'exception'].length);
+  });
+
+  // Il chiuditore del feeder legge «assente dall'elenco» come «zero» solo se
+  // l'elenco non e' un top-N tagliato (scripts/app-error-issue-sync.mjs).
+  it('declares the list complete only when GA4 did not cut rows past the limit', async () => {
+    const recencyRows = { rows: [row('TypeError', 'live', '/it/', 'frontaliereticino.ch', '2026-01-30', 6)] };
+    const whole = await run(fakeGa4([{ rows: [mainRow('TypeError', 'live', 40)], rowCount: 1 }, recencyRows]).fetchImpl);
+    expect(whole.complete).toBe(true);
+    const cut = await run(fakeGa4([{ rows: [mainRow('TypeError', 'live', 40)], rowCount: 31 }, recencyRows]).fetchImpl);
+    expect(cut.complete).toBe(false);
+  });
+
+  it('a failed app_error query is not a complete list, even when the exception fallback answers', async () => {
+    const out = await run(fakeGa4([{ ok: false }, { rows: [] }]).fetchImpl);
+    expect(out.appErrors).toEqual([]);
+    expect(out.complete).toBe(false);
   });
 });
 
