@@ -95,6 +95,106 @@ export async function runGa4Report({
   return data;
 }
 
+/** Massimo di righe per singola richiesta runReport della GA4 Data API. */
+export const GA4_RUNREPORT_MAX_PAGE_SIZE = 250_000;
+/** Tetto dichiarato di righe lette da un report paginato: oltre, `capped`. */
+export const GA4_RUNREPORT_DEFAULT_MAX_ROWS = 1_000_000;
+
+function mergeGa4Metadata(list) {
+  const present = list.filter(Boolean);
+  if (!present.length) return {};
+  const merged = { ...present[0] };
+  if (present.some((m) => m.dataLossFromOtherRow)) merged.dataLossFromOtherRow = true;
+  if (present.some((m) => m.subjectToThresholding)) merged.subjectToThresholding = true;
+  const reasons = present.flatMap((m) => m.dataTruncationReasons || []);
+  if (reasons.length) merged.dataTruncationReasons = reasons;
+  const restrictions = present.flatMap((m) => m.schemaRestrictionResponse?.activeMetricRestrictions || []);
+  if (restrictions.length) {
+    merged.schemaRestrictionResponse = { ...(merged.schemaRestrictionResponse || {}), activeMetricRestrictions: restrictions };
+  }
+  const sampling = present.flatMap((m) => m.samplingMetadatas || []);
+  if (sampling.length) merged.samplingMetadatas = sampling;
+  return merged;
+}
+
+/**
+ * Legge un runReport GA4 per intero, pagina dopo pagina con `offset`, fino a
+ * `rowCount` (o fino al tetto `maxRows`). Un limit fisso senza offset rende
+ * troncata, e quindi «fonte assente» per i consumer prudenti, qualunque
+ * popolazione superi una pagina (issue 11423: 138.894 pagePath contro
+ * limit 100000). `fetchPage(body)` restituisce il JSON della risposta.
+ *
+ * `complete` e' falso se manca una coda (pagina corta prima di rowCount,
+ * tetto raggiunto, rowCount cambiato fra le pagine, o pagina piena senza
+ * rowCount): i segnali di campionamento/soglia restano nel `metadata`
+ * unito e li valuta il chiamante.
+ *
+ * @param {{ body: object, fetchPage: (body: object) => Promise<any>, pageSize?: number, maxRows?: number }} input
+ */
+export async function paginateGa4Report({
+  body,
+  fetchPage,
+  pageSize = 100_000,
+  maxRows = GA4_RUNREPORT_DEFAULT_MAX_ROWS,
+} = {}) {
+  const size = Math.max(1, Math.min(Number(pageSize) || 1, GA4_RUNREPORT_MAX_PAGE_SIZE));
+  const rows = [];
+  const metadatas = [];
+  let rowCount = null;
+  let rowCountChanged = false;
+  let lastPageFull = false;
+  let pages = 0;
+  while (rows.length < maxRows) {
+    const limit = Math.min(size, maxRows - rows.length);
+    const data = (await fetchPage({ ...body, offset: rows.length, limit })) || {};
+    pages += 1;
+    metadatas.push(data.metadata);
+    const reported = data.rowCount == null ? null : Number(data.rowCount);
+    if (pages > 1 && reported !== rowCount) rowCountChanged = true;
+    rowCount = reported;
+    const batch = Array.isArray(data.rows) ? data.rows : [];
+    // Niente spread: una pagina da 250000 righe supera il limite di argomenti.
+    for (const row of batch) rows.push(row);
+    lastPageFull = batch.length >= limit;
+    if (!lastPageFull) break;
+    if (rowCount !== null && rows.length >= rowCount) break;
+  }
+  const capped = rows.length >= maxRows && (rowCount === null ? lastPageFull : rowCount > rows.length);
+  const complete = !rowCountChanged && !capped && (rowCount === null
+    ? !lastPageFull
+    : Number.isSafeInteger(rowCount) && rowCount === rows.length);
+  return { rows, rowCount, metadata: mergeGa4Metadata(metadatas), pages, rowCountChanged, capped, complete };
+}
+
+/**
+ * `runGa4Report` letto per intero con `paginateGa4Report`. Restituisce la
+ * forma di una risposta runReport (`rows`, `rowCount`, `metadata`) piu'
+ * `complete`/`pages`: un chiamante che misura una popolazione intera deve
+ * controllare `complete === false`, non solo `rowCount > rows.length`.
+ */
+export async function runGa4ReportPaged({
+  token,
+  body,
+  propertyId,
+  fetchImpl = fetch,
+  pageSize = body?.limit ?? 100_000,
+  maxRows = GA4_RUNREPORT_DEFAULT_MAX_ROWS,
+} = {}) {
+  const report = await paginateGa4Report({
+    body,
+    pageSize,
+    maxRows,
+    fetchPage: (page) => runGa4Report({ token, body: page, propertyId, fetchImpl }),
+  });
+  return {
+    rows: report.rows,
+    rowCount: report.rowCount,
+    metadata: report.metadata,
+    complete: report.complete,
+    pages: report.pages,
+  };
+}
+
 function exactEventFilter(eventName) {
   return {
     filter: {
@@ -224,13 +324,18 @@ export async function fetchGa4WebVitals({
   token,
   startDate,
   endDate,
-  limit = 100000,
+  pageSize = 100000,
+  maxRows = GA4_RUNREPORT_DEFAULT_MAX_ROWS,
   paths,
   fetchImpl = fetch,
 } = {}) {
-  const data = await runGa4Report({
-    token,
-    fetchImpl,
+  // Paginato: con un limit fisso e senza offset una finestra oltre una pagina
+  // risultava `truncated` e i consumer (revenue-monitor, cwv-monitor-check)
+  // scartavano la fonte (stessa classe della issue 11423).
+  const report = await paginateGa4Report({
+    pageSize,
+    maxRows,
+    fetchPage: (body) => runGa4Report({ token, fetchImpl, body }),
     body: {
       dateRanges: [{ startDate, endDate }],
       dimensions: [
@@ -246,10 +351,10 @@ export async function fetchGa4WebVitals({
         exactEventFilter('web_vitals'),
         { filter: { fieldName: 'pagePath', inListFilter: { values: paths } } },
       ] } } : exactEventFilter('web_vitals'),
-      limit,
     },
   });
-  const reportRows = data.rows || [];
+  const reportRows = report.rows;
+  const metadata = report.metadata;
   const totalCount = reportRows.reduce((sum, row) => sum + rowEventCount(row), 0);
   const otherCount = reportRows
     .filter((row) => row.dimensionValues?.some((dimension) => dimension?.value === '(other)'))
@@ -273,16 +378,17 @@ export async function fetchGa4WebVitals({
     value: {
       totalCount,
       returnedRows: reportRows.length,
-      timeZone: data.metadata?.timeZone || null,
-      dataLossFromOtherRow: Boolean(data.metadata?.dataLossFromOtherRow),
-      samplingMetadatas: data.metadata?.samplingMetadatas || [],
-      dataTruncationReasons: data.metadata?.dataTruncationReasons || [],
-      subjectToThresholding: Boolean(data.metadata?.subjectToThresholding),
-      distributionIncomplete: Boolean(data.metadata?.dataLossFromOtherRow
-        || data.metadata?.samplingMetadatas?.length || data.metadata?.dataTruncationReasons?.length
-        || data.metadata?.subjectToThresholding),
-      totalRows: data.rowCount ?? null,
-      truncated: data.rowCount != null ? data.rowCount > reportRows.length : reportRows.length >= limit,
+      timeZone: metadata.timeZone || null,
+      dataLossFromOtherRow: Boolean(metadata.dataLossFromOtherRow),
+      samplingMetadatas: metadata.samplingMetadatas || [],
+      dataTruncationReasons: metadata.dataTruncationReasons || [],
+      subjectToThresholding: Boolean(metadata.subjectToThresholding),
+      distributionIncomplete: Boolean(metadata.dataLossFromOtherRow
+        || metadata.samplingMetadatas?.length || metadata.dataTruncationReasons?.length
+        || metadata.subjectToThresholding),
+      totalRows: report.rowCount,
+      pages: report.pages,
+      truncated: !report.complete,
       otherCount,
       otherFraction: totalCount ? otherCount / totalCount : 0,
     },

@@ -12,7 +12,7 @@
 
 import { GA4_MIN_SESSIONS } from './constants.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
-import { GA4_READONLY_SCOPE, getServiceAccountToken } from '../ga4-service-account.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from '../ga4-service-account.mjs';
 
 function normalizePropertyId(raw) {
   if (!raw) return null;
@@ -132,24 +132,35 @@ export async function fetchGa4Pages({
           },
         },
       },
-      limit: 100000,
     };
 
-    const res = await fetchImpl(url, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(requestBody),
+    // Paginato con offset fino a rowCount: un limit fisso senza offset
+    // troncava a 100000 righe una finestra di 138.894 pagePath e
+    // seo-health-loop leggeva GA4 come fonte assente a ogni run (issue 11423).
+    let accessDenied = null;
+    const report = await paginateGa4Report({
+      body: requestBody,
+      fetchPage: async (body) => {
+        const res = await fetchImpl(url, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        if (res.status === 403) {
+          accessDenied = (await res.text()).slice(0, 200);
+          return null;
+        }
+        if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
+        return res.json();
+      },
     });
-    if (res.status === 403) {
-      const text = await res.text();
+    if (accessDenied !== null) {
       return {
         pages: {},
-        error: `GA4 access denied — service account needs Viewer role on property (${text.slice(0, 200)})`,
+        error: `GA4 access denied — service account needs Viewer role on property (${accessDenied})`,
       };
     }
-    if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
-    const data = await res.json();
-    const rows = data.rows || [];
+    const { rows } = report;
 
     const pages = {};
     for (const r of rows) {
@@ -170,11 +181,9 @@ export async function fetchGa4Pages({
         cluster,
       };
     }
-    const reportedRows = data.rowCount == null ? null : Number(data.rowCount);
-    const metadata = data.metadata || {};
-    const incomplete = reportedRows === null ? rows.length >= requestBody.limit
-      : !Number.isSafeInteger(reportedRows) || reportedRows !== rows.length;
-    const limited = incomplete || metadata.dataLossFromOtherRow || metadata.subjectToThresholding
+    const reportedRows = report.rowCount;
+    const metadata = report.metadata;
+    const limited = !report.complete || metadata.dataLossFromOtherRow || metadata.subjectToThresholding
       || metadata.dataTruncationReasons?.length || metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length
       || metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize));
     return {

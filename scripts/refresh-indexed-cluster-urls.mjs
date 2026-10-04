@@ -52,6 +52,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
+import { paginateGa4Report } from './lib/ga4-service-account.mjs';
 import {
   normalizeRelatedSearchClusterPath,
   parseRelatedSearchClusterPathKey,
@@ -207,22 +208,31 @@ async function fetchGa4(sa, startDate, endDate) {
   const propertyId = propertyIdRaw.startsWith('properties/') ? propertyIdRaw : `properties/${propertyIdRaw}`;
   const token = await getAccessToken(sa, 'https://www.googleapis.com/auth/analytics.readonly');
   const url = `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-    body: JSON.stringify({
+  // Paginato fino a rowCount: una finestra di pagePath oltre le 100000 righe
+  // veniva troncata in silenzio da un limit fisso senza offset (stessa classe
+  // della issue 11423). La keep-list e' additiva: una coda mancante non
+  // cancella i path osservati, ma resta visibile in `complete`.
+  const report = await paginateGa4Report({
+    body: {
       dateRanges: [{ startDate, endDate }],
       dimensions: [{ name: 'pagePath' }],
       metrics: [{ name: 'screenPageViews' }],
-      limit: 100000,
-    }),
+    },
+    fetchPage: async (page) => {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify(page),
+      });
+      if (!res.ok) throw new Error(`GA4 ${res.status}: ${await res.text()}`);
+      return res.json();
+    },
   });
-  if (!res.ok) throw new Error(`GA4 ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  return (data.rows || []).map((r) => ({
+  const rows = report.rows.map((r) => ({
     path: r.dimensionValues?.[0]?.value || '',
     views: parseInt(r.metricValues?.[0]?.value || '0', 10),
   }));
+  return { rows, complete: report.complete, reportedRows: report.rowCount };
 }
 
 async function fetchPosthog(startDate, endDate) {
@@ -301,7 +311,7 @@ async function main() {
   // ─── GA4 ───────────────────────────────────────────────────────────────
   if (sa && process.env.GA4_PROPERTY_ID) {
     try {
-      const rows = await fetchGa4(sa, startDate, endDate);
+      const { rows, complete, reportedRows } = await fetchGa4(sa, startDate, endDate);
       let clusterSeen = 0, kept = 0;
       for (const row of rows) {
         const normalized = normalizeClusterPath(row.path);
@@ -311,7 +321,7 @@ async function main() {
         addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
         kept += 1;
       }
-      sources.ga4 = { ok: true, rowsScanned: rows.length, clusterSeen, kept };
+      sources.ga4 = { ok: true, complete, rowsScanned: rows.length, reportedRows, clusterSeen, kept };
       console.error(`[indexed-cluster-urls] GA4: ${kept} non-aggregator cluster paths kept from ${clusterSeen} cluster URLs (${rows.length} rows)`);
     } catch (err) {
       sources.ga4 = { ok: false, reason: err.message };
