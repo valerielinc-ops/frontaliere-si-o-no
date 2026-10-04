@@ -427,17 +427,26 @@ jobs:
           fi
           node scripts/probe-live-consent-message.mjs
 
-      # CLS ratchet — fails if any audited template's CLS p75 regresses past
+      # CLS ratchet — flags any audited template whose CLS p75 regresses past
       # Google's "needs improvement" threshold (0.25) or by more than 10%/+0.05
       # absolute vs `data/cls-baseline.json`. CLS poor crushes AdSense viewability
-      # and ad-bid; without this gate, every refactor risks pushing it up another
-      # notch. Improving the baseline requires running `audit-cls-live --rebaseline`
+      # and ad-bid. Improving the baseline requires running `audit-cls-live --rebaseline`
       # locally and committing the diff together with the fix.
+      # NOT deploy-blocking on a regression (owner decision 2026-10-04: «nessun
+      # blocco deploy, solo issue nel backlog»): `--report-issue` opens/updates
+      # the stable `[Monitor] CLS regression after deploy` issue and exits 0; a
+      # later run that measures every target clean closes it. The step stays red
+      # for blocking PSI errors (unchanged) and when the issue write is not
+      # confirmed, so a regression is never both non-blocking and untracked.
+      # `hard_regressions` output keeps the PSI evidence upload below working.
       - name: CLS regression gate
         id: cls-gate
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
-        run: node scripts/audit-cls-live.mjs
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLS_GATE_BUILD_SHA: ${{ inputs.deploy_ref || github.sha }}
+        run: node scripts/audit-cls-live.mjs --report-issue
 
       - name: Live smoke (probe 5xx + e2e:live)
         env:
@@ -473,9 +482,10 @@ jobs:
       # is embedded for every hard CLS regression so a debug agent can replay
       # the attribution evidence offline without re-running PSI (which is
       # quota-limited and ~30 min serial). Tied to failure() to stay within
-      # the free-tier retention budget.
+      # the free-tier retention budget — plus a non-blocking CLS hard
+      # regression, whose monitor issue points at this artifact.
       - name: Upload audit reports on failure
-        if: failure()
+        if: failure() || (steps.cls-gate.outputs.hard_regressions || '0') != '0'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
