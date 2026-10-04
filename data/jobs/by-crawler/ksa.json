@@ -648,8 +648,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -659,8 +658,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ]
       },
       "needsRetranslation": true,
@@ -4545,12 +4543,12 @@
     },
     {
       "id": "ksa-78f441305955",
-      "slug": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+      "slug": "assistente-medico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "it": "assistente-medico-kantonsspital-aarau-ksa-aarau",
+        "en": "medical-practice-assistant-kantonsspital-aarau-ksa-aarau-e457f6",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "assistant-e-medical-e-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4599,6 +4597,12 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        ],
+        "fr": [
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
@@ -7671,7 +7675,7 @@
       "slug": "primario-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "primario-kantonsspital-aarau-ksa-aarau",
-        "en": "senior-physician-kantonsspital-aarau-ksa-aarau",
+        "en": "senior-physician-kantonsspital-aarau-ksa-aarau-91d9e6",
         "de": "oberarztin-oberarzt-ksa-ch",
         "fr": "medecin-chef-kantonsspital-aarau-ksa-aarau"
       },
@@ -7735,14 +7739,16 @@
           "oberarztin-oberarzt-ksa-ch"
         ],
         "en": [
-          "oberarztin-oberarzt-ksa-ch"
+          "oberarztin-oberarzt-ksa-ch",
+          "senior-physician-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
           "oberarztin-oberarzt-ksa-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-ksa-ch"
+        "oberarztin-oberarzt-ksa-ch",
+        "senior-physician-kantonsspital-aarau-ksa-aarau"
       ]
     },
     {

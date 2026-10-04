@@ -4692,9 +4692,9 @@
     },
     {
       "id": "zurzach-care-c6f31689beff",
-      "slug": "prasenzarztin-prasenzarzt-zurzach-care-schlieren",
+      "slug": "medico-di-presenza-zurzach-care-schlieren",
       "slugByLocale": {
-        "it": "prasenzarztin-prasenzarzt-zurzach-care-schlieren",
+        "it": "medico-di-presenza-zurzach-care-schlieren",
         "en": "physician-in-attendance-zurzach-care-schlieren",
         "de": "prasenzarztin-prasenzarzt-zurzach-care-schlieren",
         "fr": "medecin-presentiel-zurzach-care-schlieren"
@@ -4754,7 +4754,21 @@
         }
       },
       "datePosted": "2026-09-29T00:00:00Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "prasenzarztin-prasenzarzt-zurzach-care-schlieren"
+        ],
+        "en": [
+          "prasenzarztin-prasenzarzt-zurzach-care-schlieren"
+        ],
+        "fr": [
+          "prasenzarztin-prasenzarzt-zurzach-care-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "prasenzarztin-prasenzarzt-zurzach-care-schlieren"
+      ]
     },
     {
       "id": "zurzach-care-1f68033331ff",

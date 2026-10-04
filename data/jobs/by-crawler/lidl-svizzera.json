@@ -773,8 +773,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier",
-        "en": "vendeur-vendeuse-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier-b4icvi",
-        "de": "vendeur-vendeuse-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier-b4icvi",
+        "en": "seller-m-f-d-40-60-lausanne-region-lidl-svizzera-crissier",
+        "de": "verkaufer-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier",
         "fr": "vendeur-vendeuse-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier-b4icvi"
       },
       "requirementsByLocale": {},
@@ -782,6 +782,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier-b4icvi"
+        ],
+        "en": [
+          "vendeur-vendeuse-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier-b4icvi"
+        ],
+        "de": [
           "vendeur-vendeuse-m-w-d-40-60-region-lausanne-lidl-svizzera-crissier-b4icvi"
         ]
       },
@@ -848,8 +854,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-lausanne",
-        "en": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-lausanne-ohay19",
-        "de": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-lausanne-ohay19",
+        "en": "salesperson-responsible-for-team-m-f-d-80-lausanne-region-lidl-svizzera-lausanne",
+        "de": "verkaufer-verantwortlich-fur-team-m-w-d-80-region-lausanne-lidl-svizzera-lausanne",
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-lausanne-ohay19"
       },
       "requirementsByLocale": {},
@@ -857,6 +863,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-lausanne-ohay19"
+        ],
+        "en": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-lausanne-ohay19"
+        ],
+        "de": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-lausanne-ohay19"
         ]
       },
@@ -1110,6 +1122,8 @@
         "seller-seller-m-f-d-20-60-butzberg-lidl-svizzera-butzberg",
         "vendeur-vendeur-h-f-d-20-60-butzberg-lidl-svizzera-butzberg"
       ],
+      "salaryMin": 41100,
+      "salaryMax": 62400,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1126,9 +1140,7 @@
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "datePosted": "2026-10-02T08:01:19+00:00",
-      "postingDateSource": "reported",
-      "salaryMin": 41100,
-      "salaryMax": 62400
+      "postingDateSource": "reported"
     },
     {
       "id": "company-pgzu9r",
@@ -1274,10 +1286,10 @@
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "datePosted": "2026-10-01T11:07:31+00:00",
-      "postingDateSource": "reported",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "datePosted": "2026-10-01T11:07:31+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "company-nay2hm",
@@ -1361,10 +1373,10 @@
       "addressLocality": "Châtelaine",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "datePosted": "2026-10-01T06:50:03+00:00",
-      "postingDateSource": "reported",
       "salaryMin": 24200,
-      "salaryMax": 36600
+      "salaryMax": 36600,
+      "datePosted": "2026-10-01T06:50:03+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "company-pruz5v",
@@ -9461,10 +9473,10 @@
       "addressLocality": "Samstagern",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "datePosted": "2026-09-07T09:39:29+00:00",
-      "postingDateSource": "reported",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "datePosted": "2026-09-07T09:39:29+00:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "company-3niwzs",

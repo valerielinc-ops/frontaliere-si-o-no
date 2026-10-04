@@ -342,8 +342,7 @@
         "fr": [
           "psychotherapeut-in-60-80-m-w-d-rehab-basel-basel",
           "psychotherapeute-60-80-m-w-d-rehab-basel",
-          "psychotherapeut-in-60-80-m-w-d-rehab-basel",
-          "psychotherapie-dans-60-80-m-m-j-rehab-basel-basel"
+          "psychotherapeut-in-60-80-m-w-d-rehab-basel"
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:45.753Z",
@@ -890,7 +889,7 @@
       "slug": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
-        "en": "dipl-care-professional-imcu-80-100-m-f-d-rehab-basel-basel",
+        "en": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
         "de": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
         "fr": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel"
       },
@@ -947,7 +946,15 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-care-professional-imcu-80-100-m-f-d-rehab-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-care-professional-imcu-80-100-m-f-d-rehab-basel-basel"
+      ]
     },
     {
       "id": "rehab-basel-b19dfa5661eb",

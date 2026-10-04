@@ -3583,7 +3583,6 @@
           "head-of-sous-weisse-arena-gruppe-laax"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:18:45.928Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -3598,7 +3597,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-16815bef781f",
@@ -3651,14 +3651,10 @@
       "jobNumber": "WAG02580",
       "pensum": "80 - 100%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "mitarbeiter-in-gasteservice-ticketing-weisse-arena-ch",
-        "collaboratore-trice-gasteservice-ticketing-weisse-arena-gruppe-laax"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gasteservice-ticketing-weisse-arena-ch",
-          "collaboratore-trice-gasteservice-ticketing-weisse-arena-gruppe-laax"
+          "mitarbeiter-in-gasteservice-ticketing-weisse-arena-ch"
         ],
         "en": [
           "mitarbeiter-in-gasteservice-ticketing-weisse-arena-ch"
@@ -3667,8 +3663,9 @@
           "mitarbeiter-in-gasteservice-ticketing-weisse-arena-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:18:45.927Z",
+      "previousSlugs": [
+        "mitarbeiter-in-gasteservice-ticketing-weisse-arena-ch"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3682,7 +3679,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-03T09:18:45.927Z"
     }
   ]
 }

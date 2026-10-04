@@ -12907,12 +12907,12 @@
     },
     {
       "id": "hoch-health-88881f8b48bb",
-      "slug": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+      "slug": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
-        "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+        "it": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-wil",
+        "en": "qualified-nurse-80-100-hoch-health-ostschweiz-wil",
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-        "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+        "fr": "infirmiere-infirmiere-diplomee-80-100-hoch-health-ostschweiz-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -12955,10 +12955,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
         ]
       },
@@ -14977,9 +14985,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-29T02:00:00Z",
       "postedDate": "2026-09-29T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.h-och.ch/talentcommunity/apply/1381792833/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
@@ -14988,7 +14994,8 @@
         "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
         "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen"
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-xmqepb"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14996,7 +15003,8 @@
           "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
           "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen"
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-xmqepb"
         ],
         "en": [
           "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach"
@@ -15018,7 +15026,9 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "hoch-health-772792114f7c",
@@ -15582,9 +15592,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-01T00:00:00Z",
       "postedDate": "2026-10-01T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.h-och.ch/talentcommunity/apply/1443288633/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
@@ -15621,7 +15629,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-01T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "hoch-health-637484431867",
@@ -15862,7 +15872,7 @@
       "slug": "fisioterapista-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "fisioterapista-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "physiotherapeut-in-80-100-hoch-health-st-gallen",
+        "en": "physiotherapist-80-100-hoch-health-ostschweiz-st-gallen",
         "de": "physiotherapeut-in-80-100-hoch-health-st-gallen",
         "fr": "physiotherapeute-80-100-hoch-health-ostschweiz-st-gallen"
       },
@@ -15928,6 +15938,9 @@
         ],
         "fr": [
           "physiotherapeut-in-80-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "physiotherapeut-in-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -15936,9 +15949,9 @@
     },
     {
       "id": "hoch-health-bf08f711b247",
-      "slug": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "qualified-specialist-in-surgical-technology-80-100-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen",
         "fr": "specialiste-diplome-en-technique-chirurgicale-80-100-hoch-health-ostschweiz-st-gallen"
@@ -15987,7 +16000,8 @@
         "it": [
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen",
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen-345g5b",
-          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2"
+          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2",
+          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen"
@@ -15999,7 +16013,8 @@
       "previousSlugs": [
         "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen",
         "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen-345g5b",
-        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2"
+        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-st-gallen-2",
+        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -18450,7 +18465,6 @@
         "de": "Medical System Engineer 80-100%\n\nDepartement Immobilien & Betrieb, Technology Management\n\nArbeitsort St. Gallen\n\nDeine Aufgaben und Perspektiven\n\n• Fachlich kompetente und zuvorkommende Beratung unserer Kliniken, Institute und Zentren\n\n• Planung und Beschaffung von medizintechnischen Investitionsgütern\n\n• Projektleitung und -mitarbeit bei Beschaffungsprojekten der Kliniken\n\n• Integration und Implementierung von medizintechnischen Systemen in die Netzwerkumgebung und Applikationen von HOCH Health Ostschweiz\n\n• Betreuung und Weiterentwicklung von vernetzten medizintechnischen Applikationen und Systemen\n\nWas du für diese Stelle mitbringst\n\n• Technische Grundausbildung mit Weiterbildung oder Studium in den Fachrichtungen Informatik, Medizintechnik, Medizininformatik, Systemtechnik, Elektronik oder in einem vergleichbaren Studium\n\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten, selbstständige und initiative Arbeitsweise sowie Teamfähigkeit\n\n• Hohe Sozialkompetenz mit ausgeprägtem Dienstleistungsverhalten sowie Freude am Umgang mit Menschen und Technik\n\n• Sehr gute technische IT- und Netzwerkkenntnisse\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nUnser Angebot an dich\n\n• Spannendes Arbeitsgebiet in Verbindung mit Medizin, Technik und Informatik\n\n• Sinnstiftende Tätigkeit zur Verbesserung der medizintechnischen Infrastruktur in den zugeteilten Kliniken und Zentren an allen Standorten von HOCH Health Ostschweiz\n\n• Familiäre und kollegiale Zusammenarbeit in einem hochspezialisierten, interdisziplinären Umfeld\n\n• Breites Spektrum an fachlichen und persönlichen Fort- und Weiterbildungsmöglichkeiten\n\n• Mitarbeiterangebote im Bereich Gesundheitsförderung sowie diverse Vergünstigungen\n\nDeine Bewerbung\n\n• Eintritt per sofort oder nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von René Hillberger, Gruppenleiter Medical System Engineering, Telefon +41 71 494 60 30\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Gina Petrarca, Teamleiterin HR Beratung, Telefon +41 71 494 90 76\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\n#gerneperDu\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
         "fr": "Ingénieur du système médical 80-100 %\n\nDépartement de l'immobilier et de l'exploitation, Gestion de la technologie\n\nLieu de travail St. Gallen\n\nVos tâches et perspectives\n\n• Conseils professionnels et courtois de nos cliniques, instituts et centres\n\n• Planification et achat de matériel médical\n\n• Gestion et coopération de projets d ' achat de cliniques\n\n• Intégration et mise en œuvre de systèmes de technologie médicale dans l'environnement réseau et les applications de HOCH Health Eastern Suisse\n\n• Appui et développement des applications et systèmes médicaux en réseau\n\nCe que vous apportez pour ce travail\n\n• Formation technique de base en informatique, en technologie médicale, en informatique médicale, en génie des systèmes, en électronique ou dans un programme d ' études comparables\n\n• Fortes compétences analytiques et conceptuelles, méthodes de travail indépendantes et d'initiative et travail d'équipe\n\n• Haute compétence sociale avec un comportement de service prononcé ainsi que le plaisir de traiter avec les gens et la technologie\n\n• Très bonne connaissance technique de l'informatique et du réseau\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nNotre offre à vous\n\n• Domaine de travail passionnant en matière de médecine, de technologie et d'informatique\n\n• Activité significative visant à améliorer l'infrastructure médicale dans les cliniques et centres désignés dans tous les sites de HOCH Health Eastern Suisse\n\n• La coopération familiale et collaborative dans un environnement interdisciplinaire hautement spécialisé\n\n• Large éventail de possibilités de formation professionnelle et personnelle\n\n• Offres des employés dans le domaine de la promotion de la santé et divers avantages\n\nVotre demande\n\n• Entrée immédiate ou par accord\n\n• En savoir plus sur ce poste passionnant de René Hillberger, chef de groupe Génie du système médical, téléphone +41 71 494 60 30\n\n• Si vous avez des questions sur le processus de candidature, veuillez contacter Gina Petrarca, Team Leader HR Consulting, téléphone +41 71 494 90 76\n\nSur nous\n\nLa santé est notre profession et notre vocation. En tant que plus grand employeur en Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\n#GerneperDuty\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.h-och.ch/job/St_-Gallen-Medical-System-Engineer-80-100/1402359433/",
@@ -18469,22 +18483,18 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-03T02:00:00Z",
       "postedDate": "2026-10-03T02:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://jobs.h-och.ch/talentcommunity/apply/1402359433/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "medical-system-engineer-80-100-hoch-health-st-gallen",
-        "medical-system-ingegnere-80-100-hoch-health-ostschweiz-st-gallen"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-system-engineer-80-100-hoch-health-st-gallen",
-          "medical-system-ingegnere-80-100-hoch-health-ostschweiz-st-gallen"
+          "medical-system-engineer-80-100-hoch-health-st-gallen"
         ]
       },
+      "previousSlugs": [
+        "medical-system-engineer-80-100-hoch-health-st-gallen"
+      ],
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -18497,7 +18507,10 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "datePosted": "2026-10-03T02:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "hoch-health-f3a6a3abc79e",
