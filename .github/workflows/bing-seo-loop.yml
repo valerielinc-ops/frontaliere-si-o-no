@@ -664,7 +664,7 @@ jobs:
           set -euo pipefail
           node scripts/lib/github-issue-creator.mjs \
             --title 'SEO: Bing-compatible full-tree crawl findings' \
-            --description "$(cat "$RUNNER_TEMP/bing-site-tree-issue.md")" \
+            --description-file "$RUNNER_TEMP/bing-site-tree-issue.md" \
             --priority 2 \
             --label funnel-seo \
             --workflow 'Bing SEO closed loop — full sitemap tree'
