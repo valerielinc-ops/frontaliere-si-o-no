@@ -76,9 +76,10 @@ export const SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS = Object.freeze([
   'scripts/lib/pdf-job-content.mjs',
 ]);
 
+// The union of the import closures of SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS,
+// held to exactly that set by a test in tests/scripts/audit-parser-quality.test.ts.
 export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/prospector/extract.mjs',
-  // Reads the vacancy PDF a detail page links or embeds (fetchVacancyPdfText).
   'scripts/lib/pdf-job-content.mjs',
   'scripts/lib/source-body-floor.mjs',
   'scripts/lib/source-body-failure.mjs',
