@@ -12477,6 +12477,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sequestro-stupefacenti-camper-varese.title': 'Varese : 70 kg de drogue dans le camping-car, arrestations',
     'blog.article.sequestro-stupefacenti-camper-varese.excerpt': 'La Guardia di Finanza immobilise un camping-car espagnol : 19 kg de cocaïne et 49 de marijuana saisis, et un teckel confié à une famille.',
     'blog.article.sequestro-stupefacenti-camper-varese.imageAlt': 'Zone boisée dans la province de Varèse où la cargaison de drogue a été saisie (Varese)',
+    'blog.article.scontro-a2-coldrerio.title': 'Collision voiture-camion sur l\'A2, la Rega intervient',
+    'blog.article.scontro-a2-coldrerio.excerpt': 'Une voiture et un camion impliqués vendredi sur l\'A2 à Coldrerio : trois blessés, dont deux apparemment graves. Fermeture temporaire entre Mendrisio et Chiasso.',
+    'blog.article.scontro-a2-coldrerio.imageAlt': 'L\'autoroute A2 près de Coldrerio, au Tessin.',
 };
 
 export default blogMetaFr;

@@ -12476,6 +12476,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sequestro-stupefacenti-camper-varese.title': 'Varese: 70 kg di droga sul camper, arresti',
     'blog.article.sequestro-stupefacenti-camper-varese.excerpt': 'La Finanza blocca un camper spagnolo: sequestrati 19 kg di cocaina, 49 di marijuana e un bassotto affidato a una famiglia.',
     'blog.article.sequestro-stupefacenti-camper-varese.imageAlt': 'Area boschiva nella provincia di Varese dove è stato sequestrato il carico di stupefacenti',
+    'blog.article.scontro-a2-coldrerio.title': 'Scontro auto-camion sull\'A2, interviene la Rega',
+    'blog.article.scontro-a2-coldrerio.excerpt': 'Un\'auto e un camion coinvolti venerdì sull\'A2 a Coldrerio: tre feriti, due apparentemente gravi. Chiusura temporanea fra Mendrisio e Chiasso.',
+    'blog.article.scontro-a2-coldrerio.imageAlt': 'L\'autostrada A2 nei pressi di Coldrerio, in Ticino.',
 };
 
 export default blogMetaIt;

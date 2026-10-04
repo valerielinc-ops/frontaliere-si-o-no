@@ -12475,6 +12475,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sequestro-stupefacenti-camper-varese.title': 'Varese: 70 kg of drugs in camper, arrests',
     'blog.article.sequestro-stupefacenti-camper-varese.excerpt': 'The Guardia di Finanza stops a Spanish camper van: 19 kg of cocaine, 49 of marijuana seized, and a dachshund entrusted to a family.',
     'blog.article.sequestro-stupefacenti-camper-varese.imageAlt': 'Wooded area in the province of Varese where the drug load was seized',
+    'blog.article.scontro-a2-coldrerio.title': 'Car-truck collision on the A2, Rega responds',
+    'blog.article.scontro-a2-coldrerio.excerpt': 'A car and a truck involved on Friday on the A2 in Coldrerio: three injured, two apparently seriously injured. Temporary closure between Mendrisio and Chiasso.',
+    'blog.article.scontro-a2-coldrerio.imageAlt': 'The A2 motorway near Coldrerio in Ticino.',
 };
 
 export default blogMetaEn;

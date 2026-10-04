@@ -37412,6 +37412,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scontro-a2-coldrerio',
+ category: 'novita',
+ date: '2026-10-04T02:05:31.288Z',
+ image: '/images/blog/scontro-a2-coldrerio.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
