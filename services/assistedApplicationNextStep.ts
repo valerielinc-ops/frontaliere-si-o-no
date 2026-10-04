@@ -152,6 +152,13 @@ function takeoverStep(heldBy: string[]): NextStep {
       detail: 'L’annuncio è stato chiuso prima dell’invio: il rimborso automatico è partito (se non riesce ricevi un avviso).',
     };
   }
+  // The runner checks the facts again right before sending: nothing left, and a plain retry would stop again.
+  if (held === 'fact_check_not_acknowledged') {
+    return {
+      group: 'owner', code: 'confirm_facts', label: 'Conferma i fatti e riprova',
+      detail: 'L’invio si è fermato prima di partire: nei testi ci sono fatti che il controllo non trova nel CV. Li vedi nel pannello sotto «Fatti non trovati»: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi «Riprova l’invio automatico».',
+    };
+  }
   return {
     group: 'owner', code: 'retry_or_complete', label: 'Invio non riuscito',
     detail: 'L’invio automatico non è andato a buon fine. «Riprova l’invio automatico», oppure completala tu.',

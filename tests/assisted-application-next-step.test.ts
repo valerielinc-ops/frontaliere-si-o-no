@@ -107,4 +107,16 @@ describe('next step of an assisted-application order', () => {
     expect(step(null, { submissionStatus: 'refunded' })).toMatchObject({ group: 'done', code: 'refunded' });
     expect(step({ state: 'owner_takeover', heldBy: ['posting_closed'] })).toMatchObject({ group: 'done', code: 'posting_closed' });
   });
+
+  // Close-out of 2026-10-03: the runner checks the facts again right before sending. A plain retry
+  // would stop on the same facts: the owner confirms them (or corrects the texts) first.
+  it('says how to release a send the fact gate stopped', () => {
+    const stopped = step({ state: 'owner_takeover', heldBy: ['fact_check_not_acknowledged'] });
+    expect(stopped).toMatchObject({ group: 'owner', code: 'confirm_facts', label: 'Conferma i fatti e riprova' });
+    expect(stopped.detail).toContain('si è fermato prima di partire');
+    expect(stopped.detail).toContain('«Ho verificato»');
+    expect(stopped.detail).toContain('«Riprova l’invio automatico»');
+    // Any other failed send keeps the generic move.
+    expect(step({ state: 'owner_takeover', heldBy: ['email_failed'] })).toMatchObject({ group: 'owner', code: 'retry_or_complete' });
+  });
 });

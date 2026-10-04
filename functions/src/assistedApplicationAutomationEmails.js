@@ -403,6 +403,8 @@ const STAGE_HINTS = {
 // (owner decision 2026-10-01).
 const RUNNER_HINTS = {
   portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: completala tu sul portale (link, risposte e documenti sono nel pannello) e poi premi «Segna come inviata».',
+  // The gate is run again right before sending: nothing left, there is nothing to check at the employer.
+  fact_check_not_acknowledged: 'Non è partito nulla. Nel pannello della coda trovi i fatti che il controllo non trova nel CV: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi premi «Riprova l’invio automatico».',
 };
 
 /**
