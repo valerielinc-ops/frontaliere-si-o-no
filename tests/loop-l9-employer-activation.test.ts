@@ -159,17 +159,73 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(verdict.issues.join(' ')).toContain('outcomes.export.pricesUntouched');
   });
 
-  it('rejects a stale cross-source join and conflicting metric copies', () => {
+  it('rejects a join on a different profile cohort and conflicting metric copies', () => {
     const verdict = validateEmployerActivation({
       profiles: profiles(),
       outcomes: outcomes({
-        generatedAt: '2026-09-10T11:30:00.000Z',
+        inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt: '2026-09-08T04:40:00.000Z' },
         metrics: { paidActivations: 11 },
       }),
     }, { now: NOW });
     expect(verdict.quality).toBe('partial');
-    expect(verdict.issues.join(' ')).toContain('profile/outcome snapshots are');
+    expect(verdict.issues.join(' ')).toContain('does not match the profile snapshot');
     expect(verdict.issues.join(' ')).toContain('conflicting duplicate representations');
+  });
+
+  // I profili si rigenerano lunedi' e giovedi' (refresh-employer-profiles.yml),
+  // il ledger si esporta a ogni run: fra i due orologi ci sono fino a 96 h con
+  // un sistema sano. La coerenza fra i due lati e' l'uguaglianza esatta della
+  // coorte (inventoryScope.profileGeneratedAt), la freschezza e' per lato.
+  describe('cross-source coherence is the exact cohort, not a clock skew', () => {
+    // Run push di sabato 12-09: profili rigenerati giovedi' 10-09 alle 04:40Z
+    // (cron '40 4 * * 1,4'), ledger esportato 51,5 h dopo, alle 08:10Z.
+    const PROFILES_AT = '2026-09-10T04:40:00.000Z';
+    const LEDGER_AT = '2026-09-12T08:10:00.000Z';
+    const LATE_NOW = new Date('2026-09-12T08:15:00.000Z');
+
+    function profilesAt(generatedAt: string) {
+      const base = profiles();
+      return { ...base, _meta: { ...base._meta, generatedAt } };
+    }
+
+    function ledgerAttesting(profileGeneratedAt: string) {
+      return outcomes({
+        generatedAt: LEDGER_AT,
+        inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt },
+      });
+    }
+
+    it('accepts profiles 51.5h older than the ledger when the ledger attests that exact cohort', () => {
+      const verdict = validateEmployerActivation({
+        profiles: profilesAt(PROFILES_AT),
+        outcomes: ledgerAttesting(PROFILES_AT),
+      }, { now: LATE_NOW });
+      expect(verdict.issues.join(' ')).not.toMatch(/apart/);
+      expect(verdict).toMatchObject({ ok: true, quality: 'observed', issues: [] });
+      expect(verdict.snapshot.crossSourceSkewHours).toBe(51.5);
+    });
+
+    it('still rejects the same clocks when the ledger attests a different profile cohort', () => {
+      const verdict = validateEmployerActivation({
+        profiles: profilesAt(PROFILES_AT),
+        outcomes: ledgerAttesting('2026-09-07T04:40:00.000Z'),
+      }, { now: LATE_NOW });
+      expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+      expect(verdict.issues).toContain('outcomes.inventoryScope.profileGeneratedAt does not match the profile snapshot');
+      expect(verdict.snapshot.crossSourceSkewHours).toBe(51.5);
+    });
+
+    it('still rejects profiles older than maxAgeHours on their own side', () => {
+      // Lunedi' 31-08 04:40Z: oltre 240 h prima di LATE_NOW.
+      const staleAt = '2026-08-31T04:40:00.000Z';
+      const verdict = validateEmployerActivation({
+        profiles: profilesAt(staleAt),
+        outcomes: ledgerAttesting(staleAt),
+      }, { now: LATE_NOW });
+      expect(verdict).toMatchObject({ ok: false, quality: 'stale' });
+      expect(verdict.issues.join(' ')).toMatch(/employer profiles are [\d.]+h old \(max 240h\)/);
+      expect(verdict.issues.join(' ')).not.toMatch(/apart/);
+    });
   });
 
   it('keeps stale employer evidence out of the paid metric', async () => {
@@ -312,10 +368,13 @@ describe('L9 Employer Supply → Paid Activation', () => {
     });
 
     it('keeps an undersized sample a failure when another check fails with it', async () => {
-      const skewed = await reported({ ...SMALL_FUNNEL, generatedAt: '2026-09-10T11:30:00.000Z' });
-      expect(skewed.result.verdict.issues.join(' ')).toContain('profile/outcome snapshots are');
-      expect(l9FindingKind(skewed.result.verdict)).toBe('ledger-failure');
-      expect(skewed.issues[0].state).toBeUndefined();
+      const otherCohort = await reported({
+        ...SMALL_FUNNEL,
+        inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt: '2026-09-08T04:40:00.000Z' },
+      });
+      expect(otherCohort.result.verdict.issues.join(' ')).toContain('does not match the profile snapshot');
+      expect(l9FindingKind(otherCohort.result.verdict)).toBe('ledger-failure');
+      expect(otherCohort.issues[0].state).toBeUndefined();
 
       const unattested = await reported({ ...ZERO_FUNNEL, independent: false });
       expect(l9FindingKind(unattested.result.verdict)).toBe('ledger-failure');
