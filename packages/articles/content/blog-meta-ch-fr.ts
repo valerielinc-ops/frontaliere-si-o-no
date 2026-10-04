@@ -7691,6 +7691,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.edilizia-zurigo-permesso-iter.title': 'Autorisation de construire dans le canton de Zurich : exigences et procédure',
     'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'Dans le canton de Zurich, l’autorisation de construire implique la commune et le canton : exigences, documents, oppositions et recours. Les travaux ne commencent qu’après l’obtention du permis.',
     'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Documents et plans pour une autorisation de construire en Suisse',
+    'blog.article.axa-ue-svizzera-posizione.title': 'Accords bilatéraux avec l\'UE, le CEO d\'AXA : « importants, non décisifs »',
+    'blog.article.axa-ue-svizzera-posizione.excerpt': 'Thomas Buberl, CEO d\'AXA, considère les accords bilatéraux avec l\'UE importants mais non décisifs pour la position de la Suisse en Europe.',
+    'blog.article.axa-ue-svizzera-posizione.imageAlt': 'Vue sur Lugano et le paysage suisse par une journée lumineuse.',
 };
 
 export default blogMetaChFr;

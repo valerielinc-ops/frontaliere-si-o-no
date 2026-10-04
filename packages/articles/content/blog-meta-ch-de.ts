@@ -7691,6 +7691,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.edilizia-zurigo-permesso-iter.title': 'Baubewilligung im Kanton Zürich: Anforderungen und Verfahren',
     'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'Im Kanton Zürich betrifft die Baubewilligung Gemeinde und Kanton: Anforderungen, Dokumente, Einsprachen und Rekurse. Die Arbeiten beginnen erst nach der Bewilligung.',
     'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Unterlagen und Pläne für eine Baubewilligung in der Schweiz',
+    'blog.article.axa-ue-svizzera-posizione.title': 'Bilaterale mit der EU, der CEO von AXA: «wichtig, nicht entscheidend»',
+    'blog.article.axa-ue-svizzera-posizione.excerpt': 'Thomas Buberl, CEO von AXA, hält die bilateralen Abkommen mit der EU für wichtig, aber nicht entscheidend für die Position der Schweiz in Europa.',
+    'blog.article.axa-ue-svizzera-posizione.imageAlt': 'Blick auf Lugano und die Schweizer Landschaft an einem hellen Tag.',
 };
 
 export default blogMetaChDe;
