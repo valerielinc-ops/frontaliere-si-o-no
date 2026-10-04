@@ -17,7 +17,9 @@
  *
  * Ogni tick (followup-drainer.yml, prima del drain) per ogni hand-off aperto:
  *   1. duplicati della stessa PR di origine → resta quella con un claim o una
- *      PR in volo, altrimenti la piu' vecchia; le altre chiuse `duplicate`;
+ *      PR in volo, poi quella instradata al fixer, poi la piu' vecchia
+ *      (`electHandoffKeeper`); le altre chiuse `duplicate`, ma non prima di
+ *      `MIN_DUPLICATE_AGE_MINUTES` dalla loro creazione;
  *   2. una PR mergiata dichiara `Closes #<issue>` o `Supersedes #N` → chiusa
  *      `completed` (riapplicazione mergiata, keyword non eseguita da GitHub);
  *   3. la PR di origine e' MERGED → chiusa `completed`;
@@ -25,15 +27,20 @@
  *      la stessa regola del pre-flight: mergeable E `has-conflicts` tolta da
  *      pr-autorebase dopo l'apertura dell'hand-off, cioe' merge-tree pulito) e
  *      nessuna PR la sta riapplicando → chiusa `completed`;
+ *   5. la PR di origine e' CLOSED senza merge da piu' di 24 ore e nessuna PR la
+ *      riapplica: contenuto su main riga per riga → `completed`; altrimenti
+ *      `not planned` (superato) solo se l'hand-off non e' instradato e le issue
+ *      che l'origine chiudeva non restano orfane (`decideClosedOrigin`);
  *   altrimenti resta aperta: c'e' ancora un contributo da riapplicare.
  * Solo segnali deterministici: stato GitHub della PR, eventi della label
- * `has-conflicts` scritta da merge-tree, keyword di una PR mergiata. Mai un
- * match di contenuto. Un hand-off con `agent:in-progress` non si tocca (il
+ * `has-conflicts` scritta da merge-tree, keyword di una PR mergiata e, per
+ * un'origine chiusa, il confronto esatto di OGNI riga aggiunta con main (mai
+ * una soglia). Un hand-off con `agent:in-progress` non si tocca (il
  * fixer ci sta lavorando: decide il tick dopo), e la label si rilegge dal vivo
  * subito prima di chiudere. Qualunque lettura fallita → la issue resta com'e'.
  *
  * Uso:  node scripts/ci/reconcile-conflict-handoffs.mjs
- * Env:  GH_TOKEN (issues: write, pull-requests: read), GH_REPO o
+ * Env:  GH_TOKEN (issues: write, pull-requests: read, contents: read), GH_REPO o
  *       GITHUB_REPOSITORY, DRY_RUN=1 (solo log), CI_JOB_DEADLINE_EPOCH.
  */
 
@@ -128,10 +135,35 @@ export function handoffBusy(issue, originNumber, openPrs) {
     || reapplyInFlight(openPrs, { issueNumber: issue?.number, originNumber }) !== null;
 }
 
+// Label con cui una issue e' in mano al fixer (subito o in coda).
+export const ROUTING_LABELS = ['agent:fix', 'agent:fix-queued'];
+
+/** L'hand-off e' instradato al fixer (`agent:fix` o `agent:fix-queued`). Pura. */
+export function handoffRouted(issue) {
+  return labelNames(issue).some((name) => ROUTING_LABELS.includes(name));
+}
+
 /**
- * Raggruppa gli hand-off aperti per PR di origine ed elegge chi resta: prima
- * chi ha lavoro avviato (`handoffBusy`), poi il numero piu' basso. Gli altri
- * sono duplicati. Pura.
+ * Chi resta fra gli hand-off della stessa PR di origine: (1) chi ha lavoro
+ * avviato (`handoffBusy`), (2) chi e' instradato al fixer, (3) il numero piu'
+ * basso. Pura e deterministica: due run concorrenti eleggono la stessa.
+ *
+ * #11147 (03-10): il keeper era «busy, altrimenti il piu' vecchio», cosi' ha
+ * tenuto #11151, mai instradata, e chiuso come duplicate #11154 e #11156 appena
+ * create, prima che ricevessero `agent:fix`. pr-autorebase, che usa la stessa
+ * elezione, ne riapriva un'altra a ogni giro.
+ */
+export function electHandoffKeeper(members, origin, openPrs = []) {
+  const sorted = [...(members || [])].sort((a, b) => Number(a.number) - Number(b.number));
+  return sorted.find((issue) => handoffBusy(issue, origin, openPrs))
+    || sorted.find(handoffRouted)
+    || sorted[0]
+    || null;
+}
+
+/**
+ * Raggruppa gli hand-off aperti per PR di origine ed elegge chi resta con
+ * `electHandoffKeeper`. Gli altri sono duplicati. Pura.
  *
  * @returns {Array<{ origin: number, keeper: object, duplicates: object[] }>}
  */
@@ -145,9 +177,164 @@ export function groupHandoffs(issues, openPrs = []) {
   }
   return [...groups.entries()].map(([origin, members]) => {
     const sorted = [...members].sort((a, b) => Number(a.number) - Number(b.number));
-    const keeper = sorted.find((issue) => handoffBusy(issue, origin, openPrs)) || sorted[0];
+    const keeper = electHandoffKeeper(sorted, origin, openPrs);
     return { origin, keeper, duplicates: sorted.filter((issue) => issue !== keeper) };
   });
+}
+
+// Un duplicato piu' giovane di cosi' non si chiude: e' la finestra in cui
+// pr-autorebase lo ha appena creato e gli sta ancora applicando `agent:fix`
+// (su #11157 la label e' arrivata 54 s dopo la creazione). Chiuderlo li'
+// faceva ripartire l'hand-off al giro dopo.
+export const MIN_DUPLICATE_AGE_MINUTES = 10;
+
+/**
+ * Il duplicato e' abbastanza vecchio da essere chiuso? `created_at` assente o
+ * illeggibile → conta come vecchio (comportamento di prima). Pura.
+ */
+export function duplicateOldEnough(issue, now = Date.now()) {
+  const created = Date.parse(issue?.created_at ?? issue?.createdAt ?? '');
+  if (!Number.isFinite(created)) return true;
+  return Number(now) - created >= MIN_DUPLICATE_AGE_MINUTES * 60_000;
+}
+
+/**
+ * Quali duplicati di un gruppo chiudere adesso. Il filtro d'eta' vive qui, al
+ * momento della chiusura, non in `groupHandoffs` (che resta il contratto del
+ * gemello del corpus). Pura.
+ *   - lavoro avviato anche sul duplicato (due run parallele), o PR aperte
+ *     illeggibili → nessuno dei due si butta, decide il tick dopo;
+ *   - creato da meno di `MIN_DUPLICATE_AGE_MINUTES` → pr-autorebase gli sta
+ *     ancora applicando `agent:fix`.
+ * @returns {{ close: object[], deferred: Array<{ issue: object, why: string }> }}
+ */
+export function planDuplicateClosures({ origin, duplicates }, openPrs, now = Date.now()) {
+  const close = [];
+  const deferred = [];
+  for (const dup of duplicates || []) {
+    if (!Array.isArray(openPrs) || handoffBusy(dup, origin, openPrs)) {
+      deferred.push({ issue: dup, why: 'con lavoro avviato (o PR aperte illeggibili)' });
+    } else if (!duplicateOldEnough(dup, now)) {
+      deferred.push({ issue: dup, why: `creato da meno di ${MIN_DUPLICATE_AGE_MINUTES} minuti` });
+    } else {
+      close.push(dup);
+    }
+  }
+  return { close, deferred };
+}
+
+/**
+ * Il contenuto della PR di origine e' su `main`? Pura: `readMainFile(path)`
+ * restituisce il testo del file su `main` o `null` (assente o illeggibile).
+ *
+ * `files` = `[{ filename, status, patch }]` di `pulls/<n>/files`. Provato SOLO
+ * se ogni file ha un `patch` leggibile, nessuno e' `removed`, ogni file porta
+ * almeno una riga aggiunta non vuota e OGNI riga aggiunta non vuota (`+`
+ * dentro un hunk `@@`, quindi mai l'intestazione `+++ b/…`) compare identica fra le righe del file su
+ * `main`, a meno dei soli spazi (bordi e sequenze ridotti a uno: misurato sulla
+ * PR #10865, una riga di commento con due spazi poi normalizzati da #11201).
+ * Niente soglie: o tutto, o non provato. Una rimozione non si puo' dimostrare
+ * applicata, come in `fileContentOnMain` di pr-autorebase.
+ *
+ * Il marker `ALREADY_FIXED_ROUTED` non e' questa prova: certifica una run verde
+ * qualunque su main (#10731: marker presente, 0/56 righe della PR #10467 su
+ * main, che aveva scelto un'altra strada).
+ *
+ * @returns {{ proven: true, checked: number, files: string[] } | { proven: false, reason: string }}
+ */
+const normalizeLine = (line) => String(line).trim().replace(/\s+/g, ' ');
+
+export function originContentOnMain(files, readMainFile) {
+  if (!Array.isArray(files) || files.length === 0) return { proven: false, reason: 'elenco dei file della PR vuoto o illeggibile' };
+  let checked = 0;
+  const names = [];
+  for (const file of files) {
+    const name = String(file?.filename || '');
+    if (!name) return { proven: false, reason: 'file senza nome nella PR' };
+    if (String(file?.status || '') === 'removed') return { proven: false, reason: `${name}: rimosso dalla PR, rimozione non dimostrabile` };
+    if (typeof file?.patch !== 'string' || file.patch === '') return { proven: false, reason: `${name}: patch assente (binario o troppo grande)` };
+    const added = [];
+    // L'intestazione `+++ b/…` puo' stare solo prima del primo `@@` (la patch
+    // di `pulls/<n>/files` non la porta): dentro un hunk ogni `+` e' una riga
+    // aggiunta, anche `++i;` (che diventa `+++i;`).
+    let inHunk = false;
+    for (const line of file.patch.split('\n')) {
+      if (line.startsWith('@@')) { inHunk = true; continue; }
+      if (!inHunk || !line.startsWith('+')) continue;
+      const text = normalizeLine(line.slice(1));
+      if (text !== '') added.push(text);
+    }
+    if (added.length === 0) return { proven: false, reason: `${name}: nessuna riga aggiunta, rimozione non dimostrabile` };
+    let main;
+    try {
+      main = readMainFile(name);
+    } catch {
+      main = null;
+    }
+    if (typeof main !== 'string') return { proven: false, reason: `${name}: assente o illeggibile su main` };
+    const mainLines = new Set(main.split('\n').map(normalizeLine));
+    const missing = added.filter((l) => !mainLines.has(l)).length;
+    if (missing > 0) return { proven: false, reason: `${name}: ${missing}/${added.length} righe aggiunte non su main` };
+    checked += added.length;
+    names.push(name);
+  }
+  return { proven: true, checked, files: names };
+}
+
+// Un'origine chiusa da meno di cosi' puo' ancora essere riaperta o riapplicata
+// dal suo autore: l'hand-off resta com'e'.
+export const ORIGIN_CLOSED_GRACE_HOURS = 24;
+
+// Una issue che la PR di origine chiudeva e' «non orfana» se e' chiusa o se
+// porta una di queste label (instradata o parcheggiata in modo esplicito).
+export const ORIGIN_ISSUE_PARKED_LABELS = ['fu-parked', 'automation-deferred', 'needs-human'];
+
+/** La issue non resta orfana: chiusa, oppure instradata o parcheggiata. Pura. */
+export function originIssueAccountedFor(issue) {
+  const state = String(issue?.state || '').toUpperCase();
+  if (state === 'CLOSED') return true;
+  if (state !== 'OPEN' || !Array.isArray(issue?.labels)) return false;
+  return labelNames(issue).some((name) => name.startsWith('agent:fix') || ORIGIN_ISSUE_PARKED_LABELS.includes(name));
+}
+
+/**
+ * La PR di origine e' CHIUSA (non mergiata) da piu' della grazia? `closedAt`
+ * assente o illeggibile → no. Pura.
+ */
+export function originClosedPastGrace(origin, now = Date.now()) {
+  if (String(origin?.state || '').toUpperCase() !== 'CLOSED') return false;
+  const closed = Date.parse(origin?.closedAt ?? '');
+  if (!Number.isFinite(closed)) return false;
+  return Number(now) - closed >= ORIGIN_CLOSED_GRACE_HOURS * 3_600_000;
+}
+
+/**
+ * Ramo «PR di origine chiusa senza merge» di `decideHandoff`, dopo claim e
+ * riapplicazione mergiata (che restano prioritari). Prima di questo ramo
+ * l'hand-off restava aperto per sempre (#10960, #10873, #10731). Pura.
+ *   - chiusa da meno della grazia, o `closedAt` illeggibile → keep `origin-closed`;
+ *   - una PR aperta la sta riapplicando → keep;
+ *   - contenuto provato su main riga per riga → close `completed`;
+ *   - altrimenti l'hand-off e' SUPERATO (close `not planned`) solo se non e'
+ *     instradato al fixer e ogni issue che l'origine chiudeva e' chiusa,
+ *     instradata o parcheggiata: il lavoro non resta orfano.
+ * Il marker `ALREADY_FIXED_ROUTED` e la label `orphaned` non entrano: il primo
+ * non prova il contenuto (#10731), la seconda dice solo chi ha chiuso la PR.
+ */
+function decideClosedOrigin({ issue, origin, openPrs, originNumber, contentProof, originIssues, now }) {
+  if (!originClosedPastGrace(origin, now)) return { action: 'keep', reason: 'origin-closed' };
+  if (!Array.isArray(openPrs)) return { action: 'keep', reason: 'open-prs-unreadable' };
+  const inFlight = reapplyInFlight(openPrs, { issueNumber: issue.number, originNumber });
+  if (inFlight) return { action: 'keep', reason: 'reapply-in-flight', pr: Number(inFlight.number) };
+  // Nessun verdetto (elenco dei file della PR illeggibile): non si puo' dire
+  // ne' «su main» ne' «superato».
+  if (!contentProof || typeof contentProof.proven !== 'boolean') return { action: 'keep', reason: 'origin-content-unchecked' };
+  if (contentProof.proven === true) return { action: 'close', reason: 'origin-closed-content-on-main', pr: originNumber };
+  if (handoffRouted(issue)) return { action: 'keep', reason: 'origin-closed-handoff-routed' };
+  if (!Array.isArray(originIssues) || !originIssues.every(originIssueAccountedFor)) {
+    return { action: 'keep', reason: 'origin-closed-issue-not-requeued' };
+  }
+  return { action: 'close', reason: 'origin-closed-superseded', pr: originNumber };
 }
 
 /**
@@ -160,9 +347,17 @@ export function groupHandoffs(issues, openPrs = []) {
  * @param {Array<{number:number, title?:string, body:string}>|null} p.mergedPrs
  * @param {Array<{number:number, headRefName:string, title?:string, body:string}>|null} p.openPrs
  * @param {Array<object>|null} [p.conflictEvents]  eventi `has-conflicts` della PR di origine (`parseConflictLabelEvents`)
+ * @param {{proven: boolean, checked?: number, files?: string[], reason?: string}|null} [p.contentProof]
+ *   `originContentOnMain` sulla PR di origine CHIUSA (letta solo dopo la grazia)
+ * @param {Array<{number:number, state:string, labels:any[]}|null>|null} [p.originIssues]
+ *   le issue che la PR di origine dichiarava di chiudere, lette dal vivo
+ * @param {number} [p.now]
  * @returns {{ action: 'close'|'keep', reason: string, pr?: number }}
  */
-export function decideHandoff({ issue, origin, mergedPrs, openPrs, conflictEvents = null }) {
+export function decideHandoff({
+  issue, origin, mergedPrs, openPrs, conflictEvents = null,
+  contentProof = null, originIssues = null, now = Date.now(),
+}) {
   const originNumber = conflictHandoffOriginPr(issue?.title);
   if (originNumber === null) return { action: 'keep', reason: 'not-a-handoff' };
   if (labelNames(issue).includes(CLAIM_LABEL)) return { action: 'keep', reason: 'claim-active' };
@@ -177,6 +372,9 @@ export function decideHandoff({ issue, origin, mergedPrs, openPrs, conflictEvent
   const state = String(origin?.state || '').toUpperCase();
   if (!state) return { action: 'keep', reason: 'origin-unreadable' };
   if (state === 'MERGED') return { action: 'close', reason: 'origin-merged', pr: originNumber };
+  if (state === 'CLOSED') {
+    return decideClosedOrigin({ issue, origin, openPrs, originNumber, contentProof, originIssues, now });
+  }
   if (state !== 'OPEN') return { action: 'keep', reason: `origin-${state.toLowerCase()}` };
 
   // Una PR aperta lo sta gia' riapplicando: chi mergia per primo decide, e una
@@ -193,22 +391,33 @@ export function decideHandoff({ issue, origin, mergedPrs, openPrs, conflictEvent
   return { action: 'keep', reason: verdict.reason };
 }
 
+// Motivi chiusi come «not planned» invece che «completed».
+export const NOT_PLANNED_REASONS = new Set(['origin-closed-superseded']);
+
 /** Testo del commento di chiusura. Puro. */
-export function closingComment({ reason, pr, originNumber, keeper }) {
+export function closingComment({ reason, pr, originNumber, keeper, contentProof = null, originIssues = null }) {
+  const proofFiles = (contentProof?.files || []).map((f) => `\`${f}\``).join(', ');
+  const issuesList = (originIssues || [])
+    .filter(Boolean)
+    .map((i) => `#${i.number} (${String(i.state || '').toUpperCase() === 'CLOSED' ? 'chiusa' : `aperta, ${labelNames(i).join(', ')}`})`)
+    .join(', ');
   const why = {
     duplicate: `è un duplicato di #${keeper}: stesso hand-off della PR #${originNumber}, aperto da una seconda run concorrente di \`pr-autorebase\`. Il lavoro prosegue su #${keeper}.`,
     reapplied: `la PR **#${pr}**, già mergiata, riapplica la PR #${originNumber} (\`Closes\`/\`Supersedes\`), ma GitHub non ha chiuso questa issue.`,
     'origin-merged': `la PR di origine **#${originNumber}** è stata mergiata: il conflitto è stato risolto sul suo branch e il contributo è su \`main\`. Una riapplicazione sarebbe un duplicato.`,
     'conflict-resolved': `la PR di origine **#${originNumber}** è di nuovo mergeable sulla stessa HEAD e \`pr-autorebase\` ha tolto \`has-conflicts\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è rientrato e la PR prosegue nel proprio ciclo di review e merge.`,
     'conflict-resolved-new-head': `la PR di origine **#${originNumber}** ha una HEAD nuova, mergeable, e \`pr-autorebase\` ha tolto \`has-conflicts\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è stato risolto sul suo branch, che prosegue nel proprio ciclo di review e merge.`,
+    'origin-closed-content-on-main': `la PR di origine **#${originNumber}** è stata chiusa senza merge da più di ${ORIGIN_CLOSED_GRACE_HOURS} ore, ma il suo contenuto è già su \`main\`: tutte le ${contentProof?.checked ?? '?'} righe aggiunte non vuote dei suoi file (${proofFiles || 'elenco non disponibile'}) compaiono identiche nei file su \`main\`.`,
+    'origin-closed-superseded': `la PR di origine **#${originNumber}** è stata chiusa senza merge da più di ${ORIGIN_CLOSED_GRACE_HOURS} ore e il contenuto della PR di origine NON risulta su main (${contentProof?.reason || 'verifica riga per riga non superata'}): l'hand-off è superato, non completato. Nessuno lo sta riapplicando, non è instradato al fixer e le issue che la PR di origine dichiarava di risolvere non restano orfane: ${issuesList || 'la PR non ne dichiarava'}.`,
   }[reason];
+  let outcome = 'Chiusa come **completed**: non resta nessun contributo da riapplicare. Se la PR di origine torna in conflitto su una HEAD nuova, `pr-autorebase` apre un hand-off nuovo.';
+  if (reason === 'duplicate') outcome = 'Chiusa come **duplicate**.';
+  if (NOT_PLANNED_REASONS.has(reason)) outcome = 'Chiusa come **not planned**: il lavoro, se serve ancora, prosegue sulle issue elencate sopra. Se la PR di origine viene riaperta e torna in conflitto, `pr-autorebase` apre un hand-off nuovo.';
   return [
     RECONCILE_MARKER,
     `✅ **Hand-off riconciliato (zero-Claude)**: ${why || reason}`,
     '',
-    reason === 'duplicate'
-      ? 'Chiusa come **duplicate**.'
-      : 'Chiusa come **completed**: non resta nessun contributo da riapplicare. Se la PR di origine torna in conflitto su una HEAD nuova, `pr-autorebase` apre un hand-off nuovo.',
+    outcome,
     '',
     '_Segnale deterministico da `scripts/ci/reconcile-conflict-handoffs.mjs` (followup-drainer)._',
   ].join('\n');
@@ -237,7 +446,54 @@ function listOpenHandoffs() {
 
 function readOrigin(num) {
   return ghJson(['pr', 'view', String(num), '--repo', REPO,
-    '--json', 'state,mergedAt,mergeable,mergeStateStatus,headRefOid,labels']);
+    '--json', 'state,mergedAt,closedAt,mergeable,mergeStateStatus,headRefOid,labels,title,body']);
+}
+
+// Oltre questo numero di file la prova di contenuto non si tenta (una lettura
+// di main per file): l'hand-off resta al ramo «superato» con i suoi vincoli.
+export const CONTENT_PROOF_MAX_FILES = 100;
+// Stima del costo di una prova di contenuto (elenco file + letture di main +
+// issue dell'origine) per il budget della run.
+export const CONTENT_PROOF_BUDGET_MS = 30_000;
+
+/** `[{ filename, status, patch }]` della PR, o `null` se illeggibile. */
+function readOriginFiles(num) {
+  const raw = gh(['api', '--paginate', `repos/${REPO}/pulls/${Number(num)}/files?per_page=100`,
+    '--jq', '.[] | {filename, status, patch}']);
+  if (raw === null) return null;
+  const files = [];
+  for (const line of raw.split('\n')) {
+    if (!line.trim()) continue;
+    try {
+      files.push(JSON.parse(line));
+    } catch {
+      return null;
+    }
+  }
+  return files;
+}
+
+/** Testo del file su `main`, o `null` (assente o lettura fallita). */
+function readMainFile(filePath) {
+  const encoded = String(filePath).split('/').map(encodeURIComponent).join('/');
+  return gh(['api', '-H', 'Accept: application/vnd.github.raw+json', `repos/${REPO}/contents/${encoded}?ref=main`]);
+}
+
+function readContentProof(num) {
+  const files = readOriginFiles(num);
+  if (files === null) return null;
+  if (files.length > CONTENT_PROOF_MAX_FILES) {
+    return { proven: false, reason: `${files.length} file (> ${CONTENT_PROOF_MAX_FILES}): prova di contenuto non tentata` };
+  }
+  return originContentOnMain(files, readMainFile);
+}
+
+/** Le issue che la PR di origine dichiarava di chiudere, lette dal vivo (`null` per una illeggibile). */
+function readOriginIssues(originPr) {
+  return closedIssueRefs(prText(originPr)).map((n) => {
+    const live = ghJson(['issue', 'view', String(n), '--repo', REPO, '--json', 'number,state,labels']);
+    return live && Number(live.number) === n ? live : null;
+  });
 }
 
 function readConflictEvents(num) {
@@ -256,8 +512,15 @@ export function stillClosable(live) {
 }
 
 function closeIssue(number, { reason, comment, keeper }) {
-  if (!stillClosable(ghJson(['issue', 'view', String(number), '--repo', REPO, '--json', 'state,labels']))) {
+  const live = ghJson(['issue', 'view', String(number), '--repo', REPO, '--json', 'state,labels']);
+  if (!stillClosable(live)) {
     console.log(`#${number}: claim preso, gia' chiusa o stato illeggibile subito prima della chiusura → resta com'e'.`);
+    return false;
+  }
+  // «Superato» vale solo per un hand-off che nessuno ha in mano: se nel
+  // frattempo e' stato instradato, resta al fixer.
+  if (NOT_PLANNED_REASONS.has(reason) && handoffRouted(live)) {
+    console.log(`#${number}: instradata al fixer subito prima della chiusura (${reason}) → resta com'e'.`);
     return false;
   }
   if (gh(['issue', 'comment', String(number), '--repo', REPO, '--body', comment]) === null) return false;
@@ -268,7 +531,8 @@ function closeIssue(number, { reason, comment, keeper }) {
     if (gh(['issue', 'close', String(number), '--repo', REPO, '--duplicate-of', String(keeper)]) !== null) return true;
     return gh(['issue', 'close', String(number), '--repo', REPO, '--reason', 'not planned']) !== null;
   }
-  return gh(['issue', 'close', String(number), '--repo', REPO, '--reason', 'completed']) !== null;
+  const closeReason = NOT_PLANNED_REASONS.has(reason) ? 'not planned' : 'completed';
+  return gh(['issue', 'close', String(number), '--repo', REPO, '--reason', closeReason]) !== null;
 }
 
 function main() {
@@ -291,25 +555,41 @@ function main() {
     '--limit', String(MERGED_PR_WINDOW), '--json', 'number,title,body']);
 
   const budget = runBudgetFromEnv();
+  const now = Date.now();
   const actions = [];
   for (const { origin, keeper, duplicates } of groupHandoffs(issues, openPrs || [])) {
-    for (const dup of duplicates) {
-      // Lavoro avviato anche sul duplicato (due run parallele): nessuno dei
-      // due si butta, decide il tick dopo, a run finite.
-      if (openPrs === null || handoffBusy(dup, origin, openPrs)) {
-        console.log(`#${dup.number} duplicato di #${keeper.number} ma con lavoro avviato (o PR aperte illeggibili) → al prossimo tick.`);
-        continue;
-      }
+    const { close, deferred } = planDuplicateClosures({ keeper, duplicates, origin }, openPrs, now);
+    for (const { issue: dup, why } of deferred) {
+      console.log(`#${dup.number} duplicato di #${keeper.number} ma ${why} → al prossimo tick.`);
+    }
+    for (const dup of close) {
       actions.push({ issue: dup, reason: 'duplicate', originNumber: origin, keeper: keeper.number });
     }
     if (!budget.take(`#${keeper.number}`, 2_000)) continue;
     const originPr = readOrigin(origin);
     // Gli eventi servono solo a una PR di origine aperta (prova da merge-tree).
     const conflictEvents = String(originPr?.state || '').toUpperCase() === 'OPEN' ? readConflictEvents(origin) : null;
-    const decision = decideHandoff({ issue: keeper, origin: originPr, mergedPrs, openPrs, conflictEvents });
-    console.log(`#${keeper.number} (PR di origine #${origin}): ${decision.action} — ${decision.reason}${decision.pr ? ` (#${decision.pr})` : ''}`);
+    // File, contenuto di main e issue dell'origine servono solo a un'origine
+    // CHIUSA oltre la grazia, senza claim e senza una riapplicazione in volo
+    // (o PR aperte illeggibili): in quei casi `decideClosedOrigin` risponde
+    // `keep` senza usarli, e le letture si ripeterebbero a ogni tick.
+    const closedLong = originClosedPastGrace(originPr, now) && !labelNames(keeper).includes(CLAIM_LABEL)
+      && Array.isArray(openPrs) && reapplyInFlight(openPrs, { issueNumber: keeper.number, originNumber: origin }) === null;
+    // La prova di contenuto legge main una volta per file (fino a
+    // CONTENT_PROOF_MAX_FILES): se il budget della run non la copre, l'hand-off
+    // passa intero al prossimo tick.
+    if (closedLong && !budget.canAfford(CONTENT_PROOF_BUDGET_MS)) {
+      budget.defer(`#${keeper.number} (prova di contenuto)`);
+      continue;
+    }
+    const contentProof = closedLong ? readContentProof(origin) : null;
+    const originIssues = closedLong ? readOriginIssues(originPr) : null;
+    const decision = decideHandoff({
+      issue: keeper, origin: originPr, mergedPrs, openPrs, conflictEvents, contentProof, originIssues, now,
+    });
+    console.log(`#${keeper.number} (PR di origine #${origin}): ${decision.action} — ${decision.reason}${decision.pr ? ` (#${decision.pr})` : ''}${contentProof && !contentProof.proven ? ` [contenuto: ${contentProof.reason}]` : ''}`);
     if (decision.action === 'close') {
-      actions.push({ issue: keeper, reason: decision.reason, pr: decision.pr, originNumber: origin });
+      actions.push({ issue: keeper, reason: decision.reason, pr: decision.pr, originNumber: origin, contentProof, originIssues });
     }
   }
 

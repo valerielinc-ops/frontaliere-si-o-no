@@ -2522,7 +2522,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-30T21:14:58.805Z"
+      "firstSeenAt": "2026-09-30T21:14:58.805Z",
+      "needsRetranslation": true
     },
     {
       "title": "Leitung Brauteam (w/m/d)",
@@ -19272,7 +19273,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-1d4233",
         "en": "seller-seller-m-f-d-volg-bern-1d4233",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-igly0n",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-1d4233"
       },
       "crawledAt": "2026-10-03T21:19:40.083Z",
@@ -21175,7 +21176,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-159590",
         "en": "seller-seller-m-f-d-volg-bern-159590",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-8skag2",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-159590"
       },
       "crawledAt": "2026-10-03T21:19:40.083Z",
@@ -25672,7 +25673,9 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-kaisten",
-          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten"
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten-kpnh27",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-kaisten"
@@ -25683,7 +25686,9 @@
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-kaisten",
-        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten"
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten-kpnh27",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten"
       ],
       "salarySource": "reported"
     },
@@ -26733,7 +26738,9 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bergdietikon",
-          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon"
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon-1drl63",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bergdietikon"
@@ -26744,7 +26751,9 @@
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bergdietikon",
-        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon"
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon-1drl63",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon"
       ],
       "salarySource": "reported"
     },
@@ -28344,7 +28353,9 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-uster",
-          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster"
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster-xtj1ge",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-uster"
@@ -28355,7 +28366,9 @@
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-uster",
-        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster"
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster-xtj1ge",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster"
       ],
       "salarySource": "reported"
     },

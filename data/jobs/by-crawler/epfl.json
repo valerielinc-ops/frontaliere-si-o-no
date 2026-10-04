@@ -616,7 +616,6 @@
           "laboratory-technicien-epfl-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:12:03.089Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -1395,7 +1394,6 @@
       "department": "Technique",
       "contractType": "Technique",
       "externalId": "1165463855",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:57:40.800Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
@@ -1472,7 +1470,6 @@
           "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:57:41.362Z",
       "salaryMin": 24200,
       "salaryMax": 36600,
@@ -2076,7 +2073,6 @@
           "postdoc-stelle-im-bereich-3d-computer-vision-fernerkundung-epfl-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:32:10.738Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2829,7 +2825,6 @@
           "coordinateur-trice-de-projet-outreach-engagement-public-50-epfl-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:45:13.674Z",
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -3570,7 +3565,6 @@
           "postdoc-position-at-epfl-on-multimodal-foundation-models-in-collaboration-with-novartis"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:19:09.731Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4085,18 +4079,6 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1165533355",
-      "previousSlugs": [
-        "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
-        ],
-        "fr": [
-          "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:17:04.445Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4111,7 +4093,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
+        ],
+        "fr": [
+          "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-forest-ecophysiology-and-remote-sensing-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-de1f3e13eac3",
@@ -4248,22 +4241,6 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1165538555",
-      "previousSlugs": [
-        "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
-        ],
-        "de": [
-          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
-        ],
-        "fr": [
-          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:16:07.809Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4277,7 +4254,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "firstSeenAt": "2026-10-01T09:16:07.809Z",
+      "previousSlugs": [
+        "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+        ],
+        "de": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+        ],
+        "fr": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+        ]
+      }
     },
     {
       "id": "epfl-7b9bc8fc5e63",
@@ -4328,22 +4320,6 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1165538855",
-      "previousSlugs": [
-        "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
-        ],
-        "de": [
-          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
-        ],
-        "fr": [
-          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:16:08.408Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4357,7 +4333,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "firstSeenAt": "2026-10-01T09:16:08.408Z",
+      "previousSlugs": [
+        "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+        ],
+        "de": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+        ],
+        "fr": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+        ]
+      }
     },
     {
       "id": "epfl-830b705e54b0",
@@ -4494,19 +4485,6 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1165538755",
-      "previousSlugs": [
-        "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
-        ],
-        "fr": [
-          "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:16:09.007Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4520,7 +4498,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "firstSeenAt": "2026-10-01T09:16:09.007Z",
+      "previousSlugs": [
+        "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
+        ],
+        "fr": [
+          "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
+        ]
+      }
     },
     {
       "id": "epfl-48d3349f3c92",
@@ -4728,7 +4718,6 @@
       "previousSlugs": [
         "postdoctoral-scholar-opening-in-indoor-air-quality-epfl-fribourg"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:43:35.985Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5209,7 +5198,6 @@
           "technicien-ne-en-histologie-epfl-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:40:52.078Z",
       "salaryMin": 71000,
       "salaryMax": 107500,

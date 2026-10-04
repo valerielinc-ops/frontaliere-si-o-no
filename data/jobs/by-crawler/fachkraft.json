@@ -53681,18 +53681,27 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-servicetechniker-in-wil-sg-dauerstelle-305072/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "polymechaniker-in-servicetechniker-in-fur-prazisionskreissageanlagen-wil-sg-st-gallen",
-        "polymechaniker-in-tecnico-a-di-servizio-per-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-servicetechniker-in-fur-prazisionskreissageanlagen-wil-sg-st-gallen",
-          "polymechaniker-in-tecnico-a-di-servizio-per-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg"
+          "polymechaniker-in-tecnico-a-di-servizio-per-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg",
+          "polymechaniker-in-service-technician-fur-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg-st-gallen",
+          "polymechaniker-in-technicien-ne-de-service-fur-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg-st-gallen"
+        ],
+        "en": [
+          "polymechaniker-in-service-technician-fur-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg-st-gallen"
+        ],
+        "fr": [
+          "polymechaniker-in-technicien-ne-de-service-fur-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg-st-gallen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T15:25:37.778Z",
+      "previousSlugs": [
+        "polymechaniker-in-servicetechniker-in-fur-prazisionskreissageanlagen-wil-sg-st-gallen",
+        "polymechaniker-in-tecnico-a-di-servizio-per-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg",
+        "polymechaniker-in-service-technician-fur-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "polymechaniker-in-technicien-ne-de-service-fur-prazisionskreissageanlagen-fachkraft-ch-gmbh-wil-sg-st-gallen"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -53705,7 +53714,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T15:25:37.778Z"
     },
     {
       "id": "fachkraft-61e283cc6613",
@@ -96775,18 +96785,61 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/malerpraktiker-in-rorschach-dauerstelle-297207/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-rorschach-st-gallen-fachkraft-ch",
-        "professionista-di-pittura-con-competenze-diverse-fachkraft-ch-gmbh-rorschach-st-gallen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-rorschach-st-gallen-fachkraft-ch",
-          "professionista-di-pittura-con-competenze-diverse-fachkraft-ch-gmbh-rorschach-st-gallen"
+          "professionista-di-pittura-con-competenze-diverse-fachkraft-ch-gmbh-rorschach-st-gallen",
+          "i-professionisti-della-pittura-con-competenze-versatili-fachkraft-ch-gmbh-rorschach-st-gallen",
+          "painting-practitioners-with-versatile-expertise-fachkraft-ch-gmbh-rorschach-st-gallen",
+          "pratiques-de-peinture-avec-une-expertise-polyvalente-fachkraft-ch-gmbh-rorschach-st-gallen",
+          "malerpraktiker-in-con-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-rorschach",
+          "professionista-di-pittura-con-competenze-diverse-fachkraft-ch-gmbh-aarau-aargau",
+          "painting-practitioner-with-diverse-expertise-fachkraft-ch-gmbh-aarau-aargau",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-aarau-aargau-fachkraft-ch",
+          "specialiste-de-la-peinture-avec-une-expertise-diversifiee-fachkraft-ch-gmbh-aarau-aargau",
+          "malerpraktiker-in-con-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-aarau",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-aarau",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-winterthur-zurich-fachkraft-ch",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-rorschach",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-zurich-zurich-fachkraft-ch-i99ch2",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-zurich-zurich-fachkraft-ch-2",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-q88yk9",
+          "painting-practitioner-with-diverse-expertise-fachkraft-ch-gmbh-lugano",
+          "specialiste-de-la-peinture-avec-une-expertise-diversifiee-fachkraft-ch-gmbh-lugano",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch",
+          "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-zurich-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "painting-practitioners-with-versatile-expertise-fachkraft-ch-gmbh-rorschach-st-gallen"
+        ],
+        "fr": [
+          "pratiques-de-peinture-avec-une-expertise-polyvalente-fachkraft-ch-gmbh-rorschach-st-gallen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-06T23:15:12.693Z",
+      "previousSlugs": [
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-rorschach-st-gallen-fachkraft-ch",
+        "professionista-di-pittura-con-competenze-diverse-fachkraft-ch-gmbh-rorschach-st-gallen",
+        "i-professionisti-della-pittura-con-competenze-versatili-fachkraft-ch-gmbh-rorschach-st-gallen",
+        "painting-practitioners-with-versatile-expertise-fachkraft-ch-gmbh-rorschach-st-gallen",
+        "pratiques-de-peinture-avec-une-expertise-polyvalente-fachkraft-ch-gmbh-rorschach-st-gallen",
+        "malerpraktiker-in-con-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-rorschach",
+        "professionista-di-pittura-con-competenze-diverse-fachkraft-ch-gmbh-aarau-aargau",
+        "painting-practitioner-with-diverse-expertise-fachkraft-ch-gmbh-aarau-aargau",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-aarau-aargau-fachkraft-ch",
+        "specialiste-de-la-peinture-avec-une-expertise-diversifiee-fachkraft-ch-gmbh-aarau-aargau",
+        "malerpraktiker-in-con-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-aarau",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-aarau",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-winterthur-zurich-fachkraft-ch",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-gmbh-rorschach",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-zurich-zurich-fachkraft-ch-i99ch2",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-zurich-zurich-fachkraft-ch-2",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch-q88yk9",
+        "painting-practitioner-with-diverse-expertise-fachkraft-ch-gmbh-lugano",
+        "specialiste-de-la-peinture-avec-une-expertise-diversifiee-fachkraft-ch-gmbh-lugano",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-fachkraft-ch",
+        "malerpraktiker-in-mit-vielseitigen-fachkenntnissen-zurich-zurich-fachkraft-ch"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -96799,7 +96852,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-06T23:15:12.693Z"
     },
     {
       "id": "fachkraft-fda8ff342a13",
@@ -133706,17 +133760,26 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/elektroinstallateur-in-luzern-dauerstelle-288714/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-ch-gmbh-luzern",
         "installateur-trice-electricien-ne-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-luzern-luzern",
         "elektroinstallateur-in-mit-schwerpunkt-e-mobility-und-pv-anlagen-luzern-luzern-fachkraft",
-        "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-ch-gmbh-lugano"
+        "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-ch-gmbh-lugano",
+        "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-n3y0sa",
+        "electrical-installer-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-lugano",
+        "installateur-trice-electricien-ne-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-lugano",
+        "electrical-installer-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-ch-gmbh-luzern",
           "elektroinstallateur-in-mit-schwerpunkt-e-mobility-und-pv-anlagen-luzern-luzern-fachkraft",
-          "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-ch-gmbh-lugano"
+          "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-ch-gmbh-lugano",
+          "installatore-trice-elettrico-a-in-con-schwerpunkt-e-mobility-e-pv-anlagen-fachkraft-n3y0sa",
+          "electrical-installer-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-lugano",
+          "installateur-trice-electricien-ne-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-lugano",
+          "electrical-installer-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-luzern-luzern"
         ],
         "de": [
           "elektroinstallateur-in-mit-schwerpunkt-e-mobility-und-pv-anlagen-luzern-luzern-fachkraft"
@@ -133725,8 +133788,6 @@
           "installateur-trice-electricien-ne-mit-schwerpunkt-e-mobility-und-pv-anlagen-fachkraft-ch-gmbh-luzern-luzern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T00:45:21.358Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -133739,7 +133800,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:45:21.358Z"
     },
     {
       "id": "fachkraft-691007c3ff81",
@@ -144738,7 +144800,6 @@
           "installatore-trice-elettrico-a-in-bauleitend-fachkraft-ch-gmbh-baden"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T23:50:31.499Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -186929,7 +186990,6 @@
           "gipser-in-efz-fur-anspruchsvolle-baustellen-chur-graubunden-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:39:52.819Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -210585,21 +210645,22 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-aarau-tryhire-297267/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "polymechaniker-in-cnc-fertigung-mit-5-achs-bearbeitungszentren-aarau-aargau-fachkraft-ch",
-        "polymechanic-produzione-cnc-con-centri-di-lavoro-a-5-assi-fachkraft-ch-gmbh-aarau-aargau"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-cnc-fertigung-mit-5-achs-bearbeitungszentren-aarau-aargau-fachkraft-ch",
-          "polymechanic-produzione-cnc-con-centri-di-lavoro-a-5-assi-fachkraft-ch-gmbh-aarau-aargau"
+          "polymechanic-produzione-cnc-con-centri-di-lavoro-a-5-assi-fachkraft-ch-gmbh-aarau-aargau",
+          "polymechaniker-in-cnc-fertigung-mit-5-achs-bearbeitungszentren-fachkraft-ch-gmbh-aarau"
         ],
         "de": [
           "polymechaniker-in-cnc-fertigung-mit-5-achs-bearbeitungszentren-aarau-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T14:06:39.175Z",
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-mit-5-achs-bearbeitungszentren-aarau-aargau-fachkraft-ch",
+        "polymechanic-produzione-cnc-con-centri-di-lavoro-a-5-assi-fachkraft-ch-gmbh-aarau-aargau",
+        "polymechaniker-in-cnc-fertigung-mit-5-achs-bearbeitungszentren-fachkraft-ch-gmbh-aarau"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -210612,7 +210673,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T14:06:39.175Z"
     },
     {
       "id": "fachkraft-f84edc6c38dd",
@@ -229579,16 +229641,29 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/maler-in-luzern-temporaer-301872/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-innen-und-aussenarbeiten-luzern-luzern-fachkraft-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "maler-in-fur-innen-und-aussenarbeiten-luzern-luzern-fachkraft-ch"
+          "maler-in-fur-innen-und-aussenarbeiten-luzern-luzern-fachkraft-ch",
+          "pittore-per-lavori-interni-ed-esterni-fachkraft-ch-gmbh-luzern-luzern",
+          "painter-for-interior-and-exterior-work-fachkraft-ch-gmbh-luzern-luzern",
+          "peintre-pour-travaux-interieurs-et-exterieurs-fachkraft-ch-gmbh-luzern-luzern",
+          "maler-in-fur-innen-und-aussenarbeiten-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "painter-for-interior-and-exterior-work-fachkraft-ch-gmbh-luzern-luzern"
+        ],
+        "fr": [
+          "peintre-pour-travaux-interieurs-et-exterieurs-fachkraft-ch-gmbh-luzern-luzern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T14:06:39.081Z",
+      "previousSlugs": [
+        "maler-in-fur-innen-und-aussenarbeiten-luzern-luzern-fachkraft-ch",
+        "pittore-per-lavori-interni-ed-esterni-fachkraft-ch-gmbh-luzern-luzern",
+        "painter-for-interior-and-exterior-work-fachkraft-ch-gmbh-luzern-luzern",
+        "peintre-pour-travaux-interieurs-et-exterieurs-fachkraft-ch-gmbh-luzern-luzern",
+        "maler-in-fur-innen-und-aussenarbeiten-fachkraft-ch-gmbh-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -229601,7 +229676,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T14:06:39.081Z"
     },
     {
       "id": "fachkraft-bcb1f91e2de8",
@@ -232045,18 +232121,19 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/industrielackierer-in-hilfsarbeiter-in-willisau-temporaer-305660/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-willisau-luzern-fachkraft-ch",
-        "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-fachkraft-ch-gmbh-willisau"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-willisau-luzern-fachkraft-ch",
-          "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-fachkraft-ch-gmbh-willisau"
+          "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-fachkraft-ch-gmbh-willisau",
+          "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-fachkraft-ch-gmbh-7ko8jx"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T10:07:24.286Z",
+      "previousSlugs": [
+        "industrielackierer-in-hilfsarbeiter-in-fur-nasslackarbeiten-willisau-luzern-fachkraft-ch",
+        "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-fachkraft-ch-gmbh-willisau",
+        "industrielackierer-in-hilfsarbeiter-in-per-nasslackarbeiten-fachkraft-ch-gmbh-7ko8jx"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -232069,7 +232146,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T10:07:24.286Z"
     },
     {
       "id": "fachkraft-fc93fc91283b",
@@ -242047,18 +242125,29 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/heizungsinstallateur-in-winterthur-temporaer-305734/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "heizungsinstallateur-in-fur-wohnungs-und-gewerbebau-winterthur-zurich-fachkraft-ch",
-        "heizungsinstallateur-in-per-wohnungs-e-gewerbebau-fachkraft-ch-gmbh-winterthur"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "heizungsinstallateur-in-fur-wohnungs-und-gewerbebau-winterthur-zurich-fachkraft-ch",
-          "heizungsinstallateur-in-per-wohnungs-e-gewerbebau-fachkraft-ch-gmbh-winterthur"
+          "heizungsinstallateur-in-per-wohnungs-e-gewerbebau-fachkraft-ch-gmbh-winterthur",
+          "installatore-di-riscaldamento-per-costruzione-residenziale-e-commerciale-fachkraft-ch-gmbh-winterthur-zurich",
+          "heating-installer-for-residential-and-commercial-construction-fachkraft-ch-gmbh-winterthur-zurich",
+          "installation-de-chauffage-pour-la-construction-residentielle-et-commerciale-fachkraft-ch-gmbh-winterthur-zurich"
+        ],
+        "en": [
+          "heating-installer-for-residential-and-commercial-construction-fachkraft-ch-gmbh-winterthur-zurich"
+        ],
+        "fr": [
+          "installation-de-chauffage-pour-la-construction-residentielle-et-commerciale-fachkraft-ch-gmbh-winterthur-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T12:04:41.540Z",
+      "previousSlugs": [
+        "heizungsinstallateur-in-fur-wohnungs-und-gewerbebau-winterthur-zurich-fachkraft-ch",
+        "heizungsinstallateur-in-per-wohnungs-e-gewerbebau-fachkraft-ch-gmbh-winterthur",
+        "installatore-di-riscaldamento-per-costruzione-residenziale-e-commerciale-fachkraft-ch-gmbh-winterthur-zurich",
+        "heating-installer-for-residential-and-commercial-construction-fachkraft-ch-gmbh-winterthur-zurich",
+        "installation-de-chauffage-pour-la-construction-residentielle-et-commerciale-fachkraft-ch-gmbh-winterthur-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -242071,7 +242160,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-01T12:04:41.540Z"
     },
     {
       "id": "fachkraft-a872549fe1d2",

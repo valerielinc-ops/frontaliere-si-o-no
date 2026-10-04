@@ -1,11 +1,21 @@
 #!/usr/bin/env node
 
 /**
- * Read-only L6 outcome export from an independent editorial review ledger.
+ * Read-only L6 outcome export from an independent factuality review ledger.
  *
  * The ledger is deliberately separate from quality-alert history and from
- * generator reports. Each line is a human/editorial review of one article and
- * locale, with an external source reference and explicit source/locale checks:
+ * generator reports. Each line reviews one article and locale. Three
+ * `reviewerType` values are accepted:
+ *
+ * - `human` and `external-editorial`: an editorial review with an external
+ *   source reference and explicit source/locale checks.
+ * - `automated-source-check`: a deterministic check, without any model, that
+ *   downloaded the external source cited by the article during the run and
+ *   compared the article's figures with it. Authorised by the owner decision
+ *   of 2026-09-24 in `DECISIONS.md` ("Loop L1-L11 automatici": the oracle is a
+ *   pull from external systems, including the sources cited for L6).
+ *
+ * Editorial row:
  *
  * {
  *   "reviewedAt": "2026-09-15T08:00:00.000Z",
@@ -21,9 +31,43 @@
  *   }
  * }
  *
- * No reviewer name, email, article body, or URL is needed. Missing, stale,
- * duplicate, model-authored, or partially evidenced rows never produce a
- * measured outcome. This script never edits content or source history.
+ * Automated row (every field is required):
+ *
+ * {
+ *   "reviewedAt": "2026-09-15T08:00:00.000Z",
+ *   "articleId": "article-id",
+ *   "locale": "de",
+ *   "verdict": "supported|confirmed_defect",
+ *   "reviewerType": "automated-source-check",
+ *   "observationRef": "L6.source-check.article-id.de",
+ *   "evidence": {
+ *     "method": "figures-in-source+locale-numeric-parity",
+ *     "sourceUrl": "https://www.example-authority.ch/source/",
+ *     "sourceRefs": ["https://www.example-authority.ch/source/"],
+ *     "sourceHttpStatus": 200,
+ *     "sourceFetchedAt": "2026-09-15T07:59:00.000Z",
+ *     "sourceSha256": "<64 lowercase hex chars of the downloaded body>",
+ *     "figuresChecked": 4,
+ *     "figuresMatched": 4,
+ *     "missingFigures": ["only for confirmed_defect: the figures not found"],
+ *     "externalSourceVerified": true,
+ *     "localeVerified": true
+ *   }
+ * }
+ *
+ * An automated row only attests the figures it compared: it never claims
+ * that the article is correct beyond them, and it always states how many
+ * figures it checked. Its source must be an https URL on a third-party host
+ * (not this site or its own mirrors, not an IP literal, not localhost), every
+ * declared source ref must be that downloaded URL, and the download must carry
+ * a full ISO timestamp, be fresh and precede the review. `supported` requires every checked figure to match;
+ * `confirmed_defect` requires at least one missing figure, listed; an
+ * automated check never emits `reopened`.
+ *
+ * No reviewer name, email, or article body is needed; only automated rows
+ * carry a URL, and only the third-party source URL. Missing, stale, duplicate,
+ * model-authored, or partially evidenced rows never produce a measured
+ * outcome. This script never edits content or source history.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -37,7 +81,20 @@ export const DEFAULT_MAX_AGE_HOURS = 36;
 
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const VERDICTS = new Set(['supported', 'confirmed_defect', 'reopened']);
-const REVIEWER_TYPES = new Set(['human', 'external-editorial']);
+const AUTOMATED_REVIEWER_TYPE = 'automated-source-check';
+const REVIEWER_TYPES = new Set(['human', 'external-editorial', AUTOMATED_REVIEWER_TYPE]);
+const AUTOMATED_METHOD = 'figures-in-source+locale-numeric-parity';
+// Hosts that serve this project's own site, corpus or mirrors: a page there is
+// never an independent source. Each entry also covers its subdomains.
+const OWN_HOSTS = [
+  'frontaliereticino.ch',
+  'frontaliere-ticino.web.app',
+  'frontaliere-ticino.firebaseapp.com',
+  'nanakokyobashi-rgb.github.io',
+  'valerielinc-ops.github.io',
+];
+const CLOCK_SKEW_MS = 5 * 60_000;
+const ISO_TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -93,6 +150,90 @@ function modelLike(value) {
   return text(value) && /(?:^|[-_ ])(?:llm|model|ai)(?:$|[-_ ])/i.test(value);
 }
 
+function independentSourceUrlIssue(value) {
+  if (!text(value)) return 'evidence.sourceUrl is missing';
+  let url;
+  try {
+    url = new URL(value);
+  } catch {
+    return 'evidence.sourceUrl is not a valid URL';
+  }
+  if (url.protocol !== 'https:') return 'evidence.sourceUrl must use https';
+  const host = url.hostname.toLowerCase().replace(/\.$/, '');
+  if (OWN_HOSTS.some((own) => host === own || host.endsWith(`.${own}`))) {
+    return 'evidence.sourceUrl must not be this site or one of its mirrors (an own page is not an independent source)';
+  }
+  if (host === 'localhost' || host.endsWith('.localhost')) return 'evidence.sourceUrl must not be localhost';
+  if (host.startsWith('[') || /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host)) {
+    return 'evidence.sourceUrl must not be an IP literal';
+  }
+  return null;
+}
+
+/**
+ * Extra evidence an automated-source-check row must carry: proof that the
+ * external source was downloaded in this run and that the verdict follows
+ * from the figure counts. Rows of the other reviewer types are unaffected.
+ */
+function automatedSourceCheckIssues(record, evidence, reviewedAt, { now, maxAgeHours }) {
+  const issues = [];
+  if (evidence.method !== AUTOMATED_METHOD || modelLike(evidence.method)) {
+    issues.push(`evidence.method must be ${AUTOMATED_METHOD} for ${AUTOMATED_REVIEWER_TYPE}`);
+  }
+  const urlIssue = independentSourceUrlIssue(evidence.sourceUrl);
+  if (urlIssue) issues.push(urlIssue);
+  if (text(evidence.sourceUrl)) {
+    // Checked on the raw fields, not on sourceRefsForRow(): that helper drops
+    // non-text entries and ignores sourceRef when sourceRefs exists, so junk
+    // or a second declared source would slip through.
+    const url = evidence.sourceUrl.trim();
+    const refs = evidence.sourceRefs;
+    const refsExact = Array.isArray(refs)
+      ? refs.length > 0 && refs.every((ref) => typeof ref === 'string' && ref.trim() === url)
+      : typeof evidence.sourceRef === 'string' && evidence.sourceRef.trim() === url;
+    const singleRefCoherent = evidence.sourceRef === undefined
+      || (typeof evidence.sourceRef === 'string' && evidence.sourceRef.trim() === url);
+    if (!refsExact || !singleRefCoherent) {
+      issues.push('evidence.sourceRefs must contain exactly evidence.sourceUrl (the declared source is the downloaded one)');
+    }
+  }
+  if (evidence.sourceHttpStatus !== 200) issues.push(`evidence.sourceHttpStatus must be 200 for ${AUTOMATED_REVIEWER_TYPE}`);
+  const fetchedAt = typeof evidence.sourceFetchedAt === 'string' && ISO_TIMESTAMP.test(evidence.sourceFetchedAt)
+    ? finiteDate(evidence.sourceFetchedAt)
+    : null;
+  if (!fetchedAt) {
+    issues.push('evidence.sourceFetchedAt is missing or not a full ISO timestamp');
+  } else {
+    if (fetchedAt.getTime() > now.getTime() + CLOCK_SKEW_MS) issues.push('evidence.sourceFetchedAt is in the future');
+    if (hoursBetween(now, fetchedAt) > maxAgeHours) issues.push(`evidence.sourceFetchedAt is older than ${maxAgeHours}h`);
+    if (reviewedAt && fetchedAt.getTime() > reviewedAt.getTime() + CLOCK_SKEW_MS) {
+      issues.push('evidence.sourceFetchedAt is later than reviewedAt');
+    }
+  }
+  if (typeof evidence.sourceSha256 !== 'string' || !/^[0-9a-f]{64}$/.test(evidence.sourceSha256)) {
+    issues.push('evidence.sourceSha256 must be 64 lowercase hex characters');
+  }
+  const checked = evidence.figuresChecked;
+  const matched = evidence.figuresMatched;
+  const checkedValid = Number.isInteger(checked) && checked >= 1;
+  if (!checkedValid) issues.push('evidence.figuresChecked must be an integer >= 1');
+  const matchedValid = Number.isInteger(matched) && matched >= 0 && (!checkedValid || matched <= checked);
+  if (!matchedValid) issues.push('evidence.figuresMatched must be an integer between 0 and evidence.figuresChecked');
+  if (checkedValid && matchedValid) {
+    if (record.verdict === 'supported' && matched !== checked) {
+      issues.push('supported requires evidence.figuresMatched === evidence.figuresChecked');
+    }
+    if (record.verdict === 'confirmed_defect') {
+      if (matched >= checked) issues.push('confirmed_defect requires evidence.figuresMatched < evidence.figuresChecked');
+      if (!Array.isArray(evidence.missingFigures) || evidence.missingFigures.length === 0 || !evidence.missingFigures.every(text)) {
+        issues.push('confirmed_defect requires evidence.missingFigures as a non-empty list of non-empty strings');
+      }
+    }
+  }
+  if (record.verdict === 'reopened') issues.push(`reopened is not allowed for ${AUTOMATED_REVIEWER_TYPE}`);
+  return issues;
+}
+
 /** Parse and independently validate every editorial ledger row. */
 export function validateEditorialFactualityLedger(ledgerText, {
   now = new Date(),
@@ -131,7 +272,7 @@ export function validateEditorialFactualityLedger(ledgerText, {
       if (!LOCALES.has(record.locale)) rowIssues.push('locale is missing or unsupported');
       if (!VERDICTS.has(record.verdict)) rowIssues.push('verdict is missing or unknown');
       if (!REVIEWER_TYPES.has(record.reviewerType) || modelLike(record.reviewerType)) {
-        rowIssues.push('reviewerType must be human or external-editorial; model/LLM verdicts are not independent');
+        rowIssues.push('reviewerType must be human, external-editorial or automated-source-check; model/LLM verdicts are not independent');
       }
       if (!text(record.observationRef)) rowIssues.push('observationRef is missing');
       if (!evidence) rowIssues.push('evidence is missing or not an object');
@@ -139,6 +280,9 @@ export function validateEditorialFactualityLedger(ledgerText, {
         if (sourceRefsForRow(evidence).length === 0) rowIssues.push('evidence.sourceRef(s) is missing');
         if (evidence.externalSourceVerified !== true) rowIssues.push('evidence.externalSourceVerified must be true');
         if (evidence.localeVerified !== true) rowIssues.push('evidence.localeVerified must be true');
+        if (record.reviewerType === AUTOMATED_REVIEWER_TYPE) {
+          rowIssues.push(...automatedSourceCheckIssues(record, evidence, reviewedAt, { now, maxAgeHours }));
+        }
       }
       const modelFields = Object.keys(record).filter((key) => /(?:llm|model|ai|suggestion|recommendation|verdictSource)/i.test(key));
       if (modelFields.length) rowIssues.push(`model/suggestion fields are not allowed (${modelFields.join(', ')})`);
@@ -226,7 +370,7 @@ export function buildL6FactualityOutcome({ verdict, policy, now = new Date(), le
       sourceRefs: refs,
       externalSourceVerified: independent,
       localeVerified: independent,
-      reviewerTypes: ['human', 'external-editorial'],
+      reviewerTypes: [...REVIEWER_TYPES],
       latestReviewedAt,
       status: independent ? 'verified' : 'unverified',
     },
@@ -236,7 +380,7 @@ export function buildL6FactualityOutcome({ verdict, policy, now = new Date(), le
       readOnly: true,
       generatorIsNotOracle: true,
       publishedContentUntouched: true,
-      humanVerdictRequired: true,
+      modelVerdictsRejected: true,
       invalidRecordCount: verdict?.invalidRecords?.length || 0,
       mutationsPerformed: false,
     },

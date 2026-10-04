@@ -13,7 +13,10 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { createdSinceFilter } from './lib/run-listing-window.mjs';
 import { LOOP_WORKFLOWS } from './loop-fleet-status.mjs';
-import { buildIndependentFleetControlOutcome } from '../lib/independent-fleet-outcome.mjs';
+import {
+  buildIndependentFleetControlOutcome,
+  topReconciliationErrorClasses,
+} from '../lib/independent-fleet-outcome.mjs';
 import { findLoopPolicy, validateLoopRegistry } from '../lib/loop-fleet-contract.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -89,7 +92,9 @@ export function listCompletedRuns({
         '--status', 'completed',
         '--created', created,
         '--limit', String(maxRecords),
-        '--json', 'databaseId,status,conclusion,createdAt,updatedAt,headSha,url',
+        // workflowName/event let a reconciliation error name its source in
+        // the log instead of a bare count (issue 8400).
+        '--json', 'databaseId,status,conclusion,createdAt,updatedAt,headSha,url,workflowName,event',
       ], {
         encoding: 'utf8',
         maxBuffer: 16 * 1024 * 1024,
@@ -106,6 +111,24 @@ export function listCompletedRuns({
     }
   }
   return { runs: [], error: `GitHub Actions run inventory unavailable for ${workflow}` };
+}
+
+/** One-line log summary: the counts plus the most frequent error classes. */
+export function summarizeIndependentFleetOutcome(result) {
+  const classes = result.metrics.reconciliationErrorClasses || {};
+  const errorClasses = topReconciliationErrorClasses(classes);
+  const shown = Object.values(errorClasses).reduce((sum, count) => sum + count, 0);
+  return {
+    loopId: result.loopId,
+    status: result.outcome.status,
+    independent: result.outcome.independent,
+    numerator: result.outcome.numerator,
+    denominator: result.outcome.denominator,
+    sourceErrors: result.metrics.sourceErrors,
+    reconciliationErrors: result.metrics.reconciliationErrors,
+    errorClasses,
+    errorsInOmittedClasses: result.metrics.reconciliationErrors - shown,
+  };
 }
 
 export function collectIndependentFleetOutcome({
@@ -128,7 +151,12 @@ export function collectIndependentFleetOutcome({
     for (const workflow of Object.values(LOOP_WORKFLOWS)) {
       const result = listRunsImpl({ repo, workflow, maxRecords, windowHours, now });
       if (result.error) sourceErrors.push(result.error);
-      runs.push(...(Array.isArray(result.runs) ? result.runs : []));
+      // Tag each run with the workflow file it was listed under, so every
+      // reconciliation error can be classified per workflow. Non-object rows
+      // stay untouched: the helper must still reject them.
+      runs.push(...(Array.isArray(result.runs) ? result.runs : []).map((run) => (
+        run && typeof run === 'object' && !Array.isArray(run) ? { ...run, workflowFile: workflow } : run
+      )));
     }
   }
   const result = buildIndependentFleetControlOutcome({
@@ -171,15 +199,7 @@ function main(argv = process.argv.slice(2)) {
   });
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(result, null, 2)}\n`);
-  console.log(JSON.stringify({
-    loopId: result.loopId,
-    status: result.outcome.status,
-    independent: result.outcome.independent,
-    numerator: result.outcome.numerator,
-    denominator: result.outcome.denominator,
-    sourceErrors: result.metrics.sourceErrors,
-    reconciliationErrors: result.metrics.reconciliationErrors,
-  }));
+  console.log(JSON.stringify(summarizeIndependentFleetOutcome(result)));
   return result;
 }
 

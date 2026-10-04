@@ -6934,7 +6934,6 @@
           "agent-d-exportation-h-f-80-100-yellowshark-ag-volketswil-zh"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.741Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15481,7 +15480,6 @@
           "agent-d-exportation-h-f-80-100-yellowshark-ag-solothurn-so"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.690Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15797,7 +15795,6 @@
           "projektleiter-gebaudeautomation-m-w-80-100-schlieren-zh-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.689Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -20526,7 +20523,6 @@
           "agent-d-exportation-h-f-80-100-yellowshark-ag-uster-zh"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.661Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -20610,7 +20606,6 @@
           "agent-d-exportation-h-f-80-100-yellowshark-ag-winterthur-zh"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.661Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -24920,7 +24915,6 @@
           "projektleiter-gebaudeautomation-m-w-80-100-inwil-lu-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.628Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -28677,7 +28671,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.599Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -28690,7 +28683,26 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "attrezzature-per-tetto-e-costruzione-m-f-yellowshark-ag-zug-zg",
+          "roofing-and-construction-equipment-m-f-yellowshark-ag-zug-zg",
+          "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug-zg"
+        ],
+        "en": [
+          "roofing-and-construction-equipment-m-f-yellowshark-ag-zug-zg"
+        ],
+        "fr": [
+          "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug-zg"
+        ]
+      },
+      "previousSlugs": [
+        "attrezzature-per-tetto-e-costruzione-m-f-yellowshark-ag-zug-zg",
+        "roofing-and-construction-equipment-m-f-yellowshark-ag-zug-zg",
+        "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug-zg"
+      ]
     },
     {
       "id": "yellowshark-84f9d865631a",
@@ -38854,7 +38866,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.599Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -38867,7 +38878,28 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strato-terra-m-f-yellowshark-ag-zug-zg",
+          "ground-layer-m-f-yellowshark-ag-zug-zg",
+          "couche-au-sol-h-f-yellowshark-ag-zug-zg",
+          "bodenleger-m-w-yellowshark-ag-zug"
+        ],
+        "en": [
+          "ground-layer-m-f-yellowshark-ag-zug-zg"
+        ],
+        "fr": [
+          "couche-au-sol-h-f-yellowshark-ag-zug-zg"
+        ]
+      },
+      "previousSlugs": [
+        "strato-terra-m-f-yellowshark-ag-zug-zg",
+        "ground-layer-m-f-yellowshark-ag-zug-zg",
+        "couche-au-sol-h-f-yellowshark-ag-zug-zg",
+        "bodenleger-m-w-yellowshark-ag-zug"
+      ]
     },
     {
       "id": "yellowshark-ffde7067afb3",
@@ -43989,23 +44021,28 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa067974/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "it-support-engineer-8211-microsoft-038-cloud-m-w-80-100-st-gallen-sg-yellowshark-ch",
-        "it-support-ingegnere-microsoft-cloud-m-w-80-100-yellowshark-ag-st-gallen",
-        "it-support-ingenieur-microsoft-cloud-m-w-80-100-yellowshark-ag-st-gallen"
-      ],
+      "firstSeenAt": "2026-09-28T21:58:25.508Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "it-support-engineer-8211-microsoft-038-cloud-m-w-80-100-st-gallen-sg-yellowshark-ch",
-          "it-support-ingegnere-microsoft-cloud-m-w-80-100-yellowshark-ag-st-gallen"
+          "it-support-ingegnere-microsoft-cloud-m-w-80-100-yellowshark-ag-st-gallen",
+          "it-support-engineer-microsoft-038-cloud-m-w-80-100-st-gallen-sg-yellowshark-ch"
         ],
         "fr": [
           "it-support-engineer-8211-microsoft-038-cloud-m-w-80-100-st-gallen-sg-yellowshark-ch",
           "it-support-ingenieur-microsoft-cloud-m-w-80-100-yellowshark-ag-st-gallen"
+        ],
+        "en": [
+          "it-support-engineer-microsoft-038-cloud-m-w-80-100-st-gallen-sg-yellowshark-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.508Z",
+      "previousSlugs": [
+        "it-support-engineer-8211-microsoft-038-cloud-m-w-80-100-st-gallen-sg-yellowshark-ch",
+        "it-support-ingegnere-microsoft-cloud-m-w-80-100-yellowshark-ag-st-gallen",
+        "it-support-ingenieur-microsoft-cloud-m-w-80-100-yellowshark-ag-st-gallen",
+        "it-support-engineer-microsoft-038-cloud-m-w-80-100-st-gallen-sg-yellowshark-ch"
+      ],
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -45004,18 +45041,35 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa057010/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch",
-        "sanitarmonteur-m-w-yellowshark-ag-sarnen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch",
-          "sanitarmonteur-m-w-yellowshark-ag-sarnen"
+          "sanitarmonteur-m-w-yellowshark-ag-sarnen",
+          "sanitarmonteur-m-w-d-yellowshark-ag-sarnen",
+          "sanitary-fitting-m-f-yellowshark-ag-sarnen",
+          "fixation-sanitaire-h-f-yellowshark-ag-sarnen",
+          "sanitary-fitting-m-f-yellowshark-ag-sarnen-ow",
+          "fixation-sanitaire-h-f-yellowshark-ag-sarnen-ow",
+          "montaggio-sanitario-m-f-yellowshark-ag-sarnen-ow"
+        ],
+        "en": [
+          "sanitary-fitting-m-f-yellowshark-ag-sarnen"
+        ],
+        "fr": [
+          "fixation-sanitaire-h-f-yellowshark-ag-sarnen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.606Z",
+      "previousSlugs": [
+        "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch",
+        "sanitarmonteur-m-w-yellowshark-ag-sarnen",
+        "sanitarmonteur-m-w-d-yellowshark-ag-sarnen",
+        "sanitary-fitting-m-f-yellowshark-ag-sarnen",
+        "fixation-sanitaire-h-f-yellowshark-ag-sarnen",
+        "sanitary-fitting-m-f-yellowshark-ag-sarnen-ow",
+        "fixation-sanitaire-h-f-yellowshark-ag-sarnen-ow",
+        "montaggio-sanitario-m-f-yellowshark-ag-sarnen-ow"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -45028,7 +45082,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.606Z"
     },
     {
       "id": "yellowshark-1280e5c02066",
@@ -46553,7 +46608,6 @@
           "agent-d-exportation-h-f-80-100-yellowshark-ag-oftringen-ag"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:58:25.492Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -47034,7 +47088,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.600Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -47047,7 +47100,32 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manutenzione-dei-giardini-m-f-yellowshark-ag-sarnen",
+          "gardeners-maintenance-m-f-yellowshark-ag-sarnen",
+          "entretien-des-jardiniers-h-f-yellowshark-ag-sarnen",
+          "manutenzione-dei-giardini-m-f-yellowshark-ag-sarnen-ow",
+          "gardeners-maintenance-m-f-yellowshark-ag-sarnen-ow",
+          "entretien-des-jardiniers-h-f-yellowshark-ag-sarnen-ow"
+        ],
+        "en": [
+          "gardeners-maintenance-m-f-yellowshark-ag-sarnen"
+        ],
+        "fr": [
+          "entretien-des-jardiniers-h-f-yellowshark-ag-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "manutenzione-dei-giardini-m-f-yellowshark-ag-sarnen",
+        "gardeners-maintenance-m-f-yellowshark-ag-sarnen",
+        "entretien-des-jardiniers-h-f-yellowshark-ag-sarnen",
+        "manutenzione-dei-giardini-m-f-yellowshark-ag-sarnen-ow",
+        "gardeners-maintenance-m-f-yellowshark-ag-sarnen-ow",
+        "entretien-des-jardiniers-h-f-yellowshark-ag-sarnen-ow"
+      ]
     },
     {
       "id": "yellowshark-4228d342c80b",
@@ -55589,7 +55667,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.607Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -55602,7 +55679,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "shell-m-f-yellowshark-ag-luzern",
+          "shell-h-f-yellowshark-ag-luzern",
+          "shell-m-f-yellowshark-ag-luzern-lu",
+          "shell-h-f-yellowshark-ag-luzern-lu",
+          "schaler-m-w-yellowshark-ag-luzern"
+        ],
+        "fr": [
+          "shell-h-f-yellowshark-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "shell-m-f-yellowshark-ag-luzern",
+        "shell-h-f-yellowshark-ag-luzern",
+        "shell-m-f-yellowshark-ag-luzern-lu",
+        "shell-h-f-yellowshark-ag-luzern-lu",
+        "schaler-m-w-yellowshark-ag-luzern"
+      ]
     },
     {
       "id": "yellowshark-315026e853be",
@@ -59491,7 +59588,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.604Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -59504,7 +59600,32 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-macchine-m-f-yellowshark-ag-schwyz",
+          "machinery-operator-m-f-yellowshark-ag-schwyz",
+          "operateur-de-machines-h-f-yellowshark-ag-schwyz",
+          "operatore-di-macchine-m-f-yellowshark-ag-schwyz-sz",
+          "machinery-operator-m-f-yellowshark-ag-schwyz-sz",
+          "operateur-de-machines-h-f-yellowshark-ag-schwyz-sz"
+        ],
+        "en": [
+          "machinery-operator-m-f-yellowshark-ag-schwyz"
+        ],
+        "fr": [
+          "operateur-de-machines-h-f-yellowshark-ag-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-macchine-m-f-yellowshark-ag-schwyz",
+        "machinery-operator-m-f-yellowshark-ag-schwyz",
+        "operateur-de-machines-h-f-yellowshark-ag-schwyz",
+        "operatore-di-macchine-m-f-yellowshark-ag-schwyz-sz",
+        "machinery-operator-m-f-yellowshark-ag-schwyz-sz",
+        "operateur-de-machines-h-f-yellowshark-ag-schwyz-sz"
+      ]
     },
     {
       "id": "yellowshark-c707dcb5ba03",
@@ -63362,18 +63483,29 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa056747/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fassadenmonteur-m-w-bern-be-yellowshark-ch",
-        "fassadenmonteur-m-w-yellowshark-ag-bern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fassadenmonteur-m-w-bern-be-yellowshark-ch",
-          "fassadenmonteur-m-w-yellowshark-ag-bern"
+          "fassadenmonteur-m-w-yellowshark-ag-bern",
+          "facade-fitter-m-f-yellowshark-ag-bern-be",
+          "facade-fitter-m-f-yellowshark-ag-bern",
+          "fixeur-de-facade-h-f-yellowshark-ag-bern-be"
+        ],
+        "en": [
+          "facade-fitter-m-f-yellowshark-ag-bern"
+        ],
+        "fr": [
+          "fixeur-de-facade-h-f-yellowshark-ag-bern-be"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.634Z",
+      "previousSlugs": [
+        "fassadenmonteur-m-w-bern-be-yellowshark-ch",
+        "fassadenmonteur-m-w-yellowshark-ag-bern",
+        "facade-fitter-m-f-yellowshark-ag-bern-be",
+        "facade-fitter-m-f-yellowshark-ag-bern",
+        "fixeur-de-facade-h-f-yellowshark-ag-bern-be"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -63386,7 +63518,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.634Z"
     },
     {
       "id": "yellowshark-e4d2fb048a24",
@@ -64225,7 +64358,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.624Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -64238,7 +64370,28 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crane-operator-with-suva-id-m-f-yellowshark-ag-chur",
+          "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-chur",
+          "crane-operator-with-suva-id-m-f-yellowshark-ag-chur-gr",
+          "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-chur-gr"
+        ],
+        "en": [
+          "crane-operator-with-suva-id-m-f-yellowshark-ag-chur"
+        ],
+        "fr": [
+          "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-chur"
+        ]
+      },
+      "previousSlugs": [
+        "crane-operator-with-suva-id-m-f-yellowshark-ag-chur",
+        "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-chur",
+        "crane-operator-with-suva-id-m-f-yellowshark-ag-chur-gr",
+        "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-chur-gr"
+      ]
     },
     {
       "id": "yellowshark-1125a77229bb",
@@ -66935,7 +67088,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.627Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -66948,7 +67100,26 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "costruzione-polacca-m-f-yellowshark-ag-chur-gr",
+          "polish-building-construction-m-f-yellowshark-ag-chur-gr",
+          "construction-de-batiments-polonais-h-f-yellowshark-ag-chur-gr"
+        ],
+        "en": [
+          "polish-building-construction-m-f-yellowshark-ag-chur-gr"
+        ],
+        "fr": [
+          "construction-de-batiments-polonais-h-f-yellowshark-ag-chur-gr"
+        ]
+      },
+      "previousSlugs": [
+        "costruzione-polacca-m-f-yellowshark-ag-chur-gr",
+        "polish-building-construction-m-f-yellowshark-ag-chur-gr",
+        "construction-de-batiments-polonais-h-f-yellowshark-ag-chur-gr"
+      ]
     },
     {
       "id": "yellowshark-a296ded60090",
@@ -67232,6 +67403,20 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa068194/",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:52:03.488Z",
       "previousSlugs": [
         "it-systemtechniker-m-w-d-80-100-dagmersellen-lu-yellowshark-ch",
         "tecnico-del-sistema-it-m-f-d-80-100-yellowshark-ag-dagmersellen-lu",
@@ -67252,21 +67437,6 @@
           "it-systemtechniker-m-w-d-80-100-dagmersellen-lu-yellowshark-ch",
           "technicien-du-systeme-informatique-h-f-d-80-100-yellowshark-ag-dagmersellen-lu"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:52:03.488Z",
-      "salaryMin": 74500,
-      "salaryMax": 127000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 127000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -67936,7 +68106,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:58:25.619Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -67949,7 +68118,28 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:58:25.619Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direttore-della-costruzione-m-f-yellowshark-ag-chur-gr",
+          "construction-manager-m-f-yellowshark-ag-chur-gr",
+          "directeur-de-la-construction-h-f-yellowshark-ag-chur-gr",
+          "baufuhrer-m-w-yellowshark-ag-chur"
+        ],
+        "en": [
+          "construction-manager-m-f-yellowshark-ag-chur-gr"
+        ],
+        "fr": [
+          "directeur-de-la-construction-h-f-yellowshark-ag-chur-gr"
+        ]
+      },
+      "previousSlugs": [
+        "direttore-della-costruzione-m-f-yellowshark-ag-chur-gr",
+        "construction-manager-m-f-yellowshark-ag-chur-gr",
+        "directeur-de-la-construction-h-f-yellowshark-ag-chur-gr",
+        "baufuhrer-m-w-yellowshark-ag-chur"
+      ]
     },
     {
       "id": "yellowshark-6f4168adda7f",

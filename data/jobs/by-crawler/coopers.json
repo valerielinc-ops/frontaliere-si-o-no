@@ -5098,7 +5098,6 @@
           "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T22:06:05.062Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5491,10 +5490,7 @@
           "MES, GMP"
         ]
       },
-      "previousSlugs": [
-        "mes-system-engineer-m-f-d-coopers-wallis",
-        "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
-      ],
+      "firstSeenAt": "2026-09-30T21:17:22.647Z",
       "previousSlugsByLocale": {
         "it": [
           "mes-system-engineer-m-f-d-coopers-wallis",
@@ -5507,8 +5503,10 @@
           "mes-system-engineer-m-f-d-coopers-wallis"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:17:22.647Z",
+      "previousSlugs": [
+        "mes-system-engineer-m-f-d-coopers-wallis",
+        "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -5660,10 +5658,7 @@
           "Catia, CAD, SolidWorks, ISO 8015"
         ]
       },
-      "previousSlugs": [
-        "senior-mechanical-engineer-m-w-d-coopers-zug",
-        "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
-      ],
+      "firstSeenAt": "2026-09-30T21:17:20.802Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-mechanical-engineer-m-w-d-coopers-zug",
@@ -5673,8 +5668,10 @@
           "senior-mechanical-engineer-m-w-d-coopers-zug"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:17:20.802Z",
+      "previousSlugs": [
+        "senior-mechanical-engineer-m-w-d-coopers-zug",
+        "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
+      ],
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -6108,18 +6105,6 @@
           "Medizintechnik, Quality"
         ]
       },
-      "previousSlugs": [
-        "product-quality-engineer-m-w-d-coopers-zug",
-        "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "product-quality-engineer-m-w-d-coopers-zug",
-          "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:21:06.768Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6132,6 +6117,17 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-10-01T09:21:06.768Z",
+      "previousSlugs": [
+        "product-quality-engineer-m-w-d-coopers-zug",
+        "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-quality-engineer-m-w-d-coopers-zug",
+          "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
+        ]
       }
     },
     {
