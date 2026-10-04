@@ -11,12 +11,16 @@
  *
  *   npx tsx scripts/audit-missing-company-logos.mjs
  *   npx tsx scripts/audit-missing-company-logos.mjs --report-issue
+ *
+ * With --report-issue the canonical issue is opened/updated while anomalies
+ * remain and closed (resolveGithubIssue) when the audit measures 0.
  */
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveCompanyLogoUrl } from '../services/jobDataNormalization.ts';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   auditCompanyLogos,
   DEFAULT_ASSET_BASE_URL,
@@ -93,20 +97,47 @@ ${restCount ? `\n_...e altre ${restCount} aziende nell'elenco completo._\n` : ''
 `;
 }
 
-async function reportIssue(report) {
+export const MISSING_LOGOS_ISSUE_TITLE = 'Aziende senza logo sulle pagine annuncio di lavoro';
+const ISSUE_WORKFLOW = 'audit-missing-company-logos';
+
+function currentRunUrl() {
+  return process.env.GITHUB_RUN_ID
+    ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+    : undefined;
+}
+
+/**
+ * Opens/updates the canonical issue while anomalies remain and CLOSES it when
+ * the audit measures 0 affected companies. Without the resolve branch the
+ * issue stayed open after the last logo landed (issue 6504): the open path had
+ * no mirror. A 0 here is a complete measurement — every resolved reference was
+ * probed (an unreachable one counts as `unverified`, i.e. affected) and the
+ * dataset passed the COMPANY_LOGO_AUDIT_MIN_JOBS guard in loadCanonicalJobs.
+ * A close that GitHub refuses throws, so the run fails instead of reporting a
+ * green that did not persist.
+ *
+ * `createIssue` / `resolveIssue` default to github-issue-creator.mjs and are
+ * injectable for tests.
+ */
+export async function reportIssue(report, { createIssue, resolveIssue, runUrl = currentRunUrl() } = {}) {
   if (report.affectedCompanies.length === 0) {
-    console.log('[audit-missing-company-logos] Nessuna anomalia logo — nessuna issue da aprire.');
-    return;
+    const resolve = resolveIssue
+      || (await import('./lib/github-issue-creator.mjs')).resolveGithubIssue;
+    await resolve(MISSING_LOGOS_ISSUE_TITLE, { workflow: ISSUE_WORKFLOW, runUrl });
+    console.log('[audit-missing-company-logos] Nessuna anomalia logo — issue canonica chiusa se aperta.');
+    return 'resolved';
   }
-  const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
-  await createGithubIssue({
-    title: 'Aziende senza logo sulle pagine annuncio di lavoro',
+  const create = createIssue
+    || (await import('./lib/github-issue-creator.mjs')).createGithubIssue;
+  await create({
+    title: MISSING_LOGOS_ISSUE_TITLE,
     description: buildIssueBody(report),
     priority: 3,
     labels: ['crawler-data-quality'],
-    workflow: 'audit-missing-company-logos',
+    workflow: ISSUE_WORKFLOW,
   });
   console.log('[audit-missing-company-logos] Issue aperta/aggiornata.');
+  return 'reported';
 }
 
 async function main() {
@@ -143,7 +174,10 @@ async function main() {
   if (process.argv.includes('--report-issue')) await reportIssue(payload);
 }
 
-main().catch((error) => {
-  console.error('[audit-missing-company-logos] Fatal:', error);
-  process.exit(1);
-});
+// Only run when invoked directly, so tests can import reportIssue.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((error) => {
+    console.error('[audit-missing-company-logos] Fatal:', error);
+    process.exit(1);
+  });
+}
