@@ -290,7 +290,8 @@ jobs:
               --description "$body" \
               --priority 3 \
               --label Bug \
-              --workflow "$GITHUB_WORKFLOW"
+              --workflow "$GITHUB_WORKFLOW" \
+              --require-persisted
           done
 
       # Closer of the issues above. Only on a publishable snapshot

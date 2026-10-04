@@ -786,7 +786,7 @@ async function reportIssueIfNeeded(report) {
       workflow: process.env.GITHUB_WORKFLOW || 'SEO closed-loop health and recovery',
       dedupKey: 'SEO health loop:',
     });
-    return { attempted: true, persisted: Boolean(result?.persisted !== false) };
+    return { attempted: true, persisted: result?.persisted === true };
   } catch (error) {
     console.error(`[seo-health-loop] issue reporter failed: ${safeError(error)}`);
     return { attempted: true, persisted: false, error: safeError(error) };

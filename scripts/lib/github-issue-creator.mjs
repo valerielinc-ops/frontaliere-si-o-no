@@ -1566,7 +1566,7 @@ if (isDirectRun) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--resolve]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve]');
     process.exit(1);
   }
 
@@ -1605,6 +1605,7 @@ if (isDirectRun) {
   // N<0 opts a `Crawler Failure:` title OUT of the auto-gate; omitted = auto.
   const rawGate = get('--consecutive-gate');
   const consecutiveGate = rawGate === undefined ? 0 : Number(rawGate);
+  const requirePersisted = args.includes('--require-persisted');
 
   createGithubIssue({
     title,
@@ -1640,14 +1641,19 @@ if (isDirectRun) {
     consecutiveGate: Number.isFinite(consecutiveGate) ? consecutiveGate : 0,
     gateWindowHours: Number(get('--gate-window-hours') || DEFAULT_CRAWLER_GATE_WINDOW_HOURS),
     signals,
-  }).then(() => {
+  }).then((result) => {
+    if (requirePersisted && result?.persisted !== true) {
+      console.error('[github-issue-creator] Required persisted issue write was not confirmed.');
+      process.exit(1);
+    }
     // Why: this CLI is a best-effort reporter invoked from `if: failure()`
     // steps after the real failure has already been recorded. Exiting non-zero
-    // here would add a second red step and risk hiding the upstream cause —
-    // the body fallback above keeps the diagnostics in the workflow log.
+    // here remains opt-in: ordinary reporters keep their best-effort contract,
+    // while owner steps can fail closed when the issue is their only durable
+    // record of the verdict.
     process.exit(0);
   }).catch((err) => {
     console.error(`[github-issue-creator] Error: ${err.message}`);
-    process.exit(0);
+    process.exit(requirePersisted ? 1 : 0);
   });
 }

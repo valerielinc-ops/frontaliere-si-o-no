@@ -260,8 +260,26 @@ describe('seo-health-loop.mjs: il verdetto che il workflow legge', () => {
     expect(healthVerdict({ findings: { actionable }, issue: { attempted: true, persisted: true } })).toBe('finding');
     expect(healthVerdict({ findings: { actionable }, issue: { attempted: true, persisted: false } })).toBe('error');
     expect(healthVerdict({ findings: { actionable }, issue: { attempted: false, persisted: false } })).toBe('error');
+    expect(healthVerdict({ findings: { actionable }, issue: null })).toBe('error');
+    expect(healthVerdict({ findings: { actionable }, issue: {} })).toBe('error');
+    for (const writerResult of [null, undefined, {}] as Array<{ persisted?: boolean } | null | undefined>) {
+      expect(healthVerdict({
+        findings: { actionable },
+        issue: { attempted: true, persisted: writerResult?.persisted === true },
+      })).toBe('error');
+    }
     expect(healthVerdict({ findings: { actionable } })).toBe('error');
     expect(healthVerdict(null)).toBe('error');
+  });
+
+  it('un issue writer nullo o senza persisted seleziona il reporter di workflow', () => {
+    const steps = verdictJob(SEO, VERDICT_STEPS[SEO] as Entry);
+    const sim = simulate(steps, {
+      fail: ['Run five-phase SEO health loop'],
+      outputs: { health: { verdict: 'error' } },
+    });
+    expect(sim.ran).toContain('Report workflow failure');
+    expect(isVerdictOnlyFailure(SEO, sim.jobs)).toBe(false);
   });
 });
 
@@ -317,7 +335,12 @@ function healthReport(dir: string, snapshot: unknown) {
  * Esegue il `run:` di uno step del workflow con bash, `node scripts/lib/github-issue-creator.mjs`
  * e `gh` sostituiti da stub che registrano gli argomenti. `jq` e `node` restano veri.
  */
-function runPlateStep(stepTitle: string, { dir, report, openIssues = [] }: { dir: string; report: string; openIssues?: unknown[] }) {
+function runPlateStep(stepTitle: string, {
+  dir,
+  report,
+  openIssues = [],
+  rejectOwner = false,
+}: { dir: string; report: string; openIssues?: unknown[]; rejectOwner?: boolean }) {
   const step = verdictJob(PLATES, VERDICT_STEPS[PLATES] as Entry).find((s) => s.name === stepTitle);
   if (!step?.run) throw new Error(`step senza run: ${stepTitle}`);
   const calls = path.join(dir, 'calls.jsonl');
@@ -329,6 +352,11 @@ function runPlateStep(stepTitle: string, { dir, report, openIssues = [] }: { dir
     '  if [ "${1:-}" = scripts/lib/github-issue-creator.mjs ]; then',
     '    shift',
     `    command node -e 'process.stdout.write(JSON.stringify(process.argv.slice(1)) + "\\n")' -- "$@" >> "$CALLS"`,
+    '    if [ "${REJECT_OWNER:-false}" = true ]; then',
+    '      for arg in "$@"; do',
+    '        if [ "$arg" = --require-persisted ]; then return 1; fi',
+    '      done',
+    '    fi',
     '    return 0',
     '  fi',
     '  command node "$@"',
@@ -344,6 +372,7 @@ function runPlateStep(stepTitle: string, { dir, report, openIssues = [] }: { dir
       ...process.env,
       CALLS: calls,
       GH_FIXTURE: ghFixture,
+      REJECT_OWNER: rejectOwner ? 'true' : 'false',
       HEALTH_REPORT: report,
       RUNNER_TEMP: dir,
       GITHUB_SERVER_URL: 'https://github.com',
@@ -387,6 +416,20 @@ describe('aste targhe: una issue per fonte degradata, chiusa al rientro', () => 
     expect(res.opened[0].body).toContain('https://github.com/o/r/actions/runs/42');
     // Il discriminante sta dentro il prefisso di dedup (60 caratteri).
     expect(res.opened[0].title.length).toBeLessThanOrEqual(60);
+  });
+
+  it('create rifiutata → lo step proprietario fallisce e il reporter generico prende la run', () => {
+    const dir = tmp();
+    const report = healthReport(dir, degraded(['be']));
+    const owner = runPlateStep(OPEN_STEP, { dir, report, rejectOwner: true });
+    expect(owner.status, owner.output).not.toBe(0);
+
+    const sim = simulate(verdictJob(PLATES, VERDICT_STEPS[PLATES] as Entry), {
+      fail: ['Fail closed on source health or snapshot drift', OPEN_STEP],
+      outputs: { health: { blocking: 'false', health_failed: 'true' } },
+    });
+    expect(sim.ran).toContain('Report failure to GitHub Issues');
+    expect(isVerdictOnlyFailure(PLATES, sim.jobs)).toBe(false);
   });
 
   it('due fonti in errore → due issue distinte', () => {
