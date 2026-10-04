@@ -157,6 +157,28 @@ describe('uscita per token: lo stesso oracolo degli item open, mai su un token n
     expect(fileAt).toHaveBeenCalledWith(TARGET, BIRTH_BOUND);
   });
 
+  it('file citato presente alla nascita e sparito dal checkout attuale → token nato vero, mai done (esistenza e contenuto dallo stesso snapshot)', () => {
+    const GONE = 'scripts/old-writer.mjs';
+    const text = item(A).replace('pubblichi una slice fresca', `pubblichi una slice fresca (vedi \`${GONE}\`)`);
+    const fileAt = vi.fn((path: string) => ({
+      status: 'ok',
+      content: path === GONE ? TODAY_WITH_TOKEN : TODAY_WITHOUT_TOKEN,
+    }));
+    // Oggi solo TARGET esiste (col token); GONE e' stato cancellato.
+    const result = plan({ body: bucket(text), io: ioWith(TODAY_WITH_TOKEN), readers: { commitAfter: vi.fn(), fileAt } });
+    expect(result.results[0]).toMatchObject({ id: A, outcome: 'born-true' });
+    expect(fileAt).toHaveBeenCalledWith(GONE, BIRTH_BOUND);
+  });
+
+  it('esistenza storica: file assente allo snapshot ma presente oggi → non conta come nato (stesso snapshot)', () => {
+    const NEW = 'scripts/new-writer.mjs';
+    const text = item(A).replace('pubblichi una slice fresca', `pubblichi una slice fresca (vedi \`${NEW}\`)`);
+    const fileAt = vi.fn((path: string) => (path === NEW ? { status: 'absent' } : { status: 'ok', content: TODAY_WITHOUT_TOKEN }));
+    const io = { fileExists: (p: string) => p === TARGET || p === NEW, readFile: (p: string) => (p === NEW || p === TARGET ? TODAY_WITH_TOKEN : null) };
+    const result = plan({ body: bucket(text), io, readers: { commitAfter: vi.fn(), fileAt } });
+    expect(result.results[0].outcome).toBe('done');
+  });
+
   it('lettura storica fallita → unknown, mai done', () => {
     const result = plan({ io: ioWith(TODAY_WITH_TOKEN), readers: readers({ historicStatus: 'error' }) });
     expect(result.results[0]).toMatchObject({ outcome: 'unknown', why: 'born-check-unavailable' });
