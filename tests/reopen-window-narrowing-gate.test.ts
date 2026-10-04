@@ -115,7 +115,7 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
     'audit ogni 3 giorni: 72h = il suo periodo.',
   '.github/workflows/job-title-locale-audit.yml:234:336':
     'audit quindicinale: 336h = il suo periodo.',
-  'scripts/ci/report-validate-dist-failure.mjs:673:6':
+  'scripts/ci/report-validate-dist-failure.mjs:930:6':
     'ramo `reportValidateDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
   'scripts/ci/review-gate.mjs:mintFollowup:reopenWithinHours:0':
     'follow-up di scope già drenata: una issue completata non deve riaprirsi e reinserire finding già risolti nel ciclo successivo.',
