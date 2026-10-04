@@ -7688,6 +7688,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incentivi-energetici-zurigo-domanda.title': 'Energieförderungen in Zürich: Voraussetzungen und Antrag',
     'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zürich: Energieförderungen für Gebäude und Anlagen. Voraussetzungen, Beträge und Fristen sind vor der Antragstellung zu prüfen; der Antrag ist vor Beginn der Arbeiten einzureichen.',
     'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Energieanreize für die Sanierung eines Gebäudes im Kanton Zürich',
+    'blog.article.edilizia-zurigo-permesso-iter.title': 'Baubewilligung im Kanton Zürich: Anforderungen und Verfahren',
+    'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'Im Kanton Zürich betrifft die Baubewilligung Gemeinde und Kanton: Anforderungen, Dokumente, Einsprachen und Rekurse. Die Arbeiten beginnen erst nach der Bewilligung.',
+    'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Unterlagen und Pläne für eine Baubewilligung in der Schweiz',
 };
 
 export default blogMetaChDe;
