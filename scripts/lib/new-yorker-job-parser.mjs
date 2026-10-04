@@ -90,7 +90,7 @@
  * and no per-job address is available at all.
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -271,7 +271,8 @@ export function extractNewYorkerJsonLd(html = '', pageUrl = '', expectedTitle = 
   return {
     title: cleanText(data.title || ''),
     description: descParts.join('\n\n'),
-    ...identifiedPostingPublication(html, pageUrl, expectedTitle),
+    ...(cleanText(data.title || '').toLowerCase() === cleanText(expectedTitle).toLowerCase()
+      ? identifiedPostingPublication(html, pageUrl, expectedTitle) : sourcePostingDateFields()),
     validThrough: typeof data.validThrough === 'string' ? data.validThrough : '',
     employmentTypeRaw: typeof data.employmentType === 'string' ? data.employmentType : '',
     hiringOrganizationName: cleanText(data.hiringOrganization?.name || '') || NEW_YORKER_COMPANY_NAME,
