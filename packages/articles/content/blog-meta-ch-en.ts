@@ -7688,6 +7688,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incentivi-energetici-zurigo-domanda.title': 'Energy incentives in Zurich: requirements and application',
     'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zurich: energy incentives for buildings and systems. Requirements, amounts and deadlines are checked before the application, which must be submitted before the work begins.',
     'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Energy incentives for renovating a building in the Canton of Zurich',
+    'blog.article.edilizia-zurigo-permesso-iter.title': 'Building permit in the Canton of Zurich: requirements and procedure',
+    'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'In the Canton of Zurich, the building permit involves the municipality and the canton: requirements, documents, objections and appeals. Work begins only after the permit.',
+    'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Documents and plans for a Swiss building permit',
 };
 
 export default blogMetaChEn;

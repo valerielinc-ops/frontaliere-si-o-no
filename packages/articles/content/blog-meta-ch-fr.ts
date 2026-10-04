@@ -7688,6 +7688,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incentivi-energetici-zurigo-domanda.title': 'Subventions énergétiques à Zurich : exigences et demande',
     'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zurich : subventions énergétiques pour les bâtiments et les installations. Les exigences, les montants et les délais sont vérifiés avant de déposer la demande, qui doit être déposée avant les travaux.',
     'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Aides énergétiques pour la rénovation d\'un bâtiment dans le canton de Zurich',
+    'blog.article.edilizia-zurigo-permesso-iter.title': 'Autorisation de construire dans le canton de Zurich : exigences et procédure',
+    'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'Dans le canton de Zurich, l’autorisation de construire implique la commune et le canton : exigences, documents, oppositions et recours. Les travaux ne commencent qu’après l’obtention du permis.',
+    'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Documents et plans pour une autorisation de construire en Suisse',
 };
 
 export default blogMetaChFr;

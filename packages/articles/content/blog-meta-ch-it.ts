@@ -7688,6 +7688,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incentivi-energetici-zurigo-domanda.title': 'Incentivi energetici a Zurigo: requisiti e domanda',
     'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zurigo: incentivi energetici per edifici e impianti. Requisiti, importi e termini si verificano prima della domanda, da presentare prima dei lavori.',
     'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Incentivi energetici per il risanamento di un edificio nel Cantone di Zurigo',
+    'blog.article.edilizia-zurigo-permesso-iter.title': 'Autorizzazione edilizia Canton Zurigo: requisiti e procedura',
+    'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'Nel Canton Zurigo l\'autorizzazione edilizia coinvolge comune e cantone: requisiti, documenti, opposizioni e ricorsi. I lavori iniziano solo dopo il permesso.',
+    'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Documenti e piani per un\'autorizzazione edilizia in Svizzera',
 };
 
 export default blogMetaChIt;
