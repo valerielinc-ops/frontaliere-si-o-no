@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-10-03T09:29:39.722Z",
+  "generatedAt": "2026-10-04T09:29:56.704Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
@@ -19,5 +19,6 @@
   "removedJobs": [],
   "unchangedJobs": [],
   "earlyExit": true,
-  "exitCode": 0
+  "exitCode": 0,
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

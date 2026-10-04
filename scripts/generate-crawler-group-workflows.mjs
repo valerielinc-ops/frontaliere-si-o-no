@@ -105,6 +105,8 @@ import {
   listPortableTreeSitePaths,
   registeredCorpusSitePaths,
 } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
+import { CRAWLER_GENERATION_RUNTIME_PATHS } from './lib/crawler-generation-runtime-paths.mjs';
+import { memberCrawlExitFileName } from './crawler-group-generation-finalizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -291,28 +293,6 @@ const CORPUS_OBSERVER_SITE_SOURCES = new Map([
 const CRAWLER_GENERATION_ROSTER_PATH = path.join(REPO_ROOT, 'scripts/ci/crawler-generation-roster.json');
 const CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS = 14;
 const CRAWLER_GENERATION_LEDGER_PATH = 'data/crawler-generation-ledger.jsonl';
-const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
-  'functions/src/githubApiHeaders.js',
-  'scripts/crawler-group-generation-finalizer.mjs',
-  'scripts/lib/accumulator-byte-floor-guard.mjs',
-  'scripts/lib/atomic-write-json.mjs',
-  'scripts/lib/canonical-json-digest.mjs',
-  'scripts/lib/crawler-generation-contract.mjs',
-  'scripts/lib/crawler-generation-group-ids.mjs',
-  'scripts/lib/crawler-generation-receipt.mjs',
-  'scripts/lib/crawler-generation-token.mjs',
-  'scripts/lib/crawler-grace-policy.mjs',
-  'scripts/lib/crawler-location-config.mjs',
-  'scripts/lib/crawler-slice-integrity.mjs',
-  'scripts/lib/global-data-pipeline-lease.mjs',
-  'scripts/lib/job-match-key.mjs',
-  'scripts/lib/job-url-key.mjs',
-  'scripts/lib/locale-map-diff.mjs',
-  'scripts/lib/prospector/country-inventory.mjs',
-  'scripts/lib/slug-history-journal.mjs',
-  'scripts/lib/slug-preservation-guard.mjs',
-  'scripts/lib/target-swiss-locations.mjs',
-]);
 
 const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
@@ -389,6 +369,27 @@ export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
     throw new Error(`crawler contract sourceRef must be a non-empty ref without whitespace, got ${JSON.stringify(ref)}`);
   }
   return { sourceCommit: String(commit), sourceRef: String(ref) };
+}
+
+// Il contratto committato e' la lineage che il corpus rilegge
+// (`scripts/ci/verify-crawler-contract-provenance.mjs`): non puo' indicare il
+// merge sintetico di una pull request. In un evento `pull_request` GITHUB_SHA e
+// GITHUB_REF_NAME descrivono `refs/pull/<N>/merge`, un commit che GitHub
+// ricalcola a ogni push e che main non conterra' mai: cosi' la PR 11227 ha
+// portato `sourceRef: "11227/merge"` su main e nel lockstep del corpus.
+const PULL_REQUEST_REF_RE = /^(?:refs\/)?pull\/\d+\/|^\d+\/(?:merge|head)$/u;
+
+/** Reject a contract source that names a pull request merge instead of a branch revision. */
+export function assertCommittedContractSource(source, env = process.env) {
+  const remedy = 'regenerate with CRAWLER_SOURCE_REF=main CRAWLER_SOURCE_COMMIT="$(git merge-base origin/main HEAD)"';
+  if (PULL_REQUEST_REF_RE.test(String(source.sourceRef))) {
+    throw new Error(`crawler contract sourceRef ${JSON.stringify(source.sourceRef)} is a pull request ref, not a branch: ${remedy}`);
+  }
+  if (!env.CRAWLER_SOURCE_COMMIT && /^pull_request/u.test(String(env.GITHUB_EVENT_NAME || ''))
+    && source.sourceCommit === env.GITHUB_SHA) {
+    throw new Error(`crawler contract sourceCommit ${source.sourceCommit} is the synthetic merge commit of a pull_request run: ${remedy}`);
+  }
+  return source;
 }
 
 /**
@@ -728,6 +729,33 @@ const RUNNER_SHUTDOWN_EXIT = 143;
 // timeout, not the generic status 1 that used to erase the distinction in the
 // durable crawler status and aggregate summary.
 const TARGET_TIMEOUT_EXIT = 124;
+// CR-04b — the exit of the CRAWL alone, for the delivery verdict. The worker
+// records `<slug>.status` = exit of the whole member body, which is 1 both for
+// a failed crawl and for a crawl that succeeded but whose commit descriptor
+// failed (and 43 for the shared precondition): nothing told the two apart, so
+// the finalizer (readMemberCrawlOutcomes in
+// scripts/crawler-group-generation-finalizer.mjs) could not separate
+// «crawl failed» from «crawl fine, delivery lost». The worker exports the
+// target path (keyed by the roster crawler id, memberCrawlExitFileName) and
+// the body writes `crawler_exit` there atomically right after capturing it.
+// Unset variable (body run by hand, test fixture without an id) = no file,
+// which the reader treats as `unknown` (fail closed). A failed write never
+// changes the body's exit: `crawler_exit` is already captured and nothing
+// below reads `$?` from this block.
+const MEMBER_CRAWL_EXIT_FILE_ENV = 'CRAWLER_MEMBER_CRAWL_EXIT_FILE';
+function recordMemberCrawlExitLines(slug, exitExpression) {
+  const target = `\${${MEMBER_CRAWL_EXIT_FILE_ENV}}`;
+  return [
+    // `:-`: the body runs under `set -u`, where an unset variable is fatal.
+    `if [ -n "\${${MEMBER_CRAWL_EXIT_FILE_ENV}:-}" ]; then`,
+    `  crawl_exit_tmp="${target}.tmp.$$"`,
+    `  if ! { printf '%s\\n' "${exitExpression}" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${target}"; } 2>/dev/null; then`,
+    '    rm -f "$crawl_exit_tmp" 2>/dev/null',
+    `    echo "::warning::${slug}: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"`,
+    '  fi',
+    'fi',
+  ];
+}
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
 // reports EXCEPT the four systemic classes, which are not per-crawler signals.
 const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
@@ -841,6 +869,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
   work.push(crawler.runStep.run.trimEnd());
   work.push('crawler_exit=$?');
+  work.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
   work.push('git_commit_exit=0');
   work.push('');
 
@@ -882,6 +911,13 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
   );
   outer.push('target_exit=$?');
+  // The deadline killed the work phase before it recorded the crawl exit:
+  // the crawl itself never finished, so it counts as a failed crawl (124).
+  // A file already present means the crawl had finished (0 = crawl fine, the
+  // commit is what overran): keep it, that is a delivery loss, not a crawl one.
+  outer.push(`if [ "$target_exit" -eq ${TARGET_TIMEOUT_EXIT} ] && [ -n "\${${MEMBER_CRAWL_EXIT_FILE_ENV}:-}" ] && [ ! -e "\${${MEMBER_CRAWL_EXIT_FILE_ENV}}" ]; then`);
+  outer.push(...recordMemberCrawlExitLines(crawler.slug, '$target_exit').map((line) => `  ${line}`));
+  outer.push('fi');
   outer.push('if [ "$target_exit" -eq 124 ]; then');
   outer.push(`  echo "::error::${crawler.slug}: target exceeded ${timeoutMinutes} minute wall timeout"`);
   outer.push(`  if [ -n "${'$'}{GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ ${crawler.slug}: target timed out after ${timeoutMinutes} minutes" >> "$GITHUB_STEP_SUMMARY"; fi`);
@@ -982,6 +1018,7 @@ export function buildCrawlerShellBody(crawler) {
   lines.push(`# ---- ${crawler.slug}: run crawler (verbatim from original workflow) ----`);
   lines.push(crawler.runStep.run.trimEnd());
   lines.push(`crawler_exit=$?`);
+  lines.push(...recordMemberCrawlExitLines(crawler.slug, '$crawler_exit'));
   // Default to 0 (no commit attempted / not yet run): if the crawl step
   // fails, the commit step below is skipped entirely (matching original
   // per-crawler behavior), so there is no commit failure to report in that
@@ -1116,6 +1153,45 @@ function shellQuote(s) {
   return `'${s.replace(/'/g, `'\\''`)}'`;
 }
 
+/**
+ * Byte budget for EVERY generated workflow file (site group, site logic,
+ * portable corpus copy).
+ *
+ * GitHub refuses a workflow file above a size limit it does not document in a
+ * stable place; the measure of 04-10 puts it between 508,926 bytes (largest
+ * file still valid, corpus group 12) and 512,281 (group 14, invalid), i.e.
+ * 512,000. Over it the file is not a workflow at all: every push creates a
+ * failed run named after its path («This run likely failed because of a
+ * workflow file issue») and dispatch stops working — groups 06 and 14 of the
+ * corpus after the cr-04b lockstep (04-10 04:30Z). 480,000 keeps ~6% headroom
+ * so one more per-member line across a 29-member group cannot cross the line
+ * unnoticed; the generator refuses to render past it.
+ */
+export const GITHUB_WORKFLOW_SIZE_LIMIT_BYTES = 512_000;
+export const GENERATED_WORKFLOW_SIZE_BUDGET_BYTES = 480_000;
+
+/** Returns `[{ file, bytes, over }]` for every entry above the budget. */
+export function workflowSizeBudgetViolations(entries, budget = GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+  return entries
+    .map(({ file, content }) => ({ file, bytes: Buffer.byteLength(content, 'utf8') }))
+    .filter(({ bytes }) => bytes > budget)
+    .map(({ file, bytes }) => ({ file, bytes, over: bytes - budget }));
+}
+
+export function formatWorkflowSizeBudgetViolation({ file, bytes, over }, budget = GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+  return `${file}: ${bytes} bytes, ${over} over the ${budget}-byte budget `
+    + `(GitHub rejects workflow files above ~${GITHUB_WORKFLOW_SIZE_LIMIT_BYTES})`;
+}
+
+function assertWorkflowSizeBudget(entries) {
+  const violations = workflowSizeBudgetViolations(entries);
+  if (violations.length === 0) return;
+  throw new Error([
+    'Generated crawler workflows exceed the size budget; shrink the per-member unrolled shell instead of raising the budget:',
+    ...violations.map((violation) => `  ${formatWorkflowSizeBudgetViolation(violation)}`),
+  ].join('\n'));
+}
+
 function isCrawlerLaunchStep(step) {
   return typeof step?.id === 'string' && step.id.startsWith('crawler-launch-');
 }
@@ -1135,12 +1211,21 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   const nn = String(groupIndex).padStart(2, '0');
   const slug = crawler.slug;
   const body = buildCrawlerShellBody(crawler);
+  // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
+  // receipts carry), not by the slug: for the step-id overrides the two differ
+  // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
+  const crawlExitFileName = memberCrawlExitFileName(
+    buildCrawlerStepEnv(crawler, '').JOBS_HOUSEKEEPING_SCOPE,
+  );
   const worker = [
     'set +e',
     `script_path="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.sh"`,
     `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    crawlExitFileName === null
+      ? `unset ${MEMBER_CRAWL_EXIT_FILE_ENV}`
+      : `export ${MEMBER_CRAWL_EXIT_FILE_ENV}="$RUNNER_TEMP/crawler-generation/group-${nn}/${crawlExitFileName}"`,
     ': > "$started_file"',
     'bash "$script_path"',
     'crawler_exit=$?',
@@ -1240,6 +1325,8 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `started_path="$state_dir/${slug}.started"`,
     `watchdog_path="$state_dir/${slug}.watchdog"`,
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
+    // A leftover crawl-exit would be positive proof this launch never gave.
+    ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
     '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
     '# shellcheck disable=SC2016,SC1003',
@@ -1353,7 +1440,17 @@ const WATCHDOG_MARK_LINES = [
   `if [ "$terminal_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$terminal_exit" -eq ${WATCHDOG_KILL_EXIT} ]; then printf '%s\\n' "$worker_watchdog_minutes" > "$watchdog_file"; fi`,
 ];
 
+/**
+ * `slug` is either a literal crawler slug (quarantine aggregate, one block per
+ * member) or SHELL_SLUG_VAR (`$slug`, the parameter of the aggregate's shared
+ * per-member function). Both render the same runtime text: the issue title,
+ * `--workflow` id and annotations the reconciler parses are byte-identical.
+ */
+const SHELL_SLUG_VAR = '$slug';
+
 function buildWatchdogKillIssueLines(slug) {
+  const dynamic = slug === SHELL_SLUG_VAR;
+  const quoteArg = (text) => (dynamic ? `"${text}"` : shellQuote(text));
   const statusFile = `"$state_dir/${slug}.status"`;
   return [
     `watchdog_file="$state_dir/${slug}.watchdog"`,
@@ -1366,12 +1463,25 @@ function buildWatchdogKillIssueLines(slug) {
       + '"**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" '
       + '"**Branch:** ${GITHUB_REF_NAME:-}" '
       + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',
-    `  if ! node scripts/lib/github-issue-creator.mjs --title ${shellQuote(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --priority 2 --label Bug --workflow ${shellQuote(`Run ${slug}`)}; then`,
+    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)}; then`,
     `    echo "::warning::${slug}: the watchdog-timeout issue could not be filed; the group verdict is unchanged"`,
     '  fi',
     'fi',
   ];
 }
+
+/**
+ * Name of the shell function the aggregate defines ONCE and calls per member.
+ *
+ * WORKFLOW SIZE BUDGET (04-10). Unrolled, this classification was ~38 lines
+ * (~2.9 KB) per member — 88 KB of a 29-member group's aggregate step. After
+ * cr-04b added the crawl-exit record to every member, groups 06 and 14 crossed
+ * GitHub's workflow-file size limit (~512,000 bytes) and every push created a
+ * failed «workflow file issue» run for them instead of a crawl. The function
+ * body is the same classification with `$slug` instead of the literal, so the
+ * annotations, summary rows and issue title are unchanged at runtime.
+ */
+export const AGGREGATE_MEMBER_FUNCTION = 'aggregate_crawler_member';
 
 /**
  * Summarize every crawler independently after the result waiters have run.
@@ -1399,40 +1509,45 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
     `printf '%s\\n' '### Crawler group ${nn} outcome' >> "$summary_file"`,
     `printf '%s\\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"`,
   ];
-  for (const crawler of crawlers) {
-    const slug = crawler.slug;
-    lines.push(
-      `status_file="$state_dir/${slug}.status"`,
-      'if [ ! -s "$status_file" ]; then',
-      `  echo "::warning::${slug}: no terminal status was published"`,
-      `  printf '%s\\n' '| ${slug} | missing status |' >> "$summary_file"`,
-      '  missing_count=$((missing_count + 1))',
-      'else',
-      '  status="$(cat "$status_file" 2>/dev/null || true)"',
-      '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
-      `    echo "::error::${slug}: invalid terminal status: $status"`,
-      `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
-      '    failure_count=$((failure_count + 1))',
-      `  elif [ "$status" -eq ${TARGET_TIMEOUT_EXIT} ]; then`,
-      `    echo "::error::${slug}: target timeout recorded as an actionable failure (exit ${TARGET_TIMEOUT_EXIT})"`,
-      `    printf '%s\\n' '| ${slug} | target timeout (124) |' >> "$summary_file"`,
-      '    failure_count=$((failure_count + 1))',
-      `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
-      `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,
-      `    printf '%s\\n' '| ${slug} | systemic runner shutdown (143) |' >> "$summary_file"`,
-      '    systemic_count=$((systemic_count + 1))',
-      '  elif [ "$status" -eq 0 ]; then',
-      `    printf '%s\\n' '| ${slug} | success |' >> "$summary_file"`,
-      '    success_count=$((success_count + 1))',
-      '  else',
-      `    echo "::error::${slug}: crawler exited with status $status"`,
-      `    printf '| ${slug} | failed (%s) |\\n' "$status" >> "$summary_file"`,
-      '    failure_count=$((failure_count + 1))',
-      '  fi',
-      'fi',
-      ...buildWatchdogKillIssueLines(slug),
-    );
-  }
+  const slug = SHELL_SLUG_VAR;
+  const memberBody = [
+    'slug="$1"',
+    `status_file="$state_dir/${slug}.status"`,
+    'if [ ! -s "$status_file" ]; then',
+    `  echo "::warning::${slug}: no terminal status was published"`,
+    `  printf '%s\\n' "| ${slug} | missing status |" >> "$summary_file"`,
+    '  missing_count=$((missing_count + 1))',
+    'else',
+    '  status="$(cat "$status_file" 2>/dev/null || true)"',
+    '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
+    `    echo "::error::${slug}: invalid terminal status: $status"`,
+    `    printf '%s\\n' "| ${slug} | invalid status |" >> "$summary_file"`,
+    '    failure_count=$((failure_count + 1))',
+    `  elif [ "$status" -eq ${TARGET_TIMEOUT_EXIT} ]; then`,
+    `    echo "::error::${slug}: target timeout recorded as an actionable failure (exit ${TARGET_TIMEOUT_EXIT})"`,
+    `    printf '%s\\n' "| ${slug} | target timeout (124) |" >> "$summary_file"`,
+    '    failure_count=$((failure_count + 1))',
+    `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
+    `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,
+    `    printf '%s\\n' "| ${slug} | systemic runner shutdown (143) |" >> "$summary_file"`,
+    '    systemic_count=$((systemic_count + 1))',
+    '  elif [ "$status" -eq 0 ]; then',
+    `    printf '%s\\n' "| ${slug} | success |" >> "$summary_file"`,
+    '    success_count=$((success_count + 1))',
+    '  else',
+    `    echo "::error::${slug}: crawler exited with status $status"`,
+    `    printf '| %s | failed (%s) |\\n' "${slug}" "$status" >> "$summary_file"`,
+    '    failure_count=$((failure_count + 1))',
+    '  fi',
+    'fi',
+    ...buildWatchdogKillIssueLines(slug),
+  ];
+  lines.push(
+    `${AGGREGATE_MEMBER_FUNCTION}() {`,
+    ...memberBody.map((line) => `  ${line}`),
+    '}',
+    ...crawlers.map((crawler) => `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)}`),
+  );
   lines.push(
     `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"`,
     // A runner shutdown (143) is not a crawler defect, so it files no
@@ -2116,15 +2231,59 @@ const TRANSLATION_WRITE_BOUNDARY_HEADER = [
   '# writes therefore survive without a Firestore lease in this workflow.',
 ];
 
-// Il guard decide la troncatura sulle RIGHE lette, non su `total_count`: per un
-// elenco di run filtrato per `status` GitHub restituisce un `total_count` che
-// non coincide con le righe (run non piu' elencabili, run in transizione di
-// stato). Confrontarli spegneva la traduzione con zero run in coda. Una pagina
-// con meno di `per_page` righe chiude l'elenco; solo se anche l'ultima pagina
-// ammessa e' piena il guard si ferma: le pagine piene sono un tetto di lettura,
-// non la prova che l'elenco sia troncato.
+// Il guard decide sulle RIGHE lette, non su `total_count`: per un elenco di run
+// filtrato per `status` GitHub restituisce un `total_count` che non coincide con
+// le righe (osservato maggiore di zero con zero righe). Confrontarli spegneva la
+// traduzione con la coda vuota. Tre regole, tutte nello script generato:
+//  - una pagina con meno di `per_page` righe chiude l'elenco;
+//  - il conteggio decide solo al TETTO di pagine, dove l'alternativa e' un guard
+//    cieco: ultima pagina ammessa piena e `total_count` che dichiara altre righe
+//    = troncatura vera (fail-closed); piena ma righe >= `total_count` = elenco
+//    completo. Sotto il tetto una pagina piena e' sempre seguita da un'altra
+//    lettura, anche se le righe hanno gia' raggiunto il conteggio;
+//  - se a elenco concluso `total_count` supera le righe, lo stato viene riletto
+//    una seconda volta e si decide sull'unione per `id`: una riga in ritardo
+//    entra fra i candidati, un conteggio che non descrive le righe non blocca;
+//  - se anche la rilettura dichiara piu' righe di quelle restituite, l'unione
+//    non basta a decidere: il guard DIMOSTRA che la coda e' vuota leggendo
+//    l'elenco delle run del workflow SENZA filtro di stato (stesso `guard_api`,
+//    stesso tetto di pagine). Quell'elenco non ha il conteggio fantasma: il suo
+//    `total_count` e' il totale delle run e la paginazione lo rispetta (misurato
+//    il 2026-10-04: 236 run nella finestra, 236 righe lette in tre pagine).
+//    Una pagina piena non dimostra che la pagina successiva sia priva di una
+//    run piu' vecchia ancora in coda, anche quando quella pagina contiene solo
+//    run concluse oltre alla corrente: sotto il tetto si legge sempre la pagina
+//    seguente. La prova chiude in due soli casi, entrambi con le righe DISTINTE
+//    lette che coprono il `total_count` minimo visto: (a) una pagina corta, cioè
+//    elenco finito; (b) al tetto, l'ultima pagina piena che chiude esattamente
+//    l'elenco. Il minimo, non l'ultimo: una run creata fra due letture alza il
+//    conteggio delle pagine seguenti ma e' piu' recente della corrente, e le
+//    righe gia' lette restano complete. Una pagina corta con meno righe distinte
+//    del conteggio e' un elenco incoerente (`workflow_runs_unfiltered_incomplete`)
+//    e al tetto righe sotto il conteggio sono una coda piu' lunga di quella
+//    leggibile (`workflow_runs_queue_unproven`): fail-closed in entrambi i casi.
+//    Perche' la fine dell'elenco arrivi sempre, l'elenco e' limitato alle run
+//    create negli ultimi TRANSLATE_QUEUE_GUARD_RUN_LIFETIME_DAYS giorni: GitHub
+//    annulla una run dopo 35 giorni, coda compresa, quindi una run piu' vecchia
+//    non puo' essere viva. Senza il limite l'elenco cresce con ogni run (265 al
+//    2026-10-04) e oltre il tetto la prova fallirebbe per sempre: la traduzione
+//    spenta di nuovo, per un altro motivo. Il tetto della prova e'
+//    TRANSLATE_QUEUE_GUARD_PROOF_MAX_PAGES. Il confronto conteggio/righe decide
+//    solo sull'elenco senza filtro: sugli elenchi per stato (conteggio fantasma,
+//    run del corpus 37122259464 e 37101329262) spegneva la traduzione in 13 run
+//    su 14.
+// `active_runs` porta poi una riga per run (l'ultima lettura): gli stati sono
+// letti in sequenza e una run che cambia stato a meta' scansione non deve
+// contare sia come in attesa sia come pesante attivo.
 const TRANSLATE_QUEUE_GUARD_PAGE_SIZE = 100;
 const TRANSLATE_QUEUE_GUARD_MAX_PAGES = 3;
+// Vita massima di una run di GitHub Actions, coda compresa (limite documentato
+// di GitHub: una run viene annullata dopo 35 giorni).
+const TRANSLATE_QUEUE_GUARD_RUN_LIFETIME_DAYS = 35;
+// Pagine dell'elenco senza filtro lette dalla prova: 500 run in 35 giorni sono
+// oltre il doppio del ritmo misurato (236 run nei 35 giorni al 2026-10-04, 6,7
+// al giorno).
+const TRANSLATE_QUEUE_GUARD_PROOF_MAX_PAGES = 5;
 const TRANSLATE_QUEUE_GUARD_BLIND_STEP_NAME = 'Fail the run when the queue guard was blind';
 const TRANSLATE_QUEUE_GUARD_BLIND_TITLE =
   'translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita';
@@ -2190,10 +2349,22 @@ function translatePendingQueueGuardJob() {
         '}',
         `status_page_size=${TRANSLATE_QUEUE_GUARD_PAGE_SIZE}`,
         `status_page_limit=${TRANSLATE_QUEUE_GUARD_MAX_PAGES}`,
-        'active_runs=""',
-        'for run_status in queued pending waiting requested in_progress; do',
-        '  status_page=1',
+        `proof_page_limit=${TRANSLATE_QUEUE_GUARD_PROOF_MAX_PAGES}`,
+        `run_lifetime_days=${TRANSLATE_QUEUE_GUARD_RUN_LIFETIME_DAYS}`,
+        'confirm_read_delay_seconds=1',
+        'dedupe_rows_by_id=\'group_by(.id) | map(.[-1]) | .[]\'',
+        '# Reads every page of one status into status_rows / status_rows_read /',
+        '# status_total_count. Called directly (never in a subshell) so fail_closed',
+        '# ends the step. A short page ends the list. total_count is consulted only',
+        '# at the page ceiling: a full last page is a truncated list only when GitHub',
+        '# declares more rows than were read.',
+        'read_status_rows() {',
+        '  local run_status="$1"',
+        '  local status_page=1',
+        '  local runs_path status_json status_returned_count status_runs',
+        '  status_rows=""',
         '  status_rows_read=0',
+        '  status_total_count=0',
         '  while :; do',
         '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${status_page}&status=${run_status}"',
         '    if ! status_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_${run_status}"; fi',
@@ -2201,14 +2372,113 @@ function translatePendingQueueGuardJob() {
         '    status_total_count="$(printf "%s" "$status_json" | jq -r \'.total_count\')"',
         '    status_returned_count="$(printf "%s" "$status_json" | jq -r \'.workflow_runs | length\')"',
         '    if ! status_runs="$(printf "%s" "$status_json" | jq -c \'.workflow_runs[]\')"; then fail_closed "workflow_runs_${run_status}_rows"; fi',
-        '    if [ -n "$status_runs" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${status_runs}"; fi',
+        '    if [ -n "$status_runs" ]; then status_rows="${status_rows}${status_rows:+$\'\\n\'}${status_runs}"; fi',
         '    status_rows_read=$((status_rows_read + status_returned_count))',
         '    if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi',
-        '    if [ "$status_page" -ge "$status_page_limit" ]; then fail_closed "workflow_runs_${run_status}_truncated" "total_count=${status_total_count}, rows=${status_rows_read}, pages=${status_page}"; fi',
+        '    if [ "$status_page" -ge "$status_page_limit" ]; then',
+        '      if [ "$status_rows_read" -ge "$status_total_count" ]; then break; fi',
+        '      fail_closed "workflow_runs_${run_status}_truncated" "total_count=${status_total_count}, rows=${status_rows_read}, pages=${status_page}"',
+        '    fi',
         '    status_page=$((status_page + 1))',
         '  done',
-        '  if [ "$status_total_count" -ne "$status_rows_read" ]; then echo "::notice::translate-pending queue guard: ${run_status} total_count=${status_total_count} but rows=${status_rows_read}; deciding on the rows."; fi',
+        '}',
+        '# Proves the queue on the run list of this workflow WITHOUT a status filter,',
+        '# limited to the runs created in the last run_lifetime_days days: GitHub',
+        '# cancels a run after 35 days, queue included, so an older run cannot be',
+        '# alive, and the bound keeps the short final page reachable as the list grows',
+        '# (why, and the closing criterion: see the comment above its call).',
+        '# Called directly (never in a subshell) so fail_closed ends the step; reads',
+        '# go through guard_api, so they share the one time budget.',
+        'prove_queue_beyond_union() {',
+        '  local proof_page=1',
+        '  local runs_path proof_json proof_returned_count proof_page_unfinished proof_criterion known_ids proof_unfinished_count proof_new_ids proof_since proof_page_total proof_page_ids proof_seen_count',
+        '  local proof_unfinished=""',
+        '  local proof_ids=""',
+        '  local proof_min_total=-1',
+        '  if ! proof_since="$(jq -rn --argjson days "$run_lifetime_days" \'(now - ($days * 86400)) | strftime("%Y-%m-%d")\')"; then fail_closed "workflow_runs_unfiltered_window" "${queue_proof_reasons}"; fi',
+        '  if [ -z "$proof_since" ]; then fail_closed "workflow_runs_unfiltered_window" "${queue_proof_reasons}"; fi',
+        '  while :; do',
+        '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${proof_page}&created=%3E%3D${proof_since}"',
+        '    if ! proof_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_unfiltered" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    if ! printf "%s" "$proof_json" | jq -e \'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_unfiltered_payload" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    proof_returned_count="$(printf "%s" "$proof_json" | jq -r \'.workflow_runs | length\')"',
+        '    proof_page_total="$(printf "%s" "$proof_json" | jq -r \'.total_count\')"',
+        '    if [ "$proof_min_total" -lt 0 ] || [ "$proof_page_total" -lt "$proof_min_total" ]; then proof_min_total="$proof_page_total"; fi',
+        '    if ! proof_page_ids="$(printf "%s" "$proof_json" | jq -r \'.workflow_runs[] | .id | tostring\')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    if [ -n "$proof_page_ids" ]; then proof_ids="${proof_ids}${proof_ids:+$\'\\n\'}${proof_page_ids}"; fi',
+        '    proof_seen_count="$(printf "%s\\n" "$proof_ids" | awk \'NF && !seen[$0]++ {count++} END {print count + 0}\')"',
+        '    if ! proof_page_unfinished="$(printf "%s" "$proof_json" | jq -c \'.workflow_runs[] | select(.status != "completed")\')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    if [ -n "$proof_page_unfinished" ]; then proof_unfinished="${proof_unfinished}${proof_unfinished:+$\'\\n\'}${proof_page_unfinished}"; fi',
+        '    if [ "$proof_returned_count" -lt "$status_page_size" ]; then',
+        '      if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed "workflow_runs_unfiltered_incomplete" "${queue_proof_reasons}; unfiltered rows=${proof_seen_count} total_count=${proof_min_total} since ${proof_since}, short page ${proof_page} before the end of the list"; fi',
+        '      proof_criterion="a (page ${proof_page} has ${proof_returned_count} row(s) and ends the list of runs created since ${proof_since}; ${proof_seen_count} distinct row(s) cover total_count=${proof_min_total})"',
+        '      break',
+        '    fi',
+        '    if [ "$proof_page" -ge "$proof_page_limit" ]; then',
+        '      if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed "workflow_runs_queue_unproven" "${queue_proof_reasons}; unfiltered pages=${proof_page} since ${proof_since}, rows=${proof_seen_count} total_count=${proof_min_total}, no short final page"; fi',
+        '      proof_criterion="b (page ${proof_page} is full and is the page ceiling; ${proof_seen_count} distinct row(s) cover total_count=${proof_min_total} of the runs created since ${proof_since})"',
+        '      break',
+        '    fi',
+        '    proof_page=$((proof_page + 1))',
+        '  done',
+        '  if ! known_ids="$(printf "%s\\n" "$active_runs" | jq -cs \'[.[] | .id | tostring] | unique\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
+        '  if ! proof_unfinished_count="$(printf "%s\\n" "$proof_unfinished" | jq -rs --arg current "$GITHUB_RUN_ID" \'[.[] | .id | tostring | select(. != $current)] | unique | length\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
+        '  if ! proof_new_ids="$(printf "%s\\n" "$proof_unfinished" | jq -rs --arg current "$GITHUB_RUN_ID" --argjson known "$known_ids" \'[.[] | .id | tostring | select(. != $current)] | unique | map(select(. as $id | $known | any(.[]; . == $id) | not)) | .[:10] | join(",")\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
+        '  if [ -n "$proof_unfinished" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${proof_unfinished}"; fi',
+        '  echo "::notice::translate-pending queue guard: count still above rows after the confirm read (${queue_proof_reasons}); the unfiltered run list proves the queue by criterion ${proof_criterion}; ${proof_unfinished_count} unfinished run(s) besides the current one, new vs the per-status reads: ${proof_new_ids:-none}."',
+        '}',
+        'queue_proof_reasons=""',
+        'active_runs=""',
+        'for run_status in queued pending waiting requested in_progress; do',
+        '  read_status_rows "$run_status"',
+        '  # total_count above the rows after a short page is NOT a truncation and must',
+        '  # not fail closed: GitHub reports it with an empty queue (corpus runs',
+        '  # 37122259464 and 37101329262, 2026-10-03: total_count > 0 with zero rows),',
+        '  # and that comparison kept translation off for 13 runs out of 14. A short',
+        '  # page ends the list. What a single read cannot rule out is a row listed',
+        '  # late, so the status is read a second time and the decision is taken on the',
+        '  # union of both reads. The invariant against two heavy jobs in parallel is',
+        '  # the jobs-data-pipeline mutex on the translate job, not this guard, which',
+        '  # only keeps the queue short.',
+        '  if [ "$status_rows_read" -lt "$status_total_count" ]; then',
+        '    first_rows="$status_rows"',
+        '    first_rows_read="$status_rows_read"',
+        '    first_total_count="$status_total_count"',
+        '    sleep "$confirm_read_delay_seconds"',
+        '    read_status_rows "$run_status"',
+        '    if ! status_rows="$(printf "%s\\n%s\\n" "$first_rows" "$status_rows" | jq -cs "$dedupe_rows_by_id")"; then fail_closed "workflow_runs_${run_status}_union"; fi',
+        '    union_rows="$(printf "%s\\n" "$status_rows" | awk \'NF {count++} END {print count + 0}\')"',
+        '    echo "::notice::translate-pending queue guard: ${run_status} total_count=${first_total_count} but rows=${first_rows_read}; confirm read total_count=${status_total_count}, rows=${status_rows_read}; deciding on the union of both reads (${union_rows} row(s))."',
+        '    if [ "$status_rows_read" -lt "$status_total_count" ]; then queue_proof_reasons="${queue_proof_reasons}${queue_proof_reasons:+, }${run_status} total_count=${status_total_count} rows=${status_rows_read}"; fi',
+        '  fi',
+        '  if [ -n "$status_rows" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${status_rows}"; fi',
         'done',
+        '# A count still above the rows after the confirm read has two readings.',
+        '# (1) Phantom count, measured: a status-filtered list declares runs it never',
+        '#     returns (corpus runs 37122259464 and 37101329262, 2026-10-03:',
+        '#     total_count > 0 with zero rows, for days). Failing closed on the count',
+        '#     there is the incident: translation stayed off for 13 runs out of 14.',
+        '# (2) Rows really missing, never observed: an older waiting run left out of',
+        '#     the list, which deciding on the union would let the current run jump.',
+        '# The union alone cannot tell them apart, so the queue is PROVEN on a source',
+        '# without the phantom count: the run list of this workflow with no status',
+        '# filter (its total_count is the total of the runs and pagination honours',
+        '# it). Its unfinished rows join active_runs (the dedupe below keeps one row',
+        '# per id). A full page cannot rule out an older waiting run on the next',
+        '# page, even if all rows there except the current one are completed, so',
+        '# below the ceiling the next page is always read. The proof closes on a',
+        '# short page or on a full page at the ceiling, and in both cases only when',
+        '# the distinct rows read cover the lowest total_count seen (a run created',
+        '# between two reads raises the later counts, is newer than the current run',
+        '# and leaves the rows already read complete). Fewer distinct rows than the',
+        '# count on a short page is an incoherent list, and at the ceiling a queue',
+        '# longer than the guard can read: fail closed. Called once per guard run,',
+        '# however many statuses disagree, and only then.',
+        'if [ -n "$queue_proof_reasons" ]; then prove_queue_beyond_union; fi',
+        '# One row per run, latest read wins: statuses are read in sequence, so a run',
+        '# that moved from queued to in_progress mid-scan was listed twice and would',
+        '# count both as waiting and as an active heavy run.',
+        'if ! active_runs="$(printf "%s\\n" "$active_runs" | jq -cs "$dedupe_rows_by_id")"; then fail_closed "active_runs_dedupe"; fi',
         'current_run_path="repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"',
         'if ! current_run_json="$(guard_api "$current_run_path")"; then fail_closed "current_run"; fi',
         'if ! printf "%s" "$current_run_json" | jq -e --arg current "$GITHUB_RUN_ID" \'type == "object" and ((.id | tostring) == $current) and ((.created_at | type) == "string")\' >/dev/null; then fail_closed "current_run_payload"; fi',
@@ -2556,6 +2826,7 @@ export function generateCrawlerLogicArtifacts({
     YAML.parse(content);
     return { fileName, content };
   });
+  assertWorkflowSizeBudget(rendered.map(({ fileName, content }) => ({ file: path.join(path.relative(REPO_ROOT, workflowsDir), fileName), content })));
   if (write) {
     for (const artifact of rendered) {
       writeFileAtomic(path.join(workflowsDir, artifact.fileName), artifact.content);
@@ -3198,6 +3469,7 @@ export function generateCrossRepoExecutionArtifacts({
     emittedSitePaths: emittedCorpusSitePaths({ workflowFiles: [...workflowPayloads.keys()], observerPayloads }),
     registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFilesFromContract(contract)),
   });
+  assertWorkflowSizeBudget([...workflowPayloads].map(([fileName, content]) => ({ file: path.join(path.relative(REPO_ROOT, outDir), fileName), content })));
   if (write) {
     fs.mkdirSync(outDir, { recursive: true });
     fs.mkdirSync(path.dirname(contractPath), { recursive: true });
@@ -3249,6 +3521,9 @@ export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText 
   const groupResults = generate({ profileRenderer, write: false });
   const logicArtifacts = generateCrawlerLogicArtifacts({ groupResults, write: false });
   const committedContract = loadJson(PORTABLE_CONTRACT_PATH);
+  // Lo stesso divieto vale per il contratto gia' committato: `--check` e' il
+  // controllo che si esegue prima del push.
+  assertCommittedContractSource({ sourceCommit: committedContract.sourceCommit, sourceRef: committedContract.sourceRef }, {});
   const cross = generateCrossRepoExecutionArtifacts({
     groupResults,
     outDir: PORTABLE_CORPUS_DIR,
@@ -3421,6 +3696,7 @@ export function generate({
   results.assignmentsDuplicatesDiscarded = duplicatesDiscarded;
   results.retired = [...retired].filter((slug) => manifest.some((c) => c.slug === slug));
   results.generationRoster = generationRoster;
+  assertWorkflowSizeBudget(results.map(({ filePath, content }) => ({ file: path.relative(REPO_ROOT, filePath), content })));
   if (write) {
     // Commit phase: render/validation is complete. Every individual replace is
     // atomic; a late render/parity error above leaves every destination intact.
@@ -3508,6 +3784,9 @@ if (isMain) {
   // La generazione per il corpus legge il gruppo locale come sorgente ma non
   // deve riscriverlo: i due repo hanno PR/branch indipendenti e un export non
   // e' autorizzato a portarsi dietro un diff locale accidentale (es. stale pin).
+  // Entrambi i rami scrivono un contratto: nessuno dei due puo' prendere la
+  // provenienza sintetica di una pull request (vedi assertCommittedContractSource).
+  const source = assertCommittedContractSource(resolveCrawlerContractSource());
   const results = generate({ rebalance, write: crossRepoOutAt < 0 });
   generateCrawlerLogicArtifacts({ groupResults: results, write: crossRepoOutAt < 0 });
   if (crossRepoOutAt >= 0) {
@@ -3517,6 +3796,8 @@ if (isMain) {
       groupResults: results,
       outDir,
       contractPath,
+      sourceCommit: source.sourceCommit,
+      sourceRef: source.sourceRef,
     });
     console.log(`Generated ${cross.artifacts.length} standalone corpus workflows -> ${outDir}`);
     console.log(`Cross-repo contract -> ${contractPath}`);
@@ -3526,6 +3807,8 @@ if (isMain) {
       groupResults: results,
       outDir: PORTABLE_CORPUS_DIR,
       contractPath: PORTABLE_CONTRACT_PATH,
+      sourceCommit: source.sourceCommit,
+      sourceRef: source.sourceRef,
     });
     console.log(`Generated ${cross.artifacts.length} portable corpus workflows -> ${PORTABLE_CORPUS_DIR}`);
     console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);

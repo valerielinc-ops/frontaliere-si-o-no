@@ -1,23 +1,27 @@
 {
   "key": "vir-biotechnology",
   "label": "Vir Biotechnology",
-  "generatedAt": "2026-10-03T09:25:46.980Z",
+  "generatedAt": "2026-10-04T09:23:44.817Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
-  "sourceBodyFailureCount": 0,
-  "sourceBodyFailures": [],
-  "abortKind": null,
+  "discovered": 19,
+  "parsed": 0,
   "written": 0,
+  "lastFetchOutcome": "filtered_empty",
+  "abortKind": null,
+  "authoritativeEmptySnapshot": true,
+  "authoritativeSnapshotVerified": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 339,
+  "avgDurationMs": 339,
+  "durationHistory": [
+    339
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

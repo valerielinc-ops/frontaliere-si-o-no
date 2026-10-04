@@ -1,7 +1,7 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-10-03T09:22:51.192Z",
+  "generatedAt": "2026-10-04T09:20:03.749Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -10,18 +10,17 @@
   "sourceBodyFailures": [],
   "written": 9,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10372,
-  "avgDurationMs": 10372,
+  "durationMs": 7645,
+  "avgDurationMs": 7645,
   "durationHistory": [
-    10678,
-    7273,
-    10372
+    7645
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "novelis-a81eb80882cd",
       "slug": "electricien-automaticien-novelis-ch",
@@ -48,18 +47,15 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/54386/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:22:37.708Z",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
+      "crawledAt": "2026-10-04T09:19:51.894Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "novelis-03b01ba4b064",
       "slug": "hr-business-partner-f-m-d-novelis-ch",
@@ -86,7 +82,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53670/hr-business-partner-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:22:38.487Z",
+      "crawledAt": "2026-10-04T09:19:52.428Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:48:33.123Z",
       "_qualityScore": 87,
@@ -123,7 +119,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53258/metallurgy-modeling-scientist/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:22:39.226Z",
+      "crawledAt": "2026-10-04T09:19:52.935Z",
       "firstSeenAt": "2026-09-11T13:36:15.707Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -159,7 +155,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53257/m%c3%a9canicien-op%c3%a9rateur-rectifiage-%26-filtrage/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:22:39.964Z",
+      "crawledAt": "2026-10-04T09:19:53.453Z",
       "firstSeenAt": "2026-09-11T13:36:16.518Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -195,7 +191,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53126/supply-chain---network-planner-%28m-f-d%29-automotive/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:22:40.631Z",
+      "crawledAt": "2026-10-04T09:19:53.945Z",
       "firstSeenAt": "2026-09-11T13:36:17.148Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -231,7 +227,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53125/supply-chain---network-planner-%28m-f-d%29-beverage-%26-packaging/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:22:41.365Z",
+      "crawledAt": "2026-10-04T09:19:54.448Z",
       "firstSeenAt": "2026-09-11T13:36:17.838Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -267,7 +263,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53029/senior-predictive-maintenance-engineer-%28m-f-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:22:42.084Z",
+      "crawledAt": "2026-10-04T09:19:54.949Z",
       "firstSeenAt": "2026-09-03T13:39:49.702Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -303,7 +299,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52860/internship-%28m-f-d%29-internal-communications-%2840%25-60%25%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:22:42.756Z",
+      "crawledAt": "2026-10-04T09:19:55.425Z",
       "firstSeenAt": "2026-08-03T12:38:44.264Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -339,7 +335,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:22:43.632Z",
+      "crawledAt": "2026-10-04T09:19:55.978Z",
       "firstSeenAt": "2026-07-23T11:46:56.934Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -351,5 +347,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

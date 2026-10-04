@@ -1,18 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-10-03T09:36:48.418Z",
+  "generatedAt": "2026-10-04T09:28:37.867Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 169010,
-  "avgDurationMs": 169010,
+  "durationMs": 112367,
+  "avgDurationMs": 112367,
   "durationHistory": [
-    69782,
-    149695,
-    169010
+    112367
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +25,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "postedDate": "",
       "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -37,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-02T21:32:31.299Z",
+      "crawledAt": "2026-10-04T09:28:28.577Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -50,13 +48,15 @@
       "salarySource": "estimated",
       "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
       "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 23,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -70,7 +70,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "postedDate": "",
       "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -80,7 +80,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-02T09:35:04.783Z",
+      "crawledAt": "2026-10-04T09:28:28.577Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -93,17 +93,19 @@
       "salarySource": "estimated",
       "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
       "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 23,
-        "completeness": 19
-      },
-      "crawlerMissStreak": 1
+        "completeness": 17
+      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

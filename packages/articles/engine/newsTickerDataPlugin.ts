@@ -23,13 +23,14 @@
  *
  * Title fallback chain mirrors runtime `t()` exactly: locale value → IT
  * value → the literal i18n key (what `t()` renders when the key is
- * missing). Sorting mirrors the old NewsFeed code byte-for-byte
- * (stable sort by date desc over ARTICLES order).
+ * missing). Known publication dates sort stably by date descending over ARTICLES order;
+ * unknown, invalid and future publication dates do not enter the latest list.
  *
  * NOTE (config graph): relative imports only — `@/` value imports break
  * Vite's config loader (see data/blog-articles-data.ts header comment).
  */
 import type { Plugin } from 'vite';
+import { articleSourceDate } from './shared/sourceDates';
 import { ARTICLES, type Article } from '../content/blog-articles-data';
 import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
 import { getSiteShell, type ArticleLocale as HubLocale } from './siteShell';
@@ -91,12 +92,13 @@ export function computeTickerArticles(
   articlesOverride?: readonly Article[],
   layout?: TickerSourceLayout,
 ): GeneratedTickerArticle[] {
-  // Same selection logic the runtime NewsFeed used: stable sort by date
-  // desc over ARTICLES order, top 5. Keep byte-identical semantics.
+  // The latest-news ticker needs a known publication date. Keep undated
+  // articles in the main archive, without letting NaN corrupt this ordering.
   // The shell is only consulted when the caller did not supply the locales —
   // reading it unconditionally is what made this unusable outside the site.
   const HUB_LOCALES = layout?.hubLocales ?? getSiteShell().hubLocales;
   const latest = [...(articlesOverride ?? ARTICLES)]
+    .filter((article) => articleSourceDate(article.date) !== undefined)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, TICKER_COUNT);
 

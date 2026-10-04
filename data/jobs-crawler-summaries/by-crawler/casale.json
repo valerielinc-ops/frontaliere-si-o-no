@@ -1,18 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-10-03T09:12:38.372Z",
+  "generatedAt": "2026-10-04T09:10:37.221Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1600,
-  "avgDurationMs": 1600,
+  "durationMs": 2323,
+  "avgDurationMs": 2323,
   "durationHistory": [
-    1959,
-    1676,
-    1600
+    2323
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -90,5 +88,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

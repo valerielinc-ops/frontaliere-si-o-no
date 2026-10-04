@@ -11,13 +11,15 @@
     "https://www.goline.ch/opportunities/"
   ],
   "notes": "Dedicated GOLINE crawler parses the public opportunities page and extracts the current Ticino role directly from the WordPress content.",
-  "updatedAt": "2026-10-03T09:31:49.774Z",
+  "updatedAt": "2026-10-04T09:30:46.353Z",
   "seedMetaByUrl": {
     "https://www.goline.ch/opportunities/": {
       "location": "Stabio",
       "canton": "TI",
       "company": "GOLINE SA",
-      "postedDate": "2026-04-27"
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
     }
   }
 }

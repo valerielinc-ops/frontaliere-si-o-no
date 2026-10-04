@@ -300,7 +300,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       liveJobs > 0
         ? `Bilocale a ${city} CHF ${rentMedianChf.toLocaleString('it-CH')}/mese (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offerte aperte.`
         : `Bilocale a ${city} CHF ${rentMedianChf.toLocaleString('it-CH')}/mese · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Stipendio mediano',
+    statTileSalaryLabel: 'Mediana delle fasce dichiarate',
     statTileRentLabel: 'Affitto bilocale (mediana)',
     statTileLiveJobsLabel: 'Offerte aperte',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('it-CH')}/anno` : 'CHF — dati in arrivo'),
@@ -378,7 +378,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       liveJobs > 0
         ? `2.5-room flat in ${city} CHF ${rentMedianChf.toLocaleString('en-CH')}/month (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} open jobs.`
         : `2.5-room flat in ${city} CHF ${rentMedianChf.toLocaleString('en-CH')}/month · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Median salary',
+    statTileSalaryLabel: 'Median of reported ranges',
     statTileRentLabel: '2.5-room rent (median)',
     statTileLiveJobsLabel: 'Open positions',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('en-CH')}/year` : 'CHF — data pending'),
@@ -456,7 +456,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       liveJobs > 0
         ? `2,5-Zi-Wohnung in ${city} CHF ${rentMedianChf.toLocaleString('de-CH')}/Monat (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offene Stellen.`
         : `2,5-Zi-Wohnung in ${city} CHF ${rentMedianChf.toLocaleString('de-CH')}/Monat · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Medianlohn',
+    statTileSalaryLabel: 'Median gemeldeter Lohnspannen',
     statTileRentLabel: '2,5-Zi-Miete (Median)',
     statTileLiveJobsLabel: 'Offene Stellen',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('de-CH')}/Jahr` : 'CHF — Daten folgen'),
@@ -534,7 +534,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       liveJobs > 0
         ? `2,5 pièces à ${city} CHF ${rentMedianChf.toLocaleString('fr-CH')}/mois (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offres ouvertes.`
         : `2,5 pièces à ${city} CHF ${rentMedianChf.toLocaleString('fr-CH')}/mois · -${pairedDeltaPct}% vs ${pairedProvince}.`,
-    statTileSalaryLabel: 'Salaire médian',
+    statTileSalaryLabel: 'Médiane des fourchettes déclarées',
     statTileRentLabel: 'Loyer 2,5 pièces (médian)',
     statTileLiveJobsLabel: 'Offres ouvertes',
     statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('fr-CH')}/an` : 'CHF — données à venir'),

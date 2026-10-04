@@ -51,6 +51,7 @@ describe('independent fleet outcome', () => {
       missingFields: [],
     });
     expect(result.metrics).toMatchObject({ eligibleRuns: 2, joinedRuns: 2, reconciliationErrors: 0 });
+    expect(result.metrics.reconciliationErrorClasses).toEqual({});
   });
 
   it('misura uno zero reale ma non nasconde una riga health mancante', () => {
@@ -91,6 +92,76 @@ describe('independent fleet outcome', () => {
     });
     expect(capped.outcome).toMatchObject({ status: 'partial', independent: false });
     expect(capped.reconciliation.errors.join(' ')).toContain('bounded');
+  });
+
+  it('classifica ogni errore di riconciliazione per messaggio, workflow ed evento senza id di run', () => {
+    const result = buildIndependentFleetControlOutcome({
+      ...common,
+      now: NOW,
+      healthRecords: [health('37130952290', true)],
+      githubRuns: [
+        run('37130952280', 'success', { workflowFile: 'loop-l1-reliability.yml', event: 'schedule' }),
+        run('37130952281', 'failure', { workflowFile: 'loop-l1-reliability.yml', event: 'schedule' }),
+        run('37130952282', 'success', { workflowFile: 'loop-l3-job-quality.yml', event: 'push' }),
+        run('37130952290', 'success', {
+          workflowFile: 'loop-l1-reliability.yml',
+          event: 'schedule',
+          headSha: 'b'.repeat(40),
+        }),
+      ],
+    });
+
+    const classes = result.metrics.reconciliationErrorClasses as Record<string, number>;
+    expect(classes).toEqual({
+      'GitHub run <id> has no canonical health row|loop-l1-reliability.yml|schedule': 2,
+      'GitHub run <id> has no canonical health row|loop-l3-job-quality.yml|push': 1,
+      'GitHub run <id> SHA does not match canonical health execution|loop-l1-reliability.yml|schedule': 1,
+    });
+    const total = Object.values(classes).reduce((sum, count) => sum + count, 0);
+    expect(total).toBe(result.metrics.reconciliationErrors);
+    expect(Object.keys(classes).join('\n')).not.toMatch(/3713095/u);
+    // The raw per-run messages stay available for diagnosis.
+    expect(result.reconciliation.errors).toHaveLength(result.metrics.reconciliationErrors);
+    expect(result.reconciliation.errors.join(' ')).toContain('37130952280');
+  });
+
+  it('resta tutto-o-niente: un solo errore classificato basta per lasciare il join partial', () => {
+    const result = buildIndependentFleetControlOutcome({
+      ...common,
+      now: NOW,
+      healthRecords: [health('101', true)],
+      githubRuns: [
+        run('101', 'success', { workflowFile: 'loop-l0-data-truth.yml', event: 'schedule' }),
+        run('102', 'success', { workflowFile: 'loop-l0-data-truth.yml', event: 'schedule' }),
+      ],
+    });
+
+    expect(result.outcome).toMatchObject({ status: 'partial', independent: false, numerator: null, denominator: null });
+    expect(result.metrics.reconciliationErrors).toBe(1);
+    expect(result.metrics.reconciliationErrorClasses).toEqual({
+      'GitHub run <id> has no canonical health row|loop-l0-data-truth.yml|schedule': 1,
+    });
+  });
+
+  it('classifica gli errori lato ledger con workflow ed evento della riga health', () => {
+    const result = buildIndependentFleetControlOutcome({
+      ...common,
+      now: NOW,
+      healthRecords: [health('201', true, {
+        execution: {
+          runId: '201',
+          sha: SHA,
+          workflow: 'Loop L2 demand utility',
+          event: 'workflow_run',
+          recordedAt: '2026-09-16T00:30:00.000Z',
+        },
+      })],
+      githubRuns: [],
+    });
+
+    expect(result.metrics.reconciliationErrorClasses).toEqual({
+      'canonical health execution <id> has no eligible GitHub run in the window|Loop L2 demand utility|workflow_run': 1,
+    });
   });
 
   it('esclude dal denominatore i run cancellati che il bridge non persiste', () => {

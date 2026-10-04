@@ -1,7 +1,7 @@
 {
   "key": "mcm-group",
   "label": "Medizinisches Center Bonaduz",
-  "generatedAt": "2026-10-03T09:10:28.188Z",
+  "generatedAt": "2026-10-04T09:12:59.220Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,12 +14,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6506,
-  "avgDurationMs": 6506,
+  "durationMs": 6941,
+  "avgDurationMs": 6941,
   "durationHistory": [
-    7943,
-    6808,
-    6506
+    6941
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +33,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:21.854Z",
+      "crawledAt": "2026-10-04T09:12:50.503Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,7 +68,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:21.859Z",
+      "crawledAt": "2026-10-04T09:12:50.508Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +105,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-1-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:10:21.860Z",
+      "crawledAt": "2026-10-04T09:12:50.510Z",
       "addressLocality": "Malans",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -135,5 +133,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

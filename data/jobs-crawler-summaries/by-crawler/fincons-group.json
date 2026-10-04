@@ -1,98 +1,20 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-10-03T09:14:36.129Z",
+  "generatedAt": "2026-10-04T09:15:21.209Z",
   "total": 32,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 4,
-  "updatedCount": 28,
+  "newCount": 3,
+  "updatedCount": 29,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8986,
-  "avgDurationMs": 8986,
+  "durationMs": 9302,
+  "avgDurationMs": 9302,
   "durationHistory": [
-    9030,
-    10383,
-    8986
+    9302
   ],
   "newJobs": [
-    {
-      "title": "Senior Applikations-Entwickler:in 80 - 100%",
-      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-      "url": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
-      "applyUrl": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Bundesplatz 3",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-18",
-      "validThrough": "2026-12-17",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260918063458_A318ZYYMTFVHNGBZ",
-        "listingLocation": "Bern, Bern, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Technical Analyst - PL/SQL Developer (Banking Area)",
-      "slug": "technical-analyst-pl-sql-developer-banking-area-fincons-group-full-time",
-      "url": "https://fincons.applytojob.com/apply/ilK1cK9Axd/Technical-Analyst-PLSQL-Developer-Banking-Area",
-      "applyUrl": "https://fincons.applytojob.com/apply/ilK1cK9Axd/Technical-Analyst-PLSQL-Developer-Banking-Area",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza Riforma 1",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-10-02",
-      "validThrough": "2026-12-31",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20261002073530_CYJCQ6CXJ7Y7VM00",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
     {
       "title": "Senior Applikations-Entwickler:in 80 - 100%",
       "slug": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
@@ -113,13 +35,55 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
         "experienceRequirements": "Experienced",
         "uniqueJobCode": "job_20261002100058_FY11ST0OT4FRDEIO",
+        "listingLocation": "Bern, Bern, Switzerland",
+        "listingDepartment": ""
+      },
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Senior Applikations-Entwickler:in 80 - 100%",
+      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
+      "url": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
+      "applyUrl": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesplatz 3",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-09-18",
+      "postedDate": "2026-09-18",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-17",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260918063458_A318ZYYMTFVHNGBZ",
         "listingLocation": "Bern, Bern, Switzerland",
         "listingDepartment": ""
       },
@@ -151,7 +115,9 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "validThrough": "2026-12-31",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -191,7 +157,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -208,12 +174,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
       "needsRetranslation": true,
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -252,6 +220,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-23T23:36:33.596Z",
+      "datePosted": "2026-09-23",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -280,7 +250,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -296,12 +266,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -324,7 +296,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -340,12 +312,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -384,6 +358,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-07-07",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -412,7 +388,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -429,12 +405,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:53:40.684Z",
-      "_qualityScore": 84,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 10,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -473,6 +451,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-07-20",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -517,6 +497,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:53:40.684Z",
+      "datePosted": "2026-07-08",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -562,6 +544,8 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
       "needsRetranslation": true,
+      "datePosted": "2026-07-17",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -606,6 +590,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-08-21",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -650,6 +636,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:53:40.684Z",
+      "datePosted": "2026-08-19",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -678,7 +666,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -694,56 +682,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Senior Applikations-Entwickler:in 80 - 100%",
-      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-      "url": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
-      "applyUrl": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Bundesplatz 3",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-03",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "",
-        "uniqueJobCode": "",
-        "listingLocation": "Bern, Bern, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-da85abd59ed6",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:36:33.596Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -783,12 +729,60 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-09-15",
+      "postingDateSource": "reported",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 10,
         "completeness": 25
+      }
+    },
+    {
+      "title": "Senior Applikations-Entwickler:in 80 - 100%",
+      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
+      "url": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
+      "applyUrl": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesplatz 3",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "",
+        "uniqueJobCode": "",
+        "listingLocation": "Bern, Bern, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-da85abd59ed6",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:36:33.596Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -827,6 +821,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-07-28",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -872,6 +868,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-08-17",
+      "postingDateSource": "reported",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -916,6 +914,8 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T10:25:33.079Z",
       "streetAddress": "Piazza Riforma 1",
+      "datePosted": "2026-09-01",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -960,6 +960,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-08-21",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1004,6 +1006,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-07-29",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1032,7 +1036,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1048,12 +1052,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1092,6 +1098,8 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-11T13:35:46.485Z",
       "streetAddress": "Piazza Riforma 1",
+      "datePosted": "2026-09-11",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1136,6 +1144,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-30T21:11:59.483Z",
+      "datePosted": "2026-09-30",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1180,6 +1190,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-08-10",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1224,6 +1236,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-09-11",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1269,6 +1283,8 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
       "needsRetranslation": true,
+      "datePosted": "2026-09-11",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1313,6 +1329,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "datePosted": "2026-09-01",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1341,7 +1359,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1358,6 +1376,54 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
       "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "title": "Technical Analyst - PL/SQL Developer (Banking Area)",
+      "slug": "technical-analyst-pl-sql-developer-banking-area-fincons-group-full-time",
+      "url": "https://fincons.applytojob.com/apply/ilK1cK9Axd/Technical-Analyst-PLSQL-Developer-Banking-Area",
+      "applyUrl": "https://fincons.applytojob.com/apply/ilK1cK9Axd/Technical-Analyst-PLSQL-Developer-Banking-Area",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Piazza Riforma 1",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-10-02",
+      "validThrough": "2026-12-31",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20261002073530_CYJCQ6CXJ7Y7VM00",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-95f8c4e9ec76",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-03T09:14:30.913Z",
+      "datePosted": "2026-10-02",
+      "postingDateSource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1386,7 +1452,7 @@
       "sector": "Tecnologia & IT",
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1402,15 +1468,18 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

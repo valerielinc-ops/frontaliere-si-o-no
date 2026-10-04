@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-10-03T09:12:56.069Z",
+  "assembledAt": "2026-10-04T09:13:17.884Z",
   "jobs": [
     {
       "id": "sonova-96c3301b33a7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.226Z",
+      "crawledAt": "2026-10-04T09:13:12.301Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -53,7 +53,8 @@
           "product-cybersecurity-expert-sonova-staefa"
         ],
         "it": [
-          "product-cybersecurity-expert-sonova-ch"
+          "product-cybersecurity-expert-sonova-ch",
+          "prodotto-cybersecurity-expert-sonova-staefa"
         ],
         "en": [
           "product-cybersecurity-expert-sonova-ch",
@@ -63,7 +64,8 @@
       "previousSlugs": [
         "product-cybersecurity-expert-sonova-staefa",
         "product-cybersecurity-expert-sonova-ch",
-        "product-cybersecurity-manager-sonova-ch"
+        "product-cybersecurity-manager-sonova-ch",
+        "prodotto-cybersecurity-expert-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.952Z",
       "salaryMin": 73500,
@@ -111,7 +113,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.222Z",
+      "crawledAt": "2026-10-04T09:13:12.296Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -122,7 +124,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "postedDate": "2026-09-14T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1436570633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -188,7 +190,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:47.217Z",
+      "crawledAt": "2026-10-04T09:13:12.291Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -264,7 +266,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.212Z",
+      "crawledAt": "2026-10-04T09:13:12.287Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -275,7 +277,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1437852833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -296,6 +298,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.925Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -308,8 +311,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sonova-015d3cf3327f",
@@ -342,7 +344,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.209Z",
+      "crawledAt": "2026-10-04T09:13:12.282Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -377,6 +379,7 @@
         "senior-manager-performance-uditiva-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.917Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -389,79 +392,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
-    },
-    {
-      "id": "sonova-374a65613887",
-      "slug": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
-        "en": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
-        "de": "technical-specialist-production-tsp-m-f-d-sonova-ch",
-        "fr": "technical-specialiste-production-tsp-m-f-d-sonova-staefa"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Technical Specialist Production (TSP) (m/f/d)",
-      "titleByLocale": {
-        "it": "Technical Specialista Production (TSP) (m/f/d)",
-        "en": "Technical Specialist Production (TSP) (m/f/d)",
-        "de": "Technical Spezialist Production (TSP) (m/f/d)",
-        "fr": "Technical Spécialiste Production (TSP) (m/f/d)"
-      },
-      "description": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "In questa funzione, come Technical Specialist Production TSP (m/f/d), sei una parte centrale del nostro team di supporto nella produzione elettronica.\n\nGarantisci la disponibilità delle piante attraverso la manutenzione preventiva, minimizza i tempi di fermo attraverso strategie di manutenzione sostenibili e guasti di riparazione, tra cui l'analisi delle cause radice. Promuovi continui miglioramenti nel settore della manutenzione e sviluppi la tua esperienza (ad esempio nel TPS) continuamente.\n\nCome interfaccia tecnica tra produzione, ingegneria e sviluppo, supporta i dipartimenti, consiglia su questioni tecniche e aiuta a ottimizzare i nostri impianti.\n\nUlteriori informazioni sul ruolo\n\n• Garantire la disponibilità degli impianti attraverso la manutenzione preventiva di impianti, attrezzature e attrezzature di prova\n\n• Minimizzare i tempi di fermo attraverso strategie di manutenzione sostenibili e operatori di supporto nelle attività di manutenzione di base\n\n• Analisi e correzione delle interruzioni nella produzione, tra cui l'analisi delle cause principali\n\n• Miglioramento continuo della manutenzione\n\n• Interfaccia tecnica tra produzione, ingegneria, sviluppo e altri reparti (R&D, NPI, B&I)\n\n• Consulenza tecnica e sostegno dei dipartimenti di produzione e partecipazione all'ottimizzazione degli impianti\n\n• Coordinamento, documentazione e monitoraggio delle misure di manutenzione (inclusa LEXA) nonché del rispetto delle norme di qualità e sicurezza\n\n• Gestione e approvvigionamento di parti di ricambio e supporto per l'ulteriore sviluppo di attrezzature automatizzate e servizi di tubazione secondo le necessità\n\nPiù di te\n\n• Formazione professionale elettronica completa (ECZ) (ad esempio automatica, polimeccanica, elettronica)\n\n• Esperienza nella produzione elettronica, idealmente con la conoscenza della gestione magra, della supply chain e dell'assemblaggio SMD/flip-chip\n\n• Buona panoramica dell'intera catena di produzione e ideale esperienza nell'automazione o nella produzione di semiconduttori\n\n• Forte comprensione tecnica, rapida comprensione e pensiero trasversale\n\n• Sensibilizzazione di alta qualità e metodi di lavoro strutturati e responsabili\n\n• Esperienza nella conduzione della formazione e nel rispetto dei processi e degli standard di qualità\n\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese in parola e scrittura\n\n• Buona conoscenza dell'utente del PC (MS Office 365); la conoscenza di SAP è un vantaggio\n\nUlteriori informazioni sulla nostra offerta\n\nEssendo una delle aziende leader mondiali nel campo delle soluzioni uditive con sede in Svizzera, attribuiamo grande importanza ad una cultura aziendale inclusiva e apprezzativa.\n\nVi offriamo:\n\n• Conoscenze strutturate e formazione interna ed esterna mirata\n\n• Opportunità di sviluppo e crescita individuali\n\n• Un ambiente di produzione moderno con brevi percorsi decisionali\n\n• L'opportunità di assumersi la responsabilità e formare attivamente i processi\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "In this function, as Technical Specialist Production TSP (m/f/d), you are a central part of our support team in electronics manufacturing.\n\nYou ensure plant availability through preventive maintenance, minimize downtimes through sustainable maintenance strategies and repair faults including root cause analysis. You drive continuous improvements in the area of maintenance and develop your expertise (e.g. in the TPS) continuously.\n\nAs a technical interface between production, engineering and development, you support the departments, advise on technical issues and help to optimize our plants.\n\nMore about the role\n\n• Ensuring plant availability through preventive maintenance of plants, equipment and test equipment\n\n• Minimizing downtime through sustainable maintenance strategies and supporting machine operators in basic maintenance tasks\n\n• Analysis and correction of disruptions in production including root cause analysis\n\n• Continuous Improvement in Maintenance\n\n• Technical interface between production, engineering, development and other departments (R&D, NPI, B&I)\n\n• Technical advice and support of production departments as well as participation in the optimization of plants\n\n• Coordination, documentation and monitoring of maintenance measures (including LEXA) as well as compliance with quality and safety regulations\n\n• Management and procurement of spare parts as well as support for the further development of automated equipment and piketting service as needed\n\nMore about you\n\n• Completed electronic vocational training (ECZ) (e.g. automatic, polymechanical, electronic)\n\n• Experience in electronics production, ideally with knowledge of lean management, supply chain and SMD/flip-chip assembly\n\n• Good overview of the entire production chain and ideally experience in automation or semiconductor production\n\n• Strong technical understanding, rapid comprehension and cross-cutting thinking\n\n• High quality awareness and structured and responsible working methods\n\n• Experience in conducting training and in complying with processes and quality standards\n\n• Very good knowledge of German and good knowledge of English in word and writing\n\n• Good PC user knowledge (MS Office 365); SAP knowledge is an advantage\n\nMore about our offer\n\nAs one of the world’s leading companies in the field of hearing solutions with headquarters in Switzerland, we attach great importance to an inclusive and appreciative corporate culture.\n\nWe offer you:\n\n• Structured familiarisation and targeted internal and external training\n\n• Individual development and growth opportunities\n\n• A modern production environment with short decision paths\n\n• The opportunity to take responsibility and actively shape processes\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px)!important;\"",
-        "de": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Dans cette fonction, en tant que Technical Specialist Production TSP (h/f/d), vous êtes une partie centrale de notre équipe de support dans la fabrication électronique.\n\nVous assurez la disponibilité de l'usine grâce à l'entretien préventif, minimisez les temps d'arrêt grâce à des stratégies d'entretien durable et des défauts de réparation, y compris l'analyse des causes profondes. Vous conduisez des améliorations continues dans le domaine de la maintenance et développez votre expertise (par exemple dans le TPS) en continu.\n\nEn tant qu'interface technique entre la production, l'ingénierie et le développement, vous accompagnez les départements, conseillez sur les questions techniques et aidez à optimiser nos usines.\n\nEn savoir plus sur le rôle\n\n• Assurer la disponibilité des installations par l'entretien préventif des installations, du matériel et du matériel d'essai\n\n• Minimiser les temps d'arrêt grâce à des stratégies de maintenance durable et soutenir les opérateurs de machines dans les tâches de maintenance de base\n\n• Analyse et correction des perturbations de la production, y compris l'analyse des causes profondes\n\n• Amélioration continue de l'entretien\n\n• Interface technique entre la production, l'ingénierie, le développement et d'autres ministères (R-D, NPI, B-I)\n\n• Conseils techniques et soutien des services de production ainsi que participation à l'optimisation des installations\n\n• Coordination, documentation et suivi des mesures d'entretien (y compris LEXA) ainsi que respect des règles de qualité et de sécurité\n\n• Gestion et achat de pièces de rechange ainsi qu ' appui à la mise au point du matériel automatisé et du service de triage au besoin\n\nPlus sur vous\n\n• Formation professionnelle électronique terminée (ECZ) (par exemple automatique, polymécanique, électronique)\n\n• Expérience dans la production d'électronique, idéalement avec une connaissance de la gestion maigre, de la chaîne d'approvisionnement et de l'assemblage SMD/fichier\n\n• Bonne vue d'ensemble de toute la chaîne de production et idéalement expérience dans l'automatisation ou la production de semi-conducteurs\n\n• Forte compréhension technique, compréhension rapide et pensée transversale\n\n• Sensibilisation de haute qualité et méthodes de travail structurées et responsables\n\n• Expérience de la formation et du respect des processus et des normes de qualité\n\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais en paroles et en écriture\n\n• Bonne connaissance des utilisateurs de PC (MS Office 365); connaissance SAP est un avantage\n\nEn savoir plus sur notre offre\n\nEn tant que leader mondial dans le domaine des solutions auditives avec siège social en Suisse, nous attachons une grande importance à une culture d'entreprise inclusive et reconnaissante.\n\nNous vous offrons:\n\n• Connaissance structurée et formation interne et externe ciblée\n\n• Développement individuel et possibilités de croissance\n\n• Un environnement de production moderne avec des chemins de décision courts\n\n• La possibilité de prendre des responsabilités et de façonner activement les processus\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px)!important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:47.202Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-18",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-specialist-production-tsp-m-f-d-sonova-ch",
-        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-specialist-production-tsp-m-f-d-sonova-ch",
-          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
-        ]
-      },
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sonova-a77ade8c1fe1",
@@ -494,7 +425,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.206Z",
+      "crawledAt": "2026-10-04T09:13:12.278Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -535,6 +466,77 @@
       }
     },
     {
+      "id": "sonova-374a65613887",
+      "slug": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
+      "slugByLocale": {
+        "it": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
+        "en": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
+        "de": "technical-specialist-production-tsp-m-f-d-sonova-ch",
+        "fr": "technical-specialiste-production-tsp-m-f-d-sonova-staefa"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Technical Specialist Production (TSP) (m/f/d)",
+      "titleByLocale": {
+        "it": "Technical Specialista Production (TSP) (m/f/d)",
+        "en": "Technical Specialist Production (TSP) (m/f/d)",
+        "de": "Technical Spezialist Production (TSP) (m/f/d)",
+        "fr": "Technical Spécialiste Production (TSP) (m/f/d)"
+      },
+      "description": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "In questa funzione, come Technical Specialist Production TSP (m/f/d), sei una parte centrale del nostro team di supporto nella produzione elettronica.\n\nGarantisci la disponibilità delle piante attraverso la manutenzione preventiva, minimizza i tempi di fermo attraverso strategie di manutenzione sostenibili e guasti di riparazione, tra cui l'analisi delle cause radice. Promuovi continui miglioramenti nel settore della manutenzione e sviluppi la tua esperienza (ad esempio nel TPS) continuamente.\n\nCome interfaccia tecnica tra produzione, ingegneria e sviluppo, supporta i dipartimenti, consiglia su questioni tecniche e aiuta a ottimizzare i nostri impianti.\n\nUlteriori informazioni sul ruolo\n\n• Garantire la disponibilità degli impianti attraverso la manutenzione preventiva di impianti, attrezzature e attrezzature di prova\n\n• Minimizzare i tempi di fermo attraverso strategie di manutenzione sostenibili e operatori di supporto nelle attività di manutenzione di base\n\n• Analisi e correzione delle interruzioni nella produzione, tra cui l'analisi delle cause principali\n\n• Miglioramento continuo della manutenzione\n\n• Interfaccia tecnica tra produzione, ingegneria, sviluppo e altri reparti (R&D, NPI, B&I)\n\n• Consulenza tecnica e sostegno dei dipartimenti di produzione e partecipazione all'ottimizzazione degli impianti\n\n• Coordinamento, documentazione e monitoraggio delle misure di manutenzione (inclusa LEXA) nonché del rispetto delle norme di qualità e sicurezza\n\n• Gestione e approvvigionamento di parti di ricambio e supporto per l'ulteriore sviluppo di attrezzature automatizzate e servizi di tubazione secondo le necessità\n\nPiù di te\n\n• Formazione professionale elettronica completa (ECZ) (ad esempio automatica, polimeccanica, elettronica)\n\n• Esperienza nella produzione elettronica, idealmente con la conoscenza della gestione magra, della supply chain e dell'assemblaggio SMD/flip-chip\n\n• Buona panoramica dell'intera catena di produzione e ideale esperienza nell'automazione o nella produzione di semiconduttori\n\n• Forte comprensione tecnica, rapida comprensione e pensiero trasversale\n\n• Sensibilizzazione di alta qualità e metodi di lavoro strutturati e responsabili\n\n• Esperienza nella conduzione della formazione e nel rispetto dei processi e degli standard di qualità\n\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese in parola e scrittura\n\n• Buona conoscenza dell'utente del PC (MS Office 365); la conoscenza di SAP è un vantaggio\n\nUlteriori informazioni sulla nostra offerta\n\nEssendo una delle aziende leader mondiali nel campo delle soluzioni uditive con sede in Svizzera, attribuiamo grande importanza ad una cultura aziendale inclusiva e apprezzativa.\n\nVi offriamo:\n\n• Conoscenze strutturate e formazione interna ed esterna mirata\n\n• Opportunità di sviluppo e crescita individuali\n\n• Un ambiente di produzione moderno con brevi percorsi decisionali\n\n• L'opportunità di assumersi la responsabilità e formare attivamente i processi\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "In this function, as Technical Specialist Production TSP (m/f/d), you are a central part of our support team in electronics manufacturing.\n\nYou ensure plant availability through preventive maintenance, minimize downtimes through sustainable maintenance strategies and repair faults including root cause analysis. You drive continuous improvements in the area of maintenance and develop your expertise (e.g. in the TPS) continuously.\n\nAs a technical interface between production, engineering and development, you support the departments, advise on technical issues and help to optimize our plants.\n\nMore about the role\n\n• Ensuring plant availability through preventive maintenance of plants, equipment and test equipment\n\n• Minimizing downtime through sustainable maintenance strategies and supporting machine operators in basic maintenance tasks\n\n• Analysis and correction of disruptions in production including root cause analysis\n\n• Continuous Improvement in Maintenance\n\n• Technical interface between production, engineering, development and other departments (R&D, NPI, B&I)\n\n• Technical advice and support of production departments as well as participation in the optimization of plants\n\n• Coordination, documentation and monitoring of maintenance measures (including LEXA) as well as compliance with quality and safety regulations\n\n• Management and procurement of spare parts as well as support for the further development of automated equipment and piketting service as needed\n\nMore about you\n\n• Completed electronic vocational training (ECZ) (e.g. automatic, polymechanical, electronic)\n\n• Experience in electronics production, ideally with knowledge of lean management, supply chain and SMD/flip-chip assembly\n\n• Good overview of the entire production chain and ideally experience in automation or semiconductor production\n\n• Strong technical understanding, rapid comprehension and cross-cutting thinking\n\n• High quality awareness and structured and responsible working methods\n\n• Experience in conducting training and in complying with processes and quality standards\n\n• Very good knowledge of German and good knowledge of English in word and writing\n\n• Good PC user knowledge (MS Office 365); SAP knowledge is an advantage\n\nMore about our offer\n\nAs one of the world’s leading companies in the field of hearing solutions with headquarters in Switzerland, we attach great importance to an inclusive and appreciative corporate culture.\n\nWe offer you:\n\n• Structured familiarisation and targeted internal and external training\n\n• Individual development and growth opportunities\n\n• A modern production environment with short decision paths\n\n• The opportunity to take responsibility and actively shape processes\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px)!important;\"",
+        "de": "In dieser Funktion bist du als Technischer Spezialist Produktion TSP (m/w/d) ein zentraler Bestandteil unseres Support-Teams in der Elektronikfertigung.\n\nDu stellst die Anlagenverfügbarkeit durch vorbeugende Wartung sicher, minimierst Stillstände durch nachhaltige Instandhaltungsstrategien und behebst Störungen inklusive Ursachenanalyse. Dabei treibst du kontinuierliche Verbesserungen im Bereich Maintenance voran und entwickelst deine Fachkenntnisse (z. B. im TPS) stetig weiter.\n\nAls technische Schnittstelle zwischen Produktion, Engineering und Entwicklung unterstützt du die Fachbereiche, berätst bei technischen Fragestellungen und wirkst an der Optimierung unserer Anlagen mit.\n\nMehr über die Rolle\n\n• Sicherstellung der Anlagenverfügbarkeit durch vorbeugende Wartung von Anlagen, Betriebs- und Prüfmitteln\n\n• Minimierung von Stillständen durch nachhaltige Instandhaltungsstrategien und Unterstützung der Maschinenbediener bei grundlegenden Wartungsaufgaben\n\n• Analyse und Behebung von Störungen in der Produktion inklusive Ursachenanalyse\n\n• Kontinuierliche Verbesserung (Continuous Improvement) im Bereich Maintenance\n\n• Technische Schnittstelle zwischen Produktion, Engineering, Entwicklung sowie weiteren Fachbereichen (R&D, NPI, B&I)\n\n• Technische Beratung und Unterstützung der Produktionsabteilungen sowie Mitwirkung bei der Optimierung von Anlagen\n\n• Koordination, Dokumentation und Überwachung von Instandhaltungsmaßnahmen (inkl. LEXA) sowie Einhaltung von Qualitäts- und Sicherheitsvorschriften\n\n• Verwaltung und Beschaffung von Ersatzteilen sowie Unterstützung bei der Weiterentwicklung automatisierter Anlagen und Pikettdienst bei Bedarf\n\nMehr über dich\n\n• Abgeschlossene technische Berufsbildung (EFZ) im elektronischen Bereich (z. B. Automatiker, Polymechaniker, Elektroniker)\n\n• Erfahrung in der Elektronikproduktion, idealerweise mit Kenntnissen in Lean Management, Supply Chain und SMD/Flip-Chip-Bestückung\n\n• Gute Übersicht über die gesamte Produktionskette sowie idealerweise Erfahrung in der Automatisierung oder Halbleiterfertigung\n\n• Ausgeprägtes technisches Verständnis, schnelle Auffassungsgabe und bereichsübergreifendes Denken\n\n• Hohes Qualitätsbewusstsein sowie strukturierte und verantwortungsvolle Arbeitsweise\n\n• Erfahrung in der Durchführung von Schulungen sowie in der Einhaltung von Prozessen und Qualitätsstandards\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n\n• Gute PC-Anwenderkenntnisse (MS Office 365); SAP-Kenntnisse von Vorteil\n\nMehr über unser Angebot\n\nAls eines der weltweit führenden Unternehmen im Bereich Hörlösungen mit Hauptsitz in der Schweiz legen wir großen Wert auf eine inklusive und wertschätzende Unternehmenskultur.\n\nWir bieten dir:\n\n• Strukturierte Einarbeitung sowie gezielte interne und externe Weiterbildungen\n\n• Individuelle Entwicklungs- und Wachstumsmöglichkeiten\n\n• Ein modernes Produktionsumfeld mit kurzen Entscheidungswege\n\n• Die Möglichkeit, Verantwortung zu übernehmen und Prozesse aktiv mitzugestalten\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Dans cette fonction, en tant que Technical Specialist Production TSP (h/f/d), vous êtes une partie centrale de notre équipe de support dans la fabrication électronique.\n\nVous assurez la disponibilité de l'usine grâce à l'entretien préventif, minimisez les temps d'arrêt grâce à des stratégies d'entretien durable et des défauts de réparation, y compris l'analyse des causes profondes. Vous conduisez des améliorations continues dans le domaine de la maintenance et développez votre expertise (par exemple dans le TPS) en continu.\n\nEn tant qu'interface technique entre la production, l'ingénierie et le développement, vous accompagnez les départements, conseillez sur les questions techniques et aidez à optimiser nos usines.\n\nEn savoir plus sur le rôle\n\n• Assurer la disponibilité des installations par l'entretien préventif des installations, du matériel et du matériel d'essai\n\n• Minimiser les temps d'arrêt grâce à des stratégies de maintenance durable et soutenir les opérateurs de machines dans les tâches de maintenance de base\n\n• Analyse et correction des perturbations de la production, y compris l'analyse des causes profondes\n\n• Amélioration continue de l'entretien\n\n• Interface technique entre la production, l'ingénierie, le développement et d'autres ministères (R-D, NPI, B-I)\n\n• Conseils techniques et soutien des services de production ainsi que participation à l'optimisation des installations\n\n• Coordination, documentation et suivi des mesures d'entretien (y compris LEXA) ainsi que respect des règles de qualité et de sécurité\n\n• Gestion et achat de pièces de rechange ainsi qu ' appui à la mise au point du matériel automatisé et du service de triage au besoin\n\nPlus sur vous\n\n• Formation professionnelle électronique terminée (ECZ) (par exemple automatique, polymécanique, électronique)\n\n• Expérience dans la production d'électronique, idéalement avec une connaissance de la gestion maigre, de la chaîne d'approvisionnement et de l'assemblage SMD/fichier\n\n• Bonne vue d'ensemble de toute la chaîne de production et idéalement expérience dans l'automatisation ou la production de semi-conducteurs\n\n• Forte compréhension technique, compréhension rapide et pensée transversale\n\n• Sensibilisation de haute qualité et méthodes de travail structurées et responsables\n\n• Expérience de la formation et du respect des processus et des normes de qualité\n\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais en paroles et en écriture\n\n• Bonne connaissance des utilisateurs de PC (MS Office 365); connaissance SAP est un avantage\n\nEn savoir plus sur notre offre\n\nEn tant que leader mondial dans le domaine des solutions auditives avec siège social en Suisse, nous attachons une grande importance à une culture d'entreprise inclusive et reconnaissante.\n\nNous vous offrons:\n\n• Connaissance structurée et formation interne et externe ciblée\n\n• Développement individuel et possibilités de croissance\n\n• Un environnement de production moderne avec des chemins de décision courts\n\n• La possibilité de prendre des responsabilités et de façonner activement les processus\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px)!important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T09:13:12.274Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-specialist-production-tsp-m-f-d-sonova-ch",
+        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-specialist-production-tsp-m-f-d-sonova-ch",
+          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "sonova-65194a0b7ac7",
       "slug": "practical-apprendista-power-management-m-f-d-sonova-staefa",
       "slugByLocale": {
@@ -551,7 +553,7 @@
         "it": "Practical Apprendista - Power Management (m/f/d)",
         "en": "Practical Trainee - Power Management (m/f/d)",
         "de": "Practical Auszubildender - Power Management (m/f/d)",
-        "fr": "Stage pratique - Power Management (h/f/d)"
+        "fr": "Practical Trainee - Power Management (m/f/d)"
       },
       "description": "Location: Stäfa, Switzerland\n\nFulltime, 6 Months\n\nAt Sonova, we create sense by bringing sound to life. Our innovative hearing care solutions help millions of people reconnect with the sounds that matter most. As a Power Management Trainee, you will support the development and verification of the technologies that power our hearing instruments and chargers, helping us deliver reliable, high-quality solutions that make a real difference in people's everyday lives.\n\nWhat you'll do\n\n• Perform experiments to evaluate battery runtime, power consumption, and charging performance in real-world usage scenarios\n\n• Build, calibrate, maintain, and improve test setups and measurement systems for battery and power-management verification\n\n• Develop and execute automated test scripts and verification frameworks\n\n• Verify the performance of battery and power management systems in hearing devices and chargers\n\n• Analyze measurement data, create visualizations, and prepare technical reports\n\n• Troubleshoot test equipment and continuously improve testing processes\n\n• Collaborate with multidisciplinary engineering teams on power electronics, charger integration, and system-level investigations\n\nWhat you bring\n\n• Currently enrolled in or graduated with a Master's degree in Electrical Engineering, Electronics, Mechatronics, or a related field.\n\n• Basic programming skills in Python. MATLAB or C are a plus\n\n• Interest in automation, testing, verification, and engineering problem-solving.\n\n• Analytical mindset with strong attention to detail\n\n• Ability to work with technical data and measurements\n\n• Experience with battery management systems, power electronics, embedded systems, laboratory equipment, or Li-ion batteries is a plus\n\n• Fluency in English\n\nWhat we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe can offer you a new challenge, with interesting tasks and much more – including an open corporate culture, flat hierarchies, support for further training and development, opportunities to take on responsibility, and an excellent range of foods, sports and cultural facilities.\n\n• Insights into how hearing instruments and chargers manage power and energy efficiency\n\n• Practical data analysis skills and the opportunity to contribute to engineering decisions through testing results #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -565,7 +567,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.199Z",
+      "crawledAt": "2026-10-04T09:13:12.269Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -604,6 +606,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -649,7 +652,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.193Z",
+      "crawledAt": "2026-10-04T09:13:12.263Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -660,7 +663,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "postedDate": "2026-09-21T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1439443733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -697,7 +700,7 @@
       "slug": "designer-di-interazione-sonova-staefa-switzerland",
       "slugByLocale": {
         "it": "designer-di-interazione-sonova-staefa-switzerland",
-        "en": "interaction-designer-sonova-staefa",
+        "en": "interaction-designer-sonova-ch",
         "de": "interaction-designer-sonova-ch",
         "fr": "conception-de-l-interaction-sonova-staefa-switzerland"
       },
@@ -723,7 +726,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.196Z",
+      "crawledAt": "2026-10-04T09:13:12.251Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -734,7 +737,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "postedDate": "2026-09-21T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1439444733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -742,6 +745,7 @@
         "interaction-designer-sonova-ch",
         "designer-di-interazione-sonova-staefa",
         "conception-de-l-interaction-sonova-staefa",
+        "interaction-designer-sonova-staefa",
         "designer-di-interazione-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
@@ -750,12 +754,12 @@
           "designer-di-interazione-sonova-staefa",
           "designer-di-interazione-sonova-staefa-switzerland"
         ],
+        "en": [
+          "interaction-designer-sonova-staefa"
+        ],
         "fr": [
           "interaction-designer-sonova-ch",
           "conception-de-l-interaction-sonova-staefa"
-        ],
-        "en": [
-          "interaction-designer-sonova-ch"
         ]
       },
       "needsRetranslation": true,
@@ -805,7 +809,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.189Z",
+      "crawledAt": "2026-10-04T09:13:12.244Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -830,6 +834,7 @@
           "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -842,8 +847,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sonova-c8fcf54ac57e",
@@ -876,7 +880,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.185Z",
+      "crawledAt": "2026-10-04T09:13:12.236Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -887,7 +891,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-24T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1440786833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -946,7 +950,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.180Z",
+      "crawledAt": "2026-10-04T09:13:12.228Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -988,6 +992,84 @@
       }
     },
     {
+      "id": "sonova-755bb818c5fe",
+      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+      "slugByLocale": {
+        "it": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+        "en": "apprenticeship-of-plastics-technologist-login-efz-m-f-d-sonova-staefa-switzerland",
+        "de": "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "fr": "apprentissage-de-technologue-login-en-matiere-plastique-efz-m-f-d-sonova-staefa-switzerland"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendistato Kunststofftechnologe/-login CFC (m/w/d)",
+        "en": "Apprenticeship of plastics technologist/login EFZ (m/f/d)",
+        "de": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+        "fr": "Apprentissage de technologue/login en matière plastique EFZ (m/f/d)"
+      },
+      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come un technologist plastics/login EFZ e le condizioni necessarie possono essere trovate a:\n\nPlastics technologist/login EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a plastics technologist/login EFZ as well as the necessary conditions can be found at:\n\nPlastics technologist/login EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nDe plus amples informations sur votre travail de rêve en tant que technologue/login en plastique EFZ ainsi que les conditions nécessaires peuvent être trouvées à:\n\nTechnologue/logiciel en plastique EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T09:13:12.220Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+        ],
+        "en": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        ],
+        "fr": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:06:52.246Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "sonova-a02b2dce588a",
       "slug": "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
@@ -1018,7 +1100,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:47.167Z",
+      "crawledAt": "2026-10-04T09:13:12.213Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1052,6 +1134,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.194Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1064,8 +1147,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sonova-088c8bab41fe",
@@ -1098,7 +1180,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:47.176Z",
+      "crawledAt": "2026-10-04T09:13:12.207Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1132,6 +1214,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.177Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1144,86 +1227,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
-    },
-    {
-      "id": "sonova-755bb818c5fe",
-      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
-        "en": "apprenticeship-of-plastics-technologist-login-efz-m-f-d-sonova-staefa-switzerland",
-        "de": "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-        "fr": "apprentissage-de-technologue-login-en-matiere-plastique-efz-m-f-d-sonova-staefa-switzerland"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Apprendistato Kunststofftechnologe/-login CFC (m/w/d)",
-        "en": "Apprenticeship of plastics technologist/login EFZ (m/f/d)",
-        "de": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
-        "fr": "Apprentissage de technologue/login en matière plastique EFZ (m/f/d)"
-      },
-      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come un technologist plastics/login EFZ e le condizioni necessarie possono essere trovate a:\n\nPlastics technologist/login EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a plastics technologist/login EFZ as well as the necessary conditions can be found at:\n\nPlastics technologist/login EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nDe plus amples informations sur votre travail de rêve en tant que technologue/login en plastique EFZ ainsi que les conditions nécessaires peuvent être trouvées à:\n\nTechnologue/logiciel en plastique EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:47.171Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
-        ],
-        "en": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
-        ],
-        "fr": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:52.246Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sonova-0e97616fe3f9",
@@ -1256,7 +1260,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.163Z",
+      "crawledAt": "2026-10-04T09:13:12.203Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1266,7 +1270,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-28T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1441934833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1287,6 +1291,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:09:05.057Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1300,8 +1305,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "sonova-1f854815a19d",
@@ -1334,7 +1338,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Quality-Assurance-Manager/1442652933/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.161Z",
+      "crawledAt": "2026-10-04T09:13:12.201Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1344,10 +1348,20 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-09-30T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1442652933/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "quality-assurance-manager-sonova-ch",
+        "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-assurance-manager-sonova-ch",
+          "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:10:37.776Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1362,50 +1376,40 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR",
-      "previousSlugsByLocale": {
-        "it": [
-          "quality-assurance-manager-sonova-ch",
-          "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "quality-assurance-manager-sonova-ch",
-        "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
-      ]
+      "addressRegion": "FR"
     },
     {
       "id": "sonova-e7305ae7cb14",
-      "slug": "product-manager-hearing-aids-sonova-ch",
+      "slug": "product-manager-apparecchi-acustici-sonova-staefa-switzerland",
       "slugByLocale": {
-        "it": "product-manager-hearing-aids-sonova-ch",
+        "it": "product-manager-apparecchi-acustici-sonova-staefa-switzerland",
         "en": "product-manager-hearing-aids-sonova-ch",
-        "de": "product-manager-hearing-aids-sonova-ch",
-        "fr": "product-manager-hearing-aids-sonova-ch"
+        "de": "produktmanager-horgerate-sonova-staefa-switzerland",
+        "fr": "gestionnaire-de-produit-appareils-auditifs-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
       "companyDomain": "sonova.com",
       "title": "Product Manager - Hearing Aids",
       "titleByLocale": {
-        "it": "Product Manager - Hearing Aids",
+        "it": "Product Manager - Apparecchi acustici",
         "en": "Product Manager - Hearing Aids",
-        "de": "Product Manager - Hearing Aids",
-        "fr": "Product Manager - Hearing Aids"
+        "de": "Produktmanager - Hörgeräte",
+        "fr": "Gestionnaire de produit - appareils auditifs"
       },
       "description": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
-        "it": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "it": "Scopo del lavoro\n\nIl Product Manager assicura che Phonak abbia un'offerta di prodotti altamente accattivante, di successo commerciale ed eseguibile operativamente per l'ambito di applicazione del prodotto assegnato. Il ruolo gestisce il flusso di lavoro del prodotto attraverso il ciclo di vita completo, contribuisce al lancio del prodotto all'interno della categoria responsabile e garantisce una forte esecuzione trasversale dal concetto all'ottimizzazione post-lancio.\n\nCompiti e responsabilità\n\n• Sviluppare i 4P per i prodotti assegnati attraverso concetti, preparazione di lancio, gestione del mercato e supporto del ciclo di vita.\n\n• Definizione del prodotto di piombo, visione del prodotto, raffinatezza dell'uso-case, priorità delle caratteristiche e sviluppo della proposizione del valore in collaborazione con R&D, UX e leadership di categoria.\n\n• Contribuire all'interno dei lanci e garantire la consegna tempestiva di proposizioni di valore di successo in più domini di prodotto, accessori e supporti consegnabili.\n\n• Traduci le esigenze dei clienti, le esigenze non soddisfatte, le tendenze tecniche, i benchmark e le informazioni dei concorrenti sui requisiti dei prodotti e sui miglioramenti dei prodotti.\n\n• Trigger o sostenere studi di fattibilità, prove di mercato, test sul campo e progetti tecnologici per migliorare la vestibilità del mercato del prodotto e la qualità di lancio.\n\n• Assicurare la conformità normativa e la disponibilità di prodotti, imballaggi, documentazione e altri materiali di consegna richiesti.\n\n• Steer prodotto KPIs tra cui adozione, qualità, feedback di mercato, implicazioni di margine e prestazioni del prodotto, e raccomanda azioni correttive.\n\n• Sostenere le attività del ciclo di vita come i cambiamenti di ingegneria, la riduzione della complessità, il phase-in e le iniziative di miglioramento post-launch.\n\n• Lavorare a stretto contatto con il team Audiological and Clinical Excellence per fornire prove cliniche di significato\n\nCapacità di contabilità chiave\n\n• Il successo commerciale e del cliente dei prodotti assegnati.\n\n• Qualità della definizione del prodotto, proposizione, disponibilità di lancio e azioni di miglioramento post-lancio.\n\n• Esecuzione cross-funzionale in R&D, regolazione, qualità, operazioni, MarCom e squadre regionali.\n\n• Prestazioni del ciclo di vita, tra cui la qualità del prodotto, il supporto di controllo del cambiamento e l'esecuzione phase-in o phase-out.\n\nRequisiti\n\n• Laurea in audiologia, ingegneria, business o una disciplina correlata.\n\n• Forte esperienza nella gestione dei prodotti, nella gestione del lancio o nella gestione del ciclo di vita in prodotti medici, sanitari o tecnici.\n\n• Prove capacità di condurre il lavoro interfunzionale, risolvere problemi ambigui, e consegnare in un'organizzazione di matrice.\n\n• 4 - 6 anni di esperienza nella gestione globale dei prodotti con particolare attenzione allo sviluppo dei prodotti\n\n• L'esperienza nel settore sanitario o medico è un bene\n\n• Progetti complessi in esecuzione su scala globale\n\n• Concentrandosi sull'esperienza del cliente per definire hardware e accessori preziosi\n\n• Combinazione di forte background tecnico e business acumen\n\n• In grado di gestire diverse aspettative degli stakeholder\n\n• Visione\n\n• Forte capacità di leadership e gestione trasversali\n\n• Altamente automotivato e disciplinato\n\n• Creativo e fantasioso, in grado di pensare al di fuori della scatola\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
         "en": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
+        "de": "Zweck des Auftrags\n\nDer Produktmanager stellt sicher, dass Phonak über ein äußerst attraktives, kommerziell erfolgreiches und operativ ausführbares Produktangebot für den zugewiesenen Produktumfang verfügt. Die Rolle verwaltet den Produkt-Workstream über den gesamten Lebenszyklus, trägt zu den Produkteinführungen innerhalb der verantwortlichen Kategorie bei und gewährleistet eine starke funktionsübergreifende Ausführung vom Konzept bis zur Optimierung nach dem Start.\n\nAufgaben & Verantwortlichkeiten\n\n• Entwickeln Sie die 4Ps für zugewiesene Produkte über Konzepte, Startvorbereitung, In-Market-Management und Lifecycle-Support hinweg.\n\n• Führen Sie Produktdefinition, Produktvision, Anwendungsfallverfeinerung, Feature-Priorisierung und Value Proposition Entwicklung in Partnerschaft mit R & D, UX und Category Leadership.\n\n• Tragen Sie zu den Markteinführungen bei und sorgen Sie für die rechtzeitige Lieferung erfolgreicher Wertversprechen in mehreren Produktdomänen, Zubehör und unterstützenden Leistungen.\n\n• Übersetzen Sie Kundenbedürfnisse, unerfüllte Bedürfnisse, technische Trends, Benchmarks und Wettbewerbserkenntnisse in Produktanforderungen und Produktverbesserungen.\n\n• Triggern oder unterstützen Sie Machbarkeitsstudien, Marktversuche, Feldtests und Technologieprojekte, um die Passform des Produktmarktes und die Startqualität zu verbessern.\n\n• Gewährleistung der Einhaltung der Vorschriften und der Startbereitschaft von Produkten, Verpackungen, Dokumentationen und anderen erforderlichen Leistungen.\n\n• Lenken Sie Produkt-KPIs, einschließlich Adoption, Qualität, Marktfeedback, Margin-Implikationen und Produktleistung, und empfehlen Sie Korrekturmaßnahmen.\n\n• Unterstützung von Lifecycle-Aktivitäten wie Engineering-Änderungen, Komplexitätsreduzierung, Phase-in- und Phase-out-Planung und Verbesserungsinitiativen nach dem Start.\n\n• Enge Zusammenarbeit mit dem Team von Audiological und Clinical Excellence, um sinnvolle klinische Beweise zu liefern\n\nHauptbuchhaltung\n\n• Kommerzieller und Kundenerfolg der zugewiesenen Produkte.\n\n• Qualität der Produktdefinition, Angebot, Startbereitschaft und Verbesserungsmaßnahmen nach dem Start.\n\n• Cross-funktionale Ausführung in R & D, Regulierung, Qualität, Betrieb, MarCom und regionalen Teams.\n\n• Lifecycle-Performance, einschließlich Produktqualität, Änderungskontrollunterstützung und Phase-in- oder Phase-out-Ausführung.\n\nAnforderungen\n\n• Universitätsabschluss in Audiologie, Ingenieurwesen, Wirtschaft oder einer verwandten Disziplin.\n\n• Starke Erfahrung im Produktmanagement, Launch Management oder Lifecycle Management in Medizin-, Gesundheits- oder technischen Produkten.\n\n• Bewährte Fähigkeit, funktionsübergreifende Arbeit zu leiten, mehrdeutige Probleme zu lösen und in einer Matrixorganisation zu liefern.\n\n• 4 - 6 Jahre Erfahrung im globalen Produktmanagement mit Fokus auf Produktentwicklung\n\n• Erfahrung in der Gesundheits- oder Medizinbranche ist ein Asset\n\n• Durchführung komplexer Projekte auf globaler Ebene\n\n• Fokussierung auf Customer Experience, um wertvolle Hardware und Zubehör zu definieren\n\n• Kombination aus starkem technischem Hintergrund und Geschäftssinn\n\n• Kann unterschiedliche Stakeholder-Erwartungen verwalten\n\n• Visionär\n\n• Starke funktionsübergreifende Führungs- und Managementfähigkeiten\n\n• Hoch motiviert und diszipliniert\n\n• Kreativ und einfallsreich, fähig, über den Tellerrand hinaus zu denken\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
+        "fr": "Objet du travail\n\nLe gestionnaire de produits s'assure que Phonak possède une offre de produits hautement attrayante, commercialement réussie et opérationnellement exécutable pour la gamme de produits attribuée. Le rôle gère le flux de travail du produit tout au long du cycle de vie, contribue au lancement du produit dans la catégorie responsable et assure une forte exécution interfonctionnelle du concept à l'optimisation post-lancement.\n\nTâches et responsabilités\n\n• Élaborer les 4P pour les produits attribués à l'ensemble des concepts, lancer la préparation, la gestion du marché et le soutien du cycle de vie.\n\n• Définition du produit principal, vision du produit, raffinement des cas d'utilisation, hiérarchisation des caractéristiques et élaboration de propositions de valeur en partenariat avec la R-D, l'UX et le leadership de catégorie.\n\n• Contribuer aux lancements et assurer la livraison en temps opportun de propositions de valeur réussies dans plusieurs domaines de produits, accessoires et produits livrables.\n\n• Traduire les besoins des clients, les besoins non satisfaits, les tendances techniques, les repères et les connaissances des concurrents sur les exigences des produits et les améliorations des produits.\n\n• Déclencher ou soutenir des études de faisabilité, des essais sur le marché, des essais sur le terrain et des projets technologiques visant à améliorer la qualité des produits et à les lancer.\n\n• Veiller à ce que les produits, l'emballage, la documentation et les autres produits livrables requis soient conformes à la réglementation et à la préparation au lancement.\n\n• Les ICR du produit Steer comprennent l'adoption, la qualité, la rétroaction du marché, les implications sur la marge et la performance du produit, et recommandent des mesures correctives.\n\n• Appuyer les activités liées au cycle de vie comme les changements d'ingénierie, la réduction de la complexité, la planification de l'entrée en vigueur et de l'élimination progressive et les initiatives d'amélioration après le lancement.\n\n• Collaborer étroitement avec l'équipe de l'excellence audologique et clinique pour produire des preuves cliniques significatives\n\nPrincipales responsabilités\n\n• Le succès commercial et client des produits assignés.\n\n• Qualité de la définition du produit, proposition, préparation au lancement et actions d'amélioration après le lancement.\n\n• Exécution interfonctionnelle à l'échelle de la R-D, de la réglementation, de la qualité, des opérations, du MarCom et des équipes régionales.\n\n• Rendement du cycle de vie, y compris la qualité du produit, le soutien au contrôle des changements et l'exécution progressive ou progressive.\n\nExigences\n\n• Diplôme universitaire en audiologie, en génie, en affaires ou dans une discipline connexe.\n\n• Forte expérience en gestion de produits, en gestion de lancement ou en gestion du cycle de vie des produits médicaux, médicaux ou techniques.\n\n• Capacité éprouvée de diriger des travaux interfonctionnels, de résoudre des problèmes ambigus et d'offrir une organisation matricielle.\n\n• 4 - 6 ans d'expérience dans la gestion de produits globale avec l'accent sur le développement de produits\n\n• L'expérience dans le secteur des soins de santé ou de la médecine est un atout\n\n• Exécution de projets complexes à l ' échelle mondiale\n\n• Se concentrer sur l'expérience client pour définir le matériel et les accessoires précieux\n\n• Combinaison d'un solide bagage technique et d'un sens des affaires\n\n• Capacité à gérer différentes attentes des parties prenantes\n\n• Visionnaire\n\n• Renforcement des capacités de direction et de gestion interfonctionnelles\n\n• Très motivé et discipliné\n\n• Créative et imaginative, capable de penser en dehors de la boîte\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
       },
       "location": "Staefa, Switzerland",
       "canton": "ZH",
       "url": "https://jobs.sonova.com/job/Staefa-Product-Manager-Hearing-Aids/1443245033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:12:47.160Z",
+      "crawledAt": "2026-10-04T09:13:12.199Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1416,18 +1420,14 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-01T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1443245033/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-hearing-aids-sonova-ch",
         "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland",
-        "product-manager-apparecchi-acustici-sonova-staefa-switzerland",
-        "produktmanager-horgerate-sonova-staefa-switzerland",
-        "gestionnaire-de-produit-appareils-auditifs-sonova-staefa-switzerland"
+        "product-manager-hearing-aids-sonova-ch",
+        "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1435,13 +1435,11 @@
           "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
         ],
         "de": [
-          "product-manager-hearing-aids-sonova-ch",
-          "produktmanager-horgerate-sonova-staefa-switzerland"
+          "product-manager-hearing-aids-sonova-ch"
         ],
         "fr": [
-          "product-manager-hearing-aids-sonova-ch",
           "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland",
-          "gestionnaire-de-produit-appareils-auditifs-sonova-staefa-switzerland"
+          "product-manager-hearing-aids-sonova-ch"
         ]
       },
       "firstSeenAt": "2026-10-03T09:12:47.160Z",
@@ -1457,8 +1455,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

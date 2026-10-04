@@ -1635,8 +1635,6 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     headline: h1,
     description: truncateAtWordBoundary(intro, 220),
     image: `${BASE_URL}/og-image.png`,
-    datePublished: stats.endDate.toISOString(),
-    dateModified: `${todayIso}T00:00:00.000Z`,
     author: {
       '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
@@ -1677,8 +1675,6 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
-    dateModified: `${todayIso}T00:00:00.000Z`,
-    datePublished: stats.endDate.toISOString(),
     temporalCoverage: `${stats.startDate.toISOString().slice(0, 10)}/${stats.endDate.toISOString().slice(0, 10)}`,
     spatialCoverage: {
       '@type': 'Place',
@@ -1934,7 +1930,6 @@ function renderHubPage(inp: HubPageInputs): string {
     description: copy.hubIntro,
     url: canonicalUrl,
     inLanguage: locale,
-    dateModified: `${todayIso}T00:00:00.000Z`,
     isPartOf: {
       '@type': 'WebSite',
       name: 'Frontaliere Ticino',
@@ -1963,7 +1958,6 @@ function renderHubPage(inp: HubPageInputs): string {
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
-    dateModified: `${todayIso}T00:00:00.000Z`,
     spatialCoverage: {
       '@type': 'Place',
       name: 'Canton Ticino',
@@ -2932,7 +2926,6 @@ function renderSectorPage(inp: SectorPageInputs): string {
     description: metaDesc,
     url: canonicalUrl,
     inLanguage: locale,
-    dateModified: `${todayIso}T00:00:00.000Z`,
     isPartOf: {
       '@type': 'WebSite',
       name: 'Frontaliere Ticino',
@@ -2961,7 +2954,6 @@ function renderSectorPage(inp: SectorPageInputs): string {
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
-    dateModified: `${todayIso}T00:00:00.000Z`,
     spatialCoverage: {
       '@type': 'Place',
       name: 'Canton Ticino',
@@ -3376,7 +3368,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
             (loc) => `    <xhtml:link rel="alternate" hreflang="${loc}" href="${BASE_URL}${alt[loc]}" />`,
           ).join('\n');
           sitemapEntries.push(
-            `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${alt.it}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${alt.it}" />\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
           );
         }
       }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-locarno",
-  "assembledAt": "2026-10-03T09:12:01.523Z",
+  "assembledAt": "2026-10-04T09:17:01.422Z",
   "jobs": [
     {
       "id": "citta-di-locarno-impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno",
@@ -29,9 +29,7 @@
         "fr": "Bastian Lerch BL/gf 2 octobre 2026 AVVISO DI CONCORSO IL MUNICIPIO DI LOCARNO fait savoir que le concours pour le recrutement d'un employé/a II (50%-70%) à la Chancellerie municipale est ouvert. La fonction prévoit les responsabilités suivantes :\n\n- donner des conseils au comptoir (information générale, vente quotidienne de cartes, délivrance de licences)\n\nchasse et pêche, vente de bandes vertes, etc.) et gestion de la réception (entrée/sortie) des flux d'utilisateurs au Palazzo Marcacci;\n\n- répondre à la station téléphonique de la Commune (appels entrants vers différents bureaux, information\n\ngénériques, cartes quotidiennes, etc.);\n\n- effectuer des tâches back office de papeterie (gestion de la trésorerie, évasion/enlèvement d'email\n\nde la ville, publication sur le site web et albi de: concours, communications municipales, salles de réserve, rapports permis de chasse/pêche, commande sur papier, etc.);\n\n- soutenir les activités du conseil municipal;\n\n- soutenir le bureau juridique pour les questions administratives;\n\n- de participer, par ordre du supérieur, aux travaux d'organisation et d'administration à l'occasion\n\nvote et élections. Les tâches sont décrites plus en détail dans le travail qui peut être demandé à l'adresse électronique: resources.umane@locarno.ch. Exigences\n\n- Certificat fédéral de capacité AFC en tant qu'employé de commerce ou d'administration\n\n- Expérience professionnelle en administration publique\n\n- Disponibilité au travail en dehors des heures de travail\n\n- Bonnes compétences linguistiques de l'italien, de l'allemand et du français\n\n- Préparation et orientation du contact avec les personnes\n\n- Stabilité avec des moyens informatiques modernes\n\nLa mise en service est prévue pour le 1er février 2027 ou la date à convenir. Rémunération Le poste est défini dans le rôle de l'employé II de la classe 6 (selon ROC-LO). La fourchette salariale, pour une utilisation à 100%, commence à CHF 55=190.- jusqu'à un maximum de CHF 82=785.-, auquel les allocations pour enfants doivent être ajoutées (CHF 2=580.- /CHF 3=216.-). 2 Cet avis de concours est également visible sur le site Web de la Ville à l'adresse suivante : www.locarno.ch/it/albo- comune/assunzioni-personale. L'hôtel de ville ne peut en aucun cas examiner les demandes et pièces jointes transmises par d'autres voies (papier, courriel, télécopieur, etc.) ou des demandes incomplètes. Les candidatures doivent être soumises via le portail en ligne au plus tard le mardi 20 octobre 2026 à 23:59 accompagné des documents suivants:\n\n- curriculum vitae et lettre de motivation;\n\n- les certificats d'études et de travail;\n\n- certificat médical ou autocertification téléchargeable sur www.locarno.ch - section porte virtuelle -\n\nles différentes formules;\n\n- copie du document d'identité;\n\n- un permis de travail pour les personnes de nationalité étrangère;\n\n- Taille du passeport photo.\n\nL'extrait de la boîte judiciaire et le certificat du Bureau des exécutions et des faillites seront nécessaires lors de la convocation de l'entrevue de sélection. Toute information complémentaire peut être demandée directement au Secrétaire municipal adjoint, M. Giacomo Filliger au 091 756 31 26 ou par courriel à l'adresse filliger.giacomo@locarno.ch."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Locarno",
       "canton": "TI",
       "addressLocality": "Locarno",
@@ -44,13 +42,16 @@
       "employmentType": "PART_TIME",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "url": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=c3d0f2a5-4111-4488-abfc-facb9f5041f8,popup=y",
       "pdfUrl": "https://www.locarno.ch/files/documenti/Bando_impiegato_II_-_Cancelleria_comunale.pdf",
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=c3d0f2a5-4111-4488-abfc-facb9f5041f8,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T09:11:56.937Z",
+      "crawledAt": "2026-10-04T09:16:57.088Z",
+      "firstSeenAt": "2026-10-03T09:11:56.937Z",
       "salaryMin": 34700,
       "salaryMax": 52500,
       "salarySource": "estimated",
@@ -63,9 +64,7 @@
           "maxValue": 52500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-03T09:11:56.937Z",
-      "needsRetranslation": true
+      }
     }
   ]
 }

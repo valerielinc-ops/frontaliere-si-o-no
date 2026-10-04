@@ -24,6 +24,7 @@ import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
+import { createImageCreditReader, imageObjectCreditFields, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
 
@@ -331,6 +332,17 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleReviewOverrides = loadArticleReviewOverrides(fs, [
  np.resolve(rootDir, 'packages/articles/engine/shared/article-reviewed-by.json'),
  np.resolve(rootDir, 'engine/shared/article-reviewed-by.json'),
+ ]);
+
+ // P14: credit records of the Wikimedia Commons covers, one per cover file
+ // (shared/imageCredits.mjs). A credited cover gets the photo's own creator and
+ // licence in its ImageObject and a credit line at the end of the article; any
+ // other cover renders exactly as before. Same two-layout candidate list as
+ // above: the corpus keeps the records under content/, the site pulls them
+ // under packages/articles/content/.
+ const imageCredits = createImageCreditReader(fs, [
+ np.resolve(rootDir, 'packages/articles/content/image-credits'),
+ np.resolve(rootDir, 'content/image-credits'),
  ]);
 
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
@@ -909,12 +921,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const modIso = normalizeDateTime(dateModIso);
  const pubDay = pubIso.split('T')[0];
  const modDay = modIso.split('T')[0];
- const pubHtml = `${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`;
+ const parts: string[] = [];
+ if (pubDay) parts.push(`${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`);
  if (modDay && modDay !== pubDay) {
- const modHtml = `${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`;
- return `${pubHtml} · ${modHtml}`;
+ parts.push(`${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`);
  }
- return pubHtml;
+ return parts.join(' · ');
  };
 
  /* ── 3. Write OG landing pages ──────────────────────────────── */
@@ -1029,6 +1041,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // narrows down to the requested id set.
  if (onlyArticleIdSet && !onlyArticleIdSet.has(en.articleId)) continue;
  const locSlugs = blogSlugs[en.articleId];
+ // Keyed by the RESOLVED hero, not the SEO literal's candidate: a cover that
+ // fell back to /og-image.png is not the photo the record credits.
+ const imageCredit = imageCredits.get(en.img);
 
  const writtenPaths: Record<string, string> = {};
  const writtenFlatPaths: Record<string, string> = {};
@@ -1289,6 +1304,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  description: repairSerpSnippet(sdStr('description') || '') || localizedDesc,
  image: imageObjectLd({
  url: imgU,
+ ...(imageCredit ? imageObjectCreditFields(imageCredit) : {}),
  width: en.imgW,
  height: en.imgH,
  }),
@@ -1344,8 +1360,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // makes that a fetch-and-hope. The Event branch above already builds its
  // image through this exact helper; this branch, which covers every real
  // news article, did not.
+ //
+ // A Wikimedia Commons cover with a credit record (P14) carries the photo's
+ // creator, credit, copyright notice and licence here instead of the site
+ // defaults, which would claim the photo as the site's own.
  image: imageObjectLd({
  url: imgU,
+ ...(imageCredit ? imageObjectCreditFields(imageCredit) : {}),
  width: en.imgW,
  height: en.imgH,
  caption: heroAlt,
@@ -1383,15 +1404,17 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  articleSection: 'Frontalieri Ticino',
  };
  }
- const buildDateIso = new Date().toISOString();
- const todayIso = buildDateIso.slice(0, 10);
+ // A missing editorial date is unknown, not the render time or the other
+ // date's event. Keep the same source values in JSON-LD, Open Graph and byline.
+ const publishedDate = normalizeDateTime(en.datePub);
+ const modifiedDate = normalizeDateTime(en.dateMod);
+ const dateByline = buildDateByline(publishedDate, modifiedDate, locale);
 
  // Article-specific fields (datePublished, dateModified, articleBody, wordCount)
  // are not applicable to Event schema
  if (!isEvent) {
- ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
- // Use datePublished for dateModified — avoids false freshness signals on every deploy
- ldObj.dateModified = normalizeDateTime(en.dateMod || en.datePub || todayIso);
+ if (publishedDate) ldObj.datePublished = publishedDate;
+ if (modifiedDate) ldObj.dateModified = modifiedDate;
 
  // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
  const fullBodyHtml = bodySections.map((s) => s.html).join('\n');
@@ -1522,8 +1545,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
  <meta property="fb:app_id" content="891036063797338">
- <meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">
- <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
+ ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}
+ ${modifiedDate ? `<meta property="article:modified_time" content="${esc(modifiedDate)}">` : ''}
  <meta property="article:section" content="Frontalieri Ticino">
  <meta property="article:author" content="${esc(String(authorObj.url))}">
 ${href}
@@ -1557,6 +1580,11 @@ ${href}
  // therefore already covers src= exactly as it covers the preload's href=.
  const heroFigureHtml =
  `<figure class="my-4"><img src="${en.img}" alt="${esc(heroAlt)}" width="${en.imgW}" height="${en.imgH}" fetchpriority="high" decoding="async" class="w-full h-auto rounded-lg"></figure>`;
+
+ // P14: the cover's credit, at the end of the article (owner decision), after
+ // the FAQ and before the related articles. Empty for an uncredited cover, so
+ // those pages stay byte-identical. No caption on the hero above.
+ const imageCreditHtml = imageCredit ? renderImageCreditHtml(imageCredit, articleLocale) : '';
 
  const blogPreloads = [
  `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,
@@ -1615,7 +1643,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1639,7 +1667,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };

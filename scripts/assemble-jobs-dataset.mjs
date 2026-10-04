@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { hasPostingDateProvenance, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 /**
  * scripts/assemble-jobs-dataset.mjs
  *
@@ -35,6 +36,7 @@
  *                                                            → run assembly
  */
 
+import { repairJobTranslationSemanticsInPlace } from './lib/job-title-semantic-repair.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -108,7 +110,8 @@ export function resolveSourceBackedIpersonalCanton(job = {}) {
 }
 
 /**
- * Preserve the assembled canton when the raw source identity is ambiguous.
+ * Preserve the assembled canton when the raw source identity is ambiguous
+ * or its matched record has no canton.
  * Conflicting source rows cannot nominate one crawler stamp safely, but the
  * assembled row still carries the best per-record fallback for downstream
  * locality inference.
@@ -124,7 +127,7 @@ export function resolveCrawlerCantonForAssembly({
   const sourceRecord = sourceLookup?.status === 'found' ? sourceLookup.record : null;
   if (sourceBackedCanton) return sourceBackedCanton;
   if (sourceLookup?.status === 'ambiguous') return jobCanton || '';
-  return sourceRecord ? sourceRecord.canton : (jobCanton || '');
+  return sourceRecord?.canton || jobCanton || '';
 }
 
 function isHttpsJobUrl(value) {
@@ -470,9 +473,9 @@ export function sanitizeJobTitleField(rawValue) {
   return inner;
 }
 
-/** Apply {@link sanitizeJobTitleField} to `title` and every `titleByLocale`. */
-function sanitizeJobTitlesInPlace(job) {
-  let fixed = 0;
+/** Repair source-backed display semantics, then sanitize title formatting. */
+function sanitizeJobDisplayFieldsInPlace(job) {
+  let fixed = repairJobTranslationSemanticsInPlace(job);
   if (typeof job.title === 'string') {
     const cleaned = sanitizeJobTitleField(job.title);
     if (cleaned !== job.title) { job.title = cleaned; fixed++; }
@@ -585,7 +588,7 @@ export function normalizeParsedJobsForSlice(jobs) {
       }
     }
 
-    sanitizeJobTitlesInPlace(job);
+    sanitizeJobDisplayFieldsInPlace(job);
     // Guard on .trim(): an empty/whitespace addressLocality is `typeof string`
     // but carries no city, so it must fall through to the backfill branch
     // rather than persisting an empty locality (which propagates to
@@ -2653,11 +2656,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // never up; brand-new jobs keep their fresh date untouched. Centralized
   // here (not in 90 parsers) so the whole class is fixed by-construction.
   const existingPostedDate = new Map();
+  const existingPostingEvidence = new Map();
   for (const ej of (existingSlice?.jobs || [])) {
     const identity = buildStableJobIdentity(ej);
     if (!identity) continue;
     if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
     if (ej.postedDate) existingPostedDate.set(identity, ej.postedDate);
+    existingPostingEvidence.set(identity, ej);
   }
   const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
   const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
@@ -2676,7 +2681,10 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     if (!job.firstSeenAt && !firstSeenHistory.suppressedJobs.has(job)) {
       job.firstSeenAt = (identity && existingFirstSeen.get(identity)) || job.crawledAt || now;
     }
-    if (identity && job.postedDate) {
+    const previousPosting = identity ? existingPostingEvidence.get(identity) : undefined;
+    if (hasPostingDateProvenance(job) || hasPostingDateProvenance(previousPosting)) {
+      Object.assign(job, mergeSourcePostingDates(previousPosting, job));
+    } else if (identity && job.postedDate) {
       const prior = existingPostedDate.get(identity);
       // Pin to the earliest known posting date for the same job (date-only
       // lexicographic compare is correct for ISO YYYY-MM-DD strings).
@@ -3132,7 +3140,7 @@ async function assembleJobs() {
   // 0-tolerance audit:no-literal-markdown gate stays red until every crawler
   // happens to re-run.
   let sanitizedTitles = 0;
-  for (const job of deduped) sanitizedTitles += sanitizeJobTitlesInPlace(job);
+  for (const job of deduped) sanitizedTitles += sanitizeJobDisplayFieldsInPlace(job);
   if (sanitizedTitles > 0) {
     console.log(`  🧼 Title sanitize: stripped a markdown bold wrapper from ${sanitizedTitles} job title(s)`);
   }
@@ -3516,11 +3524,12 @@ function assembleSummaries() {
 
 /**
  * Normalize a source slice and persist the repair before aggregation can cap it.
- * Returns the number of entries repaired, including zero for an already-clean
+ * Returns the number of date/title/description repairs, including zero for an already-clean
  * slice so callers can keep their existing aggregation flow unchanged.
  */
 export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
-  const repaired = normalizeExpiredAtEntries(entries, options);
+  const repaired = normalizeExpiredAtEntries(entries, options)
+    + entries.reduce((count, job) => count + repairJobTranslationSemanticsInPlace(job), 0);
   // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
   // this helper runs before the aggregate cap and must not leave a truncated
   // source slice if the process is interrupted during persistence.

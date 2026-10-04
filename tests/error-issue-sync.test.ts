@@ -293,6 +293,138 @@ describe('app-error-issue-sync.mjs', () => {
   });
 });
 
+// Feeder app-error: issue riconfermata senza eventi negli ultimi 7 giorni.
+//
+// The GA4 report is a TRAILING 30-day window. Before this gate, issue 8612 was
+// re-confirmed with the identical "21 hit / 11 utenti" in four weekly reports
+// while GA4 showed 129 events on one day and 3 in the last 7.
+describe('app-error-issue-sync.mjs — recency, production host, chunk-load family', () => {
+  const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString().slice(0, 10);
+  const CHUNK = 'TypeError: Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/';
+  const reportWith = (appErrors: unknown[]) => JSON.stringify({
+    ga4: { errorHealth: { totalErrors: 300, errorRate: 0.3, healthStatus: '🟢 HEALTHY', appErrors, topStacks: [] } },
+  });
+  const titles = () => createCalls().map((c) => c[c.indexOf('--title') + 1]);
+  const bodies = () => createCalls().map((c) => c[c.indexOf('--body') + 1]);
+
+  it('does NOT file an old spike: 129 hits in the window, 0 in the last 7 days', async () => {
+    issueListEmptyThenCreate(601);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', hostName: 'frontaliereticino.ch', count: 129, users: 40, last7d: 0, lastSeen: daysAgo(24) },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('does NOT file when the last 7 days are below MIN_COUNT, whatever the 30-day total', async () => {
+    issueListEmptyThenCreate(602);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', hostName: 'frontaliereticino.ch', count: 129, users: 40, last7d: 3, lastSeen: daysAgo(2) },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('files a recent error and writes window total, last 7 days, last seen and the truncation note', async () => {
+    issueListEmptyThenCreate(603);
+    const seen = daysAgo(1);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', hostName: 'frontaliereticino.ch', count: 129, users: 40, last7d: 17, lastSeen: seen },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(1);
+    const [body] = bodies();
+    expect(body).toContain('**Hits (report window):** 129');
+    expect(body).toContain('**Last 7 days:** 17');
+    expect(body).toContain(`**Last seen:** ${seen}`);
+    expect(body).toContain('truncates `error_message` at 100 characters');
+    expect(body).toContain('prima=17 hit negli ultimi 7 giorni (129 nella finestra del report)');
+  });
+
+  it('ranks and escalates on the last 7 days, not on the window total', async () => {
+    issueListEmptyThenCreate(604);
+    readFileSync.mockReturnValue(reportWith([
+      // Big old total, barely alive: must NOT be priority:high (count >= 50 used to be enough).
+      { errorType: 'TypeError', errorMessage: 'old but still twitching', pagePath: '/it/a/', hostName: 'frontaliereticino.ch', count: 400, users: 90, last7d: 6, lastSeen: daysAgo(1) },
+      { errorType: 'TypeError', errorMessage: 'burning right now', pagePath: '/it/b/', hostName: 'frontaliereticino.ch', count: 80, users: 30, last7d: 75, lastSeen: daysAgo(0) },
+    ]));
+
+    await appErrorSync.main();
+
+    const calls = createCalls();
+    expect(titles()[0]).toContain('burning right now');
+    const labelsOf = (call: string[]) => call.filter((_, i) => call[i - 1] === '--label');
+    expect(labelsOf(calls[0])).toContain('priority:high');
+    expect(labelsOf(calls[1])).not.toContain('priority:high');
+  });
+
+  it('discards an entry from a non-production host (dev server, Firebase service domain)', async () => {
+    issueListEmptyThenCreate(605);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'dev server noise', pagePath: '/', hostName: '127.0.0.1', count: 37, users: 1, last7d: 37, lastSeen: daysAgo(0) },
+      { errorType: 'TypeError', errorMessage: 'firebase service domain', pagePath: '/', hostName: 'frontaliere-ticino.firebaseapp.com', count: 30, users: 2, last7d: 30, lastSeen: daysAgo(0) },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('files ONE canonical issue for two truncated URLs of the chunk-load family', async () => {
+    issueListEmptyThenCreate(606);
+    const members = [
+      { errorType: 'error_boundary', errorMessage: `${CHUNK}News`, pagePath: '/it/news/', hostName: 'frontaliereticino.ch', count: 21, users: 11, last7d: 4, lastSeen: daysAgo(2) },
+      { errorType: 'api_error', errorMessage: `${CHUNK}seoService.js`, pagePath: '/it/', hostName: 'frontaliereticino.ch', count: 20, users: 9, last7d: 3, lastSeen: daysAgo(1) },
+    ];
+    readFileSync.mockReturnValue(reportWith(members));
+
+    await appErrorSync.main();
+
+    // Each member alone is below MIN_COUNT in the last 7 days: the class is the unit.
+    expect(createCalls()).toHaveLength(1);
+    const [title] = titles();
+    expect(title).toBe('App Error: chunk load — Failed to fetch dynamically imported module (famiglia)');
+    const [body] = bodies();
+    for (const m of members) expect(body).toContain(m.pagePath);
+    expect(body).toContain('**Hits (report window):** 41');
+    expect(body).toContain('**Last 7 days:** 7');
+    expect(body).toContain(`**Last seen:** ${daysAgo(1)}`);
+  });
+
+  it('does NOT file the chunk-load family when the whole family is an old spike', async () => {
+    issueListEmptyThenCreate(607);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'error_boundary', errorMessage: `${CHUNK}News`, pagePath: '/it/news/', hostName: 'frontaliereticino.ch', count: 129, users: 60, last7d: 3, lastSeen: daysAgo(3) },
+      { errorType: 'api_error', errorMessage: `${CHUNK}seoService.js`, pagePath: '/it/', hostName: 'frontaliereticino.ch', count: 20, users: 9, last7d: 0, lastSeen: daysAgo(20) },
+    ]));
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+  });
+
+  it('a report without `last7d` is "not measured", not zero: the entry still files and the body says so', async () => {
+    issueListEmptyThenCreate(608);
+    readFileSync.mockReturnValue(reportWith([
+      { errorType: 'TypeError', errorMessage: 'x is not a function', pagePath: '/it/lavoro/', count: 12, users: 9 },
+    ]));
+    const logged = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    await appErrorSync.main();
+
+    expect(createCalls()).toHaveLength(1);
+    expect(bodies()[0]).toContain('not measured by this report');
+    expect(logged.mock.calls.flat().join('\n')).toContain('recency gate NOT applied');
+    logged.mockRestore();
+  });
+});
+
 describe('posthog-error-issue-sync.mjs', () => {
   /**
    * main() now runs the PostHog vitality guard (scripts/lib/source-liveness.mjs)

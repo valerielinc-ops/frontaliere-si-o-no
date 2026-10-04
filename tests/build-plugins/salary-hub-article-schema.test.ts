@@ -62,9 +62,9 @@ describe('salary-hub evergreen articles — Article JSON-LD', () => {
       expect(url).toMatch(/^https?:\/\//);
       expect((article!.mainEntityOfPage as Record<string, unknown>)['@id']).toBe(url);
 
-      // Dates present and ISO — day-truncated so they don't churn per deploy.
-      expect(article!.datePublished).toMatch(/^\d{4}-\d{2}-\d{2}T00:00:00\.000Z$/);
-      expect(article!.dateModified).toMatch(/^\d{4}-\d{2}-\d{2}T00:00:00\.000Z$/);
+      // Optional dates need editorial provenance; a rebuild is not publication.
+      expect(article).not.toHaveProperty('datePublished');
+      expect(article).not.toHaveProperty('dateModified');
 
       // Explicit author + publisher E-E-A-T signal.
       const author = article!.author as Record<string, unknown>;

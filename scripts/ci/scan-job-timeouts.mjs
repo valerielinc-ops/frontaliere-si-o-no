@@ -114,12 +114,30 @@
  * dropped for long workflow names. The reshaped title no longer matches `TITLE_RE` in
  * `close-recovered-failure-issues.mjs`, so that reconciler leaves it alone entirely —
  * separate population, separate thread, no cross-contamination either direction.
+ *
+ * CHI CHIUDE `CI Failure (<evento>): <workflow>` — `--resolve`, in questo stesso file.
+ * Tenere quel titolo fuori dal reconciler era giusto, ma lasciava la famiglia senza
+ * nessun chiuditore sul verde: l'unica uscita era l'age-out del drainer (≥10 giorni
+ * di silenzio), cioè una chiusura per inattività, non per guarigione. La issue 10809
+ * («CI Failure (pull_request): Assisted application portal e2e», aperta il 01-10) era
+ * risolta da 4 run pulite dello stesso evento il 03-10 ed è rimasta aperta finché non
+ * l'ha chiusa una persona. `node scripts/ci/scan-job-timeouts.mjs --resolve` chiude una
+ * issue di questa famiglia quando le ultime `RESOLVE_CLEAN_RUNS` run della STESSA
+ * popolazione che l'ha aperta (stesso workflow, stesso evento, fuori da `main`: la
+ * parità è `scopedTitle(run) === title`) create dopo l'apertura non hanno job morti per
+ * timeout né uccisi dall'host. Le run `skipped` e le `cancelled` senza annotazione di
+ * timeout (concorrenza, annullo a mano) non contano né pro né contro. Fail-closed: jobs
+ * o annotazioni illeggibili, meno di tre run utili, label `keep-open` /
+ * `agent:no-age-out` / claim `agent:in-progress`, oppure un body senza la firma dello
+ * scanner → la issue resta aperta. `CI Failure (deploy|build):` NON sono eventi: hanno
+ * il loro chiuditore nel workflow di deploy e questo non le guarda mai.
  */
 import { execFileSync } from 'node:child_process';
 import {
   createGithubIssue,
   commentOnGithubIssue,
   isFailureReportingDisabled,
+  resolveGithubIssueByNumber,
   searchSafePrefix,
 } from '../lib/github-issue-creator.mjs';
 // Il body di queste issue non deve MAI citare un path `.github/workflows/**`:
@@ -131,6 +149,7 @@ import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
+const RESOLVE_MODE = process.argv.includes('--resolve');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const LOOKBACK_MINUTES = intFromEnv('TIMEOUT_SCAN_LOOKBACK_MINUTES', 75);
 // `updated_at` e' il clock dell'osservatore, ma l'API filtra solo `created`.
@@ -176,6 +195,9 @@ export function assertRunAgeHorizon({
 // search e' sotto il limite, poi si paginano tutte le sue pagine.
 const RUN_SEARCH_RESULT_CAP = 1000;
 const RUN_SEARCH_MAX_SPLIT_DEPTH = 20;
+// This file is transported as a byte-identical twin. Keep this signature
+// self-contained: importing the shared module would require a matching corpus
+// manifest entry, while the twin must remain runnable with its declared graph.
 const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum number of minutes)/i;
 // A job that has only just failed can be read back mid-finalisation, with a step
 // still momentarily `in_progress` — indistinguishable from a host-kill. Ignore
@@ -522,6 +544,50 @@ function listJobs(runId) {
 // BRANCH-SCOPED TITLE note in the module docstring above.
 const RECURRENCE_GATE_BRANCH = 'main';
 
+// Il segnaposto di `scopedTitle` per una run senza `event`.
+const UNKNOWN_EVENT = 'unknown';
+
+/**
+ * Gli eventi GitHub che `scopedTitle` puo' mettere fra parentesi, cioe' la famiglia che
+ * `--resolve` chiude. Elenco CHIUSO e non `[a-z_]+`: `CI Failure (deploy):` e
+ * `CI Failure (build):` hanno la stessa forma, non sono eventi, e hanno gia' il loro
+ * chiuditore nel workflow di deploy — una regex aperta darebbe loro un secondo
+ * chiuditore con un criterio (assenza di timeout) che non c'entra con il loro guasto.
+ * `tests/scan-job-timeouts-resolve.test.ts` verifica che ogni evento dichiarato nell'
+ * `on:` di un workflow del repo sia qui: un evento nuovo senza questa riga darebbe di
+ * nuovo una issue immortale. `unknown` e' il segnaposto per una run senza `event`: e'
+ * riconosciuto ma non chiudibile (nessuna run ha quell'evento, quindi restano sempre
+ * meno di tre run utili).
+ */
+export const SCOPED_TITLE_EVENTS = Object.freeze([
+  'issue_comment',
+  'issues',
+  'merge_group',
+  'pull_request',
+  'pull_request_review',
+  'pull_request_target',
+  'push',
+  'repository_dispatch',
+  'schedule',
+  'workflow_dispatch',
+  'workflow_run',
+  UNKNOWN_EVENT,
+]);
+
+/** `CI Failure (<evento>): <workflow>` per un evento dell'elenco chiuso. */
+export const SCOPED_TIMEOUT_TITLE_RE = new RegExp(
+  `^CI Failure \\((${SCOPED_TITLE_EVENTS.join('|')})\\): (.+)$`,
+);
+
+/**
+ * La firma che OGNI body scritto da questo scanner porta (timeout e host-kill), fra
+ * backtick. E' la seconda condizione obbligatoria di `--resolve`: un titolo della forma
+ * giusta senza firma non e' di questa famiglia e non si tocca. `route-already-fixed.mjs`
+ * ne tiene una copia letterale (`JOB_TIMEOUT_REPORT_SIGNATURE`) per non importare il
+ * grafo di questo scanner; `tests/scan-job-timeouts-resolve.test.ts` le tiene allineate.
+ */
+export const JOB_TIMEOUT_REPORT_SIGNATURE = 'scripts/ci/scan-job-timeouts.mjs';
+
 /**
  * `CI Failure: <workflow>` for a run on the branch the recurrence gate measures, else
  * `CI Failure (<event>): <workflow>` — discriminant FIRST, so it survives the 60-char
@@ -530,7 +596,18 @@ const RECURRENCE_GATE_BRANCH = 'main';
  */
 export function scopedTitle(run) {
   if (run?.head_branch === RECURRENCE_GATE_BRANCH) return `CI Failure: ${run.name}`;
-  return `CI Failure (${run?.event || 'unknown'}): ${run.name}`;
+  return `CI Failure (${run?.event || UNKNOWN_EVENT}): ${run.name}`;
+}
+
+/** `{ event, workflow }` per un titolo della famiglia, altrimenti `null`. */
+export function parseScopedTimeoutTitle(title) {
+  const m = SCOPED_TIMEOUT_TITLE_RE.exec(String(title ?? ''));
+  return m ? { event: m[1], workflow: m[2] } : null;
+}
+
+/** Il body porta la firma dello scanner (fra backtick, come la scrive il body)? */
+export function hasScannerSignature(body) {
+  return String(body ?? '').includes(`\`${JOB_TIMEOUT_REPORT_SIGNATURE}\``);
 }
 
 function findTimeoutAnnotation(job) {
@@ -565,6 +642,210 @@ export function detectHostKill(job, nowMs = Date.now()) {
   // the workflow reported nothing about itself.
   const neverRan = steps.filter((s) => s?.status === 'queued' || s?.status === 'pending');
   return { stuck, neverRan };
+}
+
+/* ── --resolve: chi chiude `CI Failure (<evento>): <workflow>` ─────────── */
+
+/** Quante run pulite consecutive (le piu' recenti) servono per chiudere. */
+export const RESOLVE_CLEAN_RUNS = 3;
+
+/**
+ * Label che sottraggono una issue a ogni chiusura automatica: `keep-open` e
+ * `agent:no-age-out` sono le esenzioni del proprietario (`FIXER_EXEMPT_LABELS` in
+ * `scripts/lib/classify-issue.mjs`), `agent:in-progress` e' il claim di chi ci sta
+ * lavorando. Letterali e non importati: questo file scende `identical` nel corpus e
+ * un import nuovo allargherebbe la chiusura del trasporto.
+ */
+export const RESOLVE_SKIP_LABELS = Object.freeze(['keep-open', 'agent:no-age-out', 'agent:in-progress']);
+
+// Conclusioni di run che non hanno esercitato i job: niente da misurare, ne' pro ne' contro.
+const NOT_EXERCISED_CONCLUSIONS = new Set(['skipped', 'startup_failure', 'action_required', 'stale']);
+
+/**
+ * Annotazioni lette davvero? `null` (lettura fallita), una forma non-array, o un
+ * elenco VUOTO non provano l'assenza di un timeout: misurato il 2026-10-03 sulle run
+ * cancellate per concorrenza di «Assisted application portal e2e» (37120413990,
+ * 37115403358), un job cancellato CHE HA ESEGUITO STEP porta 2-3 annotazioni
+ * («Canceling since a higher priority waiting request …», «The operation was
+ * canceled.»), quindi per lui «nessuna annotazione» e' un silenzio, non una misura.
+ * Il job cancellato prima di partire (steps vuoti) non arriva qui: vedi `neverRan`.
+ * Stessa regola di
+ * `hasReadableAnnotations` in `close-recovered-failure-issues.mjs`.
+ */
+function annotationsReadable(annotations) {
+  return Array.isArray(annotations)
+    && annotations.length > 0
+    && annotations.every((a) => a && typeof a.message === 'string');
+}
+
+function stepsOf(job) {
+  return Array.isArray(job?.steps) ? job.steps : [];
+}
+
+/**
+ * Il job non ha mai eseguito niente: `steps` e' un array (letto davvero) e nessuno
+ * step ha raggiunto `in_progress` o `completed`. `steps` assente o malformato NON e'
+ * una prova: si ricade sulla lettura delle annotazioni (fail-closed).
+ */
+function neverRan(job) {
+  return Array.isArray(job?.steps)
+    && !job.steps.some((s) => s?.status === 'in_progress' || s?.status === 'completed');
+}
+
+function isTimeoutAnnotation(a) {
+  return TIMEOUT_ANNOTATION_RE.test(
+    [a?.message, a?.title, a?.raw_details].filter((v) => typeof v === 'string').join('\n'),
+  );
+}
+
+/**
+ * Verdetto di UNA run completata per `--resolve`. Puro: jobs e annotazioni arrivano
+ * dal chiamante (`readAnnotations(job)` → array piatto, o `null` se illeggibile).
+ *
+ *   clean          `success`/`neutral`: nessun job morto (lo scanner apre solo su
+ *                  run `cancelled`/`failure`, quindi non legge i job di una verde).
+ *   clean-failure  `failure` senza timeout ne' host-kill: rossa, ma per un'altra
+ *                  ragione. Conta come run senza timeout e va DETTA nel commento.
+ *   timeout        un job con l'annotazione «exceeded … maximum execution time»,
+ *                  o `timed_out` dichiarato dall'API.
+ *   host-kill      un job `failure` con uno step rimasto `in_progress`.
+ *   ignored        `skipped` & co. (non ha girato) o `cancelled` senza timeout
+ *                  (concorrenza, annullo a mano): non prova niente. Un job
+ *                  cancellato che non ha eseguito nessuno step non e' un timeout
+ *                  e non si leggono le sue annotazioni (sono vuote).
+ *   unknown        jobs o annotazioni illeggibili, o un possibile host-kill ancora
+ *                  nella finestra di assestamento → fail-closed.
+ *
+ * @returns {{ verdict: string, detail?: string }}
+ */
+export function classifyRunForResolve(run, { jobsData, readAnnotations, nowMs = Date.now() } = {}) {
+  const conclusion = run?.conclusion;
+  if (NOT_EXERCISED_CONCLUSIONS.has(conclusion)) return { verdict: 'ignored', detail: conclusion };
+  if (conclusion === 'success' || conclusion === 'neutral') return { verdict: 'clean' };
+  if (conclusion === 'timed_out') return { verdict: 'timeout', detail: 'run timed_out' };
+  if (conclusion !== 'cancelled' && conclusion !== 'failure') {
+    return { verdict: 'unknown', detail: `conclusione ${conclusion ?? 'assente'}` };
+  }
+
+  const jobs = jobsData?.jobs;
+  const total = Number(jobsData?.total_count);
+  if (!Array.isArray(jobs) || !Number.isInteger(total) || total !== jobs.length) {
+    return { verdict: 'unknown', detail: 'jobs illeggibili o incompleti' };
+  }
+  let unreadable = null;
+  for (const job of jobs) {
+    if (job?.conclusion === 'timed_out') return { verdict: 'timeout', detail: job?.name };
+    if (detectHostKill(job, nowMs)) return { verdict: 'host-kill', detail: job?.name };
+    // Uno step ancora `in_progress` in un job `failure` che `detectHostKill` non
+    // conferma solo per la finestra di assestamento: forse un host-kill, non si sa
+    // ancora → illeggibile, non `clean-failure` (chiudere ora perderebbe la
+    // ricorrenza: lo scan successivo non riapre una issue chiusa dopo il fatto).
+    if (job?.conclusion === 'failure' && stepsOf(job).some((s) => s?.status === 'in_progress')) {
+      unreadable ??= `${job?.name || '?'}: step in_progress in assestamento`;
+      continue;
+    }
+    if (job?.conclusion !== 'cancelled') continue;
+    // Un job cancellato prima di eseguire un solo step (tipicamente in attesa di un
+    // `needs:` quando la concorrenza annulla la run) non puo' aver superato
+    // `timeout-minutes`, e le sue annotazioni sono vuote per costruzione: misurato su
+    // `tests` 37171177520, job `post-review` cancellato con steps=[] e annotations=[].
+    if (neverRan(job)) continue;
+    const annotations = job?.check_run_url ? readAnnotations(job) : null;
+    if (!annotationsReadable(annotations)) {
+      unreadable ??= `annotazioni illeggibili: ${job?.name || '?'}`;
+      continue;
+    }
+    if (annotations.some(isTimeoutAnnotation)) return { verdict: 'timeout', detail: job?.name };
+  }
+  // Un timeout certo vince su un'annotazione illeggibile altrove; il contrario no.
+  if (unreadable !== null) return { verdict: 'unknown', detail: unreadable };
+  return conclusion === 'failure'
+    ? { verdict: 'clean-failure' }
+    : { verdict: 'ignored', detail: 'cancelled senza timeout' };
+}
+
+/**
+ * Chiudere o no una issue `CI Failure (<evento>): <workflow>`. Puro e pigro:
+ * `classify(run)` e' invocato solo finche' la decisione non e' presa, quindi il costo
+ * in chiamate API e' limitato alle run davvero lette.
+ *
+ * La popolazione e' quella che ha APERTO la issue: run completate dello stesso
+ * workflow il cui `scopedTitle` coincide col titolo (stesso evento, fuori da `main`),
+ * create dopo l'apertura. Dalla piu' recente: la prima run morta (timeout/host-kill)
+ * o illeggibile tiene aperto; `RESOLVE_CLEAN_RUNS` run senza timeout chiudono.
+ *
+ * @param {{ title: string, issueCreatedAt: string,
+ *           runs: Array<{databaseId?: number, conclusion?: string, status?: string,
+ *                        createdAt?: string, headBranch?: string, event?: string, url?: string}>,
+ *           classify: (run: object) => {verdict: string, detail?: string},
+ *           k?: number }} input
+ */
+export function decideScopedTimeoutResolution({ title, issueCreatedAt, runs, classify, k = RESOLVE_CLEAN_RUNS }) {
+  const parsed = parseScopedTimeoutTitle(title);
+  if (!parsed) return { action: 'keep', reason: 'titolo fuori dalla famiglia', counted: [], ignored: 0 };
+  const openedMs = Date.parse(issueCreatedAt || '');
+  if (!Number.isFinite(openedMs)) {
+    return { action: 'keep', reason: 'data di apertura illeggibile', counted: [], ignored: 0 };
+  }
+  const population = (Array.isArray(runs) ? runs : [])
+    .filter((r) => r?.status === undefined || r.status === 'completed')
+    .filter((r) => Date.parse(r?.createdAt || '') > openedMs)
+    .filter((r) => scopedTitle({ head_branch: r?.headBranch, event: r?.event, name: parsed.workflow }) === title)
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
+      || Number(b?.databaseId ?? 0) - Number(a?.databaseId ?? 0));
+
+  const counted = [];
+  let ignored = 0;
+  for (const run of population) {
+    const { verdict, detail } = classify(run);
+    if (verdict === 'ignored') { ignored += 1; continue; }
+    if (verdict === 'clean' || verdict === 'clean-failure') {
+      counted.push({ run, verdict });
+      if (counted.length >= k) {
+        return { action: 'close', reason: `${k} run senza timeout dopo l'apertura`, counted, ignored };
+      }
+      continue;
+    }
+    const where = run?.url || run?.databaseId || '?';
+    const label = verdict === 'unknown' ? 'run illeggibile' : `run ${verdict}`;
+    return {
+      action: 'keep',
+      reason: `${label} ${where}${detail ? ` (${detail})` : ''} prima di ${k} run pulite`,
+      counted,
+      ignored,
+    };
+  }
+  return {
+    action: 'keep',
+    reason: `solo ${counted.length} run senza timeout dopo l'apertura (ne servono ${k})`,
+    counted,
+    ignored,
+  };
+}
+
+/** Il marcatore del commento di evidenza di `--resolve`. */
+export const RESOLVE_EVIDENCE_MARKER = '<!-- scan-job-timeouts:resolve -->';
+
+/** Il commento che accompagna la chiusura: le run che la giustificano, senza tacere i rossi. */
+export function resolveEvidenceComment({ event, workflow, decision }) {
+  const lines = [
+    RESOLVE_EVIDENCE_MARKER,
+    `✅ Timeout non più osservato: le ultime ${decision.counted.length} run di «${workflow}» `
+      + `per l'evento \`${event}\` fuori da \`main\`, create dopo l'apertura di questa issue, `
+      + 'non hanno job morti per timeout né uccisi dall’host.',
+    '',
+  ];
+  for (const { run, verdict } of decision.counted) {
+    const url = run?.url || `run ${run?.databaseId ?? '?'}`;
+    lines.push(verdict === 'clean-failure'
+      ? `- ${url} — **failure senza timeout**: non riguarda questa issue, ma è un rosso da guardare.`
+      : `- ${url} — ${run?.conclusion || 'success'}`);
+  }
+  if (decision.ignored > 0) {
+    lines.push('', `Run non contate (\`skipped\`, o \`cancelled\` senza annotazione di timeout — concorrenza o annullo a mano): ${decision.ignored}.`);
+  }
+  lines.push('', 'Chiusa da `scripts/ci/scan-job-timeouts.mjs --resolve`; se il timeout torna, lo scan la riapre.');
+  return lines.join('\n');
 }
 
 function issueRepoFlag() {
@@ -678,6 +959,16 @@ export async function main() {
     if (isFailureReportingDisabled()) {
       console.log(`[scan-job-timeouts] ENABLE_FAILURE_REPORT=false; skipping issue persistence for ${runUrl}`);
       return;
+    }
+
+    // L'apertura e la chiusura sono accoppiate: un titolo con scope fuori dall'elenco
+    // chiuso di `SCOPED_TITLE_EVENTS` non lo chiude nessuno, quindi va detto ad alta
+    // voce invece di aprire in silenzio una issue immortale.
+    if (!title.startsWith('CI Failure: ') && !SCOPED_TIMEOUT_TITLE_RE.test(title)) {
+      console.warn(
+        `::warning::[scan-job-timeouts] Reporter di timeout: titolo per evento senza un chiuditore `
+          + `registrato — "${title}". Aggiungi l'evento a SCOPED_TITLE_EVENTS.`,
+      );
     }
 
     const already = emittedByTitle.get(title);
@@ -855,8 +1146,162 @@ export async function main() {
   console.log(`[scan-job-timeouts] done — ${reported} dead job(s) reported (dry-run=${DRY_RUN}).`);
 }
 
+/** Run completate di `workflow` per `event` create dal giorno di `sinceIso`, o `null` se illeggibili. */
+function listScopedRuns(workflow, event, sinceIso) {
+  const raw = gh([
+    'run', 'list', '-w', workflow, '-e', event, '-s', 'completed',
+    '--created', `>=${String(sinceIso).slice(0, 10)}`,
+    '-L', '100',
+    '--json', 'databaseId,conclusion,status,createdAt,headBranch,event,url',
+    ...issueRepoFlag(),
+  ], { allowFailure: true });
+  if (raw === null) return null;
+  try {
+    const runs = JSON.parse(raw);
+    return Array.isArray(runs) ? runs : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * `--resolve`: chiude le `CI Failure (<evento>): <workflow>` guarite. Vedi la nota
+ * «CHI CHIUDE» nel docstring del modulo e `decideScopedTimeoutResolution`.
+ * Con `--dry-run` stampa la decisione per issue e non scrive niente.
+ */
+export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Date.now() } = {}) {
+  const listed = gh([
+    'issue', 'list', '--state', 'open', '--limit', String(OPEN_ISSUE_LISTING_SAFETY_CAP),
+    '--json', 'number,title,labels,createdAt', ...issueRepoFlag(),
+  ], { allowFailure: true });
+  if (listed === null) throw new Error('listing delle issue aperte fallito');
+  const issues = parseIssueList(listed);
+  if (issues.length >= OPEN_ISSUE_LISTING_SAFETY_CAP) {
+    console.warn(
+      `::warning::[scan-job-timeouts] --resolve: cap di sicurezza (${OPEN_ISSUE_LISTING_SAFETY_CAP}) `
+        + 'raggiunto sul listing issue aperte — possibile troncamento della famiglia.',
+    );
+  }
+  const family = issues.filter((issue) => parseScopedTimeoutTitle(issue?.title));
+  console.log(
+    `[scan-job-timeouts] --resolve: ${family.length} issue della famiglia \`CI Failure (<evento>)\` `
+      + `(dry-run=${dryRun}).`,
+  );
+
+  const failures = [];
+  let closed = 0;
+  for (const issue of family) {
+    const { event, workflow } = parseScopedTimeoutTitle(issue.title);
+    const tag = `#${issue.number} «${issue.title}»`;
+    const labels = (issue.labels || []).map((l) => (typeof l === 'string' ? l : l?.name));
+    const exempt = RESOLVE_SKIP_LABELS.find((l) => labels.includes(l));
+    if (exempt) {
+      console.log(`[scan-job-timeouts] --resolve: ${tag} → keep (label ${exempt})`);
+      continue;
+    }
+    // Le gemelle gia' visibili restano aperte e si dice perche'; il listing e' in
+    // memoria. Se una gemella nasce nella race dopo questo controllo, il resolver
+    // riceve comunque il numero valutato e non puo' reindirizzare la chiusura.
+    const twins = issues.filter((other) => other?.title === issue.title);
+    if (twins.length > 1) {
+      console.log(
+        `[scan-job-timeouts] --resolve: ${tag} → keep (gemelle aperte: ${twins.map((t) => `#${t.number}`).join(', ')})`,
+      );
+      continue;
+    }
+    const viewed = gh(['issue', 'view', String(issue.number), '--json', 'body,comments', ...issueRepoFlag()], { allowFailure: true });
+    let body = null;
+    let comments = [];
+    try {
+      const parsedView = viewed === null ? null : JSON.parse(viewed);
+      body = parsedView === null ? null : parsedView?.body ?? '';
+      comments = Array.isArray(parsedView?.comments) ? parsedView.comments : [];
+    } catch { body = null; }
+    if (body === null) {
+      console.log(`[scan-job-timeouts] --resolve: ${tag} → keep (body illeggibile)`);
+      continue;
+    }
+    if (!hasScannerSignature(body)) {
+      console.log(`[scan-job-timeouts] --resolve: ${tag} → non toccata (body senza la firma dello scanner)`);
+      continue;
+    }
+    const runs = listScopedRuns(workflow, event, issue.createdAt);
+    if (runs === null) {
+      console.log(`[scan-job-timeouts] --resolve: ${tag} → keep (run illeggibili)`);
+      continue;
+    }
+    const decision = decideScopedTimeoutResolution({
+      title: issue.title,
+      issueCreatedAt: issue.createdAt,
+      runs,
+      classify: (run) => classifyRunForResolve(run, {
+        // I jobs servono solo a una run rossa o cancellata: una verde non li legge.
+        jobsData: run?.conclusion === 'cancelled' || run?.conclusion === 'failure'
+          ? ghJson(repoPath(`actions/runs/${run.databaseId}/jobs?per_page=100`))
+          : null,
+        readAnnotations: readPaginatedAnnotations,
+        nowMs,
+      }),
+    });
+    console.log(
+      `[scan-job-timeouts] --resolve: ${tag} → ${decision.action} (${decision.reason}; `
+        + `${decision.counted.length} run pulite, ${decision.ignored} non contate)`,
+    );
+    if (decision.action !== 'close' || dryRun) continue;
+    if (isFailureReportingDisabled()) {
+      console.log(`[scan-job-timeouts] ENABLE_FAILURE_REPORT=false; ${tag} non chiusa`);
+      continue;
+    }
+
+    // Il commento PRIMA della chiusura: e' lui a dire quali run la giustificano e se
+    // fra quelle c'e' un rosso non-timeout. Senza commento, niente chiusura. Se
+    // l'ultimo commento e' gia' un'evidenza (chiusura fallita al tick precedente),
+    // non se ne aggiunge un'altra ogni ora: una ricorrenza nel frattempo avrebbe
+    // lasciato il suo commento 🔁 in coda e l'evidenza si riscriverebbe.
+    // Non si usa `preface` di resolveGithubIssueByNumber: e' best-effort e perderebbe
+    // la garanzia «niente commento, niente chiusura» (prezzo: un'evidenza puo' restare
+    // su un'issue chiusa o rinominata fra la decisione e la rilettura).
+    const lastComment = comments.length > 0 ? String(comments[comments.length - 1]?.body ?? '') : '';
+    const evidenceAlreadyLast = lastComment.includes(RESOLVE_EVIDENCE_MARKER);
+    if (!evidenceAlreadyLast
+      && !commentOnGithubIssue(issue.number, resolveEvidenceComment({ event, workflow, decision }))) {
+      failures.push(`${tag}: commento di evidenza non scritto`);
+      continue;
+    }
+    // Si chiude il NUMERO valutato, riletto subito prima della scrittura: chiusa o
+    // rinominata dopo la decisione → nessuna scrittura (stessa API di LC-24c).
+    try {
+      const result = resolveGithubIssueByNumber(issue.number, {
+        expectedTitle: issue.title,
+        workflow,
+        runUrl: decision.counted[0]?.run?.url,
+      });
+      if (result?.persisted === true) closed += 1;
+      else if (result?.skipped === 'not-open' || result?.skipped === 'title-changed') {
+        console.log(`[scan-job-timeouts] --resolve: ${tag} → non chiusa (${result.skipped} dopo la decisione)`);
+      } else failures.push(`${tag}: resolve senza conferma di chiusura${result?.skipped ? ` (${result.skipped})` : ''}`);
+    } catch (err) {
+      failures.push(`${tag}: ${err.message}`);
+    }
+  }
+  console.log(`[scan-job-timeouts] --resolve: ${closed} issue chiuse (dry-run=${dryRun}).`);
+  if (failures.length > 0) {
+    throw new Error(`--resolve: ${failures.length} chiusura/e fallite — ${failures.join('; ')}`);
+  }
+}
+
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
-if (process.argv[1]?.endsWith('scan-job-timeouts.mjs')) {
+if (process.argv[1]?.endsWith('scan-job-timeouts.mjs') && RESOLVE_MODE) {
+  Promise.resolve()
+    .then(() => resolveScopedTimeoutIssues())
+    .catch((err) => {
+      // Il passo gira con `continue-on-error`: senza un'annotazione un chiuditore rotto
+      // resterebbe visibile solo nei log, e la famiglia tornerebbe immortale in silenzio.
+      console.warn(`::warning::[scan-job-timeouts] --resolve fallito: ${err.message}`);
+      console.error(`[scan-job-timeouts] fatal: ${err.message}`);
+      process.exit(1);
+    });
+} else if (process.argv[1]?.endsWith('scan-job-timeouts.mjs')) {
   Promise.resolve()
     .then(() => assertRunAgeHorizon())
     .then(() => main())

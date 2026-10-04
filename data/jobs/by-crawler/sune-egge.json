@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sune-egge",
-  "assembledAt": "2026-10-03T09:32:27.400Z",
+  "assembledAt": "2026-10-04T09:31:04.322Z",
   "jobs": [
     {
       "id": "sune-egge-7c8cadfd59a2",
@@ -33,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2814735",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:22.010Z",
+      "crawledAt": "2026-10-04T09:30:58.928Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2814735",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-60-100-nachtdienst-sune-egge-zurich",
         "dipl-infermiera-infermiera-hf-60-100-servizio-notturno-fachspital-sune-egge-zurich"
@@ -79,8 +80,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sune-egge-14ef2fbe3c2b",
@@ -113,7 +113,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2805911",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:21.350Z",
+      "crawledAt": "2026-10-04T09:30:58.327Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2773194",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:20.963Z",
+      "crawledAt": "2026-10-04T09:30:57.777Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2763228",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:20.297Z",
+      "crawledAt": "2026-10-04T09:30:57.550Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,6 +296,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2763228",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich",
         "trainee-health-professional-trainee-health-professional-fachspital-sune-egge-zurich"
@@ -325,8 +326,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sune-egge-0635d0596005",
@@ -359,7 +359,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2729968",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:19.634Z",
+      "crawledAt": "2026-10-04T09:30:57.326Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:18.961Z",
+      "crawledAt": "2026-10-04T09:30:56.715Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",

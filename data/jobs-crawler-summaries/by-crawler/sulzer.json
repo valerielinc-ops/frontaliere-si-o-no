@@ -1,7 +1,7 @@
 {
   "key": "sulzer",
   "label": "Sulzer",
-  "generatedAt": "2026-10-03T09:29:05.684Z",
+  "generatedAt": "2026-10-04T09:27:10.631Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,12 +14,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6516,
-  "avgDurationMs": 6516,
+  "durationMs": 6792,
+  "avgDurationMs": 6792,
   "durationHistory": [
-    5050,
-    4186,
-    6516
+    6792
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:28:53.931Z",
+      "crawledAt": "2026-10-04T09:26:54.522Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,7 +46,9 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-12",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "jobReqId": "JR102620",
       "firstSeenAt": "2026-08-12T10:39:20.318Z",
@@ -73,7 +73,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:28:54.821Z",
+      "crawledAt": "2026-10-04T09:26:55.402Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,9 @@
       "sector": "Industria",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-15",
       "postedDate": "2026-07-15",
+      "postingDateSource": "reported",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "jobReqId": "JR103919",
       "firstSeenAt": "2026-07-15T22:43:23.589Z",
@@ -99,5 +101,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

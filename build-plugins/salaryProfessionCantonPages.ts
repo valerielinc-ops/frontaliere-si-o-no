@@ -3,7 +3,7 @@
  *
  * Emits `/stipendio-{professione}-{cantone}/` (+ /en/salary-, /de/gehalt-,
  * /fr/salaire-) for every (canton, profession) pair — among the 8 professions
- * that carry a real TI-scoped median preset (data/profession-salary-medians.json)
+ * that carry a TI reference preset (data/profession-salary-medians.json)
  * — that has at least MIN_JOBS real active jobs in the corpus. Ticino is excluded
  * (its salary-intent need is already served by the TI profession landings, see
  * docs/SALARY-INTENT-CANONICAL-PLAN.md §2).
@@ -12,7 +12,7 @@
  * page (plan §4.3) is the NET-salary estimate (data/swiss-canton-tax-burden.json
  * via cantonNetSalaryBandForCode) and cross-canton context for the same
  * profession — not a re-print of the gross median already shown on the jobs page.
- * The gross median is `medianTi × cantonSalaryFactor` (same scaling mechanism as
+ * The modelled gross reference is `medianTi × cantonSalaryFactor` (same scaling mechanism as
  * salaryStatsChCantonPages), the jobs come from the same corpus aggregation.
  *
  * Below-floor pairs get a noindex,follow bridge to the canton salary-stats hub
@@ -217,13 +217,13 @@ const COPY: Record<ProfessionLocale, Copy> = {
   it: {
     eyebrow: 'Stipendio per professione e cantone',
     h1: (r, c) => `Stipendio ${r} nel Canton ${c}`,
-    lede: (r, c, g, n) => `Stipendio mediano lordo di ${r} nel Canton ${c}: ${g}/anno, circa ${n}/mese netto stimato per un frontaliere single.`,
-    tileGrossYear: 'Mediana lorda / anno',
-    tileGrossMonth: 'Mediana lorda / mese',
+    lede: (r, c, g, n) => `Stima del salario lordo di ${r} nel Canton ${c}: ${g}/anno, circa ${n}/mese netto stimato per un frontaliere single.`,
+    tileGrossYear: 'Stima lorda / anno',
+    tileGrossMonth: 'Stima lorda / mese',
     tileNetMonth: 'Netto mensile stimato',
-    tileRange: 'Fascia indicativa (junior–senior)',
+    tileRange: 'Intervallo simulato',
     netHeading: 'Quanto resta netto',
-    netExplain: (r, c, n) => `Su una mediana lorda per ${r} nel Canton ${c}, il netto mensile stimato per un frontaliere single è circa ${n}, dopo imposta alla fonte cantonale (dati ESTV) e contributi sociali svizzeri. Il netto reale dipende da situazione familiare, comune e accordo fiscale Italia-Svizzera 2024.`,
+    netExplain: (r, c, n) => `Su una stima lorda per ${r} nel Canton ${c}, il netto mensile stimato per un frontaliere single è circa ${n}, dopo imposta alla fonte cantonale (dati ESTV) e contributi sociali svizzeri. Il netto reale dipende da situazione familiare, comune e accordo fiscale Italia-Svizzera 2024.`,
     compareHeading: (r) => `Stipendio ${r}: confronto tra regioni svizzere`,
     compareColRegion: 'Cantone di riferimento',
     compareColGross: 'Lordo / anno',
@@ -238,24 +238,24 @@ const COPY: Record<ProfessionLocale, Copy> = {
     hubProfession: (r) => `Guida alla professione: ${r}`,
     hubCalc: 'Calcola il tuo netto frontaliere',
     methodologyHeading: 'Metodologia e fonti',
-    methodology: (r, c) => `La mediana lorda per ${r} deriva dalla mediana reale del corpus di offerte in Ticino, scalata sul livello salariale del Canton ${c} (mediana BFS della Grossregion, LSE 2024). Il netto usa la curva d'imposta alla fonte cantonale ESTV 2024 più i contributi sociali svizzeri. Le cifre sono stime indicative aggiornate a ogni build sui dati reali.`,
+    methodology: (r, c) => `La stima lorda per ${r} usa un valore di riferimento interno ticinese, la cui provenienza salariale non è verificata per tutti i dati storici, scalata sul livello salariale del Canton ${c} (mediana BFS della Grossregion, LSE 2024). Il netto usa la curva d'imposta alla fonte cantonale ESTV 2024 più i contributi sociali svizzeri. Le cifre sono simulazioni, non mediane osservate per questa professione nel cantone. Il fattore UST è generale e non specifico del mestiere.`,
     perYear: '/anno',
     perMonth: '/mese',
     breadcrumbHome: 'Home',
     breadcrumbSalary: 'Stipendi',
     metaTitle: (r, c, g) => `Stipendio ${r} Canton ${c} — lordo ${g} e netto`,
-    metaDesc: (r, c, g, n) => `Quanto guadagna ${r} nel Canton ${c}: mediana lorda ${g}/anno, netto mensile stimato ${n}, confronto tra regioni e offerte attive. Fonti BFS ed ESTV.`,
+    metaDesc: (r, c, g, n) => `Quanto guadagna ${r} nel Canton ${c}: stima lorda ${g}/anno, netto mensile stimato ${n}, confronto tra regioni e offerte attive. Fonti BFS ed ESTV.`,
   },
   en: {
     eyebrow: 'Salary by profession and canton',
     h1: (r, c) => `${r} salary in Canton ${c}`,
-    lede: (r, c, g, n) => `Median gross ${r} salary in Canton ${c}: ${g}/year, around ${n}/month estimated net for a single cross-border worker.`,
-    tileGrossYear: 'Median gross / year',
-    tileGrossMonth: 'Median gross / month',
+    lede: (r, c, g, n) => `Estimated gross ${r} salary in Canton ${c}: ${g}/year, around ${n}/month estimated net for a single cross-border worker.`,
+    tileGrossYear: 'Estimated gross / year',
+    tileGrossMonth: 'Estimated gross / month',
     tileNetMonth: 'Estimated net / month',
-    tileRange: 'Indicative range (junior–senior)',
+    tileRange: 'Modelled range',
     netHeading: 'What is left net',
-    netExplain: (r, c, n) => `On a median gross ${r} salary in Canton ${c}, the estimated monthly net for a single cross-border worker is around ${n}, after cantonal withholding tax (ESTV data) and Swiss social charges. Real net depends on family situation, commune and the 2024 Italy-Switzerland tax agreement.`,
+    netExplain: (r, c, n) => `On a estimated gross ${r} salary in Canton ${c}, the estimated monthly net for a single cross-border worker is around ${n}, after cantonal withholding tax (ESTV data) and Swiss social charges. Real net depends on family situation, commune and the 2024 Italy-Switzerland tax agreement.`,
     compareHeading: (r) => `${r} salary: comparison across Swiss regions`,
     compareColRegion: 'Reference canton',
     compareColGross: 'Gross / year',
@@ -270,24 +270,24 @@ const COPY: Record<ProfessionLocale, Copy> = {
     hubProfession: (r) => `Profession guide: ${r}`,
     hubCalc: 'Calculate your cross-border net',
     methodologyHeading: 'Methodology and sources',
-    methodology: (r, c) => `The median gross for ${r} derives from the real median of the Ticino job corpus, scaled to the wage level of Canton ${c} (BFS Grossregion median, LSE 2024). Net uses the ESTV 2024 cantonal withholding-tax curve plus Swiss social charges. Figures are indicative estimates refreshed on every build from real data.`,
+    methodology: (r, c) => `The estimated gross for ${r} uses an internal Ticino reference whose salary provenance is not verified for all historical records, scaled to the wage level of Canton ${c} (BFS Grossregion median, LSE 2024). Net uses the ESTV 2024 cantonal withholding-tax curve plus Swiss social charges. Figures are simulations, not observed medians for this profession in the canton. The FSO factor is general, not profession-specific.`,
     perYear: '/yr',
     perMonth: '/mo',
     breadcrumbHome: 'Home',
     breadcrumbSalary: 'Salaries',
     metaTitle: (r, c, g) => `${r} salary Canton ${c} — gross ${g} and net`,
-    metaDesc: (r, c, g, n) => `How much a ${r} earns in Canton ${c}: median gross ${g}/year, estimated net ${n}/month, regional comparison and active openings. BFS and ESTV sources.`,
+    metaDesc: (r, c, g, n) => `How much a ${r} earns in Canton ${c}: estimated gross ${g}/year, estimated net ${n}/month, regional comparison and active openings. BFS and ESTV sources.`,
   },
   de: {
     eyebrow: 'Lohn nach Beruf und Kanton',
     h1: (r, c) => `${r}-Lohn im Kanton ${c}`,
-    lede: (r, c, g, n) => `Medianer Bruttolohn für ${r} im Kanton ${c}: ${g}/Jahr, rund ${n}/Monat geschätztes Netto für einen alleinstehenden Grenzgänger.`,
-    tileGrossYear: 'Median brutto / Jahr',
-    tileGrossMonth: 'Median brutto / Monat',
+    lede: (r, c, g, n) => `Geschätzter Bruttolohn für ${r} im Kanton ${c}: ${g}/Jahr, rund ${n}/Monat geschätztes Netto für einen alleinstehenden Grenzgänger.`,
+    tileGrossYear: 'Schätzung brutto / Jahr',
+    tileGrossMonth: 'Schätzung brutto / Monat',
     tileNetMonth: 'Geschätztes Netto / Monat',
-    tileRange: 'Richtwert-Spanne (Junior–Senior)',
+    tileRange: 'Modellierte Spanne',
     netHeading: 'Was netto bleibt',
-    netExplain: (r, c, n) => `Bei einem medianen Bruttolohn für ${r} im Kanton ${c} liegt das geschätzte Monatsnetto für einen alleinstehenden Grenzgänger bei rund ${n}, nach kantonaler Quellensteuer (ESTV-Daten) und Schweizer Sozialabgaben. Das reale Netto hängt von Familiensituation, Gemeinde und dem Steuerabkommen Italien-Schweiz 2024 ab.`,
+    netExplain: (r, c, n) => `Bei einem geschätzten Bruttolohn für ${r} im Kanton ${c} liegt das geschätzte Monatsnetto für einen alleinstehenden Grenzgänger bei rund ${n}, nach kantonaler Quellensteuer (ESTV-Daten) und Schweizer Sozialabgaben. Das reale Netto hängt von Familiensituation, Gemeinde und dem Steuerabkommen Italien-Schweiz 2024 ab.`,
     compareHeading: (r) => `${r}-Lohn: Vergleich der Schweizer Regionen`,
     compareColRegion: 'Referenzkanton',
     compareColGross: 'Brutto / Jahr',
@@ -302,24 +302,24 @@ const COPY: Record<ProfessionLocale, Copy> = {
     hubProfession: (r) => `Berufsratgeber: ${r}`,
     hubCalc: 'Berechne dein Grenzgänger-Netto',
     methodologyHeading: 'Methodik und Quellen',
-    methodology: (r, c) => `Der Bruttomedian für ${r} stammt aus dem realen Median des Tessiner Stellenkorpus, skaliert auf das Lohnniveau des Kantons ${c} (BFS-Grossregion-Median, LSE 2024). Das Netto nutzt die ESTV-Quellensteuerkurve 2024 plus Schweizer Sozialabgaben. Die Zahlen sind indikative Schätzungen, bei jedem Build aus realen Daten aktualisiert.`,
+    methodology: (r, c) => `Der geschätzte Bruttolohn für ${r} verwendet einen internen Tessiner Richtwert, dessen Lohnherkunft nicht für alle historischen Datensätze verifiziert ist, skaliert auf das Lohnniveau des Kantons ${c} (BFS-Grossregion-Median, LSE 2024). Das Netto nutzt die ESTV-Quellensteuerkurve 2024 plus Schweizer Sozialabgaben. Die Zahlen sind Simulationen, keine beobachteten Berufsmediane im Kanton. Der BFS-Faktor ist allgemein, nicht berufsspezifisch.`,
     perYear: '/Jahr',
     perMonth: '/Monat',
     breadcrumbHome: 'Home',
     breadcrumbSalary: 'Löhne',
     metaTitle: (r, c, g) => `${r}-Lohn Kanton ${c} — brutto ${g} und netto`,
-    metaDesc: (r, c, g, n) => `Wie viel ${r} im Kanton ${c} verdient: Bruttomedian ${g}/Jahr, geschätztes Netto ${n}/Monat, Regionenvergleich und offene Stellen. Quellen BFS und ESTV.`,
+    metaDesc: (r, c, g, n) => `Wie viel ${r} im Kanton ${c} verdient: geschätzte Bruttolohn ${g}/Jahr, geschätztes Netto ${n}/Monat, Regionenvergleich und offene Stellen. Quellen BFS und ESTV.`,
   },
   fr: {
     eyebrow: 'Salaire par métier et canton',
     h1: (r, c) => `Salaire ${r} dans le canton ${c}`,
-    lede: (r, c, g, n) => `Salaire médian brut de ${r} dans le canton ${c} : ${g}/an, environ ${n}/mois net estimé pour un frontalier célibataire.`,
-    tileGrossYear: 'Médian brut / an',
-    tileGrossMonth: 'Médian brut / mois',
+    lede: (r, c, g, n) => `Estimation du salaire brut de ${r} dans le canton ${c} : ${g}/an, environ ${n}/mois net estimé pour un frontalier célibataire.`,
+    tileGrossYear: 'Brut estimé / an',
+    tileGrossMonth: 'Brut estimé / mois',
     tileNetMonth: 'Net mensuel estimé',
-    tileRange: 'Fourchette indicative (junior–senior)',
+    tileRange: 'Fourchette simulée',
     netHeading: 'Ce qu’il reste net',
-    netExplain: (r, c, n) => `Sur un salaire médian brut de ${r} dans le canton ${c}, le net mensuel estimé pour un frontalier célibataire est d’environ ${n}, après impôt à la source cantonal (données ESTV) et charges sociales suisses. Le net réel dépend de la situation familiale, de la commune et de l’accord fiscal Italie-Suisse 2024.`,
+    netExplain: (r, c, n) => `Sur un salaire brut estimé de ${r} dans le canton ${c}, le net mensuel estimé pour un frontalier célibataire est d’environ ${n}, après impôt à la source cantonal (données ESTV) et charges sociales suisses. Le net réel dépend de la situation familiale, de la commune et de l’accord fiscal Italie-Suisse 2024.`,
     compareHeading: (r) => `Salaire ${r} : comparaison entre régions suisses`,
     compareColRegion: 'Canton de référence',
     compareColGross: 'Brut / an',
@@ -334,13 +334,13 @@ const COPY: Record<ProfessionLocale, Copy> = {
     hubProfession: (r) => `Guide du métier : ${r}`,
     hubCalc: 'Calculez votre net frontalier',
     methodologyHeading: 'Méthodologie et sources',
-    methodology: (r, c) => `Le médian brut pour ${r} dérive du médian réel du corpus d’offres tessinois, mis à l’échelle du niveau salarial du canton ${c} (médian OFS de la grande région, LSE 2024). Le net utilise la courbe d’impôt à la source cantonal ESTV 2024 plus les charges sociales suisses. Les chiffres sont des estimations indicatives, actualisées à chaque build sur des données réelles.`,
+    methodology: (r, c) => `Le brut estimé pour ${r} utilise un repère interne tessinois dont la provenance salariale n’est pas vérifiée pour toutes les données historiques, mis à l’échelle du niveau salarial du canton ${c} (médian OFS de la grande région, LSE 2024). Le net utilise la courbe d’impôt à la source cantonal ESTV 2024 plus les charges sociales suisses. Les chiffres sont des simulations, pas des médianes observées pour ce métier dans le canton. Le facteur OFS est général, non propre au métier.`,
     perYear: '/an',
     perMonth: '/mois',
     breadcrumbHome: 'Accueil',
     breadcrumbSalary: 'Salaires',
     metaTitle: (r, c, g) => `Salaire ${r} canton ${c} — brut ${g} et net`,
-    metaDesc: (r, c, g, n) => `Combien gagne ${r} dans le canton ${c} : médian brut ${g}/an, net estimé ${n}/mois, comparaison régionale et offres actives. Sources OFS et ESTV.`,
+    metaDesc: (r, c, g, n) => `Combien gagne ${r} dans le canton ${c} : brut estimé ${g}/an, net estimé ${n}/mois, comparaison régionale et offres actives. Sources OFS et ESTV.`,
   },
 };
 
@@ -645,7 +645,7 @@ export interface SalaryProfessionCantonEmitResult {
 
 function buildSitemap(paths: readonly string[], dateStamp: string): string {
   const entries = paths
-    .map((p) => `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`)
+    .map((p) => `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`)
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
 }

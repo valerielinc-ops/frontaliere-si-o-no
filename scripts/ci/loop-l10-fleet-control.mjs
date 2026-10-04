@@ -13,7 +13,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -29,12 +29,27 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L10';
+const ISSUE_TITLE = 'L10 Fleet Control: execution health or quota ledger is not trustworthy';
+const ISSUE_WORKFLOW = 'Loop L10 Engineering Learning and Fleet Control';
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_QUOTA_PATH = path.join('data', 'quota-history.jsonl');
 export const DEFAULT_HEALTH_PATH = path.join('data', 'loop-fleet', 'ledger', 'loop-health-history.jsonl');
 export const DEFAULT_MAX_AGE_HOURS = 48;
 export const MINIMUM_SAMPLE = 1;
 export const EXPECTED_LOOP_IDS = Object.freeze(Array.from({ length: 12 }, (_, index) => `L${index}`));
+/**
+ * Ledger rows recorded before this instant may predate the operational
+ * health columns (PR #8659, merged 2026-09-14T22:00:22Z). The last row
+ * without `operationalMetricsComplete` on ledger/loop-fleet is
+ * 2026-09-14T22:04:45.291Z (a run that checked out the pre-#8659 tree and
+ * finished after the merge); 498 such rows exist. The cutoff sits strictly
+ * after that last legacy row, with a margin of ~5 minutes, so the
+ * comparison `recordedAt < cutoff` exempts all 498 and nothing written by
+ * the current writer. Every future schema extension of this ledger needs
+ * its own dated constant like this one and its own boundary test.
+ */
+export const OPERATIONAL_FIELDS_REQUIRED_FROM = '2026-09-14T22:10:00.000Z';
+const OPERATIONAL_FIELDS_REQUIRED_FROM_MS = Date.parse(OPERATIONAL_FIELDS_REQUIRED_FROM);
 const CLOCK_SKEW_HOURS = 5 / 60;
 const HEALTH_STATUSES = new Set(['success', 'failure', 'timeout', 'skipped']);
 const QUOTA_DECISIONS = new Set(['hold', 'more discovery', 'less discovery']);
@@ -292,6 +307,7 @@ function validateCanonicalHealthHistory(history, {
   let artifactCollisions = 0;
   let completeOperationalRuns = 0;
   let incompleteOperationalRuns = 0;
+  let legacyOperationalRuns = 0;
   const missingOperationalFields = new Set();
   let operationalMetricsComplete = true;
 
@@ -299,6 +315,7 @@ function validateCanonicalHealthHistory(history, {
     const prefix = `canonicalHealth[${index}]`;
     const rowIssues = [];
     let rowOperationalMetricsComplete = true;
+    let rowPredatesOperationalFields = false;
     const execution = object(row?.execution) ? row.execution : null;
     const policy = policies.get(row?.loopId);
     if (!object(row)) {
@@ -352,8 +369,18 @@ function validateCanonicalHealthHistory(history, {
       }
       if (canonicalEvidencePaths(row).length === 0) rowIssues.push('evidence contains no artifact path');
 
+      // A row is legacy only when it lacks the telemetry marker AND was
+      // recorded before the writer existed. A row carrying the marker is
+      // always evaluated, whatever its date; a missing or invalid recordedAt
+      // never qualifies (the row already fails above).
+      rowPredatesOperationalFields = !Object.hasOwn(row, 'operationalMetricsComplete')
+        && stamp !== null
+        && stamp.getTime() < OPERATIONAL_FIELDS_REQUIRED_FROM_MS;
+      // A legacy row is exempt only from the *absence* of a column: a column
+      // it does carry is still value-checked (gateBypass must stay false).
       for (const field of ['durationSeconds', 'retryCount', 'quotaUnits', 'collisions', 'gateBypass']) {
         if (!Object.hasOwn(row, field)) {
+          if (rowPredatesOperationalFields) continue;
           missingOperationalFields.add(field);
           operationalMetricsComplete = false;
           rowOperationalMetricsComplete = false;
@@ -379,7 +406,10 @@ function validateCanonicalHealthHistory(history, {
           rowOperationalMetricsComplete = false;
         }
       }
-      if (!Object.hasOwn(row, 'operationalMetricsComplete')) {
+      if (rowPredatesOperationalFields) {
+        // Legacy row: exempt from the operational columns only; every other
+        // row check above still applies and it still counts as a valid run.
+      } else if (!Object.hasOwn(row, 'operationalMetricsComplete')) {
         missingOperationalFields.add('operationalMetricsComplete');
         operationalMetricsComplete = false;
         rowOperationalMetricsComplete = false;
@@ -415,7 +445,9 @@ function validateCanonicalHealthHistory(history, {
       } else {
         failedRuns += 1;
       }
-      if (rowOperationalMetricsComplete) {
+      if (rowPredatesOperationalFields) {
+        legacyOperationalRuns += 1;
+      } else if (rowOperationalMetricsComplete) {
         completeOperationalRuns += 1;
         retries += row.retryCount;
         quotaUnits += row.quotaUnits;
@@ -461,6 +493,7 @@ function validateCanonicalHealthHistory(history, {
       operationalMetricsComplete: records.length > 0 && operationalMetricsComplete,
       operationalMetricsCompleteRuns: completeOperationalRuns,
       operationalMetricsIncompleteRuns: incompleteOperationalRuns,
+      operationalMetricsLegacyRuns: legacyOperationalRuns,
       quality,
     },
   };
@@ -899,7 +932,8 @@ export async function runL10({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -1031,13 +1065,18 @@ export async function runL10({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L10 Fleet Control: execution health or quota ledger is not trustworthy',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'fleet-control', 'loop-l10'],
-      workflow: 'Loop L10 Engineering Learning and Fleet Control',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);

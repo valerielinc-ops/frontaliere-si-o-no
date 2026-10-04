@@ -1,7 +1,7 @@
 {
   "key": "suchtfachstelle-zuerich",
   "label": "Suchtfachstelle Zürich",
-  "generatedAt": "2026-10-03T09:30:08.833Z",
+  "generatedAt": "2026-10-04T09:32:00.212Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,12 +14,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5681,
-  "avgDurationMs": 5681,
+  "durationMs": 4567,
+  "avgDurationMs": 4567,
   "durationHistory": [
-    3765,
-    5778,
-    5681
+    4567
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-psychotherapie-60-80",
       "source": "Suchtfachstelle Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:30:00.583Z",
+      "crawledAt": "2026-10-04T09:31:51.458Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -62,5 +60,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

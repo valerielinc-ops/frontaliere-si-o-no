@@ -1,25 +1,23 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-10-03T09:25:08.004Z",
-  "total": 3,
+  "generatedAt": "2026-10-04T09:21:10.748Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3811,
-  "avgDurationMs": 3811,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3528,
+  "avgDurationMs": 3528,
   "durationHistory": [
-    4390,
-    4651,
-    3811
+    3528
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:24:59.943Z",
+      "crawledAt": "2026-10-04T09:21:02.074Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -76,7 +74,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:00.402Z",
+      "crawledAt": "2026-10-04T09:21:02.502Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -105,8 +103,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kuhn-rikon-119347dd0f71",
       "slug": "personale-di-produzione-100-kuhn-rikon-rikon",
@@ -142,7 +139,7 @@
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -151,5 +148,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

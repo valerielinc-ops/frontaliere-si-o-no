@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-03T09:30:08.369Z",
+  "generatedAt": "2026-10-04T09:33:23.119Z",
   "total": 12,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,12 +9,10 @@
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12352,
-  "avgDurationMs": 12352,
+  "durationMs": 12371,
+  "avgDurationMs": 12371,
   "durationHistory": [
-    13321,
-    13518,
-    12352
+    12371
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +36,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -49,12 +47,15 @@
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:07.999Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -77,7 +78,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -88,12 +89,15 @@
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:08.717Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -116,7 +120,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -127,12 +131,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:09.533Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -155,7 +162,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -166,12 +173,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
       "needsRetranslation": true,
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:10.332Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -194,7 +204,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -205,12 +215,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:11.297Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -233,7 +246,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -244,12 +257,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:12.103Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -272,7 +288,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -283,12 +299,15 @@
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
       "salarySource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:12.902Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -311,7 +330,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -322,12 +341,15 @@
       "firstSeenAt": "2026-08-14T10:29:24.869Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:13.748Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -350,7 +372,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -361,12 +383,15 @@
       "firstSeenAt": "2026-07-06T15:19:20.855Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:14.470Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -389,7 +414,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -400,12 +425,15 @@
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:15.290Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -428,7 +456,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -439,12 +467,15 @@
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:16.129Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -465,7 +496,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -477,15 +508,19 @@
       "id": "rittmeyer-ag-e474959dc11f",
       "firstSeenAt": "2026-04-13T22:18:55.902Z",
       "salarySource": "reported",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:16.868Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

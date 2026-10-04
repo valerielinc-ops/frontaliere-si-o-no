@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the profession landings (AE-3 template B).
  *
@@ -32,7 +34,7 @@ import {
   type ProfessionLocale,
 } from './professionLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { realSalaryMedianChf, reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { jobMatchesCity, type CityHubKey } from './cityJobsHub';
 import { PROFESSION_CITY_DEFS } from './professionCityData';
@@ -64,6 +66,8 @@ interface JobRecord {
    * re-enriched. */
   salarySource?: string;
   currency?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   featured?: boolean;
@@ -85,6 +89,10 @@ export interface FeaturedJob {
   readonly contract: string | null;
   readonly salaryMin: number | null;
   readonly salaryMax: number | null;
+  readonly salarySource?: string;
+  readonly currency?: string;
+  readonly postingDateSource?: string;
+  readonly datePosted?: string | null;
   readonly postedDate: string;
   readonly daysAgo: number;
   readonly slug: string;
@@ -104,6 +112,8 @@ export interface ProfessionJobsSnapshot {
   readonly fresh30Count: number;
   /** Median annual gross CHF salary computed from baseSalary midpoints. */
   readonly medianSalaryChf: number | null;
+  /** Provenance-qualified annual CHF ranges; missing legacy summaries fail closed. */
+  readonly reportedSalary?: ReportedSalarySummary;
   /** Top 3 freshest featured (else freshest) jobs that match this profession. */
   readonly featured: readonly FeaturedJob[];
   /** Top 6 employers by job count for this profession. */
@@ -385,8 +395,8 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   // First PARSEABLE date, not first truthy: a malformed postedDate must not
   // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
     id: job.id,
@@ -401,6 +411,10 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
     contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salarySource: job.salarySource,
+    currency: job.currency,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     daysAgo,
     slug: job.slug,
@@ -426,8 +440,8 @@ function buildSnapshotForProfession(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
   const medianSalary = realSalaryMedianChf(matches);
@@ -449,8 +463,8 @@ function buildSnapshotForProfession(
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(a.postedDate, a.firstSeenAt);
-    const bTs = firstParsableMs(b.postedDate, b.firstSeenAt);
+    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
+    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
     return bTs - aTs;
   });
   const featured: FeaturedJob[] = [];
@@ -464,6 +478,7 @@ function buildSnapshotForProfession(
     liveCount: matches.length,
     fresh30Count: fresh30,
     medianSalaryChf: medianSalary,
+    reportedSalary: reportedSalarySummary(matches),
     featured,
     topEmployers,
   };

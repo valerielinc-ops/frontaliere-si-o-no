@@ -14,10 +14,12 @@ import {
   letterText,
   parseLetterText,
 } from './assistedApplicationAiDraftCore.js';
+import { randomUUID } from 'node:crypto';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { cvChoiceOf } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
@@ -30,6 +32,7 @@ import {
   startAutomation,
 } from './assistedApplicationAutomation.js';
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
+import { factCheckTokens } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
@@ -155,10 +158,13 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       candidateEditedAt: draft.candidateEditedAt || null,
       cvTextMethod: draft.cvTextMethod || null,
       coverLetterUrl: letterUrl,
+      // Which renderer made each PDF: `legacy` is the standard-font fallback (assistedApplicationPdfRenderer.js).
+      coverLetterRenderer: draft.coverLetterRenderer || null,
       ats: draft.ats || null,
       legitimacy: draft.legitimacy || null,
       tailoredCv: draft.tailoredCv ? {
         status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl,
+        renderer: draft.tailoredCv.renderer || null,
         // Phase 5: the candidate's own Word file with the adapted lines, or why it fell back to the template.
         inplace: draft.tailoredCv.inplace ? {
           status: draft.tailoredCv.inplace.status,
@@ -169,7 +175,11 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
           url: inPlaceUrl || null,
         } : null,
       } : null,
-      cvChoice: flow?.cvChoice || 'tailored',
+      // The choice that holds: an in-place file no longer offered reads as the tailored CV, as it is sent.
+      cvChoice: cvChoiceOf(draft, flow),
+      // What the candidate chose on the review page: when it differs from the line above, their own
+      // Word file fell back after they chose it, and the panel says so.
+      candidateCvChoice: flow?.cvChoice || null,
       // What the portal already received, for Valerie when she finishes by hand.
       portalAnswers: draft.portalAnswers || null,
     } : null,
@@ -207,22 +217,46 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   if (letterRaw && bucket) {
     // The header as the candidate corrected it (name, phone, place).
     const rebuilt = await rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
-    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}.pdf`;
+    // A name of its own per edit: two edits in the same millisecond never share a file, so the one
+    // refused below deletes only its own PDF, never the one the committed draft points to.
+    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
     await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }
-  await draftRef.set({
-    coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
-    applicationEmail,
-    channel,
-    factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
-    // An edit is a new text: a previous acknowledgement does not cover it.
-    factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
-    coverLetterPdfKey,
-    ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
-    editedAt: nowMs,
-    editedBy: adminEmail,
-  }, { merge: true });
+  // Written only on the draft it was built from, as the candidate's own writes are
+  // (assistedApplicationReview.js commitRebuild): a candidate edit, a line choice or
+  // a photo saved meanwhile changes one of these, and the owner reloads instead of
+  // overwriting it unseen.
+  const unchanged = (current) => current
+    && current.round === draft.round
+    && (current.coverLetterPdfKey || null) === (draft.coverLetterPdfKey || null)
+    && (current.candidateEditedAt || null) === (draft.candidateEditedAt || null)
+    && (current.editedAt || null) === (draft.editedAt || null);
+  const committed = await db.runTransaction(async (transaction) => {
+    const current = await transaction.get(draftRef);
+    if (!current.exists || !unchanged(current.data())) return false;
+    transaction.set(draftRef, {
+      coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
+      applicationEmail,
+      channel,
+      factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
+      // An edit is a new text: a previous acknowledgement does not cover it, whichever way it was
+      // given (the gate at submit reads both, as the flow does: factCheckAcknowledged).
+      factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
+      ...(factCheck.ok ? {} : { acknowledgedFlags: { fact_check: null }, factCheckAcknowledgedTokens: null }),
+      coverLetterPdfKey,
+      ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
+      editedAt: nowMs,
+      editedBy: adminEmail,
+    }, { merge: true });
+    return true;
+  });
+  if (!committed) {
+    if (coverLetterPdfKey !== draft.coverLetterPdfKey) {
+      await bucket.file(coverLetterPdfKey).delete().catch((error) => console.warn('[assisted-application] owner letter not deleted:', coverLetterPdfKey.split('/').pop(), error?.code || error?.message));
+    }
+    throw new AutomationAdminError('changed_meanwhile', 409);
+  }
   await orderRef.collection('events').doc().set(buildAssistedApplicationEvent('automation_draft_edited', {
     actorEmail: adminEmail,
     factWarnings: factCheck.unsupported.length,
@@ -274,6 +308,10 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       // Any other owner flag (no posting text, unknown channel, a suspicious posting) is acknowledged by name.
       const flags = (Array.isArray(raw.acknowledgeFlags) ? raw.acknowledgeFlags : []).filter((flag) => OWNER_FLAGS.has(flag));
       if (flags.length) acknowledgements.acknowledgedFlags = Object.fromEntries(flags.map((flag) => [flag, nowMs]));
+      // The fact warnings are confirmed as the owner saw them: a warning found later is not covered.
+      if (raw.acknowledgeFactWarnings === true || flags.includes('fact_check')) {
+        acknowledgements.factCheckAcknowledgedTokens = factCheckTokens((await draftRefFor(db, orderId).get()).data()?.factCheck);
+      }
       if (Object.keys(acknowledgements).length) {
         await draftRefFor(db, orderId).set({ ...acknowledgements, acknowledgedBy: adminEmail }, { merge: true });
       }
@@ -287,6 +325,13 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationRegenerate':
       return apply({ type: 'owner_regenerate' });
     case 'automationRetrySubmit':
+      // A submit the fact gate stopped (fact_check_not_acknowledged) leaves again only with the
+      // owner's confirmation of the warnings, written to the draft as on approval.
+      if (raw.acknowledgeFactWarnings === true) {
+        const draftRef = draftRefFor(db, orderId);
+        const factCheckAcknowledgedTokens = factCheckTokens((await draftRef.get()).data()?.factCheck);
+        await draftRef.set({ factCheckAcknowledgedAt: nowMs, factCheckAcknowledgedTokens, acknowledgedBy: adminEmail }, { merge: true });
+      }
       return apply({ type: 'owner_retry_submit' });
     case 'automationHandoff':
       return apply({ type: 'owner_handoff' });
@@ -394,8 +439,10 @@ const FILL_KIT_STATES = new Set(['owner_takeover']);
 
 /**
  * The fill kit of one order (assistedApplicationFillKit.js), with signed
- * links to the CV that leaves (submit.mjs chooseCv: the tailored one unless
- * the candidate chose their original) and to the cover letter.
+ * links to the CV that leaves and to the cover letter. The CV is the file the
+ * robot would send (submit.mjs chooseCv): the candidate's own Word file with
+ * the adapted lines when they chose it and it is ready, otherwise the
+ * tailored one unless they chose their original.
  */
 async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs = Date.now() } = {}) {
   const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
@@ -419,13 +466,16 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     await guard.release('owner: checked on the portal, not received', nowMs);
   }
   const sign = (key) => (key && deps.signUrl && isAssistedApplicationCvKey(orderId, key) ? deps.signUrl(key).catch(() => null) : null);
-  const tailored = draft.tailoredCv?.status === 'ready' && draft.tailoredCv.pdfKey && flow.cvChoice !== 'original';
+  const choice = cvChoiceOf(draft, flow);
+  const ready = draft.tailoredCv?.status === 'ready';
+  const inPlace = ready && choice === 'inplace';
+  const tailored = ready && draft.tailoredCv.pdfKey && choice !== 'original';
   const originalKey = String(order.cvStorageKey || '');
   const [cvUrl, letterUrl] = await Promise.all([
-    tailored ? sign(draft.tailoredCv.pdfKey) : deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null,
+    inPlace ? sign(draft.tailoredCv.inplace.docxKey) : tailored ? sign(draft.tailoredCv.pdfKey) : deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null,
     sign(draft.coverLetterPdfKey),
   ]);
-  const extension = tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
+  const extension = inPlace ? 'docx' : tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
   // The requested documents the candidate gave, each file a signed link too.
   const extra = await Promise.all(extraDocumentsToSend(draft, flow, orderId).map(async (document) => ({
     ...document,

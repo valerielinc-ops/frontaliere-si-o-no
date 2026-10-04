@@ -32,7 +32,9 @@ import {
   resolveSourcePrTriage,
   retitleDailyBucket,
 } from '../scripts/ci/gate-minted-followups.mjs';
-import { dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
+import { bornSatisfiedItemIds, dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
+import { itemBornSatisfiedMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
+import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
 import { dailyBucketQueueDecision, dailyMutexDecision, flattenPaginatedOpenPrs, openPrForDailyItem } from '../scripts/ci/followup-drainer.mjs';
 import {
   triageDailyKey,
@@ -720,5 +722,66 @@ describe('collect batch daily key', () => {
   it('allows the workflow retry to keep an explicit successful-run key', () => {
     process.env.TRIAGE_DAILY_KEY = '2026-09-08';
     expect(triageDailyKey(Date.parse('2026-09-09T12:00:00Z'))).toBe('2026-09-08');
+  });
+});
+
+describe('daily reconcile — un token nato vero al conio non è una prova (FU_ITEM_BORN_SATISFIED)', () => {
+  const ID = `FU-${DAY}-001`;
+  const OTHER = `FU-${DAY}-002`;
+  const sealed = (...items: string[]) => body(...items).replace('- State: collecting', '- State: sealed');
+  const bornComment = (id: string, author: { login: string }, authorAssociation = 'NONE') => ({
+    author,
+    authorAssociation,
+    createdAt: '2026-09-09T08:00:00Z',
+    body: `${itemBornSatisfiedMarker({ item: id })}\nIl token \`firstGuard()\` era già presente al conio.`,
+  });
+  const bornFrom = (comments: object[]) => bornSatisfiedItemIds(parseItemMarkers(comments, { isTrusted: isTrustedAuthor }));
+
+  it('un item open col token presente e marker fidato NON passa a done', () => {
+    const born = bornFrom([bornComment(ID, { login: 'github-actions' })]);
+    expect([...born]).toEqual([ID]);
+    const reconciled = reconcileDailyItems(sealed(item(ID), distinctItem(OTHER)), resolvedIo, DAY, 'owner/repo', 2, born);
+    expect(reconciled.changes.map((change) => change.id)).toEqual([OTHER]);
+    expect(reconciled.bornSatisfied).toEqual([ID]);
+    expect(reconciled.body).toContain(`### ${ID} — Proteggi il comportamento\n- State: open`);
+  });
+
+  it('senza marker l’item col token presente passa a done come oggi', () => {
+    const reconciled = reconcileDailyItems(sealed(item(ID)), resolvedIo, DAY, 'owner/repo', 1, new Set());
+    expect(reconciled.changes.map((change) => change.id)).toEqual([ID]);
+    expect(reconciled.body).toContain(`### ${ID} — Proteggi il comportamento\n- State: done`);
+    expect(dailyBucketCloseGate(reconciled.body, resolvedIo, DAY, 'owner/repo', 1, new Set()).blocks).toBe(false);
+  });
+
+  it('un marker di autore non fidato è ignorato (comportamento attuale)', () => {
+    const born = bornFrom([bornComment(ID, { login: 'drive-by-user' })]);
+    expect(born.size).toBe(0);
+    const reconciled = reconcileDailyItems(sealed(item(ID)), resolvedIo, DAY, 'owner/repo', 1, born);
+    expect(reconciled.changes.map((change) => change.id)).toEqual([ID]);
+  });
+
+  it('bucket con tutti gli item done di cui uno marcato: il gate blocca con born-satisfied-token a ogni giro', () => {
+    const allDone = sealed(item(ID, 'done'), distinctItem(OTHER, 'done'));
+    // Senza marker il bucket sarebbe chiudibile: il blocco viene solo dal marker.
+    expect(dailyBucketCloseGate(allDone, resolvedIo, DAY, 'owner/repo', 2).blocks).toBe(false);
+    const born = bornFrom([bornComment(OTHER, { login: 'frontaliere-automation[bot]' })]);
+    for (const round of ['primo giro', 'secondo giro']) {
+      const gate = dailyBucketCloseGate(allDone, resolvedIo, DAY, 'owner/repo', 2, born);
+      expect({ round, blocks: gate.blocks, reason: gate.reason }).toEqual({ round, blocks: true, reason: 'born-satisfied-token' });
+      expect(gate.unresolvedItems.map((entry: { id: string }) => entry.id)).toEqual([OTHER]);
+    }
+  });
+
+  it('un item ancora aperto prevale nel motivo, ma l’item nato vero resta elencato', () => {
+    const gate = dailyBucketCloseGate(
+      sealed(item(ID, 'blocked'), distinctItem(OTHER, 'done')),
+      resolvedIo,
+      DAY,
+      'owner/repo',
+      2,
+      new Set([OTHER]),
+    );
+    expect(gate).toMatchObject({ blocks: true, reason: 'valid-item-unconfirmed' });
+    expect(gate.bornSatisfiedItems.map((entry: { id: string }) => entry.id)).toEqual([OTHER]);
   });
 });

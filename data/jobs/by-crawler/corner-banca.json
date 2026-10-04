@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-10-03T09:31:15.742Z",
+  "assembledAt": "2026-10-04T09:35:07.579Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -51,11 +51,13 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-10-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T09:31:01.841Z",
+      "crawledAt": "2026-10-04T09:35:02.142Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
@@ -75,6 +77,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -90,8 +93,7 @@
       },
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship"
     },
     {
       "id": "corner-banca-62309aa78f00",
@@ -161,11 +163,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.840Z",
+      "crawledAt": "2026-10-04T09:35:02.140Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
@@ -267,11 +271,11 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-15",
+      "postedDate": "",
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.838Z",
+      "crawledAt": "2026-10-04T09:35:02.138Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -318,7 +322,9 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095"
+      "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "corner-banca-0b72c7144b4f",
@@ -383,11 +389,13 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.835Z",
+      "crawledAt": "2026-10-04T09:35:02.136Z",
       "previousSlugs": [
         "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
         "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
@@ -401,6 +409,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.229Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "salarySource": "estimated",
@@ -418,8 +427,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109"
     },
     {
       "id": "corner-banca-5c5ec31e11d9",
@@ -486,11 +494,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.833Z",
+      "crawledAt": "2026-10-04T09:35:02.135Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
@@ -502,6 +512,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -519,8 +530,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116"
     },
     {
       "id": "corner-banca-72b82d085ee9",
@@ -596,12 +606,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.831Z",
+      "crawledAt": "2026-10-04T09:35:02.133Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -619,8 +632,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114"
     },
     {
       "id": "corner-banca-b9c65289862a",
@@ -685,11 +697,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.829Z",
+      "crawledAt": "2026-10-04T09:35:02.132Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -721,7 +735,7 @@
     },
     {
       "id": "corner-banca-333d7573e186",
-      "slug": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+      "slug": "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
       "slugByLocale": {
         "it": "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
         "en": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
@@ -768,12 +782,25 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.826Z",
+      "crawledAt": "2026-10-04T09:35:02.131Z",
+      "previousSlugs": [
+        "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
+        ]
+      },
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -791,18 +818,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
-      "previousSlugsByLocale": {
-        "it": [
-          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
-          "customer-retention-e-growth-ref-1118-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano",
-        "customer-retention-e-growth-ref-1118-corner-banca-lugano"
-      ],
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118"
     },
     {
       "id": "corner-banca-e13869b20e59",
@@ -872,12 +888,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.825Z",
+      "crawledAt": "2026-10-04T09:35:02.130Z",
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -895,8 +914,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128"
     },
     {
       "id": "corner-banca-e77e18a8741a",
@@ -947,12 +965,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.822Z",
+      "crawledAt": "2026-10-04T09:35:02.128Z",
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -970,8 +991,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129"
     },
     {
       "id": "corner-banca-3132975eb0ea",
@@ -1031,11 +1051,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.821Z",
+      "crawledAt": "2026-10-04T09:35:02.127Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:44.967Z",
       "salaryMin": 33200,
@@ -1077,9 +1099,9 @@
       "description": "We are looking for a motivated, results-driven professional to join our specialized debt collection team.\n\nWhat We Offer\n\n• A permanent position in a dynamic, international work environment.\n\n• Competitive salary and benefits package.\n\n• Office located in Lugano - Pregassona, with the possibility of partial remote work (smart working).\n\n• An initial training path is provided.\n\n• Opportunities for professional growth and development within an expanding organization.\n\nKey Responsibilities\n\n• Managing complex cases\n\n• Collaborating with various company departments, working with a high degree of autonomy\n\n•  A solid track record of at least 3 years in a commercial environment is required. Experience in debt collection within the Swiss enforcement and judicial system (legal collection) is considered an advantage.\n\n• Excellent command of German (C1 level, written and spoken), good knowledge of Italian (B2 level, written and spoken).\n\n• Strong results-oriented mindset, with good organizational and problem-solving skills. The ability to work with full autonomy while maintaining a strong team spirit is essential.",
       "descriptionByLocale": {
         "it": "Stiamo cercando una figura professionale motivata e orientata al risultato da inserire nel nostro team specializzato nel recupero crediti.\n\nCosa Offriamo\n\n• Posizione fissa in un ambiente lavorativo dinamico e internazionale.\n\n• Salario competitivo e pacchetto di benefit.\n\n• Sede situata a Lugano - Pregassona, con possibilità di lavoro parzialmente remoto (smart working).\n\n• È previsto un percorso formativo iniziale.\n\n• Opportunità di crescita professionale e sviluppo all'interno di un'organizzazione in espansione.\n\nResponsabilità Chiave\n\n• Gestione di pratiche complesse\n\n• Collaborazione con diverse funzioni aziendali, operando con un alto grado di autonomia\n\n• È richiesta un'esperienza consolidata di almeno 3 anni in ambito commerciale. L’esperienza nella gestione del recupero crediti in ambito esecutivo e giudiziario svizzeri (legal collection) rappresenta un vantaggio.\n\n• Ottima padronanza della lingua tedesca (livello C1, scritta e verbale), buona conoscenza della lingua italiana (livello B2, scritta e verbale).\n\n• Spiccata capacità di lavorare per obiettivi, doti organizzative e di problem-solving. È fondamentale saper operare in completa autonomia, mantenendo al contempo un forte spirito di squadra.",
-        "en": "We are looking for a motivated, results-driven professional to join our specialized debt collection team.\n\nWhat We Offer\n\n• A permanent position in a dynamic, international work environment.\n\n• Competitive salary and benefits package.\n\n• Office located in Lugano - Pregassona, with the possibility of partial remote work (smart working).\n\n• An initial training path is provided.\n\n• Opportunities for professional growth and development within an expanding organization.\n\nKey Responsibilities\n\n• Managing complex cases\n\n• Collaborating with various company departments, working with a high degree of autonomy\n\n•  A solid track record of at least 3 years in a commercial environment is required. Experience in debt collection within the Swiss enforcement and judicial system (legal collection) is considered an advantage.\n\n• Excellent command of German (C1 level, written and spoken), good knowledge of Italian (B2 level, written and spoken).\n\n• Strong results-oriented mindset, with good organizational and problem-solving skills. The ability to work with full autonomy while maintaining a strong team spirit is essential.",
-        "de": "We are looking for a motivated, results-driven professional to join our specialized debt collection team.\n\nWhat We Offer\n\n• A permanent position in a dynamic, international work environment.\n\n• Competitive salary and benefits package.\n\n• Office located in Lugano - Pregassona, with the possibility of partial remote work (smart working).\n\n• An initial training path is provided.\n\n• Opportunities for professional growth and development within an expanding organization.\n\nKey Responsibilities\n\n• Managing complex cases\n\n• Collaborating with various company departments, working with a high degree of autonomy\n\n•  A solid track record of at least 3 years in a commercial environment is required. Experience in debt collection within the Swiss enforcement and judicial system (legal collection) is considered an advantage.\n\n• Excellent command of German (C1 level, written and spoken), good knowledge of Italian (B2 level, written and spoken).\n\n• Strong results-oriented mindset, with good organizational and problem-solving skills. The ability to work with full autonomy while maintaining a strong team spirit is essential.",
-        "fr": "We are looking for a motivated, results-driven professional to join our specialized debt collection team.\n\nWhat We Offer\n\n• A permanent position in a dynamic, international work environment.\n\n• Competitive salary and benefits package.\n\n• Office located in Lugano - Pregassona, with the possibility of partial remote work (smart working).\n\n• An initial training path is provided.\n\n• Opportunities for professional growth and development within an expanding organization.\n\nKey Responsibilities\n\n• Managing complex cases\n\n• Collaborating with various company departments, working with a high degree of autonomy\n\n•  A solid track record of at least 3 years in a commercial environment is required. Experience in debt collection within the Swiss enforcement and judicial system (legal collection) is considered an advantage.\n\n• Excellent command of German (C1 level, written and spoken), good knowledge of Italian (B2 level, written and spoken).\n\n• Strong results-oriented mindset, with good organizational and problem-solving skills. The ability to work with full autonomy while maintaining a strong team spirit is essential."
+        "en": "We are looking for a motivated, results-driven professional to join our specialized debt collection team.\n\nWhat We Offer\n\n• A permanent position in a dynamic, international work environment.\n\n• Competitive salary and benefits package.\n\n• Office located in Lugano - Pregassona, with the possibility of partial remote work (smart working).\n\n• An initial training path is provided.\n\n• Opportunities for professional growth and development within an expanding organization.\n\nKey Responsibilities\n\n• Managing complex cases\n\n• Collaborating with various company departments, working with a high degree of autonomy\n\n• A solid track record of at least 3 years in a commercial environment is required. Experience in debt collection within the Swiss enforcement and judicial system (legal collection) is considered an advantage.\n\n• Excellent command of German (C1 level, written and spoken), good knowledge of Italian (B2 level, written and spoken).\n\n• Strong results-oriented mindset, with good organizational and problem-solving skills. The ability to work with full autonomy while maintaining a strong team spirit is essential.",
+        "de": "Wir suchen einen motivierten, ergebnisorientierten Fachmann, der sich unserem spezialisierten Inkassoteam anschließt.\n\nWas wir anbieten\n\n• Eine Festanstellung in einem dynamischen, internationalen Arbeitsumfeld.\n\n• Wettbewerbsfähiges Gehalts- und Leistungspaket.\n\n• Büro in Lugano - Pregassona, mit der Möglichkeit der teilweisen Remote-Arbeit (intelligentes Arbeiten).\n\n• Es ist ein erster Trainingspfad vorgesehen.\n\n• Möglichkeiten für professionelles Wachstum und Entwicklung innerhalb einer expandierenden Organisation.\n\nHauptzuständigkeiten\n\n• Verwalten komplexer Fälle\n\n• Zusammenarbeit mit verschiedenen Unternehmensabteilungen, Arbeit mit einem hohen Maß an Autonomie\n\n• Eine solide Erfolgsbilanz von mindestens 3 Jahren in einem kommerziellen Umfeld ist erforderlich. Erfahrung in der Inkasso innerhalb des schweizerischen Vollstreckungs- und Justizsystems (Rechtseintreibung) wird als Vorteil angesehen.\n\n• Ausgezeichnete Deutschkenntnisse (C1-Niveau, geschrieben und gesprochen), gute Italienischkenntnisse (B2-Niveau, geschrieben und gesprochen).\n\n• Starke ergebnisorientierte Denkweise mit guten organisatorischen und problemlösenden Fähigkeiten. Die Fähigkeit, mit voller Autonomie zu arbeiten und gleichzeitig einen starken Teamgeist zu bewahren, ist unerlässlich.",
+        "fr": "Nous recherchons un professionnel motivé et axé sur les résultats pour rejoindre notre équipe spécialisée de recouvrement de dettes.\n\nCe que nous offrons\n\n• Une position permanente dans un environnement de travail international dynamique.\n\n• Ensemble concurrentiel de salaires et d'avantages sociaux.\n\n• Bureau situé à Lugano - Pregassona, avec possibilité de travail à distance partiel (travail intelligent).\n\n• Un parcours d'entraînement initial est fourni.\n\n• Possibilités de développement professionnel au sein d'une organisation en expansion.\n\nPrincipales responsabilités\n\n• Gestion des affaires complexes\n\n• Collaborer avec différents départements d'entreprise, travailler avec un haut degré d'autonomie\n\n• Un bilan solide d'au moins 3 ans dans un environnement commercial est nécessaire. L'expérience en matière de recouvrement des créances au sein du système judiciaire et d'exécution suisse (recouvrement légal) est considérée comme un avantage.\n\n• Excellente maîtrise de l'allemand (niveau C1, écrit et parlé), bonne connaissance de l'italien (niveau B2, écrit et parlé).\n\n• Une bonne attitude axée sur les résultats, avec de bonnes compétences organisationnelles et en résolution de problèmes. La capacité de travailler en toute autonomie tout en maintenant un esprit d'équipe fort est essentielle."
       },
       "requirements": [
         "È richiesta un'esperienza consolidata di almeno 3 anni in ambito commerciale. L’esperienza nella gestione del recupero crediti in ambito esecutivo e giudiziario svizzeri (legal collection) rappresenta un vantaggio.",
@@ -1087,18 +1109,9 @@
         "Spiccata capacità di lavorare per obiettivi, doti organizzative e di problem-solving. È fondamentale saper operare in completa autonomia, mantenendo al contempo un forte spirito di squadra."
       ],
       "requirementsByLocale": {
-        "it": [
-          "È richiesta un'esperienza consolidata di almeno 3 anni in ambito commerciale. L’esperienza nella gestione del recupero crediti in ambito esecutivo e giudiziario svizzeri (legal collection) rappresenta un vantaggio.",
-          "Ottima padronanza della lingua tedesca (livello C1, scritta e verbale), buona conoscenza della lingua italiana (livello B2, scritta e verbale).",
-          "Spiccata capacità di lavorare per obiettivi, doti organizzative e di problem-solving. È fondamentale saper operare in completa autonomia, mantenendo al contempo un forte spirito di squadra."
-        ],
         "en": [
-          "A solid track record of at least 3 years in a commercial environment is required. Experience in debt collection within the Swiss enforcement and judicial system (legal collection) is considered an advantage.",
-          "Excellent command of German (C1 level, written and spoken), good knowledge of Italian (B2 level, written and spoken).",
-          "Strong results-oriented mindset, with good organizational and problem-solving skills. The ability to work with full autonomy while maintaining a strong team spirit is essential."
-        ],
-        "de": [],
-        "fr": []
+          "Excellent command of German (C1 level, written and spoken), good knowledge of Italian (B2 level, written and spoken)."
+        ]
       },
       "location": "Lugano",
       "canton": "TI",
@@ -1108,12 +1121,15 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.819Z",
+      "crawledAt": "2026-10-04T09:35:02.125Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:01.819Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1131,8 +1147,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
-      "firstSeenAt": "2026-10-03T09:31:01.819Z"
+      "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131"
     }
   ]
 }

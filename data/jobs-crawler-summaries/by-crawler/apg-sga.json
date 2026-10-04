@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-10-03T09:25:55.244Z",
+  "generatedAt": "2026-10-04T09:21:05.344Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,12 +14,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6670,
-  "avgDurationMs": 6670,
+  "durationMs": 6131,
+  "avgDurationMs": 6131,
   "durationHistory": [
-    6022,
-    6208,
-    6670
+    6131
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:46.158Z",
+      "crawledAt": "2026-10-04T09:20:57.941Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,7 +46,9 @@
       "sector": "Pubblicità / Media esterni",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "firstSeenAt": "2026-09-29T21:25:52.569Z",
       "_qualityScore": 85,
@@ -71,7 +71,7 @@
       "url": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:46.713Z",
+      "crawledAt": "2026-10-04T09:20:58.459Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,9 @@
       "sector": "Pubblicità / Media esterni",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:23:28.802Z",
@@ -98,5 +100,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-10-03T09:19:49.856Z",
+  "assembledAt": "2026-10-04T09:19:58.002Z",
   "jobs": [
     {
       "id": "tally-weijl-7934e67f86db",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pkc9/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:36.557Z",
+      "crawledAt": "2026-10-04T09:19:51.333Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,7 +44,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pkc9/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -112,7 +115,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:36.031Z",
+      "crawledAt": "2026-10-04T09:19:50.695Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,7 +126,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzl/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -190,7 +196,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0vblw/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:35.437Z",
+      "crawledAt": "2026-10-04T09:19:50.199Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -201,7 +207,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0vblw/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -269,7 +278,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:34.792Z",
+      "crawledAt": "2026-10-04T09:19:49.697Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -280,7 +289,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "requirements": [],
       "requirementsByLocale": {
@@ -331,6 +343,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.216Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -344,8 +357,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "needsRetranslation": true
+      "addressRegion": "SO"
     },
     {
       "id": "tally-weijl-f4dd9e184bb9",
@@ -378,7 +390,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:34.145Z",
+      "crawledAt": "2026-10-04T09:19:49.107Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -389,7 +401,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "requirements": [],
       "requirementsByLocale": {
@@ -442,6 +457,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.870Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -455,8 +471,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-acd4bfc45a27",
@@ -489,7 +504,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:33.568Z",
+      "crawledAt": "2026-10-04T09:19:48.471Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,7 +515,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "requirements": [],
       "requirementsByLocale": {
@@ -553,6 +571,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:51.502Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -566,8 +585,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "needsRetranslation": true
+      "addressRegion": "BE"
     },
     {
       "id": "tally-weijl-4f4e9000aa51",
@@ -600,7 +618,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4d/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:32.912Z",
+      "crawledAt": "2026-10-04T09:19:47.946Z",
       "addressLocality": "Biel/Bienne",
       "addressCountry": "CH",
       "country": "CH",
@@ -611,7 +629,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4d/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -678,7 +699,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:32.364Z",
+      "crawledAt": "2026-10-04T09:19:47.396Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -689,7 +710,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "requirements": [],
       "requirementsByLocale": {
@@ -738,6 +762,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:46.588Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -751,8 +776,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "needsRetranslation": true
+      "addressRegion": "AG"
     },
     {
       "id": "tally-weijl-a19dcc58f55c",
@@ -785,7 +809,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:31.825Z",
+      "crawledAt": "2026-10-04T09:19:46.764Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -796,7 +820,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "requirements": [],
       "requirementsByLocale": {
@@ -843,6 +870,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.230Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -856,8 +884,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "needsRetranslation": true
+      "addressRegion": "BE"
     },
     {
       "id": "tally-weijl-13e4d44ef67f",
@@ -890,7 +917,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:31.239Z",
+      "crawledAt": "2026-10-04T09:19:46.130Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -901,7 +928,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "requirements": [],
       "requirementsByLocale": {
@@ -949,6 +979,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.809Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -962,8 +993,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "needsRetranslation": true
+      "addressRegion": "SO"
     },
     {
       "id": "tally-weijl-cbb38c20b361",
@@ -996,7 +1026,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:30.683Z",
+      "crawledAt": "2026-10-04T09:19:45.571Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1007,7 +1037,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1055,6 +1088,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:48.369Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1068,8 +1102,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU",
-      "needsRetranslation": true
+      "addressRegion": "LU"
     },
     {
       "id": "tally-weijl-1f4bede8f068",
@@ -1102,7 +1135,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:30.153Z",
+      "crawledAt": "2026-10-04T09:19:44.927Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1113,7 +1146,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "postedDate": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1144,7 +1177,10 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "validThrough": ""
     },
     {
       "id": "tally-weijl-4a9ab1655229",
@@ -1177,7 +1213,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:29.656Z",
+      "crawledAt": "2026-10-04T09:19:44.304Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1188,7 +1224,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1209,6 +1248,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T22:21:29.384Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1222,8 +1262,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "needsRetranslation": true
+      "addressRegion": "AG"
     },
     {
       "id": "tally-weijl-bf3e64bf2328",
@@ -1256,7 +1295,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:29.111Z",
+      "crawledAt": "2026-10-04T09:19:43.734Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1267,7 +1306,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1288,6 +1330,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T22:44:04.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1301,8 +1344,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tally-weijl-ce4ee4fffcb3",
@@ -1319,7 +1361,7 @@
       "title": "FLEXIBLE AUSHILFE",
       "titleByLocale": {
         "it": "AIUTI FLESSIBILE",
-        "en": "FLEXIBLE AID",
+        "en": "FLEXIBLE TEMPORARY",
         "de": "FLEXIBLE AUSHILFE",
         "fr": "AIDES FLEXIBLES"
       },
@@ -1335,7 +1377,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzc/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:28.475Z",
+      "crawledAt": "2026-10-04T09:19:43.143Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1346,7 +1388,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-03",
+      "postedDate": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzc/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1384,7 +1426,10 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "validThrough": ""
     },
     {
       "id": "tally-weijl-299485962524",
@@ -1417,7 +1462,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:27.904Z",
+      "crawledAt": "2026-10-04T09:19:42.597Z",
       "addressLocality": "Biel/Bienne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1428,7 +1473,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4i/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1472,7 +1520,7 @@
         "it": "assistenza-flessibile-tally-weijl-bern",
         "en": "flexible-assistance-tally-weijl-bern",
         "de": "flexible-aushilfe-tally-weijl-bern",
-        "fr": "flexible-aushilfe-tally-weijl-bern"
+        "fr": "assistance-souple-tally-weijl-bern"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1480,7 +1528,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Assistenza flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Temporary",
         "de": "Flexible Aushilfe",
         "fr": "Assistance souple"
       },
@@ -1496,7 +1544,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:27.353Z",
+      "crawledAt": "2026-10-04T09:19:42.042Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1507,14 +1555,14 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4o/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "flexible-aushilfe-tally-weijl-bern",
-        "assistance-souple-tally-weijl-bern",
-        "assistenza-flessibile-tally-weijl-bern"
+        "assistenza-flessibile-tally-weijl-bern",
+        "assistance-souple-tally-weijl-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1522,8 +1570,8 @@
           "assistenza-flessibile-tally-weijl-bern"
         ],
         "fr": [
-          "assistance-souple-tally-weijl-bern",
-          "flexible-aushilfe-tally-weijl-bern"
+          "flexible-aushilfe-tally-weijl-bern",
+          "assistance-souple-tally-weijl-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1541,7 +1589,10 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "validThrough": ""
     },
     {
       "id": "tally-weijl-59950cdafc4d",
@@ -1574,7 +1625,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:26.746Z",
+      "crawledAt": "2026-10-04T09:19:41.432Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1585,7 +1636,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1643,6 +1697,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:45.359Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1656,8 +1711,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "needsRetranslation": true
+      "addressRegion": "AG"
     },
     {
       "id": "tally-weijl-4b18b5fa4e7e",
@@ -1690,7 +1744,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:26.037Z",
+      "crawledAt": "2026-10-04T09:19:40.912Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1701,7 +1755,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
+      "postedDate": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1719,7 +1773,10 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "validThrough": ""
     },
     {
       "id": "tally-weijl-bfa30ecffc38",
@@ -1752,7 +1809,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:19:25.415Z",
+      "crawledAt": "2026-10-04T09:19:40.308Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1763,7 +1820,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1817,6 +1877,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:42.270Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1830,8 +1891,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "needsRetranslation": true
+      "addressRegion": "VS"
     },
     {
       "id": "tally-weijl-26741dab4239",
@@ -1864,7 +1924,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z8sn/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:19:24.835Z",
+      "crawledAt": "2026-10-04T09:19:39.689Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1875,7 +1935,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z8sn/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1940,7 +2003,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhbs/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:19:24.302Z",
+      "crawledAt": "2026-10-04T09:19:39.050Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1951,7 +2014,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhbs/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1965,6 +2031,7 @@
           "controllore-del-gruppo-amp-tesoro-tally-weijl-basel"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1978,8 +2045,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-8e5687719d49",
@@ -2012,7 +2078,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:19:23.786Z",
+      "crawledAt": "2026-10-04T09:19:38.529Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2023,7 +2089,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2074,6 +2143,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.789Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2087,8 +2157,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SH",
-      "needsRetranslation": true
+      "addressRegion": "SH"
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
@@ -2121,7 +2190,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:19:23.215Z",
+      "crawledAt": "2026-10-04T09:19:37.907Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2132,7 +2201,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2184,6 +2256,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2197,8 +2270,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-2a50bb322c64",
@@ -2231,7 +2303,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z81w/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:19:22.579Z",
+      "crawledAt": "2026-10-04T09:19:37.286Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -2242,7 +2314,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2027-01-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "2027-01-01",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z81w/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2309,7 +2384,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7d/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:19:22.085Z",
+      "crawledAt": "2026-10-04T09:19:36.668Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressCountry": "CH",
       "country": "CH",
@@ -2320,7 +2395,10 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7d/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2386,7 +2464,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:19:21.500Z",
+      "crawledAt": "2026-10-04T09:19:36.026Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2397,11 +2475,19 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-12-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "2026-12-31",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7r/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "auxilaire-tally-weijl-neuchatel",
+        "auxiliary-tally-weijl-neuchatel",
+        "hilfseinrichtungen-tally-weijl-neuchatel",
+        "ausiliare-tally-weijl-neuchatel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "auxilaire-tally-weijl-neuchatel",
@@ -2416,12 +2502,7 @@
           "auxilaire-tally-weijl-neuchatel"
         ]
       },
-      "previousSlugs": [
-        "auxilaire-tally-weijl-neuchatel",
-        "auxiliary-tally-weijl-neuchatel",
-        "hilfseinrichtungen-tally-weijl-neuchatel",
-        "ausiliare-tally-weijl-neuchatel"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

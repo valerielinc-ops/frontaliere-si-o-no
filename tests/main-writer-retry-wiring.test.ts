@@ -11,7 +11,6 @@ const ROOT = resolve(import.meta.dirname, '..');
 // tests/data-refresh-pr-wiring.test.ts instead.
 const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
-  '.github/workflows/cwv-monitor.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
   '.github/workflows/funnel-metrics-snapshot.yml',
@@ -64,10 +63,18 @@ describe('main data writers use the shared retry contract', () => {
       'node scripts/ci/restore-data-integrity-files.mjs',
     );
     expect(read('.github/workflows/deploy.yml')).toContain('--stash-dirty');
-    const buildHistoryWriter = read('scripts/lib/append-build-history-row.sh');
-    expect(buildHistoryWriter).toContain('git-push-with-retry.sh --max-attempts 5 --stash-dirty');
+    // build-history: the matrix legs only stage rows (#9247); the single
+    // writer is scripts/lib/commit-build-history-rows.sh, run once per deploy
+    // by the build-history-commit job on a clean sparse checkout, so it
+    // regenerates the append on origin/main instead of stashing a dirty tree.
+    // Only the wiring is checked here; the exact behaviour (no git in the
+    // stager, one commit, dedup against main) lives in
+    // tests/build-history-single-writer.test.ts.
+    expect(read('scripts/lib/append-build-history-row.sh')).not.toContain('git-push-with-retry.sh');
+    const buildHistoryWriter = read('scripts/lib/commit-build-history-rows.sh');
+    expect(buildHistoryWriter).toContain('git-push-with-retry.sh');
+    expect(buildHistoryWriter).toContain('--regenerate-cmd');
     expect(buildHistoryWriter).toContain('scripts/ci/assert-accumulator-write.mjs');
-    expect(buildHistoryWriter).toContain('git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"');
   });
 
   it('routes the exchange snapshot through the protected PR publisher', () => {
@@ -86,28 +93,6 @@ describe('main data writers use the shared retry contract', () => {
     expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
     expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
     expect(updateJob?.['timeout-minutes']).toBeGreaterThanOrEqual(15);
-  });
-
-  it('bounds the CWV snapshot retry budget below its job timeout', () => {
-    const workflow = read('.github/workflows/cwv-monitor.yml');
-    const document = YAML.parse(workflow) as {
-      jobs?: {
-        monitor?: {
-          'timeout-minutes'?: number;
-          steps?: Array<{ name?: string; run?: string }>;
-        };
-      };
-    };
-    const monitorJob = document.jobs?.monitor;
-    const snapshotStep = monitorJob?.steps?.find(
-      (step) => step.name === 'Commit weekly snapshot if changed',
-    );
-    const maxAttempts = snapshotStep?.run?.match(/--max-attempts\s+(\d+)/)?.[1];
-
-    expect(monitorJob, 'CWV monitor job is missing').toBeDefined();
-    expect(snapshotStep, 'CWV snapshot commit step is missing').toBeDefined();
-    expect(maxAttempts, 'CWV snapshot retry cap is missing').toBe('8');
-    expect(Number(maxAttempts)).toBeLessThan(monitorJob?.['timeout-minutes'] ?? 0);
   });
 
   it('keeps state-only monitor commit-backs isolated and bounded', () => {

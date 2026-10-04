@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-10-03T09:12:36.151Z",
+  "assembledAt": "2026-10-04T09:12:18.566Z",
   "jobs": [
     {
       "id": "hermes-bfa10b4da950",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:31.581Z",
+      "crawledAt": "2026-10-04T09:12:13.222Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -66,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:40.044Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -78,8 +79,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hermes-02949861efad",
@@ -112,7 +112,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:30.948Z",
+      "crawledAt": "2026-10-04T09:12:12.627Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -145,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -157,8 +158,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hermes-4cca3ac90e60",
@@ -191,7 +191,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:30.285Z",
+      "crawledAt": "2026-10-04T09:12:11.982Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -208,20 +208,10 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:17:00.701Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "stage-developpement-durable-f-h-hermes-ch",
+        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-developpement-durable-f-h-hermes-ch",
@@ -234,11 +224,21 @@
           "stage-developpement-durable-f-h-hermes-ch"
         ]
       },
-      "previousSlugs": [
-        "stage-developpement-durable-f-h-hermes-ch",
-        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-30T21:17:00.701Z",
+      "needsRetranslation": true,
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "hermes-f368fe61a72d",
@@ -271,7 +271,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23937/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:29.662Z",
+      "crawledAt": "2026-10-04T09:12:11.383Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -288,6 +288,24 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23937/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stage-offre-produit-f-h-hermes-ch",
+        "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
+        "stage-offre-produit-m-w-d-hermes-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-offre-produit-f-h-hermes-ch",
+          "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
+          "stage-offre-produit-m-w-d-hermes-geneve"
+        ],
+        "en": [
+          "stage-offre-produit-f-h-hermes-ch"
+        ],
+        "de": [
+          "stage-offre-produit-f-h-hermes-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:16:59.973Z",
       "salaryMin": 51100,
@@ -302,25 +320,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-offre-produit-f-h-hermes-ch",
-          "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
-          "stage-offre-produit-m-w-d-hermes-geneve"
-        ],
-        "en": [
-          "stage-offre-produit-f-h-hermes-ch"
-        ],
-        "de": [
-          "stage-offre-produit-f-h-hermes-ch"
-        ]
-      },
-      "previousSlugs": [
-        "stage-offre-produit-f-h-hermes-ch",
-        "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
-        "stage-offre-produit-m-w-d-hermes-geneve"
-      ]
+      }
     }
   ]
 }

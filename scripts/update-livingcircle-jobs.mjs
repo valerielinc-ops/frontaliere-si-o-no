@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -80,12 +81,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
-}
-
 async function fetchJson(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -141,7 +136,7 @@ function buildJob(role) {
     sector: 'Hotellerie & Ospitalità',
     source: 'living-circle-dedicated-crawler',
     sourceLang: detectLang(`${role.title} ${role.descriptionText}`, 'de'),
-    postedDate: toIsoDate(role.postedDate),
+    ...sourcePostingDateFields(role.postedDate),
     employmentType: String(role.employmentType || '').toUpperCase().includes('FULL') ? 'full-time' : 'other',
     contractType: 'full-time',
     validThrough: '',
@@ -192,7 +187,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

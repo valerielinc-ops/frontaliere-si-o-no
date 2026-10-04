@@ -7,12 +7,21 @@
  * loop joins the factual profile inventory to an independent funnel ledger;
  * without that ledger it keeps paid activation unmeasurable and only prepares
  * reviewable, draft-only outreach or schema-repair actions.
+ *
+ * Coherence between the two sources is the exact cohort, freshness is per side.
+ * The ledger must attest the profile snapshot it was built from:
+ * `inventoryScope.profileGeneratedAt` equal to the profiles' `generatedAt` and
+ * `inventoryScope.profileCount` equal to their count. Each side then has its own
+ * age limit (`maxAgeHours`). The distance between the two clocks
+ * (`crossSourceSkewHours`) is reported but never gated: profiles are rebuilt
+ * Monday and Thursday (refresh-employer-profiles.yml) while the ledger is
+ * exported at every run, so a healthy system shows up to ~96h between them.
  */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { LOOP_STATE_AWAITING_SAMPLE, reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -23,6 +32,8 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L9';
+const ISSUE_TITLE = 'L9 Employer Activation: paid outcome ledger is not trustworthy';
+const ISSUE_WORKFLOW = 'Loop L9 Employer Supply to Paid Activation';
 export const DEFAULT_PROFILES_PATH = path.join('data', 'employer-profiles.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'employer-funnel-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -30,7 +41,6 @@ export const DEFAULT_MAX_AGE_HOURS = 240;
 export const MINIMUM_SAMPLE = 20;
 export const MAX_CANDIDATES = 25;
 const CLOCK_SKEW_HOURS = 5 / 60;
-const MAX_CROSS_SOURCE_SKEW_HOURS = 24;
 
 function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -74,6 +84,11 @@ function baseVerdict({ sourcePath, now, quality, ok, reason, issues = [], warnin
     snapshot,
     candidates,
   };
+}
+
+/** Unico testo del controllo di campione: lo produce la validazione e lo riconosce `l9FindingKind`. */
+function belowMinimumSampleIssue(eligibleEmployerAccounts, minimumSample) {
+  return `eligibleEmployerAccounts is below minimum sample (${eligibleEmployerAccounts} < ${minimumSample})`;
 }
 
 function summarizeIssues(issues, quality) {
@@ -418,7 +433,7 @@ export function validateEmployerFunnelOutcomes(outcomes, {
   }
   if (integer(values.eligibleEmployerAccounts) && values.eligibleEmployerAccounts > 0
       && values.eligibleEmployerAccounts < minimumSample) {
-    issues.push(`eligibleEmployerAccounts is below minimum sample (${values.eligibleEmployerAccounts} < ${minimumSample})`);
+    issues.push(belowMinimumSampleIssue(values.eligibleEmployerAccounts, minimumSample));
   }
 
   let ageHours = null;
@@ -481,17 +496,18 @@ export function validateEmployerActivation({ profiles, outcomes = null, outcomeP
   const warnings = [...profileVerdict.warnings, ...outcomeVerdict.warnings];
   const profileGeneratedAt = finiteDate(profileVerdict.snapshot?.generatedAt);
   const outcomeGeneratedAt = finiteDate(outcomeVerdict.snapshot?.generatedAt);
+  // Informational, not a gate: the two producers run on different cadences, so
+  // the distance between their clocks does not tell whether they are the same
+  // cohort. inventoryScope.profileGeneratedAt does, exactly (see above).
   const crossSourceSkewHours = profileGeneratedAt && outcomeGeneratedAt
     ? Math.abs(hoursBetween(profileGeneratedAt, outcomeGeneratedAt))
     : null;
-  if (crossSourceSkewHours !== null && crossSourceSkewHours > MAX_CROSS_SOURCE_SKEW_HOURS) {
-    issues.push(`profile/outcome snapshots are ${crossSourceSkewHours.toFixed(1)}h apart (max ${MAX_CROSS_SOURCE_SKEW_HOURS}h)`);
-  }
   const snapshot = {
     source: 'employer-profile-inventory-plus-funnel-ledger',
     profiles: profileVerdict.snapshot,
     outcomes: outcomeVerdict.snapshot,
     crossSourceSkewHours: crossSourceSkewHours === null ? null : Number(crossSourceSkewHours.toFixed(3)),
+    minimumSample,
   };
   let quality = 'observed';
   if (profileVerdict.quality === 'unmeasurable' || outcomeVerdict.quality === 'unmeasurable') quality = 'unmeasurable';
@@ -522,6 +538,32 @@ export function validateEmployerActivation({ profiles, outcomes = null, outcomeP
     snapshot,
     candidates: candidates.slice(0, MAX_CANDIDATES + 1),
   });
+}
+
+/**
+ * Classe di un verdetto non ok, stesso schema di `l2FindingKind`. Il campione
+ * insufficiente è uno STATO solo quando è l'UNICO controllo fallito: ledger
+ * indipendente e fresco, inventario valido, sorgenti allineate. Zero account
+ * produce `quality: 'zero'` senza finding; 1..minimo-1 produce il solo finding
+ * di campione. Qualunque altro finding insieme → guasto lavorabile.
+ */
+export function l9FindingKind(verdict) {
+  const outcomes = verdict?.snapshot?.outcomes;
+  const current = outcomes?.eligibleEmployerAccounts;
+  const minimum = verdict?.snapshot?.minimumSample;
+  const issues = Array.isArray(verdict?.issues) ? verdict.issues : null;
+  const sampleOnly = verdict?.ok === false
+    && outcomes?.independent === true
+    && integer(current)
+    && positiveInteger(minimum)
+    && current < minimum
+    && issues !== null
+    && (current === 0
+      ? verdict.quality === 'zero' && issues.length === 0
+      : verdict.quality === 'partial'
+        && issues.length === 1
+        && issues[0] === belowMinimumSampleIssue(current, minimum));
+  return sampleOnly ? 'underpowered-sample' : 'ledger-failure';
 }
 
 function readJson(filePath, label) {
@@ -656,7 +698,8 @@ export async function runL9({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -806,13 +849,30 @@ export async function runL9({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L9 Employer Activation: paid outcome ledger is not trustworthy',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'monetization', 'loop-l9'],
-      workflow: 'Loop L9 Employer Supply to Paid Activation',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
+      ...(l9FindingKind(verdict) === 'underpowered-sample' ? {
+        state: LOOP_STATE_AWAITING_SAMPLE,
+        // `eligibleEmployerAccounts` è uno stock (il ledger Firestore corrente,
+        // `export.accountMetricWindow`), non un flusso nella finestra: nessun
+        // ritmo onesto da derivarne. Finestra null → ETA non calcolabile, e a
+        // zero account ritmo zero → non raggiungibile.
+        sample: {
+          current: verdict.snapshot.outcomes.eligibleEmployerAccounts,
+          minimum: verdict.snapshot.minimumSample,
+          windowDays: null,
+        },
+      } : {}),
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten });
   if (resultFile) files.push(resultFile);

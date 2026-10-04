@@ -403,12 +403,13 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
     // The photo the candidate gave on an earlier round stays on the new tailored CV.
     const photo = await candidatePhoto(flow, bucket);
-    const { pdf, renderer } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log, ...photo });
+    const { pdf, renderer, photo: photoPrinted } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log, ...photo });
     await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
     // Phase 5: the candidate's own Word file with the adapted lines, when the switch is on.
     const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photo.photo ? { photo: true } : {}), ...(inplace ? { inplace } : {}) }, text };
+    // `photo`: this PDF carries it (not what was given: the standard-font writer prints none).
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}) }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };

@@ -2,7 +2,7 @@
  * Correzioni page test — verifies:
  *  1. Empty log shows "Nessuna correzione registrata"
  *  2. Sample entries render in reverse chronological order
- *  3. Inline JSON-LD has @type=WebPage and a `lastReviewed` field
+ *  3. An empty log never fabricates a review date in JSON-LD
  *
  * The component imports data/corrections-log.json directly. We use vi.mock
  * with a factory so we can swap log shapes per test without touching disk.
@@ -19,6 +19,7 @@ afterEach(() => {
 // Stable navigation stub so the component's "Torna alla Home" button mounts
 // without needing a NavigationProvider wrapper.
 beforeEach(() => {
+  vi.doMock('@/services/i18n', () => ({ useLocale: () => ['it', vi.fn()] }));
   vi.doMock('@/services/NavigationContext', () => ({
     useNavigation: () => ({ navigateTo: vi.fn() }),
   }));
@@ -32,7 +33,7 @@ function jsonLdNodeFromContainer(container: HTMLElement): Record<string, unknown
 }
 
 describe('Correzioni — empty log', () => {
-  it('renders the empty-state message and a WebPage JSON-LD with lastReviewed', async () => {
+  it('renders the empty-state message without inventing a review date', async () => {
     vi.doMock('@/data/corrections-log.json', () => ({
       default: {
         version: 1,
@@ -55,9 +56,8 @@ describe('Correzioni — empty log', () => {
 
     const ld = jsonLdNodeFromContainer(container);
     expect(ld['@type']).toBe('WebPage');
-    expect(typeof ld['lastReviewed']).toBe('string');
-    // YYYY-MM-DD prefix
-    expect(/^\d{4}-\d{2}-\d{2}$/.test(String(ld['lastReviewed']))).toBe(true);
+    expect(ld).not.toHaveProperty('lastReviewed');
+    expect(container.textContent).not.toMatch(/SLA|48 ore|buona notizia/);
   });
 });
 
@@ -73,20 +73,20 @@ describe('Correzioni — populated log', () => {
         },
         entries: [
           {
-            date: '2026-01-10T09:00:00.000Z',
+            date: new Date(Date.now() - 30 * 86400000).toISOString(),
             articleId: 'oldest-article',
             type: 'typo',
             description: 'Refuso corretto nel titolo del paragrafo introduttivo.',
           },
           {
-            date: '2026-04-20T15:30:00.000Z',
+            date: new Date(Date.now() - 5 * 86400000).toISOString(),
             articleId: 'newest-article',
             type: 'factual',
             description:
               'Aliquota imposta alla fonte aggiornata da 9% a 8% (fonte AFC tabella 2026).',
           },
           {
-            date: '2026-03-05T12:00:00.000Z',
+            date: new Date(Date.now() - 15 * 86400000).toISOString(),
             articleId: 'middle-article',
             type: 'clarification',
             description:
@@ -112,6 +112,26 @@ describe('Correzioni — populated log', () => {
     // JSON-LD lastReviewed picks up the most recent date (YYYY-MM-DD).
     const ld = jsonLdNodeFromContainer(container);
     expect(ld['@type']).toBe('WebPage');
-    expect(ld['lastReviewed']).toBe('2026-04-20');
+    expect(ld['lastReviewed']).toBe(new Date(Date.now() - 5 * 86400000).toISOString().slice(0, 10));
+  });
+});
+
+
+describe('corrections locale parity', () => {
+  it.each([
+    ['it', 'Correzioni', '/correzioni/', 'Come segnalare un errore'],
+    ['en', 'Corrections', '/en/corrections/', 'How to report an error'],
+    ['de', 'Korrekturen', '/de/korrekturen/', 'Einen Fehler melden'],
+    ['fr', 'Corrections', '/fr/corrections/', 'Signaler une erreur'],
+  ])('renders policy and canonical schema in %s', async (locale, title, path, heading) => {
+    vi.doMock('@/services/i18n', () => ({ useLocale: () => [locale, vi.fn()] }));
+    vi.doMock('@/data/corrections-log.json', () => ({ default: { version: 1, policy: { types: ['factual', 'typo', 'clarification'], contactEmail: 'redazione@frontaliereticino.ch' }, entries: [] } }));
+    const { Correzioni } = await import('@/components/pages/Correzioni');
+    const { container } = render(<Correzioni />);
+    expect(screen.getByRole('heading', { level: 1, name: title })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: heading })).toBeTruthy();
+    expect(jsonLdNodeFromContainer(container)).toMatchObject({ url: `https://frontaliereticino.ch${path}`, inLanguage: locale });
+    expect(jsonLdNodeFromContainer(container)).not.toHaveProperty('lastReviewed');
+    if (locale !== 'it') expect(container.textContent).not.toContain('Come segnalare un errore');
   });
 });

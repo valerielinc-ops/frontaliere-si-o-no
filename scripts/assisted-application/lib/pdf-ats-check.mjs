@@ -18,6 +18,7 @@
  */
 
 import { getDocumentProxy } from 'unpdf';
+import { pageTextFonts } from '../../../functions/src/lib/pdfFonts.js';
 
 const DATE_RE = /(?:\b\d{1,2}[./]\d{4}\b|\b(?:19|20)\d{2}\s*[–-]\s*(?:(?:19|20)\d{2}|\p{L}+))/u;
 const PRIVATE_USE = /[-]/u;
@@ -40,13 +41,9 @@ export async function checkPdfForAts(pdfBytes, { name = '', facts = [], headings
     const content = await page.getTextContent();
     await page.getOperatorList();
     const items = content.items.filter((item) => 'str' in item && item.str.trim());
-    for (const item of items) {
-      try {
-        const font = page.commonObjs.get(item.fontName);
-        if (font?.missingFile) missingFont = true;
-      } catch {
-        unresolvedFont = true;
-      }
+    for (const font of pageTextFonts(page, items)) {
+      if (!font.resolved) unresolvedFont = true;
+      else if (!font.embedded) missingFont = true;
     }
     // Lines by baseline, then left to right: the reading a layout-aware extractor makes.
     const rows = new Map();

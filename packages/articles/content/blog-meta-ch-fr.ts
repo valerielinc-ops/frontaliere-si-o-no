@@ -7661,6 +7661,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pilastro3a-zurigo-strategia.title': 'Troisième pilier 3a : avantages 2026 dans le canton de Zurich',
     'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Guide 2026 du troisième pilier 3a dans le canton de Zurich : trois niveaux fiscaux, multiplicateur communal et prestataires bancaires ou d’assurance.',
     'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Documents fiscaux suisses et plan 3a sur un bureau avec la silhouette de Zurich.',
+    'blog.article.guida-terzo-3a-berna.title': 'Troisième pilier 3a suisse : avantages 2026 dans le canton de Berne',
+    'blog.article.guida-terzo-3a-berna.excerpt': 'Guide 2026 du pilier 3a dans le canton de Berne : plafond indexé, trois niveaux fiscaux et comparaison entre les prestataires bancaires et les assureurs.',
+    'blog.article.guida-terzo-3a-berna.imageAlt': 'Résident suisse consultant des documents sur le pilier 3a et les impôts',
+    'blog.article.lista-governo-ticino-2027.title': 'En avant avec Ticino&Lavoro : liste Gouvernement 2027',
+    'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli et Giovanni Albertini figurent sur la liste du Conseil d\'État pour le 11 avril 2027.',
+    'blog.article.lista-governo-ticino-2027.imageAlt': 'Présentation politique à Lamone pour la liste au gouvernement tessinois',
+    'blog.article.guida-3a-fisco-vaud.title': 'Troisième pilier 3a : avantages 2026 dans le canton de Vaud',
+    'blog.article.guida-3a-fisco-vaud.excerpt': 'Guide 2026 du troisième pilier 3a dans le canton de Vaud : avantages fiscaux, trois niveaux d’imposition, plafond indexé et comparaison nationale.',
+    'blog.article.guida-3a-fisco-vaud.imageAlt': 'Documents fiscaux et calculateur pour le pilier 3a suisse dans le canton de Vaud',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genève : 1 500 pro-Palestine demandent des sanctions',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Environ 1.500 manifestants à Genève demandent le blocage des relations avec Israël et l\'arrestation de Netanyahu. Berne : pas d\'arrestation pour des raisons de négociation.',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Manifestation pro-Palestine à Genève avec drapeaux palestiniens et suisses',
 };
 
 export default blogMetaChFr;

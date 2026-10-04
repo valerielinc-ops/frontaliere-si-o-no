@@ -1,3 +1,6 @@
+import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
+import { buildCorrezioniSeo } from './seo/seo-correzioni';
+import { METHODOLOGY_COPY } from './editorialMethodology';
 import { localizeArticlePageIdentity } from './seo/article-page-identity';
 /**
  * SEO Service - Dynamic Meta Tags Management
@@ -26,12 +29,13 @@ import {
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorRegistry } from './seo/articleAuthorUrl';
 import { translateSchema } from './seo/schema-translators';
-import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
 import { resolveJobApplicationUrl } from './jobApplicationDestination';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
+import { resolveGuideLocaleSeo } from '../build-plugins/shared/guideLocaleSeo';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from '../build-plugins/shared/robotsDirective';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
@@ -483,6 +487,8 @@ async function resolveJobSeoBySlug(
  addressCountry: address.country,
  postalCode: address.postalCode,
  streetAddress: address.streetAddress,
+ postingDateSource: job?.postingDateSource,
+ datePosted: job?.datePosted,
  postedDate: job?.postedDate,
  crawledAt: job?.crawledAt,
  updatedAt: job?.updatedAt,
@@ -526,7 +532,7 @@ async function resolveJobSeoBySlug(
  isTicino,
  isRemote,
  };
- const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);
+ const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalInput, locale), faqOpts);
  const faqPageSchema: Record<string, any> | null = jobFaqPairs.length > 0
  ? {
  '@context': 'https://schema.org',
@@ -548,7 +554,7 @@ async function resolveJobSeoBySlug(
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
- structuredData: faqPageSchema ? [canonicalSchema, faqPageSchema] : canonicalSchema,
+ structuredData: [canonicalSchema, faqPageSchema].filter((schema) => schema !== null),
  };
 }
 
@@ -971,7 +977,8 @@ let _landingChunkCache: Record<string, SEOMetadata> | null = null;
 async function loadPagesSeoChunk(): Promise<Record<string, SEOMetadata>> {
  if (_pagesChunkCache) return _pagesChunkCache;
  const { default: entries } = await retryImport(() => import('./seo/seo-pages'), 'pages');
- _pagesChunkCache = withSpeakable(entries);
+ _pagesChunkCache = withSpeakable(Object.fromEntries(Object.entries(entries).map(([key, entry]) =>
+   [key, resolveAuthorProfileMetadata(key, 'it') ?? entry])));
  return _pagesChunkCache;
 }
 
@@ -1353,6 +1360,14 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  description: string;
  keywords: string;
 } {
+ if (section === 'correzioni') {
+ const page = buildCorrezioniSeo(locale);
+ return { title: page.title, description: page.description, keywords: metadata.keywords };
+ }
+ if (section === 'metodologia') {
+ const copy = METHODOLOGY_COPY[locale];
+ return { title: buildTitleWithBrand(copy.title), description: copy.description, keywords: getLocalizedSeoKeywords(copy.title, locale, metadata.keywords) };
+ }
  if (locale === 'it') {
  return {
  title: metadata.title,
@@ -1372,6 +1387,16 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
    title,
    description: hub.description,
    keywords: getLocalizedSeoKeywords(hub.title, locale, metadata.keywords),
+  };
+ }
+
+ const localizedGuideSeo = resolveGuideLocaleSeo(section, locale);
+ if (localizedGuideSeo) {
+  const title = buildTitleWithBrand(localizedGuideSeo.title);
+  return {
+   title,
+   description: localizedGuideSeo.description,
+   keywords: getLocalizedSeoKeywords(localizedGuideSeo.title, locale, metadata.keywords),
   };
  }
 
@@ -1743,7 +1768,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  loadSerpExperimentState();
  const sectionKey = section.startsWith('jobboard-') ? 'jobboard' : section;
 
- const metadata = pharmacyMetadata ?? await getSeoEntry(sectionKey);
+ const authorMetadata = resolveAuthorProfileMetadata(sectionKey, pathLocale);
+ const metadata: SEOMetadata = pharmacyMetadata ?? authorMetadata ?? await getSeoEntry(sectionKey);
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  if (getLocale() !== pathLocale) {
   setLocale(pathLocale);
@@ -1820,10 +1846,13 @@ export async function updateMetaTags(section: string): Promise<void> {
 
  const isDialectPage = section === 'dialetto';
  const glossarySeo = pharmacyMetadata ? null : await resolveLocalizedGlossarySeo(sectionKey, metadata, locale);
+ // Legal copy stays in a lazy chunk and is loaded only for these routes.
+ const legalSeo = sectionKey === 'privacy' || sectionKey === 'terms' || sectionKey === 'data-deletion'
+ ? (await import('./legal/documents')).buildLegalSeo(sectionKey, locale) : null;
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  const localizedSeoContent = pharmacyMetadata
  ? pharmacyMetadata
- : glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
+ : (legalSeo ? { ...legalSeo, keywords: metadata.keywords } : null) ?? authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',
@@ -2056,6 +2085,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  });
  }
  updateStructuredData([...jobStructuredDataItems, breadcrumbs]);
+ } else if (legalSeo) {
+ updateStructuredData([legalSeo.jsonLd, breadcrumbs]);
  } else if (metadata.structuredData) {
  const existingData = Array.isArray(metadata.structuredData)
  ? metadata.structuredData
@@ -2082,7 +2113,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (hasLocalizedExcerpt && typeof clone.description === 'string') clone.description = metaDescription;
  if (hasLocalizedImageAlt && clone.image && typeof clone.image === 'object') clone.image.caption = localizedImageAlt;
  }
- if (!isBlogArticle && !isEditorialEntity) {
+ if (!isBlogArticle && !isEditorialEntity && !authorMetadata) {
  if (typeof clone.name === 'string') clone.name = metaOgTitle.replace(' | Frontaliere Ticino', '');
  if (typeof clone.headline === 'string') clone.headline = metaOgTitle;
  if (typeof clone.description === 'string') clone.description = metaDescription;

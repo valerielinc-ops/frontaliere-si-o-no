@@ -1,20 +1,19 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-10-03T09:31:13.152Z",
-  "total": 13,
-  "newCount": 1,
-  "updatedCount": 11,
+  "generatedAt": "2026-10-04T09:35:10.569Z",
+  "total": 12,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2920,
-  "avgDurationMs": 2920,
+  "unchangedCount": 0,
+  "durationMs": 3224,
+  "avgDurationMs": 3224,
   "durationHistory": [
-    4210,
-    3658,
-    2920
+    3224
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "corner-banca-24e657c3173d",
       "slug": "collaboratore-ufficio-contenzioso-ref-1131-corner-banca-lugano",
@@ -30,23 +29,24 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.819Z",
+      "crawledAt": "2026-10-04T09:35:02.125Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:01.819Z",
       "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 17,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 12
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "corner-banca-3132975eb0ea",
       "slug": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen",
@@ -62,50 +62,22 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.821Z",
+      "crawledAt": "2026-10-04T09:35:02.127Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:44.967Z",
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
-      "_qualityScore": 79,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 19,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "corner-banca-0b72c7144b4f",
-      "slug": "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Senior Security GRC (Governance, Risk & Compliance) Banking - ref. 1109",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-14",
-      "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.835Z",
-      "firstSeenAt": "2026-08-14T10:12:28.229Z",
-      "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -123,19 +95,21 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.822Z",
+      "crawledAt": "2026-10-04T09:35:02.128Z",
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
       "applyUrl": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -153,19 +127,21 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.825Z",
+      "crawledAt": "2026-10-04T09:35:02.130Z",
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
       "applyUrl": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -183,19 +159,21 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.826Z",
+      "crawledAt": "2026-10-04T09:35:02.131Z",
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -213,20 +191,22 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.829Z",
+      "crawledAt": "2026-10-04T09:35:02.132Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -244,19 +224,21 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.831Z",
+      "crawledAt": "2026-10-04T09:35:02.133Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -274,50 +256,53 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.833Z",
+      "crawledAt": "2026-10-04T09:35:02.135Z",
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
-      "id": "corner-banca-62309aa78f00",
-      "slug": "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen",
+      "id": "corner-banca-0b72c7144b4f",
+      "slug": "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Employee Collection Team Zurigo -  ref. 1068",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
+      "title": "Senior Security GRC (Governance, Risk & Compliance) Banking - ref. 1109",
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
       "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
+      "category": "finance",
+      "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-10",
-      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.840Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:12:28.238Z",
-      "applyUrl": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
-      "_qualityScore": 85,
+      "crawledAt": "2026-10-04T09:35:02.136Z",
+      "firstSeenAt": "2026-08-14T10:12:28.229Z",
+      "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -335,20 +320,55 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:31:01.838Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-04T09:35:02.138Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 12
+      }
+    },
+    {
+      "id": "corner-banca-62309aa78f00",
+      "slug": "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Collection Team Zurigo -  ref. 1068",
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-04T09:35:02.140Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.238Z",
+      "applyUrl": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 12
       }
     },
     {
@@ -366,60 +386,25 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-10-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T09:31:01.841Z",
+      "crawledAt": "2026-10-04T09:35:02.142Z",
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
       "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "corner-banca-c2be30cf246d",
-      "slug": "collaboratore-trice-consumer-dispute-management-rif-1103-corner-banca-wallisellen",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Collaboratore/trice Consumer Dispute Management - rif. 1103",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:28:38.921Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:12:28.211Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

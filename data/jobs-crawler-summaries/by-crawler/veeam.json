@@ -1,7 +1,7 @@
 {
   "key": "veeam",
   "label": "Veeam Software",
-  "generatedAt": "2026-10-03T09:22:25.169Z",
+  "generatedAt": "2026-10-04T09:26:02.137Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -14,15 +14,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 708,
-  "avgDurationMs": 708,
+  "durationMs": 960,
+  "avgDurationMs": 960,
   "durationHistory": [
-    825,
-    712,
-    708
+    960
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

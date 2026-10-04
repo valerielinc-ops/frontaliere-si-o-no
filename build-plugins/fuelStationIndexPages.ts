@@ -631,7 +631,8 @@ export function titleFor(
       frontaliereContext: `If you live in Italy and work in Ticino, deciding whether to fill up before crossing or after depends on the daily CHF/EUR spread. Swiss ${lower} historically costs more per litre nominally, but with a strong franc and Italian prices tracking the EU average, the spread has tightened. This index lays out every border-city option: stations near the Como Centro toll, self-service pumps in Lavena Ponte Tresa that many commuters use on the evening leg, and everything in between.`,
     };
     if (locale === 'de') return {
-      title: `Alle italienischen ${lower}-Tankstellen am Tessiner Grenzgebiet — Index`,
+      // ≤66 chars incl. "— Seite N" (tests/seo/fuel-title-budget.test.ts).
+      title: `Alle italienischen ${lower}-Tankstellen im Grenzgebiet — Index`,
       description: `Index der italienischen ${lower}-Tankstellen in Grenzstädten (Como, Varese, Luino, Lavena Ponte Tresa…). Tägliche MIMIT-Daten.`,
       h1: `Italienische ${lower}-Tankstellen am Grenzgebiet — Index`,
       lede: `Durchsuche jede italienische ${lower}-Tankstelle, die wir in den Grenzstädten erfassen. Nach Gemeinde gruppiert, damit du vor dem Übergang vergleichen kannst.`,
@@ -947,6 +948,25 @@ function pageSuffix(locale: FuelDailyLocale, page: number): string {
   return `page ${page}`;
 }
 
+/**
+ * The emitted `<title>` of one index page. Page 1 uses the copy title; page
+ * N keeps the keyword prefix (text before " — ") plus "— <page N>". The
+ * renderer and `tests/seo/fuel-title-budget.test.ts` both call this, so the
+ * budget test measures the exact rule the generator applies.
+ */
+export function indexTitleFor(
+  kind: FuelIndexKind,
+  locale: FuelDailyLocale,
+  fuel: FuelType,
+  page: number,
+): string {
+  const { title } = titleFor(kind, locale, fuel);
+  const titleBase = page > 1
+    ? `${title.split(' — ')[0]} — ${pageSuffix(locale, page)}`
+    : title;
+  return clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
+}
+
 interface FuelMapCopy {
   readonly title: string;
   readonly description: string;
@@ -1082,9 +1102,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const pageH1 = pageTitleSuffix ? `${titles.h1} — ${pageTitleSuffix}` : titles.h1;
   // Keep the page number in the SERP title while retaining the most useful
   // keyword prefix inside the 66-character title budget.
-  const titleBase = pageTitleSuffix
-    ? `${titles.title.split(' — ')[0]} — ${pageTitleSuffix}`
-    : titles.title;
+  const title = indexTitleFor(kind, locale, fuel, page);
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const collectedAt = lastCompleteCollection(groups.flatMap((group) => group.anchors.map((anchor) => anchor.collectedAt)));
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -1183,7 +1201,6 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     },
   });
 
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   // Pre-cut removed: clampMetaDescription (160) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.

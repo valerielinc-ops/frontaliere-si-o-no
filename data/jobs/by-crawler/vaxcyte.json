@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-10-03T09:09:53.378Z",
+  "assembledAt": "2026-10-04T09:11:40.663Z",
   "jobs": [
     {
       "id": "vaxcyte-f558683786d7",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:09:43.851Z",
+      "crawledAt": "2026-10-04T09:11:30.679Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:09:43.846Z",
+      "crawledAt": "2026-10-04T09:11:30.672Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -209,7 +209,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:09:43.822Z",
+      "crawledAt": "2026-10-04T09:11:30.592Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:09:43.817Z",
+      "crawledAt": "2026-10-04T09:11:30.583Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -329,6 +329,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:25:58.849Z",
+      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -341,8 +342,7 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

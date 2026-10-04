@@ -419,7 +419,8 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           const bodyHtml = renderBody(rec, locale);
           const wordCount = countHtmlBodyWords(bodyHtml);
 
-          const jobPostingLd = inlineScriptJson(buildJobPostingSchema(rec, { locale, url: canonicalUrl }));
+          const jobPosting = buildJobPostingSchema(rec, { locale, url: canonicalUrl });
+          const jobPostingLd = jobPosting ? inlineScriptJson(jobPosting) : null;
           const breadcrumbLd = inlineScriptJson({
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
@@ -453,7 +454,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
             ogType: 'article',
             ogLocale: OG_LOCALE[locale],
             hreflangHtml,
-            jsonLdScripts: [jobPostingLd, breadcrumbLd],
+            jsonLdScripts: jobPostingLd ? [jobPostingLd, breadcrumbLd] : [breadcrumbLd],
             bodyHtml,
             distDir,
             skipMainWrap: true,
@@ -520,7 +521,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
               const alts = alternates
                 .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`)
                 .join('\n');
-              return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+              return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`;
             })
             .join('\n');
           const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

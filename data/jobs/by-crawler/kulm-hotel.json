@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-10-03T09:17:30.173Z",
+  "assembledAt": "2026-10-04T09:20:42.150Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:17.885Z",
+      "crawledAt": "2026-10-04T09:20:36.157Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -47,7 +47,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-12-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-12-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/708",
       "requirements": [],
       "requirementsByLocale": {},
@@ -123,7 +126,7 @@
       "companyDomain": "kulm.com",
       "title": "Sous Chef Main Kitchen | 16 GaultMillau Points (m/w/d)",
       "titleByLocale": {
-        "it": "Sous Chef Main Kitchen | 16 GaultMillau Punti (m/f/d)",
+        "it": "Cucina Principale Sous Chef | 16 Punti GaultMillau (m/f/d)",
         "en": "Sous Chef Main Kitchen | 16 GaultMillau Points (m/w/d)",
         "de": "Sous Chef (muss haben: fließend Italienisch) - starten Sie sofort (m/w/d)",
         "fr": "Sous Chef (doit avoir: couramment en italien) - commencer immédiatement (h/f/d)"
@@ -140,7 +143,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:17.681Z",
+      "crawledAt": "2026-10-04T09:20:36.007Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -154,7 +157,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-01",
+      "postedDate": "",
       "applyUrl": "https://careers.kulm.com/en/vacancies/723",
       "requirements": [],
       "requirementsByLocale": {},
@@ -196,7 +199,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-02-01T00:00:00.000000Z"
     },
     {
       "id": "kulm-hotel-f99c2b318f49",
@@ -229,7 +235,7 @@
       "url": "https://careers.kulm.com/en/vacancies/719",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:16.677Z",
+      "crawledAt": "2026-10-04T09:20:35.052Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -243,7 +249,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-10-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/719",
       "requirements": [],
       "requirementsByLocale": {},
@@ -251,6 +260,18 @@
       "pensum": "100%",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:18:44.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        ],
+        "fr": [
+          "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        ]
+      },
+      "previousSlugs": [
+        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
+        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -263,19 +284,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
-        ],
-        "fr": [
-          "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
-        ]
-      },
-      "previousSlugs": [
-        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
-        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
-      ]
+      }
     },
     {
       "id": "kulm-hotel-875c16e64568",
@@ -308,7 +317,7 @@
       "url": "https://careers.kulm.com/en/vacancies/680",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:15.660Z",
+      "crawledAt": "2026-10-04T09:20:34.095Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -322,7 +331,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-07-15T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/680",
       "requirements": [],
       "requirementsByLocale": {},
@@ -342,6 +354,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:46:19.737Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -354,8 +367,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kulm-hotel-23606c6fadb0",
@@ -388,7 +400,7 @@
       "url": "https://careers.kulm.com/en/vacancies/720",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:14.646Z",
+      "crawledAt": "2026-10-04T09:20:33.144Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -402,7 +414,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-15",
+      "postedDate": "",
       "applyUrl": "https://careers.kulm.com/en/vacancies/720",
       "requirements": [],
       "requirementsByLocale": {},
@@ -437,7 +449,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-08-15T00:00:00.000000Z"
     },
     {
       "id": "kulm-hotel-0d43a765b99f",
@@ -470,7 +485,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:13.627Z",
+      "crawledAt": "2026-10-04T09:20:32.194Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -484,7 +499,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-11-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-11-24T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/696",
       "requirements": [],
       "requirementsByLocale": {},
@@ -552,7 +570,7 @@
       "url": "https://careers.kulm.com/en/vacancies/690",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:12.600Z",
+      "crawledAt": "2026-10-04T09:20:31.246Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -566,7 +584,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-12-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-12-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/690",
       "requirements": [],
       "requirementsByLocale": {},
@@ -586,6 +607,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:18:39.956Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -598,8 +620,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kulm-hotel-ba2aa180cacb",
@@ -632,7 +653,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:11.589Z",
+      "crawledAt": "2026-10-04T09:20:30.298Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -646,7 +667,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-12-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-12-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/722",
       "requirements": [],
       "requirementsByLocale": {},
@@ -708,7 +732,7 @@
       "url": "https://careers.kulm.com/en/vacancies/729",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:10.572Z",
+      "crawledAt": "2026-10-04T09:20:29.336Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -722,7 +746,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-12-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-12-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/729",
       "requirements": [],
       "requirementsByLocale": {},
@@ -785,7 +812,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:09.551Z",
+      "crawledAt": "2026-10-04T09:20:28.388Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -799,7 +826,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-11-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/679",
       "requirements": [],
       "requirementsByLocale": {},
@@ -910,7 +940,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:08.531Z",
+      "crawledAt": "2026-10-04T09:20:27.425Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -924,7 +954,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-08-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/636",
       "requirements": [],
       "requirementsByLocale": {},
@@ -987,7 +1020,7 @@
       "url": "https://careers.kulm.com/en/vacancies/731",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:07.504Z",
+      "crawledAt": "2026-10-04T09:20:26.471Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1001,7 +1034,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-10-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/731",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1068,7 +1104,7 @@
       "url": "https://careers.kulm.com/en/vacancies/717",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:06.493Z",
+      "crawledAt": "2026-10-04T09:20:25.525Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1082,7 +1118,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-12-01",
+      "postedDate": "",
       "applyUrl": "https://careers.kulm.com/en/vacancies/717",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1102,7 +1138,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-12-01T00:00:00.000000Z"
     },
     {
       "id": "kulm-hotel-ed7c80582448",
@@ -1135,7 +1174,7 @@
       "url": "https://careers.kulm.com/en/vacancies/732",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:05.475Z",
+      "crawledAt": "2026-10-04T09:20:24.567Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1149,7 +1188,10 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-10-01T00:00:00.000000Z",
       "applyUrl": "https://careers.kulm.com/en/vacancies/732",
       "requirements": [],
       "requirementsByLocale": {},

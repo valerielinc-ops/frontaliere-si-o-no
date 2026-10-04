@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * Canonical `JobPosting` structured-data builder.
  *
@@ -113,6 +114,7 @@ export interface JobInput {
   readonly streetAddress?: string | null;
   readonly address?: string | null;
 
+  readonly postingDateSource?: string | null;
   readonly postedDate?: string | null;
   readonly datePosted?: string | null;
   readonly crawledAt?: string | null;
@@ -386,11 +388,6 @@ function toIsoDate(raw: string | null | undefined): string | null {
   const d = new Date(raw);
   if (Number.isNaN(d.getTime())) return null;
   return d.toISOString();
-}
-
-/** Return today's ISO 8601 date (UTC, date-only). */
-function todayIso(now?: Date): string {
-  return (now || new Date()).toISOString();
 }
 
 /** Floor a derived `validThrough` to at least now+30d (#3505): derived windows
@@ -739,17 +736,6 @@ function resolveBaseSalary(job: JobInput): BaseSalarySchema {
   };
 }
 
-/** Resolve datePosted to an ISO-8601 string (never empty). */
-function resolveDatePosted(job: JobInput, now?: Date): string {
-  return (
-    toIsoDate(job.datePosted) ||
-    toIsoDate(job.postedDate) ||
-    toIsoDate(job.scrapedAt) ||
-    toIsoDate(job.crawledAt) ||
-    todayIso(now)
-  );
-}
-
 // ── Public API ──────────────────────────────────────────────────────────────
 
 /**
@@ -762,21 +748,31 @@ export function resolveJobPostingAddress(job: JobInput, locale: string): PostalA
   return resolveAddress(job, resolveCompanyName(job, locale), locale);
 }
 
-/**
- * Build a fully populated `JobPosting` schema with every mandatory field
- * present and non-empty. Throws if the input is unusable (e.g. neither a
- * city nor a canton could be derived).
- *
- * The throw is defensive — every default above is realistic, so in
- * practice the function always returns a valid schema.
- */
+/** Facts used by visible FAQ content independently of rich-result eligibility. */
+export type JobPostingFacts = Pick<JobPostingSchema, 'baseSalary' | 'employmentType' | 'hiringOrganization' | 'jobLocation'>;
+
+export function buildJobPostingFacts(job: JobInput, locale: string): JobPostingFacts {
+  const companyName = resolveCompanyName(job, locale);
+  return {
+    baseSalary: resolveBaseSalary(job),
+    employmentType: normaliseEmploymentType(job.employmentType || job.contractType || job.contract),
+    hiringOrganization: { '@type': 'Organization', name: companyName },
+    jobLocation: { '@type': 'Place', address: resolveAddress(job, companyName, locale) },
+  };
+}
+
+/** JobPosting eligibility requires a verified employer publication date.
+ * Unknown, invalid and unmarked legacy inputs retain page/FAQ content only. */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
-): JobPostingSchema {
+): JobPostingSchema | null {
   if (!opts || !opts.locale || !opts.url) {
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
+
+  const datePosted = resolveReportedPostingDate(job, opts.now);
+  if (!datePosted) return null;
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
@@ -788,7 +784,6 @@ export function buildJobPostingSchema(
     address.addressLocality,
     opts.locale,
   );
-  const datePosted = resolveDatePosted(job, opts.now);
   const validThrough = computeValidThrough(
     job.validThrough,
     job.crawledAt || job.scrapedAt || null,

@@ -348,7 +348,7 @@ describe('nextCrawlerState', () => {
   // The whole `broken` cohort of the 2026-08-04 monitor snapshot, all five
   // verified live as "source healthy, zero qualifying openings" rather than
   // parser breaks (evidence per crawler in the EMPTY_OK_CRAWLERS comments in
-  // scripts/check-crawler-health.mjs). Table-driven so the class is covered
+  // scripts/lib/crawler-empty-ok-registry.mjs). Table-driven so the class is covered
   // in one place instead of five copy-pasted blocks.
   const emptyOkCohort: Array<{ slug: string; issue: string; why: string; priorNonZero: number; emptyStreak: number }> = [
     {

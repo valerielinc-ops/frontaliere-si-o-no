@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alten-switzerland",
-  "assembledAt": "2026-10-01T09:23:39.412Z",
+  "assembledAt": "2026-10-04T09:25:25.242Z",
   "jobs": [
     {
       "title": "Project Manager – IT & Banking",
@@ -62,22 +62,23 @@
         "it": [
           "project-manager-it-banking-alten-switzerland-chiasso",
           "project-manager-it-e-bancario-alten-switzerland-chiasso",
-          "project-manager-it-banking-alten-switzerland-switzerland",
-          "project-manager-it-e-bancario-alten-switzerland-switzerland"
+          "project-manager-it-banking-alten-switzerland-switzerland"
         ],
         "en": [
-          "pro-manager-alten-switzerland-switzerland"
+          "pro-manager-alten-switzerland-switzerland",
+          "project-manager-it-banking-alten-switzerland-switzerland"
         ]
       },
       "previousSlugs": [
         "project-manager-it-banking-alten-switzerland-chiasso",
         "project-manager-it-e-bancario-alten-switzerland-chiasso",
-        "pro-manager-alten-switzerland-switzerland",
         "project-manager-it-banking-alten-switzerland-switzerland",
-        "project-manager-it-e-bancario-alten-switzerland-switzerland"
+        "pro-manager-alten-switzerland-switzerland"
       ],
       "sourceIdentity": "url:https://www.alten.ch/jobs/903-pipe-project-manager-it",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "datePosted": "2026-03-04",
+      "postingDateSource": "reported"
     },
     {
       "title": "Cloud Engineer – Google Cloud Platform",
@@ -99,7 +100,7 @@
       "sector": "IT Consulting & Engineering",
       "source": "alten-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-07-06",
       "validThrough": "",
       "description": "## Intro\nALTEN GroupWithin 30 years, ALTEN has become leader in both outsourced Engineering and IT Enterprise Services. ALTEN, composed of 57,000 engineers, carries out complex and highly technical projects throughout the value chain of 6,500 clients, the most prestigious companies in all sectors of industry, services and telecommunications. We work with key actors in the Aeronautics & Space, Defence & Naval, Security, Automotive, Rail, Energy, Life Sciences, Finance, Retail, Telecommunications and Services sectors. ALTEN SwitzerlandSince 2005, with 450 current employees, ALTEN Switzerland is a reference partner in providing Engineering services to 100 world leading companies. ALTEN Switzerland’s activities cover all the main strategical areas of the Swiss market in Life Sciences, Engineering & IT Services.\n\n## Tasks\nFor our important client in the banking sector, we are looking for experienced Cloud Engineers specialized in Google Cloud Platform (GCP), who can contribute to the design, implementation, and management of highly scalable and secure cloud environments.The ideal candidate has solid technical experience with GCP and a strong understanding of infrastructure and DevOps best practices.\n\n## \n• Requirements\nRequirementsProven experience with Google Cloud Platform;Excellent knowledge of key GCP services, particularly Cloud SQL;Experience with Kubernetes and container orchestration systems;Proficiency in Terraform and an Infrastructure as Code approach;Knowledge of cloud security and compliance (PCI). \n• What we offer youAt Alten, we offer you the security of a permanent contract while also giving you the liberty to work with multiple prestigious clients. With the luxury of having a wide range of offices around the world, we are in a unique position to provide you with the freedom to experience national and international business opportunities. Thus, we function in a highly innovative market, always being up to date with the latest technologies and making you a pioneer in your field.Therefore, we offer our employees sought-after trainings and workshops ranging from hard to soft skills and providing you with certificates that will further increase your qualifications, enabling you to participate in ground-breaking projects.Apply now and be a part of our amazing journey. We believe in growing together! The hiring office is ALTEN Switzerland AG, Corso San Gottardo 14, 6830, Chiasso, e-mail contact via “contact us”, phone +41 (0) 79 195 07 97",
       "titleByLocale": {
@@ -138,6 +139,8 @@
       "firstSeenAt": "2026-04-14T21:02:53.441Z",
       "sourceIdentity": "url:https://www.alten.ch/jobs/879-google-cloud-platform",
       "salarySource": "reported",
+      "datePosted": "2026-07-06",
+      "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-cloud-google-cloud-platform-alten-switzerland-switzerland"

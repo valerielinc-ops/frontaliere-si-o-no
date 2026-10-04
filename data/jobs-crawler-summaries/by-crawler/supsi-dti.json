@@ -1,18 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-10-03T09:32:36.876Z",
-  "total": 10,
-  "newCount": 10,
+  "generatedAt": "2026-10-04T09:32:23.153Z",
+  "total": 8,
+  "newCount": 8,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 103191,
-  "avgDurationMs": 103191,
+  "durationMs": 123982,
+  "avgDurationMs": 123982,
   "durationHistory": [
-    95475,
-    110337,
-    103191
+    123982
   ],
   "newJobs": [
     {
@@ -26,7 +24,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando26_4014",
       "applyUrl": "https://www.supsi.ch/bando26_4014",
       "source": "Company Careers Crawler",
@@ -37,7 +35,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -49,13 +47,15 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -69,7 +69,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando26_4015",
       "applyUrl": "https://www.supsi.ch/bando26_4015",
       "source": "Company Careers Crawler",
@@ -80,7 +80,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -90,13 +90,15 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -110,7 +112,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando-26_3003",
       "applyUrl": "https://www.supsi.ch/bando-26_3003",
       "source": "Company Careers Crawler",
@@ -121,7 +123,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -133,13 +135,15 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -153,7 +157,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando26_5042",
       "applyUrl": "https://www.supsi.ch/bando26_5042",
       "source": "Company Careers Crawler",
@@ -164,9 +168,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 79500,
@@ -177,12 +180,15 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 98,
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -196,7 +202,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando26_3002",
       "applyUrl": "https://www.supsi.ch/bando26_3002",
       "source": "Company Careers Crawler",
@@ -207,9 +213,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -220,12 +225,15 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -239,7 +247,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando26_5041",
       "applyUrl": "https://www.supsi.ch/bando26_5041",
       "source": "Company Careers Crawler",
@@ -250,7 +258,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-09-19T23:08:45.327Z",
       "country": "CH",
       "sourceLang": "it",
@@ -261,12 +269,14 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -280,7 +290,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando26_2015",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -290,7 +300,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-09-04T23:12:08.169Z",
       "country": "CH",
       "sourceLang": "it",
@@ -303,13 +313,15 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/bando26_2015",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -323,7 +335,7 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-01",
+      "postedDate": "",
       "url": "https://www.supsi.ch/bando26_4001",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -333,7 +345,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-03T09:31:58.588Z",
+      "crawledAt": "2026-10-04T09:31:27.790Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -346,105 +358,20 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.supsi.ch/bando26_4001",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-59ix8c",
-      "slug": "stagista-52-settimane-supsi-dti-manno",
-      "company": "SUPSI / DTI",
-      "title": "Stagista 52 settimane",
-      "location": "Manno",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-30",
-      "url": "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-",
-      "applyUrl": "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Manno",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-01T09:28:52.318Z",
-      "firstSeenAt": "2026-09-30T21:26:44.470Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "salarySource": "estimated",
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4ti3w",
-      "slug": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
-      "company": "SUPSI / DTI",
-      "title": "Stage anno preformativo per l’ammissione al Bachelor of Science in Sostenibilità e transizione sistemica",
-      "location": "Manno",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-07",
-      "url": "https://www.supsi.ch/bando26_4013",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Manno",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-01T09:28:52.318Z",
-      "firstSeenAt": "2026-09-07T15:22:00.513Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.supsi.ch/bando26_4013",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
