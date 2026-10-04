@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-10-03T21:11:19.713Z",
+  "generatedAt": "2026-10-04T09:12:45.770Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 121104,
-  "avgDurationMs": 121104,
+  "durationMs": 105958,
+  "avgDurationMs": 105958,
   "durationHistory": [
-    121104
+    105958
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:13.605Z",
+      "crawledAt": "2026-10-04T09:10:56.411Z",
       "firstSeenAt": "2026-08-05T11:31:26.375Z",
       "sourceLang": "de",
       "salaryMin": 99000,
@@ -49,6 +49,8 @@
       "contractType": "permanent",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-individual-st-gallen-w-m-2693",
+      "datePosted": "2026-09-30",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -73,7 +75,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:14.196Z",
+      "crawledAt": "2026-10-04T09:10:57.070Z",
       "firstSeenAt": "2026-06-08T22:12:09.409Z",
       "sourceLang": "de",
       "salaryMin": 99000,
@@ -92,6 +94,8 @@
       "contractType": "permanent",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/geschaeftsstellenleiterin-st-gallen-w-m-2676",
+      "datePosted": "2026-09-30",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -117,7 +121,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:14.868Z",
+      "crawledAt": "2026-10-04T09:10:57.614Z",
       "firstSeenAt": "2026-09-29T09:12:09.240Z",
       "sourceLang": "de",
       "salaryMin": 74500,
@@ -134,8 +138,10 @@
       "department": "Lehre, Praktikum und Trainee",
       "validThrough": "",
       "contractType": "stage",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/du-brennst-fuer-unsere-marke-liebst-events-und-die-interaktion-mit-menschen-aka-trainee-programm-mit",
+      "needsRetranslation": true,
+      "datePosted": "2026-09-28",
+      "postingDateSource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -161,7 +167,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:15.520Z",
+      "crawledAt": "2026-10-04T09:10:58.160Z",
       "firstSeenAt": "2026-09-26T13:51:53.099Z",
       "sourceLang": "de",
       "salaryMin": 96300,
@@ -180,6 +186,8 @@
       "contractType": "permanent",
       "needsRetranslation": true,
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/fachspezialistin-kooperations-und-versandmanagement-w-m-2753",
+      "datePosted": "2026-09-25",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -205,7 +213,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:16.194Z",
+      "crawledAt": "2026-10-04T09:10:58.848Z",
       "firstSeenAt": "2026-09-28T04:56:15.013Z",
       "sourceLang": "de",
       "salaryMin": 105500,
@@ -223,6 +231,8 @@
       "validThrough": "",
       "contractType": "permanent",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-vermoegende-privatkunden-biel-w-m-2740",
+      "datePosted": "2026-09-16",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -248,7 +258,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:16.861Z",
+      "crawledAt": "2026-10-04T09:10:59.566Z",
       "firstSeenAt": "2026-09-28T04:56:15.013Z",
       "sourceLang": "fr",
       "salaryMin": 41600,
@@ -266,6 +276,8 @@
       "validThrough": "",
       "contractType": "permanent",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/conseillre-en-succession-neuchtel-f-m-2743",
+      "datePosted": "2026-09-10",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -299,7 +311,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-03T21:09:17.644Z",
+      "crawledAt": "2026-10-04T09:11:00.169Z",
       "id": "company-8i84hb",
       "contract": "full-time",
       "currency": "CHF",
@@ -309,6 +321,8 @@
       "salaryMax": 198500,
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-individual-zuerich-w-m-2680",
+      "datePosted": "2026-09-08",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -333,7 +347,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:18.292Z",
+      "crawledAt": "2026-10-04T09:11:00.749Z",
       "firstSeenAt": "2026-09-03T13:34:39.712Z",
       "sourceLang": "de",
       "salaryMin": 105500,
@@ -352,6 +366,8 @@
       "validThrough": "",
       "contractType": "permanent",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-privatkunden-individual-olten-m-w-2737",
+      "datePosted": "2026-09-03",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -377,7 +393,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:18.969Z",
+      "crawledAt": "2026-10-04T09:11:01.342Z",
       "firstSeenAt": "2026-08-13T10:27:24.703Z",
       "sourceLang": "de",
       "salaryMin": 107000,
@@ -395,6 +411,8 @@
       "validThrough": "",
       "contractType": "permanent",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/kundenberaterin-privatkunden-individual-basel-w-m-2719",
+      "datePosted": "2026-09-01",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -419,7 +437,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T21:09:19.628Z",
+      "crawledAt": "2026-10-04T09:11:01.989Z",
       "firstSeenAt": "2026-08-20T21:45:11.988Z",
       "sourceLang": "de",
       "salaryMin": 101700,
@@ -438,6 +456,8 @@
       "validThrough": "",
       "contractType": "permanent",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/finanzplanerin-zuerich-w-m-2724",
+      "datePosted": "2026-08-20",
+      "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -450,7 +470,7 @@
   "removedJobs": [
     {
       "id": "company-27ardp",
-      "slug": "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp",
+      "slug": "consulente-immobiliare-regione-romandie-banca-cler-bellinzona",
       "company": "Banca Cler",
       "title": "Conseiller/ère à la clientèle immobilière (Région Romandie)",
       "location": "Bellinzona",
@@ -464,8 +484,8 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-03T09:13:08.649Z",
-      "firstSeenAt": "2026-10-03T09:13:08.649Z",
+      "crawledAt": "2026-10-03T21:11:09.313Z",
+      "firstSeenAt": "2026-10-03T21:11:09.313Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 49500,
@@ -475,15 +495,15 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.cler.ch/fr/banque-cler/jobs-und-karriere/chercher-et-postuler/offene-stellen/conseiller-re-la-clientle-immobilire-rgion-romandie-2749",
-      "_qualityScore": 63,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 16,
+        "translation": 21,
         "completeness": 19
       }
     }
   ],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

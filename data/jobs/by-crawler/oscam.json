@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oscam",
-  "assembledAt": "2026-10-03T21:13:56.829Z",
+  "assembledAt": "2026-10-04T09:14:08.309Z",
   "jobs": [
     {
       "title": "Concorso generale per medici assistenti 2025-2026",
@@ -18,7 +18,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "source": "oscam-crawler",
-      "postedDate": "2026-09-30",
+      "postedDate": "",
       "titleByLocale": {
         "it": "Concorso generale per medici assistenti 2025-2026",
         "en": "General course for medical assistants 2025- 2026",
@@ -42,7 +42,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "",
+      "crawledAt": "2026-10-04T09:14:02.139Z",
       "id": "oscam-e59e5b8effd4",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -60,7 +60,9 @@
       },
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-09-30T21:14:17.301Z"
+      "firstSeenAt": "2026-09-30T21:14:17.301Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Concorso generale 2026",
@@ -78,7 +80,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "source": "oscam-crawler",
-      "postedDate": "2026-05-17",
+      "postedDate": "",
       "titleByLocale": {
         "it": "Concorso generale 2026",
         "en": "General competition 2026",
@@ -102,7 +104,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "",
+      "crawledAt": "2026-10-04T09:14:01.855Z",
       "id": "oscam-90801fb9d04f",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -136,7 +138,9 @@
           "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-taverne"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }
