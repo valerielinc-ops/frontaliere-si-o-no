@@ -259,6 +259,27 @@ describe('protected data refreshes publish through pull requests', () => {
     );
   });
 
+  it('uses the data-refresh capability fallback and ignores closed CWV branches', () => {
+    const workflow = read('.github/workflows/cwv-monitor.yml');
+    const guardedToken =
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+    const probe = workflow.indexOf('git ls-remote "$remote_url" "refs/heads/${branch}"');
+    const openPr = workflow.indexOf('gh pr list \\\n            --repo "$GITHUB_REPOSITORY"');
+    const fetch = workflow.indexOf('git fetch --no-tags --depth=1 "$remote_url"');
+    const restore = workflow.indexOf('git restore --source="refs/remotes/origin/${branch}"');
+
+    expect(workflow.split(guardedToken).length - 1).toBe(2);
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(workflow).toContain('--base main');
+    expect(workflow).toContain('--head "$branch"');
+    expect(workflow).toContain('--state open');
+    expect(workflow).toContain('if [ -z "$open_pr" ]; then');
+    expect(workflow).toContain('ignoring stale branch');
+    expect(openPr).toBeGreaterThan(probe);
+    expect(openPr).toBeLessThan(fetch);
+    expect(restore).toBeGreaterThan(openPr);
+  });
+
   it('fails closed when the crawler cannot authenticate its stable refresh branch probe', () => {
     const workflow = read('.github/workflows/crawl-events.yml');
     expect(workflow).toContain(

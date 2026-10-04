@@ -119,7 +119,7 @@ jobs:
         env:
           # actions/checkout uses persist-credentials=false; probe and fetch
           # the stable branch with the same identity the publisher uses below.
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           branch='chore/cwv-monitor-history'
@@ -136,6 +136,20 @@ jobs:
           fi
           if [ ! -s "$probe" ]; then
             echo "No in-flight CWV snapshot PR branch found."
+            exit 0
+          fi
+          if ! open_pr=$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head "$branch" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty'); then
+            echo "::error::Unable to determine whether the stable CWV branch backs an open PR"
+            exit 1
+          fi
+          if [ -z "$open_pr" ]; then
+            echo "Stable CWV branch has no open PR; ignoring stale branch."
             exit 0
           fi
           if ! git fetch --no-tags --depth=1 "$remote_url" \
@@ -169,7 +183,7 @@ jobs:
       - name: Open PR with snapshot
         if: always() && steps.measure.outcome != 'cancelled'
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           body="$RUNNER_TEMP/cwv-monitor-refresh-pr-body.md"
