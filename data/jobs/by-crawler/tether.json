@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tether",
-  "assembledAt": "2026-10-03T21:10:57.954Z",
+  "assembledAt": "2026-10-04T09:13:16.461Z",
   "jobs": [
     {
       "id": "tether-f90910adcedb",
@@ -33,7 +33,7 @@
       "url": "https://tether.recruitee.com/o/solutions-partner-manager-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:49.283Z",
+      "crawledAt": "2026-10-04T09:13:05.154Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -54,14 +54,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "solutions-partner-manager-100-remote-tether-ch"
+        "solutions-partner-manager-100-remote-tether-ch",
+        "responsabile-partner-soluzioni-100-remoto-tether-operations-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solutions-partner-manager-100-remote-tether-ch"
+          "solutions-partner-manager-100-remote-tether-ch",
+          "responsabile-partner-soluzioni-100-remoto-tether-operations-madrid"
         ]
       },
       "firstSeenAt": "2026-06-08T13:53:38.703Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -107,7 +110,7 @@
       "url": "https://tether.recruitee.com/o/research-engineer-intern-videomultimodal-llm-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:49.275Z",
+      "crawledAt": "2026-10-04T09:13:05.145Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -131,13 +134,15 @@
         "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma-lazio",
         "research-engineer-intern-multimodal-llm-tether-ch",
         "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma",
-        "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio"
+        "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio",
+        "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma-lazio",
           "research-engineer-intern-multimodal-llm-tether-ch",
-          "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma"
+          "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma",
+          "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan"
         ],
         "de": [
           "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio"
@@ -189,7 +194,7 @@
       "url": "https://tether.recruitee.com/o/marketing-project-manager-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.146Z",
+      "crawledAt": "2026-10-04T09:13:03.993Z",
       "addressLocality": "Lisbon",
       "addressRegion": "Lisboa",
       "addressCountry": "",
@@ -210,14 +215,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "marketing-project-manager-100-remote-tether-ch"
+        "marketing-project-manager-100-remote-tether-ch",
+        "marketing-project-manager-100-remoto-tether-operations-lisbon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-project-manager-100-remote-tether-ch"
+          "marketing-project-manager-100-remote-tether-ch",
+          "marketing-project-manager-100-remoto-tether-operations-lisbon"
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.957Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -239,7 +247,7 @@
         "it": "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh",
         "en": "head-of-regulatory-affairs-and-licensing-middle-east-tether-ch",
         "de": "leiter-regulatorische-angelegenheiten-und-lizenzierung-mittlerer-osten-tether-operations-riyadh",
-        "fr": "chef-des-affaires-reglementaires-et-des-licences-moyen-orient-tether-operations-riyadh"
+        "fr": "responsable-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -263,7 +271,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-and-licensing-middle-east-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.133Z",
+      "crawledAt": "2026-10-04T09:13:03.971Z",
       "addressLocality": "Riyadh",
       "addressRegion": "Mecca Province",
       "addressCountry": "",
@@ -286,14 +294,18 @@
       "previousSlugs": [
         "head-of-regulatory-affairs-and-licensing-middle-east-tether-ch",
         "responsabile-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh",
+        "chef-des-affaires-reglementaires-et-des-licences-moyen-orient-tether-operations-riyadh",
+        "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh",
         "responsable-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-regulatory-affairs-and-licensing-middle-east-tether-ch",
-          "responsabile-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
+          "responsabile-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh",
+          "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh"
         ],
         "fr": [
+          "chef-des-affaires-reglementaires-et-des-licences-moyen-orient-tether-operations-riyadh",
           "responsable-regulatory-affairs-and-licensing-middle-east-tether-operations-riyadh"
         ]
       },
@@ -310,7 +322,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-a83b029c6cc6",
@@ -343,7 +356,7 @@
       "url": "https://tether.recruitee.com/o/head-of-licensing-and-regulatory-authorisations-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.094Z",
+      "crawledAt": "2026-10-04T09:13:03.908Z",
       "addressLocality": "Abu Dhabi",
       "addressRegion": "Abu Dhabi",
       "addressCountry": "",
@@ -365,12 +378,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-licensing-and-regulatory-authorisations-tether-ch",
-        "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi"
+        "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi",
+        "responsabile-licenze-e-autorizzazioni-regolamentari-tether-operations-abu-dhabi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-licensing-and-regulatory-authorisations-tether-ch",
-          "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi"
+          "responsabile-licensing-and-regulatory-authorisations-tether-operations-abu-dhabi",
+          "responsabile-licenze-e-autorizzazioni-regolamentari-tether-operations-abu-dhabi"
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.782Z",
@@ -419,7 +434,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-ai-and-p2p-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.084Z",
+      "crawledAt": "2026-10-04T09:13:03.886Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -440,11 +455,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch"
+        "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch",
+        "capo-degli-affari-regolatori-ai-e-p2p-100-a-distanza-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch"
+          "head-of-regulatory-affairs-ai-and-p2p-100-remote-tether-ch",
+          "capo-degli-affari-regolatori-ai-e-p2p-100-a-distanza-tether-operations-london"
         ]
       },
       "firstSeenAt": "2026-08-04T11:33:16.786Z",
@@ -493,7 +510,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-southern-africa-lead-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.080Z",
+      "crawledAt": "2026-10-04T09:13:03.878Z",
       "addressLocality": "Johannesburg",
       "addressRegion": "Gauteng",
       "addressCountry": "",
@@ -516,12 +533,14 @@
       "previousSlugs": [
         "regulatory-affairs-and-licensing-southern-africa-lead-100-remote-tether-ch",
         "regulatory-affairs-and-licensing-southern-africa-lead-100-remoto-tether-operations-cape-town",
-        "ai-filmmaker-100-a-distanza-in-tutto-il-mondo-tether-operations-buenos-aires"
+        "ai-filmmaker-100-a-distanza-in-tutto-il-mondo-tether-operations-buenos-aires",
+        "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regulatory-affairs-and-licensing-southern-africa-lead-100-remote-tether-ch",
-          "regulatory-affairs-and-licensing-southern-africa-lead-100-remoto-tether-operations-cape-town"
+          "regulatory-affairs-and-licensing-southern-africa-lead-100-remoto-tether-operations-cape-town",
+          "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
         ]
       },
       "needsRetranslation": true,
@@ -571,7 +590,7 @@
       "url": "https://tether.recruitee.com/o/ai-inference-engineer-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.075Z",
+      "crawledAt": "2026-10-04T09:13:03.865Z",
       "addressLocality": "Bogotá",
       "addressRegion": "Distrito Capital de Bogotá",
       "addressCountry": "",
@@ -594,12 +613,14 @@
       "previousSlugs": [
         "ai-inference-engineer-qvac-100-remote-worldwide-tether-ch",
         "ai-inference-ingegnere-qvac-100-remote-worldwide-tether-operations-bogota",
-        "machine-learning-ingegnere-100-remote-worldwide-tether-operations-roma"
+        "machine-learning-ingegnere-100-remote-worldwide-tether-operations-roma",
+        "ingegnere-di-inferenza-ai-qvac-100-remoto-in-tutto-il-mondo-tether-operations-bogota"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ai-inference-engineer-qvac-100-remote-worldwide-tether-ch",
-          "ai-inference-ingegnere-qvac-100-remote-worldwide-tether-operations-bogota"
+          "ai-inference-ingegnere-qvac-100-remote-worldwide-tether-operations-bogota",
+          "ingegnere-di-inferenza-ai-qvac-100-remoto-in-tutto-il-mondo-tether-operations-bogota"
         ]
       },
       "needsRetranslation": true,
@@ -625,7 +646,7 @@
         "it": "capo-degli-affari-regolatori-giappone-tether-operations-osaka",
         "en": "head-of-regulatory-affairs-japan-tether-ch",
         "de": "leiter-der-regulierungsangelegenheiten-japan-tether-operations-osaka",
-        "fr": "chef-des-affaires-reglementaires-japon-tether-operations-osaka"
+        "fr": "responsable-regulatory-affairs-japan-tether-operations-osaka"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -649,7 +670,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-japan-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.070Z",
+      "crawledAt": "2026-10-04T09:13:03.857Z",
       "addressLocality": "Osaka",
       "addressRegion": "Osaka",
       "addressCountry": "",
@@ -673,14 +694,18 @@
         "head-of-regulatory-affairs-japan-tether-ch",
         "responsabile-regulatory-affairs-japan-tether-operations-osaka",
         "tirocinante-ingegnere-machine-learning-100-da-remoto-tether-operations-london",
+        "chef-des-affaires-reglementaires-japon-tether-operations-osaka",
+        "capo-degli-affari-regolatori-giappone-tether-operations-osaka",
         "responsable-regulatory-affairs-japan-tether-operations-osaka"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-regulatory-affairs-japan-tether-ch",
-          "responsabile-regulatory-affairs-japan-tether-operations-osaka"
+          "responsabile-regulatory-affairs-japan-tether-operations-osaka",
+          "capo-degli-affari-regolatori-giappone-tether-operations-osaka"
         ],
         "fr": [
+          "chef-des-affaires-reglementaires-japon-tether-operations-osaka",
           "responsable-regulatory-affairs-japan-tether-operations-osaka"
         ]
       },
@@ -730,7 +755,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-hn",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:48.065Z",
+      "crawledAt": "2026-10-04T09:13:03.847Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -751,11 +776,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backend-engineer-wallets-100-remote-worldwide-tether-ch"
+        "backend-engineer-wallets-100-remote-worldwide-tether-ch",
+        "backend-ingegnere-wallets-100-remote-worldwide-tether-operations-dubai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backend-engineer-wallets-100-remote-worldwide-tether-ch"
+          "backend-engineer-wallets-100-remote-worldwide-tether-ch",
+          "backend-ingegnere-wallets-100-remote-worldwide-tether-operations-dubai"
         ],
         "de": [
           "backend-engineer-wallets-100-remote-worldwide-tether-ch"
@@ -777,7 +804,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-141f62919cf0",
@@ -810,7 +838,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-31",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:46.475Z",
+      "crawledAt": "2026-10-04T09:13:02.196Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -831,11 +859,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backend-engineer-wallets-100-remote-tether-ch"
+        "backend-engineer-wallets-100-remote-tether-ch",
+        "backend-ingegnere-wallets-100-remote-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backend-engineer-wallets-100-remote-tether-ch"
+          "backend-engineer-wallets-100-remote-tether-ch",
+          "backend-ingegnere-wallets-100-remote-tether-operations-london"
         ],
         "de": [
           "backend-engineer-wallets-100-remote-tether-ch"
@@ -890,7 +920,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-lead-mexico-and-colombia-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:46.471Z",
+      "crawledAt": "2026-10-04T09:13:02.191Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -912,11 +942,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
-        "regolamentazione-e-licensing-lead-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico"
+        "regolamentazione-e-licensing-lead-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico",
+        "responsabile-degli-affari-normativi-e-delle-licenze-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
+          "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch",
+          "responsabile-degli-affari-normativi-e-delle-licenze-messico-e-colombia-tether-operations-mexico-city-ciudad-de-mexico"
         ],
         "de": [
           "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
@@ -926,6 +958,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:35.548Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -945,7 +978,7 @@
       "slug": "finanza-analista-tether-operations-london-greater-london",
       "slugByLocale": {
         "it": "finanza-analista-tether-operations-london-greater-london",
-        "en": "finance-analyst-tether-ch",
+        "en": "finance-analyst-tether-operations-london",
         "de": "finanzen-analyst-tether-operations-london-greater-london",
         "fr": "finance-analyste-tether-operations-london-greater-london"
       },
@@ -971,7 +1004,7 @@
       "url": "https://tether.recruitee.com/o/finance-analyst",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:45.249Z",
+      "crawledAt": "2026-10-04T09:13:01.057Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -993,13 +1026,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "finance-analyst-tether-ch",
+        "finanza-analista-tether-operations-london-greater-london",
         "finance-analyst-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-analyst-tether-ch"
+          "finance-analyst-tether-ch",
+          "finanza-analista-tether-operations-london-greater-london"
         ],
         "en": [
+          "finance-analyst-tether-ch",
           "finance-analyst-tether-operations-london"
         ],
         "de": [
@@ -1010,6 +1046,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T14:19:17.785Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -1055,7 +1092,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-agentic-post-training-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:45.244Z",
+      "crawledAt": "2026-10-04T09:13:01.048Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1076,11 +1113,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-agentic-post-training-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-agentic-post-training-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-agentic-post-training-100-remote-worldwide-tether-ch"
@@ -1102,7 +1141,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-ebed190aa8ce",
@@ -1135,7 +1175,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:44.122Z",
+      "crawledAt": "2026-10-04T09:12:59.924Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1156,11 +1196,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-multi-modal-reinforcement-learning-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide-tether-ch"
@@ -1215,7 +1257,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:43.004Z",
+      "crawledAt": "2026-10-04T09:12:58.799Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1236,11 +1278,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-multi-modal-vision-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-multi-modal-vision-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-multi-modal-vision-100-remote-worldwide-tether-ch"
@@ -1295,7 +1339,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-16",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:40.722Z",
+      "crawledAt": "2026-10-04T09:12:56.509Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -1316,11 +1360,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-model-compression-quantization-tether-ch"
+        "ai-research-engineer-model-compression-quantization-tether-ch",
+        "ai-ricerca-ingegnere-model-compression-quantization-tether-operations-bangalore-karnataka"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-model-compression-quantization-tether-ch"
+          "ai-research-engineer-model-compression-quantization-tether-ch",
+          "ai-ricerca-ingegnere-model-compression-quantization-tether-operations-bangalore-karnataka"
         ],
         "de": [
           "ai-research-engineer-model-compression-quantization-tether-ch"
@@ -1375,7 +1421,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:40.717Z",
+      "crawledAt": "2026-10-04T09:12:56.504Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1396,11 +1442,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-model-compression-quantization-100-remote-worldwide-tether-operations-roma"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-model-compression-quantization-100-remote-worldwide-tether-operations-roma"
         ],
         "de": [
           "ai-research-engineer-model-compression-quantization-100-remote-worldwide-tether-ch"
@@ -1455,7 +1503,7 @@
       "url": "https://tether.recruitee.com/o/trading-operations-associate-hedge-fund-exposure",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:39.601Z",
+      "crawledAt": "2026-10-04T09:12:55.384Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1476,14 +1524,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trading-operations-associate-hedge-fund-exposure-tether-ch"
+        "trading-operations-associate-hedge-fund-exposure-tether-ch",
+        "trading-operazioni-associate-esposizione-hedge-fund-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trading-operations-associate-hedge-fund-exposure-tether-ch"
+          "trading-operations-associate-hedge-fund-exposure-tether-ch",
+          "trading-operazioni-associate-esposizione-hedge-fund-tether-operations-london"
         ]
       },
       "firstSeenAt": "2026-08-20T09:45:17.475Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1515,7 +1566,7 @@
         "it": "Financial Controller (VC or Hedge Fund- Investment Contabile)",
         "en": "Financial Controller (VC or Hedge Fund- Investment Accountant)",
         "de": "Financial Controller (VC or Hedge Fund- Investment Buchhalter)",
-        "fr": "Contrôleur financier (VC ou Hedge Fund - Investment Accountant)"
+        "fr": "Financial Controller (VC or Hedge Fund- Investment Accountant)"
       },
       "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance : Our innovative product suite features the world’s most trusted stablecoin, USDT, relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data : Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET, our flagship app that redefines secure and private data sharing.\n Tether Education: Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job:\n The Financial Controller will oversee financial reporting, audit coordination, and accounting operations across a multi-entity investment and treasury platform. The role requires a technically strong finance professional with deep accounting expertise, strong operational discipline, and the ability to operate in a fast-paced, high-growth environment.\n\n• Prepare accurate and timely financial statements, management accounts, and supporting reports in accordance with IFRS and US GAAP.\n\n• Manage day-to-day accounting operations across multiple entities and jurisdictions.\n\n• Oversee month-end, quarter-end, and year-end close processes, including general ledger reconciliations and control reviews.\n\n• Maintain oversight of accounts payable, accounts receivable, accruals, and balance sheet reconciliations.\n\n• Lead coordination with external auditors, ensuring timely delivery of audit requests, supporting documentation, and issue resolution.\n\n• Support preparation of any regulatory, tax, statutory and ad hoc reporting requirements.\n\n• Strengthen and maintain internal controls, accounting policies, and financial governance frameworks.\n\n• Drive continuous improvement across accounting processes, reporting workflows, and operational controls.\n\n• Leverage technology and automation to improve efficiency, scalability, and reporting accuracy.\n\n• Partner closely with operations to ensure integrity of financial data and reporting.\n\n• Assist with implementation and optimisation of financial systems and reporting infrastructure.\n\n• Support ad hoc financial analysis, projects, and strategic initiatives as required.\n\nQualifications & Experience:\n\n• Bachelor’s degree in accounting, finance, or a related field; ACCA, ACA, CPA, CFA, or equivalent certifications.\n\n• 10+ years of experience in financial control, audit, or accounting, preferably at a credit hedge fund. Prior experience in digital assets or blockchain ecosystems is a distinct advantage.\n\n• Proficiency in Xero and Enfusion portfolio management system.\n\n• Proficiency in Excel + VBA / Python is mandatory.\n\n• Exceptional analytical and problem-solving abilities.\n\n• Strong understanding of regulatory and tax requirements.\n\n• Excellent attention to detail and communication skills.",
       "descriptionByLocale": {
@@ -1529,7 +1580,7 @@
       "url": "https://tether.recruitee.com/o/financial-controller-vc-or-hedge-fund-investment-accountant",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:39.596Z",
+      "crawledAt": "2026-10-04T09:12:55.380Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1550,17 +1601,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch"
+        "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch",
+        "financial-controller-vc-or-hedge-fund-investment-contabile-tether-operations-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch"
+          "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch",
+          "financial-controller-vc-or-hedge-fund-investment-contabile-tether-operations-london"
         ],
         "de": [
           "financial-controller-vc-or-hedge-fund-investment-accountant-tether-ch"
         ]
       },
       "firstSeenAt": "2026-07-17T10:53:32.418Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1606,7 +1660,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:39.566Z",
+      "crawledAt": "2026-10-04T09:12:55.341Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -1627,11 +1681,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "program-manager-mining-100-remote-worldwide-tether-ch"
+        "program-manager-mining-100-remote-worldwide-tether-ch",
+        "gestione-del-programma-mining-100-remoto-in-tutto-il-mondo-tether-operations-barcelona-catalunya-cataluna"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "program-manager-mining-100-remote-worldwide-tether-ch"
+          "program-manager-mining-100-remote-worldwide-tether-ch",
+          "gestione-del-programma-mining-100-remoto-in-tutto-il-mondo-tether-operations-barcelona-catalunya-cataluna"
         ],
         "de": [
           "program-manager-mining-100-remote-worldwide-tether-ch"
@@ -1641,6 +1697,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:52:18.289Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1686,7 +1743,7 @@
       "url": "https://tether.recruitee.com/o/brands-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:39.535Z",
+      "crawledAt": "2026-10-04T09:12:55.304Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -1707,11 +1764,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brands-event-coordinator-tether-ch"
+        "brands-event-coordinator-tether-ch",
+        "brands-event-coordinatore-tether-operations-dubai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "brands-event-coordinator-tether-ch"
+          "brands-event-coordinator-tether-ch",
+          "brands-event-coordinatore-tether-operations-dubai"
         ],
         "de": [
           "brands-event-coordinator-tether-ch"
@@ -1766,7 +1825,7 @@
       "url": "https://tether.recruitee.com/o/expansion-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:39.513Z",
+      "crawledAt": "2026-10-04T09:12:55.275Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "Noord-Holland",
       "addressCountry": "",
@@ -1787,11 +1846,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-event-coordinator-tether-ch"
+        "expansion-event-coordinator-tether-ch",
+        "expansion-event-coordinatore-tether-operations-amsterdam"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-event-coordinator-tether-ch"
+          "expansion-event-coordinator-tether-ch",
+          "expansion-event-coordinatore-tether-operations-amsterdam"
         ],
         "de": [
           "expansion-event-coordinator-tether-ch"
@@ -1846,7 +1907,7 @@
       "url": "https://tether.recruitee.com/o/senior-business-analyst-mining-100-remote-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:34.419Z",
+      "crawledAt": "2026-10-04T09:12:49.991Z",
       "addressLocality": "Medellin",
       "addressRegion": "Antioquia",
       "addressCountry": "",
@@ -1867,11 +1928,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-business-analyst-mining-100-remote-tether-ch"
+        "senior-business-analyst-mining-100-remote-tether-ch",
+        "senior-business-analista-mining-100-remote-tether-operations-medellin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-analyst-mining-100-remote-tether-ch"
+          "senior-business-analyst-mining-100-remote-tether-ch",
+          "senior-business-analista-mining-100-remote-tether-operations-medellin"
         ],
         "fr": [
           "senior-business-analyst-mining-100-remote-tether-ch"
@@ -1924,7 +1987,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:33.246Z",
+      "crawledAt": "2026-10-04T09:12:48.834Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -1945,11 +2008,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-pre-training-llm-multi-modal-tether-ch"
+        "ai-research-engineer-pre-training-llm-multi-modal-tether-ch",
+        "ai-ricerca-ingegnere-pre-training-llm-multi-modal-tether-operations-bangalore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-pre-training-llm-multi-modal-tether-ch"
+          "ai-research-engineer-pre-training-llm-multi-modal-tether-ch",
+          "ai-ricerca-ingegnere-pre-training-llm-multi-modal-tether-operations-bangalore"
         ],
         "de": [
           "ai-research-engineer-pre-training-llm-multi-modal-tether-ch"
@@ -2004,7 +2069,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:33.214Z",
+      "crawledAt": "2026-10-04T09:12:48.793Z",
       "addressLocality": "Brasilia",
       "addressRegion": "Distrito Federal",
       "addressCountry": "",
@@ -2025,11 +2090,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "program-manager-mining-100-remote-tether-ch"
+        "program-manager-mining-100-remote-tether-ch",
+        "gestione-del-programma-mining-100-remoto-tether-operations-brasilia-distrito-federal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "program-manager-mining-100-remote-tether-ch"
+          "program-manager-mining-100-remote-tether-ch",
+          "gestione-del-programma-mining-100-remoto-tether-operations-brasilia-distrito-federal"
         ],
         "de": [
           "program-manager-mining-100-remote-tether-ch"
@@ -2039,6 +2106,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T23:55:59.305Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2084,7 +2152,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-6",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:32.058Z",
+      "crawledAt": "2026-10-04T09:12:47.658Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -2105,11 +2173,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-multi-modal-vision-tether-ch"
+        "ai-research-engineer-multi-modal-vision-tether-ch",
+        "ai-ricerca-ingegnere-multi-modal-vision-tether-operations-bangalore-karnataka"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-multi-modal-vision-tether-ch"
+          "ai-research-engineer-multi-modal-vision-tether-ch",
+          "ai-ricerca-ingegnere-multi-modal-vision-tether-operations-bangalore-karnataka"
         ],
         "de": [
           "ai-research-engineer-multi-modal-vision-tether-ch"
@@ -2164,7 +2234,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-tokenization-100-remote-17",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:32.031Z",
+      "crawledAt": "2026-10-04T09:12:47.633Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -2185,17 +2255,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-manager-tokenization-100-remote-tether-ch"
+        "expansion-manager-tokenization-100-remote-tether-ch",
+        "expansion-manager-tokenization-100-remoto-tether-operations-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-manager-tokenization-100-remote-tether-ch"
+          "expansion-manager-tokenization-100-remote-tether-ch",
+          "expansion-manager-tokenization-100-remoto-tether-operations-mexico-city"
         ],
         "de": [
           "expansion-manager-tokenization-100-remote-tether-ch"
         ]
       },
       "firstSeenAt": "2026-07-01T13:11:42.981Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2241,7 +2314,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-francophone-africa-lead",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:32.025Z",
+      "crawledAt": "2026-10-04T09:12:47.625Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -2262,11 +2335,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch"
+        "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch",
+        "affari-regolatori-e-licensing-francofono-africa-piombo-tether-operations-yamoussoukro-lacs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch"
+          "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch",
+          "affari-regolatori-e-licensing-francofono-africa-piombo-tether-operations-yamoussoukro-lacs"
         ],
         "de": [
           "regulatory-affairs-and-licensing-francophone-africa-lead-tether-ch"
@@ -2321,7 +2396,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-investigator-and-law-enforcement-liaison",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:30.908Z",
+      "crawledAt": "2026-10-04T09:12:46.498Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -2342,11 +2417,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "blockchain-investigator-and-law-enforcement-liaison-tether-ch"
+        "blockchain-investigator-and-law-enforcement-liaison-tether-ch",
+        "blockchain-investigator-e-law-enforcement-tether-operations-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "blockchain-investigator-and-law-enforcement-liaison-tether-ch"
+          "blockchain-investigator-and-law-enforcement-liaison-tether-ch",
+          "blockchain-investigator-e-law-enforcement-tether-operations-mexico-city"
         ]
       },
       "firstSeenAt": "2026-07-15T22:00:08.221Z",
@@ -2395,7 +2472,7 @@
       "url": "https://tether.recruitee.com/o/engagement-manager-ai-implementations-19",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:30.854Z",
+      "crawledAt": "2026-10-04T09:12:46.399Z",
       "addressLocality": "Brussels",
       "addressRegion": "Brussels",
       "addressCountry": "",
@@ -2416,17 +2493,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "engagement-manager-ai-implementations-tether-ch"
+        "engagement-manager-ai-implementations-tether-ch",
+        "engagement-manager-attuazioni-ai-tether-operations-brussels"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "engagement-manager-ai-implementations-tether-ch"
+          "engagement-manager-ai-implementations-tether-ch",
+          "engagement-manager-attuazioni-ai-tether-operations-brussels"
         ],
         "de": [
           "engagement-manager-ai-implementations-tether-ch"
         ]
       },
       "firstSeenAt": "2026-07-21T11:14:38.832Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2472,7 +2552,7 @@
       "url": "https://tether.recruitee.com/o/p2p-nodejs-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:30.848Z",
+      "crawledAt": "2026-10-04T09:12:46.389Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2493,11 +2573,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch"
+        "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch",
+        "p2p-node-js-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch"
+          "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch",
+          "p2p-node-js-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
         ],
         "de": [
           "p2p-node-js-engineer-holepunch-100-remote-worldwide-tether-ch"
@@ -2552,7 +2634,7 @@
       "url": "https://tether.recruitee.com/o/senior-nodejs-software-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:30.847Z",
+      "crawledAt": "2026-10-04T09:12:46.387Z",
       "addressLocality": "Phnom Penh",
       "addressRegion": "Phnom Penh",
       "addressCountry": "",
@@ -2574,11 +2656,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch",
-        "senior-node-js-software-ingenieur-holepunch-100-remote-worldwide-tether-operations-barcelona"
+        "senior-node-js-software-ingenieur-holepunch-100-remote-worldwide-tether-operations-barcelona",
+        "senior-node-js-software-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch"
+          "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch",
+          "senior-node-js-software-ingegnere-holepunch-100-remote-worldwide-tether-operations-barcelona"
         ],
         "de": [
           "senior-node-js-software-engineer-holepunch-100-remote-worldwide-tether-ch"
@@ -2634,7 +2718,7 @@
       "url": "https://tether.recruitee.com/o/frontend-software-engineer-100-remote-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:29.402Z",
+      "crawledAt": "2026-10-04T09:12:44.336Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2655,14 +2739,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "frontend-software-engineer-100-remote-tether-ch"
+        "frontend-software-engineer-100-remote-tether-ch",
+        "frontend-software-ingegnere-100-remote-tether-operations-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "frontend-software-engineer-100-remote-tether-ch"
+          "frontend-software-engineer-100-remote-tether-ch",
+          "frontend-software-ingegnere-100-remote-tether-operations-lugano"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:33.163Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -2708,7 +2795,7 @@
       "url": "https://tether.recruitee.com/o/investment-trading-operations-associate-multi-asset-exposure-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:29.396Z",
+      "crawledAt": "2026-10-04T09:12:44.323Z",
       "addressLocality": "Dublin",
       "addressRegion": "Leinster",
       "addressCountry": "",
@@ -2729,11 +2816,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-trading-operations-associate-multi-asset-exposure-tether-ch"
+        "investment-trading-operations-associate-multi-asset-exposure-tether-ch",
+        "investimenti-trading-operazioni-associate-esposizione-multi-asset-tether-operations-dublin-leinster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-trading-operations-associate-multi-asset-exposure-tether-ch"
+          "investment-trading-operations-associate-multi-asset-exposure-tether-ch",
+          "investimenti-trading-operazioni-associate-esposizione-multi-asset-tether-operations-dublin-leinster"
         ],
         "de": [
           "investment-trading-operations-associate-multi-asset-exposure-tether-ch"
@@ -2743,6 +2832,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:15:33.919Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -2788,7 +2878,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:29.383Z",
+      "crawledAt": "2026-10-04T09:12:44.289Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -2809,11 +2899,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-pre-training-llm-multi-modal-100-remote-worldwide-tether-operations-united-kindom"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-pre-training-llm-multi-modal-100-remote-worldwide-tether-operations-united-kindom"
         ],
         "de": [
           "ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide-tether-ch"
@@ -2868,7 +2960,7 @@
       "url": "https://tether.recruitee.com/o/senior-product-designer-wallets-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:28.238Z",
+      "crawledAt": "2026-10-04T09:12:43.080Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -2889,11 +2981,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-designer-wallets-100-remote-worldwide-tether-ch"
+        "senior-product-designer-wallets-100-remote-worldwide-tether-ch",
+        "senior-product-designer-portafogli-100-remoto-in-tutto-il-mondo-tether-operations-united-kindom-armagh-city-banbridge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-designer-wallets-100-remote-worldwide-tether-ch"
+          "senior-product-designer-wallets-100-remote-worldwide-tether-ch",
+          "senior-product-designer-portafogli-100-remoto-in-tutto-il-mondo-tether-operations-united-kindom-armagh-city-banbridge"
         ],
         "de": [
           "senior-product-designer-wallets-100-remote-worldwide-tether-ch"
@@ -2946,7 +3040,7 @@
       "url": "https://tether.recruitee.com/o/devops-engineer-100-remote-12",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:25.703Z",
+      "crawledAt": "2026-10-04T09:12:40.455Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2970,14 +3064,16 @@
         "devops-engineer-100-remote-tether-ch",
         "frontend-software-ingegnere-100-remote-tether-operations-lugano",
         "frontend-software-engineer-100-remote-tether-ch",
-        "frontend-software-ingenieur-100-remote-tether-operations-lugano"
+        "frontend-software-ingenieur-100-remote-tether-operations-lugano",
+        "devops-ingegnere-100-remote-tether-operations-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-100-remote-tether-ch",
           "frontend-software-ingegnere-100-remote-tether-operations-lugano",
           "frontend-software-engineer-100-remote-tether-ch",
-          "frontend-software-ingenieur-100-remote-tether-operations-lugano"
+          "frontend-software-ingenieur-100-remote-tether-operations-lugano",
+          "devops-ingegnere-100-remote-tether-operations-lugano"
         ],
         "en": [
           "frontend-software-engineer-100-remote-tether-ch"
@@ -2991,6 +3087,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:48.657Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -3036,7 +3133,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-nigeria",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:25.701Z",
+      "crawledAt": "2026-10-04T09:12:40.453Z",
       "addressLocality": "Lagos",
       "addressRegion": "Lagos",
       "addressCountry": "",
@@ -3057,11 +3154,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-manager-nigeria-tether-ch"
+        "expansion-manager-nigeria-tether-ch",
+        "direttore-dell-espansione-nigeria-tether-operations-lagos-lagos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-manager-nigeria-tether-ch"
+          "expansion-manager-nigeria-tether-ch",
+          "direttore-dell-espansione-nigeria-tether-operations-lagos-lagos"
         ],
         "de": [
           "expansion-manager-nigeria-tether-ch"
@@ -3113,7 +3212,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-ivory-coast-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:25.681Z",
+      "crawledAt": "2026-10-04T09:12:40.423Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -3134,11 +3233,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expansion-manager-ivory-coast-tether-ch"
+        "expansion-manager-ivory-coast-tether-ch",
+        "expansion-manager-costa-d-avorio-tether-operations-yamoussoukro-lacs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expansion-manager-ivory-coast-tether-ch"
+          "expansion-manager-ivory-coast-tether-ch",
+          "expansion-manager-costa-d-avorio-tether-operations-yamoussoukro-lacs"
         ],
         "de": [
           "expansion-manager-ivory-coast-tether-ch"
@@ -3148,6 +3249,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:34:55.151Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -3164,9 +3266,9 @@
     },
     {
       "id": "tether-d2e784aa8cf7",
-      "slug": "creatore-di-contenuti-tecnici-pear-bare-p2p-remote-europe-tether-operations-madrid-comunidad-de-madrid",
+      "slug": "technical-content-creator-pear-bare-p2p-remote-europe-tether-operations-madrid",
       "slugByLocale": {
-        "it": "creatore-di-contenuti-tecnici-pear-bare-p2p-remote-europe-tether-operations-madrid-comunidad-de-madrid",
+        "it": "technical-content-creator-pear-bare-p2p-remote-europe-tether-operations-madrid",
         "en": "technical-content-creator-pear-bare-p2p-remote-europe-tether-ch",
         "de": "technischer-inhaltsstifter-pear-bare-p2p-remote-europa-tether-operations-madrid-comunidad-de-madrid",
         "fr": "createur-de-contenu-technique-pear-bare-p2p-100-remote-worldwide-tether-operations-madrid"
@@ -3193,7 +3295,7 @@
       "url": "https://tether.recruitee.com/o/technical-content-creator-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:20.502Z",
+      "crawledAt": "2026-10-04T09:12:35.217Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -3215,12 +3317,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-content-creator-pear-bare-p2p-remote-europe-tether-ch",
-        "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
+        "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch",
+        "creatore-di-contenuti-tecnici-pear-bare-p2p-remote-europe-tether-operations-madrid-comunidad-de-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-content-creator-pear-bare-p2p-remote-europe-tether-ch",
-          "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
+          "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch",
+          "creatore-di-contenuti-tecnici-pear-bare-p2p-remote-europe-tether-operations-madrid-comunidad-de-madrid"
         ],
         "en": [
           "technical-content-creator-pear-bare-p2p-100-remote-worldwide-tether-ch"
@@ -3276,7 +3380,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-gpu-infrastructure-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:17.461Z",
+      "crawledAt": "2026-10-04T09:12:32.429Z",
       "addressLocality": "Tiranë",
       "addressRegion": "Tiranë",
       "addressCountry": "",
@@ -3297,11 +3401,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
+        "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
+        "guida-tecnica-infrastruttura-gpu-100-remote-worldwide-tether-operations-tirane-tirane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
+          "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch",
+          "guida-tecnica-infrastruttura-gpu-100-remote-worldwide-tether-operations-tirane-tirane"
         ],
         "de": [
           "technical-lead-gpu-infrastructure-100-remote-worldwide-tether-ch"
@@ -3311,6 +3417,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:06:20.649Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3356,7 +3463,7 @@
       "url": "https://tether.recruitee.com/o/usat-institutional-associate-junior-mid-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:16.069Z",
+      "crawledAt": "2026-10-04T09:12:30.947Z",
       "addressLocality": "San Francisco",
       "addressRegion": "California",
       "addressCountry": "",
@@ -3423,7 +3530,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-gpu-infrastructure-poland",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:16.012Z",
+      "crawledAt": "2026-10-04T09:12:30.882Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -3444,11 +3551,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-lead-gpu-infrastructure-tether-ch"
+        "technical-lead-gpu-infrastructure-tether-ch",
+        "guida-tecnica-gpu-infrastrutture-tether-operations-warsaw-mazowieckie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-lead-gpu-infrastructure-tether-ch"
+          "technical-lead-gpu-infrastructure-tether-ch",
+          "guida-tecnica-gpu-infrastrutture-tether-operations-warsaw-mazowieckie"
         ],
         "de": [
           "technical-lead-gpu-infrastructure-tether-ch"
@@ -3458,6 +3567,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T23:30:34.362Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3503,7 +3613,7 @@
       "url": "https://tether.recruitee.com/o/ai-harness-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:16.001Z",
+      "crawledAt": "2026-10-04T09:12:30.871Z",
       "addressLocality": "Copenhagen",
       "addressRegion": "Hovedstaden",
       "addressCountry": "",
@@ -3524,11 +3634,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-harness-engineer-100-remote-worldwide-tether-ch"
+        "ai-harness-engineer-100-remote-worldwide-tether-ch",
+        "ai-harness-ingegnere-100-remote-worldwide-tether-operations-copenhagen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-harness-engineer-100-remote-worldwide-tether-ch"
+          "ai-harness-engineer-100-remote-worldwide-tether-ch",
+          "ai-harness-ingegnere-100-remote-worldwide-tether-operations-copenhagen"
         ],
         "de": [
           "ai-harness-engineer-100-remote-worldwide-tether-ch"
@@ -3583,7 +3695,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-investigator-and-law-enforcement-liaison-nz",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:14.474Z",
+      "crawledAt": "2026-10-04T09:12:29.378Z",
       "addressLocality": "Auckland",
       "addressRegion": "Auckland",
       "addressCountry": "",
@@ -3604,11 +3716,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
+        "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
+        "blockchain-investigatore-e-collegamento-con-l-applicazione-della-legge-nz-tether-operations-auckland-auckland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
+          "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
+          "blockchain-investigatore-e-collegamento-con-l-applicazione-della-legge-nz-tether-operations-auckland-auckland"
         ],
         "de": [
           "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
@@ -3660,7 +3774,7 @@
       "url": "https://tether.recruitee.com/o/event-design-coordinator-remote-europe-switz",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:12.945Z",
+      "crawledAt": "2026-10-04T09:12:27.973Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3681,11 +3795,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "event-design-coordinator-remote-europe-tether-ch"
+        "event-design-coordinator-remote-europe-tether-ch",
+        "event-design-coordinatore-remote-europe-tether-operations-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-design-coordinator-remote-europe-tether-ch"
+          "event-design-coordinator-remote-europe-tether-ch",
+          "event-design-coordinatore-remote-europe-tether-operations-lugano"
         ],
         "de": [
           "event-design-coordinator-remote-europe-tether-ch"
@@ -3741,7 +3857,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-kernel-inference-optimization-100-remoteworldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:12.938Z",
+      "crawledAt": "2026-10-04T09:12:27.961Z",
       "addressLocality": "Andorra la Vella",
       "addressRegion": "Andorra la Vella",
       "addressCountry": "",
@@ -3762,11 +3878,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch"
+        "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch",
+        "ai-ricerca-ingegnere-kernel-inference-optimization-100-remote-worldwide-tether-operations-andorra-la-vella"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch"
+          "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch",
+          "ai-ricerca-ingegnere-kernel-inference-optimization-100-remote-worldwide-tether-operations-andorra-la-vella"
         ],
         "de": [
           "ai-research-engineer-kernel-inference-optimization-100-remote-worldwide-tether-ch"
@@ -3821,7 +3939,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-cote-divoire-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:11.508Z",
+      "crawledAt": "2026-10-04T09:12:26.475Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -3862,7 +3980,7 @@
       "slug": "responsabile-ai-expansion-tether-operations-lugano",
       "slugByLocale": {
         "it": "responsabile-ai-expansion-tether-operations-lugano",
-        "en": "head-of-ai-expansion-tether-ch",
+        "en": "head-of-ai-expansion-tether-operations-lugano",
         "de": "leiter-ai-expansion-tether-operations-lugano",
         "fr": "responsable-ai-expansion-tether-operations-lugano"
       },
@@ -3888,7 +4006,7 @@
       "url": "https://tether.recruitee.com/o/head-of-ai-expansion-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:10:10.031Z",
+      "crawledAt": "2026-10-04T09:12:24.911Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3912,11 +4030,13 @@
         "head-of-ai-expansion-tether-ch",
         "responsabile-ai-expansion-tether-operations-lugano-ticino",
         "leiter-ai-expansion-tether-operations-lugano-ticino",
-        "responsable-ai-expansion-tether-operations-lugano-ticino"
+        "responsable-ai-expansion-tether-operations-lugano-ticino",
+        "responsabile-ai-expansion-tether-operations-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-ai-expansion-tether-ch"
+          "head-of-ai-expansion-tether-ch",
+          "responsabile-ai-expansion-tether-operations-lugano"
         ],
         "de": [
           "head-of-ai-expansion-tether-ch",
@@ -3925,6 +4045,9 @@
         "fr": [
           "head-of-ai-expansion-tether-ch",
           "responsable-ai-expansion-tether-operations-lugano-ticino"
+        ],
+        "en": [
+          "head-of-ai-expansion-tether-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3942,87 +4065,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "tether-7814dd8b2ccb",
-      "slug": "event-design-coordinatore-remote-europe-tether-operations-brussels",
-      "slugByLocale": {
-        "it": "event-design-coordinatore-remote-europe-tether-operations-brussels",
-        "en": "event-design-coordinator-remote-europe-tether-ch",
-        "de": "event-design-koordinator-remote-europe-tether-operations-brussels",
-        "fr": "event-design-coordinateur-remote-europe-tether-operations-brussels"
-      },
-      "company": "Tether Operations",
-      "companyKey": "tether",
-      "companyDomain": "tether.io",
-      "title": "Event Design Coordinator (Remote / Europe)",
-      "titleByLocale": {
-        "it": "Event Design Coordinatore (Remote / Europe)",
-        "en": "Event Design Coordinator (Remote / Europe)",
-        "de": "Event Design Koordinator (Remote / Europe)",
-        "fr": "Event Design Coordinateur (Remote / Europe)"
-      },
-      "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-      "descriptionByLocale": {
-        "it": "Unisciti a Tether e dai forma al futuro della finanza digitale\nIn Tether non stiamo solo costruendo prodotti, siamo pionieri di una rivoluzione finanziaria globale. Le nostre soluzioni all'avanguardia consentono alle aziende, dagli scambi e portafogli ai processori di pagamento e agli sportelli bancomat, di integrare perfettamente token garantiti da riserve attraverso blockchain. Sfruttando la potenza della tecnologia blockchain, Tether ti consente di archiviare, inviare e ricevere token digitali in modo istantaneo, sicuro e globale, il tutto a una frazione del costo. La trasparenza è il fondamento di tutto ciò che facciamo, garantendo fiducia in ogni transazione.\n\nInnovare con Tether\nTether Finance: la nostra suite di prodotti innovativa comprende la stablecoin più affidabile al mondo, USDT, su cui fanno affidamento centinaia di milioni di persone in tutto il mondo, insieme a servizi pionieristici di tokenizzazione delle risorse digitali.\nMa questo è solo l’inizio:\nTether Power: promuovendo una crescita sostenibile, le nostre soluzioni energetiche ottimizzano l'energia in eccesso per l'estrazione di Bitcoin utilizzando pratiche ecocompatibili in strutture all'avanguardia e geodiversificate.\nTether Data: alimentando innovazioni nell'intelligenza artificiale e nella tecnologia peer-to-peer, riduciamo i costi dell'infrastruttura e miglioriamo le comunicazioni globali con soluzioni all'avanguardia come KEET, la nostra app di punta che ridefinisce la condivisione sicura e privata dei dati.\nTether Education: democratizzando l’accesso all’apprendimento digitale di alto livello, consentiamo alle persone di prosperare nelle economie digitali e gig economy, guidando la crescita e le opportunità globali.\nTether Evolution: all'intersezione tra tecnologia e potenziale umano, stiamo spingendo i confini di ciò che è possibile, creando un futuro in cui innovazione e capacità umane si fondono in modi potenti e senza precedenti.\n\nPerché unirsi a noi?\nIl nostro team è una potenza globale di talenti, che lavora in remoto da ogni angolo del mondo. Se la tua passione è lasciare il segno nel settore fintech, questa è la tua occasione per collaborare con alcune delle menti più brillanti, spingendo oltre i confini e stabilendo nuovi standard. Siamo cresciuti rapidamente, siamo rimasti snelli e ci siamo assicurati il ​​posto di leader nel settore.\nSe hai eccellenti capacità di comunicazione in inglese e sei pronto a contribuire alla piattaforma più innovativa del pianeta, Tether è il posto che fa per te.\nSei pronto a far parte del futuro?\n\nRiguardo il lavoro\nCerchiamo un coordinatore della progettazione di eventi per gestire l'assunzione, la produzione e la garanzia della qualità delle richieste creative relative agli eventi provenienti da un'ampia gamma di team in tutta l'azienda. Questo è un ruolo di costruttore e custode: lavorerai fianco a fianco con i designer per trasformare richieste varie, spesso con tempi di consegna rapidi, in risultati impeccabili, tra cui grafica per stand, segnaletica, impalcature, risorse digitali, gadget e inviti, individuando in modo proattivo i rischi (sequenza temporale, marchio, specifiche di stampa o logistica) prima che diventino problemi.\n\nNon stiamo cercando qualcuno che si limiti a instradare i biglietti. Cerchiamo qualcuno che comprenda sia il processo creativo che le realtà operative degli eventi dal vivo abbastanza bene da individuare una linea di margine disallineata, una linea guida mancante o una scadenza del fornitore che sta per slittare e risolverla prima che qualcun altro se ne accorga.\n\nResponsabilità\n\n• Richiesta di assunzione e triage\n\n• Fungere da punto di contatto principale per le richieste creative relative agli eventi provenienti da diversi team di Tether.\n\n• Ambire chiaramente ogni richiesta: tipo di consegna, formato (stampa o digitale), quantità, scadenza, dimensione, vincoli di sede/fornitore e requisiti del marchio.\n\n• Segnalare immediatamente scadenze contrastanti, tempi di consegna non realistici o informazioni mancanti e proporre un piano realizzabile invece di aspettare che venga chiesto.\n\nCollaborazione di progettazione e gestione del progetto\n\n• Brief per i designer con specifiche complete e inequivocabili, così il lavoro sarà perfetto fin dalla prima volta.\n\n• Gestire più flussi di lavoro di eventi simultanei tra diversi team e scadenze senza perdere i dettagli.\n\n• Monitorare lo stato di tutte le richieste attive e far emergere in modo proattivo i colli di bottiglia prima che incidano sulla data dell'evento.\n\nGaranzia di qualità (stampa e digitale)\n\n• Esaminare ogni risultato finale del designer prima che venga restituito al team richiedente, controllando la coerenza del marchio, l'accuratezza della copia, la risoluzione, la modalità colore (CMYK o RGB), le zone al vivo/ritaglio/sicurezza, i formati di file e le specifiche della piattaforma (ad esempio, dimensioni del pannello dello stand, rapporti di ritaglio social, proporzioni delle diapositive).\n\n• Rilevare errori che sarebbe costoso o imbarazzante correggere in loco o dopo il lancio (errori di battitura, dimensioni errate, esportazioni a bassa risoluzione, collegamenti interrotti, loghi obsoleti).\n\n• Mantenere un elenco/processo di controllo della qualità che si adatti a tutti i tipi di eventi e diventi più preciso nel tempo.\n\nDocumentazione degli eventi e gestione della conoscenza\n\n• Documentare e archiviare tutte le risorse, i brief e i risultati finali di ciascun evento in un Drive condiviso, utilizzando una struttura chiara e coerente.\n\n• Organizzare i file in modo che il team più ampio possa trovare facilmente il lavoro passato, riutilizzare le risorse e fare riferimenti incrociati a specifiche, sequenze temporali o indicazioni creative di eventi precedenti.\n\n• Mantenere un registro aggiornato dei dettagli del fornitore, delle specifiche di produzione e delle lezioni apprese per evento per accelerare la pianificazione di quelli futuri.\n\nProprietà del rischio e della logistica\n\n• Anticipare ciò che può andare storto, come i tempi di consegna dei fornitori, le finestre di produzione di stampa, le modifiche dell'ambito dell'ultimo minuto e i ritardi di spedizione, e creare buffer e piani di contingenza nella sequenza temporale di ogni progetto.\n\n• Coordinarsi con fornitori e partner di stampa/produzione secondo necessità per confermare le specifiche e le finestre di consegna.\n\n• Mantenere le parti interessate dei team richiedenti e allineare la progettazione con aggiornamenti di stato chiari e proattivi anziché con esercitazioni antincendio reattive.\n\nPartenariato tra team\n\n• Fungere da collegamento affidabile tra i richiedenti aziendali e il team di progettazione, proteggendo il tempo dei progettisti da brief ambigui e proteggendo i richiedenti dalle scadenze non rispettate.\n\n• Migliorare continuamente il processo di assunzione e revisione in base a ciò che va storto (o quasi va storto) in ogni evento.\n\n• Oltre 5 anni di esperienza nel marketing di eventi, nella produzione di eventi, in operazioni creative o nella gestione di progetti con una forte componente di eventi.\n\n• Comprovata esperienza nella gestione dei processi di produzione stampa e digitale; sai cos'è una linea guida, cosa significa \"area sicura\" e perché le risorse RGB non possono essere stampate direttamente.\n\n• Forti capacità organizzative e multitasking: capacità dimostrata di gestire diverse richieste simultanee e interfunzionali con scadenze concorrenti.\n\n• Grande attenzione ai dettagli, a proprio agio nell'essere l'ultima linea di difesa prima di una nave consegnabile.\n\n• Esperienza nella revisione e nel fornire feedback utili sul lavoro creativo dei designer, senza dover essere tu stesso un designer.\n\n• Una mentalità proattiva, orientata al rischio: ti viene naturale chiedere \"cosa potrebbe andare storto qui?\" e costruire un piano attorno alla risposta.\n\n• Eccellente comunicazione scritta e verbale; gestire a proprio agio le parti interessate tra team diversi con priorità diverse.\n\n• Familiarità con strumenti di gestione del progetto (Asana, Monday o simili) e strumenti di revisione del progetto come Figma\n\n• Esperienza nella creazione di strutture di unità condivise o librerie di risorse per i team.\n\n• La conoscenza fluente dell'inglese e dello spagnolo/italiano costituisce un vantaggio.\n\nInformazioni importanti per i candidati\nLe truffe relative al reclutamento sono diventate sempre più comuni. Per proteggerti, tieni presente quanto segue quando fai domanda per un ruolo:\n\n• Candidati solo attraverso i nostri canali ufficiali. Non utilizziamo piattaforme o agenzie di terze parti per il reclutamento se non chiaramente indicato. Tutti i ruoli aperti sono elencati nella nostra pagina ufficiale delle carriere: https://tether.recruitee.com/\n\n• Verificare l'identità del reclutatore. Tutti i nostri reclutatori hanno profili LinkedIn verificati. Se non sei sicuro, puoi confermare la loro identità controllando il loro profilo o contattandoci tramite il nostro sito web.\n\n• Prestare attenzione ai metodi di comunicazione insoliti. Non conduciamo interviste tramite WhatsApp, Telegram o SMS. Tutte le comunicazioni avvengono tramite e-mail e piattaforme ufficiali dell'azienda.\n\n• Ricontrolla gli indirizzi e-mail. Tutte le nostre comunicazioni arriveranno da e-mail che terminano con @ tether.to o @ tether.io\n\n• Non richiederemo mai pagamenti o dettagli finanziari. Se qualcuno chiede informazioni finanziarie personali o un pagamento in qualsiasi momento durante il processo di assunzione, si tratta di una truffa. Per favore segnalatelo immediatamente.\n\nIn caso di dubbi, non esitate a contattarci tramite il nostro sito Web ufficiale.",
-        "en": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nWe are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-        "de": "Treten Sie Tether bei und gestalten Sie die Zukunft des digitalen Finanzwesens\nBei Tether entwickeln wir nicht nur Produkte, wir sind Vorreiter einer globalen Finanzrevolution. Unsere hochmodernen Lösungen ermöglichen es Unternehmen – von Börsen und Wallets bis hin zu Zahlungsabwicklern und Geldautomaten –, rücklagegesicherte Token nahtlos über Blockchains hinweg zu integrieren. Durch die Nutzung der Leistungsfähigkeit der Blockchain-Technologie ermöglicht Ihnen Tether das sofortige, sichere und globale Speichern, Senden und Empfangen digitaler Token – und das alles zu einem Bruchteil der Kosten. Transparenz ist die Grundlage unseres Handelns und gewährleistet Vertrauen bei jeder Transaktion.\n\nInnovation mit Tether\nTether Finance: Unsere innovative Produktsuite umfasst den vertrauenswürdigsten Stablecoin der Welt, USDT, auf den Hunderte Millionen Menschen auf der ganzen Welt vertrauen, sowie bahnbrechende Dienste zur Tokenisierung digitaler Vermögenswerte.\nAber das ist erst der Anfang:\nTether Power: Unsere Energielösungen fördern nachhaltiges Wachstum und optimieren den überschüssigen Strom für das Bitcoin-Mining durch umweltfreundliche Verfahren in hochmodernen, geografisch vielfältigen Anlagen.\nTether Data: Wir treiben Durchbrüche in der KI- und Peer-to-Peer-Technologie voran, senken Infrastrukturkosten und verbessern die globale Kommunikation mit modernsten Lösungen wie KEET, unserer Flaggschiff-App, die den sicheren und privaten Datenaustausch neu definiert.\nTether Education: Durch die Demokratisierung des Zugangs zu erstklassigem digitalen Lernen ermöglichen wir Einzelpersonen, in der Digital- und Gig-Wirtschaft erfolgreich zu sein und so globales Wachstum und Chancen voranzutreiben.\nTether Evolution: An der Schnittstelle von Technologie und menschlichem Potenzial verschieben wir die Grenzen des Möglichen und gestalten eine Zukunft, in der Innovation und menschliche Fähigkeiten auf kraftvolle, beispiellose Weise verschmelzen.\n\nWarum sollten Sie bei uns mitmachen?\nUnser Team ist ein globales Talent-Powerhouse, das von überall auf der Welt aus arbeitet. Wenn es Ihnen am Herzen liegt, sich im Fintech-Bereich einen Namen zu machen, ist dies Ihre Gelegenheit, mit einigen der klügsten Köpfe zusammenzuarbeiten, Grenzen zu überschreiten und neue Standards zu setzen. Wir sind schnell gewachsen, schlank geblieben und haben uns unseren Platz als Branchenführer gesichert.\nWenn Sie über ausgezeichnete Englischkenntnisse verfügen und bereit sind, einen Beitrag zur innovativsten Plattform der Welt zu leisten, ist Tether der richtige Ort für Sie.\nSind Sie bereit, Teil der Zukunft zu sein?\n\nÜber den Job\nWir suchen einen Event-Design-Koordinator, der die Aufnahme, Produktion und Qualitätssicherung von veranstaltungsbezogenen Kreativanfragen verwaltet, die von einer Vielzahl von Teams im gesamten Unternehmen eingehen. Dabei handelt es sich um eine Bauherren- und Gatekeeper-Rolle: Sie arbeiten Hand in Hand mit Designern zusammen, um vielfältige, oft schnelle Anfragen in einwandfreie Ergebnisse umzuwandeln, einschließlich Standgrafiken, Beschilderungen, Decks, digitale Assets, Werbegeschenke und Einladungen, und erkennen gleichzeitig Risiken (Zeitplan, Marke, Druckspezifikation oder Logistik) proaktiv, bevor sie zu Problemen werden.\n\nWir suchen niemanden, der einfach nur Tickets weiterleitet. Wir suchen jemanden, der sowohl den kreativen Prozess als auch die betrieblichen Gegebenheiten von Live-Events gut genug versteht, um eine falsch ausgerichtete Anschnittlinie, eine fehlende Stanzlinie oder eine drohende Lieferantenfrist zu erkennen und das Problem zu beheben, bevor es jemand anderes bemerkt.\n\nVerantwortlichkeiten\n\n• Aufnahme und Triage anfordern\n\n• Als Hauptansprechpartner für veranstaltungsbezogene kreative Anfragen fungieren, die von verschiedenen Teams bei Tether eingehen.\n\n• Fassen Sie jede Anfrage klar an: Art der Lieferung, Format (gedruckt oder digital), Menge, Termin, Größe, Einschränkungen hinsichtlich Veranstaltungsort/Anbieter und Markenanforderungen.\n\n• Melden Sie widersprüchliche Zeitpläne, unrealistische Bearbeitungszeiten oder fehlende Informationen sofort und schlagen Sie einen umsetzbaren Plan vor, anstatt darauf zu warten, dass Sie gefragt werden.\n\nDesign-Zusammenarbeit und Projektmanagement\n\n• Informieren Sie die Designer mit vollständigen, eindeutigen Spezifikationen, damit die Arbeit gleich beim ersten Mal stimmt.\n\n• Verwalten Sie mehrere gleichzeitige Event-Workstreams über verschiedene Teams und Fristen hinweg, ohne Details zu verlieren.\n\n• Verfolgen Sie den Status aller aktiven Anfragen und decken Sie Engpässe proaktiv auf, bevor sie sich auf das Ereignisdatum auswirken.\n\nQualitätssicherung (Druck & Digital)\n\n• Überprüfen Sie jedes von einem Designer gelieferte Dokument, bevor es an das anfordernde Team zurückgesendet wird, und prüfen Sie dabei Markenkonsistenz, Kopiergenauigkeit, Auflösung, Farbmodus (CMYK vs. RGB), Anschnitt-/Beschnitt-/Sicherheitszonen, Dateiformate und Plattformspezifikationen (z. B. Abmessungen der Kabinentafel, Social-Crop-Verhältnisse, Seitenverhältnisse der Folien).\n\n• Erkennen Sie Fehler, deren Behebung vor Ort oder nach der Veröffentlichung kostspielig oder peinlich wäre (Tippfehler, falsche Größenangaben, Exporte mit niedriger Auflösung, defekte Links, veraltete Logos).\n\n• Pflegen Sie eine QS-Checkliste/einen QS-Prozess, der sich über alle Ereignistypen hinweg skalieren lässt und mit der Zeit immer präziser wird.\n\nVeranstaltungsdokumentation und Wissensmanagement\n\n• Dokumentieren und archivieren Sie alle Assets, Briefings und endgültigen Ergebnisse für jede Veranstaltung in einer gemeinsamen Ablage unter Verwendung einer klaren, konsistenten Struktur.\n\n• Organisieren Sie Dateien, damit das gesamte Team frühere Arbeiten leicht finden, Assets wiederverwenden und auf Spezifikationen, Zeitpläne oder kreative Richtungen früherer Veranstaltungen verweisen kann.\n\n• Führen Sie eine laufende Aufzeichnung der Anbieterdetails, Produktionsspezifikationen und gewonnenen Erkenntnisse pro Veranstaltung, um die Planung für zukünftige Veranstaltungen zu beschleunigen.\n\nRisiko- und Logistikeigentum\n\n• Antizipieren Sie, was schief gehen kann, wie z. B. Vorlaufzeiten von Lieferanten, Zeitfenster für die Druckproduktion, kurzfristige Änderungen des Umfangs und Lieferverzögerungen, und bauen Sie Puffer- und Notfallpläne in jeden Projektzeitplan ein.\n\n• Koordinieren Sie sich bei Bedarf mit Lieferanten und Druck-/Produktionspartnern, um Spezifikationen und Lieferfenster zu bestätigen.\n\n• Sorgen Sie dafür, dass Stakeholder aller anfragenden Teams und Entwürfe durch klare, proaktive Statusaktualisierungen und nicht durch reaktive Notfallübungen aufeinander abgestimmt sind.\n\nTeamübergreifende Partnerschaft\n\n• Fungieren Sie als vertrauenswürdige Verbindung zwischen geschäftlichen Antragstellern und dem Designteam und schützen Sie die Zeit der Designer vor mehrdeutigen Vorgaben und schützen Sie gleichzeitig die Antragsteller vor Fristüberschreitungen.\n\n• Kontinuierliche Verbesserung des Aufnahme- und Überprüfungsprozesses basierend darauf, was bei jeder Veranstaltung schief geht (oder fast schief geht).\n\n• Mehr als 5 Jahre Erfahrung im Eventmarketing, in der Eventproduktion, im kreativen Betrieb oder im Projektmanagement mit einer starken Eventkomponente.\n\n• Nachgewiesene Erfahrung im Management von Druck- und digitalen Produktionsprozessen; Sie wissen, was eine Stanzlinie ist, was „sicherer Bereich“ bedeutet und warum RGB-Assets nicht direkt gedruckt werden können.\n\n• Starke Organisations- und Multitasking-Fähigkeiten: nachgewiesene Fähigkeit, mehrere gleichzeitige, funktionsübergreifende Anfragen mit konkurrierenden Fristen zu verwalten.\n\n• Geschärfte Liebe zum Detail, komfortables Arbeiten als letzte Verteidigungslinie vor der Auslieferung einer Lieferung.\n\n• Erleben Sie die Überprüfung und Bereitstellung von umsetzbarem Feedback zur kreativen Arbeit von Designern, ohne dass Sie selbst Designer sein müssen.\n\n• Eine proaktive, risikoorientierte Denkweise: Sie fragen sich natürlich: „Was könnte hier schiefgehen?“ und erstellen Sie einen Plan rund um die Antwort.\n\n• Hervorragende schriftliche und mündliche Kommunikation; Sie fühlen sich wohl bei der Verwaltung von Stakeholdern in verschiedenen Teams mit unterschiedlichen Prioritäten.\n\n• Vertrautheit mit Projektmanagement-Tools (Asana, Monday oder ähnliches) und Design-Review-Tools wie Figma\n\n• Erfahrung im Einrichten gemeinsamer Laufwerksstrukturen oder Asset-Bibliotheken für Teams.\n\n• Fließende Englisch- und Spanisch-/Italienischkenntnisse sind von Vorteil.\n\nWichtige Informationen für Kandidaten\nRekrutierungsbetrug kommt immer häufiger vor. Um sich selbst zu schützen, beachten Sie bitte Folgendes, wenn Sie sich auf Stellen bewerben:\n\n• Bewerben Sie sich ausschließlich über unsere offiziellen Kanäle. Wir nutzen für die Rekrutierung keine Plattformen oder Agenturen Dritter, sofern dies nicht ausdrücklich angegeben ist. Alle offenen Stellen sind auf unserer offiziellen Karriereseite aufgeführt: https://tether.recruitee.com/\n\n• Überprüfen Sie die Identität des Personalvermittlers. Alle unsere Personalvermittler verfügen über verifizierte LinkedIn-Profile. Wenn Sie sich nicht sicher sind, können Sie ihre Identität bestätigen, indem Sie ihr Profil überprüfen oder uns über unsere Website kontaktieren.\n\n• Seien Sie vorsichtig bei ungewöhnlichen Kommunikationsmethoden. Wir führen keine Interviews über WhatsApp, Telegram oder SMS durch. Die gesamte Kommunikation erfolgt über offizielle E-Mails und Plattformen des Unternehmens.\n\n• Überprüfen Sie Ihre E-Mail-Adressen noch einmal. Die gesamte Kommunikation von uns erfolgt über E-Mails mit der Endung @ tether.to oder @ tether.io\n\n• Wir werden Sie niemals nach Zahlungs- oder Finanzdaten fragen. Wenn jemand zu irgendeinem Zeitpunkt während des Einstellungsprozesses nach persönlichen Finanzinformationen oder Zahlungen fragt, handelt es sich um Betrug. Bitte melden Sie es umgehend.\n\nIm Zweifelsfall können Sie sich gerne über unsere offizielle Website an uns wenden.",
-        "fr": "Rejoignez Tether et façonnez l'avenir de la finance numérique\nChez Tether, nous ne nous contentons pas de créer des produits, nous sommes les pionniers d’une révolution financière mondiale. Nos solutions de pointe permettent aux entreprises (des bourses et portefeuilles aux processeurs de paiement et aux distributeurs automatiques) d'intégrer de manière transparente les jetons adossés à des réserves dans les blockchains. En exploitant la puissance de la technologie blockchain, Tether vous permet de stocker, d'envoyer et de recevoir des jetons numériques instantanément, en toute sécurité et à l'échelle mondiale, le tout pour une fraction du coût. La transparence est le fondement de tout ce que nous faisons, garantissant la confiance dans chaque transaction.\n\nInnover avec Tether\nTether Finance : notre suite de produits innovants comprend le stablecoin le plus fiable au monde, l'USDT, sur lequel s'appuient des centaines de millions de personnes dans le monde, ainsi que des services pionniers de tokenisation d'actifs numériques.\nMais ce n'est qu'un début :\nTether Power : Favorisant une croissance durable, nos solutions énergétiques optimisent l’énergie excédentaire pour l’exploitation minière de Bitcoin en utilisant des pratiques respectueuses de l’environnement dans des installations de pointe et géodiverses.\nTether Data : En alimentant les percées dans l'IA et la technologie peer-to-peer, nous réduisons les coûts d'infrastructure et améliorons les communications mondiales avec des solutions de pointe comme KEET, notre application phare qui redéfinit le partage de données sécurisé et privé.\nTether Education : en démocratisant l'accès à un apprentissage numérique de haut niveau, nous permettons aux individus de s'épanouir dans l'économie numérique et des petits boulots, stimulant ainsi la croissance et les opportunités mondiales.\nTether Evolution : À l'intersection de la technologie et du potentiel humain, nous repoussons les limites de ce qui est possible, en créant un avenir où l'innovation et les capacités humaines fusionnent de manière puissante et sans précédent.\n\nPourquoi nous rejoindre ?\nNotre équipe est une centrale mondiale de talents, travaillant à distance depuis tous les coins du monde. Si vous souhaitez vous démarquer dans le domaine de la fintech, c'est l'occasion de collaborer avec certains des esprits les plus brillants, de repousser les limites et d'établir de nouvelles normes. Nous avons connu une croissance rapide, sommes restés minces et avons assuré notre place de leader du secteur.\nSi vous possédez d'excellentes compétences en communication en anglais et êtes prêt à contribuer à la plateforme la plus innovante de la planète, Tether est fait pour vous.\nÊtes-vous prêt à faire partie du futur ?\n\nÀ propos du travail\nNous recherchons un coordonnateur de la conception d'événements pour gérer la réception, la production et l'assurance qualité des demandes créatives liées aux événements provenant d'un large éventail d'équipes de l'entreprise. Il s'agit d'un rôle de constructeur et de gardien : vous travaillerez main dans la main avec les concepteurs pour transformer des demandes variées, souvent rapides, en livrables impeccables, y compris les graphismes du stand, la signalisation, les présentations, les ressources numériques, les cadeaux et les invitations, tout en repérant de manière proactive les risques (échéancier, marque, spécifications d'impression ou logistique) avant qu'ils ne deviennent des problèmes.\n\nNous ne recherchons pas quelqu'un qui se contente d'acheminer les billets. Nous recherchons quelqu'un qui comprend suffisamment bien à la fois le processus créatif et les réalités opérationnelles des événements en direct pour détecter une ligne de fond perdu mal alignée, une ligne de découpe manquante ou une date limite d'un fournisseur qui est sur le point de dépasser, et de le corriger avant que quiconque ne le remarque.\n\nResponsabilités\n\n• Demander l'admission et le tri\n\n• Servir de point de contact principal pour les demandes créatives liées aux événements provenant de diverses équipes de Tether.\n\n• Étendez clairement chaque demande : type de livrable, format (imprimé ou numérique), quantité, délai, dimension, contraintes de lieu/fournisseur et exigences de la marque.\n\n• Signalez immédiatement les délais contradictoires, les délais d'exécution irréalistes ou les informations manquantes, et proposez un plan réalisable plutôt que d'attendre qu'on vous le demande.\n\nCollaboration en matière de conception et gestion de projet\n\n• Présentez aux concepteurs des spécifications complètes et sans ambiguïté afin que le travail soit parfait du premier coup.\n\n• Gérez plusieurs flux de travail d'événements simultanés au sein de différentes équipes et dans différents délais, sans perdre de détails.\n\n• Suivez l'état de toutes les demandes actives et identifiez de manière proactive les goulots d'étranglement avant qu'ils n'affectent la date de l'événement.\n\nAssurance qualité (impression et numérique)\n\n• Examinez chaque livrable du concepteur avant de le renvoyer à l'équipe demandeuse, en vérifiant la cohérence de la marque, la précision de la copie, la résolution, le mode couleur (CMYK ou RVB), les zones de fond perdu/rognage/sécurité, les formats de fichiers et les spécifications de la plate-forme (par exemple, les dimensions du panneau du stand, les ratios de recadrage social, les proportions des diapositives).\n\n• Détectez les erreurs qui seraient coûteuses ou embarrassantes à corriger sur site ou après le lancement (fautes de frappe, mauvais dimensionnement, exportations en basse résolution, liens rompus, logos obsolètes).\n\n• Maintenir une liste de contrôle/processus d'assurance qualité qui s'adapte à tous les types d'événements et s'affine au fil du temps.\n\nDocumentation événementielle et gestion des connaissances\n\n• Documentez et classez tous les actifs, briefs et livrables finaux pour chaque événement dans un lecteur partagé, en utilisant une structure claire et cohérente.\n\n• Organisez les fichiers afin que l'ensemble de l'équipe puisse facilement retrouver les travaux antérieurs, réutiliser les ressources et croiser les spécifications, les chronologies ou la direction créative des événements précédents.\n\n• Tenir un registre permanent des détails des fournisseurs, des spécifications de production et des leçons apprises par événement pour accélérer la planification des futurs.\n\nPropriété des risques et de la logistique\n\n• Anticipez ce qui peut mal tourner, comme les délais de livraison des fournisseurs, les fenêtres de production d'impression, les changements de portée de dernière minute et les retards d'expédition, et intégrez des plans tampons et d'urgence dans chaque calendrier de projet.\n\n• Coordonner avec les fournisseurs et les partenaires d'impression/production si nécessaire pour confirmer les spécifications et les délais de livraison.\n\n• Maintenez les parties prenantes des équipes demandeuses et la conception alignée avec des mises à jour de statut claires et proactives plutôt que des exercices d'incendie réactifs.\n\nPartenariat inter-équipes\n\n• Agir en tant qu'intermédiaire de confiance entre les demandeurs commerciaux et l'équipe de conception, en protégeant le temps des concepteurs des briefs ambigus tout en protégeant les demandeurs des délais non respectés.\n\n• Améliorer continuellement le processus d'admission et d'examen en fonction de ce qui ne va pas (ou presque) lors de chaque événement.\n\n• Plus de 5 ans d'expérience dans le marketing événementiel, la production d'événements, les opérations créatives ou la gestion de projets avec une forte composante événementielle.\n\n• Expérience avérée dans la gestion des processus de production imprimés et numériques ; vous savez ce qu'est une ligne de découpe, ce que signifie « zone de sécurité » et pourquoi les ressources RVB ne peuvent pas être directement imprimées.\n\n• Solides compétences organisationnelles et multitâches : capacité démontrée à gérer plusieurs demandes simultanées et interfonctionnelles avec des délais concurrents.\n\n• Une grande attention aux détails, à l'aise d'être la dernière ligne de défense avant un navire livrable.\n\n• Expérience dans la révision et la fourniture de commentaires concrets sur le travail créatif des designers, sans avoir besoin d'être vous-même designer.\n\n• Un état d'esprit proactif et axé sur le risque : vous vous demandez naturellement : « qu'est-ce qui pourrait mal se passer ici ? » et construisez un plan autour de la réponse.\n\n• Excellente communication écrite et verbale ; à l'aise dans la gestion des parties prenantes au sein de différentes équipes avec des priorités différentes.\n\n• Familiarité avec les outils de gestion de projet (Asana, Monday ou similaire) et les outils de révision de conception comme Figma\n\n• Expérience dans la mise en place de structures de disques partagés ou de bibliothèques d'actifs pour les équipes.\n\n• La maîtrise de l'anglais et de l'espagnol/italien est un plus.\n\nInformations importantes pour les candidats\nLes escroqueries au recrutement sont devenues de plus en plus courantes. Pour vous protéger, veuillez garder les points suivants à l’esprit lorsque vous postulez à des postes :\n\n• Postulez uniquement via nos canaux officiels. Nous n'utilisons pas de plateformes ou d'agences tierces pour le recrutement, sauf indication contraire. Tous les postes ouverts sont répertoriés sur notre page carrière officielle : https://tether.recruitee.com/\n\n• Vérifiez l'identité du recruteur. Tous nos recruteurs ont des profils LinkedIn vérifiés. En cas de doute, vous pouvez confirmer leur identité en vérifiant leur profil ou en nous contactant via notre site Web.\n\n• Méfiez-vous des méthodes de communication inhabituelles. Nous ne menons pas d'entretiens via WhatsApp, Telegram ou SMS. Toutes les communications se font via les e-mails et les plateformes officielles de l'entreprise.\n\n• Vérifiez les adresses e-mail. Toutes les communications de notre part proviendront d'e-mails se terminant par @ tether.to ou @ tether.io\n\n• Nous ne demanderons jamais de paiement ou de détails financiers. Si quelqu’un demande des informations financières personnelles ou un paiement à tout moment du processus d’embauche, il s’agit d’une arnaque. Veuillez le signaler immédiatement.\n\nEn cas de doute, n'hésitez pas à nous contacter via notre site officiel."
-      },
-      "location": "Brussels, Brussels",
-      "canton": "",
-      "url": "https://tether.recruitee.com/o/event-design-coordinator-remote-europe-7",
-      "source": "tether-careers-crawler",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:10:55.699Z",
-      "addressLocality": "Brussels",
-      "addressRegion": "Brussels",
-      "addressCountry": "",
-      "postalCode": "",
-      "country": "",
-      "category": "Altro",
-      "contract": "remote",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "workModel": "remote",
-      "sector": "Fintech / Blockchain",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25",
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://careers.tether.io/o/event-design-coordinator-remote-europe-7/c/new",
-      "department": "Marketing",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "event-design-coordinator-remote-europe-tether-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "event-design-coordinator-remote-europe-tether-ch"
-        ],
-        "de": [
-          "event-design-coordinator-remote-europe-tether-ch"
-        ],
-        "fr": [
-          "event-design-coordinator-remote-europe-tether-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-16T23:43:14.450Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

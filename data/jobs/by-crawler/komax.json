@@ -1,6 +1,6 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-10-03T21:31:33.186Z",
+  "assembledAt": "2026-10-04T09:28:36.543Z",
   "jobs": [
     {
       "id": "komax-b5882ca23e19",
@@ -17,7 +17,7 @@
       "title": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
       "titleByLocale": {
         "it": "Sales Switzerland / Technical Sales Ingegnere (w/m/d)",
-        "en": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
+        "en": "Sales Switzerland / Technical Sales Engineer (m/f/d)",
         "de": "Sales Switzerland / Technical Sales Ingenieur (w/m/d)",
         "fr": "Sales Switzerland / Technical Sales Ingénieur (w/m/d)"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252455/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:31:23.002Z",
+      "crawledAt": "2026-10-04T09:28:31.087Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -55,11 +55,17 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch"
+          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
         ]
       },
       "previousSlugs": [
-        "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch"
+        "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -81,7 +87,7 @@
       "slug": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
       "slugByLocale": {
         "it": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
-        "en": "lead-group-it-service-desk-w-m-d-komax-ch-jisu5n",
+        "en": "lead-group-it-service-desk-w-m-d-komax-ch",
         "de": "leitgruppe-it-service-desk-m-w-d-komax-dierikon",
         "fr": "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon"
       },
@@ -107,7 +113,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481055/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:31:23.000Z",
+      "crawledAt": "2026-10-04T09:28:31.086Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -188,7 +194,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:31:22.999Z",
+      "crawledAt": "2026-10-04T09:28:31.085Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -264,6 +270,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -309,7 +316,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165135955/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:31:22.998Z",
+      "crawledAt": "2026-10-04T09:28:31.084Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -396,7 +403,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:31:22.998Z",
+      "crawledAt": "2026-10-04T09:28:31.085Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -432,6 +439,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -477,7 +485,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:31:22.996Z",
+      "crawledAt": "2026-10-04T09:28:31.083Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -553,7 +561,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:31:22.995Z",
+      "crawledAt": "2026-10-04T09:28:31.082Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -660,90 +668,6 @@
           "@type": "QuantitativeValue",
           "minValue": 114500,
           "maxValue": 195000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "komax-38b4439706fb",
-      "slug": "gestione-della-funzionalita-m-f-d-komax-dierikon",
-      "slugByLocale": {
-        "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
-        "en": "facility-manager-w-m-d-komax-dierikon",
-        "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
-      },
-      "company": "Komax",
-      "companyKey": "komax",
-      "companyDomain": "komaxgroup.com",
-      "title": "Facility Manager (w/m/d)",
-      "titleByLocale": {
-        "it": "Gestione della funzionalità (m/f/d)",
-        "en": "Facility Manager (w/m/d)",
-        "de": "Facility Manager (w/m/d)",
-        "fr": "Gestionnaire d'installations (h/f/d)"
-      },
-      "description": "Ihr Aufgabengebiet\n\n• Sie sind verantwortlich für die Objekt- und Betriebssicherheit sowie Bedienung der gebäudetechnischen Anlagen, auch im Pikettdienst\n\n• Zusammen mit dem Team Facility Management betreuen Sie sämtliche technischen Anlagen und führen kleinere Reparaturen selbständig aus\n\n• Sie treffen wirkungsvolle Massnahmen zur Verhütung von Betriebsunfällen und -störungen\n\n• Sie Aufbieten von externen Handwerkern und Ansprechperson vor Ort\n\n• Mithilfe bei der Arealreinigung, dem Winterdienst und der Abfallbewirtschaftung\n\n• Bereitstellung der Meetingräume und des Atriums für Anlässe\n\nIhr Profil\n\n• Abgeschlossene handwerkliche Grundausbildung vorzugsweise in der Elektrobranche mit abgeschlossener Weiterbildung zum Hauswart\n\n• Fachkenntnisse und -erfahrung im Bereich Facility Management\n\n• Sie sind eine zuverlässige Persönlichkeit mit ausgeprägter Dienstleistungorientierung, auch bei hoher Belastung\n\n• Die Zusammenarbeit im Team und der Umgang mit Kunden und externen Dienstleistern macht Ihnen Freude\n\n• PC – Anwenderkenntnisse (Word, Excel, Outlook) sowie der Führerschein Kat. B runden Ihr Profil ab\n\nIhre Benfits\n\nIhr neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
-      "descriptionByLocale": {
-        "it": "Le tue responsabilità\n\n• Sei responsabile dell'oggetto e della sicurezza operativa, nonché del funzionamento dei sistemi di costruzione, anche nel servizio pikett\n\n• Lavorare con il team Facility Management Tutte le attrezzature tecniche e effettuare riparazioni minori indipendentemente\n\n• Prendere misure efficaci per prevenire incidenti e incidenti sul posto di lavoro\n\n• Fornire artigiani esterni e persona di contatto sul sito\n\n• Assistenza nella pulizia del sito, servizio invernale e gestione dei rifiuti\n\n• Fornitura di sale riunioni e atrio per le occasioni\n\nIl tuo profilo\n\n• Formazione artigianale completata preferibilmente nel settore elettrico con formazione completa come domestica\n\n• Competenza e esperienza nella gestione delle strutture\n\n• Sei una personalità affidabile con un orientamento di servizio pronunciato, anche sotto stress elevato\n\n• La collaborazione in un team e la gestione di clienti e fornitori di servizi esterni ti rende felice\n\n• PC – Conoscenza dell'utente (Word, Excel, Outlook) e la licenza di guida Cat. B arrotonda il tuo profilo\n\nI tuoi vantaggi\n\nIl vostro nuovo luogo di lavoro a Dierikon è di nuova costruzione e dotato delle più recenti tecnologie e attrezzature di lavoro. Il vostro posto di lavoro si trova in uno dei moderni uffici open-plan, dove ci sono anche aree di incontro ispiranti e una grande terrazza per vari eventi dei dipendenti. Komax AG offre ai propri dipendenti modelli flessibili di tempo di lavoro e ufficio. L'ulteriore formazione dei dipendenti è importante per Komax AG e offre, ad esempio, corsi di inglese interni gratuiti o l'accesso a piattaforme di apprendimento attraenti selezionate. Nella posizione di Dierikon, ci sono anche moderne sale relax e la possibilità di un pranzo scontato in un ristorante partner vicino.\n\nHai delle domande?\nSiamo a vostra disposizione per ulteriori informazioni:\n\nStefan Binder, Senior Talent Acquisition Specialist\n\nstefan.binder@komaxgroup.com",
-        "en": "Your responsibilities\n\n• You are responsible for the object and operational safety as well as the operation of the building systems, also in the pikett service\n\n• Working with the Facility Management team All technical equipment and carry out minor repairs independently\n\n• Take effective measures to prevent workplace accidents and incidents\n\n• You provide external craftsmen and contact person on site\n\n• Assistance in site cleaning, winter service and waste management\n\n• Provision of meeting rooms and atrium for occasions\n\nYour profile\n\n• Completed basic craftsmanship training preferably in the electrical industry with completed training as a housekeeper\n\n• Expertise and experience in Facility Management\n\n• You are a reliable personality with a pronounced service orientation, even under high stress\n\n• Collaboration in a team and dealing with customers and external service providers makes you happy\n\n• PC – User knowledge (Word, Excel, Outlook) as well as the driving license Cat. B round off your profile\n\nYour Benfits\n\nYour new place of work in Dierikon is newly built and equipped with the latest technology and work equipment. Your workplace is located in one of the modern open-plan offices, where there are also inspiring meeting areas and a large terrace for various employee events. Komax AG offers its employees flexible working time models and home office. The further training of employees is important to Komax AG and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon location, there are also modern break rooms and the possibility of a discounted lunch in a neighbouring partner restaurant.\n\nDo you have questions?\nWe are at your disposal for further information:\n\nStefan Binder, Senior Talent Acquisition Specialist\n\nstefan.binder@komaxgroup.com",
-        "de": "Ihr Aufgabengebiet\n\n• Sie sind verantwortlich für die Objekt- und Betriebssicherheit sowie Bedienung der gebäudetechnischen Anlagen, auch im Pikettdienst\n\n• Zusammen mit dem Team Facility Management betreuen Sie sämtliche technischen Anlagen und führen kleinere Reparaturen selbständig aus\n\n• Sie treffen wirkungsvolle Massnahmen zur Verhütung von Betriebsunfällen und -störungen\n\n• Sie Aufbieten von externen Handwerkern und Ansprechperson vor Ort\n\n• Mithilfe bei der Arealreinigung, dem Winterdienst und der Abfallbewirtschaftung\n\n• Bereitstellung der Meetingräume und des Atriums für Anlässe\n\nIhr Profil\n\n• Abgeschlossene handwerkliche Grundausbildung vorzugsweise in der Elektrobranche mit abgeschlossener Weiterbildung zum Hauswart\n\n• Fachkenntnisse und -erfahrung im Bereich Facility Management\n\n• Sie sind eine zuverlässige Persönlichkeit mit ausgeprägter Dienstleistungorientierung, auch bei hoher Belastung\n\n• Die Zusammenarbeit im Team und der Umgang mit Kunden und externen Dienstleistern macht Ihnen Freude\n\n• PC – Anwenderkenntnisse (Word, Excel, Outlook) sowie der Führerschein Kat. B runden Ihr Profil ab\n\nIhre Benfits\n\nIhr neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
-        "fr": "Vos responsabilités\n\n• Vous êtes responsable de l'objet et de la sécurité opérationnelle ainsi que de l'exploitation des systèmes de construction, également dans le service pikett\n\n• Travail avec l'équipe de gestion des installations Tout l'équipement technique et effectuer des réparations mineures indépendamment\n\n• Prendre des mesures efficaces pour prévenir les accidents et incidents sur le lieu de travail\n\n• Vous fournissez des artisans externes et une personne de contact sur place\n\n• Assistance au nettoyage des sites, service hivernal et gestion des déchets\n\n• Fourniture de salles de réunion et d ' atrium pour les occasions\n\nVotre profil\n\n• Achevé une formation artisanale de base de préférence dans l'industrie électrique avec une formation complète comme femme de ménage\n\n• Expertise et expérience en gestion des installations\n\n• Vous êtes une personnalité fiable avec une orientation de service prononcée, même sous le stress élevé\n\n• La collaboration en équipe et les relations avec les clients et les fournisseurs de services externes vous rendent heureux\n\n• PC – Connaissance utilisateur (Word, Excel, Outlook) ainsi que le permis de conduire Cat. B arrondissez votre profil\n\nVos avantages\n\nVotre nouveau lieu de travail à Dierikon est récemment construit et équipé des dernières technologies et équipements de travail. Votre lieu de travail est situé dans l'un des bureaux ouverts modernes, où il ya également des espaces de réunion inspirants et une grande terrasse pour divers événements des employés. Komax AG offre à ses employés des modèles flexibles de temps de travail et de bureau à domicile. La formation continue des employés est importante pour Komax AG et offre, par exemple, des cours d'anglais internes gratuits ou l'accès à certaines plates-formes d'apprentissage attrayantes. À l'emplacement de Dierikon, il ya également des salles de pause modernes et la possibilité d'un déjeuner à prix réduit dans un restaurant partenaire voisin.\n\nVous avez des questions ?\nNous sommes à votre disposition pour plus d'informations:\n\nStefan Binder, spécialiste principal en acquisition de talents\n\nStefan.binder@komaxgroup.com"
-      },
-      "location": "Dierikon",
-      "canton": "LU",
-      "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
-      "source": "Komax Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:34.628Z",
-      "addressLocality": "Dierikon",
-      "addressRegion": "LU",
-      "streetAddress": "Industriestrasse 6",
-      "postalCode": "6036",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Industria / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
-      "jobReqId": "1165472855",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facility-manager-w-m-d-komax-ch",
-        "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "gestione-della-funzionalita-m-f-d-komax-dierikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facility-manager-w-m-d-komax-ch",
-          "gestione-della-funzionalita-m-f-d-komax-dierikon"
-        ],
-        "de": [
-          "facility-manager-w-m-d-komax-ch-ji9uhd"
-        ],
-        "fr": [
-          "facility-manager-w-m-d-komax-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:17:37.993Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
           "unitText": "YEAR"
         }
       },

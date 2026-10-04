@@ -1,7 +1,7 @@
 {
   "key": "sygnum",
   "label": "Sygnum Bank",
-  "generatedAt": "2026-10-03T21:21:06.104Z",
+  "generatedAt": "2026-10-04T09:24:41.455Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -14,10 +14,10 @@
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13419,
-  "avgDurationMs": 13419,
+  "durationMs": 11985,
+  "avgDurationMs": 11985,
   "durationHistory": [
-    13419
+    11985
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:49.871Z",
+      "crawledAt": "2026-10-04T09:24:25.863Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -52,11 +52,11 @@
       "jobReqId": "VN288",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:21:36.405Z",
-      "_qualityScore": 82,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -72,7 +72,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:51.001Z",
+      "crawledAt": "2026-10-04T09:24:27.455Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -89,7 +89,6 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "jobReqId": "VN287",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-18T23:20:07.341Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -111,7 +110,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:52.647Z",
+      "crawledAt": "2026-10-04T09:24:29.012Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -149,7 +148,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN269",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:52.042Z",
+      "crawledAt": "2026-10-04T09:24:28.424Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -187,7 +186,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN268",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:54.126Z",
+      "crawledAt": "2026-10-04T09:24:30.152Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -225,7 +224,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:49.247Z",
+      "crawledAt": "2026-10-04T09:24:25.269Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -264,7 +263,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:48.370Z",
+      "crawledAt": "2026-10-04T09:24:24.706Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -281,7 +280,6 @@
       "postedDate": "2026-04-01",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "jobReqId": "VN233",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-11T10:24:35.636Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -303,7 +301,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:53.254Z",
+      "crawledAt": "2026-10-04T09:24:29.564Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -320,7 +318,6 @@
       "postedDate": "2026-03-10",
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "jobReqId": "VN217",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-23T23:50:29.915Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -342,7 +339,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN192",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:47.572Z",
+      "crawledAt": "2026-10-04T09:24:24.103Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -371,5 +368,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

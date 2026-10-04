@@ -1,23 +1,23 @@
 {
   "key": "epi-geneve",
   "label": "Établissements publics pour l'intégration",
-  "generatedAt": "2026-10-03T21:09:30.011Z",
-  "total": 7,
+  "generatedAt": "2026-10-04T09:11:46.557Z",
+  "total": 4,
   "discovered": null,
   "parsed": 4,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 7,
+  "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 5833,
-  "avgDurationMs": 5833,
+  "removedCount": 3,
+  "unchangedCount": 0,
+  "durationMs": 4990,
+  "avgDurationMs": 4990,
   "durationHistory": [
-    5833
+    4990
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000151539236--un-e-socio-educateur-trice-jalouvre-70-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:14.465Z",
+      "crawledAt": "2026-10-04T09:11:31.050Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin",
@@ -50,7 +50,6 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000151539236--un-e-socio-educateur-trice-jalouvre-70-cdi?oga=true",
       "jobReqId": "744000151539236",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-24T14:16:40.312Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -72,7 +71,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000147877299-un-e-assistant-e-socioprofessionnel-le-planification-de-process-d-industrie-legere-atelier-conditionnement-80-a-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:14.496Z",
+      "crawledAt": "2026-10-04T09:11:31.073Z",
       "addressLocality": "Meinier",
       "addressRegion": "GE",
       "streetAddress": "Chemin de la Pallanterie 10",
@@ -110,7 +109,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:14.437Z",
+      "crawledAt": "2026-10-04T09:11:31.078Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -127,7 +126,6 @@
       "postedDate": "2026-06-24",
       "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "jobReqId": "744000133855729",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T22:53:33.325Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -149,7 +147,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:14.487Z",
+      "crawledAt": "2026-10-04T09:11:31.067Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -166,7 +164,6 @@
       "postedDate": "2026-02-23",
       "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "jobReqId": "744000110722240",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T22:53:33.321Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -177,8 +174,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "epi-geneve-961455f306ba",
       "slug": "un-socio-educatore-piscina-c-70-cdm-fino-al-31-agosto-2027-etablissements-publics-pour-l-integration-geneve-ge",
@@ -213,7 +209,6 @@
       "salaryMax": 64000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -298,7 +293,6 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -308,5 +302,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

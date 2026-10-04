@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gesundheitsnetz-kuesnacht",
-  "assembledAt": "2026-10-03T21:25:20.121Z",
+  "assembledAt": "2026-10-04T09:23:54.468Z",
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-6384df6a2443",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/780392/0084/pub/15/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:14.691Z",
+      "crawledAt": "2026-10-04T09:23:49.869Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -71,17 +71,62 @@
       "firstSeenAt": "2026-07-02T21:49:34.420Z",
       "previousSlugsByLocale": {
         "it": [
-          "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht"
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht",
+          "eveille-dipl-soins-professionnels-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "awakened-dipl-care-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "spitex-dipl-pflegefachperson-hf-fh-per-abenddienst-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "spitex-dipl-nurse-hf-fh-for-evening-service-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht",
+          "spitex-dipl-infirmiere-hf-fh-pour-le-service-du-soir-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "spitex-dipl-pflegefachperson-hf-fh-fur-abenddienst-gesundheitsnetz-kuesnacht-kusnacht",
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "servizio-notturno-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "night-service-dipl-care-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "nachdienst-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
+          "service-de-nuit-dipl-soins-professionnels-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "nachtdienst-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
+          "night-shift-dipl-nursing-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "service-de-nuit-infirmier-professionnel-dipl-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "vigile-infermiere-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "infirmier-e-diplome-e-hf-fh-vigilant-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "svegliato-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "infermiera-hf-fh-80-100-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht"
         ],
         "fr": [
-          "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht"
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht",
+          "eveille-dipl-soins-professionnels-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "de": [
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht"
         ]
       },
       "previousSlugs": [
-        "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht"
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kuesnacht-kusnacht",
+        "eveille-dipl-soins-professionnels-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "awakened-dipl-care-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-80-100-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "spitex-dipl-pflegefachperson-hf-fh-per-abenddienst-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "spitex-dipl-nurse-hf-fh-for-evening-service-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht",
+        "spitex-dipl-infirmiere-hf-fh-pour-le-service-du-soir-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "spitex-dipl-pflegefachperson-hf-fh-fur-abenddienst-gesundheitsnetz-kuesnacht-kusnacht",
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "servizio-notturno-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "night-service-dipl-care-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "nachdienst-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
+        "service-de-nuit-dipl-soins-professionnels-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "nachtdienst-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
+        "night-shift-dipl-nursing-professional-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "service-de-nuit-infirmier-professionnel-dipl-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "vigile-infermiere-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "infirmier-e-diplome-e-hf-fh-vigilant-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "svegliato-dipl-cura-professionale-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht",
+        "infermiera-hf-fh-80-100-gesundheitsnetz-kusnacht-ag-kusnacht"
       ]
     },
     {
@@ -116,7 +161,7 @@
       "url": "https://apply.refline.ch/780392/0090/pub/12/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:14.220Z",
+      "crawledAt": "2026-10-04T09:23:49.422Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,14 +186,16 @@
         "specialista-inquisitivo-esperto-salute-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
         "eager-to-know-specialist-health-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
         "desireux-de-connaitre-la-sante-specialisee-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht"
+        "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht",
+        "desideroso-di-conoscere-la-salute-specialistica-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-inquisitivo-esperto-salute-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
           "eager-to-know-specialist-health-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
           "desireux-de-connaitre-la-sante-specialisee-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht"
+          "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht",
+          "desideroso-di-conoscere-la-salute-specialistica-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht"
@@ -204,7 +251,7 @@
       "url": "https://apply.refline.ch/780392/0102/pub/12/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:13.750Z",
+      "crawledAt": "2026-10-04T09:23:47.771Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -229,14 +276,16 @@
         "cura-del-tirocinante-60-100-gesundheitsnetz-kusnacht-ag-kusnacht",
         "trainee-care-60-100-gesundheitsnetz-kusnacht-ag-kusnacht",
         "soins-aux-stagiaires-60-100-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht"
+        "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht",
+        "cura-tirocinante-60-100-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cura-del-tirocinante-60-100-gesundheitsnetz-kusnacht-ag-kusnacht",
           "trainee-care-60-100-gesundheitsnetz-kusnacht-ag-kusnacht",
           "soins-aux-stagiaires-60-100-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht"
+          "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht",
+          "cura-tirocinante-60-100-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "praktikant-in-pflege-60-100-gesundheitsnetz-kuesnacht-kusnacht"
@@ -292,7 +341,7 @@
       "url": "https://apply.refline.ch/780392/0130/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:13.277Z",
+      "crawledAt": "2026-10-04T09:23:47.325Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -314,11 +363,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "fage-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht"
+        "fage-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht",
+        "fage-dipartimento-della-demenza-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fage-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht"
+          "fage-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht",
+          "fage-dipartimento-della-demenza-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "fage-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht"
@@ -374,7 +425,7 @@
       "url": "https://apply.refline.ch/780392/0131/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:12.804Z",
+      "crawledAt": "2026-10-04T09:23:46.881Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -396,11 +447,13 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht"
+        "dipl-pflegefachperson-hf-fh-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht",
+        "infermiera-hf-fh-demenz-department-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht"
+          "dipl-pflegefachperson-hf-fh-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht",
+          "infermiera-hf-fh-demenz-department-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-demenzabteilung-gesundheitsnetz-kuesnacht-kusnacht"
@@ -456,7 +509,7 @@
       "url": "https://apply.refline.ch/780392/0111/pub/6/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:12.333Z",
+      "crawledAt": "2026-10-04T09:23:46.434Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -479,12 +532,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
-        "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "assistente-motivato-in-salute-e-assistenza-sociale-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
-          "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "assistente-motivato-in-salute-e-assistenza-sociale-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht"
@@ -540,7 +595,7 @@
       "url": "https://apply.refline.ch/780392/0088/pub/10/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:11.861Z",
+      "crawledAt": "2026-10-04T09:23:45.986Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -569,7 +624,8 @@
         "eager-to-know-specialist-health-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
         "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht",
         "desireux-de-connaitre-la-sante-specialisee-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "fachfrau-fachmann-gesundheit-per-den-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "fachfrau-fachmann-gesundheit-per-den-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "salute-professionale-per-il-servizio-serale-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -580,7 +636,8 @@
           "eager-to-know-specialist-health-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
           "wissbegierige-n-fachfrau-fachmann-gesundheit-spitex-gesundheitsnetz-kuesnacht-kusnacht",
           "desireux-de-connaitre-la-sante-specialisee-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "fachfrau-fachmann-gesundheit-per-den-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "fachfrau-fachmann-gesundheit-per-den-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "salute-professionale-per-il-servizio-serale-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "eager-to-know-specialist-health-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
@@ -641,7 +698,7 @@
       "url": "https://apply.refline.ch/780392/0129/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:11.389Z",
+      "crawledAt": "2026-10-04T09:23:45.541Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -723,7 +780,7 @@
       "url": "https://apply.refline.ch/780392/0127/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:10.917Z",
+      "crawledAt": "2026-10-04T09:23:45.097Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -745,11 +802,13 @@
       "pensumMax": 20,
       "pensum": "20%",
       "previousSlugs": [
-        "spitex-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht-kusnacht"
+        "spitex-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht-kusnacht",
+        "assistente-di-allattamento-spitex-srk-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spitex-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht-kusnacht"
+          "spitex-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht-kusnacht",
+          "assistente-di-allattamento-spitex-srk-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "spitex-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht-kusnacht"
@@ -805,7 +864,7 @@
       "url": "https://apply.refline.ch/780392/0125/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:10.446Z",
+      "crawledAt": "2026-10-04T09:23:44.649Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -828,12 +887,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "abteilungsleiter-in-stv-pflegedienstleitung-gesundheitsnetz-kuesnacht-kusnacht",
-        "abteilungsleiter-in-gesundheitsnetz-kuesnacht-kusnacht"
+        "abteilungsleiter-in-gesundheitsnetz-kuesnacht-kusnacht",
+        "capo-dipartimento-stv-servizi-di-cura-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-stv-pflegedienstleitung-gesundheitsnetz-kuesnacht-kusnacht",
-          "abteilungsleiter-in-gesundheitsnetz-kuesnacht-kusnacht"
+          "abteilungsleiter-in-gesundheitsnetz-kuesnacht-kusnacht",
+          "capo-dipartimento-stv-servizi-di-cura-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "abteilungsleiter-in-stv-pflegedienstleitung-gesundheitsnetz-kuesnacht-kusnacht"
@@ -889,7 +950,7 @@
       "url": "https://apply.refline.ch/780392/0085/pub/10/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:09.974Z",
+      "crawledAt": "2026-10-04T09:23:44.206Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -912,11 +973,13 @@
       "pensum": "40%",
       "previousSlugs": [
         "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht",
-        "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "aufgeweckte-dipl-pflegefachperson-hf-fh-per-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht"
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kuesnacht",
+          "aufgeweckte-dipl-pflegefachperson-hf-fh-per-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "aufgeweckte-dipl-pflegefachperson-hf-fh-fur-abenddienst-spitex-gesundheitsnetz-kusnacht-ag-kusnacht"
@@ -975,7 +1038,7 @@
       "url": "https://apply.refline.ch/780392/0114/pub/5/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:09.502Z",
+      "crawledAt": "2026-10-04T09:23:43.757Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1004,7 +1067,8 @@
         "fachfrau-mann-hauswirtschaft-befristet-reinigung-lingerie-service-gesundheitsnetz",
         "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-gesundheitsnetz-kusnacht-ag-kusnacht",
         "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-80-100-befristet-gesundheitsnetz-kusnacht-ag-fully",
-        "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100"
+        "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100",
+        "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-80-100-befristet-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1015,7 +1079,8 @@
           "fachfrau-mann-hauswirtschaft-befristet-reinigung-lingerie-service-gesundheitsnetz",
           "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-gesundheitsnetz-kusnacht-ag-kusnacht",
           "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-80-100-befristet-gesundheitsnetz-kusnacht-ag-fully",
-          "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100"
+          "fachfrau-mann-hauswirtschaft-efz-oder-hauswirtschaftspraktiker-in-eba-80-100",
+          "fachfrau-mann-hauswirtschaft-cfc-o-hauswirtschaftspraktiker-in-afp-80-100-befristet-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "professional-housekeeping-efz-or-housekeeping-practitioner-eba-gesundheitsnetz-kusnacht-ag-kusnacht",
@@ -1073,7 +1138,7 @@
       "url": "https://apply.refline.ch/780392/0092/pub/4/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:09.001Z",
+      "crawledAt": "2026-10-04T09:23:43.316Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1155,7 +1220,7 @@
       "url": "https://apply.refline.ch/780392/0121/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:07.911Z",
+      "crawledAt": "2026-10-04T09:23:42.872Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1177,11 +1242,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
+        "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht",
+        "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
+          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht",
+          "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1237,7 +1304,7 @@
       "url": "https://apply.refline.ch/780392/0120/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:07.436Z",
+      "crawledAt": "2026-10-04T09:23:42.426Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1260,12 +1327,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
-        "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
-          "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
+          "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1321,7 +1390,7 @@
       "url": "https://apply.refline.ch/780392/0119/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:06.962Z",
+      "crawledAt": "2026-10-04T09:23:41.979Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1350,7 +1419,8 @@
         "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht",
         "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
         "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht"
+        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht",
+        "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1360,7 +1430,8 @@
           "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht",
           "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
           "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht"
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht",
+          "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
@@ -1422,7 +1493,7 @@
       "url": "https://apply.refline.ch/780392/0087/pub/8/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:06.488Z",
+      "crawledAt": "2026-10-04T09:23:41.533Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1468,14 +1539,16 @@
         "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-e-naturwissenschaften-gesundheitsnetz-kusnacht-ag-kusnacht",
         "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
         "nursing-internship-within-the-framework-of-health-and-natural-sciences-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "stage-en-soins-infirmiers-dans-le-cadre-des-sciences-de-la-sante-et-des-sciences-naturelles-gesundheitsnetz-kusnacht-ag"
+        "stage-en-soins-infirmiers-dans-le-cadre-des-sciences-de-la-sante-et-des-sciences-naturelles-gesundheitsnetz-kusnacht-ag",
+        "initiative-r-abteilungsleiter-in-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-und-naturwissenschaften",
           "initiative-r-abteilungsleiter-in-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
           "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-e-naturwissenschaften-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
+          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
+          "initiative-r-abteilungsleiter-in-betreuung-e-pflege-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "nursing-internship-within-the-framework-of-health-and-natural-sciences-gesundheitsnetz-kusnacht-ag-kusnacht"
@@ -1535,7 +1608,7 @@
       "url": "https://apply.refline.ch/780392/0106/pub/4/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:06.015Z",
+      "crawledAt": "2026-10-04T09:23:41.089Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1561,7 +1634,8 @@
         "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-mit-fallfuhrung-gesundheitsnetz",
         "aufgestellte-dipl-pflegefachperson-hf-fh-per-la-fallfuhrung-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
         "aufgestellte-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-spitex-gesundheitsnetz",
-        "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht"
+        "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht",
+        "formazione-professionale-spitex-dipl-infermiere-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1569,7 +1643,8 @@
           "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-mit-fallfuhrung-gesundheitsnetz",
           "aufgestellte-dipl-pflegefachperson-hf-fh-per-la-fallfuhrung-spitex-gesundheitsnetz-kusnacht-ag-kusnacht",
           "aufgestellte-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-spitex-gesundheitsnetz",
-          "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht"
+          "spitex-dipl-pflegefachperson-hf-fh-fur-die-fallfuhrung-gesundheitsnetz-kuesnacht-kusnacht",
+          "formazione-professionale-spitex-dipl-infermiere-hf-fh-gesundheitsnetz-kusnacht-ag-kusnacht"
         ],
         "en": [
           "spitex-berufsbildner-in-dipl-pflegefachperson-hf-fh-gesundheitsnetz-kuesnacht-kusnacht"
@@ -1630,7 +1705,7 @@
       "url": "https://apply.refline.ch/780392/0093/pub/4/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:05.540Z",
+      "crawledAt": "2026-10-04T09:23:40.643Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",

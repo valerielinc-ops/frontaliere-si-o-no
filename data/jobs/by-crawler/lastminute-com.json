@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-10-03T21:23:43.720Z",
+  "assembledAt": "2026-10-04T09:24:33.905Z",
   "jobs": [
     {
       "title": "Pricing & Revenue Specialist - Hotel",
@@ -85,9 +85,9 @@
       },
       "titleByLocale": {
         "en": "Machine Learning Scientist",
-        "it": "Machine Learning Scientist",
-        "de": "Machine Learning Scientist",
-        "fr": "Machine Learning Scientist"
+        "it": "Scienziato di apprendimento della macchina",
+        "de": "Machine Learning Wissenschaftler",
+        "fr": "Scientifique en apprentissage automatique"
       },
       "slugByLocale": {
         "en": "machine-learning-scientist-chiasso",
@@ -223,9 +223,9 @@
       },
       "titleByLocale": {
         "en": "Technical Product Manager - Hotel Supply & Connectivity",
-        "it": "Technical Product Manager - Hotel Supply & Connectivity",
-        "de": "Technical Product Manager - Hotel Supply & Connectivity",
-        "fr": "Technical Product Manager - Hotel Supply & Connectivity"
+        "it": "Responsabile tecnico del prodotto - Fornitura e connettività dell'hotel",
+        "de": "Technischer Produktmanager - Hotel Supply & Connectivity",
+        "fr": "Technical Product Manager - Supply & Connectivity Hôtel"
       },
       "slugByLocale": {
         "en": "technical-product-manager-hotel-supply-connectivity-chiasso",
@@ -280,7 +280,7 @@
     },
     {
       "title": "AI Automation Engineer",
-      "slug": "ai-automation-ingegnere-lastminute-com-chiasso",
+      "slug": "ai-automation-engineer-chiasso",
       "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000148443690&jobName=AI+Automation+Engineer",
       "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000148443690-ai-automation-engineer?oga=true",
       "company": "lastminute.com",
@@ -306,8 +306,8 @@
       },
       "slugByLocale": {
         "en": "ai-automation-engineer-lastminute-com-chiasso",
-        "it": "ai-automation-ingegnere-lastminute-com-chiasso",
-        "de": "ai-automation-ingenieur-lastminute-com-chiasso",
+        "it": "ai-automation-engineer-chiasso",
+        "de": "ai-automation-engineer-chiasso",
         "fr": "ai-automation-engineer-chiasso"
       },
       "sourceLang": "en",
@@ -340,14 +340,17 @@
       "firstSeenAt": "2026-09-19T07:39:25.798Z",
       "previousSlugsByLocale": {
         "it": [
+          "ai-automation-ingegnere-lastminute-com-chiasso",
           "ai-automation-ingenieur-lastminute-com-chiasso",
           "ai-automation-engineer-chiasso"
         ],
         "de": [
+          "ai-automation-ingenieur-lastminute-com-chiasso",
           "ai-automation-engineer-chiasso"
         ]
       },
       "previousSlugs": [
+        "ai-automation-ingegnere-lastminute-com-chiasso",
         "ai-automation-ingenieur-lastminute-com-chiasso",
         "ai-automation-engineer-chiasso"
       ]

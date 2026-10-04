@@ -162,8 +162,10 @@ export interface ReviewPayload {
   tailoredCv: {
     url: string | null;
     choice: 'tailored' | 'original' | 'inplace';
-    /** The candidate's optional photo is on the tailored CV. */
+    /** The candidate gave the optional photo of the tailored CV. */
     photo?: boolean;
+    /** The PDF linked here carries it (false: the writer in use prints no photo). */
+    photoPrinted?: boolean;
     /** Customary in German-speaking Switzerland ("recommended"), optional elsewhere. */
     photoAdvice?: 'recommended' | 'optional';
     photoMaxBytes?: number;
