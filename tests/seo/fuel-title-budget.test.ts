@@ -131,7 +131,8 @@ describe('fuel <title> budget — Italian city hubs', () => {
 });
 
 describe('fuel <title> budget — station and city indexes', () => {
-  const PAGES = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // Two-digit pages too: a "Seite NN" / "page NN" suffix is one char longer.
+  const PAGES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 99];
   const checked: string[] = [];
   for (const kind of Object.keys(FUEL_INDEX_SLUG) as FuelIndexKind[]) {
     for (const locale of FUEL_DAILY_LOCALES) {
