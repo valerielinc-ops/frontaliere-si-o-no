@@ -1000,14 +1000,14 @@ describe('letter formulas as the verified Swiss sources write them', () => {
     expect(blocks.subject).toBe(`Candidatura per la posizione di Infermiere/a SUP 80-100${NBSP}%`);
     const nurse = { text: 'Maria Rossi\nInfermiera, Ospedale Civico, 2018 – 2023', posting: 'Cerchiamo Infermiere/a SUP 80-100%.', answers: '', place: 'Lugano' };
     const subject = swissTypography(applicationEmailSubject('it', 'Infermiere/a SUP 80-100%', 'Maria Rossi'), 'it');
-    const order = (titles: string[]) => ['Infermiere/a SUP 80-100%', 'Ospedale Esempio SA', 'Maria Rossi', ...titles].join('\n');
-    expect(checkDraftFacts({ emailSubject: subject }, { ...nurse, order: order(printedTitles('it', 'Infermiere/a SUP 80-100%')) }).ok).toBe(true);
+    const order = ['Infermiere/a SUP 80-100%', 'Ospedale Esempio SA', 'Maria Rossi'].join('\n');
+    expect(checkDraftFacts({ emailSubject: subject }, { ...nurse, order, titles: printedTitles('it', 'Infermiere/a SUP 80-100%').join('\n') }).ok).toBe(true);
     // The apprenticeship's subject, which quotes the trade: its «EFZ» is the title's, not a diploma the CV must show.
     const pupil = { text: 'Luka Kovačević\nSekundarschule A\nKenntnisse: Python', posting: 'Lehrstelle 2027: Informatiker/in EFZ', answers: '', place: 'Winterthur' };
     const title = 'Lehrstelle 2027: Informatiker/in EFZ';
     const apprenticeSubject = applicationEmailSubject('de', title, 'Luka Kovačević', '', 'apprentice');
     expect(checkDraftFacts({ emailSubject: apprenticeSubject }, { ...pupil, order: [title, 'Alpina Systems AG', 'Luka Kovačević'].join('\n') }).unsupported.map((item: any) => item.token)).toContain('EFZ');
-    expect(checkDraftFacts({ emailSubject: apprenticeSubject }, { ...pupil, order: [title, 'Alpina Systems AG', 'Luka Kovačević', ...printedTitles('de', title, 'apprentice')].join('\n') }).ok).toBe(true);
+    expect(checkDraftFacts({ emailSubject: apprenticeSubject }, { ...pupil, order: [title, 'Alpina Systems AG', 'Luka Kovačević'].join('\n'), titles: printedTitles('de', title, 'apprentice').join('\n') }).ok).toBe(true);
   });
 
   it('frames the application e-mail like the letter, removing a greeting or a closing the model wrote anyway', () => {
@@ -1034,7 +1034,7 @@ describe('letter formulas as the verified Swiss sources write them', () => {
 describe('letter formulas: the cases of the review', () => {
   it('keeps a diploma the text claims a claim: the subject quoted whole is a name, the trade alone is not', () => {
     const claimed = (language: string, title: string, cv: string, claim: string) => {
-      const sources = { text: cv, posting: title, answers: '', place: 'Lugano', order: [title, 'Esempio SA', cv.split('\n')[0], ...printedTitles(language, title, 'apprentice')].join('\n') };
+      const sources = { text: cv, posting: title, answers: '', place: 'Lugano', order: [title, 'Esempio SA', cv.split('\n')[0]].join('\n'), titles: printedTitles(language, title, 'apprentice').join('\n') };
       return { claim: checkDraftFacts({ coverLetter: claim }, sources).unsupported.map((item: any) => item.token), subject: checkDraftFacts({ emailSubject: applicationEmailSubject(language, title, cv.split('\n')[0], '', 'apprentice') }, sources).ok };
     };
     expect(claimed('de', 'Lehrstelle 2027: Informatiker/in EFZ', 'Luka Kovačević\nSekundarschule A, 2023 – 2026', 'Ich bin bereits Informatiker/in EFZ und kenne die Abläufe.'))
@@ -1043,6 +1043,12 @@ describe('letter formulas: the cases of the review', () => {
       .toEqual({ claim: ['AFC'], subject: true });
     expect(claimed('fr', 'Apprenti·e employé·e de commerce CFC', 'Élodie Exemple\nÉcole secondaire, 2023 – 2026', 'Je suis employé·e de commerce CFC depuis deux ans.'))
       .toEqual({ claim: ['CFC'], subject: true });
+    // The subject's own words («tirocinio», «posto», «place», «candidature») back no job title the text claims:
+    // the printed titles are names quoted whole, never words of the order line.
+    expect(claimed('it', 'Apprendista impiegato/a di commercio AFC', 'Sara Esempio\nScuola media di Lugano, 2023 – 2026', 'Ho già lavorato come Tirocinante in uno studio.').claim)
+      .toContain('Tirocinante');
+    expect(claimed('fr', 'Apprenti·e employé·e de commerce CFC', 'Élodie Exemple\nÉcole secondaire, 2023 – 2026', 'J’ai déjà travaillé en tant que Placeur dans un cinéma.').claim)
+      .toContain('Placeur');
   });
 
   it('reads a second honorific on the line as a second person, never a mix', () => {

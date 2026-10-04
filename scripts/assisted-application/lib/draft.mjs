@@ -232,8 +232,10 @@ export async function buildDraft(ctx) {
   const factSources = {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
-    // The title also as the letter prints it (protected space, an apprenticeship's subject): a name, not a claim.
-    order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, ...printedTitles(language, title, kind.type)].join('\n'),
+    order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone].join('\n'),
+    // The title also as the letter prints it (protected space, an apprenticeship's subject): a name quoted
+    // whole, never words that back a job title the candidate claims («tirocinio», «posto»).
+    titles: printedTitles(language, title, kind.type).join('\n'),
     // The work place backs a place name in the letter, never a figure.
     place: String(posting.location || '').slice(0, 200),
     // The candidate's own words: answers, notes, the changes asked for, the fields they corrected.

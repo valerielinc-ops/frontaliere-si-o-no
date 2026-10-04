@@ -775,8 +775,8 @@ export function localityOf(text) {
 }
 
 /**
- * The job title as the letter and the e-mail print it, for the order line the
- * fact gate reads names from: with the typography's protected space («80-100 %»)
+ * The job title as the letter and the e-mail print it, for the fact sources'
+ * `titles`, names the gate accepts only quoted whole: with the typography's protected space («80-100 %»)
  * and, for an apprenticeship, the subject that names the trade («Bewerbung um die
  * Lehrstelle als Informatiker/in EFZ»). Quoted whole each is a name, not a claim;
  * the trade alone is not one, or «Ich bin bereits Informatiker/in EFZ» would pass.
@@ -874,6 +874,8 @@ export function checkDraftFacts(texts, sources) {
     // ("Kubernetes Engineer" in the title does not make "uso Kubernetes" the candidate's).
     claimSources: [...candidate, employerInitials(sources?.order)],
     nameSources: [sources?.order, sources?.place],
+    // The title as the letter prints it (protected space, an apprenticeship's subject): quoted whole only.
+    quotedNameSources: [sources?.titles],
     // A figure in the candidate's own texts comes from the candidate or the order line (the job
     // title with its workload), never from the posting alone (study 2026-10-02: "un team di 5").
     numberSources: [...candidate, sources?.order],
