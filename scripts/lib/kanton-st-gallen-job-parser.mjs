@@ -69,6 +69,7 @@
  * - KANTON_ST_GALLEN_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { parseUmantisListing, decodeEntities, parseSwissDate, umantisListingContract } from './umantis-listing-common.mjs';
 import { slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -359,7 +360,6 @@ export async function fetchAllKantonStGallenJobs() {
   console.log(`  ✓ ${allEntries.length} unique jobs across pagination\n`);
   if (!allEntries.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const entry of allEntries) {
@@ -398,7 +398,7 @@ export async function fetchAllKantonStGallenJobs() {
     const description = meetsSourceBodyFloor(detailContent) ? detailContent : '';
     const employmentType = detectEmploymentType(pensum, title);
 
-    const postedDate = parseSwissDate(datum) || todayIso;
+    const publication = sourcePostingDateFields(parseSwissDate(datum));
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} kanton-st-gallen ch`);
     const urlHash = createHash('sha1').update(`kanton-st-gallen-vacancy-${vacancyId}`).digest('hex').slice(0, 12);
@@ -444,7 +444,7 @@ export async function fetchAllKantonStGallenJobs() {
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

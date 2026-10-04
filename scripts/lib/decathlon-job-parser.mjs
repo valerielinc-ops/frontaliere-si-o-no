@@ -10,12 +10,13 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
+import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 import { coerceCountryField, CH_COUNTRY_RX } from './ch-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -177,16 +178,16 @@ async function fetchJobListings() {
  * SSR detail page carries the full description in a JSON-LD <script>. Returns
  * '' on any failure so the caller falls back to the title.
  */
-async function fetchDecathlonDetailDescription(url) {
-  if (!url || !/^https?:\/\//.test(url)) return '';
+async function fetchDecathlonDetail(url) {
+  if (!url || !/^https?:\/\//.test(url)) return { description: '', ...sourcePostingDateFields('') };
   try {
     const html = await fetchHtml(url, {
       timeoutMs: 15000,
       headers: { 'User-Agent': REQUEST_HEADERS['User-Agent'] },
     });
-    return extractDecathlonDetailDescription(html);
+    return { description: extractDecathlonDetailDescription(html), ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')) };
   } catch {
-    return ''; // network/timeout → caller falls back to the title
+    return { description: '', ...sourcePostingDateFields('') }; // network/timeout → caller falls back to the title
   }
 }
 
@@ -274,7 +275,8 @@ export async function fetchAllDecathlonJobs() {
     // JSON-LD <script> (verified live ~1.5k chars). Fetch it so jobs aren't
     // thin → boilerplate-padded → boilerplate-guard failure (#1719). Falls back
     // to the title on any failure (fail-per-record, never fake content).
-    const detailDescHtml = await fetchDecathlonDetailDescription(publicUrl);
+    const detail = await fetchDecathlonDetail(publicUrl);
+    const detailDescHtml = detail.description;
     // Strip THEN fall back: a truthy-but-whitespace-only JSON-LD body (e.g.
     // `<p> </p>`/`<br>`) strips to '' — a `detailDescHtml ? strip : title`
     // ternary would keep that empty string (the raw HTML is truthy so the
@@ -325,7 +327,7 @@ export async function fetchAllDecathlonJobs() {
       sector: 'retail',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
