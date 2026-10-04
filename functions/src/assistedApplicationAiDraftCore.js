@@ -861,6 +861,20 @@ export function safeFileStem(value) {
 }
 
 /**
+ * The name a document leaves with, as the runner attaches or uploads it and the owner's fill kit names it
+ * ("CV_Maria_Rossi.pdf", "Lettera_di_presentazione_Maria_Rossi.pdf"); the candidate's Word copy takes the
+ * same name with the extension docx. Only [A-Za-z0-9_.] (safeFileStem): a safe Content-Disposition name.
+ * @param {'cv'|'letter'} kind
+ * @param {{name:string, language?:string, extension:string}} file
+ */
+export function applicationFileName(kind, { name, language, extension }) {
+  const stem = safeFileStem(name);
+  return kind === 'cv'
+    ? `CV_${stem}.${extension}`
+    : `${safeFileStem(LETTER_FILE_LABEL[language] || LETTER_FILE_LABEL.it)}_${stem}.${extension}`;
+}
+
+/**
  * The initials of each line of the order that has two capitalised words or
  * more: "Ente Ospedaliero Cantonale" is also "EOC", the employer's short name
  * in its own posting, not a tool the letter claims.
