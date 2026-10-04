@@ -1,18 +1,18 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-10-03T21:17:21.429Z",
-  "total": 14,
+  "generatedAt": "2026-10-04T09:22:03.879Z",
+  "total": 12,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4723,
-  "avgDurationMs": 4723,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 3300,
+  "avgDurationMs": 3300,
   "durationHistory": [
-    4723
+    3300
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -45,12 +47,12 @@
       },
       "id": "berit-klinik-c3f977db7e53",
       "firstSeenAt": "2026-09-16T09:21:30.508Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -74,7 +76,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -82,12 +86,12 @@
       },
       "id": "berit-klinik-b88e4355522e",
       "firstSeenAt": "2026-06-16T12:58:33.411Z",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -111,7 +115,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -119,12 +125,12 @@
       },
       "id": "berit-klinik-3286ab921603",
       "firstSeenAt": "2026-06-23T21:54:18.127Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -148,7 +154,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -156,12 +164,12 @@
       },
       "id": "berit-klinik-bd082381e2da",
       "firstSeenAt": "2026-07-15T22:22:12.449Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -185,7 +193,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -193,12 +203,12 @@
       },
       "id": "berit-klinik-1b1da71ae17e",
       "firstSeenAt": "2026-08-24T10:11:12.712Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -222,7 +232,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -230,12 +242,12 @@
       },
       "id": "berit-klinik-046892afece3",
       "firstSeenAt": "2026-08-24T10:11:12.712Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -259,7 +271,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -267,12 +281,12 @@
       },
       "id": "berit-klinik-14c12c17f7c2",
       "firstSeenAt": "2026-08-26T10:04:51.180Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -296,7 +310,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -304,12 +320,12 @@
       },
       "id": "berit-klinik-9821f5a56462",
       "firstSeenAt": "2026-09-02T13:39:53.011Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -333,7 +349,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -341,12 +359,12 @@
       },
       "id": "berit-klinik-c52345e11352",
       "firstSeenAt": "2026-09-28T21:21:27.485Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -370,7 +388,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -378,12 +398,12 @@
       },
       "id": "berit-klinik-75fa8a5b46c7",
       "firstSeenAt": "2026-09-29T21:24:36.717Z",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -407,7 +427,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -415,12 +437,12 @@
       },
       "id": "berit-klinik-d904892cdc63",
       "firstSeenAt": "2026-08-27T00:56:42.990Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -444,7 +466,9 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -452,17 +476,16 @@
       },
       "id": "berit-klinik-435bed3dd060",
       "firstSeenAt": "2026-09-19T22:54:36.206Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Restaurant, 50%",
       "slug": "ristorante-50-berit-klinik-wattwil",
@@ -549,5 +572,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
