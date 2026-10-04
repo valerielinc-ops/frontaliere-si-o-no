@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-10-03T09:11:18.170Z",
+  "assembledAt": "2026-10-03T21:10:03.719Z",
   "jobs": [
     {
       "id": "hib-broye-4be68a574f23",
@@ -33,7 +33,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-95",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.201Z",
+      "crawledAt": "2026-10-03T21:09:55.656Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,13 +53,15 @@
       "previousSlugs": [
         "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac",
         "assistant-e-medical-e-secretaire-medical-e-polyvalente-a-80-hib-broye-payerne",
-        "assistente-medico-segreteria-medica-polivalente-all-80-hopital-intercantonal-de-la-broye-hib-payerne"
+        "assistente-medico-segreteria-medica-polivalente-all-80-hopital-intercantonal-de-la-broye-hib-payerne",
+        "assistente-medico-segretario-medico-multiuso-80-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac",
           "assistant-e-medical-e-secretaire-medical-e-polyvalente-a-80-hib-broye-payerne",
-          "assistente-medico-segreteria-medica-polivalente-all-80-hopital-intercantonal-de-la-broye-hib-payerne"
+          "assistente-medico-segreteria-medica-polivalente-all-80-hopital-intercantonal-de-la-broye-hib-payerne",
+          "assistente-medico-segretario-medico-multiuso-80-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "fr": [
           "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac"
@@ -78,8 +80,7 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-df08b1d82a20",
@@ -113,7 +114,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100-94",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.200Z",
+      "crawledAt": "2026-10-03T21:09:55.650Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -134,12 +135,14 @@
         "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac",
         "infermiere-a-clinico-a-specializzato-a-icls-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "clinical-specialist-nurse-csn-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "klinische-fachkrankenschwester-fachkrankenpfleger-icls-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "klinische-fachkrankenschwester-fachkrankenpfleger-icls-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "infermiere-clinica-specializzata-icls-al-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac",
-          "infermiere-a-clinico-a-specializzato-a-icls-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "infermiere-a-clinico-a-specializzato-a-icls-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "infermiere-clinica-specializzata-icls-al-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "clinical-specialist-nurse-csn-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
@@ -195,7 +198,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-a-100-93",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.199Z",
+      "crawledAt": "2026-10-03T21:09:55.647Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -240,13 +243,15 @@
         "technologue-en-dispositifs-medicaux-a-100-hib-broye-payerne",
         "tecnologo-dei-dispositivi-medici-hopital-intercantonal-de-la-broye-hib-payerne",
         "technologe-fur-medizinische-gerate-hopital-intercantonal-de-la-broye-hib-payerne",
-        "technologue-en-dispositifs-medicaux-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "technologue-en-dispositifs-medicaux-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "100-tecnologo-del-dispositivo-medico-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technologue-en-dispositifs-medicaux-a-100-hib-broye-payerne",
           "tecnologo-dei-dispositivi-medici-hopital-intercantonal-de-la-broye-hib-payerne",
-          "technologue-en-dispositifs-medicaux-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
+          "technologue-en-dispositifs-medicaux-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
+          "100-tecnologo-del-dispositivo-medico-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "technologe-fur-medizinische-gerate-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -272,7 +277,7 @@
       "slug": "terapista-occupazionale-dal-30-al-50-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "it": "terapista-occupazionale-dal-30-al-50-hopital-intercantonal-de-la-broye-hib-payerne",
-        "en": "ergotherapist-from-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "ergotherapeute-de-30-a-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "de": "ergotherapeut-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "ergotherapeute-de-30-a-50-hib-broye-payerne"
       },
@@ -298,7 +303,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/ergotherapeute-30-a-50-92",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.197Z",
+      "crawledAt": "2026-10-03T21:09:55.643Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -348,16 +353,20 @@
         "occupational-therapist-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "ergoterapeuta-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "ergotherapist-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
+        "ergotherapist-from-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
+        "terapista-occupazionale-dal-30-al-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "ergotherapeute-de-30-a-50-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeute-de-30-a-50-hib-broye-payerne",
-          "ergoterapeuta-30-50-hopital-intercantonal-de-la-broye-hib-payerne"
+          "ergoterapeuta-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
+          "terapista-occupazionale-dal-30-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "occupational-therapist-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
           "ergotherapist-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
+          "ergotherapist-from-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
           "ergotherapeute-de-30-a-50-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
@@ -408,7 +417,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-91",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.195Z",
+      "crawledAt": "2026-10-03T21:09:55.640Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -428,12 +437,14 @@
       "previousSlugs": [
         "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne",
         "technicien-ne-en-salle-d-operation-a-100-hib-broye-payerne",
-        "chirurgietechniker-in-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "chirurgietechniker-in-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "tecnico-a-in-sala-operatoria-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne",
-          "technicien-ne-en-salle-d-operation-a-100-hib-broye-payerne"
+          "technicien-ne-en-salle-d-operation-a-100-hib-broye-payerne",
+          "tecnico-a-in-sala-operatoria-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "chirurgietechniker-in-100-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -489,7 +500,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-90",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.194Z",
+      "crawledAt": "2026-10-03T21:09:55.636Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -507,11 +518,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne"
+        "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne",
+        "infermiera-specializzata-in-salute-e-sicurezza-sul-lavoro-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne"
+          "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne",
+          "infermiera-specializzata-in-salute-e-sicurezza-sul-lavoro-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne"
@@ -566,7 +579,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-de-80-a-100-84",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.192Z",
+      "crawledAt": "2026-10-03T21:09:55.633Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -592,7 +605,8 @@
         "80-chief-medical-officer-der-radiologie-hopital-intercantonal-de-la-broye-hib-payerne",
         "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
         "80-chief-medical-officer-di-radiologia-hopital-intercantonal-de-la-broye-hib-payerne",
-        "segretario-medico-in-ortopedia-60-hopital-intercantonal-de-la-broye-hib-payerne"
+        "segretario-medico-in-ortopedia-60-hopital-intercantonal-de-la-broye-hib-payerne",
+        "secretaire-medical-e-en-orthopela-a-60-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -603,7 +617,8 @@
           "80-chief-medical-officer-der-radiologie-hopital-intercantonal-de-la-broye-hib-payerne",
           "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
           "80-chief-medical-officer-di-radiologia-hopital-intercantonal-de-la-broye-hib-payerne",
-          "segretario-medico-in-ortopedia-60-hopital-intercantonal-de-la-broye-hib-payerne"
+          "segretario-medico-in-ortopedia-60-hopital-intercantonal-de-la-broye-hib-payerne",
+          "secretaire-medical-e-en-orthopela-a-60-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "80-chief-medical-officer-of-radiology-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -630,8 +645,7 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-f2839155105a",
@@ -664,7 +678,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation-75",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.191Z",
+      "crawledAt": "2026-10-03T21:09:55.627Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -713,12 +727,14 @@
         "medizinische-assistenz-in-gynakologie-bei-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "assistant-e-medical-e-en-gynecologie-a-50-hib-broye-payerne",
         "50-teilzeitassistentin-im-gesundheitswesen-hopital-intercantonal-de-la-broye-hib-payerne",
-        "assistente-medica-a-tempo-parziale-50-hopital-intercantonal-de-la-broye-hib-payerne"
+        "assistente-medica-a-tempo-parziale-50-hopital-intercantonal-de-la-broye-hib-payerne",
+        "assistente-medico-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-a-50-hib-broye-payerne",
-          "assistente-medica-a-tempo-parziale-50-hopital-intercantonal-de-la-broye-hib-payerne"
+          "assistente-medica-a-tempo-parziale-50-hopital-intercantonal-de-la-broye-hib-payerne",
+          "assistente-medico-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "50-teilzeitassistentin-im-gesundheitswesen-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -737,8 +753,7 @@
           "maxValue": 53800,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-5aae6d722e40",
@@ -771,7 +786,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie-110",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.190Z",
+      "crawledAt": "2026-10-03T21:09:55.621Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -816,12 +831,14 @@
       "previousSlugs": [
         "assistant-e-en-soins-et-sante-communautaire-diplome-e-en-contrat-heures-demandes-sur",
         "gesundheits-und-krankenpfleger-in-diplom-in-stundenvertrag-anrufanfragen-hopital-intercantonal-de-la-broye-hib-payerne",
-        "assistente-in-cure-e-salute-comunitaria-diploma-in-contratto-ore-richieste-per-chiamate-hopital-intercantonal-de-la"
+        "assistente-in-cure-e-salute-comunitaria-diploma-in-contratto-ore-richieste-per-chiamate-hopital-intercantonal-de-la",
+        "assistente-a-in-cura-e-salute-della-comunita-laureato-a-in-contratto-ore-richieste-su-chiamata-hopital-intercantonal-de"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-en-soins-et-sante-communautaire-diplome-e-en-contrat-heures-demandes-sur",
-          "assistente-in-cure-e-salute-comunitaria-diploma-in-contratto-ore-richieste-per-chiamate-hopital-intercantonal-de-la"
+          "assistente-in-cure-e-salute-comunitaria-diploma-in-contratto-ore-richieste-per-chiamate-hopital-intercantonal-de-la",
+          "assistente-a-in-cura-e-salute-della-comunita-laureato-a-in-contratto-ore-richieste-su-chiamata-hopital-intercantonal-de"
         ],
         "de": [
           "gesundheits-und-krankenpfleger-in-diplom-in-stundenvertrag-anrufanfragen-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -873,7 +890,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs-109",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.188Z",
+      "crawledAt": "2026-10-03T21:09:55.614Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -917,11 +934,13 @@
       },
       "previousSlugs": [
         "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne",
-        "innere-medizin-pflegekraft-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "innere-medizin-pflegekraft-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "infermiere-a-in-medicina-interna-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne"
+          "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne",
+          "infermiere-a-in-medicina-interna-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "innere-medizin-pflegekraft-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -974,7 +993,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie-108",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.186Z",
+      "crawledAt": "2026-10-03T21:09:55.609Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1024,11 +1043,13 @@
       },
       "previousSlugs": [
         "infirmier-ere-au-centre-de-traitement-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
-        "pflegefachfrau-pflegefachmann-am-80-bis-100-rehabilitation-und-behandlungszentrum-hopital-intercantonal-de-la-broye-hib"
+        "pflegefachfrau-pflegefachmann-am-80-bis-100-rehabilitation-und-behandlungszentrum-hopital-intercantonal-de-la-broye-hib",
+        "infermiere-al-centro-di-trattamento-e-riabilitazione-del-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-au-centre-de-traitement-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+          "infirmier-ere-au-centre-de-traitement-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
+          "infermiere-al-centro-di-trattamento-e-riabilitazione-del-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le"
         ],
         "de": [
           "pflegefachfrau-pflegefachmann-am-80-bis-100-rehabilitation-und-behandlungszentrum-hopital-intercantonal-de-la-broye-hib"
@@ -1080,7 +1101,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e-106",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.185Z",
+      "crawledAt": "2026-10-03T21:09:55.606Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1135,12 +1156,14 @@
         "allgemein-und-orthopadischer-chirurgischer-pflegedienst-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "infirmier-ere-en-chirurgie-generale-et-orthopedique-de-80-a-100-hib-broye-payerne",
         "infermiere-per-il-pool-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "schwester-schwester-fur-den-100-pool-hopital-intercantonal-de-la-broye-hib-payerne"
+        "schwester-schwester-fur-den-100-pool-hopital-intercantonal-de-la-broye-hib-payerne",
+        "infermiera-al-100-in-piscina-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-pour-le-pool-a-100-hib-broye-payerne",
-          "infermiere-per-il-pool-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
+          "infermiere-per-il-pool-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
+          "infermiera-al-100-in-piscina-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "schwester-schwester-fur-den-100-pool-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -1193,7 +1216,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100-105",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.183Z",
+      "crawledAt": "2026-10-03T21:09:55.602Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1239,12 +1262,14 @@
         "assistente-in-cure-e-salute-comunitaria-al-centro-di-trattamento-e-riabilitazione-del-60-al-90-hopital-intercantonal-de",
         "assistentin-in-der-pflege-und-gemeinschaftsgesundheit-am-60-bis-90-rehabilitation-center-hopital-intercantonal-de-la",
         "community-health-and-care-assistant-im-behandlungs-und-rehabilitationszentrum-von-60-bis-90-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "assistent-e-en-soins-et-sante-communautaire-au-centre-de-traitement-et-readaptation-de-60-a-90-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "assistent-e-en-soins-et-sante-communautaire-au-centre-de-traitement-et-readaptation-de-60-a-90-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "assistente-sanitario-e-assistenza-comunitaria-presso-il-centro-di-trattamento-e-riabilitazione-dal-60-al-90-hopital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-en-soins-et-sante-communautaire-au-centre-de-traitement-et-readaptation-de-60",
-          "assistente-in-cure-e-salute-comunitaria-al-centro-di-trattamento-e-riabilitazione-del-60-al-90-hopital-intercantonal-de"
+          "assistente-in-cure-e-salute-comunitaria-al-centro-di-trattamento-e-riabilitazione-del-60-al-90-hopital-intercantonal-de",
+          "assistente-sanitario-e-assistenza-comunitaria-presso-il-centro-di-trattamento-e-riabilitazione-dal-60-al-90-hopital"
         ],
         "de": [
           "assistentin-in-der-pflege-und-gemeinschaftsgesundheit-am-60-bis-90-rehabilitation-center-hopital-intercantonal-de-la",
@@ -1299,7 +1324,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-en-pharmacie-cdm-104",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.182Z",
+      "crawledAt": "2026-10-03T21:09:55.600Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1338,11 +1363,13 @@
         ]
       },
       "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-en-medecine-interne-de-50-a-100-hib-broye"
+        "assistant-e-en-soins-et-sante-communautaire-en-medecine-interne-de-50-a-100-hib-broye",
+        "assistente-in-cure-e-salute-comunitaria-in-medicina-interna-50-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-en-medecine-interne-de-50-a-100-hib-broye"
+          "assistant-e-en-soins-et-sante-communautaire-en-medecine-interne-de-50-a-100-hib-broye",
+          "assistente-in-cure-e-salute-comunitaria-in-medicina-interna-50-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.546Z",
@@ -1392,7 +1419,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-103",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.180Z",
+      "crawledAt": "2026-10-03T21:09:55.596Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1410,11 +1437,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac"
+        "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac",
+        "fisioterapia-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac"
+          "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac",
+          "fisioterapia-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac"
@@ -1469,7 +1498,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-a-100-102",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.179Z",
+      "crawledAt": "2026-10-03T21:09:55.594Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1531,7 +1560,8 @@
         "full-time-physiotherapist-hopital-intercantonal-de-la-broye-hib-payerne",
         "vollzeit-fachkraft-fur-physiotherapie-hopital-intercantonal-de-la-broye-hib-payerne",
         "fisioterapista-a-tempo-pieno-hopital-intercantonal-de-la-broye-hib-payerne",
-        "physiotherapeute-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "physiotherapeute-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "100-fisioterapista-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1545,7 +1575,8 @@
           "full-time-cfc-operations-collaborator-hopital-intercantonal-de-la-broye-hib-payerne",
           "100-cfc-betriebsmitarbeiter-in-hopital-intercantonal-de-la-broye-hib-payerne",
           "collaborateur-trice-d-exploitation-cfc-a-100-hib-broye-payerne",
-          "fisioterapista-a-tempo-pieno-hopital-intercantonal-de-la-broye-hib-payerne"
+          "fisioterapista-a-tempo-pieno-hopital-intercantonal-de-la-broye-hib-payerne",
+          "100-fisioterapista-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "specialiste-formation-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
@@ -1609,7 +1640,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique-101",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.177Z",
+      "crawledAt": "2026-10-03T21:09:55.590Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1634,7 +1665,8 @@
         "nurse-for-the-100-pool-hopital-intercantonal-de-la-broye-hib-payerne",
         "schwester-schwester-fur-den-100-pool-hopital-intercantonal-de-la-broye-hib-payerne",
         "general-and-orthopedic-surgeon-nurse-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "allgemein-und-orthopadischer-chirurgischer-pflegedienst-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "allgemein-und-orthopadischer-chirurgischer-pflegedienst-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "infermiera-in-chirurgia-generale-e-ortopedia-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1643,7 +1675,8 @@
           "infermiere-per-il-pool-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "infirmier-ere-pour-le-pool-a-100-hib-broye-payerne",
           "nurse-for-the-100-pool-hopital-intercantonal-de-la-broye-hib-payerne",
-          "schwester-schwester-fur-den-100-pool-hopital-intercantonal-de-la-broye-hib-payerne"
+          "schwester-schwester-fur-den-100-pool-hopital-intercantonal-de-la-broye-hib-payerne",
+          "infermiera-in-chirurgia-generale-e-ortopedia-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "general-and-orthopedic-surgeon-nurse-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -1698,7 +1731,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-rh-114",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.175Z",
+      "crawledAt": "2026-10-03T21:09:55.579Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1719,12 +1752,14 @@
         "juriste-a-50-hib-broye-payerne",
         "giurista-al-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "50-legal-counsel-hopital-intercantonal-de-la-broye-hib-payerne",
-        "50-rechtsberater-hopital-intercantonal-de-la-broye-hib-payerne"
+        "50-rechtsberater-hopital-intercantonal-de-la-broye-hib-payerne",
+        "50-jurist-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juriste-a-50-hib-broye-payerne",
-          "giurista-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
+          "giurista-al-50-hopital-intercantonal-de-la-broye-hib-payerne",
+          "50-jurist-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "50-legal-counsel-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -1746,8 +1781,7 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-fa703cdb6fb4",
@@ -1780,7 +1814,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-comptable-de-60-a-80-136",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.174Z",
+      "crawledAt": "2026-10-03T21:09:55.567Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1799,12 +1833,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
-        "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
-          "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
@@ -1826,8 +1862,7 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-aca7e09505c8",
@@ -1860,7 +1895,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100-168",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.173Z",
+      "crawledAt": "2026-10-03T21:09:55.565Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1882,7 +1917,8 @@
         "assistente-a-in-cure-e-salute-comunitaria-al-70-hopital-intercantonal-de-la-broye-hib-payerne",
         "70-community-health-care-assistant-hopital-intercantonal-de-la-broye-hib-payerne",
         "assistant-e-en-soins-et-sante-communautaire-a-70-hib-broye-payerne",
-        "70-gemeindegesundheits-und-pflegeassistentin-hopital-intercantonal-de-la-broye-hib-payerne"
+        "70-gemeindegesundheits-und-pflegeassistentin-hopital-intercantonal-de-la-broye-hib-payerne",
+        "assistente-per-la-salute-e-la-cura-della-comunita-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1890,7 +1926,8 @@
           "assistente-a-in-cure-e-salute-comunitaria-al-70-hopital-intercantonal-de-la-broye-hib-payerne",
           "70-community-health-care-assistant-hopital-intercantonal-de-la-broye-hib-payerne",
           "assistant-e-en-soins-et-sante-communautaire-a-70-hib-broye-payerne",
-          "70-gemeindegesundheits-und-pflegeassistentin-hopital-intercantonal-de-la-broye-hib-payerne"
+          "70-gemeindegesundheits-und-pflegeassistentin-hopital-intercantonal-de-la-broye-hib-payerne",
+          "assistente-per-la-salute-e-la-cura-della-comunita-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "assistant-e-en-soins-et-sante-communautaire-de-80-a-100-hib-broye-payerne"
@@ -1916,8 +1953,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-d1834c185bee",
@@ -1950,7 +1986,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans-145",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.171Z",
+      "crawledAt": "2026-10-03T21:09:55.562Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1979,7 +2015,8 @@
         "capo-clinica-pediatrica-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "adjunto-a-di-direzione-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "100-director-assistant-hopital-intercantonal-de-la-broye-hib-payerne",
-        "100-leiterassistent-hopital-intercantonal-de-la-broye-hib-payerne"
+        "100-leiterassistent-hopital-intercantonal-de-la-broye-hib-payerne",
+        "icls-assistente-alla-sezione-cura-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1992,7 +2029,8 @@
           "leiterin-der-kinderklinik-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "responsabile-clinica-pediatrica-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "capo-clinica-pediatrica-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
-          "adjunto-a-di-direzione-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
+          "adjunto-a-di-direzione-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
+          "icls-assistente-alla-sezione-cura-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "100-head-of-paediatric-clinic-hopital-intercantonal-de-la-broye-hib-payerne",
@@ -2021,8 +2059,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-3c82eed86fd0",
@@ -2055,7 +2092,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/codificateur-trice-medical-e-80-100-150",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.170Z",
+      "crawledAt": "2026-10-03T21:09:55.558Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2074,12 +2111,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
-        "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
           "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
-          "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
@@ -2101,8 +2140,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-5cbd9a66c489",
@@ -2135,7 +2173,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-a-80-155",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.168Z",
+      "crawledAt": "2026-10-03T21:09:55.555Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2155,13 +2193,15 @@
       "previousSlugs": [
         "infirmier-ere-clinicien-ne-specialise-e-aux-urgences-de-80-a-100-hib-broye-payerne",
         "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
-        "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hopital-intercantonal-de-la-broye-hib-payerne"
+        "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hopital-intercantonal-de-la-broye-hib-payerne",
+        "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-clinicien-ne-specialise-e-aux-urgences-de-80-a-100-hib-broye-payerne",
           "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
-          "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hopital-intercantonal-de-la-broye-hib-payerne"
+          "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hopital-intercantonal-de-la-broye-hib-payerne",
+          "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "fr": [
           "infirmier-ere-clinicien-ne-specialise-e-aux-urgences-de-80-a-100-hib-broye-payerne"
@@ -2180,8 +2220,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-afcf0741a61a",
@@ -2214,7 +2253,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-a-80-153",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.167Z",
+      "crawledAt": "2026-10-03T21:09:55.550Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2236,7 +2275,8 @@
         "infermiere-clinico-specializzato-in-cure-di-emergenza-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "clinical-nurse-specialized-in-emergency-care-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "fachkrankenschwester-pfleger-fur-notfallpflege-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "infirmier-ere-clinicien-ne-specialise-e-en-soins-d-urgences-de-80-a-100-hib-broye-payerne"
+        "infirmier-ere-clinicien-ne-specialise-e-en-soins-d-urgences-de-80-a-100-hib-broye-payerne",
+        "infermiera-clinica-specializzata-in-terapia-intensiva-da-80-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2244,7 +2284,8 @@
           "infermiere-clinico-specializzato-in-cure-di-emergenza-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "clinical-nurse-specialized-in-emergency-care-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "fachkrankenschwester-pfleger-fur-notfallpflege-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
-          "infirmier-ere-clinicien-ne-specialise-e-en-soins-d-urgences-de-80-a-100-hib-broye-payerne"
+          "infirmier-ere-clinicien-ne-specialise-e-en-soins-d-urgences-de-80-a-100-hib-broye-payerne",
+          "infermiera-clinica-specializzata-in-terapia-intensiva-da-80-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "clinical-nurse-specialized-in-emergency-care-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
@@ -2269,8 +2310,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-4968e546ae19",
@@ -2303,7 +2343,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-de-nettoyage-a-80-185",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.165Z",
+      "crawledAt": "2026-10-03T21:09:55.546Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2326,7 +2366,8 @@
         "assistenzarzt-in-physikalischer-medizin-und-rehabilitation-von-80-bis-100-hopital-intercantonal-de-la-broye-hib",
         "assistant-physician-in-physical-medicine-and-rehabilitation-from-80-to-100-hopital-intercantonal-de-la-broye-hib",
         "medecin-adjoint-e-en-medecine-physique-et-readaptation-de-80-a-100-hopital-intercantonal-de-la-broye-hib-alle",
-        "medecin-adjoint-e-en-medecine-physique-et-readaptation-de-80-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "medecin-adjoint-e-en-medecine-physique-et-readaptation-de-80-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "assistente-medico-in-medicina-fisica-e-riabilitazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2335,7 +2376,8 @@
           "assistenzarzt-in-physikalischer-medizin-und-rehabilitation-von-80-bis-100-hopital-intercantonal-de-la-broye-hib",
           "assistant-physician-in-physical-medicine-and-rehabilitation-from-80-to-100-hopital-intercantonal-de-la-broye-hib",
           "medecin-adjoint-e-en-medecine-physique-et-readaptation-de-80-a-100-hopital-intercantonal-de-la-broye-hib-alle",
-          "medecin-adjoint-e-en-medecine-physique-et-readaptation-de-80-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "medecin-adjoint-e-en-medecine-physique-et-readaptation-de-80-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "assistente-medico-in-medicina-fisica-e-riabilitazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le"
         ],
         "en": [
           "medecin-adjoint-e-en-medecine-physique-et-readaptation-de-80-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
@@ -2360,8 +2402,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-7115ed20c773",
@@ -2395,7 +2436,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-184",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.164Z",
+      "crawledAt": "2026-10-03T21:09:55.544Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2413,11 +2454,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+        "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
+        "chief-medical-officer-in-medicina-fisica-e-riabilitazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+          "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
+          "chief-medical-officer-in-medicina-fisica-e-riabilitazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer"
         ],
         "en": [
           "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
@@ -2473,7 +2516,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medical.e-a-40-181",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.163Z",
+      "crawledAt": "2026-10-03T21:09:55.541Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2495,12 +2538,14 @@
         "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac-37a9df"
+        "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac-37a9df",
+        "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-          "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd"
         ],
         "en": [
           "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
@@ -2560,7 +2605,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-technologue-en-dispositifs-medicaux-cfc-a-100-180",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.162Z",
+      "crawledAt": "2026-10-03T21:09:55.539Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2582,13 +2627,15 @@
         "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "assistant-physician-in-geriatrics-from-50-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "assistenzarzt-in-geriatrie-von-50-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "assistenzarzt-in-geriatrie-von-50-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
           "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-          "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e"
         ],
         "en": [
           "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
@@ -2612,8 +2659,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-3d7d7f126957",
@@ -2646,7 +2692,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/trm-a-100-179",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.161Z",
+      "crawledAt": "2026-10-03T21:09:55.535Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2664,11 +2710,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-chef-fe-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac"
+        "medecin-chef-fe-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
+        "chief-medical-officer-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-27e9dd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac"
+          "medecin-chef-fe-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
+          "chief-medical-officer-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-27e9dd"
         ],
         "en": [
           "medecin-chef-fe-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac"
@@ -2723,7 +2771,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-employe.e-de-commerce-cfc-a-100-177",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.160Z",
+      "crawledAt": "2026-10-03T21:09:55.529Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2746,7 +2794,8 @@
         "head-nurse-of-ad-interim-care-units-for-the-medical-service-at-80-to-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "hauptkrankenschwester-von-ad-interim-pflegeeinheiten-fur-den-medizinischen-dienst-bei-80-bis-100-hopital-intercantonal",
         "infirmier-ere-chef-fe-d-unites-de-soins-ad-interim-pour-le-service-de-medecine-a-80-a-100",
-        "nurse-head-of-care-units-fur-den-medical-service-bei-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "nurse-head-of-care-units-fur-den-medical-service-bei-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "infermiera-capo-unita-di-cura-per-il-servizio-medico-da-80-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2754,7 +2803,8 @@
           "capo-infermiere-di-unita-di-cura-ad-interim-per-il-servizio-medico-a-80-al-100-hopital-intercantonal-de-la-broye-hib",
           "head-nurse-of-ad-interim-care-units-for-the-medical-service-at-80-to-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "hauptkrankenschwester-von-ad-interim-pflegeeinheiten-fur-den-medizinischen-dienst-bei-80-bis-100-hopital-intercantonal",
-          "infirmier-ere-chef-fe-d-unites-de-soins-ad-interim-pour-le-service-de-medecine-a-80-a-100"
+          "infirmier-ere-chef-fe-d-unites-de-soins-ad-interim-pour-le-service-de-medecine-a-80-a-100",
+          "infermiera-capo-unita-di-cura-per-il-servizio-medico-da-80-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "infirmier-ere-chef-fe-d-unites-de-soins-pour-le-service-de-medecine-a-80-a-100-hib-broye",
@@ -2816,7 +2866,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100-167",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.158Z",
+      "crawledAt": "2026-10-03T21:09:55.523Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2834,11 +2884,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac"
+        "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac",
+        "responsabile-clinica-di-medicina-interna-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac"
+          "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac",
+          "responsabile-clinica-di-medicina-interna-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac"
@@ -2893,7 +2945,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-adjoint-e-en-medecine-interne-de-50-a-100-166",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.157Z",
+      "crawledAt": "2026-10-03T21:09:55.520Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2912,12 +2964,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-e-en-medecine-interne-de-50-a-100-hib-broye-estavayer-le-lac",
-        "medecin-adjoint-e-en-medecine-interne-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "medecin-adjoint-e-en-medecine-interne-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "assistente-medico-in-medicina-interna-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-en-medecine-interne-de-50-a-100-hib-broye-estavayer-le-lac",
-          "medecin-adjoint-e-en-medecine-interne-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "medecin-adjoint-e-en-medecine-interne-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "assistente-medico-in-medicina-interna-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "medecin-adjoint-e-en-medecine-interne-de-50-a-100-hib-broye-estavayer-le-lac"
@@ -2939,8 +2993,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-fa5ce0864616",
@@ -2973,7 +3026,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100-164",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.156Z",
+      "crawledAt": "2026-10-03T21:09:55.518Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2991,11 +3044,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-administration-rh-a-100-hib-broye-payerne"
+        "responsable-administration-rh-a-100-hib-broye-payerne",
+        "100-hr-administration-manager-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-administration-rh-a-100-hib-broye-payerne"
+          "responsable-administration-rh-a-100-hib-broye-payerne",
+          "100-hr-administration-manager-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "responsable-administration-rh-a-100-hib-broye-payerne"
@@ -3017,8 +3072,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-df67da55753d",
@@ -3051,7 +3105,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-medical.e-a-100-170",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.154Z",
+      "crawledAt": "2026-10-03T21:09:55.515Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3069,11 +3123,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-en-soins-intensifs-de-80-a-100-hib-broye-payerne"
+        "infirmier-ere-en-soins-intensifs-de-80-a-100-hib-broye-payerne",
+        "infermiera-in-terapia-intensiva-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-soins-intensifs-de-80-a-100-hib-broye-payerne"
+          "infirmier-ere-en-soins-intensifs-de-80-a-100-hib-broye-payerne",
+          "infermiera-in-terapia-intensiva-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "infirmier-ere-en-soins-intensifs-de-80-a-100-hib-broye-payerne"
@@ -3128,7 +3184,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-logisticien.ne-cfc-a-100-176",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.153Z",
+      "crawledAt": "2026-10-03T21:09:55.509Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3150,7 +3206,8 @@
         "gestionnaire-en-ressources-humaines-a-100-salaires-et-assurances-sociales-hopital-intercantonal-de-la-broye-hib-payerne",
         "responsabile-risorse-umane-al-100-salarie-e-assicurazione-sociale-hopital-intercantonal-de-la-broye-hib-payerne",
         "100-human-resources-manager-salaries-and-social-insurance-hopital-intercantonal-de-la-broye-hib-payerne",
-        "100-human-resources-manager-gehalt-und-sozialversicherung-hopital-intercantonal-de-la-broye-hib-payerne"
+        "100-human-resources-manager-gehalt-und-sozialversicherung-hopital-intercantonal-de-la-broye-hib-payerne",
+        "responsabile-risorse-umane-al-100-salarie-e-assicurazione-sociale-hopital-intercantonal-de-la-broye-hib-payerne-9e2e07"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3158,7 +3215,8 @@
           "gestionnaire-en-ressources-humaines-a-100-salaires-et-assurances-sociales-hopital-intercantonal-de-la-broye-hib-payerne",
           "responsabile-risorse-umane-al-100-salarie-e-assicurazione-sociale-hopital-intercantonal-de-la-broye-hib-payerne",
           "100-human-resources-manager-salaries-and-social-insurance-hopital-intercantonal-de-la-broye-hib-payerne",
-          "100-human-resources-manager-gehalt-und-sozialversicherung-hopital-intercantonal-de-la-broye-hib-payerne"
+          "100-human-resources-manager-gehalt-und-sozialversicherung-hopital-intercantonal-de-la-broye-hib-payerne",
+          "responsabile-risorse-umane-al-100-salarie-e-assicurazione-sociale-hopital-intercantonal-de-la-broye-hib-payerne-9e2e07"
         ],
         "en": [
           "gestionnaire-en-ressources-humaines-a-100-salaires-et-assurances-sociales-hib-broye",
@@ -3182,8 +3240,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-449595f0cbee",
@@ -3217,7 +3274,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-des-urgences-et-la-policlinique-a-100-178",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.151Z",
+      "crawledAt": "2026-10-03T21:09:55.505Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3261,7 +3318,8 @@
         "20-psychologe-psychotherapeut-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "60-psychologe-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "psychologue-psychotherapeute-a-20-hib-broye-estavayer-le-lac",
-        "psychologue-a-60-hib-broye-estavayer-le-lac"
+        "psychologue-a-60-hib-broye-estavayer-le-lac",
+        "40-dipendente-amministrativo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3283,7 +3341,8 @@
           "psychologue-psychotherapeute-a-20-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
           "60-psicologo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
           "employe-e-d-administration-a-40-hib-broye-estavayer-le-lac",
-          "administrative-employee-in-invoicing-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "administrative-employee-in-invoicing-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "40-dipendente-amministrativo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "employe-e-d-administration-a-40-hib-broye-estavayer-le-lac",
@@ -3349,7 +3408,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-assc-a-100-174",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.150Z",
+      "crawledAt": "2026-10-03T21:09:55.503Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3368,12 +3427,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-la-planification-operatoire-h-f-a-100-hib-broye-payerne",
-        "gestionnaire-de-la-planification-operatoire-m-w-d-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "gestionnaire-de-la-planification-operatoire-m-w-d-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "gestione-della-pianificazione-operativa-al-100-h-f-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-la-planification-operatoire-h-f-a-100-hib-broye-payerne",
-          "gestionnaire-de-la-planification-operatoire-m-w-d-a-100-hopital-intercantonal-de-la-broye-hib-payerne"
+          "gestionnaire-de-la-planification-operatoire-m-w-d-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
+          "gestione-della-pianificazione-operativa-al-100-h-f-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "gestionnaire-de-la-planification-operatoire-h-f-a-100-hib-broye-payerne"
@@ -3395,8 +3456,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-59a574c6c09d",
@@ -3430,7 +3490,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti-e-test-173",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.148Z",
+      "crawledAt": "2026-10-03T21:09:55.500Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3448,11 +3508,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne"
+        "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne",
+        "cdd-tecnico-biomedico-6-mesi-a-80-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne"
+          "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne",
+          "cdd-tecnico-biomedico-6-mesi-a-80-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne"
@@ -3507,7 +3569,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100-175",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.146Z",
+      "crawledAt": "2026-10-03T21:09:55.495Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3525,11 +3587,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne"
+        "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne",
+        "assistente-medico-o-assc-con-cfc-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne"
+          "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne",
+          "assistente-medico-o-assc-con-cfc-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne"
@@ -3551,8 +3615,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-2da5439eb3ab",
@@ -3586,7 +3649,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-de-nettoyage-a-80-186",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.144Z",
+      "crawledAt": "2026-10-03T21:09:55.487Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3605,11 +3668,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aide-de-cuisine-a-80-hib-broye-estavayer-le-lac",
-        "80-kochhilfe-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "80-kochhilfe-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "80-di-cottura-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-de-cuisine-a-80-hib-broye-estavayer-le-lac"
+          "aide-de-cuisine-a-80-hib-broye-estavayer-le-lac",
+          "80-di-cottura-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "aide-de-cuisine-a-80-hib-broye-estavayer-le-lac"
@@ -3665,7 +3730,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-radiologie-de-80-a-100-187",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.143Z",
+      "crawledAt": "2026-10-03T21:09:55.483Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3687,7 +3752,8 @@
         "housekeeper-at-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "hauswirtschaftskraft-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac",
-        "employe-e-d-administration-a-100-hib-broye-estavayer-le-lac"
+        "employe-e-d-administration-a-100-hib-broye-estavayer-le-lac",
+        "100-dipendente-amministrativo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3695,7 +3761,8 @@
           "housekeeper-at-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
           "hauswirtschaftskraft-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
           "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac",
-          "employe-e-d-administration-a-100-hib-broye-estavayer-le-lac"
+          "employe-e-d-administration-a-100-hib-broye-estavayer-le-lac",
+          "100-dipendente-amministrativo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "housekeeper-at-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
@@ -3722,8 +3789,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-800c9d9fde96",
@@ -3756,7 +3822,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/logisticien.ne-a-70-189",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.142Z",
+      "crawledAt": "2026-10-03T21:09:55.480Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3780,7 +3846,8 @@
         "verwaltungspraktikant-in-der-fakturierungsabteilung-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le",
         "stagiaire-administration-au-sein-du-service-de-facturation-de-80-a-100-hib-broye-estavayer",
         "stagiaire-amministrazione-nel-servizio-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "praktikant-im-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "praktikant-im-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "dipendente-della-casa-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3790,7 +3857,8 @@
           "verwaltungspraktikant-in-der-fakturierungsabteilung-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le",
           "stagiaire-administration-au-sein-du-service-de-facturation-de-80-a-100-hib-broye-estavayer",
           "stagiaire-amministrazione-nel-servizio-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-          "praktikant-im-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "praktikant-im-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "dipendente-della-casa-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "employe-e-de-maison-de-50-a-100-hib-broye-estavayer-le-lac",
@@ -3818,8 +3886,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-21a640d65650",
@@ -3852,7 +3919,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-en-gynecologie-obstetrique-de-80-a-100-190",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.141Z",
+      "crawledAt": "2026-10-03T21:09:55.476Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3870,11 +3937,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne"
+        "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne",
+        "90-analisi-biomedica-tecnica-es-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne"
+          "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne",
+          "90-analisi-biomedica-tecnica-es-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne"
@@ -3896,8 +3965,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-c42bb5ea9614",
@@ -3930,7 +3998,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-danesthesie-a-100-188",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.139Z",
+      "crawledAt": "2026-10-03T21:09:55.472Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3954,7 +4022,8 @@
         "cuisinier-ere-en-dietetique-a-80-hib-broye-payerne",
         "dietary-cooker-80-hopital-intercantonal-de-la-broye-hib-payerne",
         "diatetische-kocher-80-hopital-intercantonal-de-la-broye-hib-payerne",
-        "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac"
+        "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac",
+        "90-cucina-dietetica-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3964,7 +4033,8 @@
           "cuisinier-ere-en-dietetique-a-80-hib-broye-payerne",
           "dietary-cooker-80-hopital-intercantonal-de-la-broye-hib-payerne",
           "diatetische-kocher-80-hopital-intercantonal-de-la-broye-hib-payerne",
-          "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac"
+          "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac",
+          "90-cucina-dietetica-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "chef-chef-de-cuisine-in-dietetics-80-hopital-intercantonal-de-la-broye-hib-payerne",
@@ -3991,8 +4061,7 @@
           "maxValue": 104900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-e858b249a7de",
@@ -4025,7 +4094,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-anesthesie-de-50-a-100-191",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.138Z",
+      "crawledAt": "2026-10-03T21:09:55.469Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4044,11 +4113,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne",
-        "assistent-e-medical-e-ou-assc-avec-cfc-a-40-hopital-intercantonal-de-la-broye-hib-payerne"
+        "assistent-e-medical-e-ou-assc-avec-cfc-a-40-hopital-intercantonal-de-la-broye-hib-payerne",
+        "assistente-medico-o-assc-con-40-cfc-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne"
+          "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne",
+          "assistente-medico-o-assc-con-40-cfc-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne"
@@ -4070,8 +4141,7 @@
           "maxValue": 43000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-44530b6b2f8b",
@@ -4104,7 +4174,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medicale-a-60-193",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.136Z",
+      "crawledAt": "2026-10-03T21:09:55.463Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4122,11 +4192,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-medical-e-a-40-hib-broye-payerne"
+        "assistant-e-medical-medical-e-a-40-hib-broye-payerne",
+        "assistente-medico-40-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-medical-e-a-40-hib-broye-payerne"
+          "assistant-e-medical-medical-e-a-40-hib-broye-payerne",
+          "assistente-medico-40-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "assistant-e-medical-medical-e-a-40-hib-broye-payerne"
@@ -4145,8 +4217,7 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-5ea469502a08",
@@ -4180,7 +4251,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/responsable-laboratoire-a-100-195",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.134Z",
+      "crawledAt": "2026-10-03T21:09:55.456Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4198,11 +4269,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "second-e-de-cuisine-a-100-hib-broye-payerne"
+        "second-e-de-cuisine-a-100-hib-broye-payerne",
+        "seconda-cucina-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "second-e-de-cuisine-a-100-hib-broye-payerne"
+          "second-e-de-cuisine-a-100-hib-broye-payerne",
+          "seconda-cucina-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "second-e-de-cuisine-a-100-hib-broye-payerne"
@@ -4258,7 +4331,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-194",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.133Z",
+      "crawledAt": "2026-10-03T21:09:55.450Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4276,11 +4349,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-de-cuisine-a-100-hib-broye-payerne"
+        "aide-de-cuisine-a-100-hib-broye-payerne",
+        "100-cucina-aiuto-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-de-cuisine-a-100-hib-broye-payerne"
+          "aide-de-cuisine-a-100-hib-broye-payerne",
+          "100-cucina-aiuto-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "en": [
           "aide-de-cuisine-a-100-hib-broye-payerne"
@@ -4335,7 +4410,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/dieteticien.ne-a-70-197",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.123Z",
+      "crawledAt": "2026-10-03T21:09:55.430Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4353,11 +4428,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-de-40-a-50-hib-broye-payerne"
+        "assistant-e-medical-e-de-40-a-50-hib-broye-payerne",
+        "assistente-medico-dal-40-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-de-40-a-50-hib-broye-payerne"
+          "assistant-e-medical-e-de-40-a-50-hib-broye-payerne",
+          "assistente-medico-dal-40-al-50-hopital-intercantonal-de-la-broye-hib-payerne"
         ],
         "de": [
           "assistant-e-medical-e-de-40-a-50-hib-broye-payerne"
@@ -4376,8 +4453,7 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-d8a55be0dc87",
@@ -4410,7 +4486,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/psychologue-a-60-196",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.113Z",
+      "crawledAt": "2026-10-03T21:09:55.412Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4432,12 +4508,14 @@
         "neurologue-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "60-psicologo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "60-psychologist-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "60-psychologe-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "60-psychologe-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "neurologo-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
           "neurologue-de-50-a-100-hib-broye-estavayer-le-lac",
-          "60-psicologo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "60-psicologo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "neurologo-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "neurologue-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
@@ -4464,8 +4542,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-928f53c2a508",
@@ -4499,7 +4576,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-en-soins-durgence-et-smur-a-80-100-198",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.102Z",
+      "crawledAt": "2026-10-03T21:09:55.399Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4517,11 +4594,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac"
+        "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac",
+        "collaboratore-unita-di-fatturazione-60-o-80-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac"
+          "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac",
+          "collaboratore-unita-di-fatturazione-60-o-80-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ],
         "en": [
           "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac"

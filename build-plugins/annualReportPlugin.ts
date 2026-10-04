@@ -809,6 +809,8 @@ function renderReport(opts: {
     family: 'annual-report', key: 'report', locale, headline: copy.h1, eyebrow: copy.kicker, alt: copy.h1,
   };
 
+  // generatedAt records report generation, not publication or a panel change.
+  // Optional publication dates stay absent until an editorial history exists.
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -817,8 +819,6 @@ function renderReport(opts: {
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: agg.generatedAt,
-    dateModified: agg.generatedAt,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -842,8 +842,6 @@ function renderReport(opts: {
     url: canonicalUrl,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
-    datePublished: agg.generatedAt,
-    dateModified: agg.generatedAt,
     inLanguage: locale,
     keywords:
       locale === 'en'
@@ -1083,7 +1081,7 @@ export function annualReportPlugin(rootDir: string): Plugin {
         collector.add(flatPath, render.html);
 
         sitemapEntries.push(
-          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${agg.generatedAt}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
         );
       }
 

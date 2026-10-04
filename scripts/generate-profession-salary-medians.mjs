@@ -10,13 +10,12 @@
  * re-implementing either:
  *  - `aggregateProfessionJobs()` (build-plugins/professionJobsAggregate.ts)
  *    already matches every job in data/jobs.json against the 24-profession
- *    taxonomy (title regex, TI-scoped) and computes `medianSalaryChf` via
- *    `realSalaryMedianChf()` (build-plugins/shared/realSalaryMedian.ts) —
- *    the SAME median logic the profession-landing pages (/lavoro-ticino-*)
- *    already show, so the preset chips never drift from that number.
+ *    taxonomy (title regex, TI-scoped) and computes `reportedSalary` via
+ *    `reportedSalarySummary()` (build-plugins/shared/realSalaryMedian.ts) —
+ *    the source-reported annual CHF sample, excluding inferred ranges.
  *
  * Picks the top N professions by live job count that also have a real
- * (non-null, ≥3-sample) median, so the chips always reflect actual on-site
+ * (non-null, ≥5-sample) median, so the chips always reflect actual on-site
  * demand rather than an arbitrary hand list.
  *
  * Run: npx tsx scripts/generate-profession-salary-medians.mjs
@@ -73,14 +72,13 @@ function main() {
   const snapshots = aggregateProfessionJobs(ROOT);
 
   const candidates = Object.entries(snapshots)
-    .map(([id, snap]) => ({ id, liveCount: snap.liveCount, medianSalaryChf: snap.medianSalaryChf }))
+    .map(([id, snap]) => ({ id, liveCount: snap.liveCount, medianSalaryChf: snap.reportedSalary?.medianChf ?? null, salarySamples: snap.reportedSalary?.sampleCount ?? 0 }))
     .filter((c) => c.medianSalaryChf !== null && c.liveCount >= MIN_LIVE_COUNT)
     .sort((a, b) => b.liveCount - a.liveCount)
     .slice(0, MAX_PRESETS);
 
   if (candidates.length === 0) {
-    console.error('[generate-profession-salary-medians] no profession cleared the floor — aborting write.');
-    process.exit(1);
+    console.info('[generate-profession-salary-medians] no reported sample cleared the floor — writing an empty preset list.');
   }
 
   const presets = candidates.map((c) => {
@@ -93,6 +91,8 @@ function main() {
       label,
       medianSalaryChf: c.medianSalaryChf,
       liveCount: c.liveCount,
+      salarySamples: c.salarySamples,
+      salarySource: 'reported',
     };
   });
 
@@ -107,7 +107,7 @@ function main() {
   fs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\n', 'utf-8');
   console.log(`[generate-profession-salary-medians] wrote ${presets.length} presets to ${path.relative(ROOT, outPath)}`);
   for (const p of presets) {
-    console.log(`  ${p.id}: median CHF ${p.medianSalaryChf} (n=${p.liveCount})`);
+    console.log(`  ${p.id}: median CHF ${p.medianSalaryChf} (salary n=${p.salarySamples})`);
   }
 }
 

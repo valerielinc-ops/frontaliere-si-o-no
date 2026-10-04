@@ -12437,6 +12437,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-pusher-consegne-domicilio.title': 'Como, arrestato pusher per consegne a domicilio',
     'blog.article.como-pusher-consegne-domicilio.excerpt': 'La Polizia di Stato di Como ha arrestato un 48enne: sequestrati 51.45 grammi di cocaina in 86 dosi, 120 euro e altri 141.18 grammi di cocaina.',
     'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Como, operazione della Polizia di Stato contro lo spaccio in città.',
+    'blog.article.martina-bonalumi-podio-canottaggio.title': 'Martina Bonalumi: doppio podio internazionale nell\'otto',
+    'blog.article.martina-bonalumi-podio-canottaggio.excerpt': 'La timoniera di Dumenza conquista il bronzo ai Mondiali Universitari FISU in Canada e l\'argento agli Europei Under 23 in Polonia.',
+    'blog.article.martina-bonalumi-podio-canottaggio.imageAlt': 'Imbarcazione di canottaggio su un lago alpino',
 };
 
 export default blogMetaIt;

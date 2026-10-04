@@ -1,3 +1,4 @@
+import { resolveRolloutPostingDate } from '../../../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Hero badges block (Featured ★ / "Nuovo" / salary pill) for the static
  * job-detail page. Mirrors the React `<JobBoard>` badge row so the
@@ -38,7 +39,7 @@ export function renderHeroBadges(ctx: HeroBadgesRenderContext): string {
   const { job, locale, salaryMin, salaryText, esc, now } = ctx;
   const isFeatured = job.featured === true;
   const isNew = (() => {
-    const dateStr = String(job.postedDate ?? job.crawledAt ?? '');
+    const dateStr = resolveRolloutPostingDate(job, () => String(job.postedDate ?? job.crawledAt ?? ''), now);
     if (!dateStr) return false;
     const t = new Date(dateStr).getTime();
     if (!Number.isFinite(t)) return false;

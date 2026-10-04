@@ -1,3 +1,4 @@
+import { sourcePostingDateFields, mergeSourcePostingDates } from '../source-posting-date.mjs';
 /**
  * Generic vacancy extraction — the part that lets a crawler exist before anyone
  * has written a parser for it.
@@ -415,7 +416,7 @@ export function extractJsonLd(html, pageUrl) {
       addressCountry: primaryLocation.addressCountry || '',
       locationCandidates,
       description: jobPostingBodyText(node).slice(0, 8000),
-      postedDate: firstString(node.datePosted),
+      ...sourcePostingDateFields(firstString(node.datePosted)),
       employmentType: firstString(node.employmentType),
       via: 'jsonld',
     });
@@ -1384,7 +1385,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     authoritativeLocationConflict,
     description: descriptions[0] || '',
     workplaceLabels: renderedWorkplaceLabelValues(html, title),
-    postedDate: structuredRecords.find((record) => record.postedDate)?.postedDate || '',
+    ...mergeSourcePostingDates({}, structuredRecords.find((record) => record.postingDateSource === 'reported') || {}),
     employmentType: structuredRecords.find((record) => record.employmentType)?.employmentType || '',
     // Whether THIS response carried a structured vacancy at all. Both readers
     // above gate on the JobPosting type (`isJobPostingNode`, the
@@ -1910,7 +1911,7 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
       description: (unitedDescription.length > firstDescription.length
         ? unitedDescription
         : firstDescription).slice(0, 8000),
-      postedDate: prop('datePosted'),
+      ...sourcePostingDateFields(prop('datePosted')),
       employmentType: prop('employmentType'),
       via: 'microdata',
     });

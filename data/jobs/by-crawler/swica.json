@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swica",
-  "assembledAt": "2026-10-03T09:26:42.612Z",
+  "assembledAt": "2026-10-03T21:26:30.287Z",
   "jobs": [
     {
       "id": "swica-c77bbc77017c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/7d81878c-e2d8-4eba-9819-013813722c42",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:37.526Z",
+      "crawledAt": "2026-10-03T21:26:26.457Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Bahnhofstrasse 8",
@@ -117,7 +117,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:37.030Z",
+      "crawledAt": "2026-10-03T21:26:25.962Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -211,7 +211,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/2429d8ab-a822-4d37-a3a7-f7d3e0e5f248",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:36.521Z",
+      "crawledAt": "2026-10-03T21:26:25.462Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -292,7 +292,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle/54f8d0fa-5f51-43e2-ac48-835cdd912422",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:36.030Z",
+      "crawledAt": "2026-10-03T21:26:24.958Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -373,7 +373,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle/a181c04c-48de-43d7-b831-d504c04bc2d8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:35.659Z",
+      "crawledAt": "2026-10-03T21:26:24.551Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -453,7 +453,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/126b47f4-f1c5-43e8-8656-249b202fab69",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:35.165Z",
+      "crawledAt": "2026-10-03T21:26:24.041Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -500,8 +500,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-49a646e83fbb",
@@ -534,7 +533,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/25201503-b1ea-4c26-ab8e-1d096e3b305e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:34.798Z",
+      "crawledAt": "2026-10-03T21:26:23.672Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -581,8 +580,7 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-59fec461c1af",
@@ -615,7 +613,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/01c12200-43f3-4044-9a15-2ff1e584af40",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:34.430Z",
+      "crawledAt": "2026-10-03T21:26:23.311Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hirschengraben 8",
@@ -672,8 +670,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-7eac9ee4588b",
@@ -706,7 +703,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/d9b59a00-40b6-4691-b04d-be9202aff934",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:34.059Z",
+      "crawledAt": "2026-10-03T21:26:22.936Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Widnauerstrasse 1",
@@ -757,8 +754,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-9bfea1ac00d2",
@@ -791,7 +787,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-ict-fachfrau-fachmann-efz-2027/d24b501f-dfd4-4755-89c7-5e8b1b9b275d",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:33.666Z",
+      "crawledAt": "2026-10-03T21:26:22.559Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -838,8 +834,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-8a2eefee3e7d",
@@ -856,7 +851,7 @@
       "title": "Care Manager Privatkunden",
       "titleByLocale": {
         "it": "Care Manager Clienti privati",
-        "en": "Care Manager Private Clients",
+        "en": "Care Manager Privatkunden",
         "de": "Care Manager Privatkunden",
         "fr": "Gestionnaire de soins Clients privés"
       },
@@ -867,12 +862,13 @@
         "de": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\nSo gestaltest du Gesundheit mit\n\n• Unterstützung und Begleitung von erkrankten oder verunfallten Versicherten sowie deren Angehörigen in schwierigen und belastenden Lebenslagen\n• Frühes Intervenieren durch rechtzeitiges Erkennen einer komplexen Erkrankung oder Unfalls\n• Koordinieren der Behandlungsschritte der am Genesungsprozess beteiligten Partner\n• Vermittlung von geeigneten Netzwerkpartnern und Therapeuten\n• Erarbeitung von gemeinsamen, tragfähigen Lösungsansätzen auf dem Weg zur Genesung\n• Unterstützung für die berufliche und soziale Wiedereingliederung\n• Koordination mit externen und internen Netzwerkpartner\nDas zeichnet dich aus\n\n• Fundierte medizinische Ausbildung und Fachwissen (z.B. Pflege)\n• Von Vorteil ist eine abgeschlossene Fach- oder Hochschulausbildung in den Bereichen Sozialarbeit, Psychologie, Coaching, Health oder Care Management u.ä.\n• Mehrjährige operative Erfahrung im Care Management, idealerweise im Sozial- oder Krankenversicherungsbereich\n• Deine Persönlichkeit zeichnet sich durch lösungs- und kundenorientiertes Denken aus\n• Begeisterungsfähige, verantwortungsbewusste und belastbare Persönlichkeit\n• Sehr gute kommunikative Fähigkeiten, schriftlich und mündlich, sowie repräsentative Persönlichkeit mit einwandfreier, situationsgerechter Auftrittskompetenz\n• Stilsicheres Deutsch, Italienisch und Englisch, jede weitere Sprache ist von Vorteil\n• Einen gültigen Führerschein ist zwingend notwendig\nWarum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\nPaola Rauch, HR Recruiting, gibt dir gerne Auskunft.",
         "fr": "Nous sommes attachés à la santé – car la santé est tout. Nous nous y engageons, aussi en tant qu'employeur. Nous sommes convaincus : Ce n'est que dans un monde du travail sain que les meilleurs talents se sentent à l'aise et progressent : professionnellement et personnellement. Pour cela, nous donnons tout.\nVoilà comment vous façonnez la santé\n\n• Assistance et soutien aux assurés malades ou blessés et à leurs proches dans des circonstances difficiles et pénibles\n• Intervention précoce par détection rapide d'une maladie ou d'un accident complexe\n• Coordination des étapes de traitement des partenaires impliqués dans le processus de rétablissement\n• Médiation de partenaires de réseau et de thérapeutes appropriés\n• Développer des solutions communes et viables sur la voie du relèvement\n• Appui à la réinsertion professionnelle et sociale\n• Coordination avec les partenaires externes et internes du réseau\nCela vous distingue\n\n• Bonne éducation et expertise médicale (p. ex. soins)\n• Un avantage est une formation technique ou universitaire dans les domaines du travail social, de la psychologie, du coaching, de la gestion de la santé ou des soins, etc.\n• Plusieurs années d'expérience opérationnelle dans la gestion des soins, idéalement dans le secteur de l'assurance sociale ou de la santé\n• Votre personnalité se caractérise par une pensée axée sur la solution et le client\n• Personnalité enthousiaste, responsable et résiliente\n• Très bonnes compétences en communication, écrite et orale, ainsi qu'une personnalité représentative avec des compétences de performance impeccables et situationnelles\n• Allemand styliste, italien et anglais, toutes les autres langues sont un avantage\n• Un permis de conduire valide est obligatoire\nPourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous nous concentrons sur l'ouverture, le respect et la confiance dans notre travail quotidien. Nous assumons la responsabilité et pensons en termes de solutions – ensemble, pour nos clients. C'est aussi la raison pour laquelle nous sommes le numéro 1 en satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous donnons de l'espace. Avec des heures de travail annuelles, au moins 5 semaines de vacances et sur demande achat de vacances. Avec des modèles à temps partiel et un bureau à domicile généreux dans le cadre des possibilités de l'emploi, vous rendez votre vie quotidienne largement flexible.\n• Nous apprécions et récompensons votre travail – avec un salaire basé sur le marché, jusqu'à 1.500 francs frais annuels pour les souhaits personnels et une participation généreuse à l'assurance de base et supplémentaire pour vous et votre famille.\n• Nous vous offrons des perspectives. Avec une réglementation de formation généreuse, nous soutenons votre développement professionnel et personnel – pour votre rôle aujourd'hui et pour vos objectifs de demain.\n• Parce que la santé est tout. Avec notre entreprise de gestion de la santé et des offres spécifiques à la région, nous prenons soin de votre bien-être. Et s'il en est autrement : 100% de salaire net continu.\n• Nous pensons à long terme. Avec trois régimes d'épargne, une déduction de coordination dépendante du capital-investissement et des avantages bien au-dessus du minimum légal, vous assurez le bien pour votre avenir.\nPaola Rauch, Recrutement RH, est heureuse de vous fournir des informations."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.swica.ch/offene-stellen/care-manager-privatkunden/98824056-e64d-4f18-825b-aa901ef30d5f",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:33.302Z",
+      "crawledAt": "2026-10-03T21:26:22.188Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -965,7 +961,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-quereinstieg-alle/1bd55bc3-8057-4b0a-869b-2664d77e5be7",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:32.817Z",
+      "crawledAt": "2026-10-03T21:26:21.688Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Aarbergstrasse 121",
@@ -1046,7 +1042,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/4a20b326-701a-4e76-9267-b642ca623147",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:32.449Z",
+      "crawledAt": "2026-10-03T21:26:21.314Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 38",
@@ -1139,7 +1135,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gestionnaire-sante-stationnaire-tous/031d6446-0d71-454b-8fe7-e9a609fb4be8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:26:32.089Z",
+      "crawledAt": "2026-10-03T21:26:20.951Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -1188,8 +1184,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-e77a7c8fa913",
@@ -1223,7 +1218,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungen-ausland-alle/0f0ca9a5-8730-47fb-97c8-4ef72ddd5cb1",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:31.590Z",
+      "crawledAt": "2026-10-03T21:26:20.415Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -1317,7 +1312,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzoesisch-und-italienischkenntnissen-alle/3259240d-a237-4992-b4a9-3962f305e9b9",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:31.152Z",
+      "crawledAt": "2026-10-03T21:26:20.037Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1396,7 +1391,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/ea1d7774-446c-4dbc-8b8a-45d805024f45",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:30.651Z",
+      "crawledAt": "2026-10-03T21:26:19.535Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "streetAddress": "Bahnhofstrasse 86",
@@ -1479,7 +1474,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-krankentaggeld-service-support-alle/5f9b5f12-4347-40b9-82f9-59e8cb00a6ac",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:30.279Z",
+      "crawledAt": "2026-10-03T21:26:19.161Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -1560,7 +1555,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/arzt-aerztin-telemedizin-alle/841d2cc0-3ea4-4918-8288-93d443706025",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:29.743Z",
+      "crawledAt": "2026-10-03T21:26:18.667Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1645,7 +1640,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-system-engineer-alle/330fc9fe-b65e-4f67-8af1-1c4becf984d5",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:29.351Z",
+      "crawledAt": "2026-10-03T21:26:18.299Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1742,7 +1737,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/application-engineer-syrius-alle/c85f1198-fce9-45b7-815a-c80f91b70e79",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:28.969Z",
+      "crawledAt": "2026-10-03T21:26:17.920Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -1820,7 +1815,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-software-packager-alle/e0f4de32-2298-4e4b-92ac-665eea2eabb5",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:28.572Z",
+      "crawledAt": "2026-10-03T21:26:17.544Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1898,7 +1893,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/underwriter-unternehmensgeschaeft-alle/f9ff186b-22fa-48a3-888f-4409cd056563",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:28.072Z",
+      "crawledAt": "2026-10-03T21:26:17.034Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1979,7 +1974,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/c7048607-e4c2-4735-bdfc-a749e21570e3",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:27.703Z",
+      "crawledAt": "2026-10-03T21:26:16.665Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 99B",
@@ -2060,7 +2055,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/2aa8a610-024b-48e3-b95b-7355e65404c0",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:27.342Z",
+      "crawledAt": "2026-10-03T21:26:16.288Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Poststrasse 19",
@@ -2140,7 +2135,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/spezialist-vertrauensaerztlicher-dienst-alle/a0857996-ea7e-42ae-af4f-1c105f8e9f05",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:26.961Z",
+      "crawledAt": "2026-10-03T21:26:15.916Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2187,8 +2182,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-2dd9d79ee67b",
@@ -2222,7 +2216,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/application-manager-coredata-automation-alle/00e48b77-75d6-4793-8049-37b04ecb1f75",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:26.574Z",
+      "crawledAt": "2026-10-03T21:26:15.547Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -2299,7 +2293,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-m365-engineer-alle/b157ce54-2866-4607-a862-c0593e94009a",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:26.178Z",
+      "crawledAt": "2026-10-03T21:26:15.165Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2343,8 +2337,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-30bea29d41ce",
@@ -2377,7 +2370,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/assistenz-leitung-gesundheitsberatung-services/dedd7743-3097-432e-9a91-d93a8bf32d3b",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:25.794Z",
+      "crawledAt": "2026-10-03T21:26:14.781Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2426,8 +2419,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "swica-7fdcb0c7a940",
@@ -2461,7 +2453,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/2627f149-a164-42a5-a6e3-020d219b5621",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:25.308Z",
+      "crawledAt": "2026-10-03T21:26:14.277Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "streetAddress": "Kasernenstrasse 6",
@@ -2542,7 +2534,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/899c86e0-9b46-4f47-8b00-13c932e99421",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:24.918Z",
+      "crawledAt": "2026-10-03T21:26:13.902Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt",
@@ -2623,7 +2615,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/1ecd2939-cc80-4d0b-9b91-d483ade65e33",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:24.429Z",
+      "crawledAt": "2026-10-03T21:26:13.407Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt",
@@ -2709,7 +2701,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungen-medikamente-alle/f9c98b5c-b64b-4b24-acc9-d48221d66fa8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:26:23.939Z",
+      "crawledAt": "2026-10-03T21:26:13.022Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2727,6 +2719,22 @@
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungen-medikamente-alle/f9c98b5c-b64b-4b24-acc9-d48221d66fa8",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur",
+        "servizi-del-personale-farmaci-tutti-swica-gesundheitsorganisation-winterthur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur",
+          "servizi-del-personale-farmaci-tutti-swica-gesundheitsorganisation-winterthur"
+        ],
+        "en": [
+          "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur"
+        ],
+        "fr": [
+          "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:22:03.533Z",
       "salaryMin": 79000,
       "salaryMax": 131000,
@@ -2740,23 +2748,7 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur",
-          "servizi-del-personale-farmaci-tutti-swica-gesundheitsorganisation-winterthur"
-        ],
-        "en": [
-          "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur"
-        ],
-        "fr": [
-          "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-leistungen-medikamente-alle-swica-winterthur",
-        "servizi-del-personale-farmaci-tutti-swica-gesundheitsorganisation-winterthur"
-      ]
+      }
     }
   ]
 }

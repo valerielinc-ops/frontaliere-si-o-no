@@ -901,8 +901,9 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const fallbackBoardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
   return finalJobs.slice(0, limit).map((job, index) => {
     const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
+    const resolvedCanton = context.resolvers ? context.resolvers.resolveJobCanton(job) : '';
     const boardPath = context.resolvers
-      ? context.resolvers.resolveCantonSection(locale, context.resolvers.resolveJobCanton(job))
+      ? context.resolvers.resolveCantonSection(locale, resolvedCanton)
       : fallbackBoardPath;
     return {
       title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
@@ -914,6 +915,13 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       contract: normalizeContract(job.contract, locale),
       sector: job.sector || job.category || '',
       rawContract: job.contract || '',
+      // Listing attributes for the delivery manifest (jobManifestEntry): a
+      // job_id no longer resolves once the listing expires. The explicit
+      // canton wins (BS/BL stay themselves, the resolver folds them into a
+      // URL group); the location-derived one covers jobs without it.
+      category: job.category || '',
+      canton: job.canton || resolvedCanton || '',
+      rawSector: job.sector || '',
       logoUrl: resolveLogoUrl(job),
       companyUrl: companyHubUrlIfEmitted(job.company, locale, context.emittedCompanyHubs),
       // Keep the matcher score with the normalized card so downstream email

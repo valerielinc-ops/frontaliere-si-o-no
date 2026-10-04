@@ -20,6 +20,7 @@
  * landings to them.
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import * as fs from 'node:fs';
 import * as np from 'node:path';
 import type { Plugin } from 'vite';
@@ -27,7 +28,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -204,6 +205,10 @@ function toJobCard(job: FacilityFeaturedJob): JobCardJob {
     contract: job.contract ?? undefined,
     salaryMin: job.salaryMin,
     salaryMax: job.salaryMax,
+    salarySource: job.salarySource ?? undefined,
+    currency: job.currency ?? undefined,
+    postingDateSource: job.postingDateSource,
+    datePosted: job.datePosted ?? undefined,
     postedDate: job.postedDate ?? undefined,
     url: job.url ?? undefined,
   };
@@ -307,13 +312,14 @@ export function renderFacilityPage(
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
     <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
-    <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(updatedLabel(locale))} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
   </header>`;
 
   const body = `<div class="max-w-3xl mx-auto px-4 py-6">
     ${breadcrumb}
     ${header}
     ${tiles}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${jobsSection}
     ${rolesSection}
     ${infoSection}
@@ -350,7 +356,6 @@ export function renderFacilityPage(
     description: guardArticleJsonLdDescription(copy.metaDesc),
     inLanguage: locale,
     url: canonicalUrl,
-    dateModified: dateStamp,
     publisher: {
       '@type': 'Organization',
       '@id': `${BASE_URL}/#organization`,
@@ -453,9 +458,6 @@ function renderBelowFloorBridge(
 function headingStyle(): string {
   return 'font-size:20px;font-weight:800;color:var(--color-heading);margin:0 0 4px';
 }
-function updatedLabel(locale: HealthFacilityLocale): string {
-  return { it: 'Aggiornato il', en: 'Updated', de: 'Aktualisiert am', fr: 'Mis à jour le' }[locale];
-}
 function CATEGORY(locale: HealthFacilityLocale, f: HealthFacilityRecord): string {
   return CATEGORY_LABEL[locale][f.category];
 }
@@ -468,7 +470,7 @@ function cleanSite(site: string): string {
 // ── Sitemap ──
 function buildSitemap(paths: readonly string[], dateStamp: string): string {
   const urls = paths
-    .map((p) => `  <url><loc>${BASE_URL}${p}</loc><lastmod>${dateStamp}</lastmod><changefreq>daily</changefreq></url>`)
+    .map((p) => `  <url><loc>${BASE_URL}${p}</loc><changefreq>daily</changefreq></url>`)
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }

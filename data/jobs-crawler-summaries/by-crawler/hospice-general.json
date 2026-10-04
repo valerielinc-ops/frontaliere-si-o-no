@@ -1,7 +1,7 @@
 {
   "key": "hospice-general",
   "label": "Hospice général",
-  "generatedAt": "2026-10-03T09:12:18.561Z",
+  "generatedAt": "2026-10-03T21:13:29.822Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -14,12 +14,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4553,
-  "avgDurationMs": 4553,
+  "durationMs": 3606,
+  "avgDurationMs": 3606,
   "durationHistory": [
-    3743,
-    3668,
-    4553
+    3606
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000152861818-assistant-de-direction-h-f-90-a-100-cdi-direction-generale?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:10.647Z",
+      "crawledAt": "2026-10-03T21:13:22.264Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -52,10 +50,11 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://jobs.smartrecruiters.com/Hospicegeneral/744000152861818-assistant-de-direction-h-f-90-a-100-cdi-direction-generale?oga=true",
       "jobReqId": "744000152861818",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-10-01T09:11:19.551Z",
-      "_qualityScore": 83,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 20
@@ -73,7 +72,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000152398376-stagiaire-universitaire-en-cybersecurite?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:10.693Z",
+      "crawledAt": "2026-10-03T21:13:22.267Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "streetAddress": "Avenue Louis-Casaï",
@@ -111,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000149533490-un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a-lancy?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:10.650Z",
+      "crawledAt": "2026-10-03T21:13:22.261Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "streetAddress": "Lancy",
@@ -149,7 +148,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000113099616-un-civiliste-aide-animateur-100-min-6-mois-maison-de-vacances-pour-seniors-la-nouvelle-roseraie-saint-legier-vd?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:10.691Z",
+      "crawledAt": "2026-10-03T21:13:22.315Z",
       "addressLocality": "Saint Légier",
       "addressRegion": "GE",
       "streetAddress": "Saint Légier",
@@ -187,7 +186,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000112674907-des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:10.650Z",
+      "crawledAt": "2026-10-03T21:13:22.266Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -225,7 +224,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000112673546-civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:10.694Z",
+      "crawledAt": "2026-10-03T21:13:22.316Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -253,5 +252,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
