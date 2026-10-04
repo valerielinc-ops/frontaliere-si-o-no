@@ -586,83 +586,15 @@ const HealthInsurance: React.FC = () => {
  </div>
  )}
 
- {/* CMU vs LAMal comparison for French border workers */}
- <div className="bg-gradient-to-br from-danger-subtle to-danger-subtle rounded-2xl border border-danger-border p-6">
- <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
- <Globe size={20} className="text-danger" />
- CMU francese vs LAMal
- </h3>
- <p className="text-sm text-subtle mb-4">
- {'I frontalieri in Francia possono scegliere la CMU (Couverture Maladie Universelle) anziché LAMal. La CMU costa ~8% del reddito fiscale di riferimento (RFR).'}
- </p>
- <div className="grid md:grid-cols-2 gap-4 mb-4">
- <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-danger mb-2">CMU (Francia)</p>
- <ul className="space-y-1 text-sm text-body list-disc ml-4">
- <li>Costo: ~8% del reddito fiscale (RFR)</li>
- <li>Rimborso: ~70% per visite, ~65% farmaci</li>
- <li>Mutuelle complementare consigliata (+50-150€/mese)</li>
- <li>Cure in Francia e UE</li>
- </ul>
- </div>
- <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-danger mb-2">LAMal (Svizzera)</p>
- <ul className="space-y-1 text-sm text-body list-disc ml-4">
- <li>Premio per residenti in Francia: consultare la tabella Francia di <a href="https://www.priminfo.admin.ch/it/versicherungen/eu_efta" target="_blank" rel="noopener noreferrer" className="underline">Priminfo UE/AELS/UK</a>.</li>
- <li>Franchigia ordinaria: 300 CHF adulti, 0 CHF bambini; nessuna franchigia opzionale per residenti in Francia.</li>
- <li>Cure in Svizzera (rimborsi parziali UE)</li>
- <li>Nessuna mutuelle necessaria per base</li>
- </ul>
- </div>
- </div>
- <div className="p-4 bg-danger-subtle rounded-xl">
- <p className="text-sm text-danger">
- <strong>Nota:</strong>{' La CMU conviene generalmente per redditi bassi (<40.000 CHF). Per redditi alti LAMal è spesso più economica. Questa comparazione è informativa — i frontalieri italiani in Ticino scelgono tra LAMal e SSN.'}
- </p>
- </div>
- </div>
-
- <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-2xl border border-danger-border p-6">
- <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
- <Info size={20} className="text-accent" />
- LAMal svizzera vs SSN italiano
- </h3>
- {/* Interactive breakeven mini-tool (#4440) — verdict from real UFSP premiums */}
- <div className="mb-4">
- {isItaly && <LamalSsnBreakeven
+ {/* The country-specific SSN comparison applies only to residents in Italy. */}
+ {isItaly && <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-2xl border border-danger-border p-6">
+ <LamalSsnBreakeven
  defaultAge={age}
  franchisesAdult={[300]}
  franchisesChild={[0]}
  computeCheapestPremium={computeCheapestPremium}
- />}
- </div>
- <div className="grid md:grid-cols-2 gap-4 mb-4">
- <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-accent mb-2">Scegli LAMal se:</p>
- <ul className="space-y-1 text-sm text-body list-disc ml-4">
- <li>Hai bisogno di cure mediche frequenti in Svizzera</li>
- <li>Vuoi tempi di attesa brevi per specialisti</li>
- <li>Hai famiglia che vive in Svizzera</li>
- </ul>
- </div>
- <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-accent mb-2">Scegli SSN se:</p>
- <ul className="space-y-1 text-sm text-body list-disc ml-4">
- <li>Vuoi risparmiare sul costo sanitario (SSN gratuito)</li>
- <li>Le tue cure mediche sono principalmente in Italia</li>
- <li>Preferisci non pagare premi mensili</li>
- </ul>
- </div>
- </div>
- <div className="p-4 bg-warning-subtle rounded-xl border border-warning-border">
- <p className="text-sm text-warning">
- {'La scelta tra LAMal e SSN è '}
- <strong>definitiva</strong>
- {'. Hai 3 mesi per decidere. Premi basati su dati BAG 2026. Verifica su '}
- <a href="https://www.priminfo.admin.ch/it/praemien" target="_blank" rel="noopener noreferrer" className="underline font-bold">priminfo.admin.ch</a>.
- </p>
- </div>
- </div>
+ />
+ </div>}
 
  <div className="bg-surface rounded-2xl p-5 border border-edge">
  <h3 className="text-sm font-bold text-subtle uppercase tracking-wider mb-3">

@@ -80,6 +80,7 @@ describe('health comparator residence boundary', () => {
     mockData();
     render(<HealthInsurance />);
     await waitFor(() => expect(screen.getByTestId('italy-quote').textContent).toContain('279'));
+    expect(screen.queryByText(/CMU francese|tabella Francia|residenti in Francia|SSN gratuito|definitiva/)).toBeNull();
     expect(choices('hi-franchise')).toEqual(['300']);
     expect(choices('hi-model')).toEqual(['standard']);
     fireEvent.change(select('hi-residence'), { target: { value: 'CH' } });
@@ -88,6 +89,7 @@ describe('health comparator residence boundary', () => {
     fireEvent.change(select('hi-franchise'), { target: { value: '2500' } });
     fireEvent.change(select('hi-model'), { target: { value: 'telmed' } });
     expect(screen.queryByTestId('italy-quote')).toBeNull();
+    expect(screen.queryByText(/SSN italiano|Scegli SSN|CMU francese/)).toBeNull();
     fireEvent.change(select('hi-residence'), { target: { value: 'IT' } });
     expect(select('hi-franchise').value).toBe('300');
     expect(select('hi-model').value).toBe('standard');
