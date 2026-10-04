@@ -61,6 +61,16 @@ export const DUTIES_SLA_TOLERANCE = 2;
  * stale or truncated Italian snapshot.
  */
 export const BORDER_SLA_TOLERANCE = 2;
+
+/**
+ * Un verdetto di audit di una fonte cantonale (`audit` nel registry, #8705) è
+ * una lettura umana di una pagina che cambia: oltre questa età non dice più
+ * niente sullo stato della fonte e va ripetuto.
+ */
+export const PHARMACY_AUDIT_MAX_AGE_DAYS = 90;
+// Stessi valori di `PHARMACY_SOURCE_AUDIT_VERDICTS` in `services/pharmacies/types.ts`
+// (lo script gira in node senza toolchain TS): la parità è un test.
+export const PHARMACY_AUDIT_VERDICTS = Object.freeze(['complete-feed', 'partial-or-proximity', 'no-machine-readable']);
 const BORDER_JURISDICTIONS = Object.freeze([
   { key: 'CH-TI', sourceKey: 'ticino-complete', country: 'CH', canton: 'Ticino' },
   { key: 'IT-CO', sourceKey: 'italy-border', country: 'IT', province: 'CO' },
@@ -129,6 +139,7 @@ export function evaluateCoverage(registry, datasets, duties, knownCantonCount) {
     const pharmacies = Array.isArray(anagrafica?.pharmacies) ? anagrafica.pharmacies : [];
     const dutyDoc = duties?.[key] ?? null;
     const dutyList = Array.isArray(dutyDoc?.duties) ? dutyDoc.duties : [];
+    const audit = entry?.audit && typeof entry.audit === 'object' ? entry.audit : null;
     entries.push({
       key,
       canton: entry?.canton ?? key,
@@ -144,15 +155,25 @@ export function evaluateCoverage(registry, datasets, duties, knownCantonCount) {
       regionsConfigured: Array.isArray(anagrafica?._sourceRegions) ? anagrafica._sourceRegions.length : 0,
       hasDuties: Boolean(dutyDoc),
       dutyCount: dutyList.length,
+      // Esito dell'audit umano della fonte: distingue «mai esaminata» (null) da
+      // «esaminata e non pubblicabile» su una fonte non attiva.
+      audit: typeof audit?.verdict === 'string' ? audit.verdict : null,
+      auditedAt: typeof audit?.auditedAt === 'string' ? audit.auditedAt : null,
     });
   }
   entries.sort((a, b) => a.key.localeCompare(b.key));
+  const auditVerdicts = Object.fromEntries(PHARMACY_AUDIT_VERDICTS.map((verdict) => [verdict, 0]));
+  for (const e of entries) {
+    if (e.audit !== null) auditVerdicts[e.audit] = (auditVerdicts[e.audit] ?? 0) + 1;
+  }
   return {
     knownCantonCount,
     cantonsInRegistry: entries.length,
     cantonsWithAnagrafica: entries.filter((e) => e.hasAnagrafica).length,
     cantonsWithDuties: entries.filter((e) => e.hasDuties).length,
     byStatus,
+    unaudited: entries.filter((e) => e.status !== 'active' && e.audit === null).map((e) => e.key),
+    auditVerdicts,
     entries,
   };
 }
@@ -502,6 +523,20 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     if (e.status === 'active' && !e.hasAnagrafica && !e.hasDuties) {
       problems.push(`fonte ${e.key} è "active" ma non esiste alcun dataset (né anagrafica né turni)`);
     }
+    // Un feed completo già verificato senza connettore è copertura lasciata sul
+    // tavolo. Una fonte non attiva SENZA audit (`coverage.unaudited`) non è un
+    // problema qui: la dashboard la conta, il test sul registry la presidia.
+    if (e.audit === 'complete-feed' && e.status !== 'active') {
+      problems.push(`fonte ${e.key} ha un feed completo verificato il ${String(e.auditedAt).slice(0, 10)} ma nessun connettore: onboarding da aprire`);
+    }
+    if (e.audit !== null) {
+      const auditedMs = e.auditedAt ? Date.parse(e.auditedAt) : NaN;
+      if (!Number.isFinite(auditedMs)) {
+        problems.push(`audit ${e.key} scaduto: auditedAt mancante o non parsabile`);
+      } else if (nowMs - auditedMs > PHARMACY_AUDIT_MAX_AGE_DAYS * 86400e3) {
+        problems.push(`audit ${e.key} scaduto: eseguito il ${e.auditedAt.slice(0, 10)}, oltre ${PHARMACY_AUDIT_MAX_AGE_DAYS} giorni fa — ripetere la verifica della fonte`);
+      }
+    }
   }
   // Un'anagrafica stale è una violazione REALE dello SLA dichiarato dalla policy,
   // non un falso allarme da sopprimere — ma il percorso di rientro va nominato,
@@ -563,6 +598,8 @@ export function formatReport(report) {
   const c = report.coverage;
   lines.push(`Copertura: ${c.cantonsInRegistry}/${c.knownCantonCount} cantoni con fonte registrata · ${c.cantonsWithAnagrafica} con anagrafica · ${c.cantonsWithDuties} con turni`);
   lines.push(`Stato fonti: ${Object.entries(c.byStatus).map(([k, v]) => `${k}=${v}`).join(' ') || 'nessuna'}`);
+  lines.push(`Cantoni non attivi senza verdetto di audit: ${c.unaudited.length}`);
+  lines.push(`Verdetti di audit: ${Object.entries(c.auditVerdicts).map(([k, v]) => `${k}=${v}`).join(' ')}`);
   for (const e of c.entries) {
     lines.push(`  • ${e.key} [${e.status}] — ${e.pharmacyCount} farmacie in ${e.cityCount} città (${e.regionsConfigured} regioni configurate), turni: ${e.hasDuties ? e.dutyCount : 'assenti'}`);
   }
