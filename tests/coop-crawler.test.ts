@@ -1275,6 +1275,27 @@ describe('Coop-family source-detail contract (#5253)', () => {
     for (const [key, value] of Object.entries(identity)) expect(result[key]).toEqual(value);
   });
 
+  it('listingAddressEvidence() keeps the listing locality ahead of a conflicting HQ JSON-LD address', () => {
+    const listing = {
+      id: 'coop-store-stable', companyKey: 'coop-ticino',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/test/55555555-5555-4555-8555-555555555555',
+      title: 'Verkäuferin Verkäufer', description: 'listing fallback',
+      location: 'Fallback Hauptsitz', addressLocality: 'Zürich',
+      canton: 'ZH', addressRegion: 'ZH', addressCountry: 'CH', sourceLang: 'de',
+    };
+    const result = applyCoopSourceDetailToJob(
+      listing,
+      jsonLd(listing.title, 'Oberbüren', 'St. Gallen'),
+    );
+
+    expect(result).toMatchObject({
+      location: 'Zürich', addressLocality: 'Zürich', canton: 'ZH', addressRegion: 'ZH',
+      postalCode: '', streetAddress: '',
+    });
+    expect(result.location).not.toBe('Oberbüren');
+    expect(result.description.trim().split(/\s+/).length).toBeGreaterThanOrEqual(50);
+  });
+
   it('fails the whole enrichment before publishing a partial or malformed detail batch', async () => {
     // A batch-wide loss of the JSON-LD is the ATS drift the enricher exists to
     // catch: below the drift share a bad payload is dropped one vacancy at a
