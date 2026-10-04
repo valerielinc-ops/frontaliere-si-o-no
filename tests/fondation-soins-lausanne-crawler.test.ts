@@ -1,3 +1,4 @@
+import { buildJobPostingSchema, buildJobPostingFacts } from '../build-plugins/shared/jobPostingSchema';
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import {
   FONDATION_SOINS_LAUSANNE_KEY,
@@ -200,6 +201,19 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
         expect(job.postedDate).toBe(kind === 'past' ? date : '');
         expect(job.datePosted).toBe(job.postedDate);
         expect(job.postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
+      // Exercise the actual shared consumer: unknown dates suppress only rich-result markup.
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const schema = buildJobPostingSchema(job, { locale, url: job.url });
+        if (kind === 'past') {
+          expect(schema?.datePosted).toBe(job.datePosted);
+          expect(schema?.hiringOrganization.name).toBeTruthy();
+        } else {
+          expect(schema).toBeNull();
+        }
+        expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();
+      }
+      expect(job.url).toMatch(/^https:\/\//);
+      expect(job.description).toBeTruthy();
       }
     });
 
