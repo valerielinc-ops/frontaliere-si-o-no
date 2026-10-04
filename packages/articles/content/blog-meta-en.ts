@@ -12490,6 +12490,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.notte-rissa-saronno-soccorsi.title': 'Brawl in Saronno: two young people injured during the night',
     'blog.article.notte-rissa-saronno-soccorsi.excerpt': 'Two men aged 25 and 27 were injured in a brawl in the pedestrian center of Saronno: three ambulances and carabinieri at the scene.',
     'blog.article.notte-rissa-saronno-soccorsi.imageAlt': 'Illuminated pedestrian area in Saronno\'s historic center',
+    'blog.article.derby-varesina-pro-patria-2026.title': 'Varesina-Pro Patria derby: Sunday\'s clash',
+    'blog.article.derby-varesina-pro-patria-2026.excerpt': 'Sunday 4 October at 15 at Elmec Solar Stadium: Pro Patria (12 points) are looking for a reaction, Varesina (4) for a turning point.',
+    'blog.article.derby-varesina-pro-patria-2026.imageAlt': 'Football stadium at Elmec Solar Stadium in Venegono Superiore during the Varesina-Pro Patria derby.',
 };
 
 export default blogMetaEn;

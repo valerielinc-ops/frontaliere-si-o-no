@@ -12491,6 +12491,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.notte-rissa-saronno-soccorsi.title': 'Rissa a Saronno: feriti due giovani nella notte',
     'blog.article.notte-rissa-saronno-soccorsi.excerpt': 'Due ragazzi di 25 e 27 anni sono rimasti feriti in una rissa nel centro pedonale di Saronno: tre ambulanze e carabinieri sul posto.',
     'blog.article.notte-rissa-saronno-soccorsi.imageAlt': 'Zona pedonale illuminata nel centro storico di Saronno',
+    'blog.article.derby-varesina-pro-patria-2026.title': 'Derby Varesina-Pro Patria: la sfida di domenica',
+    'blog.article.derby-varesina-pro-patria-2026.excerpt': 'Domenica 4 ottobre alle 15 all\'Elmec Solar Stadium: la Pro Patria (12 punti) cerca la reazione, la Varesina (4) la svolta.',
+    'blog.article.derby-varesina-pro-patria-2026.imageAlt': 'Stadio di calcio all\'Elmec Solar Stadium di Venegono Superiore durante il derby Varesina-Pro Patria.',
 };
 
 export default blogMetaIt;

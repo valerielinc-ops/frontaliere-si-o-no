@@ -12489,6 +12489,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.notte-rissa-saronno-soccorsi.title': 'Schlägerei in Saronno: Zwei junge Männer in der Nacht verletzt',
     'blog.article.notte-rissa-saronno-soccorsi.excerpt': 'Zwei junge Männer im Alter von 25 und 27 Jahren wurden bei einer Schlägerei in der Fußgängerzone von Saronno verletzt: drei Krankenwagen und Carabinieri vor Ort.',
     'blog.article.notte-rissa-saronno-soccorsi.imageAlt': 'Beleuchtete Fußgängerzone im historischen Zentrum von Saronno',
+    'blog.article.derby-varesina-pro-patria-2026.title': 'Derby Varesina-Pro Patria: das Duell am Sonntag',
+    'blog.article.derby-varesina-pro-patria-2026.excerpt': 'Am Sonntag, den 4. Oktober, um 15 Uhr im Elmec Solar Stadium: Pro Patria (12 Punkte) will eine Reaktion zeigen, Varesina (4) die Wende schaffen.',
+    'blog.article.derby-varesina-pro-patria-2026.imageAlt': 'Fußballstadion im Elmec Solar Stadium in Venegono Superiore während des Derbys Varesina-Pro Patria.',
 };
 
 export default blogMetaDe;
