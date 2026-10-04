@@ -32,6 +32,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolveOutputPath } from './lib/resolve-output-path.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { reconcileMonitorIssues } from './lib/monitor-issue-reconcile.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import { runHogQL } from './lib/posthog-client.mjs';
 import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
@@ -177,7 +178,24 @@ function sourceUnavailableResult({ history, file, date, reason, dryRun, liveness
  * null otherwise.
  */
 export function evaluateConsecutiveRegression(weeks, metricField, threshold, device = 'all') {
-  if (threshold == null || weeks.length < 2) return null;
+  if (threshold == null) return null;
+  const pair = comparableWindows(weeks, metricField, device);
+  if (!pair) return null;
+  const { previous, current } = pair;
+  if (current[metricField] > threshold && previous[metricField] > threshold) {
+    return { previous, current, device };
+  }
+  return null;
+}
+
+/**
+ * The last two recorded windows for `device` (`all` = the pooled fields),
+ * when BOTH are valid observations of `metricField` and they can be paired:
+ * otherwise `null`. Shared by the regression (opener) and the recovery
+ * (closer), so the two verdicts can never disagree on what a usable pair is.
+ */
+function comparableWindows(weeks, metricField, device = 'all') {
+  if (!Array.isArray(weeks) || weeks.length < 2) return null;
   // A missing/low-sample week breaks the chain. Never bridge an outage or
   // compare legacy pooled snapshots with a newly segmented source.
   const [previous, current] = weeks.slice(-2).map((week) => ({
@@ -193,10 +211,170 @@ export function evaluateConsecutiveRegression(weeks, metricField, threshold, dev
       || previous.window?.timezone !== current.window?.timezone
       || !previous.window?.endDate || !current.window?.startDate
       || previous.window.endDate >= current.window.startDate) return null;
-  if (current[metricField] > threshold && previous[metricField] > threshold) {
+  return { previous, current };
+}
+
+/**
+ * Recovery = the metric's field p75 was AT OR BELOW `threshold` on the last
+ * two recorded, comparable windows — the exact complement of
+ * `evaluateConsecutiveRegression`, with the same validity rules: a missing,
+ * under-sampled (`n < MIN_SAMPLES_PER_METRIC`) or `sourceUnavailable` window,
+ * a source change, a different duration or an overlap → `null`. An
+ * insufficient sample is not a recovery. Returns the two data points, or null.
+ */
+export function evaluateConsecutiveRecovery(weeks, metricField, threshold, device = 'all') {
+  if (threshold == null) return null;
+  const pair = comparableWindows(weeks, metricField, device);
+  if (!pair) return null;
+  const { previous, current } = pair;
+  if (current[metricField] <= threshold && previous[metricField] <= threshold) {
     return { previous, current, device };
   }
   return null;
+}
+
+// ── Chiusura: la metà simmetrica del conio ──────────────────────────────────
+
+export const CWV_FAMILY = 'cwv-regression';
+export const CWV_TITLE_PREFIX = 'CWV Regression (';
+const CWV_RECONCILE_COMMAND = 'node scripts/cwv-monitor-check.mjs --dry-run';
+const METRIC_FIELDS = { CLS: 'cls_p75', INP: 'inp_p75' };
+const TITLE_RE = /^CWV Regression \((CLS|INP)(?:, ([a-z]+))?\): (\/\S*)$/u;
+
+/** Il titolo che il monitor conia oggi (stabile fra le settimane: niente valori né date). */
+export const cwvIssueTitle = ({ metric, device, path }) => `CWV Regression (${metric}, ${device}): ${path}`;
+/** La forma precedente, senza device: misura aggregata (`all`). */
+const legacyCwvIssueTitle = ({ metric, path }) => `CWV Regression (${metric}): ${path}`;
+
+/**
+ * Metrica, device e path dal titolo di una issue della famiglia. Forma
+ * attuale `CWV Regression (<METRIC>, <device>): <path>`; forma precedente
+ * `CWV Regression (<METRIC>): <path>` → device `all` (i campi aggregati della
+ * storia). Qualunque altra forma → `null`: nessun verdetto, nessuna scrittura.
+ */
+export function parseCwvIssueTitle(title) {
+  const m = TITLE_RE.exec(String(title ?? ''));
+  if (!m) return null;
+  const device = m[2] ?? 'all';
+  if (device !== 'all' && !DEVICES.includes(device)) return null;
+  return { metric: m[1], device, path: m[3], legacy: m[2] === undefined };
+}
+
+const fmtRaw = (n) => (typeof n === 'number' ? String(n) : 'n/a');
+function describeWindow(row, metricField) {
+  const countField = metricField.replace('_p75', '_n');
+  return `${row.window?.startDate || '?'}→${row.window?.endDate || '?'} = ${fmtRaw(row[metricField])} `
+    + `(n=${row[countField] ?? '?'}, ${row.source || '?'})`;
+}
+
+/**
+ * Il verdetto di chiusura per UNA issue aperta della famiglia, sui valori
+ * registrati nella storia (per device, non un aggregato ricalcolato).
+ * `complete` = le ultime due finestre sono valide e confrontabili; `clean` =
+ * entrambe sotto o alla soglia. Titolo non interpretabile, path non più fra
+ * i `TARGET_PAGES` o metrica senza soglia → `complete: false` (nessuna misura).
+ */
+export function cwvRecoveryVerdict(issue, history) {
+  const incomplete = (evidence) => ({ clean: false, complete: false, evidence });
+  const parsed = parseCwvIssueTitle(issue?.title);
+  if (!parsed) return incomplete(`titolo non interpretabile: "${issue?.title ?? ''}"`);
+  const page = TARGET_PAGES.find((p) => p.path === parsed.path);
+  if (!page) return incomplete(`${parsed.path} non è più fra i TARGET_PAGES del monitor`);
+  const threshold = page[parsed.metric.toLowerCase()];
+  if (threshold == null) return incomplete(`${parsed.path} non ha una soglia ${parsed.metric}`);
+  const field = METRIC_FIELDS[parsed.metric];
+  const weeks = history?.pages?.[page.key]?.weeks || [];
+  const pair = comparableWindows(weeks, field, parsed.device);
+  if (!pair) {
+    return incomplete(`${parsed.metric} ${parsed.device} su ${parsed.path}: le ultime due finestre registrate non sono valide e confrontabili`);
+  }
+  const recovery = evaluateConsecutiveRecovery(weeks, field, threshold, parsed.device);
+  const unit = parsed.metric === 'INP' ? 'ms' : '';
+  const evidence = `${parsed.metric} p75 field, device ${parsed.device}, ${parsed.path}, soglia ≤ ${threshold}${unit}: `
+    + `${describeWindow(pair.previous, field)}; ${describeWindow(pair.current, field)}`
+    // Il conio usa solo la forma con il device: una recidiva apre quel titolo,
+    // non riapre questo nella forma precedente.
+    + (parsed.legacy
+      ? `. Titolo nella forma precedente senza device: se il difetto torna sopra soglia il monitor apre \`${cwvIssueTitle({ metric: parsed.metric, device: '<device>', path: parsed.path })}\``
+      : '');
+  return {
+    clean: recovery !== null,
+    complete: true,
+    evidence,
+    measure: pair.current.window.endDate,
+    measuredAt: pair.current.date,
+    command: CWV_RECONCILE_COMMAND,
+  };
+}
+
+/**
+ * I titoli misurati sopra soglia in questa run: quelli coniati
+ * (`regressions`) più, per ogni pagina e metrica in regressione su un device
+ * o sull'aggregato, il titolo nella forma precedente senza device. Così una
+ * issue aperta con il vecchio titolo (8868) resta `keep` e perde
+ * `maybe-resolved` quando la pagina è ancora sopra soglia.
+ */
+export function cwvMeasuredTitles(history, regressions = []) {
+  const titles = new Set();
+  for (const r of regressions) {
+    titles.add(cwvIssueTitle(r));
+    titles.add(legacyCwvIssueTitle(r));
+  }
+  for (const page of TARGET_PAGES) {
+    const weeks = history?.pages?.[page.key]?.weeks || [];
+    for (const [metric, field] of Object.entries(METRIC_FIELDS)) {
+      if (evaluateConsecutiveRegression(weeks, field, page[metric.toLowerCase()], 'all')) {
+        titles.add(legacyCwvIssueTitle({ metric, path: page.path }));
+      }
+    }
+  }
+  return titles;
+}
+
+/** Esiste almeno una coppia di finestre confrontabili su cui una issue potrebbe avere un verdetto? */
+function hasComparableWindows(history) {
+  return TARGET_PAGES.some((page) => {
+    const weeks = history?.pages?.[page.key]?.weeks || [];
+    return Object.entries(METRIC_FIELDS).some(([metric, field]) => page[metric.toLowerCase()] != null
+      && ['all', ...DEVICES].some((device) => comparableWindows(weeks, field, device)));
+  });
+}
+
+/**
+ * La fase «riconcilia» del monitor CWV (scripts/lib/monitor-issue-reconcile.mjs),
+ * chiamata dopo ogni snapshot valido, anche senza regressioni. `confirmations: 1`
+ * perché `clean` è già un criterio di due finestre consecutive. Senza alcuna
+ * coppia confrontabile nessun verdetto può essere completo e nessun titolo è
+ * misurato: la riconciliazione non scriverebbe nulla, quindi non legge neppure.
+ */
+export async function reconcileCwvIssues({
+  history, regressions = [], dryRun = false, workflow, io, now = new Date(), log,
+}) {
+  if (!hasComparableWindows(history)) {
+    console.log('[cwv-monitor-check] riconciliazione saltata: nessuna coppia di finestre valide e confrontabili nella storia');
+    return null;
+  }
+  const measured = cwvMeasuredTitles(history, regressions);
+  const runUrl = process.env.GITHUB_RUN_ID
+    ? `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+    : undefined;
+  return reconcileMonitorIssues({
+    family: CWV_FAMILY,
+    labels: [CWV_FAMILY],
+    titlePrefix: CWV_TITLE_PREFIX,
+    verdictFor: (issue) => cwvRecoveryVerdict(issue, history),
+    confirmations: 1,
+    measuredTitles: measured,
+    // Una misura sopra soglia smentisce `maybe-resolved` anche sul titolo
+    // nella forma precedente, che il conio non riconferma più per titolo.
+    reconfirmedTitles: measured,
+    dryRun,
+    workflow,
+    runUrl,
+    now,
+    io,
+    log,
+  });
 }
 
 const fmtCls = (n) => (typeof n === 'number' ? n.toFixed(2) : 'n/a');
@@ -231,17 +409,18 @@ export function buildIssueBody(e) {
         metrica: `prima=${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])} atteso=<${e.threshold}${e.metric === 'CLS' ? '' : 'ms'}`,
         comando: 'node scripts/cwv-monitor-check.mjs --dry-run',
         note: [
-          'Il comando rigira la stessa query PostHog senza scrivere la storia e senza coniare:',
-          'la issue si chiude quando questa pagina non compare piu\' fra le regressioni. Vuole le',
+          'Il comando rigira la stessa query PostHog senza scrivere la storia e senza coniare,',
+          'e stampa la decisione di chiusura per ogni issue aperta della famiglia. Vuole le',
           'credenziali PostHog — dalla root del workspace, `source bin/rc-env.sh`. La serie sta',
           'in `data/cwv-monitor-history.json`.',
         ],
         osservatore: [
           '`.github/workflows/cwv-monitor.yml`, che ogni settimana rimisura e ricommenta sulla',
-          "issue canonica finche' il p75 resta sopra soglia. Non esiste un closer automatico: il",
-          "comando qui sopra e' il criterio con cui chiuderla.",
+          "issue canonica finche' il p75 resta sopra soglia, e la chiude da solo con l'evidenza",
+          'quando le ultime due finestre registrate sono valide, confrontabili e sotto soglia',
+          '(`evaluateConsecutiveRecovery`, stesso device del titolo).',
         ],
-        fallimento: `\`CWV Regression (${e.metric}): ${e.path}\``,
+        fallimento: `\`${cwvIssueTitle({ ...e, device: e.device || 'all' })}\``,
       }),
   ].join('\n');
 }
@@ -282,6 +461,7 @@ export async function main({
   checkLivenessImpl = checkPostHogLiveness,
   runHogQLImpl = runHogQL,
   now = new Date(),
+  reconcileIo,
 } = {}) {
   const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
   const PID = process.env.POSTHOG_PROJECT_ID;
@@ -451,22 +631,34 @@ export async function main({
   if (!dryRun) saveHistory(HISTORY_FILE, history);
   console.log(`[cwv-monitor-check] snapshot recorded for ${today} — ${regressions.length} regression(s) detected`);
 
-  if (!regressions.length) return { status: 'ok', date: today, source, regressions };
+  const workflow = `CWV Monitor — ${source === 'ga4' ? 'GA4 fallback' : 'PostHog'} weekly regression check (#4302), ${WINDOW_DAYS}d window`;
+  // La riconciliazione gira dopo OGNI snapshot valido, anche senza
+  // regressioni: una issue guarita si chiude proprio nelle run in cui il
+  // monitor non trova nulla (prima qui c'era un `return` anticipato).
+  const reconcile = () => reconcileCwvIssues({
+    history, regressions, dryRun, workflow, io: reconcileIo, now,
+  });
+
+  if (!regressions.length) {
+    const reconciled = await reconcile();
+    return { status: 'ok', date: today, source, regressions, reconciled };
+  }
 
   const synced = await syncErrorIssues({
     entries: regressions,
     dryRun,
     maxIssues: regressions.length,
     labels: ['performance', 'cwv-regression'],
-    source: `CWV Monitor — ${source === 'ga4' ? 'GA4 fallback' : 'PostHog'} weekly regression check (#4302), ${WINDOW_DAYS}d window`,
+    source: workflow,
     priorityFor: () => 2, // priority:high — these are money/revenue pages
     // Title is stable across weeks (no values/dates) so a still-unresolved
     // regression dedupes onto the SAME issue via createGithubIssue's
     // title-prefix match instead of opening a fresh one every week.
-    titleFor: (e) => `CWV Regression (${e.metric}, ${e.device}): ${e.path}`,
+    titleFor: cwvIssueTitle,
     bodyFor: (entry) => buildIssueBody({ ...entry, sourceLabel: source === 'ga4' ? 'GA4 `web_vitals` real-user events (fallback — PostHog non misurabile)' : undefined }),
   });
-  return { status: 'ok', date: today, source, regressions, synced };
+  const reconciled = await reconcile();
+  return { status: 'ok', date: today, source, regressions, synced, reconciled };
 }
 
 // Run only when invoked directly (not when imported by the test suite), so
