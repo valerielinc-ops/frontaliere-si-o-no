@@ -19,6 +19,7 @@
  *      mirrors to the optional public path when that workspace is present.
  *   5. Translates and validates locale coverage.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -183,7 +184,7 @@ function buildBaronieJob(url, detail) {
     sector: 'Alimentare / Cioccolato',
     source: 'baronie-dedicated-crawler',
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(''),
     employmentType: 'full-time',
     contractType: 'permanent',
     validThrough: '',
@@ -249,6 +250,7 @@ function mergeJobs(discoveredJobs) {
     const clean = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, srcLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, { ...prevDesc, ...(job.descriptionByLocale || {}) }, 30, srcLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
@@ -287,7 +289,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: DEFAULT_CANTON,
       company: job.company,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

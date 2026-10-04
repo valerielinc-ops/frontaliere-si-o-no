@@ -21,6 +21,7 @@
  *   4. Builds job objects and merges them into jobs.json.
  *   5. Translates and validates locale coverage.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -285,7 +286,7 @@ function buildJob(row, description) {
     sector: 'Finanza / Wealth Management',
     source: 'colin-cie-dedicated-crawler',
     sourceLang: 'de',
-    postedDate: row.postedDate || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.postedDate),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -318,6 +319,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),

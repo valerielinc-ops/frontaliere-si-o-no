@@ -149,7 +149,19 @@ const REPO_COMMAND_RE = /\b(?:npm|npx|node|vitest|tsx|git|bash|sh|rg|grep|jq)\b/
 // workflow della misura post-merge.
 const WORKFLOW_FILE_RE = /^\.github\/workflows\/[A-Za-z0-9_.@-]+\.ya?ml$/iu;
 const FUNCTION_CALL_RE = /[A-Za-z_$][\w$]*\(/u;
-const ACCEPTANCE_CLAUSE_RE = /(?:Accettazione|Acceptance)\s*:\s*([\s\S]*?)(?=(?:Accettazione|Acceptance)\s*:|$)/giu;
+// Il marcatore della clausola. Il suo testo NON finisce al primo a capo: una
+// `Accettazione:` su più righe continua fino alla clausola successiva o alla
+// fine del finding (il cui testo il gate taglia già al finding successivo o
+// all'H2). Review 11321: con `([^\n]*)` la continuazione «run node
+// scripts/x.mjs» non veniva letta e un 🔴 di codice passava in `reJudge`.
+const ACCEPTANCE_MARKER_RE = /(?:Accettazione|Acceptance)\s*:/giu;
+// Ogni etichetta d'accettazione, in qualunque forma (`**Acceptance**:`,
+// «Acceptance criteria:»), ma non la parola in prosa («a pre-merge acceptance
+// threshold.», PR 11241): se sono più dei marcatori riconosciuti, una clausola
+// ha un formato che il classificatore non legge e il finding resta di codice.
+const ACCEPTANCE_LABEL_RE = /\b(?:Accettazione|Acceptance)\b[^\n:.;,]{0,24}:/giu;
+// Testo troncato: chiude con un'ellissi o lascia aperto un backtick.
+const TRUNCATED_END_RE = /(?:…|\.\.\.)\s*$/u;
 const PR_BODY_ANCHOR_RE = /^\s*(?:[-*]\s*)?`?PR body[:#]L?[1-9]\d*/iu;
 
 function citesRepoCode(clause, extractCitations) {
@@ -157,31 +169,58 @@ function citesRepoCode(clause, extractCitations) {
   return extractCitations(clause).some((citation) => !WORKFLOW_FILE_RE.test(String(citation?.path || '')));
 }
 
-function bodyOnlyAcceptanceClause(clause, extractCitations) {
-  return BODY_ACCEPTANCE_START_RE.test(clause)
-    && !REPO_COMMAND_RE.test(clause)
-    && !citesRepoCode(clause, extractCitations);
+function mentionsRepository(clause, extractCitations) {
+  return REPO_COMMAND_RE.test(clause) || citesRepoCode(clause, extractCitations);
+}
+
+function unreadableClause(clause) {
+  return clause.trim() === ''
+    || TRUNCATED_END_RE.test(clause)
+    || (clause.match(/`/gu) || []).length % 2 === 1;
 }
 
 /**
- * `'body'` quando il 🔴 si chiude correggendo il body: ancorato a
- * `PR body:L<n>`, oppure con OGNI clausola `Accettazione:` sul body e nessun
- * comando, file citato (salvo `.github/workflows/*.yml`) o chiamata di
- * funzione sul repository. Tutto il resto, incluso un 🔴 senza `Accettazione:`
- * o con una clausola mista, è `'code'`: in dubbio il finding resta riportato
- * identico come prima, quindi il classificatore non può allentare il gate.
- * `extractCitations` è `extractFileCitations` del review gate; senza, la sola
- * forma riconosciuta è l'anchor `PR body:L<n>`.
+ * Le clausole `Accettazione:` del finding, ciascuna per intero (anche su più
+ * righe), oppure `null` quando il formato non si lascia leggere con certezza:
+ * un'etichetta d'accettazione fuori dai marcatori riconosciuti, una clausola
+ * vuota o troncata. Lo usano entrambi i classificatori che possono allentare
+ * il gate: questo (codice/body) e `isLedgerAcceptanceFinding` del review gate.
+ */
+export function findingAcceptanceClauses(text) {
+  text = String(text || '');
+  const markers = [...text.matchAll(ACCEPTANCE_MARKER_RE)];
+  if ((text.match(ACCEPTANCE_LABEL_RE) || []).length !== markers.length) return null;
+  const clauses = markers.map((match, index) =>
+    text.slice(match.index + match[0].length, markers[index + 1]?.index ?? text.length));
+  return clauses.some(unreadableClause) ? null : clauses;
+}
+
+/**
+ * `'body'` solo quando l'accettazione del 🔴 riguarda ESCLUSIVAMENTE il body:
+ * ancorato a `PR body:L<n>` senza file citati e senza clausole che tocchino il
+ * repository, oppure con OGNI clausola `Accettazione:` (letta per intero, fino
+ * alla fine del finding) che comincia dal body e non nomina comandi, file
+ * (salvo `.github/workflows/*.yml`) o chiamate di funzione del repository.
+ * Ogni dubbio è `'code'`: nessuna `Accettazione:`, clausola mista, testo
+ * troncato, formato non riconosciuto, confine del finding incerto per il
+ * parser del gate (`parserUncertain`), estrattore delle citazioni assente. In
+ * dubbio il finding resta riportato identico come prima: il classificatore non
+ * può allentare il gate. `extractCitations` è `extractFileCitations` del gate.
  */
 export function findingAcceptanceScope(finding, { extractCitations } = {}) {
+  if (finding?.parserUncertain) return 'code';
   const line = String(finding?.line || '');
   const text = String(finding?.text || '');
+  const clauses = findingAcceptanceClauses(text);
+  if (clauses === null) return 'code';
   if ((finding?.citations || []).length === 0 && (PR_BODY_ANCHOR_RE.test(line) || PR_BODY_ANCHOR_RE.test(text))) {
-    return 'body';
+    if (clauses.length === 0) return 'body';
+    if (typeof extractCitations !== 'function') return 'code';
+    return clauses.some((clause) => mentionsRepository(clause, extractCitations)) ? 'code' : 'body';
   }
   if (typeof extractCitations !== 'function') return 'code';
-  const clauses = [...text.matchAll(ACCEPTANCE_CLAUSE_RE)].map((match) => match[1]);
-  return clauses.length > 0 && clauses.every((clause) => bodyOnlyAcceptanceClause(clause, extractCitations))
+  return clauses.length > 0 && clauses.every((clause) =>
+    BODY_ACCEPTANCE_START_RE.test(clause) && !mentionsRepository(clause, extractCitations))
     ? 'body'
     : 'code';
 }
