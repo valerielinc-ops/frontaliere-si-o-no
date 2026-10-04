@@ -20,6 +20,7 @@
 
 import { captureEvent as posthogCapture } from './posthog';
 import { isJobBoardSectorHubPath } from './analyticsPageContext';
+import { FUEL_SECTION_SLUG as SHARED_FUEL_SECTION_SLUG } from '../build-plugins/shared/fuelRouteSlugs.mjs';
 
 // ─── Locale detection ──────────────────────────────────────────────────
 
@@ -57,20 +58,9 @@ function stripLocalePrefix(pathname: string): string {
 // for mutation. When a new feature ships a new section slug, add it here.
 
 /** F6 — Daily fuel-price pages (diesel + gasoline). */
-const FUEL_DAILY_SECTIONS: readonly string[] = [
-  // IT
-  'prezzi-diesel',
-  'prezzi-benzina',
-  // EN
-  'diesel-price-switzerland',
-  'gasoline-price-switzerland',
-  // DE
-  'dieselpreis-schweiz',
-  'benzinpreis-schweiz',
-  // FR
-  'prix-gasoil-suisse',
-  'prix-essence-suisse',
-];
+const FUEL_DAILY_SECTIONS: readonly string[] = Object.values(
+  SHARED_FUEL_SECTION_SLUG as Record<string, Record<string, string>>,
+).flatMap((byFuel) => Object.values(byFuel));
 
 /** F5 — Weekly "aziende che assumono" per-city hub. */
 const WEEKLY_EMPLOYERS_SECTIONS: readonly string[] = [

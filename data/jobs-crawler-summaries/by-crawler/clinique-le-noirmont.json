@@ -1,7 +1,7 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-10-03T21:30:39.071Z",
+  "generatedAt": "2026-10-04T09:29:06.297Z",
   "total": 3,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4100,
-  "avgDurationMs": 4100,
+  "durationMs": 4286,
+  "avgDurationMs": 4286,
   "durationHistory": [
-    4100
+    4286
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,9 @@
       "contractType": "full-time",
       "source": "clinique-le-noirmont-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -45,12 +47,12 @@
       },
       "id": "clinique-le-noirmont-b014ca95d60e",
       "firstSeenAt": "2026-09-25T15:13:01.629Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -74,7 +76,9 @@
       "contractType": "full-time",
       "source": "clinique-le-noirmont-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -82,12 +86,12 @@
       },
       "id": "clinique-le-noirmont-d8b8b702f14c",
       "firstSeenAt": "2026-08-20T21:38:25.587Z",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -111,7 +115,9 @@
       "contractType": "full-time",
       "source": "clinique-le-noirmont-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-12",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -119,16 +125,16 @@
       },
       "id": "clinique-le-noirmont-4d14fffb276a",
       "firstSeenAt": "2026-08-12T10:17:37.356Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

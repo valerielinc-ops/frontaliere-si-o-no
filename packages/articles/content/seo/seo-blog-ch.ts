@@ -99509,6 +99509,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-steel-ristrutturazione-germania': {
+    title: 'Swiss Steel annuncia ristrutturazione e tagli in Germania',
+    description: 'Swiss Steel annuncia una ristrutturazione in Germania per tornare all\'utile nel 2028. Dettagli sul sostegno a Steeltec e sull\'impatto delle misure UE.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, steel, annuncia, ristrutturazione',
+    ogTitle: 'Swiss Steel annuncia una nuova ristrutturazione',
+    ogDescription: 'La multinazionale lucernese Swiss Steel avvia un piano di riorganizzazione per superare le perdite e tornare alla redditività operativa entro il 2028.',
+    canonicalPath: '/articoli-svizzera/swiss-steel-ristrutturazione-germania/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss Steel annuncia ristrutturazione e tagli in Germania",
+      "description": "Swiss Steel annuncia una ristrutturazione in Germania per tornare all'utile nel 2028. Dettagli sul sostegno a Steeltec e sull'impatto delle misure UE.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swiss-steel-ristrutturazione-germania.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento siderurgico svizzero in un contesto industriale"
+      },
+      "datePublished": "2026-10-04T07:37:13+00:00",
+      "dateModified": "2026-10-04T07:37:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swiss-steel-ristrutturazione-germania/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-minimo-zurigo-requisiti': {
+    title: 'Salario minimo canton Zurigo: requisiti e applicazione',
+    description: 'Salario minimo nel Cantone di Zurigo: requisiti, settori, controlli, ufficio competente e differenza tra disciplina cantonale e contratti collettivi svizzeri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, canton, zurigo',
+    ogTitle: 'Salario minimo canton Zurigo: requisiti e applicazione',
+    ogDescription: 'Nel Cantone di Zurigo la verifica parte dal quadro cantonale: alcuni Cantoni hanno un minimo proprio, mentre a livello federale non esiste. Guida pratica a requisiti, controlli, contratti collettivi e trattenute.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-zurigo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo canton Zurigo: requisiti e applicazione",
+      "description": "Salario minimo nel Cantone di Zurigo: requisiti, settori, controlli, ufficio competente e differenza tra disciplina cantonale e contratti collettivi svizzeri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-minimo-zurigo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti sul salario minimo in un ufficio cantonale svizzero"
+      },
+      "datePublished": "2026-10-04T11:39:08+00:00",
+      "dateModified": "2026-10-04T11:39:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-zurigo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assistenza-sociale-zurigo-domanda': {
+    title: 'Assistenza sociale nel canton Zurigo: requisiti e domanda',
+    description: 'Guida all\'assistenza sociale nel canton Zurigo: requisiti legati al bisogno, ufficio comunale o cantonale, documenti, prestazioni e obblighi di collaborazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, sociale, canton, zurigo',
+    ogTitle: 'Assistenza sociale nel canton Zurigo: requisiti e domanda',
+    ogDescription: 'Chi vive nel canton Zurigo trova qui i passaggi essenziali per la domanda di assistenza sociale: condizione di bisogno, ufficio competente, documenti, prestazioni e collaborazione, con le distinzioni da LAMal e previdenza.',
+    canonicalPath: '/articoli-svizzera/assistenza-sociale-zurigo-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistenza sociale nel canton Zurigo: requisiti e domanda",
+      "description": "Guida all'assistenza sociale nel canton Zurigo: requisiti legati al bisogno, ufficio comunale o cantonale, documenti, prestazioni e obblighi di collaborazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assistenza-sociale-zurigo-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio comunale svizzero per una domanda di assistenza sociale"
+      },
+      "datePublished": "2026-10-04T12:15:27+00:00",
+      "dateModified": "2026-10-04T12:15:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assistenza-sociale-zurigo-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-auto-zurigo-pagamento': {
+    title: 'Imposta autoveicoli a Zurigo: calcolo e pagamento',
+    description: 'Imposta sugli autoveicoli nel Cantone di Zurigo: calcolo, pagamento, scadenze, cambio di veicolo e aggiornamento dell\'indirizzo secondo le regole cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, autoveicoli, zurigo, calcolo',
+    ogTitle: 'Imposta auto a Zurigo: calcolo e scadenze',
+    ogDescription: 'Calcolo, scadenze e pagamento dell\'imposta sugli autoveicoli a Zurigo dipendono dalle regole cantonali. La guida distingue competenze, cambio di veicolo e aggiornamento dell\'indirizzo senza confondere tributi federali e cantonali.',
+    canonicalPath: '/articoli-svizzera/imposta-auto-zurigo-pagamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta autoveicoli a Zurigo: calcolo e pagamento",
+      "description": "Imposta sugli autoveicoli nel Cantone di Zurigo: calcolo, pagamento, scadenze, cambio di veicolo e aggiornamento dell'indirizzo secondo le regole cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-auto-zurigo-pagamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imposta sugli autoveicoli: auto e documenti in un ufficio cantonale del Cantone di Zurigo."
+      },
+      "datePublished": "2026-10-04T15:14:54+00:00",
+      "dateModified": "2026-10-04T15:14:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-auto-zurigo-pagamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incentivi-energetici-zurigo-domanda': {
+    title: 'Incentivi energetici a Zurigo: requisiti e domanda',
+    description: 'Incentivi energetici nel Cantone di Zurigo: requisiti tecnici, risanamento di edifici e impianti, domanda prima dei lavori e ufficio cantonale competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivi, energetici, zurigo, requisiti',
+    ogTitle: 'Incentivi energetici a Zurigo: requisiti e domanda',
+    ogDescription: 'Nel Cantone di Zurigo la domanda per gli incentivi energetici va presentata prima dei lavori. La guida chiarisce come verificare requisiti tecnici, termini, importi e ufficio cantonale sulla fonte ufficiale, prima di pianificare il risanamento.',
+    canonicalPath: '/articoli-svizzera/incentivi-energetici-zurigo-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivi energetici a Zurigo: requisiti e domanda",
+      "description": "Incentivi energetici nel Cantone di Zurigo: requisiti tecnici, risanamento di edifici e impianti, domanda prima dei lavori e ufficio cantonale competente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incentivi-energetici-zurigo-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incentivi energetici per il risanamento di un edificio nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-04T15:55:32+00:00",
+      "dateModified": "2026-10-04T15:55:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incentivi-energetici-zurigo-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

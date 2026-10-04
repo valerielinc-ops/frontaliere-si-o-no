@@ -398,13 +398,15 @@ describe('originContentOnMain: tutto o non provato', () => {
   it('file rimosso, sole rimozioni o elenco vuoto → non provato', () => {
     expect(originContentOnMain([{ filename: 'gone.ts', status: 'removed', patch: patch([], ['x']) }], main('')).proven).toBe(false);
     expect(originContentOnMain([{ filename: 'a.ts', status: 'modified', patch: patch([], ['x']) }], main('')).proven).toBe(false);
+    expect(originContentOnMain([{ filename: 'a.ts', status: 'modified', patch: '@@ -1,0 +1,1 @@\n+  ' }], main('  \n')).proven).toBe(false);
     expect(originContentOnMain([], main('')).proven).toBe(false);
     expect(originContentOnMain(null as any, main('')).proven).toBe(false);
   });
 
-  it('l\'intestazione +++ non è una riga aggiunta; gli spazi ai bordi e ripetuti non contano', () => {
+  it('l\'intestazione +++ non è una riga aggiunta; solo CRLF non conta', () => {
     const withHeader = [{ filename: 'a.ts', status: 'modified', patch: `+++ b/a.ts\n${patch(['  // due  spazi'])}` }];
-    expect(originContentOnMain(withHeader, main('\t// due spazi\r\n')).proven).toBe(true);
+    expect(originContentOnMain(withHeader, main('\t// due spazi\r\n')).proven).toBe(false);
+    expect(originContentOnMain(withHeader, main('  // due  spazi\r\n')).proven).toBe(true);
   });
 
   it('dentro un hunk una riga che inizia con ++ è una riga aggiunta, non un\'intestazione', () => {
@@ -518,9 +520,12 @@ describe('decideHandoff: PR di origine CHIUSA senza merge', () => {
     comments: [{ body: '<!-- ALREADY_FIXED_ROUTED pr=10727 run=36841197125 -->' }],
   };
 
-  it('REPLAY #10873 (PR #10865): patch applicata su main hunk per hunk → completed', () => {
+  it('REPLAY #10873 (PR #10865): una riga riscritta su main, anche solo negli spazi, non prova il contenuto → superseded, MAI completed', () => {
     // Forma misurata il 03-10 sulla PR #10865: 3 file, una riga di commento
-    // con due spazi che #11201 ha poi normalizzato su main.
+    // con due spazi che #11201 ha poi normalizzato su main. Dal confronto
+    // esatto (review del corpus sulla PR di trasporto 2090) quella riga non e'
+    // piu' la riga della patch: il contenuto non e' provato e l'hand-off si
+    // chiude come superato solo perche' l'origine non dichiarava issue.
     const files = [
       { filename: 'build-plugins/jobsSeoPagesPlugin.ts', status: 'modified', patch: patch(['  // tracked locale cluster when one exists.  These pages are emitted by the', '  const archive = true;'], ['old'], ['x']) },
       { filename: 'tests/cross-canton-active-drift-bridge.test.ts', status: 'modified', patch: patch(['    expect(x).toBe(true);']) },
@@ -531,11 +536,22 @@ describe('decideHandoff: PR di origine CHIUSA senza merge', () => {
       'tests/cross-canton-active-drift-bridge.test.ts': '    expect(x).toBe(true);\n',
       'tests/seo/historical-archive-hreflang.test.ts': 'import { it } from \'vitest\';\nit(\'hreflang\', () => {});\n',
     };
-    const contentProof = originContentOnMain(files, (p: string) => mainText[p] ?? null);
-    expect(contentProof.proven).toBe(true);
     const issue = handoff(10873, 10865);
     const origin = closedOrigin({ closedAt: '2026-10-02T06:23:08Z', body: '' });
     const now = at('2026-10-03T16:00:00Z');
+    const normalizedProof = originContentOnMain(files, (p: string) => mainText[p] ?? null);
+    expect(normalizedProof.proven).toBe(false);
+    expect((normalizedProof as any).reason).toContain('build-plugins/jobsSeoPagesPlugin.ts: hunk 1/');
+    expect(decideHandoff({ issue, origin, mergedPrs: [], openPrs: [], contentProof: normalizedProof, originIssues: [], now }))
+      .toEqual({ action: 'close', reason: 'origin-closed-superseded', pr: 10865 });
+
+    // La stessa forma con la riga identica a quella della patch e' completed.
+    const exactMain: Record<string, string> = {
+      ...mainText,
+      'build-plugins/jobsSeoPagesPlugin.ts': 'x\n  // tracked locale cluster when one exists.  These pages are emitted by the\n  const archive = true;\n',
+    };
+    const contentProof = originContentOnMain(files, (p: string) => exactMain[p] ?? null);
+    expect(contentProof.proven).toBe(true);
     expect(decideHandoff({ issue, origin, mergedPrs: [], openPrs: [], contentProof, originIssues: [], now }))
       .toEqual({ action: 'close', reason: 'origin-closed-content-on-main', pr: 10865 });
     const text = closingComment({ reason: 'origin-closed-content-on-main', originNumber: 10865, pr: 10865, contentProof });

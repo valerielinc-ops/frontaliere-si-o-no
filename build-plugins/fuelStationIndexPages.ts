@@ -65,6 +65,7 @@ import {
   type ItalianCityEntry,
 } from './fuelDailyData';
 import { BASE_URL } from './constants';
+import { FUEL_INDEX_SLUG } from './shared/fuelRouteSlugs.mjs';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import {
@@ -259,26 +260,7 @@ export interface FuelIndexInputs {
 // ── Locale-aware index slugs ──────────────────────────────────────
 
 /** Last-segment slug per locale for the 3 index types. */
-export const FUEL_INDEX_SLUG = {
-  swissStations: {
-    it: 'stazioni-svizzere',
-    en: 'swiss-stations',
-    de: 'schweizer-tankstellen',
-    fr: 'stations-suisses',
-  },
-  italianStations: {
-    it: 'stazioni-italia',
-    en: 'italian-stations',
-    de: 'italienische-tankstellen',
-    fr: 'stations-italiennes',
-  },
-  italianCities: {
-    it: 'citta-italiane',
-    en: 'italian-cities',
-    de: 'italienische-staedte',
-    fr: 'villes-italiennes',
-  },
-} as const satisfies Record<string, Record<FuelDailyLocale, string>>;
+export { FUEL_INDEX_SLUG };
 
 export type FuelIndexKind = keyof typeof FUEL_INDEX_SLUG;
 

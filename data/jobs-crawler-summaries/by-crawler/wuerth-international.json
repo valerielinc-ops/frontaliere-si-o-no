@@ -1,7 +1,7 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-10-03T21:22:46.288Z",
+  "generatedAt": "2026-10-04T09:24:58.264Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,10 +14,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3873,
-  "avgDurationMs": 3873,
+  "durationMs": 4585,
+  "avgDurationMs": 4585,
   "durationHistory": [
-    3873
+    4585
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,7 +47,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_PraktikumCorp.Houskeeping.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:22:39.380Z",
+      "crawledAt": "2026-10-04T09:24:47.848Z",
       "firstSeenAt": "2026-09-07T15:13:21.865Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -60,5 +60,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

@@ -17,6 +17,7 @@ import {
   BLOG_LINKS_MAX_PER_ARTICLE,
   type BlogLinkLocale,
 } from '@/build-plugins/blogContextualLinksData';
+import { renderImageCreditHtml } from '../packages/articles/engine/shared/imageCredits.mjs';
 
 // A compact, realistic body that matches multiple IT rules:
 // - "prezzi del diesel" → /prezzi-diesel/oggi/
@@ -51,6 +52,24 @@ describe('countBodyWords', () => {
   });
   it('ignores inline script content', () => {
     expect(countBodyWords('<p>visible</p><script>alert("x")</script>')).toBe(1);
+  });
+  it('ignores the cover-photo credit, so it never moves an article across the minimum', () => {
+    const credit = renderImageCreditHtml({
+      schema: 1,
+      cover: '/images/blog/x.webp',
+      source: 'wikimedia-commons',
+      commons: { title: 'Locarno 1.jpg', pageUrl: 'https://commons.wikimedia.org/wiki/File:Locarno_1.jpg' },
+      author: { text: 'Mario Rossi', name: 'Mario Rossi', url: null, type: 'Person' },
+      attribution: null,
+      licence: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/', family: 'cc-by-sa', attributionRequired: true },
+      restrictions: [],
+      modified: 'cropped',
+      fetchedAt: '2026-10-04',
+      status: 'ok',
+      curation: null,
+    }, 'it');
+    expect(credit).toContain('ft-image-credit');
+    expect(countBodyWords(`<p>one two three</p>${credit}<nav>four</nav>`)).toBe(4);
   });
 });
 
@@ -153,6 +172,39 @@ describe('injectContextualLinks — IT', () => {
       </article>`;
     const result = injectContextualLinks(htmlWithImg, 'it');
     expect(result.html).toContain('<img src="/img.png" width="600" height="400" alt="prezzi del diesel">');
+  });
+
+  it('never rewrites the cover credit <footer> (P14)', () => {
+    // The credit names a Commons author in plain text when the author has no
+    // allowlisted profile. «Eventi Ticino» matches it.events.ticino, so without
+    // the guard the photo credit would become an internal link to /eventi/.
+    const credit = renderImageCreditHtml({
+      schema: 1,
+      cover: '/images/blog/x.webp',
+      source: 'wikimedia-commons',
+      commons: { title: 'Piazza Grande.jpg', pageUrl: 'https://commons.wikimedia.org/wiki/File:Piazza_Grande.jpg' },
+      author: { text: 'Eventi Ticino', name: 'Eventi Ticino', url: null, type: 'Organization' },
+      attribution: null,
+      licence: { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/', family: 'cc-by', attributionRequired: true },
+      restrictions: [],
+      modified: 'cropped',
+      fetchedAt: '2026-10-04',
+      status: 'ok',
+      curation: null,
+    }, 'it');
+    expect(credit).toContain('<bdi>Eventi Ticino</bdi>');
+    const html = `
+      <article>
+        <p>${'filler '.repeat(550)}</p>
+        <p>I prezzi del diesel sono saliti molto nelle ultime settimane.</p>
+        ${credit}
+      </article>`;
+    const result = injectContextualLinks(html, 'it');
+    // The body is still linked, so the injector did run on this page...
+    expect(result.injected.map((ij) => ij.targetUrl)).toContain('/prezzi-diesel/oggi/');
+    // ...and the credit came out byte for byte.
+    expect(result.injected.map((ij) => ij.targetUrl)).not.toContain('/eventi/');
+    expect(result.html).toContain(credit);
   });
 });
 

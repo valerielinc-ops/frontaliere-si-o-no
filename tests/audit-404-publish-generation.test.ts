@@ -53,6 +53,9 @@ function loadHelpers(env: Record<string, string> = {}) {
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
     const process = { env: ${JSON.stringify(env)} };
     const flatString = (value) => value;
+    const slugifyCompanyName = (name) => String(name || '').toLowerCase()
+      .normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
     ${pick('localeOf')}
     ${pick('extractAlternateHrefs')}
     ${constBlock('SECTION_BY_ROUTE_PREFIX')}
@@ -60,6 +63,7 @@ function loadHelpers(env: Record<string, string> = {}) {
     ${pick('ownerGeneration')}
     ${pick('classifyOffender')}
     ${pick('splitByGeneration')}
+    ${pick('sourceAssembledAtForCompany')}
     ${pick('isSourceSnapshotNewer')}
     ${pick('splitHubOffenders')}
     ${constBlock('SHARD_MAX_AGE_H')}
@@ -192,6 +196,25 @@ describe('splitHubOffenders — current crawler data vs deployed pages', () => {
       new Set(),
       new Map([['Città di Locarno', '2026-10-02T09:10:46Z']]),
       '2026-10-02T08:00:00Z',
+      generation,
+    );
+    expect(result.sourceSkew).toHaveLength(1);
+    expect(result.unserved).toHaveLength(0);
+    expect(result.publishSkew).toHaveLength(0);
+  });
+
+  it('matches source skew when crawler punctuation differs from the hub sentinel', () => {
+    const { splitHubOffenders } = loadHelpers();
+    const result = splitHubOffenders(
+      [{
+        company: 'EOC Ente Ospedaliero Cantonale',
+        locale: 'en',
+        builderUrl: '/en/find-jobs-ticino/company-eoc-ente-ospedaliero-cantonale',
+        expectedUrl: '/en/find-jobs-ticino/company-eoc-ente-ospedaliero-cantonale',
+      }],
+      new Set(),
+      new Map([['EOC – Ente Ospedaliero Cantonale', '2026-10-04T09:29:07Z']]),
+      '2026-10-03T16:59:50Z',
       generation,
     );
     expect(result.sourceSkew).toHaveLength(1);

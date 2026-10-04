@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -538,5 +538,105 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
 
     const betaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Beta it'))!;
     expect(betaItem).not.toContain('<dc:creator>');
+  });
+});
+
+/**
+ * Credits of the Wikimedia Commons covers (P14). A feed reader shows the cover
+ * away from the article page that carries the visible credit, so the item has
+ * to carry it too: Media RSS `media:credit` + `media:license` inside
+ * `media:content`, and the localised credit line at the end of
+ * `content:encoded`. The record is the same one the article page reads
+ * (packages/articles/engine/shared/imageCredits.mjs), keyed by the cover file.
+ */
+describe('RSS — credit of a Commons cover (P14)', () => {
+  const ALPHA_CREDIT = {
+    schema: 1,
+    cover: '/images/blog/alpha.webp',
+    source: 'wikimedia-commons',
+    commons: { title: 'Locarno 1.jpg', pageUrl: 'https://commons.wikimedia.org/wiki/File:Locarno_1.jpg' },
+    author: { text: 'Riessdo at de.wikipedia', name: 'Riessdo', url: 'https://de.wikipedia.org/wiki/User:Riessdo', type: 'Person' },
+    attribution: null,
+    licence: { name: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', family: 'cc-by-sa', attributionRequired: true },
+    restrictions: [],
+    modified: 'resized',
+    fetchedAt: '2026-10-04',
+    status: 'ok',
+    curation: null,
+  };
+
+  /** `dir` is the layout: `content` (corpus, the real producer) or `packages/articles/content` (site). */
+  function writeCredit(root: string, dir: string, key: string, rec: object): void {
+    const file = path.join(root, dir, 'image-credits', 'blog', `${key}.json`);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, JSON.stringify(rec));
+  }
+
+  function feedsOf(root: string): Record<string, string> {
+    const result = buildSectionFeeds({
+      repairSerpSnippet, fs, path, rootDir: root, section: RSS_SECTIONS[0], registry: REGISTRY, layout: LAYOUT,
+    });
+    return Object.fromEntries(result.feeds);
+  }
+
+  const itemOf = (xml: string, marker: string): string =>
+    xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes(marker))!;
+
+  it('credits the cover inside media:content, from the corpus layout', () => {
+    const root = makeFixture();
+    writeCredit(root, 'content', 'alpha', ALPHA_CREDIT);
+    const feeds = feedsOf(root);
+
+    expect(itemOf(feeds['rss-it.xml'], 'Alpha it')).toContain(
+      '<media:content url="https://cdn.frontaliereticino.ch/images/blog/alpha.webp" medium="image">'
+      + '<media:credit role="author" scheme="urn:ebu">Riessdo</media:credit>'
+      + '<media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</media:license>'
+      + '</media:content>',
+    );
+    // The places cover has no record: its item keeps today's self-closing element.
+    expect(itemOf(feeds['rss-it.xml'], 'Beta it')).toContain(
+      '<media:content url="https://frontaliereticino.ch/images/places/beta.webp" medium="image"/>',
+    );
+  });
+
+  it('ends content:encoded with the credit line in the feed locale', () => {
+    const root = makeFixture();
+    writeCredit(root, 'content', 'alpha', ALPHA_CREDIT);
+    const feeds = feedsOf(root);
+    const labels: Record<string, string> = {
+      'rss-it.xml': 'Immagine di copertina: ',
+      'rss-en.xml': 'Cover image: ',
+      'rss-de.xml': 'Titelbild: ',
+      'rss-fr.xml': 'Image de couverture : ',
+    };
+    for (const [file, label] of Object.entries(labels)) {
+      const encoded = itemOf(feeds[file], 'Alpha').match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/)![1];
+      expect(encoded, file).toMatch(/^Alpha body text in /);
+      expect(encoded, file).toContain(`<footer class="ft-image-credit mt-8 text-sm text-subtle" data-image-credit="wikimedia-commons"><small>${label}`);
+      expect(encoded.endsWith('</small></footer>'), file).toBe(true);
+    }
+    // The main feed stays a byte copy of the Italian one.
+    expect(feeds['rss.xml']).toBe(feeds['rss-it.xml']);
+  });
+
+  it('reads the site layout too (packages/articles/content/image-credits)', () => {
+    const root = makeFixture();
+    writeCredit(root, 'packages/articles/content', 'alpha', ALPHA_CREDIT);
+    expect(itemOf(feedsOf(root)['rss-en.xml'], 'Alpha en')).toContain('<media:credit role="author" scheme="urn:ebu">Riessdo</media:credit>');
+  });
+
+  it('changes nothing for covers without a record, nor for an invalid record', () => {
+    const root = makeFixture();
+    const before = feedsOf(root);
+    // A record for a cover no item uses, and an invalid one for alpha.
+    writeCredit(root, 'content', 'gamma', { ...ALPHA_CREDIT, cover: '/images/blog/gamma.webp' });
+    writeCredit(root, 'content', 'alpha', { ...ALPHA_CREDIT, licence: { ...ALPHA_CREDIT.licence, family: 'gfdl' } });
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      expect(feedsOf(root)).toEqual(before);
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('invalid record'));
+    } finally {
+      warn.mockRestore();
+    }
   });
 });

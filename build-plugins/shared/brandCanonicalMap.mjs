@@ -48,6 +48,11 @@ export const BRAND_CANONICAL_MAP = {
     canonical: 'spital-zollikerberg',
     aliases: ['diakoniewerk-neumuenster'],
   },
+  // Capri Holdings: dal 2026-10-01 Versace è nel gruppo Prada e il crawler
+  // legge solo Michael Kors. Il proprietario (2026-10-03) ha scelto il nome
+  // del marchio; il vecchio nome visualizzato resta un ponte verso l'hub nuovo,
+  // e chi seguiva l'azienda col vecchio nome continua a ricevere gli alert.
+  'michael-kors': { canonical: 'michael-kors', aliases: ['capri-holdings-michael-kors-versace'] },
 };
 
 /** aliasSlug → canonical slug, built once with the same fail-fast validation. */

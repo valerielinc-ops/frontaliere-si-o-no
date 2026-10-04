@@ -459,6 +459,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'data/jobs.json is written and read only under fs.mkdtempSync; the separate checkout read is the staticPagesPlugin.ts source used to verify the static landing call',
     runtime: true,
   },
+  {
+    file: 'tests/scripts/assemble-translation-hold.test.ts',
+    roots: ['data/jobs.json', 'data/jobs/', 'public/data/'],
+    reason: 'the assembler runs as a child process with cwd in an fs.mkdtempSync sandbox: every slice, data/jobs.json and public/data/jobs.json is written and read there. From the checkout it copies only the assembler code closure and ASSEMBLE_AUX_DATA_INPUTS under 1 MB, none of them under a live root',
+  },
 ]);
 
 

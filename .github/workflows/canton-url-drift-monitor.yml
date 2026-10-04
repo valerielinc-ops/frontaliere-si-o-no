@@ -188,7 +188,7 @@ jobs:
           # misure vanno nel corpo, che sulle ripetizioni diventa un commento.
           node scripts/lib/github-issue-creator.mjs \
             --title "Canton URL drift: il tasso settimanale non scende sotto la soglia" \
-            --description "$(cat /tmp/canton-url-drift-alert.md)" \
+            --description-file /tmp/canton-url-drift-alert.md \
             --priority 2 \
             --label Bug \
             --workflow "Canton URL Drift Monitor (weekly, read-only)"

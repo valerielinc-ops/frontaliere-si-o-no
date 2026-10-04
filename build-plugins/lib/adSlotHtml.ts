@@ -17,6 +17,7 @@
 import { AD_CLIENT, AD_SLOTS } from '../../services/adsenseSlots';
 import { INFEED_AD_EXPERIMENT_ID } from '../../services/adExperiment';
 import type { InfeedAdVariant } from '../../services/adExperiment';
+import { hasEnoughContentForStaticAd } from '../../scripts/adsense-prereview-thresholds.mjs';
 
 export type AdSlotKey = keyof typeof AD_SLOTS;
 
@@ -126,9 +127,11 @@ export function eventsInfeedAdGridBlockHtml(label: string): string {
  * Zero CLS: the `<ins>` reserves `SSG_END_MULTIPLEX.placeholderMinHeight` px
  * via adSlotHtml's inline `min-height`. The `<section>` is content-width and
  * centered so the slot renders correctly whether it sits inside the page
- * container or as its sibling in the root.
+ * container or as its sibling in the root. The required content argument also
+ * enforces the live audit's minimum visible-character ratio, including static
+ * slots already present in the body.
  */
-export function endOfContentMultiplexHtml(opts: { indexable: boolean }): string {
-  if (!opts.indexable) return '';
+export function endOfContentMultiplexHtml(opts: { indexable: boolean; contentHtml: string }): string {
+  if (!opts.indexable || !hasEnoughContentForStaticAd(opts.contentHtml)) return '';
   return `<section class="max-w-3xl mx-auto px-4 mt-8" aria-label="advertisement">${adSlotHtml('SSG_END_MULTIPLEX')}</section>`;
 }

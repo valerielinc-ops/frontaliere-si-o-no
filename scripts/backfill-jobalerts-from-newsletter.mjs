@@ -14,6 +14,10 @@
  *   - --write applies the exact same idempotent handler used by the live
  *     Firestore trigger;
  *   - no consent checkbox/DOI proof is consulted for the base relationship;
+ *   - a row that is not a subscription at all is skipped by the same
+ *     `hasNewsletterSubscriberRecord` gate the live trigger applies before it
+ *     calls the handler (functions/index.js): a profile-only sign-in row, or
+ *     the saved-jobs digest record (functions/src/lib/subscriberConsent.js);
  *   - explicit unsubscribe, hard address suppression, stop-all and the
  *     newsletter lifecycle exclusions remain exclusion gates.
  *
@@ -35,6 +39,7 @@ import {
   shouldSkipSubscriber,
   consentNamesJobAlerts,
   hasAffirmativeJobAlertConsent,
+  hasNewsletterSubscriberRecord,
   buildAlertPayload,
   resolveSignalTier,
 } from './lib/jobalert-backfill-core.mjs';
@@ -96,6 +101,7 @@ export async function runBackfill({
     wouldWrite: 0,
     failed: 0,
     'invalid-email': 0,
+    'no-subscriber-record': 0,
     suppressed: 0,
     capped: 0,
   };
@@ -114,6 +120,15 @@ export async function runBackfill({
     if (!data.consent_text) consent.noConsentTextAtAll += 1;
     if (consentNamesJobAlerts(data.consent_text)) consent.namesJobAlerts += 1;
     if (hasAffirmativeJobAlertConsent(data)) consent.affirmative += 1;
+
+    // The live trigger's own gate, applied before the handler exactly as
+    // functions/index.js does: without it this batch manufactured alerts the
+    // trigger refuses to create, on rows that hold no subscription.
+    if (!hasNewsletterSubscriberRecord(data)) {
+      incrementReason(counts, 'no-subscriber-record');
+      byChannel[channel].skipped += 1;
+      continue;
+    }
 
     // Tier 3 is read lazily. A flat field is enough to classify the initial
     // alert, while a no-signal registration may have browsing data in the
@@ -175,6 +190,7 @@ export async function runBackfill({
   log(write
     ? ' ✍️  Applied idempotent alerts: ' + counts.written
     : ' 🧪 Would apply alerts: ' + counts.wouldWrite);
+  log(' ⏭️  Skipped (no subscription record): ' + (counts['no-subscriber-record'] || 0));
   log(' ⏭️  Skipped (suppressed): ' + (counts.suppressed || 0));
   log(' ⏭️  Skipped (capped): ' + (counts.capped || 0));
   log(' ❌ Failed: ' + counts.failed);

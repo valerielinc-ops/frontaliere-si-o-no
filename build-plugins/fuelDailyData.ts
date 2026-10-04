@@ -10,6 +10,11 @@
  * dated month-archive URLs for continuity.
  */
 
+import {
+  FUEL_INDEX_TERMINAL_SLUGS as SHARED_FUEL_INDEX_TERMINAL_SLUGS,
+  FUEL_SECTION_SLUG as SHARED_FUEL_SECTION_SLUG,
+} from './shared/fuelRouteSlugs.mjs';
+
 export type FuelDailyLocale = 'it' | 'en' | 'de' | 'fr';
 export type FuelType = 'diesel' | 'benzina';
 export type FuelZone = 'chiasso' | 'mendrisio' | 'lugano' | 'bellinzona' | 'locarno';
@@ -24,6 +29,29 @@ export const FUEL_ZONES: readonly FuelZone[] = [
   'locarno',
 ] as const;
 
+/**
+ * Child sitemaps owned by the fuel page emitter.
+ *
+ * Keep this list next to the fuel route contract so cleanup and final
+ * dist-truth reconciliation cannot drift apart. Older builds briefly emitted
+ * numeric suffixes while experimenting with shard output; the matcher below
+ * still recognises those files so an incremental dist cannot resurrect them.
+ */
+export const FUEL_SITEMAP_FILES = [
+  'sitemap-fuel-daily.xml',
+  'sitemap-fuel-stations.xml',
+  'sitemap-fuel-italian-cities.xml',
+  'sitemap-fuel-italian-stations.xml',
+  'sitemap-fuel-indexes.xml',
+] as const;
+
+const FUEL_SITEMAP_FILE_RE = /^sitemap-fuel-(?:daily|stations|italian-cities|italian-stations|indexes)(?:-\d+)?\.xml$/i;
+
+/** Return true for a current fuel sitemap or a stale numbered fuel shard. */
+export function isFuelSitemapFile(filename: string): boolean {
+  return FUEL_SITEMAP_FILE_RE.test(filename);
+}
+
 /** Zone display names (proper nouns — same across all locales). */
 export const FUEL_ZONE_DISPLAY: Record<FuelZone, string> = {
   chiasso: 'Chiasso',
@@ -34,24 +62,8 @@ export const FUEL_ZONE_DISPLAY: Record<FuelZone, string> = {
 };
 
 /** Section slug per locale × fuel type (top-level URL segment). */
-export const FUEL_SECTION_SLUG: Record<FuelDailyLocale, Record<FuelType, string>> = {
-  it: {
-    diesel: 'prezzi-diesel',
-    benzina: 'prezzi-benzina',
-  },
-  en: {
-    diesel: 'diesel-price-switzerland',
-    benzina: 'gasoline-price-switzerland',
-  },
-  de: {
-    diesel: 'dieselpreis-schweiz',
-    benzina: 'benzinpreis-schweiz',
-  },
-  fr: {
-    diesel: 'prix-gasoil-suisse',
-    benzina: 'prix-essence-suisse',
-  },
-};
+export const FUEL_SECTION_SLUG: Record<FuelDailyLocale, Record<FuelType, string>> =
+  SHARED_FUEL_SECTION_SLUG as Record<FuelDailyLocale, Record<FuelType, string>>;
 
 /** "Today" keyword per locale. */
 export const FUEL_TODAY_SLUG: Record<FuelDailyLocale, string> = {
@@ -539,7 +551,7 @@ const FUEL_DAILY_ROUTE_SET: ReadonlySet<string> = new Set(FUEL_DAILY_ROUTES);
 
 /**
  * Terminal slugs of the fuel-station / fuel-cities browseable INDEX pages
- * (defined in build-plugins/fuelStationIndexPages.ts → FUEL_INDEX_SLUG).
+ * (defined in build-plugins/shared/fuelRouteSlugs.mjs → FUEL_INDEX_SLUG).
  *
  * Mirrored here as a flat set so isFuelDailyPath() — imported by the SPA
  * router — can recognise these URLs without pulling in the index plugin
@@ -547,11 +559,7 @@ const FUEL_DAILY_ROUTE_SET: ReadonlySet<string> = new Set(FUEL_DAILY_ROUTES);
  * FUEL_INDEX_SLUG; tests/seo/fuel-station-index-router.test.ts asserts
  * the two stay aligned.
  */
-const FUEL_INDEX_TERMINAL_SLUGS: ReadonlySet<string> = new Set([
-  'stazioni-svizzere', 'swiss-stations', 'schweizer-tankstellen', 'stations-suisses',
-  'stazioni-italia', 'italian-stations', 'italienische-tankstellen', 'stations-italiennes',
-  'citta-italiane', 'italian-cities', 'italienische-staedte', 'villes-italiennes',
-]);
+const FUEL_INDEX_TERMINAL_SLUGS: ReadonlySet<string> = SHARED_FUEL_INDEX_TERMINAL_SLUGS;
 
 /**
  * Recognise a fuel-station / fuel-cities index path:

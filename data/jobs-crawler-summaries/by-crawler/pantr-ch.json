@@ -1,7 +1,7 @@
 {
   "key": "pantr-ch",
   "label": "Pantr GmbH",
-  "generatedAt": "2026-10-03T21:30:02.748Z",
+  "generatedAt": "2026-10-04T09:35:15.014Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -14,10 +14,10 @@
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19355,
-  "avgDurationMs": 19355,
+  "durationMs": 21227,
+  "avgDurationMs": 21227,
   "durationHistory": [
-    19355
+    21227
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.345Z",
+      "crawledAt": "2026-10-04T09:35:08.052Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "Switzerland",
@@ -73,7 +73,7 @@
       "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.342Z",
+      "crawledAt": "2026-10-04T09:35:08.050Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "Switzerland",
@@ -89,7 +89,6 @@
       "featured": false,
       "postedDate": "2026-09-23T10:30:37+00:00",
       "applyUrl": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-10-01T09:35:20.247Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -112,7 +111,7 @@
       "url": "https://pantr.ch/jobs/senior-business-controller-196/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.347Z",
+      "crawledAt": "2026-10-04T09:35:08.053Z",
       "addressLocality": "Oberkirch",
       "addressRegion": "Luzern",
       "addressCountry": "Switzerland",
@@ -151,7 +150,7 @@
       "url": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.348Z",
+      "crawledAt": "2026-10-04T09:35:08.053Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "Switzerland",
@@ -190,7 +189,7 @@
       "url": "https://pantr.ch/jobs/steuerberater-159/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.349Z",
+      "crawledAt": "2026-10-04T09:35:08.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -206,7 +205,6 @@
       "featured": false,
       "postedDate": "2026-08-04T15:15:06+00:00",
       "applyUrl": "https://pantr.ch/jobs/steuerberater-159/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-10-01T09:35:20.251Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -229,7 +227,7 @@
       "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.350Z",
+      "crawledAt": "2026-10-04T09:35:08.055Z",
       "addressLocality": "Rüti",
       "addressRegion": "Zürich",
       "addressCountry": "Switzerland",
@@ -268,7 +266,7 @@
       "url": "https://pantr.ch/jobs/financial-accountant-138/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.351Z",
+      "crawledAt": "2026-10-04T09:35:08.055Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -284,8 +282,8 @@
       "featured": false,
       "postedDate": "2026-07-09T14:18:36+00:00",
       "applyUrl": "https://pantr.ch/jobs/financial-accountant-138/",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:35:20.253Z",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -307,7 +305,7 @@
       "url": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.352Z",
+      "crawledAt": "2026-10-04T09:35:08.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -336,5 +334,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

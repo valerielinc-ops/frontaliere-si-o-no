@@ -196,7 +196,7 @@ jobs:
           # oltre il taglio dei 60 e farebbe collassare famiglie diverse.
           node scripts/lib/github-issue-creator.mjs \
             --title "$TITLE" \
-            --description "$(cat /tmp/ac-alert-body.md)" \
+            --description-file /tmp/ac-alert-body.md \
             --priority "$PRIORITY" \
             --label autologin-rate \
             --workflow "${{ github.workflow }}"

@@ -22,6 +22,7 @@ import {
   BING_TITLE_MAX_CHARS,
 } from './bing-seo-policy.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
+import { BING_TITLE_TOO_LONG } from './bing-finding-codes.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const LIVE_USER_AGENT = 'frontaliere-bing-seo-loop/1.0 (+https://frontaliereticino.ch/)';
@@ -103,7 +104,7 @@ export function auditHtml(
     findings.push(finding('title-missing', url, 'La risposta HTML non contiene un title.'));
   } else if (parsed.title.length > BING_TITLE_MAX_CHARS) {
     findings.push(finding(
-      'title-too-long',
+      BING_TITLE_TOO_LONG,
       url,
       '<title> misura ' + parsed.title.length + ' caratteri; limite ' + BING_TITLE_MAX_CHARS + '.',
     ));

@@ -315,7 +315,7 @@ export function renderFacilityPage(
     <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
   </header>`;
 
-  const body = `<div class="max-w-3xl mx-auto px-4 py-6">
+  const bodyContent = `<div class="max-w-3xl mx-auto px-4 py-6">
     ${breadcrumb}
     ${header}
     ${tiles}
@@ -326,8 +326,11 @@ export function renderFacilityPage(
     ${funnelSection}
     ${proseSection}
     ${faqSection}
-    ${endOfContentMultiplexHtml({ indexable: true })}
   </div>`;
+  const body = bodyContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: bodyContent })}</div>`,
+  );
 
   // ── JSON-LD ──
   const breadcrumbLd = {

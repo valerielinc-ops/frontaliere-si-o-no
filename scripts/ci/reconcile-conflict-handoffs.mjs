@@ -223,7 +223,10 @@ export function planDuplicateClosures({ origin, duplicates }, openPrs, now = Dat
   return { close, deferred };
 }
 
-const normalizeLine = (line) => String(line).trim().replace(/\s+/g, ' ');
+// La sola canonicalizzazione ammessa è la terminazione CRLF introdotta dal
+// trasporto del testo. Indentazione, spazi interni e spazi finali fanno parte
+// della riga e devono restare confrontabili esattamente.
+const normalizeLine = (line) => String(line).replace(/\r$/u, '');
 
 const HUNK_HEADER = /^@@ -\d+(?:,(\d+))? \+\d+(?:,(\d+))? @@/;
 
@@ -257,7 +260,8 @@ export function parsePatchHunks(patch) {
   // L'intestazione `+++ b/…` puo' stare solo prima del primo `@@` (la patch di
   // `pulls/<n>/files` non la porta): dentro un hunk ogni `+` e' una riga
   // aggiunta, anche `++i;` (che diventa `+++i;`).
-  for (const line of String(patch ?? '').split('\n')) {
+  for (const rawLine of String(patch ?? '').split('\n')) {
+    const line = normalizeLine(rawLine);
     const header = HUNK_HEADER.exec(line);
     if (header) {
       const error = close();
@@ -293,7 +297,7 @@ export function parsePatchHunks(patch) {
       seenRemoval = false;
       const normalized = normalizeLine(text);
       current.newSide.push(normalized);
-      if (normalized !== '') current.added.push(normalized);
+      if (normalized.trim() !== '') current.added.push(normalized);
     } else if (marker === '-') {
       if (oldLeft === 0) return { error: `hunk ${hunks.length + 1} piu' lungo di quanto dichiara` };
       oldLeft -= 1;
@@ -352,10 +356,9 @@ function findContiguous(haystack, needle, from, { anchorStart, anchorEnd }) {
  * lato di OGNI hunk (contesto + aggiunte, nell'ordine) deve comparire CONTIGUO
  * fra le righe del file su `main`, ogni hunk dopo la fine del precedente:
  * posizioni distinte, ordine della patch, molteplicita' (due righe identiche
- * aggiunte chiedono due occorrenze). Il confronto e' a meno dei soli spazi
- * (bordi e sequenze ridotti a uno: misurato sulla PR #10865, una riga di
- * commento con due spazi poi normalizzati da #11201). Niente soglie: o tutti
- * gli hunk, o non provato.
+ * aggiunte chiedono due occorrenze). Il confronto e' esatto per contenuto di
+ * riga; si normalizza solo la terminazione CRLF, che non cambia il testo della
+ * riga. Niente soglie: o tutti gli hunk, o non provato.
  *
  * Prima (fino alla review del corpus sulla PR di trasporto 2090) la prova era
  * un `Set` delle righe di main: una riga aggiunta presente solo nel contesto di

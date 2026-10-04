@@ -27,6 +27,8 @@ import { readPortalQuestions } from './lib/portal/portal.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
+import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
+import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
@@ -39,6 +41,26 @@ function summary(line) {
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${line}\n`);
 }
 
+/**
+ * A submit the fact gate stopped carries the gate's result of today
+ * (lib/submit.mjs). It is taken out of the event, whose tokens quote the
+ * candidate's texts, and returned as the draft keeps it: with the basis of the
+ * draft's own check. Stored, the owner's panel lists the tokens and the flow
+ * holds on them (evaluateRedFlags) until the owner confirms them.
+ * @returns {object|null} the patch for ai_drafts/current
+ */
+export function takeFactCheck(event, draft) {
+  if (!event.factCheck) return null;
+  const patch = { factCheck: { ...event.factCheck, basis: draft?.factCheck?.basis || null } };
+  // An older confirmation, stored without its warnings, covered the result the draft held: those warnings
+  // are kept, so the new result's are not taken as confirmed (factCheckAcknowledged).
+  if ((draft?.factCheckAcknowledgedAt || draft?.acknowledgedFlags?.fact_check) && !Array.isArray(draft?.factCheckAcknowledgedTokens)) {
+    patch.factCheckAcknowledgedTokens = factCheckTokens(draft?.factCheck);
+  }
+  delete event.factCheck;
+  return patch;
+}
+
 /** Error text safe for a public log: no addresses, no long free text. */
 export function safeErrorCode(error) {
   const raw = error instanceof Error ? (error.code || error.message) : String(error);
@@ -47,6 +69,24 @@ export function safeErrorCode(error) {
     .replace(/\+?\d[\d\s/.-]{6,}\d/g, '<number>')
     .replace(/[^A-Za-z0-9_:.<> -]/g, '_')
     .slice(0, 120);
+}
+
+/**
+ * The run's draft, written whole in place of the previous one. The previous
+ * tailored CV, when it carried the candidate's photo, is then named by no
+ * document and is deleted at once (best effort: the purge of the order's
+ * folder is the backstop), so a photo taken back in a later round is in no
+ * PDF left behind.
+ */
+export async function writeDraft({ orderRef, bucket, draft, previousDraft }) {
+  await orderRef.collection('ai_drafts').doc('current').set(draft);
+  const superseded = supersededPhotoPdf(previousDraft);
+  if (!superseded || superseded === draft.tailoredCv?.pdfKey) return;
+  try {
+    await bucket.file(superseded).delete({ ignoreNotFound: true });
+  } catch (error) {
+    summary(`superseded tailored cv not deleted: ${safeErrorCode(error)}`);
+  }
 }
 
 async function main() {
@@ -121,7 +161,7 @@ async function main() {
         // A single-page portal form read ahead: its questions reach the first review.
         readPortalQuestions,
       });
-      await orderRef.collection('ai_drafts').doc('current').set(draft);
+      await writeDraft({ orderRef, bucket, draft, previousDraft });
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
       await report({ type: 'draft_ready' });
     } catch (error) {
@@ -181,6 +221,10 @@ async function main() {
       }
       delete event.stopReport;
     }
+    // The fact gate's result of a stopped submit, next to the draft before the
+    // event moves the flow; never in the event or the log.
+    const factCheckPatch = takeFactCheck(event, previousDraft);
+    if (factCheckPatch && !dryRun) await orderRef.collection('ai_drafts').doc('current').set(factCheckPatch, { merge: true });
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
     if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {

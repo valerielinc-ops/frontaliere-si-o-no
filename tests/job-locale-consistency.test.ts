@@ -54,12 +54,14 @@ import {
   MIN_SERVED_SHARE,
   TITLE_POPULATION,
   assertPopulationUnchanged,
+  heldPopulationSlots,
   measureDescriptionLocales,
   measureTitleLocales,
 } from '../scripts/lib/job-locale-population.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
+const DATA_META_PATH = path.resolve(__dirname, '..', 'data', 'jobs-meta.json');
 
 interface Job {
   company?: string;
@@ -87,9 +89,23 @@ function loadJobs(): Job[] | null {
   }
 }
 
+// Agency jobs held out of publication until translated (owner decision
+// 2026-10-03) are corpus, not in data/jobs.json. Both expectedSlots were
+// measured when they were all published, so the POPULATION guard adds their
+// slots back, as counted by the same assembly; the RATE stays on what the site
+// serves. Null (no/stale meta) = the guard compares data/jobs.json alone.
+function loadHeldSlots(publishedJobCount: number) {
+  try {
+    return heldPopulationSlots(JSON.parse(fs.readFileSync(DATA_META_PATH, 'utf-8')), publishedJobCount);
+  } catch {
+    return null;
+  }
+}
+
 describe('job-locale-consistency', () => {
   const jobs = loadJobs();
   const hasDataset = jobs !== null;
+  const heldSlots = hasDataset ? loadHeldSlots(jobs!.length) : null;
   if (!hasDataset) {
     console.warn(
       '[job-locale-consistency] data/jobs.json absent — ratchets skipped. '
@@ -172,11 +188,12 @@ describe('job-locale-consistency', () => {
           + `${(rate * 100).toFixed(3)}% (max ${(MAX_RATE * 100).toFixed(3)}%) `
           + `population=assembled data/jobs.json, expected ${DESCRIPTION_POPULATION.expectedSlots} `
           + `±${(DESCRIPTION_POPULATION.tolerance * 100).toFixed(0)}%, `
-          + `served ${servedSlots}/${slots} = ${(servedShare * 100).toFixed(1)}% (min ${(MIN_SERVED_SHARE * 100).toFixed(0)}%)`
+          + `served ${servedSlots}/${slots} = ${(servedShare * 100).toFixed(1)}% (min ${(MIN_SERVED_SHARE * 100).toFixed(0)}%), `
+          + `held for translation ${heldSlots ? `+${heldSlots.descriptions} slots in the population` : 'not reported'}`
       );
 
       // 1. Is this the set the baseline was derived on? Distinct failure.
-      assertPopulationUnchanged(DESCRIPTION_POPULATION, slots);
+      assertPopulationUnchanged(DESCRIPTION_POPULATION, slots + (heldSlots?.descriptions ?? 0));
 
       // 2. Can this gate still see anything? Moving the denominator off the
       //    queue removes the instability but would let a corpus-wide queue
@@ -308,10 +325,11 @@ describe('job-locale-consistency', () => {
         `[ratchet] ${TITLE_POPULATION.id} ${flagged}/${slots} = `
           + `${(rate * 100).toFixed(2)}% (max ${(MAX_RATE * 100).toFixed(2)}%) `
           + `population=assembled data/jobs.json, expected ${TITLE_POPULATION.expectedSlots} `
-          + `±${(TITLE_POPULATION.tolerance * 100).toFixed(0)}%`
+          + `±${(TITLE_POPULATION.tolerance * 100).toFixed(0)}%, `
+          + `held for translation ${heldSlots ? `+${heldSlots.titles} slots in the population` : 'not reported'}`
       );
 
-      assertPopulationUnchanged(TITLE_POPULATION, slots);
+      assertPopulationUnchanged(TITLE_POPULATION, slots + (heldSlots?.titles ?? 0));
 
       expect(
         rate,

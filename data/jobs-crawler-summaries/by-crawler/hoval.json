@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-10-03T21:13:04.286Z",
+  "generatedAt": "2026-10-04T09:11:50.979Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16920,
-  "avgDurationMs": 16920,
+  "durationMs": 16713,
+  "avgDurationMs": 16713,
   "durationHistory": [
-    16920
+    16713
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -43,12 +43,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:54:13.504Z",
-      "_qualityScore": 82,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 20,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -69,7 +71,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -79,12 +81,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-23T23:37:10.601Z",
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -105,7 +109,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -116,12 +120,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:54:13.504Z",
-      "_qualityScore": 82,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 20,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -142,7 +148,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -152,12 +158,14 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-09-03T23:15:39.602Z",
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -178,7 +186,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -191,12 +199,14 @@
       "firstSeenAt": "2026-05-26T23:07:05.422Z",
       "salarySource": "reported",
       "retranslationAttempts": 0,
-      "_qualityScore": 90,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -217,7 +227,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -228,12 +238,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:54:13.504Z",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -254,7 +266,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -265,12 +277,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-18T23:11:07.615Z",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -291,7 +305,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -302,12 +316,14 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:54:13.504Z",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -328,7 +344,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -338,12 +354,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:54:13.504Z",
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -364,7 +382,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -374,13 +392,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-07T15:04:04.419Z",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -401,7 +420,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -412,12 +431,14 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-06-30T11:40:27.283Z",
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -438,7 +459,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -448,16 +469,18 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:54:13.504Z",
-      "_qualityScore": 87,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

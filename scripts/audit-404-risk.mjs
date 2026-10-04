@@ -756,8 +756,16 @@ function generationSummary(gen, now = Date.now()) {
 // allow-set the real newsletter builder uses (issue #3557).
 async function loadCompanySourceTimestamps(companyNames) {
   const wanted = new Set(companyNames);
+  // Company names are display labels, not stable identities: crawler slices
+  // may change Unicode punctuation (for example the EOC en dash), while the
+  // newsletter/build contract identifies the hub by this same slug. Match
+  // the source timestamp on that canonical identity so a sentinel or a
+  // localized display variant cannot turn publish skew into a false 404.
+  const wantedIdentities = new Set(
+    [...wanted].map((name) => slugifyCompanyName(name)).filter(Boolean),
+  );
   const newest = new Map();
-  if (wanted.size === 0) return newest;
+  if (wantedIdentities.size === 0) return newest;
 
   for (const slicePath of listSliceFilePaths(join(DATA_DIR, 'jobs', 'by-crawler'))) {
     try {
@@ -766,11 +774,29 @@ async function loadCompanySourceTimestamps(companyNames) {
       if (!Number.isFinite(Date.parse(assembledAt)) || !Array.isArray(raw?.jobs)) continue;
       for (const job of raw.jobs) {
         const name = String(job?.company || job?.companyName || '').trim();
-        if (!wanted.has(name)) continue;
+        const identity = slugifyCompanyName(name);
+        if (!wantedIdentities.has(identity)) continue;
         const previous = newest.get(name);
         if (!previous || Date.parse(assembledAt) > Date.parse(previous)) newest.set(name, assembledAt);
       }
     } catch { /* the assembler has already validated the active dataset */ }
+  }
+  return newest;
+}
+
+function sourceAssembledAtForCompany(company, sourceAssembledAtByCompany) {
+  const exact = sourceAssembledAtByCompany?.get(company);
+  if (exact) return exact;
+  const identity = slugifyCompanyName(company);
+  if (!identity || !sourceAssembledAtByCompany?.entries) return '';
+
+  // A display-name variant can miss the exact Map key. The slug is the
+  // proven hub identity, so use the newest matching source snapshot; a
+  // duplicate display spelling cannot make a newer source look older.
+  let newest = '';
+  for (const [candidate, assembledAt] of sourceAssembledAtByCompany.entries()) {
+    if (slugifyCompanyName(candidate) !== identity) continue;
+    if (!newest || Date.parse(assembledAt) > Date.parse(newest)) newest = assembledAt;
   }
   return newest;
 }
@@ -830,7 +856,7 @@ function expectedHubPath(slug, locale) {
 }
 
 function isSourceSnapshotNewer(company, sourceAssembledAtByCompany, deployedAt) {
-  const sourceAt = Date.parse(sourceAssembledAtByCompany?.get(company) || '');
+  const sourceAt = Date.parse(sourceAssembledAtForCompany(company, sourceAssembledAtByCompany));
   const deployed = Date.parse(deployedAt || '');
   return Number.isFinite(sourceAt) && Number.isFinite(deployed) && sourceAt > deployed;
 }

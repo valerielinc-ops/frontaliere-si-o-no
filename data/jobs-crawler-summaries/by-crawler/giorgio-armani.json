@@ -1,16 +1,16 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-10-03T21:23:53.080Z",
+  "generatedAt": "2026-10-04T09:21:31.906Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23621,
-  "avgDurationMs": 23621,
+  "durationMs": 28139,
+  "avgDurationMs": 28139,
   "durationHistory": [
-    23621
+    28139
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Moda & Lusso",
       "source": "giorgio-armani-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -42,17 +42,18 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T22:57:38.732Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

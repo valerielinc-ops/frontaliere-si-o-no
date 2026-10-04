@@ -66,6 +66,7 @@ import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
+import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 
@@ -1114,7 +1115,7 @@ async function runSharedCrawlerInProcess({ root, env }) {
   try {
     // Dynamic import to avoid loading 7k-line module at parse time
     const { runSharedCrawlerPipeline } = await import('./shared-jobs-crawler.mjs');
-    await runSharedCrawlerPipeline();
+    return await runSharedCrawlerPipeline();
   } finally {
     // Restore original env values
     for (const [key, value] of Object.entries(originals)) {
@@ -1535,7 +1536,15 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
 
-    if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+    // A 1-2 char `job.title` never overwrites a usable title already in the
+    // source slot: otherwise every pass resets the slot to the short value and
+    // the fallback below re-fills it from whichever slot comes first, so the
+    // hardening is not idempotent (tests/job-locale-slot-gate-contract.test.ts).
+    if (
+      baseTitle &&
+      normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+      (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+    ) {
       job.titleByLocale[titleSourceLang] = baseTitle;
       jobChanged = true;
     }
@@ -1668,10 +1677,25 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             job.needsRetranslation = true;
             jobChanged = true;
           }
-        } else if (placeholder && DEFAULT_LOCALES.includes(titleSourceLang)) {
-          job.titleByLocale[locale] = placeholder;
-          job.needsRetranslation = true;
-          jobChanged = true;
+        } else if (DEFAULT_LOCALES.includes(titleSourceLang)) {
+          // With no `job.title` and no description there is nothing to detect
+          // from: titleSourceLang falls back to 'it' and its slot can be empty
+          // while the record's only title sits in another published slot
+          // (e.g. `titleByLocale: { de }`). Copy that title instead of leaving
+          // the slot blocking the publish gate; the record stays flagged.
+          // Prefer the first USABLE candidate: a 1-2 char `job.title` or source
+          // slot must not shadow a usable title in another published slot. The
+          // short placeholder is copied only when nothing usable exists (the
+          // record then stays blocking, as before).
+          const sourceCopy = [
+            placeholder,
+            ...DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()),
+          ].find(hasUsableTitle) || placeholder;
+          if (sourceCopy) {
+            job.titleByLocale[locale] = sourceCopy;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          }
         }
       }
       {
@@ -3570,7 +3594,13 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
       if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
 
-      if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+      // Same guard as hardenJobLocaleFields: a 1-2 char `job.title` never
+      // overwrites a usable title already in the source slot.
+      if (
+        baseTitle &&
+        normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle) &&
+        (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
+      ) {
         job.titleByLocale[titleSourceLang] = baseTitle;
       }
       const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();
@@ -4543,7 +4573,7 @@ export async function runDedicatedBaseCrawler({
   // lafonte, … and the standard template) is covered without per-script seeds.
   seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
 
-  await runSharedCrawlerInProcess({ root, env });
+  return runSharedCrawlerInProcess({ root, env });
 }
 
 /**
@@ -5529,8 +5559,22 @@ export function isLikelyGenericCareerTitle(title = '') {
 export function isLikelyJobDetailUrl(rawUrl = '') {
   const url = String(rawUrl || '').toLowerCase();
   if (!url) return false;
+  let parsedUrl = null;
   let host = '';
-  try { host = new URL(url).hostname.toLowerCase(); } catch {}
+  try {
+    parsedUrl = new URL(url);
+    host = parsedUrl.hostname.toLowerCase();
+  } catch {}
+  // The Swiss Timing central board keeps the listing path
+  // (`/company/job-offers`) for detail pages and identifies the vacancy with
+  // `?company=<id>&job=<id>`. The path alone is still a listing; only the
+  // numeric detail query makes it a job page.
+  const isSwissTimingDetail =
+    (host === 'swisstiming.com' || host.endsWith('.swisstiming.com')) &&
+    /^\/company\/job-offers\/?$/.test(parsedUrl?.pathname || '') &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('company') || '') &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('job') || '');
+  if (isSwissTimingDetail) return true;
   if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;
@@ -8949,6 +8993,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   }
 
   const slugRegistry = loadSlugRegistry();
+  // Agency admission threshold: the registry holds only admitted jobs. Judged
+  // against the agency slice on disk, not against this merge's inputs: in the
+  // crawler's localization pass (crawler-template Step 5) `existingJobs` is a
+  // scratch copy and a new arrival is not stamped until writeJobsCrawlerSlice.
+  const awaitingAdmission = createAwaitingAdmissionCheck(
+    options.translationHoldSlicesDir ? { slicesDir: options.translationHoldSlicesDir } : {},
+  );
   let registryHits = 0;
   let registryNewEntries = 0;
   let registryDemotions = 0;
@@ -9006,7 +9057,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       // only the source-locale slug, so the other locales never get pinned and
       // churn every crawl → old per-locale URL stranded. Persisting the current
       // real translation makes the registry immutable per-locale going forward.
-      registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
+      if (!awaitingAdmission(job)) registryBackfills += backfillRegistryLocaleSlugs(registered, job, srcLang);
       const lost = captureLostSlugs(job, prevSlugByLocale, prevSlug);
       if (lost.length > 0) registryDemotions += lost.length;
       usedSlugs.add(job.slug);
@@ -9023,6 +9074,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     job.slug = candidate;
     usedSlugs.add(candidate);
+    // A job held out of publication for translation, or a new agency arrival
+    // the slice writer is about to hold, has no public URL yet: pinning its
+    // source-language slug would freeze it before the translated title exists,
+    // and mine-all-job-slugs would turn the registry entry into an expired
+    // soft-landing for a route nobody was ever served — even after the job has
+    // left its slice. It is registered on the first pass after release.
+    if (awaitingAdmission(job)) continue;
     const sizeBefore = Object.keys(slugRegistry).length;
     registerJobSlug(job, slugRegistry);
     if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;

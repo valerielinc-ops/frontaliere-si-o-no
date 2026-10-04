@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-10-03T21:28:28.645Z",
+  "assembledAt": "2026-10-04T09:28:17.923Z",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-46f1a299d8b7",
@@ -33,7 +33,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/33dc539a4689-responsable-du-controle-de-gestion-financier-90-100-leiter-in-finanzcontrolling-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:22.493Z",
+      "crawledAt": "2026-10-04T09:28:12.275Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/cf8c523ac675-physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:21.852Z",
+      "crawledAt": "2026-10-04T09:28:11.569Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:21.008Z",
+      "crawledAt": "2026-10-04T09:28:10.946Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:20.336Z",
+      "crawledAt": "2026-10-04T09:28:10.228Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -357,7 +357,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:19.663Z",
+      "crawledAt": "2026-10-04T09:28:09.566Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -435,7 +435,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:19.026Z",
+      "crawledAt": "2026-10-04T09:28:08.935Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -474,8 +474,7 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hfr-hopital-fribourgeois-d1d1dc288493",
@@ -508,7 +507,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:18.158Z",
+      "crawledAt": "2026-10-04T09:28:08.292Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -581,7 +580,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-leitende-arztin-leitenden-arzt-der-respiratorischen-rehabilitation-70-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:17.470Z",
+      "crawledAt": "2026-10-04T09:28:07.557Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -672,7 +671,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:16.807Z",
+      "crawledAt": "2026-10-04T09:28:06.930Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -729,7 +728,7 @@
       "titleByLocale": {
         "it": "Infermiere/Istruttore (ISO) o Tecnico/a di sala operatoria (TSO) (80-100%)",
         "en": "Surgical Instrument Nurse (SIN) or Operating Room Technician (ORT) (80-100%)",
-        "de": "Infirmier-ère instrumentiste (ISO) ou  technicien-ne en salle d’opération (TSO) (80-100%) / Pflegefachperson Operationsbereich oder Fachperson Operationstechnik (TOA) (80-100%)",
+        "de": "Instrumentist Nurse (ISO) oder Operationstechniker (TSO) (80-100%) / Pflegefachperson Operationsbereich oder Fachperson Operationstechnik (TOA) (80-100%)",
         "fr": "Infirmier-ère instrumentiste (ISO) ou technicien-ne en salle d’opération (TSO) (80-100%) / Pflegefachperson Operationsbereich oder Fachperson Operationstechnik (TOA) (80-100%)"
       },
       "description": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les blocs opératoires de l'HFR un-e\n\nInfirmier-ère instrumentiste (ISO) ou\n\ntechnicien-ne en salle d’opération (TSO)\n\n80 - 100 %\n\nVotre mission :\n\n• assurer l’instrumentation des interventions chirurgicales pluridisciplinaires\n\n• connaître et gérer le matériel inhérent aux interventions chirurgicales\n\n• appliquer et faire respecter les règles d’hygiène hospitalière\n\n• participer activement à la prise en charge des patients opérés en collaboration avec l’équipe pluridisciplinaire\n\n• participer à tous les horaires (piquets, horaire de nuits, week-ends et les jours fériés)\n\nVotre profil :\n\n• titulaire d’un diplôme d’infirmier-ère instrumentiste ou de TSO\n\n• connaissances de base en informatique\n\n• esprit dynamique et constructif\n\n• flexibilité et capacité à travailler en interdisciplinarité\n\n• résistance au stress\n\n• maîtrise de la langue française ou allemande\n\nEntrée en fonction :\nde suite ou à convenir\n\nRenseignements : Mme S. Rollez, Instrumentiste-cheffe des centres opératoires, Tél. +41 26 306 39 65\n\nRéf : HFR-M-220401\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion für den Operationstrakt am HFR eine\n\nPflegefachperson Operationsbereich oder\n\nFachperson Operationstechnik (TOA)\n\nAufgaben\n\n• Sie instrumentieren bei chirurgischen Eingriffen verschiedener Fachrichtungen\n\n• Sie kennen und verwalten das Material für chirurgische Eingriffe\n\n• Sie wenden die Spitalhygienevorschriften an und sorgen für deren Einhaltung\n\n• Sie beteiligen sich aktiv an der Betreuung der OP-Patientinnen und -Patienten in Zusammenarbeit mit dem interdisziplinären Team\n\n• Sie arbeiten in allen Schichten (Pikett, Nachtarbeit, Wochenenden und Feiertage)\n\nProfil\n\n• Dipl. Pflegefachfrau/-mann Operationsbereich oder Dipl. Fachfrau/-mann Operationstechnik (TOA)\n\n• Grundkenntnisse in Informatik\n\n• Dynamik, konstruktive Einstellung\n\n• Flexibilität, disziplinübergreifendes Arbeiten\n\n• Belastbarkeit\n\n• Deutsch oder Französisch\n\nStellenantritt : Sofort oder nach Vereinbarung\n\nAuskunft : Frau S. Rollez, Leiterin Instrumentierfachfrau Operationszentren, Tel. + +41 26 306 39 65\n\nRef.: HFR-M-220401",
@@ -744,7 +743,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:16.161Z",
+      "crawledAt": "2026-10-04T09:28:06.215Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -808,8 +807,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hfr-hopital-fribourgeois-504cbdd9044a",
@@ -843,7 +841,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/39b47f127a1e-infirmier-ere-60-pflegefachfrau-pflegefachmann-60",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:15.326Z",
+      "crawledAt": "2026-10-04T09:28:05.363Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -928,7 +926,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/13f68ca9d324-hr-business-partner-80-100-hr-business-partner-in-80--100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:14.696Z",
+      "crawledAt": "2026-10-04T09:28:04.656Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -993,7 +991,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:14.007Z",
+      "crawledAt": "2026-10-04T09:28:04.014Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1103,7 +1101,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0afb1090e546-ergotherapeutin-ergotherapeuten-40-ergotherapeute-40",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:13.355Z",
+      "crawledAt": "2026-10-04T09:28:03.323Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1207,7 +1205,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:12.713Z",
+      "crawledAt": "2026-10-04T09:28:02.640Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1281,9 +1279,9 @@
       "id": "hfr-hopital-fribourgeois-56aea509097b",
       "slug": "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-collaboratore-trice-administration-auf-hoherer-stufe-90-100-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
-        "de": "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter",
         "it": "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-collaboratore-trice-administration-auf-hoherer-stufe-90-100-hopital-fribourgeois-hfr-fribourg",
         "en": "collaborator-trice-administratif-ve-superieur-e-90-100-employee-administration-at-a-higher-level-90-100-hopital",
+        "de": "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter",
         "fr": "collaborateur-trice-administrateur-ve-superieur-e-90-100-employe-administration-a-un-niveau-superieur-90-100-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1291,9 +1289,9 @@
       "companyDomain": "h-fr.ch",
       "title": "Collaborateur-trice administratif-ve supérieur-e 90-100 % / Mitarbeiterin/Mitarbeiter Administration auf höherer Stufe 90–100 %",
       "titleByLocale": {
-        "de": "Collaborateur-trice administratif-ve supérieur-e 90-100 % / Mitarbeiterin/Mitarbeiter Administration auf höherer Stufe 90–100 %",
         "it": "Collaborateur-trice administratif-ve supérieur-e 90-100 % / Mitarbeiterin/Collaboratore/trice Administration auf höherer Stufe 90–100 %",
         "en": "Collaborator-trice administratif-ve supérieur-e 90-100 % / Employee/Administration at a higher level 90-100%",
+        "de": "Collaborateur-trice administratif-ve supérieur-e 90-100 % / Mitarbeiterin/Mitarbeiter Administration auf höherer Stufe 90–100 %",
         "fr": "Collaborateur-trice administrateur-ve supérieur-e 90-100 % / Employé/Administration à un niveau supérieur 90-100 %"
       },
       "description": "Rejoignez notre secteur « expertise tarifaire ambulatoire » et devenez un acteur clé de la poursuite de la mise en œuvre et de l’application de la nouvelle structure tarifaire ambulatoire au sein de l’HFR. Adressez-nous votre candidature pour le poste de\n\nCollaborateur-trice administratif-ve supérieur-e\n 90-100 %\n\nIntégré-e au service de la facturation, vous rejoignez une équipe spécialisée au cœur des enjeux tarifaires de l’hôpital. Dans cette fonction à forte composante d’expertise, vous contribuez à garantir une exécution correcte et efficiente de TARDOC et des forfaits ambulatoires, tout en accompagnant les services dans l’évolution de leurs pratiques.\n\nVotre mission\n\nDans le cadre secteur « expertise tarifaire ambulatoire », vous :\n\n• développez et maintenez une expertise approfondie de TARDOC, des forfaits ambulatoires et des règles de facturation associées ;\n\n• assurez l’application correcte des structures tarifaires et des conventions en vigueur et analysez les situations complexes de facturation ;\n\n• accompagnez et conseillez les services médicaux, soignants et administratifs dans les questions liées à la tarification ambulatoire ;\n\n• participez activement à l’ optimisation des processus de facturation et à l’amélioration de la qualité des données nécessaires à une facturation complète et conforme ;\n\n• analysez les évolutions tarifaires, réglementaires et conventionnelles et contribuez à leur mise en œuvre opérationnelle au sein de l’HFR ;\n\n• identifiez les impacts des nouvelles règles tarifaires sur les processus et proposez les adaptations nécessaires ;\n\n• contrôlez la qualité et la cohérence de la saisie des prestations et contribuez à identifier les potentiels d’amélioration ;\n\n• concevez et animez des formations et actions d’information à destination des différents services concernés ;\n\n• collaborez étroitement avec les experts tarifaires, les équipes de facturation ainsi qu’avec les différents métiers impliqués dans le processus de prise en charge et de facturation ;\n\n• participez à l’élaboration et à l’analyse de reportings et d’indicateurs permettant de suivre la qualité et la performance de la facturation ambulatoire ;\n\n• contribuez par votre expertise et votre connaissance du terrain au développement continu du secteur.\n\nVotre profil\n\n• formation dans le domaine de la santé, HEG ou formation jugée équivalente ;\n\n• plusieurs années d’expérience dans le domaine de la santé, de la facturation, de la tarification médicale ou dans une fonction comparable ;\n\n• bonnes connaissances du système de santé suisse et des principales bases assécurologiques (LAMal, LAA, etc.) ;\n\n• maîtrise de la tarification médicale ambulatoire ; une expérience de TARDOC constitue un atout important ;\n\n• capacité à analyser et à traiter des problématiques complexes avec rigueur et pragmatisme ;\n\n• aisance dans la transmission de connaissances et capacité à conseiller et convaincre des interlocuteurs aux profils variés ;\n\n• sens des responsabilités, autonomie et esprit d’initiative ;\n\n• goût pour le travail transversal et excellente capacité à collaborer au sein d'une équipe ;\n\n• très bonne maîtrise des outils informatiques et bureautiques ;\n\n• maîtrise de la langue française avec de bonnes connaissances de la langue allemande.\n\nCe que nous offrons :\n\nUne fonction spécialisée et évolutive au cœur d’un domaine stratégique pour l’HFR, avec une réelle autonomie dans votre champ d’expertise.\n\nVous intégrerez un secteur dédiée à l’ambulatoire et participerez directement à la consolidation de la nouvelle tarification, en lien étroit avec les professionnels du terrain et les différents acteurs de l’hôpital.\n\nUn poste pour celles et ceux qui souhaitent conjuguer expertise tarifaire, compréhension du terrain et amélioration des processus.\n\nEntrée en fonction : de suite ou à convenir.\n\nRenseignements : Karlène Favre, Responsable du secteur expertise tarifaire ambulatoire,\n tél. +41 26 306 04 74\n\nDélai de postulation : 25.10.2026\n\nRéf. : HFR-A-264001\n\nDann werden Sie Teil unseres Fachbereichs «ambulante Tarife» und übernehmen Sie eine Schlüsselrolle bei der Einführung und Anwendung der neuen ambulanten Tarifstruktur am HFR! Bewerben Sie sich bei uns als\n\nMitarbeiterin/Mitarbeiter Administration auf höherer Stufe\n 90–100 %\n\nSie arbeiten in der Abteilung Fakturierung in einem spezialisierten Team, das sich mit einigen der wichtigsten Tariffragen des Spitals befasst. In einer Funktion mit ausgeprägter Expertise helfen Sie mit, eine korrekte und effiziente Umsetzung von TARDOC und der ambulanten Pauschalen zu gewährleisten; und Sie begleiten die Abteilungen bei der Weiterentwicklung ihrer Praxis.\n\nAufgaben\n\nInnerhalb des Fachbereichs «ambulante Tarife» übernehmen Sie folgende Aufgaben:\n\n• Sie entwickeln vertieftes Fachwissen über TARDOC, die ambulanten Pauschalen und die damit verbundenen Fakturierungsvorgaben und halten dieses auf dem neuesten Stand.\n\n• Sie gewährleisten die korrekte Anwendung der geltenden Tarifstrukturen und Vereinbarungen und analysieren komplexe Fakturierungssituationen.\n\n• Sie begleiten und beraten die medizinischen und pflegerischen Abteilungen sowie die Administration bei Fragen rund um die ambulanten Tarife.\n\n• Sie beteiligen sich aktiv an der Optimierung der Fakturierungsprozesse und an der Qualitätsverbesserung der für eine vollständige und vorschriftskonforme Fakturierung benötigten Daten.\n\n• Sie analysieren die Entwicklungen in den Bereichen Tarife, Gesetzgebung und Vereinbarungen und tragen zur operativen Einführung entsprechender Neuerungen am HFR bei.\n\n• Sie ermitteln die Auswirkungen der neuen Tarifvorgaben auf die Prozesse und schlagen notwendige Anpassungen vor.\n\n• Sie kontrollieren die Qualität und die Kohärenz der erfassten Leistungen und beteiligen sich an der Identifizierung von Verbesserungspotenzial.\n\n• Sie gestalten Schulungen und Informationsinitiativen für die verschiedenen betroffenen Abteilungen und führen diese durch.\n\n• Sie arbeiten eng mit den Tarifexpertinnen und -experten, den Teams der Fakturierung und den verschiedenen am Pflege- und Fakturierungsprozess beteiligten Berufen zusammen.\n\n• Sie wirken an der Erarbeitung und Analyse von Reportings und Indikatoren mit, mit deren Hilfe die Qualität und die Leistung der ambulanten Fakturierung überwacht werden kann.\n\n• Sie tragen durch Ihre Expertise und Ihr Praxiswissen zur kontinuierlichen Weiterentwicklung Ihres Bereichs bei.\n\nProfil\n\n• Ausbildung in den Bereichen Gesundheit oder HSW bzw. gleichwertige Ausbildung\n\n• Mehrjährige Berufserfahrung im Gesundheitswesen, in den Bereichen Fakturierung, medizinische Tarifsysteme oder in einer vergleichbaren Funktion\n\n• Gute Kenntnis des Schweizer Gesundheitswesens und der wichtigsten Versicherungsgrundlagen (KVG, UVG etc.)\n\n• Ausgezeichnete Kenntnis des Tarifsystems für ambulante Leistungen, Erfahrung mit TARDOC von grossem Vorteil\n\n• Fähigkeit, komplexe Probleme sorgfältig und pragmatisch zu analysieren und zu lösen\n\n• Freude an der Wissensvermittlung und Fähigkeit, unterschiedlichste Gegenüber zu beraten und zu überzeugen\n\n• Verantwortungsbewusstsein, Selbstständigkeit und Eigeninitiative\n\n• Ausgeprägte Teamfähigkeit, Freude an der fachübergreifenden Arbeit\n\n• Sehr gute Kenntnisse der gängigen Informatik- und Büroinformatikprogramme\n\n• Französisch mit guten Deutschkenntnissen\n\nWir bieten:\n\n• Eine spezialisierte Funktion mit Entwicklungspotenzial im Zentrum eines für das HFR strategischen Bereichs mit viel Freiraum in Ihrem Fachgebiet\n\n• Eine Funktion innerhalb des Bereichs für die ambulante Versorgung, mit direkter Beteiligung an der Konsolidierung des neuen Tarifsystems, in engem Kontakt mit den Fachleuten in der Praxis und den verschiedenen Akteuren des Spitals\n\nEine ideale Stelle für alle, die Expertise in den Tarifsystemen, Verständnis der praktischen Gegebenheiten und Prozessoptimierung miteinander verbinden möchten.\n\nStellenantritt: sofort oder nach Vereinbarung\n\nAuskunft: Karlène Favre, Verantwortliche Fachbereich ambulante Tarife, T 026 306 04 74\n\nBewerbungsfrist: 25.10.2026\n\nRef.: HFR-A-264001",
@@ -1309,7 +1307,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/aa99fd7e1197-collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter-administration-auf-hoherer-stufe-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:11.862Z",
+      "crawledAt": "2026-10-04T09:28:01.767Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1330,13 +1328,11 @@
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter",
         "collaborator-trice-administratif-ve-superieur-e-90-100-employee-administrative-staff-90-100-hopital-fribourgeois-hfr",
-        "collaborateur-trice-administrateur-ve-superieur-e-90-100-employe-personnel-administratif-90-100-hopital-fribourgeois-hfr",
-        "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-collaboratore-trice-administration-auf-hoherer-stufe-90-100-hopital-fribourgeois-hfr-fribourg"
+        "collaborateur-trice-administrateur-ve-superieur-e-90-100-employe-personnel-administratif-90-100-hopital-fribourgeois-hfr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter",
-          "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-collaboratore-trice-administration-auf-hoherer-stufe-90-100-hopital-fribourgeois-hfr-fribourg"
+          "collaborateur-trice-administratif-ve-superieur-e-90-100-mitarbeiterin-mitarbeiter"
         ],
         "en": [
           "collaborator-trice-administratif-ve-superieur-e-90-100-employee-administrative-staff-90-100-hopital-fribourgeois-hfr",
@@ -1394,7 +1390,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/d70bf23869f0-collaborateur-trice-service-technique-et-maintenance-80-100-mitarbeiterin-mitarbeiter-technischer-dienst-und-instandhaltung-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:11.135Z",
+      "crawledAt": "2026-10-04T09:28:01.087Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1474,7 +1470,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/04225fce3214-collaborateur-trice-intendance-50-60-horaire-du-soir",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:10.474Z",
+      "crawledAt": "2026-10-04T09:28:00.421Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1553,7 +1549,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/f3c19e2c6baf-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-neurologie-60-70",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:09.799Z",
+      "crawledAt": "2026-10-04T09:27:59.595Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1630,7 +1626,7 @@
       "titleByLocale": {
         "it": "Capo della clinica o vice capo della clinica / medico senior o vice medico senior",
         "en": "Chief of Clinic or Deputy Chief of Clinic",
-        "de": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt",
+        "de": "Klinikleiter oder stellvertretender Klinikleiter / Oberärztin/Oberarzt oder stellvertretene/n Oberärztin/Oberarzt",
         "fr": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt"
       },
       "description": "Afin de compléter son équipe, la Direction médicale recherche pour le service de gériatrie aigue/réadaptation gériatrique de l'HFR Riaz un-e :\n\nChef-fe de clinique ou chef-fe de clinique adjoint-e\n 60 - 100 %\n\nVotre mission :\n\n• assurer la supervision de l'activité et de la formation des médecins assistants\n\n• dispenser de l'enseignement pour pré- et post-gradué ainsi que pour la formation continue médicale\n\n• participer à l'élaboration de projets de service et de projets scientifiques\n\n• participer au service de garde sur le site\n\nVotre profil :\n\n• vous êtes porteur-se d'un titre de FMH en médecine interne ou générale, ou en voie de l'obtenir, ou formation jugée équivalente\n\n• vous maîtrisez la langue française\n\n• vous êtes motivé-e à contribuer à une bonne atmosphère de travail et appréciez l'échange collégial\n\nEntrée en fonction : 1 er novembre 2026 à convenir\n\nRenseignements : Dr A. Laszlo, Médecin-chef de service, +41 26 306 44 30\n\nHFR-M-260202",
@@ -1640,13 +1636,12 @@
         "de": "Um ihr Team zu vervollständigen, sucht die Medizinische Direktion nach der Abteilung für Akutgeriatrie/Geriatrische Rehabilitation der HFR Riaz: Leiter der Klinik oder stellvertretender Leiter der Klinik 60 - 100 % Ihre Mission:\n• Überwachung der Tätigkeit und Ausbildung von Assistenzärzten\n• Bereitstellung von vor- und postgradualer Ausbildung sowie für die kontinuierliche medizinische Weiterbildung\n• Mitwirken an der Entwicklung von Service- und wissenschaftlichen Projekten\n• Teilnahme an Kinderbetreuung vor Ort Ihr Profil:\n• Sie besitzen eine FMH-Qualifikation in Innerer oder Allgemeinmedizin oder befinden sich dabei, eine zu erwerben oder eine gleichwertige Ausbildung zu erhalten\n• Sie sprechen fließend Französisch\n• Sie sind motiviert, zu einer guten Arbeitsatmosphäre beizutragen und den kollegialen Austausch zu genießen Startdatum: 1. November 2026 wird vereinbart Informationen: Dr. A. Laszlo, Chefarzt, +41 26 306 44 30 HFR-M-260202",
         "fr": "Afin de compléter son équipe, la Direction médicale recherche pour le service de gériatrie aigue/réadaptation gériatrique de l'HFR Riaz un-e :\n\nChef-fe de clinique ou chef-fe de clinique adjoint-e\n60 - 100 %\n\nVotre mission :\n\n• assurer la supervision de l'activité et de la formation des médecins assistants\n\n• dispenser de l'enseignement pour pré- et post-gradué ainsi que pour la formation continue médicale\n\n• participer à l'élaboration de projets de service et de projets scientifiques\n\n• participer au service de garde sur le site\n\nVotre profil :\n\n• vous êtes porteur-se d'un titre de FMH en médecine interne ou générale, ou en voie de l'obtenir, ou formation jugée équivalente\n\n• vous maîtrisez la langue française\n\n• vous êtes motivé-e à contribuer à une bonne atmosphère de travail et appréciez l'échange collégial\n\nEntrée en fonction : 1 er novembre 2026 à convenir\n\nRenseignements : Dr A. Laszlo, Médecin-chef de service, +41 26 306 44 30\n\nHFR-M-260202"
       },
-      "needsRetranslation": true,
       "location": "HFR Riaz",
       "canton": "FR",
       "url": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:08.966Z",
+      "crawledAt": "2026-10-04T09:27:58.838Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1725,7 +1720,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:28:08.215Z",
+      "crawledAt": "2026-10-04T09:27:57.996Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1817,7 +1812,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:07.566Z",
+      "crawledAt": "2026-10-04T09:27:57.271Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1907,7 +1902,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:06.878Z",
+      "crawledAt": "2026-10-04T09:27:56.579Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1979,7 +1974,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:06.073Z",
+      "crawledAt": "2026-10-04T09:27:55.925Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2069,7 +2064,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:05.243Z",
+      "crawledAt": "2026-10-04T09:27:55.266Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2142,8 +2137,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hfr-hopital-fribourgeois-2aab7fd2d635",
@@ -2162,7 +2156,7 @@
         "it": "Assistente tecnica specializzata in sala operatoria (ATSSO) (90 - 100%) / Tecnico/a di sala operatoria (90-100%)",
         "en": "Assistant-eņ spécialisé-e en salle d,opération (ATSSO) (90 - 100%) / Technical Operations Assistant/Technical Operations Assistant (90-100%)",
         "de": "Assistent-e technique spécialisé-e en salle d’opération (ATSSO) (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)",
-        "fr": "Assistant-e technique spécialisé-e en salle d’opération (ATSSO)  (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)"
+        "fr": "Assistant-e technique spécialisé-e en salle d'opération (ATSSO) (90 - 100%) / Assistant technique/Assistant technique (90-100%)"
       },
       "description": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les centres opératoires de l'HFR un-e\n\nAssistant-e technique spécialisé-e en salle d’opération (ATSSO)\n\n90 - 100%\n\nVotre mission :\n\n• Assurer la prise en charge du patient au bloc opératoire et les activités de circulant-e\n\n• Assister l’infirmier-ère instrumentiste ou le technicien-ne spécialisé-e en salle d’opération (TSO) pour toutes les interventions chirurgicales\n\n• Préparer, installer et manipuler les dispositifs médicaux et participer à la gestion\n\n• Garantir les activités en lien avec l’hygiène et la sécurité\n\n• Participer aux activités d’intégration des nouveaux collaborateurs-trices et au développement du service\n\nVotre profil :\n\n• Formation d’aide spécialisée en salle d'opération ou CR aide-soignant-e ou équivalent et/ou titulaire du certificat ATSSO niveau 1 ou disposé-e à le faire\n\n• Expérience professionnelle hospitalière\n\n• Maîtrise des outils informatiques usuels\n\n• Maîtrise de la langue française, bonnes connaissances de l’allemand un atout\n\n• Aptitude à travailler en équipe multidisciplinaires, sens de l’organisation, autonomie et sens des responsabilités, sens de la communication\n\n• Grande résistance au stress et flexibilité\n\nEntrée en fonction : de suite ou à convenir\n\nRenseignements : M. Ivan Mellado, Coordinateur des ATSSO et agent-e-s bionettoyage, Tél. +41 26 306 05 69\n\nRéf : HFR-M-240901\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion des freiburger spitals für die Operationszentren des HFR eine/n\n\nTechnische Operationsassistentin/Technischen Operationsassistenten\n\nAufgaben\n\n• Sie betreuen die Patientinnen und Patienten im Operationstrakt und bei den Springertätigkeiten.\n\n• Sie assistieren der Pflegefachperson Operationsbereich oder den Fachpersonen Operationstechnik bei allen chirurgischen Eingriffen.\n\n• Sie bereiten die Medizingeräte vor, legen sie bereit, reichen sie weiter und beteiligen sich an der Verwaltung.\n\n• Sie kümmern sich um die Arbeitsschritte im Zusammenhang mit der Hygiene und der Sicherheit.\n\n• Sie beteiligen sich an der Einarbeitung neuer Mitarbeitender und an der Weiterentwicklung der Abteilung.\n\nProfil\n\n• Abschluss als Assistent/in OP oder Pflegehelfer/in SRK bzw. gleichwertige Ausbildung und/oder französischsprachiges Zertifikat als technische/r Operationsassistentin/-assistent Stufe 1 bzw. Bereitschaft, dieses zu absolvieren\n\n• Berufserfahrung im Spitalwesen\n\n• Beherrschen der gängigen Informatikprogramme\n\n• Französisch, gute Deutschkenntnisse von Vorteil\n\n• Mitarbeit in einem interdisziplinären Team, Organisationsvermögen, Selbstständigkeit und Verantwortungsbewusstsein, Kommunikationsgeschick\n\n• Ausgeprägte Belastbarkeit und Flexibilität\n\nStellenantritt : sofort oder nach Vereinbarung\n\nAuskunft : Herr Ivan Mellado, Koordinator der Operationsassistentinnen und -assistenten und der Mitarbeitenden für die biologische Reinigung\n\nT +41 26 306 05 6",
       "descriptionByLocale": {
@@ -2176,7 +2170,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:04.588Z",
+      "crawledAt": "2026-10-04T09:27:54.497Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2242,8 +2236,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hfr-hopital-fribourgeois-dd925d97f0fe",
@@ -2277,7 +2270,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/be2877a99f7b-adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100-stellvertretende-n-verantwortliche-n-der-abteilung-tarife-vereinbarungen-und-fakturierung-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:28:03.927Z",
+      "crawledAt": "2026-10-04T09:27:53.841Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2324,188 +2317,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "hfr-hopital-fribourgeois-f4893914ffe3",
-      "slug": "infermiera-qualificata-70-pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
-      "slugByLocale": {
-        "it": "infermiera-qualificata-70-pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
-        "en": "qualified-nurse-70-pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
-        "de": "pflegefachmann-pflegefachfrau-70-hopital-fribourgeois-hfr-hfr-riaz",
-        "fr": "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
-      },
-      "company": "Hôpital fribourgeois (HFR)",
-      "companyKey": "hfr-hopital-fribourgeois",
-      "companyDomain": "h-fr.ch",
-      "title": "Infirmier-ère diplômé-e  70% / Pflegefachmann/Pflegefachfrau 70%",
-      "titleByLocale": {
-        "it": "Infirmier-ère diplômé-e 70% / Pflegefachmann/Pflegefachfrau 70%",
-        "en": "Infirmier-ère diplômé-e 70% / Pflegefachmann/Pflegefachfrau 70%",
-        "de": "Infirmier-ère diplômé-e  70% / Pflegefachmann/Pflegefachfrau 70%",
-        "fr": "Infirmier-ère diplômé-e 70% / Pflegefachmann/Pflegefachfrau 70%"
-      },
-      "description": "Afin de compléter son équipe, la direction des soins recherche pour le service de gériatrie aiguë et réadaptation pulmonaire de l’HFR Riaz , un-e\n\nInfirmier-ère diplômé-e\n 70%\n\nVotre mission :\n\n• Prodiguer des soins de qualité en partenariat avec la personne soignée et son entourage, dans le respect de la philosophie de soins en vigueur\n\n• Favoriser la collaboration interdisciplinaire et y participer activement tant au sein de l’équipe qu’avec l’ensemble des membres de l’établissement\n\n• Évaluer les prestations et effectuer les ajustements nécessaires en visant la constante amélioration des interventions\n\nVotre profil :\n\n• Diplôme d’infirmier-ère en soins généraux ou formation jugée équivalente\n\n• 2 ans d’expérience en soins aigus serait un atout\n\n• Expérience en gériatrie et/ou réadaptation respiratoire et hospitalière\n\n• Maîtrise de la langue française en oral et en écrit\n\n• Connaissances en informatique\n\n• Intérêt particulier pour le travail pluridisciplinaire\n\n• Aptitude à travailler de manière autonome et en équipe\n\n• Sens de l'organisation et des responsabilités\n\nNous offrons :\n\n• Un travail varié\n\n• Une équipe de soins dynamique\n\n• Des opportunités de développement et de formation\n\nEntrée en fonction :\n1 er janvier 2026\n\nRenseignements : Mme Saintpierre Marie, ICUS, gériatrique aiguë et réadaptation pulmonaire, HFR Riaz, tél. +41 26 306 46 10\n\nDélai de postulation : 30 septembre 2026\n\nRéf : HFR-MTS-263601",
-      "descriptionByLocale": {
-        "it": "Per completare il proprio team la direzione assistenziale ricerca un\n\nInfermiera qualificata\n70%\n\nLa tua missione:\n\n- Fornire cure di qualità in collaborazione con la persona in cura e coloro che la circondano, nel rispetto dell'attuale filosofia assistenziale\n- Promuovere la collaborazione interdisciplinare e partecipare attivamente sia all'interno del team che con tutti i membri dell'istituzione\n- Valutare i servizi e apportare gli adeguamenti necessari, puntando al miglioramento costante degli interventi\n\nIl tuo profilo:\n\n- Diploma di infermieristica in assistenza generale o formazione ritenuta equipollente\n- Costituiranno titolo preferenziale 2 anni di esperienza in terapia intensiva\n- Esperienza in ambito geriatrico e/o riabilitativo respiratorio e ospedaliero\n- Padronanza della lingua francese in forma orale e scritta\n-Conoscenza informatica\n- Particolare interesse per il lavoro multidisciplinare\n- Capacità di lavorare in modo indipendente e in gruppo\n- Senso di organizzazione e responsabilità\n\nOffriamo:\n\n- Lavoro vario\n- Un team di assistenza dinamico\n- Opportunità di sviluppo e formazione\n\nUlteriori informazioni\n\n- Inizio carica: 1 gennaio 2026\n- Scadenza per le domande: 30 settembre 2026\n- Rif: HFR-MTS-263601\n\nContatto\n\nInformazioni: Sig.ra Saintpierre Marie, ICUS, geriatria acuta e riabilitazione polmonare, HFR Riaz, tel. 41 26 306 46 10",
-        "en": "To complement its team, the research department for the acute geriatric and pulmonary rehabilitation service of HFR Riaz, a\n\nGraduate nurse 70%\n\nYour mission:\n\n-providing quality care in partnership with the care provider and his/her family, in accordance with the current care philosophy - Promote interdisciplinary collaboration and participate actively both within the team and with all the members of the institution - Evaluate the benefits and make the necessary adjustments with a view to the constant improvement of the interventions\n\nYour profile:\n\n- Diploma of general care nurse or equivalent training - 2 years d, experience in acute care would be an asset - Experience in geriatrics and/or respiratory and hospital rehabilitation - Master's of the French language in oral and written - Computer skills - Special interest in multidisciplinary work - Ability to work independently and in a team - Meaning of organization and responsibility\n\nWe offer:\n\n- A varied work - A dynamic care team - Development and training opportunities\n\nFurther information\n\n- Start of business : 1 January 2026 - Deadline for application : 30 September 2026 - Ref : HFR-MTS-263601\n\nContact\n\nFor further information: Ms. Saintpierre Marie, ICUS, acute geriatrics and pulmonary rehabilitation, HFR Riaz, tel.",
-        "de": "Zur Ergänzung ihres Teams sucht die Pflegeleitung eine/n\n\nQualifizierte Krankenschwester\n70 %\n\nIhre Mission:\n\n- Bieten Sie in Zusammenarbeit mit der behandelten Person und ihren Mitmenschen eine qualitativ hochwertige Pflege und respektieren Sie dabei die aktuelle Pflegephilosophie\n- Fördern Sie die interdisziplinäre Zusammenarbeit und beteiligen Sie sich aktiv sowohl im Team als auch mit allen Mitgliedern der Einrichtung\n- Bewerten Sie Dienstleistungen und nehmen Sie notwendige Anpassungen vor, um eine ständige Verbesserung der Interventionen anzustreben\n\nIhr Profil:\n\n- Krankenpflegediplom in allgemeiner Pflege oder eine gleichwertige Ausbildung\n- 2 Jahre Erfahrung in der Akutversorgung wären von Vorteil\n- Erfahrung in der Geriatrie und/oder Atemwegs- und Krankenhausrehabilitation\n- Beherrschung der französischen Sprache in mündlicher und schriftlicher Form\n- Computerkenntnisse\n- Besonderes Interesse an multidisziplinärer Arbeit\n- Fähigkeit, selbstständig und im Team zu arbeiten\n- Organisations- und Verantwortungsbewusstsein\n\nWir bieten:\n\n- Abwechslungsreiche Arbeit\n- Ein dynamisches Pflegeteam\n- Entwicklungs- und Ausbildungsmöglichkeiten\n\nZusätzliche Informationen\n\n- Amtsantritt: 1. Januar 2026\n- Bewerbungsschluss: 30. September 2026\n- Ref: HFR-MTS-263601\n\nKontakt\n\nInformationen: Frau Saintpierre Marie, ICUS, Akutgeriatrie und Lungenrehabilitation, HFR Riaz, Tel. 41 26 306 46 10",
-        "fr": "Afin de compléter son équipe, la direction des soins recherche pour le service de gériatrie aiguë et réadaptation pulmonaire de l’HFR Riaz , un-e\n\nInfirmier-ère diplômé-e\n70%\n\nVotre mission :\n\n• Prodiguer des soins de qualité en partenariat avec la personne soignée et son entourage, dans le respect de la philosophie de soins en vigueur\n\n• Favoriser la collaboration interdisciplinaire et y participer activement tant au sein de l’équipe qu’avec l’ensemble des membres de l’établissement\n\n• Évaluer les prestations et effectuer les ajustements nécessaires en visant la constante amélioration des interventions\n\nVotre profil :\n\n• Diplôme d’infirmier-ère en soins généraux ou formation jugée équivalente\n\n• 2 ans d’expérience en soins aigus serait un atout\n\n• Expérience en gériatrie et/ou réadaptation respiratoire et hospitalière\n\n• Maîtrise de la langue française en oral et en écrit\n\n• Connaissances en informatique\n\n• Intérêt particulier pour le travail pluridisciplinaire\n\n• Aptitude à travailler de manière autonome et en équipe\n\n• Sens de l'organisation et des responsabilités\n\nNous offrons :\n\n• Un travail varié\n\n• Une équipe de soins dynamique\n\n• Des opportunités de développement et de formation\n\nEntrée en fonction :\n1 er janvier 2026\n\nRenseignements : Mme Saintpierre Marie, ICUS, gériatrique aiguë et réadaptation pulmonaire, HFR Riaz, tél. +41 26 306 46 10\n\nDélai de postulation : 30 septembre 2026\n\nRéf : HFR-MTS-263601"
-      },
-      "needsRetranslation": true,
-      "location": "HFR Riaz",
-      "canton": "FR",
-      "url": "https://hopital-fribourgeois.breezy.hr/p/cfccd896adef-infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70",
-      "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:32:02.570Z",
-      "addressLocality": "HFR Riaz",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1708",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/cfccd896adef-infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "cfccd896adef",
-      "previousSlugs": [
-        "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
-        ],
-        "en": [
-          "infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70-hfr-hopital-fribourgeois-hfr"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T17:35:30.792Z",
-      "salaryMin": 59500,
-      "salaryMax": 83300,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 83300,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "hfr-hopital-fribourgeois-81e604d17232",
-      "slug": "infermiera-80-100-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-hfr-riaz",
-      "slugByLocale": {
-        "it": "infermiera-80-100-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-hfr-riaz",
-        "en": "nurse-80-100-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-hfr-riaz",
-        "de": "infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100-hfr-hopital-fribourgeois-hfr",
-        "fr": "infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100-hfr-hopital-fribourgeois-hfr"
-      },
-      "company": "Hôpital fribourgeois (HFR)",
-      "companyKey": "hfr-hopital-fribourgeois",
-      "companyDomain": "h-fr.ch",
-      "title": "Infirmier-ère 80-100 % / Pflegefachmann/Pflegefachfrau 80-100 %",
-      "titleByLocale": {
-        "it": "Infermiere 80-100%",
-        "en": "Nurse 80-100%",
-        "de": "Infirmier-ère 80-100 % / Pflegefachmann/Pflegefachfrau 80-100 %",
-        "fr": "Infirmier-ère 80-100 % / Pflegefachmann/Pflegefachfrau 80-100 %"
-      },
-      "description": "Afin de compléter son équipe, la direction des soins recherche pour le service de Gériatrie Aiguë et Réadaptation Gériatrique de l’HFR Riaz un-e\n\nInfirmier-ère\n 80-100%\n\nVotre mission :\n\n• prodiguer des soins de qualité en partenariat avec la personne soignée et son entourage, dans le respect de la philosophie de soins de l’HFR, en effectuant tous les horaires du service\n\n• favoriser la collaboration interdisciplinaire et y participer activement tant au sein de l’équipe qu’avec l’ensemble des collaborateurs\n\n• évaluer ses prestations et effectuer les ajustements nécessaires en visant la constante amélioration de ses interventions\n\n• encadrer, soutenir et conseiller les nouveaux membres de l’équipe ainsi que les personnes en formation et les étudiant-e-s\n\n• participer au développement du service et faire preuve de créativité\n\nVotre profil :\n\n• diplôme d’infirmier-ère en soins généraux, niveau HES, ou formation jugée équivalente\n\n• expérience confirmée dans les soins infirmiers, population âgée un atout\n\n• expérience en milieu hospitalier, un atout\n\n• maîtrise de la langue française\n\n• maîtrise des outils informatiques\n\n• esprit dynamique, constructif et créatif\n\n• capacités relationnelles et sens de la communication\n\n• capacité à travailler en équipe pluridisciplinaire\n\n• rigueur, flexibilité et autonomie\n\nEntrée en fonction : 1 er novembre 2026 ou à convenir\n\nRenseignements : Mme Sada Sabina, ICUS, Tél. +41 26 306 4710\n\nDélai de postulation : 30 septembre 2026\n\nRéf : HFR-MTS-263501",
-      "descriptionByLocale": {
-        "it": "Al fine di completare il proprio team, la direzione delle cure ricerca per il servizio di Geriatria Acuta e Riabilitazione Geriatrica dell'HFR Riaz un-e\n\nInfermiere-era\n80-100%\n\nLa tua missione:\n\n• fornire cure di qualità in collaborazione con la persona curata e il suo entourage, nel rispetto della filosofia assistenziale di HFR, effettuando tutti gli orari del servizio\n\n• favorire la collaborazione interdisciplinare e parteciparvi attivamente sia all'interno del team che con tutti i collaboratori\n\n• valutare le proprie prestazioni ed effettuare gli adeguamenti necessari puntando al costante miglioramento dei propri interventi\n\n• inquadrare, sostenere e consigliare i nuovi membri del team, nonché le persone in formazione e gli studenti\n\n• partecipare allo sviluppo del servizio ed essere creativi\n\nIl tuo profilo:\n\n• diploma di infermiere in assistenza generale, livello SUP, o formazione ritenuta equivalente\n\n• comprovata esperienza infermieristica, popolazione anziana un punto di forza\n\n• esperienza in ambito ospedaliero, un vantaggio\n\n• padronanza della lingua francese\n\n• padronanza degli strumenti informatici\n\n• spirito dinamico, costruttivo e creativo\n\n• capacità relazionali e senso della comunicazione\n\n• capacità di lavorare in team multidisciplinare\n\n• rigore, flessibilità e autonomia\n\nEntrata in funzione: 1° novembre 2026 o da convenire\n\nInformazioni: Sig.ra Sada Sabina,",
-        "en": "To complement its team, the research care management for the service of Aiguë Geriatrics and Rehabilitation Geriatrics of the HFR Riaz un-e\n\nNurse-Ear 80-100%\n\nYour mission:\n\n• provide quality care in partnership with the cared person and his/her surroundings, in accordance with the care philosophy of the HFR, by performing all the hours of the service\n\n• to promote interdisciplinary collaboration and to participate actively both within the team and, with all the employees\n\n• assess its performance and make the necessary adjustments with a view to constantly improving its interventions\n\n• to mentor, support and advise new members of the team, as well as training and student staff\n\n• participate in service development and be creative\n\nYour profile:\n\n• degree of general care nurse, HES level, or equivalent training\n\n• experience confirmed in nursing, elderly population an asset\n\n• experience in hospital settings, an asset\n\n• mastery of the French language\n\n• mastery of computer tools\n\n• dynamic, constructive and creative spirit\n\n• relational skills and communication skills\n\n• ability to work in a multidisciplinary team\n\n• rigor, flexibility and autonomy\n\nEntry into office: 1 Er November 2026 or to be agreed\n\nFor further information, please contact: Ms. Sada Sabina, ICUS, Tel.: +26 306 4710\n\nDeadline for application: 30 September 2026\n\nRef : HFR-MTS-263501",
-        "de": "Das Forschungs- und Pflegemanagement für den Dienst der Aiguë Geriatrics und Rehabilitation Geriatrics des HFR Riaz un-e\n\nKrankenschwester-Ear 80-100%\n\nIhre Aufgabe:\n\n• Qualitätskontrolle in Partnerschaft mit der betreuten Person und ihrer Umgebung, in Übereinstimmung mit der Pflegephilosophie des HFR, durch die Durchführung aller Stunden des Dienstes\n\n• die interdisziplinäre Zusammenarbeit zu fördern und aktiv im Team und mit allen Mitarbeitern mitzuwirken\n\n• Bewertung der Leistungsfähigkeit und die erforderlichen Anpassungen vornehmen, um die Interventionen ständig zu verbessern\n\n• neue Mitglieder des Teams zu betreuen, zu unterstützen und zu beraten, sowie Schulungs- und Studentenpersonal\n\n• an der Entwicklung des Service mitwirken und kreativ sein\n\nIhr Profil:\n\n• Grad der allgemeinen Pflegebedürftigkeit, HES-Stufe oder gleichwertige Ausbildung\n\n• Erfahrung in der Krankenpflege bestätigt, ältere Bevölkerung ein Vorteil\n\n• Erfahrung in der Krankenhausausstattung, ein Vermögenswert\n\n• Beherrschung der französischen Sprache\n\n• Beherrschung von Computerwerkzeugen\n\n• dynamischer, konstruktiver und kreativer Geist\n\n• Beziehungen und Kommunikationsfähigkeiten\n\n• Fähigkeit, in einem multidisziplinären Team zu arbeiten\n\n• Strenge, Flexibilität und Autonomie\n\nAmtsantritt: 1. November 2026 oder noch zu vereinbaren\n\nWeitere Auskünfte erteilt: Frau Sada Sabina, ICUS, Tel.: +26 306 4710\n\nFrist für die Einreichung der Anträge: 30. September 2026\n\nRef: HFR-MTS-263501",
-        "fr": "Afin de compléter son équipe, la direction des soins recherche pour le service de Gériatrie Aiguë et Réadaptation Gériatrique de l’HFR Riaz un-e\n\nInfirmier-ère\n80-100%\n\nVotre mission :\n\n• prodiguer des soins de qualité en partenariat avec la personne soignée et son entourage, dans le respect de la philosophie de soins de l’HFR, en effectuant tous les horaires du service\n\n• favoriser la collaboration interdisciplinaire et y participer activement tant au sein de l’équipe qu’avec l’ensemble des collaborateurs\n\n• évaluer ses prestations et effectuer les ajustements nécessaires en visant la constante amélioration de ses interventions\n\n• encadrer, soutenir et conseiller les nouveaux membres de l’équipe ainsi que les personnes en formation et les étudiant-e-s\n\n• participer au développement du service et faire preuve de créativité\n\nVotre profil :\n\n• diplôme d’infirmier-ère en soins généraux, niveau HES, ou formation jugée équivalente\n\n• expérience confirmée dans les soins infirmiers, population âgée un atout\n\n• expérience en milieu hospitalier, un atout\n\n• maîtrise de la langue française\n\n• maîtrise des outils informatiques\n\n• esprit dynamique, constructif et créatif\n\n• capacités relationnelles et sens de la communication\n\n• capacité à travailler en équipe pluridisciplinaire\n\n• rigueur, flexibilité et autonomie\n\nEntrée en fonction : 1 er novembre 2026 ou à convenir\n\nRenseignements : Mme Sada Sabina, ICUS, Tél. +41 26 306 4710\n\nDélai de postulation : 30 septembre 2026\n\nRéf : HFR-MTS-263501"
-      },
-      "location": "HFR Riaz",
-      "canton": "FR",
-      "url": "https://hopital-fribourgeois.breezy.hr/p/17b62ceb3764-infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100",
-      "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:32:01.921Z",
-      "addressLocality": "HFR Riaz",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1708",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/17b62ceb3764-infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "17b62ceb3764",
-      "previousSlugs": [
-        "infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100-hfr-hopital-fribourgeois-hfr",
-        "infermiera-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg",
-        "nurse-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg",
-        "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg",
-        "infermiere-laureata-80-100-per-un-2-mese-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
-        "graduated-nurse-80-100-for-a-2-month-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
-        "graduierte-krankenschwester-80-100-fur-2-monate-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr",
-        "infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80-100",
-        "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
-        "clinical-nurse-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
-        "infirmier-ere-clinicien-ne-80-100-fachexpertin-fachexperten-pflege-nephrologie-80-100-hfr",
-        "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital",
-        "klinische-krankenschwester-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100-hfr-hopital-fribourgeois-hfr",
-          "infermiera-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg",
-          "nurse-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg",
-          "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg",
-          "infermiere-laureata-80-100-per-un-2-mese-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
-          "graduated-nurse-80-100-for-a-2-month-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
-          "graduierte-krankenschwester-80-100-fur-2-monate-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr",
-          "infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80-100",
-          "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
-          "clinical-nurse-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
-          "infirmier-ere-clinicien-ne-80-100-fachexpertin-fachexperten-pflege-nephrologie-80-100-hfr",
-          "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital",
-          "klinische-krankenschwester-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
-        ],
-        "en": [
-          "infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100-hfr-hopital-fribourgeois-hfr",
-          "nurse-80-90-pflegefachmann-pflegefachfrau-80-90-hopital-fribourgeois-hfr-fribourg"
-        ],
-        "fr": [
-          "infirmier-ere-80-90-pflegefachmann-pflegefachfrau-80-90-hfr-hopital-fribourgeois-fribourg"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T22:10:26.879Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }

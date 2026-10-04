@@ -17,16 +17,19 @@
  *
  * Decisione del proprietario sulle modalità (2026-10-02): «Nessuno blocca la
  * pubblicazione: apriamo solo issue per gli errori riscontrati e poi saranno
- * gli autofixer a sistemarle». Quindi solo i gate A che già bloccavano
- * restano bloccanti; B e C non sequestrano mai `publish`, e ciò che li
- * distingue è il peso della issue.
+ * gli autofixer a sistemarle». Il 2026-10-03 la decisione è estesa alla
+ * classe A: nessun gate classificato qui sequestra più `publish`. Le classi
+ * restano, perché decidono quanto pesa la issue (A = P1, B = P2, C = P3),
+ * quando si apre (A a ogni fallimento, B e C sulla regressione) e quali gate
+ * possono avere una rebaseline (solo A, D9).
  *
  * Le tre classi
  * -------------
- *   A — bloccante: misura un dato/markup richiesto da Google o un danno reale
- *       certo (pagina che non serve contenuto, JSON-LD illeggibile,
- *       sitemap/canonical che `publish` invierebbe tali e quali). Qualunque
- *       fallimento sequestra `publish`; issue P1.
+ *   A — issue a ogni fallimento: misura un dato/markup richiesto da Google o
+ *       un danno reale certo (pagina che non serve contenuto, JSON-LD
+ *       illeggibile, sitemap/canonical che `publish` invierebbe tali e quali).
+ *       Qualunque fallimento rende rossa la run e apre una issue P1, con lo
+ *       stesso ciclo di vita della B; `publish` procede.
  *   B — issue sulla regressione: impatto documentato su indicizzazione,
  *       ranking o UX, con un arretrato storico misurato da un ratchet (o da un
  *       tetto). Il gate fallisce SOLO quando il suo ratchet segnala una
@@ -42,8 +45,9 @@
  * Chi la legge
  * ------------
  *   - `scripts/ci/classify-validate-dist-failures.mjs`: `QUALITY_GATES` = i gate
- *     che non bloccano `publish` (B e C). Il default-deny resta là: un gate
- *     assente da qui (es. i validatori non SEO) blocca `publish` come prima.
+ *     che non bloccano `publish`, cioè tutti quelli classificati qui. Il
+ *     default-deny resta là: un gate assente da qui (es. i validatori non SEO,
+ *     il bundle opaco `audit:all`) blocca `publish` come prima.
  *   - `scripts/cathedral-seo-gates-check.mjs`: ogni gate dichiara la sua
  *     `gateKey` qui dentro; il verdetto riporta classe e modalità e la issue di
  *     regressione prende la priorità dalla modalità.
@@ -81,21 +85,29 @@ const SRC = Object.freeze({
 });
 
 /**
- * Modalità derivata dalla classe. Solo `blocking` sequestra `publish`
- * (decisione del proprietario, 2026-10-02).
+ * Modalità derivata dalla classe. Nessuna sequestra `publish` (decisione del
+ * proprietario: B e C il 2026-10-02, A il 2026-10-03); cambiano la soglia che
+ * apre la issue e la sua priorità.
  */
 export const CLASS_MODE = Object.freeze({
-  A: 'blocking',
+  A: 'issue-on-failure',
   B: 'issue-on-regression',
   C: 'advisory',
 });
 
-/** Priorità della issue di regressione (github-issue-creator.mjs: 1 = più alta). */
+/** Priorità della issue (github-issue-creator.mjs: 1 = più alta). */
 export const MODE_ISSUE_PRIORITY = Object.freeze({
-  blocking: 1,
+  'issue-on-failure': 1,
   'issue-on-regression': 2,
   advisory: 3,
 });
+
+/**
+ * Modalità che sequestrano `publish`. Vuota dal 2026-10-03: un gate che deve
+ * fermare `publish` non va classificato qui, resta nel default-deny di
+ * classify-validate-dist-failures.mjs.
+ */
+const PUBLISH_BLOCKING_MODES = Object.freeze(new Set());
 
 /**
  * @param {'A'|'B'|'C'} cls
@@ -111,7 +123,7 @@ function gate(cls, why, evidence) {
 }
 
 export const SEO_GATE_CLASSES = Object.freeze({
-  // ── A — bloccante ────────────────────────────────────────────────────────
+  // ── A — issue P1 a ogni fallimento (non blocca publish dal 2026-10-03) ───
   'gate:seo-source': gate('A',
     'suite vitest tests/seo/ (hreflang reciproco, JSON-LD, canonical, robots): test a tolleranza zero (AGENTS.md #1, eccezione 2026-08-20)',
     [SRC.hreflang, SRC.canonical]),
@@ -228,13 +240,13 @@ export function effectiveMode(key) {
   return entry ? CLASS_MODE[entry.class] : null;
 }
 
-/** True quando un fallimento del gate sequestra `publish` (solo classe A). */
+/** True quando un fallimento del gate classificato sequestra `publish` (oggi mai). */
 export function isPublishBlocking(key) {
-  return effectiveMode(key) === 'blocking';
+  return PUBLISH_BLOCKING_MODES.has(effectiveMode(key));
 }
 
 /**
- * Gate che NON sequestrano `publish`: classi B e C. La forma
+ * Gate che NON sequestrano `publish`: oggi tutti quelli classificati. La forma
  * `{gate: motivazione}` è quella che `QUALITY_GATES` ha sempre avuto.
  * @returns {Record<string, string>}
  */

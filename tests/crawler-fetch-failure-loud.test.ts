@@ -13,6 +13,9 @@ import { fetchAllFranklinUniversityJobs } from '../scripts/lib/franklin-universi
 import { fetchAllImerysJobs } from '../scripts/lib/imerys-job-parser.mjs';
 import { fetchAllMoncuccoJobs } from '../scripts/lib/moncucco-job-parser.mjs';
 import { fetchAllNovelisJobs } from '../scripts/lib/novelis-job-parser.mjs';
+import { fetchAllBentelerJobs } from '../scripts/lib/benteler-job-parser.mjs';
+import { fetchAllConstelliumJobs } from '../scripts/lib/constellium-job-parser.mjs';
+import { fetchAllHolcimJobs } from '../scripts/lib/holcim-job-parser.mjs';
 import { fetchJobs as fetchBpsJobs } from '../scripts/update-bps-suisse-jobs.mjs';
 
 const EMPTY_PAGE = '<html><body><p>No open positions</p></body></html>';
@@ -33,6 +36,15 @@ describe('crawler listing fetch failures stay distinct from valid empty response
     await expect(fetchJobs()).rejects.toThrow(/failed to fetch.*network unavailable/i);
   });
 
+  it.each([
+    ['Benteler', fetchAllBentelerJobs],
+    ['Constellium', fetchAllConstelliumJobs],
+    ['Holcim', fetchAllHolcimJobs],
+  ])('%s propagates a Jobs2Web listing failure instead of returning an empty feed', async (_name, fetchJobs) => {
+    fetchHtml.mockRejectedValueOnce(new Error('network unavailable'));
+    await expect(fetchJobs()).rejects.toThrow(/network unavailable/i);
+  });
+
   it('BPS Suisse propagates a listing-page network failure instead of returning an empty feed', async () => {
     fetchHtml.mockRejectedValueOnce(new Error('network unavailable'));
     await expect(fetchBpsJobs()).rejects.toThrow(/network unavailable/i);
@@ -44,6 +56,15 @@ describe('crawler listing fetch failures stay distinct from valid empty response
     ['Moncucco', fetchAllMoncuccoJobs],
     ['Novelis', fetchAllNovelisJobs],
   ])('%s preserves a reachable empty page as a genuine empty result', async (_name, fetchJobs) => {
+    fetchHtml.mockResolvedValueOnce(EMPTY_PAGE);
+    await expect(fetchJobs()).resolves.toEqual([]);
+  });
+
+  it.each([
+    ['Benteler', fetchAllBentelerJobs],
+    ['Constellium', fetchAllConstelliumJobs],
+    ['Holcim', fetchAllHolcimJobs],
+  ])('%s preserves a reachable empty Jobs2Web page as a genuine empty result', async (_name, fetchJobs) => {
     fetchHtml.mockResolvedValueOnce(EMPTY_PAGE);
     await expect(fetchJobs()).resolves.toEqual([]);
   });

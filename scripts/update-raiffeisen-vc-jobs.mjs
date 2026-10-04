@@ -20,7 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -183,19 +183,15 @@ export async function fetchJobUrls(options = {}) {
 
   for (const pageUrl of CAREERS_URLS) {
     console.log(`🔍 Fetching: ${pageUrl}`);
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetchImpl(pageUrl, {
-        signal: controller.signal,
+      const html = await fetchHtml(pageUrl, {
+        fetchImpl,
+        timeoutMs,
         headers: { Accept: 'text/html', 'User-Agent': UA },
-        redirect: 'follow',
+        retries: options.retries,
+        retryBaseMs: options.retryBaseMs,
+        label: `Raiffeisen VC discovery ${pageUrl}`,
       });
-
-      if (!res.ok) {
-        throw new Error(`Raiffeisen VC discovery failed: ${pageUrl} returned HTTP ${res.status}.`);
-      }
-      const html = await res.text();
       if (!/vedeggio-cassarate/i.test(html) || !/raiffeisen/i.test(html)) {
         throw new Error(`Raiffeisen VC discovery failed: careers page identity marker missing (${pageUrl}).`);
       }
@@ -231,8 +227,6 @@ export async function fetchJobUrls(options = {}) {
     } catch (err) {
       if (String(err?.message || '').startsWith('Raiffeisen VC discovery')) throw err;
       throw new Error(`Raiffeisen VC discovery failed for ${pageUrl}: ${err.message}`, { cause: err });
-    } finally {
-      clearTimeout(timer);
     }
   }
 
@@ -263,19 +257,12 @@ export async function fetchJobUrls(options = {}) {
  */
 async function fetchDetailBody(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    const html = await fetchHtml(url, {
+      timeoutMs,
       headers: { Accept: 'text/html', 'User-Agent': UA },
-      redirect: 'follow',
+      label: `Raiffeisen VC detail ${url}`,
     });
-    if (!res.ok) {
-      console.warn(`   ⚠️ HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    const html = await res.text();
     const parsed = parseRaiffeisenDetailPage(html);
     for (const w of parsed.warnings) {
       console.warn(`   ⚠️  ${url}: ${w}`);
@@ -284,8 +271,6 @@ async function fetchDetailBody(url) {
   } catch (err) {
     console.warn(`   ⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -502,7 +487,8 @@ function patchDescriptionsFromDetailBodies(detailBodies) {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(RAIFF_KEY, 'Raiffeisen VC');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(RAIFF_KEY, 'Raiffeisen VC', summaryCounts);
   console.log('🏦 Running dedicated Raiffeisen Vedeggio Cassarate jobs crawler...');
   console.log(`   Careers: ${CAREERS_URLS[0]}`);
   console.log(`   Jobs portal: ${RAIFF_JOBS_HOST}`);
@@ -534,6 +520,7 @@ async function main() {
   console.log(`📋 Found ${detailUrls.length} job URLs:`);
   for (const u of detailUrls) console.log(`   ${u}`);
   console.log('');
+  summaryCounts.discovered = detailUrls.length;
 
   // Step 2: Update the adapter with discovered seed URLs
   ensureAdapterSeedUrls(detailUrls);
@@ -563,7 +550,9 @@ async function main() {
   const stats = logStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    console.log('ℹ️ No Raiffeisen VC jobs found after crawl. Exiting OK.');
+    summaryCounts.parsed = 0;
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.warn('⚠️ Raiffeisen discovery was non-empty, but the crawl produced no publishable jobs; preserving the published slice and recording the fail-closed reason.');
     return;
   }
 

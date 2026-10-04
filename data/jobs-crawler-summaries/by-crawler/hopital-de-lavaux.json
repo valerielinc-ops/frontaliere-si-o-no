@@ -1,7 +1,7 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-10-03T21:13:13.075Z",
+  "generatedAt": "2026-10-04T09:12:56.805Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,10 +14,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2337,
-  "avgDurationMs": 2337,
+  "durationMs": 2783,
+  "avgDurationMs": 2783,
   "durationHistory": [
-    2337
+    2783
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://app.beehire.com/invite/CTb1_gVt5",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:13:06.396Z",
+      "crawledAt": "2026-10-04T09:12:47.637Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       "url": "https://app.beehire.com/invite/6fUTqfx6X",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:13:06.397Z",
+      "crawledAt": "2026-10-04T09:12:47.639Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:13:06.400Z",
+      "crawledAt": "2026-10-04T09:12:47.642Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "url": "https://app.beehire.com/invite/_ce7R-DpY",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:13:06.398Z",
+      "crawledAt": "2026-10-04T09:12:47.640Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://app.beehire.com/invite/swtNGdXFJ",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:13:06.399Z",
+      "crawledAt": "2026-10-04T09:12:47.641Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -213,5 +213,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

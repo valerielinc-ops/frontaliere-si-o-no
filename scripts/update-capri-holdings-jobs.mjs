@@ -79,7 +79,10 @@ const CAPRI_KEY = 'capri-holdings';
 const DATA_JOBS = crawlerScratchPathFor(CAPRI_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
-const CAPRI_COMPANY_NAME = 'Capri Holdings (Michael Kors / Versace)';
+// Il marchio che il candidato vede: Versace è passato a Prada (2026-10-01) e
+// il crawler legge solo Michael Kors. Il vecchio nome «Capri Holdings (Michael
+// Kors / Versace)» è un alias di `michael-kors` in brandCanonicalMap.mjs.
+const CAPRI_COMPANY_NAME = 'Michael Kors';
 const CAPRI_HOST = 'capri.wd1.myworkdayjobs.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 

@@ -22,6 +22,12 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 const INTERROLL_HOST = 'www.interroll.com';
 const INTERROLL_BASE_URL = `https://${INTERROLL_HOST}`;
 
+// The live board places the country after the department, e.g.
+// "Aussendienst | Germany". Keep the marker list explicit: an unrecognised
+// country must make the filtered-empty proof fail closed instead of silently
+// treating an unclassified card as foreign.
+const INTERROLL_LOCATION_MARKER_RE = /(?<![\p{L}\p{N}_])(?:switzerland|schweiz|suisse|svizzera|ch|germany|deutschland|allemagne|germania|austria|österreich|autriche|brazil|brasil|united kingdom|uk|usa|china)(?![\p{L}\p{N}_])/iu;
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -110,7 +116,7 @@ export function parseListingPage(html = '') {
       }
     }
 
-    if (!title || title.length < 3 || /^details?$/i.test(title)) continue;
+    if (!title || /^details?$/i.test(title)) continue;
 
     // Extract location from surrounding text
     let location = '';
@@ -119,9 +125,14 @@ export function parseListingPage(html = '') {
       for (const p of pElements) {
         const text = normalizeSpace(p.textContent || '');
         if (text !== title && text.length > 3 && text.length < 200) {
-          // Look for location-like text (contains a country or city name)
-          if (/switzerland|germany|austria|brazil|sant.?antonino|china|usa/i.test(text)) {
-            location = text.replace(/\s*\|.*$/, '').trim();
+          // Look for a country marker in the card's metadata. On the live
+          // template the marker can be after a department (`Aussendienst |
+          // Germany`), so retain every segment through the marker. This also
+          // preserves a city before `| Switzerland` for site resolution.
+          const parts = text.split('|').map((part) => part.trim()).filter(Boolean);
+          const markerIndex = parts.findIndex((part) => INTERROLL_LOCATION_MARKER_RE.test(part));
+          if (markerIndex >= 0) {
+            location = parts.slice(0, markerIndex + 1).join(' | ');
             break;
           }
         }
@@ -148,11 +159,21 @@ export function classifyInterrollListings(listings = []) {
     : swissListings.length === 0
       ? 'filtered_empty'
       : 'ok';
+  const unclassifiedLocationCount = allListings.filter(
+    (listing) => !INTERROLL_LOCATION_MARKER_RE.test(String(listing?.location || '')),
+  ).length;
 
   return {
     discovered: allListings.length,
     listings: swissListings,
     lastFetchOutcome,
+    // A non-empty global board with a recognized location on every card is a
+    // complete enough source read to prove the Swiss-filtered zero. A blank or
+    // unknown location keeps the ordinary filtered-empty heartbeat, so a
+    // markup/location drift cannot suppress the health advisory.
+    authoritativeEmptySnapshot: lastFetchOutcome === 'filtered_empty'
+      && unclassifiedLocationCount === 0,
+    unclassifiedLocationCount,
   };
 }
 

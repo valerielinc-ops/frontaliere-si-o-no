@@ -25,6 +25,7 @@ import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { writeEmployerInsightsDocuments } from './lib/employer-insights-firestore.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
+import { excludeHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import {
   GA4_READONLY_SCOPE,
   getServiceAccountToken,
@@ -263,7 +264,9 @@ export function loadJsonJobs() {
   for (const directory of directories) {
     if (!fs.existsSync(directory)) continue;
     for (const file of fs.readdirSync(directory).filter((name) => name.endsWith('.json')).sort()) {
-      try { jobs.push(...unwrapList(JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8')))); } catch { /* one broken slice is residual input */ }
+      // Agency jobs held out of publication for translation live in the
+      // slices but never in the assembled dataset this fallback stands in for.
+      try { jobs.push(...excludeHeldFromPublication(unwrapList(JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'))))); } catch { /* one broken slice is residual input */ }
     }
   }
   if (!jobs.length) throw new Error('job dataset not found');

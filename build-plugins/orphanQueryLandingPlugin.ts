@@ -82,6 +82,7 @@ import { buildSalaryAnswer, searchSalaryMedian } from './shared/searchSalaryAnsw
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
+import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import {
   resolveNursingOrphanQueryTarget,
@@ -178,6 +179,9 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
         const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;
         if (!Array.isArray(jobs)) continue;
         for (const j of jobs as OrphanCountableJob[]) {
+          // Held out of publication for translation (agency admission
+          // threshold): not on the site, so not in its counts either.
+          if (isHeldFromPublication(j)) continue;
           const key = String(j?.slug || (j as { id?: string })?.id || '');
           if (key && !seen.has(key)) {
             seen.add(key);

@@ -940,11 +940,14 @@ describe('gate sul conio — passata estranea, marker e idempotenza (processo ve
 const fs = require('node:fs');
 const args = process.argv.slice(2);
 fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');
+if (process.env.TOKEN_LOG) fs.appendFileSync(process.env.TOKEN_LOG, JSON.stringify({ token: process.env.GH_TOKEN || '', args }) + '\\n');
 const state = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
 const save = () => fs.writeFileSync(process.env.STATE, JSON.stringify(state));
 if (args[0] === 'api' && args[1] === '-H') {
   if (process.env.CONTENTS === 'error') { process.stderr.write('gh: Bad Gateway (HTTP 502)\\n'); process.exit(1); }
   if (args[3] === 'repos/corpus/r/contents/${TARGET}?ref=main') { process.stdout.write('firstGuard(input);\\n'); process.exit(0); }
+  const extra = JSON.parse(process.env.EXTRA_FILES || '{}')[args[3]];
+  if (extra != null) { process.stdout.write(extra); process.exit(0); }
   process.stderr.write('gh: Not Found (HTTP 404)\\n'); process.exit(1);
 }
 if (args[0] === 'api') { process.stdout.write(JSON.stringify([[{ number: state.number, title: state.title, state: 'open', created_at: state.createdAt }]])); process.exit(0); }
@@ -1018,6 +1021,48 @@ process.exit(0);
       expect(second.stdout).toMatch(/action=seal [^\n]*born_satisfied=1/);
       expect(markerComments(dir)).toHaveLength(1);
       expect(JSON.parse(readFileSync(join(dir, 'state.json'), 'utf-8')).body).toContain('- State: sealed');
+    });
+  });
+
+  // Review frontaliere-articles#2097: il gemello si leggeva con il GH_TOKEN del
+  // bucket, e un 404 da token senza accesso demotava un bersaglio valido.
+  // Titolo di fallimento: «Conio follow-up: bersaglio del gemello demotato
+  // perché letto con il token sbagliato».
+  const ELSEWHERE = 'scripts/only-in-the-twin.mjs';
+  const twinEnv = (dir: string) => ({
+    GH_REPO: 'corpus/r', GH_TOKEN: 'corpus-token', FOLLOWUP_CORPUS_REPO: 'corpus/r', FOLLOWUP_SITE_REPO: 'site/r',
+    TOKEN_LOG: join(dir, 'tokens.log'),
+    EXTRA_FILES: JSON.stringify({ 'repos/corpus/r/contents/scripts/ci/loop-sync-manifest.json?ref=main': '{"files":[]}' }),
+  });
+  const pointElsewhere = (dir: string) => {
+    const state = JSON.parse(readFileSync(join(dir, 'state.json'), 'utf-8'));
+    state.body = state.body.split(TARGET).join(ELSEWHERE);
+    writeFileSync(join(dir, 'state.json'), JSON.stringify(state));
+  };
+  const tokenCalls = (dir: string) => readFileSync(join(dir, 'tokens.log'), 'utf-8').trim().split('\n').filter(Boolean)
+    .map((line) => JSON.parse(line) as { token: string; args: string[] });
+
+  it('il gemello si legge col token dichiarato per il suo repository, non col GH_TOKEN del bucket', () => {
+    withFakeGh((dir) => {
+      pointElsewhere(dir);
+      const out = run(dir, { ...twinEnv(dir), GATE_PR_REPO: 'site/r', GATE_PR_TOKEN: 'site-token' });
+      expect(out.status).toBe(0);
+      const twin = tokenCalls(dir).filter((c) => c.args.some((arg) => arg.startsWith('repos/site/r/')));
+      expect(twin.length).toBeGreaterThan(0);
+      expect([...new Set(twin.map((c) => c.token))]).toEqual(['site-token']);
+      const bucketReads = tokenCalls(dir).filter((c) => c.args.some((arg) => arg.startsWith('repos/corpus/r/contents/')));
+      expect([...new Set(bucketReads.map((c) => c.token))]).toEqual(['corpus-token']);
+      expect(out.stdout + out.stderr).not.toContain('site-token');
+    });
+  });
+
+  it('gemello senza token dichiarato → nessuna lettura, admission_unknown, item ammesso', () => {
+    withFakeGh((dir) => {
+      pointElsewhere(dir);
+      const out = run(dir, twinEnv(dir));
+      expect(out.stdout).toMatch(/MINT_GATE_TALLY repo=corpus\/r [^\n]*demoted=0 kept=1 [^\n]*admission_unknown=1 [^\n]*target_missing=0 /);
+      expect(tokenCalls(dir).some((c) => c.args.some((arg) => arg.startsWith('repos/site/r/')))).toBe(false);
+      expect(JSON.parse(readFileSync(join(dir, 'state.json'), 'utf-8')).body).toContain(ELSEWHERE);
     });
   });
 

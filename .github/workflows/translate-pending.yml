@@ -76,6 +76,9 @@ env:
   # The existing thinking A/B remains opt-in: data collection must not change
   # the scheduled translation behavior unless a caller explicitly asks for it.
   TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
+  # Same as translate-pending-logic.yml: held agency jobs must stay visible to
+  # Phase 2b in data/jobs.json (scripts/lib/translation-publication-hold.mjs).
+  JOBS_INCLUDE_TRANSLATION_HELD: '1'
 
 jobs:
   translate:
@@ -474,6 +477,12 @@ jobs:
 
       # Phase 2c REMOVED — descriptions are at 0 source copies.
       # If new crawlers add untranslated descriptions, Phase 2 (AI) handles them.
+
+      # Same as translate-pending-logic.yml: release translated agency jobs.
+      - name: Release translated agency jobs held for translation
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        run: node scripts/release-translation-holds.mjs
 
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       # Safe replacement for hardenJobLocaleFields (which was destructive:

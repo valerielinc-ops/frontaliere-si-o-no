@@ -217,7 +217,7 @@ ${sourcesHtml}
   const wordCount = countHtmlBodyWords(bodyHtml);
   const bodyHtmlWithAd = bodyHtml.replace(
     /<\/div>\s*$/,
-    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`,
+    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: bodyHtml })}</div>`,
   );
   const html = buildSeoPageHtml({
     locale,

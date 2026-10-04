@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-10-03T21:23:05.205Z",
+  "generatedAt": "2026-10-04T09:25:04.622Z",
   "total": 1,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1738,
-  "avgDurationMs": 1738,
+  "durationMs": 2528,
+  "avgDurationMs": 2528,
   "durationHistory": [
-    1738
+    2528
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "sector": "Immobiliare & Architettura",
       "source": "artisa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -47,16 +47,18 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-09-28T21:19:59.384Z",
       "sourceIdentity": "url:https://artisagroup.com/carriera",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

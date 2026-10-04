@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-10-03T21:15:20.864Z",
+  "assembledAt": "2026-10-04T09:15:33.317Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-bilingue-80-100-***-administrativer-mitarbeiter--administrative-mitarbeiterin-zweisprachig-80-100--215402",
@@ -33,7 +33,9 @@
         "fr": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
       },
       "category": "administration",
-      "datePosted": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "source": "hes-so-valais-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -116,7 +118,9 @@
         "fr": "apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-hes-so-valais"
       },
       "category": "general",
-      "datePosted": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "source": "hes-so-valais-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -134,12 +138,14 @@
       "id": "hes-so-valais-c4969ea7e334",
       "previousSlugs": [
         "apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-hes-so-valais",
-        "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais"
+        "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais",
+        "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-cfc-hes-so-valais-wallis-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-hes-so-valais",
-          "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais"
+          "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais",
+          "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-cfc-hes-so-valais-wallis-sion"
         ],
         "en": [
           "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-efz-hes-so-valais"
@@ -196,7 +202,9 @@
         "fr": "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais"
       },
       "category": "management",
-      "datePosted": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "source": "hes-so-valais-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",

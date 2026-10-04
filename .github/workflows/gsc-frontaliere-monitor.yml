@@ -149,7 +149,7 @@ jobs:
 
           node scripts/lib/github-issue-creator.mjs \
             --title "$TITLE" \
-            --description "$(cat "$BODY_FILE")" \
+            --description-file "$BODY_FILE" \
             --priority 2 \
             --label seo \
             --label monitoring \

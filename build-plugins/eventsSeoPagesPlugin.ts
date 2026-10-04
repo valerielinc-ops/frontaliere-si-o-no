@@ -2149,7 +2149,8 @@ export function renderHubPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.hubTitle,
@@ -2280,7 +2281,8 @@ export function renderEventsIndexPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.metaTitle,
@@ -2404,7 +2406,8 @@ export function renderComunePage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.comuneTitle(comune),
@@ -2665,7 +2668,8 @@ export function renderOtherEventsPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: oeCopy.metaTitle,
@@ -2788,7 +2792,8 @@ export function renderOverflowLadderPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = isIndexableWordCount(wordCount);
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: ladderTitle,
@@ -3356,7 +3361,7 @@ export function renderEventDetailPage(params: {
     </section>`
     : '';
   const bodyWithAds = body.replace(inlineAdMarker, inlineAd);
-  const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyWithAds })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.metaTitle(title, displayComune),
@@ -3598,7 +3603,8 @@ export function renderDigestPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.title,
