@@ -26,6 +26,7 @@ const FIXTURE_JOB = {
   contract: 'full-time',
   salaryMin: 60000,
   salaryMax: 75000,
+  postingDateSource: 'reported',
   postedDate: new Date(Date.now() - 86400000 * 2).toISOString(),
   daysAgo: 2,
   slug: 'educatore-prima-infanzia-asilo-sole-lugano',
@@ -54,6 +55,15 @@ describe('professionLandingsPlugin uses canonical job cards', () => {
     for (const m of CANONICAL_MARKERS) {
       expect(html, `missing canonical marker ${m}`).toMatch(m);
     }
+    for (const postingDateSource of ['unknown', undefined]) {
+      const undated = mod.renderProfessionFeaturedJobsForTest('educatore', 'it', {
+        ...EMPTY_SNAPSHOT_BASE,
+        topCities: [],
+        featured: [{ ...FIXTURE_JOB, postingDateSource }],
+      });
+      expect(undated).toMatch(CANONICAL_MARKERS[0]);
+      expect(undated).not.toMatch(/data-posted="/);
+    }
   });
 });
 
@@ -69,6 +79,15 @@ describe('careerLandingsPlugin uses canonical job cards', () => {
     for (const m of CANONICAL_MARKERS) {
       expect(html, `missing canonical marker ${m}`).toMatch(m);
     }
+    for (const postingDateSource of ['unknown', undefined]) {
+      const undated = mod.renderCareerFeaturedJobsForTest('agenzie-lavoro-lugano', 'it', {
+        ...EMPTY_SNAPSHOT_BASE,
+        topCities: [],
+        featured: [{ ...FIXTURE_JOB, postingDateSource }],
+      });
+      expect(undated).toMatch(CANONICAL_MARKERS[0]);
+      expect(undated).not.toMatch(/data-posted="/);
+    }
   });
 });
 
@@ -83,6 +102,15 @@ describe('nursingLandingsPlugin uses canonical job cards', () => {
     for (const m of CANONICAL_MARKERS) {
       expect(html, `missing canonical marker ${m}`).toMatch(m);
     }
+    for (const postingDateSource of ['unknown', undefined]) {
+      const undated = mod.renderNursingFeaturedJobsForTest('nurses', 'it', {
+        ...EMPTY_SNAPSHOT_BASE,
+        topCities: [],
+        featured: [{ ...FIXTURE_JOB, postingDateSource }],
+      });
+      expect(undated).toMatch(CANONICAL_MARKERS[0]);
+      expect(undated).not.toMatch(/data-posted="/);
+    }
   });
 });
 
@@ -96,6 +124,15 @@ describe('costOfLivingLandingsPlugin uses canonical job cards', () => {
     });
     for (const m of CANONICAL_MARKERS) {
       expect(html, `missing canonical marker ${m}`).toMatch(m);
+    }
+    for (const postingDateSource of ['unknown', undefined]) {
+      const undated = mod.renderCostOfLivingFeaturedJobsForTest('lugano', 'it', {
+        ...EMPTY_SNAPSHOT_BASE,
+        topCities: [],
+        featured: [{ ...FIXTURE_JOB, postingDateSource }],
+      });
+      expect(undated).toMatch(CANONICAL_MARKERS[0]);
+      expect(undated).not.toMatch(/data-posted="/);
     }
   });
 });
