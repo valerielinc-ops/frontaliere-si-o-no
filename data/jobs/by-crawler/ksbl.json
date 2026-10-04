@@ -132,7 +132,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
         "assistente-di-stazione-assistente-medico-interno-a-kantonsspital-baselland-ksbl-liestal",
@@ -149,7 +148,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
           "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
           "assistente-di-stazione-assistente-medico-interno-a-kantonsspital-baselland-ksbl-liestal",
@@ -357,8 +355,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-6eba981f7170",
@@ -557,8 +554,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-e0722529a275",

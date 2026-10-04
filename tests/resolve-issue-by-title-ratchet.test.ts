@@ -81,7 +81,7 @@ const TITLE_DECIDERS: Record<string, Entry> = {
   },
   'scripts/send-job-alerts.mjs': {
     calls: 1,
-    why: 'tasso zero-match rientrato → chiude il titolo stabile del monitor',
+    why: 'sonde sintetiche del matcher tutte verdi → chiude il titolo stabile del monitor',
   },
   'scripts/seo/seo-health-loop.mjs': {
     calls: 1,

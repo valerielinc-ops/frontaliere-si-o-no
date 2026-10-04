@@ -258,6 +258,11 @@ describe('parsePriceText', () => {
   });
 });
 
+// Provenance stamps (owner decision 2026-10-04): the accordion is tariff text,
+// the JSON-LD Offer is Guidle's structured field.
+const PRICE_ACCORDION = { priceSource: 'guidle', priceField: 'price-accordion' };
+const OFFER_PRICE = { priceSource: 'guidle', priceField: 'offers.price' };
+
 function buildDetailHtml({
   locale = 'de',
   categoryLabel = 'Kategorie',
@@ -282,13 +287,13 @@ describe('extractCategory / extractPrice / extractGeoAndCanton (DOM accordion + 
   it('reads category and price from locale-labelled accordion blocks', () => {
     const doc = new JSDOM(buildDetailHtml()).window.document;
     expect(extractCategory(doc, 'de')).toBe('Konzert');
-    expect(extractPrice(doc, 'de')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(extractPrice(doc, 'de')).toEqual({ amount: 20, currency: 'CHF', isFree: false, ...PRICE_ACCORDION });
   });
 
   it('matches the it/en/fr accordion label translations', () => {
     const it = new JSDOM(buildDetailHtml({ locale: 'it', categoryLabel: 'Categoria', categoryValue: 'Concerto', priceLabel: 'Prezzo' })).window.document;
     expect(extractCategory(it, 'it')).toBe('Concerto');
-    expect(extractPrice(it, 'it')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(extractPrice(it, 'it')).toEqual({ amount: 20, currency: 'CHF', isFree: false, ...PRICE_ACCORDION });
 
     const fr = new JSDOM(buildDetailHtml({ locale: 'fr', categoryLabel: 'Catégorie', priceLabel: 'Prix' })).window.document;
     expect(extractCategory(fr, 'fr')).toBe('Konzert');
@@ -328,7 +333,7 @@ describe('mapDetailPageToLocaleData', () => {
       addressLocality: 'Zug',
       imageSourceUrl: 'https://www.guidle.com/imagekit/abc.jpg',
       category: 'Konzert',
-      price: { amount: 20, currency: 'CHF', isFree: false },
+      price: { amount: 20, currency: 'CHF', isFree: false, ...PRICE_ACCORDION },
       geo: { lat: 47.1661118, lng: 8.5151648 },
       canton: 'ZG',
     });
@@ -389,6 +394,7 @@ describe('mapDetailPageToLocaleData', () => {
       availability: 'https://schema.org/InStock',
       validFrom: '2026-06-01T09:00:00+02:00',
       url: 'https://www.guidle.com/tickets/ghoersch',
+      ...OFFER_PRICE,
     });
   });
 

@@ -139,6 +139,12 @@ import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors'
 // Stesso misuratore dell'emitter articoli (packages/articles/engine): una sola
 // definizione di "quanto e' larga davvero questa immagine", non due.
 import { readImageIntrinsicSize } from '../packages/articles/engine/shared/imageIntrinsicSize';
+import {
+  createImageCreditReader,
+  imageObjectCreditFields,
+  renderImageCreditHtml,
+  type ImageCreditRecord,
+} from '../packages/articles/engine/shared/imageCredits.mjs';
 import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
@@ -167,6 +173,32 @@ const GLOSSARY_SECTION_SLUGS = new Set([
 ]);
 const GLOSSARY_SOURCE_HUB_PATH = '/glossario-frontaliere/';
 const JSON_LD_SCRIPT_SEPARATOR = '</script>\n <script type="application/ld+json">';
+
+/**
+ * The JSON-LD ImageObject of a hand-written article page, moved onto the page
+ * hero: its URL and the dimensions measured from the file (#5001 punto 3).
+ *
+ * When the hero is a credited Wikimedia Commons cover (P14), the photo's own
+ * creator and licence replace whatever the SEO literal says — the same
+ * projection the engine article page uses (shared/imageCredits.mjs). The
+ * literals of credited covers carry no rights fields any more; the others keep
+ * the site's, untouched here.
+ */
+export function blogDetailHeroImageObject(
+  img: Record<string, unknown>,
+  hero: { url: string; width: number; height: number },
+  credit: ImageCreditRecord | null,
+): Record<string, unknown> {
+  return {
+    ...img,
+    url: hero.url,
+    contentUrl: hero.url,
+    width: hero.width,
+    height: hero.height,
+    ...(credit ? imageObjectCreditFields(credit) : {}),
+  };
+}
+
 export function capTitle70(s: string, routeKey = ''): string {
  if (!s) return s;
  const headline = s.replace(SUFFIX_STRIP_RE, '').trim();
@@ -2322,6 +2354,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  staticHeroSizeCache.set(imgPath, size);
  return size;
  };
+
+ // P14: credit records of the Wikimedia Commons covers, synced from the corpus
+ // (one per cover file, shared/imageCredits.mjs) — the same reader the engine
+ // article page uses. A detail page whose hero has one carries the photo's
+ // creator and licence and a credit at the end of its body; any other renders
+ // as before.
+ const imageCredits = createImageCreditReader(fs, np.resolve(rootDir, 'packages/articles/content/image-credits'));
 
  const swissSlugs = new Set(['articoli-svizzera', 'swiss-articles', 'schweiz-artikel', 'articles-suisse']);
  const swissArticleIdByLocale: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = {
@@ -5237,6 +5276,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // finisce nell'attributo, in og:image:width/height e nell'ImageObject.
  const blogDetailHeroSrc = (isBlogDetailPage && articleId && heroImageByArticleId[articleId]) || '';
  const blogDetailHeroSize = blogDetailHeroSrc ? resolveStaticHeroSize(blogDetailHeroSrc) : null;
+ // P14: the Commons credit of that hero, keyed by the cover file like on the
+ // engine page; `null` for any cover without a record.
+ const blogDetailCredit = blogDetailHeroSrc ? imageCredits.get(blogDetailHeroSrc) : null;
+ const blogDetailCreditHtml = blogDetailCredit ? renderImageCreditHtml(blogDetailCredit, localeKey) : '';
  const blogDetailHeroMime = /\.png$/i.test(blogDetailHeroSrc)
  ? 'image/png'
  : /\.avif$/i.test(blogDetailHeroSrc)
@@ -5277,13 +5320,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const img = obj.image;
  if (!img || typeof img !== 'object' || Array.isArray(img)) return part;
  if ((img as Record<string, unknown>)['@type'] !== 'ImageObject') return part;
- obj.image = {
- ...(img as Record<string, unknown>),
- url: ogImageUrl,
- contentUrl: ogImageUrl,
- width: ogImageW,
- height: ogImageH,
- };
+ obj.image = blogDetailHeroImageObject(img as Record<string, unknown>, { url: ogImageUrl, width: ogImageW, height: ogImageH }, blogDetailCredit);
  return inlineScriptJson(obj);
  }).join(sdSeparator);
  } catch {
@@ -5376,7 +5413,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ?? endCfg.placeholderMinHeight,
  );
  rootHtml = isBlogDetailPage
- ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}</div>${adPlaceholderInline}${relatedHtml}</article>${adPlaceholderEnd}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
+ ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}${blogDetailCreditHtml}</div>${adPlaceholderInline}${relatedHtml}</article>${adPlaceholderEnd}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {
  // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
  const blogListSlug = firstSeg;
