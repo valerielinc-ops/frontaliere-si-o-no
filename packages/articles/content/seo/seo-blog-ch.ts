@@ -97119,6 +97119,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-edilizia-zurigo-permesso-iter': {
+    title: 'Autorizzazione edilizia Canton Zurigo: requisiti e procedura',
+    description: 'Autorizzazione edilizia nel Canton Zurigo: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori prima del permesso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autorizzazione, edilizia, canton, zurigo',
+    ogTitle: 'Autorizzazione edilizia Canton Zurigo: requisiti e procedura',
+    ogDescription: 'Chi deve presentare un\'autorizzazione edilizia nel Canton Zurigo deve distinguere il ruolo di comune e cantone, preparare i documenti richiesti e considerare opposizioni o ricorsi. I lavori restano vietati prima del permesso.',
+    canonicalPath: '/articoli-svizzera/edilizia-zurigo-permesso-iter/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autorizzazione edilizia Canton Zurigo: requisiti e procedura",
+      "description": "Autorizzazione edilizia nel Canton Zurigo: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori prima del permesso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/edilizia-zurigo-permesso-iter.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e piani per un'autorizzazione edilizia in Svizzera"
+      },
+      "datePublished": "2026-10-04T18:35:23+00:00",
+      "dateModified": "2026-10-04T18:35:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/edilizia-zurigo-permesso-iter/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

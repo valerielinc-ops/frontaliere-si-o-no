@@ -2585,6 +2585,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assistenza-sociale-zurigo-domanda': { it: 'assistenza-sociale-zurigo-domanda', en: 'social-assistance-zurich-application', de: 'sozialhilfe-zuerich-antrag', fr: 'aide-sociale-zurich-demande' },
  'imposta-auto-zurigo-pagamento': { it: 'imposta-auto-zurigo-pagamento', en: 'zurich-vehicle-tax-calculation', de: 'fahrzeugsteuer-zuerich-berechnung', fr: 'impot-vehicules-zurich-calcul' },
  'incentivi-energetici-zurigo-domanda': { it: 'incentivi-energetici-zurigo-domanda', en: 'zurich-energy-incentives-application', de: 'energiefoerderung-zuerich-antrag', fr: 'subventions-energie-zurich-demande' },
+ 'edilizia-zurigo-permesso-iter': { it: 'edilizia-zurigo-permesso-iter', en: 'zurich-building-permit-requirements', de: 'baubewilligung-zuerich-voraussetzungen', fr: 'permis-construire-zurich-exigences' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
