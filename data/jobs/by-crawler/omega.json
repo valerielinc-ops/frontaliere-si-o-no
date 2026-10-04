@@ -352,7 +352,6 @@
           "Une évolution vers l’accompagnement de projets d’amélioration de nos processus d’exécution Supply est possible."
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:17:44.352Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -652,7 +651,6 @@
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -753,7 +751,6 @@
           "apprentissage-horloger-ere-cfc-omega-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T11:53:31.231Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -852,7 +849,6 @@
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -992,8 +988,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
       "category": "Altro",
       "contract": "permanent",
       "employmentType": "FULL_TIME",
@@ -1019,6 +1013,25 @@
           "Excellentes connaissances du français ou de l'allemand avec de bonnes connaissances de l’autre langue"
         ]
       },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:41:41.768Z",
+      "previousSlugs": [
+        "cuisinier-h-f-omega-biel-bienne",
+        "cuisinier-h-f-omega",
+        "kitchchen-m-f-omega-sa-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "cuisinier-h-f-omega",
@@ -1036,26 +1049,8 @@
           "cuisinier-h-f-omega-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "cuisinier-h-f-omega-biel-bienne",
-        "cuisinier-h-f-omega",
-        "kitchchen-m-f-omega-sa-biel-bienne"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:41:41.768Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96"
     },
     {
       "id": "omega-33305",
@@ -1128,8 +1123,6 @@
           "Creativity and flexibility coupled with a strong team-oriented mindset"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:41:19.947Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1142,7 +1135,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:41:19.947Z"
     }
   ]
 }
