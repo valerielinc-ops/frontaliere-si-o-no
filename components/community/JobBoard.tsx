@@ -1,5 +1,5 @@
 import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
-import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { resolveReportedPostingDate, resolveSchemaPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
 import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
@@ -801,7 +801,7 @@ export function normalizeIncomingJob(raw: any): JobListing {
  // the source publication date, then the first discovery timestamp; crawledAt
  // is only a last-resort fallback because it changes on every recrawl.
  postingDateSource: raw?.postingDateSource,
- datePosted: resolveReportedPostingDate(raw || {}) || undefined,
+ datePosted: resolveSchemaPostingDate(raw || {}) || undefined,
  postedDate: resolveRolloutPostingDate(raw || {}, () => firstParsableDateStr(raw?.postedDate, raw?.firstSeenAt, raw?.crawledAt) || new Date().toISOString().slice(0, 10)) || '',
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.

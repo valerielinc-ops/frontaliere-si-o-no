@@ -11,6 +11,8 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { resolveReportedPostingDate } from './job-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
@@ -325,7 +327,8 @@ function reusableExistingListing(row, existing) {
     ...preGeography,
     ...geography,
     description,
-    postedDate: existing.postedDate || existing.datePosted || null,
+    // Cached legacy/crawl dates are not evidence of employer publication.
+    postedDate: resolveReportedPostingDate(existing),
     employmentType: existing.employmentType || existing.contract || '',
     ...(existing.postalCode ? { postalCode: existing.postalCode } : {}),
     ...(existing.streetAddress ? { streetAddress: existing.streetAddress } : {}),
@@ -811,7 +814,9 @@ export async function fetchAllFachkraftJobs(options = {}) {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      // Source JSON-LD can advertise a future date. Keep publication unknown
+      // until valid; crawledAt remains the independent collection timestamp.
+      ...sourcePostingDateFields(listing.postedDate),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

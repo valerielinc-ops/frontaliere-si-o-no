@@ -1,3 +1,4 @@
+import { buildJobPostingSchema, buildJobPostingFacts } from '../build-plugins/shared/jobPostingSchema';
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import {
   FONDATION_SOINS_LAUSANNE_KEY,
@@ -188,6 +189,35 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
       globalThis.fetch = realFetch;
       delete process.env.JOBS_JINA_RETRY_BASE_MS;
       __resetJinaBreaker();
+    });
+
+    it.each(['past', 'future', 'missing'])('retains listings with %s publication evidence without using the collection clock', async kind => {
+      const date = kind === 'missing' ? '' : new Date(Date.now() + (kind === 'past' ? -7 : 7) * 86400000).toISOString();
+      const detail = JOBUP_DETAIL_HTML.replace(/"datePosted": "[^"]+",/, date ? `"datePosted": ${JSON.stringify(date)},` : '');
+      globalThis.fetch = vi.fn(async (url: unknown) => new Response(String(url).startsWith('https://r.jina.ai/') ? SAMPLE_SERP_HTML : detail, { status: 200 }));
+      const jobs = await fetchAllFondationSoinsLausanneJobs();
+      expect(jobs).toHaveLength(3);
+      for (const job of jobs) {
+        expect(job.postedDate).toBe(kind === 'past' ? date : '');
+        expect(job.datePosted).toBe(job.postedDate);
+        expect(job.postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
+      // Exercise the actual shared consumer: unknown dates keep their marker
+      // while required JobPosting JSON-LD receives a valid fallback date.
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const schema = buildJobPostingSchema(job, { locale, url: job.url });
+        expect(schema).not.toBeNull();
+        if (kind === 'past') {
+          expect(schema?.datePosted).toBe(job.datePosted);
+        } else {
+          expect(typeof schema?.datePosted).toBe('string');
+          expect(Number.isFinite(Date.parse(schema?.datePosted || ''))).toBe(true);
+        }
+        expect(schema?.hiringOrganization.name).toBeTruthy();
+        expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();
+      }
+      expect(job.url).toMatch(/^https:\/\//);
+      expect(job.description).toBeTruthy();
+      }
     });
 
     it('fetches the jobup SERP via Jina, applies the strict filter, and enriches via jobup JSON-LD', async () => {

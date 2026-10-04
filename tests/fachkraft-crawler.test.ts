@@ -1,3 +1,4 @@
+import { buildJobPostingSchema, buildJobPostingFacts } from '../build-plugins/shared/jobPostingSchema';
 import { beforeEach, describe, it, expect } from 'vitest';
 import {
   FACHKRAFT_KEY,
@@ -58,16 +59,19 @@ const detailHtml = ({
   description,
   location = 'Luzern',
   canton = 'LU',
+  datePosted,
 }: {
   title: string;
   description: string;
   location?: string;
   canton?: string;
+  datePosted?: string;
 }) => `<html><head><script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'JobPosting',
   title,
   description,
+  ...(datePosted ? { datePosted } : {}),
   jobLocation: {
       '@type': 'Place',
       address: {
@@ -844,5 +848,67 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       ]);
       expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
     });
+  });
+});
+
+
+describe('Fachkraft publication provenance', () => {
+  beforeEach(() => clearPoliteFetchStateForTests());
+  it.each(['past', 'future', 'missing'])('keeps the listing while normalizing %s publication evidence', async (kind) => {
+    const title = 'Polymechaniker/in';
+    const sourceDate = kind === 'missing' ? undefined
+      : new Date(Date.now() + (kind === 'future' ? 7 : -7) * 86400000).toISOString();
+    const cards = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }));
+    const fetchImpl = async (target: string) => {
+      if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      return new Response(target === 'https://www.fachkraft.ch/stellen/' ? cards
+        : detailHtml({ title, description: words(60), datePosted: sourceDate }), { status: 200 });
+    };
+    const jobs = await fetchAllFachkraftJobs({ ...runtimeOptions, fetchImpl, existingJobs: [] });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
+    expect(jobs[0].postedDate).toBe(kind === 'past' ? sourceDate : '');
+    expect(jobs[0].datePosted).toBe(jobs[0].postedDate);
+      // Exercise the actual shared consumer: unknown dates keep their marker
+      // while required JobPosting JSON-LD receives a valid fallback date.
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const schema = buildJobPostingSchema(jobs[0], { locale, url: jobs[0].url });
+        expect(schema).not.toBeNull();
+        if (kind === 'past') {
+          expect(schema?.datePosted).toBe(jobs[0].datePosted);
+        } else {
+          expect(typeof schema?.datePosted).toBe('string');
+          expect(Number.isFinite(Date.parse(schema?.datePosted || ''))).toBe(true);
+        }
+        expect(schema?.hiringOrganization.name).toBeTruthy();
+        expect(buildJobPostingFacts(jobs[0], locale).hiringOrganization.name).toBeTruthy();
+      }
+      expect(jobs[0].url).toMatch(/^https:\/\//);
+      expect(jobs[0].description).toBeTruthy();
+    expect(Number.isFinite(Date.parse(jobs[0].crawledAt))).toBe(true);
+    expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
+  });
+});
+
+
+describe('Fachkraft cached publication evidence', () => {
+  beforeEach(() => clearPoliteFetchStateForTests());
+  it.each(['reported', 'unknown', 'legacy'])('does not promote %s cached dates into fresh source evidence', async (marker) => {
+    const title = 'Polymechaniker/in';
+    const url = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+    const date = new Date(Date.now() - 7 * 86400000).toISOString();
+    const fetchImpl = async (target: string) => {
+      if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      if (target === 'https://www.fachkraft.ch/stellen/') return new Response(listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' })), { status: 200 });
+      throw new Error('Cached description should not require a detail request');
+    };
+    const jobs = await fetchAllFachkraftJobs({ ...runtimeOptions, fetchImpl, existingJobs: [{
+      url, title, sourceLang: 'de', description: words(60), location: 'Luzern', canton: 'LU',
+      postedDate: date, ...(marker === 'legacy' ? {} : { postingDateSource: marker }),
+    }] });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].postedDate).toBe(marker === 'reported' ? date : '');
+    expect(jobs[0].postingDateSource).toBe(marker === 'reported' ? 'reported' : 'unknown');
+    expect(jobs.fachkraftSnapshot.reused).toBe(1);
   });
 });

@@ -251,11 +251,13 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it('keeps active content, application link and FAQ without unverified JobPosting', () => {
+  it('keeps active content, application link, FAQ and a schema-safe unverified JobPosting', () => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}active-unverified/`);
       const entries = structured(document);
-      expect(entries.flatMap(allTypes)).not.toContain('JobPosting');
+      expect(entries.flatMap(allTypes)).toContain('JobPosting');
+      const posting = entries.find((entry) => entry['@type'] === 'JobPosting');
+      expect(posting?.datePosted).toBe(new Date(jobs[0].crawledAt).toISOString());
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
       expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
       expect(document.body.textContent).toContain('La posizione prevede');

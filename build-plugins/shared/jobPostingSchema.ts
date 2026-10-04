@@ -1,4 +1,5 @@
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveSchemaPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * Canonical `JobPosting` structured-data builder.
  *
@@ -772,8 +773,11 @@ export function buildJobPostingFacts(job: JobInput, locale: string): JobPostingF
   };
 }
 
-/** Explicit provenance requires a verified employer date. Unmarked legacy
- * inputs retain the existing contract until the measured phase-B migration. */
+/** Reported provenance requires a verified employer date. Explicitly unknown
+ * inputs receive a schema-only collection-clock fallback so required JSON-LD
+ * remains complete without changing the source provenance marker. Unmarked
+ * legacy inputs retain the existing contract until the measured phase-B
+ * migration. */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
@@ -782,7 +786,8 @@ export function buildJobPostingSchema(
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const datePosted = resolveRolloutPostingDate(job, () => resolveDatePosted(job, opts.now), opts.now);
+  const datePosted = resolveRolloutPostingDate(job, () => resolveDatePosted(job, opts.now), opts.now)
+    || resolveSchemaPostingDate(job, opts.now);
   if (!datePosted) return null;
 
   const companyName = resolveCompanyName(job, opts.locale);
