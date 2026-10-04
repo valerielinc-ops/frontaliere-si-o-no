@@ -7676,6 +7676,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swiss-steel-ristrutturazione-germania.title': 'Swiss Steel kündigt Umstrukturierung und Stellenabbau in Deutschland an',
     'blog.article.swiss-steel-ristrutturazione-germania.excerpt': 'Der multinationale Konzern aus Luzern leitet eine Reorganisation ein, um bis 2028 wieder profitabel zu werden. Kantonale Unterstützung in Höhe von 17 Millionen für die Tochtergesellschaft Steeltec.',
     'blog.article.swiss-steel-ristrutturazione-germania.imageAlt': 'Schweizer Stahlwerk in einer industriellen Umgebung',
+    'blog.article.salario-minimo-zurigo-requisiti.title': 'Kantonaler Mindestlohn im Kanton Zürich: Voraussetzungen und Anwendung',
+    'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'In der Schweiz gibt es keinen eidgenössischen Mindestlohn: In Zürich müssen kantonale Regelung, Gesamtarbeitsverträge, Kontrollen und Zuständigkeiten geprüft werden.',
+    'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Unterlagen zum Mindestlohn in einem Schweizer Kantonsbüro',
 };
 
 export default blogMetaChDe;
