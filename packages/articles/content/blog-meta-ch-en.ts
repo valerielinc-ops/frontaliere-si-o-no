@@ -7694,6 +7694,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.axa-ue-svizzera-posizione.title': 'EU bilateral agreements, AXA CEO: «important, not decisive»',
     'blog.article.axa-ue-svizzera-posizione.excerpt': 'Thomas Buberl, CEO of AXA, considers the bilateral agreements with the EU important but not decisive for Switzerland\'s position in Europe.',
     'blog.article.axa-ue-svizzera-posizione.imageAlt': 'View of Lugano and the Swiss landscape on a bright day.',
+    'blog.article.rita-fuhrer-consiglio-federale.title': 'No woman needed on the Federal Council',
+    'blog.article.rita-fuhrer-consiglio-federale.excerpt': 'Rita Fuhrer: \'Those days are over: it simply has to be the most suitable person\'',
+    'blog.article.rita-fuhrer-consiglio-federale.imageAlt': 'Rita Fuhrer, former Zurich State Councillor, comments on Federal Council succession',
 };
 
 export default blogMetaChEn;
