@@ -213,9 +213,7 @@
       "sector": "Foodtech / Catering aziendale",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
-      "postingDateSource": "reported",
       "applyUrl": "https://felfel.jobs.personio.de/job/2793209",
       "jobReqId": "2793209",
       "requirements": [],
@@ -234,7 +232,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:41:29.967Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -247,7 +244,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-11",
+      "postingDateSource": "reported"
     },
     {
       "id": "felfel-99f717d90b77",
