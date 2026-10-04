@@ -42,7 +42,7 @@ import { bulletState, decisionDeferralSpecificity } from '../lib/pr-body-section
 import { extractNonImplementedItems, isCandidateItem } from './followup-has-candidates.mjs';
 
 export const MANIFEST_PATH = 'scripts/ci/loop-sync-manifest.json';
-const DEFAULT_REPOS = Object.freeze({
+export const DEFAULT_REPOS = Object.freeze({
   site: 'valerielinc-ops/frontaliere-si-o-no',
   corpus: 'nanakokyobashi-rgb/frontaliere-articles',
 });
@@ -232,6 +232,19 @@ function nonCandidateReason(item, state) {
   const closes = state !== null && state !== 'blocked-technical'
     && (state === 'in-this-pr' || state === 'chained-pr' || decisionDeferralSpecificity(item).specific);
   return closes ? 'closing-state' : 'hard-exclude';
+}
+
+/**
+ * Perché UN bullet non è candidato: `null` se lo è, altrimenti `empty`,
+ * `closing-state` (verdetti) o `hard-exclude` (solo un indizio lessicale).
+ * Il gate sul conio demota soltanto sui verdetti.
+ * @param {string} text @returns {'empty'|'closing-state'|'hard-exclude'|null}
+ */
+export function nonCandidateVerdict(text) {
+  const item = String(text ?? '');
+  if (isCandidateItem(item)) return null;
+  if (EMPTY_DECLARED_RE.test(item)) return 'empty';
+  return nonCandidateReason(item, bulletState(item));
 }
 
 /**
