@@ -259,6 +259,7 @@ import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import { setActiveJobSitemapLocs } from './shared/buildSignals';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
 import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
@@ -1923,6 +1924,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // forever (build deadlock, no fail-fast, no deploy). No jobs.json → no
  // bridge HTML to flush, so resolving now is correct: the consumer proceeds
  // with an empty/jobless sitemap instead of awaiting writes that never run.
+ setActiveJobSitemapLocs(new Set());
  resolveJobsSeoPagesFlushed();
  return;
  }
@@ -10517,6 +10519,26 @@ ${staticAnalyticsHtml}
  const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
  return wordCount >= 50;
  });
+ // Keep a source-level allowlist for the sharded job sitemap. The per-job
+ // emitter's tuple registry alone is not enough here: it is populated before
+ // the thin-content sitemap filter and a stale shard may contain a URL whose
+ // foreign-locale HTML is intentionally absent from this build tree. Only
+ // self-canonical, actually winning, sitemap-eligible detail paths enter the
+ // registry; the final dist pass consumes it after all shards are assembled.
+ const activeJobSitemapLocs = new Set<string>();
+ for (const job of sitemapEligibleJobs) {
+  const jobCantonForSitemap = sharedResolveJobCanton(job as { canton?: string; location?: string });
+  for (const locale of localeList) {
+   const slug = localizedSlug(job, locale);
+   const section = buildCantonAwareSection(locale, jobCantonForSitemap);
+   const pathForLocale = withSlash(`${localePrefix[locale]}/${section}/${slug}`.replace(/\/+/g, '/'));
+   const localeUrl = `${BASE_URL}${pathForLocale}`;
+   if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
+   if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${locale}:${slug}`)) continue;
+   activeJobSitemapLocs.add(localeUrl);
+  }
+ }
+ setActiveJobSitemapLocs(activeJobSitemapLocs);
  const jobEntries = sitemapEligibleJobs.map((job) => {
  const perLocaleSlugMap = {
  it: localizedSlug(job, 'it'),
@@ -10554,6 +10576,7 @@ ${staticAnalyticsHtml}
  // missing or points at a different page.
  if (resolveCanonicalUrl(perLocaleSlugMap[l], localeUrl) !== localeUrl) continue;
  if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${l}:${perLocaleSlugMap[l]}`)) continue;
+ if (!activeJobSitemapLocs.has(localeUrl)) continue;
  sitemapLocalePaths.set(l, localePath);
  }
  if (!sitemapLocalePaths.has('it')) return '';
@@ -10889,6 +10912,7 @@ ${staticAnalyticsHtml}
        // this key with `emittedActiveJobPaths` — same shape, same delimiter.
        const emittedKey = `${groupJobCanton}:${locale}:${perLocaleSlugMap[locale]}`;
        if (!emittedActiveJobPaths.has(emittedKey)) continue;
+       if (!activeJobSitemapLocs.has(localeUrl)) continue;
        shardUrls.push({
          loc: localeUrl,
          changefreq: 'weekly',
