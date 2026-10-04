@@ -58,7 +58,6 @@ jobs:
             !/public/images/
             !/data/translation-cache/
             !/packages/articles/content/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
