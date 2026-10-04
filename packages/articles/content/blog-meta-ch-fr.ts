@@ -7679,6 +7679,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salario-minimo-zurigo-requisiti.title': 'Salaire minimum cantonal à Zurich : conditions et application',
     'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'En Suisse, il n’existe pas de salaire minimum fédéral : à Zurich, il faut vérifier la réglementation cantonale, les conventions collectives, les contrôles et les compétences.',
     'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Documents sur le salaire minimum dans un bureau cantonal suisse',
+    'blog.article.assistenza-sociale-zurigo-domanda.title': 'Aide sociale dans le canton de Zurich : conditions requises et demande',
+    'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Dans le canton de Zurich, la demande part d\'une situation de besoin : office compétent, documents, prestations et obligations de collaboration.',
+    'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Bureau communal suisse pour une demande d\'aide sociale',
 };
 
 export default blogMetaChFr;

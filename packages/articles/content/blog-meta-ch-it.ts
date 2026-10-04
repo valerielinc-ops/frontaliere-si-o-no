@@ -7679,6 +7679,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-minimo-zurigo-requisiti.title': 'Salario minimo canton Zurigo: requisiti e applicazione',
     'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'In Svizzera non esiste un salario minimo federale: a Zurigo vanno verificate disciplina cantonale, contratti collettivi, controlli e competenze.',
     'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Documenti sul salario minimo in un ufficio cantonale svizzero',
+    'blog.article.assistenza-sociale-zurigo-domanda.title': 'Assistenza sociale nel canton Zurigo: requisiti e domanda',
+    'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Nel canton Zurigo la domanda parte da una condizione di bisogno: ufficio competente, documenti, prestazioni e obblighi di collaborazione.',
+    'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Ufficio comunale svizzero per una domanda di assistenza sociale',
 };
 
 export default blogMetaChIt;

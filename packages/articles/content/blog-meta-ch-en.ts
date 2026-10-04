@@ -7679,6 +7679,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-minimo-zurigo-requisiti.title': 'Minimum wage in the Canton of Zurich: requirements and application',
     'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'There is no federal minimum wage in Switzerland: in Zurich, cantonal regulations, collective agreements, checks and areas of responsibility must be verified.',
     'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Minimum wage documents in a Swiss cantonal office',
+    'blog.article.assistenza-sociale-zurigo-domanda.title': 'Social assistance in the Canton of Zurich: requirements and application',
+    'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'In the Canton of Zurich, the application starts from a condition of need: competent office, documents, benefits and cooperation obligations.',
+    'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Swiss municipal office for a social assistance application',
 };
 
 export default blogMetaChEn;

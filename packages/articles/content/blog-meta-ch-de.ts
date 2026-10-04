@@ -7679,6 +7679,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-minimo-zurigo-requisiti.title': 'Kantonaler Mindestlohn im Kanton Zürich: Voraussetzungen und Anwendung',
     'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'In der Schweiz gibt es keinen eidgenössischen Mindestlohn: In Zürich müssen kantonale Regelung, Gesamtarbeitsverträge, Kontrollen und Zuständigkeiten geprüft werden.',
     'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Unterlagen zum Mindestlohn in einem Schweizer Kantonsbüro',
+    'blog.article.assistenza-sociale-zurigo-domanda.title': 'Sozialhilfe im Kanton Zürich: Anforderungen und Nachfrage',
+    'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Im Kanton Zürich geht der Antrag von einer Bedürfnisvoraussetzung aus: Zuständiges Amt, Dokumente, Leistungen und Mitwirkungspflichten.',
+    'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Schweizer Gemeindestelle für einen Antrag auf Sozialhilfe',
 };
 
 export default blogMetaChDe;

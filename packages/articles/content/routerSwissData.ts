@@ -2582,6 +2582,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ginevra-manifestazione-palestina-sanzioni-2025': { it: 'ginevra-manifestazione-palestina-sanzioni-2025', en: 'geneva-pro-palestine-protest-sanctions-israel-2025', de: 'genf-pro-palastina-demo-sanktionen-israel-2025', fr: 'geneve-manifestation-pro-palestine-sanctions-israel-2025' },
  'swiss-steel-ristrutturazione-germania': { it: 'swiss-steel-ristrutturazione-germania', en: 'swiss-steel-restructuring-germany', de: 'swiss-steel-umstrukturierung-deutschland', fr: 'swiss-steel-restructuration-allemagne' },
  'salario-minimo-zurigo-requisiti': { it: 'salario-minimo-zurigo-requisiti', en: 'zurich-minimum-wage-rules', de: 'mindestlohn-zurich-regeln', fr: 'salaire-minimum-zurich-regles' },
+ 'assistenza-sociale-zurigo-domanda': { it: 'assistenza-sociale-zurigo-domanda', en: 'social-assistance-zurich-application', de: 'sozialhilfe-zuerich-antrag', fr: 'aide-sociale-zurich-demande' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
