@@ -33,7 +33,7 @@ on:
   workflow_dispatch:
     inputs:
       current_hour:
-        description: 'Replay: hour to evaluate as YYYYMMDDHH (Europe/Zurich). Empty = now.'
+        description: 'Replay: hour to evaluate as YYYYMMDDHH (Europe/Zurich). Empty = now. A replay writes only the JSON and the summary, never an issue.'
         required: false
         default: ''
         type: string
@@ -124,8 +124,11 @@ jobs:
             } >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      # A replay (current_hour set) never touches the issue: a replayed alarm
+      # lies outside the 30 hours the hourly runs read, so nothing would ever
+      # resolve the issue it opened.
       - name: Open or update the deploy skew issue
-        if: steps.monitor.outputs.status == 'alarm'
+        if: steps.monitor.outputs.status == 'alarm' && github.event.inputs.current_hour == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -141,7 +144,7 @@ jobs:
 
       # Closing half: 6 consecutive clean closed hours after the last alarm.
       - name: Resolve the deploy skew issue after recovery
-        if: steps.monitor.outputs.status == 'recovered'
+        if: steps.monitor.outputs.status == 'recovered' && github.event.inputs.current_hour == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

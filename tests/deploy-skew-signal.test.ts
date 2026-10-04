@@ -19,6 +19,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
 import {
@@ -35,7 +36,13 @@ import { shiftDateHour } from '../scripts/lib/revenue-signals.mjs';
 import { runMonitor } from '../scripts/monitor-deploy-skew.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const workflow = readFileSync(resolve(REPO_ROOT, '.github/workflows/deploy-skew-monitor.yml'), 'utf8');
+const workflowText = readFileSync(resolve(REPO_ROOT, '.github/workflows/deploy-skew-monitor.yml'), 'utf8');
+type Step = { name?: string; id?: string; if?: string; run?: string };
+const workflow = YAML.parse(workflowText) as {
+  on: { schedule: Array<{ cron: string }>; workflow_dispatch: { inputs: Record<string, unknown> } };
+  jobs: Record<string, { steps: Step[] }>;
+};
+const steps: Step[] = Object.values(workflow.jobs).flatMap((job) => job.steps);
 
 type Hour = { dateHour: string; events: number; users: number };
 
@@ -128,6 +135,19 @@ describe('recovery', () => {
 
   it('is ok, not recovered, without a previous alarm', () => {
     expect(evaluateSkew({ hours: [], currentHour: '2026100110' }).status).toBe('ok');
+  });
+
+  it('does not recover over a GA4 gap: every settled hour of the recovery window needs sessions', () => {
+    const currentHour = shiftDateHour('2026100110', DEFAULT_CONFIG.recoveryHours + 2);
+    const hoursBack = (from: number, to: number) => Array.from({ length: to - from + 1 }, (_, i) => shiftDateHour(currentHour, -(from + i)));
+    const allLive = hoursBack(1, DEFAULT_CONFIG.historyHours);
+    expect(evaluateSkew({ hours: spike, currentHour, liveHours: allLive }).status).toBe('recovered');
+    // Sessions only before the recovery window (GA4 late or broken there): no recovery.
+    expect(evaluateSkew({ hours: spike, currentHour, liveHours: hoursBack(DEFAULT_CONFIG.recoveryHours + 1, DEFAULT_CONFIG.historyHours) }).status).toBe('ok');
+    // One settled hour missing is enough to keep the issue open.
+    expect(evaluateSkew({ hours: spike, currentHour, liveHours: allLive.filter((h) => h !== shiftDateHour(currentHour, -3)) }).status).toBe('ok');
+    // The last closed hour may still be landing: its absence does not block.
+    expect(evaluateSkew({ hours: spike, currentHour, liveHours: allLive.filter((h) => h !== shiftDateHour(currentHour, -1)) }).status).toBe('recovered');
   });
 });
 
@@ -242,6 +262,17 @@ describe('runMonitor (CLI contract)', () => {
     expect(all.out.scope).toBe('all-countries');
   });
 
+  it('reports ok, not recovered, when the sessions probe is empty in the recovery window', async () => {
+    const dir = tmp();
+    const { log } = quietLog();
+    const currentHour = shiftDateHour('2026100110', DEFAULT_CONFIG.recoveryHours + 2);
+    const sessions = sessionsFor(currentHour).filter((r) => r.dimensionValues[0].value < shiftDateHour(currentHour, -DEFAULT_CONFIG.recoveryHours));
+    const { fetchImpl } = ga4({ errors: [{ dateHour: '2026100110', events: 40, users: 10 }], sessions });
+    expect(await runMonitor({ argv: [`--current-hour=${currentHour}`, `--out=${dir}/out.json`], env: { GITHUB_OUTPUT: `${dir}/gh` }, fetchImpl, getToken: async () => 't', log })).toBe(0);
+    expect(JSON.parse(readFileSync(`${dir}/out.json`, 'utf8')).status).toBe('ok');
+    expect(readFileSync(`${dir}/gh`, 'utf8')).toBe('status=ok\nalarm_hours=\n');
+  });
+
   it('fails with ::error:: and no status= on a truncated report', async () => {
     const dir = tmp();
     const { errors, log } = quietLog();
@@ -303,28 +334,35 @@ describe('issue body', () => {
 });
 
 describe('deploy-skew-monitor.yml', () => {
-  const titles = [...workflow.matchAll(/--title "([^"]+)"/g)].map((m) => m[1]);
+  const titleOf = (run = '') => run.match(/--title "([^"]+)"/)?.[1];
+  const issueSteps = steps.filter((step) => step.run?.includes('github-issue-creator.mjs'));
+  const stepWithTitle = (title: string, resolves: boolean) => issueSteps.filter((step) => titleOf(step.run) === title && (step.run?.includes('--resolve') ?? false) === resolves);
 
   it('runs hourly and on dispatch, carrying the alarm in the output, not in the exit code', () => {
-    expect(workflow).toMatch(/schedule:\n\s+# [^\n]*\n(?:\s+#[^\n]*\n)*\s+- cron: '43 \* \* \* \*'/);
-    expect(workflow).toMatch(/workflow_dispatch:\n\s+inputs:\n\s+current_hour:/);
-    expect(workflow).toContain('node scripts/monitor-deploy-skew.mjs "${args[@]}"');
-    expect(workflow).toContain("if: steps.monitor.outputs.status == 'alarm'");
-    expect(workflow).toContain("if: steps.monitor.outputs.status == 'recovered'");
+    expect(workflow.on.schedule.map((entry) => entry.cron)).toEqual(['43 * * * *']);
+    expect(workflow.on.workflow_dispatch.inputs).toHaveProperty('current_hour');
+    const monitor = steps.find((step) => step.id === 'monitor');
+    expect(monitor?.run).toMatch(/node scripts\/monitor-deploy-skew\.mjs\b/);
   });
 
-  it('opens and resolves the same fixed title', () => {
-    expect(titles.filter((t) => t === ISSUE_TITLE)).toHaveLength(2);
-    expect(workflow).toContain('--resolve');
-    expect(workflow).toContain('--label deploy-skew-monitor');
+  it('opens on alarm and resolves on recovery, with the same fixed title, never on a replay', () => {
+    const open = stepWithTitle(ISSUE_TITLE, false);
+    const close = stepWithTitle(ISSUE_TITLE, true);
+    expect(open).toHaveLength(1);
+    expect(close).toHaveLength(1);
+    expect(open[0].if).toMatch(/steps\.monitor\.outputs\.status == 'alarm'/);
+    expect(close[0].if).toMatch(/steps\.monitor\.outputs\.status == 'recovered'/);
+    for (const step of [open[0], close[0]]) expect(step.if).toMatch(/github\.event\.inputs\.current_hour == ''/);
+    expect(open[0].run).toContain('--label deploy-skew-monitor');
   });
 
   it('reports a run that could not measure as a workflow failure, not as a skew alarm', () => {
-    expect(titles).toContain('Workflow Failure: ${{ github.workflow }}');
-    expect(workflow).toMatch(/- name: Report failure to GitHub Issues\n\s+if: failure\(\)/);
+    const failure = stepWithTitle('Workflow Failure: ${{ github.workflow }}', false);
+    expect(failure).toHaveLength(1);
+    expect(failure[0].if).toBe('failure()');
   });
 
   it('never runs the diagnosis mode that drops the country filter', () => {
-    expect(workflow).not.toContain('--all-countries');
+    expect(workflowText).not.toContain('--all-countries');
   });
 });

@@ -54,7 +54,7 @@ function assertComplete(name, report) {
 
 /**
  * Both GA4 reports of one run, validated.
- * @returns {Promise<{ hours: Array<{ dateHour: string, events: number, users: number }>, probe: { hours: number, sessions: number } }>}
+ * @returns {Promise<{ hours: Array<{ dateHour: string, events: number, users: number }>, liveHours: string[], probe: { hours: number, sessions: number } }>}
  */
 export async function fetchSkewCounts({ token, currentHour, config = DEFAULT_CONFIG, allCountries = false, fetchImpl = fetch }) {
   const requests = buildSkewRequests({ currentHour, config, allCountries });
@@ -70,10 +70,13 @@ export async function fetchSkewCounts({ token, currentHour, config = DEFAULT_CON
   const sessionHours = probeRows.filter((r) => inWindow(r.dimensionValues[0].value));
   // A day and a half of Italy+Switzerland traffic is never empty: no sessions
   // means the telemetry or the query is broken, and an empty errors report
-  // read on top of it would be a silent "ok" (or a wrong recovery).
+  // read on top of it would be a silent "ok". This proves life over the whole
+  // window only; a gap inside the recovery window is caught by `liveHours` in
+  // evaluateSkew, which then refuses to report `recovered`.
   if (sessionHours.length === 0) throw new Error(`GA4 probe returned no sessions for ${allCountries ? SCOPE_ALL_COUNTRIES : SCOPE_TARGET_MARKET} between ${from} and ${currentHour}`);
   return {
     hours: errorRows.map((r) => ({ dateHour: r.dimensionValues[0].value, events: Number(r.metricValues[0].value), users: Number(r.metricValues[1].value) })),
+    liveHours: sessionHours.filter((r) => Number(r.metricValues[0].value) > 0).map((r) => r.dimensionValues[0].value),
     probe: { hours: sessionHours.length, sessions: sessionHours.reduce((sum, r) => sum + Number(r.metricValues[0].value), 0) },
   };
 }
@@ -91,8 +94,8 @@ export async function runMonitor({ argv = [], env = process.env, now = new Date(
     const currentHour = replayHour || dateHourInZone(now);
     const token = await getToken();
     if (!token) throw new Error('no GA4 credentials: set GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON');
-    const { hours, probe } = await fetchSkewCounts({ token, currentHour, allCountries, fetchImpl });
-    const evaluation = evaluateSkew({ hours, currentHour });
+    const { hours, liveHours, probe } = await fetchSkewCounts({ token, currentHour, allCountries, fetchImpl });
+    const evaluation = evaluateSkew({ hours, currentHour, liveHours });
     const result = {
       currentHour,
       status: evaluation.status,

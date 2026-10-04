@@ -82,6 +82,10 @@ function contains(fieldName, value) {
 
 /**
  * The two GA4 `runReport` bodies of one run.
+ * The host filter is `hostName EXACT` the apex (TRAFFIC_HOSTNAME), not the
+ * apex-plus-subdomains `PRODUCTION_HOST_REGEXP` of the weekly app-error
+ * feeder: the thresholds were calibrated on the apex series of 2026-10-03, so
+ * the filter changes only together with a new series.
  * - `errors`: `app_error` events and users per hour with either skew signature;
  * - `probe`: sessions per hour on the same scope, with no error filter. An
  *   EMPTY errors report is the normal case; the probe is what proves the
@@ -126,14 +130,19 @@ function closedHours(currentHour, from, to) {
 }
 
 /**
- * @param {{ hours: Array<{ dateHour: string, events: number, users: number }>, currentHour: string, config?: typeof DEFAULT_CONFIG }} input
+ * @param {{ hours: Array<{ dateHour: string, events: number, users: number }>, currentHour: string, config?: typeof DEFAULT_CONFIG, liveHours?: Iterable<string> }} input
  * `currentHour` is the hour the run happens in (still open, never judged).
  * - `alarm`: one of the last `lookbackHours` closed hours has >= minEvents AND >= minUsers;
  * - `recovered`: no such hour in the last `recoveryHours` closed hours, at least
  *   one in the hours before, up to `historyHours`: resolve the issue;
  * - `ok`: anything else (including a past alarm not yet `recoveryHours` behind).
+ * `liveHours` (the hours the sessions probe saw, when given) guards the
+ * recovery: a clean hour with no sessions at all is a GA4 gap or delay, not a
+ * measurement, so `recovered` needs sessions in every settled hour of the
+ * recovery window (closed hours 2..recoveryHours; the last one may still be
+ * landing) and degrades to `ok` (issue left open) otherwise.
  */
-export function evaluateSkew({ hours, currentHour, config = DEFAULT_CONFIG }) {
+export function evaluateSkew({ hours, currentHour, config = DEFAULT_CONFIG, liveHours }) {
   const byHour = new Map();
   for (const h of hours || []) {
     const prev = byHour.get(h.dateHour) || { events: 0, users: 0 };
@@ -149,6 +158,10 @@ export function evaluateSkew({ hours, currentHour, config = DEFAULT_CONFIG }) {
   let status = 'ok';
   if (alarmHours.length > 0) status = 'alarm';
   else if (!closedHours(currentHour, 1, config.recoveryHours).some(above) && closedHours(currentHour, config.recoveryHours + 1, config.historyHours).some(above)) status = 'recovered';
+  if (status === 'recovered' && liveHours) {
+    const live = new Set(liveHours);
+    if (!closedHours(currentHour, 2, config.recoveryHours).every((key) => live.has(key))) status = 'ok';
+  }
 
   return { currentHour, status, alarmHours, lastAlarmHour, config: { ...config }, checks };
 }
