@@ -36,6 +36,8 @@
  *     a SPA, use `scripts/lib/ats-clients/successfactors-client.mjs`.
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 import {
   detectLang,
   hqPostalCodeForLocality,
@@ -184,17 +186,25 @@ export function parseCsbSearchResults(html) {
     let cellMatch;
     while ((cellMatch = cellRe.exec(rowHtml)) !== null) {
       const raw = decodeEntities(normalizeSpace(stripHtml(cellMatch[1])));
+      const className = cellMatch[0].match(/\bclass=["']([^"']*)["']/i)?.[1] || '';
       // Normalize every cell silently first. If the heuristic elects this
       // cell as the location below, strip it again with the warning enabled;
       // title/department/date cells must never produce discarded-office
       // telemetry.
-      cells.push({ raw, text: stripSuccessFactorsMoreLocations(raw, { warn: false }) });
+      cells.push({ raw, text: stripSuccessFactorsMoreLocations(raw, { warn: false }), className });
     }
 
     // Fallback: heuristic — find the cell that looks like a location ("City,
     // CC[,…]"). Cells have already had the marker stripped, so compare them
     // with the equally stripped title to avoid electing a title cell.
-    let postedDate = '';
+    const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
+    const positionalDateCell = cells.length >= 3 ? cells.at(-1) : null;
+    const positionalDate = positionalDateCell && !/\bdeadline\b/i.test(positionalDateCell.className)
+      ? positionalDateCell.raw
+      : '';
+    const publication = successFactorsPostingDateFields(
+      dateCell ? decodeEntities(normalizeSpace(stripHtml(dateCell[1]))) : positionalDate,
+    );
     for (const cell of cells) {
       if (
         !location
@@ -204,25 +214,17 @@ export function parseCsbSearchResults(html) {
         location = stripSuccessFactorsMoreLocations(cell.raw);
         continue;
       }
-      // ISO-ish date in the cell?
-      const dm = cell.text.match(/(\d{4}-\d{2}-\d{2})/) || cell.text.match(/(\d{1,2}[.\/-]\d{1,2}[.\/-]\d{4})/);
-      if (!postedDate && dm) postedDate = parseLooseDate(dm[1]);
+
     }
 
-    out.push({ relUrl, jobId, title, location, postedDate });
+    out.push({ relUrl, jobId, title, location, ...publication });
   }
 
   return out;
 }
 
 function parseLooseDate(raw = '') {
-  const s = String(raw || '').trim();
-  if (!s) return '';
-  let m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (m) return s;
-  m = s.match(/^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})$/);
-  if (m) return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
-  return '';
+  return successFactorsPostingDateFields(raw).postedDate;
 }
 
 /**
@@ -451,12 +453,7 @@ export function parseCsbDetailPage(html) {
   const rateText = decodeEntities(normalizeSpace(stripHtml(rateHtml)));
 
   // schema.org microdata for date and apply link
-  const postedDate = (() => {
-    const raw = readItemprop(html, 'datePosted');
-    if (!raw) return '';
-    const d = new Date(raw);
-    return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-  })();
+  const publication = successFactorsPostingDateFields(readItemprop(html, 'datePosted'));
 
   // Apply URL — try the SF "/talentcommunity/apply/{jobId}" pattern.
   const applyMatch = html.match(/href="([^"]*talentcommunity\/apply\/[^"]+)"/i)
@@ -482,7 +479,7 @@ export function parseCsbDetailPage(html) {
     postalCode,
     country: propertyCountry || microdataLocation?.country || '',
     rateText,
-    postedDate,
+    ...publication,
     applyUrl,
     language,
   };
@@ -792,9 +789,7 @@ export function createSuccessFactorsParser(config) {
         continue;
       }
 
-      const postedDate = detail?.postedDate
-        || listing.postedDate
-        || new Date().toISOString().slice(0, 10);
+      const publication = mergeSourcePostingDates(listing, detail || {});
 
       const urlHash = createHash('sha1').update(fullUrl).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} ${companyKey} ${city}`);
@@ -839,7 +834,7 @@ export function createSuccessFactorsParser(config) {
         sector,
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...publication,
         applyUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
