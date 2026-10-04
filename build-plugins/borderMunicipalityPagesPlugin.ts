@@ -1139,7 +1139,7 @@ export function renderPage(params: {
   const wordCount = countHtmlBodyWords(body);
   const bodyHtmlWithAd = body.replace(
     /<\/div>\s*$/,
-    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`,
+    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`,
   );
   const html = buildSeoPageHtml({
     locale,

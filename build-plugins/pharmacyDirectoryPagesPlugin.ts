@@ -1012,7 +1012,7 @@ function buildPage(
     : descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
   const pathValue = descriptorPath(descriptor, locale);
   const description = pageDescription(descriptor, locale);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable, contentHtml: body })}`;
   return {
     path: buildPharmacyPath(pathValue, locale),
     wordCount,
