@@ -57,8 +57,8 @@ for (const company of companies) {
 }
 
 describe('Online seit belongs only to its own listing row', () => {
-  it('rejects a malformed five-digit year rather than reading its prefix', () => {
-    expect(parseUmantisListing(`<table>${row('416', '15.05.20260')}</table>`).entries[0].datum).toBe('');
+  it.each(['15.05.20260', '15.05.2026junk'])('rejects a malformed date suffix: %s', (raw) => {
+    expect(parseUmantisListing(`<table>${row('416', raw)}</table>`).entries[0].datum).toBe('');
   });
   it('does not inherit the following row publication', () => {
     const { entries } = parseUmantisListing(`<table>${row('416', '')}${row('417', swiss(sourceDay))}</table>`);
