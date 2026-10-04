@@ -144,7 +144,10 @@ export async function fetchAllGallikerJobs() {
 
   const listings = parseReflineListing(listingHtml, { listingHost: REFLINE_HOST, tenant: REFLINE_TENANT });
   console.log(`   ✓ ${listings.length} positions on Refline listing`);
-  if (!listings.length) return [];
+  // Preserve a parser-stamped authoritative zero from Refline's explicit
+  // no-results state; replacing it with a fresh [] would reintroduce the
+  // fail-closed false alarm fixed at the shared listing boundary.
+  if (!listings.length) return listings;
 
   const jobs = [];
   for (let i = 0; i < listings.length; i += 1) {

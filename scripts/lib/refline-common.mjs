@@ -53,6 +53,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   decodeEntities,
   detectHealthcareCategory,
@@ -63,6 +64,24 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 
 const DETAIL_DELAY_MS = 300;
+const REFLINE_EMPTY_RESULT_TEXT_RE = /(?:\b(?:zurzeit|derzeit|aktuell)\s+haben\s+wir\s+keine\s+(?:vakanzen|offenen?\s+stellen)\b|\b(?:there\s+are\s+)?(?:currently\s+)?no\s+(?:open\s+)?(?:jobs?|positions?|vacancies?)\b|\baucun(?:e)?\s+(?:offre|poste|vacance)s?\b|\bnessun[ao]?\s+(?:offert[ae]|posizion[ei]|post[oi])\b|\bnon\s+ci\s+sono\s+(?:posizioni|offerte)\s+aperte\b)/i;
+
+/**
+ * A Refline listing can expose a real, source-backed zero in a dedicated
+ * no-results container. Keep the proof scoped to that container and to known
+ * empty-state wording: a bare parser miss must remain fail-closed.
+ */
+function reflineEmptyListingEvidence(html = '') {
+  const candidateRe = /<([a-z][\w:-]*)\b[^>]*?\sclass\s*=\s*(["'])([^"']*)\2[^>]*>([\s\S]*?)<\/\1>/gi;
+  let match;
+  while ((match = candidateRe.exec(String(html || ''))) !== null) {
+    if (!/(?:^|\s)searchPageNoResult(?:\s|$)/i.test(match[3])) continue;
+    const text = normalizeSpace(stripHtml(decodeEntities(match[4])));
+    if (!text || !REFLINE_EMPTY_RESULT_TEXT_RE.test(text)) continue;
+    return text;
+  }
+  return null;
+}
 
 function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
@@ -186,7 +205,18 @@ export function parseReflineListing(html = '', opts = {}) {
   // Table-row template wins when present (more structured); fall back to anchors.
   const table = parseReflineTableListing(html, opts);
   if (table.length) return table;
-  return parseReflineAnchorListing(html, opts);
+  const anchors = parseReflineAnchorListing(html, opts);
+  if (anchors.length) return anchors;
+
+  const emptyText = reflineEmptyListingEvidence(html);
+  if (!emptyText) return anchors;
+  const host = String(opts.listingHost || 'Refline');
+  const tenant = String(opts.tenant || '').trim();
+  const source = tenant ? `${host}/${tenant}` : host;
+  return markAuthoritativeEmptySnapshot(
+    anchors,
+    `${source} rendered the explicit no-results state: "${emptyText}"`,
+  );
 }
 
 /**
@@ -508,7 +538,10 @@ export function createReflineParser(config) {
 
     const listings = parseReflineListing(listingHtml, { listingHost, tenant: tenantStr });
     console.log(`  📋 Found ${listings.length} positions on Refline listing\n`);
-    if (!listings.length) return [];
+    // Preserve a parser-stamped authoritative zero. Returning a fresh `[]`
+    // here would discard the source proof and turn an explicit no-results page
+    // back into the generic no-jobs-parsed exit-guard path.
+    if (!listings.length) return listings;
 
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
