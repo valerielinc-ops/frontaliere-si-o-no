@@ -28,6 +28,23 @@ export interface Article {
  image: string;
  hasCalculator: boolean;
  /**
+  * What the article IS, as declared by the generator that wrote it: `news`
+  * (dated reporting) or `evergreen` (a guide meant to stay current). Written
+  * on every new registry entry by `generator/scripts/lib/registry-article-type.mjs`;
+  * older entries have no value until they are backfilled. Read by the
+  * evergreen freshness audit instead of guessing from `category`.
+  */
+ articleType?: 'news' | 'evergreen';
+ /**
+  * `YYYY-MM-DD` of the last check that found the article's facts still
+  * correct WITHOUT changing them (so `updatedAt` stays untouched). Read ONLY by
+  * the evergreen freshness audit — never by sitemap/lastmod, JSON-LD or
+  * `dateModified`. Each value needs a matching proof (sources and unchanged
+  * facts) in `data/evergreen-verifications.json`; the corpus content gate
+  * rejects a `verifiedAt` without it.
+  */
+ verifiedAt?: string;
+ /**
   * A2 — author registry slug (`marco-ferrari`, `laura-bianchi`, `redazione`).
   * When present, the byline links to `/autori/{authorSlug}/` and the
   * NewsArticle JSON-LD uses a Person `@type` for that author. Optional for
