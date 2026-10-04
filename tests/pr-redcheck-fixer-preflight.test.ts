@@ -56,7 +56,13 @@ const DISPATCH_HEAD = '0123456789abcdef0123456789abcdef01234567';
 
 function runPreflight(
   mode: Mode,
-  { openPrs = '42', dispatch = false, failedRuns = '123' }: { openPrs?: string; dispatch?: boolean; failedRuns?: string } = {},
+  {
+    openPrs = '42',
+    dispatch = false,
+    failedRuns = '123',
+    runHeadRepo = 'owner/repo',
+    runBranch = 'fix/redcheck-test',
+  }: { openPrs?: string; dispatch?: boolean; failedRuns?: string; runHeadRepo?: string; runBranch?: string } = {},
 ) {
   const prHead = dispatch ? DISPATCH_HEAD : 'headsha';
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
@@ -88,10 +94,10 @@ esac
 if [ "\${1:-}" = api ]; then
   endpoint="\${2:-}"
   case "$endpoint" in
-    *"/pulls?state=open"*)
+    *"/pulls")
       if [ "\${FAIL_MODE:-}" = pulls ]; then exit 1; fi
-      # The real gh invocation applies --jq page by page to this response;
-      # emit its post-filtered lines here because this is a CLI double.
+      # The real gh invocation applies --jq to this filtered response; emit
+      # its post-filtered lines here because this is a CLI double.
       if [ -n "\${OPEN_PRS}" ]; then printf '%s\\n' "\${OPEN_PRS}"; fi
       ;;
     *"/pulls/42")
@@ -152,7 +158,8 @@ exit 1
       RUN_SHA: dispatch ? '' : 'headsha',
       PR_HEAD_SHA: prHead,
       FAILED_RUNS: failedRuns,
-      RUN_BRANCH: 'fix/redcheck-test',
+      RUN_BRANCH: runBranch,
+      RUN_HEAD_REPO: runHeadRepo,
       FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : mode === 'pulls-api-unavailable' ? 'pulls' : mode === 'failed-runs-unavailable' ? 'failed-runs' : '',
       OPEN_PRS: openPrs,
       JOBS_JSON: jobs,
@@ -217,16 +224,18 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
     expect(githubOutput).not.toContain('actionable=true');
   });
-  it('resolves the PR without combining --slurp and --jq (rejected by the real gh)', () => {
+  it('resolves the PR with the server-side head filter and no pagination', () => {
     const { result, githubOutput, ghCalls } = runPreflight('test');
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
-    const listCall = ghCalls.split('\n').find((line) => line.includes('pulls?state=open')) ?? '';
-    expect(listCall).toContain('--paginate');
+    const listCall = ghCalls.split('\n').find((line) => line.endsWith('/pulls --method GET -f state=open -f head=owner:fix/redcheck-test -f per_page=100 --jq .[].number')) ?? '';
+    expect(listCall).toContain('/pulls --method GET');
+    expect(listCall).toContain('-f head=owner:fix/redcheck-test');
+    expect(listCall).not.toContain('--paginate');
     expect(listCall).not.toContain('--slurp');
     expect(githubOutput).toContain('actionable=true');
   });
 
-  it('takes the first open PR when the paginated --jq emits several lines', () => {
+  it('takes the first open PR when the filtered response emits several lines', () => {
     const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '42\n77' });
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
     expect(ghCalls).toMatch(/pulls\/42$/m);
@@ -244,7 +253,17 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
   it('fails closed instead of reporting «no PR» when the open-PR list is unreadable', () => {
     const { result, githubOutput, ghCalls } = runPreflight('pulls-api-unavailable');
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
-    expect(`${result.stdout}${result.stderr}`).toContain('Lista PR aperte illeggibile');
+    expect(`${result.stdout}${result.stderr}`).toContain('Ricerca PR aperta');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+  it.each([
+    ['missing', ''],
+    ['malformed', 'owner'],
+  ] as const)('fails closed before the pulls API when the run head repository is %s', (_label, runHeadRepo) => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { runHeadRepo, runBranch: 'fix/x' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(`${result.stdout}${result.stderr}`).toContain('Repository sorgente della run');
+    expect(ghCalls).not.toContain('repos/owner/repo/pulls');
     expect(githubOutput).not.toContain('actionable=true');
   });
   it('dispatch: trova la run rossa per head_sha anche quando e\' fuori dalle ultime run del repo (#9695)', () => {
