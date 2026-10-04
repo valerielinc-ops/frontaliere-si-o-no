@@ -19,7 +19,6 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { decode as decodeHtmlEntities } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
-import { escapeRegExpLiteral } from './escape-regexp.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './free-translate.mjs';
@@ -466,8 +465,9 @@ export function loadCantonComuni(canton = EVENTS_CANTON) {
   return list;
 }
 
-// Un solo escape per le regex degli script: lib/escape-regexp.mjs.
-const escapeRegExp = escapeRegExpLiteral;
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 /**
  * Scan `haystack` for every entry in `ranked` (already longest-name-first)
