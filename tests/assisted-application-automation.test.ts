@@ -237,6 +237,21 @@ describe('owner queue', () => {
     expect(store.read(draftPath)?.editedAt).toBeUndefined();
     once.mockRestore();
 
+    // Two owner edits of the letter in the same millisecond: one wins, and the file it points to survives.
+    const saved = new Map<string, Buffer>();
+    const bucket = { file: (key: string) => ({ save: async (data: Buffer) => { saved.set(key, data); }, delete: async () => { saved.delete(key); } }) };
+    const letter = (text: string) => ({ action: 'automationEditDraft', orderId: ORDER, coverLetterText: `Gentili signore e signori,\n\n${text}\n\nCordiali saluti` });
+    const results = await Promise.allSettled([
+      handleAutomationAdminAction(store.db, letter('Mi candido per il posto di infermiere in reparto.'), 'owner@example.com', { runEffect, bucket, nowMs: T0 + 5 }),
+      handleAutomationAdminAction(store.db, letter('Mi candido per il posto di infermiere in pronto soccorso.'), 'owner@example.com', { runEffect, bucket, nowMs: T0 + 5 }),
+    ]);
+    // Whether the two overlap or run one after the other, the file the draft names exists, and each
+    // edit that went through left a file of its own (a refused one deletes only its own).
+    const fulfilled = results.filter((result) => result.status === 'fulfilled').length;
+    expect(fulfilled).toBeGreaterThanOrEqual(1);
+    expect(saved.has(store.read(draftPath)?.coverLetterPdfKey)).toBe(true);
+    expect(saved.size).toBe(fulfilled);
+
     // Reloaded on the current draft, the same edit goes through.
     await expect(handleAutomationAdminAction(store.db, edit, 'owner@example.com', { runEffect, nowMs: T0 + 3 }))
       .resolves.toMatchObject({ ok: true });

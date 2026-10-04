@@ -14,6 +14,7 @@ import {
   letterText,
   parseLetterText,
 } from './assistedApplicationAiDraftCore.js';
+import { randomUUID } from 'node:crypto';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
@@ -207,7 +208,9 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   if (letterRaw && bucket) {
     // The header as the candidate corrected it (name, phone, place).
     const rebuilt = await rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
-    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}.pdf`;
+    // A name of its own per edit: two edits in the same millisecond never share a file, so the one
+    // refused below deletes only its own PDF, never the one the committed draft points to.
+    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
     await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }

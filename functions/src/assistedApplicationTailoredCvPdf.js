@@ -63,9 +63,12 @@ export function jpegIsWhole(buffer) {
     offset += 2 + length;
     if (marker !== 0xda) continue;
     if (!frame) return false;
-    scanned = true;
     // The scan's data runs to the next marker: 0xFF 0x00 is a data byte, 0xFF 0xD0-0xD7 a restart.
+    const scanStart = offset;
     while (offset + 1 < buffer.length && (buffer[offset] !== 0xff || buffer[offset + 1] === 0x00 || (buffer[offset + 1] >= 0xd0 && buffer[offset + 1] <= 0xd7))) offset += 1;
+    // A scan header followed at once by the next marker holds no image.
+    if (offset === scanStart) return false;
+    scanned = true;
   }
   return false;
 }

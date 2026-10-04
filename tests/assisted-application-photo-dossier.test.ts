@@ -204,6 +204,10 @@ describe('optional photo of the tailored CV', () => {
     const withThumbnail = Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe1, (exif.length + 2) >> 8, (exif.length + 2) & 0xff]), exif, baseline.subarray(2)]);
     expect(jpegIsWhole(withThumbnail)).toBe(true);
     expect(jpegIsWhole(withThumbnail.subarray(0, Math.floor(withThumbnail.length / 2)))).toBe(false);
+    // A valid frame and a scan header followed at once by the end marker hold no picture.
+    const sos = baseline.indexOf(Buffer.from([0xff, 0xda]));
+    const sosEnd = sos + 2 + baseline.readUInt16BE(sos + 2);
+    expect(jpegIsWhole(Buffer.concat([baseline.subarray(0, sosEnd), Buffer.from([0xff, 0xd9])]))).toBe(false);
   }, 60_000);
 
   it('keeps nothing of a photo whose rebuild fails', async () => {
