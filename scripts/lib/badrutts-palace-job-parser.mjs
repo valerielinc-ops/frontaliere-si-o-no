@@ -15,6 +15,7 @@
  *   - isTrustedDomain()             — Validate URLs belong to this company
  *   - parseRssItems()               — Parse RSS XML into structured items (exported for testing)
  */
+import { sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -241,9 +242,8 @@ export function parseRssItems(xml = '') {
  * Output: "2026-04-01"
  */
 export function parseRssDate(raw = '') {
-  const d = new Date(raw);
-  if (isNaN(d.getTime())) return '';
-  return d.toISOString().split('T')[0];
+  const date = sourceRssPostingDateFields(raw).postedDate;
+  return date ? new Date(date).toISOString().slice(0, 10) : '';
 }
 
 /* ── Fetch RSS Feed ───────────────────────────────────────── */
@@ -312,7 +312,7 @@ export async function fetchAllBadruttsPalaceJobs() {
 
     const location = DEFAULT_LOCATION;
     const canton = inferAnyCanton(location) || DEFAULT_CANTON;
-    const postedDate = parseRssDate(item.pubDate) || new Date().toISOString().split('T')[0];
+    const postingDates = sourceRssPostingDateFields(item.pubDate);
 
     const job = {
       // ── Required fields ──
@@ -345,7 +345,7 @@ export async function fetchAllBadruttsPalaceJobs() {
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

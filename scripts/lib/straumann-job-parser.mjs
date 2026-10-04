@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -39,20 +40,6 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
-/**
- * Normalize a Phenom `postedDate` value to ISO YYYY-MM-DD.
- * Phenom usually returns an ISO-ish date; fall back to today when absent/unparseable.
- */
-function normalizePostedDate(value) {
-  const today = new Date().toISOString().split('T')[0];
-  if (!value) return today;
-  const d = new Date(value);
-  if (!Number.isNaN(d.getTime())) return d.toISOString().split('T')[0];
-  // Already a bare YYYY-MM-DD string?
-  const m = String(value).match(/\d{4}-\d{2}-\d{2}/);
-  return m ? m[0] : today;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -339,7 +326,7 @@ export async function fetchAllStraumannJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: normalizePostedDate(listing.postedAt),
+      ...sourcePostingDateFields(listing.postedAt),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

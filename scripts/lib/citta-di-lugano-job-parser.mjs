@@ -16,6 +16,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
  */
 
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
@@ -266,7 +267,7 @@ export function buildJob(raw, { description, sourceLang = 'it' } = {}) {
     employmentType: inferEmploymentType(title, listingDescription),
     category: detectCategory(title, listingDescription),
     description: finalDescription,
-    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(raw.datePosted),
     source: 'company-website',
     slug,
     slugByLocale: { [lang]: slug },

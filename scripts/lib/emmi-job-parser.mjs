@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
@@ -117,17 +118,6 @@ function detectEmploymentType(text = '') {
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
-
-/**
- * Convert a prospective.ch `start_date` / `last_modification_timestamp`
- * (ISO 8601 string) to a YYYY-MM-DD posted date.
- */
-function toPostedDate(value) {
-  if (!value) return null;
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toISOString().split('T')[0];
-}
 
 /**
  * Is this OHWS job located in Switzerland? The 1003228 careercenter is
@@ -315,11 +305,9 @@ export async function fetchAllEmmiJobs() {
     const sourceLang = detectLang(descriptionText || title, SOURCE_LANG);
     const jobSlug = slugify(`${title} emmi ch`);
 
-    // ── Posted date: prefer OHWS start_date, fall back to last-modified ──
-    const postedDate =
-      toPostedDate(listing.start_date) ||
-      toPostedDate(listing.last_modification_timestamp) ||
-      new Date().toISOString().split('T')[0];
+    // OHWS publication start is corroborated by the employer's JobPosting.
+    // Preserve its full timestamp; modification time is not publication evidence.
+    const postingDates = sourcePostingDateFields(listing.start_date);
 
     // ── Employment type: pensum + sza_employment_type label ──
     const pensumMax = Number(szas['sza_pensum.max']);
@@ -377,7 +365,7 @@ export async function fetchAllEmmiJobs() {
       sector: SECTOR,
       currency: normalizeSpace(szas['sza_salary.currency'] || '') || 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: normalizeSpace(szas.sza_apply_link || '') || publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },
