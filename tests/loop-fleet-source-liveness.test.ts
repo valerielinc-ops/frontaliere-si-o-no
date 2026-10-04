@@ -19,19 +19,17 @@ import { describe, expect, it } from 'vitest';
 const KNOWN_POSTHOG_READERS: Record<string, { scheda: string; motivo: string }> = {
   'export-l7-experiment-outcomes.mjs': {
     scheda: 'NX-09',
-    motivo: 'L7 experiment ledger still reads affiliate exposures from PostHog; migration to GA4 is card NX-09',
+    motivo: 'L7 reads PostHog only when data/experiments/active-experiments.json declares an experiment, and today it declares none; the first entry must move the reader to GA4 (rule below)',
   },
   'export-l8-affiliate-outcomes.mjs': {
     scheda: 'L8 (no open issue)',
     motivo: 'eventi affiliate non esenti, da migrare quando L8 riporta esposizioni',
   },
-  'export-loop-outcomes.mjs': {
-    scheda: 'NX-09',
-    motivo: 'legacy exportL7 branch only (the L7 workflow calls export-l7-experiment-outcomes.mjs); removed by NX-09',
-  },
 };
 
 const EXPORT_DIR = path.resolve('scripts/ci');
+const ACTIVE_EXPERIMENTS_PATH = path.resolve('data/experiments/active-experiments.json');
+const L7_EXPORTER = 'export-l7-experiment-outcomes.mjs';
 const QUOTA_PATH = path.resolve('services/posthogQuota.ts');
 
 function readPostHogQuota(source: string) {
@@ -91,6 +89,12 @@ function findPostHogReaderViolations({
   return violations;
 }
 
+function activeExperimentReaderViolations(experiments: Array<{ experimentId?: string }>, known: Record<string, unknown>) {
+  if (!experiments.length || !Object.prototype.hasOwnProperty.call(known, L7_EXPORTER)) return [];
+  return experiments.map((entry) => `${entry.experimentId ?? 'an experiment'} is declared active while ${L7_EXPORTER}`
+    + ' is still a registered PostHog reader: move the L7 reader to GA4 and drop its KNOWN_POSTHOG_READERS entry');
+}
+
 function readExporters() {
   return Object.fromEntries(
     fs.readdirSync(EXPORT_DIR)
@@ -115,6 +119,18 @@ describe('loop exporters read only live sources', () => {
       expect(entry.scheda.trim().length).toBeGreaterThan(0);
       expect(entry.motivo.trim().length).toBeGreaterThan(20);
     }
+  });
+
+  it('lets the L7 reader stay on PostHog only while no experiment is declared active', () => {
+    // An experiment declared active must be measured on a live source: the
+    // L7 entry above is tolerated only while L7 is idle and never queries.
+    // Failure title: "L7: esperimento attivo senza emettitore o senza sorgente viva".
+    const { experiments } = JSON.parse(fs.readFileSync(ACTIVE_EXPERIMENTS_PATH, 'utf8'));
+    expect(Array.isArray(experiments)).toBe(true);
+    expect(activeExperimentReaderViolations(experiments, KNOWN_POSTHOG_READERS)).toEqual([]);
+    expect(activeExperimentReaderViolations([{ experimentId: 'g4' }], { [L7_EXPORTER]: {} }))
+      .toEqual([expect.stringContaining('g4 is declared active')]);
+    expect(activeExperimentReaderViolations([{ experimentId: 'g4' }], {})).toEqual([]);
   });
 
   it('turns red on a new PostHog reader at a zero rate and on a stale entry', () => {

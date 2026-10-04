@@ -177,6 +177,20 @@ jobs:
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
 
+      # Which element moves, and the p75 per job-board template: the input every
+      # sweep on the CWV issues lacked. Comments on each open cwv-regression issue
+      # and on the #5001 watchlist tracker. No continue-on-error: an unregistered
+      # GA4 dimension or a diverged client/reader contract must fail the run and
+      # reach "Report failure to GitHub Issues"; the snapshot PR below still runs
+      # (its if: always()). The step timeout keeps a stalled GA4 call from
+      # exhausting the job budget: it fails this step only, not the job.
+      - name: Report CWV attribution
+        timeout-minutes: 4
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/cwv-attribution-report.mjs --comment
+
       # The stable branch is pushed with a lease and reconciled by the helper,
       # so a busy main no longer races this job: the snapshot is measured once
       # and never re-queried from PostHog on a retry.

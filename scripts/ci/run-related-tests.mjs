@@ -17,8 +17,10 @@
  * read it by path instead of importing it. Test-tree lints (tests that scan
  * every test file instead of importing one) join the selection whenever the
  * diff touches a test file; source-tree lints (tests that scan `.github`,
- * `scripts` and `bin` by directory, or the whole tracked tree for
- * credential-shaped literals) join it whenever the diff touches their scope.
+ * `scripts` and `bin` by directory, the whole tracked tree for
+ * credential-shaped literals, or data files that no import connects to them,
+ * such as the loop-fleet ledger replay) join it whenever the diff touches
+ * their scope.
  * `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
@@ -103,6 +105,16 @@ const sourceTreeLintTests = new Map([
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  // La lista sparse dell'observer delle generazioni crawler sta nel YAML: il
+  // test la confronta con la chiusura degli import di
+  // `scripts/crawler-generation-observer.mjs`, ma nessun import lo lega ai
+  // moduli della chiusura. Sulla PR 11262 un import nuovo in
+  // `crawler-grace-policy.mjs` e' uscito dalla lista e main e' rimasto rosso
+  // in latenza. I moduli JS della chiusura vivono in `scripts/` e
+  // `functions/` (githubApiHeaders.js); l'unico file fuori
+  // (`data/canton-municipalities.json`) e' un JSON foglia e non puo'
+  // aggiungere import. Il test costa meno di un secondo.
+  ['tests/crawler-generation-observer-workflow.test.ts', /^(?:scripts|functions)\//],
   // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
   // degli import degli entrypoint, quindi nessun import lo collega al modulo
@@ -114,6 +126,36 @@ const sourceTreeLintTests = new Map([
   // e' passato senza che il test girasse. Il perimetro e' l'elenco stesso, non
   // una regex che possa divergere da esso.
   ['tests/generate-crawler-group-workflows.test.ts', (file) => crawlerGenerationRuntimePaths.has(file)],
+  // Il ledger durevole dei loop e' riletto a runtime contro il registry
+  // corrente: un cambio di sourceRefs senza historicalSourceRefs lo rende
+  // illeggibile. Registry e ledger sono dati, nessun import li collega al test
+  // che li rilegge. Sulla PR 11001 un diff del solo registry e' passato verde e
+  // l'observer del lifecycle e' caduto al cron dopo (issue 11178).
+  ['tests/loop-fleet-registry-ledger-replay.test.ts', /^(?:data\/loop-fleet\/|scripts\/lib\/loop-fleet-contract\.mjs$)/],
+  // Il gate di famiglia j2w scopre i parser leggendo da disco ogni `.mjs` sotto
+  // `scripts/lib/`, ricorsivo: un modulo nuovo non e' importato dal test e il
+  // grafo inverso non lo collega. La PR 11308 ha aggiunto un registro che
+  // il predicato eleggeva ed e' passata verde; il rosso e' emerso sulla 11346,
+  // che toccava per caso un import del test. Il perimetro e' quello dello scan.
+  ['tests/successfactors-parser-quality.test.ts', /^scripts\/lib\/.+\.mjs$/],
+  // Stessa forma, altri gate che eleggono la loro popolazione leggendo
+  // `scripts/lib/` da disco: ognuno col perimetro del proprio scan.
+  ['tests/successfactors-jobs2web-widget-guard.test.ts', /^scripts\/lib\/[^/]+\.mjs$/],
+  ['tests/prospective-ch-shared-parser-contract.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/crawler-brand-domain-pairing.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/listing-url-fallback-audit.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  // Legge sia i parser sia gli `update-*-jobs.mjs` al primo livello di scripts/.
+  ['tests/bespoke-crawler-slug-boundary.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/[^/]+-job-parser\.mjs)$/],
+  // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
+  ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
+  ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
+  // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
+  // estensioni; costano pochi secondi.
+  ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
+  ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
+  ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

@@ -681,7 +681,7 @@ const enGuide: Record<string, string> = {
  'guide.unemployment.ch.frontalieriTitle': 'Note for cross-border workers',
  'guide.unemployment.ch.frontalieri1': 'Cross-border workers in total unemployment receive benefits from their country of residence (Italy/INPS)',
  'guide.unemployment.ch.frontalieri2': 'Cross-border workers in partial unemployment (e.g. reduced hours) retain the right to Swiss benefits',
- 'guide.unemployment.ch.frontalieri3': 'Contributions paid in Switzerland are transferred to INPS via the PD U1 form',
+ 'guide.unemployment.ch.frontalieri3': "PD U1 certifies Swiss insurance and employment periods for INPS to assess the unemployment claim; it does not transfer the contributions paid",
  'guide.unemployment.ch.frontalieri4': 'Request the PD U1 form from the Swiss unemployment fund before returning to Italy',
  'guide.unemployment.it.title': '🇮🇹 Italy - NASpI (New Social Insurance for Employment)',
  'guide.unemployment.it.whoTitle': 'Who is entitled',

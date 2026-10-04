@@ -503,6 +503,45 @@ describe('findingAcceptanceScope', () => {
   it('treats a `PR body:L<n>` anchored Important as body', () => {
     expect(findingAcceptanceScope(finding('`PR body:L4`: 🔴 Important: bullet senza stato.', []), WITH_GATE)).toBe('body');
   });
+
+  // Review 11321 (0fa9644fb9): la clausola finiva al primo a capo, quindi la
+  // continuazione con un file del repository non veniva mai letta.
+  it('reads a multiline acceptance through the end of the finding: a cited file keeps it code', () => {
+    const cited = ['x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the threshold', 'and scripts/lib/foo.mjs returns 0.'].join('\n');
+    expect(findingAcceptanceScope(finding(cited), WITH_GATE)).toBe('code');
+  });
+
+  it('replays the review acceptance command: multiline continuation with a command is code', () => {
+    const scope = findingAcceptanceScope(
+      { line: 'scripts/x.mjs:L1', text: ['Accettazione: PR body is correct', 'run node scripts/x.mjs'].join('\n') },
+      { extractCitations: () => [] },
+    );
+    expect(scope).toBe('code');
+  });
+
+  it('keeps a multiline acceptance about the body only as body', () => {
+    const text = ['x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the workflow', 'and the numeric RSS threshold, plus the revert action.'].join('\n');
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('body');
+  });
+
+  it.each([
+    ['an acceptance marker the parser does not recognise', 'x.mjs:L1: 🔴 Important: claim. **Acceptance**: `npm test` passes. Accettazione: PR body names it.'],
+    ['a truncated acceptance', 'x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the threshold and `scripts/x…'],
+    ['an acceptance ending in an ellipsis', 'x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names the threshold and…'],
+    ['an empty acceptance', 'x.mjs:L1: 🔴 Important: claim. Accettazione:'],
+  ])('unrecognised format stays code: %s', (_label, text) => {
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
+  });
+
+  it('stays code when the review parser was uncertain about the finding boundary', () => {
+    const uncertain = { ...finding('x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names it.'), parserUncertain: true };
+    expect(findingAcceptanceScope(uncertain, WITH_GATE)).toBe('code');
+  });
+
+  it('keeps a `PR body:L<n>` Important code when its acceptance runs repository code', () => {
+    const text = ['`PR body:L4`: 🔴 Important: bullet senza stato. Accettazione: the bullet carries a state', 'and `node scripts/lib/pr-body-sections-check.mjs` exits 0.'].join('\n');
+    expect(findingAcceptanceScope(finding(text, []), WITH_GATE)).toBe('code');
+  });
 });
 
 describe('minimal tier: body-acceptance Importants are re-judged, code ones carried', () => {
