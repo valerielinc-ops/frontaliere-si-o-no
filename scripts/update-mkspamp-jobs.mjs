@@ -10,6 +10,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -147,14 +148,8 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function parseDate(pubDate = '') {
-  try {
-    const d = new Date(pubDate);
-    if (isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  } catch {
-    return new Date().toISOString().slice(0, 10);
-  }
+function parseDate(pubDate = '', now = new Date()) {
+  return sourceRssPostingDateFields(pubDate, now).datePosted;
 }
 
 function buildMksPampJob(rssItem, location) {
@@ -186,7 +181,8 @@ function buildMksPampJob(rssItem, location) {
     // The language of the posting body, not of its title: English titles such
     // as "Precious Metal Control Manager" were detected as `fr`.
     sourceLang: localized.sourceLang || detectLang(rssItem.title, 'it'),
-    postedDate: parseDate(rssItem.pubDate),
+    ...sourcePostingDateFields(parseDate(rssItem.pubDate)),
+    crawledAt: new Date().toISOString(),
     employmentType: 'full-time',
     contractType: 'permanent',
     validThrough: '',
@@ -230,6 +226,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -265,7 +262,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

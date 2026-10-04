@@ -64,12 +64,12 @@
     },
     {
       "id": "davos-klosters-bergbahnen-2429818f1d17",
-      "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+      "slug": "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
-        "en": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
         "de": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
-        "fr": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        "it": "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+        "en": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "fr": "la-femme-de-menage-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -120,7 +120,23 @@
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3942409",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-03T09:25:09.791Z"
+      "firstSeenAt": "2026-10-03T09:25:09.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+          "la-femme-de-menage-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+          "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "la-femme-de-menage-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+          "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeper-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+        "la-femme-de-menage-pp-parsenn-aush-td-parsenne-davos-klosters-bergbahnen-ag-davos",
+        "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-bcf42938f9ac",
@@ -309,7 +325,6 @@
           "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -545,7 +560,6 @@
           "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-27T05:53:17.644Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -629,8 +643,7 @@
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
       "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

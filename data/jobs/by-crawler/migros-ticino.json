@@ -946,8 +946,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-ohrll1",
@@ -1061,8 +1060,7 @@
       },
       "addressLocality": "Belgrad",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-obslsb",
@@ -1407,8 +1405,7 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-2336kl",
@@ -1524,8 +1521,7 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-epqine",
@@ -1938,8 +1934,7 @@
       },
       "addressLocality": "Collombey",
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-5csgki",
@@ -5820,9 +5815,9 @@
       "firstSeenAt": "2026-09-24T00:08:05.620Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-frische-genossenschaft-migros-aare-bern-cqesde",
-        "en": "mitarbeiter-in-frische-genossenschaft-migros-aare-bern",
+        "en": "employee-fresh-genossenschaft-migros-aare-bern",
         "de": "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-cqesde",
-        "fr": "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
+        "fr": "employe-frais-genossenschaft-migros-aare-bern"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Frische",
@@ -5852,17 +5847,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "employee-fresh-genossenschaft-migros-aare-bern",
           "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
         ],
         "fr": [
-          "employe-frais-genossenschaft-migros-aare-bern",
           "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
         ]
       },
       "previousSlugs": [
-        "employee-fresh-genossenschaft-migros-aare-bern",
-        "employe-frais-genossenschaft-migros-aare-bern",
         "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
       ],
       "salaryMin": 68500,
@@ -5927,8 +5918,8 @@
       "firstSeenAt": "2026-09-17T07:39:05.465Z",
       "slugByLocale": {
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-9ku1xw",
-        "it": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur",
-        "fr": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur",
+        "it": "panettiere-pasticciere-genossenschaft-migros-ostschweiz-winterthur",
+        "fr": "boulanger-patissier-genossenschaft-migros-ostschweiz-winterthur",
         "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-9ku1xw"
       },
       "titleByLocale": {
@@ -5971,19 +5962,7 @@
       },
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "panettiere-pasticciere-genossenschaft-migros-ostschweiz-winterthur"
-        ],
-        "fr": [
-          "boulanger-patissier-genossenschaft-migros-ostschweiz-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "panettiere-pasticciere-genossenschaft-migros-ostschweiz-winterthur",
-        "boulanger-patissier-genossenschaft-migros-ostschweiz-winterthur"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-z3qw70",
@@ -6693,9 +6672,9 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "slugByLocale": {
         "it": "meccanica-operativa-in-strutture-logistiche-di-manutenzione-migros-logistics-neuendorf",
-        "en": "betriebsmechaniker-in-instandhaltung-logistikanlagen-migros-logistics-neuendorf",
+        "en": "operational-mechanic-in-maintenance-logistics-facilities-migros-logistics-neuendorf",
         "de": "betriebsmechaniker-in-instandhaltung-logistikanlagen-migros-logistics-neuendorf-ff6pa8",
-        "fr": "betriebsmechaniker-in-instandhaltung-logistikanlagen-migros-logistics-neuendorf"
+        "fr": "mecanicien-operationnel-dans-les-installations-logistiques-d-entretien-migros-logistics-neuendorf"
       },
       "titleByLocale": {
         "it": "Betriebsmechaniker*in Instandhaltung Logistikanlagen",
@@ -6726,17 +6705,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "operational-mechanic-in-maintenance-logistics-facilities-migros-logistics-neuendorf",
           "betriebsmechaniker-in-instandhaltung-logistikanlagen-migros-logistics-neuendorf"
         ],
         "fr": [
-          "mecanicien-operationnel-dans-les-installations-logistiques-d-entretien-migros-logistics-neuendorf",
           "betriebsmechaniker-in-instandhaltung-logistikanlagen-migros-logistics-neuendorf"
         ]
       },
       "previousSlugs": [
-        "operational-mechanic-in-maintenance-logistics-facilities-migros-logistics-neuendorf",
-        "mecanicien-operationnel-dans-les-installations-logistiques-d-entretien-migros-logistics-neuendorf",
         "betriebsmechaniker-in-instandhaltung-logistikanlagen-migros-logistics-neuendorf"
       ],
       "salarySource": "estimated",
@@ -10656,7 +10631,7 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "slugByLocale": {
         "it": "specialista-in-energia-e-costruzioni-di-manutenzione-micarna-gruppe-bazenheid",
-        "en": "fachmitarbeiter-in-instandhaltung-energie-gebaude-micarna-gruppe-bazenheid",
+        "en": "specialist-in-maintenance-energy-buildings-micarna-gruppe-bazenheid",
         "de": "fachmitarbeiter-in-instandhaltung-energie-gebaude-micarna-gruppe-bazenheid-l4qast",
         "fr": "specialiste-de-l-entretien-de-l-energie-et-des-batiments-micarna-gruppe-bazenheid"
       },
@@ -10690,12 +10665,10 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "specialist-in-maintenance-energy-buildings-micarna-gruppe-bazenheid",
           "fachmitarbeiter-in-instandhaltung-energie-gebaude-micarna-gruppe-bazenheid"
         ]
       },
       "previousSlugs": [
-        "specialist-in-maintenance-energy-buildings-micarna-gruppe-bazenheid",
         "fachmitarbeiter-in-instandhaltung-energie-gebaude-micarna-gruppe-bazenheid"
       ],
       "salarySource": "estimated",
@@ -11296,9 +11269,9 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-gastronomie-migros-restaurant-zurich-u4xt4m",
-        "en": "employees-gastronomy-migros-restaurant-zurich",
+        "en": "restaurant-staff-migros-restaurant-zurich",
         "de": "mitarbeiter-in-gastronomie-migros-restaurant-zurich-u4xt4m",
-        "fr": "employes-gastronomie-migros-restaurant-zurich"
+        "fr": "employe-e-de-la-restauration-migros-restaurant-zurich"
       },
       "titleByLocale": {
         "it": "Dipendenti Gastronomia",
@@ -11331,19 +11304,15 @@
       "previousSlugsByLocale": {
         "en": [
           "mitarbeiter-in-gastronomie-migros-restaurant-zurich",
-          "restaurant-staff-migros-restaurant-zurich",
           "employees-gastronomy-migros-restaurant-zurich"
         ],
         "fr": [
           "mitarbeiter-in-gastronomie-migros-restaurant-zurich",
-          "employe-e-de-la-restauration-migros-restaurant-zurich",
           "employes-gastronomie-migros-restaurant-zurich"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-migros-restaurant-zurich",
-        "restaurant-staff-migros-restaurant-zurich",
-        "employe-e-de-la-restauration-migros-restaurant-zurich",
         "employees-gastronomy-migros-restaurant-zurich",
         "employes-gastronomie-migros-restaurant-zurich"
       ],
@@ -11362,8 +11331,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-e7fmqe",
@@ -12233,8 +12201,7 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-hug9jq",
@@ -12937,8 +12904,7 @@
         ]
       },
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-c2a9n5",
@@ -13209,9 +13175,9 @@
       "firstSeenAt": "2026-09-26T14:22:42.719Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-genossenschaft-migros-zurich-hs5cgn",
-        "en": "mitarbeiter-in-kasse-genossenschaft-migros-zurich",
+        "en": "employee-cash-register-genossenschaft-migros-zurich-zurich",
         "de": "mitarbeiter-in-kasse-genossenschaft-migros-zurich-hs5cgn",
-        "fr": "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
+        "fr": "caisse-enregistreuse-pour-employes-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse",
@@ -13241,17 +13207,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "employee-cash-register-genossenschaft-migros-zurich-zurich",
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
         ],
         "fr": [
-          "caisse-enregistreuse-pour-employes-genossenschaft-migros-zurich-zurich",
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
-        "employee-cash-register-genossenschaft-migros-zurich-zurich",
-        "caisse-enregistreuse-pour-employes-genossenschaft-migros-zurich-zurich",
         "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
       ],
       "salarySource": "estimated",
@@ -13611,8 +13573,7 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-vsrin2",
@@ -15057,8 +15018,7 @@
       "addressRegion": "SH",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-6og5ii",
@@ -16251,8 +16211,7 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-4nueeo",
@@ -16681,8 +16640,7 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-2tibqn",
@@ -17235,8 +17193,7 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-hhpph1",
@@ -17470,10 +17427,10 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "firstSeenAt": "2026-09-08T23:40:24.924Z",
       "slugByLocale": {
-        "it": "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur",
-        "en": "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur",
+        "it": "assistente-commerciale-specialista-carne-pesce-genossenschaft-migros-ostschweiz-winterthur",
+        "en": "specialist-sales-assistant-meat-fish-genossenschaft-migros-ostschweiz-winterthur",
         "de": "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur-00f26v",
-        "fr": "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur"
+        "fr": "assistant-commercial-specialise-viande-poisson-genossenschaft-migros-ostschweiz-winterthur"
       },
       "titleByLocale": {
         "it": "Fachverkäufer*in Fleisch/Fisch",
@@ -17514,23 +17471,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-commerciale-specialista-carne-pesce-genossenschaft-migros-ostschweiz-winterthur"
-        ],
-        "en": [
-          "specialist-sales-assistant-meat-fish-genossenschaft-migros-ostschweiz-winterthur"
-        ],
-        "fr": [
-          "assistant-commercial-specialise-viande-poisson-genossenschaft-migros-ostschweiz-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "assistente-commerciale-specialista-carne-pesce-genossenschaft-migros-ostschweiz-winterthur",
-        "specialist-sales-assistant-meat-fish-genossenschaft-migros-ostschweiz-winterthur",
-        "assistant-commercial-specialise-viande-poisson-genossenschaft-migros-ostschweiz-winterthur"
-      ]
+      "salaryMax": 111500
     },
     {
       "id": "company-yektph",
@@ -17575,10 +17516,10 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "firstSeenAt": "2026-09-08T23:40:24.924Z",
       "slugByLocale": {
-        "it": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-winterthur",
-        "en": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-winterthur",
+        "it": "vendor-in-frutta-vegetables-genossenschaft-migros-ostschweiz-winterthur-b6a832",
+        "en": "vendor-in-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur-b6a832",
         "de": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-winterthur-yektph",
-        "fr": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-winterthur"
+        "fr": "fournisseur-en-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur"
       },
       "titleByLocale": {
         "it": "Verkäufer*in Früchte/Gemüse",
@@ -17623,27 +17564,19 @@
       "salaryMax": 111500,
       "previousSlugsByLocale": {
         "it": [
-          "vendor-in-frutta-vegetables-genossenschaft-migros-ostschweiz-winterthur-b6a832",
           "frutti-del-venditore-vegetables-genossenschaft-migros-ostschweiz-winterthur",
           "vendor-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur",
           "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-winterthur-ptcdka",
           "fruits-et-legumes-des-fournisseurs-genossenschaft-migros-ostschweiz-winterthur"
         ],
         "en": [
-          "vendor-in-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur-b6a832",
           "vendor-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur"
         ],
         "de": [
           "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-winterthur-ptcdka"
-        ],
-        "fr": [
-          "fournisseur-en-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur"
         ]
       },
       "previousSlugs": [
-        "vendor-in-frutta-vegetables-genossenschaft-migros-ostschweiz-winterthur-b6a832",
-        "vendor-in-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur-b6a832",
-        "fournisseur-en-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur",
         "frutti-del-venditore-vegetables-genossenschaft-migros-ostschweiz-winterthur",
         "vendor-fruits-vegetables-genossenschaft-migros-ostschweiz-winterthur",
         "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-winterthur-ptcdka",
@@ -17754,8 +17687,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-54ty7b",
@@ -19060,8 +18992,7 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salaryMin": 94500,
-      "salaryMax": 143000,
-      "needsRetranslation": true
+      "salaryMax": 143000
     },
     {
       "id": "company-hzc563",
@@ -19280,8 +19211,7 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salaryMin": 85500,
-      "salaryMax": 129500,
-      "needsRetranslation": true
+      "salaryMax": 129500
     },
     {
       "id": "company-hzvlq4",
@@ -19494,8 +19424,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-qywdeq",
@@ -19600,8 +19529,7 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-i2194d",
@@ -20152,8 +20080,7 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-su591k",
@@ -21019,8 +20946,7 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-tmiio",
@@ -21188,9 +21114,9 @@
       "firstSeenAt": "2026-09-24T00:08:05.620Z",
       "slugByLocale": {
         "it": "freschezza-dei-dipendenti-genossenschaft-migros-aare-bern",
-        "en": "mitarbeiter-in-frische-genossenschaft-migros-aare-bern",
+        "en": "freshness-of-employees-genossenschaft-migros-aare-bern",
         "de": "mitarbeiter-in-frische-genossenschaft-migros-aare-bern-fsrdth",
-        "fr": "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
+        "fr": "fraicheur-des-salaries-genossenschaft-migros-aare-bern"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Frische",
@@ -21220,17 +21146,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "freshness-of-employees-genossenschaft-migros-aare-bern",
           "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
         ],
         "fr": [
-          "fraicheur-des-salaries-genossenschaft-migros-aare-bern",
           "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
         ]
       },
       "previousSlugs": [
-        "freshness-of-employees-genossenschaft-migros-aare-bern",
-        "fraicheur-des-salaries-genossenschaft-migros-aare-bern",
         "mitarbeiter-in-frische-genossenschaft-migros-aare-bern"
       ],
       "salaryMin": 68500,
@@ -21681,8 +21603,7 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-t69uvt",
@@ -22018,8 +21939,7 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-sps8zq",
@@ -22131,8 +22051,7 @@
       "addressRegion": "SH",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-urfenk",
@@ -22245,8 +22164,7 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-llgb7d",
@@ -22566,8 +22484,7 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-ae4a43",
@@ -22632,7 +22549,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-belp",
-        "en": "koch-kochin-migros-restaurant-belp",
+        "en": "cook-cook-migros-restaurant-belp",
         "de": "koch-kochin-migros-restaurant-belp-ae4a43",
         "fr": "cuisiniere-migros-restaurant-belp"
       },
@@ -22658,7 +22575,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-belp-ae4a43",
-          "cook-cook-migros-restaurant-belp",
           "koch-kochin-migros-restaurant-belp"
         ],
         "fr": [
@@ -22667,8 +22583,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-belp",
-        "koch-kochin-migros-restaurant-belp-ae4a43",
-        "cook-cook-migros-restaurant-belp"
+        "koch-kochin-migros-restaurant-belp-ae4a43"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -22751,7 +22666,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-spiez",
-        "en": "koch-kochin-migros-restaurant-spiez",
+        "en": "cook-cook-migros-restaurant-spiez",
         "de": "koch-kochin-migros-restaurant-spiez-b7yqce",
         "fr": "cuisiniere-migros-restaurant-spiez"
       },
@@ -22777,7 +22692,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-spiez-b7yqce",
-          "cook-cook-migros-restaurant-spiez",
           "koch-kochin-migros-restaurant-spiez"
         ],
         "fr": [
@@ -22786,8 +22700,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-spiez",
-        "koch-kochin-migros-restaurant-spiez-b7yqce",
-        "cook-cook-migros-restaurant-spiez"
+        "koch-kochin-migros-restaurant-spiez-b7yqce"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -22918,8 +22831,7 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-8k2vtb",
@@ -23521,9 +23433,9 @@
       "firstSeenAt": "2026-09-07T15:28:43.444Z",
       "slugByLocale": {
         "it": "vendita-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zurich",
-        "en": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich",
+        "en": "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zurich",
         "de": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3qgkbn",
-        "fr": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
+        "fr": "vendeur-dans-le-comptoir-viande-peche-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "it": "Verkäufer*in Fleisch-/Fischtheke",
@@ -23555,19 +23467,15 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3qgkbn",
-          "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zurich",
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
         ],
         "fr": [
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3qgkbn",
-          "vendeur-dans-le-comptoir-viande-peche-genossenschaft-migros-zurich-zurich",
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3qgkbn",
-        "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zurich",
-        "vendeur-dans-le-comptoir-viande-peche-genossenschaft-migros-zurich-zurich",
         "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
       ],
       "salarySource": "estimated",
@@ -23689,8 +23597,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-qx1blw",
@@ -23805,8 +23712,7 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-3qj4qz",
@@ -23858,9 +23764,9 @@
       "firstSeenAt": "2026-09-07T15:28:43.444Z",
       "slugByLocale": {
         "de": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3qj4qz",
-        "en": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich",
-        "fr": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich",
-        "it": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
+        "en": "salesperson-meat-fish-counter-genossenschaft-migros-zurich-zurich",
+        "fr": "vendeur-vendeuse-comptoir-viande-poisson-genossenschaft-migros-zurich-zurich",
+        "it": "venditore-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Fleisch-/Fischtheke",
@@ -23904,23 +23810,7 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "venditore-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zurich"
-        ],
-        "en": [
-          "salesperson-meat-fish-counter-genossenschaft-migros-zurich-zurich"
-        ],
-        "fr": [
-          "vendeur-vendeuse-comptoir-viande-poisson-genossenschaft-migros-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "venditore-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zurich",
-        "salesperson-meat-fish-counter-genossenschaft-migros-zurich-zurich",
-        "vendeur-vendeuse-comptoir-viande-poisson-genossenschaft-migros-zurich-zurich"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-u7s9k9",
@@ -24283,7 +24173,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-brugg",
-        "en": "koch-kochin-migros-restaurant-brugg",
+        "en": "cook-cook-migros-restaurant-brugg",
         "de": "koch-kochin-migros-restaurant-brugg-lj2cve",
         "fr": "cuisiniere-migros-restaurant-brugg"
       },
@@ -24310,7 +24200,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-brugg-lj2cve",
-          "cook-cook-migros-restaurant-brugg",
           "koch-kochin-migros-restaurant-brugg"
         ],
         "fr": [
@@ -24319,8 +24208,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-brugg",
-        "koch-kochin-migros-restaurant-brugg-lj2cve",
-        "cook-cook-migros-restaurant-brugg"
+        "koch-kochin-migros-restaurant-brugg-lj2cve"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -24780,8 +24668,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 104500,
-      "salaryMax": 183500,
-      "needsRetranslation": true
+      "salaryMax": 183500
     },
     {
       "id": "company-uloqnp",
@@ -25233,8 +25120,7 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-z5gqar",
@@ -25427,7 +25313,7 @@
       },
       "slugByLocale": {
         "it": "vendita-on-line-genossenschaft-migros-luzern-malters",
-        "en": "allrounder-in-verkauf-genossenschaft-migros-luzern-malters",
+        "en": "all-rounder-sale-genossenschaft-migros-luzern-malters",
         "de": "allrounder-in-verkauf-genossenschaft-migros-luzern-malters-tm2m0e",
         "fr": "vente-complete-genossenschaft-migros-luzern-malters"
       },
@@ -25439,7 +25325,6 @@
         ],
         "en": [
           "allrounder-in-verkauf-genossenschaft-migros-luzern-malters-tm2m0e",
-          "all-rounder-sale-genossenschaft-migros-luzern-malters",
           "allrounder-in-verkauf-genossenschaft-migros-luzern-malters"
         ],
         "fr": [
@@ -25450,8 +25335,7 @@
         "allrounder-in-verkauf-genossenschaft-migros-luzern-malters",
         "allrounder-in-vendita-genossenschaft-migros-luzern-malters-tm2m0e",
         "allrounder-in-verkauf-genossenschaft-migros-luzern-malters-tm2m0e",
-        "allrounder-in-vente-genossenschaft-migros-luzern-malters-tm2m0e",
-        "all-rounder-sale-genossenschaft-migros-luzern-malters"
+        "allrounder-in-vente-genossenschaft-migros-luzern-malters-tm2m0e"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -26201,8 +26085,7 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-2cmwmv",
@@ -26261,7 +26144,7 @@
       },
       "slugByLocale": {
         "it": "confezionatrice-per-panifici-genossenschaft-migros-ostschweiz-winterthur",
-        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur",
+        "en": "baker-confectioner-genossenschaft-migros-ostschweiz-winterthur",
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-2cmwmv",
         "fr": "confiserie-baker-genossenschaft-migros-ostschweiz-winterthur"
       },
@@ -26284,7 +26167,6 @@
         ],
         "en": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-2cmwmv",
-          "baker-confectioner-genossenschaft-migros-ostschweiz-winterthur",
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur"
         ],
         "fr": [
@@ -26293,8 +26175,7 @@
       },
       "previousSlugs": [
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur",
-        "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-2cmwmv",
-        "baker-confectioner-genossenschaft-migros-ostschweiz-winterthur"
+        "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-2cmwmv"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -26371,7 +26252,7 @@
       },
       "slugByLocale": {
         "it": "confezionatrice-per-panifici-genossenschaft-migros-ostschweiz-st-gallen",
-        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-st-gallen",
+        "en": "baker-confectioner-genossenschaft-migros-ostschweiz-st-gallen",
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-st-gallen-qqgd2s",
         "fr": "confiserie-baker-genossenschaft-migros-ostschweiz-st-gallen"
       },
@@ -26394,7 +26275,6 @@
         ],
         "en": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-st-gallen-qqgd2s",
-          "baker-confectioner-genossenschaft-migros-ostschweiz-st-gallen",
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "fr": [
@@ -26403,8 +26283,7 @@
       },
       "previousSlugs": [
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-st-gallen",
-        "backer-in-konditor-in-genossenschaft-migros-ostschweiz-st-gallen-qqgd2s",
-        "baker-confectioner-genossenschaft-migros-ostschweiz-st-gallen"
+        "backer-in-konditor-in-genossenschaft-migros-ostschweiz-st-gallen-qqgd2s"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -26764,8 +26643,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-24fruz",
@@ -27200,8 +27078,7 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-vxczv3",
@@ -27308,8 +27185,7 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-psjdqd",
@@ -27462,7 +27338,7 @@
         "it": "venditore-a-food-genossenschaft-migros-ostschweiz-appenzell",
         "en": "food-salesperson-genossenschaft-migros-ostschweiz-appenzell",
         "de": "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell-5y5beh",
-        "fr": "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
+        "fr": "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -27491,13 +27367,11 @@
       "previousSlugsByLocale": {
         "fr": [
           "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell",
-          "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell",
           "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell",
-        "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell",
         "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
       ],
       "salarySource": "estimated",
@@ -28303,7 +28177,7 @@
       },
       "slugByLocale": {
         "it": "vendita-on-line-migros-ticino-spiegel-bei-bern",
-        "en": "allrounder-in-verkauf-migros-ticino-spiegel-bei-bern",
+        "en": "all-rounder-sale-migros-ticino-spiegel-bei-bern",
         "de": "allrounder-in-verkauf-migros-ticino-spiegel-bei-bern-uz9map",
         "fr": "vente-complete-migros-ticino-spiegel-bei-bern"
       },
@@ -28328,7 +28202,6 @@
         ],
         "en": [
           "allrounder-in-verkauf-migros-ticino-spiegel-bei-bern-uz9map",
-          "all-rounder-sale-migros-ticino-spiegel-bei-bern",
           "allrounder-in-verkauf-migros-ticino-spiegel-bei-bern"
         ],
         "fr": [
@@ -28339,8 +28212,7 @@
         "allrounder-in-verkauf-migros-ticino-spiegel-bei-bern",
         "allrounder-in-vendita-migros-ticino-spiegel-bei-bern-uz9map",
         "allrounder-in-verkauf-migros-ticino-spiegel-bei-bern-uz9map",
-        "allrounder-in-vente-migros-ticino-spiegel-bei-bern-uz9map",
-        "all-rounder-sale-migros-ticino-spiegel-bei-bern"
+        "allrounder-in-vente-migros-ticino-spiegel-bei-bern-uz9map"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -28402,9 +28274,9 @@
       "firstSeenAt": "2026-09-18T14:22:52.234Z",
       "slugByLocale": {
         "it": "personale-di-assistenza-operazioni-di-produzione-centro-monaco-di-bavierastein-genossenschaft-migros-basel-munchenstein",
-        "en": "hilfsmitarbeiter-in-produktion-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein",
+        "en": "aid-staff-production-company-headquarters-munchenstein-genossenschaft-migros-basel-munchenstein",
         "de": "hilfsmitarbeiter-in-produktion-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-gwri9t",
-        "fr": "hilfsmitarbeiter-in-produktion-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein"
+        "fr": "personnel-de-l-aide-production-siege-de-la-societe-munchenstein-genossenschaft-migros-basel-munchenstein"
       },
       "titleByLocale": {
         "de": "Hilfsmitarbeiter*in Produktion Betriebszentrale Münchenstein",
@@ -28434,17 +28306,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "aid-staff-production-company-headquarters-munchenstein-genossenschaft-migros-basel-munchenstein",
           "hilfsmitarbeiter-in-produktion-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein"
         ],
         "fr": [
-          "personnel-de-l-aide-production-siege-de-la-societe-munchenstein-genossenschaft-migros-basel-munchenstein",
           "hilfsmitarbeiter-in-produktion-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein"
         ]
       },
       "previousSlugs": [
-        "aid-staff-production-company-headquarters-munchenstein-genossenschaft-migros-basel-munchenstein",
-        "personnel-de-l-aide-production-siege-de-la-societe-munchenstein-genossenschaft-migros-basel-munchenstein",
         "hilfsmitarbeiter-in-produktion-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein"
       ],
       "salaryMin": 62000,
@@ -28665,8 +28533,7 @@
       "addressRegion": "SH",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-sone0z",
@@ -28769,8 +28636,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-413mf7",
@@ -29230,8 +29096,7 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-wdyiqc",
@@ -29520,7 +29385,7 @@
         "it": "co-leader-r-psicoterapeuta-in-wepractice-bern",
         "en": "co-leader-r-psychotherapist-in-wepractice-bern",
         "de": "co-leitende-r-psychotherapeut-in-wepractice-bern-edq8fw",
-        "fr": "co-leader-psychotherapie-wepractice-bern"
+        "fr": "codirigeant-r-psychotherapeute-in-wepractice-bern"
       },
       "titleByLocale": {
         "it": "Co-leader: Psicoterapeuta:",
@@ -29556,14 +29421,12 @@
           "co-leitende-r-psychotherapeut-in-wepractice-bern"
         ],
         "fr": [
-          "codirigeant-r-psychotherapeute-in-wepractice-bern",
           "co-leader-psychotherapie-wepractice-bern"
         ]
       },
       "previousSlugs": [
         "co-leitende-r-psychotherapeut-in-wepractice-bern-edq8fw",
         "co-leitende-r-psychotherapeut-in-wepractice-bern",
-        "codirigeant-r-psychotherapeute-in-wepractice-bern",
         "co-leader-psychotherapie-wepractice-bern"
       ],
       "salarySource": "estimated",
@@ -30423,8 +30286,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-ethl2r",
@@ -30595,7 +30457,7 @@
         "it": "baker-conditor-in-hausback-erei-sede-della-societa-monaco-di-baviera-genossenschaft-migros-basel-munchenstein",
         "en": "baker-conditor-in-hausbackerei-company-headquarters-munichstein-genossenschaft-migros-basel-munchenstein",
         "de": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "fr": "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
+        "fr": "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
       },
       "requirementsByLocale": {
         "de": [
@@ -30621,14 +30483,12 @@
         ],
         "fr": [
           "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-          "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein",
           "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
         ]
       },
       "previousSlugs": [
         "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein",
         "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein",
         "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
       ],
       "salarySource": "estimated",
@@ -30861,8 +30721,7 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-xz2nnl",
@@ -31505,9 +31364,9 @@
       "firstSeenAt": "2026-08-17T21:57:32.195Z",
       "slugByLocale": {
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
-        "it": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
-        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
-        "fr": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen"
+        "it": "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
+        "en": "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen",
+        "fr": "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
       },
       "titleByLocale": {
         "en": "Bäcker*in-Konditor*in",
@@ -31549,23 +31408,7 @@
       },
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen"
-        ],
-        "en": [
-          "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen"
-        ],
-        "fr": [
-          "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
-        ]
-      },
-      "previousSlugs": [
-        "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
-        "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen",
-        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-n5x00p",
@@ -31617,9 +31460,9 @@
       "firstSeenAt": "2026-09-26T14:22:42.719Z",
       "slugByLocale": {
         "it": "membro-del-personale-genossenschaft-migros-zurich-zurich",
-        "en": "mitarbeiter-in-kasse-genossenschaft-migros-zurich",
+        "en": "staff-member-genossenschaft-migros-zurich-zurich",
         "de": "mitarbeiter-in-kasse-genossenschaft-migros-zurich-n5x00p",
-        "fr": "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
+        "fr": "fonctionnaires-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Kasse",
@@ -31649,17 +31492,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "staff-member-genossenschaft-migros-zurich-zurich",
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
         ],
         "fr": [
-          "fonctionnaires-genossenschaft-migros-zurich-zurich",
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
-        "staff-member-genossenschaft-migros-zurich-zurich",
-        "fonctionnaires-genossenschaft-migros-zurich-zurich",
         "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
       ],
       "salaryMin": 73500,
@@ -31730,9 +31569,9 @@
       "firstSeenAt": "2026-09-17T07:39:05.465Z",
       "slugByLocale": {
         "it": "latticini-di-vendita-genossenschaft-migros-zurich-zurich",
-        "en": "verkaufer-in-molkerei-genossenschaft-migros-zurich",
+        "en": "seller-dairy-genossenschaft-migros-zurich-zurich",
         "de": "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
-        "fr": "verkaufer-in-molkerei-genossenschaft-migros-zurich"
+        "fr": "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Molkerei",
@@ -31764,19 +31603,15 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
-          "seller-dairy-genossenschaft-migros-zurich-zurich",
           "verkaufer-in-molkerei-genossenschaft-migros-zurich"
         ],
         "fr": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
-          "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich",
           "verkaufer-in-molkerei-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
-        "seller-dairy-genossenschaft-migros-zurich-zurich",
-        "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich"
       ],
       "salaryMin": 73500,
@@ -32654,8 +32489,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-kbcamk",
@@ -33905,8 +33739,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/it/le-nostre-imprese/job/scuola-club-migros/insegnante-tai-chi-fmd-scuola-club-lugano/c4f86f9c-47ad-4a51-a844-cfd9e42848a2",
       "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true
+      "salaryMax": 75000
     },
     {
       "id": "company-hwx7sg",
@@ -33968,7 +33801,7 @@
         "it": "insegnante-line-dance-m-w-d-scuola-club-lugano-scuola-club-migros-lugano-hwx7sg",
         "en": "line-dance-teacher-m-f-d-lugano-club-school-scuola-club-migros-lugano",
         "de": "line-dance-lehrer-m-w-d-lugano-club-school-scuola-club-migros-lugano",
-        "fr": "insegnante-line-dance-m-w-d-scuola-club-lugano-scuola-club-migros-lugano"
+        "fr": "professeur-de-ligne-de-danse-h-f-d-lugano-club-school-scuola-club-migros-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -33989,13 +33822,11 @@
           "insegnante-line-dance-m-w-d-scuola-club-lugano-scuola-club-migros-lugano"
         ],
         "fr": [
-          "professeur-de-ligne-de-danse-h-f-d-lugano-club-school-scuola-club-migros-lugano",
           "insegnante-line-dance-m-w-d-scuola-club-lugano-scuola-club-migros-lugano"
         ]
       },
       "previousSlugs": [
-        "insegnante-line-dance-m-w-d-scuola-club-lugano-scuola-club-migros-lugano",
-        "professeur-de-ligne-de-danse-h-f-d-lugano-club-school-scuola-club-migros-lugano"
+        "insegnante-line-dance-m-w-d-scuola-club-lugano-scuola-club-migros-lugano"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -34686,8 +34517,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-pensionskasse/vollamtlicher-hauswartin-richterswil/0d283502-9076-4061-a879-f99d09ca2f1e",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-o1fffd",
@@ -35135,8 +34965,7 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-hr8mav",
@@ -35197,7 +35026,7 @@
       },
       "slugByLocale": {
         "it": "vendita-on-line-genossenschaft-migros-luzern-hitzkirch",
-        "en": "allrounder-in-verkauf-genossenschaft-migros-luzern-hitzkirch",
+        "en": "all-rounder-sale-genossenschaft-migros-luzern-hitzkirch",
         "de": "allrounder-in-verkauf-genossenschaft-migros-luzern-hitzkirch-hr8mav",
         "fr": "vente-complete-genossenschaft-migros-luzern-hitzkirch"
       },
@@ -35223,7 +35052,6 @@
         ],
         "en": [
           "allrounder-in-verkauf-genossenschaft-migros-luzern-hitzkirch-hr8mav",
-          "all-rounder-sale-genossenschaft-migros-luzern-hitzkirch",
           "allrounder-in-verkauf-genossenschaft-migros-luzern-hitzkirch"
         ],
         "fr": [
@@ -35234,8 +35062,7 @@
         "allrounder-in-verkauf-genossenschaft-migros-luzern-hitzkirch",
         "allrounder-in-vendita-genossenschaft-migros-luzern-hitzkirch-hr8mav",
         "allrounder-in-verkauf-genossenschaft-migros-luzern-hitzkirch-hr8mav",
-        "allrounder-in-vente-genossenschaft-migros-luzern-hitzkirch-hr8mav",
-        "all-rounder-sale-genossenschaft-migros-luzern-hitzkirch"
+        "allrounder-in-vente-genossenschaft-migros-luzern-hitzkirch-hr8mav"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -35845,8 +35672,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-f9rfho",
@@ -36340,8 +36166,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinstieg-abteilungsleiterin-fleischfisch/d3eb2b6f-a4b1-4f77-bb11-4d2789345331",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-o235gz",
@@ -36447,8 +36272,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-pensionskasse/vollamtlicher-hauswartin-bassersdorfbulach/0ee7240c-9e9e-4e19-be29-3cf0a355c35d",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-3msrju",
@@ -36512,7 +36336,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-zofingen",
-        "en": "koch-kochin-migros-restaurant-zofingen",
+        "en": "cook-cook-migros-restaurant-zofingen",
         "de": "koch-kochin-migros-restaurant-zofingen-3msrju",
         "fr": "cuisiniere-migros-restaurant-zofingen"
       },
@@ -36538,7 +36362,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-zofingen-3msrju",
-          "cook-cook-migros-restaurant-zofingen",
           "koch-kochin-migros-restaurant-zofingen"
         ],
         "fr": [
@@ -36547,8 +36370,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-zofingen",
-        "koch-kochin-migros-restaurant-zofingen-3msrju",
-        "cook-cook-migros-restaurant-zofingen"
+        "koch-kochin-migros-restaurant-zofingen-3msrju"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -37019,8 +36841,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/nachwuchsprogramm-marktleiterin-supermarkt/b0723381-d509-4b73-a91c-80cbe6ded696",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-vtv1bn",
@@ -37792,8 +37613,7 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-z0fqfl",
@@ -38257,8 +38077,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/group-fitness-instructor-wmd-diverse-stilrichtungen/a55a08f2-2f77-4e23-a921-6af0880bfdf9",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-eepzw9",
@@ -38805,8 +38624,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/abteilungsleiterin-blumenpflanzen/6f56920a-c02d-4ae8-b325-8d835f1701f4",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-z3tlnz",
@@ -39330,8 +39148,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin-ganzer-laden/4e7ae321-bd37-4733-b6fc-02b6404cba43",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-9bicbl",
@@ -40405,8 +40222,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin-fruchtegemuse/1533b94d-76c1-4c58-93eb-d0af46ebb123",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-5wx9f",
@@ -40517,8 +40333,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/adjoint-gerant-hfd/687a7ea7-b836-4d0d-b2fc-ae2b046112f2",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-lqkvfr",
@@ -41060,8 +40875,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-officegastraum/175435f2-d19f-48cc-b56f-b054620385e7",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-522g36",
@@ -41672,8 +41486,7 @@
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
       "salaryMin": 83000,
-      "salaryMax": 126000,
-      "needsRetranslation": true
+      "salaryMax": 126000
     },
     {
       "id": "company-a33bqv",
@@ -41777,8 +41590,7 @@
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
       "salaryMin": 83000,
-      "salaryMax": 126000,
-      "needsRetranslation": true
+      "salaryMax": 126000
     },
     {
       "id": "company-eaz8vu",
@@ -42061,7 +41873,7 @@
       "firstSeenAt": "2026-09-24T00:08:05.620Z",
       "slugByLocale": {
         "de": "mitarbeiter-in-food-genossenschaft-migros-aare-bern-1cnlpc",
-        "fr": "mitarbeiter-in-food-genossenschaft-migros-aare-bern",
+        "fr": "alimentation-du-personnel-genossenschaft-migros-aare-bern",
         "it": "collaboratore-trice-in-food-genossenschaft-migros-aare-bern-1cnlpc",
         "en": "mitarbeiter-in-food-genossenschaft-migros-aare-bern-1cnlpc"
       },
@@ -42096,12 +41908,10 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "fr": [
-          "alimentation-du-personnel-genossenschaft-migros-aare-bern",
           "mitarbeiter-in-food-genossenschaft-migros-aare-bern"
         ]
       },
       "previousSlugs": [
-        "alimentation-du-personnel-genossenschaft-migros-aare-bern",
         "mitarbeiter-in-food-genossenschaft-migros-aare-bern"
       ],
       "salaryMin": 68500,
@@ -42165,9 +41975,9 @@
       "firstSeenAt": "2026-09-08T23:40:24.924Z",
       "slugByLocale": {
         "it": "carni-speciali-pesce-genossenschaft-migros-ostschweiz-winterthur",
-        "en": "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur",
+        "en": "specialist-meat-fish-genossenschaft-migros-ostschweiz-winterthur",
         "de": "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur-cg8ds8",
-        "fr": "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur"
+        "fr": "viande-poissons-specialises-genossenschaft-migros-ostschweiz-winterthur"
       },
       "titleByLocale": {
         "de": "Fachverkäufer*in Fleisch/Fisch",
@@ -42196,19 +42006,15 @@
       "previousSlugsByLocale": {
         "en": [
           "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur-cg8ds8",
-          "specialist-meat-fish-genossenschaft-migros-ostschweiz-winterthur",
           "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur"
         ],
         "fr": [
           "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur-cg8ds8",
-          "viande-poissons-specialises-genossenschaft-migros-ostschweiz-winterthur",
           "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur"
         ]
       },
       "previousSlugs": [
         "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur-cg8ds8",
-        "specialist-meat-fish-genossenschaft-migros-ostschweiz-winterthur",
-        "viande-poissons-specialises-genossenschaft-migros-ostschweiz-winterthur",
         "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-winterthur"
       ],
       "salaryMin": 73500,
@@ -42278,9 +42084,9 @@
       "firstSeenAt": "2026-09-08T23:40:24.924Z",
       "slugByLocale": {
         "it": "vendita-carne-pesca-genossenschaft-migros-zurich-uster",
-        "en": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-uster",
+        "en": "seller-meat-fish-counter-genossenschaft-migros-zurich-uster",
         "de": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-uster-dblk9v",
-        "fr": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-uster"
+        "fr": "comptoir-viande-poisson-vendeur-genossenschaft-migros-zurich-uster"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Fleisch-/Fischtheke",
@@ -42311,17 +42117,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "seller-meat-fish-counter-genossenschaft-migros-zurich-uster",
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-uster"
         ],
         "fr": [
-          "comptoir-viande-poisson-vendeur-genossenschaft-migros-zurich-uster",
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-uster"
         ]
       },
       "previousSlugs": [
-        "seller-meat-fish-counter-genossenschaft-migros-zurich-uster",
-        "comptoir-viande-poisson-vendeur-genossenschaft-migros-zurich-uster",
         "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-uster"
       ],
       "salaryMin": 73500,
@@ -42537,8 +42339,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/it/le-nostre-imprese/job/banca-migros/consulente-clientela-aziendale-tutti-generi/28b1d225-4c3c-496d-85e8-79dc742205b1",
       "salaryMin": 85500,
-      "salaryMax": 150000,
-      "needsRetranslation": true
+      "salaryMax": 150000
     },
     {
       "id": "company-c2wba2",
@@ -42643,8 +42444,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinstieg-fachverkauferin-fleischfisch/4cbba8f4-0ba1-470c-ad6c-97b2f6de05a6",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-yparq2",
@@ -42975,8 +42775,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/galaxus/ux-writer-frenchgerman-wmd/7516b9a4-9f1f-4b6b-9765-3c13b83c0c74",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-hkqilj",
@@ -43628,7 +43427,7 @@
       },
       "slugByLocale": {
         "it": "meccanico-operativo-manutenzione-impianto-di-produzione-fresh-food-beverage-group-volketswil",
-        "en": "betriebsmechaniker-instandhalt-produktionsanlagenung-fresh-food-beverage-group-volketswil",
+        "en": "operational-mechanic-maintenance-production-plant-fresh-food-beverage-group-volketswil",
         "de": "betriebsmechaniker-instandhalt-produktionsanlagenung-fresh-food-beverage-group-volketswil-i3gb3e",
         "fr": "usine-de-production-d-entretien-mecanique-fresh-food-beverage-group-volketswil"
       },
@@ -43653,7 +43452,6 @@
         ],
         "en": [
           "betriebsmechaniker-instandhalt-produktionsanlagenung-fresh-food-beverage-group-volketswil-i3gb3e",
-          "operational-mechanic-maintenance-production-plant-fresh-food-beverage-group-volketswil",
           "betriebsmechaniker-instandhalt-produktionsanlagenung-fresh-food-beverage-group-volketswil"
         ],
         "fr": [
@@ -43662,8 +43460,7 @@
       },
       "previousSlugs": [
         "betriebsmechaniker-instandhalt-produktionsanlagenung-fresh-food-beverage-group-volketswil",
-        "betriebsmechaniker-instandhalt-produktionsanlagenung-fresh-food-beverage-group-volketswil-i3gb3e",
-        "operational-mechanic-maintenance-production-plant-fresh-food-beverage-group-volketswil"
+        "betriebsmechaniker-instandhalt-produktionsanlagenung-fresh-food-beverage-group-volketswil-i3gb3e"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -43944,8 +43741,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurantbuffetkasse/2d9cce13-4094-47d8-a375-4722e5874e23",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-sd2qh8",
@@ -44338,7 +44134,7 @@
       },
       "slugByLocale": {
         "it": "manutenzione-automatica-m-f-d-buchs-ag-delica-ag-buchs-ag",
-        "en": "automatiker-instandhaltung-m-w-d-buchs-ag-delica-ag-buchs-ag",
+        "en": "automatic-maintenance-m-f-d-buchs-ag-delica-ag-buchs-ag",
         "de": "automatiker-instandhaltung-m-w-d-buchs-ag-delica-ag-buchs-ag-3bfaw6",
         "fr": "entretien-automatique-h-f-d-buchs-ag-delica-ag-buchs-ag"
       },
@@ -44364,7 +44160,6 @@
         ],
         "en": [
           "automatiker-instandhaltung-m-w-d-buchs-ag-delica-ag-buchs-ag-3bfaw6",
-          "automatic-maintenance-m-f-d-buchs-ag-delica-ag-buchs-ag",
           "automatiker-instandhaltung-m-w-d-buchs-ag-delica-ag-buchs-ag"
         ],
         "fr": [
@@ -44373,8 +44168,7 @@
       },
       "previousSlugs": [
         "automatiker-instandhaltung-m-w-d-buchs-ag-delica-ag-buchs-ag",
-        "automatiker-instandhaltung-m-w-d-buchs-ag-delica-ag-buchs-ag-3bfaw6",
-        "automatic-maintenance-m-f-d-buchs-ag-delica-ag-buchs-ag"
+        "automatiker-instandhaltung-m-w-d-buchs-ag-delica-ag-buchs-ag-3bfaw6"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -45839,7 +45633,7 @@
       },
       "slugByLocale": {
         "it": "vendita-on-line-migros-ticino-strengelbach",
-        "en": "allrounder-in-verkauf-migros-ticino-strengelbach",
+        "en": "all-rounder-sale-migros-ticino-strengelbach",
         "de": "allrounder-in-verkauf-migros-ticino-strengelbach-vk5nmr",
         "fr": "vente-integrale-migros-ticino-strengelbach"
       },
@@ -45864,7 +45658,6 @@
         ],
         "en": [
           "allrounder-in-verkauf-migros-ticino-strengelbach-vk5nmr",
-          "all-rounder-sale-migros-ticino-strengelbach",
           "allrounder-in-verkauf-migros-ticino-strengelbach"
         ],
         "fr": [
@@ -45875,8 +45668,7 @@
         "allrounder-in-verkauf-migros-ticino-strengelbach",
         "allrounder-in-vendita-migros-ticino-strengelbach-vk5nmr",
         "allrounder-in-verkauf-migros-ticino-strengelbach-vk5nmr",
-        "allrounder-in-vente-migros-ticino-strengelbach-vk5nmr",
-        "all-rounder-sale-migros-ticino-strengelbach"
+        "allrounder-in-vente-migros-ticino-strengelbach-vk5nmr"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -47110,8 +46902,7 @@
       },
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/eventkocheventkochin/5ed39650-616b-45ac-b84c-7d22c24ce0a6",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-hdb9cy",
@@ -47577,9 +47368,9 @@
       "firstSeenAt": "2026-09-07T15:28:43.444Z",
       "slugByLocale": {
         "it": "vendita-carne-pesca-genossenschaft-migros-zurich-zurich",
-        "en": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich",
+        "en": "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zurich-647e50",
         "de": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-38k0y3",
-        "fr": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
+        "fr": "vendeur-dans-le-comptoir-viande-poissons-genossenschaft-migros-zurich-zurich-647e50"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Fleisch-/Fischtheke",
@@ -47611,19 +47402,15 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-38k0y3",
-          "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zurich-647e50",
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
         ],
         "fr": [
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-38k0y3",
-          "vendeur-dans-le-comptoir-viande-poissons-genossenschaft-migros-zurich-zurich-647e50",
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-38k0y3",
-        "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zurich-647e50",
-        "vendeur-dans-le-comptoir-viande-poissons-genossenschaft-migros-zurich-zurich-647e50",
         "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
       ],
       "salaryMin": 73500,
@@ -48164,7 +47951,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-burgdorf",
-        "en": "koch-kochin-migros-restaurant-burgdorf",
+        "en": "cook-cook-migros-restaurant-burgdorf",
         "de": "koch-kochin-migros-restaurant-burgdorf-fwg2e3",
         "fr": "cuisiniere-migros-restaurant-burgdorf"
       },
@@ -48176,7 +47963,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-burgdorf-fwg2e3",
-          "cook-cook-migros-restaurant-burgdorf",
           "koch-kochin-migros-restaurant-burgdorf"
         ],
         "fr": [
@@ -48185,8 +47971,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-burgdorf",
-        "koch-kochin-migros-restaurant-burgdorf-fwg2e3",
-        "cook-cook-migros-restaurant-burgdorf"
+        "koch-kochin-migros-restaurant-burgdorf-fwg2e3"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -48426,8 +48211,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin-ganzer-laden-inkl-kasse/a97fc5ce-fb12-4389-b1e7-9f4463b57228",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-5dgxpb",
@@ -48861,8 +48645,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-fruchtegemuse/bd022607-d379-43a5-b9ae-f7d801ce3be3",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-8b1a40",
@@ -49110,7 +48893,7 @@
       "firstSeenAt": "2026-09-03T23:38:19.455Z",
       "slugByLocale": {
         "it": "applicazione-non-richiesta-groupe-micarna-courtepin",
-        "en": "candidature-spontanee-groupe-micarna-courtepin",
+        "en": "unsolicited-application-groupe-micarna-courtepin",
         "de": "unerbetene-anwendung-groupe-micarna-courtepin",
         "fr": "candidature-spontanee-groupe-micarna-courtepin-wnug04"
       },
@@ -49139,7 +48922,6 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "en": [
-          "unsolicited-application-groupe-micarna-courtepin",
           "candidature-spontanee-groupe-micarna-courtepin"
         ],
         "de": [
@@ -49147,8 +48929,7 @@
         ]
       },
       "previousSlugs": [
-        "candidature-spontanee-groupe-micarna-courtepin",
-        "unsolicited-application-groupe-micarna-courtepin"
+        "candidature-spontanee-groupe-micarna-courtepin"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -49862,9 +49643,9 @@
       "firstSeenAt": "2026-09-01T14:34:29.423Z",
       "slugByLocale": {
         "de": "verkaufer-in-metzgerei-bedient-genossenschaft-migros-luzern-stans-kqy605",
-        "it": "verkaufer-in-metzgerei-bedient-genossenschaft-migros-luzern-stans",
-        "en": "verkaufer-in-metzgerei-bedient-genossenschaft-migros-luzern-stans",
-        "fr": "verkaufer-in-metzgerei-bedient-genossenschaft-migros-luzern-stans"
+        "it": "commesso-a-macelleria-genossenschaft-migros-luzern-stans",
+        "en": "sales-associate-butcher-counter-genossenschaft-migros-luzern-stans",
+        "fr": "vendeur-euse-boucherie-servie-genossenschaft-migros-luzern-stans"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Metzgerei bedient",
@@ -49909,23 +49690,7 @@
       },
       "addressLocality": "Stans",
       "addressRegion": "NW",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "commesso-a-macelleria-genossenschaft-migros-luzern-stans"
-        ],
-        "en": [
-          "sales-associate-butcher-counter-genossenschaft-migros-luzern-stans"
-        ],
-        "fr": [
-          "vendeur-euse-boucherie-servie-genossenschaft-migros-luzern-stans"
-        ]
-      },
-      "previousSlugs": [
-        "commesso-a-macelleria-genossenschaft-migros-luzern-stans",
-        "sales-associate-butcher-counter-genossenschaft-migros-luzern-stans",
-        "vendeur-euse-boucherie-servie-genossenschaft-migros-luzern-stans"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-4pcl96",
@@ -51735,7 +51500,7 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "firstSeenAt": "2026-09-26T14:22:42.719Z",
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-brig",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-brig",
         "en": "fitness-instructor-m-w-d-activ-fitness-brig-yhf7j9",
         "de": "fitness-instructor-m-w-d-activ-fitness-brig-yhf7j9",
         "fr": "instructeur-de-condition-physique-f-m-d-activ-fitness-brig"
@@ -51784,15 +51549,7 @@
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "previousSlugsByLocale": {
-        "it": [
-          "istruttore-di-fitness-f-m-d-activ-fitness-brig"
-        ]
-      },
-      "previousSlugs": [
-        "istruttore-di-fitness-f-m-d-activ-fitness-brig"
-      ]
+      "salaryMax": 91500
     },
     {
       "id": "company-i5jabo",
@@ -51897,8 +51654,7 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "salaryMin": 51100,
-      "salaryMax": 77500,
-      "needsRetranslation": true
+      "salaryMax": 77500
     },
     {
       "id": "company-3on4el",
@@ -51952,7 +51708,7 @@
         "it": "vendita-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zurich-f79f43",
         "en": "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zurich-f79f43",
         "de": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3on4el",
-        "fr": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
+        "fr": "vendeur-dans-le-comptoir-viande-poissons-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Fleisch-/Fischtheke",
@@ -51984,13 +51740,11 @@
       "previousSlugsByLocale": {
         "fr": [
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3on4el",
-          "vendeur-dans-le-comptoir-viande-poissons-genossenschaft-migros-zurich-zurich",
           "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-3on4el",
-        "vendeur-dans-le-comptoir-viande-poissons-genossenschaft-migros-zurich-zurich",
         "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich"
       ],
       "salaryMin": 73500,
@@ -52074,7 +51828,7 @@
         "it": "tecnico-a-manutentore-genossenschaft-migros-zurich-meilen",
         "en": "technical-building-maintenance-supervisor-genossenschaft-migros-zurich-meilen",
         "de": "technische-r-hauswart-in-genossenschaft-migros-zurich-meilen-jrhqy1",
-        "fr": "agent-technique-genossenschaft-migros-zurich-meilen"
+        "fr": "technicien-ne-concierge-genossenschaft-migros-zurich-meilen"
       },
       "requirementsByLocale": {
         "de": [
@@ -52101,14 +51855,12 @@
         ],
         "fr": [
           "technische-r-hauswart-in-genossenschaft-migros-zurich-meilen-jrhqy1",
-          "technicien-ne-concierge-genossenschaft-migros-zurich-meilen",
           "agent-technique-genossenschaft-migros-zurich-meilen"
         ]
       },
       "previousSlugs": [
         "technische-r-hauswart-in-genossenschaft-migros-zurich-meilen",
         "technische-r-hauswart-in-genossenschaft-migros-zurich-meilen-jrhqy1",
-        "technicien-ne-concierge-genossenschaft-migros-zurich-meilen",
         "agent-technique-genossenschaft-migros-zurich-meilen"
       ],
       "salarySource": "estimated",
@@ -53436,7 +53188,7 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "slugByLocale": {
-        "it": "cuoco-cuoca-migros-restaurant-stafa",
+        "it": "cook-migros-restaurant-stafa",
         "en": "koch-kochin-migros-restaurant-stafa",
         "de": "koch-kochin-migros-restaurant-stafa-cd2cys",
         "fr": "cuisinier-cuisiniere-migros-restaurant-stafa"
@@ -53482,8 +53234,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-migros-restaurant-stafa",
-          "cook-migros-restaurant-stafa"
+          "koch-kochin-migros-restaurant-stafa"
         ],
         "en": [
           "koch-kochin-migros-restaurant-stafa-cd2cys",
@@ -53497,8 +53248,7 @@
         "koch-kochin-migros-restaurant-stafa-cd2cys",
         "koch-kochin-migros-restaurant-stafa",
         "cuoco-a-migros-restaurant-stafa",
-        "cook-cook-migros-restaurant-stafa",
-        "cook-migros-restaurant-stafa"
+        "cook-cook-migros-restaurant-stafa"
       ],
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/3e4acce5-b176-4a05-8639-9579babfe45e",
       "needsRetranslation": true,
@@ -53664,7 +53414,7 @@
         "it": "business-partner-finance-m-f-d-fresh-food-beverage-group-vuadens",
         "en": "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens-zfm301",
         "de": "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens-zfm301",
-        "fr": "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens"
+        "fr": "financement-des-partenaires-commerciaux-m-f-d-fresh-food-beverage-group-vuadens"
       },
       "titleByLocale": {
         "it": "Business Partner Finanza (m/f/d)",
@@ -53695,12 +53445,10 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "fr": [
-          "financement-des-partenaires-commerciaux-m-f-d-fresh-food-beverage-group-vuadens",
           "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens"
         ]
       },
       "previousSlugs": [
-        "financement-des-partenaires-commerciaux-m-f-d-fresh-food-beverage-group-vuadens",
         "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens"
       ],
       "salarySource": "estimated",
@@ -54544,9 +54292,9 @@
       "firstSeenAt": "2026-09-17T07:39:05.465Z",
       "slugByLocale": {
         "de": "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf",
-        "en": "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-        "fr": "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-        "it": "verkaufer-in-molkerei-genossenschaft-migros-zurich"
+        "en": "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef",
+        "fr": "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef",
+        "it": "assistente-alle-vendite-lattiero-caseari-genossenschaft-migros-zurich-zurich-f43bef"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Molkerei",
@@ -54590,23 +54338,7 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-alle-vendite-lattiero-caseari-genossenschaft-migros-zurich-zurich-f43bef"
-        ],
-        "en": [
-          "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef"
-        ],
-        "fr": [
-          "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef"
-        ]
-      },
-      "previousSlugs": [
-        "assistente-alle-vendite-lattiero-caseari-genossenschaft-migros-zurich-zurich-f43bef",
-        "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef",
-        "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-5igy2t",
@@ -54660,9 +54392,9 @@
       "firstSeenAt": "2026-08-24T22:11:49.022Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-verkaufer-in-genossenschaft-migros-zurich-5igy2t",
-        "en": "mitarbeiter-in-kasse-verkaufer-in-genossenschaft-migros-zurich",
+        "en": "employee-seller-genossenschaft-migros-zurich-zurich-caa97f",
         "de": "mitarbeiter-in-kasse-verkaufer-in-genossenschaft-migros-zurich-5igy2t",
-        "fr": "mitarbeiter-in-kasse-verkaufer-in-genossenschaft-migros-zurich"
+        "fr": "employe-vendeur-genossenschaft-migros-zurich-zurich-caa97f"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse / Verkäufer*in",
@@ -54692,17 +54424,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "employee-seller-genossenschaft-migros-zurich-zurich-caa97f",
           "mitarbeiter-in-kasse-verkaufer-in-genossenschaft-migros-zurich"
         ],
         "fr": [
-          "employe-vendeur-genossenschaft-migros-zurich-zurich-caa97f",
           "mitarbeiter-in-kasse-verkaufer-in-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
-        "employee-seller-genossenschaft-migros-zurich-zurich-caa97f",
-        "employe-vendeur-genossenschaft-migros-zurich-zurich-caa97f",
         "mitarbeiter-in-kasse-verkaufer-in-genossenschaft-migros-zurich"
       ],
       "salarySource": "estimated",
@@ -55583,8 +55311,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/verkauferin-blumen-und-kundendienst-mitarbeiterin-kasse/95421442-3f43-4ccb-8f11-c01c47694cc6",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-vuyngr",
@@ -56958,10 +56685,10 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "firstSeenAt": "2026-08-11T10:25:11.367Z",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-metzgerei-genossenschaft-migros-aare-grenchen",
-        "en": "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen",
+        "it": "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
+        "en": "head-of-department-in-butchery-genossenschaft-migros-aare-grenchen",
         "de": "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos",
-        "fr": "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
+        "fr": "chef-de-departement-en-boucherie-genossenschaft-migros-aare-grenchen"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Metzgerei",
@@ -56991,22 +56718,31 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "head-of-department-in-butchery-genossenschaft-migros-aare-grenchen",
           "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
         ],
         "fr": [
-          "chef-de-departement-en-boucherie-genossenschaft-migros-aare-grenchen",
           "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
         ],
         "it": [
-          "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen"
+          "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
+          "collaboratore-trice-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s",
+          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s",
+          "employee-in-butcher-s-shop-genossenschaft-migros-aare-grenchen",
+          "employe-dans-la-boucherie-genossenschaft-migros-aare-grenchen"
+        ],
+        "de": [
+          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s"
         ]
       },
       "previousSlugs": [
         "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
         "head-of-department-in-butchery-genossenschaft-migros-aare-grenchen",
         "chef-de-departement-en-boucherie-genossenschaft-migros-aare-grenchen",
-        "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
+        "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen",
+        "collaboratore-trice-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s",
+        "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s",
+        "employee-in-butcher-s-shop-genossenschaft-migros-aare-grenchen",
+        "employe-dans-la-boucherie-genossenschaft-migros-aare-grenchen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -57068,10 +56804,10 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "firstSeenAt": "2026-09-26T14:22:42.719Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-genossenschaft-migros-ostschweiz-teufen",
+        "it": "venditore-nel-cibo-genossenschaft-migros-ostschweiz-teufen",
         "en": "seller-in-food-genossenschaft-migros-ostschweiz-teufen",
         "de": "verkaufer-in-food-genossenschaft-migros-ostschweiz-teufen-lzzuag",
-        "fr": "verkaufer-in-food-genossenschaft-migros-ostschweiz-teufen"
+        "fr": "vendeur-dans-la-nourriture-genossenschaft-migros-ostschweiz-teufen"
       },
       "titleByLocale": {
         "it": "Verkäufer*in Food",
@@ -57113,19 +56849,7 @@
       "addressRegion": "AR",
       "employmentType": "FULL_TIME",
       "salaryMin": 65000,
-      "salaryMax": 98500,
-      "previousSlugsByLocale": {
-        "it": [
-          "venditore-nel-cibo-genossenschaft-migros-ostschweiz-teufen"
-        ],
-        "fr": [
-          "vendeur-dans-la-nourriture-genossenschaft-migros-ostschweiz-teufen"
-        ]
-      },
-      "previousSlugs": [
-        "venditore-nel-cibo-genossenschaft-migros-ostschweiz-teufen",
-        "vendeur-dans-la-nourriture-genossenschaft-migros-ostschweiz-teufen"
-      ]
+      "salaryMax": 98500
     },
     {
       "id": "company-d9f3bf",
@@ -57461,8 +57185,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/mitarbeiterin-gastro-take-away-migros-pratteln-befristet/b672bd91-13c3-4194-94c6-b1bac231efc0",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-woynzr",
@@ -57519,7 +57242,7 @@
         "fr": "Vous aimez l'artisanat traditionnel et êtes enthousiastes pour les produits de boulangerie de haute qualité?, Vous aimez consulter et communiquer avec nos clients?\n\nMansioni - Vous êtes un maître boulanger,. Avec vos compétences, vous produisez une grande variété de produits de pain et de produits de la confection professionnellement. - Vous êtes akat indépendamment sur,. Que ce soit la pâte, la table ou le travail au four - vous accomplissez vos tâches avec précision et soin, y compris des tâches de nettoyage,. - Vous êtes toujours au milieu de,. Dans les affaires de jour, vous soutiennez activement et assurez que tout tourne autour. - Vous portez la responsabilité,. Avec votre utilisation, vous assurez que nos clients sont fournis avec des produits frais en tout temps. - Vous faites attention aux plus hauts standards,.\n\nVous appliquez soigneusement les règles d'hygiène et de sécurité.\n\nRequisiti - Expérience professionnelle : en tant que boulanger*en confiseur*en conf. en conf. en - Formation de base ou continue complète : en tant que boulanger*en conf. en conf. en conf. en conf. en - Vous êtes un professionnel dans votre domaine. Avec une connaissance bien fondée de l'industrie de la boulangerie et du commerce, vous êtes en train de vous imprégner de votre métier. - Vous êtes une équipe de joueurs. Votre personnalité ouverte, motivée et orientée vers l'équipe rend la collaboration agréable et réussie. - Vous êtes résilient.\n\n- Vous travaillez de façon indépendante et efficace\n\nCosa offriamo - Handy-Abo: Conditions très bon marché pour les abonnements de téléphonie mobile privée aussi pour la famille et les amis - Pension professionnelle: Prestations de fonds de pension attrayantes avec une forte participation de l'employeur - Points de cumul: Multiples de points de cumul sur les aliments et non-alimentaires - École de club Migros: Participation financière généreuse aux cours auto-sélectionnés\n\nContatto Application & Contact Osoja Obrenovic Chef de la boulangerie Rheinpark House +41 58 712 8233"
       },
       "slugByLocale": {
-        "it": "baker-confectioner-genossenschaft-migros-ostschweiz-st-margrethen",
+        "it": "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen",
         "en": "baker-confectioner-pastry-chef-genossenschaft-migros-ostschweiz-st-margrethen",
         "de": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
         "fr": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen"
@@ -57539,8 +57262,7 @@
       "previousSlugsByLocale": {
         "it": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen",
-          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
-          "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen"
+          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr"
         ],
         "en": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
@@ -57557,8 +57279,7 @@
         "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
         "sorry-i-can-t-help-with-that-genossenschaft-migros-ostschweiz-st-margrethen",
         "boulanger-patissier-confiseur-genossenschaft-migros-ostschweiz-st-margrethen",
-        "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen",
-        "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen"
+        "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -59210,7 +58931,7 @@
         "fr": "Migros Logistics réunit Migros Verteilbetrieb AG (MV) et Migros Logis'stique Romandie SA (MLR) et fournit des soins quotidiens pour la Suisse. Avec une technologie moderne et des processus hautement automatisés, nous concevons la logistique de demain – en réseau et efficace.\n\nMansioni - Coopération dans les domaines de la cuisine chaude et froide, de la pâtisserie, de la distribution et du lavage des aliments - Préparation indépendante des aliments selon des recettes prédéfinies et en assurant nos normes de qualité - Coopération dans la zone cashier et soutien actif dans l'exploitation quotidienne - Soutien à la formation et au soutien de nos étudiants - Préparation et réalisation de banquets, d'occasions et de commandes de restauration - Assistance à l'acceptation des marchandises, gestion du stockage et stockage professionnel des aliments - Mise en œuvre et respect des règles de la\n\nHA-Borgo-Hygiene-Guidelines et assurer les normes d'hygiène et de qualité les plus élevées\n\nRequisiti - Au moins 2 ans : expérience professionnelle profonde dans la gastronomie communautaire d'avantage - Formation professionnelle terminée (EFZ) : Chef - passion pour le travail d'équipe et la joie d'apporter des idées et des expériences dans l'entreprise et en développement continu - Travailleur indépendant, méthodes de travail engagées et capacité à garder une tête froide même dans des situations mouvementées - Une apparence bien gardée et une forte orientation du service - Hautes exigences en matière de qualité, d'hygiène, de propreté et d'ordre ainsi qu'un sens fort des responsabilités -\n\nAllemand (bonne connaissance)\n\nCosa offriamo - Central Workplace: Nos emplacements sont directement reliés à l'autoroute ou aux transports publics - Salaire équitable: Nous payons un salaire équitable. La base est notre système de gestion du personnel et de rémunération - offres de salariés:\n• Nous offrons à nos employés de nombreux services spéciaux et des réductions (par exemple, carburant, abonnements mobiles) - pension professionnelle: Les services de Migros Pensionskasse sont significativement au-dessus de la loi.\n\nTous sont retraités à 65 ans - vacances: Nous avons tous au moins 5 semaines de vacances (selon l'âge ou le service, même 6 ou 7 semaines) et peuvent acheter des vacances. - Offres de sports et de fitness: Nous soutenons les activités régulières, de promotion de la santé et de maintenance\n\nContatto Application & Contact Ramona Kobel +41 58 565 64 34"
       },
       "slugByLocale": {
-        "it": "allrounder-nel-personalrestaurant-migros-logistics-neuendorf",
+        "it": "tuttofare-per-ristorante-aziendale-migros-logistics-neuendorf",
         "en": "allrounder-in-personalrestaurant-migros-logistics-neuendorf",
         "de": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
         "fr": "polyvalent-e-restaurant-du-personnel-migros-logistics-neuendorf"
@@ -59232,8 +58953,7 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-in-personalrestaurant-migros-logistics-neuendorf",
-          "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
-          "tuttofare-per-ristorante-aziendale-migros-logistics-neuendorf"
+          "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
         ],
         "en": [
           "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
@@ -59248,8 +58968,7 @@
         "allrounder-in-personalrestaurant-migros-logistics-neuendorf",
         "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
         "all-rounderstaff-restaurant-migros-logistics-neuendorf",
-        "allrounder-staff-restaurant-migros-logistics-neuendorf",
-        "tuttofare-per-ristorante-aziendale-migros-logistics-neuendorf"
+        "allrounder-staff-restaurant-migros-logistics-neuendorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -59486,8 +59205,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/ecole-club-migros/enseignant-de-yin-yoga-fhd-ecole-club-de-martigny/4c022780-05d7-4cc6-85ec-eab66ccd49b8",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-hafem0",
@@ -59711,8 +59429,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-pensionskasse/vollamtlicher-hauswartin-rechtes-zurichseeufer/bb70eef4-2026-4219-b1cd-bcf593e95af5",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-z6dgzq",
@@ -59900,7 +59617,7 @@
       },
       "slugByLocale": {
         "it": "responsabile-take-away-migros-take-away-bern",
-        "en": "department-lead-take-away-migros-take-away-bern",
+        "en": "take-away-team-leader-migros-take-away-bern",
         "de": "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
         "fr": "responsable-take-away-migros-take-away-bern"
       },
@@ -59914,7 +59631,6 @@
         "en": [
           "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
           "director-in-take-away-migros-take-away-bern",
-          "take-away-team-leader-migros-take-away-bern",
           "department-lead-take-away-migros-take-away-bern"
         ],
         "fr": [
@@ -59928,7 +59644,6 @@
         "direttore-in-take-away-migros-take-away-bern",
         "director-in-take-away-migros-take-away-bern",
         "directeur-a-take-away-migros-take-away-bern",
-        "take-away-team-leader-migros-take-away-bern",
         "department-lead-take-away-migros-take-away-bern"
       ],
       "baseSalary": {
@@ -60110,9 +59825,9 @@
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-frische-genossenschaft-migros-aare-zweisimmen-i6krk3",
-        "en": "fresh-department-staff-member-genossenschaft-migros-aare-zweisimmen",
+        "en": "freshness-employee-genossenschaft-migros-aare-zweisimmen",
         "de": "mitarbeiter-in-frische-genossenschaft-migros-aare-zweisimmen-i6krk3",
-        "fr": "agent-agente-rayon-frais-genossenschaft-migros-aare-zweisimmen"
+        "fr": "employe-de-la-fraicheur-genossenschaft-migros-aare-zweisimmen"
       },
       "titleByLocale": {
         "it": "Addetto/a Reparto Fresco",
@@ -60142,19 +59857,15 @@
       "previousSlugsByLocale": {
         "en": [
           "mitarbeiter-in-frische-genossenschaft-migros-aare-zweisimmen",
-          "freshness-employee-genossenschaft-migros-aare-zweisimmen",
           "fresh-department-staff-member-genossenschaft-migros-aare-zweisimmen"
         ],
         "fr": [
           "mitarbeiter-in-frische-genossenschaft-migros-aare-zweisimmen",
-          "employe-de-la-fraicheur-genossenschaft-migros-aare-zweisimmen",
           "agent-agente-rayon-frais-genossenschaft-migros-aare-zweisimmen"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-frische-genossenschaft-migros-aare-zweisimmen",
-        "freshness-employee-genossenschaft-migros-aare-zweisimmen",
-        "employe-de-la-fraicheur-genossenschaft-migros-aare-zweisimmen",
         "fresh-department-staff-member-genossenschaft-migros-aare-zweisimmen",
         "agent-agente-rayon-frais-genossenschaft-migros-aare-zweisimmen"
       ],
@@ -60987,7 +60698,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-grenchen",
-        "en": "koch-kochin-migros-restaurant-grenchen",
+        "en": "cook-cook-migros-restaurant-grenchen",
         "de": "koch-kochin-migros-restaurant-grenchen-qav5ba",
         "fr": "cuisiniere-migros-restaurant-grenchen"
       },
@@ -61013,7 +60724,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-grenchen-qav5ba",
-          "cook-cook-migros-restaurant-grenchen",
           "koch-kochin-migros-restaurant-grenchen"
         ],
         "fr": [
@@ -61022,8 +60732,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-grenchen",
-        "koch-kochin-migros-restaurant-grenchen-qav5ba",
-        "cook-cook-migros-restaurant-grenchen"
+        "koch-kochin-migros-restaurant-grenchen-qav5ba"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -61095,7 +60804,7 @@
         "it": "collaboratore-trice-in-gastebetreuung-welle7-workspace-bern-iyldg0",
         "en": "guest-care-staff-welle7-workspace-bern",
         "de": "mitarbeiter-in-gastebetreuung-welle7-workspace-bern-iyldg0",
-        "fr": "responsable-accueil-des-clients-welle7-workspace-bern"
+        "fr": "personnel-soignant-welle7-workspace-bern"
       },
       "titleByLocale": {
         "it": "Membro del Team Accoglienza Ospiti",
@@ -61131,13 +60840,11 @@
         ],
         "fr": [
           "mitarbeiter-in-gastebetreuung-welle7-workspace-bern",
-          "personnel-soignant-welle7-workspace-bern",
           "responsable-accueil-des-clients-welle7-workspace-bern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-gastebetreuung-welle7-workspace-bern",
-        "personnel-soignant-welle7-workspace-bern",
         "responsable-accueil-des-clients-welle7-workspace-bern"
       ],
       "baseSalary": {
@@ -61269,8 +60976,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-b6mrj4",
@@ -61917,7 +61623,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "wellnessmasseur-in-fitnesspark-zug",
+        "it": "medico-massaggiatore-fitnesspark-zug",
         "en": "medical-massage-therapist-fitnesspark-zug",
         "de": "medizinische-r-masseur-in-fitnesspark-zug-2kai95",
         "fr": "massotherapeute-medical-fitnesspark-zug"
@@ -61926,8 +61632,7 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-masseur-in-fitnesspark-zug",
-          "medizinische-r-masseur-in-fitnesspark-zug-2kai95",
-          "medico-massaggiatore-fitnesspark-zug"
+          "medizinische-r-masseur-in-fitnesspark-zug-2kai95"
         ],
         "en": [
           "medizinische-r-masseur-in-fitnesspark-zug-2kai95"
@@ -61938,8 +61643,7 @@
       },
       "previousSlugs": [
         "medizinische-r-masseur-in-fitnesspark-zug",
-        "medizinische-r-masseur-in-fitnesspark-zug-2kai95",
-        "medico-massaggiatore-fitnesspark-zug"
+        "medizinische-r-masseur-in-fitnesspark-zug-2kai95"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -62012,8 +61716,8 @@
       "slugByLocale": {
         "it": "verkaufer-in-blumen-e-kundendienst-genossenschaft-migros-zurich-0q0tv2",
         "de": "verkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich-0q0tv2",
-        "en": "verkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich",
-        "fr": "verkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich"
+        "en": "vendor-flowers-and-customer-service-genossenschaft-migros-zurich-zurich-d1de06",
+        "fr": "fleurs-vendeurs-et-service-a-la-clientele-genossenschaft-migros-zurich-zurich-d1de06"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Blumen und Kundendienst",
@@ -62045,17 +61749,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "vendor-flowers-and-customer-service-genossenschaft-migros-zurich-zurich-d1de06",
           "verkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich"
         ],
         "fr": [
-          "fleurs-vendeurs-et-service-a-la-clientele-genossenschaft-migros-zurich-zurich-d1de06",
           "verkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
-        "vendor-flowers-and-customer-service-genossenschaft-migros-zurich-zurich-d1de06",
-        "fleurs-vendeurs-et-service-a-la-clientele-genossenschaft-migros-zurich-zurich-d1de06",
         "verkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich"
       ],
       "salaryMin": 73500,
@@ -63000,9 +62700,9 @@
       "firstSeenAt": "2026-09-26T14:22:42.719Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-teufen-wxbde0",
-        "en": "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-teufen",
+        "en": "employee-customer-service-genossenschaft-migros-ostschweiz-teufen",
         "de": "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-teufen-wxbde0",
-        "fr": "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-teufen"
+        "fr": "service-aux-employes-clients-genossenschaft-migros-ostschweiz-teufen"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse/Kundendienst",
@@ -63032,17 +62732,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
-          "employee-customer-service-genossenschaft-migros-ostschweiz-teufen",
           "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-teufen"
         ],
         "fr": [
-          "service-aux-employes-clients-genossenschaft-migros-ostschweiz-teufen",
           "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-teufen"
         ]
       },
       "previousSlugs": [
-        "employee-customer-service-genossenschaft-migros-ostschweiz-teufen",
-        "service-aux-employes-clients-genossenschaft-migros-ostschweiz-teufen",
         "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-teufen"
       ],
       "salarySource": "estimated",
@@ -63174,8 +62870,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/abteilungsleiterin-non-food/014f2dcb-346b-47e1-9f48-6672e664126b",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-vlf0a6",
@@ -63731,7 +63426,7 @@
         "it": "operational-excellence-manager-m-w-d-birsfelden-delica-ag-birsfelden-28f9b8",
         "en": "operational-excellence-manager-m-w-d-birsfelden-delica-ag-birsfelden-28f9b8",
         "de": "lean-manager-m-w-d-birsfelden-delica-ag-birsfelden-28f9b8",
-        "fr": "gestionnaire-d-excellence-operationnelle-m-w-d-birsfelden-delica-ag-birsfelden-28f9b8"
+        "fr": "operational-excellence-manager-m-w-d-birsfelden-delica-ag-birsfelden-28f9b8"
       },
       "titleByLocale": {
         "it": "Operational Excellence Manager (m/f/d), Birsfelden",
@@ -63959,7 +63654,7 @@
         "it": "magaziner-in-collaboratore-trice-in-food-genossenschaft-migros-aare-olten-3i0wm4",
         "en": "warehouse-employee-food-genossenschaft-migros-aare-olten",
         "de": "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-        "fr": "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
+        "fr": "magasin-employe-alimentation-genossenschaft-migros-aare-olten"
       },
       "requirementsByLocale": {
         "de": [
@@ -63984,14 +63679,12 @@
         ],
         "fr": [
           "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-          "magasin-employe-alimentation-genossenschaft-migros-aare-olten",
           "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
         ]
       },
       "previousSlugs": [
         "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten",
         "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-        "magasin-employe-alimentation-genossenschaft-migros-aare-olten",
         "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
       ],
       "baseSalary": {
@@ -64346,8 +64039,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurant/2f11c82d-fd0b-4c3b-87df-32b5304443e9",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-2lk2ap",
@@ -65164,7 +64856,7 @@
       },
       "slugByLocale": {
         "it": "venditore-in-frutta-e-verdura-genossenschaft-migros-zurich-wallisellen",
-        "en": "fruit-vegetable-sales-associate-genossenschaft-migros-zurich-wallisellen",
+        "en": "seller-in-fruits-vegetables-genossenschaft-migros-zurich-wallisellen",
         "de": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr",
         "fr": "vendeur-en-fruits-et-legumes-genossenschaft-migros-zurich-wallisellen"
       },
@@ -65176,7 +64868,6 @@
         ],
         "en": [
           "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr",
-          "seller-in-fruits-vegetables-genossenschaft-migros-zurich-wallisellen",
           "fruit-vegetable-sales-associate-genossenschaft-migros-zurich-wallisellen"
         ],
         "fr": [
@@ -65186,7 +64877,6 @@
       "previousSlugs": [
         "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen",
         "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr",
-        "seller-in-fruits-vegetables-genossenschaft-migros-zurich-wallisellen",
         "fruit-vegetable-sales-associate-genossenschaft-migros-zurich-wallisellen"
       ],
       "baseSalary": {
@@ -65965,8 +65655,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-fruchtegemuse/aac7f777-27e5-432c-afe9-3b8aae55eaee",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-u1x48j",
@@ -66194,8 +65883,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/abteilungsleiterin-non-food/89b12db1-cd0d-4f82-9de9-cdf00034cb41",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-ttw9ci",
@@ -67063,7 +66751,7 @@
       "crawledAt": "2026-09-29T21:36:02.111Z",
       "firstSeenAt": "2026-08-11T10:25:11.367Z",
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-bern",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-bern",
         "en": "fitness-instructor-m-w-d-activ-fitness-bern-95rolf",
         "de": "fitness-instructor-m-w-d-activ-fitness-bern-95rolf",
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-bern"
@@ -67110,13 +66798,11 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
-        "istruttore-di-fitness-f-m-d-activ-fitness-bern"
+        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
-          "istruttore-di-fitness-f-m-d-activ-fitness-bern"
+          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
         ],
         "en": [
           "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
@@ -67176,7 +66862,7 @@
         "it": "responsabile-progetti-controlling-logistics-genossenschaft-migros-ostschweiz-gossau",
         "en": "head-of-projects-controlling-logistics-genossenschaft-migros-ostschweiz-gossau",
         "de": "leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau-f1unl6",
-        "fr": "leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau"
+        "fr": "chef-de-projet-controle-logistique-genossenschaft-migros-ostschweiz-gossau"
       },
       "titleByLocale": {
         "it": "Leiter*in Projekte / Controlling Logistik",
@@ -67206,12 +66892,10 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
-          "chef-de-projet-controle-logistique-genossenschaft-migros-ostschweiz-gossau",
           "leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau"
         ]
       },
       "previousSlugs": [
-        "chef-de-projet-controle-logistique-genossenschaft-migros-ostschweiz-gossau",
         "leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau"
       ],
       "salarySource": "estimated",
@@ -67413,7 +67097,7 @@
         "it": "finanza-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich-m1sgfg",
         "en": "finance-business-partner-network-projects-major-projects-f-m-d-migros-industrie-ag-zurich",
         "de": "finanzen-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich-m1sgfg",
-        "fr": "finance-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich"
+        "fr": "projets-de-reseau-de-partenaires-d-affaires-financiers-et-grands-projets-f-m-d-migros-industrie-ag-zurich"
       },
       "requirementsByLocale": {
         "de": [
@@ -67438,14 +67122,12 @@
         ],
         "fr": [
           "finance-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich-m1sgfg",
-          "projets-de-reseau-de-partenaires-d-affaires-financiers-et-grands-projets-f-m-d-migros-industrie-ag-zurich",
           "finance-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich"
         ]
       },
       "previousSlugs": [
         "finance-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich",
-        "finance-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich-m1sgfg",
-        "projets-de-reseau-de-partenaires-d-affaires-financiers-et-grands-projets-f-m-d-migros-industrie-ag-zurich"
+        "finance-business-partner-netzwerkprojekte-grossprojekte-m-w-d-migros-industrie-ag-zurich-m1sgfg"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -67754,7 +67436,7 @@
         "it": "business-partner-trasporti-nazionali-m-f-d-migros-logistics-zurich",
         "en": "business-partner-national-transports-m-f-d-migros-logistics-zurich",
         "de": "business-partner-nationale-transporte-m-w-d-migros-logistics-zurich-5m5rxv",
-        "fr": "business-partner-nationale-transporte-m-w-d-migros-logistics-zurich"
+        "fr": "partenaire-d-affaires-transports-nationaux-m-f-d-migros-logistics-zurich"
       },
       "requirementsByLocale": {
         "de": [
@@ -67782,14 +67464,12 @@
         ],
         "fr": [
           "business-partner-nationale-transporte-m-w-d-migros-logistics-zurich-5m5rxv",
-          "partenaire-d-affaires-transports-nationaux-m-f-d-migros-logistics-zurich",
           "business-partner-nationale-transporte-m-w-d-migros-logistics-zurich"
         ]
       },
       "previousSlugs": [
         "business-partner-nationale-transporte-m-w-d-migros-logistics-zurich",
-        "business-partner-nationale-transporte-m-w-d-migros-logistics-zurich-5m5rxv",
-        "partenaire-d-affaires-transports-nationaux-m-f-d-migros-logistics-zurich"
+        "business-partner-nationale-transporte-m-w-d-migros-logistics-zurich-5m5rxv"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -67985,7 +67665,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-migros-restaurant-steinhausen",
-        "en": "koch-kochin-migros-restaurant-steinhausen",
+        "en": "cook-cook-migros-restaurant-steinhausen",
         "de": "koch-kochin-migros-restaurant-steinhausen-xmr46t",
         "fr": "cuisiniere-migros-restaurant-steinhausen"
       },
@@ -67997,7 +67677,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-steinhausen-xmr46t",
-          "cook-cook-migros-restaurant-steinhausen",
           "koch-kochin-migros-restaurant-steinhausen"
         ],
         "fr": [
@@ -68006,8 +67685,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-steinhausen",
-        "koch-kochin-migros-restaurant-steinhausen-xmr46t",
-        "cook-cook-migros-restaurant-steinhausen"
+        "koch-kochin-migros-restaurant-steinhausen-xmr46t"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -68086,7 +67764,7 @@
         "it": "fornitore-specializzato-in-tutto-il-negozio-genossenschaft-migros-ostschweiz-davos-platz",
         "en": "specialist-vendor-throughout-the-shop-genossenschaft-migros-ostschweiz-davos-platz",
         "de": "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-        "fr": "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
+        "fr": "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz"
       },
       "requirementsByLocale": {
         "de": [
@@ -68109,14 +67787,12 @@
         ],
         "fr": [
           "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-          "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz",
           "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
         ]
       },
       "previousSlugs": [
         "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz",
         "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-        "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz",
         "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
       ],
       "baseSalary": {
@@ -68362,8 +68038,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin-fruchtegemuse/7c437a65-9fd2-4619-93e5-c9b6fc123d48",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-xy1y6c",
@@ -68416,9 +68091,9 @@
       "firstSeenAt": "2026-08-27T01:02:09.761Z",
       "slugByLocale": {
         "de": "verkaufer-in-food-genossenschaft-migros-zurich-xy1y6c",
-        "it": "verkaufer-in-food-genossenschaft-migros-zurich",
+        "it": "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535",
         "en": "seller-in-food-genossenschaft-migros-zurich-zurich-2f7535",
-        "fr": "verkaufer-in-food-genossenschaft-migros-zurich"
+        "fr": "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Food",
@@ -68462,19 +68137,7 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535"
-        ],
-        "fr": [
-          "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
-        ]
-      },
-      "previousSlugs": [
-        "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535",
-        "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-brm1pc",
@@ -69149,8 +68812,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-fruchte-gemuse-frische/5447a123-8b22-4131-b11c-af3f1f6550c8",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-pepxdo",
@@ -69615,8 +69277,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/metallbauerin-schlosserin/dddb804f-ad3b-46ca-be5d-53c7b17c2edb",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-1l3zjs",
@@ -71246,7 +70907,7 @@
         "it": "operatore-di-impianti-f-m-d-delica-ag-birsfelden",
         "en": "plant-operator-f-m-d-delica-ag-birsfelden",
         "de": "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-        "fr": "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
+        "fr": "exploitant-d-usine-f-m-d-delica-ag-birsfelden"
       },
       "requirementsByLocale": {
         "de": [
@@ -71271,14 +70932,12 @@
         ],
         "fr": [
           "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-          "exploitant-d-usine-f-m-d-delica-ag-birsfelden",
           "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
         ]
       },
       "previousSlugs": [
         "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden",
         "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-        "exploitant-d-usine-f-m-d-delica-ag-birsfelden",
         "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
       ],
       "baseSalary": {
@@ -71797,8 +71456,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/magazinerin-mitarbeiterin-food/1bfdd882-e57c-499b-9800-1c043164bdf4",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-2f76y0",
@@ -71985,9 +71643,9 @@
       "firstSeenAt": "2026-09-17T07:39:05.465Z",
       "slugByLocale": {
         "it": "vendite-di-latticini-genossenschaft-migros-zurich-zurich",
-        "en": "verkaufer-in-molkerei-genossenschaft-migros-zurich",
+        "en": "dairy-salesperson-genossenschaft-migros-zurich-zurich-b2aa18",
         "de": "verkaufer-in-molkerei-genossenschaft-migros-zurich-tyfora",
-        "fr": "verkaufer-in-molkerei-genossenschaft-migros-zurich"
+        "fr": "vente-de-produits-laitiers-genossenschaft-migros-zurich-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Molkerei",
@@ -72019,19 +71677,15 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-tyfora",
-          "dairy-salesperson-genossenschaft-migros-zurich-zurich-b2aa18",
           "verkaufer-in-molkerei-genossenschaft-migros-zurich"
         ],
         "fr": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-tyfora",
-          "vente-de-produits-laitiers-genossenschaft-migros-zurich-zurich",
           "verkaufer-in-molkerei-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-tyfora",
-        "dairy-salesperson-genossenschaft-migros-zurich-zurich-b2aa18",
-        "vente-de-produits-laitiers-genossenschaft-migros-zurich-zurich",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich"
       ],
       "salaryMin": 73500,
@@ -72786,8 +72440,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/banque-migros/conseiller-clientele-privee-team-outbound-tous-genres-lausanne-1/c5b4aafc-f23d-43b6-b4b7-e96071bcad40",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-9xx959",
@@ -73944,7 +73597,7 @@
         "fr": "Vous connaissez les saisons dans la boucherie, avez déjà acquis de l'expérience dans ce domaine et travailler avec les produits de viande vous donne plaisir? Vous sentez-vous adressé ? Alors tu as raison avec nous. En tant que vendeur spécialisé de la boucherie, vous servez et inspirez nos clients avec une gamme étendue.\n\n## Mansioni\n- Vous conseillez et servez nos clients avec plaisir et votre expertise au comptoir de viande\n- Une présentation attrayante des biens, une gestion efficace des biens et la garantie de disponibilité sont vos priorités\n- Vous respectez les processus définis dans le ministère et vous assurez un processus en douceur\n- Les contrôles de qualité et la conformité au concept HACCP sont votre responsabilité\n- Vous sautez à la caisse si nécessaire\n\n## Exigences\n- Idéalement, quelques années d'expérience professionnelle: comme boucher, cuisinier / chef ou dans le secteur de la gestion de la viande au détail\n- Achevé une formation de base ou de perfectionnement: comme boucher, cuisinier / chef ou dans la spécialisation du commerce de détail en gestion de la viande\n- En tant que personnalité orientée client avec plaisir dans les ventes, vous faites shopping une expérience positive\n- Vous avez déjà de l'expérience au comptoir de viande\n- Compétences PC et fitness numérique élevé vous séparer\n- Allemand (très bonne connaissance)\n\n## Cosa de friamo\n- Congé de maternité / congé de paternité: 18 semaines de congé de maternité et 4 semaines de congé de paternité\n- Pension professionnelle: les prestations supérieures à la moyenne garantissent la sécurité financière des salariés dans la troisième phase de vie\n- Prestations sociales: conditions d'emploi attrayantes avec de très bonnes prestations sociales\n- Points de cumul: Points de cumul multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n- Sports et fitness: partage des coûts des abonnements à plus de 50 Migros fitness, bien-être, aquaparks\n- Abonnements mobiles : divers avantages sur abonnements mobiles\n- Migros Bank: gestion de compte libre, intérêts préférentiels sur le capital ou rabais sur les taux d'intérêt des prêts hypothécaires fixes nouvellement conclus\n- Loisirs et offres culturelles: Divers rabais sur les offres de vacances, séjours linguistiques, vacances Migros, interhome et événements\n\n## Contatto\n## Demande et contact Melanie Knuchel Recrutement Partenaire +41 58 565 85 85 ## Note pour les prestataires de services de recrutement Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 50-60 %"
       },
       "slugByLocale": {
-        "it": "macellai-specializzati-genossenschaft-migros-aare-belp",
+        "it": "fornitore-specializzato-in-macelleria-genossenschaft-migros-aare-belp",
         "en": "specialist-vendor-in-butchery-genossenschaft-migros-aare-belp",
         "de": "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-belp-35egkt",
         "fr": "vendeur-specialise-dans-la-boucherie-genossenschaft-migros-aare-belp"
@@ -73968,8 +73621,7 @@
           "fornitore-specializzato-in-macelleria-genossenschaft-migros-aare-thun",
           "butcher-s-sales-assistant-genossenschaft-migros-aare-thun",
           "vendeur-chez-le-boucher-genossenschaft-migros-aare-thun",
-          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun",
-          "fornitore-specializzato-in-macelleria-genossenschaft-migros-aare-belp"
+          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun"
         ],
         "en": [
           "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-belp-35egkt",
@@ -73986,8 +73638,7 @@
         "fornitore-specializzato-in-macelleria-genossenschaft-migros-aare-thun",
         "butcher-s-sales-assistant-genossenschaft-migros-aare-thun",
         "vendeur-chez-le-boucher-genossenschaft-migros-aare-thun",
-        "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun",
-        "fornitore-specializzato-in-macelleria-genossenschaft-migros-aare-belp"
+        "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -74926,8 +74577,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-fruchtegemuse/ec0505fc-6ac9-4279-a4ab-bddde41ab606",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-1fyu1r",
@@ -75506,8 +75156,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/studentenaushilfe-supermarkt/d9814456-de71-4b0c-bb0d-9071cbc4482c",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-2tsqsj",
@@ -75613,8 +75262,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/bereichsleiterin-frische-mit-zusatzfunktion-stellvertreterin-filialleitung/50b47e9b-2c42-4a42-811f-33a7115cf4bf",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-9j7qz3",
@@ -75677,7 +75325,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-        "en": "employees-take-away-migros-take-away-pfaffikon",
+        "en": "employee-in-take-away-migros-take-away-pfaffikon",
         "de": "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
         "fr": "employe-en-deplacement-migros-take-away-pfaffikon"
       },
@@ -75703,7 +75351,6 @@
         ],
         "en": [
           "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-          "employee-in-take-away-migros-take-away-pfaffikon",
           "employees-take-away-migros-take-away-pfaffikon"
         ],
         "fr": [
@@ -75713,7 +75360,6 @@
       "previousSlugs": [
         "mitarbeiter-in-take-away-migros-take-away-pfaffikon",
         "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-        "employee-in-take-away-migros-take-away-pfaffikon",
         "employees-take-away-migros-take-away-pfaffikon"
       ],
       "baseSalary": {
@@ -77031,8 +76677,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/wepractice/psychotherapeutin-fur-online-therapie/2a42fdfb-69ad-4d1c-a248-3c107240d70e",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-18ifvu",
@@ -78893,8 +78538,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinstieg-abteilungsleiterin-fleischfisch/90336e8b-7910-4951-9207-65d502e5378c",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-oxuudq",
@@ -79431,7 +79075,7 @@
         "fr": "Êtes-vous sociable et souhaitez partager votre enthousiasme pour la santé et la condition physique? Vous aimez travailler en équipe et comprendre comment répondre aux besoins des clients et motiver les clients à atteindre leurs objectifs? Alors tu as raison avec nous !\n\n**Luogo di lavoro:** ACTIV FITNESS, Wil, Hubstrasse 24, 9500 Wil\n\n## Mansioni\n- Vous accompagnez et accompagnez nos clients tout au long du processus de formation\n- Vous créez des plans de formation et surveillez les formations et leurs réalisations\n- Assurer la propreté et l'hygiène dans le studio\n- Vous organisez des formations d'introduction et vendez des abonnements\n- Vous assumez diverses tâches administratives, créez des contrats et acquérez activement de futurs clients\n\n## Exigences\n- Désiré: Expérience comme instructeur de fitness\n- Achevé la formation de base ou de perfectionnement: Formation en tant qu'instructeur de fitness avec certificat BLS/AED valide\n- Vous avez un style de vente ainsi qu'un haut niveau de service et de conseil expertise\n- Vous êtes une personnalité motivée et responsable qui inspire nos clients\n- Vous êtes flexible et aimez travailler le soir ainsi que les week-ends et jours fériés\n- Vous aimez travailler en équipe\n- Vous avez un permis de travail valide\n- Allemand (bonne connaissance)\n\n## Cosa de friamo\n- Emplacement central: Nos studios sont situés dans un emplacement central bien développé\n- Abonnement mobile: Abonnement national à partir de CHF 10.– / mois (Swisscom /digitec connect)\n- Migros Bank : compte privé et d'investissement sans frais avec intérêts préférentiels\n- Offres des employés: Divers rabais dans le domaine des vacances et de l'assurance (Hertz jusqu'à 10%, Generali 25%, Axa assurance jusqu'à 15%, etc.)\n- Du-culture: Nous défendons une coexistence respectueuse au niveau des yeux\n\n## Contatto\n** Demande et contact * *\nSusanne Hug\nPartenaire d'affaires RH\n\n** Processus de recrutement * *\n\n- Pré-sélection des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancer ou de se retirer du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : Jusqu'à trois semaines\n- Débat d'experts: Lors d'une discussion spécialisée, le gestionnaire et/ou un autre spécialiste et, si nécessaire, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée de la rétroaction : Jusqu'à trois semaines\n- Offer & Contract Exhibition: Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction : Jusqu'à trois semaines\n\n**Grado di occupation:** 10-20 %"
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-wil",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-wil",
         "en": "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
         "de": "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
         "fr": "instructeur-de-condition-physique-f-m-d-activ-fitness-wil"
@@ -79459,8 +79103,7 @@
           "istruttore-di-fitness-f-m-d-activ-fitness-rothenburg",
           "fitness-instructor-m-w-d-activ-fitness-rothenburg-1b8sq0",
           "instructeur-de-condition-physique-f-m-d-activ-fitness-rothenburg",
-          "fitness-instructor-m-w-d-activ-fitness-rothenburg",
-          "istruttore-di-fitness-f-m-d-activ-fitness-wil"
+          "fitness-instructor-m-w-d-activ-fitness-rothenburg"
         ],
         "de": [
           "fitnesstrainer-m-w-d-activ-fitness-wil-o9v9bg",
@@ -79477,8 +79120,7 @@
         "istruttore-di-fitness-f-m-d-activ-fitness-rothenburg",
         "fitness-instructor-m-w-d-activ-fitness-rothenburg-1b8sq0",
         "instructeur-de-condition-physique-f-m-d-activ-fitness-rothenburg",
-        "fitness-instructor-m-w-d-activ-fitness-rothenburg",
-        "istruttore-di-fitness-f-m-d-activ-fitness-wil"
+        "fitness-instructor-m-w-d-activ-fitness-rothenburg"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -79989,8 +79631,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/fachverkauferin-blumenkundendienst/471cdb06-3a31-479a-8b90-d19d7037702c",
       "salaryMin": 65000,
-      "salaryMax": 98500,
-      "needsRetranslation": true
+      "salaryMax": 98500
     },
     {
       "id": "company-djqhl8",
@@ -80737,7 +80378,7 @@
       },
       "slugByLocale": {
         "it": "elettricista-industriale-genossenschaft-migros-luzern-dierikon",
-        "en": "betriebselektriker-in-genossenschaft-migros-luzern-dierikon",
+        "en": "business-electrician-genossenschaft-migros-luzern-dierikon",
         "de": "betriebselektroniker-in-genossenschaft-migros-luzern-dierikon",
         "fr": "electricien-industriel-genossenschaft-migros-luzern-dierikon"
       },
@@ -80765,7 +80406,6 @@
         ],
         "en": [
           "betriebselektriker-in-genossenschaft-migros-luzern-dierikon-umwlya",
-          "business-electrician-genossenschaft-migros-luzern-dierikon",
           "betriebselektriker-in-genossenschaft-migros-luzern-dierikon"
         ],
         "de": [
@@ -80778,8 +80418,7 @@
       "previousSlugs": [
         "betriebselektriker-in-genossenschaft-migros-luzern-dierikon",
         "betriebselektriker-in-genossenschaft-migros-luzern-dierikon-umwlya",
-        "elettricista-di-impianti-genossenschaft-migros-luzern-dierikon",
-        "business-electrician-genossenschaft-migros-luzern-dierikon"
+        "elettricista-di-impianti-genossenschaft-migros-luzern-dierikon"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -80978,7 +80617,7 @@
         "fr": "Vous êtes extraverti et souhaitez transmettre votre passion pour la santé et le fitness ? Aimez-vous travailler en équipe et comprenez comment répondre aux besoins des clients et les motiver à atteindre leurs objectifs ? Alors vous êtes au bon endroit ! Mansioni - Vous vous occupez et accompagnez nos clients tout au long du processus de formation - Vous créez des plans d'entraînement et contrôlez l'entraînement et la réalisation de leurs objectifs - Vous veillez à la propreté et à l'hygiène au sein du studio - Vous organisez des formations d'introduction et vendez des abonnements - Vous assumez diverses tâches administratives, créez des contrats et acquérez activement de futurs clients\n• Requisiti - Avantageux : Expérience en tant qu'instructeur de fitness - Formation de base ou continue terminée : Formation d'instructeur de fitness avec une carte d'identité BLS/AED valide - Vous avez un sens de la vente ainsi qu'un haut niveau de service et de conseil - Vous êtes une personnalité motivée et responsable qui inspire nos clients - Vous êtes flexible et aimez travailler le soir, le week-end et les jours fériés - Vous aimez travailler en équipe - Vous disposez d'un permis de travail valide - Allemand (bonnes connaissances) Cosa ofriamo - Lieu de travail central : Nos studios sont situés dans un emplacement central bien développé - Abonnement de téléphonie mobile : Abonnement plat national à partir de CHF 10 par mois (Swisscom /digitec connect) - Banque Migros : Privé et investissement sans frais compte avec taux d'intérêt préférentiels - Offres pour les employés : diverses réductions dans le domaine des vacances et des assurances (Hertz jusqu'à 10 %, Generali 25 %, assurance Axa jusqu'à 15 %, etc.) - Votre culture : nous défendons une coopération respectueuse sur un pied d'égalité. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au feedback : Jusqu'à trois semaines Discussion technique Lors d'une discussion technique, des connaissances spécifiques pertinentes pour l'exécution du travail sont demandées par le manager et/ou un autre spécialiste et, si nécessaire, l'équipe. Si possible, vous aurez ensuite le temps de mieux connaître le lieu de travail et l'équipe grâce à une conversation libre. Durée jusqu'au retour d'information : jusqu'à trois semaines Émission de l'offre et du contrat Après notre offre d'emploi verbale, les points les plus importants du contrat seront à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par courrier. Durée jusqu'à la rétroaction : jusqu'à trois semaines"
       },
       "slugByLocale": {
-        "it": "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil",
+        "it": "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
         "en": "fitness-instructor-assistant-m-f-d-activ-fitness-uzwil",
         "de": "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
         "fr": "instructeur-fitness-aide-m-f-d-activ-fitness-uzwil"
@@ -81002,8 +80641,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
-          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-          "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
+          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -81019,8 +80657,7 @@
         "fitness-instructor-aushilfe-m-w-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
-        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-        "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
+        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -81872,8 +81509,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-verkaufmagazin/ba5d005d-1e0e-4ae0-9c6c-cd8f7bad9a7f",
       "salaryMin": 65000,
-      "salaryMax": 98500,
-      "needsRetranslation": true
+      "salaryMax": 98500
     },
     {
       "id": "company-ji03ko",
@@ -83055,7 +82691,6 @@
       "country": "CH",
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/cfa3560b-5496-4c27-a752-7653a8532449",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -83190,7 +82825,6 @@
       "country": "CH",
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/0db2b3bf-18c7-49d2-b25a-e2702fcc9002",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -84241,7 +83875,7 @@
         "fr": "Ici, les plats thaïlandais authentiques sont cuits en wok. Nous nous concentrons sur des produits de haute qualité et préparons les plats frais tous les jours. Pour notre équipe motivée, nous recherchons une personnalité orientée vers le service pour la compléter.\n\nLuogo di lavoro: KAIMUG, Glatt, Neue Winterthurerstrasse 99, 8304 Wallisellen\n\n## Informations importantes\nNous accueillons chaque demande, mais nous ne pouvons considérer que les demandes en ligne. Les demandes par la poste sont éliminées pour des raisons de protection des données et non renvoyées.\n\n## Mansioni\n- Préparation de plats asiatiques\n- Conseils et service aux clients avec recouvrement des dettes\n- Entretien des vitrines de vente et présentation des marchandises\n- Directives HACCP pour divers travaux de nettoyage\n- Soutenir l'équipe dans tous les travaux\n\n## Exigences\n- 1-2 ans d'expérience professionnelle: comme cuisinier/chef thaïlandais\n- Achevé l'enseignement de base ou l'enseignement complémentaire: en tant que cuisinier/chef est avantageux\n- Expérience professionnelle en vente/service avec recouvrement de créances\n- Expérience culinaire des plats asiatiques\n- Personnalité responsable et axée sur le service.\n- Flexible à utiliser du lundi au samedi\n- Efficacité et bon fonctionnement\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus unique de loisirs par année de max. CHF 350.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Prestation de retraite professionnelle: Excellentes prestations de fonds de retraite avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur le compte privé et d'investissement, gestion de compte libre, prêts hypothécaires réduits et plus\n- Club School Migros: Participation au cours coûte dans l'école du club\n- Loisirs et offres culturelles: Vous pouvez bénéficier de billets réduits lors d'événements culturels sélectionnés\n- Offres de sport et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au centre M-Fitness\n- Soutien ciblé: GMZ Young Talents Community: Vous participez à des projets passionnants de notre communauté et participez à des événements qui vous emmènent plus loin\n- Éducation et formation: soutien à l'enseignement et à la formation professionnels, prime annuelle pour l'éducation d'une valeur de CHF 1000. –\n- Conception et prise de décision : réalisez vos idées innovantes\n- Conseil social et personnel : Conseil social interne\n\n## Contatto\n Demande et contact * *\nCaméra Mirco\nPartenaire de recrutement junior\n\nProcessus de recrutement * *\n\n- Sélection préalable des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction: Jusqu'à trois semaines\n- Vidéo personnelle ou conversation téléphonique : Pour un grand nombre de candidats, nous effectuons en option une conversation téléphonique personnelle ou vidéo. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée de la rétroaction: Jusqu'à une semaine\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction: Jusqu'à trois semaines\n- Offer & Contract Exhibition (Digital): Après notre offre d'emploi orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine\n\nNote pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\nGrado di occupation: 70-80 %"
       },
       "slugByLocale": {
-        "it": "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen",
+        "it": "cucina-asiatica-kitchen-assistant-kaimug-wallisellen",
         "en": "asian-kitchen-cook-assistant-kaimug-wallisellen",
         "de": "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
         "fr": "cuisinier-asiatique-chef-de-cuisine-kaimug-wallisellen"
@@ -84264,8 +83898,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
-          "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
+          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
         ],
         "en": [
           "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
@@ -84275,8 +83908,7 @@
         ]
       },
       "previousSlugs": [
-        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
-        "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
+        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -85140,8 +84772,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinsteigerin-fachverantwortung/78842ab7-cf90-4bba-842e-205a9759e4cb",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-6iyc8f",
@@ -85672,8 +85303,7 @@
       "salarySource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/manager-fitness-club-mwd/fff36a75-92e7-4237-85fc-1c2088cdfc74",
       "salaryMin": 68000,
-      "salaryMax": 103000,
-      "needsRetranslation": true
+      "salaryMax": 103000
     },
     {
       "id": "company-lu1vm3",
@@ -86928,7 +86558,7 @@
       },
       "slugByLocale": {
         "it": "cucina-cuoca-migros-restaurant-davos-platz",
-        "en": "koch-kochin-migros-restaurant-davos-platz",
+        "en": "chef-chef-de-cuisine-migros-restaurant-davos-platz",
         "de": "koch-kochin-migros-restaurant-davos-platz-dlf4oh",
         "fr": "chef-cheffe-de-cuisine-migros-restaurant-davos-platz"
       },
@@ -86953,7 +86583,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-davos-platz-dlf4oh",
-          "chef-chef-de-cuisine-migros-restaurant-davos-platz",
           "koch-kochin-migros-restaurant-davos-platz"
         ],
         "fr": [
@@ -86962,8 +86591,7 @@
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-davos-platz",
-        "koch-kochin-migros-restaurant-davos-platz-dlf4oh",
-        "chef-chef-de-cuisine-migros-restaurant-davos-platz"
+        "koch-kochin-migros-restaurant-davos-platz-dlf4oh"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -90377,7 +90005,7 @@
         "it": "praktikant-w-m-d-klubschule-migros-bern",
         "en": "lehrperson-pump-workout-m-w-d-klubschule-bern-klubschule-migros-bern-ve7qjw",
         "de": "lehrkrafte-m-w-d-klubschule-bern-klubschule-migros-bern",
-        "fr": "entrainement-de-pompe-de-professeur-m-w-d-club-school-bern-klubschule-migros-bern"
+        "fr": "praktikan-m-j-klubschule-migros-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -90390,7 +90018,6 @@
         ],
         "fr": [
           "entrainement-teacher-pump-vendredi-m-w-d-j-klubschule-bern-klubschule-migros-bern-ve7qjw",
-          "praktikan-m-j-klubschule-migros-bern",
           "entrainement-de-pompe-de-professeur-m-w-d-club-school-bern-klubschule-migros-bern"
         ]
       },
@@ -90399,7 +90026,6 @@
         "allenamento-teacher-pump-m-w-d-klubschule-bern-klubschule-migros-bern-ve7qjw",
         "entrainement-teacher-pump-vendredi-m-w-d-j-klubschule-bern-klubschule-migros-bern-ve7qjw",
         "lehrperson-pumpen-workout-m-d-klubschule-bern-klubschule-migros-bern-ve7qjw",
-        "praktikan-m-j-klubschule-migros-bern",
         "entrainement-de-pompe-de-professeur-m-w-d-club-school-bern-klubschule-migros-bern"
       ],
       "baseSalary": {
@@ -92926,8 +92552,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/bernaqua/bademeisterin/644bf15d-c842-4cef-87cc-9f68435e39e6",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-yccpfg",
@@ -93480,7 +93105,7 @@
       },
       "slugByLocale": {
         "it": "confezionatrice-per-panifici-fresh-food-beverage-group-meilen",
-        "en": "backer-konditor-fresh-food-beverage-group-meilen",
+        "en": "baker-s-confectioner-fresh-food-beverage-group-meilen-7v9g6k",
         "de": "backer-konditor-fresh-food-beverage-group-meilen-7v9g6k",
         "fr": "patisserie-fresh-food-beverage-group-meilen"
       },
@@ -93491,7 +93116,6 @@
           "pasticceria-fresh-food-beverage-group-meilen-7v9g6k"
         ],
         "en": [
-          "baker-s-confectioner-fresh-food-beverage-group-meilen-7v9g6k",
           "backer-konditor-fresh-food-beverage-group-meilen"
         ],
         "fr": [
@@ -93501,8 +93125,7 @@
       "previousSlugs": [
         "backer-konditor-fresh-food-beverage-group-meilen",
         "pasticceria-fresh-food-beverage-group-meilen-7v9g6k",
-        "patissier-fresh-food-beverage-group-meilen-7v9g6k",
-        "baker-s-confectioner-fresh-food-beverage-group-meilen-7v9g6k"
+        "patissier-fresh-food-beverage-group-meilen-7v9g6k"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -93934,7 +93557,7 @@
       },
       "slugByLocale": {
         "it": "cook-migros-restaurant-bern",
-        "en": "koch-kochin-migros-restaurant-bern",
+        "en": "cook-cook-migros-restaurant-bern",
         "de": "koch-kochin-migros-restaurant-bern-vp5hj1",
         "fr": "koch-kochin-migros-restaurant-bern-vp5hj1"
       },
@@ -93946,14 +93569,12 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-bern-vp5hj1",
-          "cook-cook-migros-restaurant-bern",
           "koch-kochin-migros-restaurant-bern"
         ]
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-bern",
-        "koch-kochin-migros-restaurant-bern-vp5hj1",
-        "cook-cook-migros-restaurant-bern"
+        "koch-kochin-migros-restaurant-bern-vp5hj1"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -97104,8 +96725,7 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/ex-libris/packerei-und-kommissionieren/dc4abfa2-a460-4cbd-ae64-1044c32163dc",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-930k3m",

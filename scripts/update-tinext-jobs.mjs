@@ -16,6 +16,7 @@
  *      career site AND the public career page shows its explicit empty state;
  *      otherwise preserves the existing slice.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml as sharedFetchHtml, fetchJson } from './lib/crawler-template.mjs';
@@ -301,7 +302,8 @@ async function buildJobs(positions) {
       sector: 'IT & Digital Transformation',
       source: 'tinext-dedicated-crawler',
       sourceLang,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       validThrough: '',
       employmentType: 'full-time',
       contractType: 'full-time',
@@ -341,6 +343,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -372,7 +375,7 @@ function updateAdapterConfig(jobs) {
       location: job.location || 'Lugano',
       canton: HQ.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

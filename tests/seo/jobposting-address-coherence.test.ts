@@ -1,3 +1,4 @@
+import { buildReportedJobPostingFixture as buildJobPostingSchema } from '../helpers/reported-job-schema';
 /**
  * #3513 — JobPosting PostalAddress coherence.
  *
@@ -13,7 +14,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
-import { buildJobPostingSchema, resolveJobPostingAddress, type JobInput } from '../../build-plugins/shared/jobPostingSchema';
+import { resolveJobPostingAddress, type JobInput } from '../../build-plugins/shared/jobPostingSchema';
 import { resolveLocalityPostalCode } from '../../build-plugins/shared/postalCodes';
 import {
   CANTON_CAPITAL_ADDRESSES,

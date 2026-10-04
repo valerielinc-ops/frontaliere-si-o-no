@@ -41,6 +41,7 @@
  *   130 = homeoffice ("true"/"false")
  *    65 = country ("Schweiz")
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -696,15 +697,6 @@ function normalizeDetailUrl(rawUrl = '') {
   return String(rawUrl || '').trim().replace(/#.*$/, '').replace(/\/+$/, '');
 }
 
-function toIsoDate(raw = '') {
-  const value = String(raw || '').trim();
-  if (!value) return new Date().toISOString().slice(0, 10);
-  const date = new Date(value);
-  if (!Number.isNaN(date.getTime())) return date.toISOString().slice(0, 10);
-  const m = value.match(/^(\d{4}-\d{2}-\d{2})/);
-  return m ? m[1] : new Date().toISOString().slice(0, 10);
-}
-
 function slugify(value = '') {
   const slug = String(value || '')
     .toLowerCase()
@@ -1099,7 +1091,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   const slugLocation = safeLocationToken(location, 'Switzerland');
   const slugBase = slugify(`${title}-${SBB_KEY}-${slugLocation}`) || createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 16);
   const id = `sbb-${createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 12)}`;
-  const postedDate = toIsoDate(apiMeta?.datePosted || jobPosting?.datePosted);
+  const postedDate = apiMeta?.datePosted || jobPosting?.datePosted || '';
 
   const localeTitles = {};
   const localeDescriptions = {};
@@ -1154,7 +1146,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     currency: 'CHF',
     featured: false,
     sourceLang: resolvedSourceLocale,
-    postedDate,
+    ...sourcePostingDateFields(postedDate),
     url: detailUrl,
     source: 'SBB Dedicated Parser (API + login.org)',
     crawledAt: new Date().toISOString(),

@@ -51,6 +51,7 @@
  * See `classifyZeroMatchRun`.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
   SMN_SR_COMPANY_ID,
@@ -431,7 +432,6 @@ export function createSmnClinicParser(config) {
     if (publicCareerUrl) console.log(`   Public: ${publicCareerUrl}`);
     console.log();
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     // Per-run fetch verdict surfaced to the pipeline (#7897); only the
     // zero-match branch below has anything to say about it.
@@ -465,7 +465,6 @@ export function createSmnClinicParser(config) {
       const url = normalizeSpace(posting.postingUrl || '')
         || `${SR_PUBLIC_JOBS_BASE}/${SMN_SR_COMPANY_ID}/${posting.id}-${slugify(title)}`;
 
-      const postedIso = (normalized.postedAt || '').slice(0, 10) || todayIso;
       const jobSlug = slugify(`${title}-${companyKey}`);
       const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 
@@ -502,8 +501,7 @@ export function createSmnClinicParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate: postedIso,
-        datePosted: postedIso,
+        ...sourcePostingDateFields(posting.releasedDate),
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
       });

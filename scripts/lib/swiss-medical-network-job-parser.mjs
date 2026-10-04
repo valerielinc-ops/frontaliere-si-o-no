@@ -46,7 +46,7 @@ export function extractSmnPostingId(url = '') {
 
 /**
  * Normalize a SmartRecruiters postings-list entry to {id, title, city, region,
- * canton, postalCode, country}. The canton is inferred from the API region
+ * canton, postalCode, country, datePosted}. The canton is inferred from the API region
  * (often a 2-letter code) or the city — no fixed-canton fallback.
  */
 export function normalizeSmnApiPosting(posting = {}) {
@@ -61,6 +61,8 @@ export function normalizeSmnApiPosting(posting = {}) {
   return {
     id: String(posting.id || ''),
     title: normalizeSpace(posting.name || ''),
+    // Public Posting API release, not a record creation/modification timestamp.
+    datePosted: normalizeSpace(posting.releasedDate || ''),
     city,
     region,
     canton,

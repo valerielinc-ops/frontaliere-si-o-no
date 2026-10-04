@@ -1,5 +1,7 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import {
@@ -16,6 +18,10 @@ import {
   slotsPresentByLength,
   isLanguageVerified,
   beforeCohortWarning,
+  appendHistoryEntry,
+  updateGenderFormWindow,
+  readGenderFormWindowState,
+  GENDER_FORM_SAMPLE_SIZE,
 } from '../scripts/log-translation-stats.mjs';
 import { genderFormTargetResidual } from '../scripts/mark-mistranslated-jobs.mjs';
 import {
@@ -754,5 +760,189 @@ describe('gender-form repair cohort — la misura del dopo (#7991)', () => {
     });
     expect(formatReport(entry).join('\n')).toContain('Gender-form after:');
     expect(formatReport(entry).join('\n')).toContain('3/120 (2.5%)');
+  });
+});
+
+describe('gender-form window — la misura del dopo raccolta fra le run (#7991 item 3)', () => {
+  type Outcome = { id: string; residual: boolean };
+  type Row = Record<string, any>;
+
+  const ids = (prefix: string, count: number) =>
+    Array.from({ length: count }, (_, index) => `https://example.invalid/${prefix}/${index}`);
+  const outcomes = (list: string[], residual = false): Outcome[] =>
+    list.map((id) => ({ id, residual }));
+
+  /** One `after` row as main() builds it: a per-run cohort that is only partially drained. */
+  function afterRow(processed: number, residual = 0, queuedCandidates = 11543) {
+    return finalizeEntry(emptyCounters(), {
+      label: 'after',
+      genderFormRepair: {
+        phase: 'after',
+        cohortAvailable: true,
+        queuedCandidates,
+        sampled: GENDER_FORM_SAMPLE_SIZE,
+        processed,
+        residual,
+      },
+    });
+  }
+
+  /** Append, then round-trip through JSON exactly like the committed file. */
+  function write(history: Row[], entry: Row, runOutcomes: Outcome[] = []): Row[] {
+    appendHistoryEntry(history, entry, { genderFormOutcomes: runOutcomes });
+    return JSON.parse(JSON.stringify(history));
+  }
+
+  const rowsWithMembers = (history: Row[]) =>
+    history.filter((row) => Array.isArray(row.genderFormRepair?.window?.members));
+
+  it('tre after parziali da 50 distinti: misurata al terzo, non prima, e il per-run resta non misurato', () => {
+    const third = 50;
+    expect(2 * third).toBeLessThan(GENDER_FORM_SAMPLE_SIZE);
+    expect(3 * third).toBeGreaterThanOrEqual(GENDER_FORM_SAMPLE_SIZE);
+    let history: Row[] = [];
+    for (const [run, prefix] of ['a', 'b', 'c'].entries()) {
+      history = write(history, afterRow(third), outcomes(ids(prefix, third)));
+      const last = history.at(-1)!;
+      expect(last.genderFormRepair.measured).toBe(false);
+      expect(last.genderFormRepair.status).toBe('partial');
+      expect(last.genderFormRepair.window.measured).toBe(run === 2);
+      expect(last.genderFormRepair.window.runs).toBe(run + 1);
+    }
+    const window = history.at(-1)!.genderFormRepair.window;
+    expect(window.processed).toBe(GENDER_FORM_SAMPLE_SIZE);
+    expect(window.size).toBe(GENDER_FORM_SAMPLE_SIZE);
+    expect(window.queueCandidates).toBe(11543);
+  });
+
+  it('finestra piena + 10 nuovi tutti residui: il tasso sale perché i 10 più vecchi escono', () => {
+    const full = updateGenderFormWindow({}, outcomes(ids('old', GENDER_FORM_SAMPLE_SIZE)));
+    expect(full.measured).toBe(true);
+    expect(full.residualRate).toBe(0);
+
+    const next = updateGenderFormWindow(full, outcomes(ids('new', 10), true));
+    expect(next.processed).toBe(GENDER_FORM_SAMPLE_SIZE);
+    expect(next.residual).toBe(10);
+    expect(next.residualRate).toBeCloseTo(10 / GENDER_FORM_SAMPLE_SIZE);
+    // The ten oldest are gone, not averaged in: the window does not dilute.
+    const oldestTen = updateGenderFormWindow({}, outcomes(ids('old', 10))).members;
+    for (const member of oldestTen) expect(next.members).not.toContain(member);
+  });
+
+  it('lo stesso id in due run conta una volta, con lesito più recente in coda', () => {
+    const [shared] = ids('shared', 1);
+    const first = updateGenderFormWindow({}, [{ id: shared, residual: true }, ...outcomes(ids('x', 3))]);
+    const second = updateGenderFormWindow(first, [{ id: shared, residual: false }]);
+    expect(second.processed).toBe(first.processed);
+    expect(second.residual).toBe(0);
+    expect(second.members.at(-1)).toMatch(/:0$/);
+    expect(second.runs).toBe(2);
+  });
+
+  it('una run con 0 processati lascia la finestra invariata', () => {
+    let history = write([], afterRow(5), outcomes(ids('p', 5)));
+    const before = structuredClone(history.at(-1)!.genderFormRepair.window);
+    history = write(history, afterRow(0));
+    const after = history.at(-1)!.genderFormRepair.window;
+    expect(after.members).toEqual(before.members);
+    expect(after.processed).toBe(before.processed);
+    expect(after.residual).toBe(before.residual);
+    expect(after.runs).toBe(before.runs);
+  });
+
+  it('members vive solo nellultima voce after, mai oltre la dimensione; le voci before restano append-only', () => {
+    let history = write([], afterRow(10), outcomes(ids('m1', 10)));
+    history = write(history, finalizeEntry(emptyCounters(), {
+      label: 'before',
+      genderFormRepair: { phase: 'before', sampled: GENDER_FORM_SAMPLE_SIZE, queuedCandidates: 11543 },
+    }));
+    expect(history.at(-1)!.genderFormRepair.window).toBeUndefined();
+    expect(rowsWithMembers(history)).toHaveLength(1);
+
+    history = write(history, afterRow(GENDER_FORM_SAMPLE_SIZE), outcomes(ids('m2', GENDER_FORM_SAMPLE_SIZE + 30)));
+    const carriers = rowsWithMembers(history);
+    expect(carriers).toHaveLength(1);
+    expect(carriers[0]).toBe(history.at(-1));
+    expect(carriers[0].genderFormRepair.window.members.length).toBeLessThanOrEqual(GENDER_FORM_SAMPLE_SIZE);
+    // The older after row keeps its summary numbers, only the state moved.
+    expect(history[0].genderFormRepair.window.processed).toBeGreaterThan(0);
+  });
+
+  it('una storia senza window (o con members illeggibili) riparte da zero senza lanciare', () => {
+    expect(readGenderFormWindowState([])).toEqual({ members: [], runs: 0 });
+    expect(readGenderFormWindowState(null as any)).toEqual({ members: [], runs: 0 });
+    const legacy = [afterRow(1), { label: 'after', genderFormRepair: { window: { members: ['nope', 7], runs: -1 } } }];
+    expect(readGenderFormWindowState(legacy)).toEqual({ members: [], runs: 0 });
+    const history = write(JSON.parse(JSON.stringify([afterRow(1)])), afterRow(2), outcomes(ids('fresh', 2)));
+    expect(history.at(-1)!.genderFormRepair.window).toMatchObject({ processed: 2, runs: 1, measured: false });
+  });
+
+  it('una voce partial non stampa mai «measured» nella riga della run; la finestra ha la sua riga', () => {
+    const history = write([], afterRow(10, 1, 11543), outcomes(ids('r', 10)));
+    const lines = formatReport(history.at(-1)!);
+    const runLine = lines.find((line) => line.includes('Gender-form after:'))!;
+    expect(runLine).toContain('partial');
+    expect(runLine).not.toMatch(/measured/);
+    const windowLine = lines.find((line) => line.includes('Gender-form window:'))!;
+    expect(windowLine).toContain('coda 11543');
+    expect(windowLine).toContain("1 run dall'avvio");
+    expect(windowLine).toContain(`accumulating 10/${GENDER_FORM_SAMPLE_SIZE}`);
+    expect(windowLine).not.toMatch(/· measured/);
+  });
+
+  it('main() porta gli esiti dal pass after alla finestra, con storia e sidecar in una directory temporanea', () => {
+    const SOURCE = 'Zimmermann/Zimmerin mit vielseitiger Erfahrung';
+    const queued = (url: string): Job => slotComplete({
+      url, slug: url, title: SOURCE, needsRetranslation: true,
+      titleByLocale: {
+        de: SOURCE,
+        it: 'Zimmermann/Zimmerin con esperienza versatile',
+        en: 'Carpenter with versatile experience',
+        fr: 'Charpentier avec expérience polyvalente',
+      },
+    });
+    const served = (url: string): Job => slotComplete({
+      url, slug: url, title: SOURCE,
+      titleByLocale: {
+        de: SOURCE,
+        it: 'Falegname con esperienza versatile',
+        en: 'Carpenter with versatile experience',
+        fr: 'Charpentier avec expérience polyvalente',
+      },
+    });
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'translation-stats-window-'));
+    try {
+      const slices = path.join(tmp, 'data/jobs/by-crawler');
+      fs.mkdirSync(slices, { recursive: true });
+      const env = {
+        ...process.env,
+        TRANSLATION_STATS_ROOT: tmp,
+        TRANSLATION_COHORT_FILE: path.join(tmp, 'cohort.json'),
+      };
+      const run = (label: string) => spawnSync(process.execPath, ['scripts/log-translation-stats.mjs', label], {
+        cwd: ROOT, env, encoding: 'utf8',
+      });
+      let stdout = '';
+      for (const prefix of ['first', 'second']) {
+        const urls = ids(prefix, 3);
+        fs.writeFileSync(path.join(slices, 'acme.json'), JSON.stringify(urls.map(queued)));
+        expect(run('before').status).toBe(0);
+        fs.writeFileSync(path.join(slices, 'acme.json'), JSON.stringify(urls.map(served)));
+        const after = run('after');
+        expect(after.status, after.stderr).toBe(0);
+        stdout = after.stdout;
+      }
+      const history = JSON.parse(fs.readFileSync(path.join(tmp, 'data/translation-stats-history.json'), 'utf8'));
+      expect(history.map((row: Row) => row.label)).toEqual(['before', 'after', 'before', 'after']);
+      expect(rowsWithMembers(history)).toEqual([history.at(-1)]);
+      expect(history.at(-1).genderFormRepair.measured).toBe(true); // per-run: 3/3 drained
+      expect(history.at(-1).genderFormRepair.window).toMatchObject({
+        processed: 6, residual: 0, runs: 2, measured: false, queueCandidates: 3,
+      });
+      expect(stdout).toContain('Gender-form window:');
+      expect(stdout).toContain(`accumulating 6/${GENDER_FORM_SAMPLE_SIZE}`);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
   });
 });

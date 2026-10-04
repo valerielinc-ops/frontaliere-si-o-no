@@ -702,7 +702,7 @@ restore_stashed_changes_with_safe_merge() {
         esac
       fi
 
-      merge_json_3way \
+      merge_data_json_3way \
         "$snapshot_dir/base/$f" \
         "$snapshot_dir/remote/$f" \
         "$snapshot_dir/local/$f" \
@@ -1323,6 +1323,114 @@ if (warnings.length > 0) {
   console.log(`  ℹ️  merge notes (${warnings.length}):\n${preview}${warnings.length > 3 ? '\n     - ...' : ''}`);
 }
 NODE
+}
+
+# A per-crawler summary (data/jobs-crawler-summaries/by-crawler/*.json) is the
+# receipt of ONE crawler run: crawler-template.mjs writes its counts as the
+# lengths of its lists, from one computeCrawlDiff partition. merge_json_3way
+# would fuse two receipts field by field against this script's deliberately
+# stale base: the lists come out as the union of different runs while each
+# count stays the one of a single run (reproduced byte for byte on
+# abraxas.json, origin/main e7d7f8760f3: newCount 0 with 2 newJobs,
+# removedCount 0 with 8 removedJobs, one id both new and updated). So a
+# summary is never merged: one whole file wins.
+is_crawler_summary_receipt_path() {
+  [[ "$1" == data/jobs-crawler-summaries/by-crawler/*.json ]]
+}
+
+# Same arguments as merge_json_3way (key_field is unused). Keeps the side whose
+# write is the most recent run: the remote file when it has a strictly newer
+# generatedAt (or when local did not rewrite the file since the checkout),
+# otherwise the local one — including ties and an unreadable generatedAt or
+# remote file on either side.
+select_crawler_summary_receipt() {
+  local base_file="$1"
+  local remote_file="$2"
+  local local_file="$3"
+  local out_file="$4"
+  local label="${6:-$out_file}"
+
+  node - "$base_file" "$remote_file" "$local_file" "$out_file" "$label" <<'NODE'
+const fs = require('fs');
+const path = require('path');
+
+const [basePath, remotePath, localPath, outPath, label] = process.argv.slice(2);
+
+function readRaw(filePath) {
+  try {
+    return fs.readFileSync(filePath);
+  } catch (error) {
+    if (error && error.code === 'ENOENT') return undefined;
+    throw error;
+  }
+}
+
+function parse(raw) {
+  try {
+    return { ok: true, value: JSON.parse(raw.toString('utf8')) };
+  } catch (error) {
+    return { ok: false, error };
+  }
+}
+
+function generatedAtMs(value) {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) return NaN;
+  return typeof value.generatedAt === 'string' ? Date.parse(value.generatedAt) : NaN;
+}
+
+const localRaw = readRaw(localPath);
+if (localRaw === undefined) {
+  console.error(`❌ Missing local snapshot for ${label}`);
+  process.exit(3);
+}
+const localParsed = parse(localRaw);
+if (!localParsed.ok) {
+  console.error(`❌ Cannot parse ${label}: ${localParsed.error.message}`);
+  process.exit(2);
+}
+const baseRaw = readRaw(basePath);
+const remoteRaw = readRaw(remotePath);
+const remoteParsed = remoteRaw === undefined ? undefined : parse(remoteRaw);
+
+let keep = 'local';
+let reason;
+if (remoteRaw === undefined) {
+  reason = 'no remote file';
+} else if (!remoteParsed.ok) {
+  reason = 'remote file unreadable';
+} else if (baseRaw !== undefined && localRaw.equals(baseRaw)) {
+  keep = 'remote';
+  reason = 'local not rewritten since checkout';
+} else if (baseRaw !== undefined && remoteRaw.equals(baseRaw)) {
+  reason = 'remote not rewritten since checkout';
+} else {
+  const localAt = generatedAtMs(localParsed.value);
+  const remoteAt = generatedAtMs(remoteParsed.value);
+  if (!Number.isFinite(localAt) || !Number.isFinite(remoteAt)) {
+    reason = 'generatedAt unreadable';
+  } else if (remoteAt > localAt) {
+    keep = 'remote';
+    reason = 'newer generatedAt';
+  } else {
+    reason = remoteAt === localAt ? 'same generatedAt' : 'newer generatedAt';
+  }
+}
+
+fs.mkdirSync(path.dirname(outPath), { recursive: true });
+fs.writeFileSync(outPath, keep === 'local' ? localRaw : remoteRaw);
+console.log(`  summary receipt: kept ${keep} for ${label} (${reason})`);
+NODE
+}
+
+# Single entry point of both JSON merge call sites (grouped-isolated commit and
+# stash restore): crawler summaries are receipts, everything else keeps the
+# field-by-field 3-way merge.
+merge_data_json_3way() {
+  if is_crawler_summary_receipt_path "${6:-$4}"; then
+    select_crawler_summary_receipt "$@"
+  else
+    merge_json_3way "$@"
+  fi
 }
 
 # ── 0a. Size guard: trim stale jobs if data/jobs.json approaches GitHub's 100 MB limit ──
@@ -2114,7 +2222,7 @@ commit_isolated_from_worktree() {
           fi
           candidate_path="$merge_dir/out/$f"
           blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
-        elif merge_json_3way \
+        elif merge_data_json_3way \
           "$merge_dir/base/$f" \
           "$merge_dir/remote/$f" \
           "$local_merge_path" \

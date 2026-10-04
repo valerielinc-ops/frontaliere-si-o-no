@@ -8,6 +8,7 @@
  * Prada Group operates luxury fashion brands with offices and boutiques across Switzerland.
  * The careers portal is likely SAP SuccessFactors-based.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -238,7 +239,7 @@ async function main() {
       contract: 'full-time', employmentType: inferEmploymentType(raw.title, description),
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(''),
       url: raw.url,
       source: 'Prada Group Dedicated Parser',
       sourceLang,

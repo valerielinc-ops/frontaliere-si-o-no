@@ -20,8 +20,8 @@
  *      and the classic SF-CSB robots.txt disallow pattern) — that legacy
  *      portal does NOT surface Switzerland-specific postings at all (only
  *      AT/RO locale links were observed there).
- *   3. The job-shop SPA itself doesn't render markup server-side worth
- *      scraping; it calls a first-party JSON API backed by Typesense:
+ *   3. The job-shop SPA discovers offers through a first-party Typesense
+ *      JSON API. Offer pages also expose JobPosting publication metadata:
  *        a. `GET https://api.my-job-shop.com/api/offer/v1/search/api-key
  *            ?filter=backoffice_vanity:ch` with header `X-Tenant-Id: hornbach`
  *           returns a short-lived, SCOPED (search-only, tenant+vanity+status
@@ -84,6 +84,8 @@
  * (e.g. "Luzern Littau", same canton LU as the Sursee HQ) must NOT inherit
  * the Schellenrain 9 street address.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { fetchJson, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
@@ -339,28 +341,27 @@ export function buildHornbachDescription(document = {}) {
   return parts.join('\n\n');
 }
 
-/**
- * Resolve the ISO (YYYY-MM-DD) posted date out of a Typesense offer
- * document. Handles both an ISO-ish `create_date` string and a numeric
- * `create_date_timestamp` (seconds or milliseconds — disambiguated by
- * magnitude), falling back to today when neither parses.
- *
- * @param {Record<string, unknown>} document
- * @returns {string}
- */
+/** Return only a publication date verified on the public offer document. */
 export function resolveHornbachPostedDate(document = {}) {
-  const raw = document?.create_date;
-  if (raw) {
-    const d = new Date(String(raw));
-    if (!Number.isNaN(d.getTime())) return d.toISOString().split('T')[0];
+  return sourcePostingDateFields(document.postingDateSource === 'reported' ? document.datePosted : '').datePosted;
+}
+
+/** Typesense creation fields are not publication evidence; use the offer's JobPosting. */
+export async function fetchHornbachPublicationFields(url, { fetchImpl = globalThis.fetch, timeoutMs = 15000 } = {}) {
+  let parsed;
+  try { parsed = new URL(url); } catch { return sourcePostingDateFields(''); }
+  if (parsed.protocol !== 'https:' || parsed.hostname !== 'jobs.hornbach.ch' || !parsed.pathname.startsWith('/offer/')) return sourcePostingDateFields('');
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetchImpl(parsed.href, { signal: controller.signal, redirect: 'error', headers: { Accept: 'text/html' } });
+    if (!response.ok) return sourcePostingDateFields('');
+    return sourcePostingDateFields(extractJobPostingField(await response.text(), 'datePosted'));
+  } catch {
+    return sourcePostingDateFields('');
+  } finally {
+    clearTimeout(timer);
   }
-  const ts = document?.create_date_timestamp;
-  if (typeof ts === 'number' && ts > 0) {
-    const ms = ts > 1e12 ? ts : ts * 1000;
-    const d = new Date(ms);
-    if (!Number.isNaN(d.getTime())) return d.toISOString().split('T')[0];
-  }
-  return new Date().toISOString().split('T')[0];
 }
 
 /**
@@ -421,7 +422,7 @@ export function parseHornbachOffer(document = {}) {
     cantonCode,
     employmentType,
     contract,
-    postedDate: resolveHornbachPostedDate(document),
+    ...sourcePostingDateFields(resolveHornbachPostedDate(document)),
   };
 }
 
@@ -503,7 +504,7 @@ async function resolveHornbachOfferDocuments(documents) {
       const index = next++;
       const document = documents[index];
       const url = await resolveHornbachOfferUrl(document?.url);
-      if (url) resolved[index] = { ...document, url };
+      if (url) resolved[index] = { ...document, url, ...await fetchHornbachPublicationFields(url) };
       await new Promise((resolve) => setTimeout(resolve, OFFER_RESOLVE_DELAY_MS));
     }
   };
@@ -617,7 +618,7 @@ export async function fetchAllHornbachJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: parsed.postedDate,
+      ...sourcePostingDateFields(parsed.datePosted),
       applyUrl: parsed.applyUrl || parsed.url,
       jobReqId: parsed.externalId || null,
       requirements: [],

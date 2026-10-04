@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { describe, it, expect, vi } from 'vitest';
 import {
   SPITAL_THURGAU_KEY,
+  fetchAllSpitalThurgauJobs,
   SPITAL_THURGAU_COMPANY_NAME,
   isSpitalThurgauJob,
   isTrustedDomain,
@@ -242,5 +243,27 @@ describe('Spital Thurgau (STGAG) crawler parser', () => {
       expect(job.descriptionByLocale).toEqual({ de: ad, it: 'Traduzione' });
       expect(SPITAL_THURGAU_FABRICATED_DESCRIPTION_RE.test(`${stub}\n\nDas Institut für Pathologie der Spital Thurgau AG`)).toBe(false);
     });
+  });
+});
+
+
+describe('Spital Thurgau publication provenance', () => {
+  it('carries valid publishDate and rejects missing, impossible and future publication dates', async () => {
+    const sourceDate = new Date(Date.now() - 5 * 86400000).toISOString().slice(0, 10);
+    const [year, month, day] = sourceDate.split('-');
+    const valid = `${day}.${month}.${year}`;
+    const body = readFileSync(new URL('./fixtures/spital-thurgau/current-template-3326.html', import.meta.url), 'utf8');
+    try {
+      for (const publishDate of [valid, '', `30.02.${year}`, `01.01.${Number(year) + 2}`]) {
+        const record = { id: '3326', title: 'Pflegefachperson', workplace: 'Frauenfeld', type: 'job', publishDate };
+        vi.stubGlobal('fetch', vi.fn(async (url) => new Response(String(url).includes('/jobs/')
+          ? `<script data-name="jobs" type="application/json">${JSON.stringify({ jobs: JSON.stringify([record]) })}</script>`
+          : body)));
+        const [job] = await fetchAllSpitalThurgauJobs();
+        expect(job).toMatchObject(publishDate === valid
+          ? { datePosted: sourceDate, postedDate: sourceDate, postingDateSource: 'reported' }
+          : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+      }
+    } finally { vi.unstubAllGlobals(); }
   });
 });

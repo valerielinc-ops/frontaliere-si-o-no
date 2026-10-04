@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -86,12 +87,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
 }
 
 async function fetchJson(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 90000) {
@@ -283,7 +278,9 @@ function buildJob(job) {
     sector: 'Tecnologia & IT',
     source: 'tsmg-dedicated-crawler',
     sourceLang: 'en',
-    postedDate: toIsoDate(job.createdAt),
+    // Lever createdAt is record creation, not proof of first publication.
+    ...sourcePostingDateFields(''),
+    crawledAt: new Date().toISOString(),
     employmentType: normalize(job?.categories?.commitment || '').includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(job?.categories?.commitment || '').includes('part') ? 'part-time' : 'full-time',
     validThrough: '',
@@ -332,6 +329,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -361,7 +359,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

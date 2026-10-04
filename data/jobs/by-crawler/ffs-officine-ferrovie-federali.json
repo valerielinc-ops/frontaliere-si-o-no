@@ -5311,11 +5311,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-03T21:25:04.131Z",
       "previousSlugs": [
-        "strategische-r-einkaufer-in-ffs-officine-ferrovie-federali-bern"
+        "strategische-r-einkaufer-in-ffs-officine-ferrovie-federali-bern",
+        "acquirente-strategico-ffs-officine-ferrovie-federali-bern-d69rnd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategische-r-einkaufer-in-ffs-officine-ferrovie-federali-bern"
+          "strategische-r-einkaufer-in-ffs-officine-ferrovie-federali-bern",
+          "acquirente-strategico-ffs-officine-ferrovie-federali-bern-d69rnd"
         ]
       },
       "firstSeenAt": "2026-09-21T16:44:55.500Z",
@@ -7987,11 +7989,22 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-03T21:25:19.103Z",
       "previousSlugs": [
-        "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+        "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
+        "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78",
+        "train-preparer-level-b2-ffs-officine-ferrovie-federali-muttenz",
+        "preparatore-trice-di-treni-livello-b2-ffs-officine-ferrovie-federali-muttenz",
+        "preparateur-trice-train-niveau-b2-ffs-officine-ferrovie-federali-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
+          "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78",
+          "train-preparer-level-b2-ffs-officine-ferrovie-federali-muttenz",
+          "preparatore-trice-di-treni-livello-b2-ffs-officine-ferrovie-federali-muttenz",
+          "preparateur-trice-train-niveau-b2-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "en": [
+          "train-preparer-level-b2-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
       "firstSeenAt": "2026-09-08T13:56:26.560Z",
@@ -12123,9 +12136,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12194,8 +12207,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -12205,12 +12216,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

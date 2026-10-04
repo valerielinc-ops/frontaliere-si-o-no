@@ -143,10 +143,8 @@ export function parseGreenhouseJobs(apiResponse) {
     const department = departments.join(', ') || '';
 
     const datePosted = job.first_published
-      ? job.first_published.split('T')[0]
-      : job.updated_at
-        ? job.updated_at.split('T')[0]
-        : new Date().toISOString().split('T')[0];
+      ? job.first_published
+      : ''; // updated_at is an edit time, not the original publication date.
 
     results.push({
       title,

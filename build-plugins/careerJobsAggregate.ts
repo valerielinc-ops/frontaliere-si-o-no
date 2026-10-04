@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the 4 career-landing topic pages (template B).
  *
@@ -52,6 +54,8 @@ interface JobRecord {
   salaryMax?: number | null;
   currency?: string;
   salarySource?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   featured?: boolean;
@@ -77,6 +81,8 @@ export interface CareerFeaturedJob {
   readonly salaryMax: number | null;
   readonly salarySource?: string;
   readonly currency?: string;
+  readonly postingDateSource?: string;
+  readonly datePosted?: string | null;
   readonly postedDate: string;
   readonly daysAgo: number;
   readonly slug: string;
@@ -250,8 +256,8 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   // First PARSEABLE date, not first truthy: a malformed postedDate must not
   // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   // Type-safe slugByLocale: jobs.json keys are arbitrary 2-char strings, but at
   // build-time we only need the CareerLocale subset — drop anything else.
@@ -278,6 +284,8 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
     salarySource: job.salarySource,
     currency: job.currency,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     daysAgo,
     slug: job.slug,
