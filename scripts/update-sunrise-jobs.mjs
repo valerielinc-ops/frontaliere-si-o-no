@@ -287,7 +287,7 @@ function assertCompleteSunriseSnapshot(jobs = []) {
 async function buildSunriseJob(listing) {
   const detailUrl = buildSunriseDetailUrl(listing);
   const html = await fetchText(detailUrl);
-  const detail = parseSunriseJobDetail(html);
+  const detail = parseSunriseJobDetail(html, detailUrl, listing.title);
   const canton = inferSunriseCanton({ ...listing, ...detail });
   const locationLabel = deriveLocationLabel(detail, listing);
   const localized = buildSunriseLocalizedContent(detail);
@@ -317,7 +317,7 @@ async function buildSunriseJob(listing) {
     sector: 'Tecnologia & IT',
     source: 'sunrise-dedicated-crawler',
     sourceLang,
-    ...sourcePostingDateFields(detail.postedDate || listing.postedDate),
+    ...mergeSourcePostingDates({}, detail),
     crawledAt: new Date().toISOString(),
     employmentType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
