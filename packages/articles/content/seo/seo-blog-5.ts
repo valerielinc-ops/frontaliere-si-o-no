@@ -635,7 +635,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "headline": "Locarno smaltisce rifiuti a Landquart: 1000 tonnellate su 156 km",
       "description": "Locarno smaltisce rifiuti vegetali a Landquart, generando 6,5 tonnellate di CO2 annuali. Interrogazione al Municipio per la mancanza di coerenza ambientale.",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/locarno-landquart-rifiuti-1000-tonnellate.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/locarno-landquart-rifiuti-1000-tonnellate-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Locarno e del Lago Maggiore, Svizzera, con montagne sullo sfondo"
@@ -1279,7 +1279,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "headline": "Lugano Cultura si rinnova: arriva uno spazio digitale unico",
       "description": "Scopri la nuova piattaforma digitale di Lugano Cultura con eventi, operatori e progetti interdisciplinari. Partecipa alla vita culturale di Lugano.",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lugano-cultura-digitale-2024.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lugano-cultura-digitale-2024-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lugano Cultura digitale: lancio della nuova piattaforma culturale a Lugano"
@@ -2931,7 +2931,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "headline": "Bruno Breguet scomparso: il pretore di Locarno chiude il caso",
       "description": "La giustizia civile ticinese ha ufficializzato la scomparsa di Bruno Breguet, ex terrorista legato a Carlos e forse agente CIA. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bruno-breguet-scomparsa-ufficializzata.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bruno-breguet-scomparsa-ufficializzata-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Veduta del lungolago di Locarno con palme e montagne"
@@ -13559,7 +13559,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "headline": "Camelie Locarno 2026: record di visitatori e incassi",
       "description": "L'edizione 2026 di Camelie Locarno ha registrato 14.000 visitatori e un aumento del 10% degli incassi rispetto al 2022. Dati aggiornati 2026 per frontalieri in",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/camelie-locarno-record-visitatori-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/camelie-locarno-record-visitatori-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Parco delle Camelie a Locarno durante l'evento Camelie Locarno 2026"
@@ -17123,7 +17123,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "headline": "Gianni Morandi a Locarno: concerto al Palexpo FEVI il 4 ottobre 2026",
       "description": "Gianni Morandi celebra 60 anni di 'C'era un ragazzo' con un concerto a Locarno il 4 ottobre 2026. Biglietti in prevendita su biglietteria.ch. Dati aggiornati",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gianni-morandi-locarno-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/gianni-morandi-locarno-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Gianni Morandi sul palco del Palexpo FEVI a Locarno"
@@ -18617,7 +18617,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Dal 1° giugno 2026 il libretto di servizio diventa digitale. Ecco cosa cambia per i militari e la protezione civile in Svizzera. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/libretto-digitale-militare-ticino-2026.webp`,
+        "url": `${BASE_URL}/images/blog/libretto-digitale-militare-ticino-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Libretto digitale militare con Castelgrande sullo sfondo"
@@ -20523,7 +20523,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Oltre 5'000 visitatori hanno partecipato all'8ª edizione del Food Truck Festival Locarno, con street food, concerti gratuiti e tanto sole. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/food-truck-festival-locarno-2026.webp`,
+        "url": `${BASE_URL}/images/blog/food-truck-festival-locarno-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Food Truck Festival Locarno, Piazza Grande, gente che gusta street food e musica dal vivo"
@@ -20777,7 +20777,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "La Gestione del Consiglio comunale di Locarno invita a usare toni meno trionfalistici nonostante l'aumento degli abitanti. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/locarno-abitanti-domiciliati-2026.webp`,
+        "url": `${BASE_URL}/images/blog/locarno-abitanti-domiciliati-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Locarno con il Lago Maggiore"
@@ -23219,7 +23219,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "L'imprenditore guiderà l'organismo per il triennio 2026-2028 con l'obiettivo di accompagnare le PMI verso l'intelligenza artificiale. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/poliani-digital-innovation-hub-2026.webp`,
+        "url": `${BASE_URL}/images/blog/poliani-digital-innovation-hub-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
@@ -25581,7 +25581,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Scopri le novità del Progetto di Prossimità a Locarno e le opportunità per i frontalieri fino al 2029. Implicazioni pratiche e come partecipare. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/progetto-prossimita-locarno-2026.webp`,
+        "url": `${BASE_URL}/images/blog/progetto-prossimita-locarno-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Piazza Grande a Locarno con il lago sullo sfondo"
@@ -30034,7 +30034,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Locarno distribuisce gratuitamente Vectobac® G per contrastare la diffusione della zanzara tigre. Scopri come partecipare. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/locarno-zanzara-tigre-campagna-rilancia-2026.webp`,
+        "url": `${BASE_URL}/images/blog/locarno-zanzara-tigre-campagna-rilancia-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Locarno, Ticino, con il Lago Maggiore sullo sfondo"
@@ -30867,7 +30867,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Dal 1° gennaio 2024 entrano in vigore nuove regole AVS. Ecco le novità per chi lavora in Svizzera e risiede in Italia. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nuova-riforma-avs-2024-frontalieri.webp`,
+        "url": `${BASE_URL}/images/blog/nuova-riforma-avs-2024-frontalieri-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Panorama di Lugano con il lago e le montagne"
@@ -30940,7 +30940,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Scopri come i frontalieri del Ticino possono risparmiare sulle imposte con la cassa pensione svizzera. Guida pratica con dati e procedure. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/emigrazione-cassa-pensione-risparmio-imposte.webp`,
+        "url": `${BASE_URL}/images/blog/emigrazione-cassa-pensione-risparmio-imposte-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lago di Lugano con vista sul confine tra Svizzera e Italia"
@@ -33712,7 +33712,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Yvonne Ballestra Cotti e Barbara Angelini Piva presentano un'interpellanza urgente per il Palacinema di Locarno. Scopri le implicazioni e come partecipare.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/palacinema-locarno-urgenti-2026.webp`,
+        "url": `${BASE_URL}/images/blog/palacinema-locarno-urgenti-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Locarno, con il Palacinema in primo piano e il Lago Maggiore sullo sfondo."
@@ -40850,7 +40850,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Risolto il guasto a uno scambio tra Tenero e Gordola. Treno ripristinato a partire da mezzogiorno. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ripristino-treni-locarno-cadenazzo.webp`,
+        "url": `${BASE_URL}/images/blog/ripristino-treni-locarno-cadenazzo-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Stazione ferroviaria in Ticino con treni e passeggeri"
@@ -45707,7 +45707,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Lavori RFI conclusi sulla tratta Mendrisio-Gallarate: ripristinata la piena operatività dei treni Tilo per i frontalieri. Scopri i dettagli del potenziamento.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/potenziamento-linee-tilo-mendrisio-gallarate.webp`,
+        "url": `${BASE_URL}/images/blog/potenziamento-linee-tilo-mendrisio-gallarate-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Treno Tilo in arrivo alla stazione di Mendrisio"
@@ -46701,7 +46701,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Lavori di manutenzione Rete Ferroviaria Italiana impattano i collegamenti Tilo S50 tra Ticino e Malpensa. Scopri le variazioni e le procedure di assistenza.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tilo-lavori-gallarate-luglio.webp`,
+        "url": `${BASE_URL}/images/blog/tilo-lavori-gallarate-luglio-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Treno Tilo in transito in una stazione del Canton Ticino"
@@ -54071,7 +54071,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Aumento richieste assistenza sociale a Locarno: consiglieri chiedono strategie per il reinserimento lavorativo dei giovani. Analisi e prospettive.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/locarno-giovani-assistenza-sociale.webp`,
+        "url": `${BASE_URL}/images/blog/locarno-giovani-assistenza-sociale-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Municipio di Locarno, sede delle discussioni sull'assistenza sociale."
@@ -57590,7 +57590,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Il Teatro Periferico al Paravento di Locarno esplora la macchina della memoria tra passato e presente. Analisi culturale per il pubblico del Canton Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/teatro-periferico-locarno-memoria.webp`,
+        "url": `${BASE_URL}/images/blog/teatro-periferico-locarno-memoria-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Facciata del Teatro Paravento di Locarno"
@@ -58139,7 +58139,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "La 79ª edizione del Festival del Film di Locarno si apre con una proiezione di \"Chi ha incastrato Roger Rabbit?\" che suscita perplessità e discussioni.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/pre-festival-locarno-2024.webp`,
+        "url": `${BASE_URL}/images/blog/pre-festival-locarno-2024-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Piazza Grande a Locarno durante il Festival del Film"
@@ -58275,7 +58275,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Il Locarno Film Festival inaugura con Les Yeux Verts. Esploriamo il tema della resilienza e l'impatto culturale per i lavoratori frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/locarno-film-festival-resistenza-legami.webp`,
+        "url": `${BASE_URL}/images/blog/locarno-film-festival-resistenza-legami-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Piazza Grande a Locarno durante il Locarno Film Festival"
@@ -58523,7 +58523,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "I deputati di Alleanza Verdi e Sinistra si sono bendati gli occhi in aula per protestare contro il non accesso alle chat tra Andrea Delmastro e Mauro Carroccia.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/caso-delmastro-protesta-avs.webp`,
+        "url": `${BASE_URL}/images/blog/caso-delmastro-protesta-avs-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Protesta alla Camera"
@@ -58902,7 +58902,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Nella soffice e voluminosa barba del direttore artistico del Locarno Film Festival si cela una dichiarazione d’intenti: investimenti nel cinema elvetico in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/graffio-nella-barba-locarno-film-festival.webp`,
+        "url": `${BASE_URL}/images/blog/graffio-nella-barba-locarno-film-festival-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Barba curata del direttore artistico al Locarno Film Festival davanti a Piazza Grande"
@@ -58936,7 +58936,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Il compositore di colonne sonore horror Claudio Simonetti premiato con un Pardo speciale al Locarno Film Festival per il suo impatto sul cinema da Profondo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/claudio-simonetti-monsieur-peur.webp`,
+        "url": `${BASE_URL}/images/blog/claudio-simonetti-monsieur-peur-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Claudio Simonetti dirige la colonna sonora di Profondo rosso al Locarno Film Festival"
@@ -59184,7 +59184,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "La Vpod chiede una direttiva ad hoc e investimenti infrastrutturali contro le ondate di calore in Ticino. Senza correttivi, risposte tardive. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/caldo-ticino-direttiva-consiglio-stato.webp`,
+        "url": `${BASE_URL}/images/blog/caldo-ticino-direttiva-consiglio-stato-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Strada di Bellinzona assolata con persone all'ombra durante un'ondata di calore"
@@ -59597,7 +59597,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Il Locarno Film Festival cerca un nuovo presidente. Le voci si rincorrono, ma nessuna conferma ufficiale. Segui gli aggiornamenti su Frontaliere Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/presidente-locarno-film-festival.webp`,
+        "url": `${BASE_URL}/images/blog/presidente-locarno-film-festival-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Il Locarno Film Festival con il grande schermo in Piazza Grande"
@@ -60467,7 +60467,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "L'attore Jean-Luc Bideau omaggiato a Locarno. Il festival ospita anche il regista Giovanni Tortorici con il film Ketticè. Scopri le novità della kermesse.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bideau-locarno-film-festival.webp`,
+        "url": `${BASE_URL}/images/blog/bideau-locarno-film-festival-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Atmosfera notturna al Locarno Film Festival in Piazza Grande."
@@ -65707,7 +65707,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "La richiesta per la riduzione dei premi dell'assicurazione malattia (RIPAM) in Ticino può ora essere presentata anche online. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sussidi-cassa-malati-digitale.webp`,
+        "url": `${BASE_URL}/images/blog/sussidi-cassa-malati-digitale-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Un frontaliere si avvicina al calcolatore online per la richiesta dei sussidi di cassa malati."
@@ -84432,7 +84432,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Nell'estate del 1911, i figli degli operai in sciopero a Piombino furono accolti a Gallarate come forma di solidarietà. Scopri la storia di Ines Oddone Bittelli",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/treno-dei-bambini-gallarate-piombino.webp`,
+        "url": `${BASE_URL}/images/blog/treno-dei-bambini-gallarate-piombino-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Stazione di Gallarate con l'arrivo del treno dei bambini"
@@ -93599,7 +93599,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Alla primaria Pedotti di Luvinate, Festa dell'Accoglienza con Polizia Scientifica, Croce Rossa, cyberbullismo, inglese e primo soccorso per i bambini in classe.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/luvinate-scuola-sicurezza.webp`,
+        "url": `${BASE_URL}/images/blog/luvinate-scuola-sicurezza-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Bambini della primaria durante laboratori di sicurezza e prevenzione"
@@ -94520,7 +94520,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Portinerie Lavoro arriva a Locarno il 1° ottobre: consulenze gratuite senza appuntamento su candidature, curriculum, strategie di ricerca e orientamento.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/portinerie-lavoro-locarno.webp`,
+        "url": `${BASE_URL}/images/blog/portinerie-lavoro-locarno-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Sportello Portinerie Lavoro allo Spazio ELLE di Locarno"

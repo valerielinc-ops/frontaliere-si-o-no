@@ -6147,7 +6147,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come candidarti per lavorare presso Lidl a Locarno. Informazioni su requisiti, procedure di selezione e carriera nella grande distribuzione in Svizzera.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ricerca-lavoro-lidl-locarno.webp`,
+        "url": `${BASE_URL}/images/blog/ricerca-lavoro-lidl-locarno-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lidl Locarno, supermercato in Svizzera"
@@ -9593,7 +9593,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri le opportunità di lavoro per macchinisti e autisti a Locarno: requisiti, modalità di candidatura e strumenti utili. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/macchinisti-autisti-lavoro-locarno.webp`,
+        "url": `${BASE_URL}/images/blog/macchinisti-autisti-lavoro-locarno-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista della stazione di Locarno con operatori e conducenti in uniforme."
@@ -30990,7 +30990,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra sull'intelligenza artificiale e ha nominato l'ex direttrice generale",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/gianotti-delegata-geneva-ai-summit-2027.webp`,
+        "url": `${BASE_URL}/images/blog/gianotti-delegata-geneva-ai-summit-2027-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Fabiola Gianotti, ex direttrice generale del CERN, in una riunione con funzionari svizzeri, legata al Summit sull'intelligenza artificiale di Ginevra 2027."
@@ -31136,7 +31136,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consorzio Bosciorina ha vinto l'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tram-treno-aggiudicato-appalto.webp`,
+        "url": `${BASE_URL}/images/blog/tram-treno-aggiudicato-appalto-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Una foto di un treno che passa attraverso il paesaggio ticinese."
@@ -53695,7 +53695,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il quotidiano online 20 Minuten registra un aumento degli utenti e dei ricavi pubblicitari digitali, con un utile di 11,7 milioni di franchi nel primo semestre",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/20-minuten-utile-pubblicita-digitale.webp`,
+        "url": `${BASE_URL}/images/blog/20-minuten-utile-pubblicita-digitale-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Il quotidiano online 20 Minuten registra un aumento degli utenti e dei ricavi pubblicitari digitali"
@@ -62809,7 +62809,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Comcom dichiara impossibile l'ingresso di nuovi competitor nel mercato della telefonia mobile. Barriere economiche e normative insuperabili: 500 milioni CHF",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/comcom-esclude-nuovi-operatori-mobile.webp`,
+        "url": `${BASE_URL}/images/blog/comcom-esclude-nuovi-operatori-mobile-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista panoramica di Lugano, centro economico della Svizzera meridionale, simbolo del mercato telco svizzero"
@@ -64831,7 +64831,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Come funziona il primo pilastro (AVS): rendita, cassa di compensazione, lacune contributive e prestazioni complementari per il minimo vitale. Guida pratica.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-argovia.webp`,
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-argovia-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Ufficio amministrativo svizzero con documenti di previdenza e fascicoli di rendita su scrivania"
@@ -69857,7 +69857,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Adolescenti accatastano oggetti sui binari, deragliamento di un Interregio a 110 km/h, danni per 141.369 franchi. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzera-treno-oggetti-binari.webp`,
+        "url": `${BASE_URL}/images/blog/svizzera-treno-oggetti-binari-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Treno deragliato a causa di oggetti sui binari in Svizzera"
@@ -74105,7 +74105,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due ricerche dell’Inselspital e dell’Università di Berna indicano che l’IA migliora la prognosi delle malattie cardiache. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/intelligenza-artificiale-cardiologia-2026.webp`,
+        "url": `${BASE_URL}/images/blog/intelligenza-artificiale-cardiologia-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Un medico analizza dati su un computer in un laboratorio di ricerca medica con l'Università di Berna in sfondo."
@@ -76375,7 +76375,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il franco digitale CHFD è in test con 9 aziende svizzere fino a fine 2026. Scopri come funziona lo stablecoin su blockchain e le applicazioni esaminate.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/franco-chfd-test-aziende-2026.webp`,
+        "url": `${BASE_URL}/images/blog/franco-chfd-test-aziende-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Visualizzazione del franco digitale CHFD e della tecnologia blockchain nei test di pagamento"
@@ -82115,7 +82115,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la nuova guida ufficiale 2026 di IFPDT e privatim sulla sorveglianza digitale con telecamere, infrarossi e radar nelle strutture sanitarie.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sorveglianza-digitale-sanita-guida.webp`,
+        "url": `${BASE_URL}/images/blog/sorveglianza-digitale-sanita-guida-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Guida sulla sorveglianza digitale nelle strutture sanitarie in Svizzera"
@@ -95130,7 +95130,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guy Parmelin, 66 anni, annuncia oggi le dimissioni dal DEFR. Economiesuisse e USAM elogiano i suoi accordi con India, Vietnam e il rinnovo con la Cina",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/annuncio-parmelin-sgravio-2024.webp`,
+        "url": `${BASE_URL}/images/blog/annuncio-parmelin-sgravio-2024-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Palazzo federale di Berna con simboli commerciali, rappresenta la leadership economica svizzera."
@@ -95242,7 +95242,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Aprire un'attività nei Grigioni: forma giuridica, registro di commercio, capitale minimo, tasse, IVA, AVS/AI/IPG, LPP e LAMal in una guida pratica.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/guida-imprenditoriale-grigioni.webp`,
+        "url": `${BASE_URL}/images/blog/guida-imprenditoriale-grigioni-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Documenti per avviare un'attività nel Cantone dei Grigioni"
@@ -95549,7 +95549,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Micasa si separerà da quattro negozi entro gennaio 2027: Crissier chiude entro fine 2026. Coinvolti Langendorf, Brügg e Buchs; nessun commento sui posti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/micasa-quattro-negozi-2027.webp`,
+        "url": `${BASE_URL}/images/blog/micasa-quattro-negozi-2027-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Negozio svizzero di arredamento con vetrine in fase di chiusura"

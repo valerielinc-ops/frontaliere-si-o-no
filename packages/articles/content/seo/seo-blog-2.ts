@@ -3326,9 +3326,9 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  "headline": "Energia, Marcello Di Caterina (Alis): 'Bene apertura Von der Leyen su",
  "description": "Il direttore generale di Alis, Marcello Di Caterina, commenta le dichiarazioni della presidente della Commissione europea, Ursula von der Leyen, sul sistema",
  "image": {
- "@type": "ImageObject", "url": `${BASE_URL}/images/blog/energia-ets-von-der-leyen.webp`,
- "width": 1344,
- "height": 756,
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/energia-ets-von-der-leyen-2.webp`,
+ "width": 1200,
+ "height": 675,
  "caption": "Centrale elettrica a Lugano, Ticino"
  },
  "datePublished": "2026-03-11T23:59:02+00:00",
@@ -3704,9 +3704,9 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  "headline": "La franchigia minima dell'assicurazione malattia potrebbe aumentare da",
  "description": "Il Consiglio federale ha avviato la consultazione per adeguare la franchigia minima dell'assicurazione malattia a 400 franchi, mantenendo l'esenzione per i",
  "image": {
- "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cassa-malati-franchigia-minima-ticino.webp`,
- "width": 1344,
- "height": 756,
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/cassa-malati-franchigia-minima-ticino-2.webp`,
+ "width": 1200,
+ "height": 675,
  "caption": "La franchigia minima dell'assicurazione malattia potrebbe aumentare da 300 a 400 franchi."
  },
  "datePublished": "2026-03-13T17:44:42+00:00",

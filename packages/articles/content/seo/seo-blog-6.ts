@@ -1643,7 +1643,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
       "headline": "Patentino Digitale: via libera in Lombardia",
       "description": "Approvato il primo progetto di legge regionale per l'istituzione del Patentino Digitale per contrastare bullismo e dipendenza tecnologica tra i giovani",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/patentino-digitale-lombardia-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/patentino-digitale-lombardia-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Cerimonia del Patentino Digitale in una scuola del Ticino"
