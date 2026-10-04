@@ -3,6 +3,7 @@
  * Dedicated Läderach (Schweiz) AG crawler runner.
  * Source: https://laderach.career.softgarden.de/
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -146,7 +147,7 @@ async function main() {
       addressLocality: rawLocation, addressCountry: 'CH',
       category: 'manufacturing', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
-      currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
+      currency: 'CHF', featured: false, ...sourcePostingDateFields(),
       url: raw.url, source: 'Läderach Dedicated Parser', crawledAt: new Date().toISOString(),
     });
     if (meetsSourceBodyFloor(description)) console.log(`  ✅ ${raw.title} — ${raw.location}`);

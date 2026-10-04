@@ -16,6 +16,7 @@
  *   6. Run base crawler for AI localization
  *   7. Post-process and validate
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
@@ -280,7 +281,7 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       descriptionByLocale: { [sourceLang]: raw.description || '' },
       slug,
       category: detectCategory(raw.title),
-      datePosted: raw.postedDate || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(raw.postedDate),
       source: 'hugo-boss-careers-crawler',
       sourceLang,
       employmentType: inferEmploymentType(raw.title, raw.description),

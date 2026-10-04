@@ -16,6 +16,15 @@ export function sourcePostingDateFields(raw, now = new Date()) {
     : { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
 }
 
+/** Select the first valid source publication value, not merely the first non-empty one. */
+export function sourcePostingDateCandidatesFields(candidates = [], now = new Date()) {
+  for (const candidate of candidates) {
+    const fields = sourcePostingDateFields(candidate, now);
+    if (fields.postingDateSource === 'reported') return fields;
+  }
+  return sourcePostingDateFields('', now);
+}
+
 /** Dates and their evidence travel together; an unmarked legacy value is not proof. */
 export function mergeSourcePostingDates(previous = {}, fresh = {}, now = new Date()) {
   const before = resolveReportedPostingDate(previous, now);
