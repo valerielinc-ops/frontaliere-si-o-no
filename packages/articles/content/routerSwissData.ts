@@ -2586,6 +2586,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-auto-zurigo-pagamento': { it: 'imposta-auto-zurigo-pagamento', en: 'zurich-vehicle-tax-calculation', de: 'fahrzeugsteuer-zuerich-berechnung', fr: 'impot-vehicules-zurich-calcul' },
  'incentivi-energetici-zurigo-domanda': { it: 'incentivi-energetici-zurigo-domanda', en: 'zurich-energy-incentives-application', de: 'energiefoerderung-zuerich-antrag', fr: 'subventions-energie-zurich-demande' },
  'edilizia-zurigo-permesso-iter': { it: 'edilizia-zurigo-permesso-iter', en: 'zurich-building-permit-requirements', de: 'baubewilligung-zuerich-voraussetzungen', fr: 'permis-construire-zurich-exigences' },
+ 'axa-ue-svizzera-posizione': { it: 'axa-ue-svizzera-posizione', en: 'axa-eu-switzerland-position', de: 'axa-eu-schweiz-position', fr: 'axa-ue-position-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

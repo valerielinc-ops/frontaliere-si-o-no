@@ -7691,6 +7691,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.edilizia-zurigo-permesso-iter.title': 'Building permit in the Canton of Zurich: requirements and procedure',
     'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'In the Canton of Zurich, the building permit involves the municipality and the canton: requirements, documents, objections and appeals. Work begins only after the permit.',
     'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Documents and plans for a Swiss building permit',
+    'blog.article.axa-ue-svizzera-posizione.title': 'EU bilateral agreements, AXA CEO: «important, not decisive»',
+    'blog.article.axa-ue-svizzera-posizione.excerpt': 'Thomas Buberl, CEO of AXA, considers the bilateral agreements with the EU important but not decisive for Switzerland\'s position in Europe.',
+    'blog.article.axa-ue-svizzera-posizione.imageAlt': 'View of Lugano and the Swiss landscape on a bright day.',
 };
 
 export default blogMetaChEn;
