@@ -595,7 +595,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -639,7 +639,8 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -649,7 +650,8 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "needsRetranslation": true,
@@ -1203,7 +1205,6 @@
       "previousSlugs": [
         "nachdiplomstudiengang-dipl-expertin-experte-intensivpflege-nds-hf-kantonsspital-aarau-ksa-aarau"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:32:49.217Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -3380,7 +3381,6 @@
           "dipl-radiologiefachfrau-radiologiefachmann-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-18T13:41:14.672Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5486,7 +5486,6 @@
           "business-intelligence-spezialist-in-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:42:13.466Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
