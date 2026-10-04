@@ -96,10 +96,10 @@ describe('cantiere 2 — SEO metadata quick wins', () => {
 
   it('describes the border map without an unverified crossing count', () => {
     const entry = entrySource("'border-map'", 'jobboard');
-    expect(entry).toContain("title: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino'");
-    expect(entry).toContain("description: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.'");
-    expect(entry).toContain("ogTitle: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino'");
-    expect(entry).toContain("ogDescription: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.'");
+    expect(entry).toContain("title: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live'");
+    expect(entry).toContain("description: 'Mappa interattiva confine Svizzera-Italia: valichi del Ticino, tempi di attesa live, webcam e comuni italiani entro 20 km.'");
+    expect(entry).toContain("ogTitle: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live'");
+    expect(entry).toContain("ogDescription: 'Mappa interattiva del confine Svizzera-Italia: valichi, tempi live, webcam e comuni di frontiera.'");
     expect(entry).not.toMatch(/title: '[^']*9 Valichi/);
     expect(entry).not.toMatch(/description: '[^']*9 valichi/);
     expect(entry).toContain("canonicalPath: '/guida-frontaliere/mappa-confine/'");

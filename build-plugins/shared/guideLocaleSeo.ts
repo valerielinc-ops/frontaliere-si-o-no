@@ -96,7 +96,7 @@ const GUIDE_LOCALE_SEO: Record<GuideSeoLocale, Record<GuideSeoSection, GuideLoca
     },
     'permit-compare': {
       title: 'Bewilligung G vs B',
-      description: 'Detaillierter Vergleich zwischen Leben in Italien (Bewilligung G) und Umzug in die Schweiz (Bewilligung B). Steueranalyse, Lebenshaltungskosten und Lebensqualität.',
+      description: 'Vergleich zwischen Leben in Italien (Bewilligung G) und Umzug in die Schweiz (Bewilligung B): Steuern, Lebenshaltungskosten und Lebensqualität.',
     },
     'border-map': {
       title: 'Grenzkarte Italien-Schweiz',
