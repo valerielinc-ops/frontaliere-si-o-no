@@ -348,6 +348,20 @@ function runUrl(repo, id) {
  * label nuova.
  */
 export const PARK_LABELS = Object.freeze(['fu-parked', 'fu-data-pending']);
+
+/**
+ * Label della issue NUOVA parcheggiata. Il reporter crea la issue con
+ * GITHUB_TOKEN, quindi `issues:opened` non parte e la issue la instrada il
+ * PRIMO passaggio di triage-sweep (open senza `agent:triaged`), che decide
+ * con il solo classifyIssue e NON guarda ROUTING_LABELS: senza
+ * `agent:triaged` le aggiungerebbe `agent:fix-queued`, e una issue
+ * queued+parked non la riprende nessuno stadio del drainer (né il drain, né
+ * PARKED-RETRY, né age-out). Con `agent:triaged` la issue passa solo dal
+ * secondo passaggio, che rispetta `fu-parked`; tolte le due label di
+ * parcheggio, lo stesso passaggio la instrada come oggi. `agent:triaged` non
+ * si toglie allo sblocco: è lo stato giusto per il secondo passaggio.
+ */
+export const PARK_CREATE_LABELS = Object.freeze(['agent:triaged', ...PARK_LABELS]);
 const VALIDATED_BUILD_RE = /<!-- VALIDATED_BUILD: ([^>]*?) -->/;
 
 function fmtMeasure(v) {
@@ -469,7 +483,7 @@ export function buildIssuePayloads(input) {
   // applica in `gh issue create`, mentre una ricorrenza su issue già aperta è
   // un commento (e una riapertura non tocca le label). Il parcheggio resta
   // quindi confinato alla issue nuova per costruzione.
-  const parkLabels = shouldParkNewIssue(freshness) ? [...PARK_LABELS] : [];
+  const parkLabels = shouldParkNewIssue(freshness) ? [...PARK_CREATE_LABELS] : [];
 
   // gate → job che l'ha riportato (primo vince: i gate sono per-job)
   const gateRows = new Map();

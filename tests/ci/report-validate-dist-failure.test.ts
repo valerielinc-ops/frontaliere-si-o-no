@@ -41,6 +41,7 @@ const {
   parkedReleaseDecision,
   shouldParkNewIssue,
   PARK_LABELS,
+  PARK_CREATE_LABELS,
   TITLE_PREFIX,
   LEGACY_TITLE,
   DEDUP_TITLE_PREFIX_LEN,
@@ -48,6 +49,10 @@ const {
   CATHEDRAL_OWNED_GATES,
   gatesToResolve,
 } = await import('../../scripts/ci/report-validate-dist-failure.mjs');
+// Moduli del ciclo che leggono le label di parcheggio: il test di contratto
+// sotto verifica il parcheggio contro i loro predicati veri, non contro una copia.
+const { isTriagedButNotRouted } = await import('../../scripts/ci/triage-sweep.mjs');
+const { isReparkableCandidate } = await import('../../scripts/ci/followup-drainer.mjs');
 
 const ROOT = resolve(import.meta.dirname, '..', '..');
 const FX = (name: string) => readFileSync(resolve(import.meta.dirname, 'fixtures', name), 'utf8');
@@ -566,8 +571,9 @@ describe('freschezza della build validata (LC-09)', () => {
 
   it('issue nuova, main avanti di 14 e build più recente riuscita → fu-parked + fu-data-pending e marker', () => {
     const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }));
-    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang', ...PARK_LABELS]);
+    expect(payload.labels).toEqual(['Bug', 'ci-gate:audit-hreflang', ...PARK_CREATE_LABELS]);
     expect(PARK_LABELS).toEqual(['fu-parked', 'fu-data-pending']);
+    expect(PARK_CREATE_LABELS).toEqual(['agent:triaged', ...PARK_LABELS]);
     expect(payload.body).toContain(`<!-- VALIDATED_BUILD: sha=${STALE_REF} main_ahead=14 newer_build=true main=${MAIN_SHA} -->`);
     // Il marker sta sotto «Build SHA», non in coda: un body troncato lo conserva.
     expect(payload.body.indexOf('VALIDATED_BUILD')).toBeGreaterThan(payload.body.indexOf('## Build SHA'));
@@ -615,6 +621,25 @@ describe('freschezza della build validata (LC-09)', () => {
     expect(measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '37099011095' }).newerBuild).toBe(false);
     // Senza deploy_run_id la seconda prova non è misurabile.
     expect(measureBuildFreshness({ repo: REPO, deployRef: STALE_REF, deployRunId: '' }).newerBuild).toBeNull();
+  });
+
+  it('contratto col ciclo: la issue parcheggiata non la instrada nessun passaggio del triage e resta nel pool PARKED-RETRY', () => {
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: STALE_REF, freshness: STALE }));
+    const asIssue = (names: string[]) => ({ number: 11200, title: payload.title, body: payload.body, labels: names.map((name) => ({ name })) });
+    const parked = asIssue(payload.labels);
+    // Primo passaggio di triage-sweep: prende le open SENZA agent:triaged e le
+    // instrada col solo classifyIssue, che per questo titolo dice queue.
+    expect(parked.labels.some((l) => l.name === 'agent:triaged')).toBe(true);
+    // Secondo passaggio: rispetta fu-parked (ROUTING_LABELS).
+    expect(isTriagedButNotRouted(parked)).toBe(false);
+    // Il fallback promesso esiste: il PARKED-RETRY del drainer la vede.
+    expect(isReparkableCandidate(parked)).toBe(true);
+    // Sbloccata dal reporter (tolte le due label): il secondo passaggio la instrada.
+    const released = asIssue(payload.labels.filter((l: string) => !PARK_LABELS.includes(l)));
+    expect(isTriagedButNotRouted(released)).toBe(true);
+    // Controprova: queued+parked (ciò che il primo passaggio produceva senza
+    // agent:triaged) è fuori dal PARKED-RETRY, cioè un limbo.
+    expect(isReparkableCandidate(asIssue([...payload.labels, 'agent:fix-queued']))).toBe(false);
   });
 
   it('marker: il parse rilegge ciò che il body scrive', () => {
@@ -696,7 +721,7 @@ describe('freschezza della build validata (LC-09)', () => {
       await reportDist({ dryRun: false });
       const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
       expect(create).toBeDefined();
-      expect(create).toEqual(expect.arrayContaining(['--label', 'fu-parked', 'fu-data-pending']));
+      expect(create).toEqual(expect.arrayContaining(['--label', 'agent:triaged', 'fu-parked', 'fu-data-pending']));
       expect(create[create.indexOf('--body') + 1]).toContain('VALIDATED_BUILD: sha=' + STALE_REF + ' main_ahead=14 newer_build=true');
     });
 
@@ -709,7 +734,7 @@ describe('freschezza della build validata (LC-09)', () => {
       expect(calls.some((a) => a[0] === 'issue' && a[1] === 'comment' && a[2] === '11000')).toBe(true);
       // Nessuna scrittura porta le label di parcheggio (l'unica menzione è la lettura dei parcheggiati).
       const writes = calls.filter((a) => !(a[0] === 'issue' && a[1] === 'list'));
-      expect(writes.some((a) => a.includes('fu-parked') || a.includes('fu-data-pending'))).toBe(false);
+      expect(writes.some((a) => a.includes('fu-parked') || a.includes('fu-data-pending') || a.includes('agent:triaged'))).toBe(false);
     });
 
     it('misure fallite → issue nuova creata e instradata come prima', async () => {
@@ -717,6 +742,7 @@ describe('freschezza della build validata (LC-09)', () => {
       await reportDist({ dryRun: false });
       const create = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'create')!;
       expect(create.includes('fu-parked')).toBe(false);
+      expect(create.includes('agent:triaged')).toBe(false);
       expect(create[create.indexOf('--body') + 1]).toContain('main_ahead=unknown newer_build=unknown main=unknown');
     });
   });
