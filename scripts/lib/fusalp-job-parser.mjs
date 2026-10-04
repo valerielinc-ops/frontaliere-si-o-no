@@ -10,6 +10,8 @@
  * Source: https://fusalp.welcomekit.co/
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
@@ -155,19 +157,22 @@ function parseListingPage(html) {
  * Extract JSON-LD JobPosting data from a detail page.
  * WelcomeKit embeds a JSON-LD <script> block with rich job data.
  */
-function extractJsonLd(html) {
-  const ldMatch = html.match(
-    /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i,
-  );
-  if (!ldMatch) return null;
-
-  try {
-    // WelcomeKit sometimes has control characters in the JSON
-    const cleaned = ldMatch[1].replace(/[\x00-\x1f]/g, ' ');
-    return JSON.parse(cleaned);
-  } catch {
-    return null;
-  }
+function publicationFields(posting, detailUrl) {
+  const rawIdentities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+  // A date belongs to this vacancy only when every declared identity matches it.
+  const matches = rawIdentities.length > 0 && rawIdentities.every((value) => {
+    if (typeof value !== 'string' || !value.trim()) return false;
+    try {
+      const candidate = new URL(value, detailUrl);
+      const expected = new URL(detailUrl);
+      candidate.hash = '';
+      expected.hash = '';
+      return candidate.href.replace(/\/$/, '') === expected.href.replace(/\/$/, '');
+    } catch {
+      return false;
+    }
+  });
+  return sourcePostingDateFields(matches ? posting?.datePosted : '');
 }
 
 function readBalancedDiv(html, contentStart) {
@@ -256,7 +261,7 @@ export async function fetchAllFusalpJobs() {
 
     try {
       const detailHtml = await fetchPage(detailUrl);
-      const jsonLd = extractJsonLd(detailHtml);
+      const jsonLd = extractJobPostingLd(detailHtml);
 
       // Extract location from JSON-LD or URL slug
       const jobLocation = jsonLd?.jobLocation?.[0]?.address || jsonLd?.jobLocation?.address || {};
@@ -294,8 +299,7 @@ export async function fetchAllFusalpJobs() {
       if (!title || title.length < 3) continue;
 
       const empType = jsonLd?.employmentType || listing.contract || '';
-      const datePosted = jsonLd?.datePosted || '';
-      const postedDate = datePosted ? datePosted.split('T')[0] : new Date().toISOString().split('T')[0];
+      const publication = publicationFields(jsonLd, detailUrl);
 
       const publicUrl = detailUrl;
       const sourceLang = detectLang(descriptionText || title, 'fr');
@@ -333,7 +337,7 @@ export async function fetchAllFusalpJobs() {
         sector: 'Moda / Abbigliamento sportivo',
         currency: country === 'CH' ? 'CHF' : 'EUR',
         featured: false,
-        postedDate,
+        ...publication,
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
