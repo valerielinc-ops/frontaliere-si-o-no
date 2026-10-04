@@ -129,6 +129,7 @@ import {
 // al body INTERO — stessa regola e stessa funzione di `report-workflow-failure.mjs`.
 import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { TIMEOUT_ANNOTATION_RE } from './lib/deploy-job-failure-signature.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -176,7 +177,6 @@ export function assertRunAgeHorizon({
 // search e' sotto il limite, poi si paginano tutte le sue pagine.
 const RUN_SEARCH_RESULT_CAP = 1000;
 const RUN_SEARCH_MAX_SPLIT_DEPTH = 20;
-const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum number of minutes)/i;
 // A job that has only just failed can be read back mid-finalisation, with a step
 // still momentarily `in_progress` — indistinguishable from a host-kill. Ignore
 // anything that finished less than this ago; the next scan's window reaches back

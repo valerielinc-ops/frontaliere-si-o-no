@@ -21,7 +21,6 @@ import {
   decideSuperseded,
 } from '../scripts/ci/run-superseded.mjs';
 import { REPORT_ACTION_USES } from '../scripts/ci/failure-issue-inventory.mjs';
-import { TIMEOUT_ANNOTATION_RE } from '../scripts/ci/lib/deploy-job-failure-signature.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const WORKFLOWS_DIR = path.join(ROOT, '.github/workflows');
@@ -83,15 +82,6 @@ describe('run-superseded: verdict (issue 5253)', () => {
     expect(decideSuperseded(base({ runStartedAt: '2026-10-03T09:30:00Z' })).superseded).toBe(false);
   });
 
-  it('uses the same timeout signature as the job-timeout monitor (parity)', () => {
-    // scan-job-timeouts.mjs keeps its own copy of the regex: if the two drift,
-    // a timeout the monitor recognises could be read here as a supersession.
-    const monitor = fs.readFileSync(path.join(ROOT, 'scripts/ci/scan-job-timeouts.mjs'), 'utf8');
-    const literal = monitor.match(/^const TIMEOUT_ANNOTATION_RE = (\/.+\/[a-z]*);$/m);
-    expect(literal, 'TIMEOUT_ANNOTATION_RE literal in scan-job-timeouts.mjs').not.toBeNull();
-    expect(literal![1]).toBe(String(TIMEOUT_ANNOTATION_RE));
-  });
-
   it('anything unreadable -> report (fail-closed)', () => {
     for (const overrides of [
       { runs: null },
@@ -119,12 +109,16 @@ function isFailureReporter(step: Step): boolean {
 }
 
 /**
- * Offenders of the supersession-guard contract in one workflow source.
+ * Offenders of the supersession-guard contract in one parsed workflow.
  * Empty when the workflow has no cancel-in-progress job with a cancelled()
  * reporter, or when every such reporter is guarded.
+ *
+ * Only reporters whose condition names `cancelled()` are in the population,
+ * by choice: an `always()` reporter in a cancel-in-progress job would also
+ * fire on a supersession, but today the only one (adsense-format-ab-report's
+ * weekly tracking issue) is not a failure reporter.
  */
-function supersededGuardOffenders(source: string, file: string): string[] {
-  const doc = YAML.parse(source) ?? {};
+function supersededGuardOffenders(doc: any, file: string): string[] {
   const offenders: string[] = [];
   const cancelsWorkflowWide = doc.concurrency?.['cancel-in-progress'];
   for (const [jobId, job] of Object.entries<any>(doc.jobs ?? {})) {
@@ -165,35 +159,42 @@ function workflowFiles(): string[] {
   return fs.readdirSync(WORKFLOWS_DIR).filter((f) => /\.ya?ml$/.test(f)).sort();
 }
 
+function parseWorkflow(file: string): any {
+  return YAML.parse(fs.readFileSync(path.join(WORKFLOWS_DIR, file), 'utf8')) ?? {};
+}
+
+/** A fresh parse of audit-parser-quality.yml plus its audit job and guard steps. */
+function auditParserQuality() {
+  const doc = parseWorkflow('audit-parser-quality.yml');
+  const job = doc.jobs.audit;
+  const reporter = job.steps.find((s: Step) => isFailureReporter(s) && /\bcancelled\(\)/.test(String(s.if ?? '')));
+  const detector = job.steps.find((s: Step) => s.id === 'superseded');
+  expect(reporter, 'cancelled() failure reporter in audit-parser-quality.yml').toBeDefined();
+  expect(detector, 'superseded detector step in audit-parser-quality.yml').toBeDefined();
+  return { doc, job, reporter, detector };
+}
+
 describe('Reporter su cancelled() senza guardia di sostituzione in un workflow cancel-in-progress', () => {
   it('every cancelled() failure reporter in a cancel-in-progress job is guarded', () => {
-    const offenders = workflowFiles().flatMap((f) =>
-      supersededGuardOffenders(fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8'), f));
+    const offenders = workflowFiles().flatMap((f) => supersededGuardOffenders(parseWorkflow(f), f));
     expect(offenders).toEqual([]);
   });
 
   it('the contract is not vacuous: audit-parser-quality is in its population', () => {
-    const src = fs.readFileSync(path.join(WORKFLOWS_DIR, 'audit-parser-quality.yml'), 'utf8');
-    const unguarded = src.replace(
-      "if: failure() || (cancelled() && steps.superseded.outputs.superseded != 'true')",
-      'if: failure() || cancelled()',
-    );
-    expect(unguarded).not.toBe(src);
-    expect(supersededGuardOffenders(unguarded, 'audit-parser-quality.yml')).not.toEqual([]);
+    const { doc, reporter } = auditParserQuality();
+    reporter.if = 'failure() || cancelled()';
+    expect(supersededGuardOffenders(doc, 'audit-parser-quality.yml')).not.toEqual([]);
   });
 
   it('flags a guard whose timeout drifts from the job timeout-minutes', () => {
-    const src = fs.readFileSync(path.join(WORKFLOWS_DIR, 'audit-parser-quality.yml'), 'utf8');
-    // Anchored to the job key: the header comment also mentions `timeout-minutes:`.
-    const drifted = src.replace(/^ {4}timeout-minutes: (\d+)$/m, (_, n) => `    timeout-minutes: ${Number(n) + 30}`);
-    expect(drifted).not.toBe(src);
-    expect(supersededGuardOffenders(drifted, 'audit-parser-quality.yml').join('\n')).toMatch(/JOB_TIMEOUT_MINUTES/);
+    const { doc, job } = auditParserQuality();
+    job['timeout-minutes'] = Number(job['timeout-minutes']) + 30;
+    expect(supersededGuardOffenders(doc, 'audit-parser-quality.yml').join('\n')).toMatch(/JOB_TIMEOUT_MINUTES/);
   });
 
   it('flags a detector without an explicit cancelled() status function', () => {
-    const src = fs.readFileSync(path.join(WORKFLOWS_DIR, 'audit-parser-quality.yml'), 'utf8');
-    const implicit = src.replace(/(id: superseded\n\s+)if: cancelled\(\)\n\s+/, '$1');
-    expect(implicit).not.toBe(src);
-    expect(supersededGuardOffenders(implicit, 'audit-parser-quality.yml').join('\n')).toMatch(/explicit cancelled\(\)/);
+    const { doc, detector } = auditParserQuality();
+    delete detector.if;
+    expect(supersededGuardOffenders(doc, 'audit-parser-quality.yml').join('\n')).toMatch(/explicit cancelled\(\)/);
   });
 });
