@@ -1259,6 +1259,9 @@ export function dropVerdictOnlyRuns(runs) {
   return runs.filter((r) => r?.verdictOnly !== true);
 }
 
+/** Esiti che non sono una rossa: tutto il resto, anche senza `conclusion`, lo è. */
+const NOT_RED_CONCLUSIONS = new Set(['success', 'skipped']);
+
 /** Il titolo del thread aperto dallo scanner centrale, l'unico che la regola chiude. */
 const CI_FAILURE_TITLE_RE = /^CI Failure: (.+)$/;
 
@@ -1266,18 +1269,19 @@ const CI_FAILURE_TITLE_RE = /^CI Failure: (.+)$/;
  * Il thread `CI Failure: <workflow registrato>` racconta solo il verdetto?
  *
  * Vero quando la run più recente dello storico (tolte le `skipped`) è di solo verdetto ed
- * è successiva all'apertura della issue, E nessuna rossa ESAMINATA da `markVerdictOnlyRuns`
- * (`verdictOnly: false`) è successiva all'apertura: il workflow ha eseguito tutti i suoi
- * step e il solo rosso è il segnale che la famiglia `owner` porta già.
+ * è successiva all'apertura della issue, E OGNI rossa successiva all'apertura è marcata
+ * `verdictOnly: true` da `markVerdictOnlyRuns`: il workflow ha eseguito tutti i suoi step
+ * e il solo rosso è il segnale che la famiglia `owner` porta già.
  *
- * «Tutte le rosse dall'apertura sono di solo verdetto» vale dentro la FINESTRA letta (le
- * `VERDICT_JOBS_READ_LIMIT` `failure` più recenti), non sull'intero storico: oltre la
- * finestra nessuno ha letto i job, e pretenderlo lì terrebbe aperta per sempre la issue
- * 9243, che contiene la run 36717595714 del 2026-09-30 (guasto vero, con il suo thread
- * `Workflow Failure:` dal reporter interno, issue 10523, poi chiusa). Dentro la finestra
- * invece una rossa vera successiva all'apertura tiene aperto il thread: un guasto non
- * segnalato che si alterna al verdetto deve passare dagli hold, non essere chiuso
- * `not planned` alla run successiva.
+ * Fail-safe sulla FINESTRA letta (le `VERDICT_JOBS_READ_LIMIT` `failure` più recenti):
+ * una rossa successiva all'apertura vale come guasto sia quando è stata esaminata e non è
+ * di solo verdetto (`verdictOnly: false`), sia quando è oltre la finestra e nessuno ne ha
+ * letto i job (campo assente). Altrimenti un guasto vero dopo l'apertura, invecchiato
+ * fuori finestra, lascerebbe chiudere il thread `not planned` alla run-verdetto successiva
+ * senza che nessuno l'abbia mai verificato. Il prezzo: un thread come la issue 9243, che
+ * contiene la run 36717595714 del 2026-09-30 (guasto vero in «Commit updated health
+ * state»), resta aperto finché quella rossa non esce dallo storico letto
+ * (`RUN_HISTORY_LIMIT` run nella finestra `--created`) o non lo chiude un verde vero.
  *
  * Un `Workflow Failure:` sullo stesso workflow NON rientra: è il crash vero, e la regola
  * non lo tocca.
@@ -1296,11 +1300,13 @@ export function decideVerdictOnlyThread({ issue, history } = {}) {
   const opened = Date.parse(issue?.createdAt ?? '');
   const created = Date.parse(head.createdAt ?? '');
   if (!Number.isFinite(opened) || !Number.isFinite(created) || created < opened) return { ...none, entry };
-  // Una rossa esaminata e NON di solo verdetto dopo l'apertura: guasto vero nella finestra.
-  // Data illeggibile → la si tratta come successiva (fail-closed).
-  const realRedAfterOpening = history.some((r) => r?.verdictOnly === false
-    && !(Date.parse(r.createdAt ?? '') < opened));
-  if (realRedAfterOpening) return { ...none, entry };
+  // Una rossa dopo l'apertura che non sia PROVATA di solo verdetto tiene aperto il thread:
+  // esaminata e mista (`verdictOnly: false`) oppure oltre la finestra letta (campo assente).
+  // Solo `success`/`skipped` non sono rosse; data illeggibile → successiva (fail-closed).
+  const unprovenRedAfterOpening = history.some((r) => r?.verdictOnly !== true
+    && !NOT_RED_CONCLUSIONS.has(r?.conclusion)
+    && !(Date.parse(r?.createdAt ?? '') < opened));
+  if (unprovenRedAfterOpening) return { ...none, entry };
   return { close: true, entry, run: head };
 }
 
@@ -1914,7 +1920,8 @@ export function decideFailureIssueClose({ issue, run, history, comments, labels,
     // Regola LC-03: tolte le run di solo verdetto, un monitor registrato che è rosso
     // soltanto per il proprio verdetto non avrebbe mai più un verde successivo alla issue
     // («predates issue — keep open» per sempre). Se la testa dello storico è di solo
-    // verdetto e nessuna rossa letta dopo l'apertura è un guasto vero, il thread
+    // verdetto e ogni rossa dopo l'apertura è PROVATA di solo verdetto (una rossa oltre la
+    // finestra letta conta come guasto, fail-safe), il thread
     // `CI Failure:` non descrive un guasto: si chiude `not planned`.
     // Non è una deroga agli hold: quelli proteggono un GUASTO che ritorna, e si
     // applicano solo dopo un verde vero (ramo `recovered`, che resta prioritario).

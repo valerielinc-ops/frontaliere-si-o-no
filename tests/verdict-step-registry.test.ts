@@ -262,12 +262,38 @@ describe('decideFailureIssueClose — regola verdict-only-thread', () => {
     expect(verdict.runId).toBe(history[0].databaseId);
   });
 
-  it('un guasto vero OLTRE la finestra letta, seguito da rosse-verdetto → close-not-planned (caso 9243)', () => {
-    // 09-30: run 36717595714, guasto vero con il suo thread `Workflow Failure:` (issue
-    // 10523). Uscita dalla finestra delle rosse lette non porta `verdictOnly`.
+  it('una rossa OLTRE la finestra letta e successiva all\'apertura tiene aperto il thread (fail-safe)', () => {
+    // 09-30: run 36717595714, guasto vero. Uscita dalla finestra delle rosse lette non
+    // porta `verdictOnly`: nessuno ne ha letto i job, quindi non si può dire che sia un
+    // verdetto. Una rossa non classificata vale come guasto, non come verdetto.
     const history = [verdictRun(0.2), verdictRun(1.2), verdictRun(2.2), run('failure', 3.2), verdictRun(4.2)];
     const verdict = decide({ issue: issue(CI, 14), history, comments: null });
-    expect(verdict.action).toBe('close-not-planned');
+    expect(verdict.action).toBe('keep');
+    expect(verdict.reason).toBe('still-red');
+    // Anche `cancelled`/`timed_out` non letti dopo l'apertura: non classificati → aperto.
+    for (const conclusion of ['cancelled', 'timed_out']) {
+      const other = [verdictRun(0.2), verdictRun(1.2), run(conclusion, 3.2)];
+      expect(decide({ issue: issue(CI, 14), history: other, comments: null }).action).toBe('keep');
+    }
+  });
+
+  it('decideVerdictOnlyThread: rossa non classificata dopo l\'apertura oltre dieci rosse-verdetto → non chiude', () => {
+    const thread = { title: CI, createdAt: '2026-10-01T00:00:00Z' };
+    const verdicts = [
+      { verdictOnly: true, createdAt: '2026-10-11T00:00:00Z' },
+      ...Array.from({ length: 10 }, (_, i) => ({ verdictOnly: true, createdAt: `2026-10-${String(10 - i).padStart(2, '0')}T00:00:00Z` })),
+    ];
+    const unclassifiedAfter = [...verdicts, { createdAt: '2026-10-01T01:00:00Z' }];
+    expect(decideVerdictOnlyThread({ issue: thread, history: unclassifiedAfter }).close).toBe(false);
+    // Caso legittimo: tutte le rosse dopo l'apertura sono lette e di solo verdetto, le
+    // rosse non lette sono PRIMA dell'apertura, le verdi non contano → chiude.
+    const legit = [
+      ...verdicts,
+      { conclusion: 'success', createdAt: '2026-10-01T02:00:00Z' },
+      { conclusion: 'skipped', createdAt: '2026-10-01T01:30:00Z' },
+      { conclusion: 'failure', createdAt: '2026-09-30T00:00:00Z' },
+    ];
+    expect(decideVerdictOnlyThread({ issue: thread, history: legit }).close).toBe(true);
   });
 
   it('un guasto vero LETTO dopo l\'apertura tiene aperto il thread; prima dell\'apertura no', () => {
@@ -294,7 +320,8 @@ describe('decideFailureIssueClose — regola verdict-only-thread', () => {
     expect(decidingRun({ run: null, history: oldGreen })).not.toBeNull();
     expect(asMain(oldGreen).action).toBe('close-not-planned');
 
-    const unreadRed = [...tenVerdicts(), run('failure', 12)];
+    // Una rossa non letta PRIMA dell'apertura non è un'osservazione di questo thread.
+    const unreadRed = [...tenVerdicts(), run('failure', 20)];
     expect(asMain(unreadRed).action).toBe('close-not-planned');
   });
 
