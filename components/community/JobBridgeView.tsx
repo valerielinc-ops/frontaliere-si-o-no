@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobBridgeView — view for job pages where the URL has changed (bridge pages).
  *
@@ -41,6 +42,8 @@ interface RelatedJob {
  location?: string;
  canton?: string;
  contract?: string;
+ datePosted?: string;
+ postingDateSource?: string;
  postedDate?: string;
  crawledAt?: string;
  salaryMin?: number;
@@ -540,7 +543,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
  const rjSalary = formatRelatedSalary(rj);
  const rjContract = formatContractLabel(rj.contract, locale);
- const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
+ const rjPosted = formatDaysAgo(resolveReportedPostingDate(rj) ?? undefined, locale);
  return (
  <article
  key={rjSlug}

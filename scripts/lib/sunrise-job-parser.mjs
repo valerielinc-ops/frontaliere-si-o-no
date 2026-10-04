@@ -1,3 +1,4 @@
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -167,10 +168,11 @@ function htmlFragmentToMarkdown(html = '') {
   return parts.join('\n\n').trim();
 }
 
-export function parseSunriseJobDetail(html = '') {
+export function parseSunriseJobDetail(html = '', requestedUrl = '', expectedTitle = '') {
   const ddo = extractSunriseDdo(html);
   const rawJob = ddo?.jobDetail?.data?.job || null;
   const dom = new JSDOM(html);
+  try {
   const document = dom.window.document;
   const jsonLd = parseJsonLdJobPosting(document);
 
@@ -197,7 +199,8 @@ export function parseSunriseJobDetail(html = '') {
       rawJob?.category ||
       ''
     ),
-    postedDate: String(rawJob?.postedDate || jsonLd?.datePosted || '').trim(),
+    // Phenom postedDate semantics are not corroborated for this tenant.
+    ...identifiedPostingPublication(html, requestedUrl, normalize(title) === normalize(expectedTitle) ? expectedTitle : ''),
     validThrough: String(rawJob?.endDate || jsonLd?.validThrough || '').trim(),
     employmentType: String(rawJob?.jobType || jsonLd?.employmentType || '').trim(),
     applyUrl: String(rawJob?.applyUrl || '').trim(),
@@ -205,6 +208,9 @@ export function parseSunriseJobDetail(html = '') {
     description,
     descriptionHtml,
   };
+  } finally {
+    dom.window.close();
+  }
 }
 
 export function inferSunriseCategory(detail = {}) {
