@@ -6,12 +6,20 @@ import { resolve } from 'node:path';
  * Ratchet guard for the Lighthouse CI CLS budgets (lighthouserc.json = mobile,
  * lighthouserc.desktop.json = desktop).
  *
- * Both files describe themselves as baseline-locking regression detectors to be
- * "ratcheted DOWN as pages improve — never up". Nothing enforced that, so the
- * /cerca-lavoro-ticino/ debt-marker block kept the CLS ceilings it was given on
- * 2026-08-07 (1.0 mobile, 0.7 desktop) long after the page dropped to a
- * representative 0.07 / 0.024: a static->SPA handoff regression back to 0.58
- * would have passed the lab leg green.
+ * Two faults let a static->SPA handoff regression back to CLS 0.58 on
+ * /cerca-lavoro-ticino/ pass the lab leg green:
+ *
+ * 1. The gate was dead. From 2026-08-07 (#5308 mobile, #5338 desktop) the
+ *    matrix sat at `ci.assertMatrix`. LHCI only spreads `ci.assert` into the
+ *    `lhci assert` options, and treosh/lighthouse-ci-action only runs the
+ *    Asserting phase when `ci.assert` exists, so no threshold in either file
+ *    was evaluated (the run logs show Collecting and Uploading only). The
+ *    first test below pins the matrix where both tools read it.
+ * 2. The ceilings were stale. Both files call themselves baseline-locking
+ *    detectors to be "ratcheted DOWN as pages improve — never up", but nothing
+ *    enforced that: the debt-marker block kept the 2026-08-07 CLS ceilings
+ *    (1.0 mobile, 0.7 desktop) long after the page dropped to a representative
+ *    0.07 / 0.024.
  *
  * CLS_CEILINGS holds the values committed with the last ratchet. A config value
  * ABOVE its ceiling is red (a threshold was raised, or a new group appeared
@@ -40,8 +48,9 @@ const CLS_CEILINGS: Record<string, { healthy: number; ticino: number }> = {
 type Assertion = [string, { maxNumericValue?: number }];
 type Block = { '//'?: string; matchingUrlPattern: string; assertions: Record<string, Assertion> };
 
-const read = (file: string) =>
-  JSON.parse(readFileSync(resolve(process.cwd(), file), 'utf8')) as { ci: { assertMatrix: Block[] } };
+type LhciRc = { ci: { assert?: { assertMatrix?: Block[] }; assertMatrix?: unknown } };
+
+const read = (file: string) => JSON.parse(readFileSync(resolve(process.cwd(), file), 'utf8')) as LhciRc;
 
 const groupOf = (pattern: string): 'healthy' | 'ticino' | null => {
   if (pattern === TICINO_PATTERN) return 'ticino';
@@ -51,8 +60,14 @@ const groupOf = (pattern: string): 'healthy' | 'ticino' | null => {
 
 describe('Lighthouse CI CLS budgets only ratchet down', () => {
   describe.each(Object.keys(CLS_CEILINGS))('%s', (file) => {
-    const matrix = read(file).ci.assertMatrix;
+    const cfg = read(file);
+    const matrix = cfg.ci.assert?.assertMatrix ?? [];
     const clsBlocks = matrix.filter((b) => b.assertions?.['cumulative-layout-shift']);
+
+    it('keeps the matrix under ci.assert, the only place LHCI and treosh read it', () => {
+      expect(cfg.ci.assertMatrix, `${file}: ci.assertMatrix is ignored by lhci; move it to ci.assert.assertMatrix`).toBeUndefined();
+      expect(Array.isArray(cfg.ci.assert?.assertMatrix), `${file} must define ci.assert.assertMatrix`).toBe(true);
+    });
 
     it('has CLS-gated blocks to check (the guard is not vacuous)', () => {
       expect(clsBlocks.length).toBeGreaterThan(0);

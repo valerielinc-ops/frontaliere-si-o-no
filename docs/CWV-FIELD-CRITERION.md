@@ -276,11 +276,27 @@ blocco va cancellato così ricade nel gruppo più severo.
 
 Il CLS di `/cerca-lavoro-ticino/` è stato ratchettato il 2026-10-03 sul report
 rappresentativo (mediano dei 3) peggiore dei run schedulati `37114430116`,
-`36995734554`, `36852178775`: W = 0,0243 desktop → T = 0,10; W = 0,0715 mobile
-(`lighthouserc.json`, era 1,0) → T = 0,15. Regola: 2W arrotondato per eccesso a
-0,05, minimo 0,10, mai verso l'alto — `tests/lighthouse-cls-budget.test.ts` fa
-rosso se una soglia CLS supera l'ultimo ratchet o se il blocco del debito
+`36995734554`, `36852178775`: W = 0,0243 desktop (era 0,7) → T = 0,10; W = 0,0715
+mobile (`lighthouserc.json`, era 1,0) → T = 0,15. Regola: 2W arrotondato per
+eccesso a 0,05, minimo 0,10, mai verso l'alto — `tests/lighthouse-cls-budget.test.ts`
+fa rosso se una soglia CLS supera l'ultimo ratchet o se il blocco del debito
 tollera più di 0,25.
+
+**Dal 2026-08-07 al 2026-10-04 il guardiano non ha valutato nulla.** La PR #5308
+(mobile) e poi la #5338 (desktop) hanno messo la matrice in `ci.assertMatrix`,
+ma LHCI passa a `lhci assert` solo le opzioni di `ci.assert` e
+treosh/lighthouse-ci-action esegue la fase «Asserting» solo se `ci.assert`
+esiste: nei log dei run schedulati compaiono soltanto «Collecting» e
+«Uploading». Il verde della gamba desktop dopo la ritaratura non provava quindi
+che le soglie fossero giuste: nessuna soglia girava. Ora la matrice sta in
+`ci.assert.assertMatrix` e il test sopra fa rosso se torna fuori. Verifica del
+2026-10-04 con `lhci assert` sui 18 LHR desktop del run `37114430116`: tutte le
+soglie desktop passano. Sui report rappresentativi mobile dei tre run invece
+superano la soglia LCP della home (8,1-8,5 s contro 7,4 s) e FCP/LCP di
+`/cerca-lavoro-ticino/` (8,3-13,9 s contro 8,1 s; 15,3-20,0 s contro 8,6 s):
+regressioni reali rimaste invisibili per due mesi. Il primo run schedulato dopo
+il ritorno degli asserti aprirà quindi «Lighthouse regression on production
+(mobile)», ed è un allarme vero: non si alza la soglia, si corregge la pagina.
 
 Il margine è ~15% sulle metriche stabili e ~40% su TBT: a valori assoluti così
 piccoli (0-320 ms) poche decine di ms di rumore del runner sono uno scarto
