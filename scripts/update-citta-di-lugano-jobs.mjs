@@ -17,6 +17,7 @@
  *   6. Runs the shared base crawler for AI localization.
  *   7. Post-processes and validates.
  */
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -184,7 +185,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      postedDate: job.postedDate || prev.postedDate,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

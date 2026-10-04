@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -194,9 +195,8 @@ export async function fetchAllFisbaJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Publication evidence is distinct from the collection timestamp.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
