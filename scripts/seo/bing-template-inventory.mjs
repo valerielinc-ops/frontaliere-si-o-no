@@ -12,63 +12,23 @@
  * wrong generator.
  */
 
-export const TEMPLATE_FINDING_CODES = Object.freeze([
-  'title-too-long',
-  'meta-description-too-short',
-]);
+import { FUEL_INDEX_SLUG, FUEL_SECTION_SLUG } from '../../build-plugins/shared/fuelRouteSlugs.mjs';
+import { isBlogSectionPath } from '../lib/articleSections.mjs';
+import { isHealthFacilitiesSectionPath } from '../lib/healthFacilitiesSections.mjs';
+import { isJobBoardSectionPathname } from '../lib/jobBoardSections.mjs';
+import { isPlateAuctionSectionPath } from '../lib/plateAuctionSections.mjs';
+import { BING_METADATA_FINDING_CODES } from './bing-finding-codes.mjs';
 
-const ARTICLE_PREFIXES = Object.freeze([
-  '/articoli-frontaliere/',
-  '/en/cross-border-articles/',
-  '/de/grenzgaenger-artikel/',
-  '/fr/articles-frontalier/',
-  '/articoli-svizzera/',
-  '/en/swiss-articles/',
-  '/de/schweiz-artikel/',
-  '/fr/articles-suisse/',
-]);
+export const TEMPLATE_FINDING_CODES = BING_METADATA_FINDING_CODES;
 
-const FUEL_SECTION_PREFIXES = Object.freeze([
-  '/prezzi-diesel/',
-  '/prezzi-benzina/',
-  '/en/diesel-price-switzerland/',
-  '/en/gasoline-price-switzerland/',
-  '/de/dieselpreis-schweiz/',
-  '/de/benzinpreis-schweiz/',
-  '/fr/prix-gasoil-suisse/',
-  '/fr/prix-essence-suisse/',
-]);
+const FUEL_SECTION_PREFIXES = Object.freeze(
+  Object.entries(FUEL_SECTION_SLUG).flatMap(([locale, byFuel]) => Object.values(byFuel).map((slug) =>
+    `/${locale === 'it' ? '' : `${locale}/`}${slug}/`)),
+);
 
-const FUEL_INDEX_SEGMENTS = Object.freeze([
-  'stazioni-svizzere',
-  'swiss-stations',
-  'schweizer-tankstellen',
-  'stations-suisses',
-  'stazioni-italia',
-  'italian-stations',
-  'italienische-tankstellen',
-  'stations-italiennes',
-  'citta-italiane',
-  'italian-cities',
-  'italienische-staedte',
-  'villes-italiennes',
-]);
-
-const HEALTH_FACILITY_PREFIXES = Object.freeze([
-  '/strutture-sanitarie/',
-  '/en/healthcare-facilities/',
-  '/de/gesundheitseinrichtungen/',
-  '/fr/etablissements-sante/',
-]);
-
-const PLATE_AUCTION_PREFIXES = Object.freeze([
-  '/aste-targhe-svizzera/',
-  '/en/swiss-plate-auctions/',
-  '/de/schweizer-nummernschildauktionen/',
-  '/fr/encheres-plaques-suisses/',
-]);
-
-const JOB_BOARD_ROUTE_RE = /^\/(?:(?:en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-in-der|jobs-in|jobs-im|trouver-emploi)-[a-z0-9-]+(?:\/|$)/i;
+const FUEL_INDEX_SEGMENTS = Object.freeze(
+  Object.values(FUEL_INDEX_SLUG).flatMap((byLocale) => Object.values(byLocale)),
+);
 
 function isFuelIndexPath(pathname) {
   return FUEL_SECTION_PREFIXES.some((section) =>
@@ -83,7 +43,7 @@ const FAMILY_DEFINITIONS = Object.freeze([
       'packages/articles/engine/ogPagesPlugin.ts',
       'build-plugins/shared/titleSuffix.ts',
     ]),
-    matches: (pathname) => ARTICLE_PREFIXES.some((prefix) => pathname.startsWith(prefix)),
+    matches: isBlogSectionPath,
   },
   {
     id: 'fuel-station-index-pages',
@@ -95,7 +55,7 @@ const FAMILY_DEFINITIONS = Object.freeze([
     matches: isFuelIndexPath,
   },
   {
-    id: 'fuel-daily-pages',
+    id: 'fuel-daily-route-family',
     label: 'Pagine carburante giornaliere/leaf',
     sourcePaths: Object.freeze([
       'build-plugins/fuelDailyPagesPlugin.ts',
@@ -111,16 +71,16 @@ const FAMILY_DEFINITIONS = Object.freeze([
       'build-plugins/healthFacilitiesPlugin.ts',
       'build-plugins/shared/titleSuffix.ts',
     ]),
-    matches: (pathname) => HEALTH_FACILITY_PREFIXES.some((prefix) => pathname.startsWith(prefix)),
+    matches: isHealthFacilitiesSectionPath,
   },
   {
-    id: 'plate-auction-pages',
+    id: 'plate-auction-route-family',
     label: 'Aste targhe',
     sourcePaths: Object.freeze([
       'build-plugins/plateAuctionsPagesPlugin.ts',
       'build-plugins/shared/titleSuffix.ts',
     ]),
-    matches: (pathname) => PLATE_AUCTION_PREFIXES.some((prefix) => pathname.startsWith(prefix)),
+    matches: isPlateAuctionSectionPath,
   },
   {
     id: 'job-board-pages',
@@ -130,7 +90,7 @@ const FAMILY_DEFINITIONS = Object.freeze([
       'services/seo/meta-descriptions.ts',
       'build-plugins/shared/titleSuffix.ts',
     ]),
-    matches: (pathname) => JOB_BOARD_ROUTE_RE.test(pathname),
+    matches: isJobBoardSectionPathname,
   },
 ]);
 
@@ -242,4 +202,7 @@ export function buildTemplateInventory(findings, { sampleLimit = 3 } = {}) {
   };
 }
 
-export { ARTICLE_PREFIXES, FAMILY_DEFINITIONS, FUEL_SECTION_PREFIXES, HEALTH_FACILITY_PREFIXES, PLATE_AUCTION_PREFIXES };
+export {
+  FAMILY_DEFINITIONS,
+  FUEL_SECTION_PREFIXES,
+};

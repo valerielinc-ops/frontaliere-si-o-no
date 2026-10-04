@@ -15,9 +15,9 @@ describe('Bing title/meta template inventory', () => {
   it('maps the residual route families to their owning emitters', () => {
     expect(classifyBingTemplate(`${BASE}/articoli-frontaliere/guida/`).id).toBe('article-pages');
     expect(classifyBingTemplate(`${BASE}/en/gasoline-price-switzerland/swiss-stations/`).id).toBe('fuel-station-index-pages');
-    expect(classifyBingTemplate(`${BASE}/prezzi-diesel/oggi/`).id).toBe('fuel-daily-pages');
+    expect(classifyBingTemplate(`${BASE}/prezzi-diesel/oggi/`).id).toBe('fuel-daily-route-family');
     expect(classifyBingTemplate(`${BASE}/de/gesundheitseinrichtungen/hug/`).id).toBe('health-facility-pages');
-    expect(classifyBingTemplate(`${BASE}/fr/encheres-plaques-suisses/geneve-ge/`).id).toBe('plate-auction-pages');
+    expect(classifyBingTemplate(`${BASE}/fr/encheres-plaques-suisses/geneve-ge/`).id).toBe('plate-auction-route-family');
     expect(classifyBingTemplate(`${BASE}/en/find-jobs-geneva/lugano/`).id).toBe('job-board-pages');
   });
 

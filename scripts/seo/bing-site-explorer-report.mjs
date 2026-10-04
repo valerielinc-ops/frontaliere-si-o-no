@@ -15,6 +15,7 @@ import {
   writeJsonStreaming,
 } from './bing-site-explorer-crawl.mjs';
 import { buildTemplateInventory } from './bing-template-inventory.mjs';
+import { BING_META_DESCRIPTION_TOO_SHORT, BING_TITLE_TOO_LONG } from './bing-finding-codes.mjs';
 
 // Re-exported so callers of the report module keep a single import.
 export { writeJsonStreaming };
@@ -22,7 +23,7 @@ export { writeJsonStreaming };
 const ACTIONABLE_CODES = new Set([
   'fetch-error', 'http-error', 'redirect', 'noindex-in-sitemap',
   'canonical-missing', 'canonical-drift', 'soft-404', 'title-missing',
-  'title-too-long', 'meta-description-missing', 'meta-description-too-short',
+  BING_TITLE_TOO_LONG, 'meta-description-missing', BING_META_DESCRIPTION_TOO_SHORT,
   'internal-link-malformed',
 ]);
 
@@ -363,13 +364,13 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
       `- Attribuiti a un emitter: **${templateInventory.classifiedFindings}**`,
       `- Non classificati o ambigui: **${templateInventory.unclassifiedFindings}**`,
       '',
-      '| Template | Emitter | URL | `title-too-long` | `meta-description-too-short` |',
+      `| Template | Emitter | URL | \`${BING_TITLE_TOO_LONG}\` | \`${BING_META_DESCRIPTION_TOO_SHORT}\` |`,
       '|---|---|---:|---:|---:|',
     );
     for (const family of templateInventory.families) {
       const source = family.sourcePaths.length > 0 ? family.sourcePaths.map((path) => `\`${path}\``).join('<br>') : '—';
-      lines.push(`| **${family.label}** (\`${family.id}\`) | ${source} | ${family.urlCount} | ${family.codeCounts['title-too-long'] || 0} | ${family.codeCounts['meta-description-too-short'] || 0} |`);
-      for (const code of ['title-too-long', 'meta-description-too-short']) {
+      lines.push(`| **${family.label}** (\`${family.id}\`) | ${source} | ${family.urlCount} | ${family.codeCounts[BING_TITLE_TOO_LONG] || 0} | ${family.codeCounts[BING_META_DESCRIPTION_TOO_SHORT] || 0} |`);
+      for (const code of [BING_TITLE_TOO_LONG, BING_META_DESCRIPTION_TOO_SHORT]) {
         const samples = family.samples?.[code] || [];
         if (samples.length > 0) lines.push(`  - \`${code}\` campioni: ${samples.map((url) => `\`${url}\``).join(', ')}`);
       }
