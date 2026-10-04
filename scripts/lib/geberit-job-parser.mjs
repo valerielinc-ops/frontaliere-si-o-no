@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -306,8 +307,7 @@ export async function fetchAllGeberitJobs() {
         ? rec.link
         : `https://${ATS_HOST}/job-invite/${internalId}/?locale=${rec.language || 'de_DE'}`;
 
-    const postedDate = String(rec.datePosted || '').slice(0, 10) ||
-      new Date().toISOString().split('T')[0];
+    const postingDates = sourcePostingDateFields(rec.datePosted);
 
     const empType = rec?.jobType?.code === 'Full-Time'
       ? 'FULL_TIME'
@@ -347,7 +347,7 @@ export async function fetchAllGeberitJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
