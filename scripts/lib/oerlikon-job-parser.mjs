@@ -33,6 +33,9 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
@@ -133,19 +136,6 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/**
- * Parse a US-style "M/D/YY" posting-date string (e.g. "6/1/26", "4/10/26")
- * as returned by the search API's `unifiedStandardStart` field.
- */
-function parsePostedDate(raw = '') {
-  const m = String(raw || '').trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
-  if (!m) return '';
-  const [, mo, day, yy] = m;
-  const year = 2000 + Number(yy);
-  const d = new Date(Date.UTC(year, Number(mo) - 1, Number(day)));
-  return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-}
-
 /* ── Search API + detail page ─────────────────────────────── */
 
 /**
@@ -221,7 +211,13 @@ async function fetchJobDetail(detailUrl) {
   }
   const descriptionHtml = parts.join('\n');
 
-  return { descriptionHtml };
+  // unifiedStandardStart has no verified publication semantics for this tenant.
+  const microdata = html.match(/itemprop=["']datePosted["'][^>]*content=["']([^"']+)["']/i)?.[1]
+    || html.match(/itemprop=["']datePosted["'][^>]*>([^<]*)</i)?.[1];
+  const fields = successFactorsPostingDateFields(extractJobPostingField(html, 'datePosted'));
+  return { descriptionHtml, ...mergeSourcePostingDates(
+    fields, successFactorsPostingDateFields(microdata),
+  ) };
 }
 
 /**
@@ -296,7 +292,7 @@ export async function fetchAllOerlikonJobs() {
       sector: 'Tecnologia / Ingegneria di superficie',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(listing.unifiedStandardStart) || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
